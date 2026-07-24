@@ -1,0 +1,160 @@
+\documentclass[11pt,a4paper,openany]{report}
+
+\usepackage{fontspec}
+\usepackage{mathtools}
+\usepackage{unicode-math}
+\usepackage[inner=27mm,outer=24mm,top=26mm,bottom=25mm,headheight=23pt]{geometry}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{cite}
+\usepackage{amsthm}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{graphicx}
+
+\setmainfont[
+  Path=fonts/,
+  BoldFont=NotoSerifJP-Bold.ttf,
+  ItalicFont=NotoSerifJP-Regular.ttf,
+  ItalicFeatures={FakeSlant=0.15},
+  BoldItalicFont=NotoSerifJP-Bold.ttf,
+  BoldItalicFeatures={FakeSlant=0.15}
+]{NotoSerifJP-Regular.ttf}
+\setsansfont[
+  Path=fonts/,
+  BoldFont=NotoSansJP-Bold.ttf,
+  ItalicFont=NotoSansJP-Regular.ttf,
+  ItalicFeatures={FakeSlant=0.15},
+  BoldItalicFont=NotoSansJP-Bold.ttf,
+  BoldItalicFeatures={FakeSlant=0.15}
+]{NotoSansJP-Regular.ttf}
+\setmonofont{Latin Modern Mono}
+\setmathfont{Latin Modern Math}
+
+\XeTeXlinebreaklocale "ja"
+\XeTeXlinebreakskip=0pt plus 1pt
+\emergencystretch=2em
+\allowdisplaybreaks[2]
+\numberwithin{equation}{chapter}
+\setcounter{tocdepth}{2}
+
+\definecolor{PaperNavy}{HTML}{173B57}
+\definecolor{PaperBlue}{HTML}{275D78}
+\definecolor{PaperRule}{HTML}{9AB4C3}
+\definecolor{PaperTint}{HTML}{F2F7FA}
+
+\hypersetup{
+  unicode=true,
+  colorlinks=true,
+  linkcolor=PaperBlue,
+  citecolor=PaperBlue,
+  urlcolor=PaperBlue,
+  pdftitle={有限 Hamiltonian 中核の定量的 Nelson 極限と時間対称境界測度による Bell 型統計},
+  pdfauthor={Open research manuscript}
+}
+
+\titleformat{\chapter}[display]
+  {\normalfont\sffamily\bfseries\color{PaperNavy}\centering}
+  {\Large 第\thechapter 章}
+  {0.8ex}
+  {\Huge}
+  [\vspace{1.1ex}\color{PaperRule}\titlerule]
+\titleformat{name=\chapter,numberless}[display]
+  {\normalfont\sffamily\bfseries\color{PaperNavy}\centering}
+  {}{0pt}{\Huge}
+  [\vspace{1.1ex}\color{PaperRule}\titlerule]
+\titlespacing*{\chapter}{0pt}{-8pt}{28pt}
+
+\titleformat{\section}
+  {\normalfont\Large\sffamily\bfseries\color{PaperNavy}}
+  {\thesection}{0.7em}{}
+\titleformat{\subsection}
+  {\normalfont\large\sffamily\bfseries\color{PaperBlue}}
+  {\thesubsection}{0.7em}{}
+\titlespacing*{\section}{0pt}{2.8ex plus 0.6ex minus 0.2ex}{1.2ex}
+\titlespacing*{\subsection}{0pt}{2.3ex plus 0.5ex minus 0.2ex}{0.9ex}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\color{PaperBlue}定量的 Nelson 極限と境界測度による Bell 型統計}
+\fancyhead[R]{\small\color{PaperBlue}\nouppercase{\leftmark}}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\headrule}{\hbox to\headwidth{\color{PaperRule}\leaders\hrule height \headrulewidth\hfill}}
+\renewcommand{\chaptermark}[1]{\markboth{\thechapter\quad #1}{}}
+
+\setlength{\parindent}{1em}
+\setlength{\parskip}{0.35em}
+\linespread{1.08}
+\clubpenalty=10000
+\widowpenalty=10000
+\displaywidowpenalty=10000
+\setlist[itemize]{leftmargin=2.2em,itemsep=0.25em,topsep=0.45em}
+\setlist[enumerate]{leftmargin=2.4em,itemsep=0.25em,topsep=0.45em}
+
+\newenvironment{statusbox}{%
+  \par\medskip\noindent\begin{center}\begin{minipage}{0.92\linewidth}%
+  \color{PaperBlue}\small\sffamily\hrule height 0.6pt\vspace{0.7em}%
+}{%
+  \vspace{0.7em}\hrule height 0.6pt\end{minipage}\end{center}\medskip%
+}
+
+\newtheorem{theorem}{定理}[chapter]
+\newtheorem{proposition}[theorem]{命題}
+\newtheorem{lemma}[theorem]{補題}
+\newtheorem{corollary}[theorem]{系}
+\theoremstyle{definition}
+\newtheorem{assumption}[theorem]{仮定}
+\newtheorem{definition}[theorem]{定義}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{注意}
+\renewcommand{\proofname}{証明}
+
+\newcommand{\dd}{\,\mathrm d}
+\newcommand{\E}{\mathbb E}
+\newcommand{\R}{\mathbb R}
+\newcommand{\Tr}{\operatorname{tr}}
+\newcommand{\GM}{\mathrm{GM}}
+\newcommand{\Nel}{\mathrm N}
+\newcommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\renewcommand{\contentsname}{目次}
+\renewcommand{\bibname}{参考文献}
+\renewcommand{\figurename}{図}
+\renewcommand{\tablename}{表}
+
+\makeatletter
+\renewcommand*\@pnumwidth{2.2em}
+\renewcommand*\@tocrmarg{3.2em}
+\renewcommand*\l@section{\@dottedtocline{1}{1.5em}{3.2em}}
+\renewcommand*\l@subsection{\@dottedtocline{2}{4.7em}{3.8em}}
+\makeatother
+
+\begin{document}
+
+\begin{titlepage}
+  \centering
+  \vspace*{29mm}
+  {\sffamily\bfseries\color{PaperNavy}\fontsize{21}{30}\selectfont
+    有限 Hamiltonian 中核の定量的 Nelson 極限と\\[2mm]
+    時間対称境界測度による Bell 型統計\par}
+  \vspace{9mm}
+  {\Large\color{PaperBlue}有限 Gaussian 縮約、二モード台帳、相補的内部時計\par}
+  \vspace{14mm}
+  {\color{PaperRule}\rule{0.68\textwidth}{0.9pt}\par}
+  \vfill
+  {\large 相補時計による終端半空間の正準実現 改訂稿\par}
+  \vspace{22mm}
+\end{titlepage}
+
+\pagenumbering{roman}
+\tableofcontents
+\clearpage
+\pagenumbering{arabic}
+
+$body$
+
+\end{document}
