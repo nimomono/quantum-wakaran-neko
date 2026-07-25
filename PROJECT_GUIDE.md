@@ -46,6 +46,7 @@
 ```text
 quantum-wakaran-neko/
 ├── README.md
+├── PROJECT_STANCE.md
 ├── PROJECT_GUIDE.md
 ├── PROJECT_STATUS.md
 ├── CHANGELOG.md
@@ -71,6 +72,7 @@ quantum-wakaran-neko/
 | 場所 | 役割 | 直接編集 |
 |---|---|---:|
 | `README.md` | 論文の題名、中心主張、現在の到達点、再生成方法、主要文書への案内 | する |
+| `PROJECT_STANCE.md` | プロジェクトの目的、理論構成、量子力学とBellの定理に対する長期的方針 | する |
 | `PROJECT_GUIDE.md` | リポジトリ構成、執筆、更新、版管理の規約 | する |
 | `PROJECT_STATUS.md` | 証明状態、仮定、否定結果、未解決問題の台帳 | する |
 | `CHANGELOG.md` | 各版で生じた理論上の変更の要約 | する |
