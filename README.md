@@ -31,3 +31,13 @@
 - [プロジェクトの長期的方針](PROJECT_STANCE.md)
 - [証明状態と理論の境界](PROJECT_STATUS.md)
 - [論文リポジトリの構成・執筆・更新規約](PROJECT_GUIDE.md)
+- [版ごとの変更記録](CHANGELOG.md)
+- [検算と品質確認](VALIDATION.md)
+- [現行版のファイル一覧](MANIFEST.md)
+
+## 現行論文
+
+- [統合マークダウン原稿](paper.md)
+- [完成版PDF](paper.pdf)
+
+内容を修正するときは `sections/` 内の章別原稿を編集し、`tools/build_paper.py` で統合原稿、組版用原稿、完成版PDFを再生成する。詳しい手順は [PROJECT_GUIDE.md](PROJECT_GUIDE.md) に従う。

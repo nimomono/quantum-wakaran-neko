@@ -49,4 +49,20 @@ python3 tools/verify_two_mode_ledger.py
 
 ## 再現性
 
-`paper.md` と `main.tex` は `sections/` から `tools/build_paper.py` で再生成される。`compiled_paper.pdf` と `output/pdf/nelson_boundary_bell_complementary_clock_revision.pdf` は同一内容である。
+`paper.md`、`main.tex`、`paper.pdf` は `sections/` から `tools/build_paper.py` で再生成される。
+
+第8版で重複していた2本の完成版PDFは、移行前のSHA-256がともに次の値で一致することを確認した。
+
+```text
+7b1c9ea6cd4e5f93941b3e7cdfa062343d211eaf16fe5d1ab4859071dc9bbdac
+```
+
+移行後はルートの `paper.pdf` だけを保存する。
+
+2026年7月25日に標準構成へ移行した後、生成処理を最初から再実行した。生成された `paper.pdf` は88ページ、A4で、SHA-256は次の値である。
+
+```text
+1476dfe21232422c8c644e97282e7914a55c4ede488cd43d87973fd36d76bc34
+```
+
+全88ページを画像化して一覧確認し、題名、証明状態表、長い数式、参考文献を高解像度で抜き取り確認した。文字化け、黒塗り、重なり、内容が切れるはみ出しはない。

@@ -1,0 +1,19 @@
+# 組版途中の生成物
+build/
+output/
+tmp/
+*.aux
+*.log
+*.out
+*.toc
+*.xdv
+*.synctex.gz
+
+# Python
+__pycache__/
+*.py[cod]
+
+# 作業環境
+.DS_Store
+.venv/
+venv/

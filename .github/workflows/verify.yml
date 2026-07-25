@@ -1,0 +1,48 @@
+name: 検算
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  numerical-checks:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 原稿を取得
+        uses: actions/checkout@v4
+
+      - name: Pythonを準備
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: 依存関係を導入
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y pandoc poppler-utils texlive-latex-extra texlive-xetex
+          python -m pip install numpy
+
+      - name: 数式と数値を検算
+        run: python tools/verify_two_mode_ledger.py
+
+      - name: 論文を再生成
+        run: python tools/build_paper.py
+
+      - name: 生成物の同期を検査
+        run: |
+          git diff --exit-code -- paper.md main.tex
+          test "$(pdfinfo paper.pdf | awk '/^Pages:/ {print $2}')" = "88"
+          ! grep -Eq "Citation .* undefined|Reference .* undefined|Overfull|Fatal error" build/latex/main.log
+
+      - name: 標準構成を検査
+        run: |
+          test -f paper.md
+          test -f main.tex
+          test -f paper.pdf
+          test ! -e compiled_paper.pdf
+          test ! -d output
