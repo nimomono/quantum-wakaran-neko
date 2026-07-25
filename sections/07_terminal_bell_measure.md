@@ -1,69 +1,88 @@
 @number: 7
 @chapter: 本文
-@title: 終端整合測度と Bell 共同確率
-@status: setting-blind terminal condition の Hamiltonian pullback と二モード位相体積から Bell compatibility weight を導く。
+@title: 終端整合測度と Bell 型共同確率
+@status: 2モード位相体積と `[R]` を組み合わせ、測定設定独立性の破れを含む条件付き共同確率を導く。
 
-## 7.1 return comparator
+## 7.1 有限幅の終端比較器
 
-return pointer を $(Y_R,\Pi_R)$ とし、滑らかな bounded function $F_R$ を
-
-$$
-F_R(0)=0,
-\qquad
-F_R'(0)=1
-$$
-
-となるよう選ぶ。例えば
+第5.9節の内部時計自由 Hamiltonian、差動モード、2モード台帳、自律順序時計を含む比較窓 Hamiltonian を
 
 $$
-F_R(Y)
+H_{\rm win}
 =
-\delta_R
-\tanh
+H_{\rm or}
++
+\omega_- I_-
++
+\omega_\ell(J_s+J_0)
++
+\Omega J_c
++
+\Omega f_R(\vartheta)
+Y_R
 \left(
-\frac{Y}{\delta_R}
+h-\kappa I_-
 \right)
 $$
 
-を用いられる。comparator generator を
+とする。ここで
 
 $$
-K_R
-=
-F_R(Y_R)
-\left[
-h-\kappa I_-
-\right]
-$$
-
-とする。ここで $\kappa>0$ は比較器 scale、$h=\omega_\ell J_s$ は二モード台帳の soft energy である。$E_*\geq0$ は comparator generator の定数項には入れず、相補的内部時計の初期相対運動量として置く。
-
-comparator pointer の初期状態を
-
-$$
-Y_R=0,
+h=\omega_\ell J_s,
 \qquad
-\Pi_R=E_*
+\int f_R(\vartheta)d\vartheta=1
 $$
 
-とする。$K_R$ は $\Pi_R$ に依存しないため、pulse 中
+である。$f_R$ は有限幅で滑らかとし、比較窓では他のパルスと重ならない。
+
+$H_{\rm win}$ は $J_c$ へ線形なので、
 
 $$
-\frac{dY_R}{d\tau}=0.
+\dot\vartheta=\Omega
 $$
 
-従って $Y_R=0$ が保たれ、
+が厳密に成り立つ。また、
 
 $$
-\frac{d\Pi_R}{d\tau}
+\{I_-,H_{\rm win}\}=0,
+\qquad
+\{h,H_{\rm win}\}=0
+$$
+
+である。したがって、比較パルス中も $I_-$ と $h$ は保存される。終端比較運動量は
+
+$$
+\dot\Pi_R
 =
--F_R'(0)
-\left[
-h-\kappa I_-
-\right]
+-
+\frac{\partial H_{\rm win}}{\partial Y_R}
+=
+\Omega f_R(\vartheta)
+\left(
+\kappa I_- -h
+\right)
 $$
 
-から unit pulse 後に
+に従う。一方、相補時計の自由運動により
+
+$$
+\dot Y_R
+=
+\frac{\partial H_{\rm win}}{\partial\Pi_R}
+=
+\frac{2\Pi_R}{M_\tau}
+$$
+
+であり、$Y_R$ は一般に一定ではない。しかし $\dot\Pi_R$ は $Y_R$ に依存しない。パルス直前の運動量を $\Pi_R=E_*$ とすると、
+
+$$
+\int
+\Omega f_R[\vartheta(t)]dt
+=
+1
+$$
+
+より、有限幅パルスの後に厳密に
 
 $$
 \Pi_R(T)
@@ -73,11 +92,11 @@ $$
 
 を得る。
 
-$F_R(0)=0$ なので、comparator pulse は読出し軌道上で messenger と ledger の canonical variables を動かさない。相対時計運動量へ $\Delta\Pi_R=\kappa I_- -h$ を加えるだけである。$E_*$ は時計向きが反転するまでの初期 momentum margin である。
+比較パルスは差動モードと台帳モードの角変数を動かし得るが、読出しに必要な作用 $I_-$ と $h$ は変えない。したがって、旧構成で用いた「パルス中に $Y_R=0$ が保たれる」という仮定は不要である。全計算は付録C.6に示す。
 
-## 7.2 固定 terminal condition
+## 7.2 固定終端条件
 
-terminal macroregion を
+終端巨視領域を
 
 $$
 G_R(z_T)
@@ -93,9 +112,9 @@ G_R=1
 h\leq E_*+\kappa I_-
 $$
 
-と等価である。
+と同値である。
 
-第5.9節の相補的内部時計実現では $P_c=0$ なので、
+第5.9節の相補的内部時計では $P_c=0$ なので、
 
 $$
 \varrho_A(T)=\Pi_R(T),
@@ -103,7 +122,7 @@ $$
 \varrho_B(T)=-\Pi_R(T).
 $$
 
-従って同じ terminal condition は、source で選んだ順序付き時計向き
+したがって同じ終端条件は、初期に選んだ順序付き時計向き
 
 $$
 \varrho_A\geq0,
@@ -111,11 +130,11 @@ $$
 \varrho_B\leq0
 $$
 
-が終端まで保たれた条件である。これは terminal half-space の正準力学的起源を与えるが、その半空間だけを物理的履歴集団として数える `[R]` の統計原理を置き換えない。
+が終端まで保たれた条件である。これは終端半空間の正準力学的意味を与えるが、その半空間だけを物理的履歴集団として数える `[R]` を置き換えない。
 
-$G_R$ の関数形は $a,b,A,B$ も $\cos\Delta_{ab}$ も参照しない。setting と outcome への依存は、局所 Hamiltonian rotation を含む flow で $G_R$ を初期面へ pullback したときにのみ現れる。
+$G_R$ の関数形は $a,b,A,B$ も $\cos\Delta_{ab}$ も参照しない。測定設定と結果への依存は、局所 Hamiltonian 回転を含む流れで $G_R$ を初期面へ引き戻したときにのみ現れる。
 
-全 source support で cutoff に当たらない working range
+全生成源の台上で切断端に当たらない適用範囲
 
 $$
 0
@@ -125,7 +144,7 @@ E_*+\kappa I_-
 E_\ell
 $$
 
-を仮定する。理想等振幅模型では十分条件として
+を仮定する。理想等振幅模型では、十分条件として
 
 $$
 E_*+\kappa I_0(1+V)
@@ -133,11 +152,11 @@ E_*+\kappa I_0(1+V)
 E_\ell
 $$
 
-を用いられる。finite amplitude distribution を許す場合は、その support 上で同じ上界を課す。cutoff に当たる場合の補正は第8章と付録Cで扱う。
+を用いられる。有限の振幅分布を許す場合は、その台上で同じ上界を課す。
 
-## 7.3 terminal compatibility の積分
+## 7.3 終端整合体積
 
-outcome sector の基準質量を $w_{AB}$ とする。第6章の二モード定理により、sector 内の soft-energy density は $1/E_\ell$ である。source fluctuation を $\zeta$ とし、その基準分布を $d\nu(\zeta)$ と書くと、unnormalized terminal-compatible weight は
+結果領域の基準質量を $w_{AB}$ とする。第6章の2モード定理により、各結果領域内の軟エネルギー密度は $1/E_\ell$ である。生成源揺らぎを $\zeta$、その基準分布を $d\nu(\zeta)$ と書くと、未規格化の終端整合重みは
 
 $$
 W_{AB}(a,b)
@@ -151,7 +170,7 @@ h\leq E_*+\kappa I_-^{AB}(\zeta)
 \}}.
 $$
 
-working range の下で $h$ 積分は線形なので、
+適用範囲の下で $h$ 積分は線形なので、
 
 $$
 W_{AB}(a,b)
@@ -163,7 +182,7 @@ E_*+\kappa
 \right].
 $$
 
-第6.3節の visibility 表示を代入すると、
+第6.3節の可視度表示を代入すると、
 
 $$
 W_{AB}(a,b)
@@ -177,17 +196,7 @@ E_*+\kappa I_0
 \right].
 $$
 
-ここで
-
-$$
-\Delta_{ab}
-=
-\phi(a)-\phi(b)+\Delta_0
-$$
-
-であり、$\Delta_0$ は source phase offset を含む。
-
-重要なのは、Bell compatibility weight の線形性が gate flux からではなく、固定総作用殻上の cumulative Liouville volume
+Bell 型重みの線形性は、通過流束や滞在時間ではなく、固定総作用殻上の累積 Liouville 体積
 
 $$
 \int_0^x
@@ -196,21 +205,21 @@ $$
 \frac{x}{E_\ell}
 $$
 
-から出ることである。
+から生じる。
 
-## 7.4 二モード台帳 Bell compatibility 定理
+## 7.4 2モード台帳 Bell 型整合性定理
 
-\begin{theorem}[二モード台帳を持つ時間対称 Bell compatibility]
+\begin{theorem}[2モード台帳を持つ2境界 Bell 型整合性]
 次を仮定する。
 
-1. `[H]`：第5章の有限 Hamiltonian 測定器と第7.1節の setting-blind comparator。
-2. `[P]`：第6.3節の phase-locked source と visibility $0\leq V\leq1$。
-3. `[S]`：四つの基準 outcome sector の独立符号反転対称性。
-4. `[M]`：固定総作用 $E_\ell$ 上の二モード Liouville entrance measure。
-5. `[R]`：第5.8節の時間対称境界統計原理。
-6. working range：$0\leq E_*+\kappa I_-\leq E_\ell$ が source support 上で成立する。
+1. `[H]`：第5章の局所理想写像または同じ記録領域を保つ有限幅実装、および第7.1節の厳密な終端比較器。
+2. `[P]`：第6.3節の位相同期した生成源と可視度 $0\leq V\leq1$。
+3. `[S]`：4つの基準結果領域の独立符号反転対称性。
+4. `[M]`：固定総作用 $E_\ell$ 上の2モード Liouville 入口測度。
+5. `[R]`：第5.8節の2境界統計原理。
+6. 適用範囲：$0\leq E_*+\kappa I_-\leq E_\ell$ が生成源の台上で成立する。
 
-このとき、規格化した terminal-compatible joint law は
+このとき、規格化した終端整合共同法則は
 
 $$
 P_R(A,B\mid a,b)
@@ -224,13 +233,14 @@ $$
 $$
 V_{\rm eff}
 =
-\frac{\kappa I_0}{E_*+\kappa I_0}V.
+\frac{\kappa I_0}{E_*+\kappa I_0}V
 $$
 
-各履歴の局所 response は deterministic に因子化する。一方、Bell-complete source posterior は一般に setting-dependent である。
+である。各履歴の局所応答は因子化するが、Bell の完全な微視状態の事後分布は一般に測定設定へ依存する。
 \end{theorem}
 
-Proof. `[S]` から $w_{AB}=1/4$ である。第7.3節より
+\begin{proof}
+`[S]` から $w_{AB}=1/4$ である。第7.3節より
 
 $$
 W_{AB}
@@ -242,44 +252,22 @@ E_*+\kappa I_0
 \right].
 $$
 
-四 outcome を足すと
+4つの結果を足すと余弦項が消え、
 
 $$
 Z_{a,b}
 =
 \sum_{A,B}W_{AB}
 =
-\frac{E_*+\kappa I_0}{E_\ell},
+\frac{E_*+\kappa I_0}{E_\ell}
 $$
 
-なぜなら
+となる。$W_{AB}/Z_{a,b}$ を計算すれば共同法則を得る。
+\end{proof}
 
-$$
-\sum_{A,B}AB=0
-$$
+局所有限幅パルスが伝達作用や結果領域を $O(\epsilon)$ だけ変える場合、上の共同法則にも一般に $O(\epsilon)$ の補正が入る。定理の厳密式は、理想局所写像または有限幅でも同じ $I_-^{AB}$ を実現する較正済み装置を仮定した結果である。
 
-だからである。$W_{AB}/Z_{a,b}$ を計算すれば主張の joint law を得る。
-
-fixed complete microstate $\lambda$ では、
-
-$$
-A=\mathscr A(a,\lambda),
-\qquad
-B=\mathscr B(b,\lambda)
-$$
-
-であり、
-
-$$
-P(A,B\mid a,b,\lambda)
-=
-P(A\mid a,\lambda)
-P(B\mid b,\lambda)
-$$
-
-と因子化する。しかし `[R]` 後の $\lambda$ 分布は第7.6節の通り setting-dependent である。
-
-## 7.5 初期時計向き margin $E_*$ の役割
+## 7.5 初期時計向き余裕 $E_*$
 
 $E_*=0$ では
 
@@ -287,28 +275,23 @@ $$
 V_{\rm eff}=V
 $$
 
-であり、理想 phase lock $V=1$ なら標準的な unit-visibility cosine law を得る。しかし $\Delta_{ab}=0$ かつ $AB=+1$ の channel では threshold が零になり、terminal-compatible volume も零になる。
+であり、理想位相同期 $V=1$ なら単位可視度の余弦則を得る。しかし $\Delta_{ab}=0$ かつ $AB=+1$ の結果領域では、しきい値と終端整合体積が零になる。
 
-$E_*>0$ は相補時計の正向き sector 内で向き反転までの初期運動量余裕を与える。同時に全 channel に正の compatibility floor を与え、
-
-$$
-E_*+\kappa I_-^{AB}\geq E_*
-$$
-
-とする。その代わり visibility は
+$E_*>0$ は相補時計の正向き領域内で、向き反転までの初期運動量余裕を与える。同時に全結果領域へ正の整合性下限を与える。その代わり可視度は
 
 $$
 V_{\rm eff}
 =
 \frac{\kappa I_0}{E_*+\kappa I_0}V
-<V
+<
+V
 $$
 
-へ低下する。従って $E_*$ は時計向きの頑健性および低 threshold の正則化と、Bell visibility の交換関係を与える。
+へ低下する。したがって $E_*$ は、時計向きの頑健性と Bell 可視度の交換関係を表す。
 
-## 7.6 microscopic posterior と measurement independence
+## 7.6 微視的事後分布と測定設定独立性
 
-理想化して、Bell-relevant hidden data を $(A,B,h)$ とする。他の source variables が setting-independently factorize する場合、`[R]` 後の密度は
+Bell に関係する未読変数を $(A,B,h)$ に限定し、他の生成源変数が測定設定と独立に因子化するとする。`[R]` 後の密度は
 
 $$
 \rho_R(A,B,h\mid a,b)
@@ -327,10 +310,10 @@ x_{AB}(a,b)
 E_*+\kappa I_0
 \left[
 1-ABV\cos\Delta_{ab}
-\right].
+\right]
 $$
 
-setting を変えると各 outcome sector の support ceiling が変わるため、
+である。測定設定を変えると各結果領域の台の上端が変わるため、
 
 $$
 \rho_R(\lambda\mid a,b)
@@ -338,11 +321,11 @@ $$
 \rho_R(\lambda\mid a',b')
 $$
 
-が一般に成立する。
+が一般に成り立つ。
 
-Bell--CHSH の標準導出では、四 setting pair に同じ $\rho(\lambda)$ を用いる。本構成で外れる仮定は measurement independence であり、fixed $\lambda$ における local response factorization ではない [9,10,24,25]。
+Bell--CHSH の標準導出では、4つの測定設定対に同じ $\rho(\lambda)$ を用いる。本構成で外れる仮定は測定設定独立性であり、固定した完全微視状態における局所応答の因子化ではない [9,10,24,25]。
 
-二つの setting pair に対応する
+2つの測定設定対に対応する
 
 $$
 c=\cos\Delta_{ab},
@@ -350,7 +333,7 @@ c=\cos\Delta_{ab},
 c'=\cos\Delta_{a'b'}
 $$
 
-の間の全変動距離は、上の最小 posterior について
+の間の全変動距離は、上の最小事後分布について
 
 $$
 D_{\rm TV}(c,c')
@@ -359,11 +342,11 @@ D_{\rm TV}(c,c')
 |c-c'|
 $$
 
-である。追加 hidden variables が setting-independently factorize する場合、この値は full posterior に対しても正確である。一般の追加構造を許す場合は、$(A,B,h)$ marginal が与える識別可能性の下界になる。
+である。追加の未読変数が測定設定と独立に因子化する場合、この値は完全事後分布に対しても正確である。
 
-## 7.7 setting frequency の保護
+## 7.7 測定設定頻度
 
-controller の基準分布を $P_S(a,b)$ とする。`[R]` を controller を含む全 ensemble へ適用すると、
+制御器の基準分布を $P_S(a,b)$ とする。`[R]` を制御器まで含む全履歴集団へ適用すると、
 
 $$
 P_R(a,b)
@@ -379,17 +362,17 @@ Z_{a,b}
 \frac{E_*+\kappa I_0}{E_\ell}
 $$
 
-は setting-independent である。従って
+は測定設定に依存しない。したがって
 
 $$
 P_R(a,b)=P_S(a,b).
 $$
 
-実験者は巨視的 controller frequency を変更できる。一方、その setting macrostate と terminal condition の両方に compatible な microscopic source posterior は変化する。この意味で本構成は future-input-dependent または time-symmetric boundary class に属する [7,8,21--23]。
+巨視的な制御器頻度を保ちながら、その設定巨視状態と終端条件の両方に整合する微視的生成源事後分布は変化する。この意味で本構成は、未来入力依存または2境界条件付きの模型に属する [7,8,21--23]。
 
-## 7.8 no-signalling と相関
+## 7.8 非信号性と相関
 
-joint law の一側周辺は
+共同法則の一側周辺は
 
 $$
 P_R(A\mid a,b)
@@ -403,10 +386,10 @@ $$
 $$
 P_R(B\mid a,b)
 =
-\frac12.
+\frac12
 $$
 
-従って `[S]` の対称 ensemble では operational no-signalling が成立する。これは microscopic measurement independence が回復したことを意味しない。遠隔 setting dependence は hidden posterior に残るが、outcome-sign symmetry により一側周辺で相殺される。
+である。したがって `[S]` の対称集団では操作上の非信号性が成立する。これは微視的な測定設定独立性が回復したことを意味しない。遠隔設定依存性は未読事後分布に残るが、結果符号対称性により一側周辺で相殺される。
 
 相関は
 
@@ -416,10 +399,10 @@ E(a,b)
 \sum_{A,B}
 ABP_R(A,B\mid a,b)
 =
--V_{\rm eff}\cos\Delta_{ab}.
+-V_{\rm eff}\cos\Delta_{ab}
 $$
 
-標準 CHSH angle
+である。標準 CHSH 角
 
 $$
 \phi(a_0)=0,
@@ -441,63 +424,39 @@ $$
 2\sqrt2V_{\rm eff}.
 $$
 
-従って
+したがって $V_{\rm eff}>1/\sqrt2$ なら CHSH 不等式を破る。
 
-$$
-V_{\rm eff}
->
-\frac1{\sqrt2}
-$$
+## 7.9 Bell 前提の台帳
 
-なら CHSH 不等式を破る。
+本構成の Bell 前提を次のように分類する。
 
-## 7.9 Bell 前提台帳
+- 結果の確定性：満たす。各履歴は1つの固定指針領域を持つ。
+- 局所決定論応答：完全な微視状態上で満たす。
+- 固定微視状態での遠隔設定非依存性：局所記録時刻について満たす。
+- 共通の測定設定独立分布：満たさない。
+- 操作上の測定設定頻度：$Z_{a,b}$ が一定なので保つ。
+- 対称準備での非信号性：`[S]` の下で満たす。
+- 任意準備での非信号性：証明していない。
+- 観測済みデータの事後選別がないこと：物理的実装条件として別に要求する。
 
-本構成の Bell 前提は次の通りである。
+したがって本論文は Bell の定理を否定しない。Bell 不等式を破る共同確率と、そのために外れた前提を同じ模型の中で示す。
 
-- outcome definiteness：満たす。各 Hamiltonian history は一つの anchor-pointer sector を持つ。
-- local deterministic response：Bell-complete $\lambda$ 上で満たす。
-- parameter independence at fixed $\lambda$：局所記録時刻について満たす。
-- common measurement-independent distribution：満たさない。
-- operational setting freedom：$Z_{a,b}$ が一定なので controller frequency を保つ。
-- equilibrium no-signalling：`[S]` の下で満たす。
-- arbitrary-preparation no-signalling：本論文では証明しない。
-- absence of observed-data postselection：物理的実装条件として要求する。
+## 7.10 後段時間は結果重みを作らない
 
-従って本論文は Bell の定理を反駁しない。Bell 不等式を外れる共同確率と、外れた仮定を同じ模型の中で明示する。
+局所結果が確定した後、全試行を結果に関係なく1回ずつ数えるなら、比較器への到達時間、後段反応座標の滞在時間、有限浴へのエネルギー移動は、試行番号で数えた結果比率を変えない。変化し得るのは時刻占有率または有限期限までの完了率である。
 
-## 7.10 流束、滞在時間、結果頻度
-
-結果 $A,B$ が comparator 到達前に確定した順時間的 trial 列を考える。全 trial が有限時間で完了し、結果依存の除外がないなら、後段の reaction coordinate が持つ通過時間は、時刻を無作為に選んだときの occupancy を変えるが、trial number で数えた outcome ratio を変えない。
-
-\begin{proposition}[後段時間による結果頻度不変]
-$n$ 番目の trial の結果を $\kappa_n=(A_n,B_n)$、完了時間を $\tau_n<\infty$ とする。全 trial を結果に関係なく一度ずつ数えるなら、
-
-$$
-\frac1N
-\sum_{n=1}^{N}
-\mathbf1_{\{\kappa_n=(A,B)\}}
-$$
-
-は $\tau_n$ の値に依存しない。結果依存の timeout または非完了 trial の除外を導入した場合にのみ、観測された比率は再重みづけされる。
-\end{proposition}
-
-従って
-
-- reaction gate の通過速度。
-- 結果依存の待ち時間。
-- 有限浴への順時間的 energy leakage。
-
-は、それだけでは `[R]` の代わりにならない。本論文の $W_{AB}$ は gate capacity または completion flux ではなく、`[R]` が物理的集団とする terminal-compatible phase volume である。
+結果依存の未完了試行や時間切れ試行を除けば、事後選別が生じる。本論文の $W_{AB}$ は通過流束や完了率ではなく、`[R]` が物理的集団とする終端整合位相体積である。共有浴と待ち時間を含む一般的な否定結果は第8.3節と付録C.11にまとめる。
 
 ## 7.11 本章の結論
 
-setting-blind comparator は、相補時計の初期相対運動量 $\Pi_R(0)=E_*$ に $\kappa I_- -h$ を加えて
+比較窓を1本の有限 Hamiltonian として書き、内部時計の自由運動により $Y_R$ が変化しても
 
 $$
-\Pi_R(T)=E_*+\kappa I_- -h
+\Pi_R(T)
+=
+E_*+\kappa I_- -h
 $$
 
-を作る。固定 terminal condition は順序付き時計向きの保存と同値であり、同時に $h$ の sublevel volume を測る。二モード台帳の一様密度と対称準備を用いると、Bell 型 cos 共同確率が通常の正の Liouville 積分として得られる。
+が厳密に成り立つことを示した。固定終端条件は順序付き時計向きの保存と同値であり、同時に $h$ の下位体積を測る。
 
-確率の起源は `[R]` であり、時計相補性だけではない。cos dependence、linear threshold volume、terminal half-space の正準構造は Hamiltonian apparatus が計算する。Bell の前提違反は measurement independence に位置し、macroscopic setting frequency と equilibrium no-signalling は四 sector の対称性により保たれる。
+2モード台帳の一様密度、対称準備、`[R]` を用いると Bell 型余弦共同確率を得る。確率重みの原理は `[R]` であり、時計相補性や順時間的待ち時間ではない。Bell の前提違反は測定設定独立性に位置し、巨視的な測定設定頻度と対称準備での非信号性は保たれる。

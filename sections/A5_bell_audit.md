@@ -1,11 +1,11 @@
 @number: A5
 @chapter: 付録
-@title: 測定依存度、CHSH 四設定、postselection 監査
-@status: 第II部の Bell 分類を定量化し、装置 posterior と表現論的最小値を区別する。
+@title: 測定設定依存度、CHSH 4設定、事後選別監査
+@status: 第II部の Bell 分類を定量化し、装置事後分布と表現論的最小値を区別する。
 
-## E.1 Hall scale
+## E.1 Hall 尺度
 
-setting-dependent hidden distribution に対する Hall の $L^1$ scale を
+測定設定に依存する未読変数分布に対する Hall の $L^1$ 尺度を
 
 $$
 M
@@ -14,12 +14,13 @@ M
 \int
 \left|
 \rho(\lambda\mid a,b)
--\rho(\lambda\mid a',b')
+-
+\rho(\lambda\mid a',b')
 \right|
 d\lambda
 $$
 
-とする。通常の total variation とは
+とする。通常の全変動距離とは
 
 $$
 M=2D_{\rm TV}^{\max}
@@ -27,7 +28,7 @@ $$
 
 の関係にある。
 
-第7.6節の最小 two-mode posterior では、
+第7.6節の最小2モード事後分布では、
 
 $$
 D_{\rm TV}(c,c')
@@ -45,7 +46,8 @@ V_{\rm eff}
 \sup_{a,b,a',b'}
 \left|
 \cos\Delta_{ab}
--\cos\Delta_{a'b'}
+-
+\cos\Delta_{a'b'}
 \right|.
 $$
 
@@ -55,7 +57,7 @@ $$
 M_{\rm dev}=2V_{\rm eff}.
 $$
 
-標準 CHSH の四 setting pair では cosine が $\pm1/\sqrt2$ なので、
+標準 CHSH の4測定設定対では余弦が $\pm1/\sqrt2$ なので、
 
 $$
 M_{\rm dev}^{(4)}
@@ -63,11 +65,11 @@ M_{\rm dev}^{(4)}
 \sqrt2V_{\rm eff}.
 $$
 
-これは本文の具体的 device posterior が持つ値であり、同じ observable joint law を再現する全 local model の中で最小化した値ではない。
+これは本文の具体的な装置事後分布が持つ値であり、同じ観測共同法則を再現する全ての局所模型の中で最小化した値ではない。
 
-## E.2 ledger-only representation
+## E.2 台帳だけを使う表現
 
-hidden variable を
+未読変数を
 
 $$
 \lambda_{\rm tab}
@@ -94,9 +96,9 @@ $$
 \right]
 $$
 
-と置けば、local deterministic に目標 joint law を再現する。この representation は出力確率を hidden ledger に直接書き込んだものであり、物理的説明ではない。
+と置けば、局所決定論的に目標共同法則を再現する。この表現は出力確率を未読台帳へ直接書き込んだものであり、物理的説明ではない。
 
-Hall scale は
+Hall 尺度は
 
 $$
 M_{\rm tab}
@@ -105,17 +107,18 @@ V_{\rm eff}
 \sup_{a,b,a',b'}
 \left|
 \cos\Delta_{ab}
--\cos\Delta_{a'b'}
+-
+\cos\Delta_{a'b'}
 \right|
 $$
 
-である。従って two-mode device posterior の coarse marginal と同じ値を持つ。この一致は装置構成の最適性を意味せず、両者が同じ support-length modulation を使っていることを示す。
+である。したがって本文の2モード装置事後分布の粗視化周辺と同じ値を持つ。この一致は装置構成の最適性を意味せず、両者が同じ台の長さ変調を用いていることを示す。
 
-## E.3 標準 CHSH 四設定の最小値
+## E.3 標準 CHSH 4設定の最小値
 
-標準 CHSH 四設定に対し、目標 visibility $V_{\rm eff}$ を再現する local deterministic、operationally no-signalling representation 全体で Hall scale を最小化した値を $M_{\min}^{(4)}(V_{\rm eff})$ とする。
+標準 CHSH 4設定に対し、目標可視度 $V_{\rm eff}$ を再現する局所決定論的で操作上非信号な表現全体について、Hall 尺度を最小化した値を $M_{\min}^{(4)}(V_{\rm eff})$ とする。
 
-$V_{\rm eff}\leq1/\sqrt2$ では全 CHSH inequality が満たされる。Fine の定理により setting-independent joint hidden distribution が存在するので [38]、
+$V_{\rm eff}\leq1/\sqrt2$ では全 CHSH 不等式が満たされる。Fine の定理により測定設定と独立な共同未読変数分布が存在するので [38]、
 
 $$
 M_{\min}^{(4)}(V_{\rm eff})
@@ -125,7 +128,7 @@ M_{\min}^{(4)}(V_{\rm eff})
 0\leq V_{\rm eff}\leq\frac1{\sqrt2}.
 $$
 
-$V_{\rm eff}>1/\sqrt2$ では、Hall の relaxed CHSH bound
+$V_{\rm eff}>1/\sqrt2$ では、Hall の緩和 CHSH 上界
 
 $$
 |\mathcal S|
@@ -153,7 +156,7 @@ $$
 
 を得る [9]。
 
-この bound は、$V_{\rm eff}=1/\sqrt2$ の setting-independent Fine model と、$V_{\rm eff}=1$ で bound を saturate する Hall model を setting-independent flag で混合することで達成できる。従って
+この下界は、$V_{\rm eff}=1/\sqrt2$ の測定設定独立 Fine 模型と、$V_{\rm eff}=1$ で下界を達成する Hall 模型を、測定設定と独立な補助符号で混合することで達成できる。したがって
 
 $$
 M_{\min}^{(4)}(V_{\rm eff})
@@ -177,19 +180,19 @@ M_{\min}^{(4)}
 }{3},
 $$
 
-一方、本文の device posterior は
+一方、本文の装置事後分布は
 
 $$
 M_{\rm dev}^{(4)}=\sqrt2.
 $$
 
-従って明示 device は measurement-dependence resource について最適でない。
+したがって明示装置は、測定設定依存度について最適ではない。
 
-この最小値は四つの観測分布に対する representation-theoretic quantity である。finite Hamiltonian apparatus が同じ最小値を実現できることを意味しない。全角度の cosine family に対する device-constrained minimum も本論文では求めない。
+この最小値は4つの観測分布に対する表現論的な量である。有限 Hamiltonian 装置が同じ最小値を実現できることを意味しない。全角度の余弦族に対する、装置構造を固定した最小値も本論文では求めない。
 
-## E.4 setting frequency と source posterior
+## E.4 測定設定頻度と生成源事後分布
 
-controller prior を $P_S(a,b)$ とし、full boundary measure を controller まで含めて規格化すると、
+制御器の事前分布を $P_S(a,b)$ とし、制御器まで含む全2境界測度を規格化すると、
 
 $$
 P_R(a,b)
@@ -202,7 +205,7 @@ P_S(a',b')Z_{a',b'}
 }.
 $$
 
-本文の symmetric model では
+本文の対称模型では
 
 $$
 Z_{a,b}
@@ -216,23 +219,23 @@ $$
 P_R(a,b)=P_S(a,b).
 $$
 
-従って macroscopic setting frequency の自由と microscopic source posterior の setting dependence は両立する。これは measurement independence failure と、実験者が controller macrostate を変えられないという主張を区別する。
+したがって巨視的な測定設定頻度の自由と、微視的な生成源事後分布の測定設定依存性は両立する。これは測定設定独立性の破れと、実験者が制御器巨視状態を変えられないという主張を区別する。
 
-## E.5 launch count、record count、completion count
+## E.5 開始数、記録数、完了数
 
-各 setting pair について次の三つの数を区別する。
+各測定設定対について次の3つの数を区別する。
 
-1. external source が開始した launch count $N_{\rm launch}$。
-2. 左右 pointer が definite result を持った record count $N_{\rm rec}$。
-3. terminal apparatus が ready macroregion に入った completion count $N_R$。
+1. 外部生成源が開始した試行数 $N_{\rm launch}$。
+2. 左右指針が確定結果を持った記録数 $N_{\rm rec}$。
+3. 終端装置が完了巨視領域へ入った完了数 $N_R$。
 
-boundary ontology `[R]` では、物理的に実現する trial 自体が terminal-compatible history であると解釈する。しかし laboratory implementation が単に
+`[R]` では、物理的に実現する試行自体が終端整合履歴であると解釈する。しかし実験室での実装が単に
 
 $$
 N_R<N_{\rm rec}
 $$
 
-となる trial rejection を行うなら、observed sample は
+となる試行棄却を行うなら、観測標本は
 
 $$
 P_{\rm obs}(A,B\mid a,b)
@@ -247,26 +250,24 @@ P_{\rm rec}(A',B'\mid a,b)
 }
 $$
 
-という detector-conditioned distribution になる。$\eta_{AB}$ は completion efficiency である。この場合、Bell violation は detection loophole で説明され得る。
+という検出条件付き分布になる。$\eta_{AB}$ は完了効率である。この場合、Bell 不等式の破れは検出の抜け穴で説明され得る。
 
-従って physical boundary model と postselection を区別する最低条件は、
+物理的2境界模型と事後選別を区別する最低条件は次である。
 
-- 全 launch、record、completion count を setting ごとに報告する。
-- outcome-dependent missing fraction を零または独立に有界化する。
-- terminal device の calibration を Bell run より前に固定する。
-- timeout を変えても、predicted finite-width correction 以外の joint-law drift がないことを確かめる。
+- 全開始数、記録数、完了数を測定設定ごとに報告する。
+- 結果依存の欠測率を零または独立に有界化する。
+- 終端装置の較正を Bell 実行より前に固定する。
+- 時間切れ条件を変えても、予測される有限幅補正以外の共同法則変動がないことを確かめる。
 
-である。
+## E.6 偏った準備の検査
 
-## E.6 biased preparation test
+結果種の準備装置を追加し、基準結果重み $w_{AB}$ を操作する。本文模型が任意準備に対して操作可能であるなら、次のいずれかを判定する必要がある。
 
-seed preparation apparatus を追加し、基準 sector weight $w_{AB}$ を操作する。本文模型が arbitrary preparation に対して operationally viable なら、次のいずれかが観測されなければならない。
+1. $w_{AB}$ の操作が2境界整合性によって自動的に相殺される。
+2. 偏った巨視状態が物理的に準備不能になる。
+3. 非信号性残差が増大する。
 
-1. $w_{AB}$ の操作が boundary compatibility によって自動的に相殺される。
-2. biased macrostate が物理的に準備不能になる。
-3. no-signalling residual が増大する。
-
-no-signalling residual を
+非信号性残差を
 
 $$
 \epsilon_{\rm NS}
@@ -278,4 +279,4 @@ P_R(A\mid a,b)
 \right|
 $$
 
-とする。ideal `[S]` ensemble では $\epsilon_{\rm NS}=0$ である。biased preparation に対し $\epsilon_{\rm NS}=O(1)$ が現れれば、equilibrium-only model の操作的限界が直接検出される。
+とする。理想 `[S]` 集団では $\epsilon_{\rm NS}=0$ である。偏った準備に対して $\epsilon_{\rm NS}=O(1)$ が現れれば、対称準備だけで成り立つ模型の操作上の限界が直接検出される。

@@ -1,9 +1,9 @@
 cff-version: 1.2.0
 message: "この成果を利用する場合は、次の情報で引用すること。"
-title: "有限Hamiltonian中核の定量的Nelson極限と時間対称境界測度によるBell型統計"
+title: "有限Hamiltonian中核のNelson作用極限と2境界統計原理によるBell型統計"
 type: manuscript
 authors:
   - name: "nimomono"
-version: "draft-08"
+version: "draft-09"
 date-released: 2026-07-25
 repository-code: "https://github.com/nimomono/quantum-wakaran-neko"

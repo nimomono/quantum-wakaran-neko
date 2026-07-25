@@ -174,7 +174,7 @@ $$
 
 ## D.7 Bell 部分との接続
 
-2次元 Gaussian 位相変数は、第6章の実正準 messenger を具体化する候補になる。しかし、OU 定常分布だけでは左右の等振幅、共通生成時位相、四つの符号領域の対称性は自動的に保証されない。
+2次元 Gaussian 位相変数は、第6章の実正準伝達ベクトルを具体化する候補になる。しかし、OU 定常分布だけでは左右の等振幅、共通生成時位相、4つの符号領域の対称性は自動的に保証されない。
 
 従って
 
@@ -184,4 +184,4 @@ $$
 \mathrm{Bell\ cosine\ law}.
 $$
 
-Bell 系論には、phase-locked source `[P]`、symmetric preparation `[S]`、two-mode entrance measure `[M]`、boundary ensemble `[R]` が別に必要である。この点を保つことで、Gaussian Nelson 部分と Bell 部分の役割が明確になる。
+Bell 系論には、位相同期した生成源 `[P]`、対称準備 `[S]`、2モード入口測度 `[M]`、2境界履歴集団 `[R]` が別に必要である。この点を保つことで、Gaussian Nelson 部分と Bell 部分の役割が明確になる。

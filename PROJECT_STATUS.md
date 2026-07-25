@@ -1,18 +1,18 @@
 # 証明状態と理論の境界
 
-## 第I部主定理：線形 Gaussian パラメータ $C^1$ 収束
+## 第I部：線形 Gaussian パラメータ $C^1$ 収束
 
-次の範囲で完結した定理として記述する。
+次の範囲で、繰り込み済み粗視化作用形式の収束を証明している。
 
-- finite Fourier--Gaussian driving。
-- time-dependent coefficient を許す linear flow。
-- Gaussian initial distribution。
-- positive finite-resolution terminal record。
-- quadratic 以下の external potential。
-- compact smooth finite-dimensional parameter family。
+- 有限 Fourier--Gaussian 駆動。
+- 時間依存係数を許す線形流れ。
+- Gaussian 初期分布。
+- 正定値の有限分解能終端記録。
+- 2次以下の外部ポテンシャル。
+- コンパクトで滑らかな有限次元パラメータ族。
 - $h_N\to0$ かつ $N(h_N/T)^2\to\infty$。
 
-この条件で、
+この条件で
 
 $$
 \left\|
@@ -25,21 +25,30 @@ C_K
 \left(
 \frac hT+
 \frac{T^2}{Nh^2}
-\right).
+\right)
 $$
 
-$h_N=TN^{-1/3}$ なら $O(N^{-1/3})$ である。$C^1$ は指定した finite-dimensional parameter set $K$ 上の norm であり、arbitrary infinite-dimensional path variation ではない。
+が成り立つ。$h_N=TN^{-1/3}$ なら誤差は $O(N^{-1/3})$ である。
 
-## 第II部主定理：二モード台帳 Bell compatibility
+ここで $C^1$ は指定した有限次元パラメータ集合 $K$ 上のノルムであり、任意の無限次元経路変分についての主張ではない。また、証明用の一般的な時間依存線形 Gaussian 表示を1つの有限自律 Hamiltonian へ埋め込む定理ではない。
 
-仮定：
+### 第I部で未導出の事項
 
-1. `[H]` finite Hamiltonian local apparatus、common-future comparator、相補的 internal-clock realization。
-2. `[P]` phase-locked source と visibility $V$。
-3. `[S]` independent sign-flip symmetric preparation。
-4. `[M]` fixed-total-action two-mode entrance measure。
-5. `[R]` time-symmetric boundary-statistical principle。
-6. source support 上の working range
+- 微視的 Hamiltonian 運動が粗視化作用の停留点を選ぶこと。
+- 任意の Nelson 停留点が有限浴の停留点列から得られること。
+- 一般の非線形流れ、節を持つ密度、2次を超えるポテンシャルへの拡張。
+- Nelson 作用形式から量子力学全体が出現すること。
+
+## 第II部：2モード台帳 Bell 型整合性
+
+次を仮定する。
+
+1. `[H]` 有限 Hamiltonian 装置部品。局所部品は理想短時間パルスまたは同じ記録領域を保つ有限幅実装。終端比較器は第7.1節の有限幅 Hamiltonian。
+2. `[P]` 位相同期した生成源と可視度 $V$。
+3. `[S]` 独立符号反転に不変な対称準備。
+4. `[M]` 固定総作用を持つ2モード台帳の入口測度。
+5. `[R]` 2境界統計原理。
+6. 生成源の台上の適用範囲
 
    $$
    0\leq E_*+\kappa I_-\leq E_\ell.
@@ -59,30 +68,48 @@ $$
 $$
 V_{\rm eff}
 =
-\frac{\kappa I_0}{E_*+\kappa I_0}V.
+\frac{\kappa I_0}{E_*+\kappa I_0}V
 $$
+
+を得る。
 
 ## 厳密に導出した部分
 
-### finite apparatus
+### 比較器と相補時計
 
-- local messenger rotation。
-- bright momentum shift。
-- anchor pointer shift。
-- common-future difference action。
-- return pair と center pair から二つの内部時計対への canonical transformation。
+- 2つの内部時計と中心・相対変数の正準変換。
 - $P_c=0$ 上の相補的時計運動。
-- relative-clock shift
+- 線形比較生成子
 
   $$
-  \Pi_R=E_*+\kappa I_- -h.
+  K_R
+  =
+  Y_R(h-\kappa I_-).
   $$
 
-- terminal half-space と順序付き時計向き保存条件の同値性。
+- 比較窓での保存則
 
-### geometry and measure
+  $$
+  \{I_-,H_{\rm win}\}
+  =
+  \{h,H_{\rm win}\}
+  =
+  0.
+  $$
 
-- quadratic difference action
+- $Y_R$ の自由運動を含む有限幅パルスでの厳密な読出し
+
+  $$
+  \Pi_R(T)
+  =
+  E_*+\kappa I_- -h.
+  $$
+
+- 終端半空間と順序付き時計向き保存条件の同値性。
+
+### 幾何と測度
+
+- 差動作用
 
   $$
   \overline I_-^{AB}
@@ -93,19 +120,19 @@ $$
   \right].
   $$
 
-- two-mode fixed-action shell
+- 固定総作用を持つ2モード台帳の周辺密度
 
   $$
   p(h)=\frac1{E_\ell}.
   $$
 
-- symmetric sector mass
+- `[S]` の下での結果領域質量
 
   $$
   w_{AB}=\frac14.
   $$
 
-- terminal-compatible weight
+- `[R]` の下での終端整合重み
 
   $$
   W_{AB}
@@ -116,14 +143,14 @@ $$
   \right].
   $$
 
-### Bell audit
+### Bell 前提の監査
 
-- local deterministic response at fixed complete microstate。
-- measurement independence failure。
-- setting-independent normalization $Z_{a,b}$。
-- equilibrium no-signalling。
+- 完全微視状態を固定した局所応答の因子化。
+- 測定設定独立性の破れ。
+- 測定設定に依存しない規格化因子 $Z_{a,b}$。
+- `[S]` の下での非信号性。
 - $|\mathcal S|=2\sqrt2V_{\rm eff}$。
-- minimal coarse posterior の
+- 最小粗視化事後分布の全変動距離
 
   $$
   D_{\rm TV}(c,c')
@@ -131,11 +158,35 @@ $$
   \frac{V_{\rm eff}}2|c-c'|.
   $$
 
-## 条件付きまたは未導出の部分
+## 条件付き、近似、未導出の部分
+
+### 局所装置
+
+現在の明示模型では
+
+$$
+A=\sigma(s_A),
+\qquad
+B=\sigma(s_B)
+$$
+
+であり、結果符号は測定設定や到来変数に依存しない。これは一般の測定器ではなく、既存の2値符号を応答モードと指針へ写す最小結果符号化模型である。
+
+一般の
+
+$$
+A=\mathscr A(a,\lambda_A),
+\qquad
+B=\mathscr B(b,\lambda_B)
+$$
+
+を実現する局所 Hamiltonian 相互作用は未構成である。
+
+局所分析と指針固定の一般パルスは、自由運動との同時発展を含めると理想正準写像ではなく、短時間幅 $\epsilon$ に対して $O(\epsilon)$ の補正を持つ。全装置部品を1本に統合した有限幅 Hamiltonian の一様誤差評価も未達である。
 
 ### `[R]`
 
-`[R]` は Hamilton equations、finiteness、recurrence、time reversal、または相補的時計運動量だけからは導いていない。相補時計は
+`[R]` は Hamilton 方程式、有限性、再帰、時間反転対称性、相補的時計運動量だけからは導いていない。相補時計は
 
 $$
 G_R
@@ -143,9 +194,9 @@ G_R
 \mathbf1_{\{\Pi_R(T)\geq0\}}
 $$
 
-の半空間を向き保存条件として導くが、$\Pi_R(T)<0$ の軌道も Hamiltonian 解として残る。physical history ensemble を指定する独立原理が必要である。
+という半空間へ時計向き保存の意味を与えるが、$\Pi_R(T)<0$ の軌道も Hamiltonian 解として残る。
 
-branch-wise boundary preparation と同一履歴 matching を追加すれば、
+初期境界準備と終端境界関数を同一履歴として照合する規則を追加すれば、
 
 $$
 d\nu
@@ -159,11 +210,11 @@ z_f-\Phi^Tz_i
 d\Gamma_i\,d\Gamma_f
 $$
 
-から `[R]` の積形式を条件付きで得る。ただし matching rule 自体は未導出である。
+から `[R]` の積形式を得る。ただし照合規則自体は未導出である。
 
-### mixing
+### 混合
 
-fixed shell Liouville entrance measure を直接準備すれば $p(h)=1/E_\ell$ は厳密である。一つの deterministic microstate の long-time histogram から同じ分布を得るには、
+固定作用殻の Liouville 入口測度を直接準備すれば $p(h)=1/E_\ell$ は厳密である。1つの微視状態の長時間頻度分布から同じ分布を得るには、
 
 $$
 \tau_{\rm mix}
@@ -173,22 +224,20 @@ $$
 T_{\rm rec}
 $$
 
-という coarse-grained mixing assumption が必要である。arbitrary fine-grained density の strong convergence は起こらない。
+という粗視化混合条件が必要である。任意の微細密度の強収束は起こらない。
 
-### preparation
+### 準備と一意性
 
-`[S]` は symmetric preparation macrostate と invariant reference measure を採用する統計条件を含む。arbitrary biased preparation に対する no-signalling は証明していない。
-
-### uniqueness
-
-quadratic comparator、two-mode ledger、cos law、Tsirelson value が、より深い Hamiltonian principle から一意に選ばれることは証明していない。
+- `[S]` は対称な準備巨視状態と基準測度を採用する統計条件を含む。
+- 任意の偏った準備に対する非信号性は証明していない。
+- 2次比較器、2モード台帳、余弦則、Tsirelson 値が、より深い Hamiltonian 原理から一意に選ばれることは証明していない。
 
 ## 否定結果
 
-- local record 後の forward shared-bath coupling は outcome-sector Liouville mass を変えない。
-- result-dependent residence time は trial-number frequency を変えない。
-- timeout または incomplete trial exclusion は postselection を生む。
-- $N>1$ ledger mode の cumulative weight
+- 局所記録後の順時間的共有浴結合は、全試行を1回ずつ数えた結果領域質量を変えない。
+- 結果依存の滞在時間は試行番号頻度を変えない。
+- 時間切れまたは未完了試行の除外は事後選別を生む。
+- $N>1$ の台帳モードが作る累積重み
 
   $$
   F_N(x)
@@ -199,29 +248,16 @@ quadratic comparator、two-mode ledger、cos law、Tsirelson value が、より�
   \right)^N
   $$
 
-  は nonlinear で、高調波を生む。
-- Bell cosine law は Wallstrom circulation quantization を含意しない。
-- 同じ scalar readout に対する二つの相補的 terminal half-space を等重みで平均すると
-
-  $$
-  \frac12
-  \left[
-  \frac{x}{E_\ell}
-  +
-  1-\frac{x}{E_\ell}
-  \right]
-  =
-  \frac12
-  $$
-
-  となり、Bell の cos 項が消える。
+  は非線形であり、高次調波を生む。
+- Bell 型余弦則は Wallstrom 位相循環量子化を含意しない。
+- 同じ読出しに対する2つの相補的終端半空間を等重みで平均すると余弦項が消える。
 
 ## 最重要の未解決問題
 
-1. branch-wise boundary preparation と matching をより大きな closed-boundary physical theory から導けるか。
-2. finite nonlinear mixer について必要な mixing window と perturbation tolerance を定量化できるか。
-3. biased preparation apparatus を含めても no-signalling symmetry が回復するか。
-4. two-mode ledger の isolation と action conservation を mechanical model でどこまで保てるか。
-5. quadratic comparator と Tsirelson bound を追加原理から選べるか。
-6. 順序付き時計 sector と comparator kick を時間反転共変な doubled model に完成できるか。
-7. Nelson phase と source action-angle phase を結び、Wallstrom quantization へ進めるか。
+1. `[R]` の2境界照合を、より大きな閉じた境界値理論から導けるか。
+2. 設定と到来変数から結果を生成する一般の局所 Hamiltonian 測定相互作用を構成できるか。
+3. 全装置部品を1本の有限 Hamiltonian に統合し、有限幅誤差を一様に評価できるか。
+4. 有限非線形混合器の混合窓、再帰、総作用漏れを定量化できるか。
+5. 偏った準備装置まで含めても非信号性が回復するか。
+6. 2次比較器と Tsirelson 限界を追加原理から選べるか。
+7. Nelson 位相と生成源の作用角位相を結び、Wallstrom 量子化へ進めるか。

@@ -139,7 +139,7 @@ def combined_markdown() -> str:
         if number == 2:
             chunks.append(r"\part{有限調和 Gaussian 中核の Nelson 極限}")
         if number == 5:
-            chunks.append(r"\part{時間対称境界測度と二モード台帳による Bell 型統計}")
+            chunks.append(r"\part{2境界統計原理と2モード台帳による Bell 型統計}")
         path = next(SECTIONS.glob(f"{number:02d}_*.md"))
         meta, lines = parse_source(path)
         chunks.append("# " + meta["title"])
