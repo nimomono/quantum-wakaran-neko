@@ -8,44 +8,54 @@
 python3 tools/verify_two_mode_ledger.py
 ```
 
-固定 seed `20260724`、sample count `600000` で全項目が合格した。
+乱数種 `20260724`、標本数 `600000` で全10項目が合格した。
 
 | 項目 | 誤差 | 許容値 |
 |---|---:|---:|
-| two-mode uniform CDF の KS 誤差 | 0.00115444 | 0.003 |
-| difference action の最大絶対誤差 | $1.33\times10^{-15}$ | $2.0\times10^{-14}$ |
-| clock canonical one-form の最大絶対誤差 | $3.55\times10^{-15}$ | $2.0\times10^{-14}$ |
-| terminal half-space と時計向き条件の不一致率 | 0 | 0 |
-| orientation average no-go identity の誤差 | 0 | $1.0\times10^{-15}$ |
-| Bell joint probability の最大誤差 | 0.00044900 | 0.0025 |
-| no-signalling marginal error | 0 | 0.0025 |
-| multi-mode CDF の最大誤差 | 0.00133542 | 0.0025 |
-| CHSH identity error | 0 | $1.0\times10^{-14}$ |
+| 2モード一様累積分布の Kolmogorov–Smirnov 誤差 | 0.00115444 | 0.003 |
+| 差作用の最大絶対誤差 | $1.33\times10^{-15}$ | $2.0\times10^{-14}$ |
+| 時計の正準1形式の最大絶対誤差 | $3.55\times10^{-15}$ | $2.0\times10^{-14}$ |
+| $Y_R$ の移動を含む有限幅比較パルスの最大絶対誤差 | $9.33\times10^{-15}$ | $2.0\times10^{-12}$ |
+| 終端半空間と時計向き条件の不一致率 | 0 | 0 |
+| 時計向き平均の否定恒等式の誤差 | 0 | $1.0\times10^{-15}$ |
+| Bell型共同確率の最大誤差 | 0.00044900 | 0.0025 |
+| 非信号周辺確率の誤差 | 0 | 0.0025 |
+| 多モード累積分布の最大誤差 | 0.00096500 | 0.0025 |
+| CHSH恒等式の誤差 | 0 | $1.0\times10^{-14}$ |
+
+有限幅比較パルスの検算では、比較窓の全 Hamiltonian 方程式を数値積分し、$Y_R$ が自由運動する場合にも
+
+$$
+\Pi_R(T)=E_*+\kappa I_- -h
+$$
+
+が成立することを確認した。
 
 ## LaTeX
 
-- XeLaTeX 3 pass：成功。
-- undefined citation：なし。
-- undefined reference：なし。
-- overfull box：なし。
-- PDF page count：88。
-- page size：A4。
+- XeLaTeX 3回実行：成功。
+- 未定義引用：なし。
+- 未定義参照：なし。
+- 内容が切れるはみ出し：なし。
+- PDFページ数：83。
+- 用紙寸法：A4。
 
-残る warning は Latin Modern Mono の bold shape fallback と、長い英語参考文献行の underfull box のみであり、内容欠落または clipping を生じない。
+残る警告は Latin Modern Mono の太字代替と、英語の参考文献名による行間の空きだけであり、内容欠落や表示の切れを生じない。
 
-## PDF visual QA
+## PDF表示確認
 
-88ページ全てを PNG へレンダリングし、contact sheet と主要ページの高解像度表示で確認した。
+83ページすべてを PNG へ変換し、一覧画像と主要ページの高解像度表示で確認した。
 
-- title page：欠落なし。
-- table of contents：全章と付録を収録。
-- 本文の相補的内部時計による terminal half-space の正準実現：数式、命題、改ページに欠落なし。
-- `[R]` の条件付き二境界 matching と orientation average no-go：数式、表、結論に欠落なし。
-- 付録Cの clock Hamiltonian、canonical transformation、matching measure、no-go：数式切れなし。
-- equations：clipping、black square、重なりなし。
-- proof-status table：page width 内。
-- bibliography：40件、URL 表示を確認。
-- header、footer、page number：全ページで整合。
+- 表紙：題名と第9版表記に欠落なし。
+- 目次：全8章と付録A〜Eを収録。
+- 第4章：作用形式の収束と、その限界の記述に欠落なし。
+- 第5章：有限幅パルスの近似的地位と、最小結果符号化模型の記述に欠落なし。
+- 第7章：内部時計の自由運動を含む厳密な比較器の数式に欠落なし。
+- 第8章：証明状態表、`[R]` の地位、未解決問題に欠落なし。
+- 付録C：比較器の完全な Hamiltonian 方程式と誤差評価に数式切れなし。
+- 参考文献：40件を収録し、表示に欠落なし。
+- 全ページ：文字化け、黒塗り、重なり、内容が切れるはみ出しなし。
+- ヘッダー、フッター、ページ番号：全ページで整合。
 
 ## 再現性
 
@@ -59,10 +69,8 @@ python3 tools/verify_two_mode_ledger.py
 
 移行後はルートの `paper.pdf` だけを保存する。
 
-2026年7月25日に標準構成へ移行した後、生成処理を最初から再実行した。生成された `paper.pdf` は88ページ、A4で、SHA-256は次の値である。
+2026年7月25日に第9版の生成処理を最初から実行した。生成された `paper.pdf` は83ページ、A4で、SHA-256は次の値である。
 
 ```text
-1476dfe21232422c8c644e97282e7914a55c4ede488cd43d87973fd36d76bc34
+4db01e1c130494c18f4629df222ab3f8ad696deb10f70610bc40b53afcac9767
 ```
-
-全88ページを画像化して一覧確認し、題名、証明状態表、長い数式、参考文献を高解像度で抜き取り確認した。文字化け、黒塗り、重なり、内容が切れるはみ出しはない。

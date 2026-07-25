@@ -1,11 +1,13 @@
 @number: A3
 @chapter: 付録
-@title: 明示 Hamiltonian、二モード位相体積、補正項
-@status: 第II部で用いた canonical map、作用殻測度、多モード補正を詳細に計算する。
+@title: Hamiltonian 装置部品、2モード位相体積、補正項
+@status: 第II部の理想正準写像、有限幅誤差、厳密な比較窓、作用殻測度、多モード補正を計算する。
 
-## C.1 Poisson structure
+本付録が与えるのは、装置を構成する有限 Hamiltonian 部品と、その正準計算である。生成源、設定制御器、全自由発展を含む1本の完全な実験 Hamiltonian が、全ての理想写像を有限時間で誤差なく実行するとは主張しない。一般の局所パルスは短時間極限で理想写像へ近づき、第7.1節の比較読出しだけは、保存量との交換関係により有限幅でも厳密である。
 
-各 canonical pair $(q_j,p_j)$ に
+## C.1 Poisson 構造
+
+各正準対 $(q_j,p_j)$ に
 
 $$
 \{q_j,p_k\}
@@ -13,7 +15,7 @@ $$
 \delta_{jk}
 $$
 
-を置く。messenger vector $u=(Q,P)^{\mathsf T}$ と action
+を置く。伝達ベクトル $u=(Q,P)^{\mathsf T}$ と作用
 
 $$
 I=\frac12(Q^2+P^2)
@@ -27,7 +29,7 @@ K_{\rm rot}
 -\theta I
 $$
 
-の unit flow は
+の単位流れは
 
 $$
 \dot Q=-\theta P,
@@ -43,7 +45,7 @@ u(1)
 R(\theta)u(0).
 $$
 
-$\theta=\phi(a)+\pi\chi_-(s)$ とし、seed plateau 上で $A=\sigma(s)$ とすれば
+$\theta=\phi(a)+\pi\chi_-(s)$ とし、結果種の平坦領域上で $A=\sigma(s)$ とすれば
 
 $$
 R
@@ -54,11 +56,11 @@ R
 A R[\phi(a)].
 $$
 
-従って outcome sign を messenger phase の $\pi$ shift として canonical に記録できる。
+したがって結果符号を伝達ベクトル位相の $\pi$ 移動として正準的に記録できる。
 
-## C.2 bright shift と anchor shift
+## C.2 応答モードと固定指針の移動
 
-bright pair $(x,p)$ に対する生成子
+応答モード対 $(x,p)$ に対する生成子
 
 $$
 K_{\rm br}
@@ -86,7 +88,7 @@ $$
 
 を与える。$p(0)=0$ なら $p(1)=A$ である。
 
-anchor pair $(Y,\Pi)$ に対する
+固定指針対 $(Y,\Pi)$ に対する
 
 $$
 K_{\rm lock}
@@ -110,17 +112,17 @@ $$
 \dot p=0
 $$
 
-を与える。$\zeta(\pm1)=\pm1$ の plateau で $\Pi(0)=0$ なら、
+を与える。$\zeta(\pm1)=\pm1$ の平坦領域で $\Pi(0)=0$ なら、
 
 $$
 \Pi(1)=A.
 $$
 
-二つの map は Hamiltonian flow なので phase volume を保存する。bright information を local bath へ分散した後も、anchor pair を decouple すれば comparator window 中の record sign は保たれる。
+2つの写像は Hamiltonian 流れなので位相体積を保存する。応答モードの情報を局所浴へ分散した後も、固定指針対を切り離せば比較窓の記録符号は保たれる。
 
-## C.3 autonomous clock
+## C.3 自律順序時計と有限幅誤差
 
-clock pair $(\vartheta,J_c)$ と mutually disjoint pulse profile $f_\nu(\vartheta)$ を用い、
+時計対 $(\vartheta,J_c)$ と、互いに重ならないパルス形 $f_{\nu,\epsilon}(\vartheta)$ を用い、
 
 $$
 H
@@ -129,7 +131,7 @@ H
 +H_0
 +\Omega
 \sum_\nu
-f_\nu(\vartheta)K_\nu
+f_{\nu,\epsilon}(\vartheta)K_\nu
 $$
 
 とする。$K_\nu$ と $H_0$ が $J_c$ に依存しないとき、
@@ -138,23 +140,38 @@ $$
 \dot\vartheta=\Omega.
 $$
 
-$f_\nu$ を
+$f_{\nu,\epsilon}$ を
 
 $$
-\int_{\operatorname{supp}f_\nu}
-f_\nu(\vartheta)d\vartheta=1
+\int_{\operatorname{supp}f_{\nu,\epsilon}}
+f_{\nu,\epsilon}(\vartheta)d\vartheta=1
 $$
 
-と規格化すれば、対応する time interval で
+と規格化すれば、対応する時間区間で
 
 $$
 \int
-\Omega f_\nu[\vartheta(t)]dt=1.
+\Omega f_{\nu,\epsilon}[\vartheta(t)]dt=1.
 $$
 
-従って idealized nonoverlapping limit で $K_\nu$ の unit canonical map が得られる。有限 pulse overlap は Baker--Campbell--Hausdorff expansion に従う commutator correction を生む。operator norm が有界な working region では、overlap duration を $\delta_t$ として leading error は $O(\delta_t\| \{K_\mu,K_\nu\}\|)$ で評価できる。
+自由 Hamiltonian $H_0$ を無視すれば、この積分は $K_\nu$ の単位正準写像を与える。しかし全 Hamiltonian では $H_0$ も同時に働く。相互作用表示で Duhamel 展開を用いると、パルスの時間幅を $\epsilon_\nu$ として、有界な適用領域 $\mathcal K$ 上で
 
-## C.4 相補的内部時計、二境界 matching、向き平均 no-go
+$$
+\sup_{z\in\mathcal K}
+\left\|
+\Phi_{\rm full}^{(\nu)}(z)
+-
+e^{X_{K_\nu}}z
+\right\|
+\leq
+C_{\mathcal K}\epsilon_\nu
+$$
+
+となる。定数 $C_{\mathcal K}$ は、$\mathcal K$ 上の $X_{H_0}$、$X_{K_\nu}$、それらの第1微分の上界で決まる。したがって、本文の局所分析器と指針固定は短時間パルス極限の理想写像であり、有限幅では $O(\epsilon_\nu)$ の補正を持つ。
+
+パルス形の台が重なる場合には、さらに Poisson 括弧 $\{K_\mu,K_\nu\}$ に比例する補正が生じる。本論文では台を分離し、この補正を使わない。第7.1節の比較読出しは、読出し対象の作用が全比較窓 Hamiltonian と交換するため、この一般誤差評価より強い厳密式を持つ。
+
+## C.4 相補的内部時計、2境界照合、向き平均の否定結果
 
 まず、時計運動量を $\pm\varrho_0$ の極小へ固定するだけの Hamiltonian
 
@@ -210,7 +227,7 @@ H_{\rm or}
 \right)^2
 $$
 
-を用いる。center--relative variables を
+を用いる。中心・相対変数を
 
 $$
 \bar\tau
@@ -244,7 +261,7 @@ P_c\,d\bar\tau
 \Pi_R\,dY_R.
 $$
 
-従って変換は正準であり、
+したがって変換は正準であり、
 
 $$
 H_{\rm or}
@@ -277,18 +294,49 @@ $$
 -\frac{\Pi_R}{M_\tau}.
 $$
 
-source で $\Pi_R(0)=E_*>0$ を準備し、return generator を
+比較パルス直前に $\Pi_R=E_*>0$ を準備し、終端比較生成子を
 
 $$
 K_R
 =
-F_R(Y_R)
+Y_R
 \left(
 h-\kappa I_-
 \right)
 $$
 
-とする。$K_R$ は $\bar\tau$ に依存しないので $P_c=0$ は保たれる。また $Y_R=0$、$F_R'(0)=1$ の readout orbit 上で
+とする。$K_R$ は $\bar\tau$ に依存しないので $P_c=0$ は保たれる。さらに
+
+$$
+\{h,K_R\}
+=
+\{I_-,K_R\}
+=
+0
+$$
+
+なので、比較パルス中も $h$ と $I_-$ は保存される。相補時計の自由運動により
+
+$$
+\dot Y_R
+=
+\frac{2\Pi_R}{M_\tau}
+$$
+
+であり、$Y_R$ は一般に動く。一方、規格化したパルス係数を $g_R(t)$ とすれば
+
+$$
+\dot\Pi_R
+=
+g_R(t)
+\left(
+\kappa I_- -h
+\right),
+\qquad
+\int g_R(t)dt=1
+$$
+
+である。したがって有限幅パルスでも厳密に
 
 $$
 \Delta\Pi_R
@@ -302,19 +350,19 @@ $$
 E_*+\kappa I_- -h.
 $$
 
-従って
+したがって
 
 $$
 \Pi_R(T)\geq0
 \quad\Longleftrightarrow\quad
 \varrho_A(T)\geq0
-\ \hbox{and}\
+\quad\land\quad
 \varrho_B(T)\leq0.
 $$
 
-terminal half-space は、source で選んだ時計向きの順序を保存した履歴の集合として得られる。一方、$\Pi_R(T)<0$ の軌道も正則な Hamiltonian 軌道であり、時計向きが交換されるだけである。
+終端半空間は、初期に選んだ時計向きの順序を保存した履歴の集合として得られる。一方、$\Pi_R(T)<0$ の軌道も正則な Hamiltonian 軌道であり、時計向きが交換されるだけである。
 
-この half-space から `[R]` の積形式を得るには、さらに二境界の statistical matching を置く必要がある。初期境界の密度を $\rho_S(z_i)$、逆向き時計の clock-past に対応する終端関数を $G_{\rm or}(z_f)$ とし、両枝が同じ Hamiltonian 履歴を表す条件を
+この半空間から `[R]` の積形式を得るには、さらに2境界の統計的照合を置く必要がある。初期境界の密度を $\rho_S(z_i)$、逆向き時計の時計過去に対応する終端関数を $G_{\rm or}(z_f)$ とし、両枝が同じ Hamiltonian 履歴を表す条件を
 
 $$
 \delta
@@ -352,9 +400,9 @@ G_{\rm or}
 d\Gamma_i.
 $$
 
-これは `[R]` と同じ積形式である。Hamiltonian flow の Jacobian が1であるため、逆向きに積分しても余分な密度因子は出ない。ただし二つの境界密度を掛け、matching する規則は Hamilton 方程式とは別の all-at-once 統計原理である。
+これは `[R]` と同じ積形式である。Hamiltonian 流れの Jacobian が1であるため、逆向きに積分しても余分な密度因子は出ない。ただし2つの境界密度を掛けて照合する規則は、Hamilton 方程式とは別の全履歴統計原理である。
 
-最後に、向きの順序を指定しない素朴な平均を考える。同じ scalar readout
+最後に、向きの順序を指定しない素朴な平均を考える。同じスカラー読出し
 
 $$
 \Pi_R(T)
@@ -366,7 +414,7 @@ x
 E_*+\kappa I_-,
 $$
 
-に対して正向き half-space を $\Pi_R(T)\geq0$、相補的 half-space を $\Pi_R(T)\leq0$ とし、$0\leq x\leq E_\ell$ で一様な $h$ を積分すると、
+に対して正向き半空間を $\Pi_R(T)\geq0$、相補的半空間を $\Pi_R(T)\leq0$ とし、$0\leq x\leq E_\ell$ で一様な $h$ を積分すると、
 
 $$
 F_+(x)
@@ -399,11 +447,11 @@ F_+(x)+F_-(x)
 \frac12
 $$
 
-となり、$I_-$ の cos dependence は消える。従って $\varrho_A=-\varrho_B$ という無向きの相補性だけでは Bell weight を保てない。順序付き boundary sector を採るか、時間反転した sector では comparator kick の符号も反転する共変な追加構造が必要である。
+となり、$I_-$ の余弦依存性は消える。したがって $\varrho_A=-\varrho_B$ という無向きの相補性だけでは Bell 重みを保てない。順序付き境界領域を採るか、時間反転した領域では比較パルスの符号も反転する共変な追加構造が必要である。
 
-## C.5 difference-mode action
+## C.5 差動モード作用
 
-二つの messenger を
+2つの伝達ベクトルを
 
 $$
 u_A
@@ -417,7 +465,7 @@ u_B
 B r_B R[\phi(b)]n(\Theta_B)
 $$
 
-とする。symplectic beam splitter
+とする。シンプレクティック分岐器
 
 $$
 u_+
@@ -429,7 +477,7 @@ u_-
 \frac{u_A-u_B}{\sqrt2}
 $$
 
-は total action を保存する。
+は総作用を保存する。
 
 $$
 \frac12\|u_A\|^2
@@ -439,7 +487,7 @@ $$
 +\frac12\|u_-\|^2.
 $$
 
-antisymmetric port の action は
+反対称出力の作用は
 
 $$
 \frac12\|u_-\|^2
@@ -461,71 +509,108 @@ r_A^2+r_B^2
 \right]
 $$
 
-を得る。この物理的 beam-splitter map を実行してから antisymmetric port の action を comparator へ結合してもよく、同じ quadratic observable へ直接結合してもよい。
+を得る。この物理的な分岐写像を実行してから反対称出力の作用を比較器へ結合してもよく、同じ2次観測量へ直接結合してもよい。
 
-## C.6 return-pointer shift
+## C.6 有限幅の終端比較読出し
 
-return generator
+比較窓 Hamiltonian を
 
 $$
-K_R
+H_{\rm win}
 =
-F_R(Y_R)
-\left[
+H_{\rm or}
++
+\omega_-I_-
++
+\omega_\ell(J_s+J_0)
++
+\Omega J_c
++
+\Omega f_R(\vartheta)
+Y_R
+\left(
 h-\kappa I_-
-\right]
+\right)
 $$
 
-に対して
+とする。$f_R$ の台は他のパルスと交わらず、
 
 $$
-\dot Y_R
+\int f_R(\vartheta)d\vartheta=1
+$$
+
+と規格化する。$H_{\rm win}$ は $J_c$ へ線形なので
+
+$$
+\dot\vartheta=\Omega
+$$
+
+である。差動作用と軟モードのエネルギーについて、
+
+$$
+\dot I_-
 =
-\frac{\partial K_R}{\partial\Pi_R}
-=
-0.
-$$
-
-$Y_R(0)=0$ なら $Y_R(\tau)=0$ である。$F_R(0)=0$ から、readout orbit 上で
-
-$$
-\dot q_s
-=
-\frac{\partial K_R}{\partial p_s}
+\{I_-,H_{\rm win}\}
 =
 0,
-\qquad
-\dot p_s
+$$
+
+$$
+\dot h
 =
--\frac{\partial K_R}{\partial q_s}
+\{h,H_{\rm win}\}
 =
 0
 $$
 
-となり、messenger variables も同様に動かない。一方、
+が厳密に成り立つ。比較パルスは対応する角変数を移動させるが、2つの作用を変えない。
+
+終端比較対については
 
 $$
 \dot\Pi_R
 =
--F_R'(0)
-\left[
-h-\kappa I_-
-\right].
+\Omega f_R(\vartheta)
+\left(
+\kappa I_- -h
+\right),
 $$
 
-$F_R'(0)=1$、$\Pi_R(0)=E_*$ なら
-
 $$
-\Pi_R(1)
+\dot Y_R
 =
-E_*+\kappa I_- -h.
+\frac{2\Pi_R}{M_\tau}.
 $$
 
-従って comparator は $I_-$ と $h$ を破壊せずに差だけを pointer へ記録する。
+したがって $Y_R$ は一般にパルス中も動く。旧生成子 $F_R(Y_R)(h-\kappa I_-)$ に対して $Y_R=0$ を仮定する方法は、$H_{\rm or}$ との同時発展を無視していた。
 
-## C.7 二モード作用殻の正規化
+修正後の線形生成子では $\dot\Pi_R$ が $Y_R$ に依存しない。$I_-$ と $h$ も定数なので、
 
-二つの action-angle pair に対し、
+$$
+\Pi_R(T)-\Pi_R(t_R^-)
+=
+\left(
+\kappa I_- -h
+\right)
+\int_{t_R^-}^{t_R^+}
+\Omega f_R[\vartheta(t)]dt
+=
+\kappa I_- -h.
+$$
+
+したがって $\Pi_R(t_R^-)=E_*$ なら
+
+$$
+\Pi_R(T)
+=
+E_*+\kappa I_- -h
+$$
+
+が有限幅パルスで厳密に成り立つ。比較器は $I_-$ と $h$ を非破壊的に読み出すが、それらの角変数を不変に保つとは主張しない。
+
+## C.7 2モード作用殻の正規化
+
+2つの作用・角変数対に対し、
 
 $$
 \mathcal N(E_\ell)
@@ -556,7 +641,7 @@ dJ_s
 \frac{(2\pi)^2E_\ell}{\omega_\ell^2}.
 $$
 
-$h=\omega_\ell J_s$ の interval $[h,h+dh]$ に入る shell measure は
+$h=\omega_\ell J_s$ の区間 $[h,h+dh]$ に入る作用殻測度は
 
 $$
 d\mathcal N_h
@@ -574,7 +659,7 @@ p_\ell(h)dh
 \frac{dh}{E_\ell}.
 $$
 
-equivalently、rescaled Cartesian coordinate
+同じ結果は、尺度を変えた Descartes 座標
 
 $$
 \frac1{\sqrt{2J_\ell}}
@@ -583,7 +668,7 @@ q_s,p_s,q_0,p_0
 \right)
 $$
 
-は3-sphere $S^3$ 上にあり、
+が3次元球面 $S^3$ 上にあることからも分かる。
 
 $$
 \frac{J_s}{J_\ell}
@@ -595,7 +680,7 @@ $$
 
 は Beta$(1,1)$、すなわち $[0,1]$ 上の一様分布である。
 
-## C.8 mixer generators
+## C.8 混合器生成子
 
 次を定義する。
 
@@ -623,7 +708,7 @@ q_s^2+p_s^2+q_0^2+p_0^2
 \right).
 $$
 
-Poisson bracket を直接計算すると、
+Poisson 括弧を直接計算すると、
 
 $$
 \{J_\ell,J_i\}=0,
@@ -631,7 +716,7 @@ $$
 i=x,y,z.
 $$
 
-また、規格化の取り方に応じた定数因子を除き、$J_x,J_y,J_z$ は $\mathfrak{su}(2)$ 型の閉じた bracket を持つ。従って
+また、規格化の取り方に応じた定数因子を除き、$J_x,J_y,J_z$ は $\mathfrak{su}(2)$ 型の閉じた括弧を持つ。したがって
 
 $$
 K_M
@@ -639,19 +724,19 @@ K_M
 a_x(t)J_x+a_y(t)J_y+a_z(t)J_z
 $$
 
-の各 flow は $S^3$ 上の measure-preserving orientation map である。係数 $a_i(t)$ を有限 nonlinear environment と autonomous clock から生成すれば、全系を Hamiltonian に保ったまま複雑な orientation dynamics を作れる。
+の各流れは $S^3$ 上の測度保存向き写像である。係数 $a_i(t)$ を有限非線形環境と自律時計から生成すれば、全系を Hamiltonian に保ったまま複雑な向き運動を作れる。
 
-この事実は $p(h)$ の invariant reference measure を保証するが、特定の deterministic coefficient sequence が mixing であることを自動的には保証しない。mixing rate は別途 correlation decay または transfer-operator spectrum で検証する必要がある。
+この事実は $p(h)$ の不変基準測度を保証するが、特定の決定論的係数列が混合を起こすことを自動的には保証しない。混合率は、相関減衰または転送作用素のスペクトルで別に検証する必要がある。
 
-## C.9 多モード simplex marginal
+## C.9 多モード単体の周辺分布
 
-soft energy $h$ と $N$ 個の ledger energy $e_1,\ldots,e_N$ が
+軟エネルギー $h$ と $N$ 個の台帳エネルギー $e_1,\ldots,e_N$ が
 
 $$
 h+\sum_{j=1}^{N}e_j=E_\ell
 $$
 
-を満たすとする。各 harmonic pair の phase angle を積分すると定数になる。$h$ を固定した残余 simplex
+を満たすとする。各調和対の位相角を積分すると定数になる。$h$ を固定した残余単体
 
 $$
 \sum_{j=1}^{N}e_j=E_\ell-h,
@@ -659,7 +744,7 @@ $$
 e_j\geq0
 $$
 
-の surface multiplicity は
+の面上の重複度は
 
 $$
 \frac{(E_\ell-h)^{N-1}}{(N-1)!}
@@ -676,7 +761,7 @@ p_N(h)
 \right)^{N-1}.
 $$
 
-cumulative distribution は
+累積分布は
 
 $$
 F_N(x)
@@ -687,7 +772,7 @@ F_N(x)
 \right)^N.
 $$
 
-$N=1$ でのみ linear である。$x=C-ABKc$ と書けば、
+$N=1$ でのみ線形である。$x=C-ABKc$ と書けば、
 
 $$
 F_N(C-ABKc)
@@ -703,11 +788,11 @@ F_N(C-ABKc)
 \right)^m.
 $$
 
-偶数 $m$ は outcome parity に依存しない normalization correction、奇数 $m\geq3$ は $c^3,c^5,\ldots$ を通じて higher angular harmonics を生む。従って extra ledger modes は単なる visibility renormalization ではない。
+偶数 $m$ は結果の偶奇に依存しない規格化補正、奇数 $m\geq3$ は $c^3,c^5,\ldots$ を通じて高次角度調波を生む。したがって追加台帳モードは単なる可視度の再規格化ではない。
 
-## C.10 finite terminal width
+## C.10 有限終端幅
 
-sharp indicator を monotone response $g_\epsilon$ へ置き換える。
+鋭い指示関数を単調応答 $g_\epsilon$ へ置き換える。
 
 $$
 G_{R,\epsilon}
@@ -718,7 +803,7 @@ E_*+\kappa I_- -h
 \right).
 $$
 
-一様 soft density に対する compatibility は
+一様な軟エネルギー密度に対する整合重みは
 
 $$
 F_\epsilon(x)
@@ -728,7 +813,7 @@ F_\epsilon(x)
 g_\epsilon(x-h)dh.
 $$
 
-$g_\epsilon$ が Heaviside function と symmetric smoothing kernel の convolution なら、
+$g_\epsilon$ が Heaviside 関数と対称平滑化核の畳み込みなら、
 
 $$
 \frac{dF_\epsilon}{dx}
@@ -753,11 +838,11 @@ $$
 \frac1{E_\ell}.
 $$
 
-endpoint 近傍でのみ slope と offset が変わる。従って $E_*$ は zero channel を boundary layer から離す一方、visibility を低下させる。
+両端近傍でのみ傾きと切片が変わる。したがって $E_*$ は零しきい値領域を境界層から離す一方、可視度を低下させる。
 
-## C.11 forward-bath no-go
+## C.11 順時間的共有浴と待ち時間の否定結果
 
-記録形成後の四 sector を $\Gamma_{AB}$ とし、共通浴を含む後段 flow を $\Psi^t$ とする。Liouville measure に関して
+記録形成後の4領域を $\Gamma_{AB}$ とし、共有浴を含む後段流れを $\Psi^t$ とする。Liouville 測度に関して
 
 $$
 \mu(\Psi^t\Gamma_{AB})
@@ -771,7 +856,7 @@ $$
 d\Gamma.
 $$
 
-Hamiltonian flow では
+Hamiltonian 流れでは
 
 $$
 \det D\Psi^t=1
@@ -785,7 +870,7 @@ $$
 \mu(\Gamma_{AB}).
 $$
 
-従って future bath coupling は forward ensemble の sector mass を変えない。terminal conditioning を加えると
+したがって共通未来の浴結合は、順時間的集団の結果領域質量を変えない。終端条件づけを加えると
 
 $$
 \mu_R(\Gamma_{AB})
@@ -795,18 +880,29 @@ G_R(\Psi^T z)
 d\mu(z)
 $$
 
-となり、sector mass は変わり得る。しかし変化を生むのは bath noise の leakage そのものではなく、future flow と $G_R$ を組み合わせた boundary reweighting である。
+となり、結果領域質量は変わり得る。しかし変化を生むのは浴雑音の漏れそのものではなく、共通未来の流れと $G_R$ を組み合わせた境界再重みづけである。
 
-## C.12 algebraic consistency checks
+同じ結論は後段の待ち時間にも成り立つ。$n$ 番目の試行の結果を $\kappa_n$、有限完了時間を $\tau_n$ とする。全試行を結果に関係なく1回ずつ数えるなら、
 
-実装の最小 check は次である。
+$$
+\frac1N
+\sum_{n=1}^{N}
+\mathbf1_{\{\kappa_n=(A,B)\}}
+$$
 
-1. random angle と sign について、直接計算した $\|u_A-u_B\|^2/4$ と analytic $I_-$ を比較する。
-2. $S^3$ 上の isotropic Gaussian vector を規格化し、$J_s/J_\ell$ の empirical CDF と uniform CDF を比較する。
-3. $\Pi_R(0)=E_*$ と $\Delta\Pi_R=\kappa I_- -h$ から、相補時計の終端向き条件を検算する。
-4. $h\leq E_*+\kappa I_-$ の indicator を Monte Carlo 積分し、analytic $W_{AB}$ と比較する。
-5. 四 outcome を規格化し、marginal residual と CHSH を計算する。
-6. $F_+(x)+F_-(x)=1$ を検算し、等重み orientation average で cos 項が消えることを確認する。
-7. extra ledger modes を追加し、predicted $F_N(x)$ と higher harmonics を比較する。
+は $\tau_n$ に依存しない。待ち時間は時刻占有率を変えるが、試行番号で数えた結果頻度を変えない。結果に依存する未完了試行または時間切れ試行を除外したときだけ観測頻度が変わり、その場合は事後選別である。
 
-これらは Hamiltonian mixing の証明ではない。幾何、normalization、sampling implementation に循環または符号誤りがないことを確認する代数的検証である。
+## C.12 代数的整合性検査
+
+実装の最小検査は次である。
+
+1. 無作為な角と符号について、直接計算した $\|u_A-u_B\|^2/4$ と解析式 $I_-$ を比較する。
+2. $S^3$ 上の等方 Gaussian ベクトルを規格化し、$J_s/J_\ell$ の経験累積分布と一様累積分布を比較する。
+3. $Y_R$ を自由運動させた有限幅比較パルスを積分し、$I_-$ と $h$ の保存および $\Delta\Pi_R=\kappa I_- -h$ を検査する。
+4. 終端半空間と相補時計の向き保存条件を検査する。
+5. $h\leq E_*+\kappa I_-$ の指示関数を Monte Carlo 積分し、解析的な $W_{AB}$ と比較する。
+6. 4つの結果を規格化し、一側周辺残差と CHSH 値を計算する。
+7. $F_+(x)+F_-(x)=1$ を検査し、等重み向き平均で余弦項が消えることを確認する。
+8. 追加台帳モードを加え、予測される $F_N(x)$ と高次調波を比較する。
+
+これらは Hamiltonian 混合の証明ではない。幾何、規格化、標本化実装に循環または符号誤りがないことを確認する代数的検証である。

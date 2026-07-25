@@ -88,6 +88,36 @@ def main() -> None:
     canonical_error = np.max(np.abs(one_form_direct - one_form_transformed))
     checks.append(record("clock_canonical_one_form_error", canonical_error, 2.0e-14))
 
+    # The corrected finite-width comparator readout remains exact while Y_R drifts.
+    pulse_count = 5_000
+    pulse_steps = 1_024
+    pulse_dt = 1.0 / pulse_steps
+    pulse_h = rng.uniform(0.0, 4.0, size=pulse_count)
+    pulse_action = rng.uniform(0.0, 3.0, size=pulse_count)
+    pulse_coupling = 0.8
+    pulse_mass = 1.7
+    initial_pi = rng.uniform(0.1, 1.0, size=pulse_count)
+    pulse_pi = initial_pi.copy()
+    pulse_y = rng.normal(size=pulse_count)
+    for step in range(pulse_steps):
+        midpoint = (step + 0.5) * pulse_dt
+        pulse_profile = 2.0 * np.sin(np.pi * midpoint) ** 2
+        pulse_pi += (
+            pulse_dt
+            * pulse_profile
+            * (pulse_coupling * pulse_action - pulse_h)
+        )
+        pulse_y += pulse_dt * 2.0 * pulse_pi / pulse_mass
+    expected_pi = initial_pi + pulse_coupling * pulse_action - pulse_h
+    comparator_error = np.max(np.abs(pulse_pi - expected_pi))
+    checks.append(
+        record(
+            "finite_pulse_comparator_with_y_drift_error",
+            comparator_error,
+            2.0e-12,
+        )
+    )
+
     # On P_c = 0, the terminal half-space is exactly ordered clock orientation.
     clock_h = rng.uniform(0.0, 4.0, size=clock_count)
     clock_action = rng.uniform(0.0, 3.0, size=clock_count)

@@ -1,11 +1,11 @@
 @number: 6
 @chapter: 本文
-@title: 共通未来の比較器と二モード台帳
-@status: cos 差動作用と sector 内の一様 soft-energy 密度を別々の位相空間幾何から導く。
+@title: 共通未来の比較器と2モード台帳
+@status: 余弦型差動作用と結果領域内の一様な軟エネルギー密度を、別々の位相空間幾何から導く。
 
-## 6.1 phase-locked messenger
+## 6.1 位相同期した伝達ベクトル
 
-source が準備する二つの messenger を
+生成源が準備する2つの伝達ベクトルを
 
 $$
 u_A^{(0)}
@@ -26,7 +26,7 @@ n(\Theta)
 \end{pmatrix}
 $$
 
-とする。第5章の局所 pulse 後には
+とする。第5章の局所パルス後には
 
 $$
 u_A
@@ -40,7 +40,7 @@ u_B
 B r_B R[\phi(b)]n(\Theta_B)
 $$
 
-となる。$A,B$ は局所 anchor pointer にすでに記録されている。messenger はその符号と analyzer phase の写しを共通未来へ運ぶ。
+となる。$A,B$ は局所固定指針にすでに記録されている。伝達ベクトルは、その符号と分析器位相の写しを共通未来へ運ぶ。
 
 相対角を
 
@@ -50,11 +50,11 @@ $$
 \phi(a)-\phi(b)+\Theta_A-\Theta_B
 $$
 
-とする。setting が physical analyzer angle である場合、$\phi$ は装置表現に依存する。planar spin-like realization では $\phi(a)=a$、linear-polarization-like realization では double-angle map $\phi(a)=2a$ を用い得る。この写像は terminal rule ではなく、局所 analyzer の calibration に属する。
+とする。測定設定が物理的な分析器角である場合、$\phi$ は装置表現に依存する。平面回転型では $\phi(a)=a$、直線偏光型では倍角写像 $\phi(a)=2a$ を用い得る。この写像は終端規則ではなく、局所分析器の較正に属する。
 
-## 6.2 差動作用の cos 幾何
+## 6.2 差動作用の余弦幾何
 
-common-future difference mode の作用を
+共通未来の差動モード作用を
 
 $$
 I_-^{AB}
@@ -77,8 +77,8 @@ r_A^2+r_B^2
 \right].
 $$
 
-\begin{proposition}[実二次元比較器の cos 恒等式]
-等振幅 $r_A=r_B=r$、固定相対 source phase $\Theta_A-\Theta_B=\Phi_0$ の下で、
+\begin{proposition}[実2次元比較器の余弦恒等式]
+等振幅 $r_A=r_B=r$、固定相対生成源位相 $\Theta_A-\Theta_B=\Phi_0$ の下で、
 
 $$
 I_-^{AB}
@@ -99,7 +99,8 @@ $$
 である。
 \end{proposition}
 
-Proof. 回転行列の内積
+\begin{proof}
+回転行列の内積
 
 $$
 n(\Theta_A)^{\mathsf T}
@@ -109,9 +110,10 @@ n(\Theta_B)
 \cos\Delta_{ab}
 $$
 
-を差ベクトルの二乗へ代入すればよい。
+を差ベクトルの2乗へ代入すればよい。
+\end{proof}
 
-cos は複素確率振幅、Born rule、量子内積から導入されていない。二つの実 canonical vector の Euclidean inner product
+余弦は複素確率振幅、Born 則、量子内積から導入されていない。2つの実正準ベクトルの Euclid 内積
 
 $$
 u_A\cdot u_B
@@ -121,9 +123,9 @@ $$
 
 から出る。
 
-## 6.3 amplitude mismatch と phase noise
+## 6.3 振幅不一致と位相雑音
 
-source phase を
+生成源位相を
 
 $$
 \Theta_A-\Theta_B
@@ -131,7 +133,7 @@ $$
 \Phi_0+\delta
 $$
 
-とし、$r_A,r_B,\delta$ に setting と outcome sign から独立な準備分布を許す。terminal compatibility は $I_-$ に線形になるため、source variables を先に平均してよい。
+とし、$r_A,r_B,\delta$ に測定設定と結果符号から独立な準備分布を許す。終端整合重みは $I_-$ に線形になるため、生成源変数を先に平均してよい。
 
 $$
 \overline I_-^{AB}
@@ -150,7 +152,7 @@ r_Ar_Be^{i\delta}
 \right].
 $$
 
-基準作用、visibility、phase offset を
+基準作用、可視度、位相ずれを
 
 $$
 I_0
@@ -208,7 +210,7 @@ $$
 0\leq V\leq1
 $$
 
-である。以下では phase offset を $\Delta_{ab}$ に吸収し、
+である。以下では位相ずれを $\Delta_{ab}$ に吸収し、
 
 $$
 \overline I_-^{AB}
@@ -221,9 +223,9 @@ $$
 
 と書く。
 
-## 6.4 二モード台帳
+## 6.4 2モード台帳
 
-比較器の未読変数として、一つの soft mode と一つの ledger mode を置く。
+比較器の未読変数として、1つの軟モードと1つの台帳モードを置く。
 
 $$
 J_s
@@ -241,7 +243,7 @@ q_0^2+p_0^2
 \right).
 $$
 
-両 mode の基準周波数を同じ $\omega_\ell>0$ とし、
+両モードの基準周波数を同じ $\omega_\ell>0$ とし、
 
 $$
 J_\ell
@@ -255,7 +257,7 @@ E_\ell
 \omega_\ell J_\ell
 $$
 
-を固定する。soft energy を
+を固定する。軟モードのエネルギーを
 
 $$
 h
@@ -263,7 +265,7 @@ h
 \omega_\ell J_s
 $$
 
-とする。ledger mode は、soft mode に入っていない残余作用
+とする。台帳モードは、軟モードに入っていない残余作用
 
 $$
 E_\ell-h
@@ -273,7 +275,7 @@ $$
 
 を保持する。
 
-二つの action-angle 座標を
+2つの作用・角変数を
 
 $$
 q_\nu
@@ -317,10 +319,10 @@ $$
 
 とする。
 
-## 6.5 一様 soft-energy 周辺定理
+## 6.5 一様な軟エネルギー周辺定理
 
-\begin{theorem}[二モード台帳の一様周辺]
-固定 $E_\ell>0$ の二モード作用殻上で、soft energy $h=\omega_\ell J_s$ の周辺密度は
+\begin{theorem}[2モード台帳の一様周辺]
+固定 $E_\ell>0$ の2モード作用殻上で、軟モードのエネルギー $h=\omega_\ell J_s$ の周辺密度は
 
 $$
 p_\ell(h)
@@ -332,7 +334,8 @@ $$
 である。
 \end{theorem}
 
-Proof. 位相角を積分すると $(2\pi)^2$ を得る。$h=\omega_\ell J_s$ を固定した未規格化密度は
+\begin{proof}
+位相角を積分すると $(2\pi)^2$ を得る。$h=\omega_\ell J_s$ を固定した未規格化密度は
 
 $$
 \int_0^\infty
@@ -357,8 +360,9 @@ $$
 $$
 
 規格化すると $p_\ell(h)=1/E_\ell$ である。
+\end{proof}
 
-この定理は、二つの一自由度 harmonic mode の density of states がともに定数であることの帰結である。結果 sector、setting、source phase は ledger shell の定義に現れないため、`[M]` の入口測度が各 sector で共通なら
+この定理は、2つの1自由度調和モードの状態密度がともに定数であることの帰結である。結果領域、測定設定、生成源位相は台帳作用殻の定義に現れないため、`[M]` の入口測度が各結果領域で共通なら
 
 $$
 p
@@ -371,97 +375,26 @@ $$
 
 となる。
 
-## 6.6 有限非線形 mixer
+## 6.6 有限非線形混合器
 
-固定総作用を保ったまま、soft mode と ledger mode の向きを攪拌する生成子を構成できる。次の二次量を定義する。
-
-$$
-J_x
-=
-q_sq_0+p_sp_0,
-$$
+軟モードと台帳モードの総作用 $J_\ell$ を保存したまま、2モード間の作用配分と相対位相を変える有限 Hamiltonian 生成子を構成できる。必要な生成子は
 
 $$
-J_y
-=
-q_sp_0-p_sq_0,
+\{J_\ell,K_M\}=0
 $$
 
-$$
-J_z
-=
-J_s-J_0.
-$$
+を満たす。具体的には、2モードの双線形生成子と有限個の非線形環境変数を結合すればよい。全生成子、Poisson 括弧、保存則は付録C.8に示す。
 
-直接計算から
-
-$$
-\{J_\ell,J_x\}
-=
-\{J_\ell,J_y\}
-=
-\{J_\ell,J_z\}
-=
-0
-$$
-
-である。有限個の非線形環境変数を $\chi=(X_\alpha,P_\alpha)$ とし、
-
-$$
-H_\chi
-=
-\sum_{\alpha=1}^{m}
-\left[
-\frac{P_\alpha^2}{2M_\alpha}
-+\frac{M_\alpha\Omega_\alpha^2X_\alpha^2}{2}
-+\lambda_\alpha X_\alpha^4
-\right]
-+
-\sum_{\alpha<\beta}
-c_{\alpha\beta}X_\alpha^2X_\beta^2
-$$
-
-を一例とする。mixer coupling を
-
-$$
-K_M
-=
-\epsilon
-\left[
-g_x(\chi)J_x
-+g_y(\chi)J_y
-+g_z(\chi)J_z
-\right]
-$$
-
-とすれば、
-
-$$
-\{J_\ell,K_M\}=0.
-$$
-
-従って
-
-$$
-H_{\ell\chi}
-=
-\omega_\ell J_\ell
-+H_\chi
-+K_M
-$$
-
-は有限で滑らかであり、総 ledger action を厳密に保存しながら、二 mode 間の作用配分と相対位相を変化させる。
-
-有限の非線形環境が少数自由度でも中心振動子の実効的エネルギー分散と熱化を起こし得ることは、具体的な古典模型で確認されている [40]。ただし本論文で必要なのは bath が ledger energy を吸収することではない。$J_\ell$ を保ったまま、固定作用殻の orientation を有限分解能で攪拌することである。
+この構成が保証するのは、固定総作用殻とその Liouville 測度が不変であることだけである。特定の有限混合器が必要な時間窓で十分に混合することは、生成子の存在からは従わない。混合速度、再帰時間、有限分解能での偏差は別に検証する必要がある。
 
 ## 6.7 不変測度と動的混合の区別
 
-二モード定理には二つの読み方がある。
+2モード定理には2つの読み方がある。
 
-1. **ensemble reading**：比較器入口を固定作用殻の正規化 Liouville 測度で準備する。この場合 $p_\ell(h)=1/E_\ell$ は厳密である。
-2. **typical-time reading**：一つの初期 microstate を finite mixer で長時間発展させ、有限分解能の time histogram を入口測度として用いる。この場合は mixing と時間尺度分離が必要である。
+1. **集団としての準備**：比較器入口を固定作用殻の正規化 Liouville 測度で準備する。この場合 $p_\ell(h)=1/E_\ell$ は厳密である。
+2. **時間典型性による準備**：1つの初期微視状態を有限混合器で長時間発展させ、有限分解能の時間頻度分布を入口測度として用いる。この場合は混合と時間尺度分離が必要である。
 
-Hamiltonian flow は fine-grained Liouville density を保存する。従って任意の初期密度が $L^1$ または pointwise に一様密度へ収束するとは言えない。mixing が与え得るのは、滑らかな coarse observable $F$ に対する
+Hamiltonian 流れは微細 Liouville 密度を保存する。したがって任意の初期密度が $L^1$ または各点で一様密度へ収束するとは言えない。混合が与え得るのは、滑らかな粗視化観測量 $F$ に対する
 
 $$
 \frac1{\tau_{\rm cmp}}
@@ -472,7 +405,7 @@ F[h(t)]dt
 F(h)\frac{dh}{E_\ell}
 $$
 
-という有限時間平均、または初期 cell を粗視化した弱い収束である。
+という有限時間平均、または初期小領域を粗視化した弱い収束である。
 
 必要な時間尺度は
 
@@ -484,11 +417,11 @@ $$
 T_{\rm rec}.
 $$
 
-$\tau_{\rm mix}$ は coarse histogram の緩和、$\tau_{\rm cmp}$ は comparator が ledger state を読み出す前の混合窓、$T_{\rm rec}$ は有限 mixer の再帰尺度である。本論文は一般の $K_M$ に対してこの不等式を証明しない。これは数値検証すべき `[M]` の動力学部分である。
+$\tau_{\rm mix}$ は粗視化頻度分布の緩和、$\tau_{\rm cmp}$ は比較器が台帳状態を読み出す前の混合窓、$T_{\rm rec}$ は有限混合器の再帰尺度である。本論文は一般の $K_M$ に対してこの不等式を証明しない。これは数値検証すべき `[M]` の動力学部分である。
 
 ## 6.8 通常の多モード浴が失敗する理由
 
-soft mode が $N$ 個の通常 ledger mode と固定総エネルギーを自由に分け合うとする。各 mode が一つの harmonic canonical pair で、全 simplex
+軟モードが $N$ 個の通常台帳モードと固定総エネルギーを自由に分け合うとする。各モードが1つの調和正準対で、全単体
 
 $$
 h+\sum_{j=1}^{N}e_j=E_\ell,
@@ -496,7 +429,7 @@ h+\sum_{j=1}^{N}e_j=E_\ell,
 h,e_j\geq0
 $$
 
-上の一様 Liouville measure を用いる。$h$ を固定した残余 simplex の体積は $(E_\ell-h)^{N-1}$ に比例するので、
+上の一様 Liouville 測度を用いる。$h$ を固定した残余単体の体積は $(E_\ell-h)^{N-1}$ に比例するので、
 
 $$
 p_N(h)
@@ -541,17 +474,17 @@ $$
 
 を代入すると、$\cos^2\Delta_{ab}$ 以上の高調波が一般に残る。
 
-従って「大きな bath ほど Bell の cos 則に近づく」という主張は成立しない。純粋な線形 compatibility に必要なのは、
+したがって「大きな浴ほど Bell の余弦則に近づく」という主張は成立しない。純粋な線形整合重みに必要なのは、
 
-- 一つの soft canonical pair。
-- 一つの ledger canonical pair。
-- 総作用を保った orientation mixing。
+- 1つの軟正準対。
+- 1つの台帳正準対。
+- 総作用を保つ向き混合。
 
-という最小構造である。追加 bath は mixer の chaos を作る補助であり、threshold-dependent energy を自由に共有する ledger へしてはならない。
+という最小構造である。追加浴は混合器のカオスを作る補助であり、しきい値依存エネルギーを自由に共有する台帳にしてはならない。
 
-## 6.9 sector 質量の対称性
+## 6.9 結果領域の質量対称性
 
-二モード定理が決めるのは各 outcome sector 内の条件付き密度であり、sector 自体の基準質量ではない。基準 preparation measure における四 sector を
+2モード定理が決めるのは各結果領域内の条件付き密度であり、領域自体の基準質量ではない。基準準備測度における4領域を
 
 $$
 \Sigma_{AB}
@@ -572,7 +505,7 @@ $$
 
 と定義する。
 
-preparation stage に二つの measure-preserving involution
+準備段階に2つの測度保存対合
 
 $$
 \mathcal S_A:
@@ -588,9 +521,9 @@ $$
 \Sigma_{A,-B}
 $$
 
-があり、$H_{\rm prep}$、preparation macroregion、$\mu_S$ を保つとする。二つの変換が生成する群は四 sector に推移的に作用する。
+があり、$H_{\rm prep}$、準備巨視領域、$\mu_S$ を保つとする。2つの変換が生成する群は4領域に推移的に作用する。
 
-\begin{proposition}[対称準備の sector 等体積]
+\begin{proposition}[対称準備の結果領域等体積]
 上の独立符号反転対称性 `[S]` の下で、
 
 $$
@@ -608,13 +541,15 @@ $$
 である。
 \end{proposition}
 
-Proof. $\mathcal S_A$ と $\mathcal S_B$ は measure-preserving bijection なので、任意の二 sector の測度は等しい。四 sector が全 preparation support を分割するため、規格化すると各質量は $1/4$ である。
+\begin{proof}
+$\mathcal S_A$ と $\mathcal S_B$ は測度保存全単射なので、任意の2領域の測度は等しい。4領域が準備測度の全台を分割するため、規格化すると各質量は $1/4$ である。
+\end{proof}
 
-Hamiltonian の符号対称性だけでは不十分である。同じ Hamiltonian に非対称な初期密度を置くことも可能だからである。`[S]` は「対称な preparation macrostate 上の不変基準測度を採用する」という統計条件を含む。
+Hamiltonian の符号対称性だけでは不十分である。同じ Hamiltonian に非対称な初期密度を置くことも可能だからである。`[S]` は「対称な準備巨視状態上の不変基準測度を採用する」という統計条件を含む。
 
 ## 6.10 共通入口密度
 
-第6.5節と第6.9節を組み合わせると、比較器入口での outcome sector と soft energy の基準密度は
+第6.5節と第6.9節を組み合わせると、比較器入口での結果領域と軟エネルギーの基準密度は
 
 $$
 g_{AB}^{\rm ent}(h)
@@ -634,13 +569,13 @@ $$
 
 この式で
 
-- $1/E_\ell$ は二モード作用殻の幾何。
-- $1/4$ は準備 sector の対称性。
+- $1/E_\ell$ は2モード作用殻の幾何。
+- $1/4$ は準備領域の対称性。
 
-から来る。二つを一つの「等基準因子」として仮定しないことが、本改訂の中心である。
+から来る。2つを1つの「等基準因子」として仮定しないことが、本改訂の中心である。
 
 ## 6.11 本章の結論
 
-Bell 型 cos 重みの角度依存性と線形確率変換は、異なる二つの幾何から生じる。cos は二つの実 messenger の差動作用、一様 threshold density は一つの soft pair と一つの ledger pair の固定総作用殻から生じる。
+Bell 型余弦重みの角度依存性と線形確率変換は、異なる2つの幾何から生じる。余弦は2つの実伝達ベクトルの差動作用、一様なしきい値密度は1つの軟正準対と1つの台帳正準対の固定総作用殻から生じる。
 
-finite nonlinear bath は後者の不変測度を作る論理原理ではなく、その orientation を有限時間で典型化する候補機構である。sector mass はさらに preparation symmetry `[S]` を必要とする。次章では、setting-blind terminal coordinate へこの二つの結果を代入し、共同確率を導く。
+有限非線形浴は後者の不変測度を作る論理原理ではなく、その向きを有限時間で典型化する候補機構である。結果領域の質量はさらに準備対称性 `[S]` を必要とする。次章では、設定名を直接参照しない終端座標へこの2つの結果を代入し、共同確率を導く。
