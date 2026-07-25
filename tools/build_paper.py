@@ -15,8 +15,7 @@ FMT_DIR = ROOT / "build" / "texfmt"
 TEMPLATE = ROOT / "tools" / "template.tex"
 PAPER_MD = ROOT / "paper.md"
 MAIN_TEX = ROOT / "main.tex"
-PDF = ROOT / "output" / "pdf" / "nelson_boundary_bell_complementary_clock_revision.pdf"
-COMPAT_PDF = ROOT / "compiled_paper.pdf"
+PDF = ROOT / "paper.pdf"
 
 REFERENCE_KEYS = {
     1: "bell1964",
@@ -205,7 +204,6 @@ def ensure_xelatex_format() -> Path:
 
 def build() -> None:
     WORK.mkdir(parents=True, exist_ok=True)
-    PDF.parent.mkdir(parents=True, exist_ok=True)
     PAPER_MD.write_text(combined_markdown(), encoding="utf-8")
 
     body = WORK / "body.tex"
@@ -235,7 +233,6 @@ def build() -> None:
 
     built = WORK / "main.pdf"
     shutil.copy2(built, PDF)
-    shutil.copy2(built, COMPAT_PDF)
     print(PAPER_MD)
     print(MAIN_TEX)
     print(PDF)

@@ -110,11 +110,11 @@ quantum-wakaran-neko/
 | `.github/workflows/verify.yml` | 自動検算 | 手元と同じ検算を実行する |
 | `.gitignore` | 一時ファイル、補助ファイル、組版途中の出力の除外 | 完成版と再現に必要なものは除外しない |
 
-## 4. 現行版での移行規則
+## 4. 第8版からの移行結果
 
-第8版のパッケージでは、完成版が `compiled_paper.pdf` と `output/pdf/nelson_boundary_bell_complementary_clock_revision.pdf` に重複している。移行時に内容が同一であることを確認し、最終的にはルートの `paper.pdf` 1本へ統一する。
+第8版のパッケージに重複していた `compiled_paper.pdf` と `output/pdf/nelson_boundary_bell_complementary_clock_revision.pdf` は、検査値が一致することを確認したうえで、ルートの `paper.pdf` 1本へ統一した。
 
-現行の `tools/build_paper.py` は、移行が終わるまでは既存の出力名を保ってよい。出力名を変更するときは、生成処理、説明文書、自動検算を1回の更新で揃える。
+`tools/build_paper.py` は `paper.md`、`main.tex`、`paper.pdf` を直接生成する。生成物の名前または場所を変更するときは、生成処理、説明文書、自動検算を1回の更新で揃える。
 
 旧版の章、置換済みの流束模型、査読回答、旧完成版は `main` ブランチに混在させない。これらは版タグと公開版の添付資料から参照する。
 

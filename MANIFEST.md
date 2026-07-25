@@ -4,8 +4,7 @@
 
 - `paper.md`
 - `main.tex`
-- `compiled_paper.pdf`
-- `output/pdf/nelson_boundary_bell_complementary_clock_revision.pdf`
+- `paper.pdf`
 
 ## 現行章別 Markdown
 
@@ -28,12 +27,20 @@
 ## 状態・再現性
 
 - `README.md`
+- `PROJECT_STANCE.md`
+- `PROJECT_GUIDE.md`
 - `PROJECT_STATUS.md`
+- `CHANGELOG.md`
 - `VALIDATION.md`
+- `MANIFEST.md`
+- `CITATION.cff`
 - `references.bib`
 - `tools/build_paper.py`
 - `tools/template.tex`
 - `tools/verify_two_mode_ledger.py`
+- `figures/README.md`
+- `.github/workflows/verify.yml`
+- `.gitignore`
 
 ## 組版用フォント
 
