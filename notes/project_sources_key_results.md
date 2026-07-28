@@ -8,32 +8,32 @@
 
 有限Fourier–Gaussian表示から得られる線形過程を \(X_N(t)\) とする。初期側の記録を条件づけたGaussian初期分布に含め、終端側で有限分解能の記録
 
-$$
+```math
 Y=HX_N(T)+\varepsilon,\qquad
 \varepsilon\sim N(0,R),\qquad R\ge r_*I>0
-$$
+```
 
 を与える。無条件平均と共分散を \(\mu_N(t)\)、\(C_N(s,t)\) とし、
 
-$$
+```math
 S_N=HC_N(T,T)H^{\mathsf T}+R
-$$
+```
 
 と置く。
 
 **定理。** \(Y=y\) の下で \(X_N\) はGaussian過程のままであり、条件付き平均と共分散は
 
-$$
+```math
 \mu_N^R(t)
 =\mu_N(t)+C_N(t,T)H^{\mathsf T}S_N^{-1}
 \left[y-H\mu_N(T)\right],
-$$
+```
 
-$$
+```math
 C_N^R(s,t)
 =C_N(s,t)-C_N(s,T)H^{\mathsf T}
 S_N^{-1}HC_N(T,t)
-$$
+```
 
 で与えられる。
 
@@ -43,31 +43,31 @@ $$
 
 Markov拡散極限において、初期準備から伝播した前向き因子を \(\alpha(x,t)\)、終端記録の後向き尤度を \(\beta(x,t)\) とすると、二側条件付き密度は
 
-$$
+```math
 \rho(x,t)
 =\frac{\alpha(x,t)\beta(x,t)}
 {\int \alpha(x,t)\beta(x,t)\,dx}
-$$
+```
 
 と書ける。基準となる前進流れを \(b_+^0\) とすれば、終端条件づけ後の前進流れはDoob変換
 
-$$
+```math
 b_+=b_+^0+2\nu\nabla\log\beta
-$$
+```
 
 で与えられる。前進・後退流れの間には
 
-$$
+```math
 b_--b_+=-2\nu\nabla\log\rho
-$$
+```
 
 が成り立つため、
 
-$$
+```math
 v=\frac{b_++b_-}{2},\qquad
 u=\frac{b_+-b_-}{2}
 =\nu\nabla\log\rho
-$$
+```
 
 を、それぞれ流れ速度と浸透速度として得る。
 
@@ -77,13 +77,13 @@ $$
 
 有限差分
 
-$$
+```math
 D_hX_N(t)=\frac{X_N(t+h)-X_N(t)}{h}
-$$
+```
 
 を用い、拡散経路で普遍的に発散する項を差し引いた作用を
 
-$$
+```math
 \mathcal A_{N,h}^{R,U}(\theta)
 =\mathbb E_{N,\theta}^{R}
 \int_0^{T-h}
@@ -92,13 +92,13 @@ $$
 -\frac{md\nu}{h}
 -U_\theta(X_N(t),t)
 \right]dt
-$$
+```
 
 とする。差し引く項は結果や設定に依存しない。
 
 **定理。** 線形Gaussian系、有限分解能記録、2次ポテンシャル、滑らかな有限次元パラメータ族という仮定の下で、
 
-$$
+```math
 \left\|
 \mathcal A_{N,h}^{R,U}
 -\mathcal A_{\mathrm{GM}}^{R,U}
@@ -107,20 +107,20 @@ $$
 \left(
 \frac{h}{T}+\frac{T^2}{Nh^2}
 \right)
-$$
+```
 
 が成り立つ。特に \(h_N=TN^{-1/3}\) とすれば、作用値と指定したパラメータ方向の第1変分は誤差 \(O(N^{-1/3})\) でGuerra–Morato作用へ収束する。
 
 境界項が消える条件の下では、
 
-$$
+```math
 \mathcal A_{\mathrm{GM}}^{R,U}
 =\int \rho
 \left[
 \frac m2|v|^2-\frac m2|u|^2-U
 \right]dx\,dt
 =\mathcal A_{\mathrm{Nel}}^{R,U}
-$$
+```
 
 であり、極限作用はNelson作用に一致する。
 
@@ -130,21 +130,21 @@ $$
 
 2経路の繰り込み済みHamilton作用差を
 
-$$
+```math
 \Delta\theta
 =\frac{S_L^{\mathrm{ren}}-S_R^{\mathrm{ren}}}
 {\hbar_{\mathrm{eff}}}
-$$
+```
 
 とする。前向き分布と後向きチャンネル尤度が、同じ円周位相変数を持ち、その第1Fourier成分がこの作用差に固定されるなら、位相変数を積分した重みは
 
-$$
+```math
 W
 =w_L+w_R
 +2\sqrt{w_Lw_R}\,
 V_{LR}\cos(\Delta\theta+\delta),
 \qquad 0\le V_{LR}\le1
-$$
+```
 
 の形になる。
 
@@ -164,68 +164,68 @@ $$
 
 離散スペクトル
 
-$$
+```math
 M=\sum_r m_r\Pi_r,\qquad [H,M]=0
-$$
+```
 
 を持つ観測量に対し、次の規格化確率過程を追加する。
 
-$$
+```math
 d\psi_t
 =\left[
 -\frac{i}{\hbar_{\mathrm{eff}}}H
 -\frac{\kappa}{2}(M-\bar M_t)^2
 \right]\psi_t\,dt
 +\sqrt{\kappa}(M-\bar M_t)\psi_t\,dW_t,
-$$
+```
 
-$$
+```math
 \bar M_t=\langle\psi_t,M\psi_t\rangle.
-$$
+```
 
 この法則はノルムを保存し、平均密度行列は
 
-$$
+```math
 \partial_t\varrho_t
 =-\frac{i}{\hbar_{\mathrm{eff}}}[H,\varrho_t]
 -\frac{\kappa}{2}[M,[M,\varrho_t]]
-$$
+```
 
 に従う。スペクトル重み
 
-$$
+```math
 p_r(t)=\langle\psi_t,\Pi_r\psi_t\rangle
-$$
+```
 
 は
 
-$$
+```math
 dp_r
 =2\sqrt{\kappa}(m_r-\bar M_t)p_r\,dW_t
-$$
+```
 
 を満たす有界マルチンゲールである。また
 
-$$
+```math
 V_t=\langle\psi_t,(M-\bar M_t)^2\psi_t\rangle
-$$
+```
 
 について
 
-$$
+```math
 \frac{d}{dt}\mathbb E[V_t]
 =-4\kappa\,\mathbb E[V_t^2]\le0
-$$
+```
 
 となり、\(V_t\to0\) がほとんど確実に成り立つ。
 
 **定理。** 有限離散スペクトルと \([H,M]=0\) の下で、過程は1つの固有空間へほとんど確実に収束し、
 
-$$
+```math
 \mathbb P(R_\infty=r)
 =p_r(0)
 =\|\Pi_r\psi_0\|^2
-$$
+```
 
 となる。Born到達確率は、この有効選択法則を置いた後ではマルチンゲール性から厳密に従う。
 
@@ -245,7 +245,7 @@ $$
 
 情報源の最新版では、測定窓全体を、概略
 
-$$
+```math
 H_{\rm tot}
 =
 H_{\rm src}
@@ -257,13 +257,13 @@ H_{\rm src}
 +H_\ell
 +H_{\rm clk}
 +\epsilon H_{\rm leak}
-$$
+```
 
-という一つのHamiltonianとして整理する。$H_{\rm clk}$ は互いに重ならない結合窓を自律的に進行させ、$\epsilon H_{\rm leak}$ は長時間で外部との微小なエネルギー交換を許す項である。有限の測定窓では $\epsilon=0$ の閉鎖系を基準とする。
+という一つのHamiltonianとして整理する。\(H_{\rm clk}\) は互いに重ならない結合窓を自律的に進行させ、\(\epsilon H_{\rm leak}\) は長時間で外部との微小なエネルギー交換を許す項である。有限の測定窓では \(\epsilon=0\) の閉鎖系を基準とする。
 
 局所部分は
 
-$$
+```math
 H_X^{\rm loc}
 =
 H_X^{\rm sys}
@@ -271,21 +271,21 @@ H_X^{\rm sys}
 +H_{X,I}
 +H_{X-L},
 \qquad X=A,B
-$$
+```
 
-と分ける。局所浴 $\mathcal B_X^{\rm loc}=\mathcal B_{X,L}\oplus\mathcal B_{X,I}$ のうち、$L$ sectorは局所記録とbright transientの分散、$I$ sectorは記録とmessengerの正準な写しを共通未来へ渡すinterfaceを担う。$t<t_C$ では左右の局所部分を分離し、$t\ge t_C$ でinterface modeだけを共有sector $\mathcal B_{AB}^{\rm shared}$ に結合する。したがって共有浴は、記録形成前に左右へ共通ノイズを与える浴ではない。
+と分ける。局所浴 \(\mathcal B_X^{\rm loc}=\mathcal B_{X,L}\oplus\mathcal B_{X,I}\) のうち、\(L\) sectorは局所記録とbright transientの分散、\(I\) sectorは記録とmessengerの正準な写しを共通未来へ渡すinterfaceを担う。\(t<t_C\) では左右の局所部分を分離し、\(t\ge t_C\) でinterface modeだけを共有sector \(\mathcal B_{AB}^{\rm shared}\) に結合する。したがって共有浴は、記録形成前に左右へ共通ノイズを与える浴ではない。
 
-従来 $H_{\rm cmp}$ と $H_{\rm mix}$ に分けていた後段の操作は、$H_{AB}^{\rm shared}$ 内の静的な2入力・2出力junctionとして数える。このjunctionは共通の $U(1)$ actionを保存し、浴の二つのinterface vectorを正準な和・差modeへ組み替える。
+従来 \(H_{\rm cmp}\) と \(H_{\rm mix}\) に分けていた後段の操作は、\(H_{AB}^{\rm shared}\) 内の静的な2入力・2出力junctionとして数える。このjunctionは共通の \(U(1)\) actionを保存し、浴の二つのinterface vectorを正準な和・差modeへ組み替える。
 
-$$
+```math
 I_-=\frac14\|u_A-u_B\|^2,
 \qquad
 I_+=\frac14\|u_A+u_B\|^2.
-$$
+```
 
 左右の基準作用が等しいとき、
 
-$$
+```math
 I_-^{AB}
 =
 I_0\left[1-ABV\cos\Delta_{ab}\right],
@@ -293,93 +293,93 @@ I_0\left[1-ABV\cos\Delta_{ab}\right],
 I_+^{AB}
 =
 I_0\left[1+ABV\cos\Delta_{ab}\right],
-$$
+```
 
-$$
+```math
 I_++I_-=2I_0
-$$
+```
 
 が成り立つ。差modeが不一致量を表し、和modeと残りのbath modeが比較のためのreservoirを構成する。この意味で比較器は独立した外付け装置ではなく、共通未来の浴をreaction coordinateとdark modeへ分解したものとして実装できる。
 
-soft energyを $h$、未読のreturn-reservoir energyを $e_R\ge0$ とし、境界sectorの固定作用殻を
+soft energyを \(h\)、未読のreturn-reservoir energyを \(e_R\ge0\) とし、境界sectorの固定作用殻を
 
-$$
+```math
 e_R+h+\kappa I_+
 =
 E_*+2\kappa I_0
-$$
+```
 
 と取る。上の恒等式から
 
-$$
+```math
 e_R
 =
 E_*+\kappa I_- -h
-$$
+```
 
 であり、bath energyの非負性だけで
 
-$$
+```math
 h\le E_*+\kappa I_-
-$$
+```
 
 を得る。これは旧模型でreturn comparatorへ明示的に書き込んでいたterminal compatibilityと同じ支持条件である。比較演算は、浴modeの正準変換、全作用の保存、reservoir energyの非負性でまかなわれる。
 
-ここで厳密なのは、和・差modeへの正準変換、$I_++I_-=2I_0$、固定殻から上の支持条件が出る代数である。一方、一般の有限浴が境界microcanonical測度 $[M_\partial]$ を動力学的に準備すること、$\epsilon H_{\rm leak}$ がその測度を一意に選ぶこと、局所測定から境界準備までの全結合を一本の明示式で完成することは未導出事項である。したがって、この整理は独立比較器を浴へ吸収する重要なHamiltonian構成案だが、$[R]$ の完全な力学的除去を証明するものではない。
+ここで厳密なのは、和・差modeへの正準変換、\(I_++I_-=2I_0\)、固定殻から上の支持条件が出る代数である。一方、一般の有限浴が境界microcanonical測度 \([M_\partial]\) を動力学的に準備すること、\(\epsilon H_{\rm leak}\) がその測度を一意に選ぶこと、局所測定から境界準備までの全結合を一本の明示式で完成することは未導出事項である。したがって、この整理は独立比較器を浴へ吸収する重要なHamiltonian構成案だが、\([R]\) の完全な力学的除去を証明するものではない。
 
 #### 8.2 比較器と二モード台帳
 
 左右の記録を共通未来で比較する実2次元比較器について、
 
-$$
+```math
 I_-^{AB}
 =\frac14\|u_A-u_B\|^2
 =I_0\left[
 1-ABV\cos\Delta_{ab}
 \right]
-$$
+```
 
 とする。\(A,B\in\{-1,+1\}\)、\(0\le V\le1\) である。cos依存はNelson極限から自動的に出るものではなく、この差動比較器の幾何に含まれる。
 
 軟モードと台帳モードの作用を \(J_s,J_0\) とし、
 
-$$
+```math
 J_s+J_0=\frac{E_\ell}{\omega_\ell}
-$$
+```
 
 という固定総作用殻上でLiouville測度を取ると、軟モードエネルギー \(h=\omega_\ell J_s\) は \([0,E_\ell]\) 上で一様になる。結果領域の基準質量 \(w_{AB}=1/4\) は、Hamiltonianの形ではなく対称な準備測度から従う。
 
 旧境界原理 \([R]\) では、設定と結果を明示的な引数に持たない終端条件が
 
-$$
+```math
 h\le E_*+\kappa I_-^{AB}
-$$
+```
 
 と等価になる。全結果領域でしきい値が台帳の適用範囲内にあるとき、適合体積は
 
-$$
+```math
 W_{AB}
 =\frac{w_{AB}}{E_\ell}
 \left[
 E_*+\kappa I_0
 \left(1-ABV\cos\Delta_{ab}\right)
 \right]
-$$
+```
 
 となる。対称準備で規格化すると、
 
-$$
+```math
 P(A,B\mid a,b)
 =\frac14
 \left[
 1-ABV_{\mathrm{eff}}\cos\Delta_{ab}
 \right],
-$$
+```
 
-$$
+```math
 V_{\mathrm{eff}}
 =\frac{\kappa I_0}{E_*+\kappa I_0}\,V
-$$
+```
 
 を得る。
 
@@ -387,10 +387,10 @@ $$
 
 後発の候補では、終端フィルター \([R]\) を独立に置く代わりに、軟モード作用 \(J_s\)、帰還作用 \(J_r\)、比較器の差動作用 \(\widetilde I_-\) から
 
-$$
+```math
 Q
 =\omega_\ell(J_s+J_r)-\kappa\widetilde I_-
-$$
+```
 
 という保存量を構成し、固定作用殻 \(Q=E_*\) 上の境界Liouville測度を \([M_\partial]\) とする。この殻の境界体積が \(E_*+\kappa I_-^{AB}\) に線形なら、旧 \([R]\) と同じBell型共同確率を再現する。
 
@@ -400,30 +400,30 @@ $$
 
 完全な微視状態を \(\lambda\) とすれば、固定した \(\lambda\) における左右の局所応答は局所的に因子化できる。一方、境界条件づけ後の集団は
 
-$$
+```math
 \rho(A,B,h\mid a,b)
 =\frac{1}{4(E_*+\kappa I_0)}
 \mathbf 1_{
 0\le h\le
 E_*+\kappa I_0[1-ABV\cos\Delta_{ab}]
 }
-$$
+```
 
 のように設定 \(a,b\) に依存する。したがって、この模型で外れるBell前提は測定設定独立性である。
 
 対称準備では
 
-$$
+```math
 P(A\mid a,b)=P(B\mid a,b)=\frac12,
 \qquad
 E(a,b)=-V_{\mathrm{eff}}\cos\Delta_{ab}
-$$
+```
 
 となり、規格化因子も設定に依存しないため非信号性を保つ。CHSH値の最大は
 
-$$
+```math
 S_{\max}=2\sqrt2\,V_{\mathrm{eff}}
-$$
+```
 
 であり、\(V_{\mathrm{eff}}>1/\sqrt2\) ならBell不等式を破る。
 
