@@ -241,7 +241,93 @@ $$
 
 ### 8. 境界作用殻とBell共同確率
 
-#### 8.1 比較器と二モード台帳
+#### 8.1 全Hamiltonianと浴による比較器
+
+情報源の最新版では、測定窓全体を、概略
+
+$$
+H_{\rm tot}
+=
+H_{\rm src}
++H_{\rm ctrl}
++H_{\rm msg}
++H_A^{\rm loc}
++H_B^{\rm loc}
++H_{AB}^{\rm shared}
++H_\ell
++H_{\rm clk}
++\epsilon H_{\rm leak}
+$$
+
+という一つのHamiltonianとして整理する。$H_{\rm clk}$ は互いに重ならない結合窓を自律的に進行させ、$\epsilon H_{\rm leak}$ は長時間で外部との微小なエネルギー交換を許す項である。有限の測定窓では $\epsilon=0$ の閉鎖系を基準とする。
+
+局所部分は
+
+$$
+H_X^{\rm loc}
+=
+H_X^{\rm sys}
++H_{X,L}
++H_{X,I}
++H_{X-L},
+\qquad X=A,B
+$$
+
+と分ける。局所浴 $\mathcal B_X^{\rm loc}=\mathcal B_{X,L}\oplus\mathcal B_{X,I}$ のうち、$L$ sectorは局所記録とbright transientの分散、$I$ sectorは記録とmessengerの正準な写しを共通未来へ渡すinterfaceを担う。$t<t_C$ では左右の局所部分を分離し、$t\ge t_C$ でinterface modeだけを共有sector $\mathcal B_{AB}^{\rm shared}$ に結合する。したがって共有浴は、記録形成前に左右へ共通ノイズを与える浴ではない。
+
+従来 $H_{\rm cmp}$ と $H_{\rm mix}$ に分けていた後段の操作は、$H_{AB}^{\rm shared}$ 内の静的な2入力・2出力junctionとして数える。このjunctionは共通の $U(1)$ actionを保存し、浴の二つのinterface vectorを正準な和・差modeへ組み替える。
+
+$$
+I_-=\frac14\|u_A-u_B\|^2,
+\qquad
+I_+=\frac14\|u_A+u_B\|^2.
+$$
+
+左右の基準作用が等しいとき、
+
+$$
+I_-^{AB}
+=
+I_0\left[1-ABV\cos\Delta_{ab}\right],
+\qquad
+I_+^{AB}
+=
+I_0\left[1+ABV\cos\Delta_{ab}\right],
+$$
+
+$$
+I_++I_-=2I_0
+$$
+
+が成り立つ。差modeが不一致量を表し、和modeと残りのbath modeが比較のためのreservoirを構成する。この意味で比較器は独立した外付け装置ではなく、共通未来の浴をreaction coordinateとdark modeへ分解したものとして実装できる。
+
+soft energyを $h$、未読のreturn-reservoir energyを $e_R\ge0$ とし、境界sectorの固定作用殻を
+
+$$
+e_R+h+\kappa I_+
+=
+E_*+2\kappa I_0
+$$
+
+と取る。上の恒等式から
+
+$$
+e_R
+=
+E_*+\kappa I_- -h
+$$
+
+であり、bath energyの非負性だけで
+
+$$
+h\le E_*+\kappa I_-
+$$
+
+を得る。これは旧模型でreturn comparatorへ明示的に書き込んでいたterminal compatibilityと同じ支持条件である。比較演算は、浴modeの正準変換、全作用の保存、reservoir energyの非負性でまかなわれる。
+
+ここで厳密なのは、和・差modeへの正準変換、$I_++I_-=2I_0$、固定殻から上の支持条件が出る代数である。一方、一般の有限浴が境界microcanonical測度 $[M_\partial]$ を動力学的に準備すること、$\epsilon H_{\rm leak}$ がその測度を一意に選ぶこと、局所測定から境界準備までの全結合を一本の明示式で完成することは未導出事項である。したがって、この整理は独立比較器を浴へ吸収する重要なHamiltonian構成案だが、$[R]$ の完全な力学的除去を証明するものではない。
+
+#### 8.2 比較器と二モード台帳
 
 左右の記録を共通未来で比較する実2次元比較器について、
 
@@ -297,7 +383,7 @@ $$
 
 を得る。
 
-#### 8.2 最新の固定作用殻候補
+#### 8.3 最新の固定作用殻候補
 
 後発の候補では、終端フィルター \([R]\) を独立に置く代わりに、軟モード作用 \(J_s\)、帰還作用 \(J_r\)、比較器の差動作用 \(\widetilde I_-\) から
 
@@ -348,7 +434,7 @@ $$
 - cos比較器とTsirelson限界が、他の正の比較器から一意に選ばれること。
 - 相補的な内部時計だけから物理的履歴測度が選ばれること。
 - Nelsonの二側測度、測定の選択法則、Bellの境界測度を単一原理から導くこと。
-- 全部品を含む単一の有限自律Hamiltonian模型を完成すること。
+- 一般の局所測定過程と境界測度の準備まで含め、全構成を単一の有限自律Hamiltonianとして完成すること。
 
 現段階では、Nelson部分には有限線形Gaussian系の \(C^1\) 収束定理、測定部分には追加選択法則の下での収束定理、Bell部分には \([M_\partial]\) を最新版候補として採用する。旧 \([R]\) は、Bell共同確率が厳密に得られる比較対象として残す。
 
