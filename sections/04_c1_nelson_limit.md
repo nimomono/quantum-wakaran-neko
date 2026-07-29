@@ -36,7 +36,7 @@ D_hX_N(t)=\frac{X_N(t+h)-X_N(t)}{h}
 ```math
 \mathcal A_{N,h}^{R,U}(\theta)
 =
-\E_{N,\theta}^{R}
+\mathbb{E}_{N,\theta}^{R}
 \int_0^{T-h}
 \left[
 \frac m{2h^2}
