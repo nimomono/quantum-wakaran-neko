@@ -10,7 +10,7 @@
 
 第I部では、有限分解能の前後記録で条件づけた線形 Gaussian 経路法則を考える。時間刻み $h$ の繰り込み済み粗視化作用を $\mathcal A_{N,h}^{R,U}$ とすると、滑らかな有限次元パラメータ集合 $K$ 上で
 
-$$
+```math
 \left\|
 \mathcal A_{N,h}^{R,U}
 -
@@ -22,7 +22,7 @@ C_K
 \frac hT+
 \frac{T^2}{Nh^2}
 \right)
-$$
+```
 
 を得る。$h_N=TN^{-1/3}$ なら誤差は $O(N^{-1/3})$ である。極限作用は正の Gaussian 密度領域で Guerra--Morato 表示と Nelson 表示を持つ。
 
@@ -30,40 +30,40 @@ $$
 
 第II部は第I部の Nelson 極限から Bell 重みを導かない。局所装置は結果符号を固定指針へ記録し、設定と符号を担う2つの実正準ベクトルを記録後の共通未来へ送る。比較器が計算する差動作用は
 
-$$
+```math
 \overline I_-^{AB}
 =
 I_0
 \left[
 1-ABV\cos\Delta_{ab}
 \right]
-$$
+```
 
 である。余弦は確率公理ではなく、2つの実2次元ベクトルの内積から生じる。
 
 比較器の未読変数には、1つの軟モードと1つの台帳モードを用いる。固定総作用殻
 
-$$
+```math
 E_\ell
 =
 \omega_\ell(J_s+J_0)
-$$
+```
 
 上の正規化 Liouville 測度では、軟モードのエネルギー $h=\omega_\ell J_s$ は
 
-$$
+```math
 p(h)
 =
 \frac1{E_\ell},
 \qquad
 0\leq h\leq E_\ell
-$$
+```
 
 という一様周辺密度を持つ。これは2モード位相体積の厳密な結果である。任意の微視的初期密度が Hamiltonian 発展によってこの密度へ強収束するとは主張しない。動的な典型化を用いる場合には、有限分解能での混合と時間尺度分離を追加で仮定する。
 
 4つの結果領域の基準質量は、台帳幾何だけでは決まらない。準備 Hamiltonian、準備巨視領域、基準 Liouville 測度が左右の符号反転に不変であるという `[S]` の下でのみ、
 
-$$
+```math
 w_{++}
 =
 w_{+-}
@@ -73,40 +73,40 @@ w_{-+}
 w_{--}
 =
 \frac14
-$$
+```
 
 が従う。
 
 終端読出しには、2つの内部時計の相対運動量 $\Pi_R$ を用いる。比較窓の生成子を
 
-$$
+```math
 K_R
 =
 Y_R
 \left(
 h-\kappa I_-
 \right)
-$$
+```
 
 と取ると、内部時計の自由 Hamiltonian により $Y_R$ が動いても、$h$ と $I_-$ は保存される。規格化した比較パルスの後には厳密に
 
-$$
+```math
 \Pi_R(T)
 =
 E_*+\kappa I_- -h
-$$
+```
 
 を得る。従って、相補的時計領域 $P_c=0$ では
 
-$$
+```math
 \Pi_R(T)\geq0
-$$
+```
 
 が、初期に選んだ時計向きの順序を終端まで保つ条件と一致する。この修正により、比較パルス中に $Y_R=0$ が保たれるという仮定は不要になる。
 
 一方、Hamilton 方程式は $\Pi_R(T)<0$ の軌道も許す。したがって相補的時計が与えるのは終端半空間の力学的意味であり、その半空間に入る履歴だけを物理的確率集団とする原理ではない。本論文では、基準初期密度 $\rho_S$ と全設定に共通な終端関数 $G_R$ から
 
-$$
+```math
 d\mu_R^{a,b}(z_i)
 =
 \frac{
@@ -116,36 +116,36 @@ G_R\!\left(\Phi_{a,b}^{T}z_i\right)
 Z_{a,b}
 }
 d\Gamma_i
-$$
+```
 
 を定める追加原理を `[R]` と呼ぶ。これは「2境界統計原理」であり、時間反転共変な完成模型が得られたことを意味しない。
 
 適用範囲
 
-$$
+```math
 0
 \leq
 E_*+\kappa\overline I_-^{AB}
 \leq
 E_\ell
-$$
+```
 
 と `[H,P,S,M,R]` の下では、
 
-$$
+```math
 P_R(A,B\mid a,b)
 =
 \frac14
 \left[
 1-ABV_{\rm eff}\cos\Delta_{ab}
 \right],
-$$
+```
 
-$$
+```math
 V_{\rm eff}
 =
 \frac{\kappa I_0}{E_*+\kappa I_0}V
-$$
+```
 
 を得る。規格化因子は測定設定に依存せず、`[S]` の対称集団では非信号性が成り立つ。ただし、完全な微視状態の事後分布は一般に測定設定へ依存する。Bell の前提違反は測定設定独立性に現れ、Bell の定理を否定しない。
 
@@ -196,11 +196,11 @@ Bell の定理は、局所応答、結果の確定性、測定設定独立性な
 
 1試行の測定窓では、生成源、設定制御器、局所装置、伝達ベクトル、比較器、台帳、時計、有限浴からなる有限正準系を用いる。位相点を $z$、標準シンプレクティック行列を $J$ と書けば、
 
-$$
+```math
 \dot z
 =
 J\nabla H_{\rm tot}(z)
-$$
+```
 
 である。各構成部品は滑らかな Hamiltonian 生成子を持ち、位相体積を保存する。操作順序は自律時計によって設定できる。
 
@@ -208,13 +208,13 @@ $$
 
 有限閉鎖系には真のアトラクターも永久記録もない。局所記録が実用的に安定であるという主張は、
 
-$$
+```math
 \tau_{\rm meas}
 \ll
 \tau_{\rm record}
 \ll
 T_{\rm rec}
-$$
+```
 
 という有限時間窓に限定する。$\tau_{\rm meas}$ は記録形成時間、$\tau_{\rm record}$ は必要な保持時間、$T_{\rm rec}$ は装置を含む有限系の再帰尺度である。
 
@@ -230,11 +230,11 @@ $$
 
 現在の局所模型は、あらかじめ存在する2値の結果種を指針へ写す最小結果符号化模型である。一般の
 
-$$
+```math
 A=\mathscr A(a,\lambda_A),
 \qquad
 B=\mathscr B(b,\lambda_B)
-$$
+```
 
 を到来信号との相互作用から実現する装置は、`[H]` に含めて仮定できるが、本論文では具体的に構成しない。
 
@@ -250,11 +250,11 @@ $$
 
 軟モードと台帳モードは比較時刻に固定総作用殻
 
-$$
+```math
 J_s+J_0
 =
 \frac{E_\ell}{\omega_\ell}
-$$
+```
 
 上の正規化 Liouville 測度を持つ。これを直接の準備条件として用いる場合、軟モードのエネルギー密度は厳密に一様である。有限非線形混合器による典型化を用いる場合は、任意の微視的初期密度の強収束ではなく、有限分解能観測に対する粗視化混合を要求する。
 
@@ -262,7 +262,7 @@ $$
 
 基準初期密度 $\rho_S$ と全設定に共通な終端関数 $G_R\geq0$ に対し、物理的履歴測度を
 
-$$
+```math
 d\mu_R^{a,b}(z_i)
 =
 \frac{
@@ -272,15 +272,15 @@ G_R\!\left(\Phi_{a,b}^{T}z_i\right)
 Z_{a,b}
 }
 d\Gamma_i
-$$
+```
 
 とする。$G_R$ は設定名、結果名、目標相関を引数に持たない。`[R]` は有限性、再帰性、時間反転対称性から一意に導かれるとは主張しない。相補的内部時計は
 
-$$
+```math
 G_R
 =
 \mathbf1_{\{\Pi_R\geq0\}}
-$$
+```
 
 という半空間へ時計向き保存の意味を与えるが、その半空間だけを物理的集団として数える原理は与えない。
 
@@ -293,11 +293,11 @@ $$
 
 したがって
 
-$$
+```math
 g_{AB}^{\rm ent}(h)
 =
 \frac{w_{AB}}{E_\ell}
-$$
+```
 
 のうち、$1/E_\ell$ は2モード定理、$w_{AB}=1/4$ は `[S]` の帰結である。Hamiltonian の形だけでは初期密度を決められないため、準備測度という統計条件は残る。
 
@@ -370,31 +370,31 @@ Nelson の確率力学、確率変分法、Guerra--Morato 作用には先行研�
 
 位相空間を $\R^{2M}$、正準座標を $Z=(Q,P)$ とし、
 
-$$
+```math
 H_N(Z)=\frac12 Z^{\mathsf T}G_N Z,
 \qquad
 G_N=G_N^{\mathsf T}>0
-$$
+```
 
 を考える。運動方程式は
 
-$$
+```math
 \dot Z=JG_NZ,
 \qquad
 Z(t)=e^{tJG_N}Z(0)
-$$
+```
 
 である。$G_N$ が運動量に関して偶であれば、標準時間反転 $\Theta(Q,P)=(Q,-P)$ に対して
 
-$$
+```math
 \Theta e^{tJG_N}\Theta=e^{-tJG_N}
-$$
+```
 
 が成立する。従って全微視軌道は時間反転対称であり、Liouville 体積を保存する。
 
 正準変換で正規モードへ移れば、安定な部分は
 
-$$
+```math
 H_N
 =
 \sum_{n=1}^{N}
@@ -402,13 +402,13 @@ H_N
 \left(
 P_n^2+\omega_n^2Q_n^2
 \right)
-$$
+```
 
 の形にできる。初期正準変数が中心 Gaussian 分布を持つなら、任意の線形観測量
 
-$$
+```math
 X_N(t)=L e^{tJG_N}Z(0)+\mu_N(t)
-$$
+```
 
 は有限次元 Gaussian 過程である。従って、閉じた調和 Hamiltonian 系の観測座標は、平均と2時刻共分散だけで完全に記述できる。
 
@@ -416,7 +416,7 @@ $$
 
 粒子座標 $q$ と調和浴を明示する代表例は
 
-$$
+```math
 H_{\rm core}
 =
 \frac{p^2}{2m}+V(q)
@@ -430,27 +430,27 @@ H_{\rm core}
 Q_n-\frac{c_nq}{m_n\omega_n^2}
 \right)^2
 \right]
-$$
+```
 
 である \cite{ford1965,mori1965,zwanzig1973}。平方完成された結合は反作用と周波数補正を同時に含む。浴変数を厳密に消去すると、粒子は有限記憶核を持つ一般化 Langevin 方程式に従う。
 
-$$
+```math
 m\ddot q(t)
 +V'(q(t))
 +\int_0^t\Gamma_N(t-s)\dot q(s)\dd s
 =
 \xi_N(t)+F_{\rm slip}(t).
-$$
+```
 
 ここで
 
-$$
+```math
 \Gamma_N(t)
 =
 \sum_{n=1}^{N}
 \frac{c_n^2}{m_n\omega_n^2}
 \cos\omega_nt
-$$
+```
 
 であり、$\xi_N$ は浴初期座標の線形結合である。浴初期分布が Gaussian なら $\xi_N$ も有限 Gaussian 過程になる。有限 $N$ では記憶核も雑音も再帰的であり、白色雑音や散逸は微視的な基本法則ではない。
 
@@ -460,7 +460,7 @@ $$
 
 時間区間を $[0,T]$、$\omega_n=2\pi n/T$ とする。独立な標準 Gaussian ベクトル $Z_0,A_n,B_n\in\R^d$ を用いて
 
-$$
+```math
 \widetilde\eta_N(t)
 =
 \sqrt{\frac{2\nu}{T}}Z_0
@@ -471,40 +471,40 @@ $$
 A_n\cos\omega_nt
 +B_n\sin\omega_nt
 \right]
-$$
+```
 
 と定義する。この過程は調和正規モードの初期振幅を読み出すことで実現できる。零周波数 $Z_0$ は保存された正準運動量または自由モードに対応する。
 
 共分散は
 
-$$
+```math
 \E\left[
 \widetilde\eta_N^i(t)
 \widetilde\eta_N^j(s)
 \right]
 =
 2\nu\,\delta^{ij}\delta_{T,N}(t-s),
-$$
+```
 
-$$
+```math
 \delta_{T,N}(\tau)
 =
 \frac1T
 +
 \frac2T
 \sum_{n=1}^{N}\cos\omega_n\tau
-$$
+```
 
 である。$\delta_{T,N}$ は周期 Dirichlet 核であり、滑らかな試験関数に対して周期デルタ分布へ収束する。
 
 零周波数を最初から除いた
 
-$$
+```math
 2\nu
 \left[
 \delta_{T,N}(t-s)-\frac1T
 \right]
-$$
+```
 
 を普遍的な浴共分散とみなしてはならない。これは全ての線形系に共通な浴ではなく、自由増分の全期間積分を零にする条件を課したときに現れる特殊な条件付き共分散である。一般の線形な流れでは、終端条件による共分散修正は流れと観測行列に依存する Schur 補完になる。
 
@@ -512,7 +512,7 @@ $$
 
 実際の証明では、観測座標の確率法則を
 
-$$
+```math
 \dot X_N(t)
 =
 F_\theta(t)X_N(t)
@@ -520,23 +520,23 @@ F_\theta(t)X_N(t)
 +\widetilde\eta_N(t),
 \qquad
 X_N(0)\sim N(m_{0,\theta},P_{0,\theta})
-$$
+```
 
 で表す。$\theta$ は質量、周波数、外力、終端記録などをまとめた有限次元パラメータである。$F_\theta$ と $f_\theta$ は時間について十分滑らかとする。
 
 基本行列 $\Phi_\theta(t,s)$ を
 
-$$
+```math
 \partial_t\Phi_\theta(t,s)
 =
 F_\theta(t)\Phi_\theta(t,s),
 \qquad
 \Phi_\theta(s,s)=I
-$$
+```
 
 で定めると、
 
-$$
+```math
 X_N(t)
 =
 \Phi_\theta(t,0)X_N(0)
@@ -546,7 +546,7 @@ X_N(t)
 f_\theta(s)+\widetilde\eta_N(s)
 \right]
 \dd s
-$$
+```
 
 である。従って $X_N$ は有限個の Gaussian 変数の線形像であり、平均 $\mu_N$ と共分散 $C_N$ を有限和として厳密に計算できる。
 
@@ -558,20 +558,20 @@ $$
 
 $N\to\infty$ で積分雑音
 
-$$
+```math
 W_N(t)=\int_0^t\widetilde\eta_N(s)\dd s
-$$
+```
 
 は、有限次元分布で共分散 $2\nu\min(s,t)$ を持つ Wiener 増分へ近づく。本論文の作用とパラメータ第1微分は2時刻の平均・共分散だけで評価するため、一般の経路空間位相における弱収束は主定理の仮定にも結論にも用いない。対応する線形拡散表示は
 
-$$
+```math
 \dd X(t)
 =
 \left[
 F_\theta(t)X(t)+f_\theta(t)
 \right]\dd t
 +\sqrt{2\nu}\,\dd W_t
-$$
+```
 
 である。有限 $N$ の各経路は微分可能であるが、極限経路は微分不可能である。粗視化作用に現れる発散は、この正則性の変化に由来する。
 
@@ -598,23 +598,23 @@ $F=-\lambda I+\Omega J$ と選べば、2次元の回転を伴う OU 位相模型
 
 時刻 $T$ の記録を
 
-$$
+```math
 Y=HX_N(T)+\varepsilon,
 \qquad
 \varepsilon\sim N(0,R),
 \qquad
 R\geq r_*I>0
-$$
+```
 
 とする。実際に得られた記録値を $y$ とする。この条件は、尤度
 
-$$
+```math
 L_R(x)
 =
 \exp\left[
 -\frac12(Hx-y)^{\mathsf T}R^{-1}(Hx-y)
 \right]
-$$
+```
 
 で経路を重みづけすることと同値である。
 
@@ -622,55 +622,55 @@ $$
 
 有限 $N$ の平均と2時刻共分散を
 
-$$
+```math
 \mu_N(t)=\E[X_N(t)],
-$$
+```
 
-$$
+```math
 C_N(s,t)
 =
 \E\left[
 (X_N(s)-\mu_N(s))
 (X_N(t)-\mu_N(t))^{\mathsf T}
 \right]
-$$
+```
 
 とする。基本行列を使えば、平均は
 
-$$
+```math
 \mu_N(t)
 =
 \Phi(t,0)m_0
 +\int_0^t\Phi(t,r)f(r)\dd r
-$$
+```
 
 であり、共分散は初期共分散と有限 Fourier モードの寄与の和として書ける。
 
 雑音を基底関数 $e_\alpha(t)$ と独立 Gaussian 係数 $\zeta_\alpha$ で
 
-$$
+```math
 \widetilde\eta_N(t)
 =
 \sum_{\alpha=0}^{2N}e_\alpha(t)\zeta_\alpha
-$$
+```
 
 と書けば、
 
-$$
+```math
 K_{N,\alpha}(t)
 =
 \int_0^t\Phi(t,r)e_\alpha(r)\dd r
-$$
+```
 
 により
 
-$$
+```math
 C_N(s,t)
 =
 \Phi(s,0)P_0\Phi(t,0)^{\mathsf T}
 +\sum_{\alpha=0}^{2N}
 K_{N,\alpha}(s)K_{N,\alpha}(t)^{\mathsf T}
-$$
+```
 
 となる。この表示は、条件づけとパラメータ微分を有限行列計算へ帰着させる。
 
@@ -678,31 +678,31 @@ $$
 
 記録共分散を
 
-$$
+```math
 S_N
 =
 HC_N(T,T)H^{\mathsf T}+R
-$$
+```
 
 とする。$R\geq r_*I$ なので $S_N$ は一様に可逆である。
 
 \begin{proposition}[有限 Gaussian 条件づけ]
 条件 $Y=y$ の下で $X_N$ は Gaussian 過程のままであり、その平均と共分散は
 
-$$
+```math
 \mu_N^R(t)
 =
 \mu_N(t)
 +C_N(t,T)H^{\mathsf T}S_N^{-1}
 \left[y-H\mu_N(T)\right],
-$$
+```
 
-$$
+```math
 C_N^R(s,t)
 =
 C_N(s,t)
 -C_N(s,T)H^{\mathsf T}S_N^{-1}HC_N(T,t)
-$$
+```
 
 である。
 \end{proposition}
@@ -719,7 +719,7 @@ $$
 
 $F_\theta$ の変分 $\delta F$ に対して基本行列の第1変分は
 
-$$
+```math
 D\Phi_\theta[\delta F](t,s)
 =
 \int_s^t
@@ -727,15 +727,15 @@ D\Phi_\theta[\delta F](t,s)
 \delta F(r)
 \Phi_\theta(r,s)
 \dd r
-$$
+```
 
 である。逆行列の微分
 
-$$
+```math
 D(S^{-1})[\delta S]
 =
 -S^{-1}(\delta S)S^{-1}
-$$
+```
 
 と合わせると、$\mu_N^R$、$C_N^R$ のパラメータ第1微分を明示できる。$S_N\geq r_*I$ により、条件づけの微分は $N$ に依存しない定数で制御される。
 
@@ -745,41 +745,41 @@ $$
 
 $N\to\infty$ の無条件拡散を
 
-$$
+```math
 \dd X_t=b(X_t,t)\dd t+\sqrt{2\nu}\,\dd W_t,
 \qquad
 b(x,t)=F(t)x+f(t)
-$$
+```
 
 とする。終端尤度の後方伝播を
 
-$$
+```math
 h_R(x,t)
 =
 \E\left[L_R(X_T)\mid X_t=x\right]
-$$
+```
 
 と置く。線形 Gaussian 系では $h_R$ は指数2次関数で正である。条件付き前進流れは Doob 変換により
 
-$$
+```math
 b_+^R(x,t)
 =
 b(x,t)+2\nu\nabla\log h_R(x,t)
-$$
+```
 
 となる \cite{jamison1974,doob1957}。$\nabla\log h_R$ は $x$ の1次式であるため、条件付き過程も線形 Gaussian である。
 
 条件付き時刻密度を $\rho^R(x,t)$ とすると、後退流れは
 
-$$
+```math
 b_-^R(x,t)
 =
 b_+^R(x,t)-2\nu\nabla\log\rho^R(x,t)
-$$
+```
 
 である。そこで
 
-$$
+```math
 v^R
 =
 \frac{b_+^R+b_-^R}{2},
@@ -789,7 +789,7 @@ u^R
 \frac{b_+^R-b_-^R}{2}
 =
 \nu\nabla\log\rho^R
-$$
+```
 
 と定義する。$v^R$ は確率流の速度、$u^R$ は密度勾配に伴う浸透速度である。
 
@@ -797,7 +797,7 @@ $$
 
 $F=0$、$f=0$、$X_N(0)=x_0$ とし、終端を厳密に $X_N(T)=x_0$ へ固定する特殊な場合を考える。非零 Fourier モードは1周期積分すると零になるため、全期間変位を担うのは零周波数 $Z_0$ だけである。終端条件は $Z_0=0$ を意味する。従って条件付き雑音共分散は
 
-$$
+```math
 \E\left[
 \widetilde\eta_N(t)
 \widetilde\eta_N(s)^{\mathsf T}
@@ -808,15 +808,15 @@ $$
 \left[
 \delta_{T,N}(t-s)-\frac1T
 \right]I.
-$$
+```
 
 ここで初めて $-1/T$ が現れる。一般の $F\neq0$ では終端値は全 Fourier モードの線形結合に依存するため、条件付き修正は
 
-$$
+```math
 -\operatorname{Cov}(\widetilde\eta_N,Y)
 \operatorname{Cov}(Y,Y)^{-1}
 \operatorname{Cov}(Y,\widetilde\eta_N)
-$$
+```
 
 という流れ依存の Schur 補完であり、単純な $-1/T$ ではない。
 
@@ -841,23 +841,23 @@ $$
 
 有限 $N$ の経路は微分可能であるが、$N\to\infty$ の拡散経路は微分不可能である。そのため、単純な運動エネルギー
 
-$$
+```math
 \frac m2\int_0^T|\dot X_N(t)|^2\dd t
-$$
+```
 
 は極限で発散する。時間分解能 $h>0$ を固定し、有限差分
 
-$$
+```math
 D_hX_N(t)=\frac{X_N(t+h)-X_N(t)}{h}
-$$
+```
 
 を用いる。拡散係数が $\nu$、空間次元が $d$ なら、雑音の普遍的発散は
 
-$$
+```math
 \frac m2\E|D_hX|^2
 \sim
 \frac{md\nu}{h}
-$$
+```
 
 である。
 
@@ -867,7 +867,7 @@ $$
 
 外部ポテンシャルを $U_\theta(x,t)$ と書き、条件付き経路法則に対する繰り込み済み作用を
 
-$$
+```math
 \mathcal A_{N,h}^{R,U}(\theta)
 =
 \E_{N,\theta}^{R}
@@ -878,7 +878,7 @@ $$
 -\frac{md\nu}{h}
 -U_\theta(X_N(t),t)
 \right]\dd t
-$$
+```
 
 と定義する。差し引く項は結果や設定に依存せず、有限差分の Gaussian 自己揺らぎだけを除く。
 
@@ -891,22 +891,22 @@ $$
 3. 終端観測 $H_\theta$、$y_\theta$、$R_\theta$ は $C^2$ で、$R_\theta\geq r_*I>0$ である。
 4. 外部ポテンシャルは
 
-$$
+```math
 U_\theta(x,t)
 =
 \frac12x^{\mathsf T}K_\theta(t)x
 +\ell_\theta(t)^{\mathsf T}x
 +c_\theta(t)
-$$
+```
 
 の形で、係数は $C^2$ かつ一様有界である。
 5. Fourier 切断数 $N$ と粗視化幅 $h=h_N$ は
 
-$$
+```math
 h_N\longrightarrow0,
 \qquad
 N\left(\frac{h_N}{T}\right)^2\longrightarrow\infty
-$$
+```
 
 を満たす。
 
@@ -916,7 +916,7 @@ $C^1(K)$ は作用値と $\theta$ に関する全ての第1偏微分の一様ノ
 
 極限の条件付き拡散の前進流れを $b_{+,\theta}^R$、時刻密度を $\rho_\theta^R$ とする。Guerra--Morato 型作用を
 
-$$
+```math
 \mathcal A_{\GM}^{R,U}(\theta)
 =
 \int_0^T\int_{\R^d}
@@ -927,7 +927,7 @@ $$
 -U_\theta(x,t)
 \right]
 \dd x\dd t
-$$
+```
 
 と定義する \cite{guerra_morato1983}。線形 Gaussian 系では $b_+^R$ は $x$ の1次式、$\rho^R$ は正の Gaussian 密度なので、全ての積分は有限である。
 
@@ -936,7 +936,7 @@ $$
 \begin{theorem}[線形 Gaussian $C^1$ 極限]
 第4.2節の仮定を満たすとする。ある定数 $C_K<\infty$ が存在し、十分大きい $N$ と $0<h<T/4$ に対して
 
-$$
+```math
 \left\|
 \mathcal A_{N,h}^{R,U}
 -
@@ -949,15 +949,15 @@ C_K
 +
 \frac{T^2}{Nh^2}
 \right)
-$$
+```
 
 が成立する。従って $h_N\to0$ かつ $N(h_N/T)^2\to\infty$ なら、次の収束が $C^1(K)$ で成り立つ。
 
-$$
+```math
 \mathcal A_{N,h_N}^{R,U}
 \longrightarrow
 \mathcal A_{\GM}^{R,U}.
-$$
+```
 
 特に $h_N=TN^{-1/3}$ なら誤差は $O(N^{-1/3})$ である。
 \end{theorem}
@@ -970,24 +970,24 @@ $$
 
 前進・後退流れから
 
-$$
+```math
 v^R=\frac{b_+^R+b_-^R}{2},
 \qquad
 u^R=\frac{b_+^R-b_-^R}{2}
 =\nu\nabla\log\rho^R
-$$
+```
 
 を定義する。境界項が消える条件、例えば全空間での Gaussian 減衰、周期境界、または無流束境界を仮定する。
 
 \begin{theorem}[Guerra--Morato 作用と Nelson 作用の一致]
 
-$$
+```math
 \mathcal A_{\GM}^{R,U}
 =
 \mathcal A_{\Nel}^{R,U},
-$$
+```
 
-$$
+```math
 \mathcal A_{\Nel}^{R,U}
 =
 \int_0^T\int_{\R^d}
@@ -998,27 +998,28 @@ $$
 -U
 \right]
 \dd x\dd t.
-$$
+```
+
 \end{theorem}
 
 \begin{proof}
 $b_+^R=v^R+u^R$ と $\nu\nabla\rho^R=\rho^Ru^R$ を用いる。空間部分積分により
 
-$$
+```math
 \int\rho^R m\nu\nabla\cdot b_+^R\dd x
 =
 -m\int\rho^R b_+^R\cdot u^R\dd x.
-$$
+```
 
 従って
 
-$$
+```math
 \frac m2|b_+^R|^2
 -m b_+^R\cdot u^R
 =
 \frac m2|v^R|^2
 -\frac m2|u^R|^2.
-$$
+```
 
 ポテンシャル項は共通なので結論を得る。
 \end{proof}
@@ -1030,17 +1031,17 @@ $$
 \begin{corollary}[収束する停留点]
 $\theta_N\in\operatorname{int}K$ が
 
-$$
+```math
 D_\theta\mathcal A_{N,h_N}^{R,U}(\theta_N)=0,
 \qquad
 \theta_N\longrightarrow\theta_*
-$$
+```
 
 を満たすなら、
 
-$$
+```math
 D_\theta\mathcal A_{\Nel}^{R,U}(\theta_*)=0
-$$
+```
 
 である。
 \end{corollary}
@@ -1048,14 +1049,15 @@ $$
 \begin{proof}
 $C^1(K)$ 収束と $D\mathcal A_{N,h_N}(\theta_N)=0$ から
 
-$$
+```math
 \|D\mathcal A_{\Nel}(\theta_*)\|
 \leq
 \|D\mathcal A_{\Nel}(\theta_*)-D\mathcal A_{\Nel}(\theta_N)\|
 +
 \|D\mathcal A_{\Nel}(\theta_N)-D\mathcal A_{N,h_N}(\theta_N)\|
 \longrightarrow0.
-$$
+```
+
 \end{proof}
 
 これは一方向の条件付き主張である。まず有限模型のパラメータ停留点列が存在し、その列が収束する場合に限って、極限点が Nelson 作用の停留点になる。任意の Nelson 停留点を有限浴の停留点列で近似するには、Hessian の非退化性と少なくとも局所 $C^2$ 収束が必要である。さらに、微視的 Hamiltonian 方程式が粗視化作用の停留点を力学的に選ぶことは、この系から従わない。
@@ -1064,35 +1066,35 @@ $$
 
 1次元で
 
-$$
+```math
 \rho(x,t)
 =
 \frac1{\sqrt{2\pi}\sigma(t)}
 \exp\left[
 -\frac{(x-q(t))^2}{2\sigma(t)^2}
 \right]
-$$
+```
 
 とし、連続の式を満たす速度を
 
-$$
+```math
 v(x,t)
 =
 \dot q(t)
 +\frac{\dot\sigma(t)}{\sigma(t)}[x-q(t)]
-$$
+```
 
 とする。浸透速度は
 
-$$
+```math
 u(x,t)
 =
 -\nu\frac{x-q(t)}{\sigma(t)^2}
-$$
+```
 
 である。調和ポテンシャル $U=m\Omega^2x^2/2$ に対する Nelson 作用は
 
-$$
+```math
 \mathcal A_G[q,\sigma]
 =
 \frac m2
@@ -1102,24 +1104,24 @@ $$
 -\frac{\nu^2}{\sigma^2}
 -\Omega^2(q^2+\sigma^2)
 \right]\dd t.
-$$
+```
 
 変分すると
 
-$$
+```math
 \ddot q+\Omega^2q=0,
-$$
+```
 
-$$
+```math
 \ddot\sigma+\Omega^2\sigma
 -\frac{\nu^2}{\sigma^3}=0
-$$
+```
 
 を得る。中心は古典的な調和運動を行い、幅は通常の拡散で単調に広がるのではなく、調和閉じ込めと密度勾配の項の釣り合いで振動する。定常幅は
 
-$$
+```math
 \sigma_*^2=\frac\nu\Omega
-$$
+```
 
 である。これは Nelson 作用が、単なる熱拡散ではなく、確率流と密度勾配の前後対称な変分力学を表すことを示す。
 
@@ -1177,7 +1179,7 @@ $$
 
 伝達ベクトルの作用を
 
-$$
+```math
 I_X
 =
 \frac12
@@ -1186,31 +1188,31 @@ Q_X^2+P_X^2
 \right),
 \qquad
 X=A,B
-$$
+```
 
 とする。台帳の2つの作用は
 
-$$
+```math
 J_s
 =
 \frac12
 \left(
 q_s^2+p_s^2
 \right),
-$$
+```
 
-$$
+```math
 J_0
 =
 \frac12
 \left(
 q_0^2+p_0^2
 \right)
-$$
+```
 
 である。装置部品を自律時計で接続した形式的な全 Hamiltonian は
 
-$$
+```math
 H_{\rm tot}
 =
 H_{\rm src}
@@ -1224,7 +1226,7 @@ H_{\rm src}
 +H_{\rm cmp}
 +H_{\rm or}
 +H_{\rm clk}.
-$$
+```
 
 と書ける。各項の具体形と誤差の地位は付録Cにまとめる。この式は部品表であり、全自由項を含む有限幅発展が各理想正準写像を厳密に実行するという意味ではない。比較窓については、必要な全項を第7.1節で1本の Hamiltonian として明示する。
 
@@ -1232,7 +1234,7 @@ $$
 
 $s_X$ を円周座標とし、互いに等しい Liouville 体積を持つ2つの平坦領域 $\Sigma_X^+$、$\Sigma_X^-$ を取る。滑らかな周期関数 $\sigma$ を
 
-$$
+```math
 \sigma(s)
 =
 +1
@@ -1240,9 +1242,9 @@ $$
 \left(
 s\in\Sigma^+
 \right),
-$$
+```
 
-$$
+```math
 \sigma(s)
 =
 -1
@@ -1250,39 +1252,39 @@ $$
 \left(
 s\in\Sigma^-
 \right)
-$$
+```
 
 とし、2領域の間だけで滑らかに補間する。基準準備は補間領域に台を持たない。したがって実際の台上で
 
-$$
+```math
 \sigma'(s)=0.
-$$
+```
 
 局所結果を
 
-$$
+```math
 A=\sigma(s_A),
 \qquad
 B=\sigma(s_B)
-$$
+```
 
 とする。負符号領域の指示関数は
 
-$$
+```math
 \chi_-(s)
 =
 \frac{1-\sigma(s)}2
-$$
+```
 
 である。
 
 測定設定は制御座標の初期巨視領域で決まる。全試行に同じ Hamiltonian 関数を用い、
 
-$$
+```math
 a=\mathfrak a(\xi_A),
 \qquad
 b=\mathfrak b(\xi_B)
-$$
+```
 
 という粗視化写像で設定を読み出す。以下では制御座標自体を簡単に $a,b$ と書く。
 
@@ -1290,11 +1292,11 @@ $$
 
 より一般の局所決定論応答
 
-$$
+```math
 A=\mathscr A(a,\lambda_A),
 \qquad
 B=\mathscr B(b,\lambda_B)
-$$
+```
 
 を扱うには、設定 $a$、到来変数、局所微視状態を結合する具体的な局所 Hamiltonian 前処理を追加する必要がある。本論文はその一般前処理を構成せず、第7章では上の最小結果符号化模型を用いる。Bell 監査に必要な局所因子化は満たすが、これだけで一般の物理的測定過程を実現したとはみなさない。
 
@@ -1302,43 +1304,43 @@ $$
 
 時計角 $\vartheta$ 上に、互いに重ならない滑らかなパルス形 $f_{\nu,\epsilon}(\vartheta)$ を置き、
 
-$$
+```math
 \int f_{\nu,\epsilon}(\vartheta)d\vartheta=1
-$$
+```
 
 と規格化する。全 Hamiltonian に
 
-$$
+```math
 H_{\rm clk}
 =
 \Omega J_c
-$$
+```
 
 とパルス項
 
-$$
+```math
 H_{\rm pulse}
 =
 \Omega
 \sum_\nu
 f_{\nu,\epsilon}(\vartheta)K_\nu
-$$
+```
 
 を加える。各 $K_\nu$ は $J_c$ に依存しないため、
 
-$$
+```math
 \dot\vartheta
 =
 \frac{\partial H_{\rm tot}}{\partial J_c}
 =
 \Omega
-$$
+```
 
 が厳密に成立する。$J_c$ はパルスの反作用を受け、拡張した全 Hamiltonian のエネルギーは保存される。
 
 ただし、自由 Hamiltonian $H_0$ もパルス中に同時に働く。したがって、一般にはパルスの全流れが生成子 $K_\nu$ の単位流れと厳密に一致するわけではない。パルスの時間幅を $\epsilon_\nu$ とし、有界な適用領域 $\mathcal K$ 上で関係する Hamiltonian ベクトル場と第1微分が有界なら、
 
-$$
+```math
 \sup_{z\in\mathcal K}
 \left\|
 \Phi_{\rm full}^{(\nu)}(z)
@@ -1347,7 +1349,7 @@ e^{X_{K_\nu}}z
 \right\|
 \leq
 C_{\mathcal K}\epsilon_\nu
-$$
+```
 
 となる。詳細は付録C.3に示す。以後、局所分析と指針固定の式は短時間パルス極限の理想写像として書き、有限幅では $O(\epsilon_\nu)$ の補正を伴うものとする。
 
@@ -1357,7 +1359,7 @@ $$
 
 A 側の分析器生成子を
 
-$$
+```math
 K_A^{\rm an}
 =
 -\left[
@@ -1365,11 +1367,11 @@ K_A^{\rm an}
 +\pi\chi_-(s_A)
 \right]I_A
 -x_A\sigma(s_A)
-$$
+```
 
 とし、B 側も同様に
 
-$$
+```math
 K_B^{\rm an}
 =
 -\left[
@@ -1377,13 +1379,13 @@ K_B^{\rm an}
 +\pi\chi_-(s_B)
 \right]I_B
 -x_B\sigma(s_B)
-$$
+```
 
 とする。
 
 $K_A^{\rm an}$ の単位流れのパラメータを $\tau$ とすると、結果種の平坦領域上で
 
-$$
+```math
 \frac{dQ_A}{d\tau}
 =
 -\theta_A P_A,
@@ -1391,33 +1393,33 @@ $$
 \frac{dP_A}{d\tau}
 =
 \theta_A Q_A,
-$$
+```
 
-$$
+```math
 \theta_A
 =
 \phi(a)+\pi\chi_-(s_A),
-$$
+```
 
 および
 
-$$
+```math
 \frac{dp_A}{d\tau}
 =
 \sigma(s_A)=A,
 \qquad
 \frac{dx_A}{d\tau}=0
-$$
+```
 
 を得る。応答運動量を $p_A^{\rm in}=0$ に準備すれば、理想写像では
 
-$$
+```math
 p_A^{\rm out}=A.
-$$
+```
 
 伝達ベクトルは
 
-$$
+```math
 \begin{pmatrix}
 Q_A\\
 P_A
@@ -1434,19 +1436,19 @@ A R[\phi(a)]
 Q_A\\
 P_A
 \end{pmatrix}_{\rm in}
-$$
+```
 
 となる。B 側も
 
-$$
+```math
 p_B^{\rm out}=B,
-$$
+```
 
-$$
+```math
 u_B^{\rm out}
 =
 B R[\phi(b)]u_B^{\rm in}
-$$
+```
 
 を満たす。有限幅の全流れでは、これらの右辺に第5.4節の $O(\epsilon_{\rm an})$ 補正が加わる。補正が平坦領域と指針領域の幅より十分小さいことを、局所装置の適用条件とする。
 
@@ -1456,33 +1458,33 @@ $$
 
 滑らかな平坦関数 $\zeta(p)$ を
 
-$$
+```math
 \zeta(p)=+1
 \quad
 \left(
 |p-1|<\delta_p
 \right),
-$$
+```
 
-$$
+```math
 \zeta(p)=-1
 \quad
 \left(
 |p+1|<\delta_p
 \right)
-$$
+```
 
 となるよう取る。固定指針への転写生成子を
 
-$$
+```math
 K_X^{\rm lock}
 =
 -Y_X\zeta(p_X)
-$$
+```
 
 とする。単位流れでは
 
-$$
+```math
 \frac{d\Pi_X}{d\tau}
 =
 \zeta(p_X),
@@ -1490,19 +1492,19 @@ $$
 \frac{dY_X}{d\tau}=0,
 \qquad
 \frac{dp_X}{d\tau}=0.
-$$
+```
 
 したがって理想写像で $\Pi_X^{\rm in}=0$ なら
 
-$$
+```math
 \Pi_A^{\rm out}=A,
 \qquad
 \Pi_B^{\rm out}=B.
-$$
+```
 
 2つの互いに交わらない巨視領域
 
-$$
+```math
 \Gamma_X^+
 =
 \left\{
@@ -1514,13 +1516,13 @@ $$
 \left\{
 \Pi_X<-\frac12
 \right\}
-$$
+```
 
 を指針記録とする。有限幅補正が $1/2$ の領域間隔より十分小さければ、記録符号は変わらない。固定指針対はこの後の共通未来比較器から切り離すため、比較段階は過去の指針符号を変更しない。
 
 応答モードには、記録後に有限局所浴
 
-$$
+```math
 H_{{\rm bath},X}
 =
 \sum_{j=1}^{n_X}
@@ -1531,17 +1533,17 @@ H_{{\rm bath},X}
 +\epsilon_X x_X
 \sum_{j=1}^{n_X}
 c_{Xj}r_{Xj}
-$$
+```
 
 を結合できる。これは応答モードの一時情報と位相情報を複数自由度へ分散し、有限観測窓での再読出し誤差を小さくする。ただし有限閉鎖浴は真の散逸を与えず、十分長時間では再帰を持つ。記録の主張は
 
-$$
+```math
 \tau_{\rm lock}
 \ll
 \tau_{\rm cmp}
 \ll
 T_{{\rm rec},X}
-$$
+```
 
 の範囲に限る。
 
@@ -1549,21 +1551,21 @@ $$
 
 局所記録時刻を $t_A,t_B$、両伝達ベクトルが同じ時空領域へ到達できる時刻を $t_C$、終端時刻を $T$ とし、
 
-$$
+```math
 t_A,t_B<t_C<T
-$$
+```
 
 とする。$t_C$ より前の結合図は
 
-$$
+```math
 (u_A,s_A,a,x_A,Y_A,\Gamma_{{\rm bath},A})
-$$
+```
 
 と
 
-$$
+```math
 (u_B,s_B,b,x_B,Y_B,\Gamma_{{\rm bath},B})
-$$
+```
 
 に分離する。A 側の Hamiltonian は B 側の測定設定、結果種、指針を含まず、B 側も同様である。
 
@@ -1573,31 +1575,31 @@ $t_C$ 以後に2つの伝達ベクトルを同じ比較器へ入れる。これ�
 
 初期超曲面上の全微視状態を
 
-$$
+```math
 z_i=(\lambda,\eta,\xi_A,\xi_B)
-$$
+```
 
 とする。$\lambda$ は結果応答を完結させる生成源と局所装置の変数、$\eta$ は後に積分する台帳、混合器、終端比較対などの未読変数、$\xi_A,\xi_B$ は測定設定制御変数である。基準準備では
 
-$$
+```math
 \rho_S(\lambda,\eta,\xi_A,\xi_B)
 =
 \rho_S(\lambda,\eta)
 \rho_A(\xi_A)
 \rho_B(\xi_B)
-$$
+```
 
 とする。
 
 終端時刻 $T$ に、全測定設定と全結果に共通な非負関数
 
-$$
+```math
 G_R:\Gamma\longrightarrow[0,\infty)
-$$
+```
 
 を固定する。`[R]` による条件付き履歴測度は
 
-$$
+```math
 d\mu_R^{a,b}(\lambda,\eta)
 =
 \frac{
@@ -1609,11 +1611,11 @@ G_R\!\left[
 Z_{a,b}
 }
 d\lambda\,d\eta.
-$$
+```
 
 $\lambda$ を固定して未読変数を積分した終端整合度を
 
-$$
+```math
 h_{a,b}(\lambda)
 =
 \int
@@ -1622,11 +1624,11 @@ G_R\!\left[
 \Phi_{a,b}^{T}(\lambda,\eta)
 \right]
 d\eta
-$$
+```
 
 と定義すると、生成源超曲面上の事後分布は
 
-$$
+```math
 \rho_R(\lambda\mid a,b)
 =
 \frac{
@@ -1634,18 +1636,18 @@ $$
 }{
 Z_{a,b}
 }
-$$
+```
 
 となる。
 
 \begin{proposition}[終端整合度の判定条件]
 全測定設定対に対して同一の事後分布 $\rho_R(\lambda)$ が存在するための必要十分条件は、ある非負関数 $h(\lambda)$ と正定数 $c_{a,b}$ が存在して
 
-$$
+```math
 h_{a,b}(\lambda)
 =
 c_{a,b}h(\lambda)
-$$
+```
 
 がほとんど至る所で成立することである。
 \end{proposition}
@@ -1653,20 +1655,20 @@ $$
 \begin{proof}
 上式が成立すれば $c_{a,b}$ は規格化で消える。逆に事後分布が全測定設定で同じなら、
 
-$$
+```math
 \frac{h_{a,b}(\lambda)}{Z_{a,b}}
 =
 \frac{h_{a',b'}(\lambda)}{Z_{a',b'}}
-$$
+```
 
 なので、各終端整合度は共通関数へ比例する。
 \end{proof}
 
 したがって固定した $G_R$ であっても、その Hamiltonian 引き戻し
 
-$$
+```math
 G_R\circ\Phi_{a,b}^{T}
-$$
+```
 
 が生成源変数を測定設定に依存して再重みづけし得る。
 
@@ -1674,7 +1676,7 @@ $$
 
 終端比較対 $(Y_R,\Pi_R)$ に中心対 $(\bar\tau,P_c)$ を加え、2つの内部時計対を
 
-$$
+```math
 \tau_A
 =
 \bar\tau+\frac{Y_R}{2},
@@ -1682,9 +1684,9 @@ $$
 \tau_B
 =
 \bar\tau-\frac{Y_R}{2},
-$$
+```
 
-$$
+```math
 \varrho_A
 =
 \frac{P_c}{2}+\Pi_R,
@@ -1692,11 +1694,11 @@ $$
 \varrho_B
 =
 \frac{P_c}{2}-\Pi_R
-$$
+```
 
 で定める。実際、
 
-$$
+```math
 \varrho_A\,d\tau_A
 +
 \varrho_B\,d\tau_B
@@ -1704,13 +1706,13 @@ $$
 P_c\,d\bar\tau
 +
 \Pi_R\,dY_R
-$$
+```
 
 なので、これは正準変換である。
 
 内部時計の自由 Hamiltonian を
 
-$$
+```math
 H_{\rm or}
 =
 \frac{\varrho_A^2+\varrho_B^2}{2M_\tau}
@@ -1719,11 +1721,11 @@ H_{\rm or}
 \left(
 \varrho_A+\varrho_B
 \right)^2
-$$
+```
 
 とする。中心・相対変数では
 
-$$
+```math
 H_{\rm or}
 =
 \frac{\Pi_R^2}{M_\tau}
@@ -1734,23 +1736,23 @@ H_{\rm or}
 \frac{\kappa_c}{2}
 \right)
 P_c^2.
-$$
+```
 
 相補的領域
 
-$$
+```math
 P_c=0
-$$
+```
 
 は自由運動と、$\bar\tau$ に依存しない比較パルスの双方で保存される。この領域では
 
-$$
+```math
 \varrho_A=\Pi_R,
 \qquad
 \varrho_B=-\Pi_R,
-$$
+```
 
-$$
+```math
 \dot\tau_A
 =
 \frac{\Pi_R}{M_\tau},
@@ -1758,25 +1760,25 @@ $$
 \dot\tau_B
 =
 -\frac{\Pi_R}{M_\tau}.
-$$
+```
 
 したがって $\Pi_R>0$ は A 時計が正向き、B 時計が負向きの順序付き相補性を表す。これは2粒子が実験室時刻に対して逆向きに伝播するという意味ではない。左右の粒子と伝達ベクトルは通常どおり生成源から局所装置、共通未来へ進み、反対になるのは内部時計または境界情報の向きである。
 
 \begin{proposition}[終端半空間の相補時計実現]
 $P_c=0$、比較パルス直前の $\Pi_R=E_*>0$ とする。比較生成子を
 
-$$
+```math
 K_R
 =
 Y_R
 \left(
 h-\kappa I_-
 \right)
-$$
+```
 
 とし、$g_R(t)=\Omega f_R[\vartheta(t)]$ の時間積分を1とする。比較窓の自由 Hamiltonian が $h$ と $I_-$ を保存するなら、
 
-$$
+```math
 \dot\Pi_R
 =
 g_R(t)
@@ -1787,42 +1789,42 @@ g_R(t)
 \dot Y_R
 =
 \frac{2\Pi_R}{M_\tau}
-$$
+```
 
 である。$Y_R$ はパルス中も一般に動くが、$\dot\Pi_R$ は $Y_R$ に依存しない。したがって有限幅パルスの後に厳密に
 
-$$
+```math
 \Pi_R(T)
 =
 E_*+\kappa I_- -h.
-$$
+```
 
 順序付き時計向きが終端まで保存される条件
 
-$$
+```math
 \varrho_A(T)\geq0,
 \qquad
 \varrho_B(T)\leq0
-$$
+```
 
 は
 
-$$
+```math
 \Pi_R(T)\geq0
-$$
+```
 
 と必要十分である。
 \end{proposition}
 
 証明の要点は
 
-$$
+```math
 \{h,K_R\}
 =
 \{I_-,K_R\}
 =
 0
-$$
+```
 
 である。比較パルスは台帳と差動モードの角変数を動かし得るが、読出しに必要な2つの作用は変えない。完全な比較窓 Hamiltonian と積分は第7.1節および付録C.6に示す。
 
@@ -1830,11 +1832,11 @@ $$
 
 ただし Hamilton 方程式は $\Pi_R(T)<0$ の軌道を禁止しない。この軌道では
 
-$$
+```math
 \varrho_A(T)<0,
 \qquad
 \varrho_B(T)>0
-$$
+```
 
 となり、時計向きが交換されるだけである。したがって相補的時計は終端半空間の形を導くが、その半空間に入る履歴だけを物理的集団とする `[R]` までは導かない。
 
@@ -1842,11 +1844,11 @@ $$
 
 数式上、
 
-$$
+```math
 \rho_R
 \propto
 \rho_S G_R\circ\Phi^T
-$$
+```
 
 は、実験後の棄却抽出と同じ条件付き確率に見える。本論文が `[R]` を物理的な境界原理として用いるためには、少なくとも次を要求する。
 
@@ -1877,7 +1879,7 @@ $$
 
 生成源が準備する2つの伝達ベクトルを
 
-$$
+```math
 u_A^{(0)}
 =
 r_A n(\Theta_A),
@@ -1885,40 +1887,40 @@ r_A n(\Theta_A),
 u_B^{(0)}
 =
 r_B n(\Theta_B),
-$$
+```
 
-$$
+```math
 n(\Theta)
 =
 \begin{pmatrix}
 \cos\Theta\\
 \sin\Theta
 \end{pmatrix}
-$$
+```
 
 とする。第5章の局所パルス後には
 
-$$
+```math
 u_A
 =
 A r_A R[\phi(a)]n(\Theta_A),
-$$
+```
 
-$$
+```math
 u_B
 =
 B r_B R[\phi(b)]n(\Theta_B)
-$$
+```
 
 となる。$A,B$ は局所固定指針にすでに記録されている。伝達ベクトルは、その符号と分析器位相の写しを共通未来へ運ぶ。
 
 相対角を
 
-$$
+```math
 \Delta_{ab}
 =
 \phi(a)-\phi(b)+\Theta_A-\Theta_B
-$$
+```
 
 とする。測定設定が物理的な分析器角である場合、$\phi$ は装置表現に依存する。平面回転型では $\phi(a)=a$、直線偏光型では倍角写像 $\phi(a)=2a$ を用い得る。この写像は終端規則ではなく、局所分析器の較正に属する。
 
@@ -1926,18 +1928,18 @@ $$
 
 共通未来の差動モード作用を
 
-$$
+```math
 I_-^{AB}
 =
 \frac14
 \left\|
 u_A-u_B
 \right\|^2
-$$
+```
 
 と定義する。直接展開すると
 
-$$
+```math
 I_-^{AB}
 =
 \frac14
@@ -1945,12 +1947,12 @@ I_-^{AB}
 r_A^2+r_B^2
 -2ABr_Ar_B\cos\Delta_{ab}
 \right].
-$$
+```
 
 \begin{proposition}[実2次元比較器の余弦恒等式]
 等振幅 $r_A=r_B=r$、固定相対生成源位相 $\Theta_A-\Theta_B=\Phi_0$ の下で、
 
-$$
+```math
 I_-^{AB}
 =
 I_0
@@ -1960,11 +1962,11 @@ I_0
 \phi(a)-\phi(b)+\Phi_0
 \right\}
 \right],
-$$
+```
 
-$$
+```math
 I_0=\frac{r^2}{2}
-$$
+```
 
 である。
 \end{proposition}
@@ -1972,24 +1974,24 @@ $$
 \begin{proof}
 回転行列の内積
 
-$$
+```math
 n(\Theta_A)^{\mathsf T}
 R[\phi(b)-\phi(a)]
 n(\Theta_B)
 =
 \cos\Delta_{ab}
-$$
+```
 
 を差ベクトルの2乗へ代入すればよい。
 \end{proof}
 
 余弦は複素確率振幅、Born 則、量子内積から導入されていない。2つの実正準ベクトルの Euclid 内積
 
-$$
+```math
 u_A\cdot u_B
 =
 ABr_Ar_B\cos\Delta_{ab}
-$$
+```
 
 から出る。
 
@@ -1997,15 +1999,15 @@ $$
 
 生成源位相を
 
-$$
+```math
 \Theta_A-\Theta_B
 =
 \Phi_0+\delta
-$$
+```
 
 とし、$r_A,r_B,\delta$ に測定設定と結果符号から独立な準備分布を許す。終端整合重みは $I_-$ に線形になるため、生成源変数を先に平均してよい。
 
-$$
+```math
 \overline I_-^{AB}
 =
 \frac14
@@ -2020,20 +2022,20 @@ e^{i\{\phi(a)-\phi(b)+\Phi_0\}}
 r_Ar_Be^{i\delta}
 \right\rangle
 \right].
-$$
+```
 
 基準作用、可視度、位相ずれを
 
-$$
+```math
 I_0
 =
 \frac14
 \left\langle
 r_A^2+r_B^2
 \right\rangle,
-$$
+```
 
-$$
+```math
 V
 =
 \frac{
@@ -2048,20 +2050,20 @@ r_Ar_Be^{i\delta}
 r_A^2+r_B^2
 \right\rangle
 },
-$$
+```
 
-$$
+```math
 \delta_0
 =
 \arg
 \left\langle
 r_Ar_Be^{i\delta}
 \right\rangle
-$$
+```
 
 と置けば、
 
-$$
+```math
 \overline I_-^{AB}
 =
 I_0
@@ -2072,24 +2074,24 @@ I_0
 \phi(a)-\phi(b)+\Phi_0+\delta_0
 \right\}
 \right].
-$$
+```
 
 Cauchy--Schwarz 不等式から
 
-$$
+```math
 0\leq V\leq1
-$$
+```
 
 である。以下では位相ずれを $\Delta_{ab}$ に吸収し、
 
-$$
+```math
 \overline I_-^{AB}
 =
 I_0
 \left[
 1-ABV\cos\Delta_{ab}
 \right]
-$$
+```
 
 と書く。
 
@@ -2097,7 +2099,7 @@ $$
 
 比較器の未読変数として、1つの軟モードと1つの台帳モードを置く。
 
-$$
+```math
 J_s
 =
 \frac12
@@ -2111,43 +2113,43 @@ J_0
 \left(
 q_0^2+p_0^2
 \right).
-$$
+```
 
 両モードの基準周波数を同じ $\omega_\ell>0$ とし、
 
-$$
+```math
 J_\ell
 =
 J_s+J_0,
-$$
+```
 
-$$
+```math
 E_\ell
 =
 \omega_\ell J_\ell
-$$
+```
 
 を固定する。軟モードのエネルギーを
 
-$$
+```math
 h
 =
 \omega_\ell J_s
-$$
+```
 
 とする。台帳モードは、軟モードに入っていない残余作用
 
-$$
+```math
 E_\ell-h
 =
 \omega_\ell J_0
-$$
+```
 
 を保持する。
 
 2つの作用・角変数を
 
-$$
+```math
 q_\nu
 =
 \sqrt{2J_\nu}\cos\theta_\nu,
@@ -2157,19 +2159,19 @@ p_\nu
 \sqrt{2J_\nu}\sin\theta_\nu,
 \qquad
 \nu=s,0
-$$
+```
 
 と取れば、
 
-$$
+```math
 dq_\nu\,dp_\nu
 =
 dJ_\nu\,d\theta_\nu.
-$$
+```
 
 固定総作用殻上の正規化 Liouville 測度を
 
-$$
+```math
 d\mu_\ell
 =
 \frac{
@@ -2185,7 +2187,7 @@ E_\ell-\omega_\ell J_s-\omega_\ell J_0
 \right)
 dJ_s\,d\theta_s\,dJ_0\,d\theta_0
 }
-$$
+```
 
 とする。
 
@@ -2194,12 +2196,12 @@ $$
 \begin{theorem}[2モード台帳の一様周辺]
 固定 $E_\ell>0$ の2モード作用殻上で、軟モードのエネルギー $h=\omega_\ell J_s$ の周辺密度は
 
-$$
+```math
 p_\ell(h)
 =
 \frac1{E_\ell}
 \mathbf1_{\{0\leq h\leq E_\ell\}}
-$$
+```
 
 である。
 \end{theorem}
@@ -2207,7 +2209,7 @@ $$
 \begin{proof}
 位相角を積分すると $(2\pi)^2$ を得る。$h=\omega_\ell J_s$ を固定した未規格化密度は
 
-$$
+```math
 \int_0^\infty
 dJ_0\,
 \delta
@@ -2218,30 +2220,30 @@ E_\ell-h-\omega_\ell J_0
 =
 \frac{dh}{\omega_\ell^2}
 \mathbf1_{\{0\leq h\leq E_\ell\}}.
-$$
+```
 
 全質量は
 
-$$
+```math
 \int_0^{E_\ell}
 \frac{dh}{\omega_\ell^2}
 =
 \frac{E_\ell}{\omega_\ell^2}.
-$$
+```
 
 規格化すると $p_\ell(h)=1/E_\ell$ である。
 \end{proof}
 
 この定理は、2つの1自由度調和モードの状態密度がともに定数であることの帰結である。結果領域、測定設定、生成源位相は台帳作用殻の定義に現れないため、`[M]` の入口測度が各結果領域で共通なら
 
-$$
+```math
 p
 \left(
 h\mid A,B,a,b
 \right)
 =
 \frac1{E_\ell}
-$$
+```
 
 となる。
 
@@ -2249,9 +2251,9 @@ $$
 
 軟モードと台帳モードの総作用 $J_\ell$ を保存したまま、2モード間の作用配分と相対位相を変える有限 Hamiltonian 生成子を構成できる。必要な生成子は
 
-$$
+```math
 \{J_\ell,K_M\}=0
-$$
+```
 
 を満たす。具体的には、2モードの双線形生成子と有限個の非線形環境変数を結合すればよい。全生成子、Poisson 括弧、保存則は付録C.8に示す。
 
@@ -2266,26 +2268,26 @@ $$
 
 Hamiltonian 流れは微細 Liouville 密度を保存する。したがって任意の初期密度が $L^1$ または各点で一様密度へ収束するとは言えない。混合が与え得るのは、滑らかな粗視化観測量 $F$ に対する
 
-$$
+```math
 \frac1{\tau_{\rm cmp}}
 \int_0^{\tau_{\rm cmp}}
 F[h(t)]dt
 \approx
 \int_0^{E_\ell}
 F(h)\frac{dh}{E_\ell}
-$$
+```
 
 という有限時間平均、または初期小領域を粗視化した弱い収束である。
 
 必要な時間尺度は
 
-$$
+```math
 \tau_{\rm mix}
 \ll
 \tau_{\rm cmp}
 \ll
 T_{\rm rec}.
-$$
+```
 
 $\tau_{\rm mix}$ は粗視化頻度分布の緩和、$\tau_{\rm cmp}$ は比較器が台帳状態を読み出す前の混合窓、$T_{\rm rec}$ は有限混合器の再帰尺度である。本論文は一般の $K_M$ に対してこの不等式を証明しない。これは数値検証すべき `[M]` の動力学部分である。
 
@@ -2293,15 +2295,15 @@ $\tau_{\rm mix}$ は粗視化頻度分布の緩和、$\tau_{\rm cmp}$ は比較�
 
 軟モードが $N$ 個の通常台帳モードと固定総エネルギーを自由に分け合うとする。各モードが1つの調和正準対で、全単体
 
-$$
+```math
 h+\sum_{j=1}^{N}e_j=E_\ell,
 \qquad
 h,e_j\geq0
-$$
+```
 
 上の一様 Liouville 測度を用いる。$h$ を固定した残余単体の体積は $(E_\ell-h)^{N-1}$ に比例するので、
 
-$$
+```math
 p_N(h)
 =
 \frac{N}{E_\ell}
@@ -2310,11 +2312,11 @@ p_N(h)
 \right)^{N-1},
 \qquad
 0\leq h\leq E_\ell.
-$$
+```
 
 しきい値 $x$ 以下の累積重みは
 
-$$
+```math
 F_N(x)
 =
 \int_0^x p_N(h)dh
@@ -2323,24 +2325,24 @@ F_N(x)
 \left(
 1-\frac x{E_\ell}
 \right)^N.
-$$
+```
 
 $N=1$ のときだけ
 
-$$
+```math
 F_1(x)=\frac{x}{E_\ell}
-$$
+```
 
 が線形である。$N>1$ では $x$ の二次以上の項が現れる。第7章のしきい値
 
-$$
+```math
 x_{AB}
 =
 E_*+\kappa I_0
 \left(
 1-ABV\cos\Delta_{ab}
 \right)
-$$
+```
 
 を代入すると、$\cos^2\Delta_{ab}$ 以上の高調波が一般に残る。
 
@@ -2356,47 +2358,47 @@ $$
 
 2モード定理が決めるのは各結果領域内の条件付き密度であり、領域自体の基準質量ではない。基準準備測度における4領域を
 
-$$
+```math
 \Sigma_{AB}
 =
 \left\{
 \sigma(s_A)=A,\,
 \sigma(s_B)=B
 \right\}
-$$
+```
 
 とし、
 
-$$
+```math
 w_{AB}
 =
 \mu_S(\Sigma_{AB})
-$$
+```
 
 と定義する。
 
 準備段階に2つの測度保存対合
 
-$$
+```math
 \mathcal S_A:
 \Sigma_{AB}
 \longrightarrow
 \Sigma_{-A,B},
-$$
+```
 
-$$
+```math
 \mathcal S_B:
 \Sigma_{AB}
 \longrightarrow
 \Sigma_{A,-B}
-$$
+```
 
 があり、$H_{\rm prep}$、準備巨視領域、$\mu_S$ を保つとする。2つの変換が生成する群は4領域に推移的に作用する。
 
 \begin{proposition}[対称準備の結果領域等体積]
 上の独立符号反転対称性 `[S]` の下で、
 
-$$
+```math
 w_{++}
 =
 w_{+-}
@@ -2406,7 +2408,7 @@ w_{-+}
 w_{--}
 =
 \frac14
-$$
+```
 
 である。
 \end{proposition}
@@ -2421,21 +2423,21 @@ Hamiltonian の符号対称性だけでは不十分である。同じ Hamiltonia
 
 第6.5節と第6.9節を組み合わせると、比較器入口での結果領域と軟エネルギーの基準密度は
 
-$$
+```math
 g_{AB}^{\rm ent}(h)
 =
 \frac{w_{AB}}{E_\ell}
 \mathbf1_{\{0\leq h\leq E_\ell\}}.
-$$
+```
 
 `[S]` の下では
 
-$$
+```math
 g_{AB}^{\rm ent}(h)
 =
 \frac1{4E_\ell}
 \mathbf1_{\{0\leq h\leq E_\ell\}}.
-$$
+```
 
 この式で
 
@@ -2461,7 +2463,7 @@ Bell 型余弦重みの角度依存性と線形確率変換は、異なる2つ�
 
 第5.9節の内部時計自由 Hamiltonian、差動モード、2モード台帳、自律順序時計を含む比較窓 Hamiltonian を
 
-$$
+```math
 H_{\rm win}
 =
 H_{\rm or}
@@ -2477,35 +2479,35 @@ Y_R
 \left(
 h-\kappa I_-
 \right)
-$$
+```
 
 とする。ここで
 
-$$
+```math
 h=\omega_\ell J_s,
 \qquad
 \int f_R(\vartheta)d\vartheta=1
-$$
+```
 
 である。$f_R$ は有限幅で滑らかとし、比較窓では他のパルスと重ならない。
 
 $H_{\rm win}$ は $J_c$ へ線形なので、
 
-$$
+```math
 \dot\vartheta=\Omega
-$$
+```
 
 が厳密に成り立つ。また、
 
-$$
+```math
 \{I_-,H_{\rm win}\}=0,
 \qquad
 \{h,H_{\rm win}\}=0
-$$
+```
 
 である。したがって、比較パルス中も $I_-$ と $h$ は保存される。終端比較運動量は
 
-$$
+```math
 \dot\Pi_R
 =
 -
@@ -2515,34 +2517,34 @@ $$
 \left(
 \kappa I_- -h
 \right)
-$$
+```
 
 に従う。一方、相補時計の自由運動により
 
-$$
+```math
 \dot Y_R
 =
 \frac{\partial H_{\rm win}}{\partial\Pi_R}
 =
 \frac{2\Pi_R}{M_\tau}
-$$
+```
 
 であり、$Y_R$ は一般に一定ではない。しかし $\dot\Pi_R$ は $Y_R$ に依存しない。パルス直前の運動量を $\Pi_R=E_*$ とすると、
 
-$$
+```math
 \int
 \Omega f_R[\vartheta(t)]dt
 =
 1
-$$
+```
 
 より、有限幅パルスの後に厳密に
 
-$$
+```math
 \Pi_R(T)
 =
 E_*+\kappa I_- -h
-$$
+```
 
 を得る。
 
@@ -2552,37 +2554,37 @@ $$
 
 終端巨視領域を
 
-$$
+```math
 G_R(z_T)
 =
 \mathbf1_{\{\Pi_R(T)\geq0\}}
-$$
+```
 
 とする。これは
 
-$$
+```math
 G_R=1
 \quad\Longleftrightarrow\quad
 h\leq E_*+\kappa I_-
-$$
+```
 
 と同値である。
 
 第5.9節の相補的内部時計では $P_c=0$ なので、
 
-$$
+```math
 \varrho_A(T)=\Pi_R(T),
 \qquad
 \varrho_B(T)=-\Pi_R(T).
-$$
+```
 
 したがって同じ終端条件は、初期に選んだ順序付き時計向き
 
-$$
+```math
 \varrho_A\geq0,
 \qquad
 \varrho_B\leq0
-$$
+```
 
 が終端まで保たれた条件である。これは終端半空間の正準力学的意味を与えるが、その半空間だけを物理的履歴集団として数える `[R]` を置き換えない。
 
@@ -2590,21 +2592,21 @@ $G_R$ の関数形は $a,b,A,B$ も $\cos\Delta_{ab}$ も参照しない。測�
 
 全生成源の台上で切断端に当たらない適用範囲
 
-$$
+```math
 0
 \leq
 E_*+\kappa I_-
 \leq
 E_\ell
-$$
+```
 
 を仮定する。理想等振幅模型では、十分条件として
 
-$$
+```math
 E_*+\kappa I_0(1+V)
 \leq
 E_\ell
-$$
+```
 
 を用いられる。有限の振幅分布を許す場合は、その台上で同じ上界を課す。
 
@@ -2612,7 +2614,7 @@ $$
 
 結果領域の基準質量を $w_{AB}$ とする。第6章の2モード定理により、各結果領域内の軟エネルギー密度は $1/E_\ell$ である。生成源揺らぎを $\zeta$、その基準分布を $d\nu(\zeta)$ と書くと、未規格化の終端整合重みは
 
-$$
+```math
 W_{AB}(a,b)
 =
 w_{AB}
@@ -2622,11 +2624,11 @@ w_{AB}
 \mathbf1_{\{
 h\leq E_*+\kappa I_-^{AB}(\zeta)
 \}}.
-$$
+```
 
 適用範囲の下で $h$ 積分は線形なので、
 
-$$
+```math
 W_{AB}(a,b)
 =
 \frac{w_{AB}}{E_\ell}
@@ -2634,11 +2636,11 @@ W_{AB}(a,b)
 E_*+\kappa
 \overline I_-^{AB}
 \right].
-$$
+```
 
 第6.3節の可視度表示を代入すると、
 
-$$
+```math
 W_{AB}(a,b)
 =
 \frac{w_{AB}}{E_\ell}
@@ -2648,16 +2650,16 @@ E_*+\kappa I_0
 1-ABV\cos\Delta_{ab}
 \right)
 \right].
-$$
+```
 
 Bell 型重みの線形性は、通過流束や滞在時間ではなく、固定総作用殻上の累積 Liouville 体積
 
-$$
+```math
 \int_0^x
 \frac{dh}{E_\ell}
 =
 \frac{x}{E_\ell}
-$$
+```
 
 から生じる。
 
@@ -2675,20 +2677,20 @@ $$
 
 このとき、規格化した終端整合共同法則は
 
-$$
+```math
 P_R(A,B\mid a,b)
 =
 \frac14
 \left[
 1-ABV_{\rm eff}\cos\Delta_{ab}
 \right],
-$$
+```
 
-$$
+```math
 V_{\rm eff}
 =
 \frac{\kappa I_0}{E_*+\kappa I_0}V
-$$
+```
 
 である。各履歴の局所応答は因子化するが、Bell の完全な微視状態の事後分布は一般に測定設定へ依存する。
 \end{theorem}
@@ -2696,7 +2698,7 @@ $$
 \begin{proof}
 `[S]` から $w_{AB}=1/4$ である。第7.3節より
 
-$$
+```math
 W_{AB}
 =
 \frac1{4E_\ell}
@@ -2704,17 +2706,17 @@ W_{AB}
 E_*+\kappa I_0
 -AB\kappa I_0V\cos\Delta_{ab}
 \right].
-$$
+```
 
 4つの結果を足すと余弦項が消え、
 
-$$
+```math
 Z_{a,b}
 =
 \sum_{A,B}W_{AB}
 =
 \frac{E_*+\kappa I_0}{E_\ell}
-$$
+```
 
 となる。$W_{AB}/Z_{a,b}$ を計算すれば共同法則を得る。
 \end{proof}
@@ -2725,21 +2727,21 @@ $$
 
 $E_*=0$ では
 
-$$
+```math
 V_{\rm eff}=V
-$$
+```
 
 であり、理想位相同期 $V=1$ なら単位可視度の余弦則を得る。しかし $\Delta_{ab}=0$ かつ $AB=+1$ の結果領域では、しきい値と終端整合体積が零になる。
 
 $E_*>0$ は相補時計の正向き領域内で、向き反転までの初期運動量余裕を与える。同時に全結果領域へ正の整合性下限を与える。その代わり可視度は
 
-$$
+```math
 V_{\rm eff}
 =
 \frac{\kappa I_0}{E_*+\kappa I_0}V
 <
 V
-$$
+```
 
 へ低下する。したがって $E_*$ は、時計向きの頑健性と Bell 可視度の交換関係を表す。
 
@@ -2747,7 +2749,7 @@ $$
 
 Bell に関係する未読変数を $(A,B,h)$ に限定し、他の生成源変数が測定設定と独立に因子化するとする。`[R]` 後の密度は
 
-$$
+```math
 \rho_R(A,B,h\mid a,b)
 =
 \frac1{
@@ -2756,24 +2758,24 @@ $$
 \mathbf1_{\{
 0\leq h\leq x_{AB}(a,b)
 \}},
-$$
+```
 
-$$
+```math
 x_{AB}(a,b)
 =
 E_*+\kappa I_0
 \left[
 1-ABV\cos\Delta_{ab}
 \right]
-$$
+```
 
 である。測定設定を変えると各結果領域の台の上端が変わるため、
 
-$$
+```math
 \rho_R(\lambda\mid a,b)
 \neq
 \rho_R(\lambda\mid a',b')
-$$
+```
 
 が一般に成り立つ。
 
@@ -2781,20 +2783,20 @@ Bell--CHSH の標準導出では、4つの測定設定対に同じ $\rho(\lambda
 
 2つの測定設定対に対応する
 
-$$
+```math
 c=\cos\Delta_{ab},
 \qquad
 c'=\cos\Delta_{a'b'}
-$$
+```
 
 の間の全変動距離は、上の最小事後分布について
 
-$$
+```math
 D_{\rm TV}(c,c')
 =
 \frac{V_{\rm eff}}2
 |c-c'|
-$$
+```
 
 である。追加の未読変数が測定設定と独立に因子化する場合、この値は完全事後分布に対しても正確である。
 
@@ -2802,25 +2804,25 @@ $$
 
 制御器の基準分布を $P_S(a,b)$ とする。`[R]` を制御器まで含む全履歴集団へ適用すると、
 
-$$
+```math
 P_R(a,b)
 \propto
 P_S(a,b)Z_{a,b}.
-$$
+```
 
 第7.4節で
 
-$$
+```math
 Z_{a,b}
 =
 \frac{E_*+\kappa I_0}{E_\ell}
-$$
+```
 
 は測定設定に依存しない。したがって
 
-$$
+```math
 P_R(a,b)=P_S(a,b).
-$$
+```
 
 巨視的な制御器頻度を保ちながら、その設定巨視状態と終端条件の両方に整合する微視的生成源事後分布は変化する。この意味で本構成は、未来入力依存または2境界条件付きの模型に属する \cite{wharton2010,wharton_argaman2020,price_wharton2023,price_wharton2024,argaman2010}。
 
@@ -2828,55 +2830,55 @@ $$
 
 共同法則の一側周辺は
 
-$$
+```math
 P_R(A\mid a,b)
 =
 \sum_{B=\pm1}
 P_R(A,B\mid a,b)
 =
 \frac12,
-$$
+```
 
-$$
+```math
 P_R(B\mid a,b)
 =
 \frac12
-$$
+```
 
 である。したがって `[S]` の対称集団では操作上の非信号性が成立する。これは微視的な測定設定独立性が回復したことを意味しない。遠隔設定依存性は未読事後分布に残るが、結果符号対称性により一側周辺で相殺される。
 
 相関は
 
-$$
+```math
 E(a,b)
 =
 \sum_{A,B}
 ABP_R(A,B\mid a,b)
 =
 -V_{\rm eff}\cos\Delta_{ab}
-$$
+```
 
 である。標準 CHSH 角
 
-$$
+```math
 \phi(a_0)=0,
 \qquad
 \phi(a_1)=\frac\pi2,
-$$
+```
 
-$$
+```math
 \phi(b_0)=\frac\pi4,
 \qquad
 \phi(b_1)=-\frac\pi4
-$$
+```
 
 では
 
-$$
+```math
 |\mathcal S|
 =
 2\sqrt2V_{\rm eff}.
-$$
+```
 
 したがって $V_{\rm eff}>1/\sqrt2$ なら CHSH 不等式を破る。
 
@@ -2905,11 +2907,11 @@ $$
 
 比較窓を1本の有限 Hamiltonian として書き、内部時計の自由運動により $Y_R$ が変化しても
 
-$$
+```math
 \Pi_R(T)
 =
 E_*+\kappa I_- -h
-$$
+```
 
 が厳密に成り立つことを示した。固定終端条件は順序付き時計向きの保存と同値であり、同時に $h$ の下位体積を測る。
 
@@ -2944,13 +2946,13 @@ $$
 
 有限閉鎖 Hamiltonian 系は再帰を持ち得る。時間反転可能な方程式は終端境界条件を数学的に許す。しかし、有限性、再帰性、時間反転対称性を合わせただけでは
 
-$$
+```math
 d\mu_R
 \propto
 \rho_S
 G_R\circ\Phi^T
 d\Gamma
-$$
+```
 
 を物理的確率法則として一意に選ぶことはできない。`[R]` は、本構成を通常の初期値統計力学から区別する独立原理である。
 
@@ -2958,7 +2960,7 @@ $$
 
 初期境界密度 $\rho_S(z_i)$ と終端関数 $G_{\rm or}(z_f)$ を同一 Hamiltonian 履歴として照合する規則を追加すれば、
 
-$$
+```math
 d\nu
 \propto
 \rho_S(z_i)
@@ -2968,13 +2970,13 @@ G_{\rm or}(z_f)
 z_f-\Phi_{a,b}^{T}z_i
 \right)
 d\Gamma_i\,d\Gamma_f
-$$
+```
 
 から `[R]` の積形式を得る。ただし2つの境界密度を掛けて照合する規則自体が、追加の全履歴統計原理である。
 
 同じ読出し $\Pi_R(T)=x-h$ に対し、2つの相補的半空間を等重みで平均すると
 
-$$
+```math
 \frac12
 \left[
 \frac{x}{E_\ell}
@@ -2983,7 +2985,7 @@ $$
 \right]
 =
 \frac12
-$$
+```
 
 となり、差動作用の余弦項は消える。無向きの時計相補性だけでは Bell 重みを保てない。
 
@@ -2991,13 +2993,13 @@ $$
 
 局所記録時刻 $t_m$ で、位相空間を4つの互いに交わらない記録領域
 
-$$
+```math
 \Gamma_{AB}(t_m)
-$$
+```
 
 に分ける。$t>t_m$ の共有浴を含む Hamiltonian 流れを $\Phi^{t-t_m}$ とする。Liouville 測度 $\mu$ に対して
 
-$$
+```math
 \mu
 \left[
 \Phi^{t-t_m}\Gamma_{AB}(t_m)
@@ -3007,17 +3009,17 @@ $$
 \left[
 \Gamma_{AB}(t_m)
 \right]
-$$
+```
 
 である。Hamiltonian 流れが全単射で位相体積を保存するからである。
 
 したがって記録形成後に左右の写しを共有浴へ結合しても、全試行を1回ずつ数える結果領域の質量は変わらない。結果に依存する後段時間についても同じである。$n$ 番目の試行の結果を $\kappa_n=(A_n,B_n)$、有限の完了時間を $\tau_n$ とすると、全試行を数える頻度
 
-$$
+```math
 \frac1N
 \sum_{n=1}^{N}
 \mathbf1_{\{\kappa_n=(A,B)\}}
-$$
+```
 
 は $\tau_n$ に依存しない。
 
@@ -3029,7 +3031,7 @@ $$
 
 一般の基準結果重みを $w_{AB}$ とすると、
 
-$$
+```math
 P_w(A,B\mid a,b,R)
 =
 \frac{
@@ -3045,46 +3047,46 @@ w_{A'B'}
 C-A'B'Kc
 \right]
 },
-$$
+```
 
-$$
+```math
 C=E_*+\kappa I_0,
 \qquad
 K=\kappa I_0V,
 \qquad
 c=\cos\Delta_{ab}.
-$$
+```
 
 同時符号反転対称性
 
-$$
+```math
 w_{++}=w_{--},
 \qquad
 w_{+-}=w_{-+}
-$$
+```
 
 があれば一側結果周辺は $1/2$ に保たれる。しかし偶奇領域の基準質量が異なると、全整合体積
 
-$$
+```math
 Z_{a,b}
 =
 C
 -Kc
 \sum_{A,B}ABw_{AB}
-$$
+```
 
 が測定設定に依存し得る。結果周辺と設定頻度の両方を最も単純に保つ条件は $w_{AB}=1/4$ である。
 
 例えば B 側の結果種を $B=+1$ に限定した準備が操作可能なら、
 
-$$
+```math
 P_R(A=+1\mid a,b,B=+1)
 =
 \frac12
 \left[
 1-V_{\rm eff}\cos\Delta_{ab}
 \right]
-$$
+```
 
 となり、A 側周辺は B 側の測定設定に依存する。したがって `[S]` の非信号性は平衡的な対称準備についての結果であり、任意準備についての定理ではない。
 
@@ -3092,7 +3094,7 @@ $$
 
 一様密度からのずれを
 
-$$
+```math
 p(h)
 =
 \frac1{E_\ell}
@@ -3101,31 +3103,31 @@ p(h)
 \right],
 \qquad
 \int_0^{E_\ell}r(h)dh=0
-$$
+```
 
 と書くと、累積整合重みは
 
-$$
+```math
 F(x)
 =
 \frac{x}{E_\ell}
 +
 \frac{\varepsilon}{E_\ell}
 \int_0^x r(h)dh
-$$
+```
 
 となる。$x=C-ABK\cos\Delta$ を代入したとき、第2項は一般に高次調波を生む。
 
 軟モードが $N$ 個の通常台帳モードと総エネルギーを共有する場合には、
 
-$$
+```math
 F_N(x)
 =
 1-
 \left(
 1-\frac{x}{E_\ell}
 \right)^N
-$$
+```
 
 であり、$N>1$ では線形でない。したがって不完全混合、総作用の漏れ、追加台帳モードは、可視度低下だけでなく高次調波として現れ得る。
 
@@ -3133,21 +3135,21 @@ $$
 
 理想終端関数
 
-$$
+```math
 G_R
 =
 \mathbf1_{\{\Pi_R\geq0\}}
-$$
+```
 
 を幅 $\epsilon_R$ の滑らかな応答 $g_{\epsilon_R}$ へ置き換えると、
 
-$$
+```math
 F_{\epsilon_R}(x)
 =
 \int_0^{E_\ell}
 \frac{dh}{E_\ell}
 g_{\epsilon_R}(x-h)
-$$
+```
 
 となる。$x$ が $0$ と $E_\ell$ の両端から十分離れ、応答核が平行移動共変なら、主要項は $x/E_\ell$ である。両端へ近づくと切断補正が入り、零しきい値領域にも有限の背景重みが生じ得る。
 
@@ -3155,22 +3157,22 @@ $$
 
 終端比較器の後に、利用可能エネルギー
 
-$$
+```math
 x_{AB}
 =
 E_*+\kappa I_-^{AB}
-$$
+```
 
 で自由反応座標を距離 $\ell_g$ だけ進ませる追加設計を考える。質量を $M_g$ とすれば、
 
-$$
+```math
 \tau_g(x)
 =
 \ell_g
 \sqrt{
 \frac{M_g}{2x}
 }.
-$$
+```
 
 $E_*>0$ なら完了時間に一様上界がつく一方、Bell 可視度は下がる。この同時変化は、自由反応座標を追加した特定の表示装置の帰結である。第II部の必須模型から一般に従う予測ではなく、後段設計を採用した場合だけ検査できる。
 
@@ -3178,21 +3180,21 @@ $E_*>0$ なら完了時間に一様上界がつく一方、Bell 可視度は下�
 
 本構成が直接与えるのは、実2次元の等振幅伝達ベクトルと2次差動比較器による
 
-$$
+```math
 I_-
 \propto
 1-AB\cos\Delta
-$$
+```
 
 である。したがって
 
-$$
+```math
 |\mathcal S|
 =
 2\sqrt2V_{\rm eff}
 \leq
 2\sqrt2
-$$
+```
 
 は $0\leq V_{\rm eff}\leq1$ と、この比較器設計の帰結である。
 
@@ -3204,19 +3206,19 @@ $$
 
 第II部の余弦は、伝達ベクトルの内積
 
-$$
+```math
 u_A\cdot u_B
 \propto
 \cos\Delta_{ab}
-$$
+```
 
 から生じる。これは Bell 実験の設定差に対する共同確率を与えるが、配置空間位相 $S(x)$ の閉路条件
 
-$$
+```math
 \oint\nabla S\cdot d\ell
 \in
 2\pi\hbar\mathbb Z
-$$
+```
 
 を導かない。したがって Bell 型余弦共同確率は Wallstrom 問題を解かない。
 
@@ -3250,11 +3252,11 @@ $$
 
 第II部では、局所結果符号化器、実2次元差動比較器、2モード台帳、相補的内部時計を有限 Hamiltonian 部品として接続した。終端比較器は、内部時計の自由運動を含む有限幅 Hamiltonian でも
 
-$$
+```math
 \Pi_R(T)
 =
 E_*+\kappa I_- -h
-$$
+```
 
 を厳密に読出す。対称準備と `[R]` を追加すると Bell 型余弦共同確率が得られ、Bell の前提違反は測定設定独立性に現れる。
 
@@ -3273,35 +3275,35 @@ $$
 
 線形方程式の雑音応答核を
 
-$$
+```math
 G_\theta(t,s)
 =
 \mathbf 1_{0\leq s\leq t}
 \Phi_\theta(t,s)
-$$
+```
 
 とする。$s=t$ に跳びがあるため、$s$ に関する Fourier 係数は一般に $O(n^{-1})$ である。
 
 \begin{lemma}[一様 Fourier 尾部]
 $F_\theta$ が第4.2節の仮定を満たすなら、ある $C_K$ が存在して
 
-$$
+```math
 \sup_{\theta\in K,\,t\in[0,T]}
 \|\widehat G_{\theta,n}(t)\|
 \leq
 \frac{C_KT}{1+|n|},
-$$
+```
 
-$$
+```math
 \sup_{\theta\in K,\,t\in[0,T]}
 \|D_\theta\widehat G_{\theta,n}(t)\|
 \leq
 \frac{C_KT}{1+|n|}
-$$
+```
 
 が成立する。従って共分散尾部は
 
-$$
+```math
 \sup_{\theta,s,t}
 \left(
 \|C_N(s,t)-C(s,t)\|
@@ -3309,7 +3311,7 @@ $$
 \right)
 \leq
 \frac{C_KT^2}{N}
-$$
+```
 
 である。
 \end{lemma}
@@ -3319,7 +3321,7 @@ $n\neq0$ に対して $e^{-i\omega_ns}$ を部分積分する。区間端と $s=
 
 $\theta$ 微分については
 
-$$
+```math
 D\Phi_\theta[\delta F](t,s)
 =
 \int_s^t
@@ -3327,13 +3329,13 @@ D\Phi_\theta[\delta F](t,s)
 \delta F(r)
 \Phi_\theta(r,s)
 \dd r
-$$
+```
 
 を使う。$D\Phi$ とその $s$ 微分も一様有界なので同じ部分積分評価が成立する。共分散は Fourier 係数の積の和であり、
 
-$$
+```math
 \sum_{|n|>N}\frac1{n^2}\leq\frac{C}{N}
-$$
+```
 
 から結論を得る。
 \end{proof}
@@ -3348,53 +3350,53 @@ $$
 
 $S_N=HC_N(T,T)H^{\mathsf T}+R$、$S=HC(T,T)H^{\mathsf T}+R$ とする。$R\geq r_*I$ なので
 
-$$
+```math
 \|S_N^{-1}\|\leq r_*^{-1},
 \qquad
 \|S^{-1}\|\leq r_*^{-1}.
-$$
+```
 
 逆行列恒等式
 
-$$
+```math
 S_N^{-1}-S^{-1}
 =
 S_N^{-1}(S-S_N)S^{-1}
-$$
+```
 
 から
 
-$$
+```math
 \|S_N^{-1}-S^{-1}\|
 \leq
 r_*^{-2}\|S_N-S\|
-$$
+```
 
 を得る。従って条件付き共分散について
 
-$$
+```math
 \sup_{s,t,\theta}
 \|C_N^R(s,t)-C^R(s,t)\|
 \leq
 \frac{C_KT^2}{N}
-$$
+```
 
 である。
 
 第1微分では
 
-$$
+```math
 D(S^{-1})=-S^{-1}(DS)S^{-1}
-$$
+```
 
 を用いる。$S_N^{-1}$、$DS_N$ が一様有界なので、積の各因子を1つずつ差し替えることで
 
-$$
+```math
 \sup_{s,t,\theta}
 \|D C_N^R(s,t)-D C^R(s,t)\|
 \leq
 \frac{C_KT^2}{N}
-$$
+```
 
 を得る。条件付き平均も同様である。
 
@@ -3404,9 +3406,9 @@ $R>0$ は、観測値 $y$ の周囲に有限幅の終端領域を持たせる。
 
 $R\downarrow0$ とすると、完全観測された方向の終端共分散は零へ近づく。自由拡散では前進条件付き流れに
 
-$$
+```math
 \frac{y-x}{T-t}
-$$
+```
 
 型の項が現れる。点終端での定理を得るには、$t=T$ の境界層を除いた区間で先に $N\to\infty$、$h\to0$ を取り、その後に境界層と $R\downarrow0$ を別に評価する必要がある。
 
@@ -3414,13 +3416,13 @@ $$
 
 自由系では
 
-$$
+```math
 X_N(T)-X_N(0)
 =
 \int_0^T\widetilde\eta_N(t)\dd t
 =
 \sqrt{2\nu T}\,Z_0.
-$$
+```
 
 従って $X_N(T)=X_N(0)$ は $Z_0=0$ と同値である。非零モードは終端条件と独立なので、条件付き共分散から零モードの寄与 $2\nu/T$ だけが除かれる。この計算は、旧来の $-1/T$ が浴の基本性質ではなく、自由終端固定の結果であることを最も直接に示す。
 
@@ -3428,13 +3430,13 @@ $$
 
 $F\neq0$ では
 
-$$
+```math
 X_N(T)
 =
 \Phi(T,0)X_N(0)
 +\sum_\alpha K_{N,\alpha}(T)\zeta_\alpha
 +d_N(T)
-$$
+```
 
 である。ここで $d_N(T)$ は決定論項であり、一般に $K_{N,\alpha}(T)\neq0$ である。終端記録は零周波数だけでなく全ての Fourier 係数の線形結合を拘束する。そのため条件付き雑音共分散の修正は階数有限の Schur 項となり、流れ $F$、観測 $H$、分解能 $R$ に依存する。
 
@@ -3449,14 +3451,14 @@ $$
 
 条件付き Gaussian 過程の増分 $\Delta_hX(t)=X(t+h)-X(t)$ に対して
 
-$$
+```math
 \E^R|\Delta_hX(t)|^2
 =
 |\mu^R(t+h)-\mu^R(t)|^2
 +\Tr\left[
 C^R(t+h,t+h)+C^R(t,t)-2C^R(t+h,t)
 \right]
-$$
+```
 
 が厳密に成立する。従って粗視化作用の運動項は、条件付き平均と共分散だけで計算できる。
 
@@ -3466,17 +3468,17 @@ $$
 
 極限拡散について、$X_t=x$ を固定した短時間増分は
 
-$$
+```math
 \Delta_hX
 =
 b_+^R(x,t)h
 +\sqrt{2\nu}\Delta_hW
 +O_{L^2}(h^{3/2})
-$$
+```
 
 である。流れの空間依存と雑音の相関による交差項まで含めて平均すると
 
-$$
+```math
 \E^R
 \left[
 |\Delta_hX|^2\mid X_t=x
@@ -3489,11 +3491,11 @@ $$
 +2\nu\nabla\cdot b_+^R(x,t)
 \right]
 +O(h^3).
-$$
+```
 
 線形流れでは3階剰余を平均・微分した量も一様に有界である。$m/(2h^2)$ を掛けると
 
-$$
+```math
 \frac m{2h^2}\E^R|\Delta_hX|^2
 -\frac{md\nu}{h}
 =
@@ -3503,7 +3505,7 @@ $$
 +m\nu\nabla\cdot b_+^R
 \right]
 +O(h).
-$$
+```
 
 積分上端を $T-h$ で止めたことによる欠落も $O(h)$ である。
 
@@ -3511,9 +3513,9 @@ $$
 
 雑音の主要項 $2d\nu h$ だけを差し引いても、流れと短時間雑音の交差効果は $h^2$ の有限項として残る。それが
 
-$$
+```math
 m\nu\nabla\cdot b_+^R
-$$
+```
 
 である。この項を落とすと、極限は正しい Guerra--Morato 作用にならず、Nelson 表示の負の Fisher 項も得られない。
 
@@ -3521,15 +3523,15 @@ $$
 
 付録Aの評価から
 
-$$
+```math
 \|C_N^R-C^R\|_{C^1(K;C([0,T]^2))}
 \leq
 \frac{C_KT^2}{N}
-$$
+```
 
 である。増分共分散は4つの共分散値の線形結合なので、
 
-$$
+```math
 \left|
 \E_N^R|\Delta_hX_N|^2
 -
@@ -3537,13 +3539,13 @@ $$
 \right|_{C^1(K)}
 \leq
 \frac{C_KT^2}{N}.
-$$
+```
 
 従って運動項の差は
 
-$$
+```math
 \frac{C_KT^2}{Nh^2}
-$$
+```
 
 で抑えられる。この評価は最適とは限らないが、$N(h/T)^2\to\infty$ という単純な対角極限を与える。
 
@@ -3551,14 +3553,14 @@ $$
 
 $U(x,t)=x^{\mathsf T}K(t)x/2+\ell(t)^{\mathsf T}x+c(t)$ なら
 
-$$
+```math
 \E^R[U(X_t,t)]
 =
 \frac12\mu^R(t)^{\mathsf T}K(t)\mu^R(t)
 +\frac12\Tr[K(t)C^R(t,t)]
 +\ell(t)^{\mathsf T}\mu^R(t)
 +c(t).
-$$
+```
 
 従ってポテンシャル期待値とそのパラメータ第1微分は、$\mu_N^R$ と $C_N^R$ の $O(1/N)$ 収束から直接従う。これは運動項の $O(1/(Nh^2))$ より小さく、主定理の右辺へ吸収できる。
 
@@ -3570,14 +3572,14 @@ $$
 
 時間対角展開を微分した剰余も $O(h)$、Fourier 尾部を微分した誤差も $O(T^2/(Nh^2))$ である。有限個の $\theta_j$ について最大を取れば
 
-$$
+```math
 \|\mathcal A_{N,h}^{R,U}-\mathcal A_{\GM}^{R,U}\|_{C^1(K)}
 \leq
 C_K
 \left(
 \frac hT+\frac{T^2}{Nh^2}
 \right)
-$$
+```
 
 を得る。
 
@@ -3585,19 +3587,19 @@ $$
 
 $h/T=N^{-\alpha}$ と置くと、2つの誤差は
 
-$$
+```math
 N^{-\alpha},
 \qquad
 N^{2\alpha-1}
-$$
+```
 
 である。両者を同じ次数にするには $\alpha=1/3$ とすればよい。従って
 
-$$
+```math
 h_N=TN^{-1/3},
 \qquad
 \varepsilon_N=O(N^{-1/3})
-$$
+```
 
 となる。ここで $\varepsilon_N$ は全評価誤差を表す。
 
@@ -3616,52 +3618,52 @@ $$
 
 各正準対 $(q_j,p_j)$ に
 
-$$
+```math
 \{q_j,p_k\}
 =
 \delta_{jk}
-$$
+```
 
 を置く。伝達ベクトル $u=(Q,P)^{\mathsf T}$ と作用
 
-$$
+```math
 I=\frac12(Q^2+P^2)
-$$
+```
 
 に対し、生成子
 
-$$
+```math
 K_{\rm rot}
 =
 -\theta I
-$$
+```
 
 の単位流れは
 
-$$
+```math
 \dot Q=-\theta P,
 \qquad
 \dot P=\theta Q
-$$
+```
 
 なので
 
-$$
+```math
 u(1)
 =
 R(\theta)u(0).
-$$
+```
 
 $\theta=\phi(a)+\pi\chi_-(s)$ とし、結果種の平坦領域上で $A=\sigma(s)$ とすれば
 
-$$
+```math
 R
 \left[
 \phi(a)+\pi\chi_-(s)
 \right]
 =
 A R[\phi(a)].
-$$
+```
 
 したがって結果符号を伝達ベクトル位相の $\pi$ 移動として正準的に記録できる。
 
@@ -3669,61 +3671,61 @@ $$
 
 応答モード対 $(x,p)$ に対する生成子
 
-$$
+```math
 K_{\rm br}
 =
 -x\sigma(s)
-$$
+```
 
 は
 
-$$
+```math
 \dot p
 =
 -\frac{\partial K_{\rm br}}{\partial x}
 =
 \sigma(s),
-$$
+```
 
-$$
+```math
 \dot x
 =
 \frac{\partial K_{\rm br}}{\partial p}
 =
 0
-$$
+```
 
 を与える。$p(0)=0$ なら $p(1)=A$ である。
 
 固定指針対 $(Y,\Pi)$ に対する
 
-$$
+```math
 K_{\rm lock}
 =
 -Y\zeta(p)
-$$
+```
 
 は
 
-$$
+```math
 \dot\Pi
 =
 -\frac{\partial K_{\rm lock}}{\partial Y}
 =
 \zeta(p),
-$$
+```
 
-$$
+```math
 \dot Y=0,
 \qquad
 \dot p=0
-$$
+```
 
 を与える。$\zeta(\pm1)=\pm1$ の平坦領域で $\Pi(0)=0$ なら、
 
-$$
+```math
 \Pi(1)=A.
-$$
+```
 
 2つの写像は Hamiltonian 流れなので位相体積を保存する。応答モードの情報を局所浴へ分散した後も、固定指針対を切り離せば比較窓の記録符号は保たれる。
 
@@ -3731,7 +3733,7 @@ $$
 
 時計対 $(\vartheta,J_c)$ と、互いに重ならないパルス形 $f_{\nu,\epsilon}(\vartheta)$ を用い、
 
-$$
+```math
 H
 =
 \Omega J_c
@@ -3739,31 +3741,31 @@ H
 +\Omega
 \sum_\nu
 f_{\nu,\epsilon}(\vartheta)K_\nu
-$$
+```
 
 とする。$K_\nu$ と $H_0$ が $J_c$ に依存しないとき、
 
-$$
+```math
 \dot\vartheta=\Omega.
-$$
+```
 
 $f_{\nu,\epsilon}$ を
 
-$$
+```math
 \int_{\operatorname{supp}f_{\nu,\epsilon}}
 f_{\nu,\epsilon}(\vartheta)d\vartheta=1
-$$
+```
 
 と規格化すれば、対応する時間区間で
 
-$$
+```math
 \int
 \Omega f_{\nu,\epsilon}[\vartheta(t)]dt=1.
-$$
+```
 
 自由 Hamiltonian $H_0$ を無視すれば、この積分は $K_\nu$ の単位正準写像を与える。しかし全 Hamiltonian では $H_0$ も同時に働く。相互作用表示で Duhamel 展開を用いると、パルスの時間幅を $\epsilon_\nu$ として、有界な適用領域 $\mathcal K$ 上で
 
-$$
+```math
 \sup_{z\in\mathcal K}
 \left\|
 \Phi_{\rm full}^{(\nu)}(z)
@@ -3772,7 +3774,7 @@ e^{X_{K_\nu}}z
 \right\|
 \leq
 C_{\mathcal K}\epsilon_\nu
-$$
+```
 
 となる。定数 $C_{\mathcal K}$ は、$\mathcal K$ 上の $X_{H_0}$、$X_{K_\nu}$、それらの第1微分の上界で決まる。したがって、本文の局所分析器と指針固定は短時間パルス極限の理想写像であり、有限幅では $O(\epsilon_\nu)$ の補正を持つ。
 
@@ -3782,7 +3784,7 @@ $$
 
 まず、時計運動量を $\pm\varrho_0$ の極小へ固定するだけの Hamiltonian
 
-$$
+```math
 H_{\rm stop}
 =
 \frac{\kappa_c}{2}
@@ -3795,11 +3797,11 @@ H_{\rm stop}
 \left(
 \varrho_X^2-\varrho_0^2
 \right)^2
-$$
+```
 
 は用いない。極小
 
-$$
+```math
 \left(
 \varrho_A,\varrho_B
 \right)
@@ -3807,23 +3809,23 @@ $$
 \left(
 +\varrho_0,-\varrho_0
 \right)
-$$
+```
 
 では
 
-$$
+```math
 \dot\tau_X
 =
 \frac{\partial H_{\rm stop}}{\partial\varrho_X}
 =
 0
-$$
+```
 
 となり、向きは区別できても時計が進まないからである。
 
 実際に相補的な時計運動を作る最小の二次 Hamiltonian として
 
-$$
+```math
 H_{\rm or}
 =
 \frac{\varrho_A^2+\varrho_B^2}{2M_\tau}
@@ -3832,11 +3834,11 @@ H_{\rm or}
 \left(
 \varrho_A+\varrho_B
 \right)^2
-$$
+```
 
 を用いる。中心・相対変数を
 
-$$
+```math
 \bar\tau
 =
 \frac{\tau_A+\tau_B}{2},
@@ -3844,9 +3846,9 @@ $$
 Y_R
 =
 \tau_A-\tau_B,
-$$
+```
 
-$$
+```math
 P_c
 =
 \varrho_A+\varrho_B,
@@ -3854,11 +3856,11 @@ P_c
 \Pi_R
 =
 \frac{\varrho_A-\varrho_B}{2}
-$$
+```
 
 と定めると、
 
-$$
+```math
 \varrho_A\,d\tau_A
 +
 \varrho_B\,d\tau_B
@@ -3866,11 +3868,11 @@ $$
 P_c\,d\bar\tau
 +
 \Pi_R\,dY_R.
-$$
+```
 
 したがって変換は正準であり、
 
-$$
+```math
 H_{\rm or}
 =
 \frac{\Pi_R^2}{M_\tau}
@@ -3881,17 +3883,17 @@ H_{\rm or}
 \frac{\kappa_c}{2}
 \right)
 P_c^2.
-$$
+```
 
 $P_c=0$ 上では
 
-$$
+```math
 \varrho_A=\Pi_R,
 \qquad
 \varrho_B=-\Pi_R,
-$$
+```
 
-$$
+```math
 \dot\tau_A
 =
 \frac{\Pi_R}{M_\tau},
@@ -3899,40 +3901,40 @@ $$
 \dot\tau_B
 =
 -\frac{\Pi_R}{M_\tau}.
-$$
+```
 
 比較パルス直前に $\Pi_R=E_*>0$ を準備し、終端比較生成子を
 
-$$
+```math
 K_R
 =
 Y_R
 \left(
 h-\kappa I_-
 \right)
-$$
+```
 
 とする。$K_R$ は $\bar\tau$ に依存しないので $P_c=0$ は保たれる。さらに
 
-$$
+```math
 \{h,K_R\}
 =
 \{I_-,K_R\}
 =
 0
-$$
+```
 
 なので、比較パルス中も $h$ と $I_-$ は保存される。相補時計の自由運動により
 
-$$
+```math
 \dot Y_R
 =
 \frac{2\Pi_R}{M_\tau}
-$$
+```
 
 であり、$Y_R$ は一般に動く。一方、規格化したパルス係数を $g_R(t)$ とすれば
 
-$$
+```math
 \dot\Pi_R
 =
 g_R(t)
@@ -3941,46 +3943,46 @@ g_R(t)
 \right),
 \qquad
 \int g_R(t)dt=1
-$$
+```
 
 である。したがって有限幅パルスでも厳密に
 
-$$
+```math
 \Delta\Pi_R
 =
 \kappa I_- -h,
-$$
+```
 
-$$
+```math
 \Pi_R(T)
 =
 E_*+\kappa I_- -h.
-$$
+```
 
 したがって
 
-$$
+```math
 \Pi_R(T)\geq0
 \quad\Longleftrightarrow\quad
 \varrho_A(T)\geq0
 \quad\land\quad
 \varrho_B(T)\leq0.
-$$
+```
 
 終端半空間は、初期に選んだ時計向きの順序を保存した履歴の集合として得られる。一方、$\Pi_R(T)<0$ の軌道も正則な Hamiltonian 軌道であり、時計向きが交換されるだけである。
 
 この半空間から `[R]` の積形式を得るには、さらに2境界の統計的照合を置く必要がある。初期境界の密度を $\rho_S(z_i)$、逆向き時計の時計過去に対応する終端関数を $G_{\rm or}(z_f)$ とし、両枝が同じ Hamiltonian 履歴を表す条件を
 
-$$
+```math
 \delta
 \left(
 z_f-\Phi_{a,b}^{T}z_i
 \right)
-$$
+```
 
 で課す。履歴空間上の測度を
 
-$$
+```math
 d\nu
 =
 \frac1{\mathcal Z}
@@ -3991,11 +3993,11 @@ G_{\rm or}(z_f)
 z_f-\Phi_{a,b}^{T}z_i
 \right)
 d\Gamma_i\,d\Gamma_f
-$$
+```
 
 とすれば、$z_f$ 積分により
 
-$$
+```math
 d\nu_i
 =
 \frac1{\mathcal Z}
@@ -4005,13 +4007,13 @@ G_{\rm or}
 \Phi_{a,b}^{T}z_i
 \right)
 d\Gamma_i.
-$$
+```
 
 これは `[R]` と同じ積形式である。Hamiltonian 流れの Jacobian が1であるため、逆向きに積分しても余分な密度因子は出ない。ただし2つの境界密度を掛けて照合する規則は、Hamilton 方程式とは別の全履歴統計原理である。
 
 最後に、向きの順序を指定しない素朴な平均を考える。同じスカラー読出し
 
-$$
+```math
 \Pi_R(T)
 =
 x-h,
@@ -4019,11 +4021,11 @@ x-h,
 x
 =
 E_*+\kappa I_-,
-$$
+```
 
 に対して正向き半空間を $\Pi_R(T)\geq0$、相補的半空間を $\Pi_R(T)\leq0$ とし、$0\leq x\leq E_\ell$ で一様な $h$ を積分すると、
 
-$$
+```math
 F_+(x)
 =
 \int_0^{E_\ell}
@@ -4031,9 +4033,9 @@ F_+(x)
 \mathbf1_{\{h\leq x\}}
 =
 \frac{x}{E_\ell},
-$$
+```
 
-$$
+```math
 F_-(x)
 =
 \int_0^{E_\ell}
@@ -4041,18 +4043,18 @@ F_-(x)
 \mathbf1_{\{h\geq x\}}
 =
 1-\frac{x}{E_\ell}.
-$$
+```
 
 両者を等重みで足せば
 
-$$
+```math
 \frac12
 \left[
 F_+(x)+F_-(x)
 \right]
 =
 \frac12
-$$
+```
 
 となり、$I_-$ の余弦依存性は消える。したがって $\varrho_A=-\varrho_B$ という無向きの相補性だけでは Bell 重みを保てない。順序付き境界領域を採るか、時間反転した領域では比較パルスの符号も反転する共変な追加構造が必要である。
 
@@ -4060,21 +4062,21 @@ $$
 
 2つの伝達ベクトルを
 
-$$
+```math
 u_A
 =
 A r_A R[\phi(a)]n(\Theta_A),
-$$
+```
 
-$$
+```math
 u_B
 =
 B r_B R[\phi(b)]n(\Theta_B)
-$$
+```
 
 とする。シンプレクティック分岐器
 
-$$
+```math
 u_+
 =
 \frac{u_A+u_B}{\sqrt2},
@@ -4082,31 +4084,31 @@ u_+
 u_-
 =
 \frac{u_A-u_B}{\sqrt2}
-$$
+```
 
 は総作用を保存する。
 
-$$
+```math
 \frac12\|u_A\|^2
 +\frac12\|u_B\|^2
 =
 \frac12\|u_+\|^2
 +\frac12\|u_-\|^2.
-$$
+```
 
 反対称出力の作用は
 
-$$
+```math
 \frac12\|u_-\|^2
 =
 \frac14\|u_A-u_B\|^2
 =
 I_-.
-$$
+```
 
 内積を展開して
 
-$$
+```math
 I_-
 =
 \frac14
@@ -4114,7 +4116,7 @@ I_-
 r_A^2+r_B^2
 -2ABr_Ar_B\cos\Delta_{ab}
 \right]
-$$
+```
 
 を得る。この物理的な分岐写像を実行してから反対称出力の作用を比較器へ結合してもよく、同じ2次観測量へ直接結合してもよい。
 
@@ -4122,7 +4124,7 @@ $$
 
 比較窓 Hamiltonian を
 
-$$
+```math
 H_{\rm win}
 =
 H_{\rm or}
@@ -4138,62 +4140,62 @@ Y_R
 \left(
 h-\kappa I_-
 \right)
-$$
+```
 
 とする。$f_R$ の台は他のパルスと交わらず、
 
-$$
+```math
 \int f_R(\vartheta)d\vartheta=1
-$$
+```
 
 と規格化する。$H_{\rm win}$ は $J_c$ へ線形なので
 
-$$
+```math
 \dot\vartheta=\Omega
-$$
+```
 
 である。差動作用と軟モードのエネルギーについて、
 
-$$
+```math
 \dot I_-
 =
 \{I_-,H_{\rm win}\}
 =
 0,
-$$
+```
 
-$$
+```math
 \dot h
 =
 \{h,H_{\rm win}\}
 =
 0
-$$
+```
 
 が厳密に成り立つ。比較パルスは対応する角変数を移動させるが、2つの作用を変えない。
 
 終端比較対については
 
-$$
+```math
 \dot\Pi_R
 =
 \Omega f_R(\vartheta)
 \left(
 \kappa I_- -h
 \right),
-$$
+```
 
-$$
+```math
 \dot Y_R
 =
 \frac{2\Pi_R}{M_\tau}.
-$$
+```
 
 したがって $Y_R$ は一般にパルス中も動く。旧生成子 $F_R(Y_R)(h-\kappa I_-)$ に対して $Y_R=0$ を仮定する方法は、$H_{\rm or}$ との同時発展を無視していた。
 
 修正後の線形生成子では $\dot\Pi_R$ が $Y_R$ に依存しない。$I_-$ と $h$ も定数なので、
 
-$$
+```math
 \Pi_R(T)-\Pi_R(t_R^-)
 =
 \left(
@@ -4203,15 +4205,15 @@ $$
 \Omega f_R[\vartheta(t)]dt
 =
 \kappa I_- -h.
-$$
+```
 
 したがって $\Pi_R(t_R^-)=E_*$ なら
 
-$$
+```math
 \Pi_R(T)
 =
 E_*+\kappa I_- -h
-$$
+```
 
 が有限幅パルスで厳密に成り立つ。比較器は $I_-$ と $h$ を非破壊的に読み出すが、それらの角変数を不変に保つとは主張しない。
 
@@ -4219,7 +4221,7 @@ $$
 
 2つの作用・角変数対に対し、
 
-$$
+```math
 \mathcal N(E_\ell)
 =
 \int_0^\infty
@@ -4234,11 +4236,11 @@ d\theta_0
 \left[
 E_\ell-\omega_\ell(J_s+J_0)
 \right].
-$$
+```
 
 $J_0$ を積分すると
 
-$$
+```math
 \mathcal N(E_\ell)
 =
 \frac{(2\pi)^2}{\omega_\ell}
@@ -4246,44 +4248,44 @@ $$
 dJ_s
 =
 \frac{(2\pi)^2E_\ell}{\omega_\ell^2}.
-$$
+```
 
 $h=\omega_\ell J_s$ の区間 $[h,h+dh]$ に入る作用殻測度は
 
-$$
+```math
 d\mathcal N_h
 =
 \frac{(2\pi)^2}{\omega_\ell^2}dh.
-$$
+```
 
 従って
 
-$$
+```math
 p_\ell(h)dh
 =
 \frac{d\mathcal N_h}{\mathcal N(E_\ell)}
 =
 \frac{dh}{E_\ell}.
-$$
+```
 
 同じ結果は、尺度を変えた Descartes 座標
 
-$$
+```math
 \frac1{\sqrt{2J_\ell}}
 \left(
 q_s,p_s,q_0,p_0
 \right)
-$$
+```
 
 が3次元球面 $S^3$ 上にあることからも分かる。
 
-$$
+```math
 \frac{J_s}{J_\ell}
 =
 \frac{q_s^2+p_s^2}{
 q_s^2+p_s^2+q_0^2+p_0^2
 }
-$$
+```
 
 は Beta$(1,1)$、すなわち $[0,1]$ 上の一様分布である。
 
@@ -4291,45 +4293,45 @@ $$
 
 次を定義する。
 
-$$
+```math
 J_x=q_sq_0+p_sp_0,
-$$
+```
 
-$$
+```math
 J_y=q_sp_0-p_sq_0,
-$$
+```
 
-$$
+```math
 J_z=\frac12
 \left(
 q_s^2+p_s^2-q_0^2-p_0^2
 \right),
-$$
+```
 
-$$
+```math
 J_\ell
 =
 \frac12
 \left(
 q_s^2+p_s^2+q_0^2+p_0^2
 \right).
-$$
+```
 
 Poisson 括弧を直接計算すると、
 
-$$
+```math
 \{J_\ell,J_i\}=0,
 \qquad
 i=x,y,z.
-$$
+```
 
 また、規格化の取り方に応じた定数因子を除き、$J_x,J_y,J_z$ は $\mathfrak{su}(2)$ 型の閉じた括弧を持つ。したがって
 
-$$
+```math
 K_M
 =
 a_x(t)J_x+a_y(t)J_y+a_z(t)J_z
-$$
+```
 
 の各流れは $S^3$ 上の測度保存向き写像である。係数 $a_i(t)$ を有限非線形環境と自律時計から生成すれば、全系を Hamiltonian に保ったまま複雑な向き運動を作れる。
 
@@ -4339,49 +4341,49 @@ $$
 
 軟エネルギー $h$ と $N$ 個の台帳エネルギー $e_1,\ldots,e_N$ が
 
-$$
+```math
 h+\sum_{j=1}^{N}e_j=E_\ell
-$$
+```
 
 を満たすとする。各調和対の位相角を積分すると定数になる。$h$ を固定した残余単体
 
-$$
+```math
 \sum_{j=1}^{N}e_j=E_\ell-h,
 \qquad
 e_j\geq0
-$$
+```
 
 の面上の重複度は
 
-$$
+```math
 \frac{(E_\ell-h)^{N-1}}{(N-1)!}
-$$
+```
 
 に比例する。規格化から
 
-$$
+```math
 p_N(h)
 =
 \frac{N}{E_\ell}
 \left(
 1-\frac h{E_\ell}
 \right)^{N-1}.
-$$
+```
 
 累積分布は
 
-$$
+```math
 F_N(x)
 =
 1-
 \left(
 1-\frac x{E_\ell}
 \right)^N.
-$$
+```
 
 $N=1$ でのみ線形である。$x=C-ABKc$ と書けば、
 
-$$
+```math
 F_N(C-ABKc)
 =
 1-
@@ -4393,7 +4395,7 @@ F_N(C-ABKc)
 \left(
 \frac{ABKc}{E_\ell}
 \right)^m.
-$$
+```
 
 偶数 $m$ は結果の偶奇に依存しない規格化補正、奇数 $m\geq3$ は $c^3,c^5,\ldots$ を通じて高次角度調波を生む。したがって追加台帳モードは単なる可視度の再規格化ではない。
 
@@ -4401,49 +4403,49 @@ $$
 
 鋭い指示関数を単調応答 $g_\epsilon$ へ置き換える。
 
-$$
+```math
 G_{R,\epsilon}
 =
 g_\epsilon
 \left(
 E_*+\kappa I_- -h
 \right).
-$$
+```
 
 一様な軟エネルギー密度に対する整合重みは
 
-$$
+```math
 F_\epsilon(x)
 =
 \frac1{E_\ell}
 \int_0^{E_\ell}
 g_\epsilon(x-h)dh.
-$$
+```
 
 $g_\epsilon$ が Heaviside 関数と対称平滑化核の畳み込みなら、
 
-$$
+```math
 \frac{dF_\epsilon}{dx}
 =
 \frac1{E_\ell}
 \left[
 g_\epsilon(x)-g_\epsilon(x-E_\ell)
 \right].
-$$
+```
 
 内部領域
 
-$$
+```math
 \epsilon\ll x\ll E_\ell-\epsilon
-$$
+```
 
 では $g_\epsilon(x)\approx1$、$g_\epsilon(x-E_\ell)\approx0$ なので、
 
-$$
+```math
 \frac{dF_\epsilon}{dx}
 \approx
 \frac1{E_\ell}.
-$$
+```
 
 両端近傍でのみ傾きと切片が変わる。したがって $E_*$ は零しきい値領域を境界層から離す一方、可視度を低下させる。
 
@@ -4451,7 +4453,7 @@ $$
 
 記録形成後の4領域を $\Gamma_{AB}$ とし、共有浴を含む後段流れを $\Psi^t$ とする。Liouville 測度に関して
 
-$$
+```math
 \mu(\Psi^t\Gamma_{AB})
 =
 \int_{\Psi^t\Gamma_{AB}}d\Gamma
@@ -4461,41 +4463,41 @@ $$
 \det D\Psi^t
 \right|
 d\Gamma.
-$$
+```
 
 Hamiltonian 流れでは
 
-$$
+```math
 \det D\Psi^t=1
-$$
+```
 
 なので
 
-$$
+```math
 \mu(\Psi^t\Gamma_{AB})
 =
 \mu(\Gamma_{AB}).
-$$
+```
 
 したがって共通未来の浴結合は、順時間的集団の結果領域質量を変えない。終端条件づけを加えると
 
-$$
+```math
 \mu_R(\Gamma_{AB})
 \propto
 \int_{\Gamma_{AB}}
 G_R(\Psi^T z)
 d\mu(z)
-$$
+```
 
 となり、結果領域質量は変わり得る。しかし変化を生むのは浴雑音の漏れそのものではなく、共通未来の流れと $G_R$ を組み合わせた境界再重みづけである。
 
 同じ結論は後段の待ち時間にも成り立つ。$n$ 番目の試行の結果を $\kappa_n$、有限完了時間を $\tau_n$ とする。全試行を結果に関係なく1回ずつ数えるなら、
 
-$$
+```math
 \frac1N
 \sum_{n=1}^{N}
 \mathbf1_{\{\kappa_n=(A,B)\}}
-$$
+```
 
 は $\tau_n$ に依存しない。待ち時間は時刻占有率を変えるが、試行番号で数えた結果頻度を変えない。結果に依存する未完了試行または時間切れ試行を除外したときだけ観測頻度が変わり、その場合は事後選別である。
 
@@ -4525,7 +4527,7 @@ $$
 
 Nelson 作用を
 
-$$
+```math
 \mathcal A_{\Nel}[\rho,v]
 =
 \int\rho
@@ -4534,30 +4536,30 @@ $$
 -\frac{m\nu^2}{2}|\nabla\log\rho|^2
 -U
 \right]\dd x\dd t
-$$
+```
 
 とする。制約
 
-$$
+```math
 \partial_t\rho+\nabla\cdot(\rho v)=0
-$$
+```
 
 を Lagrange 乗数 $S$ で課す。$v$ について変分すると
 
-$$
+```math
 mv=\nabla S
-$$
+```
 
 を得る。$\rho$ について変分すると
 
-$$
+```math
 \partial_tS
 +\frac{|\nabla S|^2}{2m}
 +U
 -2m\nu^2
 \frac{\Delta\sqrt\rho}{\sqrt\rho}
 =0
-$$
+```
 
 となる。最後の項は密度勾配エネルギーの変分である。
 
@@ -4565,26 +4567,26 @@ $$
 
 有効作用定数を
 
-$$
+```math
 \hbar_{\rm eff}=2m\nu
-$$
+```
 
 とし、
 
-$$
+```math
 \psi=\sqrt\rho
 \exp\left(\frac{iS}{\hbar_{\rm eff}}\right)
-$$
+```
 
 と置く。連続の式と前節の Hamilton--Jacobi 型方程式を合わせると
 
-$$
+```math
 i\hbar_{\rm eff}\partial_t\psi
 =
 \left[
 -\frac{\hbar_{\rm eff}^2}{2m}\Delta+U
 \right]\psi
-$$
+```
 
 を得る \cite{nelson1966,guerra_morato1983,yasue1981,zambrini1986}。
 
@@ -4594,38 +4596,38 @@ $$
 
 平均 $q(t)$、標準偏差 $\sigma(t)>0$ の Gaussian 密度を考える。
 
-$$
+```math
 \rho(x,t)
 =
 \frac1{\sqrt{2\pi}\sigma}
 \exp\left[-\frac{(x-q)^2}{2\sigma^2}\right].
-$$
+```
 
 連続の式を満たす最小の1次速度場は
 
-$$
+```math
 v=\dot q+\frac{\dot\sigma}{\sigma}(x-q),
-$$
+```
 
 浸透速度は
 
-$$
+```math
 u=-\nu\frac{x-q}{\sigma^2}
-$$
+```
 
 である。Gaussian 平均を取ると
 
-$$
+```math
 \E[v^2]=\dot q^2+\dot\sigma^2,
 \qquad
 \E[u^2]=\frac{\nu^2}{\sigma^2}.
-$$
+```
 
 調和ポテンシャル $U=m\Omega^2x^2/2$ では
 
-$$
+```math
 \E[U]=\frac{m\Omega^2}{2}(q^2+\sigma^2)
-$$
+```
 
 なので、第4.7節の有限次元作用を得る。
 
@@ -4633,19 +4635,19 @@ $$
 
 幅方程式
 
-$$
+```math
 \ddot\sigma+\Omega^2\sigma-\frac{\nu^2}{\sigma^3}=0
-$$
+```
 
 には
 
-$$
+```math
 E_\sigma
 =
 \frac12\dot\sigma^2
 +\frac12\Omega^2\sigma^2
 +\frac{\nu^2}{2\sigma^2}
-$$
+```
 
 という保存量がある。$\sigma\to0$ では最後の項が発散するため、正の初期幅は有限時間で零にならない。定常点 $\sigma_*^2=\nu/\Omega$ の周囲では幅が振動する。
 
@@ -4655,7 +4657,7 @@ $$
 
 計算例として
 
-$$
+```math
 \dd Z_t
 =
 (-\lambda I+\Omega J)Z_t\dd t
@@ -4666,13 +4668,13 @@ J=
 0&-1\\
 1&0
 \end{pmatrix}
-$$
+```
 
 を考える \cite{uhlenbeck_ornstein1930}。$\lambda>0$ なら定常共分散は
 
-$$
+```math
 \operatorname{Cov}(Z)=\frac D\lambda I
-$$
+```
 
 である。$\Omega=0$ なら定常過程は詳細釣り合いを満たす。$\Omega\neq0$ では縮約された位相平面に定常回転流があり、通常の時間反転だけでは詳細釣り合いを満たさない。
 
@@ -4682,9 +4684,9 @@ $$
 
 一般に
 
-$$
+```math
 \dd X=b(X,t)\dd t+\sigma(X,t)\circ\dd W_t
-$$
+```
 
 を Itô 表現へ変換すると、$\sigma$ の空間微分に比例する補正が流れへ加わる。本論文では $\sigma=\sqrt{2\nu}I$ が定数なので補正は零である。
 
@@ -4696,11 +4698,11 @@ $$
 
 従って
 
-$$
+```math
 \mathrm{OU}_{2D}
 \quad\not\Rightarrow\quad
 \mathrm{Bell\ cosine\ law}.
-$$
+```
 
 Bell 系論には、位相同期した生成源 `[P]`、対称準備 `[S]`、2モード入口測度 `[M]`、2境界履歴集団 `[R]` が別に必要である。この点を保つことで、Gaussian Nelson 部分と Bell 部分の役割が明確になる。
 
@@ -4715,7 +4717,7 @@ Bell 系論には、位相同期した生成源 `[P]`、対称準備 `[S]`、2�
 
 測定設定に依存する未読変数分布に対する Hall の $L^1$ 尺度を
 
-$$
+```math
 M
 =
 \sup_{a,b,a',b'}
@@ -4726,28 +4728,28 @@ M
 \rho(\lambda\mid a',b')
 \right|
 d\lambda
-$$
+```
 
 とする。通常の全変動距離とは
 
-$$
+```math
 M=2D_{\rm TV}^{\max}
-$$
+```
 
 の関係にある。
 
 第7.6節の最小2モード事後分布では、
 
-$$
+```math
 D_{\rm TV}(c,c')
 =
 \frac{V_{\rm eff}}2
 |c-c'|
-$$
+```
 
 なので、
 
-$$
+```math
 M_{\rm dev}
 =
 V_{\rm eff}
@@ -4757,21 +4759,21 @@ V_{\rm eff}
 -
 \cos\Delta_{a'b'}
 \right|.
-$$
+```
 
 全角度を許せば
 
-$$
+```math
 M_{\rm dev}=2V_{\rm eff}.
-$$
+```
 
 標準 CHSH の4測定設定対では余弦が $\pm1/\sqrt2$ なので、
 
-$$
+```math
 M_{\rm dev}^{(4)}
 =
 \sqrt2V_{\rm eff}.
-$$
+```
 
 これは本文の具体的な装置事後分布が持つ値であり、同じ観測共同法則を再現する全ての局所模型の中で最小化した値ではない。
 
@@ -4779,36 +4781,36 @@ $$
 
 未読変数を
 
-$$
+```math
 \lambda_{\rm tab}
 =
 (A_*,B_*)
 \in
 \{\pm1\}^2
-$$
+```
 
 とし、
 
-$$
+```math
 \mathscr A(a,\lambda_{\rm tab})=A_*,
 \qquad
 \mathscr B(b,\lambda_{\rm tab})=B_*,
-$$
+```
 
-$$
+```math
 \rho_{\rm tab}(A_*,B_*\mid a,b)
 =
 \frac14
 \left[
 1-A_*B_*V_{\rm eff}\cos\Delta_{ab}
 \right]
-$$
+```
 
 と置けば、局所決定論的に目標共同法則を再現する。この表現は出力確率を未読台帳へ直接書き込んだものであり、物理的説明ではない。
 
 Hall 尺度は
 
-$$
+```math
 M_{\rm tab}
 =
 V_{\rm eff}
@@ -4818,7 +4820,7 @@ V_{\rm eff}
 -
 \cos\Delta_{a'b'}
 \right|
-$$
+```
 
 である。したがって本文の2モード装置事後分布の粗視化周辺と同じ値を持つ。この一致は装置構成の最適性を意味せず、両者が同じ台の長さ変調を用いていることを示す。
 
@@ -4828,45 +4830,45 @@ $$
 
 $V_{\rm eff}\leq1/\sqrt2$ では全 CHSH 不等式が満たされる。Fine の定理により測定設定と独立な共同未読変数分布が存在するので \cite{fine1982}、
 
-$$
+```math
 M_{\min}^{(4)}(V_{\rm eff})
 =
 0,
 \qquad
 0\leq V_{\rm eff}\leq\frac1{\sqrt2}.
-$$
+```
 
 $V_{\rm eff}>1/\sqrt2$ では、Hall の緩和 CHSH 上界
 
-$$
+```math
 |\mathcal S|
 \leq
 2+\min\{3M,2\}
-$$
+```
 
 と
 
-$$
+```math
 |\mathcal S|
 =
 2\sqrt2V_{\rm eff}
-$$
+```
 
 から
 
-$$
+```math
 M_{\min}^{(4)}(V_{\rm eff})
 \geq
 \frac{
 2\sqrt2V_{\rm eff}-2
 }{3}
-$$
+```
 
 を得る \cite{hall2010}。
 
 この下界は、$V_{\rm eff}=1/\sqrt2$ の測定設定独立 Fine 模型と、$V_{\rm eff}=1$ で下界を達成する Hall 模型を、測定設定と独立な補助符号で混合することで達成できる。したがって
 
-$$
+```math
 M_{\min}^{(4)}(V_{\rm eff})
 =
 \max
@@ -4876,23 +4878,23 @@ M_{\min}^{(4)}(V_{\rm eff})
 2\sqrt2V_{\rm eff}-2
 }{3}
 \right\}.
-$$
+```
 
 特に $V_{\rm eff}=1$ では
 
-$$
+```math
 M_{\min}^{(4)}
 =
 \frac{
 2(\sqrt2-1)
 }{3},
-$$
+```
 
 一方、本文の装置事後分布は
 
-$$
+```math
 M_{\rm dev}^{(4)}=\sqrt2.
-$$
+```
 
 したがって明示装置は、測定設定依存度について最適ではない。
 
@@ -4902,7 +4904,7 @@ $$
 
 制御器の事前分布を $P_S(a,b)$ とし、制御器まで含む全2境界測度を規格化すると、
 
-$$
+```math
 P_R(a,b)
 =
 \frac{
@@ -4911,21 +4913,21 @@ P_S(a,b)Z_{a,b}
 \sum_{a',b'}
 P_S(a',b')Z_{a',b'}
 }.
-$$
+```
 
 本文の対称模型では
 
-$$
+```math
 Z_{a,b}
 =
 \frac{E_*+\kappa I_0}{E_\ell}
-$$
+```
 
 が一定なので、
 
-$$
+```math
 P_R(a,b)=P_S(a,b).
-$$
+```
 
 したがって巨視的な測定設定頻度の自由と、微視的な生成源事後分布の測定設定依存性は両立する。これは測定設定独立性の破れと、実験者が制御器巨視状態を変えられないという主張を区別する。
 
@@ -4939,13 +4941,13 @@ $$
 
 `[R]` では、物理的に実現する試行自体が終端整合履歴であると解釈する。しかし実験室での実装が単に
 
-$$
+```math
 N_R<N_{\rm rec}
-$$
+```
 
 となる試行棄却を行うなら、観測標本は
 
-$$
+```math
 P_{\rm obs}(A,B\mid a,b)
 =
 \frac{
@@ -4956,7 +4958,7 @@ P_{\rm rec}(A,B\mid a,b)
 P_{\rm rec}(A',B'\mid a,b)
 \eta_{A'B'}(a,b)
 }
-$$
+```
 
 という検出条件付き分布になる。$\eta_{AB}$ は完了効率である。この場合、Bell 不等式の破れは検出の抜け穴で説明され得る。
 
@@ -4977,7 +4979,7 @@ $$
 
 非信号性残差を
 
-$$
+```math
 \epsilon_{\rm NS}
 =
 \max_{a,b,b',A}
@@ -4985,7 +4987,7 @@ $$
 P_R(A\mid a,b)
 -P_R(A\mid a,b')
 \right|
-$$
+```
 
 とする。理想 `[S]` 集団では $\epsilon_{\rm NS}=0$ である。偏った準備に対して $\epsilon_{\rm NS}=O(1)$ が現れれば、対称準備だけで成り立つ模型の操作上の限界が直接検出される。
 

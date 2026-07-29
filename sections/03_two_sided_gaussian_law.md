@@ -9,23 +9,23 @@
 
 時刻 $T$ の記録を
 
-$$
+```math
 Y=HX_N(T)+\varepsilon,
 \qquad
 \varepsilon\sim N(0,R),
 \qquad
 R\geq r_*I>0
-$$
+```
 
 とする。実際に得られた記録値を $y$ とする。この条件は、尤度
 
-$$
+```math
 L_R(x)
 =
 \exp\left[
 -\frac12(Hx-y)^{\mathsf T}R^{-1}(Hx-y)
 \right]
-$$
+```
 
 で経路を重みづけすることと同値である。
 
@@ -33,55 +33,55 @@ $$
 
 有限 $N$ の平均と2時刻共分散を
 
-$$
+```math
 \mu_N(t)=\E[X_N(t)],
-$$
+```
 
-$$
+```math
 C_N(s,t)
 =
 \E\left[
 (X_N(s)-\mu_N(s))
 (X_N(t)-\mu_N(t))^{\mathsf T}
 \right]
-$$
+```
 
 とする。基本行列を使えば、平均は
 
-$$
+```math
 \mu_N(t)
 =
 \Phi(t,0)m_0
 +\int_0^t\Phi(t,r)f(r)\dd r
-$$
+```
 
 であり、共分散は初期共分散と有限 Fourier モードの寄与の和として書ける。
 
 雑音を基底関数 $e_\alpha(t)$ と独立 Gaussian 係数 $\zeta_\alpha$ で
 
-$$
+```math
 \widetilde\eta_N(t)
 =
 \sum_{\alpha=0}^{2N}e_\alpha(t)\zeta_\alpha
-$$
+```
 
 と書けば、
 
-$$
+```math
 K_{N,\alpha}(t)
 =
 \int_0^t\Phi(t,r)e_\alpha(r)\dd r
-$$
+```
 
 により
 
-$$
+```math
 C_N(s,t)
 =
 \Phi(s,0)P_0\Phi(t,0)^{\mathsf T}
 +\sum_{\alpha=0}^{2N}
 K_{N,\alpha}(s)K_{N,\alpha}(t)^{\mathsf T}
-$$
+```
 
 となる。この表示は、条件づけとパラメータ微分を有限行列計算へ帰着させる。
 
@@ -89,31 +89,31 @@ $$
 
 記録共分散を
 
-$$
+```math
 S_N
 =
 HC_N(T,T)H^{\mathsf T}+R
-$$
+```
 
 とする。$R\geq r_*I$ なので $S_N$ は一様に可逆である。
 
 \begin{proposition}[有限 Gaussian 条件づけ]
 条件 $Y=y$ の下で $X_N$ は Gaussian 過程のままであり、その平均と共分散は
 
-$$
+```math
 \mu_N^R(t)
 =
 \mu_N(t)
 +C_N(t,T)H^{\mathsf T}S_N^{-1}
 \left[y-H\mu_N(T)\right],
-$$
+```
 
-$$
+```math
 C_N^R(s,t)
 =
 C_N(s,t)
 -C_N(s,T)H^{\mathsf T}S_N^{-1}HC_N(T,t)
-$$
+```
 
 である。
 \end{proposition}
@@ -130,7 +130,7 @@ $$
 
 $F_\theta$ の変分 $\delta F$ に対して基本行列の第1変分は
 
-$$
+```math
 D\Phi_\theta[\delta F](t,s)
 =
 \int_s^t
@@ -138,15 +138,15 @@ D\Phi_\theta[\delta F](t,s)
 \delta F(r)
 \Phi_\theta(r,s)
 \dd r
-$$
+```
 
 である。逆行列の微分
 
-$$
+```math
 D(S^{-1})[\delta S]
 =
 -S^{-1}(\delta S)S^{-1}
-$$
+```
 
 と合わせると、$\mu_N^R$、$C_N^R$ のパラメータ第1微分を明示できる。$S_N\geq r_*I$ により、条件づけの微分は $N$ に依存しない定数で制御される。
 
@@ -156,41 +156,41 @@ $$
 
 $N\to\infty$ の無条件拡散を
 
-$$
+```math
 \dd X_t=b(X_t,t)\dd t+\sqrt{2\nu}\,\dd W_t,
 \qquad
 b(x,t)=F(t)x+f(t)
-$$
+```
 
 とする。終端尤度の後方伝播を
 
-$$
+```math
 h_R(x,t)
 =
 \E\left[L_R(X_T)\mid X_t=x\right]
-$$
+```
 
 と置く。線形 Gaussian 系では $h_R$ は指数2次関数で正である。条件付き前進流れは Doob 変換により
 
-$$
+```math
 b_+^R(x,t)
 =
 b(x,t)+2\nu\nabla\log h_R(x,t)
-$$
+```
 
 となる [15,16]。$\nabla\log h_R$ は $x$ の1次式であるため、条件付き過程も線形 Gaussian である。
 
 条件付き時刻密度を $\rho^R(x,t)$ とすると、後退流れは
 
-$$
+```math
 b_-^R(x,t)
 =
 b_+^R(x,t)-2\nu\nabla\log\rho^R(x,t)
-$$
+```
 
 である。そこで
 
-$$
+```math
 v^R
 =
 \frac{b_+^R+b_-^R}{2},
@@ -200,7 +200,7 @@ u^R
 \frac{b_+^R-b_-^R}{2}
 =
 \nu\nabla\log\rho^R
-$$
+```
 
 と定義する。$v^R$ は確率流の速度、$u^R$ は密度勾配に伴う浸透速度である。
 
@@ -208,7 +208,7 @@ $$
 
 $F=0$、$f=0$、$X_N(0)=x_0$ とし、終端を厳密に $X_N(T)=x_0$ へ固定する特殊な場合を考える。非零 Fourier モードは1周期積分すると零になるため、全期間変位を担うのは零周波数 $Z_0$ だけである。終端条件は $Z_0=0$ を意味する。従って条件付き雑音共分散は
 
-$$
+```math
 \E\left[
 \widetilde\eta_N(t)
 \widetilde\eta_N(s)^{\mathsf T}
@@ -219,15 +219,15 @@ $$
 \left[
 \delta_{T,N}(t-s)-\frac1T
 \right]I.
-$$
+```
 
 ここで初めて $-1/T$ が現れる。一般の $F\neq0$ では終端値は全 Fourier モードの線形結合に依存するため、条件付き修正は
 
-$$
+```math
 -\operatorname{Cov}(\widetilde\eta_N,Y)
 \operatorname{Cov}(Y,Y)^{-1}
 \operatorname{Cov}(Y,\widetilde\eta_N)
-$$
+```
 
 という流れ依存の Schur 補完であり、単純な $-1/T$ ではない。
 

@@ -98,18 +98,42 @@ def preprocess(lines: list[str]) -> list[str]:
     output: list[str] = []
     in_math = False
     for line in lines:
-        if line.strip() == "$$":
-            in_math = not in_math
+        stripped = line.strip()
+        if not in_math and stripped in {"$$", "```math"}:
+            in_math = True
+            output.append(line)
+            continue
+        if in_math and stripped in {"$$", "```"}:
+            in_math = False
             output.append(line)
             continue
         if in_math:
             output.append(line)
             continue
-        heading = re.match(r"^(#{2,3})\s+(?:\d+|[A-Z])(?:\.\d+)*\s+(.*)$", line)
+        heading = re.match(r"^(#{2,3})\\s+(?:\\d+|[A-Z])(?:\\.\\d+)*\\s+(.*)$", line)
         if heading:
             line = f"{heading.group(1)} {heading.group(2)}"
         output.append(replace_citations(line))
     return output
+
+
+def markdown_for_pandoc(text: str) -> str:
+    output: list[str] = []
+    in_math = False
+    for line in text.splitlines():
+        stripped = line.strip()
+        if not in_math and stripped == "```math":
+            in_math = True
+            output.append("$$")
+            continue
+        if in_math and stripped == "```":
+            in_math = False
+            output.append("$$")
+            continue
+        output.append(line)
+    if in_math:
+        raise ValueError("unclosed math fence")
+    return "\\n".join(output) + "\\n"
 
 
 def bibliography_tex() -> str:
@@ -206,6 +230,11 @@ def build() -> None:
     WORK.mkdir(parents=True, exist_ok=True)
     PAPER_MD.write_text(combined_markdown(), encoding="utf-8")
 
+    pandoc_source = WORK / "paper.md"
+    pandoc_source.write_text(
+        markdown_for_pandoc(PAPER_MD.read_text(encoding="utf-8")),
+        encoding="utf-8",
+    )
     body = WORK / "body.tex"
     run_command([
         "pandoc",
@@ -214,7 +243,7 @@ def build() -> None:
         "--top-level-division=chapter",
         "--wrap=none",
         "--output", str(body),
-        str(PAPER_MD),
+        str(pandoc_source),
     ])
 
     template = TEMPLATE.read_text(encoding="utf-8")
