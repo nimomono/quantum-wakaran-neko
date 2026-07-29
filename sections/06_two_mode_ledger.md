@@ -77,7 +77,8 @@ r_A^2+r_B^2
 \right].
 ```
 
-\begin{proposition}[実2次元比較器の余弦恒等式]
+<!-- theorem-start:proposition -->
+**命題（実2次元比較器の余弦恒等式）**
 等振幅 $r_A=r_B=r$、固定相対生成源位相 $\Theta_A-\Theta_B=\Phi_0$ の下で、
 
 ```math
@@ -97,9 +98,10 @@ I_0=\frac{r^2}{2}
 ```
 
 である。
-\end{proposition}
+<!-- theorem-end:proposition -->
 
-\begin{proof}
+<!-- theorem-start:proof -->
+**証明**
 回転行列の内積
 
 ```math
@@ -111,7 +113,7 @@ n(\Theta_B)
 ```
 
 を差ベクトルの2乗へ代入すればよい。
-\end{proof}
+<!-- theorem-end:proof -->
 
 余弦は複素確率振幅、Born 則、量子内積から導入されていない。2つの実正準ベクトルの Euclid 内積
 
@@ -321,7 +323,8 @@ dJ_s\,d\theta_s\,dJ_0\,d\theta_0
 
 ## 6.5 一様な軟エネルギー周辺定理
 
-\begin{theorem}[2モード台帳の一様周辺]
+<!-- theorem-start:theorem -->
+**定理（2モード台帳の一様周辺）**
 固定 $E_\ell>0$ の2モード作用殻上で、軟モードのエネルギー $h=\omega_\ell J_s$ の周辺密度は
 
 ```math
@@ -332,9 +335,10 @@ p_\ell(h)
 ```
 
 である。
-\end{theorem}
+<!-- theorem-end:theorem -->
 
-\begin{proof}
+<!-- theorem-start:proof -->
+**証明**
 位相角を積分すると $(2\pi)^2$ を得る。$h=\omega_\ell J_s$ を固定した未規格化密度は
 
 ```math
@@ -360,7 +364,7 @@ E_\ell-h-\omega_\ell J_0
 ```
 
 規格化すると $p_\ell(h)=1/E_\ell$ である。
-\end{proof}
+<!-- theorem-end:proof -->
 
 この定理は、2つの1自由度調和モードの状態密度がともに定数であることの帰結である。結果領域、測定設定、生成源位相は台帳作用殻の定義に現れないため、`[M]` の入口測度が各結果領域で共通なら
 
@@ -523,7 +527,8 @@ w_{AB}
 
 があり、$H_{\rm prep}$、準備巨視領域、$\mu_S$ を保つとする。2つの変換が生成する群は4領域に推移的に作用する。
 
-\begin{proposition}[対称準備の結果領域等体積]
+<!-- theorem-start:proposition -->
+**命題（対称準備の結果領域等体積）**
 上の独立符号反転対称性 `[S]` の下で、
 
 ```math
@@ -539,11 +544,12 @@ w_{--}
 ```
 
 である。
-\end{proposition}
+<!-- theorem-end:proposition -->
 
-\begin{proof}
+<!-- theorem-start:proof -->
+**証明**
 $\mathcal S_A$ と $\mathcal S_B$ は測度保存全単射なので、任意の2領域の測度は等しい。4領域が準備測度の全台を分割するため、規格化すると各質量は $1/4$ である。
-\end{proof}
+<!-- theorem-end:proof -->
 
 Hamiltonian の符号対称性だけでは不十分である。同じ Hamiltonian に非対称な初期密度を置くことも可能だからである。`[S]` は「対称な準備巨視状態上の不変基準測度を採用する」という統計条件を含む。
 
