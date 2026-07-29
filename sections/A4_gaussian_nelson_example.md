@@ -8,14 +8,14 @@
 Nelson 作用を
 
 ```math
-\mathcal A_{\Nel}[\rho,v]
+\mathcal A_{\mathrm{N}}[\rho,v]
 =
 \int\rho
 \left[
 \frac m2|v|^2
 -\frac{m\nu^2}{2}|\nabla\log\rho|^2
 -U
-\right]\dd x\dd t
+\right]\,\mathrm{d} x\,\mathrm{d} t
 ```
 
 とする。制約
@@ -98,15 +98,15 @@ u=-\nu\frac{x-q}{\sigma^2}
 である。Gaussian 平均を取ると
 
 ```math
-\E[v^2]=\dot q^2+\dot\sigma^2,
+\mathbb{E}[v^2]=\dot q^2+\dot\sigma^2,
 \qquad
-\E[u^2]=\frac{\nu^2}{\sigma^2}.
+\mathbb{E}[u^2]=\frac{\nu^2}{\sigma^2}.
 ```
 
 調和ポテンシャル $U=m\Omega^2x^2/2$ では
 
 ```math
-\E[U]=\frac{m\Omega^2}{2}(q^2+\sigma^2)
+\mathbb{E}[U]=\frac{m\Omega^2}{2}(q^2+\sigma^2)
 ```
 
 なので、第4.7節の有限次元作用を得る。
@@ -138,10 +138,10 @@ E_\sigma
 計算例として
 
 ```math
-\dd Z_t
+\,\mathrm{d} Z_t
 =
-(-\lambda I+\Omega J)Z_t\dd t
-+\sqrt{2D}\,\dd W_t,
+(-\lambda I+\Omega J)Z_t\,\mathrm{d} t
++\sqrt{2D}\,\,\mathrm{d} W_t,
 \qquad
 J=
 \begin{pmatrix}
@@ -165,7 +165,7 @@ J=
 一般に
 
 ```math
-\dd X=b(X,t)\dd t+\sigma(X,t)\circ\dd W_t
+\,\mathrm{d} X=b(X,t)\,\mathrm{d} t+\sigma(X,t)\circ\,\mathrm{d} W_t
 ```
 
 を Itô 表現へ変換すると、$\sigma$ の空間微分に比例する補正が流れへ加わる。本論文では $\sigma=\sqrt{2\nu}I$ が定数なので補正は零である。
