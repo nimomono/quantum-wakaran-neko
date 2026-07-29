@@ -97,7 +97,7 @@ $C^1(K)$ は作用値と $\theta$ に関する全ての第1偏微分の一様ノ
 
 と定義する [4]。線形 Gaussian 系では $b_+^R$ は $x$ の1次式、$\rho^R$ は正の Gaussian 密度なので、全ての積分は有限である。
 
-## 4.4 線形 Gaussian $C^1$ 収束定理
+## 4.4 線形 Gaussian <i>C</i><sup>1</sup> 収束定理
 
 \begin{theorem}[線形 Gaussian $C^1$ 極限]
 第4.2節の仮定を満たすとする。ある定数 $C_K<\infty$ が存在し、十分大きい $N$ と $0<h<T/4$ に対して
