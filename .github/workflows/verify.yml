@@ -28,7 +28,7 @@ jobs:
           python -m pip install numpy
 
       - name: 数式と数値を検算
-        run: python tools/verify_two_mode_ledger.py
+        run: python tools/verify_action_distribution.py
 
       - name: 論文を再生成
         run: python tools/build_paper.py

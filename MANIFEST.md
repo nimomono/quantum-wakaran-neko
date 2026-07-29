@@ -14,12 +14,12 @@
 - `sections/03_two_sided_gaussian_law.md`
 - `sections/04_c1_nelson_limit.md`
 - `sections/05_finite_measurement_boundary.md`
-- `sections/06_two_mode_ledger.md`
+- `sections/06_two_mode_action_distribution.md`
 - `sections/07_terminal_bell_measure.md`
-- `sections/08_robustness_ledger.md`
+- `sections/08_robustness_and_limits.md`
 - `sections/A1_fourier_schur_proofs.md`
 - `sections/A2_c1_estimates.md`
-- `sections/A3_hamiltonian_ledger_details.md`
+- `sections/A3_hamiltonian_device_details.md`
 - `sections/A4_gaussian_nelson_example.md`
 - `sections/A5_bell_audit.md`
 - `sections/90_references.md`
@@ -37,7 +37,7 @@
 - `references.bib`
 - `tools/build_paper.py`
 - `tools/template.tex`
-- `tools/verify_two_mode_ledger.py`
+- `tools/verify_action_distribution.py`
 - `figures/README.md`
 - `.github/workflows/verify.yml`
 - `.gitignore`
