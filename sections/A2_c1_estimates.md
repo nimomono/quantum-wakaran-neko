@@ -89,7 +89,7 @@ m\nu\nabla\cdot b_+^R
 
 ```math
 \left|
-\E_N^R|\Delta_hX_N|^2
+\mathbb{E}_N^R|\Delta_hX_N|^2
 -
 \mathbb{E}^R|\Delta_hX|^2
 \right|_{C^1(K)}
