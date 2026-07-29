@@ -1,6 +1,6 @@
 @number: B
 @chapter: 付録
-@title: 粗視化作用の $C^1$ 評価
+@title: 粗視化作用の <i>C</i><sup>1</sup> 評価
 @status: 時間粗視化誤差と Fourier 切断誤差を分離し、主定理の評価を補足する。
 
 ## B.1 Gaussian 増分の正確な表示
