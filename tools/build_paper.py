@@ -128,9 +128,9 @@ def markdown_for_pandoc(text: str) -> str:
             continue
         if in_math and stripped == "```":
             in_math = False
-            output.append("$")
+            output.append("$$")
             continue
-        if not in_math and re.match(r"^#{1,6}\\s+", line):
+        if not in_math and re.match(r"^#{1,6}\s+", line):
             for github_math, tex_math in (
                 ("−1/<i>T</i>", "$-1/T$"),
                 ("<i>C</i><sup>1</sup>", "$C^1$"),
