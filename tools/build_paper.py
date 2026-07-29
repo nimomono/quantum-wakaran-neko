@@ -25,15 +25,6 @@ THEOREM_LABELS = {
     "proof": "証明",
 }
 
-TEX_SHORTHANDS = (
-    (r"\mathbb{R}", r"\R"),
-    (r"\mathbb{E}", r"\E"),
-    (r"\operatorname{tr}", r"\Tr"),
-    (r"\mathrm{GM}", r"\GM"),
-    (r"\mathrm{N}", r"\Nel"),
-    (r"\,\mathrm{d}", r"\dd"),
-)
-
 PART_TITLES = {
     2: "第I部　有限調和 Gaussian 中核の Nelson 極限",
     5: "第II部　2境界統計原理と2モード台帳による Bell 型統計",
@@ -116,11 +107,6 @@ def replace_citations(text: str) -> str:
     return pattern.sub(replacement, text)
 
 
-def restore_tex_shorthands(line: str) -> str:
-    for expanded, shorthand in TEX_SHORTHANDS:
-        line = line.replace(expanded, shorthand)
-    return line
-
 
 def restore_markdown_source(lines: list[str]) -> list[str]:
     output: list[str] = []
@@ -161,7 +147,7 @@ def restore_markdown_source(lines: list[str]) -> list[str]:
             index += 1
             continue
 
-        output.append(restore_tex_shorthands(line))
+        output.append(line)
         index += 1
     return output
 
