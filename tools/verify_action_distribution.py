@@ -186,16 +186,16 @@ def main() -> None:
     checks.append(record("bell_probability_max_error", max_probability_error, 0.0025))
     checks.append(record("no_signalling_marginal_error", max_marginal_error, 0.0025))
 
-    # N ledger modes give a Beta(1, N) soft fraction and nonlinear CDF.
-    ledger_mode_count = 4
+    # N residual-action modes give a Beta(1, N) soft fraction and nonlinear CDF.
+    residual_mode_count = 4
     exponentials = rng.exponential(
-        scale=1.0, size=(sample_count, ledger_mode_count + 1)
+        scale=1.0, size=(sample_count, residual_mode_count + 1)
     )
     simplex = exponentials / exponentials.sum(axis=1, keepdims=True)
     soft = simplex[:, 0]
     x_grid = np.linspace(0.05, 0.95, 19)
     empirical_cdf = np.array([(soft <= x).mean() for x in x_grid])
-    expected_cdf = 1 - (1 - x_grid) ** ledger_mode_count
+    expected_cdf = 1 - (1 - x_grid) ** residual_mode_count
     multimode_error = np.max(np.abs(empirical_cdf - expected_cdf))
     checks.append(record("multimode_cdf_max_error", multimode_error, 0.0025))
 
