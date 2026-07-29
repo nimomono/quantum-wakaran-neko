@@ -862,7 +862,7 @@ D_hX_N(t)=\frac{X_N(t+h)-X_N(t)}{h}
 ```math
 \mathcal A_{N,h}^{R,U}(\theta)
 =
-\E_{N,\theta}^{R}
+\mathbb{E}_{N,\theta}^{R}
 \int_0^{T-h}
 \left[
 \frac m{2h^2}
@@ -3531,7 +3531,7 @@ m\nu\nabla\cdot b_+^R
 
 ```math
 \left|
-\E_N^R|\Delta_hX_N|^2
+\mathbb{E}_N^R|\Delta_hX_N|^2
 -
 \mathbb{E}^R|\Delta_hX|^2
 \right|_{C^1(K)}
