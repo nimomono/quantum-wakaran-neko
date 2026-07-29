@@ -154,7 +154,7 @@ def restore_markdown_source(lines: list[str]) -> list[str]:
 
 def validate_github_markdown(path: Path, text: str) -> None:
     forbidden = {
-        "独自数式マクロ": r"\\(?:dd|E|R|Tr|GM|Nel)\b",
+        "独自数式マクロ": r"\\(?:dd|E|R|Tr|GM|Nel)(?![A-Za-z])",
         "生の定理環境": (
             r"\\(?:begin|end)\{"
             r"(?:theorem|proposition|lemma|corollary|proof|statusbox|thebibliography)"
