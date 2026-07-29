@@ -1,7 +1,7 @@
 @number: A
 @chapter: 付録
-@title: Fourier--Gaussian 近似と Schur 補完の評価
-@status: 第3章と第4章で用いた有限モード収束と条件づけの安定性を補足する。
+@title: Fourier–Gauss 型近似と Schur 補完の評価
+@status: 補助的な線形 Gauss 型表示について、有限モード収束と条件づけの安定性を厳密に補足する。
 
 ## A.1 基本核の Fourier 係数
 

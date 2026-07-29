@@ -25,9 +25,9 @@ python3 tools/verify_action_distribution.py
 
 有限幅比較パルスの検算では、比較窓の全 Hamiltonian 方程式を数値積分し、$Y_R$ が自由運動する場合にも
 
-$$
+```math
 \Pi_R(T)=E_*+\kappa I_- -h
-$$
+```
 
 が成立することを確認した。
 
@@ -91,3 +91,34 @@ $$
 ```text
 b8c30171303ef1836d842ffd164fbaafc8780fda337e064e48f3d9c4e2f96bc0
 ```
+
+## 2026年7月30日の弱開放モデル反映
+
+今回の更新はMarkdownに限定した。`sections/`、`paper.md`、状態・案内・変更記録・検算文書を更新し、`main.tex` と `paper.pdf` は変更していない。
+
+### Markdown検査
+
+- `tools/build_paper.py` の `validate_github_markdown` を、変更した全Markdownファイルへ実行：19ファイル全て合格。
+- `combined_markdown()` だけを実行して `paper.md` を再生成：成功。
+- `paper.md` と標準Markdown生成関数の出力が完全一致：確認済み。
+- 規約外のドル記号2個による表示数式、丸括弧型・角括弧型のTeX数式区切り、独自数式マクロ、生の定理環境：変更ファイルに残存なし。
+- 見出し行と `@title:` に数式区切り：残存なし。
+- `git diff --check`：空白エラーなし。
+- 変更対象：Markdownファイルだけであることを確認。
+
+### 数式・数値検算
+
+実行コマンド：
+
+```bash
+python3 tools/verify_action_distribution.py
+```
+
+乱数種 `20260724`、標本数 `600000` で既存の全10項目が合格した。中心代数は変更していないため、2モード一様周辺、差動作用、相補時計、有限幅比較読出し、Bell共同確率、非信号周辺、CHSH恒等式の数値結果は前回と一致した。
+
+### 今回検証していないもの
+
+- XeLaTeXとPDF生成は、Markdown限定という更新範囲に従い実行していない。
+- PDFページ数、改ページ、はみ出し、全ページ画像確認は更新していない。
+- 現在の `main.tex` と `paper.pdf` は、今回のMarkdown内容を反映する前の組版版である。
+- `tools/build_paper.py`、`tools/template.tex`、`CITATION.cff` の部題・題名メタデータは非Markdownのため更新していない。従って `paper.md` の自動生成部題には従来表記が1か所残り、次回のTeX・PDF更新時に生成処理、引用情報、組版物を同時に揃える必要がある。
