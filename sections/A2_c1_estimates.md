@@ -8,10 +8,10 @@
 条件付き Gaussian 過程の増分 $\Delta_hX(t)=X(t+h)-X(t)$ に対して
 
 ```math
-\E^R|\Delta_hX(t)|^2
+\mathbb{E}^R|\Delta_hX(t)|^2
 =
 |\mu^R(t+h)-\mu^R(t)|^2
-+\Tr\left[
++\operatorname{tr}\left[
 C^R(t+h,t+h)+C^R(t,t)-2C^R(t+h,t)
 \right]
 ```
@@ -35,7 +35,7 @@ b_+^R(x,t)h
 である。流れの空間依存と雑音の相関による交差項まで含めて平均すると
 
 ```math
-\E^R
+\mathbb{E}^R
 \left[
 |\Delta_hX|^2\mid X_t=x
 \right]
@@ -52,10 +52,10 @@ b_+^R(x,t)h
 線形流れでは3階剰余を平均・微分した量も一様に有界である。$m/(2h^2)$ を掛けると
 
 ```math
-\frac m{2h^2}\E^R|\Delta_hX|^2
+\frac m{2h^2}\mathbb{E}^R|\Delta_hX|^2
 -\frac{md\nu}{h}
 =
-\E^R
+\mathbb{E}^R
 \left[
 \frac m2|b_+^R|^2
 +m\nu\nabla\cdot b_+^R
@@ -91,7 +91,7 @@ m\nu\nabla\cdot b_+^R
 \left|
 \E_N^R|\Delta_hX_N|^2
 -
-\E^R|\Delta_hX|^2
+\mathbb{E}^R|\Delta_hX|^2
 \right|_{C^1(K)}
 \leq
 \frac{C_KT^2}{N}.
@@ -110,10 +110,10 @@ m\nu\nabla\cdot b_+^R
 $U(x,t)=x^{\mathsf T}K(t)x/2+\ell(t)^{\mathsf T}x+c(t)$ なら
 
 ```math
-\E^R[U(X_t,t)]
+\mathbb{E}^R[U(X_t,t)]
 =
 \frac12\mu^R(t)^{\mathsf T}K(t)\mu^R(t)
-+\frac12\Tr[K(t)C^R(t,t)]
++\frac12\operatorname{tr}[K(t)C^R(t,t)]
 +\ell(t)^{\mathsf T}\mu^R(t)
 +c(t).
 ```
@@ -129,7 +129,7 @@ $U(x,t)=x^{\mathsf T}K(t)x/2+\ell(t)^{\mathsf T}x+c(t)$ なら
 時間対角展開を微分した剰余も $O(h)$、Fourier 尾部を微分した誤差も $O(T^2/(Nh^2))$ である。有限個の $\theta_j$ について最大を取れば
 
 ```math
-\|\mathcal A_{N,h}^{R,U}-\mathcal A_{\GM}^{R,U}\|_{C^1(K)}
+\|\mathcal A_{N,h}^{R,U}-\mathcal A_{\mathrm{GM}}^{R,U}\|_{C^1(K)}
 \leq
 C_K
 \left(
