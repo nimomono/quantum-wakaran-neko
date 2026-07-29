@@ -7,31 +7,31 @@
 
 位相空間を $\R^{2M}$、正準座標を $Z=(Q,P)$ とし、
 
-$$
+```math
 H_N(Z)=\frac12 Z^{\mathsf T}G_N Z,
 \qquad
 G_N=G_N^{\mathsf T}>0
-$$
+```
 
 を考える。運動方程式は
 
-$$
+```math
 \dot Z=JG_NZ,
 \qquad
 Z(t)=e^{tJG_N}Z(0)
-$$
+```
 
 である。$G_N$ が運動量に関して偶であれば、標準時間反転 $\Theta(Q,P)=(Q,-P)$ に対して
 
-$$
+```math
 \Theta e^{tJG_N}\Theta=e^{-tJG_N}
-$$
+```
 
 が成立する。従って全微視軌道は時間反転対称であり、Liouville 体積を保存する。
 
 正準変換で正規モードへ移れば、安定な部分は
 
-$$
+```math
 H_N
 =
 \sum_{n=1}^{N}
@@ -39,13 +39,13 @@ H_N
 \left(
 P_n^2+\omega_n^2Q_n^2
 \right)
-$$
+```
 
 の形にできる。初期正準変数が中心 Gaussian 分布を持つなら、任意の線形観測量
 
-$$
+```math
 X_N(t)=L e^{tJG_N}Z(0)+\mu_N(t)
-$$
+```
 
 は有限次元 Gaussian 過程である。従って、閉じた調和 Hamiltonian 系の観測座標は、平均と2時刻共分散だけで完全に記述できる。
 
@@ -53,7 +53,7 @@ $$
 
 粒子座標 $q$ と調和浴を明示する代表例は
 
-$$
+```math
 H_{\rm core}
 =
 \frac{p^2}{2m}+V(q)
@@ -67,27 +67,27 @@ H_{\rm core}
 Q_n-\frac{c_nq}{m_n\omega_n^2}
 \right)^2
 \right]
-$$
+```
 
 である [12--14]。平方完成された結合は反作用と周波数補正を同時に含む。浴変数を厳密に消去すると、粒子は有限記憶核を持つ一般化 Langevin 方程式に従う。
 
-$$
+```math
 m\ddot q(t)
 +V'(q(t))
 +\int_0^t\Gamma_N(t-s)\dot q(s)\dd s
 =
 \xi_N(t)+F_{\rm slip}(t).
-$$
+```
 
 ここで
 
-$$
+```math
 \Gamma_N(t)
 =
 \sum_{n=1}^{N}
 \frac{c_n^2}{m_n\omega_n^2}
 \cos\omega_nt
-$$
+```
 
 であり、$\xi_N$ は浴初期座標の線形結合である。浴初期分布が Gaussian なら $\xi_N$ も有限 Gaussian 過程になる。有限 $N$ では記憶核も雑音も再帰的であり、白色雑音や散逸は微視的な基本法則ではない。
 
@@ -97,7 +97,7 @@ $$
 
 時間区間を $[0,T]$、$\omega_n=2\pi n/T$ とする。独立な標準 Gaussian ベクトル $Z_0,A_n,B_n\in\R^d$ を用いて
 
-$$
+```math
 \widetilde\eta_N(t)
 =
 \sqrt{\frac{2\nu}{T}}Z_0
@@ -108,40 +108,40 @@ $$
 A_n\cos\omega_nt
 +B_n\sin\omega_nt
 \right]
-$$
+```
 
 と定義する。この過程は調和正規モードの初期振幅を読み出すことで実現できる。零周波数 $Z_0$ は保存された正準運動量または自由モードに対応する。
 
 共分散は
 
-$$
+```math
 \E\left[
 \widetilde\eta_N^i(t)
 \widetilde\eta_N^j(s)
 \right]
 =
 2\nu\,\delta^{ij}\delta_{T,N}(t-s),
-$$
+```
 
-$$
+```math
 \delta_{T,N}(\tau)
 =
 \frac1T
 +
 \frac2T
 \sum_{n=1}^{N}\cos\omega_n\tau
-$$
+```
 
 である。$\delta_{T,N}$ は周期 Dirichlet 核であり、滑らかな試験関数に対して周期デルタ分布へ収束する。
 
 零周波数を最初から除いた
 
-$$
+```math
 2\nu
 \left[
 \delta_{T,N}(t-s)-\frac1T
 \right]
-$$
+```
 
 を普遍的な浴共分散とみなしてはならない。これは全ての線形系に共通な浴ではなく、自由増分の全期間積分を零にする条件を課したときに現れる特殊な条件付き共分散である。一般の線形な流れでは、終端条件による共分散修正は流れと観測行列に依存する Schur 補完になる。
 
@@ -149,7 +149,7 @@ $$
 
 実際の証明では、観測座標の確率法則を
 
-$$
+```math
 \dot X_N(t)
 =
 F_\theta(t)X_N(t)
@@ -157,23 +157,23 @@ F_\theta(t)X_N(t)
 +\widetilde\eta_N(t),
 \qquad
 X_N(0)\sim N(m_{0,\theta},P_{0,\theta})
-$$
+```
 
 で表す。$\theta$ は質量、周波数、外力、終端記録などをまとめた有限次元パラメータである。$F_\theta$ と $f_\theta$ は時間について十分滑らかとする。
 
 基本行列 $\Phi_\theta(t,s)$ を
 
-$$
+```math
 \partial_t\Phi_\theta(t,s)
 =
 F_\theta(t)\Phi_\theta(t,s),
 \qquad
 \Phi_\theta(s,s)=I
-$$
+```
 
 で定めると、
 
-$$
+```math
 X_N(t)
 =
 \Phi_\theta(t,0)X_N(0)
@@ -183,7 +183,7 @@ X_N(t)
 f_\theta(s)+\widetilde\eta_N(s)
 \right]
 \dd s
-$$
+```
 
 である。従って $X_N$ は有限個の Gaussian 変数の線形像であり、平均 $\mu_N$ と共分散 $C_N$ を有限和として厳密に計算できる。
 
@@ -195,20 +195,20 @@ $$
 
 $N\to\infty$ で積分雑音
 
-$$
+```math
 W_N(t)=\int_0^t\widetilde\eta_N(s)\dd s
-$$
+```
 
 は、有限次元分布で共分散 $2\nu\min(s,t)$ を持つ Wiener 増分へ近づく。本論文の作用とパラメータ第1微分は2時刻の平均・共分散だけで評価するため、一般の経路空間位相における弱収束は主定理の仮定にも結論にも用いない。対応する線形拡散表示は
 
-$$
+```math
 \dd X(t)
 =
 \left[
 F_\theta(t)X(t)+f_\theta(t)
 \right]\dd t
 +\sqrt{2\nu}\,\dd W_t
-$$
+```
 
 である。有限 $N$ の各経路は微分可能であるが、極限経路は微分不可能である。粗視化作用に現れる発散は、この正則性の変化に由来する。
 
