@@ -17,6 +17,19 @@ PAPER_MD = ROOT / "paper.md"
 MAIN_TEX = ROOT / "main.tex"
 PDF = ROOT / "paper.pdf"
 
+THEOREM_LABELS = {
+    "theorem": "定理",
+    "proposition": "命題",
+    "lemma": "補題",
+    "corollary": "系",
+    "proof": "証明",
+}
+
+PART_TITLES = {
+    2: "第I部　有限調和 Gaussian 中核の Nelson 極限",
+    5: "第II部　2境界統計原理と2モード台帳による Bell 型統計",
+}
+
 REFERENCE_KEYS = {
     1: "bell1964",
     2: "chsh1969",
@@ -94,7 +107,79 @@ def replace_citations(text: str) -> str:
     return pattern.sub(replacement, text)
 
 
+
+def restore_markdown_source(lines: list[str]) -> list[str]:
+    output: list[str] = []
+    index = 0
+    while index < len(lines):
+        line = lines[index]
+        start = re.fullmatch(
+            r"<!-- theorem-start:(theorem|proposition|lemma|corollary|proof) -->",
+            line.strip(),
+        )
+        if start:
+            environment = start.group(1)
+            if index + 1 >= len(lines):
+                raise ValueError(f"missing theorem label after {line}")
+            visible = lines[index + 1].strip()
+            label = THEOREM_LABELS[environment]
+            plain = f"**{label}**"
+            titled_prefix = f"**{label}（"
+            if visible == plain:
+                title = ""
+            elif visible.startswith(titled_prefix) and visible.endswith("）**"):
+                title = visible[len(titled_prefix):-3]
+            else:
+                raise ValueError(f"invalid theorem label: {visible}")
+            begin = rf"\begin{{{environment}}}"
+            if title:
+                begin += f"[{title}]"
+            output.append(begin)
+            index += 2
+            continue
+
+        end = re.fullmatch(
+            r"<!-- theorem-end:(theorem|proposition|lemma|corollary|proof) -->",
+            line.strip(),
+        )
+        if end:
+            output.append(rf"\end{{{end.group(1)}}}")
+            index += 1
+            continue
+
+        output.append(line)
+        index += 1
+    return output
+
+
+def validate_github_markdown(path: Path, text: str) -> None:
+    forbidden = {
+        "独自数式マクロ": r"\\(?:dd|E|R|Tr|GM|Nel)(?![A-Za-z])",
+        "生の定理環境": (
+            r"\\(?:begin|end)\{"
+            r"(?:theorem|proposition|lemma|corollary|proof|statusbox|thebibliography)"
+            r"\}"
+        ),
+        "数式外のTeX命令": (
+            r"\\(?:chapter\*?|part|appendix|addcontentsline|cite|bibitem|url)\b"
+        ),
+        "規約外の数式区切り": r"\\\(|\\\[|\$\$",
+    }
+    errors = [
+        name for name, pattern in forbidden.items()
+        if re.search(pattern, text)
+    ]
+    for environment in THEOREM_LABELS:
+        starts = text.count(f"<!-- theorem-start:{environment} -->")
+        ends = text.count(f"<!-- theorem-end:{environment} -->")
+        if starts != ends:
+            errors.append(f"{environment} 境界の不一致")
+    if errors:
+        raise ValueError(f"{path}: " + "、".join(errors))
+
+
 def preprocess(lines: list[str]) -> list[str]:
+    lines = restore_markdown_source(lines)
     output: list[str] = []
     in_math = False
     for line in lines:
@@ -114,6 +199,29 @@ def preprocess(lines: list[str]) -> list[str]:
         if heading:
             line = f"{heading.group(1)} {heading.group(2)}"
         output.append(replace_citations(line))
+    return output
+
+
+def preprocess_public(lines: list[str]) -> list[str]:
+    output: list[str] = []
+    in_math = False
+    for line in lines:
+        stripped = line.strip()
+        if not in_math and stripped == "```math":
+            in_math = True
+            output.append(line)
+            continue
+        if in_math and stripped == "```":
+            in_math = False
+            output.append(line)
+            continue
+        if not in_math:
+            heading = re.match(r"^(#{2,3})\s+(?:\d+|[A-Z])(?:\.\d+)*\s+(.*)$", line)
+            if heading:
+                line = f"{heading.group(1)} {heading.group(2)}"
+        output.append(line)
+    if in_math:
+        raise ValueError("unclosed math fence")
     return output
 
 
@@ -154,7 +262,12 @@ def bibliography_tex() -> str:
     for line in lines:
         match = re.match(r"^- \[(\d+)\]\s+(.*)$", line)
         if match:
-            entries[int(match.group(1))] = match.group(2)
+            entry = re.sub(
+                r"<(https?://[^ >]+)>",
+                lambda url: r"\url{" + url.group(1) + "}",
+                match.group(2),
+            )
+            entries[int(match.group(1))] = entry
     body = [r"\begin{thebibliography}{99}", r"\addcontentsline{toc}{chapter}{参考文献}"]
     for number in range(1, max(REFERENCE_KEYS) + 1):
         body.append(rf"\bibitem{{{REFERENCE_KEYS[number]}}} {entries[number]}")
@@ -162,7 +275,7 @@ def bibliography_tex() -> str:
     return "\n\n".join(body)
 
 
-def combined_markdown() -> str:
+def pandoc_markdown() -> str:
     chunks: list[str] = []
     _, overview = parse_source(SECTIONS / "00_overview_and_contents.md")
     chunks.extend([
@@ -207,6 +320,44 @@ def combined_markdown() -> str:
     return "\n\n".join(chunks) + "\n"
 
 
+def combined_markdown() -> str:
+    chunks: list[str] = []
+    _, overview = parse_source(SECTIONS / "00_overview_and_contents.md")
+    chunks.extend([
+        "# 概要",
+        "\n".join(preprocess_public(overview)),
+    ])
+
+    for number in range(1, 9):
+        if number in PART_TITLES:
+            chunks.append("# " + PART_TITLES[number])
+        path = next(SECTIONS.glob(f"{number:02d}_*.md"))
+        meta, lines = parse_source(path)
+        chunks.append("# " + meta["title"])
+        status = meta.get("status", "")
+        if status:
+            chunks.append("> **位置づけ：** " + status)
+        chunks.append("\n".join(preprocess_public(lines)))
+
+    appendix_paths = sorted(SECTIONS.glob("A?_*.md"))
+    if appendix_paths:
+        chunks.append("# 付録")
+    for path in appendix_paths:
+        meta, lines = parse_source(path)
+        chunks.append("# " + meta["title"])
+        status = meta.get("status", "")
+        if status:
+            chunks.append("> **位置づけ：** " + status)
+        chunks.append("\n".join(preprocess_public(lines)))
+
+    _, references = parse_source(SECTIONS / "90_references.md")
+    chunks.extend([
+        "# 参考文献",
+        "\n".join(preprocess_public(references)),
+    ])
+    return "\n\n".join(chunks) + "\n"
+
+
 def run_command(command: list[str], cwd: Path | None = None) -> None:
     subprocess.run(command, cwd=cwd, env=tex_environment(), check=True)
 
@@ -240,11 +391,16 @@ def ensure_xelatex_format() -> Path:
 
 def build() -> None:
     WORK.mkdir(parents=True, exist_ok=True)
-    PAPER_MD.write_text(combined_markdown(), encoding="utf-8")
+    for source in sorted(SECTIONS.glob("*.md")):
+        validate_github_markdown(source, source.read_text(encoding="utf-8"))
+
+    paper_text = combined_markdown()
+    validate_github_markdown(PAPER_MD, paper_text)
+    PAPER_MD.write_text(paper_text, encoding="utf-8")
 
     pandoc_source = WORK / "paper.md"
     pandoc_source.write_text(
-        markdown_for_pandoc(PAPER_MD.read_text(encoding="utf-8")),
+        markdown_for_pandoc(pandoc_markdown()),
         encoding="utf-8",
     )
     body = WORK / "body.tex"

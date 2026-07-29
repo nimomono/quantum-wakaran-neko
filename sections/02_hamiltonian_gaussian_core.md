@@ -5,7 +5,7 @@
 
 ## 2.1 有限2次 Hamiltonian
 
-位相空間を $\R^{2M}$、正準座標を $Z=(Q,P)$ とし、
+位相空間を $\mathbb{R}^{2M}$、正準座標を $Z=(Q,P)$ とし、
 
 ```math
 H_N(Z)=\frac12 Z^{\mathsf T}G_N Z,
@@ -74,7 +74,7 @@ Q_n-\frac{c_nq}{m_n\omega_n^2}
 ```math
 m\ddot q(t)
 +V'(q(t))
-+\int_0^t\Gamma_N(t-s)\dot q(s)\dd s
++\int_0^t\Gamma_N(t-s)\dot q(s)\,\mathrm{d} s
 =
 \xi_N(t)+F_{\rm slip}(t).
 ```
@@ -95,7 +95,7 @@ m\ddot q(t)
 
 ## 2.3 完全な有限 Fourier 浴
 
-時間区間を $[0,T]$、$\omega_n=2\pi n/T$ とする。独立な標準 Gaussian ベクトル $Z_0,A_n,B_n\in\R^d$ を用いて
+時間区間を $[0,T]$、$\omega_n=2\pi n/T$ とする。独立な標準 Gaussian ベクトル $Z_0,A_n,B_n\in\mathbb{R}^d$ を用いて
 
 ```math
 \widetilde\eta_N(t)
@@ -115,7 +115,7 @@ A_n\cos\omega_nt
 共分散は
 
 ```math
-\E\left[
+\mathbb{E}\left[
 \widetilde\eta_N^i(t)
 \widetilde\eta_N^j(s)
 \right]
@@ -182,7 +182,7 @@ X_N(t)
 \left[
 f_\theta(s)+\widetilde\eta_N(s)
 \right]
-\dd s
+\,\mathrm{d} s
 ```
 
 である。従って $X_N$ は有限個の Gaussian 変数の線形像であり、平均 $\mu_N$ と共分散 $C_N$ を有限和として厳密に計算できる。
@@ -196,18 +196,18 @@ f_\theta(s)+\widetilde\eta_N(s)
 $N\to\infty$ で積分雑音
 
 ```math
-W_N(t)=\int_0^t\widetilde\eta_N(s)\dd s
+W_N(t)=\int_0^t\widetilde\eta_N(s)\,\mathrm{d} s
 ```
 
 は、有限次元分布で共分散 $2\nu\min(s,t)$ を持つ Wiener 増分へ近づく。本論文の作用とパラメータ第1微分は2時刻の平均・共分散だけで評価するため、一般の経路空間位相における弱収束は主定理の仮定にも結論にも用いない。対応する線形拡散表示は
 
 ```math
-\dd X(t)
+\,\mathrm{d} X(t)
 =
 \left[
 F_\theta(t)X(t)+f_\theta(t)
-\right]\dd t
-+\sqrt{2\nu}\,\dd W_t
+\right]\,\mathrm{d} t
++\sqrt{2\nu}\,\,\mathrm{d} W_t
 ```
 
 である。有限 $N$ の各経路は微分可能であるが、極限経路は微分不可能である。粗視化作用に現れる発散は、この正則性の変化に由来する。

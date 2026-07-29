@@ -1,6 +1,4 @@
-\chapter*{概要}
-
-\addcontentsline{toc}{chapter}{概要}
+# 概要
 
 
 本論文は、有限個の正準自由度からなる可逆な古典 Hamiltonian 系を基盤として、2つの独立な問題を扱う。
@@ -168,14 +166,12 @@ V_{\rm eff}
 
 # 問題設定、2部構成、仮定の台帳
 
-\begin{statusbox}
-位置づけ：Nelson 作用極限と Bell 型共同確率の論理的独立性を固定し、力学、準備測度、2境界統計原理を分離する。
-\end{statusbox}
+> **位置づけ：** Nelson 作用極限と Bell 型共同確率の論理的独立性を固定し、力学、準備測度、2境界統計原理を分離する。
 
 
 ## 問題設定
 
-Bell の定理は、局所応答、結果の確定性、測定設定独立性などを同時に満たす理論が、特定の Bell--CHSH 相関を再現できないことを示す \cite{bell1964,chsh1969}。古典 Hamiltonian 模型が Bell--CHSH 不等式を超える相関を与えるなら、Bell の前提の少なくとも1つが成立していない。本論文はこの論理を回避せず、軌道法則、準備測度、終端条件、履歴確率を個別に監査する。
+Bell の定理は、局所応答、結果の確定性、測定設定独立性などを同時に満たす理論が、特定の Bell--CHSH 相関を再現できないことを示す [1,2]。古典 Hamiltonian 模型が Bell--CHSH 不等式を超える相関を与えるなら、Bell の前提の少なくとも1つが成立していない。本論文はこの論理を回避せず、軌道法則、準備測度、終端条件、履歴確率を個別に監査する。
 
 扱う問題は次の2つである。
 
@@ -335,9 +331,9 @@ g_{AB}^{\rm ent}(h)
 
 ## 先行研究との位置関係
 
-Nelson の確率力学、確率変分法、Guerra--Morato 作用には先行研究がある \cite{nelson1966,guerra_morato1983,yasue1981,zambrini1986,knorst_lopes2024}。Gaussian 条件づけは固定区間平滑化、相反過程、Schrödinger 橋、経路単位の Gaussian 条件づけと関係する \cite{jamison1974,doob1957,leonard2014,chen_georgiou_pavon2016,rauch_tung_striebel1965,wilson_et_al2021,leonard_roelly_zambrini2014}。第I部の新規性は、指定した線形 Gaussian クラスに対し、有限 Fourier 浴から繰り込み作用のパラメータ $C^1$ 極限を明示率付きで与える点に限定される。
+Nelson の確率力学、確率変分法、Guerra--Morato 作用には先行研究がある [3--6,35]。Gaussian 条件づけは固定区間平滑化、相反過程、Schrödinger 橋、経路単位の Gaussian 条件づけと関係する [15,16,26--28,36,37]。第I部の新規性は、指定した線形 Gaussian クラスに対し、有限 Fourier 浴から繰り込み作用のパラメータ $C^1$ 極限を明示率付きで与える点に限定される。
 
-2境界条件、局所逆因果模型、測定設定独立性を緩めた Bell 模型にも先行研究がある \cite{wharton2010,wharton_argaman2020,hall2010,leifer_pusey2017,wood_spekkens2015,price_wharton2023,price_wharton2024,argaman2010,hossenfelder_palmer2020,thooft2016}。共通未来と境界制約による選別という発想自体は新規ではない。第II部が追加するのは、局所指針、実2次元差動比較器、固定総作用2モード台帳、設定名を直接参照しない終端座標を有限 Hamiltonian 部品として接続し、旧共通入口密度を準備対称性と2モード位相体積へ分解する点である。
+2境界条件、局所逆因果模型、測定設定独立性を緩めた Bell 模型にも先行研究がある [7--11,21--25]。共通未来と境界制約による選別という発想自体は新規ではない。第II部が追加するのは、局所指針、実2次元差動比較器、固定総作用2モード台帳、設定名を直接参照しない終端座標を有限 Hamiltonian 部品として接続し、旧共通入口密度を準備対称性と2モード位相体積へ分解する点である。
 
 ## 本論文が主張しないこと
 
@@ -357,18 +353,16 @@ Nelson の確率力学、確率変分法、Guerra--Morato 作用には先行研�
 
 第2章から第4章は、可逆な調和 Hamiltonian 中核、Gaussian 条件づけ、作用形式の定量的 Nelson 極限を扱う。第5章から第7章は、有限 Hamiltonian 装置部品、2モード台帳、2境界統計原理の下での Bell 型共同確率を扱う。第8章は適用範囲、否定結果、反証条件をまとめる。長い収束評価、正準計算、2境界照合、測定設定依存度、数値検証手順は付録と `VALIDATION.md` に置く。
 
-\part{有限調和 Gaussian 中核の Nelson 極限}
+# 第I部　有限調和 Gaussian 中核の Nelson 極限
 
 # 可逆な調和 Hamiltonian 中核と有限 Gaussian 確率表示
 
-\begin{statusbox}
-位置づけ：微視的可逆性と、証明に用いる補助的な線形 Gaussian 確率表示の範囲を分離する。
-\end{statusbox}
+> **位置づけ：** 微視的可逆性と、証明に用いる補助的な線形 Gaussian 確率表示の範囲を分離する。
 
 
 ## 有限2次 Hamiltonian
 
-位相空間を $\R^{2M}$、正準座標を $Z=(Q,P)$ とし、
+位相空間を $\mathbb{R}^{2M}$、正準座標を $Z=(Q,P)$ とし、
 
 ```math
 H_N(Z)=\frac12 Z^{\mathsf T}G_N Z,
@@ -432,12 +426,12 @@ Q_n-\frac{c_nq}{m_n\omega_n^2}
 \right]
 ```
 
-である \cite{ford1965,mori1965,zwanzig1973}。平方完成された結合は反作用と周波数補正を同時に含む。浴変数を厳密に消去すると、粒子は有限記憶核を持つ一般化 Langevin 方程式に従う。
+である [12--14]。平方完成された結合は反作用と周波数補正を同時に含む。浴変数を厳密に消去すると、粒子は有限記憶核を持つ一般化 Langevin 方程式に従う。
 
 ```math
 m\ddot q(t)
 +V'(q(t))
-+\int_0^t\Gamma_N(t-s)\dot q(s)\dd s
++\int_0^t\Gamma_N(t-s)\dot q(s)\,\mathrm{d} s
 =
 \xi_N(t)+F_{\rm slip}(t).
 ```
@@ -458,7 +452,7 @@ m\ddot q(t)
 
 ## 完全な有限 Fourier 浴
 
-時間区間を $[0,T]$、$\omega_n=2\pi n/T$ とする。独立な標準 Gaussian ベクトル $Z_0,A_n,B_n\in\R^d$ を用いて
+時間区間を $[0,T]$、$\omega_n=2\pi n/T$ とする。独立な標準 Gaussian ベクトル $Z_0,A_n,B_n\in\mathbb{R}^d$ を用いて
 
 ```math
 \widetilde\eta_N(t)
@@ -478,7 +472,7 @@ A_n\cos\omega_nt
 共分散は
 
 ```math
-\E\left[
+\mathbb{E}\left[
 \widetilde\eta_N^i(t)
 \widetilde\eta_N^j(s)
 \right]
@@ -545,7 +539,7 @@ X_N(t)
 \left[
 f_\theta(s)+\widetilde\eta_N(s)
 \right]
-\dd s
+\,\mathrm{d} s
 ```
 
 である。従って $X_N$ は有限個の Gaussian 変数の線形像であり、平均 $\mu_N$ と共分散 $C_N$ を有限和として厳密に計算できる。
@@ -559,18 +553,18 @@ f_\theta(s)+\widetilde\eta_N(s)
 $N\to\infty$ で積分雑音
 
 ```math
-W_N(t)=\int_0^t\widetilde\eta_N(s)\dd s
+W_N(t)=\int_0^t\widetilde\eta_N(s)\,\mathrm{d} s
 ```
 
 は、有限次元分布で共分散 $2\nu\min(s,t)$ を持つ Wiener 増分へ近づく。本論文の作用とパラメータ第1微分は2時刻の平均・共分散だけで評価するため、一般の経路空間位相における弱収束は主定理の仮定にも結論にも用いない。対応する線形拡散表示は
 
 ```math
-\dd X(t)
+\,\mathrm{d} X(t)
 =
 \left[
 F_\theta(t)X(t)+f_\theta(t)
-\right]\dd t
-+\sqrt{2\nu}\,\dd W_t
+\right]\,\mathrm{d} t
++\sqrt{2\nu}\,\,\mathrm{d} W_t
 ```
 
 である。有限 $N$ の各経路は微分可能であるが、極限経路は微分不可能である。粗視化作用に現れる発散は、この正則性の変化に由来する。
@@ -587,9 +581,7 @@ $F=-\lambda I+\Omega J$ と選べば、2次元の回転を伴う OU 位相模型
 
 # 前後両側から条件づけた線形 Gaussian 経路法則
 
-\begin{statusbox}
-位置づけ：有限分解能の終端記録を Gaussian Schur 補完として厳密に定義する。
-\end{statusbox}
+> **位置づけ：** 有限分解能の終端記録を Gaussian Schur 補完として厳密に定義する。
 
 
 ## なぜ有限分解能を用いるか
@@ -623,13 +615,13 @@ L_R(x)
 有限 $N$ の平均と2時刻共分散を
 
 ```math
-\mu_N(t)=\E[X_N(t)],
+\mu_N(t)=\mathbb{E}[X_N(t)],
 ```
 
 ```math
 C_N(s,t)
 =
-\E\left[
+\mathbb{E}\left[
 (X_N(s)-\mu_N(s))
 (X_N(t)-\mu_N(t))^{\mathsf T}
 \right]
@@ -641,7 +633,7 @@ C_N(s,t)
 \mu_N(t)
 =
 \Phi(t,0)m_0
-+\int_0^t\Phi(t,r)f(r)\dd r
++\int_0^t\Phi(t,r)f(r)\,\mathrm{d} r
 ```
 
 であり、共分散は初期共分散と有限 Fourier モードの寄与の和として書ける。
@@ -659,7 +651,7 @@ C_N(s,t)
 ```math
 K_{N,\alpha}(t)
 =
-\int_0^t\Phi(t,r)e_\alpha(r)\dd r
+\int_0^t\Phi(t,r)e_\alpha(r)\,\mathrm{d} r
 ```
 
 により
@@ -686,7 +678,8 @@ HC_N(T,T)H^{\mathsf T}+R
 
 とする。$R\geq r_*I$ なので $S_N$ は一様に可逆である。
 
-\begin{proposition}[有限 Gaussian 条件づけ]
+<!-- theorem-start:proposition -->
+**命題（有限 Gaussian 条件づけ）**
 条件 $Y=y$ の下で $X_N$ は Gaussian 過程のままであり、その平均と共分散は
 
 ```math
@@ -705,15 +698,16 @@ C_N(s,t)
 ```
 
 である。
-\end{proposition}
+<!-- theorem-end:proposition -->
 
-\begin{proof}
+<!-- theorem-start:proof -->
+**証明**
 有限個の時刻 $t_1,\ldots,t_k$ を固定すると、$(X_N(t_1),\ldots,X_N(t_k),Y)$ は結合 Gaussian ベクトルである。結合共分散行列の $Y$ 成分に関する Schur 補完を取れば上式を得る。任意の有限時刻集合で整合するため、条件付き過程全体が定まる。
-\end{proof}
+<!-- theorem-end:proof -->
 
 条件付き共分散の第2項は、終端記録により減少した不確かさを表す。これは力ではない。ある経路が終端記録とどれだけ整合するかという統計的更新である。
 
-この計算は、新しい種類の Gaussian 条件づけではない。有限次元の状態を拡大して Fourier 係数まで含めれば、固定区間の線形 Gaussian 平滑化と同じ Schur 補完になる \cite{rauch_tung_striebel1965}。経路測度の立場では相反過程および Schrödinger 橋の線形 Gaussian 部分に属し \cite{jamison1974,leonard2014,chen_georgiou_pavon2016,leonard_roelly_zambrini2014}、経路単位の Gaussian 条件づけとしても標準的に表せる \cite{wilson_et_al2021}。本論文で必要なのは、この既知の条件づけを有限 Fourier 切断数 $N$ とパラメータ $\theta$ について一様に微分し、第4章の定量的 $C^1$ 評価へ接続することである。
+この計算は、新しい種類の Gaussian 条件づけではない。有限次元の状態を拡大して Fourier 係数まで含めれば、固定区間の線形 Gaussian 平滑化と同じ Schur 補完になる [28]。経路測度の立場では相反過程および Schrödinger 橋の線形 Gaussian 部分に属し [15,26,27,37]、経路単位の Gaussian 条件づけとしても標準的に表せる [36]。本論文で必要なのは、この既知の条件づけを有限 Fourier 切断数 $N$ とパラメータ $\theta$ について一様に微分し、第4章の定量的 $C^1$ 評価へ接続することである。
 
 ## パラメータ微分
 
@@ -726,7 +720,7 @@ D\Phi_\theta[\delta F](t,s)
 \Phi_\theta(t,r)
 \delta F(r)
 \Phi_\theta(r,s)
-\dd r
+\,\mathrm{d} r
 ```
 
 である。逆行列の微分
@@ -746,7 +740,7 @@ D(S^{-1})[\delta S]
 $N\to\infty$ の無条件拡散を
 
 ```math
-\dd X_t=b(X_t,t)\dd t+\sqrt{2\nu}\,\dd W_t,
+\,\mathrm{d} X_t=b(X_t,t)\,\mathrm{d} t+\sqrt{2\nu}\,\,\mathrm{d} W_t,
 \qquad
 b(x,t)=F(t)x+f(t)
 ```
@@ -756,7 +750,7 @@ b(x,t)=F(t)x+f(t)
 ```math
 h_R(x,t)
 =
-\E\left[L_R(X_T)\mid X_t=x\right]
+\mathbb{E}\left[L_R(X_T)\mid X_t=x\right]
 ```
 
 と置く。線形 Gaussian 系では $h_R$ は指数2次関数で正である。条件付き前進流れは Doob 変換により
@@ -767,7 +761,7 @@ b_+^R(x,t)
 b(x,t)+2\nu\nabla\log h_R(x,t)
 ```
 
-となる \cite{jamison1974,doob1957}。$\nabla\log h_R$ は $x$ の1次式であるため、条件付き過程も線形 Gaussian である。
+となる [15,16]。$\nabla\log h_R$ は $x$ の1次式であるため、条件付き過程も線形 Gaussian である。
 
 条件付き時刻密度を $\rho^R(x,t)$ とすると、後退流れは
 
@@ -798,7 +792,7 @@ u^R
 $F=0$、$f=0$、$X_N(0)=x_0$ とし、終端を厳密に $X_N(T)=x_0$ へ固定する特殊な場合を考える。非零 Fourier モードは1周期積分すると零になるため、全期間変位を担うのは零周波数 $Z_0$ だけである。終端条件は $Z_0=0$ を意味する。従って条件付き雑音共分散は
 
 ```math
-\E\left[
+\mathbb{E}\left[
 \widetilde\eta_N(t)
 \widetilde\eta_N(s)^{\mathsf T}
 \mid X_N(T)=x_0
@@ -832,9 +826,7 @@ $F=0$、$f=0$、$X_N(0)=x_0$ とし、終端を厳密に $X_N(T)=x_0$ へ固定�
 
 # 繰り込み済み粗視化作用形式の Nelson 極限
 
-\begin{statusbox}
-位置づけ：線形 Gaussian・有限分解能・2次ポテンシャルの範囲で、定義した作用形式の定量的 $C^1$ 収束を示す。
-\end{statusbox}
+> **位置づけ：** 線形 Gaussian・有限分解能・2次ポテンシャルの範囲で、定義した作用形式の定量的 $C^1$ 収束を示す。
 
 
 ## 粗視化作用
@@ -842,7 +834,7 @@ $F=0$、$f=0$、$X_N(0)=x_0$ とし、終端を厳密に $X_N(T)=x_0$ へ固定�
 有限 $N$ の経路は微分可能であるが、$N\to\infty$ の拡散経路は微分不可能である。そのため、単純な運動エネルギー
 
 ```math
-\frac m2\int_0^T|\dot X_N(t)|^2\dd t
+\frac m2\int_0^T|\dot X_N(t)|^2\,\mathrm{d} t
 ```
 
 は極限で発散する。時間分解能 $h>0$ を固定し、有限差分
@@ -854,14 +846,14 @@ D_hX_N(t)=\frac{X_N(t+h)-X_N(t)}{h}
 を用いる。拡散係数が $\nu$、空間次元が $d$ なら、雑音の普遍的発散は
 
 ```math
-\frac m2\E|D_hX|^2
+\frac m2\mathbb{E}|D_hX|^2
 \sim
 \frac{md\nu}{h}
 ```
 
 である。
 
-差分商の運動項から軌道に依存しない発散定数を除き、有限な Guerra--Morato 項を残す原理自体は既知である \cite{nelson1966,guerra_morato1983}。本章の新規な主張は、有限 Fourier 切断、有限分解能の終端記録、滑らかな有限次元パラメータ族を同時に扱い、作用値とその第1偏微分へ共通の明示誤差評価を与える点にある。
+差分商の運動項から軌道に依存しない発散定数を除き、有限な Guerra--Morato 項を残す原理自体は既知である [3,4]。本章の新規な主張は、有限 Fourier 切断、有限分解能の終端記録、滑らかな有限次元パラメータ族を同時に扱い、作用値とその第1偏微分へ共通の明示誤差評価を与える点にある。
 
 ここで扱う粗視化作用は、有限 Hamiltonian 軌道の統計から定義する評価汎関数である。Hamilton 方程式そのものから、この汎関数を最小化または停留化する選択則が生じるとは仮定しない。本章の結論は作用形式の収束であり、有効運動方程式の動力学的選択まで含まない。
 
@@ -870,21 +862,21 @@ D_hX_N(t)=\frac{X_N(t+h)-X_N(t)}{h}
 ```math
 \mathcal A_{N,h}^{R,U}(\theta)
 =
-\E_{N,\theta}^{R}
+\mathbb{E}_{N,\theta}^{R}
 \int_0^{T-h}
 \left[
 \frac m{2h^2}
 |X_N(t+h)-X_N(t)|^2
 -\frac{md\nu}{h}
 -U_\theta(X_N(t),t)
-\right]\dd t
+\right]\,\mathrm{d} t
 ```
 
 と定義する。差し引く項は結果や設定に依存せず、有限差分の Gaussian 自己揺らぎだけを除く。
 
 ## 許容するパラメータ族
 
-パラメータ集合 $K\subset\R^p$ をコンパクトとする。次を仮定する。
+パラメータ集合 $K\subset\mathbb{R}^p$ をコンパクトとする。次を仮定する。
 
 1. $F_\theta(t)$、$f_\theta(t)$ は $(\theta,t)$ について $C^2$ であり、$K\times[0,T]$ 上で2階まで一様有界である。
 2. 初期平均 $m_{0,\theta}$ と初期共分散 $P_{0,\theta}$ は $C^2$ で、$P_{0,\theta}\geq p_*I>0$ である。
@@ -917,30 +909,31 @@ $C^1(K)$ は作用値と $\theta$ に関する全ての第1偏微分の一様ノ
 極限の条件付き拡散の前進流れを $b_{+,\theta}^R$、時刻密度を $\rho_\theta^R$ とする。Guerra--Morato 型作用を
 
 ```math
-\mathcal A_{\GM}^{R,U}(\theta)
+\mathcal A_{\mathrm{GM}}^{R,U}(\theta)
 =
-\int_0^T\int_{\R^d}
+\int_0^T\int_{\mathbb{R}^d}
 \rho_\theta^R(x,t)
 \left[
 \frac m2|b_{+,\theta}^R(x,t)|^2
 +m\nu\nabla\cdot b_{+,\theta}^R(x,t)
 -U_\theta(x,t)
 \right]
-\dd x\dd t
+\,\mathrm{d} x\,\mathrm{d} t
 ```
 
-と定義する \cite{guerra_morato1983}。線形 Gaussian 系では $b_+^R$ は $x$ の1次式、$\rho^R$ は正の Gaussian 密度なので、全ての積分は有限である。
+と定義する [4]。線形 Gaussian 系では $b_+^R$ は $x$ の1次式、$\rho^R$ は正の Gaussian 密度なので、全ての積分は有限である。
 
 ## 線形 Gaussian <i>C</i><sup>1</sup> 収束定理
 
-\begin{theorem}[線形 Gaussian $C^1$ 極限]
+<!-- theorem-start:theorem -->
+**定理（線形 Gaussian $C^1$ 極限）**
 第4.2節の仮定を満たすとする。ある定数 $C_K<\infty$ が存在し、十分大きい $N$ と $0<h<T/4$ に対して
 
 ```math
 \left\|
 \mathcal A_{N,h}^{R,U}
 -
-\mathcal A_{\GM}^{R,U}
+\mathcal A_{\mathrm{GM}}^{R,U}
 \right\|_{C^1(K)}
 \leq
 C_K
@@ -956,11 +949,11 @@ C_K
 ```math
 \mathcal A_{N,h_N}^{R,U}
 \longrightarrow
-\mathcal A_{\GM}^{R,U}.
+\mathcal A_{\mathrm{GM}}^{R,U}.
 ```
 
 特に $h_N=TN^{-1/3}$ なら誤差は $O(N^{-1/3})$ である。
-\end{theorem}
+<!-- theorem-end:theorem -->
 
 この $N^{-1/3}$ は、共分散尾部を $O(N^{-1})$ と評価し、増分商の $h^{-2}$ と釣り合わせた現在の証明から得られる率である。下界または最適性は示していない。より滑らかな核、端点適合基底、相殺を用いれば改善される可能性があり、本質的な普遍指数とは主張しない。
 
@@ -979,36 +972,38 @@ u^R=\frac{b_+^R-b_-^R}{2}
 
 を定義する。境界項が消える条件、例えば全空間での Gaussian 減衰、周期境界、または無流束境界を仮定する。
 
-\begin{theorem}[Guerra--Morato 作用と Nelson 作用の一致]
+<!-- theorem-start:theorem -->
+**定理（Guerra--Morato 作用と Nelson 作用の一致）**
 
 ```math
-\mathcal A_{\GM}^{R,U}
+\mathcal A_{\mathrm{GM}}^{R,U}
 =
-\mathcal A_{\Nel}^{R,U},
+\mathcal A_{\mathrm{N}}^{R,U},
 ```
 
 ```math
-\mathcal A_{\Nel}^{R,U}
+\mathcal A_{\mathrm{N}}^{R,U}
 =
-\int_0^T\int_{\R^d}
+\int_0^T\int_{\mathbb{R}^d}
 \rho^R
 \left[
 \frac m2|v^R|^2
 -\frac m2|u^R|^2
 -U
 \right]
-\dd x\dd t.
+\,\mathrm{d} x\,\mathrm{d} t.
 ```
 
-\end{theorem}
+<!-- theorem-end:theorem -->
 
-\begin{proof}
+<!-- theorem-start:proof -->
+**証明**
 $b_+^R=v^R+u^R$ と $\nu\nabla\rho^R=\rho^Ru^R$ を用いる。空間部分積分により
 
 ```math
-\int\rho^R m\nu\nabla\cdot b_+^R\dd x
+\int\rho^R m\nu\nabla\cdot b_+^R\,\mathrm{d} x
 =
--m\int\rho^R b_+^R\cdot u^R\dd x.
+-m\int\rho^R b_+^R\cdot u^R\,\mathrm{d} x.
 ```
 
 従って
@@ -1022,13 +1017,14 @@ $b_+^R=v^R+u^R$ と $\nu\nabla\rho^R=\rho^Ru^R$ を用いる。空間部分積�
 ```
 
 ポテンシャル項は共通なので結論を得る。
-\end{proof}
+<!-- theorem-end:proof -->
 
-この一致は近似ではない。$C^1$ 極限で得られた Guerra--Morato 作用は、正の Gaussian 密度領域では Nelson 作用そのものである \cite{nelson1966,guerra_morato1983,yasue1981,zambrini1986}。Guerra--Morato 作用の臨界点と第2変分を扱う近年の研究もあるが \cite{knorst_lopes2024}、本定理が扱う有限 Fourier 条件付き族の2尺度 $C^1$ 収束とは問題設定が異なる。
+この一致は近似ではない。$C^1$ 極限で得られた Guerra--Morato 作用は、正の Gaussian 密度領域では Nelson 作用そのものである [3--6]。Guerra--Morato 作用の臨界点と第2変分を扱う近年の研究もあるが [35]、本定理が扱う有限 Fourier 条件付き族の2尺度 $C^1$ 収束とは問題設定が異なる。
 
 ## 停留点について言えること
 
-\begin{corollary}[収束する停留点]
+<!-- theorem-start:corollary -->
+**系（収束する停留点）**
 $\theta_N\in\operatorname{int}K$ が
 
 ```math
@@ -1040,25 +1036,26 @@ D_\theta\mathcal A_{N,h_N}^{R,U}(\theta_N)=0,
 を満たすなら、
 
 ```math
-D_\theta\mathcal A_{\Nel}^{R,U}(\theta_*)=0
+D_\theta\mathcal A_{\mathrm{N}}^{R,U}(\theta_*)=0
 ```
 
 である。
-\end{corollary}
+<!-- theorem-end:corollary -->
 
-\begin{proof}
+<!-- theorem-start:proof -->
+**証明**
 $C^1(K)$ 収束と $D\mathcal A_{N,h_N}(\theta_N)=0$ から
 
 ```math
-\|D\mathcal A_{\Nel}(\theta_*)\|
+\|D\mathcal A_{\mathrm{N}}(\theta_*)\|
 \leq
-\|D\mathcal A_{\Nel}(\theta_*)-D\mathcal A_{\Nel}(\theta_N)\|
+\|D\mathcal A_{\mathrm{N}}(\theta_*)-D\mathcal A_{\mathrm{N}}(\theta_N)\|
 +
-\|D\mathcal A_{\Nel}(\theta_N)-D\mathcal A_{N,h_N}(\theta_N)\|
+\|D\mathcal A_{\mathrm{N}}(\theta_N)-D\mathcal A_{N,h_N}(\theta_N)\|
 \longrightarrow0.
 ```
 
-\end{proof}
+<!-- theorem-end:proof -->
 
 これは一方向の条件付き主張である。まず有限模型のパラメータ停留点列が存在し、その列が収束する場合に限って、極限点が Nelson 作用の停留点になる。任意の Nelson 停留点を有限浴の停留点列で近似するには、Hessian の非退化性と少なくとも局所 $C^2$ 収束が必要である。さらに、微視的 Hamiltonian 方程式が粗視化作用の停留点を力学的に選ぶことは、この系から従わない。
 
@@ -1103,7 +1100,7 @@ u(x,t)
 \dot q^2+\dot\sigma^2
 -\frac{\nu^2}{\sigma^2}
 -\Omega^2(q^2+\sigma^2)
-\right]\dd t.
+\right]\,\mathrm{d} t.
 ```
 
 変分すると
@@ -1140,13 +1137,11 @@ u(x,t)
 
 したがって本章の結果を「Nelson 有効力学の動力学的出現」とは呼ばない。確立した内容は、明示した確率表示と粗視化規則に対する作用形式の収束である。
 
-\part{2境界統計原理と2モード台帳による Bell 型統計}
+# 第II部　2境界統計原理と2モード台帳による Bell 型統計
 
 # 有限 Hamiltonian 装置部品と2境界履歴集団
 
-\begin{statusbox}
-位置づけ：最小結果符号化模型、終端比較器、全履歴測度を分離し、`[R]` を独立な2境界統計原理として明示する。
-\end{statusbox}
+> **位置づけ：** 最小結果符号化模型、終端比較器、全履歴測度を分離し、`[R]` を独立な2境界統計原理として明示する。
 
 
 ## 第II部の目的
@@ -1640,7 +1635,8 @@ Z_{a,b}
 
 となる。
 
-\begin{proposition}[終端整合度の判定条件]
+<!-- theorem-start:proposition -->
+**命題（終端整合度の判定条件）**
 全測定設定対に対して同一の事後分布 $\rho_R(\lambda)$ が存在するための必要十分条件は、ある非負関数 $h(\lambda)$ と正定数 $c_{a,b}$ が存在して
 
 ```math
@@ -1650,9 +1646,10 @@ c_{a,b}h(\lambda)
 ```
 
 がほとんど至る所で成立することである。
-\end{proposition}
+<!-- theorem-end:proposition -->
 
-\begin{proof}
+<!-- theorem-start:proof -->
+**証明**
 上式が成立すれば $c_{a,b}$ は規格化で消える。逆に事後分布が全測定設定で同じなら、
 
 ```math
@@ -1662,7 +1659,7 @@ c_{a,b}h(\lambda)
 ```
 
 なので、各終端整合度は共通関数へ比例する。
-\end{proof}
+<!-- theorem-end:proof -->
 
 したがって固定した $G_R$ であっても、その Hamiltonian 引き戻し
 
@@ -1764,7 +1761,8 @@ P_c=0
 
 したがって $\Pi_R>0$ は A 時計が正向き、B 時計が負向きの順序付き相補性を表す。これは2粒子が実験室時刻に対して逆向きに伝播するという意味ではない。左右の粒子と伝達ベクトルは通常どおり生成源から局所装置、共通未来へ進み、反対になるのは内部時計または境界情報の向きである。
 
-\begin{proposition}[終端半空間の相補時計実現]
+<!-- theorem-start:proposition -->
+**命題（終端半空間の相補時計実現）**
 $P_c=0$、比較パルス直前の $\Pi_R=E_*>0$ とする。比較生成子を
 
 ```math
@@ -1814,7 +1812,7 @@ E_*+\kappa I_- -h.
 ```
 
 と必要十分である。
-\end{proposition}
+<!-- theorem-end:proposition -->
 
 証明の要点は
 
@@ -1870,9 +1868,7 @@ E_*+\kappa I_- -h.
 
 # 共通未来の比較器と2モード台帳
 
-\begin{statusbox}
-位置づけ：余弦型差動作用と結果領域内の一様な軟エネルギー密度を、別々の位相空間幾何から導く。
-\end{statusbox}
+> **位置づけ：** 余弦型差動作用と結果領域内の一様な軟エネルギー密度を、別々の位相空間幾何から導く。
 
 
 ## 位相同期した伝達ベクトル
@@ -1949,7 +1945,8 @@ r_A^2+r_B^2
 \right].
 ```
 
-\begin{proposition}[実2次元比較器の余弦恒等式]
+<!-- theorem-start:proposition -->
+**命題（実2次元比較器の余弦恒等式）**
 等振幅 $r_A=r_B=r$、固定相対生成源位相 $\Theta_A-\Theta_B=\Phi_0$ の下で、
 
 ```math
@@ -1969,9 +1966,10 @@ I_0=\frac{r^2}{2}
 ```
 
 である。
-\end{proposition}
+<!-- theorem-end:proposition -->
 
-\begin{proof}
+<!-- theorem-start:proof -->
+**証明**
 回転行列の内積
 
 ```math
@@ -1983,7 +1981,7 @@ n(\Theta_B)
 ```
 
 を差ベクトルの2乗へ代入すればよい。
-\end{proof}
+<!-- theorem-end:proof -->
 
 余弦は複素確率振幅、Born 則、量子内積から導入されていない。2つの実正準ベクトルの Euclid 内積
 
@@ -2193,7 +2191,8 @@ dJ_s\,d\theta_s\,dJ_0\,d\theta_0
 
 ## 一様な軟エネルギー周辺定理
 
-\begin{theorem}[2モード台帳の一様周辺]
+<!-- theorem-start:theorem -->
+**定理（2モード台帳の一様周辺）**
 固定 $E_\ell>0$ の2モード作用殻上で、軟モードのエネルギー $h=\omega_\ell J_s$ の周辺密度は
 
 ```math
@@ -2204,9 +2203,10 @@ p_\ell(h)
 ```
 
 である。
-\end{theorem}
+<!-- theorem-end:theorem -->
 
-\begin{proof}
+<!-- theorem-start:proof -->
+**証明**
 位相角を積分すると $(2\pi)^2$ を得る。$h=\omega_\ell J_s$ を固定した未規格化密度は
 
 ```math
@@ -2232,7 +2232,7 @@ E_\ell-h-\omega_\ell J_0
 ```
 
 規格化すると $p_\ell(h)=1/E_\ell$ である。
-\end{proof}
+<!-- theorem-end:proof -->
 
 この定理は、2つの1自由度調和モードの状態密度がともに定数であることの帰結である。結果領域、測定設定、生成源位相は台帳作用殻の定義に現れないため、`[M]` の入口測度が各結果領域で共通なら
 
@@ -2395,7 +2395,8 @@ w_{AB}
 
 があり、$H_{\rm prep}$、準備巨視領域、$\mu_S$ を保つとする。2つの変換が生成する群は4領域に推移的に作用する。
 
-\begin{proposition}[対称準備の結果領域等体積]
+<!-- theorem-start:proposition -->
+**命題（対称準備の結果領域等体積）**
 上の独立符号反転対称性 `[S]` の下で、
 
 ```math
@@ -2411,11 +2412,12 @@ w_{--}
 ```
 
 である。
-\end{proposition}
+<!-- theorem-end:proposition -->
 
-\begin{proof}
+<!-- theorem-start:proof -->
+**証明**
 $\mathcal S_A$ と $\mathcal S_B$ は測度保存全単射なので、任意の2領域の測度は等しい。4領域が準備測度の全台を分割するため、規格化すると各質量は $1/4$ である。
-\end{proof}
+<!-- theorem-end:proof -->
 
 Hamiltonian の符号対称性だけでは不十分である。同じ Hamiltonian に非対称な初期密度を置くことも可能だからである。`[S]` は「対称な準備巨視状態上の不変基準測度を採用する」という統計条件を含む。
 
@@ -2454,9 +2456,7 @@ Bell 型余弦重みの角度依存性と線形確率変換は、異なる2つ�
 
 # 終端整合測度と Bell 型共同確率
 
-\begin{statusbox}
-位置づけ：2モード位相体積と `[R]` を組み合わせ、測定設定独立性の破れを含む条件付き共同確率を導く。
-\end{statusbox}
+> **位置づけ：** 2モード位相体積と `[R]` を組み合わせ、測定設定独立性の破れを含む条件付き共同確率を導く。
 
 
 ## 有限幅の終端比較器
@@ -2665,7 +2665,8 @@ Bell 型重みの線形性は、通過流束や滞在時間ではなく、固定
 
 ## 2モード台帳 Bell 型整合性定理
 
-\begin{theorem}[2モード台帳を持つ2境界 Bell 型整合性]
+<!-- theorem-start:theorem -->
+**定理（2モード台帳を持つ2境界 Bell 型整合性）**
 次を仮定する。
 
 1. `[H]`：第5章の局所理想写像または同じ記録領域を保つ有限幅実装、および第7.1節の厳密な終端比較器。
@@ -2693,9 +2694,10 @@ V_{\rm eff}
 ```
 
 である。各履歴の局所応答は因子化するが、Bell の完全な微視状態の事後分布は一般に測定設定へ依存する。
-\end{theorem}
+<!-- theorem-end:theorem -->
 
-\begin{proof}
+<!-- theorem-start:proof -->
+**証明**
 `[S]` から $w_{AB}=1/4$ である。第7.3節より
 
 ```math
@@ -2719,7 +2721,7 @@ Z_{a,b}
 ```
 
 となる。$W_{AB}/Z_{a,b}$ を計算すれば共同法則を得る。
-\end{proof}
+<!-- theorem-end:proof -->
 
 局所有限幅パルスが伝達作用や結果領域を $O(\epsilon)$ だけ変える場合、上の共同法則にも一般に $O(\epsilon)$ の補正が入る。定理の厳密式は、理想局所写像または有限幅でも同じ $I_-^{AB}$ を実現する較正済み装置を仮定した結果である。
 
@@ -2779,7 +2781,7 @@ E_*+\kappa I_0
 
 が一般に成り立つ。
 
-Bell--CHSH の標準導出では、4つの測定設定対に同じ $\rho(\lambda)$ を用いる。本構成で外れる仮定は測定設定独立性であり、固定した完全微視状態における局所応答の因子化ではない \cite{hall2010,leifer_pusey2017,hossenfelder_palmer2020,thooft2016}。
+Bell--CHSH の標準導出では、4つの測定設定対に同じ $\rho(\lambda)$ を用いる。本構成で外れる仮定は測定設定独立性であり、固定した完全微視状態における局所応答の因子化ではない [9,10,24,25]。
 
 2つの測定設定対に対応する
 
@@ -2824,7 +2826,7 @@ Z_{a,b}
 P_R(a,b)=P_S(a,b).
 ```
 
-巨視的な制御器頻度を保ちながら、その設定巨視状態と終端条件の両方に整合する微視的生成源事後分布は変化する。この意味で本構成は、未来入力依存または2境界条件付きの模型に属する \cite{wharton2010,wharton_argaman2020,price_wharton2023,price_wharton2024,argaman2010}。
+巨視的な制御器頻度を保ちながら、その設定巨視状態と終端条件の両方に整合する微視的生成源事後分布は変化する。この意味で本構成は、未来入力依存または2境界条件付きの模型に属する [7,8,21--23]。
 
 ## 非信号性と相関
 
@@ -2919,9 +2921,7 @@ E_*+\kappa I_- -h
 
 # 適用範囲、否定結果、反証条件
 
-\begin{statusbox}
-位置づけ：導出済み、条件付き、未導出、否定結果を分離し、模型を区別する観測量を示す。
-\end{statusbox}
+> **位置づけ：** 導出済み、条件付き、未導出、否定結果を分離し、模型を区別する観測量を示す。
 
 
 ## 現在の到達点
@@ -3202,7 +3202,7 @@ I_-
 
 ## Wallstrom 問題
 
-第I部の Nelson 表示から一般の Schrödinger 理論を再構成するには、配置空間の閉路に沿う位相循環を量子化する必要があり、Wallstrom 問題が残る \cite{wallstrom1994}。
+第I部の Nelson 表示から一般の Schrödinger 理論を再構成するには、配置空間の閉路に沿う位相循環を量子化する必要があり、Wallstrom 問題が残る [20]。
 
 第II部の余弦は、伝達ベクトルの内積
 
@@ -3262,13 +3262,11 @@ E_*+\kappa I_- -h
 
 一方、`[R]` は Hamilton 方程式から導かれておらず、局所装置も一般測定相互作用には達していない。したがって現在の到達点は、Bell 型確率構造の完全な力学的導出ではなく、力学的に実現した部分と独立な統計入力の境界を明示した条件付き構成である。
 
-\appendix
+# 付録
 
 # Fourier--Gaussian 近似と Schur 補完の評価
 
-\begin{statusbox}
-位置づけ：第3章と第4章で用いた有限モード収束と条件づけの安定性を補足する。
-\end{statusbox}
+> **位置づけ：** 第3章と第4章で用いた有限モード収束と条件づけの安定性を補足する。
 
 
 ## 基本核の Fourier 係数
@@ -3284,7 +3282,8 @@ G_\theta(t,s)
 
 とする。$s=t$ に跳びがあるため、$s$ に関する Fourier 係数は一般に $O(n^{-1})$ である。
 
-\begin{lemma}[一様 Fourier 尾部]
+<!-- theorem-start:lemma -->
+**補題（一様 Fourier 尾部）**
 $F_\theta$ が第4.2節の仮定を満たすなら、ある $C_K$ が存在して
 
 ```math
@@ -3314,9 +3313,10 @@ $F_\theta$ が第4.2節の仮定を満たすなら、ある $C_K$ が存在し�
 ```
 
 である。
-\end{lemma}
+<!-- theorem-end:lemma -->
 
-\begin{proof}
+<!-- theorem-start:proof -->
+**証明**
 $n\neq0$ に対して $e^{-i\omega_ns}$ を部分積分する。区間端と $s=t$ の跳びから $1/\omega_n$ の境界項が生じ、区間内部では $\partial_s\Phi(t,s)=-\Phi(t,s)F(s)$ が一様有界である。従って $|\widehat G_n|\leq C/|\omega_n|$ を得る。
 
 $\theta$ 微分については
@@ -3328,7 +3328,7 @@ D\Phi_\theta[\delta F](t,s)
 \Phi_\theta(t,r)
 \delta F(r)
 \Phi_\theta(r,s)
-\dd r
+\,\mathrm{d} r
 ```
 
 を使う。$D\Phi$ とその $s$ 微分も一様有界なので同じ部分積分評価が成立する。共分散は Fourier 係数の積の和であり、
@@ -3338,7 +3338,7 @@ D\Phi_\theta[\delta F](t,s)
 ```
 
 から結論を得る。
-\end{proof}
+<!-- theorem-end:proof -->
 
 ## 平均の収束
 
@@ -3419,7 +3419,7 @@ $R\downarrow0$ とすると、完全観測された方向の終端共分散は�
 ```math
 X_N(T)-X_N(0)
 =
-\int_0^T\widetilde\eta_N(t)\dd t
+\int_0^T\widetilde\eta_N(t)\,\mathrm{d} t
 =
 \sqrt{2\nu T}\,Z_0.
 ```
@@ -3442,9 +3442,7 @@ X_N(T)
 
 # 粗視化作用の <i>C</i><sup>1</sup> 評価
 
-\begin{statusbox}
-位置づけ：時間粗視化誤差と Fourier 切断誤差を分離し、主定理の評価を補足する。
-\end{statusbox}
+> **位置づけ：** 時間粗視化誤差と Fourier 切断誤差を分離し、主定理の評価を補足する。
 
 
 ## Gaussian 増分の正確な表示
@@ -3452,10 +3450,10 @@ X_N(T)
 条件付き Gaussian 過程の増分 $\Delta_hX(t)=X(t+h)-X(t)$ に対して
 
 ```math
-\E^R|\Delta_hX(t)|^2
+\mathbb{E}^R|\Delta_hX(t)|^2
 =
 |\mu^R(t+h)-\mu^R(t)|^2
-+\Tr\left[
++\operatorname{tr}\left[
 C^R(t+h,t+h)+C^R(t,t)-2C^R(t+h,t)
 \right]
 ```
@@ -3479,7 +3477,7 @@ b_+^R(x,t)h
 である。流れの空間依存と雑音の相関による交差項まで含めて平均すると
 
 ```math
-\E^R
+\mathbb{E}^R
 \left[
 |\Delta_hX|^2\mid X_t=x
 \right]
@@ -3496,10 +3494,10 @@ b_+^R(x,t)h
 線形流れでは3階剰余を平均・微分した量も一様に有界である。$m/(2h^2)$ を掛けると
 
 ```math
-\frac m{2h^2}\E^R|\Delta_hX|^2
+\frac m{2h^2}\mathbb{E}^R|\Delta_hX|^2
 -\frac{md\nu}{h}
 =
-\E^R
+\mathbb{E}^R
 \left[
 \frac m2|b_+^R|^2
 +m\nu\nabla\cdot b_+^R
@@ -3533,9 +3531,9 @@ m\nu\nabla\cdot b_+^R
 
 ```math
 \left|
-\E_N^R|\Delta_hX_N|^2
+\mathbb{E}_N^R|\Delta_hX_N|^2
 -
-\E^R|\Delta_hX|^2
+\mathbb{E}^R|\Delta_hX|^2
 \right|_{C^1(K)}
 \leq
 \frac{C_KT^2}{N}.
@@ -3554,10 +3552,10 @@ m\nu\nabla\cdot b_+^R
 $U(x,t)=x^{\mathsf T}K(t)x/2+\ell(t)^{\mathsf T}x+c(t)$ なら
 
 ```math
-\E^R[U(X_t,t)]
+\mathbb{E}^R[U(X_t,t)]
 =
 \frac12\mu^R(t)^{\mathsf T}K(t)\mu^R(t)
-+\frac12\Tr[K(t)C^R(t,t)]
++\frac12\operatorname{tr}[K(t)C^R(t,t)]
 +\ell(t)^{\mathsf T}\mu^R(t)
 +c(t).
 ```
@@ -3573,7 +3571,7 @@ $U(x,t)=x^{\mathsf T}K(t)x/2+\ell(t)^{\mathsf T}x+c(t)$ なら
 時間対角展開を微分した剰余も $O(h)$、Fourier 尾部を微分した誤差も $O(T^2/(Nh^2))$ である。有限個の $\theta_j$ について最大を取れば
 
 ```math
-\|\mathcal A_{N,h}^{R,U}-\mathcal A_{\GM}^{R,U}\|_{C^1(K)}
+\|\mathcal A_{N,h}^{R,U}-\mathcal A_{\mathrm{GM}}^{R,U}\|_{C^1(K)}
 \leq
 C_K
 \left(
@@ -3607,9 +3605,7 @@ h_N=TN^{-1/3},
 
 # Hamiltonian 装置部品、2モード位相体積、補正項
 
-\begin{statusbox}
-位置づけ：第II部の理想正準写像、有限幅誤差、厳密な比較窓、作用殻測度、多モード補正を計算する。
-\end{statusbox}
+> **位置づけ：** 第II部の理想正準写像、有限幅誤差、厳密な比較窓、作用殻測度、多モード補正を計算する。
 
 
 本付録が与えるのは、装置を構成する有限 Hamiltonian 部品と、その正準計算である。生成源、設定制御器、全自由発展を含む1本の完全な実験 Hamiltonian が、全ての理想写像を有限時間で誤差なく実行するとは主張しない。一般の局所パルスは短時間極限で理想写像へ近づき、第7.1節の比較読出しだけは、保存量との交換関係により有限幅でも厳密である。
@@ -4518,9 +4514,7 @@ d\mu(z)
 
 # Gaussian Nelson 方程式、Schrödinger 表示、OU 例
 
-\begin{statusbox}
-位置づけ：主定理の極限作用が与える物理像と、その適用範囲を具体例で示す。
-\end{statusbox}
+> **位置づけ：** 主定理の極限作用が与える物理像と、その適用範囲を具体例で示す。
 
 
 ## 連続の式を組み込んだ変分
@@ -4528,14 +4522,14 @@ d\mu(z)
 Nelson 作用を
 
 ```math
-\mathcal A_{\Nel}[\rho,v]
+\mathcal A_{\mathrm{N}}[\rho,v]
 =
 \int\rho
 \left[
 \frac m2|v|^2
 -\frac{m\nu^2}{2}|\nabla\log\rho|^2
 -U
-\right]\dd x\dd t
+\right]\,\mathrm{d} x\,\mathrm{d} t
 ```
 
 とする。制約
@@ -4588,9 +4582,9 @@ i\hbar_{\rm eff}\partial_t\psi
 \right]\psi
 ```
 
-を得る \cite{nelson1966,guerra_morato1983,yasue1981,zambrini1986}。
+を得る [3--6]。
 
-この変換は、$\rho>0$ で $v$ が局所的に勾配場となる領域では厳密である。しかし、多重連結領域の循環量子化、節を横切る位相接続、一般の重ね合わせ状態は追加条件を必要とする \cite{wallstrom1994}。本論文の線形 Gaussian 定理は正の密度領域に限定され、この大域位相問題を解かない。
+この変換は、$\rho>0$ で $v$ が局所的に勾配場となる領域では厳密である。しかし、多重連結領域の循環量子化、節を横切る位相接続、一般の重ね合わせ状態は追加条件を必要とする [20]。本論文の線形 Gaussian 定理は正の密度領域に限定され、この大域位相問題を解かない。
 
 ## 1次元 Gaussian 変分
 
@@ -4618,15 +4612,15 @@ u=-\nu\frac{x-q}{\sigma^2}
 である。Gaussian 平均を取ると
 
 ```math
-\E[v^2]=\dot q^2+\dot\sigma^2,
+\mathbb{E}[v^2]=\dot q^2+\dot\sigma^2,
 \qquad
-\E[u^2]=\frac{\nu^2}{\sigma^2}.
+\mathbb{E}[u^2]=\frac{\nu^2}{\sigma^2}.
 ```
 
 調和ポテンシャル $U=m\Omega^2x^2/2$ では
 
 ```math
-\E[U]=\frac{m\Omega^2}{2}(q^2+\sigma^2)
+\mathbb{E}[U]=\frac{m\Omega^2}{2}(q^2+\sigma^2)
 ```
 
 なので、第4.7節の有限次元作用を得る。
@@ -4658,10 +4652,10 @@ E_\sigma
 計算例として
 
 ```math
-\dd Z_t
+\,\mathrm{d} Z_t
 =
-(-\lambda I+\Omega J)Z_t\dd t
-+\sqrt{2D}\,\dd W_t,
+(-\lambda I+\Omega J)Z_t\,\mathrm{d} t
++\sqrt{2D}\,\,\mathrm{d} W_t,
 \qquad
 J=
 \begin{pmatrix}
@@ -4670,7 +4664,7 @@ J=
 \end{pmatrix}
 ```
 
-を考える \cite{uhlenbeck_ornstein1930}。$\lambda>0$ なら定常共分散は
+を考える [19]。$\lambda>0$ なら定常共分散は
 
 ```math
 \operatorname{Cov}(Z)=\frac D\lambda I
@@ -4685,7 +4679,7 @@ J=
 一般に
 
 ```math
-\dd X=b(X,t)\dd t+\sigma(X,t)\circ\dd W_t
+\,\mathrm{d} X=b(X,t)\,\mathrm{d} t+\sigma(X,t)\circ\,\mathrm{d} W_t
 ```
 
 を Itô 表現へ変換すると、$\sigma$ の空間微分に比例する補正が流れへ加わる。本論文では $\sigma=\sqrt{2\nu}I$ が定数なので補正は零である。
@@ -4708,9 +4702,7 @@ Bell 系論には、位相同期した生成源 `[P]`、対称準備 `[S]`、2�
 
 # 測定設定依存度、CHSH 4設定、事後選別監査
 
-\begin{statusbox}
-位置づけ：第II部の Bell 分類を定量化し、装置事後分布と表現論的最小値を区別する。
-\end{statusbox}
+> **位置づけ：** 第II部の Bell 分類を定量化し、装置事後分布と表現論的最小値を区別する。
 
 
 ## Hall 尺度
@@ -4828,7 +4820,7 @@ V_{\rm eff}
 
 標準 CHSH 4設定に対し、目標可視度 $V_{\rm eff}$ を再現する局所決定論的で操作上非信号な表現全体について、Hall 尺度を最小化した値を $M_{\min}^{(4)}(V_{\rm eff})$ とする。
 
-$V_{\rm eff}\leq1/\sqrt2$ では全 CHSH 不等式が満たされる。Fine の定理により測定設定と独立な共同未読変数分布が存在するので \cite{fine1982}、
+$V_{\rm eff}\leq1/\sqrt2$ では全 CHSH 不等式が満たされる。Fine の定理により測定設定と独立な共同未読変数分布が存在するので [38]、
 
 ```math
 M_{\min}^{(4)}(V_{\rm eff})
@@ -4864,7 +4856,7 @@ M_{\min}^{(4)}(V_{\rm eff})
 }{3}
 ```
 
-を得る \cite{hall2010}。
+を得る [9]。
 
 この下界は、$V_{\rm eff}=1/\sqrt2$ の測定設定独立 Fine 模型と、$V_{\rm eff}=1$ で下界を達成する Hall 模型を、測定設定と独立な補助符号で混合することで達成できる。したがって
 
@@ -4991,88 +4983,46 @@ P_R(A\mid a,b)
 
 とする。理想 `[S]` 集団では $\epsilon_{\rm NS}=0$ である。偏った準備に対して $\epsilon_{\rm NS}=O(1)$ が現れれば、対称準備だけで成り立つ模型の操作上の限界が直接検出される。
 
-\begin{thebibliography}{99}
+# 参考文献
 
-\addcontentsline{toc}{chapter}{参考文献}
 
-\bibitem{bell1964} J. S. Bell, ``On the Einstein Podolsky Rosen Paradox,'' Physics Physique Fizika 1, 195--200 (1964). \url{https://doi.org/10.1103/PhysicsPhysiqueFizika.1.195}
-
-\bibitem{chsh1969} J. F. Clauser, M. A. Horne, A. Shimony, and R. A. Holt, ``Proposed Experiment to Test Local Hidden-Variable Theories,'' Physical Review Letters 23, 880--884 (1969). \url{https://doi.org/10.1103/PhysRevLett.23.880}
-
-\bibitem{nelson1966} E. Nelson, ``Derivation of the Schrödinger Equation from Newtonian Mechanics,'' Physical Review 150, 1079--1085 (1966). \url{https://doi.org/10.1103/PhysRev.150.1079}
-
-\bibitem{guerra_morato1983} F. Guerra and L. M. Morato, ``Quantization of Dynamical Systems and Stochastic Control Theory,'' Physical Review D 27, 1774--1786 (1983). \url{https://doi.org/10.1103/PhysRevD.27.1774}
-
-\bibitem{yasue1981} K. Yasue, ``Stochastic Calculus of Variations,'' Journal of Functional Analysis 41, 327--340 (1981). \url{https://doi.org/10.1016/0022-1236(81)90079-3}
-
-\bibitem{zambrini1986} J.-C. Zambrini, ``Stochastic Mechanics According to E. Schrödinger,'' Physical Review A 33, 1532--1548 (1986). \url{https://doi.org/10.1103/PhysRevA.33.1532}
-
-\bibitem{wharton2010} K. B. Wharton, ``Time-Symmetric Boundary Conditions and Quantum Foundations,'' Symmetry 2, 272--283 (2010). \url{https://doi.org/10.3390/sym2010272}
-
-\bibitem{wharton_argaman2020} K. B. Wharton and N. Argaman, ``Colloquium: Bell's Theorem and Locally Mediated Reformulations of Quantum Mechanics,'' Reviews of Modern Physics 92, 021002 (2020). \url{https://doi.org/10.1103/RevModPhys.92.021002}
-
-\bibitem{hall2010} M. J. W. Hall, ``Local Deterministic Model of Singlet State Correlations Based on Relaxing Measurement Independence,'' Physical Review Letters 105, 250404 (2010). \url{https://doi.org/10.1103/PhysRevLett.105.250404}
-
-\bibitem{leifer_pusey2017} M. S. Leifer and M. F. Pusey, ``Is a Time Symmetric Interpretation of Quantum Theory Possible without Retrocausality?,'' Proceedings of the Royal Society A 473, 20160607 (2017). \url{https://doi.org/10.1098/rspa.2016.0607}
-
-\bibitem{wood_spekkens2015} C. J. Wood and R. W. Spekkens, ``The Lesson of Causal Discovery Algorithms for Quantum Correlations,'' New Journal of Physics 17, 033002 (2015). \url{https://doi.org/10.1088/1367-2630/17/3/033002}
-
-\bibitem{ford1965} G. W. Ford, M. Kac, and P. Mazur, ``Statistical Mechanics of Assemblies of Coupled Oscillators,'' Journal of Mathematical Physics 6, 504--515 (1965). \url{https://doi.org/10.1063/1.1704304}
-
-\bibitem{mori1965} H. Mori, ``Transport, Collective Motion, and Brownian Motion,'' Progress of Theoretical Physics 33, 423--455 (1965). \url{https://doi.org/10.1143/PTP.33.423}
-
-\bibitem{zwanzig1973} R. Zwanzig, ``Nonlinear Generalized Langevin Equations,'' Journal of Statistical Physics 9, 215--220 (1973). \url{https://doi.org/10.1007/BF01008729}
-
-\bibitem{jamison1974} B. Jamison, ``Reciprocal Processes,'' Zeitschrift für Wahrscheinlichkeitstheorie und Verwandte Gebiete 30, 65--86 (1974). \url{https://doi.org/10.1007/BF00532864}
-
-\bibitem{doob1957} J. L. Doob, ``Conditional Brownian Motion and the Boundary Limits of Harmonic Functions,'' Bulletin de la Société Mathématique de France 85, 431--458 (1957). \url{https://doi.org/10.24033/bsmf.1495}
-
-\bibitem{landauer1961} R. Landauer, ``Irreversibility and Heat Generation in the Computing Process,'' IBM Journal of Research and Development 5, 183--191 (1961). \url{https://doi.org/10.1147/rd.53.0183}
-
-\bibitem{bennett1982} C. H. Bennett, ``The Thermodynamics of Computation: A Review,'' International Journal of Theoretical Physics 21, 905--940 (1982). \url{https://doi.org/10.1007/BF02084158}
-
-\bibitem{uhlenbeck_ornstein1930} G. E. Uhlenbeck and L. S. Ornstein, ``On the Theory of the Brownian Motion,'' Physical Review 36, 823--841 (1930). \url{https://doi.org/10.1103/PhysRev.36.823}
-
-\bibitem{wallstrom1994} T. C. Wallstrom, ``Inequivalence between the Schrödinger Equation and the Madelung Hydrodynamic Equations,'' Physical Review A 49, 1613--1617 (1994). \url{https://doi.org/10.1103/PhysRevA.49.1613}
-
-\bibitem{price_wharton2023} H. Price and K. Wharton, ``Bell Correlations as Selection Artefacts,'' arXiv:2309.10969v3 (2024). \url{https://arxiv.org/abs/2309.10969}
-
-\bibitem{price_wharton2024} H. Price and K. Wharton, ``A Mechanism for Entanglement?,'' arXiv:2406.04571v1 (2024). \url{https://arxiv.org/abs/2406.04571}
-
-\bibitem{argaman2010} N. Argaman, ``Bell's Theorem and the Causal Arrow of Time,'' American Journal of Physics 78, 1007--1013 (2010). \url{https://doi.org/10.1119/1.3456564}
-
-\bibitem{hossenfelder_palmer2020} S. Hossenfelder and T. Palmer, ``Rethinking Superdeterminism,'' Frontiers in Physics 8, 139 (2020). \url{https://doi.org/10.3389/fphy.2020.00139}
-
-\bibitem{thooft2016} G. 't Hooft, The Cellular Automaton Interpretation of Quantum Mechanics, Springer (2016). \url{https://doi.org/10.1007/978-3-319-41285-6}
-
-\bibitem{leonard2014} C. Léonard, ``A Survey of the Schrödinger Problem and Some of Its Connections with Optimal Transport,'' Discrete and Continuous Dynamical Systems A 34, 1533--1574 (2014). \url{https://doi.org/10.3934/dcds.2014.34.1533}
-
-\bibitem{chen_georgiou_pavon2016} Y. Chen, T. T. Georgiou, and M. Pavon, ``On the Relation between Optimal Transport and Schrödinger Bridges: A Stochastic Control Viewpoint,'' Journal of Optimization Theory and Applications 169, 671--691 (2016). \url{https://doi.org/10.1007/s10957-015-0803-z}
-
-\bibitem{rauch_tung_striebel1965} H. E. Rauch, F. Tung, and C. T. Striebel, ``Maximum Likelihood Estimates of Linear Dynamic Systems,'' AIAA Journal 3, 1445--1450 (1965). \url{https://doi.org/10.2514/3.3166}
-
-\bibitem{waalkens_schubert_wiggins2008} H. Waalkens, R. Schubert, and S. Wiggins, ``Wigner's Dynamical Transition State Theory in Phase Space: Classical and Quantum,'' Nonlinearity 21, R1--R118 (2008). \url{https://doi.org/10.1088/0951-7715/21/1/R01}
-
-\bibitem{kramers1940} H. A. Kramers, ``Brownian Motion in a Field of Force and the Diffusion Model of Chemical Reactions,'' Physica 7, 284--304 (1940). \url{https://doi.org/10.1016/S0031-8914(40)90098-2}
-
-\bibitem{chandler1978} D. Chandler, ``Statistical Mechanics of Isomerization Dynamics in Liquids and the Transition State Approximation,'' Journal of Chemical Physics 68, 2959--2970 (1978). \url{https://doi.org/10.1063/1.436049}
-
-\bibitem{sigman_whitt2019} K. Sigman and W. Whitt, ``Marked Point Processes in Discrete Time,'' Queueing Systems 92, 47--81 (2019). \url{https://doi.org/10.1007/s11134-019-09612-3}
-
-\bibitem{fuchs_goldt_seifert2016} J. Fuchs, S. Goldt, and U. Seifert, ``Stochastic Thermodynamics of Resetting,'' Europhysics Letters 113, 60009 (2016). \url{https://doi.org/10.1209/0295-5075/113/60009}
-
-\bibitem{evans_majumdar_schehr2020} M. R. Evans, S. N. Majumdar, and G. Schehr, ``Stochastic Resetting and Applications,'' Journal of Physics A: Mathematical and Theoretical 53, 193001 (2020). \url{https://doi.org/10.1088/1751-8121/ab7cfe}
-
-\bibitem{knorst_lopes2024} J. Knorst and A. O. Lopes, ``On the Quantum Guerra--Morato Action Functional,'' Journal of Mathematical Physics 65, 082102 (2024). \url{https://doi.org/10.1063/5.0207422}
-
-\bibitem{wilson_et_al2021} J. T. Wilson, V. Borovitskiy, A. Terenin, P. Mostowsky, and M. P. Deisenroth, ``Pathwise Conditioning of Gaussian Processes,'' Journal of Machine Learning Research 22, 1--47 (2021). \url{https://jmlr.org/papers/v22/20-1260.html}
-
-\bibitem{leonard_roelly_zambrini2014} C. Léonard, S. Rœlly, and J.-C. Zambrini, ``Reciprocal Processes. A Measure-Theoretical Point of View,'' Probability Surveys 11, 237--269 (2014). \url{https://doi.org/10.1214/13-PS220}
-
-\bibitem{fine1982} A. Fine, ``Hidden Variables, Joint Probability, and the Bell Inequalities,'' Physical Review Letters 48, 291--295 (1982). \url{https://doi.org/10.1103/PhysRevLett.48.291}
-
-\bibitem{asmussen2003} S. Asmussen, Applied Probability and Queues, 2nd ed., Springer, New York (2003). \url{https://doi.org/10.1007/b97236}
-
-\bibitem{marchiori_deaguiar2011} M. A. Marchiori and M. A. M. de Aguiar, ``Energy Dissipation Via Coupling With a Finite Chaotic Environment,'' Physical Review E 83, 061112 (2011). \url{https://doi.org/10.1103/PhysRevE.83.061112}
-
-\end{thebibliography}
+- [1] J. S. Bell, ``On the Einstein Podolsky Rosen Paradox,'' Physics Physique Fizika 1, 195--200 (1964). <https://doi.org/10.1103/PhysicsPhysiqueFizika.1.195>
+- [2] J. F. Clauser, M. A. Horne, A. Shimony, and R. A. Holt, ``Proposed Experiment to Test Local Hidden-Variable Theories,'' Physical Review Letters 23, 880--884 (1969). <https://doi.org/10.1103/PhysRevLett.23.880>
+- [3] E. Nelson, ``Derivation of the Schrödinger Equation from Newtonian Mechanics,'' Physical Review 150, 1079--1085 (1966). <https://doi.org/10.1103/PhysRev.150.1079>
+- [4] F. Guerra and L. M. Morato, ``Quantization of Dynamical Systems and Stochastic Control Theory,'' Physical Review D 27, 1774--1786 (1983). <https://doi.org/10.1103/PhysRevD.27.1774>
+- [5] K. Yasue, ``Stochastic Calculus of Variations,'' Journal of Functional Analysis 41, 327--340 (1981). <https://doi.org/10.1016/0022-1236(81)90079-3>
+- [6] J.-C. Zambrini, ``Stochastic Mechanics According to E. Schrödinger,'' Physical Review A 33, 1532--1548 (1986). <https://doi.org/10.1103/PhysRevA.33.1532>
+- [7] K. B. Wharton, ``Time-Symmetric Boundary Conditions and Quantum Foundations,'' Symmetry 2, 272--283 (2010). <https://doi.org/10.3390/sym2010272>
+- [8] K. B. Wharton and N. Argaman, ``Colloquium: Bell's Theorem and Locally Mediated Reformulations of Quantum Mechanics,'' Reviews of Modern Physics 92, 021002 (2020). <https://doi.org/10.1103/RevModPhys.92.021002>
+- [9] M. J. W. Hall, ``Local Deterministic Model of Singlet State Correlations Based on Relaxing Measurement Independence,'' Physical Review Letters 105, 250404 (2010). <https://doi.org/10.1103/PhysRevLett.105.250404>
+- [10] M. S. Leifer and M. F. Pusey, ``Is a Time Symmetric Interpretation of Quantum Theory Possible without Retrocausality?,'' Proceedings of the Royal Society A 473, 20160607 (2017). <https://doi.org/10.1098/rspa.2016.0607>
+- [11] C. J. Wood and R. W. Spekkens, ``The Lesson of Causal Discovery Algorithms for Quantum Correlations,'' New Journal of Physics 17, 033002 (2015). <https://doi.org/10.1088/1367-2630/17/3/033002>
+- [12] G. W. Ford, M. Kac, and P. Mazur, ``Statistical Mechanics of Assemblies of Coupled Oscillators,'' Journal of Mathematical Physics 6, 504--515 (1965). <https://doi.org/10.1063/1.1704304>
+- [13] H. Mori, ``Transport, Collective Motion, and Brownian Motion,'' Progress of Theoretical Physics 33, 423--455 (1965). <https://doi.org/10.1143/PTP.33.423>
+- [14] R. Zwanzig, ``Nonlinear Generalized Langevin Equations,'' Journal of Statistical Physics 9, 215--220 (1973). <https://doi.org/10.1007/BF01008729>
+- [15] B. Jamison, ``Reciprocal Processes,'' Zeitschrift für Wahrscheinlichkeitstheorie und Verwandte Gebiete 30, 65--86 (1974). <https://doi.org/10.1007/BF00532864>
+- [16] J. L. Doob, ``Conditional Brownian Motion and the Boundary Limits of Harmonic Functions,'' Bulletin de la Société Mathématique de France 85, 431--458 (1957). <https://doi.org/10.24033/bsmf.1495>
+- [17] R. Landauer, ``Irreversibility and Heat Generation in the Computing Process,'' IBM Journal of Research and Development 5, 183--191 (1961). <https://doi.org/10.1147/rd.53.0183>
+- [18] C. H. Bennett, ``The Thermodynamics of Computation: A Review,'' International Journal of Theoretical Physics 21, 905--940 (1982). <https://doi.org/10.1007/BF02084158>
+- [19] G. E. Uhlenbeck and L. S. Ornstein, ``On the Theory of the Brownian Motion,'' Physical Review 36, 823--841 (1930). <https://doi.org/10.1103/PhysRev.36.823>
+- [20] T. C. Wallstrom, ``Inequivalence between the Schrödinger Equation and the Madelung Hydrodynamic Equations,'' Physical Review A 49, 1613--1617 (1994). <https://doi.org/10.1103/PhysRevA.49.1613>
+- [21] H. Price and K. Wharton, ``Bell Correlations as Selection Artefacts,'' arXiv:2309.10969v3 (2024). <https://arxiv.org/abs/2309.10969>
+- [22] H. Price and K. Wharton, ``A Mechanism for Entanglement?,'' arXiv:2406.04571v1 (2024). <https://arxiv.org/abs/2406.04571>
+- [23] N. Argaman, ``Bell's Theorem and the Causal Arrow of Time,'' American Journal of Physics 78, 1007--1013 (2010). <https://doi.org/10.1119/1.3456564>
+- [24] S. Hossenfelder and T. Palmer, ``Rethinking Superdeterminism,'' Frontiers in Physics 8, 139 (2020). <https://doi.org/10.3389/fphy.2020.00139>
+- [25] G. 't Hooft, The Cellular Automaton Interpretation of Quantum Mechanics, Springer (2016). <https://doi.org/10.1007/978-3-319-41285-6>
+- [26] C. Léonard, ``A Survey of the Schrödinger Problem and Some of Its Connections with Optimal Transport,'' Discrete and Continuous Dynamical Systems A 34, 1533--1574 (2014). <https://doi.org/10.3934/dcds.2014.34.1533>
+- [27] Y. Chen, T. T. Georgiou, and M. Pavon, ``On the Relation between Optimal Transport and Schrödinger Bridges: A Stochastic Control Viewpoint,'' Journal of Optimization Theory and Applications 169, 671--691 (2016). <https://doi.org/10.1007/s10957-015-0803-z>
+- [28] H. E. Rauch, F. Tung, and C. T. Striebel, ``Maximum Likelihood Estimates of Linear Dynamic Systems,'' AIAA Journal 3, 1445--1450 (1965). <https://doi.org/10.2514/3.3166>
+- [29] H. Waalkens, R. Schubert, and S. Wiggins, ``Wigner's Dynamical Transition State Theory in Phase Space: Classical and Quantum,'' Nonlinearity 21, R1--R118 (2008). <https://doi.org/10.1088/0951-7715/21/1/R01>
+- [30] H. A. Kramers, ``Brownian Motion in a Field of Force and the Diffusion Model of Chemical Reactions,'' Physica 7, 284--304 (1940). <https://doi.org/10.1016/S0031-8914(40)90098-2>
+- [31] D. Chandler, ``Statistical Mechanics of Isomerization Dynamics in Liquids and the Transition State Approximation,'' Journal of Chemical Physics 68, 2959--2970 (1978). <https://doi.org/10.1063/1.436049>
+- [32] K. Sigman and W. Whitt, ``Marked Point Processes in Discrete Time,'' Queueing Systems 92, 47--81 (2019). <https://doi.org/10.1007/s11134-019-09612-3>
+- [33] J. Fuchs, S. Goldt, and U. Seifert, ``Stochastic Thermodynamics of Resetting,'' Europhysics Letters 113, 60009 (2016). <https://doi.org/10.1209/0295-5075/113/60009>
+- [34] M. R. Evans, S. N. Majumdar, and G. Schehr, ``Stochastic Resetting and Applications,'' Journal of Physics A: Mathematical and Theoretical 53, 193001 (2020). <https://doi.org/10.1088/1751-8121/ab7cfe>
+- [35] J. Knorst and A. O. Lopes, ``On the Quantum Guerra--Morato Action Functional,'' Journal of Mathematical Physics 65, 082102 (2024). <https://doi.org/10.1063/5.0207422>
+- [36] J. T. Wilson, V. Borovitskiy, A. Terenin, P. Mostowsky, and M. P. Deisenroth, ``Pathwise Conditioning of Gaussian Processes,'' Journal of Machine Learning Research 22, 1--47 (2021). <https://jmlr.org/papers/v22/20-1260.html>
+- [37] C. Léonard, S. Rœlly, and J.-C. Zambrini, ``Reciprocal Processes. A Measure-Theoretical Point of View,'' Probability Surveys 11, 237--269 (2014). <https://doi.org/10.1214/13-PS220>
+- [38] A. Fine, ``Hidden Variables, Joint Probability, and the Bell Inequalities,'' Physical Review Letters 48, 291--295 (1982). <https://doi.org/10.1103/PhysRevLett.48.291>
+- [39] S. Asmussen, Applied Probability and Queues, 2nd ed., Springer, New York (2003). <https://doi.org/10.1007/b97236>
+- [40] M. A. Marchiori and M. A. M. de Aguiar, ``Energy Dissipation Via Coupling With a Finite Chaotic Environment,'' Physical Review E 83, 061112 (2011). <https://doi.org/10.1103/PhysRevE.83.061112>

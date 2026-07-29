@@ -8,7 +8,7 @@
 有限 $N$ の経路は微分可能であるが、$N\to\infty$ の拡散経路は微分不可能である。そのため、単純な運動エネルギー
 
 ```math
-\frac m2\int_0^T|\dot X_N(t)|^2\dd t
+\frac m2\int_0^T|\dot X_N(t)|^2\,\mathrm{d} t
 ```
 
 は極限で発散する。時間分解能 $h>0$ を固定し、有限差分
@@ -20,7 +20,7 @@ D_hX_N(t)=\frac{X_N(t+h)-X_N(t)}{h}
 を用いる。拡散係数が $\nu$、空間次元が $d$ なら、雑音の普遍的発散は
 
 ```math
-\frac m2\E|D_hX|^2
+\frac m2\mathbb{E}|D_hX|^2
 \sim
 \frac{md\nu}{h}
 ```
@@ -36,21 +36,21 @@ D_hX_N(t)=\frac{X_N(t+h)-X_N(t)}{h}
 ```math
 \mathcal A_{N,h}^{R,U}(\theta)
 =
-\E_{N,\theta}^{R}
+\mathbb{E}_{N,\theta}^{R}
 \int_0^{T-h}
 \left[
 \frac m{2h^2}
 |X_N(t+h)-X_N(t)|^2
 -\frac{md\nu}{h}
 -U_\theta(X_N(t),t)
-\right]\dd t
+\right]\,\mathrm{d} t
 ```
 
 と定義する。差し引く項は結果や設定に依存せず、有限差分の Gaussian 自己揺らぎだけを除く。
 
 ## 4.2 許容するパラメータ族
 
-パラメータ集合 $K\subset\R^p$ をコンパクトとする。次を仮定する。
+パラメータ集合 $K\subset\mathbb{R}^p$ をコンパクトとする。次を仮定する。
 
 1. $F_\theta(t)$、$f_\theta(t)$ は $(\theta,t)$ について $C^2$ であり、$K\times[0,T]$ 上で2階まで一様有界である。
 2. 初期平均 $m_{0,\theta}$ と初期共分散 $P_{0,\theta}$ は $C^2$ で、$P_{0,\theta}\geq p_*I>0$ である。
@@ -83,30 +83,31 @@ $C^1(K)$ は作用値と $\theta$ に関する全ての第1偏微分の一様ノ
 極限の条件付き拡散の前進流れを $b_{+,\theta}^R$、時刻密度を $\rho_\theta^R$ とする。Guerra--Morato 型作用を
 
 ```math
-\mathcal A_{\GM}^{R,U}(\theta)
+\mathcal A_{\mathrm{GM}}^{R,U}(\theta)
 =
-\int_0^T\int_{\R^d}
+\int_0^T\int_{\mathbb{R}^d}
 \rho_\theta^R(x,t)
 \left[
 \frac m2|b_{+,\theta}^R(x,t)|^2
 +m\nu\nabla\cdot b_{+,\theta}^R(x,t)
 -U_\theta(x,t)
 \right]
-\dd x\dd t
+\,\mathrm{d} x\,\mathrm{d} t
 ```
 
 と定義する [4]。線形 Gaussian 系では $b_+^R$ は $x$ の1次式、$\rho^R$ は正の Gaussian 密度なので、全ての積分は有限である。
 
 ## 4.4 線形 Gaussian <i>C</i><sup>1</sup> 収束定理
 
-\begin{theorem}[線形 Gaussian $C^1$ 極限]
+<!-- theorem-start:theorem -->
+**定理（線形 Gaussian $C^1$ 極限）**
 第4.2節の仮定を満たすとする。ある定数 $C_K<\infty$ が存在し、十分大きい $N$ と $0<h<T/4$ に対して
 
 ```math
 \left\|
 \mathcal A_{N,h}^{R,U}
 -
-\mathcal A_{\GM}^{R,U}
+\mathcal A_{\mathrm{GM}}^{R,U}
 \right\|_{C^1(K)}
 \leq
 C_K
@@ -122,11 +123,11 @@ C_K
 ```math
 \mathcal A_{N,h_N}^{R,U}
 \longrightarrow
-\mathcal A_{\GM}^{R,U}.
+\mathcal A_{\mathrm{GM}}^{R,U}.
 ```
 
 特に $h_N=TN^{-1/3}$ なら誤差は $O(N^{-1/3})$ である。
-\end{theorem}
+<!-- theorem-end:theorem -->
 
 この $N^{-1/3}$ は、共分散尾部を $O(N^{-1})$ と評価し、増分商の $h^{-2}$ と釣り合わせた現在の証明から得られる率である。下界または最適性は示していない。より滑らかな核、端点適合基底、相殺を用いれば改善される可能性があり、本質的な普遍指数とは主張しない。
 
@@ -145,36 +146,38 @@ u^R=\frac{b_+^R-b_-^R}{2}
 
 を定義する。境界項が消える条件、例えば全空間での Gaussian 減衰、周期境界、または無流束境界を仮定する。
 
-\begin{theorem}[Guerra--Morato 作用と Nelson 作用の一致]
+<!-- theorem-start:theorem -->
+**定理（Guerra--Morato 作用と Nelson 作用の一致）**
 
 ```math
-\mathcal A_{\GM}^{R,U}
+\mathcal A_{\mathrm{GM}}^{R,U}
 =
-\mathcal A_{\Nel}^{R,U},
+\mathcal A_{\mathrm{N}}^{R,U},
 ```
 
 ```math
-\mathcal A_{\Nel}^{R,U}
+\mathcal A_{\mathrm{N}}^{R,U}
 =
-\int_0^T\int_{\R^d}
+\int_0^T\int_{\mathbb{R}^d}
 \rho^R
 \left[
 \frac m2|v^R|^2
 -\frac m2|u^R|^2
 -U
 \right]
-\dd x\dd t.
+\,\mathrm{d} x\,\mathrm{d} t.
 ```
 
-\end{theorem}
+<!-- theorem-end:theorem -->
 
-\begin{proof}
+<!-- theorem-start:proof -->
+**証明**
 $b_+^R=v^R+u^R$ と $\nu\nabla\rho^R=\rho^Ru^R$ を用いる。空間部分積分により
 
 ```math
-\int\rho^R m\nu\nabla\cdot b_+^R\dd x
+\int\rho^R m\nu\nabla\cdot b_+^R\,\mathrm{d} x
 =
--m\int\rho^R b_+^R\cdot u^R\dd x.
+-m\int\rho^R b_+^R\cdot u^R\,\mathrm{d} x.
 ```
 
 従って
@@ -188,13 +191,14 @@ $b_+^R=v^R+u^R$ と $\nu\nabla\rho^R=\rho^Ru^R$ を用いる。空間部分積�
 ```
 
 ポテンシャル項は共通なので結論を得る。
-\end{proof}
+<!-- theorem-end:proof -->
 
 この一致は近似ではない。$C^1$ 極限で得られた Guerra--Morato 作用は、正の Gaussian 密度領域では Nelson 作用そのものである [3--6]。Guerra--Morato 作用の臨界点と第2変分を扱う近年の研究もあるが [35]、本定理が扱う有限 Fourier 条件付き族の2尺度 $C^1$ 収束とは問題設定が異なる。
 
 ## 4.6 停留点について言えること
 
-\begin{corollary}[収束する停留点]
+<!-- theorem-start:corollary -->
+**系（収束する停留点）**
 $\theta_N\in\operatorname{int}K$ が
 
 ```math
@@ -206,25 +210,26 @@ D_\theta\mathcal A_{N,h_N}^{R,U}(\theta_N)=0,
 を満たすなら、
 
 ```math
-D_\theta\mathcal A_{\Nel}^{R,U}(\theta_*)=0
+D_\theta\mathcal A_{\mathrm{N}}^{R,U}(\theta_*)=0
 ```
 
 である。
-\end{corollary}
+<!-- theorem-end:corollary -->
 
-\begin{proof}
+<!-- theorem-start:proof -->
+**証明**
 $C^1(K)$ 収束と $D\mathcal A_{N,h_N}(\theta_N)=0$ から
 
 ```math
-\|D\mathcal A_{\Nel}(\theta_*)\|
+\|D\mathcal A_{\mathrm{N}}(\theta_*)\|
 \leq
-\|D\mathcal A_{\Nel}(\theta_*)-D\mathcal A_{\Nel}(\theta_N)\|
+\|D\mathcal A_{\mathrm{N}}(\theta_*)-D\mathcal A_{\mathrm{N}}(\theta_N)\|
 +
-\|D\mathcal A_{\Nel}(\theta_N)-D\mathcal A_{N,h_N}(\theta_N)\|
+\|D\mathcal A_{\mathrm{N}}(\theta_N)-D\mathcal A_{N,h_N}(\theta_N)\|
 \longrightarrow0.
 ```
 
-\end{proof}
+<!-- theorem-end:proof -->
 
 これは一方向の条件付き主張である。まず有限模型のパラメータ停留点列が存在し、その列が収束する場合に限って、極限点が Nelson 作用の停留点になる。任意の Nelson 停留点を有限浴の停留点列で近似するには、Hessian の非退化性と少なくとも局所 $C^2$ 収束が必要である。さらに、微視的 Hamiltonian 方程式が粗視化作用の停留点を力学的に選ぶことは、この系から従わない。
 
@@ -269,7 +274,7 @@ u(x,t)
 \dot q^2+\dot\sigma^2
 -\frac{\nu^2}{\sigma^2}
 -\Omega^2(q^2+\sigma^2)
-\right]\dd t.
+\right]\,\mathrm{d} t.
 ```
 
 変分すると

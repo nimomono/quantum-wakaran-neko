@@ -114,12 +114,6 @@
 \newtheorem{remark}[theorem]{注意}
 \renewcommand{\proofname}{証明}
 
-\newcommand{\dd}{\,\mathrm d}
-\newcommand{\E}{\mathbb E}
-\newcommand{\R}{\mathbb R}
-\newcommand{\Tr}{\operatorname{tr}}
-\newcommand{\GM}{\mathrm{GM}}
-\newcommand{\Nel}{\mathrm N}
 \newcommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 \renewcommand{\contentsname}{目次}
 \renewcommand{\bibname}{参考文献}
@@ -607,7 +601,7 @@ Nelson の確率力学、確率変分法、Guerra--Morato 作用には先行研�
 \hypertarget{ux6709ux96502ux6b21-hamiltonian}{%
 \section{有限2次 Hamiltonian}\label{ux6709ux96502ux6b21-hamiltonian}}
 
-位相空間を \(\R^{2M}\)、正準座標を \(Z=(Q,P)\) とし、
+位相空間を \(\mathbb{R}^{2M}\)、正準座標を \(Z=(Q,P)\) とし、
 
 \[
 H_N(Z)=\frac12 Z^{\mathsf T}G_N Z,
@@ -677,7 +671,7 @@ Q_n-\frac{c_nq}{m_n\omega_n^2}
 \[
 m\ddot q(t)
 +V'(q(t))
-+\int_0^t\Gamma_N(t-s)\dot q(s)\dd s
++\int_0^t\Gamma_N(t-s)\dot q(s)\,\mathrm{d} s
 =
 \xi_N(t)+F_{\rm slip}(t).
 \]
@@ -699,7 +693,7 @@ m\ddot q(t)
 \hypertarget{ux5b8cux5168ux306aux6709ux9650-fourier-ux6d74}{%
 \section{完全な有限 Fourier 浴}\label{ux5b8cux5168ux306aux6709ux9650-fourier-ux6d74}}
 
-時間区間を \([0,T]\)、\(\omega_n=2\pi n/T\) とする。独立な標準 Gaussian ベクトル \(Z_0,A_n,B_n\in\R^d\) を用いて
+時間区間を \([0,T]\)、\(\omega_n=2\pi n/T\) とする。独立な標準 Gaussian ベクトル \(Z_0,A_n,B_n\in\mathbb{R}^d\) を用いて
 
 \[
 \widetilde\eta_N(t)
@@ -719,7 +713,7 @@ A_n\cos\omega_nt
 共分散は
 
 \[
-\E\left[
+\mathbb{E}\left[
 \widetilde\eta_N^i(t)
 \widetilde\eta_N^j(s)
 \right]
@@ -787,7 +781,7 @@ X_N(t)
 \left[
 f_\theta(s)+\widetilde\eta_N(s)
 \right]
-\dd s
+\,\mathrm{d} s
 \]
 
 である。従って \(X_N\) は有限個の Gaussian 変数の線形像であり、平均 \(\mu_N\) と共分散 \(C_N\) を有限和として厳密に計算できる。
@@ -802,18 +796,18 @@ f_\theta(s)+\widetilde\eta_N(s)
 \(N\to\infty\) で積分雑音
 
 \[
-W_N(t)=\int_0^t\widetilde\eta_N(s)\dd s
+W_N(t)=\int_0^t\widetilde\eta_N(s)\,\mathrm{d} s
 \]
 
 は、有限次元分布で共分散 \(2\nu\min(s,t)\) を持つ Wiener 増分へ近づく。本論文の作用とパラメータ第1微分は2時刻の平均・共分散だけで評価するため、一般の経路空間位相における弱収束は主定理の仮定にも結論にも用いない。対応する線形拡散表示は
 
 \[
-\dd X(t)
+\,\mathrm{d} X(t)
 =
 \left[
 F_\theta(t)X(t)+f_\theta(t)
-\right]\dd t
-+\sqrt{2\nu}\,\dd W_t
+\right]\,\mathrm{d} t
++\sqrt{2\nu}\,\,\mathrm{d} W_t
 \]
 
 である。有限 \(N\) の各経路は微分可能であるが、極限経路は微分不可能である。粗視化作用に現れる発散は、この正則性の変化に由来する。
@@ -870,13 +864,13 @@ L_R(x)
 有限 \(N\) の平均と2時刻共分散を
 
 \[
-\mu_N(t)=\E[X_N(t)],
+\mu_N(t)=\mathbb{E}[X_N(t)],
 \]
 
 \[
 C_N(s,t)
 =
-\E\left[
+\mathbb{E}\left[
 (X_N(s)-\mu_N(s))
 (X_N(t)-\mu_N(t))^{\mathsf T}
 \right]
@@ -888,7 +882,7 @@ C_N(s,t)
 \mu_N(t)
 =
 \Phi(t,0)m_0
-+\int_0^t\Phi(t,r)f(r)\dd r
++\int_0^t\Phi(t,r)f(r)\,\mathrm{d} r
 \]
 
 であり、共分散は初期共分散と有限 Fourier モードの寄与の和として書ける。
@@ -906,7 +900,7 @@ C_N(s,t)
 \[
 K_{N,\alpha}(t)
 =
-\int_0^t\Phi(t,r)e_\alpha(r)\dd r
+\int_0^t\Phi(t,r)e_\alpha(r)\,\mathrm{d} r
 \]
 
 により
@@ -975,7 +969,7 @@ D\Phi_\theta[\delta F](t,s)
 \Phi_\theta(t,r)
 \delta F(r)
 \Phi_\theta(r,s)
-\dd r
+\,\mathrm{d} r
 \]
 
 である。逆行列の微分
@@ -996,7 +990,7 @@ D(S^{-1})[\delta S]
 \(N\to\infty\) の無条件拡散を
 
 \[
-\dd X_t=b(X_t,t)\dd t+\sqrt{2\nu}\,\dd W_t,
+\,\mathrm{d} X_t=b(X_t,t)\,\mathrm{d} t+\sqrt{2\nu}\,\,\mathrm{d} W_t,
 \qquad
 b(x,t)=F(t)x+f(t)
 \]
@@ -1006,7 +1000,7 @@ b(x,t)=F(t)x+f(t)
 \[
 h_R(x,t)
 =
-\E\left[L_R(X_T)\mid X_t=x\right]
+\mathbb{E}\left[L_R(X_T)\mid X_t=x\right]
 \]
 
 と置く。線形 Gaussian 系では \(h_R\) は指数2次関数で正である。条件付き前進流れは Doob 変換により
@@ -1049,7 +1043,7 @@ u^R
 \(F=0\)、\(f=0\)、\(X_N(0)=x_0\) とし、終端を厳密に \(X_N(T)=x_0\) へ固定する特殊な場合を考える。非零 Fourier モードは1周期積分すると零になるため、全期間変位を担うのは零周波数 \(Z_0\) だけである。終端条件は \(Z_0=0\) を意味する。従って条件付き雑音共分散は
 
 \[
-\E\left[
+\mathbb{E}\left[
 \widetilde\eta_N(t)
 \widetilde\eta_N(s)^{\mathsf T}
 \mid X_N(T)=x_0
@@ -1096,7 +1090,7 @@ u^R
 有限 \(N\) の経路は微分可能であるが、\(N\to\infty\) の拡散経路は微分不可能である。そのため、単純な運動エネルギー
 
 \[
-\frac m2\int_0^T|\dot X_N(t)|^2\dd t
+\frac m2\int_0^T|\dot X_N(t)|^2\,\mathrm{d} t
 \]
 
 は極限で発散する。時間分解能 \(h>0\) を固定し、有限差分
@@ -1108,7 +1102,7 @@ D_hX_N(t)=\frac{X_N(t+h)-X_N(t)}{h}
 を用いる。拡散係数が \(\nu\)、空間次元が \(d\) なら、雑音の普遍的発散は
 
 \[
-\frac m2\E|D_hX|^2
+\frac m2\mathbb{E}|D_hX|^2
 \sim
 \frac{md\nu}{h}
 \]
@@ -1124,14 +1118,14 @@ D_hX_N(t)=\frac{X_N(t+h)-X_N(t)}{h}
 \[
 \mathcal A_{N,h}^{R,U}(\theta)
 =
-\E_{N,\theta}^{R}
+\mathbb{E}_{N,\theta}^{R}
 \int_0^{T-h}
 \left[
 \frac m{2h^2}
 |X_N(t+h)-X_N(t)|^2
 -\frac{md\nu}{h}
 -U_\theta(X_N(t),t)
-\right]\dd t
+\right]\,\mathrm{d} t
 \]
 
 と定義する。差し引く項は結果や設定に依存せず、有限差分の Gaussian 自己揺らぎだけを除く。
@@ -1139,7 +1133,7 @@ D_hX_N(t)=\frac{X_N(t+h)-X_N(t)}{h}
 \hypertarget{ux8a31ux5bb9ux3059ux308bux30d1ux30e9ux30e1ux30fcux30bfux65cf}{%
 \section{許容するパラメータ族}\label{ux8a31ux5bb9ux3059ux308bux30d1ux30e9ux30e1ux30fcux30bfux65cf}}
 
-パラメータ集合 \(K\subset\R^p\) をコンパクトとする。次を仮定する。
+パラメータ集合 \(K\subset\mathbb{R}^p\) をコンパクトとする。次を仮定する。
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -1180,16 +1174,16 @@ N\left(\frac{h_N}{T}\right)^2\longrightarrow\infty
 極限の条件付き拡散の前進流れを \(b_{+,\theta}^R\)、時刻密度を \(\rho_\theta^R\) とする。Guerra--Morato 型作用を
 
 \[
-\mathcal A_{\GM}^{R,U}(\theta)
+\mathcal A_{\mathrm{GM}}^{R,U}(\theta)
 =
-\int_0^T\int_{\R^d}
+\int_0^T\int_{\mathbb{R}^d}
 \rho_\theta^R(x,t)
 \left[
 \frac m2|b_{+,\theta}^R(x,t)|^2
 +m\nu\nabla\cdot b_{+,\theta}^R(x,t)
 -U_\theta(x,t)
 \right]
-\dd x\dd t
+\,\mathrm{d} x\,\mathrm{d} t
 \]
 
 と定義する \cite{guerra_morato1983}。線形 Gaussian 系では \(b_+^R\) は \(x\) の1次式、\(\rho^R\) は正の Gaussian 密度なので、全ての積分は有限である。
@@ -1204,7 +1198,7 @@ $$
 \left\|
 \mathcal A_{N,h}^{R,U}
 -
-\mathcal A_{\GM}^{R,U}
+\mathcal A_{\mathrm{GM}}^{R,U}
 \right\|_{C^1(K)}
 \leq
 C_K
@@ -1220,7 +1214,7 @@ $$
 $$
 \mathcal A_{N,h_N}^{R,U}
 \longrightarrow
-\mathcal A_{\GM}^{R,U}.
+\mathcal A_{\mathrm{GM}}^{R,U}.
 $$
 
 特に $h_N=TN^{-1/3}$ なら誤差は $O(N^{-1/3})$ である。
@@ -1247,22 +1241,22 @@ u^R=\frac{b_+^R-b_-^R}{2}
 \begin{theorem}[Guerra--Morato 作用と Nelson 作用の一致]
 
 $$
-\mathcal A_{\GM}^{R,U}
+\mathcal A_{\mathrm{GM}}^{R,U}
 =
-\mathcal A_{\Nel}^{R,U},
+\mathcal A_{\mathrm{N}}^{R,U},
 $$
 
 $$
-\mathcal A_{\Nel}^{R,U}
+\mathcal A_{\mathrm{N}}^{R,U}
 =
-\int_0^T\int_{\R^d}
+\int_0^T\int_{\mathbb{R}^d}
 \rho^R
 \left[
 \frac m2|v^R|^2
 -\frac m2|u^R|^2
 -U
 \right]
-\dd x\dd t.
+\,\mathrm{d} x\,\mathrm{d} t.
 $$
 \end{theorem}
 
@@ -1270,9 +1264,9 @@ $$
 $b_+^R=v^R+u^R$ と $\nu\nabla\rho^R=\rho^Ru^R$ を用いる。空間部分積分により
 
 $$
-\int\rho^R m\nu\nabla\cdot b_+^R\dd x
+\int\rho^R m\nu\nabla\cdot b_+^R\,\mathrm{d} x
 =
--m\int\rho^R b_+^R\cdot u^R\dd x.
+-m\int\rho^R b_+^R\cdot u^R\,\mathrm{d} x.
 $$
 
 従って
@@ -1305,7 +1299,7 @@ $$
 を満たすなら、
 
 $$
-D_\theta\mathcal A_{\Nel}^{R,U}(\theta_*)=0
+D_\theta\mathcal A_{\mathrm{N}}^{R,U}(\theta_*)=0
 $$
 
 である。
@@ -1315,11 +1309,11 @@ $$
 $C^1(K)$ 収束と $D\mathcal A_{N,h_N}(\theta_N)=0$ から
 
 $$
-\|D\mathcal A_{\Nel}(\theta_*)\|
+\|D\mathcal A_{\mathrm{N}}(\theta_*)\|
 \leq
-\|D\mathcal A_{\Nel}(\theta_*)-D\mathcal A_{\Nel}(\theta_N)\|
+\|D\mathcal A_{\mathrm{N}}(\theta_*)-D\mathcal A_{\mathrm{N}}(\theta_N)\|
 +
-\|D\mathcal A_{\Nel}(\theta_N)-D\mathcal A_{N,h_N}(\theta_N)\|
+\|D\mathcal A_{\mathrm{N}}(\theta_N)-D\mathcal A_{N,h_N}(\theta_N)\|
 \longrightarrow0.
 $$
 \end{proof}
@@ -1368,7 +1362,7 @@ u(x,t)
 \dot q^2+\dot\sigma^2
 -\frac{\nu^2}{\sigma^2}
 -\Omega^2(q^2+\sigma^2)
-\right]\dd t.
+\right]\,\mathrm{d} t.
 \]
 
 変分すると
@@ -3743,7 +3737,7 @@ D\Phi_\theta[\delta F](t,s)
 \Phi_\theta(t,r)
 \delta F(r)
 \Phi_\theta(r,s)
-\dd r
+\,\mathrm{d} r
 $$
 
 を使う。$D\Phi$ とその $s$ 微分も一様有界なので同じ部分積分評価が成立する。共分散は Fourier 係数の積の和であり、
@@ -3838,7 +3832,7 @@ D(S^{-1})=-S^{-1}(DS)S^{-1}
 \[
 X_N(T)-X_N(0)
 =
-\int_0^T\widetilde\eta_N(t)\dd t
+\int_0^T\widetilde\eta_N(t)\,\mathrm{d} t
 =
 \sqrt{2\nu T}\,Z_0.
 \]
@@ -3873,10 +3867,10 @@ X_N(T)
 条件付き Gaussian 過程の増分 \(\Delta_hX(t)=X(t+h)-X(t)\) に対して
 
 \[
-\E^R|\Delta_hX(t)|^2
+\mathbb{E}^R|\Delta_hX(t)|^2
 =
 |\mu^R(t+h)-\mu^R(t)|^2
-+\Tr\left[
++\operatorname{tr}\left[
 C^R(t+h,t+h)+C^R(t,t)-2C^R(t+h,t)
 \right]
 \]
@@ -3901,7 +3895,7 @@ b_+^R(x,t)h
 である。流れの空間依存と雑音の相関による交差項まで含めて平均すると
 
 \[
-\E^R
+\mathbb{E}^R
 \left[
 |\Delta_hX|^2\mid X_t=x
 \right]
@@ -3918,10 +3912,10 @@ b_+^R(x,t)h
 線形流れでは3階剰余を平均・微分した量も一様に有界である。\(m/(2h^2)\) を掛けると
 
 \[
-\frac m{2h^2}\E^R|\Delta_hX|^2
+\frac m{2h^2}\mathbb{E}^R|\Delta_hX|^2
 -\frac{md\nu}{h}
 =
-\E^R
+\mathbb{E}^R
 \left[
 \frac m2|b_+^R|^2
 +m\nu\nabla\cdot b_+^R
@@ -3957,9 +3951,9 @@ m\nu\nabla\cdot b_+^R
 
 \[
 \left|
-\E_N^R|\Delta_hX_N|^2
+\mathbb{E}_N^R|\Delta_hX_N|^2
 -
-\E^R|\Delta_hX|^2
+\mathbb{E}^R|\Delta_hX|^2
 \right|_{C^1(K)}
 \leq
 \frac{C_KT^2}{N}.
@@ -3979,10 +3973,10 @@ m\nu\nabla\cdot b_+^R
 \(U(x,t)=x^{\mathsf T}K(t)x/2+\ell(t)^{\mathsf T}x+c(t)\) なら
 
 \[
-\E^R[U(X_t,t)]
+\mathbb{E}^R[U(X_t,t)]
 =
 \frac12\mu^R(t)^{\mathsf T}K(t)\mu^R(t)
-+\frac12\Tr[K(t)C^R(t,t)]
++\frac12\operatorname{tr}[K(t)C^R(t,t)]
 +\ell(t)^{\mathsf T}\mu^R(t)
 +c(t).
 \]
@@ -3999,7 +3993,7 @@ m\nu\nabla\cdot b_+^R
 時間対角展開を微分した剰余も \(O(h)\)、Fourier 尾部を微分した誤差も \(O(T^2/(Nh^2))\) である。有限個の \(\theta_j\) について最大を取れば
 
 \[
-\|\mathcal A_{N,h}^{R,U}-\mathcal A_{\GM}^{R,U}\|_{C^1(K)}
+\|\mathcal A_{N,h}^{R,U}-\mathcal A_{\mathrm{GM}}^{R,U}\|_{C^1(K)}
 \leq
 C_K
 \left(
@@ -4980,14 +4974,14 @@ d\mu(z)
 Nelson 作用を
 
 \[
-\mathcal A_{\Nel}[\rho,v]
+\mathcal A_{\mathrm{N}}[\rho,v]
 =
 \int\rho
 \left[
 \frac m2|v|^2
 -\frac{m\nu^2}{2}|\nabla\log\rho|^2
 -U
-\right]\dd x\dd t
+\right]\,\mathrm{d} x\,\mathrm{d} t
 \]
 
 とする。制約
@@ -5072,15 +5066,15 @@ u=-\nu\frac{x-q}{\sigma^2}
 である。Gaussian 平均を取ると
 
 \[
-\E[v^2]=\dot q^2+\dot\sigma^2,
+\mathbb{E}[v^2]=\dot q^2+\dot\sigma^2,
 \qquad
-\E[u^2]=\frac{\nu^2}{\sigma^2}.
+\mathbb{E}[u^2]=\frac{\nu^2}{\sigma^2}.
 \]
 
 調和ポテンシャル \(U=m\Omega^2x^2/2\) では
 
 \[
-\E[U]=\frac{m\Omega^2}{2}(q^2+\sigma^2)
+\mathbb{E}[U]=\frac{m\Omega^2}{2}(q^2+\sigma^2)
 \]
 
 なので、第4.7節の有限次元作用を得る。
@@ -5114,10 +5108,10 @@ E_\sigma
 計算例として
 
 \[
-\dd Z_t
+\,\mathrm{d} Z_t
 =
-(-\lambda I+\Omega J)Z_t\dd t
-+\sqrt{2D}\,\dd W_t,
+(-\lambda I+\Omega J)Z_t\,\mathrm{d} t
++\sqrt{2D}\,\,\mathrm{d} W_t,
 \qquad
 J=
 \begin{pmatrix}
@@ -5142,7 +5136,7 @@ J=
 一般に
 
 \[
-\dd X=b(X,t)\dd t+\sigma(X,t)\circ\dd W_t
+\,\mathrm{d} X=b(X,t)\,\mathrm{d} t+\sigma(X,t)\circ\,\mathrm{d} W_t
 \]
 
 を Itô 表現へ変換すると、\(\sigma\) の空間微分に比例する補正が流れへ加わる。本論文では \(\sigma=\sqrt{2\nu}I\) が定数なので補正は零である。

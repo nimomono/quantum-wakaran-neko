@@ -16,7 +16,8 @@ G_\theta(t,s)
 
 とする。$s=t$ に跳びがあるため、$s$ に関する Fourier 係数は一般に $O(n^{-1})$ である。
 
-\begin{lemma}[一様 Fourier 尾部]
+<!-- theorem-start:lemma -->
+**補題（一様 Fourier 尾部）**
 $F_\theta$ が第4.2節の仮定を満たすなら、ある $C_K$ が存在して
 
 ```math
@@ -46,9 +47,10 @@ $F_\theta$ が第4.2節の仮定を満たすなら、ある $C_K$ が存在し�
 ```
 
 である。
-\end{lemma}
+<!-- theorem-end:lemma -->
 
-\begin{proof}
+<!-- theorem-start:proof -->
+**証明**
 $n\neq0$ に対して $e^{-i\omega_ns}$ を部分積分する。区間端と $s=t$ の跳びから $1/\omega_n$ の境界項が生じ、区間内部では $\partial_s\Phi(t,s)=-\Phi(t,s)F(s)$ が一様有界である。従って $|\widehat G_n|\leq C/|\omega_n|$ を得る。
 
 $\theta$ 微分については
@@ -60,7 +62,7 @@ D\Phi_\theta[\delta F](t,s)
 \Phi_\theta(t,r)
 \delta F(r)
 \Phi_\theta(r,s)
-\dd r
+\,\mathrm{d} r
 ```
 
 を使う。$D\Phi$ とその $s$ 微分も一様有界なので同じ部分積分評価が成立する。共分散は Fourier 係数の積の和であり、
@@ -70,7 +72,7 @@ D\Phi_\theta[\delta F](t,s)
 ```
 
 から結論を得る。
-\end{proof}
+<!-- theorem-end:proof -->
 
 ## A.2 平均の収束
 
@@ -151,7 +153,7 @@ $R\downarrow0$ とすると、完全観測された方向の終端共分散は�
 ```math
 X_N(T)-X_N(0)
 =
-\int_0^T\widetilde\eta_N(t)\dd t
+\int_0^T\widetilde\eta_N(t)\,\mathrm{d} t
 =
 \sqrt{2\nu T}\,Z_0.
 ```

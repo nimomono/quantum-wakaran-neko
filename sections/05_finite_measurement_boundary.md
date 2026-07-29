@@ -494,7 +494,8 @@ Z_{a,b}
 
 となる。
 
-\begin{proposition}[終端整合度の判定条件]
+<!-- theorem-start:proposition -->
+**命題（終端整合度の判定条件）**
 全測定設定対に対して同一の事後分布 $\rho_R(\lambda)$ が存在するための必要十分条件は、ある非負関数 $h(\lambda)$ と正定数 $c_{a,b}$ が存在して
 
 ```math
@@ -504,9 +505,10 @@ c_{a,b}h(\lambda)
 ```
 
 がほとんど至る所で成立することである。
-\end{proposition}
+<!-- theorem-end:proposition -->
 
-\begin{proof}
+<!-- theorem-start:proof -->
+**証明**
 上式が成立すれば $c_{a,b}$ は規格化で消える。逆に事後分布が全測定設定で同じなら、
 
 ```math
@@ -516,7 +518,7 @@ c_{a,b}h(\lambda)
 ```
 
 なので、各終端整合度は共通関数へ比例する。
-\end{proof}
+<!-- theorem-end:proof -->
 
 したがって固定した $G_R$ であっても、その Hamiltonian 引き戻し
 
@@ -618,7 +620,8 @@ P_c=0
 
 したがって $\Pi_R>0$ は A 時計が正向き、B 時計が負向きの順序付き相補性を表す。これは2粒子が実験室時刻に対して逆向きに伝播するという意味ではない。左右の粒子と伝達ベクトルは通常どおり生成源から局所装置、共通未来へ進み、反対になるのは内部時計または境界情報の向きである。
 
-\begin{proposition}[終端半空間の相補時計実現]
+<!-- theorem-start:proposition -->
+**命題（終端半空間の相補時計実現）**
 $P_c=0$、比較パルス直前の $\Pi_R=E_*>0$ とする。比較生成子を
 
 ```math
@@ -668,7 +671,7 @@ E_*+\kappa I_- -h.
 ```
 
 と必要十分である。
-\end{proposition}
+<!-- theorem-end:proposition -->
 
 証明の要点は
 
