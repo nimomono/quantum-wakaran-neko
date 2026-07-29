@@ -133,7 +133,12 @@ def markdown_for_pandoc(text: str) -> str:
         output.append(line)
     if in_math:
         raise ValueError("unclosed math fence")
-    return "\n".join(output) + "\n"
+    pandoc_text = "\n".join(output) + "\n"
+    return re.sub(
+        r"(?m)^\$\$\n\n(\\end\{(?:theorem|proof)\})$",
+        lambda match: "$$\n" + match.group(1),
+        pandoc_text,
+    )
 
 
 def bibliography_tex() -> str:
