@@ -34,13 +34,13 @@ L_R(x)
 有限 $N$ の平均と2時刻共分散を
 
 ```math
-\mu_N(t)=\E[X_N(t)],
+\mu_N(t)=\mathbb{E}[X_N(t)],
 ```
 
 ```math
 C_N(s,t)
 =
-\E\left[
+\mathbb{E}\left[
 (X_N(s)-\mu_N(s))
 (X_N(t)-\mu_N(t))^{\mathsf T}
 \right]
@@ -52,7 +52,7 @@ C_N(s,t)
 \mu_N(t)
 =
 \Phi(t,0)m_0
-+\int_0^t\Phi(t,r)f(r)\dd r
++\int_0^t\Phi(t,r)f(r)\,\mathrm{d} r
 ```
 
 であり、共分散は初期共分散と有限 Fourier モードの寄与の和として書ける。
@@ -70,7 +70,7 @@ C_N(s,t)
 ```math
 K_{N,\alpha}(t)
 =
-\int_0^t\Phi(t,r)e_\alpha(r)\dd r
+\int_0^t\Phi(t,r)e_\alpha(r)\,\mathrm{d} r
 ```
 
 により
@@ -97,7 +97,8 @@ HC_N(T,T)H^{\mathsf T}+R
 
 とする。$R\geq r_*I$ なので $S_N$ は一様に可逆である。
 
-\begin{proposition}[有限 Gaussian 条件づけ]
+<!-- theorem-start:proposition -->
+**命題（有限 Gaussian 条件づけ）**
 条件 $Y=y$ の下で $X_N$ は Gaussian 過程のままであり、その平均と共分散は
 
 ```math
@@ -116,11 +117,12 @@ C_N(s,t)
 ```
 
 である。
-\end{proposition}
+<!-- theorem-end:proposition -->
 
-\begin{proof}
+<!-- theorem-start:proof -->
+**証明**
 有限個の時刻 $t_1,\ldots,t_k$ を固定すると、$(X_N(t_1),\ldots,X_N(t_k),Y)$ は結合 Gaussian ベクトルである。結合共分散行列の $Y$ 成分に関する Schur 補完を取れば上式を得る。任意の有限時刻集合で整合するため、条件付き過程全体が定まる。
-\end{proof}
+<!-- theorem-end:proof -->
 
 条件付き共分散の第2項は、終端記録により減少した不確かさを表す。これは力ではない。ある経路が終端記録とどれだけ整合するかという統計的更新である。
 
@@ -137,7 +139,7 @@ D\Phi_\theta[\delta F](t,s)
 \Phi_\theta(t,r)
 \delta F(r)
 \Phi_\theta(r,s)
-\dd r
+\,\mathrm{d} r
 ```
 
 である。逆行列の微分
@@ -157,7 +159,7 @@ D(S^{-1})[\delta S]
 $N\to\infty$ の無条件拡散を
 
 ```math
-\dd X_t=b(X_t,t)\dd t+\sqrt{2\nu}\,\dd W_t,
+\,\mathrm{d} X_t=b(X_t,t)\,\mathrm{d} t+\sqrt{2\nu}\,\,\mathrm{d} W_t,
 \qquad
 b(x,t)=F(t)x+f(t)
 ```
@@ -167,7 +169,7 @@ b(x,t)=F(t)x+f(t)
 ```math
 h_R(x,t)
 =
-\E\left[L_R(X_T)\mid X_t=x\right]
+\mathbb{E}\left[L_R(X_T)\mid X_t=x\right]
 ```
 
 と置く。線形 Gaussian 系では $h_R$ は指数2次関数で正である。条件付き前進流れは Doob 変換により
@@ -209,7 +211,7 @@ u^R
 $F=0$、$f=0$、$X_N(0)=x_0$ とし、終端を厳密に $X_N(T)=x_0$ へ固定する特殊な場合を考える。非零 Fourier モードは1周期積分すると零になるため、全期間変位を担うのは零周波数 $Z_0$ だけである。終端条件は $Z_0=0$ を意味する。従って条件付き雑音共分散は
 
 ```math
-\E\left[
+\mathbb{E}\left[
 \widetilde\eta_N(t)
 \widetilde\eta_N(s)^{\mathsf T}
 \mid X_N(T)=x_0
