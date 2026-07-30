@@ -141,7 +141,7 @@
   \vspace{14mm}
   {\color{PaperRule}\rule{0.68\textwidth}{0.9pt}\par}
   \vfill
-  {\large 現行モデルと結果確立度の再分類稿\par}
+  {\large 本文・付録・研究メモの整理稿\par}
   \vspace{22mm}
 \end{titlepage}
 
@@ -168,7 +168,7 @@ H_{\rm ext}(y)
 H_{\rm work}
 \]
 
-と書く。\(H_{\rm fin}\) は生成源、測定器、有限浴、比較器、時計を含む有限 Hamiltonian 部分、\(H_{\rm ext}\) は外部環境、\(H_{\rm work}\) は設定変更、パルス、再準備に仕事を供給する自由度である。拡大系を Hamiltonian として記述できても、\(z\) だけを見ればエネルギーは保存されず、
+と書く。\(H_{\rm fin}\) は生成源、測定器、有限浴、比較器、時計を含む有限 Hamiltonian 部分、\(H_{\rm ext}\) は外部環境、\(H_{\rm work}\) は設定変更、パルス、再準備に仕事を供給する自由度である。有限部分の収支は
 
 \[
 \dot E_{\rm fin}
@@ -180,9 +180,9 @@ J_{\rm out}
 P_{\rm ctrl}
 \]
 
-となる。\(J_{\rm in}\)、\(J_{\rm out}\) は外部からの流入と外部への流出、\(P_{\rm ctrl}\) は仕事貯蔵系からの制御仕事である。
+であり、外部からの流入、外部への流出、制御仕事を区別して追跡する。
 
-1試行の測定窓では、
+1試行の測定窓では
 
 \[
 \varepsilon_{\rm open}
@@ -198,7 +198,7 @@ E_{\rm ref}
 \ll1
 \]
 
-を仮定し、有限 Hamiltonian 部分を近似的に閉じた補助モデルとして計算する。試行間には生成源の再準備、設定制御器への仕事供給、記録の安定化と消去、浴と作用分配系の再初期化が必要であり、この段階では開放性を捨てない。したがって、閉じた有限系は現行モデルそのものではなく、1試行内の中心機構を分離する補助モデルである。
+を仮定し、有限 Hamiltonian 部分を近似的に閉じた補助モデルとして計算する。試行間には生成源の再準備、設定制御器への仕事供給、記録の安定化と消去、浴と作用分配系の再初期化が必要であり、この段階では開放性を捨てない。
 
 論文は2つの独立な問題を扱う。
 
@@ -208,7 +208,7 @@ E_{\rm ref}
 \item
   補助的な有限 Fourier--Gauss 型確率表示から、Nelson 型作用の形式をどこまで定量的に得られるか。
 \item
-  有限 Hamiltonian 装置部品と2境界統計原理を組み合わせたとき、Bell 型共同確率をどこまで明示的に計算でき、その物理的実現には何が未導出として残るか。
+  有限 Hamiltonian 装置部品と2境界統計原理を組み合わせたとき、Bell 型共同確率をどこまで計算でき、その物理的実現に何が未導出として残るか。
 \end{enumerate}
 
 第I部では、有限分解能の前後記録で条件づけた線形 Gauss 型経路法則を考える。時間刻み \(h\) の繰り込み済み粗視化作用を \(\mathcal A_{N,h}^{R,U}\) とすると、滑らかな有限次元パラメータ集合 \(K\) 上で
@@ -229,21 +229,9 @@ C_K
 
 を得る。\(h_N=TN^{-1/3}\) なら誤差は \(O(N^{-1/3})\) である。極限作用は正の Gauss 型密度領域で Guerra--Morato 表示と Nelson 表示を持つ。
 
-これは、定義した線形 Gauss 型確率表示の作用値と有限次元パラメータ微分についての厳密結果である。次は別の主張であり、本論文では未解決である。
+これは、定義した補助表示の作用値と有限次元パラメータ微分についての厳密結果である。弱開放ミクロモデルから一般の線形表示を導くこと、微視的運動が作用の停留点を選ぶこと、任意の Nelson 停留点を有限モデルで実現すること、Nelson 表示から量子力学全体を導くことは含まれない。
 
-\begin{itemize}
-\tightlist
-\item
-  弱開放なミクロモデルの縮約から、定理で用いる一般の時間依存線形確率表示を導くこと。
-\item
-  微視的 Hamiltonian 運動が粗視化作用の停留点を選ぶこと。
-\item
-  任意の Nelson 停留点を有限モデルの停留点列で実現すること。
-\item
-  Nelson 作用形式から量子力学全体を導くこと。
-\end{itemize}
-
-第II部は第I部の Nelson 極限から Bell 重みを導かない。局所装置の明示部分は、既存の結果符号を固定指針へ写す最小結果符号化器である。設定、到来変数、装置微視状態から結果を形成する一般測定相互作用、増幅、安定記録、消去、再初期化までを統合した測定器は未構成である。
+第II部は第I部の Nelson 極限から Bell 重みを導かない。局所装置の明示部分は、既存の結果符号を固定指針へ写す最小結果符号化器であり、設定、到来変数、装置微視状態から結果を形成する一般測定相互作用は未構成である。
 
 結果符号と設定位相を担う2つの実正準ベクトルを記録後の共通未来へ送ると、比較器の差動作用は
 
@@ -256,7 +244,7 @@ I_0
 \right]
 \]
 
-となる。余弦は確率公理ではなく、2つの実2次元ベクトルの内積から生じる。
+となる。余弦は2つの実2次元ベクトルの内積から生じる。
 
 比較器の未読変数には、1つのソフトモードと1つの残余作用モードを用いる。固定総作用殻
 
@@ -266,7 +254,7 @@ E_\ell
 \omega_\ell(J_s+J_0)
 \]
 
-上の正規化 Liouville 測度では、ソフトモードのエネルギー \(h=\omega_\ell J_s\) は
+上の正規化 Liouville 測度では、ソフトモードエネルギー \(h=\omega_\ell J_s\) は
 
 \[
 p(h)
@@ -276,38 +264,9 @@ p(h)
 0\leq h\leq E_\ell
 \]
 
-という一様周辺密度を持つ。これは固定総作用殻を準備した補助モデル内部の厳密結果である。弱開放な現行モデルでは、比較窓中の相対的な総作用変化
+という一様周辺密度を持つ。これは閉鎖補助モデル内部の厳密結果である。多数の残余作用モードを持つ補助比較モデルでは累積分布が非線形となるため、純粋な余弦則には2モード条件が必要である。
 
-\[
-\varepsilon_\ell
-=
-\frac{
-\sup_t
-\left|
-E_\ell(t)-E_\ell(0)
-\right|
-}{
-E_\ell(0)
-}
-\]
-
-が小さく、しきい値が殻の両端から離れているときに、累積重みの補正を \(O(\varepsilon_\ell)\) と評価する。漏れが結果または測定設定と相関すれば、この補正は可視度の一様な低下だけでは済まず、高次調波または非信号性残差を生み得る。
-
-4つの結果領域の基準質量は、固定総作用殻の幾何だけでは決まらない。準備 Hamiltonian、準備巨視領域、基準 Liouville 測度が左右の符号反転に不変であるという \texttt{{[}S{]}} の下でのみ、
-
-\[
-w_{++}
-=
-w_{+-}
-=
-w_{-+}
-=
-w_{--}
-=
-\frac14
-\]
-
-が従う。
+4つの結果領域の基準質量は、準備 Hamiltonian、準備巨視領域、基準 Liouville 測度が左右の符号反転に不変であるという \texttt{{[}S{]}} の下でのみ等しくなる。
 
 終端読出しには2つの内部時計の相対運動量 \(\Pi_R\) を用いる。比較窓の閉鎖補助 Hamiltonian では、有限幅パルスの後に厳密に
 
@@ -317,15 +276,9 @@ w_{--}
 E_*+\kappa I_- -h
 \]
 
-を得る。従って
+を得る。\(\Pi_R(T)\geq0\) は、初期に選んだ時計向きの順序を終端まで保つ条件と一致する。
 
-\[
-\Pi_R(T)\geq0
-\]
-
-は、初期に選んだ時計向きの順序を終端まで保つ条件と一致する。
-
-一方、Hamilton 方程式は \(\Pi_R(T)<0\) の軌道も許す。相補的時計が与えるのは終端半空間の力学的意味であり、その半空間に入る履歴だけを物理的試行として数える原理ではない。本論文では、基準初期密度 \(\rho_S\) と全設定に共通な終端関数 \(G_R\) から
+Hamilton 方程式は \(\Pi_R(T)<0\) の軌道も許すため、時計相補性だけでは物理的な試行集団を選ばない。本論文では、基準初期密度 \(\rho_S\) と全設定に共通な終端関数 \(G_R\) から
 
 \[
 d\mu_R^{a,b}(z_i)
@@ -351,7 +304,7 @@ E_*+\kappa\overline I_-^{AB}
 E_\ell
 \]
 
-と \texttt{{[}H,P,S,M,R{]}} の下では、位相体積積分から厳密に
+と \texttt{{[}H,P,S,M,R{]}} の下では、位相体積積分から
 
 \[
 P_R(A,B\mid a,b)
@@ -368,57 +321,27 @@ V_{\rm eff}
 \frac{\kappa I_0}{E_*+\kappa I_0}V
 \]
 
-を得る。ここで確立度を分ける必要がある。
+を厳密に得る。ただし、ここでは次の3つを分ける。
 
 \begin{itemize}
 \tightlist
 \item
-  \texttt{{[}R{]}} を仮定した後の終端整合体積と共同確率の計算は厳密結果である。
+  \texttt{{[}R{]}} を仮定した後の終端整合体積と共同確率の計算は厳密結果であり、\texttt{{[}R{]}} に仮説依存する。
 \item
-  実験の無条件試行頻度が \texttt{{[}R{]}} に従うという物理的主張は仮説依存結果である。
+  実験の無条件試行頻度がこの共同法則に従うことは予想・未解決であり、\texttt{{[}R{]}} に仮説依存する。
 \item
-  \texttt{{[}R{]}} が弱開放な準備・測定・記録・再初期化周期から生じることは予想・未解決である。
+  弱開放な準備・測定・記録・再初期化周期から \texttt{{[}R{]}} を導くことは中心的な予想・未解決である。
 \end{itemize}
 
-規格化因子は測定設定に依存せず、\texttt{{[}S{]}} の対称集団では非信号性が成り立つ。ただし、完全な微視状態の事後分布は一般に測定設定へ依存する。Bell の前提違反は測定設定独立性に現れ、Bell の定理を否定しない。
+規格化因子は測定設定に依存せず、\texttt{{[}S{]}} の対称集団では非信号性が成り立つ。一方、完全な微視状態の事後分布は一般に測定設定へ依存する。Bell の前提違反は測定設定独立性にあり、Bell の定理を否定しない。
 
-現在のモデルと結果の位置づけをまとめる。
-
-\begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}@{}}
-\toprule\noalign{}
-\begin{minipage}[b]{\linewidth}\raggedright
-対象
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-運用状態または確立度
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-内容
-\end{minipage} \\
-\midrule\noalign{}
-\endhead
-\bottomrule\noalign{}
-\endlastfoot
-有限 Hamiltonian 部分を持つ弱開放系 & 現行モデル & 流入、流出、制御仕事、記録、消去、再初期化を含む \\
-1試行内の閉鎖有限系 & 補助モデル & \(\varepsilon_{\rm open}\ll1\) の測定窓で用いる \\
-線形 Gauss 型確率表示 & 補助モデル & 第I部の厳密な作用収束定理の対象 \\
-最小結果符号化器 & 補助モデル & 一般測定器ではない \\
-作用形式の \(C^1\) 収束 & 厳密結果 & 指定した線形 Gauss 型族で成立 \\
-固定殻の一様周辺と比較読出し & 厳密結果 & 閉鎖補助モデルと明示条件の下で成立 \\
-Bell 型共同確率の代数計算 & 厳密結果 & \texttt{{[}R{]}} を含む仮定の下で成立 \\
-Bell 型共同確率の物理的試行予測 & 仮説依存結果 & \texttt{{[}R{]}} と未構成の試行周期に依存 \\
-弱開放系から \texttt{{[}R{]}} を得ること & 予想・未解決 & 現在の中心課題 \\
-順時間的共有浴、滞在時間、多数の残余作用モード & 不採用モデル & 純粋な Bell 余弦重みの生成に失敗 \\
-\end{longtable}
-
-Born 則、Tsirelson 限界の一般原理からの選択、Wallstrom 問題、任意準備での非信号性も未導出である。本文は、物理的入力、相互作用、保存量、エネルギー交換、近似、結果の確立度を中心に述べる。長い正準計算、収束評価、2境界照合、測定設定依存度、試行数監査は付録と \texttt{VALIDATION.md} に分けて置く。
+弱開放ミクロモデルからの線形表示、一般測定器、\texttt{{[}R{]}} の物理的生成、任意準備での非信号性、Born 則、Tsirelson 限界の一般原理からの選択、Wallstrom 問題は未解決である。不採用モデルの詳細と本文を実質的に支えない補助計算は論文へ収録せず、研究メモとして管理する。
 
 \hypertarget{ux554fux984cux8a2dux5b9aux30e2ux30c7ux30ebux968eux5c64ux8a66ux884cux5468ux671f}{%
 \chapter{問題設定、モデル階層、試行周期}\label{ux554fux984cux8a2dux5b9aux30e2ux30c7ux30ebux968eux5c64ux8a66ux884cux5468ux671f}}
 
 \begin{statusbox}
-位置づけ：弱開放な現行モデルと閉鎖補助モデルを分け、作用収束の厳密結果と Bell 予測の仮説依存性を明示する。
+位置づけ：弱開放な現行モデルと補助モデルを分け、厳密結果、近似結果、予想・未解決と、必要な仮説依存の付記を明示する。
 \end{statusbox}
 
 \hypertarget{ux554fux984cux8a2dux5b9a}{%
@@ -437,7 +360,7 @@ Bell の定理は、局所応答、結果の確定性、測定設定独立性な
   有限 Hamiltonian 装置部品に2境界統計原理を加えたとき、終端整合体積から Bell 型共同確率をどこまで計算でき、その物理的実現に何が残るか。
 \end{enumerate}
 
-第1の問題には、第4章のパラメータ \(C^1\) 収束定理として答える。第2の問題では、\texttt{{[}R{]}} を仮定した後の体積積分は厳密に実行できる。しかし、実験の試行頻度が \texttt{{[}R{]}} に従うことは Hamilton 方程式から導いていない。従って第II部の物理的 Bell 予測は仮説依存結果であり、完全な力学的導出ではない。
+第1の問題には、第4章のパラメータ \(C^1\) 収束定理として答える。第2の問題では、\texttt{{[}R{]}} を仮定した後の体積積分は厳密に実行できる。しかし、実験の試行頻度が \texttt{{[}R{]}} に従うことは Hamilton 方程式から導いていない。この物理的予測は予想・未解決であり、\texttt{{[}R{]}} に仮説依存する。
 
 \hypertarget{ux90e8ux306eux8ad6ux7406ux7684ux72ecux7acbux6027}{%
 \section{2部の論理的独立性}\label{ux90e8ux306eux8ad6ux7406ux7684ux72ecux7acbux6027}}
@@ -467,6 +390,8 @@ H_{\rm work}.
 
 \(H_{\rm fin}\) には生成源、設定制御器、局所装置、伝達ベクトル、比較器、作用分配系、時計、有限浴を含める。\(H_{\rm ext}\) は記録安定化、熱交換、装置再準備に関わる外部環境、\(H_{\rm work}\) は設定変更、パルス、消去へ仕事を供給する自由度である。
 
+この式は、現行モデルが含むべき部分と交換経路を示す構成目標である。全ての自由項、外部結合、自律制御を1本に統合し、1周期を有限時間で実行する完成 Hamiltonian をすでに与えたという意味ではない。
+
 この現行モデルに対して、次の補助モデルを用いる。
 
 \begin{longtable}[]{@{}
@@ -487,8 +412,8 @@ H_{\rm work}.
 \endlastfoot
 1試行内の有限閉鎖系 & 正準写像、保存量、位相体積を厳密に計算する & 弱開放結合を測定窓で無視した近似 \\
 線形 Gauss 型確率表示 & 第I部の作用収束を証明する & 弱結合、線形化、時間尺度分離後の候補表示 \\
-OU 表示 & 緩和と回転を具体化する & 開放部分系の計算例 \\
 最小結果符号化器 & 既存の2値符号を固定指針へ写す & 一般測定器の一部だけを抽出 \\
+多モード作用分配系 & 2モード条件の必要性を比較する & 追加の残余作用モードが高次調波を生むことを示す \\
 \end{longtable}
 
 閉鎖補助モデルの厳密結果を、そのまま弱開放な現行モデルの厳密結果と呼ばない。両者の接続には、交換エネルギー、観測時間、相関時間、有限幅、装置分解能を用いた近似評価が必要である。
@@ -720,14 +645,14 @@ g_{AB}^{\rm ent}(h)
 
 左と右は局所記録が形成される前には共通浴を持たない。共通未来の相互作用は、すでに確定した記録の写しを処理する。このため Bell 相関を「共有浴雑音が左右へ順時間的に漏れた結果」とは解釈しない。
 
-\hypertarget{ux4e3bux8981ux7d50ux679cux306eux78baux7acbux5ea6}{%
-\section{主要結果の確立度}\label{ux4e3bux8981ux7d50ux679cux306eux78baux7acbux5ea6}}
+\hypertarget{ux4e3bux8981ux7d50ux679cux306eux5c0eux51faux72b6ux614b}{%
+\section{主要結果の導出状態}\label{ux4e3bux8981ux7d50ux679cux306eux5c0eux51faux72b6ux614b}}
 
 第I部の結果を分ける。
 
 \begin{longtable}[]{@{}ll@{}}
 \toprule\noalign{}
-主張 & 確立度 \\
+主張 & 導出状態 \\
 \midrule\noalign{}
 \endhead
 \bottomrule\noalign{}
@@ -742,7 +667,7 @@ Guerra--Morato 表示と Nelson 表示の一致 & 厳密結果 \\
 
 \begin{longtable}[]{@{}ll@{}}
 \toprule\noalign{}
-主張 & 確立度 \\
+主張 & 導出状態 \\
 \midrule\noalign{}
 \endhead
 \bottomrule\noalign{}
@@ -750,13 +675,13 @@ Guerra--Morato 表示と Nelson 表示の一致 & 厳密結果 \\
 実2次元比較器の余弦恒等式 & 厳密結果 \\
 固定総作用殻の一様周辺 & 厳密結果 \\
 内部時計の自由運動を含む比較読出し & 閉鎖補助モデルで厳密結果 \\
-\texttt{{[}R{]}} の下での終端整合体積と共同確率 & 厳密結果 \\
-実験の試行頻度が \texttt{{[}R{]}} に従うこと & 仮説依存結果 \\
+\texttt{{[}R{]}} の下での終端整合体積と共同確率 & 厳密結果。\texttt{{[}R{]}} に仮説依存 \\
+実験の試行頻度が \texttt{{[}R{]}} に従うこと & 予想・未解決。\texttt{{[}R{]}} に仮説依存 \\
 弱開放試行周期から \texttt{{[}R{]}} を導くこと & 予想・未解決 \\
 一般測定器の構成 & 予想・未解決 \\
 \end{longtable}
 
-順時間的共有浴、結果依存滞在時間、多数の残余作用モードから純粋な余弦重みを得るモデルは不採用モデルであり、それぞれに否定的結果がある。
+順時間的共有浴、結果依存滞在時間、相補終端半空間の等重み平均による Bell 重みづけは採用しない。これらの詳細は論文の論証に用いず、論文外の研究記録として管理する。多数の残余作用モードは、2モード条件の成立範囲を示す補助比較モデルとして第6.8節に限って用いる。
 
 \hypertarget{ux5148ux884cux7814ux7a76ux3068ux306eux4f4dux7f6eux95a2ux4fc2}{%
 \section{先行研究との位置関係}\label{ux5148ux884cux7814ux7a76ux3068ux306eux4f4dux7f6eux95a2ux4fc2}}
@@ -797,7 +722,7 @@ Nelson の確率力学、確率変分法、Guerra--Morato 作用には先行研�
 \hypertarget{ux8ad6ux6587ux306eux69cbux6210}{%
 \section{論文の構成}\label{ux8ad6ux6587ux306eux69cbux6210}}
 
-第2章から第4章は、弱開放な現行モデルと閉鎖補助モデルの関係、Gauss 型条件づけ、作用形式の定量的 Nelson 極限を扱う。第5章から第7章は、測定・記録・外部交換を含む物理的課題、有限 Hamiltonian 装置部品、2モード作用分配系、2境界統計原理の下での Bell 型共同確率を扱う。第8章はモデルの運用状態、結果の確立度、近似誤差、否定結果、反証条件をまとめる。長い収束評価、正準計算、エネルギー収支、測定設定依存度、試行数監査は付録と \texttt{VALIDATION.md} に置く。
+第2章から第4章は、弱開放な現行モデルと閉鎖補助モデルの関係、Gauss 型条件づけ、作用形式の定量的 Nelson 極限を扱う。第5章から第7章は、測定・記録・外部交換を含む物理的課題、有限 Hamiltonian 装置部品、2モード作用分配系、2境界統計原理の下での Bell 型共同確率を扱う。第8章は近似誤差、適用限界、反証条件、未解決問題をまとめる。主定理の収束評価と、本文の装置構成を支える正準計算だけを付録に置き、数値検算は \texttt{VALIDATION.md} に集約する。
 
 \part{補助的な線形 Gauss 型確率表示の Nelson 作用極限}
 
@@ -870,8 +795,6 @@ E_{\rm ref}
 \end{enumerate}
 
 閉鎖補助モデルの位相空間を \(\mathbb{R}^{2M}\)、正準座標を \(Z=(Q,P)\) とし、
-
-位相空間を \(\mathbb{R}^{2M}\)、正準座標を \(Z=(Q,P)\) とし、
 
 \[
 H_N(Z)=\frac12 Z^{\mathsf T}G_N Z,
@@ -1083,15 +1006,6 @@ F_\theta(t)X(t)+f_\theta(t)
 \]
 
 である。有限 \(N\) の各経路は微分可能であるが、極限経路は微分不可能である。粗視化作用に現れる発散は、この正則性の変化に由来する。
-
-\hypertarget{ou-ux88dcux52a9ux30e2ux30c7ux30ebux3068-stratonovich-ux8868ux73fe}{%
-\section{OU 補助モデルと Stratonovich 表現}\label{ou-ux88dcux52a9ux30e2ux30c7ux30ebux3068-stratonovich-ux8868ux73fe}}
-
-\(F=-\lambda I+\Omega J\) と選べば、2次元の回転を伴う OU 位相モデルが得られる。これは減衰する位相振幅を扱う便利な具体例である。しかし OU の摩擦は縮約後の有効係数であり、有限 Hamiltonian 部分の基本法則そのものが時間反転を破ることを意味しない。本論文では OU モデルを基礎仮定とせず、付録Dの例として用いる。
-
-現行モデルの立場では、\(\lambda\) は外部へのエネルギー流出と外部揺らぎの釣り合いを要約する有効係数である。\(\lambda\) と拡散係数を特定の有限外部 Hamiltonian から導くこと、有限観測窓における Markov 近似誤差を評価することは別課題である。従って OU 表示は補助モデルであり、現行モデルそのものではない。
-
-雑音係数が状態に依存しないため、Itô 表現と Stratonovich 表現の変換補正は零である。従って、どちらの記法を選んでも本論文の線形 Gauss 型定理は変わらない。Stratonovich 微分は中心論証に必要ないため、以後は Itô 表現に統一する。
 
 \hypertarget{ux672cux7ae0ux306eux7d50ux8ad6}{%
 \section{本章の結論}\label{ux672cux7ae0ux306eux7d50ux8ad6}}
@@ -1504,7 +1418,7 @@ $$
 
 この \(N^{-1/3}\) は、共分散尾部を \(O(N^{-1})\) と評価し、増分商の \(h^{-2}\) と釣り合わせた現在の証明から得られる率である。下界または最適性は示していない。より滑らかな核、端点適合基底、相殺を用いれば改善される可能性があり、本質的な普遍指数とは主張しない。
 
-証明の中心は、Fourier 切断による共分散誤差 \(O(T^2/N)\) と、時間対角展開による粗視化誤差 \(O(h/T)\) を分離することである。増分商には \(h^{-2}\) が掛かるため、前者は作用上で \(O(T^2/(Nh^2))\) になる。有限分解能記録による Schur 補完の安定性と、パラメータ第1微分を含む全評価は付録Bに示す。
+証明の中心は、Fourier 切断による共分散誤差 \(O(T^2/N)\) と、時間対角展開による粗視化誤差 \(O(h/T)\) を分離することである。増分商には \(h^{-2}\) が掛かるため、前者は作用上で \(O(T^2/(Nh^2))\) になる。Fourier 尾部と Schur 補完の安定性は付録A、粗視化作用とパラメータ第1微分の評価は付録Bに示す。
 
 \hypertarget{guerramorato-ux8868ux793aux3068-nelson-ux8868ux793a}{%
 \section{Guerra--Morato 表示と Nelson 表示}\label{guerramorato-ux8868ux793aux3068-nelson-ux8868ux793a}}
@@ -1565,6 +1479,27 @@ $$
 \end{proof}
 
 この一致は近似ではない。\(C^1\) 極限で得られた Guerra--Morato 作用は、正の Gauss 型密度領域では Nelson 作用そのものである \cite{nelson1966,guerra_morato1983,yasue1981,zambrini1986}。Guerra--Morato 作用の臨界点と第2変分を扱う近年の研究もあるが \cite{knorst_lopes2024}、本定理が扱う有限 Fourier 条件付き族の2尺度 \(C^1\) 収束とは問題設定が異なる。
+
+さらに、\(\rho>0\) で \(mv^R=\nabla S\) と局所的に書ける領域では、
+
+\[
+\hbar_{\rm eff}=2m\nu,
+\qquad
+\psi=\sqrt{\rho^R}
+\exp\left(\frac{iS}{\hbar_{\rm eff}}\right)
+\]
+
+と置くことで、連続の式と Nelson 作用の停留条件を
+
+\[
+i\hbar_{\rm eff}\partial_t\psi
+=
+\left[
+-\frac{\hbar_{\rm eff}^2}{2m}\Delta+U
+\right]\psi
+\]
+
+へ書き換えられる \cite{nelson1966,guerra_morato1983,yasue1981,zambrini1986}。これは正の密度を持つ局所領域での厳密な表示変換であり、多重連結領域の循環量子化、節を横切る位相接続、微視的な停留点選択を与えない。
 
 \hypertarget{ux505cux7559ux70b9ux306bux3064ux3044ux3066ux8a00ux3048ux308bux3053ux3068}{%
 \section{停留点について言えること}\label{ux505cux7559ux70b9ux306bux3064ux3044ux3066ux8a00ux3048ux308bux3053ux3068}}
@@ -1666,10 +1601,10 @@ u(x,t)
 
 である。これは Nelson 作用が、単なる熱拡散ではなく、確率流と密度勾配の前後対称な変分力学を表すことを示す。
 
-\hypertarget{ux7d50ux679cux306eux78baux7acbux5ea6ux3068ux7269ux7406ux7684ux63a5ux7d9a}{%
-\section{結果の確立度と物理的接続}\label{ux7d50ux679cux306eux78baux7acbux5ea6ux3068ux7269ux7406ux7684ux63a5ux7d9a}}
+\hypertarget{ux7d50ux679cux306eux5c0eux51faux72b6ux614bux3068ux7269ux7406ux7684ux63a5ux7d9a}{%
+\section{結果の導出状態と物理的接続}\label{ux7d50ux679cux306eux5c0eux51faux72b6ux614bux3068ux7269ux7406ux7684ux63a5ux7d9a}}
 
-本章の主張を確立度で分ける。
+本章の主張を導出状態で分ける。
 
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
@@ -1679,7 +1614,7 @@ u(x,t)
 \begin{minipage}[b]{\linewidth}\raggedright
 主張
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-確立度
+導出状態
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 根拠
 \end{minipage} \\
@@ -1689,7 +1624,7 @@ u(x,t)
 \endlastfoot
 定義した線形 Gauss 型作用の \(C^1\) 収束 & 厳密結果 & 第4.4節と付録B \\
 Guerra--Morato 表示と Nelson 表示の一致 & 厳密結果 & 第4.5節の部分積分 \\
-収束する有限次元停留点列の極限 & 厳密結果 & 第4.6節。ただし停留点列の存在を仮定 \\
+収束する有限次元停留点列の極限 & 厳密結果 & 第4.6節。停留点列の存在と収束に仮説依存 \\
 弱開放ミクロモデルから線形 Gauss 型表示を得ること & 予想・未解決 & 一様な縮約誤差が未評価 \\
 微視的時間発展が Nelson 停留点を選ぶこと & 予想・未解決 & 選択機構が未構成 \\
 \end{longtable}
@@ -1778,7 +1713,7 @@ Fourier 切断 & \(\varepsilon_N=T^2/(Nh^2)\) & \(N(h/T)^2\gg1\) & 作用と第1
 \chapter{弱開放な測定過程、有限 Hamiltonian 装置部品、2境界履歴集団}\label{ux5f31ux958bux653eux306aux6e2cux5b9aux904eux7a0bux6709ux9650-hamiltonian-ux88c5ux7f6eux90e8ux54c12ux5883ux754cux5c65ux6b74ux96c6ux56e3}}
 
 \begin{statusbox}
-位置づけ：現行の弱開放測定過程と閉鎖補助装置を分け、最小結果符号化器、終端比較器、`[R]` の確立度を明示する。
+位置づけ：現行の弱開放測定過程と閉鎖補助装置を分け、最小結果符号化器、終端比較器、`[R]` の導出状態を明示する。
 \end{statusbox}
 
 \hypertarget{ux7b2ciiux90e8ux306eux76eeux7684}{%
@@ -3145,8 +3080,10 @@ O
 
 固定殻の一様周辺は厳密結果である。上の弱開放補正は、\(\varepsilon_\ell\) と \(\varepsilon_{\rm mix}\) を測定し、元の有限モデルと比較する範囲でのみ近似結果として採用する。
 
-\hypertarget{ux901aux5e38ux306eux591aux30e2ux30fcux30c9ux6d74ux304cux5931ux6557ux3059ux308bux7406ux7531}{%
-\section{通常の多モード浴が失敗する理由}\label{ux901aux5e38ux306eux591aux30e2ux30fcux30c9ux6d74ux304cux5931ux6557ux3059ux308bux7406ux7531}}
+\hypertarget{ux591aux30e2ux30fcux30c9ux88dcux52a9ux6bd4ux8f03ux30682ux30e2ux30fcux30c9ux6761ux4ef6}{%
+\section{多モード補助比較と2モード条件}\label{ux591aux30e2ux30fcux30c9ux88dcux52a9ux6bd4ux8f03ux30682ux30e2ux30fcux30c9ux6761ux4ef6}}
+
+ここでは、多数の残余作用モードを現行の Bell 重み生成器として採用せず、2モード条件の成立範囲を調べる補助比較モデルとして用いる。
 
 ソフトモードが \(N\) 個の残余作用モードと固定総エネルギーを自由に分け合うとする。各モードが1つの調和正準対で、全単体
 
@@ -3201,7 +3138,7 @@ E_*+\kappa I_0
 
 を代入すると、\(\cos^2\Delta_{ab}\) 以上の高調波が一般に残る。
 
-したがって「大きな浴ほど Bell の余弦則に近づく」という主張は成立しない。純粋な線形整合重みに必要なのは、
+したがって「大きな浴ほど Bell の余弦則に近づく」という主張は成立しない。この否定的結果は、中心モデルに必要な構造を次のように限定する。
 
 \begin{itemize}
 \tightlist
@@ -3213,7 +3150,7 @@ E_*+\kappa I_0
   総作用を保つ向き混合。
 \end{itemize}
 
-という最小構造である。追加浴は混合器のカオスを作る補助であり、しきい値依存エネルギーを自由に共有する作用分配自由度にしてはならない。
+という最小構造である。追加浴は混合器の複雑な運動を作る補助にできるが、しきい値依存エネルギーを自由に共有する作用分配自由度にしてはならない。多モード補助比較を残す理由は、この2モード条件を論証するためであり、多モード構成自体を現行モデルへ採用するためではない。
 
 \hypertarget{ux7d50ux679cux9818ux57dfux306eux8ceaux91cfux5bfeux79f0ux6027}{%
 \section{結果領域の質量対称性}\label{ux7d50ux679cux9818ux57dfux306eux8ceaux91cfux5bfeux79f0ux6027}}
@@ -3323,11 +3260,11 @@ Bell 型余弦重みの角度依存性と線形確率変換は、異なる2つ�
 
 固定殻の閉鎖補助モデルでは一様周辺は厳密である。弱開放な現行モデルでは、総作用漏れ、有限時間混合、入口準備幅が主要誤差になる。次章ではまず閉鎖補助モデルの厳密な体積計算を行い、その物理的試行予測が \texttt{{[}R{]}} と弱開放近似へ依存することを分けて示す。
 
-\hypertarget{ux7d42ux7aefux6574ux5408ux4f53ux7a4dux3068ux4eeeux8aacux4f9dux5b58ux306e-bell-ux578bux5171ux540cux78baux7387}{%
-\chapter{終端整合体積と仮説依存の Bell 型共同確率}\label{ux7d42ux7aefux6574ux5408ux4f53ux7a4dux3068ux4eeeux8aacux4f9dux5b58ux306e-bell-ux578bux5171ux540cux78baux7387}}
+\hypertarget{ux5883ux754cux7d71ux8a08ux539fux7406ux306eux4e0bux3067ux306eux7d42ux7aefux6574ux5408ux4f53ux7a4dux3068-bell-ux578bux5171ux540cux6cd5ux5247}{%
+\chapter{2境界統計原理の下での終端整合体積と Bell 型共同法則}\label{ux5883ux754cux7d71ux8a08ux539fux7406ux306eux4e0bux3067ux306eux7d42ux7aefux6574ux5408ux4f53ux7a4dux3068-bell-ux578bux5171ux540cux6cd5ux5247}}
 
 \begin{statusbox}
-位置づけ：`[R]` を仮定した位相体積計算は厳密結果、実験頻度への適用は仮説依存結果、弱開放補正は近似結果として分ける。
+位置づけ：`[R]` を仮定した位相体積計算は厳密結果であり、`[R]` に仮説依存する。実験頻度への適用は予想・未解決、弱開放補正は近似結果である。
 \end{statusbox}
 
 \hypertarget{ux6709ux9650ux5e45ux306eux7d42ux7aefux6bd4ux8f03ux5668}{%
@@ -3653,7 +3590,7 @@ $$
 となる。$W_{AB}/Z_{a,b}$ を計算すれば共同法則を得る。
 \end{proof}
 
-この定理の確立度を、計算と物理的主張に分ける。
+この定理の導出状態を、計算と物理的主張に分ける。
 
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
@@ -3663,7 +3600,7 @@ $$
 \begin{minipage}[b]{\linewidth}\raggedright
 主張
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-確立度
+導出状態
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 理由
 \end{minipage} \\
@@ -3671,10 +3608,10 @@ $$
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-\texttt{{[}S{]}}、\texttt{{[}M{]}}、\texttt{{[}R{]}} の下での \(W_{AB}\) と規格化 & 厳密結果 & 有限次元の位相体積積分と代数 \\
+\texttt{{[}S{]}}、\texttt{{[}M{]}}、\texttt{{[}R{]}} の下での \(W_{AB}\) と規格化 & 厳密結果 & 有限次元の位相体積積分と代数。\texttt{{[}R{]}} に仮説依存 \\
 閉鎖比較窓での \(\Pi_R(T)=E_*+\kappa I_- -h\) & 厳密結果 & \(I_-\) と \(h\) の保存 \\
 局所有限幅パルスと弱開放結合を含む共同法則 & 近似結果 & 補正は \(O(\varepsilon_{\rm pulse}+\varepsilon_{\rm open}+\varepsilon_\ell)\) \\
-実験の無条件試行頻度が \(P_R\) に従うこと & 仮説依存結果 & \texttt{{[}R{]}} の物理的生成が未導出 \\
+実験の無条件試行頻度が \(P_R\) に従うこと & 予想・未解決 & \texttt{{[}R{]}} に仮説依存し、物理的生成が未導出 \\
 弱開放な準備・測定・記録・再初期化周期から \texttt{{[}R{]}} が生じること & 予想・未解決 & 全周期と定常履歴測度が未構成 \\
 \end{longtable}
 
@@ -3848,38 +3785,35 @@ ABP_R(A,B\mid a,b)
 \hypertarget{bell-ux524dux63d0ux306eux4e00ux89a7}{%
 \section{Bell 前提の一覧}\label{bell-ux524dux63d0ux306eux4e00ux89a7}}
 
-本構成の Bell 前提を次のように分類する。
+相関式の再現と Bell の前提監査を分ける。現行構成の監査結果は次である。
 
-\begin{itemize}
-\tightlist
-\item
-  結果の確定性：満たす。各履歴は1つの固定指針領域を持つ。
-\item
-  局所決定論応答：完全な微視状態上で満たす。
-\item
-  固定微視状態での遠隔設定非依存性：局所記録時刻について満たす。
-\item
-  共通の測定設定独立分布：満たさない。
-\item
-  操作上の測定設定頻度：\(Z_{a,b}\) が一定なので保つ。
-\item
-  対称準備での非信号性：\texttt{{[}S{]}} の下で満たす。
-\item
-  任意準備での非信号性：証明していない。
-\item
-  観測済みデータの事後選別がないこと：物理的実装条件として別に要求する。
-\item
-  \texttt{{[}R{]}} を生む試行周期：未構成であり、物理的 Bell 予測はこの仮説に依存する。
-\end{itemize}
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+監査項目
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+現在の判定
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+根拠と残る条件
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+局所性 & 固定微視状態での局所応答は因子化する & 左右の記録形成前に遠隔設定への力学的依存はない。記録後の共通未来と \texttt{{[}R{]}} 後の履歴分布は別に扱う \\
+測定設定独立性 & 満たさない & 第7.6節のとおり、\texttt{{[}R{]}} 後の完全微視分布の台が設定に依存する。依存性は初期分布へ直接書き込まず、終端関数を全流れで引き戻すことで生じる \\
+結果の一意性 & 最小結果符号化器では満たす & 各履歴は1つの固定指針領域を持つ。ただし、設定と到来変数から結果を形成する一般測定器は未構成 \\
+事後選別 & 排除が必要 & 開始数、記録数、完了数、再初期化数を別々に数え、設定別・結果別の欠測がないことを確認する必要がある。結果依存の未完了試行を除けば事後選別になる \\
+非信号性 & \texttt{{[}S{]}} の対称準備では厳密 & 第7.8節で一側周辺は \(1/2\) になる。任意の偏った準備では未解決 \\
+試行測度 & \texttt{{[}R{]}} を入力している & Bell 重みは終端整合位相体積から得るが、実験の無条件試行頻度がこの測度に従う機構は未導出 \\
+\end{longtable}
+
+規格化因子 \(Z_{a,b}\) が一定なので、巨視的な測定設定頻度は基準分布から変わらない。一方、局所結果が確定した後の到達時間、滞在時間、有限浴へのエネルギー移動は、全試行を1回ずつ数える限り結果比率を変えない。これらを Bell 重みへ使うには結果依存の欠測が必要になり、事後選別となる。
 
 従って本論文は Bell の定理を否定しない。\texttt{{[}R{]}} を含む補助構成では、Bell 不等式を破る共同確率と、そのために外れた前提を同じ数式の中で示す。これを現行の弱開放モデルの物理的予測にするには、\texttt{{[}R{]}} と試行周期の接続が必要である。
-
-\hypertarget{ux5f8cux6bb5ux6642ux9593ux306fux7d50ux679cux91cdux307fux3092ux4f5cux3089ux306aux3044}{%
-\section{後段時間は結果重みを作らない}\label{ux5f8cux6bb5ux6642ux9593ux306fux7d50ux679cux91cdux307fux3092ux4f5cux3089ux306aux3044}}
-
-局所結果が確定した後、全試行を結果に関係なく1回ずつ数えるなら、比較器への到達時間、後段反応座標の滞在時間、有限浴へのエネルギー移動は、試行番号で数えた結果比率を変えない。変化し得るのは時刻占有率または有限期限までの完了率である。
-
-結果依存の未完了試行や時間切れ試行を除けば、事後選別が生じる。本論文の \(W_{AB}\) は通過流束や完了率ではなく、\texttt{{[}R{]}} が物理的集団とする終端整合位相体積である。共有浴と待ち時間を含む一般的な否定結果は第8.5節と付録C.11にまとめる。
 
 \hypertarget{ux672cux7ae0ux306eux7d50ux8ad6-4}{%
 \section{本章の結論}\label{ux672cux7ae0ux306eux7d50ux8ad6-4}}
@@ -3896,92 +3830,17 @@ E_*+\kappa I_- -h
 
 2モード作用分配系の一様密度、対称準備、\texttt{{[}R{]}} を用いると Bell 型余弦共同確率を厳密に計算できる。確率重みの入力は \texttt{{[}R{]}} であり、時計相補性や順時間的待ち時間ではない。Bell の前提違反は測定設定独立性に位置し、\texttt{{[}S{]}} の下で巨視的な測定設定頻度と非信号性は保たれる。
 
-ただし実験の無条件試行頻度がこの共同法則に従うという主張は、\texttt{{[}R{]}} に依存する仮説依存結果である。弱開放な試行周期から \texttt{{[}R{]}} を導くこと、一般測定相互作用を構成すること、結果依存の欠測を排除することが残る。
+ただし実験の無条件試行頻度がこの共同法則に従うという主張は予想・未解決であり、\texttt{{[}R{]}} に仮説依存する。弱開放な試行周期から \texttt{{[}R{]}} を導くこと、一般測定相互作用を構成すること、結果依存の欠測を排除することが残る。
 
-\hypertarget{ux30e2ux30c7ux30ebux306eux904bux7528ux72b6ux614bux7d50ux679cux306eux78baux7acbux5ea6ux9069ux7528ux9650ux754c}{%
-\chapter{モデルの運用状態、結果の確立度、適用限界}\label{ux30e2ux30c7ux30ebux306eux904bux7528ux72b6ux614bux7d50ux679cux306eux78baux7acbux5ea6ux9069ux7528ux9650ux754c}}
+\hypertarget{ux8fd1ux4f3cux8aa4ux5deeux9069ux7528ux9650ux754cux53cdux8a3cux6761ux4ef6}{%
+\chapter{近似誤差、適用限界、反証条件}\label{ux8fd1ux4f3cux8aa4ux5deeux9069ux7528ux9650ux754cux53cdux8a3cux6761ux4ef6}}
 
 \begin{statusbox}
-位置づけ：現行・補助・不採用モデルを分け、厳密・近似・仮説依存・未解決の結果と、その性質を別々に整理する。
+位置づけ：近似結果の適用範囲、`[R]` の未導出性、Bell 監査から残る反証条件と未解決問題をまとめる。
 \end{statusbox}
 
-\hypertarget{ux30e2ux30c7ux30ebux306eux904bux7528ux72b6ux614b}{%
-\section{モデルの運用状態}\label{ux30e2ux30c7ux30ebux306eux904bux7528ux72b6ux614b}}
-
-本論文で用いたモデルを、真偽や証明状態ではなく研究上の役割で分類する。
-
-\begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}@{}}
-\toprule\noalign{}
-\begin{minipage}[b]{\linewidth}\raggedright
-モデル
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-運用状態
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-役割と限界
-\end{minipage} \\
-\midrule\noalign{}
-\endhead
-\bottomrule\noalign{}
-\endlastfoot
-有限 Hamiltonian 部分を持つ弱開放系 & 現行モデル & 外部との流入・流出、制御仕事、測定、記録、消去、再初期化を含む。全周期は未完成 \\
-1試行内の有限閉鎖系 & 補助モデル & 正準写像、保存量、位相体積を厳密に計算する。\(\varepsilon_{\rm open}\ll1\) の窓だけで用いる \\
-線形 Gauss 型確率表示 & 補助モデル & 第I部の作用収束定理の対象。現行モデルからの一般導出は未達 \\
-OU 位相表示 & 補助モデル & 弱開放部分系の緩和と回転を例示する \\
-最小結果符号化器 & 補助モデル & 既存の2値符号を応答モードと固定指針へ写す。一般測定器ではない \\
-2モード作用分配系と相補時計 & 補助モデル & 一様なしきい値密度と終端比較を明示する \\
-局所記録後の順時間的共有浴による重みづけ & 不採用モデル & 全試行を1回ずつ数える結果領域質量を変えない \\
-結果依存滞在時間による重みづけ & 不採用モデル & 試行頻度ではなく時刻占有率または完了率を変える \\
-多数の残余作用モードによる一様しきい値 & 不採用モデル & 非線形累積分布と高次調波を生む \\
-2つの相補終端半空間の等重み平均 & 不採用モデル & 余弦項を消す \\
-\end{longtable}
-
-現行モデルに未解決部分があることと、補助モデル内部に厳密結果があることは両立する。不採用モデルにも、成立しない条件を示す厳密な否定的結果がある。
-
-\hypertarget{ux5c0eux51faux7d50ux679cux306eux78baux7acbux5ea6}{%
-\section{導出結果の確立度}\label{ux5c0eux51faux7d50ux679cux306eux78baux7acbux5ea6}}
-
-主要結果を確立度と性質の2列に分ける。
-
-\begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}@{}}
-\toprule\noalign{}
-\begin{minipage}[b]{\linewidth}\raggedright
-結果
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-確立度
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-性質
-\end{minipage} \\
-\midrule\noalign{}
-\endhead
-\bottomrule\noalign{}
-\endlastfoot
-線形 Gauss 型粗視化作用のパラメータ \(C^1\) 収束 & 厳密結果 & 肯定的結果・成立条件 \\
-Guerra--Morato 表示と Nelson 表示の一致 & 厳密結果 & 肯定的結果・成立条件 \\
-弱開放ミクロモデルから一般の線形表示への縮約 & 予想・未解決 & 中心課題 \\
-微視的時間発展による Nelson 停留点の選択 & 予想・未解決 & 中心課題 \\
-閉鎖比較窓の有限幅読出し & 厳密結果 & 肯定的結果 \\
-固定総作用殻の \(p(h)=1/E_\ell\) & 厳密結果 & 肯定的結果・成立条件 \\
-\texttt{{[}R{]}} の下での終端整合体積と Bell 型共同確率 & 厳密結果 & 肯定的結果・成立条件 \\
-実験の無条件試行頻度が \texttt{{[}R{]}} に従うこと & 仮説依存結果 & 肯定的主張 \\
-弱開放な試行周期から \texttt{{[}R{]}} が生じること & 予想・未解決 & 中心課題 \\
-弱開放結合、有限混合、有限パルスによる Bell 補正 & 近似結果 & 成立条件・適用限界 \\
-\texttt{{[}S{]}} と \texttt{{[}R{]}} の下での非信号性 & 厳密結果 & 肯定的結果・成立条件 \\
-任意の偏った準備での非信号性 & 予想・未解決 & 適用限界 \\
-順時間的共有浴と滞在時間が試行頻度を変えないこと & 厳密結果 & 否定的結果 \\
-多数の残余作用モードが純粋な余弦則を壊すこと & 厳密結果 & 否定的結果 \\
-Bell 型余弦則が Wallstrom 量子化を含意しないこと & 厳密結果 & 否定的結果 \\
-\end{longtable}
-
-同じ Bell 共同確率についても、\texttt{{[}R{]}} を入力した後の積分と、\texttt{{[}R{]}} 自体の物理的起源は別の結果である。後段の代数が厳密であっても、未導出の入力が導出済みに変わるわけではない。
-
-\hypertarget{ux5f31ux958bux653eux6027ux30a8ux30cdux30ebux30aeux30fcux53ceux652fux8a66ux884cux5468ux671f}{%
-\section{弱開放性、エネルギー収支、試行周期}\label{ux5f31ux958bux653eux6027ux30a8ux30cdux30ebux30aeux30fcux53ceux652fux8a66ux884cux5468ux671f}}
+\hypertarget{ux5f31ux958bux653eux6027ux3068ux4e3bux8981ux8aa4ux5dee}{%
+\section{弱開放性と主要誤差}\label{ux5f31ux958bux653eux6027ux3068ux4e3bux8981ux8aa4ux5dee}}
 
 現行モデルでは、有限装置部分の1周期収支を
 
@@ -4011,9 +3870,9 @@ Q_{\rm out}
 0
 \]
 
-が必要である。これは各項が零であることを意味しない。仕事供給と外部への排熱が釣り合うことを意味する。
+が必要である。これは各項が零であることを意味せず、仕事供給と外部への排熱が釣り合うことを意味する。
 
-閉鎖補助モデルを1試行へ用いる小さい量は
+1試行の閉鎖補助モデルを用いる小さい量は
 
 \[
 \varepsilon_{\rm open}
@@ -4028,7 +3887,7 @@ E_{\rm ref}
 }.
 \]
 
-2モード作用分配系には、さらに総作用漏れ \(\varepsilon_\ell\)、有限時間混合誤差 \(\varepsilon_{\rm mix}\)、局所パルス誤差 \(\varepsilon_{\rm pulse}\)、終端応答幅の無次元量 \(\varepsilon_R\) がある。しきい値が殻の端点から離れ、これらが一様に小さい範囲では、Bell 共同確率の主要な補正を
+2モード作用分配系には、総作用漏れ \(\varepsilon_\ell\)、有限時間混合誤差 \(\varepsilon_{\rm mix}\)、局所パルス誤差 \(\varepsilon_{\rm pulse}\)、終端応答幅の無次元量 \(\varepsilon_R\) が加わる。しきい値が作用殻の端点から離れ、各誤差が結果と測定設定に一様な範囲では、Bell 共同法則の補正を
 
 \[
 O
@@ -4045,9 +3904,9 @@ O
 \right)
 \]
 
-と整理する。この式は誤差の分類であり、全係数を与えた一様定理ではない。各小さい量を独立に変え、閉鎖補助モデルとの比較と収束試験を行ったときに限って近似結果として採用する。
+と整理する。この式は誤差の分類であり、全係数を与えた一様定理ではない。各小さい量を独立に変え、閉鎖補助モデルとの比較と収束試験を行った範囲でのみ近似結果として採用する。
 
-結果または測定設定に相関したエネルギー漏れ、リセット失敗、完了率は、単なる可視度低下では済まない。規格化因子、設定頻度、一側周辺、高次調波を変え得る。従って次を別々に測る必要がある。
+結果または測定設定に相関したエネルギー漏れ、混合誤差、リセット失敗、完了率は、単なる可視度低下では済まない。規格化因子、設定頻度、一側周辺、高次調波を変え得るため、次を別々に測る必要がある。
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -4064,7 +3923,79 @@ O
   各段階の結果別・設定別の交換エネルギーと所要時間。
 \end{enumerate}
 
-通常の順時間的リセットは入口巨視状態を再現できるが、それだけで初期・終端の積測度 \texttt{{[}R{]}} を与えない。結果依存の失敗を除外して Bell 重みを作るなら事後選別である。
+\hypertarget{ux30e2ux30fcux30c9ux6761ux4ef6ux3068ux7d42ux7aefux5e45}{%
+\section{2モード条件と終端幅}\label{ux30e2ux30fcux30c9ux6761ux4ef6ux3068ux7d42ux7aefux5e45}}
+
+一様密度からのずれを
+
+\[
+p(h)
+=
+\frac1{E_\ell}
+\left[
+1+\varepsilon r(h)
+\right],
+\qquad
+\int_0^{E_\ell}r(h)dh=0
+\]
+
+と書くと、累積整合重みは
+
+\[
+F(x)
+=
+\frac{x}{E_\ell}
++
+\frac{\varepsilon}{E_\ell}
+\int_0^x r(h)dh
+\]
+
+となる。\(x=C-ABK\cos\Delta\) を代入したとき、第2項は一般に高次調波を生む。
+
+第6.8節の多モード補助比較では、ソフトモードが \(N\) 個の残余作用モードと総作用を共有すると
+
+\[
+F_N(x)
+=
+1-
+\left(
+1-\frac{x}{E_\ell}
+\right)^N
+\]
+
+となり、\(N>1\) では線形でない。この厳密な否定的結果は、多モード構成を現行モデルへ採用するためではなく、純粋な余弦則に必要な2モード条件を示すために用いる。
+
+理想終端関数
+
+\[
+G_R
+=
+\mathbf1_{\{\Pi_R\geq0\}}
+\]
+
+を幅 \(\epsilon_R\) の滑らかな応答 \(g_{\epsilon_R}\) へ置き換えると、
+
+\[
+F_{\epsilon_R}(x)
+=
+\int_0^{E_\ell}
+\frac{dh}{E_\ell}
+g_{\epsilon_R}(x-h)
+\]
+
+となる。\(x\) が \(0\) と \(E_\ell\) の両端から十分離れ、応答核が平行移動共変なら、主要項は \(x/E_\ell\) である。両端へ近づくと切断補正が入り、零しきい値領域にも有限の背景重みが生じ得る。
+
+終端幅を小さくするだけでは物理的予測が改善するとは限らない。記録雑音、作用漏れ、有限パルス誤差より狭い終端幅を選べば未記述の補正が支配するため、
+
+\[
+\epsilon_R
+\gg
+\left|
+\delta\Pi_R
+\right|
+\]
+
+を保ちながら角度依存を分解できる範囲が必要である。
 
 \hypertarget{r-ux306eux7269ux7406ux7684ux5730ux4f4d}{%
 \section{\texorpdfstring{\texttt{{[}R{]}} の物理的地位}{{[}R{]} の物理的地位}}\label{r-ux306eux7269ux7406ux7684ux5730ux4f4d}}
@@ -4099,64 +4030,12 @@ d\Gamma_i\,d\Gamma_f
 
 から \texttt{{[}R{]}} の積形式を得る。ただし2つの境界密度を掛けて照合する規則自体が、追加の全履歴統計原理である。
 
-同じ読出し \(\Pi_R(T)=x-h\) に対し、2つの相補的半空間を等重みで平均すると
+従って、\texttt{{[}R{]}} を仮定した終端整合体積の計算が厳密であることと、実験の無条件試行頻度がその測度に従うことを分ける。後者は予想・未解決であり、\texttt{{[}R{]}} に仮説依存する。
 
-\[
-\frac12
-\left[
-\frac{x}{E_\ell}
-+
-1-\frac{x}{E_\ell}
-\right]
-=
-\frac12
-\]
+\hypertarget{ux5bfeux79f0ux6e96ux5099ux306eux9069ux7528ux9650ux754c}{%
+\section{対称準備の適用限界}\label{ux5bfeux79f0ux6e96ux5099ux306eux9069ux7528ux9650ux754c}}
 
-となり、差動作用の余弦項は消える。無向きの時計相補性だけでは Bell 重みを保てない。
-
-\hypertarget{ux9806ux6642ux9593ux7684ux5171ux6709ux6d74ux3068ux5f85ux3061ux6642ux9593ux306eux5426ux5b9aux7684ux7d50ux679c}{%
-\section{順時間的共有浴と待ち時間の否定的結果}\label{ux9806ux6642ux9593ux7684ux5171ux6709ux6d74ux3068ux5f85ux3061ux6642ux9593ux306eux5426ux5b9aux7684ux7d50ux679c}}
-
-局所記録時刻 \(t_m\) で、位相空間を4つの互いに交わらない記録領域
-
-\[
-\Gamma_{AB}(t_m)
-\]
-
-に分ける。\(t>t_m\) の共有浴を含む Hamiltonian 流れを \(\Phi^{t-t_m}\) とする。Liouville 測度 \(\mu\) に対して
-
-\[
-\mu
-\left[
-\Phi^{t-t_m}\Gamma_{AB}(t_m)
-\right]
-=
-\mu
-\left[
-\Gamma_{AB}(t_m)
-\right]
-\]
-
-である。Hamiltonian 流れが全単射で位相体積を保存するからである。
-
-従って記録形成後に左右の写しを共有浴へ結合しても、全試行を1回ずつ数える結果領域の質量は変わらない。結果に依存する後段時間についても同じである。\(n\) 番目の試行の結果を \(\kappa_n=(A_n,B_n)\)、有限の完了時間を \(\tau_n\) とすると、全試行を数える頻度
-
-\[
-\frac1N
-\sum_{n=1}^{N}
-\mathbf1_{\{\kappa_n=(A,B)\}}
-\]
-
-は \(\tau_n\) に依存しない。
-
-共有浴や待ち時間が変え得るのは、浴状態との相関、時刻占有率、有限期限までの完了率である。結果に依存する時間切れまたは未完了試行を除外すれば、観測分布は再重みづけされるが、それは事後選別である。
-
-従って、順時間的な共有浴雑音の漏れ、結果依存滞在時間、反応座標の通過速度は、それだけでは \texttt{{[}R{]}} の代わりにならない。
-
-\hypertarget{ux5bfeux79f0ux6e96ux5099ux3068ux504fux3063ux305fux6e96ux5099}{%
-\section{対称準備と偏った準備}\label{ux5bfeux79f0ux6e96ux5099ux3068ux504fux3063ux305fux6e96ux5099}}
-
-一般の基準結果重みを \(w_{AB}\) とすると、
+第7章の非信号性は \texttt{{[}S{]}} の対称準備を必要とする。一般の基準結果重みを \(w_{AB}\) とすると、
 
 \[
 P_w(A,B\mid a,b,R)
@@ -4192,137 +4071,12 @@ w_{++}=w_{--},
 w_{+-}=w_{-+}
 \]
 
-があれば一側結果周辺は \(1/2\) に保たれる。しかし偶奇領域の基準質量が異なると、全整合体積
+があれば一側結果周辺は \(1/2\) に保たれる。しかし偶奇領域の基準質量が異なると、全整合体積が測定設定に依存し得る。結果周辺と設定頻度の両方を最も単純に保つ条件は \(w_{AB}=1/4\) である。
 
-\[
-Z_{a,b}
-=
-C
--
-Kc
-\sum_{A,B}ABw_{AB}
-\]
+従って \texttt{{[}S{]}} の非信号性は対称準備についての成立条件であり、任意準備についての定理ではない。偏った準備装置まで含む2境界問題で非信号性が回復するかは未解決である。
 
-が測定設定に依存し得る。結果周辺と設定頻度の両方を最も単純に保つ条件は \(w_{AB}=1/4\) である。
-
-例えば B 側の結果種を \(B=+1\) に限定した準備が操作可能なら、
-
-\[
-P_R(A=+1\mid a,b,B=+1)
-=
-\frac12
-\left[
-1-V_{\rm eff}\cos\Delta_{ab}
-\right]
-\]
-
-となり、A 側周辺は B 側の測定設定に依存する。従って \texttt{{[}S{]}} の非信号性は対称準備についての成立条件であり、任意準備についての定理ではない。
-
-\hypertarget{ux30e2ux30fcux30c9ux4f5cux7528ux5206ux914dux7cfbux306eux9811ux5065ux6027}{%
-\section{2モード作用分配系の頑健性}\label{ux30e2ux30fcux30c9ux4f5cux7528ux5206ux914dux7cfbux306eux9811ux5065ux6027}}
-
-一様密度からのずれを
-
-\[
-p(h)
-=
-\frac1{E_\ell}
-\left[
-1+\varepsilon r(h)
-\right],
-\qquad
-\int_0^{E_\ell}r(h)dh=0
-\]
-
-と書くと、累積整合重みは
-
-\[
-F(x)
-=
-\frac{x}{E_\ell}
-+
-\frac{\varepsilon}{E_\ell}
-\int_0^x r(h)dh
-\]
-
-となる。\(x=C-ABK\cos\Delta\) を代入したとき、第2項は一般に高次調波を生む。
-
-ソフトモードが \(N\) 個の残余作用モードと総エネルギーを共有する場合には、
-
-\[
-F_N(x)
-=
-1-
-\left(
-1-\frac{x}{E_\ell}
-\right)^N
-\]
-
-であり、\(N>1\) では線形でない。従って不完全混合、総作用の漏れ、追加の残余作用モードは、可視度低下だけでなく高次調波として現れ得る。
-
-比較窓中に \(E_\ell\) が相対量 \(\varepsilon_\ell\) だけ変化しても、その変化が結果と設定から独立で、しきい値が端点から離れていれば、主要補正は \(O(\varepsilon_\ell)\) である。結果依存の漏れはこの一様評価を破り、別の測定設定依存性を導入する。
-
-\hypertarget{ux7d42ux7aefux5e45ux3068ux5207ux65adux7aef}{%
-\section{終端幅と切断端}\label{ux7d42ux7aefux5e45ux3068ux5207ux65adux7aef}}
-
-理想終端関数
-
-\[
-G_R
-=
-\mathbf1_{\{\Pi_R\geq0\}}
-\]
-
-を幅 \(\epsilon_R\) の滑らかな応答 \(g_{\epsilon_R}\) へ置き換えると、
-
-\[
-F_{\epsilon_R}(x)
-=
-\int_0^{E_\ell}
-\frac{dh}{E_\ell}
-g_{\epsilon_R}(x-h)
-\]
-
-となる。\(x\) が \(0\) と \(E_\ell\) の両端から十分離れ、応答核が平行移動共変なら、主要項は \(x/E_\ell\) である。両端へ近づくと切断補正が入り、零しきい値領域にも有限の背景重みが生じ得る。
-
-終端幅を小さくするだけでは物理的予測が改善するとは限らない。記録雑音、作用漏れ、有限パルス誤差より狭い終端幅を選べば、未記述の補正が支配的になる。適用条件は
-
-\[
-\epsilon_R
-\gg
-\left|
-\delta\Pi_R
-\right|
-\]
-
-を保ちながら、角度依存を分解できるほど \(\epsilon_R\) が小さい範囲である。
-
-\hypertarget{ux8ffdux52a0ux53cdux5fdcux5ea7ux6a19ux306bux4f9dux5b58ux3059ux308bux5e30ux7d50}{%
-\section{追加反応座標に依存する帰結}\label{ux8ffdux52a0ux53cdux5fdcux5ea7ux6a19ux306bux4f9dux5b58ux3059ux308bux5e30ux7d50}}
-
-終端比較器の後に、利用可能エネルギー
-
-\[
-x_{AB}
-=
-E_*+\kappa I_-^{AB}
-\]
-
-で自由反応座標を距離 \(\ell_g\) だけ進ませる追加設計を考える。質量を \(M_g\) とすれば、
-
-\[
-\tau_g(x)
-=
-\ell_g
-\sqrt{
-\frac{M_g}{2x}
-}.
-\]
-
-\(E_*>0\) なら完了時間に一様上界がつく一方、Bell 可視度は下がる。この同時変化は、自由反応座標を追加した特定の表示装置の帰結である。第II部の必須モデルから一般に従う予測ではなく、後段設計を採用した場合だけ検査できる。
-
-\hypertarget{ux4f59ux5f26ux5247ux3068-tsirelson-ux9650ux754c}{%
-\section{余弦則と Tsirelson 限界}\label{ux4f59ux5f26ux5247ux3068-tsirelson-ux9650ux754c}}
+\hypertarget{tsirelson-ux9650ux754cux3068-wallstrom-ux554fux984c}{%
+\section{Tsirelson 限界と Wallstrom 問題}\label{tsirelson-ux9650ux754cux3068-wallstrom-ux554fux984c}}
 
 本構成が直接与えるのは、実2次元の等振幅伝達ベクトルと2次差動比較器による
 
@@ -4344,24 +4098,9 @@ I_-
 2\sqrt2
 \]
 
-は \(0\leq V_{\rm eff}\leq1\) と、この比較器設計の帰結である。
+は \(0\leq V_{\rm eff}\leq1\) と、この比較器設計の帰結である。一般の非負スカラー比較関数を許せば異なる相関表を構成できるため、Tsirelson 限界を独立な一般原理から導いたとは言えない。
 
-一般の非負スカラー比較関数を許せば、異なる相関表を構成できる。本論文は、回転対称性、合成則、情報原理、Hamiltonian 安定性から2次比較器を一意に選ぶ定理を持たない。従って Tsirelson 限界を独立な一般原理から導いたとは言えない。
-
-\hypertarget{wallstrom-ux554fux984c}{%
-\section{Wallstrom 問題}\label{wallstrom-ux554fux984c}}
-
-第I部の Nelson 表示から一般の Schrödinger 理論を再構成するには、配置空間の閉路に沿う位相循環を量子化する必要があり、Wallstrom 問題が残る \cite{wallstrom1994}。
-
-第II部の余弦は、伝達ベクトルの内積
-
-\[
-u_A\cdot u_B
-\propto
-\cos\Delta_{ab}
-\]
-
-から生じる。これは Bell 実験の設定差に対する共同確率を与えるが、配置空間位相 \(S(x)\) の閉路条件
+第I部の Nelson 表示から一般の Schrödinger 理論を再構成するには、配置空間の閉路に沿う位相循環を量子化する必要があり、Wallstrom 問題が残る \cite{wallstrom1994}。第II部の余弦は伝達ベクトルの内積から生じるが、配置空間位相 \(S(x)\) の閉路条件
 
 \[
 \oint\nabla S\cdot d\ell
@@ -4395,7 +4134,7 @@ u_A\cdot u_B
   次試行の入口分布が前試行の結果または設定に依存しないかを検査する。
 \end{enumerate}
 
-具体的な数値手順、誤差指標、再現命令は付録C.12、付録E、\texttt{VALIDATION.md} に置く。
+具体的な実行命令、標本数、許容誤差、検査結果は \texttt{VALIDATION.md} に置く。
 
 \hypertarget{ux6b8bux308bux8ab2ux984c}{%
 \section{残る課題}\label{ux6b8bux308bux8ab2ux984c}}
@@ -4428,11 +4167,9 @@ u_A\cdot u_B
 \hypertarget{ux6700ux7d42ux7d50ux8ad6}{%
 \section{最終結論}\label{ux6700ux7d42ux7d50ux8ad6}}
 
-現行モデルは、有限 Hamiltonian 部分を持つ弱開放系である。外部との流入・流出、制御仕事、記録、消去、再初期化を物理過程として追跡する。1試行内の閉鎖有限系、線形 Gauss 型確率表示、最小結果符号化器は、この現行モデルの一部を切り出した補助モデルである。
-
 第I部で厳密に確立したのは、指定した線形 Gauss 型確率表示に対する、繰り込み済み粗視化作用形式の定量的パラメータ \(C^1\) 収束である。これは弱開放ミクロモデルからの縮約、微視的 Hamiltonian 運動による Nelson 停留点選択、量子力学全体の導出ではない。
 
-第II部では、実2次元差動比較器、2モード作用分配系、相補的内部時計を有限 Hamiltonian 部品として接続した。閉鎖比較窓では
+第II部では、実2次元差動比較器、2モード作用分配系、相補的内部時計を有限 Hamiltonian 部品として接続し、閉鎖比較窓で
 
 \[
 \Pi_R(T)
@@ -4440,9 +4177,9 @@ u_A\cdot u_B
 E_*+\kappa I_- -h
 \]
 
-を有限幅でも厳密に読み出す。固定作用殻の一様密度、対称準備、\texttt{{[}R{]}} を仮定した後の Bell 型余弦共同確率も厳密に計算できる。Bell の前提違反は測定設定独立性に位置する。
+を有限幅でも厳密に読み出した。固定作用殻の一様密度、対称準備、\texttt{{[}R{]}} を仮定した後の Bell 型余弦共同確率も厳密に計算できる。Bell の前提違反は測定設定独立性に位置する。
 
-一方、\texttt{{[}R{]}} は現行モデルの力学と試行周期から導かれておらず、局所装置も一般測定相互作用には達していない。従って物理的な Bell 予測は仮説依存結果である。現在の到達点は、Bell 型確率構造の完全な力学的導出ではなく、厳密に実現した部品、制御された近似、未導出の統計入力、否定的結果の境界を明示した構成である。
+一方、\texttt{{[}R{]}} は現行モデルの力学と試行周期から導かれておらず、局所装置も一般測定相互作用には達していない。従って物理的な Bell 予測は予想・未解決であり、\texttt{{[}R{]}} に仮説依存する。現在の到達点は Bell 型確率構造の完全な力学的導出ではなく、厳密に実現した部品、制御された近似、未導出の統計入力、適用限界を分けた構成である。
 
 \appendix
 
@@ -5084,8 +4821,8 @@ C_{\mathcal K}\epsilon_\nu
 
 パルス形の台が重なる場合には、さらに Poisson 括弧 \(\{K_\mu,K_\nu\}\) に比例する補正が生じる。本論文では台を分離し、この補正を使わない。第7.1節の比較読出しは、読出し対象の作用が全比較窓 Hamiltonian と交換するため、この一般誤差評価より強い厳密式を持つ。
 
-\hypertarget{ux76f8ux88dcux7684ux5185ux90e8ux6642ux8a082ux5883ux754cux7167ux5408ux5411ux304dux5e73ux5747ux306eux5426ux5b9aux7d50ux679c}{%
-\section{相補的内部時計、2境界照合、向き平均の否定結果}\label{ux76f8ux88dcux7684ux5185ux90e8ux6642ux8a082ux5883ux754cux7167ux5408ux5411ux304dux5e73ux5747ux306eux5426ux5b9aux7d50ux679c}}
+\hypertarget{ux76f8ux88dcux7684ux5185ux90e8ux6642ux8a08ux30682ux5883ux754cux7167ux5408}{%
+\section{相補的内部時計と2境界照合}\label{ux76f8ux88dcux7684ux5185ux90e8ux6642ux8a08ux30682ux5883ux754cux7167ux5408}}
 
 まず、時計運動量を \(\pm\varrho_0\) の極小へ固定するだけの Hamiltonian
 
@@ -5315,53 +5052,6 @@ d\Gamma_i.
 \]
 
 これは \texttt{{[}R{]}} と同じ積形式である。Hamiltonian 流れの Jacobian が1であるため、逆向きに積分しても余分な密度因子は出ない。ただし2つの境界密度を掛けて照合する規則は、Hamilton 方程式とは別の全履歴統計原理である。
-
-最後に、向きの順序を指定しない素朴な平均を考える。同じスカラー読出し
-
-\[
-\Pi_R(T)
-=
-x-h,
-\qquad
-x
-=
-E_*+\kappa I_-,
-\]
-
-に対して正向き半空間を \(\Pi_R(T)\geq0\)、相補的半空間を \(\Pi_R(T)\leq0\) とし、\(0\leq x\leq E_\ell\) で一様な \(h\) を積分すると、
-
-\[
-F_+(x)
-=
-\int_0^{E_\ell}
-\frac{dh}{E_\ell}
-\mathbf1_{\{h\leq x\}}
-=
-\frac{x}{E_\ell},
-\]
-
-\[
-F_-(x)
-=
-\int_0^{E_\ell}
-\frac{dh}{E_\ell}
-\mathbf1_{\{h\geq x\}}
-=
-1-\frac{x}{E_\ell}.
-\]
-
-両者を等重みで足せば
-
-\[
-\frac12
-\left[
-F_+(x)+F_-(x)
-\right]
-=
-\frac12
-\]
-
-となり、\(I_-\) の余弦依存性は消える。したがって \(\varrho_A=-\varrho_B\) という無向きの相補性だけでは Bell 重みを保てない。順序付き境界領域を採るか、時間反転した領域では比較パルスの符号も反転する共変な追加構造が必要である。
 
 \hypertarget{ux5deeux52d5ux30e2ux30fcux30c9ux4f5cux7528}{%
 \section{差動モード作用}\label{ux5deeux52d5ux30e2ux30fcux30c9ux4f5cux7528}}
@@ -5760,645 +5450,6 @@ g_\epsilon(x)-g_\epsilon(x-E_\ell)
 
 両端近傍でのみ傾きと切片が変わる。したがって \(E_*\) は零しきい値領域を境界層から離す一方、可視度を低下させる。
 
-\hypertarget{ux9806ux6642ux9593ux7684ux5171ux6709ux6d74ux3068ux5f85ux3061ux6642ux9593ux306eux5426ux5b9aux7d50ux679c}{%
-\section{順時間的共有浴と待ち時間の否定結果}\label{ux9806ux6642ux9593ux7684ux5171ux6709ux6d74ux3068ux5f85ux3061ux6642ux9593ux306eux5426ux5b9aux7d50ux679c}}
-
-記録形成後の4領域を \(\Gamma_{AB}\) とし、共有浴を含む後段流れを \(\Psi^t\) とする。Liouville 測度に関して
-
-\[
-\mu(\Psi^t\Gamma_{AB})
-=
-\int_{\Psi^t\Gamma_{AB}}d\Gamma
-=
-\int_{\Gamma_{AB}}
-\left|
-\det D\Psi^t
-\right|
-d\Gamma.
-\]
-
-Hamiltonian 流れでは
-
-\[
-\det D\Psi^t=1
-\]
-
-なので
-
-\[
-\mu(\Psi^t\Gamma_{AB})
-=
-\mu(\Gamma_{AB}).
-\]
-
-したがって共通未来の浴結合は、順時間的集団の結果領域質量を変えない。終端条件づけを加えると
-
-\[
-\mu_R(\Gamma_{AB})
-\propto
-\int_{\Gamma_{AB}}
-G_R(\Psi^T z)
-d\mu(z)
-\]
-
-となり、結果領域質量は変わり得る。しかし変化を生むのは浴雑音の漏れそのものではなく、共通未来の流れと \(G_R\) を組み合わせた境界再重みづけである。
-
-同じ結論は後段の待ち時間にも成り立つ。\(n\) 番目の試行の結果を \(\kappa_n\)、有限完了時間を \(\tau_n\) とする。全試行を結果に関係なく1回ずつ数えるなら、
-
-\[
-\frac1N
-\sum_{n=1}^{N}
-\mathbf1_{\{\kappa_n=(A,B)\}}
-\]
-
-は \(\tau_n\) に依存しない。待ち時間は時刻占有率を変えるが、試行番号で数えた結果頻度を変えない。結果に依存する未完了試行または時間切れ試行を除外したときだけ観測頻度が変わり、その場合は事後選別である。
-
-\hypertarget{ux4ee3ux6570ux7684ux6574ux5408ux6027ux691cux67fb}{%
-\section{代数的整合性検査}\label{ux4ee3ux6570ux7684ux6574ux5408ux6027ux691cux67fb}}
-
-実装の最小検査は次である。
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  無作為な角と符号について、直接計算した \(\|u_A-u_B\|^2/4\) と解析式 \(I_-\) を比較する。
-\item
-  \(S^3\) 上の等方 Gauss 型ベクトルを規格化し、\(J_s/J_\ell\) の経験累積分布と一様累積分布を比較する。
-\item
-  \(Y_R\) を自由運動させた有限幅比較パルスを積分し、\(I_-\) と \(h\) の保存および \(\Delta\Pi_R=\kappa I_- -h\) を検査する。
-\item
-  終端半空間と相補時計の向き保存条件を検査する。
-\item
-  \(h\leq E_*+\kappa I_-\) の指示関数を Monte Carlo 積分し、解析的な \(W_{AB}\) と比較する。
-\item
-  4つの結果を規格化し、一側周辺残差と CHSH 値を計算する。
-\item
-  \(F_+(x)+F_-(x)=1\) を検査し、等重み向き平均で余弦項が消えることを確認する。
-\item
-  追加の残余作用モードを加え、予測される \(F_N(x)\) と高次調波を比較する。
-\end{enumerate}
-
-これらは Hamiltonian 混合の証明ではない。幾何、規格化、標本化実装に循環または符号誤りがないことを確認する代数的検証である。
-
-\hypertarget{gauss-ux578b-nelson-ux65b9ux7a0bux5f0fschruxf6dinger-ux8868ux793aou-ux88dcux52a9ux30e2ux30c7ux30eb}{%
-\chapter{Gauss 型 Nelson 方程式、Schrödinger 表示、OU 補助モデル}\label{gauss-ux578b-nelson-ux65b9ux7a0bux5f0fschruxf6dinger-ux8868ux793aou-ux88dcux52a9ux30e2ux30c7ux30eb}}
-
-\begin{statusbox}
-位置づけ：主定理の極限作用が与える物理像を示し、OU 表示を弱開放現行モデルそのものではなく補助モデルとして用いる。
-\end{statusbox}
-
-\hypertarget{ux9023ux7d9aux306eux5f0fux3092ux7d44ux307fux8fbcux3093ux3060ux5909ux5206}{%
-\section{連続の式を組み込んだ変分}\label{ux9023ux7d9aux306eux5f0fux3092ux7d44ux307fux8fbcux3093ux3060ux5909ux5206}}
-
-Nelson 作用を
-
-\[
-\mathcal A_{\mathrm{N}}[\rho,v]
-=
-\int\rho
-\left[
-\frac m2|v|^2
--\frac{m\nu^2}{2}|\nabla\log\rho|^2
--U
-\right]\,\mathrm{d} x\,\mathrm{d} t
-\]
-
-とする。制約
-
-\[
-\partial_t\rho+\nabla\cdot(\rho v)=0
-\]
-
-を Lagrange 乗数 \(S\) で課す。\(v\) について変分すると
-
-\[
-mv=\nabla S
-\]
-
-を得る。\(\rho\) について変分すると
-
-\[
-\partial_tS
-+\frac{|\nabla S|^2}{2m}
-+U
--2m\nu^2
-\frac{\Delta\sqrt\rho}{\sqrt\rho}
-=0
-\]
-
-となる。最後の項は密度勾配エネルギーの変分である。
-
-\hypertarget{schruxf6dinger-ux8868ux793a}{%
-\section{Schrödinger 表示}\label{schruxf6dinger-ux8868ux793a}}
-
-有効作用定数を
-
-\[
-\hbar_{\rm eff}=2m\nu
-\]
-
-とし、
-
-\[
-\psi=\sqrt\rho
-\exp\left(\frac{iS}{\hbar_{\rm eff}}\right)
-\]
-
-と置く。連続の式と前節の Hamilton--Jacobi 型方程式を合わせると
-
-\[
-i\hbar_{\rm eff}\partial_t\psi
-=
-\left[
--\frac{\hbar_{\rm eff}^2}{2m}\Delta+U
-\right]\psi
-\]
-
-を得る \cite{nelson1966,guerra_morato1983,yasue1981,zambrini1986}。
-
-この変換は、\(\rho>0\) で \(v\) が局所的に勾配場となる領域では厳密である。しかし、多重連結領域の循環量子化、節を横切る位相接続、一般の重ね合わせ状態は追加条件を必要とする \cite{wallstrom1994}。本論文の線形 Gauss 型定理は正の密度領域に限定され、この大域位相問題を解かない。
-
-\hypertarget{ux6b21ux5143-gauss-ux578bux5909ux5206}{%
-\section{1次元 Gauss 型変分}\label{ux6b21ux5143-gauss-ux578bux5909ux5206}}
-
-平均 \(q(t)\)、標準偏差 \(\sigma(t)>0\) の Gauss 型密度を考える。
-
-\[
-\rho(x,t)
-=
-\frac1{\sqrt{2\pi}\sigma}
-\exp\left[-\frac{(x-q)^2}{2\sigma^2}\right].
-\]
-
-連続の式を満たす最小の1次速度場は
-
-\[
-v=\dot q+\frac{\dot\sigma}{\sigma}(x-q),
-\]
-
-浸透速度は
-
-\[
-u=-\nu\frac{x-q}{\sigma^2}
-\]
-
-である。Gauss 平均を取ると
-
-\[
-\mathbb{E}[v^2]=\dot q^2+\dot\sigma^2,
-\qquad
-\mathbb{E}[u^2]=\frac{\nu^2}{\sigma^2}.
-\]
-
-調和ポテンシャル \(U=m\Omega^2x^2/2\) では
-
-\[
-\mathbb{E}[U]=\frac{m\Omega^2}{2}(q^2+\sigma^2)
-\]
-
-なので、第4.7節の有限次元作用を得る。
-
-\hypertarget{ux5e45ux65b9ux7a0bux5f0fux306eux4fddux5b58ux91cf}{%
-\section{幅方程式の保存量}\label{ux5e45ux65b9ux7a0bux5f0fux306eux4fddux5b58ux91cf}}
-
-幅方程式
-
-\[
-\ddot\sigma+\Omega^2\sigma-\frac{\nu^2}{\sigma^3}=0
-\]
-
-には
-
-\[
-E_\sigma
-=
-\frac12\dot\sigma^2
-+\frac12\Omega^2\sigma^2
-+\frac{\nu^2}{2\sigma^2}
-\]
-
-という保存量がある。\(\sigma\to0\) では最後の項が発散するため、正の初期幅は有限時間で零にならない。定常点 \(\sigma_*^2=\nu/\Omega\) の周囲では幅が振動する。
-
-この振る舞いは、通常の熱拡散が平衡へ単調緩和する像とは異なる。Nelson 作用では、確率流の運動項と密度勾配項が実時間の変分原理で釣り合い、可逆な幅運動を作る。
-
-\hypertarget{ux6b21ux5143-ou-ux4f4dux76f8ux88dcux52a9ux30e2ux30c7ux30eb}{%
-\section{2次元 OU 位相補助モデル}\label{ux6b21ux5143-ou-ux4f4dux76f8ux88dcux52a9ux30e2ux30c7ux30eb}}
-
-計算例として
-
-\[
-\,\mathrm{d} Z_t
-=
-(-\lambda I+\Omega J)Z_t\,\mathrm{d} t
-+\sqrt{2D}\,\,\mathrm{d} W_t,
-\qquad
-J=
-\begin{pmatrix}
-0&-1\\
-1&0
-\end{pmatrix}
-\]
-
-を考える \cite{uhlenbeck_ornstein1930}。\(\lambda>0\) なら定常共分散は
-
-\[
-\operatorname{Cov}(Z)=\frac D\lambda I
-\]
-
-である。\(\Omega=0\) なら定常過程は詳細釣り合いを満たす。\(\Omega\neq0\) では縮約された位相平面に定常回転流があり、通常の時間反転だけでは詳細釣り合いを満たさない。
-
-このことは閉鎖 Hamiltonian 補助モデルの可逆性と矛盾しない。\(\lambda\) は消去した外部自由度への有効緩和、\(\Omega\) は残した調和回転を表す。OU 表示は弱開放な観測部分系の計算用補助モデルであり、現行モデルの外部結合とエネルギー収支をそれ自体で与えるものではない。
-
-OU 近似を現行モデルへ用いるには、外部相関時間 \(\tau_{\rm corr}\) と遅い位相時間 \(\tau_{\rm slow}\) の比
-
-\[
-\varepsilon_{\rm M}
-=
-\frac{\tau_{\rm corr}}{\tau_{\rm slow}}
-\ll1
-\]
-
-を要求し、記憶核と有色雑音の残差を測る必要がある。本付録はこの縮約を導出せず、\(\lambda\)、\(\Omega\)、\(D\) を有効係数として置く。
-
-\hypertarget{ituxf4-ux3068-stratonovich}{%
-\section{Itô と Stratonovich}\label{ituxf4-ux3068-stratonovich}}
-
-一般に
-
-\[
-\,\mathrm{d} X=b(X,t)\,\mathrm{d} t+\sigma(X,t)\circ\,\mathrm{d} W_t
-\]
-
-を Itô 表現へ変換すると、\(\sigma\) の空間微分に比例する補正が流れへ加わる。本論文では \(\sigma=\sqrt{2\nu}I\) が定数なので補正は零である。
-
-従って線形 Gauss 型定理、Schur 補完、Guerra--Morato 作用、Nelson 表示のいずれも、Itô と Stratonovich の記法選択に依存しない。Stratonovich 微分は、乗法的雑音へ拡張するときに初めて本質的になる。
-
-\hypertarget{bell-ux90e8ux5206ux3068ux306eux63a5ux7d9a}{%
-\section{Bell 部分との接続}\label{bell-ux90e8ux5206ux3068ux306eux63a5ux7d9a}}
-
-2次元 Gauss 型位相変数は、第6章の実正準伝達ベクトルを具体化する候補になる。しかし、OU 定常分布だけでは左右の等振幅、共通生成時位相、4つの符号領域の対称性は自動的に保証されない。
-
-従って
-
-\[
-\mathrm{OU}_{2D}
-\quad\not\Rightarrow\quad
-\mathrm{Bell\ cosine\ law}.
-\]
-
-Bell 系論には、位相同期した生成源 \texttt{{[}P{]}}、対称準備 \texttt{{[}S{]}}、2モード入口測度 \texttt{{[}M{]}}、2境界履歴集団 \texttt{{[}R{]}} が別に必要である。この点を保つことで、Gauss 型 Nelson 部分と Bell 部分の役割が明確になる。
-
-\hypertarget{ux6e2cux5b9aux8a2dux5b9aux4f9dux5b58ux5ea6chsh-4ux8a2dux5b9aux8a66ux884cux5468ux671fux76e3ux67fb}{%
-\chapter{測定設定依存度、CHSH 4設定、試行周期監査}\label{ux6e2cux5b9aux8a2dux5b9aux4f9dux5b58ux5ea6chsh-4ux8a2dux5b9aux8a66ux884cux5468ux671fux76e3ux67fb}}
-
-\begin{statusbox}
-位置づけ：第II部の Bell 分類を定量化し、事後分布、開始・記録・完了・再初期化数、交換エネルギーを区別する。
-\end{statusbox}
-
-\hypertarget{hall-ux5c3aux5ea6}{%
-\section{Hall 尺度}\label{hall-ux5c3aux5ea6}}
-
-測定設定に依存する未読変数分布に対する Hall の \(L^1\) 尺度を
-
-\[
-M
-=
-\sup_{a,b,a',b'}
-\int
-\left|
-\rho(\lambda\mid a,b)
--
-\rho(\lambda\mid a',b')
-\right|
-d\lambda
-\]
-
-とする。通常の全変動距離とは
-
-\[
-M=2D_{\rm TV}^{\max}
-\]
-
-の関係にある。
-
-第7.6節の最小2モード事後分布では、
-
-\[
-D_{\rm TV}(c,c')
-=
-\frac{V_{\rm eff}}2
-|c-c'|
-\]
-
-なので、
-
-\[
-M_{\rm dev}
-=
-V_{\rm eff}
-\sup_{a,b,a',b'}
-\left|
-\cos\Delta_{ab}
--
-\cos\Delta_{a'b'}
-\right|.
-\]
-
-全角度を許せば
-
-\[
-M_{\rm dev}=2V_{\rm eff}.
-\]
-
-標準 CHSH の4測定設定対では余弦が \(\pm1/\sqrt2\) なので、
-
-\[
-M_{\rm dev}^{(4)}
-=
-\sqrt2V_{\rm eff}.
-\]
-
-これは本文の具体的な装置事後分布が持つ値であり、同じ観測共同法則を再現する全ての局所モデルの中で最小化した値ではない。
-
-\hypertarget{ux78baux7387ux8868ux3092ux76f4ux63a5ux57cbux3081ux8fbcux3080ux8868ux73fe}{%
-\section{確率表を直接埋め込む表現}\label{ux78baux7387ux8868ux3092ux76f4ux63a5ux57cbux3081ux8fbcux3080ux8868ux73fe}}
-
-未読変数を
-
-\[
-\lambda_{\rm tab}
-=
-(A_*,B_*)
-\in
-\{\pm1\}^2
-\]
-
-とし、
-
-\[
-\mathscr A(a,\lambda_{\rm tab})=A_*,
-\qquad
-\mathscr B(b,\lambda_{\rm tab})=B_*,
-\]
-
-\[
-\rho_{\rm tab}(A_*,B_*\mid a,b)
-=
-\frac14
-\left[
-1-A_*B_*V_{\rm eff}\cos\Delta_{ab}
-\right]
-\]
-
-と置けば、局所決定論的に目標共同法則を再現する。この表現は出力確率を未読変数へ直接書き込んだものであり、物理的説明ではない。
-
-Hall 尺度は
-
-\[
-M_{\rm tab}
-=
-V_{\rm eff}
-\sup_{a,b,a',b'}
-\left|
-\cos\Delta_{ab}
--
-\cos\Delta_{a'b'}
-\right|
-\]
-
-である。したがって本文の2モード装置事後分布の粗視化周辺と同じ値を持つ。この一致は装置構成の最適性を意味せず、両者が同じ台の長さ変調を用いていることを示す。
-
-\hypertarget{ux6a19ux6e96-chsh-4ux8a2dux5b9aux306eux6700ux5c0fux5024}{%
-\section{標準 CHSH 4設定の最小値}\label{ux6a19ux6e96-chsh-4ux8a2dux5b9aux306eux6700ux5c0fux5024}}
-
-標準 CHSH 4設定に対し、目標可視度 \(V_{\rm eff}\) を再現する局所決定論的で操作上非信号な表現全体について、Hall 尺度を最小化した値を \(M_{\min}^{(4)}(V_{\rm eff})\) とする。
-
-\(V_{\rm eff}\leq1/\sqrt2\) では全 CHSH 不等式が満たされる。Fine の定理により測定設定と独立な共同未読変数分布が存在するので \cite{fine1982}、
-
-\[
-M_{\min}^{(4)}(V_{\rm eff})
-=
-0,
-\qquad
-0\leq V_{\rm eff}\leq\frac1{\sqrt2}.
-\]
-
-\(V_{\rm eff}>1/\sqrt2\) では、Hall の緩和 CHSH 上界
-
-\[
-|\mathcal S|
-\leq
-2+\min\{3M,2\}
-\]
-
-と
-
-\[
-|\mathcal S|
-=
-2\sqrt2V_{\rm eff}
-\]
-
-から
-
-\[
-M_{\min}^{(4)}(V_{\rm eff})
-\geq
-\frac{
-2\sqrt2V_{\rm eff}-2
-}{3}
-\]
-
-を得る \cite{hall2010}。
-
-この下界は、\(V_{\rm eff}=1/\sqrt2\) の測定設定独立 Fine モデルと、\(V_{\rm eff}=1\) で下界を達成する Hall モデルを、測定設定と独立な補助符号で混合することで達成できる。したがって
-
-\[
-M_{\min}^{(4)}(V_{\rm eff})
-=
-\max
-\left\{
-0,
-\frac{
-2\sqrt2V_{\rm eff}-2
-}{3}
-\right\}.
-\]
-
-特に \(V_{\rm eff}=1\) では
-
-\[
-M_{\min}^{(4)}
-=
-\frac{
-2(\sqrt2-1)
-}{3},
-\]
-
-一方、本文の装置事後分布は
-
-\[
-M_{\rm dev}^{(4)}=\sqrt2.
-\]
-
-したがって明示装置は、測定設定依存度について最適ではない。
-
-この最小値は4つの観測分布に対する表現論的な量である。有限 Hamiltonian 装置が同じ最小値を実現できることを意味しない。全角度の余弦族に対する、装置構造を固定した最小値も本論文では求めない。
-
-\hypertarget{ux6e2cux5b9aux8a2dux5b9aux983bux5ea6ux3068ux751fux6210ux6e90ux4e8bux5f8cux5206ux5e03}{%
-\section{測定設定頻度と生成源事後分布}\label{ux6e2cux5b9aux8a2dux5b9aux983bux5ea6ux3068ux751fux6210ux6e90ux4e8bux5f8cux5206ux5e03}}
-
-制御器の事前分布を \(P_S(a,b)\) とし、制御器まで含む全2境界測度を規格化すると、
-
-\[
-P_R(a,b)
-=
-\frac{
-P_S(a,b)Z_{a,b}
-}{
-\sum_{a',b'}
-P_S(a',b')Z_{a',b'}
-}.
-\]
-
-本文の対称モデルでは
-
-\[
-Z_{a,b}
-=
-\frac{E_*+\kappa I_0}{E_\ell}
-\]
-
-が一定なので、
-
-\[
-P_R(a,b)=P_S(a,b).
-\]
-
-したがって巨視的な測定設定頻度の自由と、微視的な生成源事後分布の測定設定依存性は両立する。これは測定設定独立性の破れと、実験者が制御器巨視状態を変えられないという主張を区別する。
-
-\hypertarget{ux958bux59cbux6570ux8a18ux9332ux6570ux5b8cux4e86ux6570ux518dux521dux671fux5316ux6570}{%
-\section{開始数、記録数、完了数、再初期化数}\label{ux958bux59cbux6570ux8a18ux9332ux6570ux5b8cux4e86ux6570ux518dux521dux671fux5316ux6570}}
-
-各測定設定対について次の4つの数を区別する。
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  外部生成源が開始した試行数 \(N_{\rm launch}\)。
-\item
-  左右指針が確定結果を持った記録数 \(N_{\rm rec}\)。
-\item
-  終端装置が完了巨視領域へ入った完了数 \(N_R\)。
-\item
-  装置が次試行の入口巨視状態へ戻った再初期化数 \(N_{\rm reset}\)。
-\end{enumerate}
-
-\texttt{{[}R{]}} では、物理的に実現する試行自体が終端整合履歴であると解釈する。しかし実験室での実装が単に
-
-\[
-N_R<N_{\rm rec}
-\]
-
-となる試行棄却を行うなら、観測標本は
-
-\[
-P_{\rm obs}(A,B\mid a,b)
-=
-\frac{
-P_{\rm rec}(A,B\mid a,b)
-\eta_{AB}(a,b)
-}{
-\sum_{A',B'}
-P_{\rm rec}(A',B'\mid a,b)
-\eta_{A'B'}(a,b)
-}
-\]
-
-という検出条件付き分布になる。\(\eta_{AB}\) は完了効率である。この場合、Bell 不等式の破れは検出の抜け穴で説明され得る。
-
-物理的2境界モデルと事後選別を区別する最低条件は次である。
-
-\begin{itemize}
-\tightlist
-\item
-  全開始数、記録数、完了数、再初期化数を測定設定ごとに報告する。
-\item
-  結果依存の欠測率を零または独立に有界化する。
-\item
-  終端装置の較正を Bell 実行より前に固定する。
-\item
-  時間切れ条件を変えても、予測される有限幅補正以外の共同法則変動がないことを確かめる。
-\item
-  再初期化成功率と次試行の入口分布が、前試行の結果または設定に依存しないことを確かめる。
-\end{itemize}
-
-試行数と同時に、1周期の交換エネルギーも記録する。有限装置部分の収支を
-
-\[
-\Delta E_{\rm fin}
-=
-W_{\rm src}
-+
-W_{\rm set}
-+
-W_{\rm pulse}
-+
-W_{\rm reset}
-+
-Q_{\rm in}
--
-Q_{\rm out}
-\]
-
-とする。定常運転では長時間平均の \(\langle\Delta E_{\rm fin}\rangle_{\rm cycle}\) は零でなければならないが、各仕事と熱流は零でなくてよい。結果別または設定別に
-
-\[
-\left\langle
-W_{\rm reset}
-+
-Q_{\rm in}
--
-Q_{\rm out}
-\right\rangle_{A,B,a,b}
-\]
-
-が変化するなら、再初期化過程が試行頻度へ別の再重みづけを持ち込む可能性がある。
-
-通常の順時間的リセットが入口巨視状態を再現することは、\texttt{{[}R{]}} の2境界積測度を導くことと同じではない。逆に、\(N_{\rm reset}<N_R\) となる結果依存の失敗を除外すれば、リセット段階の事後選別になる。
-
-\hypertarget{ux504fux3063ux305fux6e96ux5099ux306eux691cux67fb}{%
-\section{偏った準備の検査}\label{ux504fux3063ux305fux6e96ux5099ux306eux691cux67fb}}
-
-結果種の準備装置を追加し、基準結果重み \(w_{AB}\) を操作する。本文モデルが任意準備に対して操作可能であるなら、次のいずれかを判定する必要がある。
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  \(w_{AB}\) の操作が2境界整合性によって自動的に相殺される。
-\item
-  偏った巨視状態が物理的に準備不能になる。
-\item
-  非信号性残差が増大する。
-\end{enumerate}
-
-非信号性残差を
-
-\[
-\epsilon_{\rm NS}
-=
-\max_{a,b,b',A}
-\left|
-P_R(A\mid a,b)
--P_R(A\mid a,b')
-\right|
-\]
-
-とする。理想 \texttt{{[}S{]}} 集団では \(\epsilon_{\rm NS}=0\) である。偏った準備に対して \(\epsilon_{\rm NS}=O(1)\) が現れれば、対称準備だけで成り立つモデルの操作上の限界が直接検出される。
-
 \begin{thebibliography}{99}
 
 \addcontentsline{toc}{chapter}{参考文献}
@@ -6439,8 +5490,6 @@ P_R(A\mid a,b)
 
 \bibitem{bennett1982} C. H. Bennett, ``The Thermodynamics of Computation: A Review,'' International Journal of Theoretical Physics 21, 905--940 (1982). \url{https://doi.org/10.1007/BF02084158}
 
-\bibitem{uhlenbeck_ornstein1930} G. E. Uhlenbeck and L. S. Ornstein, ``On the Theory of the Brownian Motion,'' Physical Review 36, 823--841 (1930). \url{https://doi.org/10.1103/PhysRev.36.823}
-
 \bibitem{wallstrom1994} T. C. Wallstrom, ``Inequivalence between the Schrödinger Equation and the Madelung Hydrodynamic Equations,'' Physical Review A 49, 1613--1617 (1994). \url{https://doi.org/10.1103/PhysRevA.49.1613}
 
 \bibitem{price_wharton2023} H. Price and K. Wharton, ``Bell Correlations as Selection Artefacts,'' arXiv:2309.10969v3 (2024). \url{https://arxiv.org/abs/2309.10969}
@@ -6459,14 +5508,6 @@ P_R(A\mid a,b)
 
 \bibitem{rauch_tung_striebel1965} H. E. Rauch, F. Tung, and C. T. Striebel, ``Maximum Likelihood Estimates of Linear Dynamic Systems,'' AIAA Journal 3, 1445--1450 (1965). \url{https://doi.org/10.2514/3.3166}
 
-\bibitem{waalkens_schubert_wiggins2008} H. Waalkens, R. Schubert, and S. Wiggins, ``Wigner's Dynamical Transition State Theory in Phase Space: Classical and Quantum,'' Nonlinearity 21, R1--R118 (2008). \url{https://doi.org/10.1088/0951-7715/21/1/R01}
-
-\bibitem{kramers1940} H. A. Kramers, ``Brownian Motion in a Field of Force and the Diffusion Model of Chemical Reactions,'' Physica 7, 284--304 (1940). \url{https://doi.org/10.1016/S0031-8914(40)90098-2}
-
-\bibitem{chandler1978} D. Chandler, ``Statistical Mechanics of Isomerization Dynamics in Liquids and the Transition State Approximation,'' Journal of Chemical Physics 68, 2959--2970 (1978). \url{https://doi.org/10.1063/1.436049}
-
-\bibitem{sigman_whitt2019} K. Sigman and W. Whitt, ``Marked Point Processes in Discrete Time,'' Queueing Systems 92, 47--81 (2019). \url{https://doi.org/10.1007/s11134-019-09612-3}
-
 \bibitem{fuchs_goldt_seifert2016} J. Fuchs, S. Goldt, and U. Seifert, ``Stochastic Thermodynamics of Resetting,'' Europhysics Letters 113, 60009 (2016). \url{https://doi.org/10.1209/0295-5075/113/60009}
 
 \bibitem{evans_majumdar_schehr2020} M. R. Evans, S. N. Majumdar, and G. Schehr, ``Stochastic Resetting and Applications,'' Journal of Physics A: Mathematical and Theoretical 53, 193001 (2020). \url{https://doi.org/10.1088/1751-8121/ab7cfe}
@@ -6476,10 +5517,6 @@ P_R(A\mid a,b)
 \bibitem{wilson_et_al2021} J. T. Wilson, V. Borovitskiy, A. Terenin, P. Mostowsky, and M. P. Deisenroth, ``Pathwise Conditioning of Gaussian Processes,'' Journal of Machine Learning Research 22, 1--47 (2021). \url{https://jmlr.org/papers/v22/20-1260.html}
 
 \bibitem{leonard_roelly_zambrini2014} C. Léonard, S. Rœlly, and J.-C. Zambrini, ``Reciprocal Processes. A Measure-Theoretical Point of View,'' Probability Surveys 11, 237--269 (2014). \url{https://doi.org/10.1214/13-PS220}
-
-\bibitem{fine1982} A. Fine, ``Hidden Variables, Joint Probability, and the Bell Inequalities,'' Physical Review Letters 48, 291--295 (1982). \url{https://doi.org/10.1103/PhysRevLett.48.291}
-
-\bibitem{asmussen2003} S. Asmussen, Applied Probability and Queues, 2nd ed., Springer, New York (2003). \url{https://doi.org/10.1007/b97236}
 
 \bibitem{marchiori_deaguiar2011} M. A. Marchiori and M. A. M. de Aguiar, ``Energy Dissipation Via Coupling With a Finite Chaotic Environment,'' Physical Review E 83, 061112 (2011). \url{https://doi.org/10.1103/PhysRevE.83.061112}
 
