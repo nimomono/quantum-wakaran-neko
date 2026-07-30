@@ -20,9 +20,16 @@
 - `sections/A1_fourier_schur_proofs.md`
 - `sections/A2_c1_estimates.md`
 - `sections/A3_hamiltonian_device_details.md`
-- `sections/A4_gaussian_nelson_example.md`
-- `sections/A5_bell_audit.md`
 - `sections/90_references.md`
+
+## 論文外の研究メモ
+
+- `notes/README.md`
+- `notes/project_sources_key_results.md`
+- `notes/rejected_forward_weighting_models.md`
+- `notes/complementary_terminal_halfspaces.md`
+- `notes/gaussian_nelson_examples.md`
+- `notes/measurement_dependence_comparisons.md`
 
 ## 状態・再現性
 
