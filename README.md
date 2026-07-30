@@ -52,6 +52,6 @@
 - [統合マークダウン原稿](paper.md)
 - [完成版PDF](paper.pdf)
 
-統合マークダウン原稿は現在の章別原稿に対応する。完成版PDFとTeX原稿は直前の組版版であり、次回の組版更新まで今回のMarkdown改訂を含まない。
+統合マークダウン原稿、TeX原稿、完成版PDFは、いずれも現在の章別原稿に対応する。
 
 内容を修正するときは `sections/` 内の章別原稿を編集し、`tools/build_paper.py` で統合原稿、組版用原稿、完成版PDFを再生成する。詳しい手順は [PROJECT_GUIDE.md](PROJECT_GUIDE.md) に従う。
