@@ -26,8 +26,8 @@ THEOREM_LABELS = {
 }
 
 PART_TITLES = {
-    2: "第I部　有限調和 Gaussian 中核の Nelson 極限",
-    5: "第II部　2境界統計原理と2モード作用分配系による Bell 型統計",
+    2: "第I部　補助的な線形 Gauss 型確率表示の Nelson 作用極限",
+    5: "第II部　2境界統計原理と2モード作用分配系による条件付き Bell 型統計",
 }
 
 REFERENCE_KEYS = {
@@ -286,9 +286,9 @@ def pandoc_markdown() -> str:
 
     for number in range(1, 9):
         if number == 2:
-            chunks.append(r"\part{有限調和 Gaussian 中核の Nelson 極限}")
+            chunks.append(r"\part{補助的な線形 Gauss 型確率表示の Nelson 作用極限}")
         if number == 5:
-            chunks.append(r"\part{2境界統計原理と2モード作用分配系による Bell 型統計}")
+            chunks.append(r"\part{2境界統計原理と2モード作用分配系による条件付き Bell 型統計}")
         path = next(SECTIONS.glob(f"{number:02d}_*.md"))
         meta, lines = parse_source(path)
         chunks.append("# " + meta["title"])
