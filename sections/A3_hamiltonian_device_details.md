@@ -1,881 +1,963 @@
 @number: A3
 @chapter: 付録
-@title: 弱開放な装置全系、Hamiltonian 部品、2モード位相体積
-@status: 現行モデルの外部結合と収支を整理し、閉鎖補助モデルの正準写像、有限幅誤差、比較窓、作用殻測度を計算する。
+@title: 構造化有限浴、U(3) 殻拡散、境界ファイバー体積
+@status: 静的浴基底、和・差変換、作用保存、固定殻体積、coarea 計算を厳密に補足する。有限浴から等方拡散への縮約は候補構成であり、未完成である。
 
-本付録は、現行モデルに必要な外部自由度とエネルギー交換経路を先に整理し、その後で閉鎖補助モデルの有限 Hamiltonian 部品と正準計算を示す。生成源、設定制御器、外部環境、消去、再初期化までを含む1本の完成した実験 Hamiltonian が、全ての操作を有限時間で実行するとは主張しない。一般の局所パルスは短時間極限で理想写像へ近づき、第7.1節の比較読出しだけは、閉鎖比較窓の保存量により有限幅でも厳密である。
+## C.0 拡大全系とエネルギー収支
 
-## C.0 弱開放な装置全系とエネルギー収支
-
-現行モデルの拡大全系を
+第II部の拡大全系を
 
 ```math
 H_{\rm all}
 =
-H_{\rm fin}(z)
+H_{\rm src}
 +
-H_{\rm ext}(y)
+H_{\rm set}
 +
-H_{\rm work}(w)
+H_{\rm loc}
 +
-\varepsilon_{\rm ext}H_{\rm link}(z,y,w)
+H_{\rm ptr}
++
+H_{\mathcal B}
++
+H_\partial
++
+H_{\rm fin-link}
++
+H_{\rm ext}
++
+\varepsilon_{\rm ext}H_{\rm link}
++
+H_{\rm work}
 ```
 
-とする。$z$ は生成源、設定制御器、局所装置、有限浴、伝達ベクトル、比較器、作用分配系、時計を含む。$y$ は外部環境、$w$ は仕事貯蔵、消去、再初期化に使う自由度である。
+と書く。各項の役割は次である。
 
-外部自由度まで含む全エネルギーは保存されても、
+| 項 | 役割 |
+|---|---|
+| $H_{\rm src}$ | 固定総入力作用と位相基準を持つ伝達ベクトル対の準備 |
+| $H_{\rm set}$ | 左右の設定制御器 |
+| $H_{\rm loc}$ | 局所結果形成または最小結果符号化 |
+| $H_{\rm ptr}$ | 固定指針への記録 |
+| $H_{\mathcal B}$ | 左右局所反応座標、共通境界反応座標、暗モードを含む1つの有限浴 |
+| $H_\partial$ | 境界3モードの自由運動と弱い混合 |
+| $H_{\rm fin-link}$ | 有限装置部分内の結合 |
+| $H_{\rm ext}$ | 外部環境 |
+| $\varepsilon_{\rm ext}H_{\rm link}$ | 常時のごく弱い漏れと流入 |
+| $H_{\rm work}$ | 設定変更、記録消去、再初期化の仕事源 |
+
+全 Hamiltonian に明示的な時間依存性がなければ、拡大全エネルギーは保存される。一方、有限装置部分
 
 ```math
-E_{\rm fin}
+H_{\rm fin}
 =
-H_{\rm fin}(z)
+H_{\rm all}
+-
+H_{\rm ext}
+-
+H_{\rm work}
 ```
 
-は保存されない。
+の収支は
+
+```math
+\frac{dH_{\rm fin}}{dt}
+=
+\left\{
+H_{\rm fin},
+\varepsilon_{\rm ext}H_{\rm link}
++
+H_{\rm work}
+\right\}.
+```
+
+実験室の記号では、
 
 ```math
 \dot E_{\rm fin}
 =
-\varepsilon_{\rm ext}
-\{H_{\rm fin},H_{\rm link}\}
+J_{\rm in}
+-
+J_{\rm out}
 +
-P_{\rm work}.
+P_{\rm ctrl}.
 ```
 
-第1項の符号により外部からの流入と外部への流出を区別する。$P_{\rm work}$ は設定制御器、パルス時計、生成源準備、消去装置との交換仕事である。
+閉鎖補助モデルは $\varepsilon_{\rm ext}=0$ とし、仕事源を有限装置へ含めた短時間窓で用いる。現行モデルでは $\varepsilon_{\rm ext}$ を常時零にせず、測定窓内の相対エネルギー変化を小さい量として評価する。
 
-1周期の収支を次のように分ける。
+## C.1 静的浴基底の正準性
 
-| 段階 | 主な流入 | 主な流出 | 追跡する量 |
-|---|---|---|---|
-| 生成源準備 | 位相同期と基準作用への仕事 | 準備浴への排熱 | $W_{\rm src}$、$E_{\rm src}$ |
-| 設定生成 | 制御器と時計への仕事 | 制御器反作用 | $W_{\rm set}$、$\Delta J_c$ |
-| 結果形成と記録 | 応答・増幅への仕事 | 局所浴と外部への排熱 | $W_{\rm meas}$、$Q_{{\rm out},X}$ |
-| 共通未来の比較 | 時計と比較器の交換仕事 | 作用分配系と時計への反作用 | $\Delta E_\ell$、$\Delta J_c$ |
-| 消去と再初期化 | 仕事貯蔵系からの供給 | 外部環境へのエネルギーとエントロピー移送 | $W_{\rm reset}$、$Q_{\rm reset}$ |
-
-1試行の閉鎖補助計算を用いる条件は
+浴座標を $Q,P\in\mathbb R^N$ とし、
 
 ```math
-\varepsilon_{\rm open}
+H_{\mathcal B}
 =
-\frac{
-\sup_{0\leq t\leq T}
-\left|
-E_{\rm fin}(t)-E_{\rm fin}(0)
-\right|
-}{
-E_{\rm ref}
-}
-\ll1.
+\frac12P^{\mathsf T}P
++
+\frac12Q^{\mathsf T}KQ
++
+\varepsilon_{\rm nl}V_{\rm nl}(Q)
 ```
 
-比較器については、さらに
+とする。$K$ は正定値実対称行列である。
+
+局所装置と境界装置が浴へ結合する方向を
 
 ```math
-\varepsilon_\ell
+c_A,
+\quad
+c_B,
+\quad
+c_{\partial,1},
+\ldots,
+c_{\partial,m}
+```
+
+とする。その張る部分空間の正規直交基底を先頭に並べる直交行列 $O$ を固定し、
+
+```math
+\widetilde Q=OQ,
+\qquad
+\widetilde P=OP
+```
+
+と変換する。
+
+<!-- theorem-start:proposition -->
+**命題（直交浴基底変換の正準性）**
+$O^{\mathsf T}O=I$ なら、$(Q,P)\mapsto(\widetilde Q,\widetilde P)$ は正準変換である。
+<!-- theorem-end:proposition -->
+
+<!-- theorem-start:proof -->
+**証明**
+正準1形式は
+
+```math
+P^{\mathsf T}dQ
+=
+\widetilde P^{\mathsf T}
+O
+O^{\mathsf T}
+d\widetilde Q
+=
+\widetilde P^{\mathsf T}d\widetilde Q
+```
+
+と保存される。従ってシンプレクティック2形式も保存される。
+<!-- theorem-end:proof -->
+
+変換後の2次形式は
+
+```math
+H_{\mathcal B}^{(2)}
+=
+\frac12\widetilde P^{\mathsf T}\widetilde P
++
+\frac12
+\widetilde Q^{\mathsf T}
+\widetilde K
+\widetilde Q,
+\qquad
+\widetilde K
+=
+OKO^{\mathsf T}.
+```
+
+結合ベクトルに適合した基底を取っても、$\widetilde K$ は一般にブロック対角ではない。局所、境界、暗モード間の動的結合は $\widetilde K$ の非対角ブロックと $V_{\rm nl}$ に残る。
+
+従って、
+
+```math
+H_{\mathcal B}
+=
+H_A^{\rm loc}
++
+H_B^{\rm loc}
++
+H_\partial^{\rm glob}
++
+H^{\rm dark}
++
+H_{\rm cross}
+```
+
+という分解は、正準座標の厳密な分類と、動力学的な近似直和を分けて読む必要がある。
+
+## C.2 線形応答核
+
+線形浴の運動方程式は
+
+```math
+\ddot Q+KQ
+=
+-\epsilon_Ac_Ax_A
+-\epsilon_Bc_Bx_B
+-\sum_\alpha
+c_{\partial,\alpha}F_\alpha.
+```
+
+ここで $F_\alpha$ は境界モードから浴へ加わる一般化力である。初期値解は
+
+```math
+Q(t)
+=
+\cos
+\left(
+K^{1/2}t
+\right)Q(0)
++
+K^{-1/2}
+\sin
+\left(
+K^{1/2}t
+\right)P(0)
+```
+
+```math
+\quad
+-
+\int_0^t
+K^{-1/2}
+\sin
+\left[
+K^{1/2}(t-s)
+\right]
+F_{\rm dev}(s)\,ds,
+```
+
+```math
+F_{\rm dev}
+=
+\epsilon_Ac_Ax_A
++
+\epsilon_Bc_Bx_B
++
+\sum_\alpha
+c_{\partial,\alpha}F_\alpha.
+```
+
+A側の一般化力 $c_A^{\mathsf T}Q(t)$ にB側の $x_B$ が与える寄与は
+
+```math
+-\epsilon_B
+\int_0^t
+\chi_{AB}(t-s)x_B(s)\,ds,
+```
+
+```math
+\chi_{AB}(t)
+=
+c_A^{\mathsf T}
+K^{-1/2}
+\sin
+\left(
+K^{1/2}t
+\right)
+c_B.
+```
+
+同様に $\chi_{BA}$ を得る。従って、$c_A^{\mathsf T}c_B=0$ でも $\chi_{AB}(t)$ は一般に零ではない。$K$ が $c_A,c_B$ の張る部分空間を別々に不変にするときだけ、線形交差応答は厳密に消える。
+
+局所測定窓 $0\leq t\leq T_{\rm meas}$ で
+
+```math
+\varepsilon_{\rm loc}
 =
 \frac{
 \sup_t
-\left|
-\Delta E_\ell(t)
-\right|
+\max
+\left(
+|\chi_{AB}(t)|,
+|\chi_{BA}(t)|
+\right)
 }{
-E_\ell
+\sup_t
+\min
+\left(
+|\chi_{AA}(t)|,
+|\chi_{BB}(t)|
+\right)
 }
-\ll1
 ```
 
-を要求する。$\varepsilon_{\rm open}$ は装置全体の近似閉鎖性、$\varepsilon_\ell$ は Bell 重みを担う2モード作用殻の漏れを測る。両者は同じ量ではない。
+を用いる理由はここにある。非線形補正については、指定した準備領域のまわりで変分方程式を解き、同じ比を定義する。
 
-記録消去と再初期化は、この小さい漏れ近似の外で行われる。入口巨視状態を繰り返し作るには、仕事供給と外部への排熱が必要である [17,18,28,29]。有限環境への流出は有限時間には有効な散逸を与え得るが、長時間の再帰と逆流を持ち得る [33]。
+## C.3 局所結果符号化の生成子
 
-本付録の後続計算は $\varepsilon_{\rm open}=\varepsilon_\ell=0$ の閉鎖補助モデルで厳密に行う。現行モデルへ移すときは、外部結合が各 Poisson 括弧と終端読出しへ与える補正を第6.7.1節と第7.1節の誤差項として戻す。
+結果種座標を $s_X$、伝達ベクトルを $(Q_X,P_X)$、応答モードを $(x_X,p_X)$ とする。平坦結果領域上で $\sigma(s_X)=X\in\{-1,+1\}$ とする。
 
-## C.1 Poisson 構造
-
-各正準対 $(q_j,p_j)$ に
+局所分析の生成子を
 
 ```math
-\{q_j,p_k\}
+K_X^{\rm an}
 =
-\delta_{jk}
+-
+\left[
+\phi(a_X)
++
+\pi\chi_-(s_X)
+\right]
+I_X
+-
+x_X\sigma(s_X),
 ```
 
-を置く。伝達ベクトル $u=(Q,P)^{\mathsf T}$ と作用
-
 ```math
-I=\frac12(Q^2+P^2)
-```
-
-に対し、生成子
-
-```math
-K_{\rm rot}
+I_X
 =
--\theta I
+\frac12
+\left(
+Q_X^2+P_X^2
+\right),
+\qquad
+\chi_-(s)
+=
+\frac{
+1-\sigma(s)
+}{
+2
+}
+```
+
+とする。生成子の単位流れで、
+
+```math
+u_X^{\rm out}
+=
+X R[\phi(a_X)]u_X^{\rm in},
+\qquad
+p_X^{\rm out}
+=
+p_X^{\rm in}+X.
+```
+
+$p_X^{\rm in}=0$ なら $p_X^{\rm out}=X$ である。
+
+固定指針対を $(Y_X,\Pi_X)$ とし、平坦関数 $\zeta(p_X)$ が $p_X=\pm1$ の近傍で $\pm1$ を取るとする。転写生成子
+
+```math
+K_X^{\rm lock}
+=
+-Y_X\zeta(p_X)
 ```
 
 の単位流れは
 
 ```math
-\dot Q=-\theta P,
+\Pi_X^{\rm out}
+=
+\Pi_X^{\rm in}
++
+\zeta(p_X).
+```
+
+$\Pi_X^{\rm in}=0$ なら $\Pi_X^{\rm out}=X$ となる。
+
+自由 Hamiltonian と幅 $\tau_{\rm pulse}$ のパルスが同時に働く場合、理想単位流れとの差は、有界な適用領域で
+
+```math
+O(\varepsilon_{\rm pulse}),
 \qquad
-\dot P=\theta Q
-```
-
-なので
-
-```math
-u(1)
+\varepsilon_{\rm pulse}
 =
-R(\theta)u(0).
-```
-
-$\theta=\phi(a)+\pi\chi_-(s)$ とし、結果種の平坦領域上で $A=\sigma(s)$ とすれば
-
-```math
-R
-\left[
-\phi(a)+\pi\chi_-(s)
-\right]
-=
-A R[\phi(a)].
-```
-
-したがって結果符号を伝達ベクトル位相の $\pi$ 移動として正準的に記録できる。
-
-## C.2 応答モードと固定指針の移動
-
-応答モード対 $(x,p)$ に対する生成子
-
-```math
-K_{\rm br}
-=
--x\sigma(s)
-```
-
-は
-
-```math
-\dot p
-=
--\frac{\partial K_{\rm br}}{\partial x}
-=
-\sigma(s),
-```
-
-```math
-\dot x
-=
-\frac{\partial K_{\rm br}}{\partial p}
-=
-0
-```
-
-を与える。$p(0)=0$ なら $p(1)=A$ である。
-
-固定指針対 $(Y,\Pi)$ に対する
-
-```math
-K_{\rm lock}
-=
--Y\zeta(p)
-```
-
-は
-
-```math
-\dot\Pi
-=
--\frac{\partial K_{\rm lock}}{\partial Y}
-=
-\zeta(p),
-```
-
-```math
-\dot Y=0,
-\qquad
-\dot p=0
-```
-
-を与える。$\zeta(\pm1)=\pm1$ の平坦領域で $\Pi(0)=0$ なら、
-
-```math
-\Pi(1)=A.
-```
-
-2つの写像は Hamiltonian 流れなので位相体積を保存する。応答モードの情報を局所浴へ分散した後も、固定指針対を切り離せば比較窓の記録符号は保たれる。
-
-## C.3 自律順序時計と有限幅誤差
-
-時計対 $(\vartheta,J_c)$ と、互いに重ならないパルス形 $f_{\nu,\epsilon}(\vartheta)$ を用い、
-
-```math
-H
-=
-\Omega J_c
-+H_0
-+\Omega
-\sum_\nu
-f_{\nu,\epsilon}(\vartheta)K_\nu
-```
-
-とする。$K_\nu$ と $H_0$ が $J_c$ に依存しないとき、
-
-```math
-\dot\vartheta=\Omega.
-```
-
-$f_{\nu,\epsilon}$ を
-
-```math
-\int_{\operatorname{supp}f_{\nu,\epsilon}}
-f_{\nu,\epsilon}(\vartheta)d\vartheta=1
-```
-
-と規格化すれば、対応する時間区間で
-
-```math
-\int
-\Omega f_{\nu,\epsilon}[\vartheta(t)]dt=1.
-```
-
-自由 Hamiltonian $H_0$ を無視すれば、この積分は $K_\nu$ の単位正準写像を与える。しかし全 Hamiltonian では $H_0$ も同時に働く。相互作用表示で Duhamel 展開を用いると、パルスの時間幅を $\epsilon_\nu$ として、有界な適用領域 $\mathcal K$ 上で
-
-```math
-\sup_{z\in\mathcal K}
+\tau_{\rm pulse}
+\sup_{\mathcal K}
 \left\|
-\Phi_{\rm full}^{(\nu)}(z)
--
-e^{X_{K_\nu}}z
+X_{H_0}
 \right\|
-\leq
-C_{\mathcal K}\epsilon_\nu
 ```
 
-となる。定数 $C_{\mathcal K}$ は、$\mathcal K$ 上の $X_{H_0}$、$X_{K_\nu}$、それらの第1微分の上界で決まる。したがって、本文の局所分析器と指針固定は短時間パルス極限の理想写像であり、有限幅では $O(\epsilon_\nu)$ の補正を持つ。
-
-パルス形の台が重なる場合には、さらに Poisson 括弧 $\{K_\mu,K_\nu\}$ に比例する補正が生じる。本論文では台を分離し、この補正を使わない。第7.1節の比較読出しは、読出し対象の作用が全比較窓 Hamiltonian と交換するため、この一般誤差評価より強い厳密式を持つ。
-
-## C.4 相補的内部時計と2境界照合
-
-まず、時計運動量を $\pm\varrho_0$ の極小へ固定するだけの Hamiltonian
+と評価する。局所浴の交差応答も加えると、指針の誤差は
 
 ```math
-H_{\rm stop}
-=
-\frac{\kappa_c}{2}
+O
 \left(
-\varrho_A+\varrho_B
-\right)^2
+\varepsilon_{\rm pulse}
 +
-\frac{\lambda_c}{4}
-\sum_{X=A,B}
-\left(
-\varrho_X^2-\varrho_0^2
-\right)^2
-```
-
-は用いない。極小
-
-```math
-\left(
-\varrho_A,\varrho_B
-\right)
-=
-\left(
-+\varrho_0,-\varrho_0
-\right)
-```
-
-では
-
-```math
-\dot\tau_X
-=
-\frac{\partial H_{\rm stop}}{\partial\varrho_X}
-=
-0
-```
-
-となり、向きは区別できても時計が進まないからである。
-
-実際に相補的な時計運動を作る最小の二次 Hamiltonian として
-
-```math
-H_{\rm or}
-=
-\frac{\varrho_A^2+\varrho_B^2}{2M_\tau}
+\varepsilon_{\rm loc}
 +
-\frac{\kappa_c}{2}
-\left(
-\varrho_A+\varrho_B
-\right)^2
+\varepsilon_{\rm open}
+\right).
 ```
 
-を用いる。中心・相対変数を
+この補助装置は既存の結果種を記録するだけであり、一般測定器ではない。
+
+## C.4 和・差基底の正準性
+
+左右伝達ベクトルを正準対 $(Q_A,P_A)$、$(Q_B,P_B)$ とする。和・差座標を
 
 ```math
-\bar\tau
+Q_\pm
 =
-\frac{\tau_A+\tau_B}{2},
+\frac{
+Q_A\pm Q_B
+}{
+\sqrt2
+},
 \qquad
-Y_R
+P_\pm
 =
-\tau_A-\tau_B,
-```
-
-```math
-P_c
-=
-\varrho_A+\varrho_B,
-\qquad
-\Pi_R
-=
-\frac{\varrho_A-\varrho_B}{2}
-```
-
-と定めると、
-
-```math
-\varrho_A\,d\tau_A
-+
-\varrho_B\,d\tau_B
-=
-P_c\,d\bar\tau
-+
-\Pi_R\,dY_R.
-```
-
-したがって変換は正準であり、
-
-```math
-H_{\rm or}
-=
-\frac{\Pi_R^2}{M_\tau}
-+
-\left(
-\frac{1}{4M_\tau}
-+
-\frac{\kappa_c}{2}
-\right)
-P_c^2.
-```
-
-$P_c=0$ 上では
-
-```math
-\varrho_A=\Pi_R,
-\qquad
-\varrho_B=-\Pi_R,
-```
-
-```math
-\dot\tau_A
-=
-\frac{\Pi_R}{M_\tau},
-\qquad
-\dot\tau_B
-=
--\frac{\Pi_R}{M_\tau}.
-```
-
-比較パルス直前に $\Pi_R=E_*>0$ を準備し、終端比較生成子を
-
-```math
-K_R
-=
-Y_R
-\left(
-h-\kappa I_-
-\right)
-```
-
-とする。$K_R$ は $\bar\tau$ に依存しないので $P_c=0$ は保たれる。さらに
-
-```math
-\{h,K_R\}
-=
-\{I_-,K_R\}
-=
-0
-```
-
-なので、比較パルス中も $h$ と $I_-$ は保存される。相補時計の自由運動により
-
-```math
-\dot Y_R
-=
-\frac{2\Pi_R}{M_\tau}
-```
-
-であり、$Y_R$ は一般に動く。一方、規格化したパルス係数を $g_R(t)$ とすれば
-
-```math
-\dot\Pi_R
-=
-g_R(t)
-\left(
-\kappa I_- -h
-\right),
-\qquad
-\int g_R(t)dt=1
-```
-
-である。したがって有限幅パルスでも厳密に
-
-```math
-\Delta\Pi_R
-=
-\kappa I_- -h,
-```
-
-```math
-\Pi_R(T)
-=
-E_*+\kappa I_- -h.
-```
-
-したがって
-
-```math
-\Pi_R(T)\geq0
-\quad\Longleftrightarrow\quad
-\varrho_A(T)\geq0
-\quad\land\quad
-\varrho_B(T)\leq0.
-```
-
-終端半空間は、初期に選んだ時計向きの順序を保存した履歴の集合として得られる。一方、$\Pi_R(T)<0$ の軌道も正則な Hamiltonian 軌道であり、時計向きが交換されるだけである。
-
-この半空間から `[R]` の積形式を得るには、さらに2境界の統計的照合を置く必要がある。初期境界の密度を $\rho_S(z_i)$、逆向き時計の時計過去に対応する終端関数を $G_{\rm or}(z_f)$ とし、両枝が同じ Hamiltonian 履歴を表す条件を
-
-```math
-\delta
-\left(
-z_f-\Phi_{a,b}^{T}z_i
-\right)
-```
-
-で課す。履歴空間上の測度を
-
-```math
-d\nu
-=
-\frac1{\mathcal Z}
-\rho_S(z_i)
-G_{\rm or}(z_f)
-\delta
-\left(
-z_f-\Phi_{a,b}^{T}z_i
-\right)
-d\Gamma_i\,d\Gamma_f
-```
-
-とすれば、$z_f$ 積分により
-
-```math
-d\nu_i
-=
-\frac1{\mathcal Z}
-\rho_S(z_i)
-G_{\rm or}
-\left(
-\Phi_{a,b}^{T}z_i
-\right)
-d\Gamma_i.
-```
-
-これは `[R]` と同じ積形式である。Hamiltonian 流れの Jacobian が1であるため、逆向きに積分しても余分な密度因子は出ない。ただし2つの境界密度を掛けて照合する規則は、Hamilton 方程式とは別の全履歴統計原理である。
-
-## C.5 差動モード作用
-
-2つの伝達ベクトルを
-
-```math
-u_A
-=
-A r_A R[\phi(a)]n(\Theta_A),
-```
-
-```math
-u_B
-=
-B r_B R[\phi(b)]n(\Theta_B)
-```
-
-とする。シンプレクティック分岐器
-
-```math
-u_+
-=
-\frac{u_A+u_B}{\sqrt2},
-\qquad
-u_-
-=
-\frac{u_A-u_B}{\sqrt2}
-```
-
-は総作用を保存する。
-
-```math
-\frac12\|u_A\|^2
-+\frac12\|u_B\|^2
-=
-\frac12\|u_+\|^2
-+\frac12\|u_-\|^2.
-```
-
-反対称出力の作用は
-
-```math
-\frac12\|u_-\|^2
-=
-\frac14\|u_A-u_B\|^2
-=
-I_-.
-```
-
-内積を展開して
-
-```math
-I_-
-=
-\frac14
-\left[
-r_A^2+r_B^2
--2ABr_Ar_B\cos\Delta_{ab}
-\right]
-```
-
-を得る。この物理的な分岐写像を実行してから反対称出力の作用を比較器へ結合してもよく、同じ2次観測量へ直接結合してもよい。
-
-## C.6 有限幅の終端比較読出し
-
-比較窓 Hamiltonian を
-
-```math
-H_{\rm win}
-=
-H_{\rm or}
-+
-\omega_-I_-
-+
-\omega_\ell(J_s+J_0)
-+
-\Omega J_c
-+
-\Omega f_R(\vartheta)
-Y_R
-\left(
-h-\kappa I_-
-\right)
-```
-
-とする。$f_R$ の台は他のパルスと交わらず、
-
-```math
-\int f_R(\vartheta)d\vartheta=1
-```
-
-と規格化する。$H_{\rm win}$ は $J_c$ へ線形なので
-
-```math
-\dot\vartheta=\Omega
-```
-
-である。差動作用とソフトモードのエネルギーについて、
-
-```math
-\dot I_-
-=
-\{I_-,H_{\rm win}\}
-=
-0,
-```
-
-```math
-\dot h
-=
-\{h,H_{\rm win}\}
-=
-0
-```
-
-が厳密に成り立つ。比較パルスは対応する角変数を移動させるが、2つの作用を変えない。
-
-終端比較対については
-
-```math
-\dot\Pi_R
-=
-\Omega f_R(\vartheta)
-\left(
-\kappa I_- -h
-\right),
-```
-
-```math
-\dot Y_R
-=
-\frac{2\Pi_R}{M_\tau}.
-```
-
-したがって $Y_R$ は一般にパルス中も動く。旧生成子 $F_R(Y_R)(h-\kappa I_-)$ に対して $Y_R=0$ を仮定する方法は、$H_{\rm or}$ との同時発展を無視していた。
-
-修正後の線形生成子では $\dot\Pi_R$ が $Y_R$ に依存しない。$I_-$ と $h$ も定数なので、
-
-```math
-\Pi_R(T)-\Pi_R(t_R^-)
-=
-\left(
-\kappa I_- -h
-\right)
-\int_{t_R^-}^{t_R^+}
-\Omega f_R[\vartheta(t)]dt
-=
-\kappa I_- -h.
-```
-
-したがって $\Pi_R(t_R^-)=E_*$ なら
-
-```math
-\Pi_R(T)
-=
-E_*+\kappa I_- -h
-```
-
-が有限幅パルスで厳密に成り立つ。比較器は $I_-$ と $h$ を非破壊的に読み出すが、それらの角変数を不変に保つとは主張しない。
-
-## C.7 2モード作用殻の正規化
-
-2つの作用・角変数対に対し、
-
-```math
-\mathcal N(E_\ell)
-=
-\int_0^\infty
-dJ_s
-\int_0^{2\pi}
-d\theta_s
-\int_0^\infty
-dJ_0
-\int_0^{2\pi}
-d\theta_0
-\delta
-\left[
-E_\ell-\omega_\ell(J_s+J_0)
-\right].
-```
-
-$J_0$ を積分すると
-
-```math
-\mathcal N(E_\ell)
-=
-\frac{(2\pi)^2}{\omega_\ell}
-\int_0^{E_\ell/\omega_\ell}
-dJ_s
-=
-\frac{(2\pi)^2E_\ell}{\omega_\ell^2}.
-```
-
-$h=\omega_\ell J_s$ の区間 $[h,h+dh]$ に入る作用殻測度は
-
-```math
-d\mathcal N_h
-=
-\frac{(2\pi)^2}{\omega_\ell^2}dh.
-```
-
-従って
-
-```math
-p_\ell(h)dh
-=
-\frac{d\mathcal N_h}{\mathcal N(E_\ell)}
-=
-\frac{dh}{E_\ell}.
-```
-
-同じ結果は、尺度を変えた Descartes 座標
-
-```math
-\frac1{\sqrt{2J_\ell}}
-\left(
-q_s,p_s,q_0,p_0
-\right)
-```
-
-が3次元球面 $S^3$ 上にあることからも分かる。
-
-```math
-\frac{J_s}{J_\ell}
-=
-\frac{q_s^2+p_s^2}{
-q_s^2+p_s^2+q_0^2+p_0^2
+\frac{
+P_A\pm P_B
+}{
+\sqrt2
 }
 ```
 
-は Beta$(1,1)$、すなわち $[0,1]$ 上の一様分布である。
+と定める。
 
-## C.8 混合器生成子
-
-次を定義する。
+<!-- theorem-start:proposition -->
+**命題（和・差変換の正準性）**
+上の変換は正準であり、
 
 ```math
-J_x=q_sq_0+p_sp_0,
+P_A\,dQ_A
++
+P_B\,dQ_B
+=
+P_+\,dQ_+
++
+P_-\,dQ_-.
+```
+<!-- theorem-end:proposition -->
+
+<!-- theorem-start:proof -->
+**証明**
+変換行列
+
+```math
+U
+=
+\frac1{\sqrt2}
+\begin{pmatrix}
+1&1\\
+1&-1
+\end{pmatrix}
 ```
 
-```math
-J_y=q_sp_0-p_sq_0,
-```
+は直交行列である。座標と運動量へ同じ $U$ を作用させるため、C.1節と同じ計算で正準1形式が保存される。
+<!-- theorem-end:proof -->
+
+和・差作用は
 
 ```math
-J_z=\frac12
-\left(
-q_s^2+p_s^2-q_0^2-p_0^2
-\right),
-```
-
-```math
-J_\ell
+I_\pm
 =
 \frac12
 \left(
-q_s^2+p_s^2+q_0^2+p_0^2
+Q_\pm^2+P_\pm^2
+\right)
+=
+\frac14
+\left\|
+u_A\pm u_B
+\right\|^2.
+```
+
+直交性から、
+
+```math
+I_++I_-
+=
+I_A+I_B.
+```
+
+設定と結果は $I_+-I_-$ に入るが、総入力作用には入らない。
+
+固定された $U$ は1つの正準写像であり、測度を生成しない。入力集団が Liouville 測度を持てば保存するが、単一入力を一様集団へ変えない。
+
+## C.5 3モード作用と U(3) 生成子
+
+境界3モードを複素正準変数
+
+```math
+a
+=
+\begin{pmatrix}
+a_+\\
+a_s\\
+a_r
+\end{pmatrix},
+\qquad
+a_\nu
+=
+\frac{
+q_\nu+ip_\nu
+}{
+\sqrt2
+}
+```
+
+で表す。Poisson 括弧を
+
+```math
+\left\{
+a_j,a_k^*
+\right\}
+=
+-i\delta_{jk}
+```
+
+とする。総作用は
+
+```math
+C
+=
+a^\dagger a.
+```
+
+$T_\alpha$ を $u(3)$ の Hermitian 基底とし、
+
+```math
+L_\alpha
+=
+a^\dagger T_\alpha a
+```
+
+を Hamiltonian 生成子とする。$L_\alpha$ の流れは
+
+```math
+\dot a
+=
+-iT_\alpha a
+```
+
+であり、
+
+```math
+\left\{
+C,L_\alpha
+\right\}
+=
+0.
+```
+
+従って全ての $U(3)$ 生成子は総作用殻に接する。
+
+構造化浴の未読変数 $\xi_\alpha(z_{\mathcal B})$ と弱く結合する候補 Hamiltonian を
+
+```math
+H_{\rm iso-link}
+=
+\epsilon_{\rm iso}
+\sum_{\alpha=1}^{9}
+\xi_\alpha(z_{\mathcal B})
+L_\alpha(a)
+```
+
+とする。各瞬間の全 Hamiltonian 流れは $C$ を保存する。
+
+浴相関が準備窓で
+
+```math
+\left\langle
+\xi_\alpha(t)
+\xi_\beta(0)
+\right\rangle
+\simeq
+\delta_{\alpha\beta}
+\kappa(t)
+```
+
+となり、相関時間が境界モードの緩和時間より短いとする。弱結合・長時間尺度での2次縮約生成子は概念的に
+
+```math
+\mathcal L_{\rm eff}
+=
+D_\partial
+\sum_{\alpha=1}^{9}
+X_{L_\alpha}^2
+```
+
+となる。同次空間 $U(3)/U(2)$ 上では、この Casimir 作用素は規格化を除いて $\Delta_{S^5}$ に一致する。
+
+この縮約には、少なくとも次の近似が必要である。
+
+1. $\epsilon_{\rm iso}\ll1$ の弱結合。
+2. 浴相関時間と準備時間の分離。
+3. 9方向の相関行列の等方性。
+4. 有限浴の再帰時間より短い準備窓。
+5. 外部交換による長時間再位相化の抑制。
+
+本論文は、特定の有限 $V_{\rm nl}$ と外部結合について、これらの条件から $\mathcal L_{\rm eff}$ への一様誤差上界を証明しない。従ってこれはミクロ実現候補であり、導出済みの定理ではない。
+
+## C.6 等方拡散の定常測度
+
+固定殻 $S_{C_0}^5$ 上の密度 $f$ が
+
+```math
+\partial_t f
+=
+D_\partial\Delta_{S^5}f
+```
+
+に従うとする。定常解は
+
+```math
+\Delta_{S^5}f=0
+```
+
+を満たす。部分積分により、
+
+```math
+0
+=
+\int
+f\Delta_{S^5}f\,d\mu_{C_0}
+=
+-
+\int
+\left|
+\nabla_{S^5}f
+\right|^2
+d\mu_{C_0}.
+```
+
+従って $f$ は定数であり、規格化すれば $f=1$ である。
+
+異方摂動を
+
+```math
+\mathcal L_\varepsilon
+=
+D_\partial\Delta_{S^5}
++
+\varepsilon_{\rm aniso}\mathcal L_1
+```
+
+とする。$\mathcal L_1$ が質量を保存し、等方生成子のスペクトルギャップに対して相対有界なら、定常密度の形式展開は
+
+```math
+f_\varepsilon
+=
+1
+-
+\frac{
+\varepsilon_{\rm aniso}
+}{
+D_\partial
+}
+\left(
+\Delta_{S^5}
+\right)^{-1}_{0}
+\mathcal L_1^*1
++
+O
+\left(
+\varepsilon_{\rm aniso}^2
+\right)
+```
+
+となる。逆作用素の添字0は平均零部分空間への制限である。この式は、異方性の影響が結合定数だけでなくスペクトルギャップに依存することを示す。
+
+## C.7 固定殻体積と周辺密度
+
+作用角変数で、3モード固定殻の未規格化体積は
+
+```math
+\Omega_3(C_0)
+=
+(2\pi)^3
+\int_0^\infty dJ_+
+\int_0^\infty dJ_s
+\int_0^\infty dJ_r\,
+\delta
+\left(
+C_0-J_+-J_s-J_r
 \right).
 ```
 
-Poisson 括弧を直接計算すると、
+$J_r$ を積分すると、$J_+,J_s\geq0$ かつ $J_++J_s\leq C_0$ の三角形が残る。従って、
 
 ```math
-\{J_\ell,J_i\}=0,
-\qquad
-i=x,y,z.
-```
-
-また、規格化の取り方に応じた定数因子を除き、$J_x,J_y,J_z$ は $\mathfrak{su}(2)$ 型の閉じた括弧を持つ。したがって
-
-```math
-K_M
+\Omega_3(C_0)
 =
-a_x(t)J_x+a_y(t)J_y+a_z(t)J_z
-```
-
-の各流れは $S^3$ 上の測度保存向き写像である。係数 $a_i(t)$ を有限非線形環境と自律時計から生成すれば、全系を Hamiltonian に保ったまま複雑な向き運動を作れる。
-
-この事実は $p(h)$ の不変基準測度を保証するが、特定の決定論的係数列が混合を起こすことを自動的には保証しない。混合率は、相関減衰または転送作用素のスペクトルで別に検証する必要がある。
-
-## C.9 多モード単体の周辺分布
-
-ソフトモードエネルギー $h$ と $N$ 個の残余作用エネルギー $e_1,\ldots,e_N$ が
-
-```math
-h+\sum_{j=1}^{N}e_j=E_\ell
-```
-
-を満たすとする。各調和対の位相角を積分すると定数になる。$h$ を固定した残余単体
-
-```math
-\sum_{j=1}^{N}e_j=E_\ell-h,
-\qquad
-e_j\geq0
-```
-
-の面上の重複度は
-
-```math
-\frac{(E_\ell-h)^{N-1}}{(N-1)!}
-```
-
-に比例する。規格化から
-
-```math
-p_N(h)
+(2\pi)^3
+\int_0^{C_0}dJ_+
+\int_0^{C_0-J_+}dJ_s
 =
-\frac{N}{E_\ell}
-\left(
-1-\frac h{E_\ell}
-\right)^{N-1}.
+\frac{
+(2\pi)^3C_0^2
+}{
+2
+}.
 ```
 
-累積分布は
+$J_+=x$ の未規格化周辺は
 
 ```math
-F_N(x)
+\omega_+(x)
 =
-1-
+(2\pi)^3
+\int_0^\infty dJ_s
+\int_0^\infty dJ_r\,
+\delta
 \left(
-1-\frac x{E_\ell}
-\right)^N.
+C_0-x-J_s-J_r
+\right)
 ```
 
-$N=1$ でのみ線形である。$x=C-ABKc$ と書けば、
-
 ```math
-F_N(C-ABKc)
 =
-1-
-\sum_{m=0}^{N}
-\binom Nm
+(2\pi)^3
 \left(
-1-\frac C{E_\ell}
-\right)^{N-m}
-\left(
-\frac{ABKc}{E_\ell}
-\right)^m.
+C_0-x
+\right)
+\mathbf1_{\{0\leq x\leq C_0\}}.
 ```
 
-偶数 $m$ は結果の偶奇に依存しない規格化補正、奇数 $m\geq3$ は $c^3,c^5,\ldots$ を通じて高次角度調波を生む。したがって追加の残余作用モードは単なる可視度の再規格化ではない。
-
-## C.10 有限終端幅
-
-鋭い指示関数を単調応答 $g_\epsilon$ へ置き換える。
+従って、
 
 ```math
-G_{R,\epsilon}
+p_+(x)
 =
-g_\epsilon
+\frac{
+\omega_+(x)
+}{
+\Omega_3(C_0)
+}
+=
+\frac{
+2(C_0-x)
+}{
+C_0^2
+}.
+```
+
+固定 $x$ の条件付き分布では、
+
+```math
+p
 \left(
-E_*+\kappa I_- -h
+J_s\mid J_+=x
+\right)
+=
+\frac1{C_0-x}
+```
+
+である。条件付き密度の $1/(C_0-x)$ と、ファイバー総質量の $C_0-x$ を混同してはならない。
+
+## C.8 coarea と境界ファイバー
+
+一般の境界正準位相空間を $\Gamma_\partial$、基準体積を $d\Gamma_\partial$ とする。2つの制約を
+
+```math
+F_1
+=
+C_0-J_+-J_s-J_r,
+```
+
+```math
+F_2
+=
+J_+-I_+^{AB}
+```
+
+とする。理想線形モデルでは、
+
+```math
+W_{AB}
+\propto
+\int_{\Gamma_\partial}
+\delta(F_1)
+\delta(F_2)
+d\Gamma_\partial.
+```
+
+作用角座標に変換すると、変換 Jacobian は1である。$J_+$ と $J_r$ のデルタ関数積分を行えば、
+
+```math
+W_{AB}
+\propto
+(2\pi)^3
+\int_0^{C_0-I_+^{AB}}dJ_s
+```
+
+```math
+=
+(2\pi)^3
+\left(
+C_0-I_+^{AB}
 \right).
 ```
 
-一様なソフトモードエネルギー密度に対する整合重みは
+一般の滑らかな境界写像 $F=(F_1,F_2)$ では coarea 公式により、
 
 ```math
-F_\epsilon(x)
+\int_{\Gamma_\partial}
+\rho(z)
+\delta
+\left(
+F(z)
+\right)
+d\Gamma_\partial
 =
-\frac1{E_\ell}
-\int_0^{E_\ell}
-g_\epsilon(x-h)dh.
+\int_{F^{-1}(0)}
+\frac{
+\rho(z)
+}{
+J_F(z)
+}
+d\Sigma(z),
 ```
 
-$g_\epsilon$ が Heaviside 関数と対称平滑化核の畳み込みなら、
-
 ```math
-\frac{dF_\epsilon}{dx}
+J_F
 =
-\frac1{E_\ell}
+\sqrt{
+\det
 \left[
-g_\epsilon(x)-g_\epsilon(x-E_\ell)
-\right].
+DF
+\left(
+DF
+\right)^{\mathsf T}
+\right]
+}.
 ```
 
-内部領域
+理想作用座標では $J_F$ が結果と設定に共通な定数へなる。非線形境界写像、分岐、caustic、解多重度がある場合は、この単純化を使えない。同じ巨視的結果へ対応する複数の解は、その局所 Jacobian と多重度を含めて数える。
+
+## C.9 有限分解能の展開
+
+偶関数 $K$ を
 
 ```math
-\epsilon\ll x\ll E_\ell-\epsilon
+\int_{\mathbb R}K(y)\,dy=1,
+\qquad
+\int_{\mathbb R}yK(y)\,dy=0
 ```
 
-では $g_\epsilon(x)\approx1$、$g_\epsilon(x-E_\ell)\approx0$ なので、
+と規格化し、
 
 ```math
-\frac{dF_\epsilon}{dx}
-\approx
-\frac1{E_\ell}.
+K_{\delta_J}(y)
+=
+\frac1{\delta_J}
+K
+\left(
+\frac y{\delta_J}
+\right)
 ```
 
-両端近傍でのみ傾きと切片が変わる。したがって $E_*$ は零しきい値領域を境界層から離す一方、可視度を低下させる。
+とする。$J_+$ 周辺密度 $p_+(x)$ は殻内部で線形なので、窓が殻端に触れない限り、
+
+```math
+\int
+p_+(x)
+K_{\delta_J}(x-I_+)\,dx
+=
+p_+(I_+)
+```
+
+が偶対称窓では厳密に成り立つ。一般の滑らかな Jacobian または殻幅分布を含めると、
+
+```math
+W_{AB}^{(\delta_J)}
+=
+c_{\delta_J}
+\left(
+C_0-I_+^{AB}
+\right)
++
+O
+\left(
+\delta_J^2
+\sup
+\left|
+\partial_{J_+}^2
+\frac{\rho}{J_F}
+\right|
+\right).
+```
+
+従って、理想線形作用殻では有限分解能自体が1次の角度誤差を生まない。主要な分解能誤差は、殻端の切断、非線形 Jacobian、結果依存窓、総作用幅との重なりから生じる。
+
+## C.10 半径方向の弱開放力学
+
+総作用 $C$ の縮約式を
+
+```math
+dC_t
+=
+-\gamma_C
+\left(
+C_t-C_0
+\right)dt
++
+\sqrt{2D_C}\,dW_t
+```
+
+とする。定常密度は
+
+```math
+\rho_C(C)
+\propto
+\exp
+\left[
+-
+\frac{
+\gamma_C
+}{
+2D_C
+}
+\left(
+C-C_0
+\right)^2
+\right],
+```
+
+その分散は
+
+```math
+\sigma_C^2
+=
+\frac{D_C}{\gamma_C}
+```
+
+である。
+
+この式は、外部への漏れと流入を線形化した縮約候補である。基礎 Hamiltonian の総エネルギーが確率的に失われると仮定したものではない。外部環境と仕事源を消去した有限部分の有効式として読む。
+
+角方向と半径方向が近似的に分離する条件を
+
+```math
+\tau_{\rm corr}
+\ll
+\tau_{\rm mix}
+\ll
+\tau_C,
+\qquad
+\tau_C=\gamma_C^{-1}
+```
+
+とする。$\tau_{\rm corr}$ は浴相関時間、$\tau_{\rm mix}$ は殻接方向混合、$\tau_C$ は半径変化である。$\tau_{\rm mix}\ll\tau_C$ なら、各半径で方向分布が先に等方化する。
+
+純粋漏れでは
+
+```math
+dC_t=-\gamma_CC_t\,dt
+```
+
+となり、非零の定常殻は存在しない。流入または仕事源を含む復元項は、作用殻準備に不可欠である。
+
+## C.11 ミクロ構成から未導出の事項
+
+本付録で厳密に示したのは次である。
+
+- 1つの有限浴に対する静的な直交正準基底。
+- 線形浴の交差応答核。
+- 最小結果符号化器の理想正準写像。
+- 和・差変換の正準性と作用保存。
+- $U(3)$ Hamiltonian 生成子が総作用を保存すること。
+- 3モード固定作用殻の体積、周辺密度、残余ファイバー体積。
+- 理想線形境界写像の共通 coarea Jacobian。
+
+次は未導出である。
+
+- 特定の有限非線形浴が必要な時間窓で等方な相関行列を持つこと。
+- 有限浴と常時の外部交換から $D_\partial\Delta_{S^5}$ を一様誤差付きで得ること。
+- 異方誤差、混合時間、再帰時間を同じパラメータから同時に閉じること。
+- 半径方向の復元式とエネルギー収支を明示的な外部 Hamiltonian から導くこと。
+- 一般測定器、境界適合、記録、消去、再初期化を1本の有限幅 Hamiltonian へ統合すること。
+
+従って、作用殻の幾何計算は厳密結果、全殻拡散と半径安定化は縮約候補、現行の弱開放モデルへの接続は近似または予想・未解決として扱う。

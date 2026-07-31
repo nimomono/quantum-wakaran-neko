@@ -14,8 +14,8 @@
 - `sections/03_two_sided_gaussian_law.md`
 - `sections/04_c1_nelson_limit.md`
 - `sections/05_finite_measurement_boundary.md`
-- `sections/06_two_mode_action_distribution.md`
-- `sections/07_terminal_bell_measure.md`
+- `sections/06_three_mode_action_shell.md`
+- `sections/07_boundary_action_shell_bell_measure.md`
 - `sections/08_robustness_and_limits.md`
 - `sections/A1_fourier_schur_proofs.md`
 - `sections/A2_c1_estimates.md`
@@ -26,6 +26,7 @@
 
 - `notes/README.md`
 - `notes/project_sources_key_results.md`
+- `notes/superseded_terminal_function_model.md`
 - `notes/rejected_forward_weighting_models.md`
 - `notes/complementary_terminal_halfspaces.md`
 - `notes/gaussian_nelson_examples.md`
