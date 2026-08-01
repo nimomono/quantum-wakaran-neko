@@ -16,8 +16,23 @@
 
 補助モデルで得た Fisher／Nelson 構造と Bell 型統計を、同じ明示的な弱開放古典 Hamiltonian 系から一貫して導出することである。特に、構造化誘導場から二側 Markov 拡散と Fisher 閉鎖を、適用範囲と誤差評価を伴って導くことが最重要課題として残っている。
 
-## 論文と状態文書
+## 運用文書
 
-- 現行論文：[Markdown](paper.md) / [PDF](paper.pdf)
-- 現在の導出状態と未解決問題：[PROJECT_STATUS.md](PROJECT_STATUS.md)
-- 長期的な方針：[PROJECT_STANCE.md](PROJECT_STANCE.md)
+- [プロジェクトの長期的方針](PROJECT_STANCE.md)
+- [証明状態と理論の境界](PROJECT_STATUS.md)
+- [論文リポジトリの構成・執筆・更新規約](PROJECT_GUIDE.md)
+- [版ごとの変更記録](CHANGELOG.md)
+- [検算と品質確認](VALIDATION.md)
+- [現行版のファイル一覧](MANIFEST.md)
+- [論文外の研究メモ](notes/README.md)
+
+## 現行論文
+
+**構造化誘導場を持つ弱開放古典 Hamiltonian 系の二側縮約：Fisher 応力と境界作用殻 Bell 型統計**
+
+- [統合マークダウン原稿](paper.md)
+- [完成版PDF](paper.pdf)
+
+統合マークダウン原稿、TeX原稿、完成版PDFは、いずれも現在の章別原稿に対応する。
+
+内容を修正するときは `sections/` 内の章別原稿を編集し、`tools/build_paper.py` で統合原稿、組版用原稿、完成版PDFを再生成する。詳しい手順は [PROJECT_GUIDE.md](PROJECT_GUIDE.md) に従う。
