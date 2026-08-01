@@ -1,49 +1,68 @@
 @number: 4
 @chapter: 本文
-@title: 二側短記憶極限、Fisher 応力、中心閉鎖予想
-@status: 二側 Markov 拡散を仮定した後の浸透速度と Fisher 応力は厳密結果である。ミクロ誘導場からその拡散と応力へ至る縮約は中心的な予想・未解決である。
+@title: 二側配置拡散、Fisher 項、時間対称動力学
+@status: 配置変数の二側 Markov 拡散を仮定した後の浸透速度、Fisher 情報、量子ポテンシャルは厳密結果である。運動量結合した有限誘導場からの配置拡散極限と時間対称 Newton 則は独立した未解決問題である。
 
-## 4.1 二側条件付き過程と Markov 性
+## 4.1 配置雑音を持つ位相空間極限
 
-第3章の有限 Hamiltonian 集団へ初期側と終端側の条件を課しても、粒子の縮約過程が自動的に Markov 過程になるわけではない。有限誘導場を消去すると、一般には履歴依存の記憶核が残る。
-
-本章では、次の縮約が成立する場合の有効式を先に整理する。
-
-1. 誘導場相関時間 $\tau_{\rm corr}$ が粒子の遅い時間 $\tau_{\rm slow}$ より十分短い。
-2. 条件付き均質化により、有限次元分布が前進・後退 Markov 拡散へ収束する。
-3. 前進と後退の2次変分が同じ正定値拡散行列へ収束する。
-4. 非 Markov 残差、境界層、有限再帰、外部交換が観測窓で一様に小さい。
-
-等方な場合の有効前進過程を
+第3章の自由速度揺らぎが短記憶化し、反作用記憶項が局所ドリフトまたは小さい残差へ縮約されるとき、最初の有効候補は
 
 ```math
 \mathrm dX_t
 =
-b_+(X_t,t)\,\mathrm dt
+\frac{P_t}{m}
+\,\mathrm dt
 +
-\sqrt{2\nu}\,\mathrm dW_t^+
+\sqrt{2\nu}
+\,\mathrm dW_t,
 ```
 
-とし、後退過程を
+```math
+\mathrm dP_t
+=
+-\nabla V(X_t)
+\,\mathrm dt
+```
+
+である。$\nu>0$ は配置空間の等方拡散係数である。第2章の線形核では正準運動量が厳密に $\dot P=-\nabla V$ を満たすため、反作用記憶は $P$ の乱雑力でなく $X$ のドリフト側へ現れる。非線形項または外部自由度が $P$ へ直接結合する拡張では別の補正が加わるが、中心模型の式へ先に入れない。
+
+この位相空間過程は $(X,P)$ について Markov でも、$X$ だけの射影は一般に Markov ではない。Fisher 項へ進むには、条件付き運動量が配置と時刻の局所関数へ閉じること、または $P$ を消去した配置経路法則が Markov 拡散へ近づくことが追加で必要である。
+
+## 4.2 配置変数だけの二側 Markov 拡散
+
+配置変数の極限過程が、共通の正の密度 $\rho(x,t)$ と同じ拡散係数 $\nu$ を持つ前進・後退表示を持つと仮定する。
+
+```math
+\mathrm dX_t
+=
+b_+(X_t,t)
+\,\mathrm dt
++
+\sqrt{2\nu}
+\,\mathrm dW_t^+,
+```
 
 ```math
 \mathrm d_-X_t
 =
-b_-(X_t,t)\,\mathrm dt
+b_-(X_t,t)
+\,\mathrm dt
 +
-\sqrt{2\nu}\,\mathrm d_-W_t^-
+\sqrt{2\nu}
+\,\mathrm d_-W_t^-.
 ```
 
-と書く。$\nu>0$ は配置空間の拡散係数である。境界作用殻の係数 $D_\partial$ とは区別する。
+境界条件付けは前後のドリフトを変えるが、1つの非退化拡散経路法則の条件付けとして構成できるなら、2次変分を決める主部は変えない。この理由により共通の $\nu$ は有効拡散モデル内部では自然である。ただし、有限 Hamiltonian 集団からその共通経路法則が得られることは未証明である。
 
-## 4.2 前進・後退流れ
-
-共通の正の時刻密度を $\rho(x,t)$ とする。前進と後退の Fokker--Planck 方程式は
+前進と後退の Fokker--Planck 方程式は
 
 ```math
 \partial_t\rho
 =
--\nabla\cdot(\rho b_+)
+-\nabla\cdot
+\left(
+\rho b_+
+\right)
 +
 \nu\Delta\rho,
 ```
@@ -51,12 +70,19 @@ b_-(X_t,t)\,\mathrm dt
 ```math
 \partial_t\rho
 =
--\nabla\cdot(\rho b_-)
+-\nabla\cdot
+\left(
+\rho b_-
+\right)
 -
 \nu\Delta\rho
 ```
 
-である。両式を加減し、
+である。
+
+## 4.3 現在速度と浸透速度
+
+現在速度 $v$ と浸透速度 $u$ を
 
 ```math
 v
@@ -68,18 +94,22 @@ u
 \frac{b_+-b_-}{2}
 ```
 
-と置く。
+と定める。$u$ と拡散係数 $\nu$ は異なる量であり、以後この表記を固定する。
 
 <!-- theorem-start:proposition -->
 **命題（二側拡散の流れ分解）**
 
-共通の正の密度と共通の拡散係数 $\nu$ を持つなら、
+同じ正の密度と同じ等方拡散係数を持つ前進・後退表示では、
 
 ```math
 \partial_t\rho
 +
-\nabla\cdot(\rho v)
-=0,
+\nabla\cdot
+\left(
+\rho v
+\right)
+=
+0,
 ```
 
 ```math
@@ -92,83 +122,9 @@ u
 
 <!-- theorem-end:proposition -->
 
-これは二側 Markov 拡散モデル内部の厳密結果である。有限 Hamiltonian 集団からこのモデルが得られることの証明ではない。
+これは配置 Markov 拡散モデル内部の厳密な運動学である。欲しい密度を見て $u$ を外から置くのではなく、同じ経路法則の前進・後退表示の差として得る。
 
-## 4.3 時間対称平均加速度
-
-前進・後退微分を $D_+,D_-$ とする。Nelson の時間対称平均加速度を
-
-```math
-a_{\rm ts}
-=
-\frac12
-\left(
-D_+D_-+D_-D_+
-\right)X
-```
-
-と定義する。滑らかな $v,u$ について
-
-```math
-a_{\rm ts}
-=
-\partial_tv
-+
-(v\cdot\nabla)v
--
-(u\cdot\nabla)u
--
-\nu\Delta u
-```
-
-が成立する。
-
-$u=\nu\nabla\log\rho$ を使うと、
-
-```math
-(u\cdot\nabla)u
-+
-\nu\Delta u
-=
-2\nu^2
-\nabla
-\left(
-\frac{\Delta\sqrt\rho}{\sqrt\rho}
-\right).
-```
-
-従って時間対称 Newton 式
-
-```math
-ma_{\rm ts}
-=
--\nabla V
-```
-
-は
-
-```math
-m
-\left[
-\partial_tv
-+
-(v\cdot\nabla)v
-\right]
-=
--\nabla V
-+
-2m\nu^2
-\nabla
-\left(
-\frac{\Delta\sqrt\rho}{\sqrt\rho}
-\right)
-```
-
-と同値である。
-
-自己共役 Green 核を得ただけでは、この時間対称 Newton 式は従わない。Green 消去後の非局所作用が、Markov 極限と条件付き変分を通じて上式へ収束することを示す必要がある。
-
-## 4.4 Fisher 情報と応力
+## 4.4 Fisher 情報と量子ポテンシャル
 
 Fisher 情報を
 
@@ -177,24 +133,58 @@ Fisher 情報を
 =
 \int
 \rho
-|\nabla\log\rho|^2
+\left|
+\nabla\log\rho
+\right|^2
 \,\mathrm dx
 ```
 
-とする。浸透速度の2乗平均は
+とする。前節の恒等式から
 
 ```math
-\int\rho|u|^2\,\mathrm dx
+\frac m2
+\int
+\rho|u|^2
+\,\mathrm dx
 =
-\nu^2\mathcal I[\rho]
+\frac{m\nu^2}{2}
+\mathcal I[\rho]
 ```
 
-である。正規化制約と境界項が消える条件の下で、
+が直ちに従う。従って Fisher 項は、旧位置結合経路の力密度閉鎖を経由せず、二側配置拡散の前後ドリフト差から直接現れる。
+
+正規化制約と境界項が消える条件の下で、
 
 ```math
 \frac{\delta\mathcal I}{\delta\rho}
 =
 -4
+\frac{\Delta\sqrt\rho}{\sqrt\rho}
+```
+
+である。量子ポテンシャルに対応する密度汎関数を
+
+```math
+Q[\rho]
+=
+-2m\nu^2
+\frac{\Delta\sqrt\rho}{\sqrt\rho}
+```
+
+と定める。有効作用定数を
+
+```math
+\hbar_{\rm eff}
+=
+2m\nu
+```
+
+と置けば、
+
+```math
+Q[\rho]
+=
+-\frac{\hbar_{\rm eff}^2}{2m}
 \frac{\Delta\sqrt\rho}{\sqrt\rho}
 ```
 
@@ -205,152 +195,197 @@ Bohm–Fisher 応力を
 ```math
 P_F[\rho]
 =
--m\nu^2\rho\,
-\nabla\nabla\log\rho
+-m\nu^2\rho
+\,\nabla\nabla\log\rho
 ```
 
-と定義する。
+と定めると、
 
 <!-- theorem-start:proposition -->
 **命題（Fisher 応力恒等式）**
 
-十分滑らかな正の密度について、
-
 ```math
 -\nabla\cdot P_F[\rho]
 =
-2m\nu^2\rho\,
-\nabla
+2m\nu^2\rho
+\,\nabla
 \left(
 \frac{\Delta\sqrt\rho}{\sqrt\rho}
 \right)
+=
+-\rho\nabla Q[\rho]
 ```
 
 が成立する。
 
 <!-- theorem-end:proposition -->
 
-従って二側 Markov 拡散の時間対称 Newton 式は、連続の式と
+## 4.5 時間対称 Newton 則は独立した主張である
+
+前進・後退微分を $D_+,D_-$ とし、Nelson の時間対称平均加速度を
 
 ```math
-m\rho
-\left(
-\partial_t+v\cdot\nabla
-\right)v
+a_{\rm ts}
 =
--\rho\nabla V
--
-\nabla\cdot P_F[\rho]
+\frac12
+\left(
+D_+D_-
++
+D_-D_+
+\right)X
 ```
 
-という Euler 型運動量式で書ける。
-
-## 4.5 Fisher 閉鎖予想
-
-第3章の正確なミクロ運動量式は
+と定義する。滑らかな $v,u$ について
 
 ```math
-m\rho_N
-\left(
-\partial_t+v_N\cdot\nabla
-\right)v_N
+a_{\rm ts}
 =
--\rho_N\nabla V
+\partial_tv
 +
-\rho_N\overline F_{{\rm G},N}
--
-\frac1m
-\nabla\cdot
 \left(
-\rho_N\Sigma_{p,N}
+v\cdot\nabla
+\right)v
+-
+\left(
+u\cdot\nabla
+\right)u
+-
+\nu\Delta u
+```
+
+が成立する。$u=\nu\nabla\log\rho$ を使うと、
+
+```math
+\left(
+u\cdot\nabla
+\right)u
++
+\nu\Delta u
+=
+2\nu^2
+\nabla
+\left(
+\frac{\Delta\sqrt\rho}{\sqrt\rho}
 \right).
 ```
 
-二側拡散側の目標式と比較すると、必要な中心閉鎖は次である。
-
-**予想（Fisher 閉鎖）**
-
-適切な有限誘導場列、固定射影、二側境界集団、短記憶尺度、弱外部交換の下で、
+時間対称 Newton 則
 
 ```math
-\rho_N\overline F_{{\rm G},N}
--
-\frac1m
-\nabla\cdot
-\left(
-\rho_N\Sigma_{p,N}
-\right)
-\longrightarrow
--\nabla\cdot P_F[\rho]
-```
-
-が指定した時空間ノルムで成立する。
-
-この予想は現在の定理ではない。特に、$\overline F_{{\rm G},N}$ だけ、または $\Sigma_{p,N}$ だけを右辺へ同定するものではない。誘導場反作用、枝内部幅、枝間流束、外部補正を合わせた収束である。
-
-## 4.6 無次元化した目標誤差
-
-力密度の比較ノルムを $\|\cdot\|_{\mathcal X}$ とし、代表力密度を $\mathcal F_*>0$ とする。例えば、対象時間窓での $\|-\nabla\cdot P_F[\rho]\|_{L^2_tH^{-1}_x}$ の上界を $\mathcal F_*$ に選ぶ。
-
-閉鎖誤差を
-
-```math
-\varepsilon_F^{(N)}
+ma_{\rm ts}
 =
-\frac1{\mathcal F_*}
-\left\|
-\rho_N\overline F_{{\rm G},N}
--
-\frac1m
-\nabla\cdot
-\left(
-\rho_N\Sigma_{p,N}
-\right)
-+
-\nabla\cdot P_F[\rho]
-\right\|_{\mathcal X}
+-\nabla V
 ```
 
-とする。目標評価は
+を追加で仮定または導出できれば、
 
 ```math
-\varepsilon_F^{(N)}
-\leq
-C
+m
+\left[
+\partial_tv
++
 \left(
-\varepsilon_{\rm mem}
+v\cdot\nabla
+\right)v
+\right]
+=
+-\nabla V
+-
+\nabla Q[\rho]
+```
+
+を得る。
+
+配置拡散の導出だけでは、この Newton 則は自動的に従わない。第3章の時間対称 Green 核、反作用記憶、境界条件付き変分を合わせ、非局所作用が上式へ収束することを別に示す必要がある。
+
+## 4.6 局所的な Schrödinger 表示
+
+節を含まない単連結領域で現在速度が
+
+```math
+v
+=
+\frac1m\nabla S
+```
+
+と書けるとする。連続の式と前節の Euler 型方程式を積分すると、時刻だけの関数を $S$ へ吸収した後、
+
+```math
+\partial_tS
 +
-\varepsilon_{\rm nM}
+\frac{|\nabla S|^2}{2m}
 +
-\varepsilon_{\rm diff}
+V
 +
-\varepsilon_{\rm proj}
-+
-\varepsilon_{\rm defect}
-+
-\varepsilon_{\rm open}
-+
-\varepsilon_N
+Q[\rho]
+=
+0
+```
+
+を得る。そこで
+
+```math
+\psi
+=
+\sqrt\rho
+\exp
+\left(
+\frac{iS}{\hbar_{\rm eff}}
 \right)
 ```
 
-の形である。右辺は全て無次元量とする。
+と置けば、局所的には
+
+```math
+i\hbar_{\rm eff}
+\partial_t\psi
+=
+\left(
+-\frac{\hbar_{\rm eff}^2}{2m}\Delta
++
+V
+\right)
+\psi
+```
+
+と同値である。
+
+この局所変換は、節をまたぐ位相接続、循環量子化、単価な波動関数を保証しない。従って Wallstrom 問題は未解決である [19]。
+
+## 4.7 配置拡散極限の誤差
+
+旧稿の力密度閉鎖誤差に代えて、次の独立した誤差を管理する。
 
 | 誤差 | 意味 |
 |---|---|
-| $\varepsilon_{\rm mem}=\tau_{\rm corr}/\tau_{\rm slow}$ | 短記憶化 |
-| $\varepsilon_{\rm nM}$ | 条件付き過程の非 Markov 残差 |
-| $\varepsilon_{\rm diff}$ | 前進・後退の拡散行列の不一致と異方性 |
-| $\varepsilon_{\rm proj}$ | 固定位相整合部分空間からの漏出 |
-| $\varepsilon_{\rm defect}$ | 枝内部欠陥と未除去成分 |
-| $\varepsilon_{\rm open}$ | 測定窓内の外部交換 |
-| $\varepsilon_N$ | 有限誘導場切断と再帰 |
+| $\varepsilon_{\rm mem}=\tau_{\rm corr}/\tau_{\rm slow}$ | 自由速度相関の短記憶化 |
+| $\varepsilon_{\rm fb}$ | 反作用記憶の局所化と質量繰り込みの残差 |
+| $\varepsilon_{\rm BM}$ | 積分速度揺らぎと Brown 経路法則の差 |
+| $\varepsilon_{\rm nM}$ | $X$ 射影の非 Markov 残差 |
+| $\varepsilon_{\rm iso}$ | 配置拡散行列の異方性 |
+| $\varepsilon_{\rm two}$ | 前後の2次変分と共通 $\nu$ からのずれ |
+| $\varepsilon_{\rm press}$ | 条件付き速度分散が残す古典圧力 |
+| $\varepsilon_{\rm dyn}$ | 時間対称 Newton 則からの動力学残差 |
+| $\varepsilon_{\rm open}$ | 観測窓内の外部交換 |
+| $\varepsilon_N$ | 有限モード切断、境界層、再帰 |
 
-この式は次元を揃えた目標評価であり、現時点では証明済みの上界ではない。
+適用範囲は
 
-## 4.7 Gauss 幅における Routh–Fisher 一致
+```math
+\tau_{\rm corr}
+\ll
+T_{\rm obs}
+\ll
+\min
+\left(
+T_{\rm rec},
+\tau_{\rm open}
+\right)
+```
 
-一般の Fisher 閉鎖は未証明だが、1つの可解な幅モデルでは、固定作用の Routh 縮約と Fisher 項が一致する。
+である。中心結論を支えるには、有限 Hamiltonian 経路と有効過程を同じ入口・終端集団で比較し、短時間2次変分、3時刻条件付き分布、反作用記憶、作用残差を別々に測る必要がある。これらを1本の一様上界へまとめる定理はまだない。
+
+## 4.8 Gauss 幅における Routh–Fisher 一致
 
 1次元の正規分布を
 
@@ -372,7 +407,7 @@ C
 \frac1{\sigma^2}.
 ```
 
-一方、2次元内部座標を
+2次元内部座標を
 
 ```math
 q
@@ -384,20 +419,7 @@ q
 \end{pmatrix}
 ```
 
-とし、運動項を
-
-```math
-L_{\rm int}
-=
-\frac m2
-\left(
-\dot\sigma^2
-+
-\sigma^2\dot\theta^2
-\right)
-```
-
-とする。循環作用
+とし、循環作用
 
 ```math
 J
@@ -405,17 +427,17 @@ J
 m\sigma^2\dot\theta
 ```
 
-を固定して $\theta$ を Routh 縮約すると、
+を固定して $\theta$ を Routh 縮約すると、内部 Routh 関数は
 
 ```math
 R_{\rm int}
 =
 \frac m2\dot\sigma^2
 -
-\frac{J^2}{2m\sigma^2}.
+\frac{J^2}{2m\sigma^2}
 ```
 
-$J=m\nu$ と置けば、
+となる。$J=m\nu$ と置けば、
 
 ```math
 -\frac{J^2}{2m\sigma^2}
@@ -424,18 +446,16 @@ $J=m\nu$ と置けば、
 \mathcal I[\rho_\sigma].
 ```
 
-従って Gauss 幅族では、固定内部作用の Routh 項と Nelson 作用の負の Fisher 項が厳密に一致する。
+従って Gauss 幅族では、固定内部作用の Routh 項と二側配置拡散の負の Fisher 項が厳密に一致する。これは補助的な整合性検査であり、運動量結合した有限誘導場から配置拡散または時間対称 Newton 則を導くものではない。
 
-これは重要な整合性検査だが、一般密度の Fisher 閉鎖を証明しない。$J=m\nu$ の選択、Gauss 幅以外の形状自由度、位相整合部分空間の力学的準備が別に必要である。
+## 4.9 補助的な線形 Gauss 型作用定理
 
-## 4.8 補助的な線形 Gauss 型作用定理
-
-二側 Markov 拡散が得られた後の作用表示を制御する補助結果を付録A、Bに残す。有限 Fourier–Gauss 型駆動、線形流れ、Gauss 初期分布、正定値の有限分解能終端記録、2次ポテンシャル、滑らかな有限次元パラメータ集合 $K$ を考える。
+配置 Markov 拡散が得られた後の作用表示を制御する補助結果を付録A、Bに残す。有限 Fourier–Gauss 型駆動、線形流れ、Gauss 初期分布、正定値の有限分解能終端記録、2次ポテンシャル、滑らかな有限次元パラメータ集合 $K$ を考える。
 
 時間刻み $h$ の繰り込み済み粗視化作用を $\mathcal A_{N,h}^{R,U}$、極限の Guerra--Morato 作用を $\mathcal A_{\rm GM}^{R,U}$ とする。
 
 <!-- theorem-start:theorem -->
-**定理（線形 Gauss 型作用の $C^1$ 極限）**
+**定理（線形 Gauss 型作用の <i>C</i><sup>1</sup> 極限）**
 
 ある $C_K<\infty$ が存在し、
 
@@ -472,29 +492,31 @@ C_K
 -
 U
 \right]
-\,\mathrm dx\,\mathrm dt
+\,\mathrm dx
+\,\mathrm dt
 ```
 
 という Nelson 表示と厳密に一致する。
 
-この定理は、定義した補助確率表示の作用値と有限次元パラメータ微分についての結果である。ミクロ誘導場から二側 Markov 拡散を導くこと、微視的時間発展が作用停留点を選ぶこと、Fisher 閉鎖を示すことは含まれない。
+この定理は補助確率表示の作用値と有限次元パラメータ微分についての結果である。有限誘導場から配置拡散を導くこと、時間対称 Newton 則を導くこと、微視的時間発展が作用停留点を選ぶことは含まない。
 
-## 4.9 導出状態
+## 4.10 導出状態
 
 | 主張 | 導出状態 |
 |---|---|
 | 共通拡散係数を持つ二側 Markov 拡散での $u=\nu\nabla\log\rho$ | 有効拡散モデル内部の厳密結果 |
+| Fisher 情報、量子ポテンシャル、Fisher 応力の恒等式 | 厳密結果 |
 | 時間対称平均加速度の分解 | 有効拡散モデル内部の厳密結果 |
-| Fisher 応力恒等式 | 厳密結果 |
 | Gauss 幅の Routh–Fisher 一致 | 指定した Gauss 変分モデル内部の厳密結果 |
-| 線形 Gauss 型作用の $C^1$ 極限 | 補助モデルの厳密結果 |
-| ミクロ誘導場から二側 Markov 拡散への縮約 | 予想・未解決 |
-| 自己共役 Green 応答から Nelson 平均加速度への収束 | 予想・未解決 |
-| ミクロ反作用と運動量流束の Fisher 閉鎖 | 中心的な予想・未解決 |
+| 線形 Gauss 型作用の $C^1$ 極限 | 補助モデル内部の厳密結果 |
+| 有限誘導場から配置雑音を持つ位相空間過程への縮約 | 予想・未解決 |
+| 配置変数だけの Markov 性と共通拡散係数 | 予想・未解決 |
+| 反作用記憶、質量繰り込み、古典圧力の一様誤差評価 | 予想・未解決 |
+| 時間対称 Green 応答から Newton 則への縮約 | 予想・未解決 |
 | 微視的時間発展による Nelson 停留点選択 | 予想・未解決 |
 
-## 4.10 本章の結論
+## 4.11 本章の結論
 
-二側 Markov 拡散が得られれば、浸透速度、Fisher 情報、Bohm–Fisher 応力、Nelson 作用の関係は厳密に整理できる。Gauss 幅族では、固定内部作用の Routh 縮約が Fisher 項と一致する。
+運動量結合した誘導場は、配置速度揺らぎを直接生む。この揺らぎの積分が Brown 運動へ近づき、配置変数だけの二側 Markov 拡散が得られれば、$u=\nu\nabla\log\rho$、Fisher 項、量子ポテンシャルは運動学的に厳密に従う。
 
-未完成なのは、その構造をミクロ Hamiltonian から得る中央の縮約である。本論文は、正確なミクロ運動量収支と Fisher 応力の間を **Fisher 閉鎖予想** として明示し、自己共役性または弱漏れだけで解決済みとは扱わない。
+従って旧稿の Fisher 力密度閉鎖は中心課題から外れる。残る中心課題は、配置拡散極限、$X$ 射影の Markov 性、反作用記憶と古典圧力の制御、時間対称 Newton 則である。配置拡散を得たことと動力学まで得たことを分けて扱う。

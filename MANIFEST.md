@@ -31,6 +31,7 @@
 - `notes/complementary_terminal_halfspaces.md`
 - `notes/gaussian_nelson_examples.md`
 - `notes/measurement_dependence_comparisons.md`
+- `notes/superseded_position_coupling_fisher_closure.md`
 
 ## 状態・再現性
 

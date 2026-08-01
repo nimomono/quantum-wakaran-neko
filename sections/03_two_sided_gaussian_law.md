@@ -1,38 +1,36 @@
 @number: 3
 @chapter: 本文
-@title: Liouville モーメント式と誘導場の消去
-@status: 拡大全系の Liouville 方程式から連続の式と運動量収支を厳密に導き、線形誘導場を指定した境界条件の下で Green 作用素により消去する。Fisher 応力への閉鎖はまだ置かない。
+@title: 配置流束、誘導場の正確な消去、速度記憶核
+@status: 運動量結合した有限誘導場について、正確な配置流束、速度モーメント式、自由速度揺らぎと反作用記憶項の分離を導く。Brown 極限と配置変数だけの Markov 性は近似または予想・未解決である。
 
 ## 3.1 拡大全系の Liouville 密度
 
-外部自由度と仕事貯蔵自由度まで含む全位相点を
+外部自由度と仕事貯蔵自由度まで含む全位相点を $Z$ とし、全 Liouville 密度を $\varrho_N(Z,t)$ と書く。正規化は
 
 ```math
-Z
+\int
+\varrho_N(Z,t)
+\,\mathrm dZ
 =
-(X,P,Q,\Pi,Y,\Theta,z_{\rm work})
+1
 ```
 
-とする。全 Liouville 密度を $\varrho_N(Z,t)$ と書く。正規化を
-
-```math
-\int \varrho_N(Z,t)\,\mathrm dZ=1
-```
-
-とする。
-
-全 Hamiltonian $H_N^{\rm all}$ に対して
+である。第2章の全 Hamiltonian に対して
 
 ```math
 \partial_t\varrho_N
 +
-\{\varrho_N,H_N^{\rm all}\}
-=0
+\left\{
+\varrho_N,
+H_N^{\rm all}
+\right\}
+=
+0
 ```
 
-が成立する。弱漏れの外部振動子を含める場合も、密度はそれらの座標を含む全位相空間上で定義する。有限部分の変数だけに摩擦付き Liouville 方程式を置くことは、外部消去後の別の近似である。
+が成立する。有限部分を弱開放系として扱う場合も、外部変数まで含む拡大全系では Hamiltonian 流れと Liouville 体積保存を保つ。
 
-## 3.2 配置密度と条件付き平均
+## 3.2 配置密度と正確な配置流束
 
 粒子の配置密度を
 
@@ -41,105 +39,90 @@ Z
 =
 \int
 \varrho_N(Z,t)
-\,\mathrm dP\,\mathrm dQ\,\mathrm d\Pi
-\,\mathrm dY\,\mathrm d\Theta\,\mathrm dz_{\rm work}
+\,\mathrm dZ_{\widehat X}
 ```
 
-とする。$X=x$ を固定した条件付き平均を
+とする。$\mathrm dZ_{\widehat X}$ は $X$ 以外の全変数についての積分を表す。$X=x$ を固定した条件付き平均を $\mathbb E_N[\cdot\mid X=x]$ と書く。
+
+線形核におけるミクロな配置速度を
 
 ```math
-\mathbb E_N[A\mid X=x]
+U_N
 =
-\frac1{\rho_N(x,t)}
-\int
-A(Z)
-\varrho_N(Z,t)
-\,\mathrm dP\,\mathrm dQ\,\mathrm d\Pi
-\,\mathrm dY\,\mathrm d\Theta\,\mathrm dz_{\rm work}
-```
-
-と定義する。$\rho_N=0$ の点では局所式を用いない。
-
-平均運動量と平均速度を
-
-```math
-\overline P_N(x,t)
+\dot X
 =
-\mathbb E_N[P\mid X=x],
+\frac Pm
++
+Y_N,
 \qquad
+Y_N
+=
+C_N\Pi
+```
+
+と定める。配置流の平均速度は
+
+```math
 v_N(x,t)
 =
-\frac{\overline P_N(x,t)}m
-```
-
-とする。運動量共分散は
-
-```math
-\Sigma_{p,N}(x,t)
-=
 \mathbb E_N
 \left[
-(P-mv_N)
-\otimes
-(P-mv_N)
-\mid X=x
-\right].
-```
-
-誘導場の粒子への反作用を
-
-```math
-F_{{\rm G},N}(Z)
-=
-\left[\nabla G_N(X)\right]^{\mathsf T}
-B^{\mathsf T}Q
--
-\nabla_XH_N^{\rm nl}
-```
-
-とし、条件付き平均を
-
-```math
-\overline F_{{\rm G},N}(x,t)
-=
-\mathbb E_N
-\left[
-F_{{\rm G},N}
-\mid X=x
+U_N
+\mid
+X=x
 \right]
 ```
 
-とする。
+である。従って、旧位置結合モデルで用いた $\mathbb E_N[P\mid X=x]/m$ をそのまま配置速度と呼ぶことはできない。
 
 ## 3.3 0次モーメント
 
-Liouville 方程式を粒子運動量と全内部変数について積分する。境界項が消える減衰条件、周期境界、または無流束境界を仮定すると、
+Liouville 方程式を $X$ 以外の全変数について積分し、境界項が消える減衰条件、周期境界、または無流束境界を仮定すると、
+
+<!-- theorem-start:proposition -->
+**命題（正確な配置連続の式）**
 
 ```math
 \partial_t\rho_N
 +
 \nabla_x\cdot
 \left(
-\frac1m
-\rho_N\overline P_N
+\rho_Nv_N
 \right)
-=0
+=
+0,
 ```
-
-を得る。従って
 
 ```math
-\partial_t\rho_N
+v_N
+=
+\mathbb E_N
+\left[
+\frac Pm
 +
-\nabla_x\cdot(\rho_Nv_N)
-=0.
+C_N\Pi
+\mathrel{\big|}
+X=x
+\right]
 ```
 
-これは外部交換を含む拡大全系でも正確である。外部交換は条件付き平均 $v_N$ の時間発展へ入るが、粒子数を作成・消滅しない限り連続の式の形を変えない。
+が成立する。
 
-## 3.4 1次モーメント
+<!-- theorem-end:proposition -->
 
-Liouville 方程式へ $P_i$ を掛けて積分すると、
+これは閉鎖近似を含まない。運動量結合による場の揺らぎは、力のモーメント式を経由せず、配置流束へ直接現れる。
+
+## 3.4 正準運動量と配置速度の1次モーメント
+
+$H_N^{\rm nl}=0$ とし、外部結合が粒子座標と正準運動量へ直接作用しない窓を考える。正準運動量は
+
+```math
+\dot P
+=
+-\nabla V(X)
+```
+
+に従う。Liouville 方程式へ $P_i$ を掛けて積分すると、
 
 ```math
 \partial_t
@@ -149,218 +132,349 @@ Liouville 方程式へ $P_i$ を掛けて積分すると、
 +
 \partial_{x_j}
 \left[
-\frac{\rho_N}{m}
+\rho_N
 \mathbb E_N
 \left(
-P_iP_j\mid X=x
+P_iU_{N,j}
+\mid
+X=x
 \right)
 \right]
 =
 -\rho_N\partial_{x_i}V
-+
-\rho_N\overline F_{{\rm G},N,i}
 ```
 
-を得る。添字 $j$ について和を取る。
+を得る。ここで $\overline P_N=\mathbb E_N[P\mid X=x]$ である。輸送速度が $P/m$ だけでないため、この式を旧稿の運動量 Euler 式へ変形してはならない。
 
-2次モーメントを
+配置速度自体の時間微分は
 
 ```math
-\mathbb E_N
-\left[
-P\otimes P\mid X=x
-\right]
+\dot U_N
 =
-m^2v_N\otimes v_N
-+
-\Sigma_{p,N}
+-\frac1m\nabla V(X)
+-
+C_NK_NQ
 ```
 
-と分解し、連続の式を使うと、
+である。条件付き配置速度共分散を
+
+```math
+\Sigma_{U,N}
+=
+\mathbb E_N
+\left[
+\left(
+U_N-v_N
+\right)
+\otimes
+\left(
+U_N-v_N
+\right)
+\mathrel{\big|}
+X=x
+\right]
+```
+
+とすると、同じ操作から
 
 <!-- theorem-start:proposition -->
-**命題（正確な粒子運動量収支）**
+**命題（正確な配置速度収支）**
 
 ```math
 m\rho_N
 \left(
-\partial_t+v_N\cdot\nabla
-\right)v_N
+\partial_t
++
+v_N\cdot\nabla
+\right)
+v_N
 =
 -\rho_N\nabla V
-+
-\rho_N\overline F_{{\rm G},N}
 -
-\frac1m
-\nabla\cdot
-\left(
-\rho_N\Sigma_{p,N}
-\right).
-```
-
-<!-- theorem-end:proposition -->
-
-この式は閉鎖近似を含まない。誘導場反作用と粒子運動量流束を分けて保持することが重要である。どちらか一方だけを Fisher 応力と同定してはならない。
-
-## 3.5 枝内部幅と枝間流束
-
-場の射影 $P_{\rm c},P_\perp$ は、粒子運動量共分散を自動的に分解しない。位相整合した局所枝を表す離散または連続指標を $\alpha$ とし、条件付き全分散公式を使う。
-
-<!-- theorem-start:proposition -->
-**命題（条件付き全分散分解）**
-
-```math
-\Sigma_{p,N}(x,t)
-=
+m\rho_N
 \mathbb E_N
 \left[
-\operatorname{Var}_N(P\mid X=x,\alpha)
-\mid X=x
+C_NK_NQ
+\mid
+X=x
 \right]
-+
-\operatorname{Var}_N
+-
+m\nabla\cdot
 \left(
-\mathbb E_N[P\mid X=x,\alpha]
-\mid X=x
-\right).
+\rho_N\Sigma_{U,N}
+\right)
 ```
+
+が成立する。
 
 <!-- theorem-end:proposition -->
 
-第1項は枝内部の運動量幅、第2項は枝中心間の流束である。どちらを欠陥、どちらを位相整合成分と呼べるかは、$\alpha$ のミクロな定義と時間尺度に依存する。
+この有限 $N$ の恒等式は整合性検査には使えるが、本論文では右辺を Fisher 応力へ直接閉じる経路を中心課題にしない。白色極限では $U_N$ 自体が通常の有限分散速度として収束しないため、配置経路の2次変分を先に扱う必要がある。有限条件付き分散が余分な古典圧力として残らない条件は、独立した未解決問題である。
 
-第2項を単に捨てると、枝間の位相整合運動量流束まで失う。第1項を常に零と置くと、有限温度、有限分解能、局所非線形性の影響を隠す。Fisher 閉鎖では、両項と誘導場反作用を合わせて評価する。
+## 3.5 質量規格化した線形誘導場
 
-## 3.6 線形誘導場の初期値消去
-
-$H_N^{\rm nl}=0$ とする。場方程式は
+正確な場消去を見通しよく書くため、正準な質量規格化により $M_N=I$ とした表示を用いる。規格化後の $K_N$ と $C_N$ に同じ記号を使い、
 
 ```math
-\ddot Q(t)
-+
-K_NQ(t)
+\Omega_N
 =
-BG_N(X(t))
-+
-F_{\rm ext}(t)
+K_N^{1/2}
 ```
 
-である。$F_{\rm ext}$ は外部自由度を明示したままなら決定論的な Hamiltonian 力であり、外部集団について条件付けまたは平均した後には有効雑音として現れ得る。
-
-$\Omega_N=K_N^{1/2}$ とすると、初期値問題の解は
+とする。場方程式は
 
 ```math
-Q(t)
+\dot Q
 =
-\cos(\Omega_Nt)Q(0)
+\Pi
 +
-\Omega_N^{-1}
-\sin(\Omega_Nt)\Pi(0)
+C_N^{\mathsf T}P,
+\qquad
+\dot\Pi
+=
+-K_NQ
+```
+
+であり、$\Pi$ だけの2階方程式は
+
+```math
+\ddot\Pi
 +
+K_N\Pi
+=
+-K_NC_N^{\mathsf T}P
+```
+
+となる。
+
+## 3.6 初期値問題での正確な消去
+
+前節の2階方程式を初期値で解くと、
+
+<!-- theorem-start:proposition -->
+**命題（誘導場運動量の正確な初期値消去）**
+
+```math
+\Pi(t)
+=
+\cos
+\left(
+\Omega_Nt
+\right)
+\Pi(0)
+-
+\Omega_N
+\sin
+\left(
+\Omega_Nt
+\right)
+Q(0)
+```
+
+```math
+\quad
+-
 \int_0^t
-\Omega_N^{-1}
+\Omega_N
 \sin
 \left[
 \Omega_N(t-s)
 \right]
-\left[
-BG_N(X(s))+F_{\rm ext}(s)
-\right]
+C_N^{\mathsf T}P(s)
 \,\mathrm ds.
 ```
 
-これを $F_{{\rm G},N}$ へ代入すると、粒子は
+<!-- theorem-end:proposition -->
 
-1. 初期場に由来する自由反作用、
-2. 自己履歴に依存する有限記憶項、
-3. 外部流路から伝わる駆動、
-
-を受ける。有限 $N$ では記憶核は準周期的であり、長時間には再帰を持つ。
-
-## 3.7 二側境界条件での消去
-
-場の境界条件を線形作用素 $\mathcal C_0Q(0)+\mathcal D_0\dot Q(0)=q_0$ と $\mathcal C_TQ(T)+\mathcal D_T\dot Q(T)=q_T$ で指定する。境界値問題が一意可解なら、
+従って配置速度への場成分は
 
 ```math
-Q(t)
+Y_N(t)
 =
-Q_{\rm bd}(t)
-+
-\int_0^T
-\mathcal G_N(t,s)
-\left[
-BG_N(X(s))+F_{\rm ext}(s)
-\right]
-\,\mathrm ds
+Y_N^{\rm free}(t)
+-
+\int_0^t
+\Gamma_N(t-s)P(s)
+\,\mathrm ds,
 ```
 
-と書ける。$\mathcal G_N$ は指定した境界条件に対応する Green 核、$Q_{\rm bd}$ は非同次境界データだけで決まる解である。
-
-境界条件が場作用素の自己共役領域を定めるなら、
-
 ```math
-\mathcal G_N(t,s)
+Y_N^{\rm free}(t)
 =
-\mathcal G_N(s,t)^{\mathsf T}
-```
-
-となる。従って消去後の履歴作用は時間交換に対して対称になる。
-
-しかし、Green 核の自己共役性だけから
-
-```math
-\frac12
+C_N
+\cos
 \left(
-D_+D_-+D_-D_+
-\right)X
+\Omega_Nt
+\right)
+\Pi(0)
+-
+C_N\Omega_N
+\sin
+\left(
+\Omega_Nt
+\right)
+Q(0),
 ```
 
-という Nelson の平均加速度は導けない。一般には、非局所記憶、質量繰り込み、境界層、外部交換による反対称部分が残る。
+```math
+\Gamma_N(t)
+=
+C_N\Omega_N
+\sin
+\left(
+\Omega_Nt
+\right)
+C_N^{\mathsf T}
+```
 
-## 3.8 条件付き平均反作用
+と分かれる。$Y_N^{\rm free}$ は初期場から来る自由速度揺らぎ、畳み込み項は粒子から場への反作用が戻る速度記憶項である。
 
-二側消去式を使うと、条件付き平均反作用は概念的に
+この分離により、自由浴を外から与えた雑音として扱う誤りを避けられる。配置拡散を導くには、自由成分の積分極限と反作用記憶項の縮約を別々に評価しなければならない。
+
+## 3.7 自由速度揺らぎの相関
+
+線形場の初期集団が中心化され、エネルギー尺度 $\Theta_N>0$ について
 
 ```math
-\overline F_{{\rm G},N}(x,t)
-=
-F_{{\rm bd},N}(x,t)
-+
-\int_0^T
 \mathbb E_N
 \left[
-\mathcal K_N
-\left(
-x,t;X(s),s
-\right)
-\mid X(t)=x
+\Pi(0)\Pi(0)^{\mathsf T}
 \right]
-\,\mathrm ds
-+
-F_{{\rm ext},N}(x,t)
+=
+\Theta_NI,
 ```
 
-と書ける。$\mathcal K_N$ は $\nabla G_N$、$B$、$\mathcal G_N$ から決まる記憶核である。
+```math
+\mathbb E_N
+\left[
+Q(0)Q(0)^{\mathsf T}
+\right]
+=
+\Theta_NK_N^{-1},
+\qquad
+\mathbb E_N
+\left[
+Q(0)\Pi(0)^{\mathsf T}
+\right]
+=
+0
+```
 
-この式は、反作用が一般に現在密度 $\rho_N(x,t)$ だけの局所汎関数ではないことを示す。Fisher 応力のような局所密度汎関数へ閉じるには、短記憶化、条件付き局所平衡、枝分解、外部交換の誤差評価が必要である。
+を満たすとする。このとき自由速度揺らぎの相関は厳密に
 
-## 3.9 正確な式と縮約仮説の境界
+```math
+R_N(t-s)
+=
+\mathbb E_N
+\left[
+Y_N^{\rm free}(t)
+Y_N^{\rm free}(s)^{\mathsf T}
+\right]
+=
+\Theta_NC_N
+\cos
+\left[
+\Omega_N(t-s)
+\right]
+C_N^{\mathsf T}
+```
+
+となる。
+
+有限 $N$ では、これは余弦関数の有限和であり、厳密には減衰相関でも OU 相関でもない。長時間極限を固定した有限浴の強収束として扱うことはできない。多数モード、滑らかなスペクトル包絡、弱い外部交換を用い、
+
+```math
+\tau_{\rm corr}
+\ll
+T_{\rm obs}
+\ll
+T_{\rm rec}
+```
+
+という再帰前の窓で粗視化する。
+
+## 3.8 配置変位の拡散極限
+
+自由速度揺らぎが作る配置変位を
+
+```math
+\Xi_N(t)
+=
+\int_0^t
+Y_N^{\rm free}(s)
+\,\mathrm ds
+```
+
+とする。相関包絡が積分可能で、異方性が小さい場合の目標は
+
+```math
+\Xi_N
+\Longrightarrow
+\sqrt{2\nu}\,W
+```
+
+という経路法則の収束である。等方拡散係数は、対応する連続スペクトル極限の相関 $R$ に対して
+
+```math
+\nu I_d
+=
+\int_0^\infty
+R(s)
+\,\mathrm ds
+```
+
+で決まる。
+
+この Brown 極限は有限 Hamilton 方程式の厳密な等式ではない。多数モード極限、短記憶化、観測窓、初期集団、外部交換の順序を指定した近似結果として証明すべき対象である。
+
+さらに、全配置速度には反作用記憶項がある。これが質量繰り込み、局所ドリフト、または小さい残差へ縮約されなければ、上の自由成分だけの Brown 極限から粒子の有効過程は得られない。
+
+## 3.9 二側境界条件での消去
+
+$\Pi$ の2階作用素へ、初期側と終端側の線形境界条件を課す。境界値問題が一意可解なら、
+
+```math
+\Pi(t)
+=
+\Pi_{\rm bd}(t)
+-
+\int_0^T
+\mathcal G_{\Pi,N}(t,s)
+K_NC_N^{\mathsf T}P(s)
+\,\mathrm ds
+```
+
+と書ける。$\Pi_{\rm bd}$ は非同次境界データだけで決まる解、$\mathcal G_{\Pi,N}$ は指定した境界条件に対応する Green 核である。
+
+境界条件が $\partial_t^2+K_N$ の自己共役領域を定めるなら、
+
+```math
+\mathcal G_{\Pi,N}(t,s)
+=
+\mathcal G_{\Pi,N}(s,t)^{\mathsf T}
+```
+
+となる。これは消去後の記憶作用が時間交換に対して対称になることを示す。しかし、自己共役性だけでは配置変数 $X$ の Markov 性も、Nelson の時間対称 Newton 則も導けない。
+
+## 3.10 正確な結果と縮約課題
 
 | 主張 | 導出状態 |
 |---|---|
-| 全 Liouville 方程式 | 定義した全 Hamiltonian に対する厳密結果 |
-| 連続の式 | 厳密結果 |
-| 運動量モーメント式 | 厳密結果 |
-| 条件付き全分散分解 | 厳密結果 |
-| 線形場の初期値消去 | 指定した初期条件の下で厳密結果 |
-| 線形場の二側 Green 消去 | 一意可解な指定境界条件の下で厳密結果 |
-| 自己共役 Green 核の時間交換対称性 | 自己共役境界条件の下で厳密結果 |
-| 記憶核の Markov 化 | 予想・未解決 |
-| 二側条件付き過程の共通拡散係数 | 予想・未解決 |
-| 反作用と運動量流束の Fisher 閉鎖 | 中心的な予想・未解決 |
+| 全 Liouville 方程式 | 定義した拡大全 Hamiltonian に対する厳密結果 |
+| $U_N=P/m+C_N\Pi$ を含む配置連続の式 | 厳密結果 |
+| 正準運動量と配置速度の1次モーメント式 | 線形核内部の厳密結果 |
+| 誘導場運動量の初期値消去 | 指定初期値の下で厳密結果 |
+| 自由速度揺らぎと反作用記憶項の分離 | 線形核内部の厳密結果 |
+| 指定した Gauss 型初期集団での相関式 | 厳密結果 |
+| 二側 Green 消去と時間交換対称性 | 一意可解な自己共役境界条件の下で厳密結果 |
+| 自由配置変位の Brown 極限 | 近似結果として示すべき未完成課題 |
+| 反作用記憶項の局所化と誤差評価 | 予想・未解決 |
+| 配置変数だけの Markov 性 | 予想・未解決 |
+| 二側条件付け後の共通拡散係数 | 予想・未解決 |
+| 条件付き速度分散が余分な古典圧力を残さない条件 | 予想・未解決 |
 
-## 3.10 本章の結論
+## 3.11 本章の結論
 
-誘導場と外部流路を含む全 Liouville 密度から、粒子の連続の式と運動量収支を正確に得た。粒子が受ける有効応力の候補は、誘導場の条件付き平均反作用と運動量共分散の発散の組合せである。
+運動量結合した誘導場では、配置流束は $P/m+C_N\Pi$ であり、場の揺らぎは粒子速度へ直接入る。線形誘導場の正確な消去により、自由速度揺らぎと反作用速度記憶項を分離した。
 
-線形誘導場は Green 作用素で消去できるが、一般には非局所記憶が残る。時間対称な Green 核は二側縮約の必要な構造を与えるが、Nelson の Markov 拡散または Fisher 応力を単独では強制しない。
+この変更により、Fisher 項を有限 $N$ の力密度閉鎖から直接作る必要はなくなる。代わりに、自由配置変位の Brown 極限、反作用記憶の局所化、配置変数だけの Markov 性を示す必要がある。有限浴は厳密な OU 浴でないため、結果は再帰前の有限観測窓における制御された近似として扱う。

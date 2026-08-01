@@ -1,7 +1,7 @@
 @number: A3
 @chapter: 付録
 @title: 構造化誘導場、U(3) 殻拡散、境界ファイバー体積
-@status: 第2章と共通の固定射影を持つ誘導場について、静的基底、和・差変換、作用保存、固定殻体積、coarea 計算を補足する。誘導場から等方拡散への縮約は候補構成であり、未完成である。
+@status: 第2章の運動量結合方向と第II部の座標結合方向を含む固定射影について、静的基底、全交差応答、和・差変換、作用保存、固定殻体積、coarea 計算を補足する。誘導場から等方拡散への縮約は候補構成であり、未完成である。
 
 ## C.0 拡大全系とエネルギー収支
 
@@ -87,12 +87,12 @@ P_{\rm ctrl}.
 
 ## C.1 静的誘導場基底の正準性
 
-浴座標を $Q,P\in\mathbb R^N$ とし、
+浴座標を $Q,\Pi\in\mathbb R^N$ とし、
 
 ```math
 H_{\rm med}
 =
-\frac12P^{\mathsf T}P
+\frac12\Pi^{\mathsf T}\Pi
 +
 \frac12Q^{\mathsf T}KQ
 +
@@ -101,7 +101,7 @@ H_{\rm med}
 
 とする。$K$ は正定値実対称行列である。
 
-局所装置と境界装置が浴へ結合する方向を
+第I部の粒子運動量結合方向を $\operatorname{Ran}C_N^{\mathsf T}$ とする。局所装置と境界装置が浴座標へ結合する方向を
 
 ```math
 c_A,
@@ -113,19 +113,19 @@ c_{\partial,1},
 c_{\partial,m}
 ```
 
-とする。その張る部分空間の正規直交基底を先頭に並べる直交行列 $O$ を固定し、
+とする。$\operatorname{Ran}C_N^{\mathsf T}$ とこれらの座標結合方向が張る部分空間の正規直交基底を先頭に並べる直交行列 $O$ を固定し、
 
 ```math
 \widetilde Q=OQ,
 \qquad
-\widetilde P=OP
+\widetilde\Pi=O\Pi
 ```
 
 と変換する。
 
 <!-- theorem-start:proposition -->
 **命題（直交浴基底変換の正準性）**
-$O^{\mathsf T}O=I$ なら、$(Q,P)\mapsto(\widetilde Q,\widetilde P)$ は正準変換である。
+$O^{\mathsf T}O=I$ なら、$(Q,\Pi)\mapsto(\widetilde Q,\widetilde\Pi)$ は正準変換である。
 <!-- theorem-end:proposition -->
 
 <!-- theorem-start:proof -->
@@ -133,14 +133,14 @@ $O^{\mathsf T}O=I$ なら、$(Q,P)\mapsto(\widetilde Q,\widetilde P)$ は正準�
 正準1形式は
 
 ```math
-P^{\mathsf T}dQ
+\Pi^{\mathsf T}dQ
 =
-\widetilde P^{\mathsf T}
+\widetilde\Pi^{\mathsf T}
 O
 O^{\mathsf T}
 d\widetilde Q
 =
-\widetilde P^{\mathsf T}d\widetilde Q
+\widetilde\Pi^{\mathsf T}d\widetilde Q
 ```
 
 と保存される。従ってシンプレクティック2形式も保存される。
@@ -151,7 +151,7 @@ d\widetilde Q
 ```math
 H_{\rm med}^{(2)}
 =
-\frac12\widetilde P^{\mathsf T}\widetilde P
+\frac12\widetilde\Pi^{\mathsf T}\widetilde\Pi
 +
 \frac12
 \widetilde Q^{\mathsf T}
@@ -163,7 +163,7 @@ H_{\rm med}^{(2)}
 OKO^{\mathsf T}.
 ```
 
-結合ベクトルに適合した基底を取っても、$\widetilde K$ は一般にブロック対角ではない。局所、境界、暗モード間の動的結合は $\widetilde K$ の非対角ブロックと $V_{\rm nl}$ に残る。
+結合方向に適合した基底を取っても、$\widetilde K$ は一般にブロック対角ではない。局所、境界、暗モード間の動的結合は $\widetilde K$ の非対角ブロックと $V_{\rm nl}$ に残る。運動量結合と座標結合が同じ明部分空間にあるため、自由回転後には両者の混合応答も一般に残る。
 
 従って、
 
@@ -185,7 +185,7 @@ H_{\rm cross}
 
 ## C.2 線形応答核
 
-線形誘導場の運動方程式は
+装置の座標結合だけに対する線形誘導場の運動方程式は
 
 ```math
 \ddot Q+KQ
@@ -210,7 +210,7 @@ K^{-1/2}
 \sin
 \left(
 K^{1/2}t
-\right)P(0)
+\right)\Pi(0)
 ```
 
 ```math
@@ -256,7 +256,9 @@ K^{1/2}t
 c_B.
 ```
 
-同様に $\chi_{BA}$ を得る。従って、$c_A^{\mathsf T}c_B=0$ でも $\chi_{AB}(t)$ は一般に零ではない。$K$ が $c_A,c_B$ の張る部分空間を別々に不変にするときだけ、線形交差応答は厳密に消える。
+同様に $\chi_{BA}$ を得る。従って、$c_A^{\mathsf T}c_B=0$ でも $\chi_{AB}(t)$ は一般に零ではない。$K$ が $c_A,c_B$ の張る部分空間を別々に不変にするときだけ、座標–座標の線形交差応答は厳密に消える。
+
+第I部の $P^{\mathsf T}C_N\Pi$ を同時に含めると、$Q$ と $\Pi$ の自由回転を通じて運動量–座標混合核も生じる。局所性の判定には、各核をまとめた応答作用素 $\mathcal R_{XY}(t)$ を使う。
 
 局所測定窓 $0\leq t\leq T_{\rm meas}$ で
 
@@ -267,15 +269,15 @@ c_B.
 \sup_t
 \max
 \left(
-|\chi_{AB}(t)|,
-|\chi_{BA}(t)|
+\|\mathcal R_{AB}(t)\|,
+\|\mathcal R_{BA}(t)\|
 \right)
 }{
 \sup_t
 \min
 \left(
-|\chi_{AA}(t)|,
-|\chi_{BB}(t)|
+\|\mathcal R_{AA}(t)\|,
+\|\mathcal R_{BB}(t)\|
 \right)
 }
 ```
@@ -944,8 +946,8 @@ dC_t=-\gamma_CC_t\,dt
 
 本付録で厳密に示したのは次である。
 
-- 1つの有限誘導場に対する静的な直交正準基底。
-- 線形誘導場の交差応答核。
+- 運動量結合方向と座標結合方向を含む1つの有限誘導場に対する静的な直交正準基底。
+- 装置の座標–座標交差応答核と、混合応答を含めた全応答作用素の定義。
 - 最小結果符号化器の理想正準写像。
 - 和・差変換の正準性と作用保存。
 - $U(3)$ Hamiltonian 生成子が総作用を保存すること。
@@ -957,6 +959,7 @@ dC_t=-\gamma_CC_t\,dt
 - 特定の有限非線形浴が必要な時間窓で等方な相関行列を持つこと。
 - 有限誘導場と常時の外部交換から $D_\partial\Delta_{S^5}$ を一様誤差付きで得ること。
 - 異方誤差、混合時間、再帰時間を同じパラメータから同時に閉じること。
+- 運動量–座標混合核を含む左右全交差応答を、Bell 測定窓で一様に抑えること。
 - 半径方向の復元式とエネルギー収支を明示的な外部 Hamiltonian から導くこと。
 - 一般測定器、境界適合、記録、消去、再初期化を1本の有限幅 Hamiltonian へ統合すること。
 
