@@ -3,6 +3,59 @@
 @title: 粗視化作用の <i>C</i><sup>1</sup> 評価
 @status: 補助的な線形 Gauss 型表示について、時間粗視化誤差と Fourier 切断誤差を分離し、厳密な主定理を補足する。
 
+## B.0 作用とパラメータ族
+
+コンパクトな有限次元パラメータ集合を $K$ とする。$F_\theta,f_\theta,m_{0,\theta},P_{0,\theta},H_\theta,y_\theta,R_\theta$ は $\theta\in K$ について $C^2$ で一様有界、$P_{0,\theta}\geq p_*I>0$、$R_\theta\geq r_*I>0$ とする。外部ポテンシャルは
+
+```math
+U_\theta(x,t)
+=
+\frac12x^{\mathsf T}K_\theta(t)x
++
+\ell_\theta(t)^{\mathsf T}x
++
+c_\theta(t)
+```
+
+とする。
+
+有限分解能で条件づけた付録Aの経路法則に対し、繰り込み済み粗視化作用を
+
+```math
+\mathcal A_{N,h}^{R,U}(\theta)
+=
+\mathbb E_{N,\theta}^{R}
+\int_0^{T-h}
+\left[
+\frac m{2h^2}
+|X_N(t+h)-X_N(t)|^2
+-
+\frac{md\nu}{h}
+-
+U_\theta(X_N(t),t)
+\right]
+\,\mathrm dt
+```
+
+と定義する。極限の Guerra--Morato 作用を
+
+```math
+\mathcal A_{\rm GM}^{R,U}(\theta)
+=
+\int_0^T\int_{\mathbb R^d}
+\rho_\theta^R
+\left[
+\frac m2|b_{+,\theta}^R|^2
++
+m\nu\nabla\cdot b_{+,\theta}^R
+-
+U_\theta
+\right]
+\,\mathrm dx\,\mathrm dt
+```
+
+とする。$C^1(K)$ は作用値と $\theta$ に関する全ての第1偏微分の一様ノルムを表す。
+
 ## B.1 Gauss 型増分の正確な表示
 
 条件付き Gauss 型過程の増分 $\Delta_hX(t)=X(t+h)-X(t)$ に対して
