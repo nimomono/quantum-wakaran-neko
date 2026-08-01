@@ -26,7 +26,7 @@ THEOREM_LABELS = {
 }
 
 PART_TITLES = {
-    2: "第I部　構造化誘導場の縮約と Fisher 応力",
+    2: "第I部　運動量結合した構造化誘導場の配置拡散縮約",
     5: "第II部　同じ物理構成の境界作用殻縮約と Bell 型統計",
 }
 
@@ -157,6 +157,9 @@ def validate_github_markdown(path: Path, text: str) -> None:
             r"\\(?:chapter\*?|part|appendix|addcontentsline|cite|bibitem|url)\b"
         ),
         "規約外の数式区切り": r"\\\(|\\\[|\$\$",
+        "数式命令内の日本語": (
+            r"\\(?:text|mathrm|boxed)\{[^{}]*[ぁ-んァ-ヶ一-龠々〆ヵヶ][^{}]*\}"
+        ),
     }
     errors = [
         name for name, pattern in forbidden.items()
@@ -279,7 +282,7 @@ def pandoc_markdown() -> str:
 
     for number in range(1, 9):
         if number == 2:
-            chunks.append(r"\part{構造化誘導場の縮約と Fisher 応力}")
+            chunks.append(r"\part{運動量結合した構造化誘導場の配置拡散縮約}")
         if number == 5:
             chunks.append(r"\part{同じ物理構成の境界作用殻縮約と Bell 型統計}")
         path = next(SECTIONS.glob(f"{number:02d}_*.md"))

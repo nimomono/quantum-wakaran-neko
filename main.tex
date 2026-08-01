@@ -53,7 +53,7 @@
   linkcolor=PaperBlue,
   citecolor=PaperBlue,
   urlcolor=PaperBlue,
-  pdftitle={構造化誘導場を持つ弱開放古典 Hamiltonian 系の二側縮約：Fisher 応力と境界作用殻 Bell 型統計},
+  pdftitle={構造化誘導場を持つ弱開放古典 Hamiltonian 系の二側縮約：運動量結合による配置拡散と境界作用殻 Bell 型統計},
   pdfauthor={Open research manuscript}
 }
 
@@ -134,14 +134,14 @@
   \vspace*{29mm}
   {\sffamily\bfseries\color{PaperNavy}\fontsize{21}{30}\selectfont
     構造化誘導場を持つ弱開放古典 Hamiltonian 系の\\[2mm]
-    二側縮約：Fisher 応力と境界作用殻\\[2mm]
-    Bell 型統計\par}
+    二側縮約：運動量結合による配置拡散と\\[2mm]
+    境界作用殻 Bell 型統計\par}
   \vspace{9mm}
-  {\Large\color{PaperBlue}Liouville モーメント、Fisher 閉鎖予想、U(3) 等方拡散、Bell 型残余ファイバー体積\par}
+  {\Large\color{PaperBlue}配置速度記憶、二側 Fisher 構造、U(3) 等方拡散、Bell 型残余ファイバー体積\par}
   \vspace{14mm}
   {\color{PaperRule}\rule{0.68\textwidth}{0.9pt}\par}
   \vfill
-  {\large draft-13 改訂稿\par}
+  {\large draft-14 改訂稿\par}
   \vspace{22mm}
 \end{titlepage}
 
@@ -154,16 +154,16 @@
 
 \addcontentsline{toc}{chapter}{概要}
 
-本論文は、有限自由度の古典 Hamiltonian 系を基礎としながら、対象部分を外部との微小なエネルギー交換を伴う弱開放系として扱う。中心となる有限部分は、粒子または測定対象、構造化誘導場、測定器、記録器、境界3モードからなる。外部自由度と仕事源まで含む拡大全系を
+本論文は、有限自由度の古典 Hamiltonian 系を基礎とし、対象部分を外部との微小なエネルギー交換を伴う弱開放系として扱う。中心となる有限部分は、粒子または測定対象、構造化誘導場、測定器、記録器、境界3モードからなる。外部自由度と仕事源まで含む拡大全系を
 
 \[
 H_{\rm all}
 =
-H_{\rm fin}(z)
+H_{\rm fin}
 +
-H_{\rm ext}(y)
+H_{\rm ext}
 +
-\varepsilon_{\rm ext}H_{\rm link}(z,y)
+\varepsilon_{\rm ext}H_{\rm link}
 +
 H_{\rm work}
 \]
@@ -180,67 +180,119 @@ J_{\rm out}
 P_{\rm ctrl}
 \]
 
-となる。外部への常時のごく弱い漏れは、Fisher 応力や作用殻の等方性を直接生む入力ではない。主な役割は、欠陥成分の除去、有限浴の再帰抑制、記録安定化である。非零の準定常作用を保つには、流入または仕事源も必要になる。
+となる。常時の弱い外部交換は、欠陥成分の除去、有限浴の再帰抑制、記録安定化、非零作用半径の維持に使う。Fisher 項や作用殻の方向一様性を外部漏れから直接仮定しない。
 
-現行モデルの共通部分は、時間に依存しない明・暗モード分解を持つ構造化誘導場である。第I部では、この誘導場を粒子の有効力学へ縮約する。第II部では、同じ物理構成を2粒子、左右測定器、共通境界3モードへ拡張し、境界作用殻の履歴測度へ縮約する。2つの縮約が同じ具体的な有限パラメータ集合から同時に成立することは未証明なので、1本の完成定理とは呼ばない。
+現行モデルの共通部分は、時間に依存しない明・暗モード分解を持つ構造化誘導場である。第I部では粒子と誘導場を運動量で結合し、配置速度揺らぎへ縮約する。第II部では同じ誘導場へ装置の座標結合を加え、2粒子、左右測定器、共通境界3モードの履歴測度へ縮約する。2種類の結合は役割が異なる。
 
-第I部の有限誘導場を、粒子座標 \(X\)、運動量 \(P\)、場座標 \(Q\)、共役運動量 \(\Pi\) により
+第I部の有限 Hamiltonian を
 
 \[
-H_N
+H_N^{\rm fin}
 =
-\frac{|P|^2}{2m}
+\frac12
+\begin{pmatrix}
+P\\
+\Pi
+\end{pmatrix}^{\mathsf T}
+\begin{pmatrix}
+m^{-1}I_d & C_N\\
+C_N^{\mathsf T} & M_N^{-1}
+\end{pmatrix}
+\begin{pmatrix}
+P\\
+\Pi
+\end{pmatrix}
 +
 V(X)
 +
-\frac12\Pi^{\mathsf T}\Pi
-+
 \frac12Q^{\mathsf T}K_NQ
++
+H_N^{\rm nl}
+\]
+
+とする。運動量2次形式の正定値条件は
+
+\[
+M_N^{-1}
 -
-G_N(X)^{\mathsf T}B^{\mathsf T}Q
-+
-H_{\rm leak,N}
+mC_N^{\mathsf T}C_N
+>
+0
 \]
 
-と書く。直接駆動方向 \(B\) は、装置構造だけから固定した明部分空間に属し、暗射影 \(P_{\rm D}\) に対して
+である。線形核の Hamilton 方程式は
 
 \[
-P_{\rm D}B=0
-\]
-
-を満たす。ただし \(K_N\) の非対角部分による明モードから暗モードへの間接伝播は許す。位相整合成分と欠陥成分を分ける射影も、得られた密度や目標量子状態から逆算せず、\(K_N\)、\(B\)、保存作用、装置の固定スペクトル窓から事前に定める。
-
-外部自由度を含む全 Liouville 密度を場、浴、外部変数について積分すると、粒子の配置密度 \(\rho_N\) と平均速度 \(v_N\) は正確に
-
-\[
-\partial_t\rho_N
-+
-\nabla\cdot(\rho_Nv_N)
-=0,
-\]
-
-\[
-m\rho_N
-\left(
-\partial_t+v_N\cdot\nabla
-\right)v_N
+\dot X
 =
--\rho_N\nabla V
+\frac Pm
 +
-\rho_N\overline F_{{\rm G},N}
--
-\frac1m
-\nabla\cdot
-\left(
-\rho_N\Sigma_{p,N}
-\right)
+C_N\Pi,
+\qquad
+\dot P
+=
+-\nabla V(X)
 \]
 
-を満たす。\(\overline F_{{\rm G},N}\) は誘導場の条件付き平均反作用、\(\Sigma_{p,N}\) は位置を固定した運動量共分散である。これは近似でなく、Liouville 方程式の0次と1次のモーメント式である。
+を含む。従って誘導場速度
 
-線形誘導場は、指定した初期条件または二側境界条件の下で Green 作用素により正確に消去できる。自己共役な二側 Green 核は時間対称な記憶作用を与えるが、それだけで Markov 拡散や Nelson の平均加速度は導かれない。短記憶化、条件付き均質化、前進・後退で共通な拡散係数、非 Markov 残差の抑制を別々の縮約条件として置く。
+\[
+Y_N
+=
+C_N\Pi
+\]
 
-二側 Markov 拡散が得られた有効モデル内部では、前進・後退流れ \(b_+,b_-\) から
+は配置流束へ直接入る。正準運動量 \(P\) と機械的運動量 \(m\dot X\) は一致しない。
+
+質量規格化した線形誘導場を正確に消去すると、
+
+\[
+Y_N(t)
+=
+Y_N^{\rm free}(t)
+-
+\int_0^t
+C_N\Omega_N
+\sin
+\left[
+\Omega_N(t-s)
+\right]
+C_N^{\mathsf T}P(s)
+\,\mathrm ds
+\]
+
+を得る。第1項は初期場に由来する自由速度揺らぎ、第2項は粒子から場への反作用による速度記憶項である。有限浴の相関は余弦関数の有限和なので、厳密な OU 相関や無限時間の Brown 運動ではない。多数モード、短記憶、弱い外部交換を用い、
+
+\[
+\tau_{\rm corr}
+\ll
+T_{\rm obs}
+\ll
+T_{\rm rec}
+\]
+
+という再帰前の窓で配置変位の拡散極限を調べる。
+
+最初の有効候補は、配置雑音を持つ位相空間過程
+
+\[
+\mathrm dX_t
+=
+\frac{P_t}{m}
+\,\mathrm dt
++
+\sqrt{2\nu}
+\,\mathrm dW_t,
+\qquad
+\mathrm dP_t
+=
+-\nabla V(X_t)
+\,\mathrm dt
+\]
+
+である。ただし \((X,P)\) が Markov でも、\(X\) だけの射影は一般に Markov ではない。配置変数だけの前進・後退 Markov 拡散と共通拡散係数 \(\nu\) を得ることは追加の縮約課題である。
+
+この配置 Markov 拡散が得られた有効モデル内部では、現在速度 \(v\) と浸透速度 \(u\) は
 
 \[
 v
@@ -254,43 +306,44 @@ u
 \nu\nabla\log\rho
 \]
 
-が厳密に従う。このとき Bohm--Fisher 応力を
+を満たす。従って
 
 \[
-P_F[\rho]
+\frac m2
+\int
+\rho|u|^2
+\,\mathrm dx
 =
--m\nu^2\rho\,\nabla\nabla\log\rho
+\frac{m\nu^2}{2}
+\int
+\frac{|\nabla\rho|^2}{\rho}
+\,\mathrm dx
 \]
 
-と定めれば、
+となり、Fisher 項は二側配置拡散の運動学から直接現れる。量子ポテンシャルに対応する項は
 
 \[
--\nabla\cdot P_F[\rho]
+Q[\rho]
 =
-2m\nu^2\rho\,
-\nabla
-\left(
-\frac{\Delta\sqrt\rho}{\sqrt\rho}
-\right)
+-2m\nu^2
+\frac{\Delta\sqrt\rho}{\sqrt\rho},
+\qquad
+\hbar_{\rm eff}
+=
+2m\nu
 \]
 
-となる。
+である。
 
-第I部の中心課題は、ミクロ反作用と運動量流束がこの応力へ閉じること、すなわち
+ただし、配置拡散だけから時間対称 Newton 則
 
 \[
-\rho_N\overline F_{{\rm G},N}
--
-\frac1m
-\nabla\cdot
-\left(
-\rho_N\Sigma_{p,N}
-\right)
-\longrightarrow
--\nabla\cdot P_F[\rho]
+ma_{\rm ts}
+=
+-\nabla V
 \]
 
-を一様な誤差評価とともに示すことである。本論文はこれを \textbf{Fisher 閉鎖予想} と呼ぶ。左辺の正確なモーメント式、右辺の二側拡散内部での代数、両者が一致するための目標式は得るが、中央の収束はまだ証明しない。
+は従わない。時間対称 Green 応答、反作用記憶、条件付き変分からこの動力学へ進む部分は独立した未解決問題である。従って旧稿の Fisher 力密度閉鎖は中心課題から外れるが、問題が全て解決したわけではない。
 
 補助結果として、有限 Fourier--Gauss 型経路法則の繰り込み済み粗視化作用について
 
@@ -303,19 +356,26 @@ P_F[\rho]
 \leq
 C_K
 \left(
-\frac hT+
+\frac hT
++
 \frac{T^2}{Nh^2}
 \right)
 \]
 
-を付録で保つ。これは二側拡散が得られた後の作用表示を制御する厳密結果であり、Fisher 閉鎖予想の証明ではない。\(h_N=TN^{-1/3}\) なら誤差は \(O(N^{-1/3})\) である。
+を保つ。これは二側配置拡散が得られた後の作用表示を制御する厳密な補助結果であり、ミクロな配置拡散極限や時間対称 Newton 則の証明ではない。
 
-第II部では、同じ構造化誘導場を、左右の局所反応座標、暗モード、共通境界3モードへ静的に分ける。局所測定窓の左右交差応答を \(\varepsilon_{\rm loc}\ll1\) に抑え、共同重みは局所相互作用でなく、共通未来の境界適合ファイバーから得る。
+第II部では、同じ構造化誘導場の固定明部分空間が、\(\operatorname{Ran}C_N^{\mathsf T}\) に加えて左右の装置結合方向と共通境界結合方向を含む。局所測定窓の左右交差応答には、座標--座標核だけでなく運動量--座標混合核も含め、全応答比 \(\varepsilon_{\rm loc}\ll1\) を要求する。
 
 境界3モードの作用を \(J_+,J_s,J_r\) とし、共通総作用殻を
 
 \[
-J_++J_s+J_r=C_0
+J_+
++
+J_s
++
+J_r
+=
+C_0
 \]
 
 とする。縮約された殻接方向混合が非退化な \(U(3)\) 等方拡散なら、共通殻上の正規化 Liouville 測度が一意な定常分布になる。この縮約方程式内部の一意性は厳密だが、同じ誘導場からその生成子を導くことは未解決である。
@@ -327,14 +387,20 @@ I_+^{AB}
 =
 I_0
 \left[
-1+ABV\cos\Delta_{ab}
+1
++
+ABV\cos\Delta_{ab}
 \right],
-\qquad
+\]
+
+\[
 I_-^{AB}
 =
 I_0
 \left[
-1-ABV\cos\Delta_{ab}
+1
+-
+ABV\cos\Delta_{ab}
 \right]
 \]
 
@@ -367,15 +433,15 @@ V_{\rm eff}
 
 を得る。これは共通殻などの仮説の下での厳密な体積計算である。
 
-履歴測度は、解空間へ直接 Liouville 測度を置くものではない。全境界正準位相空間の Liouville 測度を作用保存と境界適合条件で制限し、Hamiltonian の解写像で許容履歴空間へ押し出す。境界適合ファイバーが \(a,b\) に依存するため、Bell の前提違反は測定設定独立性にある。対称セクターでは一側周辺が \(1/2\) となる。
+履歴測度は、全境界正準位相空間の Liouville 測度を作用保存と境界適合条件で制限し、Hamiltonian の解写像で許容履歴空間へ押し出す。境界適合ファイバーが設定 \(a,b\) に依存するため、Bell の前提違反は測定設定独立性にある。対称セクターでは一側周辺が \(1/2\) となる。
 
-本論文が統合したのは、Fisher 側と Bell 側の完成導出ではなく、両者を同じ構造化誘導場、固定射影、二側条件付け、弱い外部交換という物理構成の下へ置き、どの縮約定理が未完成かを明示したことである。
+本論文の前進は、第I部の遠回りな Fisher 力密度閉鎖を、運動量結合から配置拡散へ進む経路へ置き換えたことである。残る中心課題は、有限 Hamiltonian 誘導場からの配置拡散極限、配置 Markov 閉鎖、時間対称動力学と、第II部の全殻準備、一般測定器、事後選別のない試行周期である。
 
 \hypertarget{ux554fux984cux8a2dux5b9aux5171ux901aux30dfux30afux30edux69cbux62102ux3064ux306eux7e2eux7d04ux7d4cux8def}{%
 \chapter{問題設定、共通ミクロ構成、2つの縮約経路}\label{ux554fux984cux8a2dux5b9aux5171ux901aux30dfux30afux30edux69cbux62102ux3064ux306eux7e2eux7d04ux7d4cux8def}}
 
 \begin{statusbox}
-位置づけ：第I部と第II部を論理的に無関係な2問題とは扱わず、1つの構造化誘導場を共有する2つの縮約として整理する。ただし同時実現定理は未完成である。
+位置づけ：第I部と第II部を1つの構造化誘導場を共有する2つの縮約として整理する。運動量結合による配置拡散と、装置の座標結合による境界作用殻を区別し、同時実現定理は未完成とする。
 \end{statusbox}
 
 \hypertarget{ux554fux984cux8a2dux5b9a}{%
@@ -389,19 +455,19 @@ V_{\rm eff}
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  構造化誘導場を消去した粒子の正確な Liouville モーメント式が、二側短記憶極限で Fisher 応力を持つ Nelson 型有効力学へ閉じるか。
+  粒子と構造化誘導場を運動量で結合したとき、場の速度揺らぎから配置空間の二側拡散と Fisher 項が生じるか。
 \item
-  同じ物理構成を2粒子、左右測定器、共通境界モードへ拡張したとき、境界作用殻の測度から Bell 型共同確率が生じるか。
+  同じ構造化誘導場を2粒子、左右測定器、共通境界モードへ拡張したとき、境界作用殻の測度から Bell 型共同確率が生じるか。
 \end{enumerate}
 
-第1の問題では、ミクロ反作用と運動量流束の和を Fisher 応力へ同定するところが未完成である。第2の問題では、共通作用殻を仮定した後の体積計算は厳密だが、その殻測度と境界適合を同じ有限誘導場から準備するところが未完成である。
+第1の問題では、運動量結合した有限浴の正確な消去と、二側配置拡散内部の Fisher 恒等式を示す。両者を結ぶ配置拡散極限、配置変数だけの Markov 性、時間対称 Newton 則は未完成である。
 
-従って、2つの問題の後半だけを厳密に計算して、前半のミクロ導出まで完了したとは呼ばない。
+第2の問題では、共通作用殻を仮定した後の体積計算は厳密である。その殻測度、境界適合、事後選別のない試行周期を同じ有限誘導場から準備する部分は未完成である。
 
 \hypertarget{ux5171ux901aux30dfux30afux30edux69cbux6210}{%
 \section{共通ミクロ構成}\label{ux5171ux901aux30dfux30afux30edux69cbux6210}}
 
-共通する有限部分を
+有限部分を
 
 \[
 H_{\rm fin}
@@ -433,7 +499,7 @@ H_{\rm fin-link}
 \(H_{\rm fin-link}\) & 対象、誘導場、測定器、境界モード間の固定結合 \\
 \end{longtable}
 
-外部環境 \(H_{\rm ext}\)、常時の弱い結合 \(\varepsilon_{\rm ext}H_{\rm link}\)、仕事源 \(H_{\rm work}\) を加え、
+外部環境、常時の弱い結合、仕事源を加え、
 
 \[
 H_{\rm all}
@@ -449,27 +515,58 @@ H_{\rm work}
 
 とする。拡大全系の Hamiltonian 流れは Liouville 体積を保存する。有限部分だけを見れば、外部への流出、外部からの流入、制御仕事がある。
 
-構造化誘導場の基底は時間、設定、結果に応じて切り替えない。直接結合方向が張る明部分空間と、その直交補空間である暗部分空間を装置の組立時に固定する。さらに位相整合成分と欠陥成分を分ける場合も、Hamiltonian の固定スペクトル部分空間または保存作用から定める。
+構造化誘導場の基底は、時間、設定、結果に応じて切り替えない。運動量結合方向と装置の座標結合方向が張る明部分空間、その直交補空間である暗部分空間を装置の組立時に固定する。位相整合成分と欠陥成分も Hamiltonian の固定スペクトル部分空間または保存作用から定める。
+
+\hypertarget{ux7a2eux985eux306eux76f4ux63a5ux7d50ux5408}{%
+\section{2種類の直接結合}\label{ux7a2eux985eux306eux76f4ux63a5ux7d50ux5408}}
+
+同じ誘導場を使うことは、全対象へ同じ型の結合を使うことを意味しない。本論文では次を区別する。
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+結合
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+主な対象
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+役割
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\(P^{\mathsf T}C_N\Pi\) & 第I部の粒子と誘導場 & 配置速度へ \(Y_N=C_N\Pi\) を加える \\
+\(x_Xc_X^{\mathsf T}Q\) & 第II部の局所装置と誘導場 & 局所応答、記録、境界モードへの伝達を作る \\
+\end{longtable}
+
+前者は粒子の配置空間拡散へ進む経路、後者は測定器と境界作用殻へ進む経路である。明部分空間は \(\operatorname{Ran}C_N^{\mathsf T}\) と全ての装置結合方向 \(c_X\) を含む。
+
+運動量--運動量結合と座標--座標結合が同じ誘導場に共存すると、座標--座標応答だけでなく運動量--座標の混合応答も生じ得る。第II部の局所交差応答は、これらを含む全応答作用素について評価する。
 
 \hypertarget{ux3064ux306eux7e2eux7d04}{%
 \section{2つの縮約}\label{ux3064ux306eux7e2eux7d04}}
 
-第I部の縮約は、次の順序で進む。
+第I部の縮約は次の順序で進む。
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  粒子と構造化誘導場。
+  運動量結合した粒子と構造化誘導場。
 \item
-  Liouville モーメント式。
+  誘導場の正確な消去と速度記憶核。
 \item
-  二側短記憶極限。
+  再帰前の配置拡散極限。
 \item
-  Fisher 応力を持つ有効力学。
+  配置変数だけの二側 Markov 拡散。
+\item
+  Fisher 項と時間対称動力学。
 \end{enumerate}
 
-第II部の縮約は、次の順序で進む。
+第II部の縮約は次の順序で進む。
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -484,7 +581,7 @@ H_{\rm work}
   Bell 型共同確率。
 \end{enumerate}
 
-両者は、構造化誘導場、固定射影、二側条件付け、弱い外部交換を共有する。配置空間の拡散係数 \(\nu\) と、境界作用殻の接方向拡散係数 \(D_\partial\) は別の縮約係数である。同じ浴から両方が出ることや、同じパラメータ範囲で両方の近似誤差が小さいことは未証明である。
+両者は、構造化誘導場、固定射影、二側条件付け、弱い外部交換を共有する。配置空間の拡散係数 \(\nu\) と境界作用殻の接方向拡散係数 \(D_\partial\) は別の縮約係数である。同じ誘導場から両方が出ることや、同じパラメータ範囲で両方の近似誤差が小さいことは未証明である。
 
 \hypertarget{ux73feux884cux30e2ux30c7ux30ebux3068ux88dcux52a9ux30e2ux30c7ux30eb}{%
 \section{現行モデルと補助モデル}\label{ux73feux884cux30e2ux30c7ux30ebux3068ux88dcux52a9ux30e2ux30c7ux30eb}}
@@ -507,8 +604,9 @@ H_{\rm work}
 \endlastfoot
 粒子・装置・構造化誘導場・外部流路を持つ弱開放系 & 現行モデル & 2つの縮約の共通ミクロ構成。全周期と一様縮約定理は未完成 \\
 1試行内の有限閉鎖系 & 補助モデル & 正準写像、保存量、Liouville モーメント、作用殻体積を厳密に計算する \\
-線形誘導場 & 補助モデル & Green 作用素による場の消去を厳密に行う \\
-二側 Markov 拡散 & 補助モデル & 前進・後退流れと Fisher 応力を厳密に整理する \\
+運動量結合した線形誘導場 & 補助モデル & 自由速度揺らぎと反作用記憶項を正確に分ける \\
+配置雑音を持つ位相空間拡散 & 補助モデル & 最初の短記憶極限候補を整理する。\(X\) 射影の Markov 性は含まない \\
+配置変数の二側 Markov 拡散 & 補助モデル & 前進・後退流れ、Fisher 項、時間対称平均加速度を整理する \\
 線形 Fourier--Gauss 型経路法則 & 補助モデル & 作用形式の \(C^1\) 収束を検証する \\
 Gauss 幅の Routh 縮約 & 補助モデル & 固定作用と Fisher 項の一致を1つの可解例で検証する \\
 最小結果符号化器 & 補助モデル & 既存の2値符号を固定指針へ写す。一般測定器ではない \\
@@ -516,7 +614,7 @@ Gauss 幅の Routh 縮約 & 補助モデル & 固定作用と Fisher 項の一�
 \(U(3)\) 等方殻拡散 & 補助モデル & 共通作用殻の一意な定常測度を与える \\
 \end{longtable}
 
-閉鎖補助モデルまたは縮約方程式の内部で厳密な結果を、そのまま弱開放な現行モデルの厳密結果と呼ばない。
+補助モデル内部の厳密結果を、そのまま弱開放な現行モデルからの厳密導出とは呼ばない。
 
 \hypertarget{ux8a66ux884cux5185ux306eux8fd1ux4f3cux9589ux9396ux7a93}{%
 \section{1試行内の近似閉鎖窓}\label{ux8a66ux884cux5185ux306eux8fd1ux4f3cux9589ux9396ux7a93}}
@@ -546,19 +644,19 @@ E_{\rm fin}(t)-E_{\rm fin}(0)
 とし、
 
 \[
-\varepsilon_{\rm open}\ll1,
+\varepsilon_{\rm open}
+\ll
+1,
 \qquad
-T_{\rm meas}\ll\tau_{\rm exch}
+T_{\rm meas}
+\ll
+\tau_{\rm exch}
 \]
 
-を要求する。\(\tau_{\rm exch}\) は外部交換により中心作用または記録領域が変化する時間尺度である。
-
-この近似は、常時の弱い外部結合を物理モデルから削除するものではない。外部結合は長時間では欠陥除去、再帰抑制、記録保持、再準備に効く。測定窓ではその効果を小さい補正として扱う。
+を要求する。外部結合は長時間では欠陥除去、再帰抑制、記録保持、再準備に効くが、測定窓では小さい補正として扱う。
 
 \hypertarget{ux53efux9006ux8a98ux5c0eux5185ux90e8ux6df7ux5408ux5916ux90e8ux4ea4ux63dbux306eux5f79ux5272}{%
 \section{可逆誘導、内部混合、外部交換の役割}\label{ux53efux9006ux8a98ux5c0eux5185ux90e8ux6df7ux5408ux5916ux90e8ux4ea4ux63dbux306eux5f79ux5272}}
-
-3つの機構を混同しない。
 
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
@@ -576,58 +674,77 @@ T_{\rm meas}\ll\tau_{\rm exch}
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-可逆な位相整合誘導場 & 条件付き反作用、枝間運動量流束、Fisher 応力の候補 & Markov 性、欠陥の不可逆減衰 \\
+運動量結合した可逆誘導場 & 配置速度揺らぎと反作用記憶 & Brown 極限、\(X\) 射影の Markov 性、時間対称 Newton 則 \\
+装置の座標結合 & 局所反応と境界モードへの伝達 & Bell 結果重み、局所性 \\
 Hamiltonian な殻接方向混合 & 境界3モードの方向準備 & 非零殻半径の維持 \\
-常時の弱い漏れ・流入・仕事 & 欠陥除去、再帰抑制、記録安定化、半径分布の維持 & Fisher 応力、殻方向の一様性 \\
+常時の弱い漏れ・流入・仕事 & 欠陥除去、再帰抑制、記録安定化、半径分布の維持 & Fisher 項、殻方向の一様性 \\
 \end{longtable}
 
-純粋な一方向漏れはエネルギーまたは作用を減らすだけで、Fisher 応力も非零の一様作用殻も作らない。等方準備には殻接方向の混合、準定常半径には流入または仕事源との釣り合いが必要である。
+純粋な一方向漏れはエネルギーまたは作用を減らすだけで、配置拡散も非零の一様作用殻も作らない。
 
 \hypertarget{fisher-ux5074ux306eux7e2eux7d04ux6761ux4ef6}{%
 \section{Fisher 側の縮約条件}\label{fisher-ux5074ux306eux7e2eux7d04ux6761ux4ef6}}
 
-第I部で必要な条件を次に分ける。
+\hypertarget{h-ux904bux52d5ux91cfux7d50ux5408-hamiltonian}{%
+\subsection{{[}H{]} 運動量結合 Hamiltonian}\label{h-ux904bux52d5ux91cfux7d50ux5408-hamiltonian}}
 
-\hypertarget{h-ux660eux793aux7684ux306aux8a98ux5c0eux5834-hamiltonian}{%
-\subsection{{[}H{]} 明示的な誘導場 Hamiltonian}\label{h-ux660eux793aux7684ux306aux8a98ux5c0eux5834-hamiltonian}}
-
-粒子と有限誘導場の直接結合方向を \(B\) で指定し、暗射影 \(P_{\rm D}\) に対して
+運動量2次形式を正定値に保ち、
 
 \[
-P_{\rm D}B=0
+M_N^{-1}
+-
+mC_N^{\mathsf T}C_N
+>
+0
 \]
 
-を要求する。場の内部行列 \(K_N\) による明・暗間の間接伝播は別に評価する。
+を要求する。暗射影については
 
-\hypertarget{l-ux6b63ux78baux306a-liouville-ux7e2eux7d04}{%
-\subsection{{[}L{]} 正確な Liouville 縮約}\label{l-ux6b63ux78baux306a-liouville-ux7e2eux7d04}}
+\[
+P_{\rm D}C_N^{\mathsf T}
+=
+0
+\]
 
-外部自由度まで含む全密度から、配置密度、平均運動量、運動量共分散、誘導場反作用を定義し、0次・1次モーメント式を得る。ここまでは厳密結果である。
+とする。ここまでの Hamilton 方程式と時間反転対称性は厳密結果である。
 
-\hypertarget{g-ux4e8cux5074-green-ux5fdcux7b54}{%
-\subsection{{[}G{]} 二側 Green 応答}\label{g-ux4e8cux5074-green-ux5fdcux7b54}}
+\hypertarget{g-ux8a98ux5c0eux5834ux306eux6b63ux78baux306aux6d88ux53bb}{%
+\subsection{{[}G{]} 誘導場の正確な消去}\label{g-ux8a98ux5c0eux5834ux306eux6b63ux78baux306aux6d88ux53bb}}
 
-指定した初期条件または二側境界条件の下で線形場を消去する。二側条件では自己共役 Green 核を用いる。自己共役性は時間対称な記憶作用を与えるが、Nelson 加速度を直接意味しない。
+\(Y_N=C_N\Pi\) を自由速度揺らぎと反作用記憶項へ分ける。初期値消去と、一意可解な二側境界条件の Green 消去は線形核内部の厳密結果である。
 
-\hypertarget{m-ux4e8cux5074ux77edux8a18ux61b6ux6975ux9650}{%
-\subsection{{[}M{]} 二側短記憶極限}\label{m-ux4e8cux5074ux77edux8a18ux61b6ux6975ux9650}}
+\hypertarget{d-ux914dux7f6eux62e1ux6563ux6975ux9650}{%
+\subsection{{[}D{]} 配置拡散極限}\label{d-ux914dux7f6eux62e1ux6563ux6975ux9650}}
 
-条件付き均質化の結果として、前進・後退過程が共通の拡散係数 \(\nu\) を持つ Markov 拡散へ近づくことを要求する。短相関時間、弱結合、観測時間、非 Markov 残差を明示する。この条件は未導出である。
+多数モード、短記憶、再帰前の観測窓で、自由速度揺らぎの積分を Brown 運動へ近づける。反作用記憶、異方性、有限切断、弱開放補正を同時に評価する。この条件は未完成である。
 
-\hypertarget{f-fisher-ux9589ux9396}{%
-\subsection{{[}F{]} Fisher 閉鎖}\label{f-fisher-ux9589ux9396}}
+\hypertarget{x-ux914dux7f6e-markov-ux9589ux9396}{%
+\subsection{{[}X{]} 配置 Markov 閉鎖}\label{x-ux914dux7f6e-markov-ux9589ux9396}}
 
-ミクロ反作用と運動量流束の和が \(-\nabla\cdot P_F[\rho]\) へ収束することを要求する。本論文の中心予想であり、未証明である。
+位相空間の有効過程から、配置変数だけの前進・後退 Markov 拡散を得る。前後の2次変分が同じ \(\nu\) を持ち、条件付き速度分散が余分な古典圧力を残さない範囲を示す。この条件は未完成である。
+
+\hypertarget{n-ux6642ux9593ux5bfeux79f0ux52d5ux529bux5b66}{%
+\subsection{{[}N{]} 時間対称動力学}\label{n-ux6642ux9593ux5bfeux79f0ux52d5ux529bux5b66}}
+
+時間対称 Green 応答と条件付き変分から
+
+\[
+ma_{\rm ts}
+=
+-\nabla V
+\]
+
+を導く。配置拡散が得られただけでは従わない独立の動力学的課題である。
+
+{[}X{]} が成立すれば Fisher 項は二側拡散の運動学から厳密に従う。{[}N{]} まで成立すれば、局所的な Schrödinger 表示へ進める。
 
 \hypertarget{bell-ux5074ux306eux7e2eux7d04ux6761ux4ef6}{%
 \section{Bell 側の縮約条件}\label{bell-ux5074ux306eux7e2eux7d04ux6761ux4ef6}}
 
-第II部では、次を用いる。
+\hypertarget{b1-ux5168ux4ea4ux5deeux5fdcux7b54ux306eux6291ux5236}{%
+\subsection{{[}B1{]} 全交差応答の抑制}\label{b1-ux5168ux4ea4ux5deeux5fdcux7b54ux306eux6291ux5236}}
 
-\hypertarget{b1-ux5c40ux6240ux4ea4ux5deeux5fdcux7b54ux306eux6291ux5236}{%
-\subsection{{[}B1{]} 局所交差応答の抑制}\label{b1-ux5c40ux6240ux4ea4ux5deeux5fdcux7b54ux306eux6291ux5236}}
-
-同じ誘導場の左右局所反応座標について、測定窓の交差応答比 \(\varepsilon_{\rm loc}\) を小さくする。結合ベクトルの直交性だけでは十分でない。
+同じ誘導場の左右局所反応座標について、座標--座標核だけでなく、運動量--座標混合核を含む測定窓の交差応答比 \(\varepsilon_{\rm loc}\) を小さくする。結合ベクトルの直交性だけでは十分でない。
 
 \hypertarget{b2-ux4f4dux76f8ux540cux671fux3057ux305fux751fux6210ux6e90}{%
 \subsection{{[}B2{]} 位相同期した生成源}\label{b2-ux4f4dux76f8ux540cux671fux3057ux305fux751fux6210ux6e90}}
@@ -635,7 +752,11 @@ P_{\rm D}B=0
 左右へ送る実2次元伝達ベクトル対は固定総入力作用を持ち、和・差作用は
 
 \[
-I_+^{AB}+I_-^{AB}=2I_0
+I_+^{AB}
++
+I_-^{AB}
+=
+2I_0
 \]
 
 を満たす。
@@ -651,13 +772,21 @@ I_+^{AB}+I_-^{AB}=2I_0
 境界3モードは
 
 \[
-J_++J_s+J_r=C_0
+J_+
++
+J_s
++
+J_r
+=
+C_0
 \]
 
 という1つの作用殻を持ち、全結果に共通の分解能で
 
 \[
-J_+=I_+^{AB}(a,b)
+J_+
+=
+I_+^{AB}(a,b)
 \]
 
 を課す。
@@ -676,13 +805,13 @@ J_+=I_+^{AB}(a,b)
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  \textbf{欠陥除去と入口準備}：外部交換を用いて前試行の記録と欠陥成分を除き、粒子、誘導場、装置を指定した入口巨視領域へ戻す。
+  \textbf{欠陥除去と入口準備}：前試行の記録と欠陥成分を除き、粒子、誘導場、装置を指定した入口巨視領域へ戻す。
 \item
-  \textbf{殻準備}：Bell 側では境界3モードの総作用を狭い分布へ置き、Hamiltonian な殻接方向混合で方向の偏りを緩和する。
+  \textbf{殻準備}：Bell 側の境界3モードの総作用を狭い分布へ置き、Hamiltonian な殻接方向混合で方向の偏りを緩和する。
 \item
   \textbf{生成源と設定準備}：位相基準、伝達ベクトル対、左右設定制御器を準備する。
 \item
-  \textbf{局所発展と記録}：左右交差応答が小さい窓で局所結果を形成し、指針へ記録する。
+  \textbf{局所発展と記録}：全交差応答が小さい窓で局所結果を形成し、指針へ記録する。
 \item
   \textbf{境界適合}：記録済み伝達ベクトルを共通未来へ運び、共通作用殻の境界条件に適合する完結履歴を定める。
 \item
@@ -691,28 +820,28 @@ J_+=I_+^{AB}(a,b)
 
 履歴確率は、解集合へ直接置いた Liouville 測度ではない。全境界正準位相空間の Liouville 測度を、保存作用、入口巨視領域、境界適合条件で条件づけ、Hamiltonian の解写像で許容履歴空間へ押し出す。
 
-境界適合しない履歴を実験後に捨てる事後選別と、初めから2境界値問題として定義された履歴集団は数学的には異なる。ただし、後者を開始数と記録数を減らさない装置周期として実現することは未解決であり、Bell 監査では開始数、記録数、完了数、棄却数を別々に数える必要がある。
+境界適合しない履歴を実験後に捨てる事後選別と、初めから2境界値問題として定義した履歴集団は数学的に異なる。ただし、後者を開始数と記録数を減らさない装置周期として実現することは未解決である。
 
 \hypertarget{ux672cux7ae0ux306eux7d50ux8ad6}{%
 \section{本章の結論}\label{ux672cux7ae0ux306eux7d50ux8ad6}}
 
-本論文の2部は、もはや「補助 Gauss 型作用」と「Bell 作用殻」という無関係な2問題ではない。構造化誘導場を共通ミクロ構成として、粒子の有効応力と境界履歴測度へ進む2つの縮約である。
+第I部は運動量結合から配置拡散へ、第II部は装置の座標結合から境界作用殻へ進む。2つの結合型は同じ構造化誘導場と固定明・暗基底の中で共存するが、役割を混同しない。
 
-一方、共通の物理構成を示したことと、同じ有限 Hamiltonian の同じパラメータ領域で両方の縮約を証明したことは異なる。第I部の Fisher 閉鎖、第II部の全殻準備と試行周期は、独立した中心未解決問題として残す。
+第I部では旧稿の Fisher 力密度閉鎖を外し、配置拡散極限、\(X\) 射影の Markov 性、時間対称 Newton 則を独立した未解決問題とする。第II部では作用殻体積の厳密計算を維持し、全殻準備、全交差応答、一般測定器、試行周期を未解決として残す。
 
-\part{構造化誘導場の縮約と Fisher 応力}
+\part{運動量結合した構造化誘導場の配置拡散縮約}
 
-\hypertarget{ux7c92ux5b50ux69cbux9020ux5316ux8a98ux5c0eux5834ux5916ux90e8ux6d41ux8defux306e-hamiltonian}{%
-\chapter{粒子、構造化誘導場、外部流路の Hamiltonian}\label{ux7c92ux5b50ux69cbux9020ux5316ux8a98ux5c0eux5834ux5916ux90e8ux6d41ux8defux306e-hamiltonian}}
+\hypertarget{ux904bux52d5ux91cfux7d50ux5408ux3057ux305fux7c92ux5b50ux69cbux9020ux5316ux8a98ux5c0eux5834ux5916ux90e8ux6d41ux8def}{%
+\chapter{運動量結合した粒子、構造化誘導場、外部流路}\label{ux904bux52d5ux91cfux7d50ux5408ux3057ux305fux7c92ux5b50ux69cbux9020ux5316ux8a98ux5c0eux5834ux5916ux90e8ux6d41ux8def}}
 
 \begin{statusbox}
-位置づけ：有限誘導場と固定射影を現行モデルとして定義する。正準性と線形場の方程式は厳密である。欠陥成分だけの減衰と有効短記憶化は外部スペクトルに依存する近似候補である。
+位置づけ：粒子と有限誘導場の運動量2次形式、正定値条件、時間反転対称性、Hamilton 方程式は厳密結果である。配置速度揺らぎの短記憶極限と選択的な欠陥減衰は近似候補である。
 \end{statusbox}
 
-\hypertarget{ux6709ux9650ux8a98ux5c0eux5834ux30e2ux30c7ux30eb}{%
-\section{有限誘導場モデル}\label{ux6709ux9650ux8a98ux5c0eux5834ux30e2ux30c7ux30eb}}
+\hypertarget{ux904bux52d5ux91cfux7d50ux5408ux3057ux305fux6709ux9650ux8a98ux5c0eux5834}{%
+\section{運動量結合した有限誘導場}\label{ux904bux52d5ux91cfux7d50ux5408ux3057ux305fux6709ux9650ux8a98ux5c0eux5834}}
 
-粒子座標を \(X\in\mathbb R^d\)、運動量を \(P\in\mathbb R^d\) とする。有限誘導場は \(M_N\) 個の実正準対
+粒子座標を \(X\in\mathbb R^d\)、その正準運動量を \(P\in\mathbb R^d\) とする。有限誘導場は \(M_N\) 個の実正準対
 
 \[
 (Q,\Pi)
@@ -720,149 +849,239 @@ J_+=I_+^{AB}(a,b)
 \mathbb R^{M_N}\times\mathbb R^{M_N}
 \]
 
-で表す。質量行列を座標変換で単位行列へ移した表示を用い、有限部分を
+で表す。\(M_N=M_N^{\mathsf T}>0\) を場の質量行列、\(K_N=K_N^{\mathsf T}>0\) を場の剛性行列、\(C_N\in\mathbb R^{d\times M_N}\) を固定した運動量結合行列とする。有限部分の中心 Hamiltonian を
 
 \[
 H_N^{\rm fin}
 =
-\frac{|P|^2}{2m}
+\frac12
+\begin{pmatrix}
+P\\
+\Pi
+\end{pmatrix}^{\mathsf T}
+\begin{pmatrix}
+m^{-1}I_d & C_N\\
+C_N^{\mathsf T} & M_N^{-1}
+\end{pmatrix}
+\begin{pmatrix}
+P\\
+\Pi
+\end{pmatrix}
 +
 V(X)
 +
-\frac12\Pi^{\mathsf T}\Pi
-+
 \frac12Q^{\mathsf T}K_NQ
--
-G_N(X)^{\mathsf T}B^{\mathsf T}Q
 +
-H_{N}^{\rm nl}
+H_N^{\rm nl}
 \]
 
-とする。\(K_N=K_N^{\mathsf T}>0\) は場の線形部分、\(G_N:\mathbb R^d\to\mathbb R^r\) は粒子から場への一般化力、\(B:\mathbb R^r\to\mathbb R^{M_N}\) は固定した直接結合方向、\(H_N^{\rm nl}\) は必要に応じて加える弱い非線形内部混合である。
+とする。\(H_N^{\rm nl}\) は必要に応じて加える弱い内部非線形項である。中心変更は、粒子と場の直接結合を座標の積でなく
 
-粒子と場の Hamilton 方程式は
+\[
+P^{\mathsf T}C_N\Pi
+\]
+
+という運動量の積にしたことである。これにより、場は粒子へ直接の乱雑力を加えるのでなく、粒子の配置速度へ直接入る。
+
+\hypertarget{ux6b63ux5b9aux5024ux6761ux4ef6}{%
+\section{正定値条件}\label{ux6b63ux5b9aux5024ux6761ux4ef6}}
+
+運動量2次形式が下に有界である条件を明示する。粒子側のブロック \(m^{-1}I_d\) は正定値なので、Schur 補完により必要十分条件は
+
+\[
+M_N^{-1}
+-
+mC_N^{\mathsf T}C_N
+>
+0
+\]
+
+である。同じことは平方完成
+
+\[
+\frac{|P|^2}{2m}
++
+P^{\mathsf T}C_N\Pi
++
+\frac12\Pi^{\mathsf T}M_N^{-1}\Pi
+=
+\frac1{2m}
+\left|P+mC_N\Pi\right|^2
++
+\frac12\Pi^{\mathsf T}
+\left(
+M_N^{-1}-mC_N^{\mathsf T}C_N
+\right)
+\Pi
+\]
+
+からも分かる。従って結合強度は任意に大きくできない。本論文ではこの正定値条件を有限モデルの成立条件とする。
+
+\hypertarget{hamilton-ux65b9ux7a0bux5f0fux3068ux914dux7f6eux901fux5ea6}{%
+\section{Hamilton 方程式と配置速度}\label{hamilton-ux65b9ux7a0bux5f0fux3068ux914dux7f6eux901fux5ea6}}
+
+\(H_N^{\rm nl}=0\) の線形核では、Hamilton 方程式は
 
 \[
 \dot X
 =
-\frac Pm,
+\frac Pm
++
+C_N\Pi,
 \qquad
 \dot P
 =
--\nabla V(X)
-+
-\left[\nabla G_N(X)\right]^{\mathsf T}B^{\mathsf T}Q
--
-\nabla_XH_N^{\rm nl},
+-\nabla V(X),
 \]
 
 \[
 \dot Q
 =
-\Pi,
+M_N^{-1}\Pi
++
+C_N^{\mathsf T}P,
 \qquad
 \dot\Pi
 =
 -K_NQ
-+
-BG_N(X)
--
-\nabla_QH_N^{\rm nl}.
 \]
 
-従って線形場の直接駆動方向は \(BG_N(X)\) である。結合条件を場のポテンシャル行列へ曖昧に埋め込まず、\(B\) として独立に表示する。
+となる。場が配置速度へ加える成分を
+
+\[
+Y_N
+=
+C_N\Pi
+\]
+
+と書く。この記号は第3章以降で固定する。
+
+\(P\) は正準運動量であり、機械的運動量 \(m\dot X\) とは一致しない。
+
+\[
+m\dot X
+=
+P
++
+mY_N
+\]
+
+である。この区別を失うと、配置流束と運動量流束を取り違える。特に、配置密度の連続の式へ入る速度は \(P/m\) だけでなく \(Y_N\) を含む。
+
+\(H_N^{\rm nl}\) を残す場合は、\(\dot X\) と \(\dot Q\) にそれぞれ \(\nabla_PH_N^{\rm nl}\) と \(\nabla_\Pi H_N^{\rm nl}\)、\(\dot P\) と \(\dot\Pi\) にそれぞれ \(-\nabla_XH_N^{\rm nl}\) と \(-\nabla_QH_N^{\rm nl}\) が加わる。本論文の正確な消去式は線形核について述べ、非線形項は混合と誤差の候補として分ける。
+
+\hypertarget{ux6642ux9593ux53cdux8ee2ux5bfeux79f0ux6027}{%
+\section{時間反転対称性}\label{ux6642ux9593ux53cdux8ee2ux5bfeux79f0ux6027}}
+
+標準時間反転を
+
+\[
+\mathcal T:
+(X,P,Q,\Pi,t)
+\longmapsto
+(X,-P,Q,-\Pi,-t)
+\]
+
+とする。運動量結合項は
+
+\[
+(-P)^{\mathsf T}C_N(-\Pi)
+=
+P^{\mathsf T}C_N\Pi
+\]
+
+なので時間反転で不変である。\(H_N^{\rm nl}\) も全運動量の同時反転で偶関数なら、有限閉鎖核は時間反転対称である。
+
+この対称性は、二側境界条件を置くことと両立する。しかし、時間反転対称な Hamiltonian だけから二側 Markov 拡散、共通拡散係数、Nelson の時間対称 Newton 則が自動的に従うわけではない。
 
 \hypertarget{ux9759ux7684ux306aux660eux6697ux30e2ux30fcux30c9ux5206ux89e3}{%
 \section{静的な明・暗モード分解}\label{ux9759ux7684ux306aux660eux6697ux30e2ux30fcux30c9ux5206ux89e3}}
 
-\(B\) の像を直接明部分空間
+運動量結合が場へ直接入る方向は
 
 \[
-\mathcal B_{\rm dir}
+\mathcal B_{\rm mom}
 =
-\operatorname{Ran}B
+\operatorname{Ran}C_N^{\mathsf T}
 \]
 
-とする。これを含む固定明部分空間 \(\mathcal B_{\rm B}\) と、その直交補空間 \(\mathcal B_{\rm D}\) を選び、射影を \(P_{\rm B},P_{\rm D}\) と書く。直接結合が暗モードを駆動しないための条件は
+である。第II部で使う装置の座標結合方向も含めた固定明部分空間を \(\mathcal B_{\rm B}\)、その直交補空間を \(\mathcal B_{\rm D}\) とし、射影を \(P_{\rm B},P_{\rm D}\) と書く。Fisher 側の運動量結合が暗モードを直接駆動しない条件は
 
 \[
-P_{\rm D}B=0
+P_{\rm D}C_N^{\mathsf T}
+=
+0
 \]
 
 である。
 
-これは
+この条件は、\(M_N^{-1}\) と \(K_N\) が明・暗部分空間を保存することを意味しない。一般には
 
 \[
-P_{\rm D}K_NB=0
+P_{\rm D}K_NP_{\rm B}
+\neq
+0,
+\qquad
+P_{\rm D}M_N^{-1}P_{\rm B}
+\neq
+0
 \]
 
-を要求しない。一般に \(P_{\rm D}K_NP_{\rm B}\neq0\) であり、場の内部発展によって明モードから暗モードへ作用が移る。この間接伝播は、欠陥移送、局所セクター間の交差応答、有限記憶を生む候補である。
+であり、内部発展による間接伝播が残る。この伝播は有限記憶、欠陥移送、Bell 側の局所セクター間交差応答の候補になる。
 
 \(\mathcal B_{\rm B}\) と \(\mathcal B_{\rm D}\) に適合した直交行列 \(O_N\) を固定し、
 
 \[
-\widetilde Q=O_NQ,
+\widetilde Q
+=
+O_NQ,
 \qquad
-\widetilde\Pi=O_N\Pi
+\widetilde\Pi
+=
+O_N\Pi
 \]
 
-と変換する。座標と運動量へ同じ直交行列を作用させるので、この変換は正準である。変換後の \(O_NK_NO_N^{\mathsf T}\) は一般にブロック対角ではない。従って静的な明・暗分解の正準性と、動力学的な直和分離を混同しない。
+と変換する。座標と共役運動量へ同じ直交行列を作用させるので、この変換は正準である。変換後の \(O_NK_NO_N^{\mathsf T}\) と \(O_NM_N^{-1}O_N^{\mathsf T}\) は一般にブロック対角ではない。静的な正準分類と動力学的な直和分離を混同しない。
 
 \hypertarget{ux4f4dux76f8ux6574ux5408ux6210ux5206ux3068ux6b20ux9665ux6210ux5206}{%
 \section{位相整合成分と欠陥成分}\label{ux4f4dux76f8ux6574ux5408ux6210ux5206ux3068ux6b20ux9665ux6210ux5206}}
 
-Fisher 側では、場の中に長時間保たれる位相整合成分と、外部へ移送したい欠陥成分を区別する必要がある。固定射影を
+長時間保つ位相整合成分と、外部へ移送する欠陥成分を分ける固定射影を
 
 \[
 P_{\rm c},
 \qquad
-P_\perp=I-P_{\rm c}
+P_\perp
+=
+I-P_{\rm c}
 \]
 
-と書く。
+と書く。\(P_{\rm c}\) は、\(K_N\) と \(M_N\) の固定スペクトル帯、\(C_N^{\mathsf T}\) が生成する Krylov 部分空間、保存作用、装置構造から事前に定める。
 
-\(P_{\rm c}\) は次のいずれか、またはその組合せから事前に定める。
-
-\begin{itemize}
-\tightlist
-\item
-  \(K_N\) の指定したスペクトル帯。
-\item
-  直接結合方向 \(B\) と、その有限回の \(K_N\) 作用が張る Krylov 部分空間。
-\item
-  装置が保存する作用または位相基準に対応する固定正準部分空間。
-\item
-  Bell 側の局所、共通境界、暗モードを定める装置固定基底。
-\end{itemize}
-
-得られた \(\rho\)、欲しい波動関数、または目標 Fisher 応力を見て \(P_{\rm c}\) を選んではならない。そうすると、導出すべき構造を射影へ先に書き込むことになる。
-
-場の射影と、粒子運動量分散の分解も同一ではない。後者には第3章で枝指標を導入し、条件付き全分散公式を用いる。
+得られた配置密度、目標量子状態、または欲しい Fisher 項を見て射影を選んではならない。正準な射影を定めたことは、その欠陥成分だけが不可逆に減衰することも、配置空間の Markov 性も意味しない。
 
 \hypertarget{ux5916ux90e8ux6d41ux8defux3092ux542bux3080ux62e1ux5927ux5168ux7cfb}{%
 \section{外部流路を含む拡大全系}\label{ux5916ux90e8ux6d41ux8defux3092ux542bux3080ux62e1ux5927ux5168ux7cfb}}
 
-外部自由度を \((Y,\Theta)\)、仕事貯蔵自由度を \(z_{\rm work}\) とし、
+外部自由度を \((Z_{\rm ext},\Pi_{\rm ext})\)、仕事貯蔵自由度を \(z_{\rm work}\) とし、
 
 \[
 H_N^{\rm all}
 =
-H_N^{\rm fin}(X,P,Q,\Pi)
+H_N^{\rm fin}
 +
-H_{\rm ext}(Y,\Theta)
+H_{\rm ext}
 +
-\varepsilon_{\rm ext}
-H_{\rm link}(Q,\Pi,Y,\Theta)
+\varepsilon_{\rm ext}H_{\rm link}
 +
-H_{\rm work}(z_{\rm work})
+H_{\rm work}
 +
 H_{\rm ctrl}
 \]
 
 とする。\(H_{\rm ctrl}\) は自律時計を含む設定変更、記録、再準備の有限相互作用をまとめた記号である。
 
-全 Hamiltonian に外からの陽な時間依存がなければ、拡大全エネルギーは保存される。有限部分のエネルギー変化は Poisson 括弧により
+全 Hamiltonian に外からの陽な時間依存がなければ、拡大全エネルギーは保存される。有限部分だけを見た収支は
 
 \[
 \frac{\mathrm d}{\mathrm dt}H_N^{\rm fin}
@@ -875,50 +1094,12 @@ H_{\rm ctrl}
 \right\}
 \]
 
-と書ける。従って弱開放性は、有限部分の基本方程式へ非 Hamiltonian な摩擦を直接加えることではなく、外部自由度を消去した後の有限部分の収支として現れる。
+となる。弱開放性は基礎方程式へ摩擦や白色雑音を直接追加することではなく、外部自由度を消去した後の有限部分の収支として現れる。
 
-\hypertarget{ux9078ux629eux7684ux306aux5f31ux6f0fux308cux306eux5019ux88dc}{%
-\section{選択的な弱漏れの候補}\label{ux9078ux629eux7684ux306aux5f31ux6f0fux308cux306eux5019ux88dc}}
+\hypertarget{ux9078ux629eux7684ux306aux5f31ux6f0fux308cux3068ux6642ux9593ux7a93}{%
+\section{選択的な弱漏れと時間窓}\label{ux9078ux629eux7684ux306aux5f31ux6f0fux308cux3068ux6642ux9593ux7a93}}
 
-欠陥成分へ強く、位相整合成分へ弱く結合する候補を
-
-\[
-H_{\rm link}
-=
-\left(P_\perp Q\right)^{\mathsf T}C_\perp Y
-+
-\epsilon_{\rm c}
-\left(P_{\rm c}Q\right)^{\mathsf T}C_{\rm c}Y
-+
-H_{\rm link}^{(\Pi)}
-\]
-
-と書く。\(0\leq\epsilon_{\rm c}\ll1\) とする。\(H_{\rm link}^{(\Pi)}\) は必要な運動量結合を表す。
-
-外部相関時間が短く、スペクトル密度が対象周波数帯で十分滑らかなら、外部消去後の線形化した平均振幅は概念的に
-
-\[
-\frac{\mathrm d}{\mathrm dt}
-\begin{pmatrix}
-P_{\rm c}Q\\
-P_\perp Q
-\end{pmatrix}
-=
-\begin{pmatrix}
-A_{\rm c} & C_{{\rm c}\perp}\\
-C_{\perp{\rm c}} & A_\perp
-\end{pmatrix}
-\begin{pmatrix}
-P_{\rm c}Q\\
-P_\perp Q
-\end{pmatrix}
-+
-\eta_{\rm eff}(t)
-\]
-
-となる。\(\eta_{\rm eff}\) は外部消去後の有効雑音である。\(A_\perp\) の実部が負で、\(A_{\rm c}\) の減衰率が十分小さければ、欠陥成分だけが速く除去される。
-
-目標とする時間尺度は
+欠陥成分へ強く、位相整合成分へ弱く結合する候補は、\(P_\perp Q\)、\(P_\perp\Pi\) と外部自由度の結合として構成できる。外部相関時間が短く、対象周波数帯でスペクトル密度が滑らかなら、欠陥成分の有効減衰率を \(\gamma_\perp\)、整合成分の漏れ率を \(\gamma_{\rm c}\) として
 
 \[
 \tau_{\rm corr}
@@ -929,126 +1110,91 @@ P_\perp Q
 \qquad
 \gamma_{\rm c}
 \ll
-\gamma_\perp.
+\gamma_\perp
 \]
 
-ここで \(\tau_{\rm corr}\) は外部相関時間、\(\gamma_\perp\) は欠陥減衰率、\(\tau_{\rm coh}\) は位相整合成分を利用する時間、\(\gamma_{\rm c}\) は整合成分の漏れ率である。
+を目標にできる。有限モデルから一様な指数減衰と流入補正を証明したわけではないため、これは近似候補である。
 
-特定の有限外部スペクトルについて
+観測窓 \(T_{\rm obs}\) と有限浴の再帰時間 \(T_{\rm rec}\) には
 
 \[
-\|P_\perp Q(t)\|
-\leq
-C e^{-\gamma_\perp t}
-\|P_\perp Q(0)\|
-+
-R_{\rm in}(t)
+\tau_{\rm corr}
+\ll
+T_{\rm obs}
+\ll
+T_{\rm rec}
 \]
 
-を一様に証明してはいない。\(R_{\rm in}\) は外部からの流入補正である。従って「欠陥成分だけの指数減衰」は、外部スペクトル、弱結合極限、Markov 近似に依存する近似結果候補である。
+を要求する。測定窓では外部交換を小さい補正として扱い、試行間の準備窓では欠陥除去と再帰抑制を利用する。
 
 \hypertarget{ux5f31ux6f0fux308cux304cux62c5ux308fux306aux3044ux5f79ux5272}{%
 \section{弱漏れが担わない役割}\label{ux5f31ux6f0fux308cux304cux62c5ux308fux306aux3044ux5f79ux5272}}
 
-選択的な漏れが実現しても、次は自動的には従わない。
+選択的な弱漏れが実現しても、次は自動的には従わない。
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  粒子の配置空間で Markov 拡散が生じること。
+  \(\int_0^tY_N(s)\,\mathrm ds\) が Brown 運動へ近づくこと。
 \item
-  前進・後退過程が同じ拡散係数を持つこと。
+  反作用記憶項が局所ドリフトまたは制御可能な残差へ縮約されること。
 \item
-  ミクロ反作用が Fisher 応力へ閉じること。
+  配置変数 \(X\) だけの射影が Markov 過程になること。
+\item
+  二側条件付け後の前後過程が同じ拡散係数を持つこと。
+\item
+  Nelson の時間対称 Newton 則が成立すること。
 \item
   Bell 側の3モード作用殻が \(U(3)\) 等方になること。
-\item
-  非零の総作用半径が定常に保たれること。
 \end{enumerate}
 
-純粋漏れは欠陥と再帰を抑える候補である。配置空間の二側拡散には条件付き均質化が必要であり、作用殻の方向準備には Hamiltonian な接方向混合が必要であり、非零半径の維持には流入または仕事源が必要である。
-
-\hypertarget{ux5c40ux6240ux6e2cux5b9aux7a93ux3068ux9577ux6642ux9593ux6e96ux5099ux306eux5206ux96e2}{%
-\section{局所測定窓と長時間準備の分離}\label{ux5c40ux6240ux6e2cux5b9aux7a93ux3068ux9577ux6642ux9593ux6e96ux5099ux306eux5206ux96e2}}
-
-局所測定窓 \(T_{\rm meas}\) では
-
-\[
-\varepsilon_{\rm open}
-\ll1,
-\qquad
-\gamma_\perp T_{\rm meas}
-\ll1
-\]
-
-を要求し、有限部分を近似閉鎖系として扱う。一方、試行間の準備時間 \(T_{\rm prep}\) では
-
-\[
-\gamma_\perp T_{\rm prep}
-\gtrsim1
-\]
-
-を許し、欠陥除去と再帰抑制を利用する。
-
-同じ結合を測定中だけ人工的に切るのではなく、常時存在する弱結合を異なる時間窓で異なる次数として扱う。測定窓と準備窓の両方を満たすには
-
-\[
-T_{\rm meas}
-\ll
-\gamma_\perp^{-1}
-\lesssim
-T_{\rm prep}
-\]
-
-という時間尺度分離が必要である。
+弱漏れの主な役割は欠陥除去と再帰抑制である。配置拡散には多数モードの短記憶極限、Fisher 項には二側配置拡散の運動学、時間対称 Newton 則には独立した動力学的縮約、作用殻の方向準備には Hamiltonian な内部混合が必要である。
 
 \hypertarget{ux672cux7ae0ux306eux7d50ux8ad6-1}{%
 \section{本章の結論}\label{ux672cux7ae0ux306eux7d50ux8ad6-1}}
 
-粒子と構造化誘導場の直接結合を \(B\) で明示し、暗モードを直接駆動しない条件を \(P_{\rm D}B=0\) とした。静的な明・暗分解は厳密な正準変換であるが、\(K_N\) の内部結合による間接伝播は残る。
+運動量結合 \(P^{\mathsf T}C_N\Pi\) により、誘導場は粒子の配置速度へ \(Y_N=C_N\Pi\) として直接入る。運動量2次形式の正定値条件、Hamilton 方程式、時間反転対称性、正準運動量と機械的運動量の差は有限モデル内部の厳密結果である。
 
-位相整合射影は Hamiltonian の固定構造から事前に定める。外部への選択的な弱漏れは欠陥除去と再帰抑制の候補だが、その指数減衰には外部スペクトルと短記憶近似が必要であり、Fisher 応力または作用殻等方性の導出ではない。
+固定明部分空間は \(\operatorname{Ran}C_N^{\mathsf T}\) と第II部の装置結合方向を含む。外部流路は欠陥除去と有限再帰の抑制に使うが、配置拡散、\(X\) 射影の Markov 性、時間対称 Newton 則をそれだけで導くものではない。
 
-\hypertarget{liouville-ux30e2ux30fcux30e1ux30f3ux30c8ux5f0fux3068ux8a98ux5c0eux5834ux306eux6d88ux53bb}{%
-\chapter{Liouville モーメント式と誘導場の消去}\label{liouville-ux30e2ux30fcux30e1ux30f3ux30c8ux5f0fux3068ux8a98ux5c0eux5834ux306eux6d88ux53bb}}
+\hypertarget{ux914dux7f6eux6d41ux675fux8a98ux5c0eux5834ux306eux6b63ux78baux306aux6d88ux53bbux901fux5ea6ux8a18ux61b6ux6838}{%
+\chapter{配置流束、誘導場の正確な消去、速度記憶核}\label{ux914dux7f6eux6d41ux675fux8a98ux5c0eux5834ux306eux6b63ux78baux306aux6d88ux53bbux901fux5ea6ux8a18ux61b6ux6838}}
 
 \begin{statusbox}
-位置づけ：拡大全系の Liouville 方程式から連続の式と運動量収支を厳密に導き、線形誘導場を指定した境界条件の下で Green 作用素により消去する。Fisher 応力への閉鎖はまだ置かない。
+位置づけ：運動量結合した有限誘導場について、正確な配置流束、速度モーメント式、自由速度揺らぎと反作用記憶項の分離を導く。Brown 極限と配置変数だけの Markov 性は近似または予想・未解決である。
 \end{statusbox}
 
 \hypertarget{ux62e1ux5927ux5168ux7cfbux306e-liouville-ux5bc6ux5ea6}{%
 \section{拡大全系の Liouville 密度}\label{ux62e1ux5927ux5168ux7cfbux306e-liouville-ux5bc6ux5ea6}}
 
-外部自由度と仕事貯蔵自由度まで含む全位相点を
+外部自由度と仕事貯蔵自由度まで含む全位相点を \(Z\) とし、全 Liouville 密度を \(\varrho_N(Z,t)\) と書く。正規化は
 
 \[
-Z
+\int
+\varrho_N(Z,t)
+\,\mathrm dZ
 =
-(X,P,Q,\Pi,Y,\Theta,z_{\rm work})
+1
 \]
 
-とする。全 Liouville 密度を \(\varrho_N(Z,t)\) と書く。正規化を
-
-\[
-\int \varrho_N(Z,t)\,\mathrm dZ=1
-\]
-
-とする。
-
-全 Hamiltonian \(H_N^{\rm all}\) に対して
+である。第2章の全 Hamiltonian に対して
 
 \[
 \partial_t\varrho_N
 +
-\{\varrho_N,H_N^{\rm all}\}
-=0
+\left\{
+\varrho_N,
+H_N^{\rm all}
+\right\}
+=
+0
 \]
 
-が成立する。弱漏れの外部振動子を含める場合も、密度はそれらの座標を含む全位相空間上で定義する。有限部分の変数だけに摩擦付き Liouville 方程式を置くことは、外部消去後の別の近似である。
+が成立する。有限部分を弱開放系として扱う場合も、外部変数まで含む拡大全系では Hamiltonian 流れと Liouville 体積保存を保つ。
 
-\hypertarget{ux914dux7f6eux5bc6ux5ea6ux3068ux6761ux4ef6ux4ed8ux304dux5e73ux5747}{%
-\section{配置密度と条件付き平均}\label{ux914dux7f6eux5bc6ux5ea6ux3068ux6761ux4ef6ux4ed8ux304dux5e73ux5747}}
+\hypertarget{ux914dux7f6eux5bc6ux5ea6ux3068ux6b63ux78baux306aux914dux7f6eux6d41ux675f}{%
+\section{配置密度と正確な配置流束}\label{ux914dux7f6eux5bc6ux5ea6ux3068ux6b63ux78baux306aux914dux7f6eux6d41ux675f}}
 
 粒子の配置密度を
 
@@ -1057,107 +1203,91 @@ Z
 =
 \int
 \varrho_N(Z,t)
-\,\mathrm dP\,\mathrm dQ\,\mathrm d\Pi
-\,\mathrm dY\,\mathrm d\Theta\,\mathrm dz_{\rm work}
+\,\mathrm dZ_{\widehat X}
 \]
 
-とする。\(X=x\) を固定した条件付き平均を
+とする。\(\mathrm dZ_{\widehat X}\) は \(X\) 以外の全変数についての積分を表す。\(X=x\) を固定した条件付き平均を \(\mathbb E_N[\cdot\mid X=x]\) と書く。
+
+線形核におけるミクロな配置速度を
 
 \[
-\mathbb E_N[A\mid X=x]
+U_N
 =
-\frac1{\rho_N(x,t)}
-\int
-A(Z)
-\varrho_N(Z,t)
-\,\mathrm dP\,\mathrm dQ\,\mathrm d\Pi
-\,\mathrm dY\,\mathrm d\Theta\,\mathrm dz_{\rm work}
-\]
-
-と定義する。\(\rho_N=0\) の点では局所式を用いない。
-
-平均運動量と平均速度を
-
-\[
-\overline P_N(x,t)
+\dot X
 =
-\mathbb E_N[P\mid X=x],
+\frac Pm
++
+Y_N,
 \qquad
+Y_N
+=
+C_N\Pi
+\]
+
+と定める。配置流の平均速度は
+
+\[
 v_N(x,t)
 =
-\frac{\overline P_N(x,t)}m
-\]
-
-とする。運動量共分散は
-
-\[
-\Sigma_{p,N}(x,t)
-=
 \mathbb E_N
 \left[
-(P-mv_N)
-\otimes
-(P-mv_N)
-\mid X=x
-\right].
-\]
-
-誘導場の粒子への反作用を
-
-\[
-F_{{\rm G},N}(Z)
-=
-\left[\nabla G_N(X)\right]^{\mathsf T}
-B^{\mathsf T}Q
--
-\nabla_XH_N^{\rm nl}
-\]
-
-とし、条件付き平均を
-
-\[
-\overline F_{{\rm G},N}(x,t)
-=
-\mathbb E_N
-\left[
-F_{{\rm G},N}
-\mid X=x
+U_N
+\mid
+X=x
 \right]
 \]
 
-とする。
+である。従って、旧位置結合モデルで用いた \(\mathbb E_N[P\mid X=x]/m\) をそのまま配置速度と呼ぶことはできない。
 
 \hypertarget{ux6b21ux30e2ux30fcux30e1ux30f3ux30c8}{%
 \section{0次モーメント}\label{ux6b21ux30e2ux30fcux30e1ux30f3ux30c8}}
 
-Liouville 方程式を粒子運動量と全内部変数について積分する。境界項が消える減衰条件、周期境界、または無流束境界を仮定すると、
+Liouville 方程式を \(X\) 以外の全変数について積分し、境界項が消える減衰条件、周期境界、または無流束境界を仮定すると、
 
-\[
+\begin{proposition}[正確な配置連続の式]
+
+$$
 \partial_t\rho_N
 +
 \nabla_x\cdot
 \left(
-\frac1m
-\rho_N\overline P_N
+\rho_Nv_N
 \right)
-=0
-\]
+=
+0,
+$$
 
-を得る。従って
+$$
+v_N
+=
+\mathbb E_N
+\left[
+\frac Pm
++
+C_N\Pi
+\mathrel{\big|}
+X=x
+\right]
+$$
+
+が成立する。
+
+\end{proposition}
+
+これは閉鎖近似を含まない。運動量結合による場の揺らぎは、力のモーメント式を経由せず、配置流束へ直接現れる。
+
+\hypertarget{ux6b63ux6e96ux904bux52d5ux91cfux3068ux914dux7f6eux901fux5ea6ux306e1ux6b21ux30e2ux30fcux30e1ux30f3ux30c8}{%
+\section{正準運動量と配置速度の1次モーメント}\label{ux6b63ux6e96ux904bux52d5ux91cfux3068ux914dux7f6eux901fux5ea6ux306e1ux6b21ux30e2ux30fcux30e1ux30f3ux30c8}}
+
+\(H_N^{\rm nl}=0\) とし、外部結合が粒子座標と正準運動量へ直接作用しない窓を考える。正準運動量は
 
 \[
-\partial_t\rho_N
-+
-\nabla_x\cdot(\rho_Nv_N)
-=0.
+\dot P
+=
+-\nabla V(X)
 \]
 
-これは外部交換を含む拡大全系でも正確である。外部交換は条件付き平均 \(v_N\) の時間発展へ入るが、粒子数を作成・消滅しない限り連続の式の形を変えない。
-
-\hypertarget{ux6b21ux30e2ux30fcux30e1ux30f3ux30c8-1}{%
-\section{1次モーメント}\label{ux6b21ux30e2ux30fcux30e1ux30f3ux30c8-1}}
-
-Liouville 方程式へ \(P_i\) を掛けて積分すると、
+に従う。Liouville 方程式へ \(P_i\) を掛けて積分すると、
 
 \[
 \partial_t
@@ -1167,297 +1297,439 @@ Liouville 方程式へ \(P_i\) を掛けて積分すると、
 +
 \partial_{x_j}
 \left[
-\frac{\rho_N}{m}
+\rho_N
 \mathbb E_N
 \left(
-P_iP_j\mid X=x
+P_iU_{N,j}
+\mid
+X=x
 \right)
 \right]
 =
 -\rho_N\partial_{x_i}V
-+
-\rho_N\overline F_{{\rm G},N,i}
 \]
 
-を得る。添字 \(j\) について和を取る。
+を得る。ここで \(\overline P_N=\mathbb E_N[P\mid X=x]\) である。輸送速度が \(P/m\) だけでないため、この式を旧稿の運動量 Euler 式へ変形してはならない。
 
-2次モーメントを
+配置速度自体の時間微分は
 
 \[
-\mathbb E_N
-\left[
-P\otimes P\mid X=x
-\right]
+\dot U_N
 =
-m^2v_N\otimes v_N
-+
-\Sigma_{p,N}
+-\frac1m\nabla V(X)
+-
+C_NK_NQ
 \]
 
-と分解し、連続の式を使うと、
+である。条件付き配置速度共分散を
 
-\begin{proposition}[正確な粒子運動量収支]
+\[
+\Sigma_{U,N}
+=
+\mathbb E_N
+\left[
+\left(
+U_N-v_N
+\right)
+\otimes
+\left(
+U_N-v_N
+\right)
+\mathrel{\big|}
+X=x
+\right]
+\]
+
+とすると、同じ操作から
+
+\begin{proposition}[正確な配置速度収支]
 
 $$
 m\rho_N
 \left(
-\partial_t+v_N\cdot\nabla
-\right)v_N
+\partial_t
++
+v_N\cdot\nabla
+\right)
+v_N
 =
 -\rho_N\nabla V
-+
-\rho_N\overline F_{{\rm G},N}
 -
-\frac1m
-\nabla\cdot
-\left(
-\rho_N\Sigma_{p,N}
-\right).
-$$
-
-\end{proposition}
-
-この式は閉鎖近似を含まない。誘導場反作用と粒子運動量流束を分けて保持することが重要である。どちらか一方だけを Fisher 応力と同定してはならない。
-
-\hypertarget{ux679dux5185ux90e8ux5e45ux3068ux679dux9593ux6d41ux675f}{%
-\section{枝内部幅と枝間流束}\label{ux679dux5185ux90e8ux5e45ux3068ux679dux9593ux6d41ux675f}}
-
-場の射影 \(P_{\rm c},P_\perp\) は、粒子運動量共分散を自動的に分解しない。位相整合した局所枝を表す離散または連続指標を \(\alpha\) とし、条件付き全分散公式を使う。
-
-\begin{proposition}[条件付き全分散分解]
-
-$$
-\Sigma_{p,N}(x,t)
-=
+m\rho_N
 \mathbb E_N
 \left[
-\operatorname{Var}_N(P\mid X=x,\alpha)
-\mid X=x
+C_NK_NQ
+\mid
+X=x
 \right]
-+
-\operatorname{Var}_N
+-
+m\nabla\cdot
 \left(
-\mathbb E_N[P\mid X=x,\alpha]
-\mid X=x
-\right).
+\rho_N\Sigma_{U,N}
+\right)
 $$
+
+が成立する。
 
 \end{proposition}
 
-第1項は枝内部の運動量幅、第2項は枝中心間の流束である。どちらを欠陥、どちらを位相整合成分と呼べるかは、\(\alpha\) のミクロな定義と時間尺度に依存する。
+この有限 \(N\) の恒等式は整合性検査には使えるが、本論文では右辺を Fisher 応力へ直接閉じる経路を中心課題にしない。白色極限では \(U_N\) 自体が通常の有限分散速度として収束しないため、配置経路の2次変分を先に扱う必要がある。有限条件付き分散が余分な古典圧力として残らない条件は、独立した未解決問題である。
 
-第2項を単に捨てると、枝間の位相整合運動量流束まで失う。第1項を常に零と置くと、有限温度、有限分解能、局所非線形性の影響を隠す。Fisher 閉鎖では、両項と誘導場反作用を合わせて評価する。
+\hypertarget{ux8ceaux91cfux898fux683cux5316ux3057ux305fux7ddaux5f62ux8a98ux5c0eux5834}{%
+\section{質量規格化した線形誘導場}\label{ux8ceaux91cfux898fux683cux5316ux3057ux305fux7ddaux5f62ux8a98ux5c0eux5834}}
 
-\hypertarget{ux7ddaux5f62ux8a98ux5c0eux5834ux306eux521dux671fux5024ux6d88ux53bb}{%
-\section{線形誘導場の初期値消去}\label{ux7ddaux5f62ux8a98ux5c0eux5834ux306eux521dux671fux5024ux6d88ux53bb}}
-
-\(H_N^{\rm nl}=0\) とする。場方程式は
+正確な場消去を見通しよく書くため、正準な質量規格化により \(M_N=I\) とした表示を用いる。規格化後の \(K_N\) と \(C_N\) に同じ記号を使い、
 
 \[
-\ddot Q(t)
-+
-K_NQ(t)
+\Omega_N
 =
-BG_N(X(t))
-+
-F_{\rm ext}(t)
+K_N^{1/2}
 \]
 
-である。\(F_{\rm ext}\) は外部自由度を明示したままなら決定論的な Hamiltonian 力であり、外部集団について条件付けまたは平均した後には有効雑音として現れ得る。
-
-\(\Omega_N=K_N^{1/2}\) とすると、初期値問題の解は
+とする。場方程式は
 
 \[
-Q(t)
+\dot Q
 =
-\cos(\Omega_Nt)Q(0)
+\Pi
 +
-\Omega_N^{-1}
-\sin(\Omega_Nt)\Pi(0)
+C_N^{\mathsf T}P,
+\qquad
+\dot\Pi
+=
+-K_NQ
+\]
+
+であり、\(\Pi\) だけの2階方程式は
+
+\[
+\ddot\Pi
 +
+K_N\Pi
+=
+-K_NC_N^{\mathsf T}P
+\]
+
+となる。
+
+\hypertarget{ux521dux671fux5024ux554fux984cux3067ux306eux6b63ux78baux306aux6d88ux53bb}{%
+\section{初期値問題での正確な消去}\label{ux521dux671fux5024ux554fux984cux3067ux306eux6b63ux78baux306aux6d88ux53bb}}
+
+前節の2階方程式を初期値で解くと、
+
+\begin{proposition}[誘導場運動量の正確な初期値消去]
+
+$$
+\Pi(t)
+=
+\cos
+\left(
+\Omega_Nt
+\right)
+\Pi(0)
+-
+\Omega_N
+\sin
+\left(
+\Omega_Nt
+\right)
+Q(0)
+$$
+
+$$
+\quad
+-
 \int_0^t
-\Omega_N^{-1}
+\Omega_N
 \sin
 \left[
 \Omega_N(t-s)
 \right]
-\left[
-BG_N(X(s))+F_{\rm ext}(s)
-\right]
+C_N^{\mathsf T}P(s)
 \,\mathrm ds.
+$$
+
+\end{proposition}
+
+従って配置速度への場成分は
+
+\[
+Y_N(t)
+=
+Y_N^{\rm free}(t)
+-
+\int_0^t
+\Gamma_N(t-s)P(s)
+\,\mathrm ds,
 \]
 
-これを \(F_{{\rm G},N}\) へ代入すると、粒子は
+\[
+Y_N^{\rm free}(t)
+=
+C_N
+\cos
+\left(
+\Omega_Nt
+\right)
+\Pi(0)
+-
+C_N\Omega_N
+\sin
+\left(
+\Omega_Nt
+\right)
+Q(0),
+\]
 
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  初期場に由来する自由反作用、
-\item
-  自己履歴に依存する有限記憶項、
-\item
-  外部流路から伝わる駆動、
-\end{enumerate}
+\[
+\Gamma_N(t)
+=
+C_N\Omega_N
+\sin
+\left(
+\Omega_Nt
+\right)
+C_N^{\mathsf T}
+\]
 
-を受ける。有限 \(N\) では記憶核は準周期的であり、長時間には再帰を持つ。
+と分かれる。\(Y_N^{\rm free}\) は初期場から来る自由速度揺らぎ、畳み込み項は粒子から場への反作用が戻る速度記憶項である。
+
+この分離により、自由浴を外から与えた雑音として扱う誤りを避けられる。配置拡散を導くには、自由成分の積分極限と反作用記憶項の縮約を別々に評価しなければならない。
+
+\hypertarget{ux81eaux7531ux901fux5ea6ux63faux3089ux304eux306eux76f8ux95a2}{%
+\section{自由速度揺らぎの相関}\label{ux81eaux7531ux901fux5ea6ux63faux3089ux304eux306eux76f8ux95a2}}
+
+線形場の初期集団が中心化され、エネルギー尺度 \(\Theta_N>0\) について
+
+\[
+\mathbb E_N
+\left[
+\Pi(0)\Pi(0)^{\mathsf T}
+\right]
+=
+\Theta_NI,
+\]
+
+\[
+\mathbb E_N
+\left[
+Q(0)Q(0)^{\mathsf T}
+\right]
+=
+\Theta_NK_N^{-1},
+\qquad
+\mathbb E_N
+\left[
+Q(0)\Pi(0)^{\mathsf T}
+\right]
+=
+0
+\]
+
+を満たすとする。このとき自由速度揺らぎの相関は厳密に
+
+\[
+R_N(t-s)
+=
+\mathbb E_N
+\left[
+Y_N^{\rm free}(t)
+Y_N^{\rm free}(s)^{\mathsf T}
+\right]
+=
+\Theta_NC_N
+\cos
+\left[
+\Omega_N(t-s)
+\right]
+C_N^{\mathsf T}
+\]
+
+となる。
+
+有限 \(N\) では、これは余弦関数の有限和であり、厳密には減衰相関でも OU 相関でもない。長時間極限を固定した有限浴の強収束として扱うことはできない。多数モード、滑らかなスペクトル包絡、弱い外部交換を用い、
+
+\[
+\tau_{\rm corr}
+\ll
+T_{\rm obs}
+\ll
+T_{\rm rec}
+\]
+
+という再帰前の窓で粗視化する。
+
+\hypertarget{ux914dux7f6eux5909ux4f4dux306eux62e1ux6563ux6975ux9650}{%
+\section{配置変位の拡散極限}\label{ux914dux7f6eux5909ux4f4dux306eux62e1ux6563ux6975ux9650}}
+
+自由速度揺らぎが作る配置変位を
+
+\[
+\Xi_N(t)
+=
+\int_0^t
+Y_N^{\rm free}(s)
+\,\mathrm ds
+\]
+
+とする。相関包絡が積分可能で、異方性が小さい場合の目標は
+
+\[
+\Xi_N
+\Longrightarrow
+\sqrt{2\nu}\,W
+\]
+
+という経路法則の収束である。等方拡散係数は、対応する連続スペクトル極限の相関 \(R\) に対して
+
+\[
+\nu I_d
+=
+\int_0^\infty
+R(s)
+\,\mathrm ds
+\]
+
+で決まる。
+
+この Brown 極限は有限 Hamilton 方程式の厳密な等式ではない。多数モード極限、短記憶化、観測窓、初期集団、外部交換の順序を指定した近似結果として証明すべき対象である。
+
+さらに、全配置速度には反作用記憶項がある。これが質量繰り込み、局所ドリフト、または小さい残差へ縮約されなければ、上の自由成分だけの Brown 極限から粒子の有効過程は得られない。
 
 \hypertarget{ux4e8cux5074ux5883ux754cux6761ux4ef6ux3067ux306eux6d88ux53bb}{%
 \section{二側境界条件での消去}\label{ux4e8cux5074ux5883ux754cux6761ux4ef6ux3067ux306eux6d88ux53bb}}
 
-場の境界条件を線形作用素 \(\mathcal C_0Q(0)+\mathcal D_0\dot Q(0)=q_0\) と \(\mathcal C_TQ(T)+\mathcal D_T\dot Q(T)=q_T\) で指定する。境界値問題が一意可解なら、
+\(\Pi\) の2階作用素へ、初期側と終端側の線形境界条件を課す。境界値問題が一意可解なら、
 
 \[
-Q(t)
+\Pi(t)
 =
-Q_{\rm bd}(t)
-+
+\Pi_{\rm bd}(t)
+-
 \int_0^T
-\mathcal G_N(t,s)
-\left[
-BG_N(X(s))+F_{\rm ext}(s)
-\right]
+\mathcal G_{\Pi,N}(t,s)
+K_NC_N^{\mathsf T}P(s)
 \,\mathrm ds
 \]
 
-と書ける。\(\mathcal G_N\) は指定した境界条件に対応する Green 核、\(Q_{\rm bd}\) は非同次境界データだけで決まる解である。
+と書ける。\(\Pi_{\rm bd}\) は非同次境界データだけで決まる解、\(\mathcal G_{\Pi,N}\) は指定した境界条件に対応する Green 核である。
 
-境界条件が場作用素の自己共役領域を定めるなら、
+境界条件が \(\partial_t^2+K_N\) の自己共役領域を定めるなら、
 
 \[
-\mathcal G_N(t,s)
+\mathcal G_{\Pi,N}(t,s)
 =
-\mathcal G_N(s,t)^{\mathsf T}
+\mathcal G_{\Pi,N}(s,t)^{\mathsf T}
 \]
 
-となる。従って消去後の履歴作用は時間交換に対して対称になる。
+となる。これは消去後の記憶作用が時間交換に対して対称になることを示す。しかし、自己共役性だけでは配置変数 \(X\) の Markov 性も、Nelson の時間対称 Newton 則も導けない。
 
-しかし、Green 核の自己共役性だけから
+\hypertarget{ux6b63ux78baux306aux7d50ux679cux3068ux7e2eux7d04ux8ab2ux984c}{%
+\section{正確な結果と縮約課題}\label{ux6b63ux78baux306aux7d50ux679cux3068ux7e2eux7d04ux8ab2ux984c}}
 
-\[
-\frac12
-\left(
-D_+D_-+D_-D_+
-\right)X
-\]
-
-という Nelson の平均加速度は導けない。一般には、非局所記憶、質量繰り込み、境界層、外部交換による反対称部分が残る。
-
-\hypertarget{ux6761ux4ef6ux4ed8ux304dux5e73ux5747ux53cdux4f5cux7528}{%
-\section{条件付き平均反作用}\label{ux6761ux4ef6ux4ed8ux304dux5e73ux5747ux53cdux4f5cux7528}}
-
-二側消去式を使うと、条件付き平均反作用は概念的に
-
-\[
-\overline F_{{\rm G},N}(x,t)
-=
-F_{{\rm bd},N}(x,t)
-+
-\int_0^T
-\mathbb E_N
-\left[
-\mathcal K_N
-\left(
-x,t;X(s),s
-\right)
-\mid X(t)=x
-\right]
-\,\mathrm ds
-+
-F_{{\rm ext},N}(x,t)
-\]
-
-と書ける。\(\mathcal K_N\) は \(\nabla G_N\)、\(B\)、\(\mathcal G_N\) から決まる記憶核である。
-
-この式は、反作用が一般に現在密度 \(\rho_N(x,t)\) だけの局所汎関数ではないことを示す。Fisher 応力のような局所密度汎関数へ閉じるには、短記憶化、条件付き局所平衡、枝分解、外部交換の誤差評価が必要である。
-
-\hypertarget{ux6b63ux78baux306aux5f0fux3068ux7e2eux7d04ux4eeeux8aacux306eux5883ux754c}{%
-\section{正確な式と縮約仮説の境界}\label{ux6b63ux78baux306aux5f0fux3068ux7e2eux7d04ux4eeeux8aacux306eux5883ux754c}}
-
-\begin{longtable}[]{@{}ll@{}}
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.5000}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.5000}}@{}}
 \toprule\noalign{}
-主張 & 導出状態 \\
+\begin{minipage}[b]{\linewidth}\raggedright
+主張
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+導出状態
+\end{minipage} \\
 \midrule\noalign{}
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-全 Liouville 方程式 & 定義した全 Hamiltonian に対する厳密結果 \\
-連続の式 & 厳密結果 \\
-運動量モーメント式 & 厳密結果 \\
-条件付き全分散分解 & 厳密結果 \\
-線形場の初期値消去 & 指定した初期条件の下で厳密結果 \\
-線形場の二側 Green 消去 & 一意可解な指定境界条件の下で厳密結果 \\
-自己共役 Green 核の時間交換対称性 & 自己共役境界条件の下で厳密結果 \\
-記憶核の Markov 化 & 予想・未解決 \\
-二側条件付き過程の共通拡散係数 & 予想・未解決 \\
-反作用と運動量流束の Fisher 閉鎖 & 中心的な予想・未解決 \\
+全 Liouville 方程式 & 定義した拡大全 Hamiltonian に対する厳密結果 \\
+\(U_N=P/m+C_N\Pi\) を含む配置連続の式 & 厳密結果 \\
+正準運動量と配置速度の1次モーメント式 & 線形核内部の厳密結果 \\
+誘導場運動量の初期値消去 & 指定初期値の下で厳密結果 \\
+自由速度揺らぎと反作用記憶項の分離 & 線形核内部の厳密結果 \\
+指定した Gauss 型初期集団での相関式 & 厳密結果 \\
+二側 Green 消去と時間交換対称性 & 一意可解な自己共役境界条件の下で厳密結果 \\
+自由配置変位の Brown 極限 & 近似結果として示すべき未完成課題 \\
+反作用記憶項の局所化と誤差評価 & 予想・未解決 \\
+配置変数だけの Markov 性 & 予想・未解決 \\
+二側条件付け後の共通拡散係数 & 予想・未解決 \\
+条件付き速度分散が余分な古典圧力を残さない条件 & 予想・未解決 \\
 \end{longtable}
 
 \hypertarget{ux672cux7ae0ux306eux7d50ux8ad6-2}{%
 \section{本章の結論}\label{ux672cux7ae0ux306eux7d50ux8ad6-2}}
 
-誘導場と外部流路を含む全 Liouville 密度から、粒子の連続の式と運動量収支を正確に得た。粒子が受ける有効応力の候補は、誘導場の条件付き平均反作用と運動量共分散の発散の組合せである。
+運動量結合した誘導場では、配置流束は \(P/m+C_N\Pi\) であり、場の揺らぎは粒子速度へ直接入る。線形誘導場の正確な消去により、自由速度揺らぎと反作用速度記憶項を分離した。
 
-線形誘導場は Green 作用素で消去できるが、一般には非局所記憶が残る。時間対称な Green 核は二側縮約の必要な構造を与えるが、Nelson の Markov 拡散または Fisher 応力を単独では強制しない。
+この変更により、Fisher 項を有限 \(N\) の力密度閉鎖から直接作る必要はなくなる。代わりに、自由配置変位の Brown 極限、反作用記憶の局所化、配置変数だけの Markov 性を示す必要がある。有限浴は厳密な OU 浴でないため、結果は再帰前の有限観測窓における制御された近似として扱う。
 
-\hypertarget{ux4e8cux5074ux77edux8a18ux61b6ux6975ux9650fisher-ux5fdcux529bux4e2dux5fc3ux9589ux9396ux4e88ux60f3}{%
-\chapter{二側短記憶極限、Fisher 応力、中心閉鎖予想}\label{ux4e8cux5074ux77edux8a18ux61b6ux6975ux9650fisher-ux5fdcux529bux4e2dux5fc3ux9589ux9396ux4e88ux60f3}}
+\hypertarget{ux4e8cux5074ux914dux7f6eux62e1ux6563fisher-ux9805ux6642ux9593ux5bfeux79f0ux52d5ux529bux5b66}{%
+\chapter{二側配置拡散、Fisher 項、時間対称動力学}\label{ux4e8cux5074ux914dux7f6eux62e1ux6563fisher-ux9805ux6642ux9593ux5bfeux79f0ux52d5ux529bux5b66}}
 
 \begin{statusbox}
-位置づけ：二側 Markov 拡散を仮定した後の浸透速度と Fisher 応力は厳密結果である。ミクロ誘導場からその拡散と応力へ至る縮約は中心的な予想・未解決である。
+位置づけ：配置変数の二側 Markov 拡散を仮定した後の浸透速度、Fisher 情報、量子ポテンシャルは厳密結果である。運動量結合した有限誘導場からの配置拡散極限と時間対称 Newton 則は独立した未解決問題である。
 \end{statusbox}
 
-\hypertarget{ux4e8cux5074ux6761ux4ef6ux4ed8ux304dux904eux7a0bux3068-markov-ux6027}{%
-\section{二側条件付き過程と Markov 性}\label{ux4e8cux5074ux6761ux4ef6ux4ed8ux304dux904eux7a0bux3068-markov-ux6027}}
+\hypertarget{ux914dux7f6eux96d1ux97f3ux3092ux6301ux3064ux4f4dux76f8ux7a7aux9593ux6975ux9650}{%
+\section{配置雑音を持つ位相空間極限}\label{ux914dux7f6eux96d1ux97f3ux3092ux6301ux3064ux4f4dux76f8ux7a7aux9593ux6975ux9650}}
 
-第3章の有限 Hamiltonian 集団へ初期側と終端側の条件を課しても、粒子の縮約過程が自動的に Markov 過程になるわけではない。有限誘導場を消去すると、一般には履歴依存の記憶核が残る。
-
-本章では、次の縮約が成立する場合の有効式を先に整理する。
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  誘導場相関時間 \(\tau_{\rm corr}\) が粒子の遅い時間 \(\tau_{\rm slow}\) より十分短い。
-\item
-  条件付き均質化により、有限次元分布が前進・後退 Markov 拡散へ収束する。
-\item
-  前進と後退の2次変分が同じ正定値拡散行列へ収束する。
-\item
-  非 Markov 残差、境界層、有限再帰、外部交換が観測窓で一様に小さい。
-\end{enumerate}
-
-等方な場合の有効前進過程を
+第3章の自由速度揺らぎが短記憶化し、反作用記憶項が局所ドリフトまたは小さい残差へ縮約されるとき、最初の有効候補は
 
 \[
 \mathrm dX_t
 =
-b_+(X_t,t)\,\mathrm dt
+\frac{P_t}{m}
+\,\mathrm dt
 +
-\sqrt{2\nu}\,\mathrm dW_t^+
+\sqrt{2\nu}
+\,\mathrm dW_t,
 \]
 
-とし、後退過程を
+\[
+\mathrm dP_t
+=
+-\nabla V(X_t)
+\,\mathrm dt
+\]
+
+である。\(\nu>0\) は配置空間の等方拡散係数である。第2章の線形核では正準運動量が厳密に \(\dot P=-\nabla V\) を満たすため、反作用記憶は \(P\) の乱雑力でなく \(X\) のドリフト側へ現れる。非線形項または外部自由度が \(P\) へ直接結合する拡張では別の補正が加わるが、中心模型の式へ先に入れない。
+
+この位相空間過程は \((X,P)\) について Markov でも、\(X\) だけの射影は一般に Markov ではない。Fisher 項へ進むには、条件付き運動量が配置と時刻の局所関数へ閉じること、または \(P\) を消去した配置経路法則が Markov 拡散へ近づくことが追加で必要である。
+
+\hypertarget{ux914dux7f6eux5909ux6570ux3060ux3051ux306eux4e8cux5074-markov-ux62e1ux6563}{%
+\section{配置変数だけの二側 Markov 拡散}\label{ux914dux7f6eux5909ux6570ux3060ux3051ux306eux4e8cux5074-markov-ux62e1ux6563}}
+
+配置変数の極限過程が、共通の正の密度 \(\rho(x,t)\) と同じ拡散係数 \(\nu\) を持つ前進・後退表示を持つと仮定する。
+
+\[
+\mathrm dX_t
+=
+b_+(X_t,t)
+\,\mathrm dt
++
+\sqrt{2\nu}
+\,\mathrm dW_t^+,
+\]
 
 \[
 \mathrm d_-X_t
 =
-b_-(X_t,t)\,\mathrm dt
+b_-(X_t,t)
+\,\mathrm dt
 +
-\sqrt{2\nu}\,\mathrm d_-W_t^-
+\sqrt{2\nu}
+\,\mathrm d_-W_t^-.
 \]
 
-と書く。\(\nu>0\) は配置空間の拡散係数である。境界作用殻の係数 \(D_\partial\) とは区別する。
+境界条件付けは前後のドリフトを変えるが、1つの非退化拡散経路法則の条件付けとして構成できるなら、2次変分を決める主部は変えない。この理由により共通の \(\nu\) は有効拡散モデル内部では自然である。ただし、有限 Hamiltonian 集団からその共通経路法則が得られることは未証明である。
 
-\hypertarget{ux524dux9032ux5f8cux9000ux6d41ux308c}{%
-\section{前進・後退流れ}\label{ux524dux9032ux5f8cux9000ux6d41ux308c}}
-
-共通の正の時刻密度を \(\rho(x,t)\) とする。前進と後退の Fokker--Planck 方程式は
+前進と後退の Fokker--Planck 方程式は
 
 \[
 \partial_t\rho
 =
--\nabla\cdot(\rho b_+)
+-\nabla\cdot
+\left(
+\rho b_+
+\right)
 +
 \nu\Delta\rho,
 \]
@@ -1465,12 +1737,20 @@ b_-(X_t,t)\,\mathrm dt
 \[
 \partial_t\rho
 =
--\nabla\cdot(\rho b_-)
+-\nabla\cdot
+\left(
+\rho b_-
+\right)
 -
 \nu\Delta\rho
 \]
 
-である。両式を加減し、
+である。
+
+\hypertarget{ux73feux5728ux901fux5ea6ux3068ux6d78ux900fux901fux5ea6}{%
+\section{現在速度と浸透速度}\label{ux73feux5728ux901fux5ea6ux3068ux6d78ux900fux901fux5ea6}}
+
+現在速度 \(v\) と浸透速度 \(u\) を
 
 \[
 v
@@ -1482,17 +1762,21 @@ u
 \frac{b_+-b_-}{2}
 \]
 
-と置く。
+と定める。\(u\) と拡散係数 \(\nu\) は異なる量であり、以後この表記を固定する。
 
 \begin{proposition}[二側拡散の流れ分解]
 
-共通の正の密度と共通の拡散係数 $\nu$ を持つなら、
+同じ正の密度と同じ等方拡散係数を持つ前進・後退表示では、
 
 $$
 \partial_t\rho
 +
-\nabla\cdot(\rho v)
-=0,
+\nabla\cdot
+\left(
+\rho v
+\right)
+=
+0,
 $$
 
 $$
@@ -1505,85 +1789,10 @@ $$
 
 \end{proposition}
 
-これは二側 Markov 拡散モデル内部の厳密結果である。有限 Hamiltonian 集団からこのモデルが得られることの証明ではない。
+これは配置 Markov 拡散モデル内部の厳密な運動学である。欲しい密度を見て \(u\) を外から置くのではなく、同じ経路法則の前進・後退表示の差として得る。
 
-\hypertarget{ux6642ux9593ux5bfeux79f0ux5e73ux5747ux52a0ux901fux5ea6}{%
-\section{時間対称平均加速度}\label{ux6642ux9593ux5bfeux79f0ux5e73ux5747ux52a0ux901fux5ea6}}
-
-前進・後退微分を \(D_+,D_-\) とする。Nelson の時間対称平均加速度を
-
-\[
-a_{\rm ts}
-=
-\frac12
-\left(
-D_+D_-+D_-D_+
-\right)X
-\]
-
-と定義する。滑らかな \(v,u\) について
-
-\[
-a_{\rm ts}
-=
-\partial_tv
-+
-(v\cdot\nabla)v
--
-(u\cdot\nabla)u
--
-\nu\Delta u
-\]
-
-が成立する。
-
-\(u=\nu\nabla\log\rho\) を使うと、
-
-\[
-(u\cdot\nabla)u
-+
-\nu\Delta u
-=
-2\nu^2
-\nabla
-\left(
-\frac{\Delta\sqrt\rho}{\sqrt\rho}
-\right).
-\]
-
-従って時間対称 Newton 式
-
-\[
-ma_{\rm ts}
-=
--\nabla V
-\]
-
-は
-
-\[
-m
-\left[
-\partial_tv
-+
-(v\cdot\nabla)v
-\right]
-=
--\nabla V
-+
-2m\nu^2
-\nabla
-\left(
-\frac{\Delta\sqrt\rho}{\sqrt\rho}
-\right)
-\]
-
-と同値である。
-
-自己共役 Green 核を得ただけでは、この時間対称 Newton 式は従わない。Green 消去後の非局所作用が、Markov 極限と条件付き変分を通じて上式へ収束することを示す必要がある。
-
-\hypertarget{fisher-ux60c5ux5831ux3068ux5fdcux529b}{%
-\section{Fisher 情報と応力}\label{fisher-ux60c5ux5831ux3068ux5fdcux529b}}
+\hypertarget{fisher-ux60c5ux5831ux3068ux91cfux5b50ux30ddux30c6ux30f3ux30b7ux30e3ux30eb}{%
+\section{Fisher 情報と量子ポテンシャル}\label{fisher-ux60c5ux5831ux3068ux91cfux5b50ux30ddux30c6ux30f3ux30b7ux30e3ux30eb}}
 
 Fisher 情報を
 
@@ -1592,24 +1801,58 @@ Fisher 情報を
 =
 \int
 \rho
-|\nabla\log\rho|^2
+\left|
+\nabla\log\rho
+\right|^2
 \,\mathrm dx
 \]
 
-とする。浸透速度の2乗平均は
+とする。前節の恒等式から
 
 \[
-\int\rho|u|^2\,\mathrm dx
+\frac m2
+\int
+\rho|u|^2
+\,\mathrm dx
 =
-\nu^2\mathcal I[\rho]
+\frac{m\nu^2}{2}
+\mathcal I[\rho]
 \]
 
-である。正規化制約と境界項が消える条件の下で、
+が直ちに従う。従って Fisher 項は、旧位置結合経路の力密度閉鎖を経由せず、二側配置拡散の前後ドリフト差から直接現れる。
+
+正規化制約と境界項が消える条件の下で、
 
 \[
 \frac{\delta\mathcal I}{\delta\rho}
 =
 -4
+\frac{\Delta\sqrt\rho}{\sqrt\rho}
+\]
+
+である。量子ポテンシャルに対応する密度汎関数を
+
+\[
+Q[\rho]
+=
+-2m\nu^2
+\frac{\Delta\sqrt\rho}{\sqrt\rho}
+\]
+
+と定める。有効作用定数を
+
+\[
+\hbar_{\rm eff}
+=
+2m\nu
+\]
+
+と置けば、
+
+\[
+Q[\rho]
+=
+-\frac{\hbar_{\rm eff}^2}{2m}
 \frac{\Delta\sqrt\rho}{\sqrt\rho}
 \]
 
@@ -1620,160 +1863,212 @@ Bohm--Fisher 応力を
 \[
 P_F[\rho]
 =
--m\nu^2\rho\,
-\nabla\nabla\log\rho
+-m\nu^2\rho
+\,\nabla\nabla\log\rho
 \]
 
-と定義する。
+と定めると、
 
 \begin{proposition}[Fisher 応力恒等式]
-
-十分滑らかな正の密度について、
 
 $$
 -\nabla\cdot P_F[\rho]
 =
-2m\nu^2\rho\,
-\nabla
+2m\nu^2\rho
+\,\nabla
 \left(
 \frac{\Delta\sqrt\rho}{\sqrt\rho}
 \right)
+=
+-\rho\nabla Q[\rho]
 $$
 
 が成立する。
 
 \end{proposition}
 
-従って二側 Markov 拡散の時間対称 Newton 式は、連続の式と
+\hypertarget{ux6642ux9593ux5bfeux79f0-newton-ux5247ux306fux72ecux7acbux3057ux305fux4e3bux5f35ux3067ux3042ux308b}{%
+\section{時間対称 Newton 則は独立した主張である}\label{ux6642ux9593ux5bfeux79f0-newton-ux5247ux306fux72ecux7acbux3057ux305fux4e3bux5f35ux3067ux3042ux308b}}
+
+前進・後退微分を \(D_+,D_-\) とし、Nelson の時間対称平均加速度を
 
 \[
-m\rho
-\left(
-\partial_t+v\cdot\nabla
-\right)v
+a_{\rm ts}
 =
--\rho\nabla V
--
-\nabla\cdot P_F[\rho]
+\frac12
+\left(
+D_+D_-
++
+D_-D_+
+\right)X
 \]
 
-という Euler 型運動量式で書ける。
-
-\hypertarget{fisher-ux9589ux9396ux4e88ux60f3}{%
-\section{Fisher 閉鎖予想}\label{fisher-ux9589ux9396ux4e88ux60f3}}
-
-第3章の正確なミクロ運動量式は
+と定義する。滑らかな \(v,u\) について
 
 \[
-m\rho_N
-\left(
-\partial_t+v_N\cdot\nabla
-\right)v_N
+a_{\rm ts}
 =
--\rho_N\nabla V
+\partial_tv
 +
-\rho_N\overline F_{{\rm G},N}
--
-\frac1m
-\nabla\cdot
 \left(
-\rho_N\Sigma_{p,N}
+v\cdot\nabla
+\right)v
+-
+\left(
+u\cdot\nabla
+\right)u
+-
+\nu\Delta u
+\]
+
+が成立する。\(u=\nu\nabla\log\rho\) を使うと、
+
+\[
+\left(
+u\cdot\nabla
+\right)u
++
+\nu\Delta u
+=
+2\nu^2
+\nabla
+\left(
+\frac{\Delta\sqrt\rho}{\sqrt\rho}
 \right).
 \]
 
-二側拡散側の目標式と比較すると、必要な中心閉鎖は次である。
-
-\textbf{予想（Fisher 閉鎖）}
-
-適切な有限誘導場列、固定射影、二側境界集団、短記憶尺度、弱外部交換の下で、
+時間対称 Newton 則
 
 \[
-\rho_N\overline F_{{\rm G},N}
--
-\frac1m
-\nabla\cdot
-\left(
-\rho_N\Sigma_{p,N}
-\right)
-\longrightarrow
--\nabla\cdot P_F[\rho]
-\]
-
-が指定した時空間ノルムで成立する。
-
-この予想は現在の定理ではない。特に、\(\overline F_{{\rm G},N}\) だけ、または \(\Sigma_{p,N}\) だけを右辺へ同定するものではない。誘導場反作用、枝内部幅、枝間流束、外部補正を合わせた収束である。
-
-\hypertarget{ux7121ux6b21ux5143ux5316ux3057ux305fux76eeux6a19ux8aa4ux5dee}{%
-\section{無次元化した目標誤差}\label{ux7121ux6b21ux5143ux5316ux3057ux305fux76eeux6a19ux8aa4ux5dee}}
-
-力密度の比較ノルムを \(\|\cdot\|_{\mathcal X}\) とし、代表力密度を \(\mathcal F_*>0\) とする。例えば、対象時間窓での \(\|-\nabla\cdot P_F[\rho]\|_{L^2_tH^{-1}_x}\) の上界を \(\mathcal F_*\) に選ぶ。
-
-閉鎖誤差を
-
-\[
-\varepsilon_F^{(N)}
+ma_{\rm ts}
 =
-\frac1{\mathcal F_*}
-\left\|
-\rho_N\overline F_{{\rm G},N}
--
-\frac1m
-\nabla\cdot
-\left(
-\rho_N\Sigma_{p,N}
-\right)
-+
-\nabla\cdot P_F[\rho]
-\right\|_{\mathcal X}
+-\nabla V
 \]
 
-とする。目標評価は
+を追加で仮定または導出できれば、
 
 \[
-\varepsilon_F^{(N)}
-\leq
-C
+m
+\left[
+\partial_tv
++
 \left(
-\varepsilon_{\rm mem}
+v\cdot\nabla
+\right)v
+\right]
+=
+-\nabla V
+-
+\nabla Q[\rho]
+\]
+
+を得る。
+
+配置拡散の導出だけでは、この Newton 則は自動的に従わない。第3章の時間対称 Green 核、反作用記憶、境界条件付き変分を合わせ、非局所作用が上式へ収束することを別に示す必要がある。
+
+\hypertarget{ux5c40ux6240ux7684ux306a-schruxf6dinger-ux8868ux793a}{%
+\section{局所的な Schrödinger 表示}\label{ux5c40ux6240ux7684ux306a-schruxf6dinger-ux8868ux793a}}
+
+節を含まない単連結領域で現在速度が
+
+\[
+v
+=
+\frac1m\nabla S
+\]
+
+と書けるとする。連続の式と前節の Euler 型方程式を積分すると、時刻だけの関数を \(S\) へ吸収した後、
+
+\[
+\partial_tS
 +
-\varepsilon_{\rm nM}
+\frac{|\nabla S|^2}{2m}
 +
-\varepsilon_{\rm diff}
+V
 +
-\varepsilon_{\rm proj}
-+
-\varepsilon_{\rm defect}
-+
-\varepsilon_{\rm open}
-+
-\varepsilon_N
+Q[\rho]
+=
+0
+\]
+
+を得る。そこで
+
+\[
+\psi
+=
+\sqrt\rho
+\exp
+\left(
+\frac{iS}{\hbar_{\rm eff}}
 \right)
 \]
 
-の形である。右辺は全て無次元量とする。
+と置けば、局所的には
 
-\begin{longtable}[]{@{}ll@{}}
+\[
+i\hbar_{\rm eff}
+\partial_t\psi
+=
+\left(
+-\frac{\hbar_{\rm eff}^2}{2m}\Delta
++
+V
+\right)
+\psi
+\]
+
+と同値である。
+
+この局所変換は、節をまたぐ位相接続、循環量子化、単価な波動関数を保証しない。従って Wallstrom 問題は未解決である \cite{wallstrom1994}。
+
+\hypertarget{ux914dux7f6eux62e1ux6563ux6975ux9650ux306eux8aa4ux5dee}{%
+\section{配置拡散極限の誤差}\label{ux914dux7f6eux62e1ux6563ux6975ux9650ux306eux8aa4ux5dee}}
+
+旧稿の力密度閉鎖誤差に代えて、次の独立した誤差を管理する。
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.5000}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.5000}}@{}}
 \toprule\noalign{}
-誤差 & 意味 \\
+\begin{minipage}[b]{\linewidth}\raggedright
+誤差
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+意味
+\end{minipage} \\
 \midrule\noalign{}
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-\(\varepsilon_{\rm mem}=\tau_{\rm corr}/\tau_{\rm slow}\) & 短記憶化 \\
-\(\varepsilon_{\rm nM}\) & 条件付き過程の非 Markov 残差 \\
-\(\varepsilon_{\rm diff}\) & 前進・後退の拡散行列の不一致と異方性 \\
-\(\varepsilon_{\rm proj}\) & 固定位相整合部分空間からの漏出 \\
-\(\varepsilon_{\rm defect}\) & 枝内部欠陥と未除去成分 \\
-\(\varepsilon_{\rm open}\) & 測定窓内の外部交換 \\
-\(\varepsilon_N\) & 有限誘導場切断と再帰 \\
+\(\varepsilon_{\rm mem}=\tau_{\rm corr}/\tau_{\rm slow}\) & 自由速度相関の短記憶化 \\
+\(\varepsilon_{\rm fb}\) & 反作用記憶の局所化と質量繰り込みの残差 \\
+\(\varepsilon_{\rm BM}\) & 積分速度揺らぎと Brown 経路法則の差 \\
+\(\varepsilon_{\rm nM}\) & \(X\) 射影の非 Markov 残差 \\
+\(\varepsilon_{\rm iso}\) & 配置拡散行列の異方性 \\
+\(\varepsilon_{\rm two}\) & 前後の2次変分と共通 \(\nu\) からのずれ \\
+\(\varepsilon_{\rm press}\) & 条件付き速度分散が残す古典圧力 \\
+\(\varepsilon_{\rm dyn}\) & 時間対称 Newton 則からの動力学残差 \\
+\(\varepsilon_{\rm open}\) & 観測窓内の外部交換 \\
+\(\varepsilon_N\) & 有限モード切断、境界層、再帰 \\
 \end{longtable}
 
-この式は次元を揃えた目標評価であり、現時点では証明済みの上界ではない。
+適用範囲は
+
+\[
+\tau_{\rm corr}
+\ll
+T_{\rm obs}
+\ll
+\min
+\left(
+T_{\rm rec},
+\tau_{\rm open}
+\right)
+\]
+
+である。中心結論を支えるには、有限 Hamiltonian 経路と有効過程を同じ入口・終端集団で比較し、短時間2次変分、3時刻条件付き分布、反作用記憶、作用残差を別々に測る必要がある。これらを1本の一様上界へまとめる定理はまだない。
 
 \hypertarget{gauss-ux5e45ux306bux304aux3051ux308b-routhfisher-ux4e00ux81f4}{%
 \section{Gauss 幅における Routh--Fisher 一致}\label{gauss-ux5e45ux306bux304aux3051ux308b-routhfisher-ux4e00ux81f4}}
-
-一般の Fisher 閉鎖は未証明だが、1つの可解な幅モデルでは、固定作用の Routh 縮約と Fisher 項が一致する。
 
 1次元の正規分布を
 
@@ -1795,7 +2090,7 @@ C
 \frac1{\sigma^2}.
 \]
 
-一方、2次元内部座標を
+2次元内部座標を
 
 \[
 q
@@ -1807,20 +2102,7 @@ q
 \end{pmatrix}
 \]
 
-とし、運動項を
-
-\[
-L_{\rm int}
-=
-\frac m2
-\left(
-\dot\sigma^2
-+
-\sigma^2\dot\theta^2
-\right)
-\]
-
-とする。循環作用
+とし、循環作用
 
 \[
 J
@@ -1828,17 +2110,17 @@ J
 m\sigma^2\dot\theta
 \]
 
-を固定して \(\theta\) を Routh 縮約すると、
+を固定して \(\theta\) を Routh 縮約すると、内部 Routh 関数は
 
 \[
 R_{\rm int}
 =
 \frac m2\dot\sigma^2
 -
-\frac{J^2}{2m\sigma^2}.
+\frac{J^2}{2m\sigma^2}
 \]
 
-\(J=m\nu\) と置けば、
+となる。\(J=m\nu\) と置けば、
 
 \[
 -\frac{J^2}{2m\sigma^2}
@@ -1847,18 +2129,16 @@ R_{\rm int}
 \mathcal I[\rho_\sigma].
 \]
 
-従って Gauss 幅族では、固定内部作用の Routh 項と Nelson 作用の負の Fisher 項が厳密に一致する。
-
-これは重要な整合性検査だが、一般密度の Fisher 閉鎖を証明しない。\(J=m\nu\) の選択、Gauss 幅以外の形状自由度、位相整合部分空間の力学的準備が別に必要である。
+従って Gauss 幅族では、固定内部作用の Routh 項と二側配置拡散の負の Fisher 項が厳密に一致する。これは補助的な整合性検査であり、運動量結合した有限誘導場から配置拡散または時間対称 Newton 則を導くものではない。
 
 \hypertarget{ux88dcux52a9ux7684ux306aux7ddaux5f62-gauss-ux578bux4f5cux7528ux5b9aux7406}{%
 \section{補助的な線形 Gauss 型作用定理}\label{ux88dcux52a9ux7684ux306aux7ddaux5f62-gauss-ux578bux4f5cux7528ux5b9aux7406}}
 
-二側 Markov 拡散が得られた後の作用表示を制御する補助結果を付録A、Bに残す。有限 Fourier--Gauss 型駆動、線形流れ、Gauss 初期分布、正定値の有限分解能終端記録、2次ポテンシャル、滑らかな有限次元パラメータ集合 \(K\) を考える。
+配置 Markov 拡散が得られた後の作用表示を制御する補助結果を付録A、Bに残す。有限 Fourier--Gauss 型駆動、線形流れ、Gauss 初期分布、正定値の有限分解能終端記録、2次ポテンシャル、滑らかな有限次元パラメータ集合 \(K\) を考える。
 
 時間刻み \(h\) の繰り込み済み粗視化作用を \(\mathcal A_{N,h}^{R,U}\)、極限の Guerra--Morato 作用を \(\mathcal A_{\rm GM}^{R,U}\) とする。
 
-\begin{theorem}[線形 Gauss 型作用の $C^1$ 極限]
+\begin{theorem}[線形 Gauss 型作用の <i>C</i><sup>1</sup> 極限]
 
 ある $C_K<\infty$ が存在し、
 
@@ -1895,12 +2175,13 @@ $$
 -
 U
 \right]
-\,\mathrm dx\,\mathrm dt
+\,\mathrm dx
+\,\mathrm dt
 \]
 
 という Nelson 表示と厳密に一致する。
 
-この定理は、定義した補助確率表示の作用値と有限次元パラメータ微分についての結果である。ミクロ誘導場から二側 Markov 拡散を導くこと、微視的時間発展が作用停留点を選ぶこと、Fisher 閉鎖を示すことは含まれない。
+この定理は補助確率表示の作用値と有限次元パラメータ微分についての結果である。有限誘導場から配置拡散を導くこと、時間対称 Newton 則を導くこと、微視的時間発展が作用停留点を選ぶことは含まない。
 
 \hypertarget{ux5c0eux51faux72b6ux614b}{%
 \section{導出状態}\label{ux5c0eux51faux72b6ux614b}}
@@ -1919,22 +2200,23 @@ U
 \bottomrule\noalign{}
 \endlastfoot
 共通拡散係数を持つ二側 Markov 拡散での \(u=\nu\nabla\log\rho\) & 有効拡散モデル内部の厳密結果 \\
+Fisher 情報、量子ポテンシャル、Fisher 応力の恒等式 & 厳密結果 \\
 時間対称平均加速度の分解 & 有効拡散モデル内部の厳密結果 \\
-Fisher 応力恒等式 & 厳密結果 \\
 Gauss 幅の Routh--Fisher 一致 & 指定した Gauss 変分モデル内部の厳密結果 \\
-線形 Gauss 型作用の \(C^1\) 極限 & 補助モデルの厳密結果 \\
-ミクロ誘導場から二側 Markov 拡散への縮約 & 予想・未解決 \\
-自己共役 Green 応答から Nelson 平均加速度への収束 & 予想・未解決 \\
-ミクロ反作用と運動量流束の Fisher 閉鎖 & 中心的な予想・未解決 \\
+線形 Gauss 型作用の \(C^1\) 極限 & 補助モデル内部の厳密結果 \\
+有限誘導場から配置雑音を持つ位相空間過程への縮約 & 予想・未解決 \\
+配置変数だけの Markov 性と共通拡散係数 & 予想・未解決 \\
+反作用記憶、質量繰り込み、古典圧力の一様誤差評価 & 予想・未解決 \\
+時間対称 Green 応答から Newton 則への縮約 & 予想・未解決 \\
 微視的時間発展による Nelson 停留点選択 & 予想・未解決 \\
 \end{longtable}
 
 \hypertarget{ux672cux7ae0ux306eux7d50ux8ad6-3}{%
 \section{本章の結論}\label{ux672cux7ae0ux306eux7d50ux8ad6-3}}
 
-二側 Markov 拡散が得られれば、浸透速度、Fisher 情報、Bohm--Fisher 応力、Nelson 作用の関係は厳密に整理できる。Gauss 幅族では、固定内部作用の Routh 縮約が Fisher 項と一致する。
+運動量結合した誘導場は、配置速度揺らぎを直接生む。この揺らぎの積分が Brown 運動へ近づき、配置変数だけの二側 Markov 拡散が得られれば、\(u=\nu\nabla\log\rho\)、Fisher 項、量子ポテンシャルは運動学的に厳密に従う。
 
-未完成なのは、その構造をミクロ Hamiltonian から得る中央の縮約である。本論文は、正確なミクロ運動量収支と Fisher 応力の間を \textbf{Fisher 閉鎖予想} として明示し、自己共役性または弱漏れだけで解決済みとは扱わない。
+従って旧稿の Fisher 力密度閉鎖は中心課題から外れる。残る中心課題は、配置拡散極限、\(X\) 射影の Markov 性、反作用記憶と古典圧力の制御、時間対称 Newton 則である。配置拡散を得たことと動力学まで得たことを分けて扱う。
 
 \part{同じ物理構成の境界作用殻縮約と Bell 型統計}
 
@@ -1942,13 +2224,13 @@ Gauss 幅の Routh--Fisher 一致 & 指定した Gauss 変分モデル内部の�
 \chapter{構造化誘導場の2粒子・測定器拡張}\label{ux69cbux9020ux5316ux8a98ux5c0eux5834ux306e2ux7c92ux5b50ux6e2cux5b9aux5668ux62e1ux5f35}}
 
 \begin{statusbox}
-位置づけ：第I部と同じ固定射影を持つ誘導場を、左右局所反応座標と共通境界セクターへ拡張する。局所交差応答は近似条件、全殻拡散と一般測定器は予想・未解決である。
+位置づけ：第I部の運動量結合方向と同じ固定明部分空間に、左右局所装置と共通境界モードの座標結合方向を加える。全交差応答は近似条件、全殻拡散と一般測定器は予想・未解決である。
 \end{statusbox}
 
 \hypertarget{ux7b2ciiux90e8ux306eux76eeux7684}{%
 \section{第II部の目的}\label{ux7b2ciiux90e8ux306eux76eeux7684}}
 
-第2章から第4章は、粒子と構造化誘導場の Liouville 縮約、二側短記憶極限、Fisher 閉鎖予想を扱った。そこから Bell 型結果重みは出ない。第II部では、同じ物理構成を2粒子、左右測定器、共通境界モードへ拡張する。
+第2章から第4章は、粒子と構造化誘導場の運動量結合、速度記憶核、配置拡散極限、二側 Markov 拡散を扱った。そこから Bell 型結果重みは出ない。第II部では、同じ誘導場へ装置の座標結合を加え、2粒子、左右測定器、共通境界モードへ拡張する。
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -1956,9 +2238,9 @@ Gauss 幅の Routh--Fisher 一致 & 指定した Gauss 変分モデル内部の�
 \item
   左右の局所記録と共通境界モードを、1つの構造化誘導場の中に置く。
 \item
-  第2章と同様に、直接結合ベクトルから時間に依存しない明・暗モード基底を定める。
+  運動量結合方向と装置の座標結合方向から、時間に依存しない明・暗モード基底を定める。
 \item
-  局所測定窓では、左右反応座標間の交差応答が小さいことを条件にする。
+  局所測定窓では、座標--座標核と運動量--座標混合核を含む左右交差応答が小さいことを条件にする。
 \item
   局所記録後の伝達ベクトルを、共通未来で静的な和・差基底へ写す。
 \item
@@ -1981,10 +2263,10 @@ Q
 Q_1&\cdots&Q_N
 \end{pmatrix}^{\mathsf T},
 \qquad
-P
+\Pi
 =
 \begin{pmatrix}
-P_1&\cdots&P_N
+\Pi_1&\cdots&\Pi_N
 \end{pmatrix}^{\mathsf T}
 \]
 
@@ -1993,16 +2275,22 @@ P_1&\cdots&P_N
 \[
 H_{\rm med}
 =
-\frac12P^{\mathsf T}P
+\frac12\Pi^{\mathsf T}\Pi
 +
 \frac12Q^{\mathsf T}KQ
 +
 \varepsilon_{\rm nl}V_{\rm nl}(Q)
 \]
 
-と書く。\(K\) は正定値実対称行列、\(V_{\rm nl}\) は有限時間混合を補助する滑らかな非線形項である。第2章の \(K_N,B,H_N^{\rm nl}\) を、左右装置と境界モードを含む有限次元へ拡張した表示である。
+と書く。\(K\) は正定値実対称行列、\(V_{\rm nl}\) は有限時間混合を補助する滑らかな非線形項である。第2章の \(K_N,M_N,H_N^{\rm nl}\) を質量規格化し、左右装置と境界モードを含む有限次元へ拡張した表示である。
 
-左右の局所応答座標を \(x_A,x_B\) とし、誘導場への結合を
+第I部の粒子運動量結合は
+
+\[
+P^{\mathsf T}C_N\Pi
+\]
+
+である。一方、第II部の左右局所装置は、局所応答座標 \(x_A,x_B\) を用い、誘導場への結合を
 
 \[
 H_{\rm loc-link}
@@ -2012,7 +2300,7 @@ H_{\rm loc-link}
 \epsilon_B x_B c_B^{\mathsf T}Q
 \]
 
-とする。\(c_A,c_B\) は同じ \(N\) 次元誘導場内の直接結合ベクトルである。共通境界3モードへの結合ベクトルも同じ場内に置く。これらを列に並べた行列が第2章の \(B\) に対応する。従って左右局所浴と境界浴を別々の独立系として追加するのではない。
+と結合する。\(c_A,c_B\) は同じ \(N\) 次元誘導場内の座標結合方向である。共通境界3モードへの座標結合方向も同じ場内に置く。これらを列に並べた行列を \(B_q\) と書く。従って、第I部の \(C_N^{\mathsf T}\) と第II部の \(B_q\) は同じ明部分空間に属するが、結合型と物理的役割は異なる。
 
 有限装置部分は概念的に
 
@@ -2057,31 +2345,44 @@ H_{\rm work}(z_{\rm work})
 \hypertarget{ux9759ux7684ux306aux660eux6697ux30e2ux30fcux30c9ux5206ux89e3-1}{%
 \section{静的な明・暗モード分解}\label{ux9759ux7684ux306aux660eux6697ux30e2ux30fcux30c9ux5206ux89e3-1}}
 
-結合ベクトル
+全ての直接結合方向が張る部分空間を
 
 \[
 \mathcal C
 =
 \operatorname{span}
 \left\{
+\operatorname{Ran}C_N^{\mathsf T},
 c_A,c_B,c_{\partial,1},\ldots,c_{\partial,m}
 \right\}
 \]
 
-を誘導場の明部分空間とする。\(c_{\partial,\alpha}\) は境界3モードを混合する場方向である。この明部分空間を第2章の \(\mathcal B_{\rm B}\) に取り、暗射影 \(P_{\rm D}\) に対して \(P_{\rm D}B=0\) とする。\(\mathcal C\) の正規直交基底を先頭に並べる直交行列 \(O\) を1つ固定し、
+とする。\(c_{\partial,\alpha}\) は境界3モードを混合する場方向である。この部分空間を第2章の \(\mathcal B_{\rm B}\) に取り、暗射影 \(P_{\rm D}\) に対して
+
+\[
+P_{\rm D}C_N^{\mathsf T}
+=
+0,
+\qquad
+P_{\rm D}B_q
+=
+0
+\]
+
+とする。\(\mathcal C\) の正規直交基底を先頭に並べる直交行列 \(O\) を1つ固定し、
 
 \[
 \widetilde Q=OQ,
 \qquad
-\widetilde P=OP
+\widetilde\Pi=O\Pi
 \]
 
 とする。同じ \(O\) を座標と運動量へ作用させるため、
 
 \[
-dP^{\mathsf T}\wedge dQ
+d\Pi^{\mathsf T}\wedge dQ
 =
-d\widetilde P^{\mathsf T}\wedge d\widetilde Q
+d\widetilde\Pi^{\mathsf T}\wedge d\widetilde Q
 \]
 
 が成り立つ。従ってこれは正準変換である。
@@ -2125,7 +2426,7 @@ H^{\rm dark}
 \hypertarget{ux5c40ux6240ux4ea4ux5deeux5fdcux7b54}{%
 \section{局所交差応答}\label{ux5c40ux6240ux4ea4ux5deeux5fdcux7b54}}
 
-まず \(\varepsilon_{\rm nl}=0\) の線形浴を考える。浴を消去すると、局所反応座標には自己応答と交差応答を含む記憶項が現れる \cite{ford1965,mori1965,zwanzig1973}。単位質量表示では、代表的な応答核を
+まず \(\varepsilon_{\rm nl}=0\) の線形浴を考える。装置の座標結合だけを取り出して浴を消去すると、局所反応座標には自己応答と交差応答を含む記憶項が現れる \cite{ford1965,mori1965,zwanzig1973}。単位質量表示では、座標--座標の代表核を
 
 \[
 \chi_{XY}(t)
@@ -2141,9 +2442,9 @@ c_Y,
 X,Y\in\{A,B\}
 \]
 
-と書ける。規格化や時間微分の位置は、どの局所変数へ結合するかにより変わる。本論文で必要なのは、対角核と非対角核の比である。
+と書ける。第I部の運動量結合 \(C_N\) が同じ場にある場合は、\(Q\) と \(\Pi\) の自由回転を通じて運動量--座標混合核も現れる。規格化や時間微分の位置は、どの装置変数へ結合するかにより変わる。
 
-局所性の誤差を
+左右の全線形応答ブロックを \(\mathcal R_{XY}(t)\) と書く。これは座標--座標、運動量--座標、必要なら運動量--運動量の各核をまとめた作用素である。局所性の誤差を
 
 \[
 \varepsilon_{\rm loc}
@@ -2152,15 +2453,15 @@ X,Y\in\{A,B\}
 \displaystyle
 \sup_{0\leq t\leq T_{\rm meas}}
 \max\left(
-|\chi_{AB}(t)|,
-|\chi_{BA}(t)|
+\|\mathcal R_{AB}(t)\|,
+\|\mathcal R_{BA}(t)\|
 \right)
 }{
 \displaystyle
 \sup_{0\leq t\leq T_{\rm meas}}
 \min\left(
-|\chi_{AA}(t)|,
-|\chi_{BB}(t)|
+\|\mathcal R_{AA}(t)\|,
+\|\mathcal R_{BB}(t)\|
 \right)
 }
 \]
@@ -2171,7 +2472,7 @@ X,Y\in\{A,B\}
 \varepsilon_{\rm loc}\ll1.
 \]
 
-\(c_A^{\mathsf T}c_B=0\) だけでは、この条件は保証されない。\(K\) が2方向を動力学的に混ぜれば、有限時間後に交差応答が現れる。従って局所性は、結合ベクトルの直交性ではなく、実際の応答核または有限モデルの時間発展で検査する。
+\(c_A^{\mathsf T}c_B=0\) だけでは、この条件は保証されない。\(K\) が2方向を動力学的に混ぜる場合や、\(C_N^{\mathsf T}\) を経由した混合応答がある場合は、有限時間後に交差応答が現れる。従って局所性は、結合ベクトルの直交性ではなく、全応答作用素または有限モデルの時間発展で検査する。
 
 非線形浴と弱開放補正を含む場合は、同じ初期小摂動に対する線形化応答、または条件付き相関を用いて \(\varepsilon_{\rm loc}\) を定義する。第7章の厳密な Bell 代数は \(\varepsilon_{\rm loc}=0\) の補助モデルで行い、現行モデルへの接続では \(O(\varepsilon_{\rm loc})\) の局所誤差として扱う。
 
@@ -2418,7 +2719,9 @@ C_0=J_*+2I_0.
 \hypertarget{ux672cux7ae0ux306eux7d50ux8ad6-4}{%
 \section{本章の結論}\label{ux672cux7ae0ux306eux7d50ux8ad6-4}}
 
-左右局所装置と共通境界モードを、複数の独立浴ではなく第I部と同じ固定射影を持つ1つの構造化誘導場として整理した。静的な明・暗モード分解は厳密な正準変換であるが、その後の Hamiltonian が完全な直和になるとは限らない。局所性は、測定窓内の交差応答 \(\varepsilon_{\rm loc}\) を実際に小さくする条件として置く。
+左右局所装置と共通境界モードを、複数の独立浴ではなく第I部と同じ固定射影を持つ1つの構造化誘導場として整理した。第I部の運動量結合方向 \(\operatorname{Ran}C_N^{\mathsf T}\) と、第II部の座標結合方向 \(\operatorname{Ran}B_q\) を同じ明部分空間へ含める。静的な明・暗モード分解は厳密な正準変換であるが、その後の Hamiltonian が完全な直和になるとは限らない。
+
+局所性は、座標--座標応答だけでなく運動量--座標混合応答を含む全応答作用素について、測定窓内の \(\varepsilon_{\rm loc}\) を実際に小さくする条件として置く。
 
 局所装置について明示したのは最小結果符号化器であり、一般測定器ではない。常時の弱い漏れは欠陥除去と有限誘導場の再帰抑制を担う候補だが、漏れだけでは境界作用殻を一様化しない。
 
@@ -3549,32 +3852,13 @@ J_*+I_-^{AB}
 \chapter{2つの縮約の誤差、適用限界、反証条件}\label{ux3064ux306eux7e2eux7d04ux306eux8aa4ux5deeux9069ux7528ux9650ux754cux53cdux8a3cux6761ux4ef6}}
 
 \begin{statusbox}
-位置づけ：Fisher 側と Bell 側の誤差を別々に管理する。Fisher 閉鎖と全殻拡散のミクロ導出は未完成であり、厳密な後段計算から遡って導出済みとは扱わない。
+位置づけ：配置拡散側と Bell 側の誤差を別々に管理する。配置拡散極限、配置 Markov 閉鎖、時間対称動力学、全殻拡散のミクロ導出は未完成であり、厳密な後段計算から遡って導出済みとは扱わない。
 \end{statusbox}
 
-\hypertarget{fisher-ux5074ux306eux8aa4ux5dee}{%
-\section{Fisher 側の誤差}\label{fisher-ux5074ux306eux8aa4ux5dee}}
+\hypertarget{ux914dux7f6eux62e1ux6563ux5074ux306eux8aa4ux5dee}{%
+\section{配置拡散側の誤差}\label{ux914dux7f6eux62e1ux6563ux5074ux306eux8aa4ux5dee}}
 
-第I部では、正確な Liouville 運動量収支と、二側 Markov 拡散内部の Fisher 応力恒等式が得られている。両者を結ぶ Fisher 閉鎖は予想である。力密度の比較ノルム \(\|\cdot\|_{\mathcal X}\) と代表力密度 \(\mathcal F_*\) を用い、
-
-\[
-\varepsilon_F^{(N)}
-=
-\frac1{\mathcal F_*}
-\left\|
-\rho_N\overline F_{{\rm G},N}
--
-\frac1m
-\nabla\cdot
-\left(
-\rho_N\Sigma_{p,N}
-\right)
-+
-\nabla\cdot P_F[\rho]
-\right\|_{\mathcal X}
-\]
-
-とする。中心結論には、少なくとも次の無次元誤差が入る。
+第I部では、運動量結合した有限誘導場の正確な消去と、二側配置 Markov 拡散内部の Fisher 恒等式を得た。両者の間には、配置変位の Brown 極限、反作用記憶の局所化、\(X\) 射影の Markov 性、時間対称 Newton 則という独立した段階がある。
 
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
@@ -3592,18 +3876,36 @@ J_*+I_-^{AB}
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-\(\varepsilon_{\rm mem}\) & 誘導場相関時間と遅い時間の比 & 記憶核の幅と粒子時間尺度を比較 \\
-\(\varepsilon_{\rm nM}\) & 二側条件付き過程の非 Markov 残差 & 3時刻条件付き分布と Chapman--Kolmogorov 残差 \\
-\(\varepsilon_{\rm diff}\) & 前進・後退の拡散係数不一致と異方性 & 短時間条件付き2次変分を前後で比較 \\
+\(\varepsilon_{\rm mem}\) & 自由速度相関の短記憶化 & 相関包絡と粒子時間尺度を比較 \\
+\(\varepsilon_{\rm fb}\) & 反作用記憶と質量繰り込みの残差 & 正確な畳み込み項と局所近似を比較 \\
+\(\varepsilon_{\rm BM}\) & 積分速度揺らぎと Brown 経路法則の差 & 多時刻増分分布と2次変分を比較 \\
+\(\varepsilon_{\rm nM}\) & \(X\) 射影の非 Markov 残差 & 3時刻条件付き分布と Chapman--Kolmogorov 残差 \\
+\(\varepsilon_{\rm iso}\) & 配置拡散行列の異方性 & 方向別の短時間2次変分 \\
+\(\varepsilon_{\rm two}\) & 前後の2次変分と共通 \(\nu\) からのずれ & 同じ2境界集団の前進・後退推定を比較 \\
+\(\varepsilon_{\rm press}\) & 条件付き速度分散が残す古典圧力 & 正確な配置速度収支と有効 Euler 式を比較 \\
+\(\varepsilon_{\rm dyn}\) & 時間対称 Newton 則からの残差 & \(ma_{\rm ts}+\nabla V\) を測る \\
 \(\varepsilon_{\rm proj}\) & 固定位相整合部分空間からの漏出 & \(P_{\rm c},P_\perp\) 間の有限時間応答 \\
-\(\varepsilon_{\rm defect}\) & 枝内部幅と未除去欠陥 & 条件付き全分散の2項を別々に測る \\
-\(\varepsilon_{\rm open}\) & 観測窓内の外部交換 & 拡大全系と閉鎖補助系の比較 \\
-\(\varepsilon_N\) & 有限場切断、再帰、境界層 & \(N\)、観測時間、外部結合を変えた収束 \\
+\(\varepsilon_{\rm open}\) & 観測窓内の外部交換 & 拡大全系と閉鎖補助系を比較 \\
+\(\varepsilon_N\) & 有限場切断、境界層、再帰 & \(N\)、観測時間、外部結合を変えた収束 \\
 \end{longtable}
 
-右辺の各誤差が小さくても、\(\varepsilon_F^{(N)}\) の上界はまだ証明されていない。特に、自己共役 Green 核、選択的漏れ、Gauss Routh 一致のいずれも、単独では一般密度の Fisher 閉鎖を保証しない。
+適用範囲は
 
-反証条件は明確である。短記憶化しても前進・後退の拡散行列が一致しない、固定射影からの漏出が消えない、または \(\varepsilon_F^{(N)}\) が \(N\) と時間尺度分離に対して減少しないなら、現在の中心縮約は成立しない。
+\[
+\tau_{\rm corr}
+\ll
+T_{\rm obs}
+\ll
+\min
+\left(
+T_{\rm rec},
+\tau_{\rm open}
+\right)
+\]
+
+である。全誤差を1本の一様上界へまとめる定理はまだない。
+
+反証条件は段階ごとに異なる。積分速度揺らぎが拡散尺度を持たない、反作用記憶が局所化しない、\((X,P)\) は Markov でも \(X\) 射影の非 Markov 残差が消えない、前後の2次変分が一致しない、または時間対称 Newton 残差が減少しない場合、対応する段階から先の主張は成立しない。
 
 \hypertarget{bell-ux5074ux306eux8aa4ux5deeux5206ux89e3}{%
 \section{Bell 側の誤差分解}\label{bell-ux5074ux306eux8aa4ux5deeux5206ux89e3}}
@@ -3683,7 +3985,7 @@ O(\varepsilon_{\rm Bell})
 
 交差応答が結果形成前に大きければ、B側の設定がA側の局所結果へ順時間的に影響する経路が生じる。この場合、測定設定独立性だけでなく局所性の監査も失敗する。交差応答が小さいが零でない場合は、一側周辺、設定頻度、相関関数へ現れる残差を同時に測る。
 
-静的な明・暗モード基底の直交性は必要な構成要素だが、十分条件ではない。有限時間発展を支配する \(K\) と非線形項を含めて、\(\chi_{AB}(t)\) と \(\chi_{BA}(t)\) を評価する。
+静的な明・暗モード基底の直交性は必要な構成要素だが、十分条件ではない。有限時間発展を支配する \(K\)、第I部の運動量結合 \(C_N\)、装置の座標結合、非線形項を含め、座標--座標核と運動量--座標混合核をまとめた \(\mathcal R_{AB}(t)\) と \(\mathcal R_{BA}(t)\) を評価する。
 
 \hypertarget{ux5168ux6bbbux6df7ux5408ux3068-u2-ux306eux9650ux754c}{%
 \section{全殻混合と U(2) の限界}\label{ux5168ux6bbbux6df7ux5408ux3068-u2-ux306eux9650ux754c}}
@@ -3883,6 +4185,12 @@ V_{\rm eff}
   Bell 型余弦則は配置空間位相の循環量子化を含意せず、Wallstrom 問題を解かない \cite{wallstrom1994}。
 \item
   余弦相関が得られても、Tsirelson 限界を一般原理から選んだことにはならない。
+\item
+  運動量結合が配置速度揺らぎを作っても、その積分が Brown 運動へ収束するとは限らない。
+\item
+  \((X,P)\) の位相空間過程が Markov でも、\(X\) だけの射影は一般に Markov ではない。
+\item
+  二側配置拡散から Fisher 項が得られても、時間対称 Newton 則は自動的に従わない。
 \end{enumerate}
 
 旧終端関数を削除したことを、確率測度のミクロな生成問題が解決したとは表現しない。問題は、結果依存終端重みの生成から、全3モード殻の等方準備と共通境界適合の実現へ移った。
@@ -3895,15 +4203,19 @@ V_{\rm eff}
 \begin{itemize}
 \tightlist
 \item
-  正確なミクロ力密度と Fisher 応力の残差 \(\varepsilon_F^{(N)}\)。
+  自由速度揺らぎ \(Y_N^{\rm free}\) の相関包絡と積分変位の2次変分。
+\item
+  正確な反作用記憶項と局所ドリフトまたは質量繰り込み近似の残差。
 \item
   前進・後退の短時間条件付き2次変分から得る拡散行列。
 \item
-  条件付き3時刻分布の非 Markov 残差。
+  配置変数 \(X\) の条件付き3時刻分布の非 Markov 残差。
+\item
+  条件付き速度分散が作る古典圧力と、時間対称 Newton 残差。
 \item
   固定射影 \(P_{\rm c},P_\perp\) 間の有限時間応答と欠陥減衰率。
 \item
-  局所測定窓の交差応答核 \(\chi_{AB}(t),\chi_{BA}(t)\)。
+  局所測定窓の全交差応答作用素 \(\mathcal R_{AB}(t),\mathcal R_{BA}(t)\)。
 \item
   境界3モードの \(J_+\) 周辺が \(2(C_0-J_+)/C_0^2\) に従うか。
 \item
@@ -3933,13 +4245,19 @@ V_{\rm eff}
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  明示的な構造化誘導場から二側 Markov 拡散を導き、前進・後退の拡散係数と非 Markov 残差を評価する。
+  運動量結合した有限誘導場から、再帰前の観測窓で配置変位の Brown 極限を導く。
 \item
-  誘導場反作用と運動量流束の Fisher 閉鎖を、次元の揃った一様誤差評価として証明する。
+  反作用記憶を質量繰り込み、局所ドリフト、制御可能な残差へ分け、一様誤差を評価する。
+\item
+  位相空間過程から配置変数だけの二側 Markov 拡散を導き、共通拡散係数と非 Markov 残差を評価する。
+\item
+  条件付き速度分散が余分な古典圧力を残さない条件を示す。
+\item
+  時間対称 Green 応答と条件付き変分から Nelson の時間対称 Newton 則を導く。
 \item
   固定位相整合射影と欠陥射影を保ったまま、欠陥成分だけの減衰と再帰抑制を外部スペクトルから導く。
 \item
-  同じ誘導場から局所反応座標と境界3モードの双方を導き、局所交差応答を評価する。
+  同じ誘導場の運動量--座標混合核を含む全交差応答を評価し、局所測定窓で抑える。
 \item
   誘導場の相関関数から \(U(3)\) 等方な殻接方向生成子を導き、\(\varepsilon_{\rm aniso}\) と混合時間を評価する。
 \item
@@ -3959,9 +4277,9 @@ V_{\rm eff}
 \hypertarget{ux6700ux7d42ux7d50ux8ad6}{%
 \section{最終結論}\label{ux6700ux7d42ux7d50ux8ad6}}
 
-第I部では、粒子と構造化誘導場を含む全 Liouville 方程式から、連続の式と運動量収支を厳密に得た。線形誘導場は指定境界条件の下で Green 作用素により厳密に消去できる。二側 Markov 拡散を仮定した後の浸透速度と Fisher 応力も厳密に整理できる。
+第I部では、粒子と構造化誘導場を運動量で結合し、正定値条件、時間反転対称性、正確な配置流束、自由速度揺らぎと反作用記憶項の分離を得た。配置変数の二側 Markov 拡散を仮定した後は、浸透速度、Fisher 項、量子ポテンシャルが運動学的に厳密に従う。
 
-しかし、ミクロ反作用と運動量流束が Fisher 応力へ収束することは未証明である。補助的な線形 Gauss 型作用の \(C^1\) 定理と Gauss 幅の Routh--Fisher 一致は整合性検査であり、この閉鎖を一般に証明しない。
+旧稿の Fisher 力密度閉鎖は中心課題から外した。しかし、有限誘導場からの配置拡散極限、\(X\) 射影の Markov 性、反作用記憶と古典圧力の制御、時間対称 Newton 則は未証明である。補助的な線形 Gauss 型作用の \(C^1\) 定理と Gauss 幅の Routh--Fisher 一致は後段の整合性検査であり、これらの縮約を証明しない。
 
 第II部では、同じ物理構成を2粒子と測定器へ拡張し、1つの構造化誘導場を局所反応座標セクターと共通境界セクターへ静的に分けた。共通境界3モードの \(U(3)\) 等方拡散は、縮約方程式の下で共通作用殻の一意な定常測度を与える。その作用殻を \(J_+=I_+^{AB}\) で切ると、残余ファイバー体積は
 
@@ -3973,7 +4291,7 @@ J_*+I_-^{AB}
 
 となり、対称セクターでは Bell 型余弦共同確率が厳密に従う。
 
-Bell 固有の終端関数、中央比較器、相補時計は現行モデルから除いた。しかし、共通未来の境界適合と全殻測度は残る。現在の前進は、Fisher 側と Bell 側を同じ構造化誘導場、固定射影、二側条件付け、弱い外部交換の下へ置き、未完成の縮約を Fisher 閉鎖と全殻準備へ絞ったことである。
+Bell 固有の終端関数、中央比較器、相補時計は現行モデルから除いた。しかし、共通未来の境界適合と全殻測度は残る。現在の前進は、Fisher 項へ至る経路を力密度閉鎖から運動量結合による配置拡散へ置き換え、第I部と Bell 側を同じ構造化誘導場、固定射影、二側条件付け、弱い外部交換の下へ置いたことである。未完成の縮約は、配置拡散極限、配置 Markov 閉鎖、時間対称動力学、全殻準備として分けて管理する。
 
 \appendix
 
@@ -4550,7 +4868,7 @@ h_N=TN^{-1/3},
 \chapter{構造化誘導場、U(3) 殻拡散、境界ファイバー体積}\label{ux69cbux9020ux5316ux8a98ux5c0eux5834u3-ux6bbbux62e1ux6563ux5883ux754cux30d5ux30a1ux30a4ux30d0ux30fcux4f53ux7a4d}}
 
 \begin{statusbox}
-位置づけ：第2章と共通の固定射影を持つ誘導場について、静的基底、和・差変換、作用保存、固定殻体積、coarea 計算を補足する。誘導場から等方拡散への縮約は候補構成であり、未完成である。
+位置づけ：第2章の運動量結合方向と第II部の座標結合方向を含む固定射影について、静的基底、全交差応答、和・差変換、作用保存、固定殻体積、coarea 計算を補足する。誘導場から等方拡散への縮約は候補構成であり、未完成である。
 \end{statusbox}
 
 \hypertarget{ux62e1ux5927ux5168ux7cfbux3068ux30a8ux30cdux30ebux30aeux30fcux53ceux652f}{%
@@ -4651,12 +4969,12 @@ P_{\rm ctrl}.
 \hypertarget{ux9759ux7684ux8a98ux5c0eux5834ux57faux5e95ux306eux6b63ux6e96ux6027}{%
 \section{静的誘導場基底の正準性}\label{ux9759ux7684ux8a98ux5c0eux5834ux57faux5e95ux306eux6b63ux6e96ux6027}}
 
-浴座標を \(Q,P\in\mathbb R^N\) とし、
+浴座標を \(Q,\Pi\in\mathbb R^N\) とし、
 
 \[
 H_{\rm med}
 =
-\frac12P^{\mathsf T}P
+\frac12\Pi^{\mathsf T}\Pi
 +
 \frac12Q^{\mathsf T}KQ
 +
@@ -4665,7 +4983,7 @@ H_{\rm med}
 
 とする。\(K\) は正定値実対称行列である。
 
-局所装置と境界装置が浴へ結合する方向を
+第I部の粒子運動量結合方向を \(\operatorname{Ran}C_N^{\mathsf T}\) とする。局所装置と境界装置が浴座標へ結合する方向を
 
 \[
 c_A,
@@ -4677,32 +4995,32 @@ c_{\partial,1},
 c_{\partial,m}
 \]
 
-とする。その張る部分空間の正規直交基底を先頭に並べる直交行列 \(O\) を固定し、
+とする。\(\operatorname{Ran}C_N^{\mathsf T}\) とこれらの座標結合方向が張る部分空間の正規直交基底を先頭に並べる直交行列 \(O\) を固定し、
 
 \[
 \widetilde Q=OQ,
 \qquad
-\widetilde P=OP
+\widetilde\Pi=O\Pi
 \]
 
 と変換する。
 
 \begin{proposition}[直交浴基底変換の正準性]
-$O^{\mathsf T}O=I$ なら、$(Q,P)\mapsto(\widetilde Q,\widetilde P)$ は正準変換である。
+$O^{\mathsf T}O=I$ なら、$(Q,\Pi)\mapsto(\widetilde Q,\widetilde\Pi)$ は正準変換である。
 \end{proposition}
 
 \begin{proof}
 正準1形式は
 
 $$
-P^{\mathsf T}dQ
+\Pi^{\mathsf T}dQ
 =
-\widetilde P^{\mathsf T}
+\widetilde\Pi^{\mathsf T}
 O
 O^{\mathsf T}
 d\widetilde Q
 =
-\widetilde P^{\mathsf T}d\widetilde Q
+\widetilde\Pi^{\mathsf T}d\widetilde Q
 $$
 
 と保存される。従ってシンプレクティック2形式も保存される。
@@ -4713,7 +5031,7 @@ $$
 \[
 H_{\rm med}^{(2)}
 =
-\frac12\widetilde P^{\mathsf T}\widetilde P
+\frac12\widetilde\Pi^{\mathsf T}\widetilde\Pi
 +
 \frac12
 \widetilde Q^{\mathsf T}
@@ -4725,7 +5043,7 @@ H_{\rm med}^{(2)}
 OKO^{\mathsf T}.
 \]
 
-結合ベクトルに適合した基底を取っても、\(\widetilde K\) は一般にブロック対角ではない。局所、境界、暗モード間の動的結合は \(\widetilde K\) の非対角ブロックと \(V_{\rm nl}\) に残る。
+結合方向に適合した基底を取っても、\(\widetilde K\) は一般にブロック対角ではない。局所、境界、暗モード間の動的結合は \(\widetilde K\) の非対角ブロックと \(V_{\rm nl}\) に残る。運動量結合と座標結合が同じ明部分空間にあるため、自由回転後には両者の混合応答も一般に残る。
 
 従って、
 
@@ -4748,7 +5066,7 @@ H_{\rm cross}
 \hypertarget{ux7ddaux5f62ux5fdcux7b54ux6838}{%
 \section{線形応答核}\label{ux7ddaux5f62ux5fdcux7b54ux6838}}
 
-線形誘導場の運動方程式は
+装置の座標結合だけに対する線形誘導場の運動方程式は
 
 \[
 \ddot Q+KQ
@@ -4773,7 +5091,7 @@ K^{-1/2}
 \sin
 \left(
 K^{1/2}t
-\right)P(0)
+\right)\Pi(0)
 \]
 
 \[
@@ -4819,7 +5137,9 @@ K^{1/2}t
 c_B.
 \]
 
-同様に \(\chi_{BA}\) を得る。従って、\(c_A^{\mathsf T}c_B=0\) でも \(\chi_{AB}(t)\) は一般に零ではない。\(K\) が \(c_A,c_B\) の張る部分空間を別々に不変にするときだけ、線形交差応答は厳密に消える。
+同様に \(\chi_{BA}\) を得る。従って、\(c_A^{\mathsf T}c_B=0\) でも \(\chi_{AB}(t)\) は一般に零ではない。\(K\) が \(c_A,c_B\) の張る部分空間を別々に不変にするときだけ、座標--座標の線形交差応答は厳密に消える。
+
+第I部の \(P^{\mathsf T}C_N\Pi\) を同時に含めると、\(Q\) と \(\Pi\) の自由回転を通じて運動量--座標混合核も生じる。局所性の判定には、各核をまとめた応答作用素 \(\mathcal R_{XY}(t)\) を使う。
 
 局所測定窓 \(0\leq t\leq T_{\rm meas}\) で
 
@@ -4830,15 +5150,15 @@ c_B.
 \sup_t
 \max
 \left(
-|\chi_{AB}(t)|,
-|\chi_{BA}(t)|
+\|\mathcal R_{AB}(t)\|,
+\|\mathcal R_{BA}(t)\|
 \right)
 }{
 \sup_t
 \min
 \left(
-|\chi_{AA}(t)|,
-|\chi_{BB}(t)|
+\|\mathcal R_{AA}(t)\|,
+\|\mathcal R_{BB}(t)\|
 \right)
 }
 \]
@@ -5526,9 +5846,9 @@ dC_t=-\gamma_CC_t\,dt
 \begin{itemize}
 \tightlist
 \item
-  1つの有限誘導場に対する静的な直交正準基底。
+  運動量結合方向と座標結合方向を含む1つの有限誘導場に対する静的な直交正準基底。
 \item
-  線形誘導場の交差応答核。
+  装置の座標--座標交差応答核と、混合応答を含めた全応答作用素の定義。
 \item
   最小結果符号化器の理想正準写像。
 \item
@@ -5551,6 +5871,8 @@ dC_t=-\gamma_CC_t\,dt
   有限誘導場と常時の外部交換から \(D_\partial\Delta_{S^5}\) を一様誤差付きで得ること。
 \item
   異方誤差、混合時間、再帰時間を同じパラメータから同時に閉じること。
+\item
+  運動量--座標混合核を含む左右全交差応答を、Bell 測定窓で一様に抑えること。
 \item
   半径方向の復元式とエネルギー収支を明示的な外部 Hamiltonian から導くこと。
 \item

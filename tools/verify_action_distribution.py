@@ -56,7 +56,7 @@ def kolmogorov_smirnov_error(
 
 
 def main() -> None:
-    seed = 20260801
+    seed = 20260802
     rng = np.random.default_rng(seed)
     sample_count = 600_000
     checks: list[CheckResult] = []
@@ -84,6 +84,145 @@ def main() -> None:
             "bath_canonical_one_form_error",
             np.max(np.abs(direct_one_form - transformed_one_form)),
             5.0e-14,
+        )
+    )
+
+    # The momentum-coupled kinetic block is positive exactly when its
+    # Schur complement is positive, and square completion preserves its
+    # value. Simultaneous reversal of both momenta leaves it invariant.
+    particle_dimension = 3
+    momentum_bath_dimension = 5
+    particle_mass = 1.7
+    coupling = 0.08 * rng.normal(
+        size=(particle_dimension, momentum_bath_dimension)
+    )
+    base = rng.normal(
+        size=(momentum_bath_dimension, momentum_bath_dimension)
+    )
+    schur = base.T @ base + 0.4 * np.eye(momentum_bath_dimension)
+    inverse_bath_mass = (
+        schur + particle_mass * coupling.T @ coupling
+    )
+    kinetic_block = np.block([
+        [
+            np.eye(particle_dimension) / particle_mass,
+            coupling,
+        ],
+        [coupling.T, inverse_bath_mass],
+    ])
+    checks.append(
+        record_min(
+            "momentum_coupling_block_min_eigenvalue",
+            np.min(np.linalg.eigvalsh(kinetic_block)),
+            1.0e-8,
+        )
+    )
+    kinetic_count = 100_000
+    particle_momentum = rng.normal(
+        size=(kinetic_count, particle_dimension)
+    )
+    bath_momentum = rng.normal(
+        size=(kinetic_count, momentum_bath_dimension)
+    )
+    stacked_momentum = np.concatenate(
+        [particle_momentum, bath_momentum],
+        axis=1,
+    )
+    direct_kinetic = 0.5 * np.einsum(
+        "bi,ij,bj->b",
+        stacked_momentum,
+        kinetic_block,
+        stacked_momentum,
+    )
+    shifted_particle = (
+        particle_momentum
+        + particle_mass * bath_momentum @ coupling.T
+    )
+    completed_kinetic = (
+        0.5
+        * np.sum(shifted_particle**2, axis=1)
+        / particle_mass
+        + 0.5
+        * np.einsum(
+            "bi,ij,bj->b",
+            bath_momentum,
+            schur,
+            bath_momentum,
+        )
+    )
+    checks.append(
+        record_max(
+            "momentum_coupling_square_completion_error",
+            np.max(np.abs(direct_kinetic - completed_kinetic)),
+            1.0e-12,
+        )
+    )
+    reversed_kinetic = 0.5 * np.einsum(
+        "bi,ij,bj->b",
+        -stacked_momentum,
+        kinetic_block,
+        -stacked_momentum,
+    )
+    checks.append(
+        record_max(
+            "momentum_coupling_time_reversal_error",
+            np.max(np.abs(direct_kinetic - reversed_kinetic)),
+            1.0e-14,
+        )
+    )
+
+    # For the canonical Gaussian bath, the exact free velocity covariance
+    # reduces to Theta C cos[Omega(t-s)] C^T.
+    covariance_dimension = 6
+    covariance_particle_dimension = 2
+    covariance_base = rng.normal(
+        size=(covariance_dimension, covariance_dimension)
+    )
+    stiffness = (
+        covariance_base.T @ covariance_base
+        + 0.7 * np.eye(covariance_dimension)
+    )
+    eigenvalues, eigenvectors = np.linalg.eigh(stiffness)
+    frequencies = np.sqrt(eigenvalues)
+    covariance_coupling = 0.05 * rng.normal(
+        size=(covariance_particle_dimension, covariance_dimension)
+    )
+    energy_scale = 1.3
+
+    def spectral_function(values: np.ndarray) -> np.ndarray:
+        return (eigenvectors * values) @ eigenvectors.T
+
+    time_t = 0.73
+    time_s = 0.21
+    cosine_t = spectral_function(np.cos(frequencies * time_t))
+    cosine_s = spectral_function(np.cos(frequencies * time_s))
+    omega_sine_t = spectral_function(
+        frequencies * np.sin(frequencies * time_t)
+    )
+    omega_sine_s = spectral_function(
+        frequencies * np.sin(frequencies * time_s)
+    )
+    inverse_stiffness = spectral_function(1.0 / eigenvalues)
+    coefficient_pi_t = covariance_coupling @ cosine_t
+    coefficient_pi_s = covariance_coupling @ cosine_s
+    coefficient_q_t = -covariance_coupling @ omega_sine_t
+    coefficient_q_s = -covariance_coupling @ omega_sine_s
+    covariance_direct = energy_scale * (
+        coefficient_pi_t @ coefficient_pi_s.T
+        + coefficient_q_t @ inverse_stiffness @ coefficient_q_s.T
+    )
+    covariance_expected = energy_scale * (
+        covariance_coupling
+        @ spectral_function(
+            np.cos(frequencies * (time_t - time_s))
+        )
+        @ covariance_coupling.T
+    )
+    checks.append(
+        record_max(
+            "free_velocity_covariance_error",
+            np.max(np.abs(covariance_direct - covariance_expected)),
+            1.0e-12,
         )
     )
 
