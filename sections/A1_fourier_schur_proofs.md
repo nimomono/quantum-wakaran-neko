@@ -1,7 +1,167 @@
 @number: A
 @chapter: 付録
-@title: Fourier–Gauss 型近似と Schur 補完の評価
-@status: 補助的な線形 Gauss 型表示について、有限モード収束と条件づけの安定性を厳密に補足する。
+@title: 線形 Fourier–Gauss 型補助表示と Schur 補完
+@status: 二側拡散が得られた後の制御された補助検証として、有限モード表示、有限分解能条件づけ、共分散収束を厳密に補足する。現行誘導場からの縮約ではない。
+
+## A.0 補助表示の定義
+
+時間区間を $[0,T]$、$\omega_n=2\pi n/T$ とする。独立な標準 Gauss 型ベクトル $Z_0,A_n,B_n\in\mathbb R^d$ を用いて
+
+```math
+\widetilde\eta_N(t)
+=
+\sqrt{\frac{2\nu}{T}}Z_0
++
+\sqrt{\frac{4\nu}{T}}
+\sum_{n=1}^{N}
+\left[
+A_n\cos\omega_nt
++
+B_n\sin\omega_nt
+\right]
+```
+
+と定義する。この有限過程は調和正規モードの初期振幅の線形読出しとして実現できる。共分散は
+
+```math
+\mathbb E
+\left[
+\widetilde\eta_N^i(t)
+\widetilde\eta_N^j(s)
+\right]
+=
+2\nu\delta^{ij}\delta_{T,N}(t-s),
+```
+
+```math
+\delta_{T,N}(\tau)
+=
+\frac1T
++
+\frac2T
+\sum_{n=1}^{N}\cos\omega_n\tau.
+```
+
+証明対象の線形 Gauss 型経路法則を
+
+```math
+\dot X_N(t)
+=
+F_\theta(t)X_N(t)
++
+f_\theta(t)
++
+\widetilde\eta_N(t),
+\qquad
+X_N(0)
+\sim
+N(m_{0,\theta},P_{0,\theta})
+```
+
+とする。基本行列を
+
+```math
+\partial_t\Phi_\theta(t,s)
+=
+F_\theta(t)\Phi_\theta(t,s),
+\qquad
+\Phi_\theta(s,s)=I
+```
+
+で定めれば、
+
+```math
+X_N(t)
+=
+\Phi_\theta(t,0)X_N(0)
++
+\int_0^t
+\Phi_\theta(t,s)
+\left[
+f_\theta(s)
++
+\widetilde\eta_N(s)
+\right]
+\,\mathrm ds.
+```
+
+終端記録を
+
+```math
+Y
+=
+H_\theta X_N(T)
++
+\epsilon,
+\qquad
+\epsilon\sim N(0,R_\theta),
+\qquad
+R_\theta\geq r_*I>0
+```
+
+とする。記録値 $Y=y_\theta$ で条件づける。
+
+無条件平均と共分散を $\mu_N,C_N$ とし、
+
+```math
+S_N
+=
+H_\theta C_N(T,T)H_\theta^{\mathsf T}
++
+R_\theta
+```
+
+と置く。Gauss 型 Schur 補完により、条件付き平均と共分散は
+
+```math
+\mu_N^R(t)
+=
+\mu_N(t)
++
+C_N(t,T)H_\theta^{\mathsf T}S_N^{-1}
+\left[
+y_\theta-H_\theta\mu_N(T)
+\right],
+```
+
+```math
+C_N^R(s,t)
+=
+C_N(s,t)
+-
+C_N(s,T)H_\theta^{\mathsf T}S_N^{-1}
+H_\theta C_N(T,t)
+```
+
+である。
+
+極限の線形拡散は
+
+```math
+\mathrm dX_t
+=
+\left[
+F_\theta(t)X_t
++
+f_\theta(t)
+\right]\mathrm dt
++
+\sqrt{2\nu}\,\mathrm dW_t
+```
+
+である。終端尤度を $h_R(x,t)$ とすると、条件付き前進流れは
+
+```math
+b_+^R(x,t)
+=
+F_\theta(t)x
++
+f_\theta(t)
++
+2\nu\nabla\log h_R(x,t).
+```
+
+この付録の有限 Fourier 表示は、第2章の現行誘導場 Hamiltonian から一般に導出したものではない。二側拡散の作用形式と有限切断誤差を検査する補助モデルである。
 
 ## A.1 基本核の Fourier 係数
 
@@ -18,7 +178,7 @@ G_\theta(t,s)
 
 <!-- theorem-start:lemma -->
 **補題（一様 Fourier 尾部）**
-$F_\theta$ が第4.2節の仮定を満たすなら、ある $C_K$ が存在して
+$F_\theta$ が第4.8節の仮定を満たすなら、ある $C_K$ が存在して
 
 ```math
 \sup_{\theta\in K,\,t\in[0,T]}

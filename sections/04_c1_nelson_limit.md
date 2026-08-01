@@ -1,113 +1,449 @@
 @number: 4
 @chapter: 本文
-@title: 繰り込み済み粗視化作用形式の Nelson 極限
-@status: 線形 Gauss 型・有限分解能・2次ポテンシャルの補助表示で、定義した作用形式の定量的 $C^1$ 収束を厳密に示す。
+@title: 二側短記憶極限、Fisher 応力、中心閉鎖予想
+@status: 二側 Markov 拡散を仮定した後の浸透速度と Fisher 応力は厳密結果である。ミクロ誘導場からその拡散と応力へ至る縮約は中心的な予想・未解決である。
 
-## 4.1 粗視化作用
+## 4.1 二側条件付き過程と Markov 性
 
-有限 $N$ の経路は微分可能であるが、$N\to\infty$ の拡散経路は微分不可能である。そのため、単純な運動エネルギー
+第3章の有限 Hamiltonian 集団へ初期側と終端側の条件を課しても、粒子の縮約過程が自動的に Markov 過程になるわけではない。有限誘導場を消去すると、一般には履歴依存の記憶核が残る。
 
-```math
-\frac m2\int_0^T|\dot X_N(t)|^2\,\mathrm{d} t
-```
+本章では、次の縮約が成立する場合の有効式を先に整理する。
 
-は極限で発散する。時間分解能 $h>0$ を固定し、有限差分
+1. 誘導場相関時間 $\tau_{\rm corr}$ が粒子の遅い時間 $\tau_{\rm slow}$ より十分短い。
+2. 条件付き均質化により、有限次元分布が前進・後退 Markov 拡散へ収束する。
+3. 前進と後退の2次変分が同じ正定値拡散行列へ収束する。
+4. 非 Markov 残差、境界層、有限再帰、外部交換が観測窓で一様に小さい。
 
-```math
-D_hX_N(t)=\frac{X_N(t+h)-X_N(t)}{h}
-```
-
-を用いる。拡散係数が $\nu$、空間次元が $d$ なら、雑音の普遍的発散は
+等方な場合の有効前進過程を
 
 ```math
-\frac m2\mathbb{E}|D_hX|^2
-\sim
-\frac{md\nu}{h}
-```
-
-である。
-
-差分商の運動項から軌道に依存しない発散定数を除き、有限な Guerra--Morato 項を残す原理自体は既知である [3,4]。本章の新規な主張は、有限 Fourier 切断、有限分解能の終端記録、滑らかな有限次元パラメータ族を同時に扱い、作用値とその第1偏微分へ共通の明示誤差評価を与える点にある。
-
-ここで扱う粗視化作用は、補助的な線形 Gauss 型経路法則から定義する評価汎関数である。特定の有限 Hamiltonian 軌道集団と平均・共分散が一致するときには同じ計算を移せるが、弱開放な現行モデルからこの経路法則が得られることを本章では仮定しない。Hamilton 方程式そのものから、この汎関数を最小化または停留化する選択則が生じるとも仮定しない。本章の結論は作用形式の収束であり、ミクロな縮約と有効運動方程式の動力学的選択は含まない。
-
-外部ポテンシャルを $U_\theta(x,t)$ と書き、条件付き経路法則に対する繰り込み済み作用を
-
-```math
-\mathcal A_{N,h}^{R,U}(\theta)
+\mathrm dX_t
 =
-\mathbb{E}_{N,\theta}^{R}
-\int_0^{T-h}
-\left[
-\frac m{2h^2}
-|X_N(t+h)-X_N(t)|^2
--\frac{md\nu}{h}
--U_\theta(X_N(t),t)
-\right]\,\mathrm{d} t
+b_+(X_t,t)\,\mathrm dt
++
+\sqrt{2\nu}\,\mathrm dW_t^+
 ```
 
-と定義する。差し引く項は結果や設定に依存せず、有限差分の Gauss 型自己揺らぎだけを除く。
-
-## 4.2 許容するパラメータ族
-
-パラメータ集合 $K\subset\mathbb{R}^p$ をコンパクトとする。次を仮定する。
-
-1. $F_\theta(t)$、$f_\theta(t)$ は $(\theta,t)$ について $C^2$ であり、$K\times[0,T]$ 上で2階まで一様有界である。
-2. 初期平均 $m_{0,\theta}$ と初期共分散 $P_{0,\theta}$ は $C^2$ で、$P_{0,\theta}\geq p_*I>0$ である。
-3. 終端観測 $H_\theta$、$y_\theta$、$R_\theta$ は $C^2$ で、$R_\theta\geq r_*I>0$ である。
-4. 外部ポテンシャルは
+とし、後退過程を
 
 ```math
-U_\theta(x,t)
+\mathrm d_-X_t
 =
-\frac12x^{\mathsf T}K_\theta(t)x
-+\ell_\theta(t)^{\mathsf T}x
-+c_\theta(t)
+b_-(X_t,t)\,\mathrm dt
++
+\sqrt{2\nu}\,\mathrm d_-W_t^-
 ```
 
-の形で、係数は $C^2$ かつ一様有界である。
-5. Fourier 切断数 $N$ と粗視化幅 $h=h_N$ は
+と書く。$\nu>0$ は配置空間の拡散係数である。境界作用殻の係数 $D_\partial$ とは区別する。
+
+## 4.2 前進・後退流れ
+
+共通の正の時刻密度を $\rho(x,t)$ とする。前進と後退の Fokker--Planck 方程式は
 
 ```math
-h_N\longrightarrow0,
+\partial_t\rho
+=
+-\nabla\cdot(\rho b_+)
++
+\nu\Delta\rho,
+```
+
+```math
+\partial_t\rho
+=
+-\nabla\cdot(\rho b_-)
+-
+\nu\Delta\rho
+```
+
+である。両式を加減し、
+
+```math
+v
+=
+\frac{b_++b_-}{2},
 \qquad
-N\left(\frac{h_N}{T}\right)^2\longrightarrow\infty
+u
+=
+\frac{b_+-b_-}{2}
 ```
 
-を満たす。
+と置く。
 
-$C^1(K)$ は作用値と $\theta$ に関する全ての第1偏微分の一様ノルムを表す。この定理は、任意の非線形な経路変分についての無限次元 $C^1$ 定理ではなく、指定した線形 Gauss 型パラメータ族上の定理である。
+<!-- theorem-start:proposition -->
+**命題（二側拡散の流れ分解）**
 
-## 4.3 極限作用
-
-極限の条件付き拡散の前進流れを $b_{+,\theta}^R$、時刻密度を $\rho_\theta^R$ とする。Guerra--Morato 型作用を
+共通の正の密度と共通の拡散係数 $\nu$ を持つなら、
 
 ```math
-\mathcal A_{\mathrm{GM}}^{R,U}(\theta)
-=
-\int_0^T\int_{\mathbb{R}^d}
-\rho_\theta^R(x,t)
-\left[
-\frac m2|b_{+,\theta}^R(x,t)|^2
-+m\nu\nabla\cdot b_{+,\theta}^R(x,t)
--U_\theta(x,t)
-\right]
-\,\mathrm{d} x\,\mathrm{d} t
+\partial_t\rho
++
+\nabla\cdot(\rho v)
+=0,
 ```
 
-と定義する [4]。線形 Gauss 型系では $b_+^R$ は $x$ の1次式、$\rho^R$ は正の Gauss 型密度なので、全ての積分は有限である。
+```math
+u
+=
+\nu\nabla\log\rho
+```
 
-## 4.4 線形 Gauss 型 <i>C</i><sup>1</sup> 収束定理
+が成立する。
+
+<!-- theorem-end:proposition -->
+
+これは二側 Markov 拡散モデル内部の厳密結果である。有限 Hamiltonian 集団からこのモデルが得られることの証明ではない。
+
+## 4.3 時間対称平均加速度
+
+前進・後退微分を $D_+,D_-$ とする。Nelson の時間対称平均加速度を
+
+```math
+a_{\rm ts}
+=
+\frac12
+\left(
+D_+D_-+D_-D_+
+\right)X
+```
+
+と定義する。滑らかな $v,u$ について
+
+```math
+a_{\rm ts}
+=
+\partial_tv
++
+(v\cdot\nabla)v
+-
+(u\cdot\nabla)u
+-
+\nu\Delta u
+```
+
+が成立する。
+
+$u=\nu\nabla\log\rho$ を使うと、
+
+```math
+(u\cdot\nabla)u
++
+\nu\Delta u
+=
+2\nu^2
+\nabla
+\left(
+\frac{\Delta\sqrt\rho}{\sqrt\rho}
+\right).
+```
+
+従って時間対称 Newton 式
+
+```math
+ma_{\rm ts}
+=
+-\nabla V
+```
+
+は
+
+```math
+m
+\left[
+\partial_tv
++
+(v\cdot\nabla)v
+\right]
+=
+-\nabla V
++
+2m\nu^2
+\nabla
+\left(
+\frac{\Delta\sqrt\rho}{\sqrt\rho}
+\right)
+```
+
+と同値である。
+
+自己共役 Green 核を得ただけでは、この時間対称 Newton 式は従わない。Green 消去後の非局所作用が、Markov 極限と条件付き変分を通じて上式へ収束することを示す必要がある。
+
+## 4.4 Fisher 情報と応力
+
+Fisher 情報を
+
+```math
+\mathcal I[\rho]
+=
+\int
+\rho
+|\nabla\log\rho|^2
+\,\mathrm dx
+```
+
+とする。浸透速度の2乗平均は
+
+```math
+\int\rho|u|^2\,\mathrm dx
+=
+\nu^2\mathcal I[\rho]
+```
+
+である。正規化制約と境界項が消える条件の下で、
+
+```math
+\frac{\delta\mathcal I}{\delta\rho}
+=
+-4
+\frac{\Delta\sqrt\rho}{\sqrt\rho}
+```
+
+となる。
+
+Bohm–Fisher 応力を
+
+```math
+P_F[\rho]
+=
+-m\nu^2\rho\,
+\nabla\nabla\log\rho
+```
+
+と定義する。
+
+<!-- theorem-start:proposition -->
+**命題（Fisher 応力恒等式）**
+
+十分滑らかな正の密度について、
+
+```math
+-\nabla\cdot P_F[\rho]
+=
+2m\nu^2\rho\,
+\nabla
+\left(
+\frac{\Delta\sqrt\rho}{\sqrt\rho}
+\right)
+```
+
+が成立する。
+
+<!-- theorem-end:proposition -->
+
+従って二側 Markov 拡散の時間対称 Newton 式は、連続の式と
+
+```math
+m\rho
+\left(
+\partial_t+v\cdot\nabla
+\right)v
+=
+-\rho\nabla V
+-
+\nabla\cdot P_F[\rho]
+```
+
+という Euler 型運動量式で書ける。
+
+## 4.5 Fisher 閉鎖予想
+
+第3章の正確なミクロ運動量式は
+
+```math
+m\rho_N
+\left(
+\partial_t+v_N\cdot\nabla
+\right)v_N
+=
+-\rho_N\nabla V
++
+\rho_N\overline F_{{\rm G},N}
+-
+\frac1m
+\nabla\cdot
+\left(
+\rho_N\Sigma_{p,N}
+\right).
+```
+
+二側拡散側の目標式と比較すると、必要な中心閉鎖は次である。
+
+**予想（Fisher 閉鎖）**
+
+適切な有限誘導場列、固定射影、二側境界集団、短記憶尺度、弱外部交換の下で、
+
+```math
+\rho_N\overline F_{{\rm G},N}
+-
+\frac1m
+\nabla\cdot
+\left(
+\rho_N\Sigma_{p,N}
+\right)
+\longrightarrow
+-\nabla\cdot P_F[\rho]
+```
+
+が指定した時空間ノルムで成立する。
+
+この予想は現在の定理ではない。特に、$\overline F_{{\rm G},N}$ だけ、または $\Sigma_{p,N}$ だけを右辺へ同定するものではない。誘導場反作用、枝内部幅、枝間流束、外部補正を合わせた収束である。
+
+## 4.6 無次元化した目標誤差
+
+力密度の比較ノルムを $\|\cdot\|_{\mathcal X}$ とし、代表力密度を $\mathcal F_*>0$ とする。例えば、対象時間窓での $\|-\nabla\cdot P_F[\rho]\|_{L^2_tH^{-1}_x}$ の上界を $\mathcal F_*$ に選ぶ。
+
+閉鎖誤差を
+
+```math
+\varepsilon_F^{(N)}
+=
+\frac1{\mathcal F_*}
+\left\|
+\rho_N\overline F_{{\rm G},N}
+-
+\frac1m
+\nabla\cdot
+\left(
+\rho_N\Sigma_{p,N}
+\right)
++
+\nabla\cdot P_F[\rho]
+\right\|_{\mathcal X}
+```
+
+とする。目標評価は
+
+```math
+\varepsilon_F^{(N)}
+\leq
+C
+\left(
+\varepsilon_{\rm mem}
++
+\varepsilon_{\rm nM}
++
+\varepsilon_{\rm diff}
++
+\varepsilon_{\rm proj}
++
+\varepsilon_{\rm defect}
++
+\varepsilon_{\rm open}
++
+\varepsilon_N
+\right)
+```
+
+の形である。右辺は全て無次元量とする。
+
+| 誤差 | 意味 |
+|---|---|
+| $\varepsilon_{\rm mem}=\tau_{\rm corr}/\tau_{\rm slow}$ | 短記憶化 |
+| $\varepsilon_{\rm nM}$ | 条件付き過程の非 Markov 残差 |
+| $\varepsilon_{\rm diff}$ | 前進・後退の拡散行列の不一致と異方性 |
+| $\varepsilon_{\rm proj}$ | 固定位相整合部分空間からの漏出 |
+| $\varepsilon_{\rm defect}$ | 枝内部欠陥と未除去成分 |
+| $\varepsilon_{\rm open}$ | 測定窓内の外部交換 |
+| $\varepsilon_N$ | 有限誘導場切断と再帰 |
+
+この式は次元を揃えた目標評価であり、現時点では証明済みの上界ではない。
+
+## 4.7 Gauss 幅における Routh–Fisher 一致
+
+一般の Fisher 閉鎖は未証明だが、1つの可解な幅モデルでは、固定作用の Routh 縮約と Fisher 項が一致する。
+
+1次元の正規分布を
+
+```math
+\rho_\sigma(x)
+=
+\frac1{\sqrt{2\pi}\sigma}
+\exp
+\left(
+-\frac{x^2}{2\sigma^2}
+\right)
+```
+
+とすると、
+
+```math
+\mathcal I[\rho_\sigma]
+=
+\frac1{\sigma^2}.
+```
+
+一方、2次元内部座標を
+
+```math
+q
+=
+\sigma
+\begin{pmatrix}
+\cos\theta\\
+\sin\theta
+\end{pmatrix}
+```
+
+とし、運動項を
+
+```math
+L_{\rm int}
+=
+\frac m2
+\left(
+\dot\sigma^2
++
+\sigma^2\dot\theta^2
+\right)
+```
+
+とする。循環作用
+
+```math
+J
+=
+m\sigma^2\dot\theta
+```
+
+を固定して $\theta$ を Routh 縮約すると、
+
+```math
+R_{\rm int}
+=
+\frac m2\dot\sigma^2
+-
+\frac{J^2}{2m\sigma^2}.
+```
+
+$J=m\nu$ と置けば、
+
+```math
+-\frac{J^2}{2m\sigma^2}
+=
+-\frac{m\nu^2}{2}
+\mathcal I[\rho_\sigma].
+```
+
+従って Gauss 幅族では、固定内部作用の Routh 項と Nelson 作用の負の Fisher 項が厳密に一致する。
+
+これは重要な整合性検査だが、一般密度の Fisher 閉鎖を証明しない。$J=m\nu$ の選択、Gauss 幅以外の形状自由度、位相整合部分空間の力学的準備が別に必要である。
+
+## 4.8 補助的な線形 Gauss 型作用定理
+
+二側 Markov 拡散が得られた後の作用表示を制御する補助結果を付録A、Bに残す。有限 Fourier–Gauss 型駆動、線形流れ、Gauss 初期分布、正定値の有限分解能終端記録、2次ポテンシャル、滑らかな有限次元パラメータ集合 $K$ を考える。
+
+時間刻み $h$ の繰り込み済み粗視化作用を $\mathcal A_{N,h}^{R,U}$、極限の Guerra--Morato 作用を $\mathcal A_{\rm GM}^{R,U}$ とする。
 
 <!-- theorem-start:theorem -->
-**定理（線形 Gauss 型 $C^1$ 極限）**
-第4.2節の仮定を満たすとする。ある定数 $C_K<\infty$ が存在し、十分大きい $N$ と $0<h<T/4$ に対して
+**定理（線形 Gauss 型作用の $C^1$ 極限）**
+
+ある $C_K<\infty$ が存在し、
 
 ```math
 \left\|
 \mathcal A_{N,h}^{R,U}
 -
-\mathcal A_{\mathrm{GM}}^{R,U}
+\mathcal A_{\rm GM}^{R,U}
 \right\|_{C^1(K)}
 \leq
 C_K
@@ -118,257 +454,47 @@ C_K
 \right)
 ```
 
-が成立する。従って $h_N\to0$ かつ $N(h_N/T)^2\to\infty$ なら、次の収束が $C^1(K)$ で成り立つ。
-
-```math
-\mathcal A_{N,h_N}^{R,U}
-\longrightarrow
-\mathcal A_{\mathrm{GM}}^{R,U}.
-```
-
-特に $h_N=TN^{-1/3}$ なら誤差は $O(N^{-1/3})$ である。
-<!-- theorem-end:theorem -->
-
-この $N^{-1/3}$ は、共分散尾部を $O(N^{-1})$ と評価し、増分商の $h^{-2}$ と釣り合わせた現在の証明から得られる率である。下界または最適性は示していない。より滑らかな核、端点適合基底、相殺を用いれば改善される可能性があり、本質的な普遍指数とは主張しない。
-
-証明の中心は、Fourier 切断による共分散誤差 $O(T^2/N)$ と、時間対角展開による粗視化誤差 $O(h/T)$ を分離することである。増分商には $h^{-2}$ が掛かるため、前者は作用上で $O(T^2/(Nh^2))$ になる。Fourier 尾部と Schur 補完の安定性は付録A、粗視化作用とパラメータ第1微分の評価は付録Bに示す。
-
-## 4.5 Guerra--Morato 表示と Nelson 表示
-
-前進・後退流れから
-
-```math
-v^R=\frac{b_+^R+b_-^R}{2},
-\qquad
-u^R=\frac{b_+^R-b_-^R}{2}
-=\nu\nabla\log\rho^R
-```
-
-を定義する。境界項が消える条件、例えば全空間での Gauss 型減衰、周期境界、または無流束境界を仮定する。
-
-<!-- theorem-start:theorem -->
-**定理（Guerra--Morato 作用と Nelson 作用の一致）**
-
-```math
-\mathcal A_{\mathrm{GM}}^{R,U}
-=
-\mathcal A_{\mathrm{N}}^{R,U},
-```
-
-```math
-\mathcal A_{\mathrm{N}}^{R,U}
-=
-\int_0^T\int_{\mathbb{R}^d}
-\rho^R
-\left[
-\frac m2|v^R|^2
--\frac m2|u^R|^2
--U
-\right]
-\,\mathrm{d} x\,\mathrm{d} t.
-```
+が成立する。$h_N=TN^{-1/3}$ なら誤差は $O(N^{-1/3})$ である。
 
 <!-- theorem-end:theorem -->
 
-<!-- theorem-start:proof -->
-**証明**
-$b_+^R=v^R+u^R$ と $\nu\nabla\rho^R=\rho^Ru^R$ を用いる。空間部分積分により
+正の密度と境界項が消える条件の下で、
 
 ```math
-\int\rho^R m\nu\nabla\cdot b_+^R\,\mathrm{d} x
+\mathcal A_{\rm GM}^{R,U}
 =
--m\int\rho^R b_+^R\cdot u^R\,\mathrm{d} x.
-```
-
-従って
-
-```math
-\frac m2|b_+^R|^2
--m b_+^R\cdot u^R
-=
-\frac m2|v^R|^2
--\frac m2|u^R|^2.
-```
-
-ポテンシャル項は共通なので結論を得る。
-<!-- theorem-end:proof -->
-
-この一致は近似ではない。$C^1$ 極限で得られた Guerra--Morato 作用は、正の Gauss 型密度領域では Nelson 作用そのものである [3--6]。Guerra--Morato 作用の臨界点と第2変分を扱う近年の研究もあるが [30]、本定理が扱う有限 Fourier 条件付き族の2尺度 $C^1$ 収束とは問題設定が異なる。
-
-さらに、$\rho>0$ で $mv^R=\nabla S$ と局所的に書ける領域では、
-
-```math
-\hbar_{\rm eff}=2m\nu,
-\qquad
-\psi=\sqrt{\rho^R}
-\exp\left(\frac{iS}{\hbar_{\rm eff}}\right)
-```
-
-と置くことで、連続の式と Nelson 作用の停留条件を
-
-```math
-i\hbar_{\rm eff}\partial_t\psi
-=
+\int
+\rho
 \left[
--\frac{\hbar_{\rm eff}^2}{2m}\Delta+U
-\right]\psi
-```
-
-へ書き換えられる [3--6]。これは正の密度を持つ局所領域での厳密な表示変換であり、多重連結領域の循環量子化、節を横切る位相接続、微視的な停留点選択を与えない。
-
-## 4.6 停留点について言えること
-
-<!-- theorem-start:corollary -->
-**系（収束する停留点）**
-$\theta_N\in\operatorname{int}K$ が
-
-```math
-D_\theta\mathcal A_{N,h_N}^{R,U}(\theta_N)=0,
-\qquad
-\theta_N\longrightarrow\theta_*
-```
-
-を満たすなら、
-
-```math
-D_\theta\mathcal A_{\mathrm{N}}^{R,U}(\theta_*)=0
-```
-
-である。
-<!-- theorem-end:corollary -->
-
-<!-- theorem-start:proof -->
-**証明**
-$C^1(K)$ 収束と $D\mathcal A_{N,h_N}(\theta_N)=0$ から
-
-```math
-\|D\mathcal A_{\mathrm{N}}(\theta_*)\|
-\leq
-\|D\mathcal A_{\mathrm{N}}(\theta_*)-D\mathcal A_{\mathrm{N}}(\theta_N)\|
-+
-\|D\mathcal A_{\mathrm{N}}(\theta_N)-D\mathcal A_{N,h_N}(\theta_N)\|
-\longrightarrow0.
-```
-
-<!-- theorem-end:proof -->
-
-これは一方向の条件付き主張である。まず有限モデルのパラメータ停留点列が存在し、その列が収束する場合に限って、極限点が Nelson 作用の停留点になる。任意の Nelson 停留点を有限浴の停留点列で近似するには、Hessian の非退化性と少なくとも局所 $C^2$ 収束が必要である。さらに、微視的 Hamiltonian 方程式が粗視化作用の停留点を力学的に選ぶことは、この系から従わない。
-
-## 4.7 調和 Gauss 型分布の物理像
-
-1次元で
-
-```math
-\rho(x,t)
-=
-\frac1{\sqrt{2\pi}\sigma(t)}
-\exp\left[
--\frac{(x-q(t))^2}{2\sigma(t)^2}
+\frac m2|v|^2
+-
+\frac m2|u|^2
+-
+U
 \right]
+\,\mathrm dx\,\mathrm dt
 ```
 
-とし、連続の式を満たす速度を
+という Nelson 表示と厳密に一致する。
 
-```math
-v(x,t)
-=
-\dot q(t)
-+\frac{\dot\sigma(t)}{\sigma(t)}[x-q(t)]
-```
+この定理は、定義した補助確率表示の作用値と有限次元パラメータ微分についての結果である。ミクロ誘導場から二側 Markov 拡散を導くこと、微視的時間発展が作用停留点を選ぶこと、Fisher 閉鎖を示すことは含まれない。
 
-とする。浸透速度は
+## 4.9 導出状態
 
-```math
-u(x,t)
-=
--\nu\frac{x-q(t)}{\sigma(t)^2}
-```
+| 主張 | 導出状態 |
+|---|---|
+| 共通拡散係数を持つ二側 Markov 拡散での $u=\nu\nabla\log\rho$ | 有効拡散モデル内部の厳密結果 |
+| 時間対称平均加速度の分解 | 有効拡散モデル内部の厳密結果 |
+| Fisher 応力恒等式 | 厳密結果 |
+| Gauss 幅の Routh–Fisher 一致 | 指定した Gauss 変分モデル内部の厳密結果 |
+| 線形 Gauss 型作用の $C^1$ 極限 | 補助モデルの厳密結果 |
+| ミクロ誘導場から二側 Markov 拡散への縮約 | 予想・未解決 |
+| 自己共役 Green 応答から Nelson 平均加速度への収束 | 予想・未解決 |
+| ミクロ反作用と運動量流束の Fisher 閉鎖 | 中心的な予想・未解決 |
+| 微視的時間発展による Nelson 停留点選択 | 予想・未解決 |
 
-である。調和ポテンシャル $U=m\Omega^2x^2/2$ に対する Nelson 作用は
+## 4.10 本章の結論
 
-```math
-\mathcal A_G[q,\sigma]
-=
-\frac m2
-\int_0^T
-\left[
-\dot q^2+\dot\sigma^2
--\frac{\nu^2}{\sigma^2}
--\Omega^2(q^2+\sigma^2)
-\right]\,\mathrm{d} t.
-```
+二側 Markov 拡散が得られれば、浸透速度、Fisher 情報、Bohm–Fisher 応力、Nelson 作用の関係は厳密に整理できる。Gauss 幅族では、固定内部作用の Routh 縮約が Fisher 項と一致する。
 
-変分すると
-
-```math
-\ddot q+\Omega^2q=0,
-```
-
-```math
-\ddot\sigma+\Omega^2\sigma
--\frac{\nu^2}{\sigma^3}=0
-```
-
-を得る。中心は古典的な調和運動を行い、幅は通常の拡散で単調に広がるのではなく、調和閉じ込めと密度勾配の項の釣り合いで振動する。定常幅は
-
-```math
-\sigma_*^2=\frac\nu\Omega
-```
-
-である。これは Nelson 作用が、単なる熱拡散ではなく、確率流と密度勾配の前後対称な変分力学を表すことを示す。
-
-## 4.8 結果の導出状態と物理的接続
-
-本章の主張を導出状態で分ける。
-
-| 主張 | 導出状態 | 根拠 |
-|---|---|---|
-| 定義した線形 Gauss 型作用の $C^1$ 収束 | 厳密結果 | 第4.4節と付録B |
-| Guerra--Morato 表示と Nelson 表示の一致 | 厳密結果 | 第4.5節の部分積分 |
-| 収束する有限次元停留点列の極限 | 厳密結果 | 第4.6節。停留点列の存在と収束に仮説依存 |
-| 弱開放ミクロモデルから線形 Gauss 型表示を得ること | 予想・未解決 | 一様な縮約誤差が未評価 |
-| 微視的時間発展が Nelson 停留点を選ぶこと | 予想・未解決 | 選択機構が未構成 |
-
-現行モデルとの接続に必要な近似を次に整理する。最初の3項は本定理の外側にあり、物理的導出を完成するには別途検証が必要である。
-
-| 近似 | 小さい量 | 適用範囲 | 主要誤差と中心結論への影響 | 検証 |
-|---|---|---|---|---|
-| 弱開放窓 | $\varepsilon_{\rm open}$ | $T\ll\tau_{\rm exch}$ | 平均・共分散と作用に $O(\varepsilon_{\rm open})$ の補正を生じ得る | 拡大 Hamiltonian と閉鎖補助モデルを同じ入口集団で比較 |
-| 線形化 | $\varepsilon_{\rm lin}$ | 観測経路が指定した調和領域に留まる時間 | 捨てた非線形流れが平均・共分散へ $O(\varepsilon_{\rm lin})$ の補正を与える | 領域幅を変え、非線形有限モデルと比較 |
-| Markov・白色雑音近似 | $\varepsilon_{\rm M}=\tau_{\rm corr}/\tau_{\rm slow}$ | 外部相関時間が遅い運動より十分短い範囲 | 記憶核と有色雑音の残差が $O(\varepsilon_{\rm M})$ で残る | 相関時間と観測時間を変え、2時刻共分散を比較 |
-| 時間粗視化 | $\varepsilon_h=h/T$ | $0<h<T/4$ | 作用と第1微分に $O(h/T)$ | $h$ を変え収束率を測る |
-| Fourier 切断 | $\varepsilon_N=T^2/(Nh^2)$ | $N(h/T)^2\gg1$ | 作用と第1微分に $O(T^2/(Nh^2))$ | $N$ を変え収束率を測る |
-| 有限分解能記録 | $R\geq r_*I>0$ | 固定した非退化分解能 | 点終端極限の境界層を除外する。$R\downarrow0$ は未評価 | 装置分解能を変え条件付き共分散を比較 |
-
-$\varepsilon_{\rm lin}$ は、指定した観測領域で捨てた非線形流れの大きさを、保持した線形流れの代表値で割った無次元量である。完全な物理的接続には
-
-```math
-\varepsilon_{\rm open}
-+
-\varepsilon_{\rm lin}
-+
-\varepsilon_{\rm M}
-+
-\frac hT
-+
-\frac{T^2}{Nh^2}
-\ll1
-```
-
-が必要になる。ただし、本論文が厳密に上界を与えるのは最後の2項だけである。最初の3項を小さいと仮定しただけで、弱開放ミクロモデルから Nelson 有効力学を導出したとは呼ばない。
-
-## 4.9 定理の範囲
-
-本章で証明したのは、線形 Gauss 型範囲における作用形式の $C^1$ 極限である。次は主定理に含まれない。
-
-- 状態依存の非線形な流れ。
-- 退化した点終端 $R=0$。
-- 硬いしきい値条件による非滑らかな経路選択。
-- 2次を超える一般ポテンシャルに対する一様第1変分評価。
-- 密度の節を横切る大域位相。
-- 全ての Nelson 変分を尽くす無限次元 $C^1$ 収束。
-- 微視的 Hamiltonian 運動による粗視化作用の停留点選択。
-- 一般の時間依存線形 Gauss 型表示を有限自律 Hamiltonian へ埋め込む定理。
-- 弱開放ミクロモデルから線形表示への縮約誤差。
-
-従って本章の結果を「弱開放な古典 Hamiltonian 系からの Nelson 有効力学の動力学的出現」とは呼ばない。確立した内容は、明示した補助確率表示と粗視化規則に対する作用形式の収束である。
+未完成なのは、その構造をミクロ Hamiltonian から得る中央の縮約である。本論文は、正確なミクロ運動量収支と Fisher 応力の間を **Fisher 閉鎖予想** として明示し、自己共役性または弱漏れだけで解決済みとは扱わない。

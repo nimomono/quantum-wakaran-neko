@@ -26,8 +26,8 @@ THEOREM_LABELS = {
 }
 
 PART_TITLES = {
-    2: "第I部　補助的な線形 Gauss 型確率表示の Nelson 作用極限",
-    5: "第II部　構造化有限浴と境界作用殻測度による Bell 型統計",
+    2: "第I部　構造化誘導場の縮約と Fisher 応力",
+    5: "第II部　同じ物理構成の境界作用殻縮約と Bell 型統計",
 }
 
 REFERENCE_KEYS = {
@@ -279,9 +279,9 @@ def pandoc_markdown() -> str:
 
     for number in range(1, 9):
         if number == 2:
-            chunks.append(r"\part{補助的な線形 Gauss 型確率表示の Nelson 作用極限}")
+            chunks.append(r"\part{構造化誘導場の縮約と Fisher 応力}")
         if number == 5:
-            chunks.append(r"\part{構造化有限浴と境界作用殻測度による Bell 型統計}")
+            chunks.append(r"\part{同じ物理構成の境界作用殻縮約と Bell 型統計}")
         path = next(SECTIONS.glob(f"{number:02d}_*.md"))
         meta, lines = parse_source(path)
         chunks.append("# " + meta["title"])

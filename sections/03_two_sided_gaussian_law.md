@@ -1,250 +1,366 @@
 @number: 3
 @chapter: 本文
-@title: 前後両側から条件づけた線形 Gauss 型経路法則
-@status: 有限分解能の終端記録を Gauss 型 Schur 補完として厳密に定義し、物理的試行測度とは分離する。
+@title: Liouville モーメント式と誘導場の消去
+@status: 拡大全系の Liouville 方程式から連続の式と運動量収支を厳密に導き、線形誘導場を指定した境界条件の下で Green 作用素により消去する。Fisher 応力への閉鎖はまだ置かない。
 
-## 3.1 なぜ有限分解能を用いるか
+## 3.1 拡大全系の Liouville 密度
 
-前章の $X_N$ に対し、初期側では Gauss 準備分布を与え、終端側では測定装置が残す有限分解能の記録を条件として用いる。終端位置をデルタ関数で厳密固定すると、極限拡散の終端近傍で流れが特異になり、$C^1$ 評価に不要な境界層が生じる。実在する測定記録は有限分解能を持つため、本論文では正定値の読み出し雑音を含む条件づけを主定理に採用する。
-
-時刻 $T$ の記録を
+外部自由度と仕事貯蔵自由度まで含む全位相点を
 
 ```math
-Y=HX_N(T)+\varepsilon,
-\qquad
-\varepsilon\sim N(0,R),
-\qquad
-R\geq r_*I>0
+Z
+=
+(X,P,Q,\Pi,Y,\Theta,z_{\rm work})
 ```
 
-とする。実際に得られた記録値を $y$ とする。この条件は、尤度
+とする。全 Liouville 密度を $\varrho_N(Z,t)$ と書く。正規化を
 
 ```math
-L_R(x)
+\int \varrho_N(Z,t)\,\mathrm dZ=1
+```
+
+とする。
+
+全 Hamiltonian $H_N^{\rm all}$ に対して
+
+```math
+\partial_t\varrho_N
++
+\{\varrho_N,H_N^{\rm all}\}
+=0
+```
+
+が成立する。弱漏れの外部振動子を含める場合も、密度はそれらの座標を含む全位相空間上で定義する。有限部分の変数だけに摩擦付き Liouville 方程式を置くことは、外部消去後の別の近似である。
+
+## 3.2 配置密度と条件付き平均
+
+粒子の配置密度を
+
+```math
+\rho_N(x,t)
 =
-\exp\left[
--\frac12(Hx-y)^{\mathsf T}R^{-1}(Hx-y)
+\int
+\varrho_N(Z,t)
+\,\mathrm dP\,\mathrm dQ\,\mathrm d\Pi
+\,\mathrm dY\,\mathrm d\Theta\,\mathrm dz_{\rm work}
+```
+
+とする。$X=x$ を固定した条件付き平均を
+
+```math
+\mathbb E_N[A\mid X=x]
+=
+\frac1{\rho_N(x,t)}
+\int
+A(Z)
+\varrho_N(Z,t)
+\,\mathrm dP\,\mathrm dQ\,\mathrm d\Pi
+\,\mathrm dY\,\mathrm d\Theta\,\mathrm dz_{\rm work}
+```
+
+と定義する。$\rho_N=0$ の点では局所式を用いない。
+
+平均運動量と平均速度を
+
+```math
+\overline P_N(x,t)
+=
+\mathbb E_N[P\mid X=x],
+\qquad
+v_N(x,t)
+=
+\frac{\overline P_N(x,t)}m
+```
+
+とする。運動量共分散は
+
+```math
+\Sigma_{p,N}(x,t)
+=
+\mathbb E_N
+\left[
+(P-mv_N)
+\otimes
+(P-mv_N)
+\mid X=x
+\right].
+```
+
+誘導場の粒子への反作用を
+
+```math
+F_{{\rm G},N}(Z)
+=
+\left[\nabla G_N(X)\right]^{\mathsf T}
+B^{\mathsf T}Q
+-
+\nabla_XH_N^{\rm nl}
+```
+
+とし、条件付き平均を
+
+```math
+\overline F_{{\rm G},N}(x,t)
+=
+\mathbb E_N
+\left[
+F_{{\rm G},N}
+\mid X=x
 \right]
 ```
 
-で経路を重みづけすることと同値である。
+とする。
 
-$R$ は単に特異性を避けるための正則化定数ではない。装置の有限分解能、外部雑音、記録読出しのばらつきを合わせた共分散である。主定理は $R\geq r_*I>0$ を固定した範囲で成立し、点終端 $R\downarrow0$ を同時に取る極限は含めない。物理的に用いるには、未記述の装置補正による共分散変化が $r_*$ より十分小さいことを別に確かめる必要がある。
+## 3.3 0次モーメント
 
-## 3.2 無条件 Gauss 型法則
-
-有限 $N$ の平均と2時刻共分散を
+Liouville 方程式を粒子運動量と全内部変数について積分する。境界項が消える減衰条件、周期境界、または無流束境界を仮定すると、
 
 ```math
-\mu_N(t)=\mathbb{E}[X_N(t)],
+\partial_t\rho_N
++
+\nabla_x\cdot
+\left(
+\frac1m
+\rho_N\overline P_N
+\right)
+=0
 ```
 
+を得る。従って
+
 ```math
-C_N(s,t)
-=
-\mathbb{E}\left[
-(X_N(s)-\mu_N(s))
-(X_N(t)-\mu_N(t))^{\mathsf T}
+\partial_t\rho_N
++
+\nabla_x\cdot(\rho_Nv_N)
+=0.
+```
+
+これは外部交換を含む拡大全系でも正確である。外部交換は条件付き平均 $v_N$ の時間発展へ入るが、粒子数を作成・消滅しない限り連続の式の形を変えない。
+
+## 3.4 1次モーメント
+
+Liouville 方程式へ $P_i$ を掛けて積分すると、
+
+```math
+\partial_t
+\left(
+\rho_N\overline P_{N,i}
+\right)
++
+\partial_{x_j}
+\left[
+\frac{\rho_N}{m}
+\mathbb E_N
+\left(
+P_iP_j\mid X=x
+\right)
 \right]
+=
+-\rho_N\partial_{x_i}V
++
+\rho_N\overline F_{{\rm G},N,i}
 ```
 
-とする。基本行列を使えば、平均は
+を得る。添字 $j$ について和を取る。
+
+2次モーメントを
 
 ```math
-\mu_N(t)
+\mathbb E_N
+\left[
+P\otimes P\mid X=x
+\right]
 =
-\Phi(t,0)m_0
-+\int_0^t\Phi(t,r)f(r)\,\mathrm{d} r
+m^2v_N\otimes v_N
++
+\Sigma_{p,N}
 ```
 
-であり、共分散は初期共分散と有限 Fourier モードの寄与の和として書ける。
-
-雑音を基底関数 $e_\alpha(t)$ と独立 Gauss 係数 $\zeta_\alpha$ で
-
-```math
-\widetilde\eta_N(t)
-=
-\sum_{\alpha=0}^{2N}e_\alpha(t)\zeta_\alpha
-```
-
-と書けば、
-
-```math
-K_{N,\alpha}(t)
-=
-\int_0^t\Phi(t,r)e_\alpha(r)\,\mathrm{d} r
-```
-
-により
-
-```math
-C_N(s,t)
-=
-\Phi(s,0)P_0\Phi(t,0)^{\mathsf T}
-+\sum_{\alpha=0}^{2N}
-K_{N,\alpha}(s)K_{N,\alpha}(t)^{\mathsf T}
-```
-
-となる。この表示は、条件づけとパラメータ微分を有限行列計算へ帰着させる。
-
-## 3.3 Schur 補完による条件付き平均と共分散
-
-記録共分散を
-
-```math
-S_N
-=
-HC_N(T,T)H^{\mathsf T}+R
-```
-
-とする。$R\geq r_*I$ なので $S_N$ は一様に可逆である。
+と分解し、連続の式を使うと、
 
 <!-- theorem-start:proposition -->
-**命題（有限 Gauss 型条件づけ）**
-条件 $Y=y$ の下で $X_N$ は Gauss 型過程のままであり、その平均と共分散は
+**命題（正確な粒子運動量収支）**
 
 ```math
-\mu_N^R(t)
+m\rho_N
+\left(
+\partial_t+v_N\cdot\nabla
+\right)v_N
 =
-\mu_N(t)
-+C_N(t,T)H^{\mathsf T}S_N^{-1}
-\left[y-H\mu_N(T)\right],
+-\rho_N\nabla V
++
+\rho_N\overline F_{{\rm G},N}
+-
+\frac1m
+\nabla\cdot
+\left(
+\rho_N\Sigma_{p,N}
+\right).
 ```
 
-```math
-C_N^R(s,t)
-=
-C_N(s,t)
--C_N(s,T)H^{\mathsf T}S_N^{-1}HC_N(T,t)
-```
-
-である。
 <!-- theorem-end:proposition -->
 
-<!-- theorem-start:proof -->
-**証明**
-有限個の時刻 $t_1,\ldots,t_k$ を固定すると、$(X_N(t_1),\ldots,X_N(t_k),Y)$ は結合 Gauss ベクトルである。結合共分散行列の $Y$ 成分に関する Schur 補完を取れば上式を得る。任意の有限時刻集合で整合するため、条件付き過程全体が定まる。
-<!-- theorem-end:proof -->
+この式は閉鎖近似を含まない。誘導場反作用と粒子運動量流束を分けて保持することが重要である。どちらか一方だけを Fisher 応力と同定してはならない。
 
-条件付き共分散の第2項は、終端記録により減少した不確かさを表す。これは力ではない。ある経路が終端記録とどれだけ整合するかという統計的更新である。
+## 3.5 枝内部幅と枝間流束
 
-この計算は、新しい種類の Gauss 型条件づけではない。有限次元の状態を拡大して Fourier 係数まで含めれば、固定区間の線形 Gauss 型平滑化と同じ Schur 補完になる [27]。経路測度の立場では相反過程および Schrödinger 橋の線形 Gauss 型部分に属し [15,25,26,32]、経路単位の Gauss 型条件づけとしても標準的に表せる [31]。本論文で必要なのは、この既知の条件づけを有限 Fourier 切断数 $N$ とパラメータ $\theta$ について一様に微分し、第4章の定量的 $C^1$ 評価へ接続することである。
+場の射影 $P_{\rm c},P_\perp$ は、粒子運動量共分散を自動的に分解しない。位相整合した局所枝を表す離散または連続指標を $\alpha$ とし、条件付き全分散公式を使う。
 
-## 3.4 パラメータ微分
-
-$F_\theta$ の変分 $\delta F$ に対して基本行列の第1変分は
+<!-- theorem-start:proposition -->
+**命題（条件付き全分散分解）**
 
 ```math
-D\Phi_\theta[\delta F](t,s)
+\Sigma_{p,N}(x,t)
 =
-\int_s^t
-\Phi_\theta(t,r)
-\delta F(r)
-\Phi_\theta(r,s)
-\,\mathrm{d} r
-```
-
-である。逆行列の微分
-
-```math
-D(S^{-1})[\delta S]
-=
--S^{-1}(\delta S)S^{-1}
-```
-
-と合わせると、$\mu_N^R$、$C_N^R$ のパラメータ第1微分を明示できる。$S_N\geq r_*I$ により、条件づけの微分は $N$ に依存しない定数で制御される。
-
-有限分解能 $R>0$ は、物理的に自然であるだけでなく、数学的にも重要である。$R=0$ で $H$ が全座標を固定すると、終端に近づくにつれて条件付き流れが $(T-t)^{-1}$ 型に発散し得る。点終端は $R\downarrow0$ の別極限として扱うべきであり、主定理には含めない。
-
-## 3.5 極限拡散の条件付き流れ
-
-$N\to\infty$ の無条件拡散を
-
-```math
-\,\mathrm{d} X_t=b(X_t,t)\,\mathrm{d} t+\sqrt{2\nu}\,\,\mathrm{d} W_t,
-\qquad
-b(x,t)=F(t)x+f(t)
-```
-
-とする。終端尤度の後方伝播を
-
-```math
-h_R(x,t)
-=
-\mathbb{E}\left[L_R(X_T)\mid X_t=x\right]
-```
-
-と置く。線形 Gauss 型系では $h_R$ は指数2次関数で正である。条件付き前進流れは Doob 変換により
-
-```math
-b_+^R(x,t)
-=
-b(x,t)+2\nu\nabla\log h_R(x,t)
-```
-
-となる [15,16]。$\nabla\log h_R$ は $x$ の1次式であるため、条件付き過程も線形 Gauss 型である。
-
-条件付き時刻密度を $\rho^R(x,t)$ とすると、後退流れは
-
-```math
-b_-^R(x,t)
-=
-b_+^R(x,t)-2\nu\nabla\log\rho^R(x,t)
-```
-
-である。そこで
-
-```math
-v^R
-=
-\frac{b_+^R+b_-^R}{2},
-\qquad
-u^R
-=
-\frac{b_+^R-b_-^R}{2}
-=
-\nu\nabla\log\rho^R
-```
-
-と定義する。$v^R$ は確率流の速度、$u^R$ は密度勾配に伴う浸透速度である。
-
-## 3.6 自由系で現れる −1/<i>T</i>
-
-$F=0$、$f=0$、$X_N(0)=x_0$ とし、終端を厳密に $X_N(T)=x_0$ へ固定する特殊な場合を考える。非零 Fourier モードは1周期積分すると零になるため、全期間変位を担うのは零周波数 $Z_0$ だけである。終端条件は $Z_0=0$ を意味する。従って条件付き雑音共分散は
-
-```math
-\mathbb{E}\left[
-\widetilde\eta_N(t)
-\widetilde\eta_N(s)^{\mathsf T}
-\mid X_N(T)=x_0
-\right]
-=
-2\nu
+\mathbb E_N
 \left[
-\delta_{T,N}(t-s)-\frac1T
-\right]I.
+\operatorname{Var}_N(P\mid X=x,\alpha)
+\mid X=x
+\right]
++
+\operatorname{Var}_N
+\left(
+\mathbb E_N[P\mid X=x,\alpha]
+\mid X=x
+\right).
 ```
 
-ここで初めて $-1/T$ が現れる。一般の $F\neq0$ では終端値は全 Fourier モードの線形結合に依存するため、条件付き修正は
+<!-- theorem-end:proposition -->
+
+第1項は枝内部の運動量幅、第2項は枝中心間の流束である。どちらを欠陥、どちらを位相整合成分と呼べるかは、$\alpha$ のミクロな定義と時間尺度に依存する。
+
+第2項を単に捨てると、枝間の位相整合運動量流束まで失う。第1項を常に零と置くと、有限温度、有限分解能、局所非線形性の影響を隠す。Fisher 閉鎖では、両項と誘導場反作用を合わせて評価する。
+
+## 3.6 線形誘導場の初期値消去
+
+$H_N^{\rm nl}=0$ とする。場方程式は
 
 ```math
--\operatorname{Cov}(\widetilde\eta_N,Y)
-\operatorname{Cov}(Y,Y)^{-1}
-\operatorname{Cov}(Y,\widetilde\eta_N)
+\ddot Q(t)
++
+K_NQ(t)
+=
+BG_N(X(t))
++
+F_{\rm ext}(t)
 ```
 
-という流れ依存の Schur 補完であり、単純な $-1/T$ ではない。
+である。$F_{\rm ext}$ は外部自由度を明示したままなら決定論的な Hamiltonian 力であり、外部集団について条件付けまたは平均した後には有効雑音として現れ得る。
 
-## 3.7 前後両側条件づけの物理的意味
+$\Omega_N=K_N^{1/2}$ とすると、初期値問題の解は
 
-初期準備と終端記録の双方を知った後に、途中経路の統計を求めることは、通常の条件付き確率である。終端記録が途中経路の条件付き平均を変えることは、終端装置が過去へ力を送ることを意味しない。
+```math
+Q(t)
+=
+\cos(\Omega_Nt)Q(0)
++
+\Omega_N^{-1}
+\sin(\Omega_Nt)\Pi(0)
++
+\int_0^t
+\Omega_N^{-1}
+\sin
+\left[
+\Omega_N(t-s)
+\right]
+\left[
+BG_N(X(s))+F_{\rm ext}(s)
+\right]
+\,\mathrm ds.
+```
 
-ただし、条件付き経路分布を物理的試行頻度として採用するには、どの完結履歴へ確率を置くかという追加の物理原理が必要である。Gauss 型 Schur 補完は、指定した記録を得た後の条件付き法則を計算する厳密な数学であるが、その法則が実験の無条件頻度として選ばれることまでは証明しない。
+これを $F_{{\rm G},N}$ へ代入すると、粒子は
 
-弱開放な試行周期では、開始、記録、完了、再初期化の各段階で異なる条件付き分布が現れ得る。結果依存の完了率で記録済み試行を捨てれば事後選別になる。これと、初期・終端の両境界で定義された試行集団とを区別する必要がある。第II部では、共通作用殻の Liouville 測度を境界適合条件で制限し、履歴空間へ押し出す。これは Bell 固有の終端関数を置く構成ではないが、2境界条件付けであることは変わらない。また、第4章の Nelson 作用極限からも、本章の Schur 補完からも導かない。
+1. 初期場に由来する自由反作用、
+2. 自己履歴に依存する有限記憶項、
+3. 外部流路から伝わる駆動、
 
-## 3.8 本章の結論
+を受ける。有限 $N$ では記憶核は準周期的であり、長時間には再帰を持つ。
 
-有限分解能の終端記録を用いれば、前後両側から条件づけた経路法則は通常の Gauss 型 Schur 補完として完全に定義できる。条件付き平均、共分散、そのパラメータ微分は一様に制御される。これは補助確率表示内部の厳密結果である。
+## 3.7 二側境界条件での消去
 
-物理的には、記録共分散 $R$ の装置起源、弱開放ミクロモデルから線形表示への縮約、条件付き法則を無条件の試行頻度へ変える原理が別に必要である。次章では、これらを仮定せず、定義した補助表示の作用収束だけを示す。
+場の境界条件を線形作用素 $\mathcal C_0Q(0)+\mathcal D_0\dot Q(0)=q_0$ と $\mathcal C_TQ(T)+\mathcal D_T\dot Q(T)=q_T$ で指定する。境界値問題が一意可解なら、
+
+```math
+Q(t)
+=
+Q_{\rm bd}(t)
++
+\int_0^T
+\mathcal G_N(t,s)
+\left[
+BG_N(X(s))+F_{\rm ext}(s)
+\right]
+\,\mathrm ds
+```
+
+と書ける。$\mathcal G_N$ は指定した境界条件に対応する Green 核、$Q_{\rm bd}$ は非同次境界データだけで決まる解である。
+
+境界条件が場作用素の自己共役領域を定めるなら、
+
+```math
+\mathcal G_N(t,s)
+=
+\mathcal G_N(s,t)^{\mathsf T}
+```
+
+となる。従って消去後の履歴作用は時間交換に対して対称になる。
+
+しかし、Green 核の自己共役性だけから
+
+```math
+\frac12
+\left(
+D_+D_-+D_-D_+
+\right)X
+```
+
+という Nelson の平均加速度は導けない。一般には、非局所記憶、質量繰り込み、境界層、外部交換による反対称部分が残る。
+
+## 3.8 条件付き平均反作用
+
+二側消去式を使うと、条件付き平均反作用は概念的に
+
+```math
+\overline F_{{\rm G},N}(x,t)
+=
+F_{{\rm bd},N}(x,t)
++
+\int_0^T
+\mathbb E_N
+\left[
+\mathcal K_N
+\left(
+x,t;X(s),s
+\right)
+\mid X(t)=x
+\right]
+\,\mathrm ds
++
+F_{{\rm ext},N}(x,t)
+```
+
+と書ける。$\mathcal K_N$ は $\nabla G_N$、$B$、$\mathcal G_N$ から決まる記憶核である。
+
+この式は、反作用が一般に現在密度 $\rho_N(x,t)$ だけの局所汎関数ではないことを示す。Fisher 応力のような局所密度汎関数へ閉じるには、短記憶化、条件付き局所平衡、枝分解、外部交換の誤差評価が必要である。
+
+## 3.9 正確な式と縮約仮説の境界
+
+| 主張 | 導出状態 |
+|---|---|
+| 全 Liouville 方程式 | 定義した全 Hamiltonian に対する厳密結果 |
+| 連続の式 | 厳密結果 |
+| 運動量モーメント式 | 厳密結果 |
+| 条件付き全分散分解 | 厳密結果 |
+| 線形場の初期値消去 | 指定した初期条件の下で厳密結果 |
+| 線形場の二側 Green 消去 | 一意可解な指定境界条件の下で厳密結果 |
+| 自己共役 Green 核の時間交換対称性 | 自己共役境界条件の下で厳密結果 |
+| 記憶核の Markov 化 | 予想・未解決 |
+| 二側条件付き過程の共通拡散係数 | 予想・未解決 |
+| 反作用と運動量流束の Fisher 閉鎖 | 中心的な予想・未解決 |
+
+## 3.10 本章の結論
+
+誘導場と外部流路を含む全 Liouville 密度から、粒子の連続の式と運動量収支を正確に得た。粒子が受ける有効応力の候補は、誘導場の条件付き平均反作用と運動量共分散の発散の組合せである。
+
+線形誘導場は Green 作用素で消去できるが、一般には非局所記憶が残る。時間対称な Green 核は二側縮約の必要な構造を与えるが、Nelson の Markov 拡散または Fisher 応力を単独では強制しない。

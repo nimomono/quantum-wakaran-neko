@@ -1,272 +1,281 @@
 @number: 2
 @chapter: 本文
-@title: 有限 Hamiltonian 部分と線形 Gauss 型確率表示
-@status: 弱開放な現行モデル、閉鎖調和補助モデル、証明用の線形 Gauss 型確率表示を分離する。
+@title: 粒子、構造化誘導場、外部流路の Hamiltonian
+@status: 有限誘導場と固定射影を現行モデルとして定義する。正準性と線形場の方程式は厳密である。欠陥成分だけの減衰と有効短記憶化は外部スペクトルに依存する近似候補である。
 
-## 2.1 現行モデルと有限2次補助モデル
+## 2.1 有限誘導場モデル
 
-現行モデルでは、観測対象と装置を含む有限 Hamiltonian 部分 $z$ を、外部自由度 $y$ と弱く結合する。
+粒子座標を $X\in\mathbb R^d$、運動量を $P\in\mathbb R^d$ とする。有限誘導場は $M_N$ 個の実正準対
 
 ```math
-H_{\rm all}(z,y)
-=
-H_{\rm fin}(z)
-+
-H_{\rm ext}(y)
-+
-\varepsilon_{\rm ext}H_{\rm link}(z,y)
-+
-H_{\rm work}.
+(Q,\Pi)
+\in
+\mathbb R^{M_N}\times\mathbb R^{M_N}
 ```
 
-$H_{\rm fin}$ だけのエネルギーを $E_{\rm fin}=H_{\rm fin}$ とすると、
+で表す。質量行列を座標変換で単位行列へ移した表示を用い、有限部分を
 
 ```math
-\dot E_{\rm fin}
+H_N^{\rm fin}
 =
+\frac{|P|^2}{2m}
++
+V(X)
++
+\frac12\Pi^{\mathsf T}\Pi
++
+\frac12Q^{\mathsf T}K_NQ
+-
+G_N(X)^{\mathsf T}B^{\mathsf T}Q
++
+H_{N}^{\rm nl}
+```
+
+とする。$K_N=K_N^{\mathsf T}>0$ は場の線形部分、$G_N:\mathbb R^d\to\mathbb R^r$ は粒子から場への一般化力、$B:\mathbb R^r\to\mathbb R^{M_N}$ は固定した直接結合方向、$H_N^{\rm nl}$ は必要に応じて加える弱い非線形内部混合である。
+
+粒子と場の Hamilton 方程式は
+
+```math
+\dot X
+=
+\frac Pm,
+\qquad
+\dot P
+=
+-\nabla V(X)
++
+\left[\nabla G_N(X)\right]^{\mathsf T}B^{\mathsf T}Q
+-
+\nabla_XH_N^{\rm nl},
+```
+
+```math
+\dot Q
+=
+\Pi,
+\qquad
+\dot\Pi
+=
+-K_NQ
++
+BG_N(X)
+-
+\nabla_QH_N^{\rm nl}.
+```
+
+従って線形場の直接駆動方向は $BG_N(X)$ である。結合条件を場のポテンシャル行列へ曖昧に埋め込まず、$B$ として独立に表示する。
+
+## 2.2 静的な明・暗モード分解
+
+$B$ の像を直接明部分空間
+
+```math
+\mathcal B_{\rm dir}
+=
+\operatorname{Ran}B
+```
+
+とする。これを含む固定明部分空間 $\mathcal B_{\rm B}$ と、その直交補空間 $\mathcal B_{\rm D}$ を選び、射影を $P_{\rm B},P_{\rm D}$ と書く。直接結合が暗モードを駆動しないための条件は
+
+```math
+P_{\rm D}B=0
+```
+
+である。
+
+これは
+
+```math
+P_{\rm D}K_NB=0
+```
+
+を要求しない。一般に $P_{\rm D}K_NP_{\rm B}\neq0$ であり、場の内部発展によって明モードから暗モードへ作用が移る。この間接伝播は、欠陥移送、局所セクター間の交差応答、有限記憶を生む候補である。
+
+$\mathcal B_{\rm B}$ と $\mathcal B_{\rm D}$ に適合した直交行列 $O_N$ を固定し、
+
+```math
+\widetilde Q=O_NQ,
+\qquad
+\widetilde\Pi=O_N\Pi
+```
+
+と変換する。座標と運動量へ同じ直交行列を作用させるので、この変換は正準である。変換後の $O_NK_NO_N^{\mathsf T}$ は一般にブロック対角ではない。従って静的な明・暗分解の正準性と、動力学的な直和分離を混同しない。
+
+## 2.3 位相整合成分と欠陥成分
+
+Fisher 側では、場の中に長時間保たれる位相整合成分と、外部へ移送したい欠陥成分を区別する必要がある。固定射影を
+
+```math
+P_{\rm c},
+\qquad
+P_\perp=I-P_{\rm c}
+```
+
+と書く。
+
+$P_{\rm c}$ は次のいずれか、またはその組合せから事前に定める。
+
+- $K_N$ の指定したスペクトル帯。
+- 直接結合方向 $B$ と、その有限回の $K_N$ 作用が張る Krylov 部分空間。
+- 装置が保存する作用または位相基準に対応する固定正準部分空間。
+- Bell 側の局所、共通境界、暗モードを定める装置固定基底。
+
+得られた $\rho$、欲しい波動関数、または目標 Fisher 応力を見て $P_{\rm c}$ を選んではならない。そうすると、導出すべき構造を射影へ先に書き込むことになる。
+
+場の射影と、粒子運動量分散の分解も同一ではない。後者には第3章で枝指標を導入し、条件付き全分散公式を用いる。
+
+## 2.4 外部流路を含む拡大全系
+
+外部自由度を $(Y,\Theta)$、仕事貯蔵自由度を $z_{\rm work}$ とし、
+
+```math
+H_N^{\rm all}
+=
+H_N^{\rm fin}(X,P,Q,\Pi)
++
+H_{\rm ext}(Y,\Theta)
++
 \varepsilon_{\rm ext}
-\{H_{\rm fin},H_{\rm link}\}
+H_{\rm link}(Q,\Pi,Y,\Theta)
 +
-P_{\rm ctrl}
+H_{\rm work}(z_{\rm work})
++
+H_{\rm ctrl}
 ```
 
-である。第1項は外部との流入または流出、第2項は仕事貯蔵系と自律時計からの制御仕事である。従って、有限 Hamiltonian 部分は現行モデルの中で厳密な保存系ではない。
+とする。$H_{\rm ctrl}$ は自律時計を含む設定変更、記録、再準備の有限相互作用をまとめた記号である。
 
-第I部の厳密計算では、観測窓 $0\leq t\leq T$ における
+全 Hamiltonian に外からの陽な時間依存がなければ、拡大全エネルギーは保存される。有限部分のエネルギー変化は Poisson 括弧により
+
+```math
+\frac{\mathrm d}{\mathrm dt}H_N^{\rm fin}
+=
+\left\{
+H_N^{\rm fin},
+\varepsilon_{\rm ext}H_{\rm link}
++
+H_{\rm ctrl}
+\right\}
+```
+
+と書ける。従って弱開放性は、有限部分の基本方程式へ非 Hamiltonian な摩擦を直接加えることではなく、外部自由度を消去した後の有限部分の収支として現れる。
+
+## 2.5 選択的な弱漏れの候補
+
+欠陥成分へ強く、位相整合成分へ弱く結合する候補を
+
+```math
+H_{\rm link}
+=
+\left(P_\perp Q\right)^{\mathsf T}C_\perp Y
++
+\epsilon_{\rm c}
+\left(P_{\rm c}Q\right)^{\mathsf T}C_{\rm c}Y
++
+H_{\rm link}^{(\Pi)}
+```
+
+と書く。$0\leq\epsilon_{\rm c}\ll1$ とする。$H_{\rm link}^{(\Pi)}$ は必要な運動量結合を表す。
+
+外部相関時間が短く、スペクトル密度が対象周波数帯で十分滑らかなら、外部消去後の線形化した平均振幅は概念的に
+
+```math
+\frac{\mathrm d}{\mathrm dt}
+\begin{pmatrix}
+P_{\rm c}Q\\
+P_\perp Q
+\end{pmatrix}
+=
+\begin{pmatrix}
+A_{\rm c} & C_{{\rm c}\perp}\\
+C_{\perp{\rm c}} & A_\perp
+\end{pmatrix}
+\begin{pmatrix}
+P_{\rm c}Q\\
+P_\perp Q
+\end{pmatrix}
++
+\eta_{\rm eff}(t)
+```
+
+となる。$\eta_{\rm eff}$ は外部消去後の有効雑音である。$A_\perp$ の実部が負で、$A_{\rm c}$ の減衰率が十分小さければ、欠陥成分だけが速く除去される。
+
+目標とする時間尺度は
+
+```math
+\tau_{\rm corr}
+\ll
+\gamma_\perp^{-1}
+\ll
+\tau_{\rm coh},
+\qquad
+\gamma_{\rm c}
+\ll
+\gamma_\perp.
+```
+
+ここで $\tau_{\rm corr}$ は外部相関時間、$\gamma_\perp$ は欠陥減衰率、$\tau_{\rm coh}$ は位相整合成分を利用する時間、$\gamma_{\rm c}$ は整合成分の漏れ率である。
+
+特定の有限外部スペクトルについて
+
+```math
+\|P_\perp Q(t)\|
+\leq
+C e^{-\gamma_\perp t}
+\|P_\perp Q(0)\|
++
+R_{\rm in}(t)
+```
+
+を一様に証明してはいない。$R_{\rm in}$ は外部からの流入補正である。従って「欠陥成分だけの指数減衰」は、外部スペクトル、弱結合極限、Markov 近似に依存する近似結果候補である。
+
+## 2.6 弱漏れが担わない役割
+
+選択的な漏れが実現しても、次は自動的には従わない。
+
+1. 粒子の配置空間で Markov 拡散が生じること。
+2. 前進・後退過程が同じ拡散係数を持つこと。
+3. ミクロ反作用が Fisher 応力へ閉じること。
+4. Bell 側の3モード作用殻が $U(3)$ 等方になること。
+5. 非零の総作用半径が定常に保たれること。
+
+純粋漏れは欠陥と再帰を抑える候補である。配置空間の二側拡散には条件付き均質化が必要であり、作用殻の方向準備には Hamiltonian な接方向混合が必要であり、非零半径の維持には流入または仕事源が必要である。
+
+## 2.7 局所測定窓と長時間準備の分離
+
+局所測定窓 $T_{\rm meas}$ では
 
 ```math
 \varepsilon_{\rm open}
-=
-\frac{
-\sup_{0\leq t\leq T}
-\left|
-E_{\rm fin}(t)-E_{\rm fin}(0)
-\right|
-}{
-E_{\rm ref}
-}
+\ll1,
+\qquad
+\gamma_\perp T_{\rm meas}
 \ll1
 ```
 
-を仮定し、$\varepsilon_{\rm ext}=0$ とした閉鎖有限系を補助モデルとして用いる。この補助モデルへの置換は、中心的な作用または記録領域が変わる交換時間 $\tau_{\rm exch}$ に対して $T/\tau_{\rm exch}\ll1$ のときに限る。
-
-さらに、作用収束定理は一般の弱開放ミクロモデルを直接扱わず、線形化後の Gauss 型経路法則を対象とする。従って本章では、次の3層を混同しない。
-
-1. 有限 Hamiltonian 部分を持つ弱開放な現行モデル。
-2. 1試行内で用いる閉鎖有限系の補助モデル。
-3. 第4章の証明に用いる線形 Gauss 型確率表示。
-
-閉鎖補助モデルの位相空間を $\mathbb{R}^{2M}$、正準座標を $Z=(Q,P)$ とし、
+を要求し、有限部分を近似閉鎖系として扱う。一方、試行間の準備時間 $T_{\rm prep}$ では
 
 ```math
-H_N(Z)=\frac12 Z^{\mathsf T}G_N Z,
-\qquad
-G_N=G_N^{\mathsf T}>0
+\gamma_\perp T_{\rm prep}
+\gtrsim1
 ```
 
-を考える。運動方程式は
+を許し、欠陥除去と再帰抑制を利用する。
+
+同じ結合を測定中だけ人工的に切るのではなく、常時存在する弱結合を異なる時間窓で異なる次数として扱う。測定窓と準備窓の両方を満たすには
 
 ```math
-\dot Z=JG_NZ,
-\qquad
-Z(t)=e^{tJG_N}Z(0)
+T_{\rm meas}
+\ll
+\gamma_\perp^{-1}
+\lesssim
+T_{\rm prep}
 ```
 
-である。$G_N$ が運動量に関して偶であれば、標準時間反転 $\Theta(Q,P)=(Q,-P)$ に対して
+という時間尺度分離が必要である。
 
-```math
-\Theta e^{tJG_N}\Theta=e^{-tJG_N}
-```
+## 2.8 本章の結論
 
-が成立する。従って全微視軌道は時間反転対称であり、Liouville 体積を保存する。
+粒子と構造化誘導場の直接結合を $B$ で明示し、暗モードを直接駆動しない条件を $P_{\rm D}B=0$ とした。静的な明・暗分解は厳密な正準変換であるが、$K_N$ の内部結合による間接伝播は残る。
 
-正準変換で正規モードへ移れば、安定な部分は
-
-```math
-H_N
-=
-\sum_{n=1}^{N}
-\frac12
-\left(
-P_n^2+\omega_n^2Q_n^2
-\right)
-```
-
-の形にできる。初期正準変数が中心 Gauss 分布を持つなら、任意の線形観測量
-
-```math
-X_N(t)=L e^{tJG_N}Z(0)+\mu_N(t)
-```
-
-は有限次元 Gauss 型過程である。従って、閉鎖調和補助モデルの線形観測座標は、平均と2時刻共分散だけで完全に記述できる。
-
-## 2.2 反作用を含む標準的な調和浴
-
-粒子座標 $q$ と調和浴を明示する代表例は
-
-```math
-H_{\rm core}
-=
-\frac{p^2}{2m}+V(q)
-+
-\sum_{n=1}^{N}
-\left[
-\frac{P_n^2}{2m_n}
-+
-\frac{m_n\omega_n^2}{2}
-\left(
-Q_n-\frac{c_nq}{m_n\omega_n^2}
-\right)^2
-\right]
-```
-
-である [12--14]。平方完成された結合は反作用と周波数補正を同時に含む。浴変数を厳密に消去すると、粒子は有限記憶核を持つ一般化 Langevin 方程式に従う。
-
-```math
-m\ddot q(t)
-+V'(q(t))
-+\int_0^t\Gamma_N(t-s)\dot q(s)\,\mathrm{d} s
-=
-\xi_N(t)+F_{\rm slip}(t).
-```
-
-ここで
-
-```math
-\Gamma_N(t)
-=
-\sum_{n=1}^{N}
-\frac{c_n^2}{m_n\omega_n^2}
-\cos\omega_nt
-```
-
-であり、$\xi_N$ は浴初期座標の線形結合である。浴初期分布が Gauss 分布なら $\xi_N$ も有限 Gauss 型過程になる。有限 $N$ では記憶核も雑音も再帰的であり、白色雑音や散逸は閉鎖補助モデルの基本法則ではない。
-
-本論文の $C^1$ 定理は、この一般化 Langevin 方程式を任意の非線形 $V$ について直接扱うものではない。調和領域または線形化領域で観測される Gauss 型経路法則を、次節の有限 Fourier 表示で計算する。従って、閉鎖調和系は微視的な可逆性を検査する補助モデル、線形 Gauss 型表示は観測法則を計算する補助モデルである。
-
-弱開放な現行モデルからこの表示へ進むには、少なくとも弱結合、線形化、外部相関時間と観測時間の分離を要する。この縮約の一様誤差評価は本論文では完了していない。
-
-## 2.3 完全な有限 Fourier 浴
-
-時間区間を $[0,T]$、$\omega_n=2\pi n/T$ とする。独立な標準 Gauss 型ベクトル $Z_0,A_n,B_n\in\mathbb{R}^d$ を用いて
-
-```math
-\widetilde\eta_N(t)
-=
-\sqrt{\frac{2\nu}{T}}Z_0
-+
-\sqrt{\frac{4\nu}{T}}
-\sum_{n=1}^{N}
-\left[
-A_n\cos\omega_nt
-+B_n\sin\omega_nt
-\right]
-```
-
-と定義する。この過程は調和正規モードの初期振幅を読み出すことで実現できる。零周波数 $Z_0$ は保存された正準運動量または自由モードに対応する。
-
-共分散は
-
-```math
-\mathbb{E}\left[
-\widetilde\eta_N^i(t)
-\widetilde\eta_N^j(s)
-\right]
-=
-2\nu\,\delta^{ij}\delta_{T,N}(t-s),
-```
-
-```math
-\delta_{T,N}(\tau)
-=
-\frac1T
-+
-\frac2T
-\sum_{n=1}^{N}\cos\omega_n\tau
-```
-
-である。$\delta_{T,N}$ は周期 Dirichlet 核であり、滑らかな試験関数に対して周期デルタ分布へ収束する。
-
-零周波数を最初から除いた
-
-```math
-2\nu
-\left[
-\delta_{T,N}(t-s)-\frac1T
-\right]
-```
-
-を普遍的な浴共分散とみなしてはならない。これは全ての線形系に共通な浴ではなく、自由増分の全期間積分を零にする条件を課したときに現れる特殊な条件付き共分散である。一般の線形な流れでは、終端条件による共分散修正は流れと観測行列に依存する Schur 補完になる。
-
-## 2.4 証明用の線形 Gauss 型確率表示
-
-実際の証明では、観測座標の確率法則を
-
-```math
-\dot X_N(t)
-=
-F_\theta(t)X_N(t)
-+f_\theta(t)
-+\widetilde\eta_N(t),
-\qquad
-X_N(0)\sim N(m_{0,\theta},P_{0,\theta})
-```
-
-で表す。$\theta$ は質量、周波数、外力、終端記録などをまとめた有限次元パラメータである。$F_\theta$ と $f_\theta$ は時間について十分滑らかとする。
-
-基本行列 $\Phi_\theta(t,s)$ を
-
-```math
-\partial_t\Phi_\theta(t,s)
-=
-F_\theta(t)\Phi_\theta(t,s),
-\qquad
-\Phi_\theta(s,s)=I
-```
-
-で定めると、
-
-```math
-X_N(t)
-=
-\Phi_\theta(t,0)X_N(0)
-+\int_0^t
-\Phi_\theta(t,s)
-\left[
-f_\theta(s)+\widetilde\eta_N(s)
-\right]
-\,\mathrm{d} s
-```
-
-である。従って $X_N$ は有限個の Gauss 変数の線形像であり、平均 $\mu_N$ と共分散 $C_N$ を有限和として厳密に計算できる。
-
-この方程式は、有限 $N$ の平均と共分散を計算するための補助的な確率表示である。$\widetilde\eta_N$ 自体は有限 Hamiltonian 正規モードの初期振幅から作れるが、任意の時間依存係数 $F_\theta(t)$、$f_\theta(t)$ を含む上式全体が、1つの有限自律 Hamiltonian の観測座標として実現されることまでは示さない。
-
-従って、第4章の定理が直接扱うのはこの線形 Gauss 型確率表示のクラスである。特定の有限 Hamiltonian モデルと平均・共分散が一致する場合には同じ作用計算を移せるが、一般の時間依存線形系に対する Hamiltonian 埋め込みを定理の結論へ含めない。この区別により、「有限 Hamiltonian 部分を持つ現行モデル」と「証明用確率表示の Hamiltonian 実現」を混同しない。
-
-## 2.5 極限拡散
-
-$N\to\infty$ で積分雑音
-
-```math
-W_N(t)=\int_0^t\widetilde\eta_N(s)\,\mathrm{d} s
-```
-
-は、有限次元分布で共分散 $2\nu\min(s,t)$ を持つ Wiener 増分へ近づく。本論文の作用とパラメータ第1微分は2時刻の平均・共分散だけで評価するため、一般の経路空間位相における弱収束は主定理の仮定にも結論にも用いない。対応する線形拡散表示は
-
-```math
-\,\mathrm{d} X(t)
-=
-\left[
-F_\theta(t)X(t)+f_\theta(t)
-\right]\,\mathrm{d} t
-+\sqrt{2\nu}\,\,\mathrm{d} W_t
-```
-
-である。有限 $N$ の各経路は微分可能であるが、極限経路は微分不可能である。粗視化作用に現れる発散は、この正則性の変化に由来する。
-
-## 2.6 本章の結論
-
-現行モデルは、有限 Hamiltonian 部分を持つ弱開放系である。閉鎖調和系は1試行内の可逆性、正準構造、再帰を検査する補助モデルであり、第4章の証明にはさらに線形 Gauss 型確率表示を用いる。
-
-厳密に確立したのは、補助表示内部の平均、共分散、有限 Fourier 近似である。弱開放ミクロモデルから一般の線形表示を導くこと、白色雑音近似と Markov 近似の誤差を現行モデルの尺度で閉じることは未解決である。終端条件は浴そのものではなく Gauss 型条件づけとして導入する。次章では、その数学的条件づけと、物理的試行測度の選択を分けて記述する。第II部の構造化浴と境界作用殻は別の補助構成であり、本章の線形表示から導かない。
+位相整合射影は Hamiltonian の固定構造から事前に定める。外部への選択的な弱漏れは欠陥除去と再帰抑制の候補だが、その指数減衰には外部スペクトルと短記憶近似が必要であり、Fisher 応力または作用殻等方性の導出ではない。

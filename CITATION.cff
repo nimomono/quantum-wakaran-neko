@@ -1,9 +1,9 @@
 cff-version: 1.2.0
 message: "この成果を利用する場合は、次の情報で引用すること。"
-title: "構造化有限浴を持つ弱開放古典Hamiltonian系におけるNelson作用極限と境界作用殻測度の下でのBell型統計"
+title: "構造化誘導場を持つ弱開放古典Hamiltonian系の二側縮約：Fisher応力と境界作用殻Bell型統計"
 type: manuscript
 authors:
   - name: "nimomono"
-version: "draft-12"
+version: "draft-13"
 date-released: 2026-08-01
 repository-code: "https://github.com/nimomono/quantum-wakaran-neko"
