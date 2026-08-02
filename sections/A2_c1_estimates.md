@@ -1,215 +1,350 @@
-@number: B
+@number: A2
 @chapter: 付録
-@title: 粗視化作用の <i>C</i><sup>1</sup> 評価
-@status: 補助的な線形 Gauss 型表示について、時間粗視化誤差と Fourier 切断誤差を分離し、厳密な主定理を補足する。
+@title: 一般作用殻、coarea、入口流束の詳細
+@status: 第4章と第6章で用いる作用殻容量、排他的入口面、coarea Jacobian、作用分配次元、殻接方向混合を補足する。
 
-## B.0 作用とパラメータ族
+## B.1 単体積分
 
-コンパクトな有限次元パラメータ集合を $K$ とする。$F_\theta,f_\theta,m_{0,\theta},P_{0,\theta},H_\theta,y_\theta,R_\theta$ は $\theta\in K$ について $C^2$ で一様有界、$P_{0,\theta}\geq p_*I>0$、$R_\theta\geq r_*I>0$ とする。外部ポテンシャルは
+作用殻容量を
 
 ```math
-U_\theta(x,t)
+\Omega_n(A)
 =
-\frac12x^{\mathsf T}K_\theta(t)x
-+
-\ell_\theta(t)^{\mathsf T}x
-+
-c_\theta(t)
-```
-
-とする。
-
-有限分解能で条件づけた付録Aの経路法則に対し、繰り込み済み粗視化作用を
-
-```math
-\mathcal A_{N,h}^{R,U}(\theta)
-=
-\mathbb E_{N,\theta}^{R}
-\int_0^{T-h}
-\left[
-\frac m{2h^2}
-|X_N(t+h)-X_N(t)|^2
--
-\frac{md\nu}{h}
--
-U_\theta(X_N(t),t)
-\right]
-\,\mathrm dt
-```
-
-と定義する。極限の Guerra--Morato 作用を
-
-```math
-\mathcal A_{\rm GM}^{R,U}(\theta)
-=
-\int_0^T\int_{\mathbb R^d}
-\rho_\theta^R
-\left[
-\frac m2|b_{+,\theta}^R|^2
-+
-m\nu\nabla\cdot b_{+,\theta}^R
--
-U_\theta
-\right]
-\,\mathrm dx\,\mathrm dt
-```
-
-とする。$C^1(K)$ は作用値と $\theta$ に関する全ての第1偏微分の一様ノルムを表す。
-
-## B.1 Gauss 型増分の正確な表示
-
-条件付き Gauss 型過程の増分 $\Delta_hX(t)=X(t+h)-X(t)$ に対して
-
-```math
-\mathbb{E}^R|\Delta_hX(t)|^2
-=
-|\mu^R(t+h)-\mu^R(t)|^2
-+\operatorname{tr}\left[
-C^R(t+h,t+h)+C^R(t,t)-2C^R(t+h,t)
-\right]
-```
-
-が厳密に成立する。従って粗視化作用の運動項は、条件付き平均と共分散だけで計算できる。
-
-有限 $N$ でも同じ式が成立する。$C_N^R-C^R=O(1/N)$ なので、増分2乗の有限モード誤差は粗い評価で $O(1/N)$、$h^{-2}$ を掛けた作用誤差は $O(1/(Nh^2))$ となる。
-
-## B.2 時間対角の展開
-
-極限拡散について、$X_t=x$ を固定した短時間増分は
-
-```math
-\Delta_hX
-=
-b_+^R(x,t)h
-+\sqrt{2\nu}\Delta_hW
-+O_{L^2}(h^{3/2})
-```
-
-である。流れの空間依存と雑音の相関による交差項まで含めて平均すると
-
-```math
-\mathbb{E}^R
-\left[
-|\Delta_hX|^2\mid X_t=x
-\right]
-=
-2d\nu h
-+h^2
-\left[
-|b_+^R(x,t)|^2
-+2\nu\nabla\cdot b_+^R(x,t)
-\right]
-+O(h^3).
-```
-
-線形流れでは3階剰余を平均・微分した量も一様に有界である。$m/(2h^2)$ を掛けると
-
-```math
-\frac m{2h^2}\mathbb{E}^R|\Delta_hX|^2
--\frac{md\nu}{h}
-=
-\mathbb{E}^R
-\left[
-\frac m2|b_+^R|^2
-+m\nu\nabla\cdot b_+^R
-\right]
-+O(h).
-```
-
-積分上端を $T-h$ で止めたことによる欠落も $O(h)$ である。
-
-## B.3 なぜ発散項が残るか
-
-雑音の主要項 $2d\nu h$ だけを差し引いても、流れと短時間雑音の交差効果は $h^2$ の有限項として残る。それが
-
-```math
-m\nu\nabla\cdot b_+^R
-```
-
-である。この項を落とすと、極限は正しい Guerra--Morato 作用にならず、Nelson 表示の負の Fisher 項も得られない。
-
-## B.4 Fourier 切断誤差
-
-付録Aの評価から
-
-```math
-\|C_N^R-C^R\|_{C^1(K;C([0,T]^2))}
-\leq
-\frac{C_KT^2}{N}
-```
-
-である。増分共分散は4つの共分散値の線形結合なので、
-
-```math
-\left|
-\mathbb{E}_N^R|\Delta_hX_N|^2
--
-\mathbb{E}^R|\Delta_hX|^2
-\right|_{C^1(K)}
-\leq
-\frac{C_KT^2}{N}.
-```
-
-従って運動項の差は
-
-```math
-\frac{C_KT^2}{Nh^2}
-```
-
-で抑えられる。この評価は最適とは限らないが、$N(h/T)^2\to\infty$ という単純な対角極限を与える。
-
-## B.5 2次ポテンシャル
-
-$U(x,t)=x^{\mathsf T}K(t)x/2+\ell(t)^{\mathsf T}x+c(t)$ なら
-
-```math
-\mathbb{E}^R[U(X_t,t)]
-=
-\frac12\mu^R(t)^{\mathsf T}K(t)\mu^R(t)
-+\frac12\operatorname{tr}[K(t)C^R(t,t)]
-+\ell(t)^{\mathsf T}\mu^R(t)
-+c(t).
-```
-
-従ってポテンシャル期待値とそのパラメータ第1微分は、$\mu_N^R$ と $C_N^R$ の $O(1/N)$ 収束から直接従う。これは運動項の $O(1/(Nh^2))$ より小さく、主定理の右辺へ吸収できる。
-
-一般の滑らかな非2次ポテンシャルでは、Gauss 型モーメント展開または一様可積分性を用いて同様の結果を拡張できる可能性がある。しかし第1微分には解写像の応答と $\nabla U$ の積が現れるため、本論文では証明が閉じる2次範囲に限定する。
-
-## B.6 パラメータ第1微分
-
-作用を $\theta_j$ で微分すると、平均、共分散、条件付き Schur 項、ポテンシャル係数の微分が現れる。基本行列の微分公式と $R\geq r_*I$ により、全ての係数は $K$ 上で一様有界である。
-
-時間対角展開を微分した剰余も $O(h)$、Fourier 尾部を微分した誤差も $O(T^2/(Nh^2))$ である。有限個の $\theta_j$ について最大を取れば
-
-```math
-\|\mathcal A_{N,h}^{R,U}-\mathcal A_{\mathrm{GM}}^{R,U}\|_{C^1(K)}
-\leq
-C_K
+(2\pi)^n
+\int_{J_k\geq0}
+\delta
 \left(
-\frac hT+\frac{T^2}{Nh^2}
+A-\sum_{k=1}^nJ_k
 \right)
+\prod_{k=1}^n dJ_k
 ```
 
-を得る。
-
-## B.7 対角尺度の選択
-
-$h/T=N^{-\alpha}$ と置くと、2つの誤差は
+とする。$n=1$ では
 
 ```math
-N^{-\alpha},
-\qquad
-N^{2\alpha-1}
+\Omega_1(A)
+=
+2\pi.
 ```
 
-である。両者を同じ次数にするには $\alpha=1/3$ とすればよい。従って
+再帰関係
 
 ```math
-h_N=TN^{-1/3},
-\qquad
-\varepsilon_N=O(N^{-1/3})
+\Omega_n(A)
+=
+2\pi
+\int_0^A
+\Omega_{n-1}(A-J_n)
+\,dJ_n
 ```
 
-となる。ここで $\varepsilon_N$ は全評価誤差を表す。
+を用いると、
 
-この選択は、粗視化窓を短くしすぎると未解像の Fourier 尾部が増幅され、長くしすぎると局所 Nelson 作用から外れる、という物理的な釣り合いを表す。
+```math
+\Omega_n(A)
+=
+\frac{(2\pi)^n}{(n-1)!}
+A^{n-1}
+```
+
+が帰納的に従う。
+
+## B.2 排他的な和と直積の違い
+
+位置チャンネルを排他的な和
+
+```math
+\Gamma_\partial
+=
+\bigsqcup_i
+\Gamma_{\partial,i}
+```
+
+とすれば、全入口流束は
+
+```math
+\mathscr F
+=
+\sum_i\mathscr F_i
+```
+
+であり、各 $\mathscr F_i$ に局所作用 $A_i$ の線形因子が残る。
+
+一方、全セルに独立な2モード作用殻を同時に課す直積構成では、容量は
+
+```math
+\prod_i\Omega_2(A_i)
+\propto
+\prod_iA_i
+```
+
+となる。1つのチャンネル $i$ を選ぶ相対重みではなく、全セル作用の積が現れる。この構成は位置の Born 型入口頻度を与えない。
+
+## B.3 coarea公式
+
+全入口正準位相空間を $\Gamma$、基準体積を $d\Gamma$ とする。固定作用制約と反応面制約を
+
+```math
+F_1(z)
+=
+A_i-K_i-I,
+```
+
+```math
+F_2(z)
+=
+s_i(z)
+```
+
+とする。正方向流束は記号的に
+
+```math
+\mathscr F_i
+=
+\int_\Gamma
+\rho_0(z)
+\delta(F_1)
+\delta(F_2)
+\left(
+\dot s_i
+\right)_+
+d\Gamma.
+```
+
+一般の滑らかな写像 $F=(F_1,F_2)$ に対し、coarea公式は
+
+```math
+\int_\Gamma
+g(z)
+\delta(F(z))
+d\Gamma
+=
+\int_{F^{-1}(0)}
+\frac{g(z)}{J_F(z)}
+d\Sigma(z),
+```
+
+```math
+J_F
+=
+\sqrt{
+\det
+\left[
+DF
+\left(
+DF
+\right)^{\mathsf T}
+\right]
+}.
+```
+
+従って共通流束因子には、$\dot s_i$ だけでなく $J_F^{-1}$、初期密度、解多重度、spectator体積が含まれる。
+
+## B.4 2モード殻の明示積分
+
+理想作用角座標では、
+
+```math
+\int_0^\infty dK
+\int_0^\infty dI
+\,
+\delta(A-K-I)
+=
+\int_0^A dK
+=
+A.
+```
+
+角積分を加えると、
+
+```math
+\Omega_2(A)
+=
+(2\pi)^2A.
+```
+
+入口法線速度と spectator因子が作用分配座標 $(K,I)$ に依存しない理想模型では、流束はこの容量に比例する。
+
+## B.5 有限入口幅
+
+デルタ関数の代わりに偶関数窓
+
+```math
+K_{\delta_A}(y)
+=
+\frac1{\delta_A}
+K
+\left(
+\frac y{\delta_A}
+\right),
+```
+
+```math
+\int K(y)\,dy=1,
+\qquad
+\int yK(y)\,dy=0
+```
+
+を用いる。理想2モード容量は $A$ に線形なので、窓が $A=0$ の端へ触れず、他の因子が一定なら、対称な有限幅平均は線形重みを変えない。
+
+一般の滑らかな流束因子 $g(A)$ を含むと、
+
+```math
+\mathscr F_i^{(\delta_A)}
+=
+\mathscr F_i^{(0)}
++
+O
+\left(
+\delta_A^2
+\sup
+\left|
+\partial_A^2
+\left[
+Ag(A)
+\right]
+\right|
+\right).
+```
+
+殻端の切断、非対称窓、結果依存幅では1次誤差が現れ得る。
+
+## B.6 作用分配方向の数
+
+活性モード $K$ と $q$ 個の明反応作用 $I_1,\ldots,I_q$ が
+
+```math
+K+\sum_{\alpha=1}^qI_\alpha
+=
+A
+```
+
+を分配すると、
+
+```math
+\int_{K,I_\alpha\geq0}
+\delta
+\left(
+A-K-\sum_\alpha I_\alpha
+\right)
+dK
+\prod_\alpha dI_\alpha
+=
+\frac{A^q}{q!}.
+```
+
+従って線形則には $q=1$ が必要である。$q>1$ の追加明モードを導入しながら線形 Born 型重みを保つには、それらを直接作用分配から外し、共通 spectator因子にしなければならない。
+
+## B.7 殻接方向 Hamiltonian
+
+$n$モード複素ベクトル $a$ と Hermitian 行列 $T_\alpha$ に対し、
+
+```math
+L_\alpha
+=
+a^\dagger T_\alpha a
+```
+
+を生成子とする。Poisson 括弧を
+
+```math
+\left\{
+a_j,a_k^*
+\right\}
+=
+-i\delta_{jk}
+```
+
+とすれば、
+
+```math
+\dot a
+=
+-iT_\alpha a,
+```
+
+```math
+\left\{
+a^\dagger a,
+L_\alpha
+\right\}
+=
+0.
+```
+
+従って
+
+```math
+H_{\rm mix}
+=
+\varepsilon
+\sum_\alpha
+\xi_\alpha(z_{\rm D})
+L_\alpha
+```
+
+は総作用殻に接する Hamiltonian 混合を与える。
+
+暗モードの相関が短く、生成子方向が等方なら、弱結合縮約は概念的に
+
+```math
+\mathcal L_{\rm eff}
+=
+D
+\sum_\alpha
+X_{L_\alpha}^2
+```
+
+となる。2モード全殻では $U(2)$、3モード全殻では $U(3)$ の Casimir型拡散に対応する。有限暗モードからこの生成子を一様誤差付きで導くことは未完成である。
+
+## B.8 Born側とBell側の対応
+
+| 用途 | 全殻 | 比較する量 | 線形因子 |
+|---|---|---|---|
+| Born 型位置入口 | 活性＋共有明反応座標の2モード殻 | チャンネルごとの全殻容量 | $A_i$ |
+| Bell 型共同統計 | $J_+,J_s,J_r$ の3モード殻 | 固定 $J_+$ 後の残余ファイバー | $C_0-J_+$ |
+
+両者は一般作用殻式の同じ指数則を使う。違いは、Born 側が2モード全殻をチャンネル間で比較し、Bell 側が3モード全殻の異なる切断を結果間で比較する点にある。
+
+## B.9 流束規格化と全試行監査
+
+入口確率を
+
+```math
+P_i
+=
+\frac{\mathscr F_i}{\sum_j\mathscr F_j}
+```
+
+と定義するには、分母が全開始試行の入口通過を数えなければならない。次を監査する。
+
+1. 各開始試行は高々1つの排他的入口面を正方向に横切る。
+2. 入口へ到達しない試行を無言で除外しない。
+3. 複数回交差を1試行としてどう数えるかを固定する。
+4. 結果別に異なる停止時間または滞在時間を頻度へ重複計上しない。
+5. 記録失敗、再埋め込み失敗、再初期化失敗を結果依存に捨てない。
+
+これらを満たさなければ、作用殻体積が正しくても実験の無条件頻度にはならない。
+
+## B.10 再埋め込み写像に必要な保存量
+
+標本化後の状態を $z_{\rm post}$、次試行の準備面を $\Gamma_{\rm prep}$ とする。理想的な再埋め込み写像
+
+```math
+\mathcal U_{\rm reset}:
+z_{\rm post}
+\longmapsto
+z_{\rm next}\in\Gamma_{\rm prep}
+```
+
+は、拡大全系で正準かつ1対1でなければならない。結果情報を消去する場合、その情報とエントロピーは仕事源または外部自由度へ移す必要がある [17,18]。
+
+有限装置部分だけで
+
+```math
+z_{\rm post}
+\longmapsto
+z_{\rm ref}
+```
+
+という多対1写像を置くことは Hamiltonian ではない。記録、garbage、外部仕事自由度を含む拡大全系で可逆に実装し、有限部分の復元だけを縮約として得る必要がある。

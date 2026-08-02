@@ -26,8 +26,8 @@ THEOREM_LABELS = {
 }
 
 PART_TITLES = {
-    2: "第I部　運動量結合した構造化誘導場の配置拡散縮約",
-    5: "第II部　同じ物理構成の境界作用殻縮約と Bell 型統計",
+    2: "第I部　位相接続と Nelson--Madelung 縮約",
+    5: "第II部　配置拡散経路と境界作用殻統計",
 }
 
 REFERENCE_KEYS = {
@@ -282,9 +282,9 @@ def pandoc_markdown() -> str:
 
     for number in range(1, 9):
         if number == 2:
-            chunks.append(r"\part{運動量結合した構造化誘導場の配置拡散縮約}")
+            chunks.append(r"\part{位相接続と Nelson--Madelung 縮約}")
         if number == 5:
-            chunks.append(r"\part{同じ物理構成の境界作用殻縮約と Bell 型統計}")
+            chunks.append(r"\part{配置拡散経路と境界作用殻統計}")
         path = next(SECTIONS.glob(f"{number:02d}_*.md"))
         meta, lines = parse_source(path)
         chunks.append("# " + meta["title"])
