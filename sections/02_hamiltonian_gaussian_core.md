@@ -1,304 +1,468 @@
 @number: 2
 @chapter: 本文
-@title: 運動量結合した粒子、構造化誘導場、外部流路
-@status: 粒子と有限誘導場の運動量2次形式、正定値条件、時間反転対称性、Hamilton 方程式は厳密結果である。配置速度揺らぎの短記憶極限と選択的な欠陥減衰は近似候補である。
+@title: 有限2成分誘導場と位相接続 Hamiltonian
+@status: 有限セルの正準変換、内部回転対称性、保存位相作用、固定作用下の局所作用分配、粒子運動量消去は厳密結果である。coherent多様体の準備と連続極限は未完成である。
 
-## 2.1 運動量結合した有限誘導場
+## 2.1 有限セルから始める理由
 
-粒子座標を $X\in\mathbb R^d$、その正準運動量を $P\in\mathbb R^d$ とする。有限誘導場は $M_N$ 個の実正準対
+有限モード切断した場では、振幅 $r(x)$、位相 $\theta(x)$、局所作用 $j(x)$ は任意の独立関数ではない。切断された場多様体上の従属変数である。そこで、最初に有限個のセルを持つ正準系を定義し、連続表示はその後の近似として扱う。
+
+セル $i=1,\ldots,L$ に2成分正準対
 
 ```math
-(Q,\Pi)
-\in
-\mathbb R^{M_N}\times\mathbb R^{M_N}
+\boldsymbol\Phi_i
+=
+\begin{pmatrix}
+\Phi_{1,i}\\
+\Phi_{2,i}
+\end{pmatrix},
+\qquad
+\boldsymbol\Pi_i
+=
+\begin{pmatrix}
+\Pi_{1,i}\\
+\Pi_{2,i}
+\end{pmatrix}
 ```
 
-で表す。$M_N=M_N^{\mathsf T}>0$ を場の質量行列、$K_N=K_N^{\mathsf T}>0$ を場の剛性行列、$C_N\in\mathbb R^{d\times M_N}$ を固定した運動量結合行列とする。有限部分の中心 Hamiltonian を
+を置く。Poisson 括弧は
 
 ```math
-H_N^{\rm fin}
+\left\{
+\Phi_{\alpha,i},
+\Pi_{\beta,j}
+\right\}
 =
-\frac12
+\delta_{\alpha\beta}\delta_{ij}.
+```
+
+$r_i>0$ の領域で
+
+```math
+\boldsymbol\Phi_i
+=
+r_i
 \begin{pmatrix}
-P\\
-\Pi
-\end{pmatrix}^{\mathsf T}
-\begin{pmatrix}
-m^{-1}I_d & C_N\\
-C_N^{\mathsf T} & M_N^{-1}
+\cos\theta_i\\
+\sin\theta_i
 \end{pmatrix}
+```
+
+と書き、
+
+```math
+p_{r,i}
+=
+\boldsymbol\Pi_i\cdot
+\frac{\boldsymbol\Phi_i}{r_i},
+```
+
+```math
+j_i
+=
+\Phi_{1,i}\Pi_{2,i}
+-
+\Phi_{2,i}\Pi_{1,i}
+```
+
+と定める。
+
+<!-- theorem-start:proposition -->
+**命題（有限セル極座標の正準1形式）**
+$r_i>0$ の各セルで、
+
+```math
+\boldsymbol\Pi_i\cdot d\boldsymbol\Phi_i
+=
+p_{r,i}\,dr_i
++
+j_i\,d\theta_i
+```
+
+が成立する。従って $(r_i,p_{r,i})$ と $(\theta_i,j_i)$ は正準対である。
+<!-- theorem-end:proposition -->
+
+<!-- theorem-start:proof -->
+**証明**
+単位ベクトル
+
+```math
+e_{r,i}
+=
 \begin{pmatrix}
-P\\
-\Pi
+\cos\theta_i\\
+\sin\theta_i
+\end{pmatrix},
+\qquad
+e_{\theta,i}
+=
+\begin{pmatrix}
+-\sin\theta_i\\
+\cos\theta_i
 \end{pmatrix}
+```
+
+を用いると、
+
+```math
+d\boldsymbol\Phi_i
+=
+e_{r,i}\,dr_i
++
+r_ie_{\theta,i}\,d\theta_i.
+```
+
+$p_{r,i}=\boldsymbol\Pi_i\cdot e_{r,i}$ と $j_i=r_i\boldsymbol\Pi_i\cdot e_{\theta,i}$ を代入すればよい。
+<!-- theorem-end:proof -->
+
+## 2.2 場 Hamiltonian と規格化
+
+セル体積を $\Delta V$ とし、場強度を
+
+```math
+\mathcal N_\Phi
+=
+\sum_i r_i^2\Delta V
+```
+
+とする。理想縮約では $\mathcal N_\Phi=1$ を用いる。有限装置では、規格化逸脱を
+
+```math
+H_{\rm norm}
+=
+\frac{\lambda_{\rm norm}}{2}
+\left(
+\mathcal N_\Phi-1
+\right)^2
+```
+
+でエネルギー的に抑えることができる。ただし $H_{\rm norm}$ は規格化を厳密に保存する制約ではない。厳密な固定規格化sectorを使うか、$\lambda_{\rm norm}$ が大きい観測窓で
+
+```math
+\left|
+\mathcal N_\Phi-1
+\right|
+\ll1
+```
+
+を誤差として管理する。
+
+回転不変な場 Hamiltonian の代表形を
+
+```math
+H_{\rm phase}
+=
+\sum_i
+\left[
+\frac{p_{r,i}^2}{2M_r}
++
+\frac{j_i^2}{2Ir_i^2}
++
+U(r_i)
+\right]
+\Delta V
++
+H_{\rm grad}
++
+H_{\rm norm}
+```
+
+とする。$H_{\rm grad}$ はセル差分に対して内部 $SO(2)$ 回転不変とし、連続極限で少なくとも
+
+```math
+H_{\rm grad}
+\longrightarrow
+\int
+\left[
+\kappa|\nabla r|^2
++
+\kappa_\theta r^2|\nabla\theta|^2
+\right]
+\,dx
+```
+
+を含み得る。本論文の Nelson--Madelung 縮約では、振幅勾配係数 $\kappa$ を保持し、位相勾配の運動エネルギーは粒子流速側へ整理する。二重計数を避ける係数条件は第3章で明記する。
+
+## 2.3 内部回転対称性と保存作用
+
+全セルを共通角 $\alpha$ だけ回す変換を
+
+```math
+\boldsymbol\Phi_i
+\longmapsto
+R(\alpha)\boldsymbol\Phi_i,
+\qquad
+\boldsymbol\Pi_i
+\longmapsto
+R(\alpha)\boldsymbol\Pi_i
+```
+
+とする。生成子は
+
+```math
+\mathcal J_\phi
+=
+\sum_i j_i\Delta V.
+```
+
+場 Hamiltonian、粒子との結合、外部結合がこの共通回転に不変なら、
+
+```math
+\left\{
+\mathcal J_\phi,
+H_{\rm all}
+\right\}
+=
+0.
+```
+
+局所位相勾配があると各 $j_i$ はセル間を流れるため、個別には保存されない。保存されるのは全位相作用 $\mathcal J_\phi$ である。
+
+## 2.4 固定作用下の局所作用分配
+
+規格化 $\mathcal N_\Phi=1$ と全作用 $\mathcal J_\phi$ を固定する。回転エネルギーは
+
+```math
+E_{\rm rot}
+=
+\sum_i
+\frac{j_i^2}{2Ir_i^2}
+\Delta V.
+```
+
+<!-- theorem-start:theorem -->
+**定理（固定作用下の局所作用分配）**
+$r_i>0$、$\sum_i r_i^2\Delta V=1$、$\sum_i j_i\Delta V=\mathcal J_\phi$ の下で、
+
+```math
+E_{\rm rot}
+=
+\frac{\mathcal J_\phi^2}{2I}
++
+\sum_i
+\frac{
+\left(
+j_i-\mathcal J_\phi r_i^2
+\right)^2
+}{
+2Ir_i^2
+}
+\Delta V.
+```
+
+従って固定 $(r_i)$ に対する一意な最小配置は
+
+```math
+j_i
+=
+\mathcal J_\phi r_i^2
+```
+
+である。
+<!-- theorem-end:theorem -->
+
+<!-- theorem-start:proof -->
+**証明**
+右辺の平方項を展開すると、
+
+```math
+\sum_i
+\frac{j_i^2}{2Ir_i^2}\Delta V
+-
+\frac{\mathcal J_\phi}{I}
+\sum_i j_i\Delta V
++
+\frac{\mathcal J_\phi^2}{2I}
+\sum_i r_i^2\Delta V
++
+\frac{\mathcal J_\phi^2}{2I}.
+```
+
+2つの制約を代入すると、最後の3項は相殺して $E_{\rm rot}$ が残る。平方項は非負であり、全て零のときだけ最小になる。
+<!-- theorem-end:proof -->
+
+この定理はエネルギー地形を定める。閉鎖 Hamiltonian 流が最小配置へ収束することは示さない。境界準備で最小配置を選ぶか、弱開放縮約でずれ
+
+```math
+\varepsilon_j
+=
+\left\|
+j-\mathcal J_\phi r^2
+\right\|
+```
+
+を小さく保つ必要がある。弱い漏れは準備済み配置の安定化候補であり、coherent配置の生成機構としては使わない。
+
+## 2.5 位相接続
+
+連続補間した2成分場に対し、
+
+```math
+\mathbf a_\varepsilon
+=
+\frac{
+\Phi_1\nabla\Phi_2
+-
+\Phi_2\nabla\Phi_1
+}{
+|\boldsymbol\Phi|^2+\varepsilon^2
+}
+```
+
+と定める。極座標では
+
+```math
+\mathbf a_\varepsilon
+=
+\frac{r^2}{r^2+\varepsilon^2}
+\nabla\theta.
+```
+
+$r>0$ かつ $\varepsilon\to0$ の領域では $\mathbf a_\varepsilon\to\nabla\theta$ である。$r=0$ の節では位相が定義できず、正則化誤差を別に管理する。
+
+粒子の正準対を $(X,P)$ とし、
+
+```math
+H_{\rm p}
+=
+\frac{
+\left|
+P-\mathcal J_\phi\mathbf a_\varepsilon(X)
+\right|^2
+}{
+2m
+}
 +
 V(X)
-+
-\frac12Q^{\mathsf T}K_NQ
-+
-H_N^{\rm nl}
 ```
 
-とする。$H_N^{\rm nl}$ は必要に応じて加える弱い内部非線形項である。中心変更は、粒子と場の直接結合を座標の積でなく
+とする。$\mathcal J_\phi$ は外から置く固定定数ではなく、場の共通内部回転の保存生成子である。固定 $\mathcal J_\phi$ sectorへ制限すると、有効結合定数として働く。
 
-```math
-P^{\mathsf T}C_N\Pi
-```
+## 2.6 粒子運動量の消去
 
-という運動量の積にしたことである。これにより、場は粒子へ直接の乱雑力を加えるのでなく、粒子の配置速度へ直接入る。
-
-## 2.2 正定値条件
-
-運動量2次形式が下に有界である条件を明示する。粒子側のブロック $m^{-1}I_d$ は正定値なので、Schur 補完により必要十分条件は
-
-```math
-M_N^{-1}
--
-mC_N^{\mathsf T}C_N
->
-0
-```
-
-である。同じことは平方完成
-
-```math
-\frac{|P|^2}{2m}
-+
-P^{\mathsf T}C_N\Pi
-+
-\frac12\Pi^{\mathsf T}M_N^{-1}\Pi
-=
-\frac1{2m}
-\left|P+mC_N\Pi\right|^2
-+
-\frac12\Pi^{\mathsf T}
-\left(
-M_N^{-1}-mC_N^{\mathsf T}C_N
-\right)
-\Pi
-```
-
-からも分かる。従って結合強度は任意に大きくできない。本論文ではこの正定値条件を有限モデルの成立条件とする。
-
-## 2.3 Hamilton 方程式と配置速度
-
-$H_N^{\rm nl}=0$ の線形核では、Hamilton 方程式は
+Hamilton 方程式から
 
 ```math
 \dot X
 =
-\frac Pm
-+
-C_N\Pi,
-\qquad
-\dot P
-=
--\nabla V(X),
+\frac{
+P-\mathcal J_\phi\mathbf a_\varepsilon(X)
+}{
+m
+}
 ```
 
-```math
-\dot Q
-=
-M_N^{-1}\Pi
-+
-C_N^{\mathsf T}P,
-\qquad
-\dot\Pi
-=
--K_NQ
-```
-
-となる。場が配置速度へ加える成分を
+なので、
 
 ```math
-Y_N
-=
-C_N\Pi
-```
-
-と書く。この記号は第3章以降で固定する。
-
-$P$ は正準運動量であり、機械的運動量 $m\dot X$ とは一致しない。
-
-```math
-m\dot X
-=
 P
+=
+m\dot X
 +
-mY_N
+\mathcal J_\phi\mathbf a_\varepsilon(X).
 ```
 
-である。この区別を失うと、配置流束と運動量流束を取り違える。特に、配置密度の連続の式へ入る速度は $P/m$ だけでなく $Y_N$ を含む。
+<!-- theorem-start:proposition -->
+**命題（位相接続 Lagrangian）**
+粒子正準運動量を消去すると、
 
-$H_N^{\rm nl}$ を残す場合は、$\dot X$ と $\dot Q$ にそれぞれ $\nabla_PH_N^{\rm nl}$ と $\nabla_\Pi H_N^{\rm nl}$、$\dot P$ と $\dot\Pi$ にそれぞれ $-\nabla_XH_N^{\rm nl}$ と $-\nabla_QH_N^{\rm nl}$ が加わる。本論文の正確な消去式は線形核について述べ、非線形項は混合と誤差の候補として分ける。
+```math
+L_{\rm p}
+=
+\frac m2|\dot X|^2
++
+\mathcal J_\phi
+\mathbf a_\varepsilon(X)\cdot\dot X
+-
+V(X)
+```
 
-## 2.4 時間反転対称性
+を得る。
+<!-- theorem-end:proposition -->
+
+<!-- theorem-start:proof -->
+**証明**
+$L_{\rm p}=P\cdot\dot X-H_{\rm p}$ へ上の $P$ を代入し、平方を整理する。
+<!-- theorem-end:proof -->
+
+節から離れた極限では接続項は
+
+```math
+\mathcal J_\phi
+\nabla\theta(X)\cdot\dot X.
+```
+
+粒子集団の密度 $\rho$ と平均流速 $v$ へ粗視化すると、
+
+```math
+\mathcal J_\phi
+\int
+\rho
+v\cdot\nabla\theta
+\,dx
+```
+
+となる。場の正準項と合わせた物質微分構造は第3章で導く。
+
+## 2.7 時間反転
 
 標準時間反転を
 
 ```math
-\mathcal T:
-(X,P,Q,\Pi,t)
-\longmapsto
-(X,-P,Q,-\Pi,-t)
+\mathsf T:
+\quad
+X\mapsto X,
+\quad
+P\mapsto-P,
+\quad
+\boldsymbol\Phi\mapsto\boldsymbol\Phi,
+\quad
+\boldsymbol\Pi\mapsto-\boldsymbol\Pi
 ```
 
-とする。運動量結合項は
+とする。このとき
 
 ```math
-(-P)^{\mathsf T}C_N(-\Pi)
-=
-P^{\mathsf T}C_N\Pi
-```
-
-なので時間反転で不変である。$H_N^{\rm nl}$ も全運動量の同時反転で偶関数なら、有限閉鎖核は時間反転対称である。
-
-この対称性は、二側境界条件を置くことと両立する。しかし、時間反転対称な Hamiltonian だけから二側 Markov 拡散、共通拡散係数、Nelson の時間対称 Newton 則が自動的に従うわけではない。
-
-## 2.5 静的な明・暗モード分解
-
-運動量結合が場へ直接入る方向は
-
-```math
-\mathcal B_{\rm mom}
-=
-\operatorname{Ran}C_N^{\mathsf T}
-```
-
-である。第II部で使う装置の座標結合方向も含めた固定明部分空間を $\mathcal B_{\rm B}$、その直交補空間を $\mathcal B_{\rm D}$ とし、射影を $P_{\rm B},P_{\rm D}$ と書く。Fisher 側の運動量結合が暗モードを直接駆動しない条件は
-
-```math
-P_{\rm D}C_N^{\mathsf T}
-=
-0
-```
-
-である。
-
-この条件は、$M_N^{-1}$ と $K_N$ が明・暗部分空間を保存することを意味しない。一般には
-
-```math
-P_{\rm D}K_NP_{\rm B}
-\neq
-0,
+\mathcal J_\phi\mapsto-\mathcal J_\phi,
 \qquad
-P_{\rm D}M_N^{-1}P_{\rm B}
-\neq
-0
+\mathbf a_\varepsilon\mapsto\mathbf a_\varepsilon.
 ```
 
-であり、内部発展による間接伝播が残る。この伝播は有限記憶、欠陥移送、Bell 側の局所セクター間交差応答の候補になる。
-
-$\mathcal B_{\rm B}$ と $\mathcal B_{\rm D}$ に適合した直交行列 $O_N$ を固定し、
+従って
 
 ```math
-\widetilde Q
-=
-O_NQ,
+P-\mathcal J_\phi\mathbf a_\varepsilon
+\mapsto
+-
+\left(
+P-\mathcal J_\phi\mathbf a_\varepsilon
+\right),
+```
+
+であり、$H_{\rm p}$ は不変である。固定符号の $\mathcal J_\phi$ sectorだけを取り出すと時間反転は反対sectorへ写す。全理論は両sectorを含めて時間反転対称である。
+
+## 2.8 coherent集中の意味
+
+連続場の2次モーメントが rank-one に近いことだけでは、非線形比
+
+```math
+\frac{
+\Phi_1\nabla\Phi_2-\Phi_2\nabla\Phi_1
+}{
+|\boldsymbol\Phi|^2+\varepsilon^2
+}
+```
+
+の標本平均を閉じられない。本論文でいう coherent集中は、規格化された各標本が共通の $(r,\theta)$ 近傍に集中し、接続、正準項、勾配エネルギーの非線形平均を同じ代表場で評価できることを含む。
+
+必要な誤差を
+
+```math
+\varepsilon_{\rm coh},
 \qquad
-\widetilde\Pi
-=
-O_N\Pi
-```
-
-と変換する。座標と共役運動量へ同じ直交行列を作用させるので、この変換は正準である。変換後の $O_NK_NO_N^{\mathsf T}$ と $O_NM_N^{-1}O_N^{\mathsf T}$ は一般にブロック対角ではない。静的な正準分類と動力学的な直和分離を混同しない。
-
-## 2.6 位相整合成分と欠陥成分
-
-長時間保つ位相整合成分と、外部へ移送する欠陥成分を分ける固定射影を
-
-```math
-P_{\rm c},
+\varepsilon_{\rm node},
 \qquad
-P_\perp
-=
-I-P_{\rm c}
+\varepsilon_{\rm radial}
 ```
 
-と書く。$P_{\rm c}$ は、$K_N$ と $M_N$ の固定スペクトル帯、$C_N^{\mathsf T}$ が生成する Krylov 部分空間、保存作用、装置構造から事前に定める。
-
-得られた配置密度、目標量子状態、または欲しい Fisher 項を見て射影を選んではならない。正準な射影を定めたことは、その欠陥成分だけが不可逆に減衰することも、配置空間の Markov 性も意味しない。
-
-## 2.7 外部流路を含む拡大全系
-
-外部自由度を $(Z_{\rm ext},\Pi_{\rm ext})$、仕事貯蔵自由度を $z_{\rm work}$ とし、
-
-```math
-H_N^{\rm all}
-=
-H_N^{\rm fin}
-+
-H_{\rm ext}
-+
-\varepsilon_{\rm ext}H_{\rm link}
-+
-H_{\rm work}
-+
-H_{\rm ctrl}
-```
-
-とする。$H_{\rm ctrl}$ は自律時計を含む設定変更、記録、再準備の有限相互作用をまとめた記号である。
-
-全 Hamiltonian に外からの陽な時間依存がなければ、拡大全エネルギーは保存される。有限部分だけを見た収支は
-
-```math
-\frac{\mathrm d}{\mathrm dt}H_N^{\rm fin}
-=
-\left\{
-H_N^{\rm fin},
-\varepsilon_{\rm ext}H_{\rm link}
-+
-H_{\rm ctrl}
-\right\}
-```
-
-となる。弱開放性は基礎方程式へ摩擦や白色雑音を直接追加することではなく、外部自由度を消去した後の有限部分の収支として現れる。
-
-## 2.8 選択的な弱漏れと時間窓
-
-欠陥成分へ強く、位相整合成分へ弱く結合する候補は、$P_\perp Q$、$P_\perp\Pi$ と外部自由度の結合として構成できる。外部相関時間が短く、対象周波数帯でスペクトル密度が滑らかなら、欠陥成分の有効減衰率を $\gamma_\perp$、整合成分の漏れ率を $\gamma_{\rm c}$ として
-
-```math
-\tau_{\rm corr}
-\ll
-\gamma_\perp^{-1}
-\ll
-\tau_{\rm coh},
-\qquad
-\gamma_{\rm c}
-\ll
-\gamma_\perp
-```
-
-を目標にできる。有限モデルから一様な指数減衰と流入補正を証明したわけではないため、これは近似候補である。
-
-観測窓 $T_{\rm obs}$ と有限浴の再帰時間 $T_{\rm rec}$ には
-
-```math
-\tau_{\rm corr}
-\ll
-T_{\rm obs}
-\ll
-T_{\rm rec}
-```
-
-を要求する。測定窓では外部交換を小さい補正として扱い、試行間の準備窓では欠陥除去と再帰抑制を利用する。
-
-## 2.9 弱漏れが担わない役割
-
-選択的な弱漏れが実現しても、次は自動的には従わない。
-
-1. $\int_0^tY_N(s)\,\mathrm ds$ が Brown 運動へ近づくこと。
-2. 反作用記憶項が局所ドリフトまたは制御可能な残差へ縮約されること。
-3. 配置変数 $X$ だけの射影が Markov 過程になること。
-4. 二側条件付け後の前後過程が同じ拡散係数を持つこと。
-5. Nelson の時間対称 Newton 則が成立すること。
-6. Bell 側の3モード作用殻が $U(3)$ 等方になること。
-
-弱漏れの主な役割は欠陥除去と再帰抑制である。配置拡散には多数モードの短記憶極限、Fisher 項には二側配置拡散の運動学、時間対称 Newton 則には独立した動力学的縮約、作用殻の方向準備には Hamiltonian な内部混合が必要である。
-
-## 2.10 本章の結論
-
-運動量結合 $P^{\mathsf T}C_N\Pi$ により、誘導場は粒子の配置速度へ $Y_N=C_N\Pi$ として直接入る。運動量2次形式の正定値条件、Hamilton 方程式、時間反転対称性、正準運動量と機械的運動量の差は有限モデル内部の厳密結果である。
-
-固定明部分空間は $\operatorname{Ran}C_N^{\mathsf T}$ と第II部の装置結合方向を含む。外部流路は欠陥除去と有限再帰の抑制に使うが、配置拡散、$X$ 射影の Markov 性、時間対称 Newton 則をそれだけで導くものではない。
+とし、それぞれ coherent集中、節正則化、動径断熱化からのずれを表す。これらを有限 Hamiltonian 時間発展から一様に小さくする定理は未完成である。

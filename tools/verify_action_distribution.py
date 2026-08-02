@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import json
 from dataclasses import asdict, dataclass
+from math import factorial
 
 import numpy as np
 
@@ -223,6 +224,359 @@ def main() -> None:
             "free_velocity_covariance_error",
             np.max(np.abs(covariance_direct - covariance_expected)),
             1.0e-12,
+        )
+    )
+
+    # Cellwise polar variables preserve the canonical one-form.
+    phase_count = 100_000
+    radius = 0.2 + rng.random(phase_count)
+    theta = rng.uniform(-np.pi, np.pi, phase_count)
+    radial_momentum = rng.normal(size=phase_count)
+    phase_action = rng.normal(size=phase_count)
+    radius_increment = rng.normal(size=phase_count)
+    theta_increment = rng.normal(size=phase_count)
+    e_r = np.column_stack([np.cos(theta), np.sin(theta)])
+    e_theta = np.column_stack([-np.sin(theta), np.cos(theta)])
+    field_momentum = (
+        radial_momentum[:, None] * e_r
+        + (phase_action / radius)[:, None] * e_theta
+    )
+    field_increment = (
+        radius_increment[:, None] * e_r
+        + (radius * theta_increment)[:, None] * e_theta
+    )
+    polar_one_form = (
+        radial_momentum * radius_increment
+        + phase_action * theta_increment
+    )
+    cartesian_one_form = np.sum(
+        field_momentum * field_increment,
+        axis=1,
+    )
+    checks.append(
+        record_max(
+            "phase_cell_canonical_one_form_error",
+            np.max(np.abs(polar_one_form - cartesian_one_form)),
+            5.0e-14,
+        )
+    )
+
+    # The fixed-total-action rotational energy has an exact square
+    # decomposition with minimizer j_i = J_phi r_i^2.
+    cell_count = 31
+    cell_volume = 1.0 / cell_count
+    radius_squared = 0.1 + rng.random(cell_count)
+    radius_squared /= np.sum(radius_squared) * cell_volume
+    local_action = rng.normal(size=cell_count)
+    total_phase_action = np.sum(local_action) * cell_volume
+    inertia = 1.4
+    rotational_energy = np.sum(
+        local_action**2 / (2.0 * inertia * radius_squared)
+    ) * cell_volume
+    decomposed_energy = (
+        total_phase_action**2 / (2.0 * inertia)
+        + np.sum(
+            (local_action - total_phase_action * radius_squared) ** 2
+            / (2.0 * inertia * radius_squared)
+        )
+        * cell_volume
+    )
+    checks.append(
+        record_max(
+            "fixed_action_rotational_decomposition_error",
+            abs(rotational_energy - decomposed_energy),
+            1.0e-12,
+        )
+    )
+    minimizing_action = total_phase_action * radius_squared
+    minimizing_excess = (
+        np.sum(
+            (minimizing_action - total_phase_action * radius_squared) ** 2
+            / (2.0 * inertia * radius_squared)
+        )
+        * cell_volume
+    )
+    checks.append(
+        record_max(
+            "fixed_action_minimizer_excess",
+            minimizing_excess,
+            1.0e-14,
+        )
+    )
+
+    # The phase-connection kinetic energy is time-reversal invariant when
+    # both particle momentum and the dynamical phase action reverse.
+    connection_count = 100_000
+    connection_dimension = 3
+    connection_mass = 1.9
+    particle_p = rng.normal(
+        size=(connection_count, connection_dimension)
+    )
+    connection = rng.normal(
+        size=(connection_count, connection_dimension)
+    )
+    phase_sector = rng.normal(size=connection_count)
+    forward_connection_energy = np.sum(
+        (
+            particle_p
+            - phase_sector[:, None] * connection
+        ) ** 2,
+        axis=1,
+    ) / (2.0 * connection_mass)
+    reversed_connection_energy = np.sum(
+        (
+            -particle_p
+            - (-phase_sector)[:, None] * connection
+        ) ** 2,
+        axis=1,
+    ) / (2.0 * connection_mass)
+    checks.append(
+        record_max(
+            "phase_connection_time_reversal_error",
+            np.max(
+                np.abs(
+                    forward_connection_energy
+                    - reversed_connection_energy
+                )
+            ),
+            1.0e-14,
+        )
+    )
+
+    # Eliminating canonical particle momentum gives the positive
+    # connection term in the Lagrangian.
+    velocity = rng.normal(
+        size=(connection_count, connection_dimension)
+    )
+    potential = rng.normal(size=connection_count)
+    canonical_particle_p = (
+        connection_mass * velocity
+        + phase_sector[:, None] * connection
+    )
+    hamiltonian_particle = (
+        np.sum(
+            (
+                canonical_particle_p
+                - phase_sector[:, None] * connection
+            ) ** 2,
+            axis=1,
+        )
+        / (2.0 * connection_mass)
+        + potential
+    )
+    legendre_direct = (
+        np.sum(canonical_particle_p * velocity, axis=1)
+        - hamiltonian_particle
+    )
+    legendre_expected = (
+        0.5
+        * connection_mass
+        * np.sum(velocity**2, axis=1)
+        + phase_sector
+        * np.sum(connection * velocity, axis=1)
+        - potential
+    )
+    checks.append(
+        record_max(
+            "phase_connection_legendre_error",
+            np.max(np.abs(legendre_direct - legendre_expected)),
+            1.0e-12,
+        )
+    )
+
+    # Numerically integrate the recurrence for the general action-shell
+    # volume and compare it with (2 pi)^n A^(n-1)/(n-1)!.
+    shell_test_action = 1.7
+    shell_volume_error = 0.0
+    for mode_count in range(2, 6):
+        grid = np.linspace(0.0, shell_test_action, 200_001)
+        previous = (
+            (2.0 * np.pi) ** (mode_count - 1)
+            * (shell_test_action - grid) ** (mode_count - 2)
+            / factorial(mode_count - 2)
+        )
+        recurrence_value = 2.0 * np.pi * np.trapezoid(
+            previous,
+            grid,
+        )
+        analytic_value = (
+            (2.0 * np.pi) ** mode_count
+            * shell_test_action ** (mode_count - 1)
+            / factorial(mode_count - 1)
+        )
+        shell_volume_error = max(
+            shell_volume_error,
+            abs(recurrence_value - analytic_value)
+            / analytic_value,
+        )
+    checks.append(
+        record_max(
+            "general_action_shell_volume_relative_error",
+            shell_volume_error,
+            1.0e-9,
+        )
+    )
+
+    # A common flux factor on exclusive two-mode shells reproduces the
+    # normalized cell intensity.
+    entrance_cells = 23
+    entrance_volume = 1.0 / entrance_cells
+    entrance_density = 0.1 + rng.random(entrance_cells)
+    entrance_density /= (
+        np.sum(entrance_density) * entrance_volume
+    )
+    total_entrance_action = 3.2
+    local_entrance_action = (
+        total_entrance_action
+        * entrance_density
+        * entrance_volume
+    )
+    common_flux_factor = 0.73
+    entrance_flux = (
+        common_flux_factor
+        * (2.0 * np.pi) ** 2
+        * local_entrance_action
+    )
+    entrance_probability = entrance_flux / entrance_flux.sum()
+    entrance_expected = entrance_density * entrance_volume
+    checks.append(
+        record_max(
+            "born_entry_flux_weight_error",
+            np.max(
+                np.abs(
+                    entrance_probability
+                    - entrance_expected
+                )
+            ),
+            1.0e-14,
+        )
+    )
+
+    # q directly acting reaction directions change the shell capacity to
+    # A^q, so only q=1 gives a linear Born-type rule.
+    rigidity_actions = np.linspace(0.2, 2.0, 17)
+    rigidity_error = 0.0
+    for direct_directions in range(1, 5):
+        capacity = (
+            rigidity_actions**direct_directions
+            / factorial(direct_directions)
+        )
+        recovered = (
+            capacity
+            * factorial(direct_directions)
+            / rigidity_actions**direct_directions
+        )
+        rigidity_error = max(
+            rigidity_error,
+            float(np.max(np.abs(recovered - 1.0))),
+        )
+    checks.append(
+        record_max(
+            "action_distribution_dimension_power_error",
+            rigidity_error,
+            1.0e-14,
+        )
+    )
+
+    # Hermitian shell-tangent mixing preserves the two-mode total action.
+    mixing_count = 100_000
+    mixing_state = (
+        rng.normal(size=(mixing_count, 2))
+        + 1j * rng.normal(size=(mixing_count, 2))
+    )
+    hermitian_seed = (
+        rng.normal(size=(2, 2))
+        + 1j * rng.normal(size=(2, 2))
+    )
+    hermitian_generator = (
+        hermitian_seed + hermitian_seed.conj().T
+    ) / 2.0
+    mixing_velocity = -1j * (
+        mixing_state @ hermitian_generator.T
+    )
+    action_derivative = 2.0 * np.real(
+        np.sum(
+            np.conj(mixing_state) * mixing_velocity,
+            axis=1,
+        )
+    )
+    checks.append(
+        record_max(
+            "u2_shell_tangent_action_derivative",
+            np.max(np.abs(action_derivative)),
+            1.0e-13,
+        )
+    )
+
+    # Field phase continuity and particle continuity preserve the
+    # synchronization difference on the ideal coherent manifold.
+    synchronization_count = 100_000
+    phase_current_divergence = rng.normal(
+        size=synchronization_count
+    )
+    nonzero_phase_action = 1.6
+    density_derivative = -phase_current_divergence
+    local_action_derivative = (
+        -nonzero_phase_action * phase_current_divergence
+    )
+    field_density_derivative = (
+        local_action_derivative / nonzero_phase_action
+    )
+    checks.append(
+        record_max(
+            "density_synchronization_derivative_error",
+            np.max(
+                np.abs(
+                    field_density_derivative
+                    - density_derivative
+                )
+            ),
+            1.0e-14,
+        )
+    )
+
+    # The phase-action coefficient and the bath diffusion coefficient agree
+    # exactly when |J_phi| = 2 m nu.
+    coefficient_mass = 2.3
+    coefficient_phase_action = -1.4
+    coefficient_nu = (
+        abs(coefficient_phase_action)
+        / (2.0 * coefficient_mass)
+    )
+    phase_gradient_coefficient = (
+        coefficient_phase_action**2
+        / (2.0 * coefficient_mass)
+    )
+    fisher_gradient_coefficient = (
+        2.0
+        * coefficient_mass
+        * coefficient_nu**2
+    )
+    checks.append(
+        record_max(
+            "phase_bath_coefficient_match_error",
+            abs(
+                phase_gradient_coefficient
+                - fisher_gradient_coefficient
+            ),
+            1.0e-14,
+        )
+    )
+
+    # A single-valued two-component field gives integer circulation.
+    winding_numbers = np.arange(-7, 8)
+    circulation = -2.0 * np.pi * (
+        coefficient_phase_action * winding_numbers
+    )
+    recovered_winding = (
+        -circulation
+        / (2.0 * np.pi * coefficient_phase_action)
+    )
+    checks.append(
+        record_max(
+            "phase_winding_circulation_error",
+            np.max(np.abs(recovered_winding - winding_numbers)),
+            1.0e-14,
         )
     )
 

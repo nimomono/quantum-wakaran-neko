@@ -1,480 +1,500 @@
 @number: 3
 @chapter: 本文
-@title: 配置流束、誘導場の正確な消去、速度記憶核
-@status: 運動量結合した有限誘導場について、正確な配置流束、速度モーメント式、自由速度揺らぎと反作用記憶項の分離を導く。Brown 極限と配置変数だけの Markov 性は近似または予想・未解決である。
+@title: 縮約多様体と Nelson--Madelung 作用
+@status: coherent縮約多様体に制限した作用、変分、Schrödinger 型方程式、同期差保存は厳密結果である。多様体の生成、安定化、微視的停留点選択は未完成である。
 
-## 3.1 拡大全系の Liouville 密度
+## 3.1 縮約条件
 
-外部自由度と仕事貯蔵自由度まで含む全位相点を $Z$ とし、全 Liouville 密度を $\varrho_N(Z,t)$ と書く。正規化は
+第2章の有限セル系から連続表示へ進むため、次の条件を分けて置く。
+
+1. **coherent集中**：非線形接続と正準項を共通の代表場 $(r,\theta)$ で評価できる。
+2. **固定作用sector**：全位相作用 $\mathcal J_\phi\neq0$ を固定する。
+3. **局所作用分配**：
+
+```math
+j
+=
+\mathcal J_\phi r^2
++
+O(\varepsilon_j).
+```
+
+4. **密度同期**：
+
+```math
+r^2
+=
+\rho
++
+O(\varepsilon_\rho).
+```
+
+5. **接続極限**：節から離れた領域で
+
+```math
+\mathbf a_\varepsilon
+=
+\nabla\theta
++
+O(\varepsilon_{\rm node}).
+```
+
+6. **単流束化**：条件付き速度分散による古典圧力を
+
+```math
+\varepsilon_{\rm press}
+```
+
+で抑える。
+7. **動径断熱化**：$p_r^2/(2M_r)$ と高速振幅モードの作用寄与を
+
+```math
+\varepsilon_{\rm radial}
+```
+
+で抑える。
+8. **位相勾配の非重複**：粒子流速へ入れた位相運動エネルギーと、場側の $r^2|\nabla\theta|^2$ を二重に数えない。
+
+これらは縮約多様体の定義と誤差条件である。有限 Hamiltonian 時間発展が一般の初期状態からこの多様体へ吸引するとは仮定しない。
+
+## 3.2 物質微分結合
+
+場の正準1形式は連続表示で
 
 ```math
 \int
-\varrho_N(Z,t)
-\,\mathrm dZ
-=
-1
-```
-
-である。第2章の全 Hamiltonian に対して
-
-```math
-\partial_t\varrho_N
+\left(
+p_r\partial_tr
 +
-\left\{
-\varrho_N,
-H_N^{\rm all}
-\right\}
-=
-0
+j\partial_t\theta
+\right)
+\,dx.
 ```
 
-が成立する。有限部分を弱開放系として扱う場合も、外部変数まで含む拡大全系では Hamiltonian 流れと Liouville 体積保存を保つ。
-
-## 3.2 配置密度と正確な配置流束
-
-粒子の配置密度を
+局所作用分配を用いると、位相部分は
 
 ```math
-\rho_N(x,t)
-=
+\mathcal J_\phi
 \int
-\varrho_N(Z,t)
-\,\mathrm dZ_{\widehat X}
+r^2\partial_t\theta
+\,dx.
 ```
 
-とする。$\mathrm dZ_{\widehat X}$ は $X$ 以外の全変数についての積分を表す。$X=x$ を固定した条件付き平均を $\mathbb E_N[\cdot\mid X=x]$ と書く。
-
-線形核におけるミクロな配置速度を
+粒子の位相接続項は
 
 ```math
-U_N
-=
-\dot X
-=
-\frac Pm
-+
-Y_N,
-\qquad
-Y_N
-=
-C_N\Pi
+\mathcal J_\phi
+\int
+\rho
+v\cdot\nabla\theta
+\,dx.
 ```
 
-と定める。配置流の平均速度は
+密度同期 $r^2=\rho$ の理想極限では、両者の和は
 
 ```math
-v_N(x,t)
-=
-\mathbb E_N
-\left[
-U_N
-\mid
-X=x
-\right]
-```
-
-である。従って、旧位置結合モデルで用いた $\mathbb E_N[P\mid X=x]/m$ をそのまま配置速度と呼ぶことはできない。
-
-## 3.3 0次モーメント
-
-Liouville 方程式を $X$ 以外の全変数について積分し、境界項が消える減衰条件、周期境界、または無流束境界を仮定すると、
-
-<!-- theorem-start:proposition -->
-**命題（正確な配置連続の式）**
-
-```math
-\partial_t\rho_N
-+
-\nabla_x\cdot
+\mathcal J_\phi
+\int
+\rho
 \left(
-\rho_Nv_N
-\right)
-=
-0,
-```
-
-```math
-v_N
-=
-\mathbb E_N
-\left[
-\frac Pm
+\partial_t\theta
 +
-C_N\Pi
-\mathrel{\big|}
-X=x
-\right]
-```
-
-が成立する。
-
-<!-- theorem-end:proposition -->
-
-これは閉鎖近似を含まない。運動量結合による場の揺らぎは、力のモーメント式を経由せず、配置流束へ直接現れる。
-
-## 3.4 正準運動量と配置速度の1次モーメント
-
-$H_N^{\rm nl}=0$ とし、外部結合が粒子座標と正準運動量へ直接作用しない窓を考える。正準運動量は
-
-```math
-\dot P
-=
--\nabla V(X)
-```
-
-に従う。Liouville 方程式へ $P_i$ を掛けて積分すると、
-
-```math
-\partial_t
-\left(
-\rho_N\overline P_{N,i}
+v\cdot\nabla\theta
 \right)
+\,dx.
+```
+
+従って、位相は粒子流に沿う物質微分として作用へ入る。
+
+Schrödinger 表示の位相を
+
+```math
+S
+=
+-\mathcal J_\phi\theta
+```
+
+と定める。すると上の項は
+
+```math
+-\int
+\rho
+\left(
+\partial_tS
 +
-\partial_{x_j}
-\left[
-\rho_N
-\mathbb E_N
-\left(
-P_iU_{N,j}
-\mid
-X=x
+v\cdot\nabla S
 \right)
-\right]
-=
--\rho_N\partial_{x_i}V
-```
-
-を得る。ここで $\overline P_N=\mathbb E_N[P\mid X=x]$ である。輸送速度が $P/m$ だけでないため、この式を旧稿の運動量 Euler 式へ変形してはならない。
-
-配置速度自体の時間微分は
-
-```math
-\dot U_N
-=
--\frac1m\nabla V(X)
--
-C_NK_NQ
-```
-
-である。条件付き配置速度共分散を
-
-```math
-\Sigma_{U,N}
-=
-\mathbb E_N
-\left[
-\left(
-U_N-v_N
-\right)
-\otimes
-\left(
-U_N-v_N
-\right)
-\mathrel{\big|}
-X=x
-\right]
-```
-
-とすると、同じ操作から
-
-<!-- theorem-start:proposition -->
-**命題（正確な配置速度収支）**
-
-```math
-m\rho_N
-\left(
-\partial_t
-+
-v_N\cdot\nabla
-\right)
-v_N
-=
--\rho_N\nabla V
--
-m\rho_N
-\mathbb E_N
-\left[
-C_NK_NQ
-\mid
-X=x
-\right]
--
-m\nabla\cdot
-\left(
-\rho_N\Sigma_{U,N}
-\right)
-```
-
-が成立する。
-
-<!-- theorem-end:proposition -->
-
-この有限 $N$ の恒等式は整合性検査には使えるが、本論文では右辺を Fisher 応力へ直接閉じる経路を中心課題にしない。白色極限では $U_N$ 自体が通常の有限分散速度として収束しないため、配置経路の2次変分を先に扱う必要がある。有限条件付き分散が余分な古典圧力として残らない条件は、独立した未解決問題である。
-
-## 3.5 質量規格化した線形誘導場
-
-正確な場消去を見通しよく書くため、正準な質量規格化により $M_N=I$ とした表示を用いる。規格化後の $K_N$ と $C_N$ に同じ記号を使い、
-
-```math
-\Omega_N
-=
-K_N^{1/2}
-```
-
-とする。場方程式は
-
-```math
-\dot Q
-=
-\Pi
-+
-C_N^{\mathsf T}P,
-\qquad
-\dot\Pi
-=
--K_NQ
-```
-
-であり、$\Pi$ だけの2階方程式は
-
-```math
-\ddot\Pi
-+
-K_N\Pi
-=
--K_NC_N^{\mathsf T}P
+\,dx
 ```
 
 となる。
 
-## 3.6 初期値問題での正確な消去
+## 3.3 縮約作用
 
-前節の2階方程式を初期値で解くと、
-
-<!-- theorem-start:proposition -->
-**命題（誘導場運動量の正確な初期値消去）**
+固定 $\mathcal J_\phi$ sectorで定数となる回転基底エネルギーを除き、動径慣性と交差誤差を無視した理想縮約作用を
 
 ```math
-\Pi(t)
-=
-\cos
-\left(
-\Omega_Nt
-\right)
-\Pi(0)
--
-\Omega_N
-\sin
-\left(
-\Omega_Nt
-\right)
-Q(0)
-```
-
-```math
-\quad
--
-\int_0^t
-\Omega_N
-\sin
+\mathcal A_{\rm red}
 \left[
-\Omega_N(t-s)
-\right]
-C_N^{\mathsf T}P(s)
-\,\mathrm ds.
-```
-
-<!-- theorem-end:proposition -->
-
-従って配置速度への場成分は
-
-```math
-Y_N(t)
-=
-Y_N^{\rm free}(t)
--
-\int_0^t
-\Gamma_N(t-s)P(s)
-\,\mathrm ds,
-```
-
-```math
-Y_N^{\rm free}(t)
-=
-C_N
-\cos
-\left(
-\Omega_Nt
-\right)
-\Pi(0)
--
-C_N\Omega_N
-\sin
-\left(
-\Omega_Nt
-\right)
-Q(0),
-```
-
-```math
-\Gamma_N(t)
-=
-C_N\Omega_N
-\sin
-\left(
-\Omega_Nt
-\right)
-C_N^{\mathsf T}
-```
-
-と分かれる。$Y_N^{\rm free}$ は初期場から来る自由速度揺らぎ、畳み込み項は粒子から場への反作用が戻る速度記憶項である。
-
-この分離により、自由浴を外から与えた雑音として扱う誤りを避けられる。配置拡散を導くには、自由成分の積分極限と反作用記憶項の縮約を別々に評価しなければならない。
-
-## 3.7 自由速度揺らぎの相関
-
-線形場の初期集団が中心化され、エネルギー尺度 $\Theta_N>0$ について
-
-```math
-\mathbb E_N
-\left[
-\Pi(0)\Pi(0)^{\mathsf T}
+\rho,v,S
 \right]
 =
-\Theta_NI,
+\int
+\left[
+\frac m2\rho|v|^2
+-
+\rho V
+-
+\rho
+\left(
+\partial_tS
++
+v\cdot\nabla S
+\right)
+-
+\kappa
+\left|
+\nabla\sqrt\rho
+\right|^2
+\right]
+\,dx\,dt
 ```
 
+とする。
+
+<!-- theorem-start:theorem -->
+**定理（縮約多様体上の作用一致）**
+第3.1節の理想縮約条件が成立し、
+
 ```math
-\mathbb E_N
-\left[
-Q(0)Q(0)^{\mathsf T}
-\right]
+\kappa
 =
-\Theta_NK_N^{-1},
+\frac{\mathcal J_\phi^2}{2m}
+```
+
+なら、$\mathcal A_{\rm red}$ は有効作用定数
+
+```math
+\hbar_{\rm eff}
+=
+|\mathcal J_\phi|
+```
+
+を持つ Nelson--Madelung 作用に一致する。
+<!-- theorem-end:theorem -->
+
+<!-- theorem-start:proof -->
+**証明**
+Nelson の浸透エネルギーは
+
+```math
+\frac m2
+\int
+\rho|u|^2
+\,dx,
 \qquad
-\mathbb E_N
+u
+=
+\nu\nabla\log\rho.
+```
+
+恒等式
+
+```math
+\rho
+\left|
+\nabla\log\rho
+\right|^2
+=
+4
+\left|
+\nabla\sqrt\rho
+\right|^2
+```
+
+より、
+
+```math
+\frac m2
+\int
+\rho|u|^2
+\,dx
+=
+2m\nu^2
+\int
+\left|
+\nabla\sqrt\rho
+\right|^2
+\,dx.
+```
+
+$|\mathcal J_\phi|=2m\nu$ を用いると $2m\nu^2=\mathcal J_\phi^2/(2m)=\kappa$ である。残りの項は現在速度形式の Nelson--Madelung 作用と一致する。
+<!-- theorem-end:proof -->
+
+この定理は作用を縮約多様体へ制限した後の一致を述べる。ミクロ運動がその制限作用の停留点を選ぶことや、実在的な Markov 経路を作ることは含まない。
+
+## 3.4 変分方程式
+
+$S$、$v$、$\rho$ を独立に変分し、境界変分を零とする。
+
+$S$ 変分から、
+
+```math
+\partial_t\rho
++
+\nabla\cdot(\rho v)
+=
+0.
+```
+
+$v$ 変分から、
+
+```math
+mv
+=
+\nabla S.
+```
+
+$\rho$ 変分から、
+
+```math
+\frac m2|v|^2
+-
+V
+-
+\partial_tS
+-
+v\cdot\nabla S
++
+\kappa
+\frac{\Delta\sqrt\rho}{\sqrt\rho}
+=
+0.
+```
+
+$mv=\nabla S$ を代入すると、
+
+```math
+\partial_tS
++
+\frac{|\nabla S|^2}{2m}
++
+V
+-
+\kappa
+\frac{\Delta\sqrt\rho}{\sqrt\rho}
+=
+0.
+```
+
+量子ポテンシャルに対応する項を
+
+```math
+Q[\rho]
+=
+-
+\frac{\mathcal J_\phi^2}{2m}
+\frac{\Delta\sqrt\rho}{\sqrt\rho}
+```
+
+と書ける。
+
+## 3.5 Schrödinger 型方程式
+
+節を避ける単連結領域で
+
+```math
+\psi
+=
+\sqrt\rho
+\exp
+\left(
+\frac{iS}{\hbar_{\rm eff}}
+\right),
+\qquad
+\hbar_{\rm eff}
+=
+|\mathcal J_\phi|
+```
+
+とする。連続の式と Hamilton--Jacobi 式は
+
+```math
+i\hbar_{\rm eff}
+\partial_t\psi
+=
 \left[
-Q(0)\Pi(0)^{\mathsf T}
+-
+\frac{\hbar_{\rm eff}^2}{2m}
+\Delta
++
+V
 \right]
+\psi
+```
+
+に等価である。
+
+活性場を
+
+```math
+\Psi_{\rm A}
+=
+re^{i\theta}
+```
+
+と書く。$S=-\mathcal J_\phi\theta$ なので、$\mathcal J_\phi>0$ sectorかつ $r^2=\rho$ では
+
+```math
+\psi
+=
+\Psi_{\rm A}^*.
+```
+
+活性場と Schrödinger 表示を同じ記号にしない。
+
+## 3.6 係数不一致
+
+場の振幅勾配係数が
+
+```math
+\kappa
+=
+\frac{\mathcal J_\phi^2}{2m}
++
+\delta\kappa
+```
+
+なら、Hamilton--Jacobi 式には
+
+```math
+-\delta\kappa
+\frac{\Delta\sqrt\rho}{\sqrt\rho}
+```
+
+が残る。$\hbar_{\rm eff}=|\mathcal J_\phi|$ で定義した $\psi$ に対して、これは標準 Schrödinger 方程式からの非線形残差になる。
+
+従って
+
+```math
+\varepsilon_\kappa
+=
+\frac{
+\left|
+\delta\kappa
+\right|
+}{
+\mathcal J_\phi^2/(2m)
+}
+```
+
+を独立に管理する。$\kappa=\mathcal J_\phi^2/(2m)$ は内部回転対称性だけから従う定理ではなく、ミクロ係数の整合条件である。
+
+## 3.7 密度同期差の保存
+
+密度同期を作用へ代入する前の位相部分を
+
+```math
+\mathcal A_\theta
+=
+\int
+\left[
+j\partial_t\theta
++
+\mathcal J_\phi
+\rho v\cdot\nabla\theta
+\right]
+\,dx\,dt
+```
+
+とする。残余の場エネルギーが共通位相 $\theta$ に依存しない理想縮約では、$\theta$ 変分から
+
+```math
+\partial_tj
++
+\mathcal J_\phi
+\nabla\cdot(\rho v)
 =
 0
 ```
 
-を満たすとする。このとき自由速度揺らぎの相関は厳密に
+を得る。
+
+<!-- theorem-start:proposition -->
+**命題（coherent多様体上の同期差保存）**
+$\mathcal J_\phi\neq0$、$j=\mathcal J_\phi r^2$、粒子密度が連続の式を満たすなら、
 
 ```math
-R_N(t-s)
+\partial_t
+\left(
+r^2-\rho
+\right)
 =
-\mathbb E_N
-\left[
-Y_N^{\rm free}(t)
-Y_N^{\rm free}(s)^{\mathsf T}
-\right]
+0.
+```
+<!-- theorem-end:proposition -->
+
+<!-- theorem-start:proof -->
+**証明**
+$j=\mathcal J_\phi r^2$ を位相保存式へ代入して $\mathcal J_\phi$ で割ると、
+
+```math
+\partial_tr^2
++
+\nabla\cdot(\rho v)
 =
-\Theta_NC_N
-\cos
-\left[
-\Omega_N(t-s)
-\right]
-C_N^{\mathsf T}
+0.
 ```
 
-となる。
+粒子の連続の式との差を取る。
+<!-- theorem-end:proof -->
 
-有限 $N$ では、これは余弦関数の有限和であり、厳密には減衰相関でも OU 相関でもない。長時間極限を固定した有限浴の強収束として扱うことはできない。多数モード、滑らかなスペクトル包絡、弱い外部交換を用い、
+これは同期差の中立的保存である。$r^2\neq\rho$ の状態を同期へ引き戻す復元力は含まない。入口で $r^2=\rho$ を作る作用殻流束を第4章で与える。
 
-```math
-\tau_{\rm corr}
-\ll
-T_{\rm obs}
-\ll
-T_{\rm rec}
-```
+## 3.8 循環量子化
 
-という再帰前の窓で粗視化する。
-
-## 3.8 配置変位の拡散極限
-
-自由速度揺らぎが作る配置変位を
+2成分場が閉曲線 $\gamma$ 上で非零かつ単価なら、位相写像の巻数 $n\in\mathbb Z$ により
 
 ```math
-\Xi_N(t)
+\oint_\gamma
+\nabla\theta\cdot d\ell
 =
-\int_0^t
-Y_N^{\rm free}(s)
-\,\mathrm ds
+2\pi n.
 ```
 
-とする。相関包絡が積分可能で、異方性が小さい場合の目標は
+従って
 
 ```math
-\Xi_N
-\Longrightarrow
-\sqrt{2\nu}\,W
-```
-
-という経路法則の収束である。等方拡散係数は、対応する連続スペクトル極限の相関 $R$ に対して
-
-```math
-\nu I_d
+\oint_\gamma
+\nabla S\cdot d\ell
 =
-\int_0^\infty
-R(s)
-\,\mathrm ds
-```
-
-で決まる。
-
-この Brown 極限は有限 Hamilton 方程式の厳密な等式ではない。多数モード極限、短記憶化、観測窓、初期集団、外部交換の順序を指定した近似結果として証明すべき対象である。
-
-さらに、全配置速度には反作用記憶項がある。これが質量繰り込み、局所ドリフト、または小さい残差へ縮約されなければ、上の自由成分だけの Brown 極限から粒子の有効過程は得られない。
-
-## 3.9 二側境界条件での消去
-
-$\Pi$ の2階作用素へ、初期側と終端側の線形境界条件を課す。境界値問題が一意可解なら、
-
-```math
-\Pi(t)
+-2\pi\mathcal J_\phi n
 =
-\Pi_{\rm bd}(t)
--
-\int_0^T
-\mathcal G_{\Pi,N}(t,s)
-K_NC_N^{\mathsf T}P(s)
-\,\mathrm ds
+2\pi\hbar_{\rm eff}N,
+\qquad
+N\in\mathbb Z.
 ```
 
-と書ける。$\Pi_{\rm bd}$ は非同次境界データだけで決まる解、$\mathcal G_{\Pi,N}$ は指定した境界条件に対応する Green 核である。
+最後の整数 $N$ は $-\operatorname{sgn}(\mathcal J_\phi)n$ である。
 
-境界条件が $\partial_t^2+K_N$ の自己共役領域を定めるなら、
+この命題は、単価な2成分場と非零経路を仮定した条件付き循環量子化である。次は未完成である。
 
-```math
-\mathcal G_{\Pi,N}(t,s)
-=
-\mathcal G_{\Pi,N}(s,t)^{\mathsf T}
-```
+- $r=0$ の節近傍における接続と $j^2/r^2$ の同時正則化。
+- 節の生成・消滅時における巻数変化。
+- 密度同期が節を含む領域で維持される条件。
+- 全ての物理的初期流れが単価な活性場から準備されること。
 
-となる。これは消去後の記憶作用が時間交換に対して対称になることを示す。しかし、自己共役性だけでは配置変数 $X$ の Markov 性も、Nelson の時間対称 Newton 則も導けない。
+従って位相量子化は部分達成であり、Wallstrom 問題への全面的回答ではない [19]。
 
-## 3.10 正確な結果と縮約課題
+## 3.9 作用一致と力学導出の境界
 
-| 主張 | 導出状態 |
-|---|---|
-| 全 Liouville 方程式 | 定義した拡大全 Hamiltonian に対する厳密結果 |
-| $U_N=P/m+C_N\Pi$ を含む配置連続の式 | 厳密結果 |
-| 正準運動量と配置速度の1次モーメント式 | 線形核内部の厳密結果 |
-| 誘導場運動量の初期値消去 | 指定初期値の下で厳密結果 |
-| 自由速度揺らぎと反作用記憶項の分離 | 線形核内部の厳密結果 |
-| 指定した Gauss 型初期集団での相関式 | 厳密結果 |
-| 二側 Green 消去と時間交換対称性 | 一意可解な自己共役境界条件の下で厳密結果 |
-| 自由配置変位の Brown 極限 | 近似結果として示すべき未完成課題 |
-| 反作用記憶項の局所化と誤差評価 | 予想・未解決 |
-| 配置変数だけの Markov 性 | 予想・未解決 |
-| 二側条件付け後の共通拡散係数 | 予想・未解決 |
-| 条件付き速度分散が余分な古典圧力を残さない条件 | 予想・未解決 |
+本章で厳密なのは、縮約条件を満たす多様体に制限した作用の代数、変分、局所 Schrödinger 表示、同期差保存、条件付き循環量子化である。
 
-## 3.11 本章の結論
+未解決なのは、
 
-運動量結合した誘導場では、配置流束は $P/m+C_N\Pi$ であり、場の揺らぎは粒子速度へ直接入る。線形誘導場の正確な消去により、自由速度揺らぎと反作用速度記憶項を分離した。
+1. 一般の有限 Hamiltonian 初期集団から coherent多様体を準備すること。
+2. 観測窓で $\varepsilon_{\rm coh}$、$\varepsilon_j$、$\varepsilon_\rho$、$\varepsilon_{\rm radial}$、$\varepsilon_{\rm press}$ を同時に小さくすること。
+3. ミクロ運動の粗視化が $\mathcal A_{\rm red}$ の停留点を選ぶこと。
+4. 実在的な前後 Markov 経路を同じ模型から得ること。
 
-この変更により、Fisher 項を有限 $N$ の力密度閉鎖から直接作る必要はなくなる。代わりに、自由配置変位の Brown 極限、反作用記憶の局所化、配置変数だけの Markov 性を示す必要がある。有限浴は厳密な OU 浴でないため、結果は再帰前の有限観測窓における制御された近似として扱う。
+第5章の運動量結合経路は4の候補を与えるが、本章の導出を置換しない。
