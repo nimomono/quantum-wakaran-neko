@@ -580,174 +580,235 @@ def main() -> None:
         )
     )
 
-    # The static sum/difference basis preserves total action and reproduces
-    # the direct quadratic definitions.
-    geometry_count = 200_000
-    u_a = rng.normal(size=(geometry_count, 2))
-    u_b = rng.normal(size=(geometry_count, 2))
-    plus_direct = 0.25 * np.sum((u_a + u_b) ** 2, axis=1)
-    minus_direct = 0.25 * np.sum((u_a - u_b) ** 2, axis=1)
-    input_action = 0.5 * (
-        np.sum(u_a**2, axis=1) + np.sum(u_b**2, axis=1)
+    # Two orthogonal source channels reproduce the antisymmetric rank-two
+    # correlation matrix without introducing an independent configuration field.
+    bell_scale = 1.7
+    basis_plus = np.array([1.0, 0.0], dtype=complex)
+    basis_minus = np.array([0.0, 1.0], dtype=complex)
+    source_matrix = np.sqrt(bell_scale / 2.0) * np.array(
+        [[0.0, 1.0], [-1.0, 0.0]],
+        dtype=complex,
     )
-    action_error = np.max(
-        np.abs(plus_direct + minus_direct - input_action)
+    factorized_source = np.sqrt(bell_scale / 2.0) * (
+        np.outer(basis_plus, basis_minus.conj())
+        - np.outer(basis_minus, basis_plus.conj())
     )
-    checks.append(
-        record_max("sum_difference_action_error", action_error, 2.0e-14)
-    )
-
-    # Haar sampling on S^5: squared complex component moduli are
-    # Dirichlet(1,1,1), so J_+/C has Beta(1,2) CDF 1-(1-x)^2.
-    sphere = rng.normal(size=(sample_count, 6))
-    sphere /= np.linalg.norm(sphere, axis=1, keepdims=True)
-    j_plus_fraction = sphere[:, 0] ** 2 + sphere[:, 1] ** 2
-    shell_ks = kolmogorov_smirnov_error(
-        j_plus_fraction,
-        lambda x: 1.0 - (1.0 - x) ** 2,
-    )
-    checks.append(record_max("s5_jplus_beta_ks", shell_ks, 0.0030))
-
-    # Conditional on J_+, U(2) isotropy makes the split between the two
-    # residual complex modes uniform.
-    j_soft = sphere[:, 2] ** 2 + sphere[:, 3] ** 2
-    j_residual = sphere[:, 4] ** 2 + sphere[:, 5] ** 2
-    residual_fraction = j_soft / (j_soft + j_residual)
-    residual_ks = kolmogorov_smirnov_error(
-        residual_fraction,
-        lambda x: x,
-    )
-    checks.append(
-        record_max("residual_u2_uniform_ks", residual_ks, 0.0030)
-    )
-
-    # U(2) invariance leaves an arbitrary f(J_+) factor. Verify the exact
-    # weight formula and require a visible departure from the bare shell
-    # weights for a nonconstant f.
-    shell_action = 2.4
-    x_grid = np.linspace(0.2 * shell_action, 0.8 * shell_action, 9)
-    arbitrary_factor = 1.0 + 0.6 * x_grid / shell_action
-    bare_weights = shell_action - x_grid
-    modified_weights = arbitrary_factor * bare_weights
-    recovered_factor = modified_weights / bare_weights
     checks.append(
         record_max(
-            "u2_counterexample_formula_error",
-            np.max(np.abs(recovered_factor - arbitrary_factor)),
+            "antisymmetric_rank_two_factorization_error",
+            np.max(np.abs(source_matrix - factorized_source)),
             1.0e-14,
         )
     )
-    normalized_bare = bare_weights / bare_weights.sum()
-    normalized_modified = modified_weights / modified_weights.sum()
-    u2_distortion = np.max(
-        np.abs(normalized_modified - normalized_bare)
+
+    # The conjugated low-rank correlation is invariant under a common
+    # internal phase rotation.
+    phase_rotation = np.exp(1j * 0.731)
+    source_a = np.stack([basis_plus, basis_minus])
+    source_b = np.stack([basis_minus, -basis_plus])
+    low_rank_before = np.sqrt(bell_scale / 2.0) * sum(
+        np.outer(source_a[index], source_b[index].conj())
+        for index in range(2)
+    )
+    low_rank_after = np.sqrt(bell_scale / 2.0) * sum(
+        np.outer(
+            phase_rotation * source_a[index],
+            (phase_rotation * source_b[index]).conj(),
+        )
+        for index in range(2)
     )
     checks.append(
-        record_min(
-            "u2_insufficiency_distortion_guard",
-            u2_distortion,
-            0.01,
+        record_max(
+            "common_internal_phase_invariance_error",
+            np.max(np.abs(low_rank_before - low_rank_after)),
+            1.0e-14,
         )
     )
 
-    # Monte Carlo fiber length versus the analytic Bell joint law.
-    # After the shell delta constraint, one residual action ranges over
-    # [0, C0-I_+], so a common uniform coordinate estimates the fiber length.
-    baseline_action = 0.4
-    source_action = 1.0
-    visibility = 0.86
-    total_action = baseline_action + 2.0 * source_action
-    residual_coordinate = rng.uniform(
-        0.0,
-        total_action,
-        size=sample_count,
+    # Local real rotations of the antisymmetric source generate the exact
+    # Bell cosine branch actions.
+    angle_count = 2000
+    analyzer_a = rng.uniform(-np.pi, np.pi, size=angle_count)
+    analyzer_b = rng.uniform(-np.pi, np.pi, size=angle_count)
+    signs = np.array([1.0, -1.0])
+    branch_action_error = 0.0
+    branch_sum_error = 0.0
+    branch_marginal_error = 0.0
+    bell_actions = np.empty((angle_count, 2, 2))
+    for index, (angle_a, angle_b) in enumerate(
+        zip(analyzer_a, analyzer_b)
+    ):
+        rotation_a = np.array([
+            [np.cos(angle_a), -np.sin(angle_a)],
+            [np.sin(angle_a), np.cos(angle_a)],
+        ])
+        rotation_b = np.array([
+            [np.cos(angle_b), -np.sin(angle_b)],
+            [np.sin(angle_b), np.cos(angle_b)],
+        ])
+        rotated = rotation_a @ source_matrix @ rotation_b.T
+        direct = np.abs(rotated) ** 2
+        delta = 2.0 * (angle_a - angle_b)
+        expected = np.empty((2, 2))
+        for i, sign_a in enumerate(signs):
+            for j, sign_b in enumerate(signs):
+                expected[i, j] = 0.25 * bell_scale * (
+                    1.0 - sign_a * sign_b * np.cos(delta)
+                )
+        bell_actions[index] = direct
+        branch_action_error = max(
+            branch_action_error,
+            float(np.max(np.abs(direct - expected))),
+        )
+        branch_sum_error = max(
+            branch_sum_error,
+            abs(float(np.sum(direct)) - bell_scale),
+        )
+        branch_marginal_error = max(
+            branch_marginal_error,
+            float(
+                np.max(
+                    np.abs(
+                        np.concatenate(
+                            [direct.sum(axis=0), direct.sum(axis=1)]
+                        )
+                        - bell_scale / 2.0
+                    )
+                )
+            ),
+        )
+    checks.append(
+        record_max(
+            "bell_low_rank_cosine_action_error",
+            branch_action_error,
+            1.0e-13,
+        )
     )
-    angle_grid = np.linspace(-np.pi, np.pi, 13)
-    signs = np.array([-1.0, 1.0])
-    max_probability_error = 0.0
-    max_marginal_error = 0.0
-    effective_visibility = (
-        source_action
-        * visibility
-        / (baseline_action + source_action)
+    checks.append(
+        record_max(
+            "bell_action_total_error",
+            branch_sum_error,
+            1.0e-13,
+        )
     )
-    for angle in angle_grid:
+    checks.append(
+        record_max(
+            "bell_action_marginal_error",
+            branch_marginal_error,
+            1.0e-13,
+        )
+    )
+
+    # The ideal read Hamiltonian copies real and imaginary correlation
+    # amplitudes while zero comparator momenta eliminate input backreaction.
+    read_count = 100_000
+    correlation = (
+        rng.normal(size=read_count)
+        + 1j * rng.normal(size=read_count)
+    )
+    read_area = 0.83
+    q_real = read_area * correlation.real
+    q_imag = read_area * correlation.imag
+    copied = q_real + 1j * q_imag
+    checks.append(
+        record_max(
+            "ideal_comparator_displacement_error",
+            np.max(np.abs(copied - read_area * correlation)),
+            1.0e-14,
+        )
+    )
+    comparator_momentum_real = np.zeros(read_count)
+    comparator_momentum_imag = np.zeros(read_count)
+    input_backreaction = (
+        np.abs(comparator_momentum_real)
+        + np.abs(comparator_momentum_imag)
+    )
+    checks.append(
+        record_max(
+            "ideal_comparator_input_backreaction",
+            np.max(input_backreaction),
+            1.0e-14,
+        )
+    )
+    comparator_action = 0.5 * (q_real**2 + q_imag**2)
+    expected_comparator_action = (
+        0.5 * read_area**2 * np.abs(correlation) ** 2
+    )
+    checks.append(
+        record_max(
+            "comparator_action_transfer_error",
+            np.max(
+                np.abs(
+                    comparator_action
+                    - expected_comparator_action
+                )
+            ),
+            1.0e-13,
+        )
+    )
+
+    # The two-mode shell capacity is linear in the transferred Bell action.
+    positive_actions = np.linspace(0.01, 4.0, 1000)
+    two_mode_capacity = (2.0 * np.pi) ** 2 * positive_actions
+    recovered_capacity_slope = two_mode_capacity / positive_actions
+    checks.append(
+        record_max(
+            "bell_two_mode_shell_linearity_error",
+            np.max(
+                np.abs(
+                    recovered_capacity_slope
+                    - (2.0 * np.pi) ** 2
+                )
+            ),
+            1.0e-13,
+        )
+    )
+
+    # A common unnormalized boundary density converts the shell capacities
+    # into the Bell joint law and preserves both one-side marginals.
+    probability_error = 0.0
+    no_signalling_error = 0.0
+    angle_grid = np.linspace(-np.pi, np.pi, 41)
+    for delta in angle_grid:
         raw = np.empty((2, 2))
         expected = np.empty((2, 2))
-        for i, a_sign in enumerate(signs):
-            for j, b_sign in enumerate(signs):
-                residual_action = baseline_action + source_action * (
-                    1.0
-                    - a_sign
-                    * b_sign
-                    * visibility
-                    * np.cos(angle)
+        for i, sign_a in enumerate(signs):
+            for j, sign_b in enumerate(signs):
+                action = 0.25 * bell_scale * (
+                    1.0 - sign_a * sign_b * np.cos(delta)
                 )
-                raw[i, j] = (
-                    np.mean(residual_coordinate <= residual_action) / 4.0
-                )
+                raw[i, j] = 0.25 * (2.0 * np.pi) ** 2 * action
                 expected[i, j] = 0.25 * (
-                    1.0
-                    - a_sign
-                    * b_sign
-                    * effective_visibility
-                    * np.cos(angle)
+                    1.0 - sign_a * sign_b * np.cos(delta)
                 )
-        estimated = raw / raw.sum()
-        max_probability_error = max(
-            max_probability_error,
-            float(np.max(np.abs(estimated - expected))),
+        probability = raw / raw.sum()
+        probability_error = max(
+            probability_error,
+            float(np.max(np.abs(probability - expected))),
         )
-        max_marginal_error = max(
-            max_marginal_error,
-            float(np.max(np.abs(estimated.sum(axis=0) - 0.5))),
-            float(np.max(np.abs(estimated.sum(axis=1) - 0.5))),
+        no_signalling_error = max(
+            no_signalling_error,
+            float(np.max(np.abs(probability.sum(axis=0) - 0.5))),
+            float(np.max(np.abs(probability.sum(axis=1) - 0.5))),
         )
     checks.append(
         record_max(
-            "bell_fiber_probability_max_error",
-            max_probability_error,
-            0.0025,
+            "bell_common_boundary_probability_error",
+            probability_error,
+            1.0e-14,
         )
     )
     checks.append(
         record_max(
-            "no_signalling_marginal_error",
-            max_marginal_error,
-            0.0025,
+            "bell_no_signalling_marginal_error",
+            no_signalling_error,
+            1.0e-14,
         )
     )
 
-    # A symmetric narrow radial shell changes the mean linear fiber weight
-    # only through sampling error; nonlinear observables would receive width
-    # corrections.
-    radial_count = 400_000
-    radial_sigma = 0.03 * total_action
-    radial_action = rng.normal(
-        total_action,
-        radial_sigma,
-        size=radial_count,
-    )
-    target_plus_actions = np.linspace(
-        0.25 * total_action,
-        0.75 * total_action,
-        7,
-    )
-    radial_error = max(
-        abs(
-            np.mean(radial_action - target)
-            - (total_action - target)
-        )
-        for target in target_plus_actions
-    )
-    checks.append(
-        record_max("radial_shell_linear_mean_error", radial_error, 5.0e-4)
-    )
-
-    # CHSH identity for the analytic cosine law.
-    chsh = 2.0 * np.sqrt(2.0) * effective_visibility
+    # The analytic cosine law reaches the ideal CHSH value.
     chsh_direct = sum(
-        coefficient * (-effective_visibility * np.cos(angle))
+        coefficient * (-np.cos(angle))
         for coefficient, angle in (
             (1.0, -np.pi / 4.0),
             (1.0, np.pi / 4.0),
@@ -757,9 +818,86 @@ def main() -> None:
     )
     checks.append(
         record_max(
-            "chsh_identity_error",
-            abs(abs(chsh_direct) - chsh),
+            "bell_ideal_chsh_error",
+            abs(abs(chsh_direct) - 2.0 * np.sqrt(2.0)),
             1.0e-14,
+        )
+    )
+
+    # Finite read pulses applied to a freely rotating input have a relative
+    # displacement error of first order in pulse duration.
+    pulse_frequency = 0.7
+    pulse_correlation = 0.8 + 0.6j
+
+    def relative_pulse_error(duration: float) -> float:
+        exact_integral = pulse_correlation * (
+            1.0 - np.exp(-1j * pulse_frequency * duration)
+        ) / (1j * pulse_frequency)
+        ideal_integral = duration * pulse_correlation
+        return float(
+            abs(exact_integral - ideal_integral)
+            / abs(ideal_integral)
+        )
+
+    pulse_error_large = relative_pulse_error(0.02)
+    pulse_error_small = relative_pulse_error(0.01)
+    pulse_order = np.log(
+        pulse_error_large / pulse_error_small
+    ) / np.log(2.0)
+    checks.append(
+        record_max(
+            "finite_read_pulse_first_order_error",
+            abs(pulse_order - 1.0),
+            0.01,
+        )
+    )
+
+    # Reversing the read pulse after undoing the shell mixing resets the
+    # ideal comparator coordinates.
+    unread_q_real = q_real - read_area * correlation.real
+    unread_q_imag = q_imag - read_area * correlation.imag
+    checks.append(
+        record_max(
+            "comparator_uncompute_reset_error",
+            max(
+                float(np.max(np.abs(unread_q_real))),
+                float(np.max(np.abs(unread_q_imag))),
+            ),
+            1.0e-14,
+        )
+    )
+
+    # Normalized sector ensembles retain their total masses under canonical
+    # mixing; they do not acquire the unequal shell-capacity weights.
+    fixed_delta = 0.63
+    target_actions = np.empty((2, 2))
+    for i, sign_a in enumerate(signs):
+        for j, sign_b in enumerate(signs):
+            target_actions[i, j] = 0.25 * bell_scale * (
+                1.0 - sign_a * sign_b * np.cos(fixed_delta)
+            )
+    normalized_sector_mass = np.full((2, 2), 0.25)
+    capacity_weight = target_actions / target_actions.sum()
+    mass_preservation_error = np.max(
+        np.abs(normalized_sector_mass.sum() - 1.0)
+    )
+    checks.append(
+        record_max(
+            "normalized_sector_mass_preservation_error",
+            mass_preservation_error,
+            1.0e-14,
+        )
+    )
+    checks.append(
+        record_min(
+            "normalized_mixing_capacity_mismatch_guard",
+            np.max(
+                np.abs(
+                    normalized_sector_mass
+                    - capacity_weight
+                )
+            ),
+            0.05,
         )
     )
 

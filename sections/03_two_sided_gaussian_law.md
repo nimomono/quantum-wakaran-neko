@@ -1,7 +1,7 @@
 @number: 3
 @chapter: 本文
-@title: 縮約多様体と Nelson--Madelung 作用
-@status: coherent縮約多様体に制限した作用、変分、Schrödinger 型方程式、同期差保存は厳密結果である。多様体の生成、安定化、微視的停留点選択は未完成である。
+@title: 縮約多様体、Madelung 作用、Schrödinger 型力学
+@status: coherent縮約多様体に制限した Madelung 作用、変分、Schrödinger 型方程式、同期差保存は厳密結果である。確率過程を前提にしない。多様体の生成、安定化、微視的停留点選択は未完成である。
 
 ## 3.1 縮約条件
 
@@ -163,7 +163,7 @@ v\cdot\nabla S
 とする。
 
 <!-- theorem-start:theorem -->
-**定理（縮約多様体上の作用一致）**
+**定理（縮約多様体上の Madelung 作用）**
 第3.1節の理想縮約条件が成立し、
 
 ```math
@@ -180,12 +180,12 @@ v\cdot\nabla S
 |\mathcal J_\phi|
 ```
 
-を持つ Nelson--Madelung 作用に一致する。
+を持つ Madelung 作用に一致する。
 <!-- theorem-end:theorem -->
 
 <!-- theorem-start:proof -->
 **証明**
-Nelson の浸透エネルギーは
+Madelung 作用の振幅勾配項は
 
 ```math
 \frac m2
@@ -198,7 +198,7 @@ u
 \nu\nabla\log\rho.
 ```
 
-恒等式
+と書ける。恒等式
 
 ```math
 \rho
@@ -228,10 +228,10 @@ u
 \,dx.
 ```
 
-$|\mathcal J_\phi|=2m\nu$ を用いると $2m\nu^2=\mathcal J_\phi^2/(2m)=\kappa$ である。残りの項は現在速度形式の Nelson--Madelung 作用と一致する。
+$\nu=|\mathcal J_\phi|/(2m)$ と置けば $2m\nu^2=\mathcal J_\phi^2/(2m)=\kappa$ である。これは Nelson の現在速度表示と同じ係数表示でもあるが、本定理は確率過程または配置拡散を仮定しない [3--6,30]。残りの項は連続の式を制約する標準的な Madelung 作用と一致する。
 <!-- theorem-end:proof -->
 
-この定理は作用を縮約多様体へ制限した後の一致を述べる。ミクロ運動がその制限作用の停留点を選ぶことや、実在的な Markov 経路を作ることは含まない。
+この定理は作用を縮約多様体へ制限した後の一致を述べる。ミクロ運動がその制限作用の停留点を選ぶことは含まない。$\nu=|\mathcal J_\phi|/(2m)$ は係数の別表示であり、実在的な Markov 経路の存在を意味しない。
 
 ## 3.4 変分方程式
 
@@ -495,6 +495,6 @@ N\in\mathbb Z.
 1. 一般の有限 Hamiltonian 初期集団から coherent多様体を準備すること。
 2. 観測窓で $\varepsilon_{\rm coh}$、$\varepsilon_j$、$\varepsilon_\rho$、$\varepsilon_{\rm radial}$、$\varepsilon_{\rm press}$ を同時に小さくすること。
 3. ミクロ運動の粗視化が $\mathcal A_{\rm red}$ の停留点を選ぶこと。
-4. 実在的な前後 Markov 経路を同じ模型から得ること。
+4. 一般の節構造を含む領域で同じ縮約を制御すること。
 
-第5章の運動量結合経路は4の候補を与えるが、本章の導出を置換しない。
+実在的な前後 Markov 経路を構成する別候補は付録Dへ記録するが、本章の導出には使用しない。
