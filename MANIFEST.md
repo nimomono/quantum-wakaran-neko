@@ -21,6 +21,7 @@
 - `sections/A2_c1_estimates.md`
 - `sections/A3_hamiltonian_device_details.md`
 - `sections/A4_position_diffusion_auxiliary.md`
+- `sections/A5_action_alignment_baths.md`
 - `sections/90_references.md`
 
 ## 論文外の研究メモ

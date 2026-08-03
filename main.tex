@@ -138,12 +138,12 @@
     Schrödinger 型力学と2モード作用殻による\\[2mm]
     Born 型・Bell 型統計\par}
   \vspace{9mm}
-  {\Large\color{PaperBlue}Madelung 縮約、Born 型入口流束\\[1mm]
-    低ランク対モード、共通未来比較器\par}
+  {\Large\color{PaperBlue}局所作用整合準備、Madelung 縮約\\[1mm]
+    Born 型入口流束、低ランク対モード、共通未来比較器\par}
   \vspace{14mm}
   {\color{PaperRule}\rule{0.68\textwidth}{0.9pt}\par}
   \vfill
-  {\large draft-16 改訂稿\par}
+  {\large draft-17 改訂稿\par}
   \vspace{22mm}
 \end{titlepage}
 
@@ -217,6 +217,42 @@ j_i-\mathcal J_\phi r_i^2
 \]
 
 と分解できる。従ってエネルギー最小配置は \(j_i=\mathcal J_\phi r_i^2\) である。これは固定作用sector内の厳密な最小化結果であり、閉鎖 Hamiltonian 流がこの配置へ吸引されることを意味しない。
+
+セル体積を吸収した振幅 \(R_i\) と局所作用 \(J_i\) を用い、局所作用欠陥を
+
+\[
+\delta J_i
+=
+J_i
+-
+\frac{
+\mathcal J_\phi R_i^2
+}{
+\sum_kR_k^2
+}
+\]
+
+とする。本稿は、動径運動量と \(\delta J_i\) の正定値エネルギーを \(1/\epsilon_{\rm s}\) で高速化した有限 Hamiltonian を追加する。有限 \(\epsilon_{\rm s}\) の正確な Legendre 変換により、有界な低速枝では
+
+\[
+P_i
+=
+O
+\left(
+\epsilon_{\rm s}
+\right),
+\qquad
+\delta J_i
+=
+O
+\left(
+\epsilon_{\rm s}
+\right)
+\]
+
+を得る。さらに、準備窓だけ有限振幅浴と位相差に結合した有限作用交換浴を作動させる。作用交換浴は共通位相回転に不変なので \(\mathcal J_\phi\) を厳密に保存し、余弦・正弦結合の対は位相固定項を作らない。固定振幅・短記憶・低温の準備近似では局所作用欠陥を減衰させる。ただし、観測中の相対位相運動を変えないよう、準備後は浴を切り離す。
+
+この構成が部分的に具体化するのは、局所作用整合と動径低速化である。異なる標本を共通の \((r,\theta)\) へ集中させる coherent集中、\(r^2=\rho\) の密度同期、単流束化、節の制御は導かない。
 
 正則化した位相接続を
 
@@ -473,13 +509,13 @@ P(A,B\mid a,b)
 
 となる。従って Bell の前提違反は測定設定独立性にある。共通未来比較器が前向き因果として過去の局所記録を変更するわけではない。
 
-本改訂の中心的な前進は、位相接続による Schrödinger 型力学、位置の Born 型入口標本化、同じ2成分場の低ランク対モードから得る Bell 余弦作用、共通未来比較器による2モード作用転送を1本の物理像へ整理したことである。最大の未解決問題は、殻容量に比例する共通境界測度を、結果別の事後選別を用いない実験周期として準備し、記録、逆計算、再初期化まで統合することである。
+本改訂の中心的な前進は、位相接続による Schrödinger 型力学を支える局所作用整合と動径低速化を、有限特異 Hamiltonian の低速枝と時計制御された有限準備浴として部分的に具体化したことである。位置の Born 型入口標本化、同じ2成分場の低ランク対モードから得る Bell 余弦作用、共通未来比較器による2モード作用転送は維持した。最大の未解決問題は、殻容量に比例する共通境界測度を、結果別の事後選別を用いない実験周期として準備し、coherent集中、密度同期、記録、逆計算、再初期化まで統合することである。
 
 \hypertarget{ux554fux984cux8a2dux5b9aux3068ux30e2ux30c7ux30ebux5730ux56f3}{%
 \chapter{問題設定とモデル地図}\label{ux554fux984cux8a2dux5b9aux3068ux30e2ux30c7ux30ebux5730ux56f3}}
 
 \begin{statusbox}
-位置づけ：位相接続を現行模型の力学的主線とし、Born 型入口殻と低ランク2モード Bell 境界構成を同じ2成分場の固定部分空間へ置く。配置拡散経路と旧3モード Bell 模型は現行模型に採用しない。
+位置づけ：位相接続を現行模型の力学的主線とし、局所作用整合・動径低速化の有限特異 Hamiltonian と時計制御準備浴を前段へ加える。Born 型入口殻と低ランク2モード Bell 境界構成は同じ2成分場の固定部分空間へ置く。配置拡散経路と旧3モード Bell 模型は現行模型に採用しない。
 \end{statusbox}
 
 \hypertarget{ux554fux984cux8a2dux5b9a}{%
@@ -493,7 +529,7 @@ P(A,B\mid a,b)
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  有限2成分場との位相接続から、Madelung 作用と Schrödinger 型力学を得られるか。
+  有限2成分場との位相接続から、局所作用整合と動径低速化を部分的に準備し、Madelung 作用と Schrödinger 型力学を得られるか。
 \item
   場強度と粒子密度の一致を定義として置かず、入口の Liouville 流束から位置の Born 型重みを得られるか。
 \item
@@ -516,6 +552,8 @@ H_{\rm fin}
 H_{\rm obj}
 +
 H_{\rm field}
++
+H_{\rm prep}
 +
 H_{\rm source}
 +
@@ -564,7 +602,7 @@ J_{\rm out}
 P_{\rm ctrl}
 \]
 
-と表す。常時の弱い外部交換は、欠陥成分の除去、有限再帰の抑制、記録安定化、反復時のgarbage処理に使う。Madelung 作用、coherent状態、作用殻の方向一様性、Bell 境界測度を、外部漏れから直接仮定しない。
+と表す。時計制御された有限準備浴は、局所作用欠陥と動径欠陥のエネルギーを準備窓で受け取る。試行間の弱い外部交換は、浴の再初期化、有限再帰の抑制、記録安定化、反復時のgarbage処理に使う。Madelung 作用、coherent集中、密度同期、作用殻の方向一様性、Bell 境界測度を、外部漏れから直接仮定しない。
 
 1試行の測定窓では、外部交換の相対変化を小さくし、有限閉鎖 Hamiltonian 補助模型で正準写像、保存量、読み出し、逆計算、作用殻体積を計算する。試行間では、仕事源と外部流路を含めて再準備、記録保持、再初期化を扱う。
 
@@ -648,7 +686,8 @@ P_{\rm ctrl}
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-位相接続 & \(P-\mathcal J_\phi\mathbf a_\varepsilon(X)\) & 縮約作用、Madelung 方程式、局所 Schrödinger 型PDE、条件付き循環量子化 & coherent多様体の準備、維持、節の制御、停留点選択 \\
+局所作用整合準備 & 有限特異 Hamiltonian、振幅浴、位相差に結合した作用交換浴、準備時計 & \(P_i\) と \(J_i-\mathcal J_\phi q_i\) の低速化、\(\mathcal J_\phi\) の厳密保存 & coherent集中、密度同期、有限温度、再帰、一様収束 \\
+位相接続 & \(P-\mathcal J_\phi\mathbf a_\varepsilon(X)\) & 縮約作用、Madelung 方程式、局所 Schrödinger 型PDE、条件付き循環量子化 & coherent集中、密度同期、節の制御、停留点選択 \\
 Born 型入口殻 & 活性モードと共有明反応座標の2モード殻 & 位置入口の Born 型 Liouville 流束 & 共通流束因子、一般測定器、再埋め込み \\
 Bell 対モード & 反対称源、左右局所モード回転、共通未来比較器 & 余弦枝作用、2モード比較作用、条件付き Bell 共同確率 & 結果形成、共通境界測度の物理的準備、完全周期 \\
 \end{longtable}
@@ -700,6 +739,8 @@ Bell 対モード & 反対称源、左右局所モード回転、共通未来比
 \endlastfoot
 粒子、有限2成分場、局所装置、共通未来比較領域、外部流路を持つ弱開放系 & 現行モデル & 位相接続を力学の主線とし、Born 入口殻と Bell 対モードを固定部分空間へ置く。完全周期は未完成 \\
 有限セル2成分位相場 & 補助モデル & 正準1形式、保存位相作用、局所作用分配を有限次元で計算する \\
+局所作用整合・動径低速 Hamiltonian & 補助モデル & 有界な低速枝で局所作用欠陥と動径運動量を \(O(\epsilon_{\rm s})\) にする。一般初期値からの収束は含まない \\
+時計制御された有限準備浴 & 補助モデル & 準備窓で欠陥エネルギーを有限浴へ移す。作用交換浴は全位相作用を保存するが、短記憶・低温・再帰前の近似を用いる \\
 位相接続縮約模型 & 補助モデル & coherent多様体上の Madelung 作用を与える \\
 2モード入口作用殻 & 補助モデル & 位置の Born 型入口流束を与える \\
 低ランク反対称対モード & 補助モデル & 局所回転から Bell 余弦作用を与える \\
@@ -769,7 +810,11 @@ Bell 比較 & \(A_\partial^{AB}=\Gamma^2K_{AB}/2\) & 排他的な結果組 \((A,
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  coherent活性場、反対称対モード、比較器基準状態の準備。
+  規格化した活性場、反対称対モード、比較器基準状態の準備。
+\item
+  準備窓での動径欠陥除去と作用交換。
+\item
+  準備浴の切り離しと、位相接続の観測窓への移行。
 \item
   設定 \(a,b\) の物理的生成。
 \item
@@ -785,10 +830,10 @@ Bell 比較 & \(A_\partial^{AB}=\Gamma^2K_{AB}/2\) & 排他的な結果組 \((A,
 \item
   比較混合、読み出し、戻り伝播、局所分析の逆計算。
 \item
-  場、装置、時計、garbage自由度の再初期化。
+  場、装置、時計、準備浴、garbage自由度の再初期化。
 \end{enumerate}
 
-本論文は、1の一部、3の局所モード回転、5の理想比較読み出し、6の条件付き測度、8の理想的な比較器逆計算を与える。一般的な結果形成、境界測度の物理的準備、長期反復は未解決である。
+本論文は、1から3のうち局所作用整合と動径低速化、5の局所モード回転、7の理想比較読み出し、8の条件付き測度、10の理想的な比較器逆計算を与える。coherent集中、密度同期、一般的な結果形成、境界測度の物理的準備、長期反復は未解決である。
 
 \hypertarget{ux5c0eux51faux72b6ux614bux306eux8aadux307fux65b9}{%
 \section{導出状態の読み方}\label{ux5c0eux51faux72b6ux614bux306eux8aadux307fux65b9}}
@@ -804,11 +849,11 @@ Bell 比較 & \(A_\partial^{AB}=\Gamma^2K_{AB}/2\) & 排他的な結果組 \((A,
 \item
   共通境界密度を仮定した後の Bell 共同確率と非信号性は、仮説依存の厳密結果である。
 \item
-  ミクロ時間発展が coherent多様体または共通境界測度を準備することは別の主張である。
+  ミクロ時間発展が coherent集中、密度同期、共通境界測度を準備することは別の主張である。局所作用整合と動径低速化だけは、第2章と付録Eで部分的に具体化する。
 \item
   正規化された集団の Hamiltonian 押し出しは、結果sectorの総確率質量を殻容量に比例させない。
 \item
-  弱開放性は準備済み構造の安定化と反復の候補であり、coherent構造または境界密度を単独で生成しない。
+  弱開放性は有限準備浴の再初期化と反復の候補であり、coherent集中、密度同期、境界密度を単独で生成しない。
 \end{itemize}
 
 この区別を各章の位置づけと第8章の誤差表へ反映する。
@@ -819,7 +864,7 @@ Bell 比較 & \(A_\partial^{AB}=\Gamma^2K_{AB}/2\) & 排他的な結果組 \((A,
 \chapter{有限2成分誘導場と位相接続 Hamiltonian}\label{ux6709ux96502ux6210ux5206ux8a98ux5c0eux5834ux3068ux4f4dux76f8ux63a5ux7d9a-hamiltonian}}
 
 \begin{statusbox}
-位置づけ：有限セルの正準変換、内部回転対称性、保存位相作用、固定作用下の局所作用分配、粒子運動量消去は厳密結果である。同じ場の位相・対・比較モード分解は固定射影として置く。coherent多様体の準備と交差応答の制御は未完成である。
+位置づけ：有限セルの正準変換、内部回転対称性、保存位相作用、固定作用下の局所作用分配、特異 Hamiltonian の有限パラメータ消去、粒子運動量消去は厳密結果である。局所作用整合と動径低速化は低速枝および時計制御された準備浴として部分的に具体化する。coherent集中、密度同期、単流束化、交差応答の制御は未完成である。
 \end{statusbox}
 
 \hypertarget{ux6709ux9650ux30bbux30ebux304bux3089ux59cbux3081ux308bux7406ux7531}{%
@@ -1100,7 +1145,309 @@ $$
 2つの制約を代入すると、最後の3項は相殺して $E_{\rm rot}$ が残る。平方項は非負であり、全て零のときだけ最小になる。
 \end{proof}
 
-この定理はエネルギー地形を定める。閉鎖 Hamiltonian 流が最小配置へ収束することは示さない。境界準備で最小配置を選ぶか、弱開放縮約でずれ
+この定理はエネルギー地形を定める。閉鎖 Hamiltonian 流が最小配置へ収束することは示さない。第2.5節から第2.7節では、同じ平方項を高速化した有限 Hamiltonian の低速枝と、準備窓だけ作動する有限浴を分けて導入する。
+
+\hypertarget{ux30bbux30ebux4f53ux7a4dux3092ux5438ux53ceux3057ux305fux6b63ux6e96ux5909ux6570}{%
+\section{セル体積を吸収した正準変数}\label{ux30bbux30ebux4f53ux7a4dux3092ux5438ux53ceux3057ux305fux6b63ux6e96ux5909ux6570}}
+
+特異縮約ではセル体積を正準変数へ吸収する。各セルについて
+
+\[
+R_i
+=
+r_i\sqrt{\Delta V},
+\qquad
+P_i
+=
+p_{r,i}\sqrt{\Delta V},
+\qquad
+J_i
+=
+j_i\Delta V
+\]
+
+と定める。このとき正準1形式は
+
+\[
+\sum_i
+\left(
+P_i\,dR_i
++
+J_i\,d\theta_i
+\right)
+\]
+
+であり、規格化と全位相作用は
+
+\[
+N
+=
+\sum_iR_i^2,
+\qquad
+\mathcal J_\phi
+=
+\sum_iJ_i.
+\]
+
+局所作用欠陥を
+
+\[
+\delta J_i
+=
+J_i
+-
+\frac{
+\mathcal J_\phi R_i^2
+}{
+N
+}
+\]
+
+と定める。すると、正規化前にも恒等式
+
+\[
+\sum_i
+\frac{
+\delta J_i^2
+}{
+R_i^2
+}
+=
+\sum_i
+\frac{
+J_i^2
+}{
+R_i^2
+}
+-
+\frac{
+\mathcal J_\phi^2
+}{
+N
+}
+\]
+
+が成立する。\(N=1\) では、\(\delta J_i=\Delta V(j_i-\mathcal J_\phi r_i^2)\) である。従って、この変数変更は第2.4節の局所作用分配と同じ条件を表し、別の作用を導入しない。
+
+\hypertarget{ux5c40ux6240ux4f5cux7528ux6574ux5408ux52d5ux5f84ux4f4eux901f-hamiltonian}{%
+\section{局所作用整合・動径低速 Hamiltonian}\label{ux5c40ux6240ux4f5cux7528ux6574ux5408ux52d5ux5f84ux4f4eux901f-hamiltonian}}
+
+\(H_0(R,\theta)\) を、位相接続に必要な遅い場エネルギーとする。小さい無次元量 \(\epsilon_{\rm s}>0\) を用いて
+
+\[
+\begin{aligned}
+H_{\epsilon_{\rm s}}
+={}&
+H_0(R,\theta)
++
+\sum_i
+\frac{
+P_i^2
+}{
+2\epsilon_{\rm s}M
+}
+\\
+&+
+\frac{1}{2\epsilon_{\rm s}I}
+\left[
+\sum_i
+\frac{
+J_i^2
+}{
+R_i^2
+}
+-
+\frac{
+\mathcal J_\phi^2
+}{
+N
+}
+\right]
++
+\frac{\Lambda_N}{2}
+\left(
+N-1
+\right)^2
+\end{aligned}
+\]
+
+とする。固定 \(\mathcal J_\phi\) sectorでは、\(1/\epsilon_{\rm s}\) を持つ2項は動径運動量と局所作用欠陥に対して正定値である。ただし、\(\Lambda_N\) 項は規格化逸脱をエネルギー的に抑えるだけである。以下の正確な消去は、\(N=1\) をホロノミック制約として課した単体の局所座標上で行う。有限 \(\Lambda_N\) の場合は規格化誤差を別に加える。
+
+\[
+q_i
+=
+R_i^2,
+\qquad
+\pi_i
+=
+\frac{
+P_i
+}{
+2R_i
+},
+\qquad
+\sum_iq_i=1.
+\]
+
+固定全作用の下で \(\delta J_i=J_i-\mathcal J_\phi q_i\) と書く。単体の接空間条件 \(\sum_i\delta J_i=0\) を課した有限 \(\epsilon_{\rm s}\) の Legendre 変換から、
+
+\[
+\pi_i
+=
+\frac{
+\epsilon_{\rm s}M
+}{
+4q_i
+}
+\dot q_i,
+\]
+
+\[
+\delta J_i
+=
+\epsilon_{\rm s}Iq_i
+\left(
+\dot\theta_i
+-
+\bar\omega
+\right),
+\qquad
+\bar\omega
+=
+\sum_iq_i\dot\theta_i.
+\]
+
+を得る。従って消去後の Lagrangian は
+
+\[
+\begin{aligned}
+L_{\epsilon_{\rm s}}^{\rm red}
+={}&
+\mathcal J_\phi
+\sum_i
+q_i\dot\theta_i
+-
+H_0(q,\theta)
+\\
+&+
+\frac{
+\epsilon_{\rm s}M
+}{
+8
+}
+\sum_i
+\frac{
+\dot q_i^2
+}{
+q_i
+}
+\\
+&+
+\frac{
+\epsilon_{\rm s}I
+}{
+2
+}
+\sum_i
+q_i
+\left(
+\dot\theta_i
+-
+\bar\omega
+\right)^2.
+\end{aligned}
+\]
+
+\begin{proposition}[有限特異パラメータの正確な消去]
+$q_i>0$、$\sum_iq_i=1$、固定 $\mathcal J_\phi$ sectorで、上の運動量消去と $L_{\epsilon_{\rm s}}^{\rm red}$ は有限 $\epsilon_{\rm s}$ について正確である。$\dot q_i$ と $\dot\theta_i-\bar\omega$ が $\epsilon_{\rm s}$ に一様に有界な低速枝では、
+
+$$
+P_i
+=
+O
+\left(
+\epsilon_{\rm s}
+\right),
+\qquad
+\delta J_i
+=
+O
+\left(
+\epsilon_{\rm s}
+\right).
+$$
+\end{proposition}
+
+有限エネルギー上界だけから直接得られるのは、一般に \(P_i=O(\sqrt{\epsilon_{\rm s}})\) と \(\delta J_i=O(\sqrt{\epsilon_{\rm s}})\) である。\(O(\epsilon_{\rm s})\) 評価には有界な低速を仮定する必要がある。また、一般初期値の解が \(\epsilon_{\rm s}\to0\) で縮約解へ一様に収束する定理はまだない。
+
+\(\epsilon_{\rm s}\to0\) の形式極限では
+
+\[
+L_0
+=
+\mathcal J_\phi
+\sum_i
+q_i\dot\theta_i
+-
+H_0(q,\theta)
+\]
+
+となる。これは局所作用整合と動径低速化を低速枝として説明するが、異なる標本の \((q,\theta)\) を共通代表場へ集中させない。この低速領域を
+
+\[
+\mathcal M_{\rm slow}
+=
+\left\{
+P_i=0,
+\quad
+J_i=\mathcal J_\phi q_i
+\right\}
+\]
+
+と呼び、第2.11節の coherent集中と区別する。
+
+\hypertarget{ux6e96ux5099ux7a93ux3068ux89b3ux6e2cux7a93ux306eux5206ux96e2}{%
+\section{準備窓と観測窓の分離}\label{ux6e96ux5099ux7a93ux3068ux89b3ux6e2cux7a93ux306eux5206ux96e2}}
+
+閉鎖系では高速欠陥エネルギーは消えず、有限特異 Hamiltonian だけで一般初期値を \(\mathcal M_{\rm slow}\) へ吸引できない。そこで、内部時計角 \(\vartheta\) と滑らかな窓関数 \(g_{\rm prep}(\vartheta)\) を使い、準備窓だけ有限振幅浴と有限作用交換浴を結合する。全 Hamiltonian の詳細と浴の正確な消去は付録Eに置く。
+
+作用交換浴は \(\theta_i-\theta_k\) の \(\cos\) と \(\sin\) へ対称に結合する。従って、
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  全体位相回転に不変で、\(\mathcal J_\phi\) を厳密に保存する。
+\item
+  対となる逆項は \(\cos^2+\sin^2=1\) により位相固定ポテンシャルを作らない。
+\item
+  固定 \(q_i>0\)、連結グラフ、短記憶、低温の準備近似では、局所作用欠陥の Lyapunov量を減少させる。
+\item
+  有限浴なので全 Hamiltonian は保存され、対象場から失われた欠陥エネルギーは浴へ移る。
+\end{enumerate}
+
+一方、短記憶極限の作用交換浴は相対位相速度へ摩擦を与える。観測中も作動させると、必要な Schrödinger 型位相運動を変える。従って、時間尺度を
+
+\[
+\tau_{\rm corr}
+\ll
+T_{\rm prep}
+\ll
+T_{\rm slow},
+T_{\rm rec}
+\]
+
+と分離し、観測窓では
+
+\[
+g_{\rm prep}
+=
+0
+\]
+
+とする。準備後の位相接続運動は \(H_{\epsilon_{\rm s}}\) の低速領域で行う。有限温度雑音床、有限浴再帰、窓の切断誤差、観測中の欠陥再成長は第8章で管理する。
+
+この機構が直接改善するのは、局所作用欠陥
 
 \[
 \varepsilon_j
@@ -1110,7 +1457,7 @@ j-\mathcal J_\phi r^2
 \right\|
 \]
 
-を小さく保つ必要がある。弱い漏れは準備済み配置の安定化候補であり、coherent配置の生成機構としては使わない。
+と動径欠陥 \(\varepsilon_{\rm radial}\) である。coherent集中 \(\varepsilon_{\rm coh}\)、密度同期 \(\varepsilon_\rho\)、単流束化 \(\varepsilon_{\rm press}\)、節誤差 \(\varepsilon_{\rm node}\) は独立に残る。
 
 \hypertarget{ux4f4dux76f8ux63a5ux7d9a}{%
 \section{位相接続}\label{ux4f4dux76f8ux63a5ux7d9a}}
@@ -1375,7 +1722,7 @@ z^A_{\mu r}
 \chapter{縮約多様体、Madelung 作用、Schrödinger 型力学}\label{ux7e2eux7d04ux591aux69d8ux4f53madelung-ux4f5cux7528schruxf6dinger-ux578bux529bux5b66}}
 
 \begin{statusbox}
-位置づけ：coherent縮約多様体に制限した Madelung 作用、変分、Schrödinger 型方程式、同期差保存は厳密結果である。確率過程を前提にしない。多様体の生成、安定化、微視的停留点選択は未完成である。
+位置づけ：coherent縮約多様体に制限した Madelung 作用、変分、Schrödinger 型方程式、同期差保存は厳密結果である。確率過程を前提にしない。局所作用整合と動径低速化は有限特異 Hamiltonian の低速枝と準備浴により部分的に具体化する。coherent集中、密度同期、一様な特異極限、微視的停留点選択は未完成である。
 \end{statusbox}
 
 \hypertarget{ux7e2eux7d04ux6761ux4ef6}{%
@@ -1391,7 +1738,7 @@ z^A_{\mu r}
 \item
   \textbf{固定作用sector}：全位相作用 \(\mathcal J_\phi\neq0\) を固定する。
 \item
-  \textbf{局所作用分配}：
+  \textbf{準備済み局所作用整合}：第2.6節の低速枝と第2.7節の準備窓により、
 \end{enumerate}
 
 \[
@@ -1446,7 +1793,7 @@ O(\varepsilon_{\rm node}).
 \varepsilon_{\rm press}
 \]
 
-で抑える。 7. \textbf{動径断熱化}：\(p_r^2/(2M_r)\) と高速振幅モードの作用寄与を
+で抑える。 7. \textbf{準備済み動径低速化}：第2.6節の低速枝と振幅浴により、\(p_r^2/(2M_r)\) と高速振幅モードの作用寄与を
 
 \[
 \varepsilon_{\rm radial}
@@ -1454,7 +1801,49 @@ O(\varepsilon_{\rm node}).
 
 で抑える。 8. \textbf{位相勾配の非重複}：粒子流速へ入れた位相運動エネルギーと、場側の \(r^2|\nabla\theta|^2\) を二重に数えない。
 
-これらは縮約多様体の定義と誤差条件である。有限 Hamiltonian 時間発展が一般の初期状態からこの多様体へ吸引するとは仮定しない。
+これらは縮約多様体の定義と誤差条件である。第2章と付録Eは3と7の準備を部分的に具体化するが、1、4、6、節の制御を導かない。有限 Hamiltonian 時間発展が一般の初期状態から縮約多様体全体へ吸引するとは仮定しない。
+
+\hypertarget{ux6709ux9650ux7279ux7570ux30d1ux30e9ux30e1ux30fcux30bfux306eux6b8bux5dee}{%
+\subsection{有限特異パラメータの残差}\label{ux6709ux9650ux7279ux7570ux30d1ux30e9ux30e1ux30fcux30bfux306eux6b8bux5dee}}
+
+セル表示では、第2.6節の正確な運動量消去により、理想縮約作用へ
+
+\[
+\Delta\mathcal A_{\epsilon_{\rm s}}
+=
+\int
+\left[
+\frac{
+\epsilon_{\rm s}M
+}{
+8
+}
+\sum_i
+\frac{
+\dot q_i^2
+}{
+q_i
+}
++
+\frac{
+\epsilon_{\rm s}I
+}{
+2
+}
+\sum_i
+q_i
+\left(
+\dot\theta_i
+-
+\bar\omega
+\right)^2
+\right]
+dt
+\]
+
+が加わる。有界な低速枝では \(O(\epsilon_{\rm s})\) の作用補正である。準備浴の切断後には、さらに準備終了時の \(P_i\)、\(\delta J_i\)、記憶尾、有限温度雑音床を残差として加える。
+
+この有限パラメータ表示は、局所作用整合と動径低速化を直接代入するより強い。しかし、有限エネルギーだけからの誤差は一般に \(O(\sqrt{\epsilon_{\rm s}})\) であり、解と1次変分が観測時間に一様収束する定理はない。従って以下の Madelung 作用は、準備済み低速枝での形式的特異極限として扱う。
 
 \hypertarget{ux7269ux8ceaux5faeux5206ux7d50ux5408}{%
 \section{物質微分結合}\label{ux7269ux8ceaux5faeux5206ux7d50ux5408}}
@@ -1906,7 +2295,9 @@ N\in\mathbb Z.
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  一般の有限 Hamiltonian 初期集団から coherent多様体を準備すること。
+  一般の有限 Hamiltonian 初期集団から coherent集中と密度同期を準備すること。
+\item
+  付録Eの準備窓から観測窓まで、\(\varepsilon_j\) と \(\varepsilon_{\rm radial}\) の再成長を一様に抑えること。
 \item
   観測窓で \(\varepsilon_{\rm coh}\)、\(\varepsilon_j\)、\(\varepsilon_\rho\)、\(\varepsilon_{\rm radial}\)、\(\varepsilon_{\rm press}\) を同時に小さくすること。
 \item
@@ -2302,6 +2693,8 @@ Born 側で必要なのは、各排他的sectorの2モード殻全体に対す�
 
 とする。本章は \(\varepsilon_{\rm reset}\) を有限 Hamiltonian 周期から小さくする構成を与えない。第6章の比較器では、結果を外部記録へコピーした後の理想的な逆計算を構成するが、入口側の活性場再埋め込みまで自動的に解決しない。
 
+付録Eの準備浴は、再埋め込み後に残る局所作用欠陥 \(J_i-\mathcal J_\phi q_i\) と動径運動量 \(P_i\) を再び小さくする候補である。しかし、標本化前の振幅 \(q_i\) 自体を復元せず、結果情報の可逆転送、共有明反応座標の復元、garbage処理、全チャンネルで偏りのない再準備を行わない。従って、再埋め込み問題を部分的な法線欠陥除去へ分解するが、\(\varepsilon_{\rm reset}\) 全体を解決しない。
+
 \part{同じ2成分場の Bell 対モードと境界統計}
 
 \hypertarget{ux540cux30582ux6210ux5206ux5834ux306eux4f4eux30e9ux30f3ux30af-bell-ux5bfeux30e2ux30fcux30c9}{%
@@ -2327,7 +2720,7 @@ Bell 粒子対に対しても、基本的な場変数は物理空間上の2成�
 
 とその正準運動量だけである。2粒子の配置 \((X_A,X_B)\) 上に独立な場を置かない。
 
-複素表示 \(\zeta=\Phi_1+i\Phi_2\) を用い、第2.9節の固定モード展開から左右へ進む局在モードを
+複素表示 \(\zeta=\Phi_1+i\Phi_2\) を用い、第2.12節の固定モード展開から左右へ進む局在モードを
 
 \[
 z^A_{\mu r},
@@ -3615,7 +4008,7 @@ Bell 関連条件 & 現模型での状態 \\
 \chapter{誤差、適用限界、反証条件、結論}\label{ux8aa4ux5deeux9069ux7528ux9650ux754cux53cdux8a3cux6761ux4ef6ux7d50ux8ad6}}
 
 \begin{statusbox}
-位置づけ：位相接続を主線とし、Born 型入口殻、低ランク Bell 対モード、2モード境界比較器の厳密部分と仮説依存部分を分離する。共通境界測度、一般測定器、完成 Hamiltonian 周期は未完成である。
+位置づけ：位相接続を主線とし、局所作用整合・動径低速化の有限特異 Hamiltonian と時計制御準備浴を追加する。Born 型入口殻、低ランク Bell 対モード、2モード境界比較器の厳密部分と仮説依存部分は維持する。coherent集中、密度同期、共通境界測度、一般測定器、完成 Hamiltonian 周期は未完成である。
 \end{statusbox}
 
 \hypertarget{ux5c0eux51faux72b6ux614b}{%
@@ -3637,7 +4030,8 @@ Bell 関連条件 & 現模型での状態 \\
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-位相接続 & 有限セル正準構造、保存位相作用、固定作用下の局所分配、Madelung 作用、局所 Schrödinger 型PDE、同期差保存、条件付き循環量子化 & coherent多様体の準備・維持、節、係数整合、停留点選択 \\
+局所作用整合準備 & 欠陥平方分解、有限特異パラメータの正確な消去、有限作用交換浴の全作用保存、余弦・正弦対の位相固定項消去、固定振幅・短記憶近似での欠陥減衰 & 一般初期値からの一様収束、有限温度、動的振幅、再帰、切断後の長時間安定性 \\
+位相接続 & 有限セル正準構造、保存位相作用、固定作用下の局所分配、Madelung 作用、局所 Schrödinger 型PDE、同期差保存、条件付き循環量子化 & coherent集中、密度同期、節、係数整合、停留点選択 \\
 Born 型入口殻 & 一般殻容量、2モード線形容量、共通流束下の位置入口重み、作用分配次元の剛性 & 共通流束因子、一般測定器、標本化後の再埋め込み \\
 Bell 対モード & 反対称低ランク源、局所回転、余弦枝作用、総和・周辺和 & 反対称源の動力学的準備、結果形成、一般測定軸 \\
 境界比較器 & 理想非反作用読み出し、比較総作用、\(U(2)\) 作用保存、2モード線形容量、理想逆計算 & 共通境界密度、等方集団、有限パルス、反復reset \\
@@ -3669,6 +4063,14 @@ Bell 対モード & 反対称低ランク源、局所回転、余弦枝作用、
 \(\varepsilon_\rho\) & \(r^2-\rho\) & 入口同期と内部保存 \\
 \(\varepsilon_j\) & \(j-\mathcal J_\phi r^2\) & 固定作用最小配置 \\
 \(\varepsilon_{\rm radial}\) & 動径慣性と高速振幅モード & 断熱的に小さい \\
+\(\epsilon_{\rm s}\) & 有限特異パラメータ & 有界な低速枝で作用補正が小さい \\
+\(\varepsilon_{\rm mem}\) & 有限浴の記憶残差 & 準備窓で短記憶化できる \\
+\(\varepsilon_T\) & 有限温度の欠陥揺らぎ床 & 観測許容誤差より小さい \\
+\(\varepsilon_q\) & 準備中の振幅変化 & 固定振幅近似が成立する \\
+\(\varepsilon_{cs}\) & 余弦・正弦浴のスペクトル不一致 & 位相固定項が消える \\
+\(\varepsilon_{\rm cut}\) & 準備浴の切断と記憶尾 & 観測開始前に十分小さい \\
+\(\varepsilon_{\rm rec}\) & 有限浴再帰 & 観測終了まで再流入が小さい \\
+\(\varepsilon_{\rm grow}\) & 観測中の欠陥再成長 & 観測時間に一様に小さい \\
 \(\varepsilon_{\rm press}\) & 条件付き速度分散 & 単流束化 \\
 \(\varepsilon_\kappa\) & \(\kappa-\mathcal J_\phi^2/(2m)\) & Madelung係数一致 \\
 \(\varepsilon_{\rm node}\) & 節正則化と接続誤差 & 非零領域または制御された極限 \\
@@ -3688,6 +4090,10 @@ Bell 対モード & 反対称低ランク源、局所回転、余弦枝作用、
 \mathcal R_j
 +
 \mathcal R_{\rm radial}
++
+\mathcal R_{\epsilon_{\rm s}}
++
+\mathcal R_{\rm prep}
 +
 \mathcal R_{\rm press}
 +
@@ -3930,9 +4336,11 @@ V_{\rm Bell}
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  閉鎖 Hamiltonian 流は、一般に低次元の coherent多様体へ吸引しない。
+  閉鎖 Hamiltonian 流は、一般に低次元の coherent多様体へ永久的に吸引しない。有限浴を含む全系も Hamiltonian であり、対象部分の有効減衰は準備窓で浴へエネルギーを移すことを意味する。
 \item
-  固定作用下のエネルギー最小配置は、その配置の動力学的準備を意味しない。
+  固定作用下のエネルギー最小配置と有限特異 Hamiltonian の低速枝は、それだけでは一般初期値からの動力学的準備を意味しない。
+\item
+  作用交換浴を観測中も作動させると、必要な相対位相運動を変え得る。準備窓と観測窓を分ける必要がある。
 \item
   rank-one 2次モーメントだけでは非線形位相接続の標本平均を閉じない。
 \item
@@ -3981,6 +4389,10 @@ V_{\rm Bell}
 \item
   \(j-\mathcal J_\phi r^2\) と \(r^2-\rho\) の時間発展。
 \item
+  準備終了時の \(P_i\)、\(\delta J_i\)、欠陥エネルギー、時間平均、観測中の再成長率。
+\item
+  \(\mathcal J_\phi\) と全 Hamiltonian の保存誤差、浴モード数、温度、切断時刻、再帰時間への依存性。
+\item
   \(\kappa-\mathcal J_\phi^2/(2m)\)。
 \item
   巻数と粒子流速循環の不一致。
@@ -4023,7 +4435,9 @@ V_{\rm Bell}
 \item
   位置入口側の標本化後に、活性場を coherent部分空間へ再埋め込みする。
 \item
-  coherent多様体上の縮約作用が、有限 Hamiltonian 粗視化運動を実際に支配することを示す。
+  局所作用整合準備を、動的振幅、有限温度、有限浴再帰、浴切断後の長時間安定性まで含む一様な誤差評価へ進める。
+\item
+  coherent集中と密度同期を準備し、coherent多様体上の縮約作用が有限 Hamiltonian 粗視化運動を実際に支配することを示す。
 \item
   節を含む位相接続と循環量子化を制御する。
 \item
@@ -4041,11 +4455,13 @@ V_{\rm Bell}
 
 有限2成分場の正準構造と位相接続を用いると、coherent縮約多様体上で Madelung 作用と局所 Schrödinger 型方程式を得る。保存位相作用は有効作用定数となり、単価な非零場は条件付き循環量子化を与える。この主線は配置拡散を前提にしない。
 
+局所作用整合と動径低速化については、有限特異 Hamiltonian の正確な消去により有界な低速枝を構成し、共通位相回転に不変な有限作用交換浴と振幅浴を準備窓へ加えた。固定振幅・短記憶・低温の準備近似では欠陥エネルギーが減少する。これは coherent多様体全体の導出ではなく、\(\varepsilon_j\) と \(\varepsilon_{\rm radial}\) の準備を部分的に具体化した結果である。
+
 2モード作用殻の Liouville 流束は、共通流束因子と単一の直接作用分配方向の下で、位置の Born 型入口密度を与える。
 
 同じ2成分場の2つの直交源チャンネルは、反対称低ランク相関を通じて Bell 余弦作用を与える。共通未来の2つの比較モードは、その相関振幅の実部と虚部を比較総作用へ転送する。共通境界測度を仮定すれば、2モード殻の線形容量から Bell 共同確率、CHSH値、非信号周辺を得る。生成側へ引き戻した完全履歴測度は設定に依存し、Bell の測定設定独立性を満たさない。
 
-本論文は、Schrödinger 型力学、位置の Born 型入口重み、Bell 余弦作用、2モード比較作用を1つの2成分場アーキテクチャへ整理した。しかし、共通境界測度、一般的な結果形成、coherent場の再埋め込み、反復可能な完全周期を1本の有限 Hamiltonian から導いていない。この境界を超えて主張しない。
+本論文は、Schrödinger 型力学、その法線欠陥の有限時間準備、位置の Born 型入口重み、Bell 余弦作用、2モード比較作用を1つの2成分場アーキテクチャへ整理した。しかし、coherent集中、密度同期、共通境界測度、一般的な結果形成、coherent場の再埋め込み、反復可能な完全周期を1本の有限 Hamiltonian から導いていない。この境界を超えて主張しない。
 
 \appendix
 
@@ -6119,6 +6535,430 @@ ma_{\rm ts}
 運動量結合した有限誘導場では、正定値条件、時間反転対称性、正確な配置流束、自由速度揺らぎと反作用記憶の分離を得る。二側配置 Markov 拡散が得られた後の浸透速度と Fisher 項も厳密である。
 
 未解決なのは、有限誘導場からの Brown 極限、配置 \(X\) だけの Markov 閉鎖、条件付き速度分散の抑制、時間対称 Newton 則、位相接続経路との係数一致と同時実現である。
+
+\hypertarget{ux5c40ux6240ux4f5cux7528ux6574ux5408ux3068ux52d5ux5f84ux4f4eux901fux5316ux306eux6709ux9650ux6e96ux5099ux6d74}{%
+\chapter{局所作用整合と動径低速化の有限準備浴}\label{ux5c40ux6240ux4f5cux7528ux6574ux5408ux3068ux52d5ux5f84ux4f4eux901fux5316ux306eux6709ux9650ux6e96ux5099ux6d74}}
+
+\begin{statusbox}
+位置づけ：有限調和浴の Hamiltonian、共通位相回転対称性、全位相作用の保存、対称な余弦・正弦結合による位相固定項の消去は厳密結果である。記憶摩擦、欠陥減衰、有限温度床、有限時間準備は明記した短記憶・固定振幅近似の下での結果である。一般初期値に対する一様収束と長期反復は未完成である。
+\end{statusbox}
+
+\hypertarget{ux76eeux7684ux3068ux6642ux9593ux7a93}{%
+\section{目的と時間窓}\label{ux76eeux7684ux3068ux6642ux9593ux7a93}}
+
+第2.6節の有限特異 Hamiltonian は、局所作用整合と動径低速化を低速枝として与えるが、一般初期値からその枝を準備しない。本付録では、対象場から高速欠陥エネルギーを有限浴へ移す Hamiltonian を明示する。
+
+準備に使う浴は観測中の位相運動を変え得るため、内部時計の準備窓だけ作動させる。時計正準対を \((\vartheta,J_\vartheta)\) とし、作動帯で滑らかな窓関数
+
+\[
+0
+\leq
+g_{\rm prep}(\vartheta)
+\leq
+1
+\]
+
+を用いる。準備平坦部で \(g_{\rm prep}=1\)、観測窓で \(g_{\rm prep}=0\) とする。時計を含む全 Hamiltonian は自律的である。
+
+\hypertarget{ux632fux5e45ux5ea7ux6a19ux306eux6709ux9650ux6d74}{%
+\section{振幅座標の有限浴}\label{ux632fux5e45ux5ea7ux6a19ux306eux6709ux9650ux6d74}}
+
+セル \(i\) の振幅座標 \(R_i\) に有限個の調和振動子を結合する。浴正準対を \((Q_{i\alpha},\mathcal P_{i\alpha})\) とし、
+
+\[
+H_{R{\rm B}}
+=
+\sum_{i,\alpha}
+\left[
+\frac{
+\mathcal P_{i\alpha}^2
+}{
+2m_\alpha
+}
++
+\frac{
+m_\alpha\omega_\alpha^2
+}{
+2
+}
+\left(
+Q_{i\alpha}
+-
+\frac{
+c_\alpha g_{\rm prep}(\vartheta)R_i
+}{
+m_\alpha\omega_\alpha^2
+}
+\right)^2
+\right]
+\]
+
+とする。準備平坦部で浴を正確に消去すると、\(P_i\) の式に
+
+\[
+-\int_0^t
+K_R(t-s)
+\dot R_i(s)
+\,ds
++
+\xi_i(t)
+\]
+
+が加わる。記憶核は
+
+\[
+K_R(t)
+=
+\sum_\alpha
+\frac{
+c_\alpha^2
+}{
+m_\alpha\omega_\alpha^2
+}
+\cos
+\left(
+\omega_\alpha t
+\right).
+\]
+
+有限浴では \(K_R\) は余弦関数の有限和であり、厳密な局所摩擦ではない。再帰前の短記憶領域で
+
+\[
+\int_0^t
+K_R(t-s)
+\dot R_i(s)
+\,ds
+\simeq
+\eta_R\dot R_i
+\]
+
+と近似できるとき、
+
+\[
+\dot P_i
+\simeq
+-
+\frac{
+\partial H_{\epsilon_{\rm s}}
+}{
+\partial R_i
+}
+-
+\frac{
+\eta_R
+}{
+\epsilon_{\rm s}M
+}
+P_i
++
+\xi_i.
+\]
+
+従って振幅浴は \(P_i\) の高速成分を抑える。ただし、低速枝では \(R_i\) 自体が動くため、目標は \(P_i=0\) の永久固定ではなく、観測開始時に \(P_i=O(\epsilon_{\rm s})\) となる準備である。
+
+\hypertarget{ux5168ux4f5cux7528ux3092ux4fddux5b58ux3059ux308bux4f5cux7528ux4ea4ux63dbux6d74}{%
+\section{全作用を保存する作用交換浴}\label{ux5168ux4f5cux7528ux3092ux4fddux5b58ux3059ux308bux4f5cux7528ux4ea4ux63dbux6d74}}
+
+セルを結ぶ連結グラフを取り、辺 \(e=(i,k)\) の向き付き接続ベクトルを \(b_e=e_i-e_k\) とする。位相差と2つの周期関数を
+
+\[
+\phi_e
+=
+b_e^{\mathsf T}\boldsymbol\theta,
+\qquad
+F_{e,c}
+=
+\cos\phi_e,
+\qquad
+F_{e,s}
+=
+\sin\phi_e
+\]
+
+と定める。作用交換浴の正準対を \((X_{e\sigma\alpha},\Pi_{e\sigma\alpha})\) とし、
+
+\[
+\begin{aligned}
+H_{J{\rm B}}
+=
+\sum_{e,\sigma,\alpha}
+\Bigg[
+&
+\frac{
+\Pi_{e\sigma\alpha}^2
+}{
+2\mu_\alpha
+}
+\\
+&+
+\frac{
+\mu_\alpha\Omega_\alpha^2
+}{
+2
+}
+\left(
+X_{e\sigma\alpha}
+-
+\frac{
+d_\alpha g_{\rm prep}(\vartheta)F_{e,\sigma}
+}{
+\mu_\alpha\Omega_\alpha^2
+}
+\right)^2
+\Bigg],
+\end{aligned}
+\]
+
+\[
+\sigma
+\in
+\{c,s\}
+\]
+
+とする。同じ辺の余弦系列と正弦系列には同じ \((\mu_\alpha,\Omega_\alpha,d_\alpha)\) を用いる。
+
+\begin{proposition}[有限作用交換浴の全位相作用保存]
+$H_{J{\rm B}}$ は共通位相回転 $\theta_i\mapsto\theta_i+\beta$ に不変である。従って、
+
+$$
+\left\{
+\mathcal J_\phi,
+H_{\epsilon_{\rm s}}
++
+H_{R{\rm B}}
++
+H_{J{\rm B}}
++
+H_{\rm clk}
+\right\}
+=
+0.
+$$
+
+時計窓の立ち上がりと立ち下がりを含め、$\mathcal J_\phi=\sum_iJ_i$ は厳密に保存される。
+\end{proposition}
+
+\begin{proof}
+$H_{J{\rm B}}$ の位相依存性は全て $\theta_i-\theta_k$ を通じる。$H_{R{\rm B}}$ と $H_{\rm clk}$ は共通位相に依存しない。従って全 Hamiltonian は共通回転不変であり、その生成子 $\mathcal J_\phi$ との Poisson 括弧は零である。
+\end{proof}
+
+各辺の2系列から生じる逆項は
+
+\[
+\frac{
+d_\alpha^2g_{\rm prep}^2
+}{
+2\mu_\alpha\Omega_\alpha^2
+}
+\left(
+\cos^2\phi_e
++
+\sin^2\phi_e
+\right)
+\]
+
+であり、位相差に依存しない。従って、浴は不要な位相固定ポテンシャルを作らない。2系列のスペクトルが一致しない場合は、この相殺が崩れるため誤差として管理する。
+
+\hypertarget{ux6b63ux78baux306aux8a18ux61b6ux6838ux3068ux77edux8a18ux61b6ux8fd1ux4f3c}{%
+\section{正確な記憶核と短記憶近似}\label{ux6b63ux78baux306aux8a18ux61b6ux6838ux3068ux77edux8a18ux61b6ux8fd1ux4f3c}}
+
+準備平坦部で作用交換浴を消去すると、辺方向のトルクは
+
+\[
+\begin{aligned}
+\tau_e(t)
+=
+{}&-
+\int_0^t
+K_J(t-s)
+\cos
+\left[
+\phi_e(t)
+-
+\phi_e(s)
+\right]
+\dot\phi_e(s)
+\,ds
+\\
+&+
+\xi_e(t),
+\end{aligned}
+\]
+
+\[
+K_J(t)
+=
+\sum_\alpha
+\frac{
+d_\alpha^2
+}{
+\mu_\alpha\Omega_\alpha^2
+}
+\cos
+\left(
+\Omega_\alpha t
+\right)
+\]
+
+となる。余弦因子は、2系列の積の和
+
+\[
+\sin\phi_e(t)
+\sin\phi_e(s)
++
+\cos\phi_e(t)
+\cos\phi_e(s)
+=
+\cos
+\left[
+\phi_e(t)-\phi_e(s)
+\right]
+\]
+
+から生じる。
+
+浴相関時間中の位相差変化が小さく、記憶核を局所化できるとき、接続行列を \(B=(b_e)\)、グラフ Laplacian を
+
+\[
+L_G
+=
+BB^{\mathsf T}
+\]
+
+として、作用方程式の浴寄与は
+
+\[
+\dot{\boldsymbol J}
+\simeq
+-
+\eta_JL_G
+\dot{\boldsymbol\theta}
++
+B\boldsymbol\xi.
+\]
+
+これは絶対位相速度ではなく、辺に沿う相対位相速度だけへ作用する。しかし、観測中の物理的な相対位相運動も区別しないため、準備終了後には切り離す必要がある。
+
+\hypertarget{ux56faux5b9aux632fux5e45ux6e96ux5099ux8fd1ux4f3cux3067ux306eux6b20ux9665ux6e1bux8870}{%
+\section{固定振幅準備近似での欠陥減衰}\label{ux56faux5b9aux632fux5e45ux6e96ux5099ux8fd1ux4f3cux3067ux306eux6b20ux9665ux6e1bux8870}}
+
+短い準備窓で \(q_i=R_i^2\) を固定し、\(D_q=\operatorname{diag}(q_i)\) とする。\(H_0\) の位相力と浴雑音を無視した高速部分では、全体位相速度を除いて
+
+\[
+\dot{\boldsymbol\theta}
+-
+\bar\omega\boldsymbol 1
+=
+\frac{1}{\epsilon_{\rm s}I}
+D_q^{-1}
+\boldsymbol{\delta J}.
+\]
+
+従って、
+
+\[
+\dot{\boldsymbol{\delta J}}
+=
+-
+\frac{
+\eta_J
+}{
+\epsilon_{\rm s}I
+}
+L_GD_q^{-1}
+\boldsymbol{\delta J}.
+\]
+
+欠陥エネルギーを
+
+\[
+E_{\delta J}
+=
+\frac{1}{2\epsilon_{\rm s}I}
+\boldsymbol{\delta J}^{\mathsf T}
+D_q^{-1}
+\boldsymbol{\delta J}
+\]
+
+とすると、
+
+\[
+\frac{
+dE_{\delta J}
+}{
+dt
+}
+=
+-
+\frac{
+\eta_J
+}{
+\epsilon_{\rm s}^2I^2
+}
+\left(
+D_q^{-1}
+\boldsymbol{\delta J}
+\right)^{\mathsf T}
+L_G
+\left(
+D_q^{-1}
+\boldsymbol{\delta J}
+\right)
+\leq
+0.
+\]
+
+グラフが連結なら \(L_G\) の零空間は \(\boldsymbol 1\) が張る。等号なら \(D_q^{-1}\boldsymbol{\delta J}=c\boldsymbol 1\) であるが、\(\sum_i\delta J_i=0\) と \(\sum_iq_i=1\) から \(c=0\) となる。従って、この近似の範囲では \(\boldsymbol{\delta J}=0\) だけが零減衰状態である。
+
+一般の準備運動では、
+
+\[
+\dot{\boldsymbol{\delta J}}
+=
+\dot{\boldsymbol J}
+-
+\mathcal J_\phi
+\dot{\boldsymbol q}
+\]
+
+であり、\(H_0\) の位相力、振幅運動、有限温度雑音、記憶残差が強制項になる。従って上の単調減衰は、固定振幅・短記憶・低温の準備近似に限定される。
+
+\hypertarget{ux6709ux9650ux6d74ux6e29ux5ea6ux5207ux65adux306eux9650ux754c}{%
+\section{有限浴、温度、切断の限界}\label{ux6709ux9650ux6d74ux6e29ux5ea6ux5207ux65adux306eux9650ux754c}}
+
+有限 Hamiltonian 浴では永久的な不可逆減衰は起こらない。必要な観測窓は
+
+\[
+\tau_{\rm corr}
+\ll
+T_{\rm prep}
+\ll
+T_{\rm rec}.
+\]
+
+\(T_{\rm rec}\) より長い時間では、再位相整合とエネルギー再流入が起こり得る。反復運転では、試行後に浴を外部流路へ接続し、欠陥エネルギーを排出して浴を再初期化する必要がある。
+
+有限温度では \(\xi_i\) と \(\xi_e\) が残り、欠陥は零ではなく温度依存の揺らぎ床を持つ。観測開始時の誤差には少なくとも、
+
+\[
+\varepsilon_{\rm prep}
+=
+\varepsilon_{\rm mem}
++
+\varepsilon_T
++
+\varepsilon_q
++
+\varepsilon_{cs}
++
+\varepsilon_{\rm cut}
++
+\varepsilon_{\rm rec}
+\]
+
+を含める。各項は、短記憶化、有限温度、準備中の振幅変化、余弦・正弦浴の不一致、時計窓の切断、有限浴再帰からの誤差である。
+
+本付録は、局所作用欠陥と動径欠陥の準備を部分的に具体化する。coherent集中、\(r^2=\rho\) の密度同期、単流束化、節、入口標本化後の活性場再埋め込み、観測時間に一様な欠陥上界は導かない。
 
 \begin{thebibliography}{99}
 
