@@ -1,7 +1,7 @@
 @number: 2
 @chapter: 本文
 @title: 有限2成分誘導場と位相接続 Hamiltonian
-@status: 有限セルの正準変換、内部回転対称性、保存位相作用、固定作用下の局所作用分配、粒子運動量消去は厳密結果である。同じ場の位相・対・比較モード分解は固定射影として置く。coherent多様体の準備と交差応答の制御は未完成である。
+@status: 有限セルの正準変換、内部回転対称性、保存位相作用、固定作用下の局所作用分配、特異 Hamiltonian の有限パラメータ消去、粒子運動量消去は厳密結果である。局所作用整合と動径低速化は低速枝および時計制御された準備浴として部分的に具体化する。coherent集中、密度同期、単流束化、交差応答の制御は未完成である。
 
 ## 2.1 有限セルから始める理由
 
@@ -281,7 +281,299 @@ j_i
 2つの制約を代入すると、最後の3項は相殺して $E_{\rm rot}$ が残る。平方項は非負であり、全て零のときだけ最小になる。
 <!-- theorem-end:proof -->
 
-この定理はエネルギー地形を定める。閉鎖 Hamiltonian 流が最小配置へ収束することは示さない。境界準備で最小配置を選ぶか、弱開放縮約でずれ
+この定理はエネルギー地形を定める。閉鎖 Hamiltonian 流が最小配置へ収束することは示さない。第2.5節から第2.7節では、同じ平方項を高速化した有限 Hamiltonian の低速枝と、準備窓だけ作動する有限浴を分けて導入する。
+
+## 2.5 セル体積を吸収した正準変数
+
+特異縮約ではセル体積を正準変数へ吸収する。各セルについて
+
+```math
+R_i
+=
+r_i\sqrt{\Delta V},
+\qquad
+P_i
+=
+p_{r,i}\sqrt{\Delta V},
+\qquad
+J_i
+=
+j_i\Delta V
+```
+
+と定める。このとき正準1形式は
+
+```math
+\sum_i
+\left(
+P_i\,dR_i
++
+J_i\,d\theta_i
+\right)
+```
+
+であり、規格化と全位相作用は
+
+```math
+N
+=
+\sum_iR_i^2,
+\qquad
+\mathcal J_\phi
+=
+\sum_iJ_i.
+```
+
+局所作用欠陥を
+
+```math
+\delta J_i
+=
+J_i
+-
+\frac{
+\mathcal J_\phi R_i^2
+}{
+N
+}
+```
+
+と定める。すると、正規化前にも恒等式
+
+```math
+\sum_i
+\frac{
+\delta J_i^2
+}{
+R_i^2
+}
+=
+\sum_i
+\frac{
+J_i^2
+}{
+R_i^2
+}
+-
+\frac{
+\mathcal J_\phi^2
+}{
+N
+}
+```
+
+が成立する。$N=1$ では、$\delta J_i=\Delta V(j_i-\mathcal J_\phi r_i^2)$ である。従って、この変数変更は第2.4節の局所作用分配と同じ条件を表し、別の作用を導入しない。
+
+## 2.6 局所作用整合・動径低速 Hamiltonian
+
+$H_0(R,\theta)$ を、位相接続に必要な遅い場エネルギーとする。小さい無次元量 $\epsilon_{\rm s}>0$ を用いて
+
+```math
+\begin{aligned}
+H_{\epsilon_{\rm s}}
+={}&
+H_0(R,\theta)
++
+\sum_i
+\frac{
+P_i^2
+}{
+2\epsilon_{\rm s}M
+}
+\\
+&+
+\frac{1}{2\epsilon_{\rm s}I}
+\left[
+\sum_i
+\frac{
+J_i^2
+}{
+R_i^2
+}
+-
+\frac{
+\mathcal J_\phi^2
+}{
+N
+}
+\right]
++
+\frac{\Lambda_N}{2}
+\left(
+N-1
+\right)^2
+\end{aligned}
+```
+
+とする。固定 $\mathcal J_\phi$ sectorでは、$1/\epsilon_{\rm s}$ を持つ2項は動径運動量と局所作用欠陥に対して正定値である。ただし、$\Lambda_N$ 項は規格化逸脱をエネルギー的に抑えるだけである。以下の正確な消去は、$N=1$ をホロノミック制約として課した単体の局所座標上で行う。有限 $\Lambda_N$ の場合は規格化誤差を別に加える。
+
+```math
+q_i
+=
+R_i^2,
+\qquad
+\pi_i
+=
+\frac{
+P_i
+}{
+2R_i
+},
+\qquad
+\sum_iq_i=1.
+```
+
+固定全作用の下で $\delta J_i=J_i-\mathcal J_\phi q_i$ と書く。単体の接空間条件 $\sum_i\delta J_i=0$ を課した有限 $\epsilon_{\rm s}$ の Legendre 変換から、
+
+```math
+\pi_i
+=
+\frac{
+\epsilon_{\rm s}M
+}{
+4q_i
+}
+\dot q_i,
+```
+
+```math
+\delta J_i
+=
+\epsilon_{\rm s}Iq_i
+\left(
+\dot\theta_i
+-
+\bar\omega
+\right),
+\qquad
+\bar\omega
+=
+\sum_iq_i\dot\theta_i.
+```
+
+を得る。従って消去後の Lagrangian は
+
+```math
+\begin{aligned}
+L_{\epsilon_{\rm s}}^{\rm red}
+={}&
+\mathcal J_\phi
+\sum_i
+q_i\dot\theta_i
+-
+H_0(q,\theta)
+\\
+&+
+\frac{
+\epsilon_{\rm s}M
+}{
+8
+}
+\sum_i
+\frac{
+\dot q_i^2
+}{
+q_i
+}
+\\
+&+
+\frac{
+\epsilon_{\rm s}I
+}{
+2
+}
+\sum_i
+q_i
+\left(
+\dot\theta_i
+-
+\bar\omega
+\right)^2.
+\end{aligned}
+```
+
+<!-- theorem-start:proposition -->
+**命題（有限特異パラメータの正確な消去）**
+$q_i>0$、$\sum_iq_i=1$、固定 $\mathcal J_\phi$ sectorで、上の運動量消去と $L_{\epsilon_{\rm s}}^{\rm red}$ は有限 $\epsilon_{\rm s}$ について正確である。$\dot q_i$ と $\dot\theta_i-\bar\omega$ が $\epsilon_{\rm s}$ に一様に有界な低速枝では、
+
+```math
+P_i
+=
+O
+\left(
+\epsilon_{\rm s}
+\right),
+\qquad
+\delta J_i
+=
+O
+\left(
+\epsilon_{\rm s}
+\right).
+```
+<!-- theorem-end:proposition -->
+
+有限エネルギー上界だけから直接得られるのは、一般に $P_i=O(\sqrt{\epsilon_{\rm s}})$ と $\delta J_i=O(\sqrt{\epsilon_{\rm s}})$ である。$O(\epsilon_{\rm s})$ 評価には有界な低速を仮定する必要がある。また、一般初期値の解が $\epsilon_{\rm s}\to0$ で縮約解へ一様に収束する定理はまだない。
+
+$\epsilon_{\rm s}\to0$ の形式極限では
+
+```math
+L_0
+=
+\mathcal J_\phi
+\sum_i
+q_i\dot\theta_i
+-
+H_0(q,\theta)
+```
+
+となる。これは局所作用整合と動径低速化を低速枝として説明するが、異なる標本の $(q,\theta)$ を共通代表場へ集中させない。この低速領域を
+
+```math
+\mathcal M_{\rm slow}
+=
+\left\{
+P_i=0,
+\quad
+J_i=\mathcal J_\phi q_i
+\right\}
+```
+
+と呼び、第2.11節の coherent集中と区別する。
+
+## 2.7 準備窓と観測窓の分離
+
+閉鎖系では高速欠陥エネルギーは消えず、有限特異 Hamiltonian だけで一般初期値を $\mathcal M_{\rm slow}$ へ吸引できない。そこで、内部時計角 $\vartheta$ と滑らかな窓関数 $g_{\rm prep}(\vartheta)$ を使い、準備窓だけ有限振幅浴と有限作用交換浴を結合する。全 Hamiltonian の詳細と浴の正確な消去は付録Eに置く。
+
+作用交換浴は $\theta_i-\theta_k$ の $\cos$ と $\sin$ へ対称に結合する。従って、
+
+1. 全体位相回転に不変で、$\mathcal J_\phi$ を厳密に保存する。
+2. 対となる逆項は $\cos^2+\sin^2=1$ により位相固定ポテンシャルを作らない。
+3. 固定 $q_i>0$、連結グラフ、短記憶、低温の準備近似では、局所作用欠陥の Lyapunov量を減少させる。
+4. 有限浴なので全 Hamiltonian は保存され、対象場から失われた欠陥エネルギーは浴へ移る。
+
+一方、短記憶極限の作用交換浴は相対位相速度へ摩擦を与える。観測中も作動させると、必要な Schrödinger 型位相運動を変える。従って、時間尺度を
+
+```math
+\tau_{\rm corr}
+\ll
+T_{\rm prep}
+\ll
+T_{\rm slow},
+T_{\rm rec}
+```
+
+と分離し、観測窓では
+
+```math
+g_{\rm prep}
+=
+0
+```
+
+とする。準備後の位相接続運動は $H_{\epsilon_{\rm s}}$ の低速領域で行う。有限温度雑音床、有限浴再帰、窓の切断誤差、観測中の欠陥再成長は第8章で管理する。
+
+この機構が直接改善するのは、局所作用欠陥
 
 ```math
 \varepsilon_j
@@ -291,9 +583,9 @@ j-\mathcal J_\phi r^2
 \right\|
 ```
 
-を小さく保つ必要がある。弱い漏れは準備済み配置の安定化候補であり、coherent配置の生成機構としては使わない。
+と動径欠陥 $\varepsilon_{\rm radial}$ である。coherent集中 $\varepsilon_{\rm coh}$、密度同期 $\varepsilon_\rho$、単流束化 $\varepsilon_{\rm press}$、節誤差 $\varepsilon_{\rm node}$ は独立に残る。
 
-## 2.5 位相接続
+## 2.8 位相接続
 
 連続補間した2成分場に対し、
 
@@ -338,7 +630,7 @@ V(X)
 
 とする。$\mathcal J_\phi$ は外から置く固定定数ではなく、場の共通内部回転の保存生成子である。固定 $\mathcal J_\phi$ sectorへ制限すると、有効結合定数として働く。
 
-## 2.6 粒子運動量の消去
+## 2.9 粒子運動量の消去
 
 Hamilton 方程式から
 
@@ -404,7 +696,7 @@ v\cdot\nabla\theta
 
 となる。場の正準項と合わせた物質微分構造は第3章で導く。
 
-## 2.7 時間反転
+## 2.10 時間反転
 
 標準時間反転を
 
@@ -441,7 +733,7 @@ P-\mathcal J_\phi\mathbf a_\varepsilon
 
 であり、$H_{\rm p}$ は不変である。固定符号の $\mathcal J_\phi$ sectorだけを取り出すと時間反転は反対sectorへ写す。全理論は両sectorを含めて時間反転対称である。
 
-## 2.8 coherent集中の意味
+## 2.11 coherent集中の意味
 
 連続場の2次モーメントが rank-one に近いことだけでは、非線形比
 
@@ -467,7 +759,7 @@ P-\mathcal J_\phi\mathbf a_\varepsilon
 
 とし、それぞれ coherent集中、節正則化、動径断熱化からのずれを表す。これらを有限 Hamiltonian 時間発展から一様に小さくする定理は未完成である。
 
-## 2.9 同じ場の対モードと比較モード
+## 2.12 同じ場の対モードと比較モード
 
 複素場表示を
 

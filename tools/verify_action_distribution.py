@@ -304,6 +304,199 @@ def main() -> None:
         )
     )
 
+    # Cell-volume absorption preserves the canonical one-form and the
+    # local-action defect has the exact normalized square identity.
+    integrated_cell_count = 17
+    integrated_cell_volume = 0.07
+    integrated_radius = 0.2 + rng.random(integrated_cell_count)
+    integrated_radial_momentum = rng.normal(
+        size=integrated_cell_count
+    )
+    integrated_local_action = rng.normal(
+        size=integrated_cell_count
+    )
+    integrated_radius_increment = rng.normal(
+        size=integrated_cell_count
+    )
+    integrated_phase_increment = rng.normal(
+        size=integrated_cell_count
+    )
+    integrated_R = integrated_radius * np.sqrt(
+        integrated_cell_volume
+    )
+    integrated_P = integrated_radial_momentum * np.sqrt(
+        integrated_cell_volume
+    )
+    integrated_J = integrated_local_action * integrated_cell_volume
+    integrated_dR = integrated_radius_increment * np.sqrt(
+        integrated_cell_volume
+    )
+    direct_integrated_one_form = integrated_cell_volume * np.sum(
+        integrated_radial_momentum * integrated_radius_increment
+        + integrated_local_action * integrated_phase_increment
+    )
+    transformed_integrated_one_form = np.sum(
+        integrated_P * integrated_dR
+        + integrated_J * integrated_phase_increment
+    )
+    checks.append(
+        record_max(
+            "cell_volume_absorption_one_form_error",
+            abs(
+                direct_integrated_one_form
+                - transformed_integrated_one_form
+            ),
+            1.0e-13,
+        )
+    )
+    integrated_norm = np.sum(integrated_R**2)
+    integrated_total_action = np.sum(integrated_J)
+    integrated_defect = (
+        integrated_J
+        - integrated_total_action
+        * integrated_R**2
+        / integrated_norm
+    )
+    defect_square = np.sum(integrated_defect**2 / integrated_R**2)
+    defect_square_expected = (
+        np.sum(integrated_J**2 / integrated_R**2)
+        - integrated_total_action**2 / integrated_norm
+    )
+    checks.append(
+        record_max(
+            "local_action_defect_square_identity_error",
+            abs(defect_square - defect_square_expected),
+            1.0e-12,
+        )
+    )
+
+    # Exact finite-epsilon momentum elimination yields the reduced
+    # singular Lagrangian on the normalized simplex.
+    simplex_dimension = 19
+    simplex_q = 0.1 + rng.random(simplex_dimension)
+    simplex_q /= simplex_q.sum()
+    simplex_q_velocity = rng.normal(size=simplex_dimension)
+    simplex_q_velocity -= simplex_q_velocity.mean()
+    simplex_theta_velocity = rng.normal(size=simplex_dimension)
+    singular_epsilon = 0.037
+    singular_mass = 1.3
+    singular_inertia = 0.9
+    singular_total_action = -1.2
+    weighted_omega = np.sum(
+        simplex_q * simplex_theta_velocity
+    )
+    simplex_pi = (
+        singular_epsilon
+        * singular_mass
+        * simplex_q_velocity
+        / (4.0 * simplex_q)
+    )
+    simplex_P = 2.0 * np.sqrt(simplex_q) * simplex_pi
+    simplex_defect = (
+        singular_epsilon
+        * singular_inertia
+        * simplex_q
+        * (simplex_theta_velocity - weighted_omega)
+    )
+    simplex_J = (
+        singular_total_action * simplex_q + simplex_defect
+    )
+    simplex_R_velocity = (
+        simplex_q_velocity / (2.0 * np.sqrt(simplex_q))
+    )
+    singular_fast_hamiltonian = (
+        np.sum(simplex_P**2)
+        / (2.0 * singular_epsilon * singular_mass)
+        + np.sum(simplex_defect**2 / simplex_q)
+        / (2.0 * singular_epsilon * singular_inertia)
+    )
+    singular_legendre_direct = (
+        np.sum(simplex_P * simplex_R_velocity)
+        + np.sum(simplex_J * simplex_theta_velocity)
+        - singular_fast_hamiltonian
+    )
+    singular_legendre_expected = (
+        singular_total_action
+        * np.sum(simplex_q * simplex_theta_velocity)
+        + singular_epsilon
+        * singular_mass
+        * np.sum(simplex_q_velocity**2 / simplex_q)
+        / 8.0
+        + singular_epsilon
+        * singular_inertia
+        * np.sum(
+            simplex_q
+            * (simplex_theta_velocity - weighted_omega) ** 2
+        )
+        / 2.0
+    )
+    checks.append(
+        record_max(
+            "singular_legendre_elimination_error",
+            abs(
+                singular_legendre_direct
+                - singular_legendre_expected
+            ),
+            1.0e-12,
+        )
+    )
+
+    # Edge torques exchange local action without changing total action.
+    graph_dimension = 13
+    incidence = np.zeros((graph_dimension, graph_dimension))
+    for edge in range(graph_dimension):
+        incidence[edge, edge] = 1.0
+        incidence[(edge + 1) % graph_dimension, edge] = -1.0
+    edge_torque = rng.normal(size=graph_dimension)
+    local_torque = incidence @ edge_torque
+    checks.append(
+        record_max(
+            "action_exchange_total_torque_error",
+            abs(np.sum(local_torque)),
+            1.0e-14,
+        )
+    )
+    edge_phase = rng.uniform(-np.pi, np.pi, size=100_000)
+    checks.append(
+        record_max(
+            "paired_bath_counterterm_phase_error",
+            np.max(
+                np.abs(
+                    np.cos(edge_phase) ** 2
+                    + np.sin(edge_phase) ** 2
+                    - 1.0
+                )
+            ),
+            1.0e-14,
+        )
+    )
+
+    # The fixed-amplitude, short-memory defect energy derivative is
+    # non-positive on a connected graph.
+    defect_q = 0.1 + rng.random(graph_dimension)
+    defect_q /= defect_q.sum()
+    graph_defect = rng.normal(size=graph_dimension)
+    graph_defect -= graph_defect.mean()
+    graph_laplacian = incidence @ incidence.T
+    weighted_defect = graph_defect / defect_q
+    defect_dissipation = float(
+        weighted_defect @ graph_laplacian @ weighted_defect
+    )
+    checks.append(
+        record_max(
+            "action_defect_lyapunov_sign_error",
+            max(-defect_dissipation, 0.0),
+            1.0e-12,
+        )
+    )
+    checks.append(
+        record_min(
+            "action_defect_connected_graph_dissipation_guard",
+            defect_dissipation,
+            1.0e-8,
+        )
+    )
+
     # The phase-connection kinetic energy is time-reversal invariant when
     # both particle momentum and the dynamical phase action reverse.
     connection_count = 100_000

@@ -1,7 +1,7 @@
 @number: 3
 @chapter: 本文
 @title: 縮約多様体、Madelung 作用、Schrödinger 型力学
-@status: coherent縮約多様体に制限した Madelung 作用、変分、Schrödinger 型方程式、同期差保存は厳密結果である。確率過程を前提にしない。多様体の生成、安定化、微視的停留点選択は未完成である。
+@status: coherent縮約多様体に制限した Madelung 作用、変分、Schrödinger 型方程式、同期差保存は厳密結果である。確率過程を前提にしない。局所作用整合と動径低速化は有限特異 Hamiltonian の低速枝と準備浴により部分的に具体化する。coherent集中、密度同期、一様な特異極限、微視的停留点選択は未完成である。
 
 ## 3.1 縮約条件
 
@@ -9,7 +9,7 @@
 
 1. **coherent集中**：非線形接続と正準項を共通の代表場 $(r,\theta)$ で評価できる。
 2. **固定作用sector**：全位相作用 $\mathcal J_\phi\neq0$ を固定する。
-3. **局所作用分配**：
+3. **準備済み局所作用整合**：第2.6節の低速枝と第2.7節の準備窓により、
 
 ```math
 j
@@ -46,7 +46,7 @@ O(\varepsilon_{\rm node}).
 ```
 
 で抑える。
-7. **動径断熱化**：$p_r^2/(2M_r)$ と高速振幅モードの作用寄与を
+7. **準備済み動径低速化**：第2.6節の低速枝と振幅浴により、$p_r^2/(2M_r)$ と高速振幅モードの作用寄与を
 
 ```math
 \varepsilon_{\rm radial}
@@ -55,7 +55,48 @@ O(\varepsilon_{\rm node}).
 で抑える。
 8. **位相勾配の非重複**：粒子流速へ入れた位相運動エネルギーと、場側の $r^2|\nabla\theta|^2$ を二重に数えない。
 
-これらは縮約多様体の定義と誤差条件である。有限 Hamiltonian 時間発展が一般の初期状態からこの多様体へ吸引するとは仮定しない。
+これらは縮約多様体の定義と誤差条件である。第2章と付録Eは3と7の準備を部分的に具体化するが、1、4、6、節の制御を導かない。有限 Hamiltonian 時間発展が一般の初期状態から縮約多様体全体へ吸引するとは仮定しない。
+
+### 3.1.1 有限特異パラメータの残差
+
+セル表示では、第2.6節の正確な運動量消去により、理想縮約作用へ
+
+```math
+\Delta\mathcal A_{\epsilon_{\rm s}}
+=
+\int
+\left[
+\frac{
+\epsilon_{\rm s}M
+}{
+8
+}
+\sum_i
+\frac{
+\dot q_i^2
+}{
+q_i
+}
++
+\frac{
+\epsilon_{\rm s}I
+}{
+2
+}
+\sum_i
+q_i
+\left(
+\dot\theta_i
+-
+\bar\omega
+\right)^2
+\right]
+dt
+```
+
+が加わる。有界な低速枝では $O(\epsilon_{\rm s})$ の作用補正である。準備浴の切断後には、さらに準備終了時の $P_i$、$\delta J_i$、記憶尾、有限温度雑音床を残差として加える。
+
+この有限パラメータ表示は、局所作用整合と動径低速化を直接代入するより強い。しかし、有限エネルギーだけからの誤差は一般に $O(\sqrt{\epsilon_{\rm s}})$ であり、解と1次変分が観測時間に一様収束する定理はない。従って以下の Madelung 作用は、準備済み低速枝での形式的特異極限として扱う。
 
 ## 3.2 物質微分結合
 
@@ -492,9 +533,10 @@ N\in\mathbb Z.
 
 未解決なのは、
 
-1. 一般の有限 Hamiltonian 初期集団から coherent多様体を準備すること。
-2. 観測窓で $\varepsilon_{\rm coh}$、$\varepsilon_j$、$\varepsilon_\rho$、$\varepsilon_{\rm radial}$、$\varepsilon_{\rm press}$ を同時に小さくすること。
-3. ミクロ運動の粗視化が $\mathcal A_{\rm red}$ の停留点を選ぶこと。
-4. 一般の節構造を含む領域で同じ縮約を制御すること。
+1. 一般の有限 Hamiltonian 初期集団から coherent集中と密度同期を準備すること。
+2. 付録Eの準備窓から観測窓まで、$\varepsilon_j$ と $\varepsilon_{\rm radial}$ の再成長を一様に抑えること。
+3. 観測窓で $\varepsilon_{\rm coh}$、$\varepsilon_j$、$\varepsilon_\rho$、$\varepsilon_{\rm radial}$、$\varepsilon_{\rm press}$ を同時に小さくすること。
+4. ミクロ運動の粗視化が $\mathcal A_{\rm red}$ の停留点を選ぶこと。
+5. 一般の節構造を含む領域で同じ縮約を制御すること。
 
 実在的な前後 Markov 経路を構成する別候補は付録Dへ記録するが、本章の導出には使用しない。
