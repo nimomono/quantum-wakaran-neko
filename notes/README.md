@@ -11,5 +11,6 @@
 | `gaussian_nelson_examples.md` | draft-10 第2.6節、付録D | M3と補助計算 | 主定理と現行 Bell 論証を実質的に支えない |
 | `measurement_dependence_comparisons.md` | draft-10 付録E.1〜E.3 | 表現論的比較 | Bell の前提監査は本文だけで完結し、最適化比較は中心論証に不要 |
 | `superseded_position_coupling_fisher_closure.md` | draft-13 第2〜4章 | M13の不採用記録 | 力密度閉鎖を、運動量結合から配置拡散へ進む直接経路で置き換えた |
+| `superseded_three_mode_bell_shell.md` | draft-12〜draft-15 第6〜7章、付録C | M7〜M9の不採用記録 | 比較作用を直接読む2モード境界殻へ置き換えた |
 
 完全な旧原稿は版タグと公開版で保存し、ここには置かない。

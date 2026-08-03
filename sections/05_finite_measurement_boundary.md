@@ -1,389 +1,361 @@
 @number: 5
 @chapter: 本文
-@title: 運動量結合による配置拡散経路
-@status: 運動量2次形式、配置流束、線形誘導場の消去、二側 Markov 拡散内部の Fisher 構造は厳密結果である。有限誘導場からの Brown 極限、配置 Markov 閉鎖、位相接続経路との同時実現は未完成である。
+@title: 同じ2成分場の低ランク Bell 対モード
+@status: 固定された2つの直交源チャンネル、反対称源、左右の局所モード回転を仮定すると、Bell 余弦枝作用は厳密に得られる。低ランク相関は派生量であり、独立した配置空間場ではない。一般的な結果形成は未完成である。
 
-## 5.1 この経路を残す理由
+## 5.1 物理空間上の1つの場
 
-第3章は coherent縮約多様体上で Schrödinger 型PDEを閉じるが、粒子が実在的な前進・後退 Markov 経路を持つことは示さない。本章の運動量結合経路は、有限 Hamiltonian 誘導場の速度揺らぎから、その確率過程へ進む候補を与える。
-
-両経路は役割を分ける。
-
-- 位相接続経路：作用と有効PDEを与える。
-- 運動量結合経路：配置軌道の拡散極限を与える候補である。
-- 係数一致と同時実現：独立した未解決問題である。
-
-## 5.2 運動量結合した有限誘導場
-
-粒子正準対を $(X,P)$、誘導場正準対を $(Q,\Pi)$ とする。線形核を
+Bell 粒子対に対しても、基本的な場変数は物理空間上の2成分場
 
 ```math
-H_N^{\rm lin}
+\boldsymbol\Phi(x)
 =
-\frac12
 \begin{pmatrix}
-P\\
-\Pi
-\end{pmatrix}^{\mathsf T}
-\begin{pmatrix}
-m^{-1}I_d & C_N\\
-C_N^{\mathsf T} & M_N^{-1}
+\Phi_1(x)\\
+\Phi_2(x)
 \end{pmatrix}
-\begin{pmatrix}
-P\\
-\Pi
-\end{pmatrix}
-+
-V(X)
-+
-\frac12Q^{\mathsf T}K_NQ
 ```
 
-とする。$M_N$ と $K_N$ は正定値実対称行列である。
+とその正準運動量だけである。2粒子の配置 $(X_A,X_B)$ 上に独立な場を置かない。
 
-<!-- theorem-start:proposition -->
-**命題（運動量2次形式の成立条件）**
-運動量2次形式が正定値であるための必要十分条件は
+複素表示 $\zeta=\Phi_1+i\Phi_2$ を用い、第2.9節の固定モード展開から左右へ進む局在モードを
 
 ```math
-M_N^{-1}
--
-mC_N^{\mathsf T}C_N
->
-0
+z^A_{\mu r},
+\qquad
+z^B_{\nu r},
+\qquad
+\mu,\nu\in\{+,-\},
+\qquad
+r\in\{1,2\}
 ```
 
-である。
-<!-- theorem-end:proposition -->
+とする。$\mu,\nu$ は各局所分析器の2出力モード、$r$ は互いに直交する源チャンネルである。源チャンネルは、同じ場の異なる周波数、時間スロット、空間正規モードなどとして実装できる。
+
+モード射影は場の正準1形式から誘導される。同じ固定直交基底を場座標と場運動量へ用いる限り、有限モード係数は正準である。設定または結果ごとに基底を選び直さない。
+
+## 5.2 低ランク相関行列
+
+左右モードの相関を
+
+```math
+C_{\mu\nu}
+=
+\sum_{r=1}^{2}
+\eta_r
+z^A_{\mu r}
+\left(
+z^B_{\nu r}
+\right)^*
+```
+
+と定める。行列表示では
+
+```math
+C
+=
+\sum_{r=1}^{2}
+\eta_r
+z^{A,(r)}
+\left(
+z^{B,(r)}
+\right)^\dagger.
+```
+
+従って $\operatorname{rank}C\leq2$ である。
+
+$C$ は独立した場ではない。基礎モード $z^A,z^B$ から計算される派生量であり、独自の Poisson 括弧または独自の運動方程式を与えない。共通内部回転
+
+```math
+z^A
+\longmapsto
+e^{i\beta}z^A,
+\qquad
+z^B
+\longmapsto
+e^{i\beta}z^B
+```
+
+に対し、$C$ は不変である。この共役規約により、比較 Hamiltonian と保存位相作用 $\mathcal J_\phi$ の対称性を両立できる。
+
+## 5.3 反対称源
+
+理想源が準備する相関行列を
+
+```math
+C_0
+=
+\sqrt{\frac{\mathcal K}{2}}
+\begin{pmatrix}
+0&1\\
+-1&0
+\end{pmatrix},
+\qquad
+\mathcal K>0
+```
+
+とする。これは2つのランク1項へ
+
+```math
+C_0
+=
+\sqrt{\frac{\mathcal K}{2}}
+\left[
+e_+e_-^{\mathsf T}
+-
+e_-e_+^{\mathsf T}
+\right]
+```
+
+と分解できる。従って、2つの直交源チャンネルで実係数の代表点を準備すれば、低ランク構成から $C_0$ を得られる。
+
+この節で厳密なのは、準備された2チャンネルから $C_0$ を合成する代数である。場と対生成装置の有限 Hamiltonian が、任意の初期状態からこの反対称源へ到達することは別の準備問題である。相対位相が失われると2チャンネル間の干渉項が消えるため、源から比較器までの位相保持が必要である。
+
+## 5.4 左右の局所分析器
+
+設定 $a,b$ に対応するモード角を $\alpha_a,\alpha_b$ とする。左右の分析器は局所モードだけを
+
+```math
+z^{A,(r)}
+\longmapsto
+R(\alpha_a)z^{A,(r)},
+```
+
+```math
+z^{B,(r)}
+\longmapsto
+R(\alpha_b)z^{B,(r)}
+```
+
+と回転する。ここで
+
+```math
+R(\alpha)
+=
+\begin{pmatrix}
+\cos\alpha&-\sin\alpha\\
+\sin\alpha&\cos\alpha
+\end{pmatrix}.
+```
+
+相関行列の表示は
+
+```math
+C(a,b)
+=
+R(\alpha_a)
+C_0
+R(\alpha_b)^{\mathsf T}
+```
+
+となるが、物理的に回しているのは $C$ ではなく、A側とB側の局所場モードである。
+
+A側の正準座標を $(Q^A_{\mu r},P^A_{\mu r})$ とすれば、回転生成子を
+
+```math
+G_A
+=
+\sum_r
+\left(
+Q^A_{+r}P^A_{-r}
+-
+Q^A_{-r}P^A_{+r}
+\right)
+```
+
+と書ける。局所 Hamiltonian
+
+```math
+H_A
+=
+\dot\alpha_a(\vartheta)G_A
+```
+
+がA側だけの回転を生成する。B側も同様であり、
+
+```math
+H_{\rm analyzer}
+=
+H_A(a)+H_B(b)
+```
+
+は空間的に分離した局所和である。
+
+## 5.5 結果枝振幅
+
+結果ポート $A,B\in\{+1,-1\}$ の基底ベクトルを $e_A,e_B$ とする。結果組 $(A,B)$ に対応する相関振幅を
+
+```math
+C_{AB}(a,b)
+=
+e_A^{\mathsf T}
+C(a,b)
+e_B
+```
+
+と定め、枝作用を
+
+```math
+K_{AB}
+=
+|C_{AB}|^2
+```
+
+とする。
+
+<!-- theorem-start:theorem -->
+**定理（反対称対モードの余弦作用）**
+反対称源 $C_0$ と実回転 $R(\alpha_a)$、$R(\alpha_b)$ の下で、
+
+```math
+K_{AB}
+=
+\frac{\mathcal K}{4}
+\left[
+1-AB\cos\Delta_{ab}
+\right],
+```
+
+```math
+\Delta_{ab}
+=
+2
+\left(
+\alpha_a-\alpha_b
+\right)
+```
+
+が成立する。さらに、
+
+```math
+\sum_{A,B}K_{AB}
+=
+\mathcal K,
+\qquad
+\sum_BK_{AB}
+=
+\sum_AK_{AB}
+=
+\frac{\mathcal K}{2}.
+```
+<!-- theorem-end:theorem -->
 
 <!-- theorem-start:proof -->
 **証明**
-左上ブロック $m^{-1}I_d$ は正定値である。ブロック行列の Schur 補条件を適用する。
+$\delta=\alpha_a-\alpha_b$ とする。反対称行列と回転の積を直接計算すると、同符号ポートでは
+
+```math
+K_{++}
+=
+K_{--}
+=
+\frac{\mathcal K}{2}\sin^2\delta,
+```
+
+異符号ポートでは
+
+```math
+K_{+-}
+=
+K_{-+}
+=
+\frac{\mathcal K}{2}\cos^2\delta
+```
+
+を得る。$\cos2\delta=\cos\Delta_{ab}$ を用いれば主式が従う。総和と周辺和は主式を符号について足せばよい。
 <!-- theorem-end:proof -->
 
-Hamilton 方程式は
+この定理は、設定依存する余弦作用の生成を局所モード回転から与える。結果頻度はまだ与えない。
+
+## 5.6 物理角との対応
+
+数式中の基本角はモード回転角 $\alpha$ であり、観測装置の表示角と常に同じとは限らない。
+
+- 光子偏光型では $\alpha_a=a$、$\alpha_b=b$ と置けば、$\Delta_{ab}=2(a-b)$ となる。
+- 平面内のスピン型測定では $\alpha_a=a/2$、$\alpha_b=b/2$ と置けば、$\Delta_{ab}=a-b$ となる。
+
+この対応を固定せずに $\Delta_{ab}$ を物理角と呼ぶと、余弦の角度が2倍ずれる。本論文では、一般式では $\Delta_{ab}$ を用い、特定実験との比較時に $\alpha(a)$ を明示する。
+
+## 5.7 局所結果と共同量の役割分担
+
+A側の局所装置だけでは $C_{AB}$ を計算できない。B側のモードも必要だからである。従って $K_{AB}$ を空間的に離れた測定時刻の瞬間的な局所力へ使わない。
+
+局所測定窓では、各側が次を行う。
+
+1. 設定に応じて局所モードを回転する。
+2. 2つの出力ポートを形成する。
+3. 既存の局所結果sector $A$ または $B$ を指針へ記録する。
+4. 結果ポートと源チャンネルの振幅を戻りモードへ写す。
+
+本論文の局所装置は、既存の2値結果sectorをポートと記録へ符号化する最小模型である。連続したミクロ状態から安定な唯一結果を形成する一般測定器は構成していない。
+
+## 5.8 有限伝播と共通未来
+
+左右の戻りモードは、局所記録後に有限速度で共通未来領域へ伝播する。遅延応答を記号的に
 
 ```math
-\dot X
-=
-\frac Pm
-+
-C_N\Pi,
-\qquad
-\dot P
-=
--\nabla V(X),
-```
-
-```math
-\dot Q
-=
-M_N^{-1}\Pi
-+
-C_N^{\mathsf T}P,
-\qquad
-\dot\Pi
-=
--K_NQ.
-```
-
-従って配置速度は
-
-```math
-U_N
-=
-\frac Pm
-+
-Y_N,
-\qquad
-Y_N
-=
-C_N\Pi.
-```
-
-正準運動量 $P$ と機械的運動量 $m\dot X$ は一致しない。
-
-## 5.3 時間反転と配置流束
-
-標準時間反転
-
-```math
-(P,\Pi)
-\mapsto
-(-P,-\Pi)
-```
-
-の下で運動量2次形式は不変である。$V$ と場ポテンシャルが座標だけに依存すれば、有限閉鎖核は時間反転対称である。
-
-全 Liouville 密度を $F_N(X,P,Q,\Pi,t)$、配置周辺密度を
-
-```math
-\rho_N(x,t)
+z_{\rm ret}^{A}(t)
 =
 \int
-F_N
-\,dP\,dQ\,d\Pi
-```
-
-とする。Liouville 方程式を内部変数で積分すると、
-
-```math
-\partial_t\rho_N
-+
-\nabla\cdot
-\left(
-\rho_Nv_N
-\right)
-=
-0,
+G_A(t-s)z_{\rm out}^{A}(s)\,ds,
 ```
 
 ```math
-v_N
+z_{\rm ret}^{B}(t)
 =
-\mathbb E_N
+\int
+G_B(t-s)z_{\rm out}^{B}(s)\,ds
+```
+
+と書く。$G_A,G_B$ の支持は、各局所測定から共通未来比較窓までの伝播時間より前に現れない。
+
+理想式では比較窓で
+
+```math
+z_{\rm ret}^{A}
+=
+z_{\rm out}^{A},
+\qquad
+z_{\rm ret}^{B}
+=
+z_{\rm out}^{B}
+```
+
+となる規格化を用いる。損失、分散、チャンネル混合、相対位相ずれは第8章の誤差へ含める。
+
+## 5.9 位相雑音と可視度
+
+2つの源チャンネルの相対位相に揺らぎ $\varphi$ があると、干渉項は
+
+```math
+\chi_\phi
+=
+\left\langle
+e^{i\varphi}
+\right\rangle
+```
+
+で減衰する。対称な位相雑音で $\chi_\phi$ が実なら、
+
+```math
+K_{AB}
+=
+\frac{\mathcal K}{4}
 \left[
-\frac Pm+C_N\Pi
-\mid
-X=x
-\right].
-```
-
-$P/m$ だけを配置速度としてはならない。
-
-## 5.4 線形誘導場の正確な消去
-
-質量規格化した場座標で、正定値周波数行列を $\Omega_N$ とする。指定初期値問題の解を粒子運動量から独立な自由解と強制解へ分けると、
-
-```math
-Y_N(t)
-=
-Y_N^{\rm free}(t)
+1
 -
-\int_0^t
-C_N\Omega_N
-\sin
-\left[
-\Omega_N(t-s)
-\right]
-C_N^{\mathsf T}P(s)
-\,ds.
-```
-
-第1項は初期誘導場に由来する自由速度揺らぎ、第2項は粒子から場への反作用速度記憶である。
-
-指定した Gauss 型初期集団で、場のエネルギー尺度を $\Theta_N$ とすると、
-
-```math
-R_N(t-s)
-=
-\mathbb E
-\left[
-Y_N^{\rm free}(t)
-\otimes
-Y_N^{\rm free}(s)
-\right]
-```
-
-```math
-=
-\Theta_N
-C_N
-\cos
-\left[
-\Omega_N(t-s)
-\right]
-C_N^{\mathsf T}.
-```
-
-有限 $N$ では相関は余弦関数の有限和である。厳密な OU 相関や無限時間の Brown 運動ではない [12--14]。
-
-二側境界条件を用いる場合、自己共役な境界値問題では Green 核が時間交換対称になる。しかし、自己共役 Green 核だけから Nelson の時間対称平均加速度は従わない。
-
-## 5.5 再帰前の Brown 極限
-
-目標とする観測窓は
-
-```math
-\tau_{\rm corr}
-\ll
-T_{\rm obs}
-\ll
-T_{\rm rec}.
-```
-
-多数モード、短記憶、適切なスペクトル包絡、弱い外部交換の下で、
-
-```math
-\int_0^t
-Y_N^{\rm free}(s)
-\,ds
-\Longrightarrow
-\sqrt{2\nu_{\rm bath}}\,W_t
-```
-
-を示す必要がある。
-
-反作用記憶項も同時に、
-
-```math
-\int_0^t
-K_N(t-s)P(s)
-\,ds
-=
-\delta m\,\dot X(t)
-+
-B_{\rm loc}(X_t,P_t)
-+
-\mathcal R_{\rm mem}(t)
-```
-
-のように、質量繰り込み、局所ドリフト、制御可能な残差へ分けなければならない。有限再帰、異方性、非 Gauss 性、外部交換を同じ上界で制御する定理は未完成である。
-
-## 5.6 位相空間極限と配置 Markov 閉鎖
-
-最初の有効候補は
-
-```math
-dX_t
-=
-\frac{P_t}{m}\,dt
-+
-\sqrt{2\nu_{\rm bath}}\,dW_t,
-```
-
-```math
-dP_t
-=
--\nabla V(X_t)\,dt
-+
-B_{\rm loc}(X_t,P_t)\,dt.
-```
-
-$(X,P)$ が Markov でも、$X$ だけの射影は一般に Markov ではない。配置変数だけの前進・後退拡散
-
-```math
-dX_t
-=
-b_+(X_t,t)\,dt
-+
-\sqrt{2\nu_{\rm bath}}\,dW_t^+,
-```
-
-```math
-dX_t
-=
-b_-(X_t,t)\,dt
-+
-\sqrt{2\nu_{\rm bath}}\,dW_t^-
-```
-
-を得るには、運動量緩和、条件付き速度分散、記憶残差を消去する追加の時間尺度分離が必要である。
-
-## 5.7 二側配置拡散内部の Fisher 構造
-
-共通の正の密度 $\rho$ と共通の等方拡散係数 $\nu_{\rm bath}$ を持つ前進・後退 Markov 拡散が得られたとする。現在速度 $v$ と浸透速度 $u$ を
-
-```math
-v
-=
-\frac{b_++b_-}{2},
+ABV_\phi\cos\Delta_{ab}
+\right],
 \qquad
-u
+V_\phi
 =
-\frac{b_+-b_-}{2}
+\chi_\phi.
 ```
 
-と定める。前後 Fokker--Planck 方程式の差から、
-
-```math
-u
-=
-\nu_{\rm bath}
-\nabla\log\rho.
-```
-
-従って、
-
-```math
-\frac m2
-\int
-\rho|u|^2
-\,dx
-=
-\frac{
-m\nu_{\rm bath}^2
-}{
-2
-}
-\int
-\frac{
-|\nabla\rho|^2
-}{
-\rho
-}
-\,dx
-```
-
-である。量子ポテンシャルに対応する項は
-
-```math
-Q_{\rm bath}[\rho]
-=
--2m\nu_{\rm bath}^2
-\frac{\Delta\sqrt\rho}{\sqrt\rho}.
-```
-
-これは二側 Markov 拡散を仮定した補助模型内部の厳密結果である。
-
-## 5.8 位相接続経路との係数整合
-
-第3章の作用係数は
-
-```math
-\hbar_{\rm eff}
-=
-|\mathcal J_\phi|.
-```
-
-本章の Fisher 係数が同じ量子ポテンシャルを与えるには、
-
-```math
-|\mathcal J_\phi|
-=
-2m\nu_{\rm bath}.
-```
-
-同値に、
-
-```math
-\nu_{\rm bath}
-=
-\frac{
-|\mathcal J_\phi|
-}{
-2m
-}.
-```
-
-この一致は重要な反証条件である。位相作用と浴拡散係数を独立に測り、上式が成立しなければ、2経路は同じ有効理論を表さない。
-
-## 5.9 時間対称 Newton 則との関係
-
-配置拡散と Fisher 項だけから
-
-```math
-ma_{\rm ts}
-=
--\nabla V
-```
-
-は従わない。時間対称 Green 応答、反作用記憶、条件付き変分からこの Newton 則へ進む問題は未解決である。
-
-一方、第3章では、位相接続縮約作用の変分から同値な Madelung 動力学を得た。後者は、前者の確率過程導出を代替しない。
+戻り伝達の左右利得が異なる場合は、総規格化と可視度の両方が変わる。理想 Bell 法則には、結果と設定によらない共通利得、および十分小さい相対位相雑音が必要である。
 
 ## 5.10 本章の結論
 
-運動量結合した有限誘導場では、正定値条件、時間反転対称性、正確な配置流束、自由速度揺らぎと反作用記憶の分離を得る。二側配置 Markov 拡散が得られた後の浸透速度と Fisher 項も厳密である。
+同じ物理空間上の2成分場から、2つの直交源チャンネルと左右の固定出力モードを切り出すことで、独立な6次元場を使わず Bell 余弦作用を構成できる。低ランク相関 $C$ は派生量であり、左右の局所分析器は基礎場モードだけを回す。
 
-未解決なのは、有限誘導場からの Brown 極限、配置 $X$ だけの Markov 閉鎖、条件付き速度分散の抑制、時間対称 Newton 則、位相接続経路との係数一致と同時実現である。
+ここまでで得たのは $K_{AB}$ の生成である。$K_{AB}$ を共通未来で物理的な比較作用へ写し、完全履歴の境界測度と結ぶ過程を第6章と第7章で扱う。

@@ -14,12 +14,13 @@
 - `sections/03_two_sided_gaussian_law.md`
 - `sections/04_c1_nelson_limit.md`
 - `sections/05_finite_measurement_boundary.md`
-- `sections/06_three_mode_action_shell.md`
+- `sections/06_two_mode_boundary_comparator.md`
 - `sections/07_boundary_action_shell_bell_measure.md`
 - `sections/08_robustness_and_limits.md`
 - `sections/A1_fourier_schur_proofs.md`
 - `sections/A2_c1_estimates.md`
 - `sections/A3_hamiltonian_device_details.md`
+- `sections/A4_position_diffusion_auxiliary.md`
 - `sections/90_references.md`
 
 ## 論文外の研究メモ
@@ -32,6 +33,7 @@
 - `notes/gaussian_nelson_examples.md`
 - `notes/measurement_dependence_comparisons.md`
 - `notes/superseded_position_coupling_fisher_closure.md`
+- `notes/superseded_three_mode_bell_shell.md`
 
 ## 状態・再現性
 

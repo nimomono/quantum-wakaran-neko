@@ -42,7 +42,7 @@
 
 ## 現行論文
 
-**構造化2成分誘導場を持つ弱開放古典 Hamiltonian 系：位相接続による Schrödinger 型力学、作用殻標本化、Bell 型統計**
+**構造化2成分誘導場を持つ弱開放古典 Hamiltonian 系：位相接続による Schrödinger 型力学と2モード作用殻による Born 型・Bell 型統計**
 
 - [統合マークダウン原稿](paper.md)
 - [完成版PDF](paper.pdf)
