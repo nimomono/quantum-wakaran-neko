@@ -138,12 +138,12 @@
     Schrödinger 型力学と2モード作用殻による\\[2mm]
     Born 型・Bell 型統計\par}
   \vspace{9mm}
-  {\Large\color{PaperBlue}局所作用整合準備、Madelung 縮約\\[1mm]
+  {\Large\color{PaperBlue}単体局所正準形、高速モード交換、Madelung 縮約\\[1mm]
     Born 型入口流束、低ランク対モード、共通未来比較器\par}
   \vspace{14mm}
   {\color{PaperRule}\rule{0.68\textwidth}{0.9pt}\par}
   \vfill
-  {\large draft-17 改訂稿\par}
+  {\large draft-18 改訂稿\par}
   \vspace{22mm}
 \end{titlepage}
 
@@ -252,7 +252,52 @@ O
 
 を得る。さらに、準備窓だけ有限振幅浴と位相差に結合した有限作用交換浴を作動させる。作用交換浴は共通位相回転に不変なので \(\mathcal J_\phi\) を厳密に保存し、余弦・正弦結合の対は位相固定項を作らない。固定振幅・短記憶・低温の準備近似では局所作用欠陥を減衰させる。ただし、観測中の相対位相運動を変えないよう、準備後は浴を切り離す。
 
-この構成が部分的に具体化するのは、局所作用整合と動径低速化である。異なる標本を共通の \((r,\theta)\) へ集中させる coherent集中、\(r^2=\rho\) の密度同期、単流束化、節の制御は導かない。
+さらに、\(N=1\) を厳密制約として課し、固定 \(\mathcal J_\phi\) と共通位相の商を取る。単体内点の局所正準座標では、有限特異 Hamiltonian は
+
+\[
+\begin{aligned}
+H_{\epsilon_{\rm s}}^{\rm chart}
+={}&
+H_0(\xi,\varphi)
++
+\frac{
+2
+}{
+\epsilon_{\rm s}M
+}
+p_\xi^{\mathsf T}
+G_q^{-1}
+p_\xi
+\\
+&+
+\frac{
+1
+}{
+2\epsilon_{\rm s}I
+}
+\left(
+p_\varphi-\mathcal J_\phi\xi
+\right)^{\mathsf T}
+G_\varphi^{-1}
+\left(
+p_\varphi-\mathcal J_\phi\xi
+\right)
+\end{aligned}
+\]
+
+へ正確に変換でき、2つの慣性行列は
+
+\[
+G_q^{-1}
+=
+G_\varphi
+\]
+
+を満たす。内点臨界点まわりで位相反転対称性と正定値 Hessian 条件を置くと、2次模型は低速帯と \(O(\epsilon_{\rm s}^{-1})\) の高速帯へ分かれる。高速symplectic部分空間と同型の有限補助系を零状態から交換角 \(\pi/2\) で結合すれば、高速成分を補助系へ完全に移せる。交換後の運動は局所2次縮約方程式を \(O(\epsilon_{\rm s})\) の残差で満たす。
+
+この正定値2次結果は、現行の Madelung 縮約へまだ無条件には適用できない。位相勾配エネルギーの二重計数を除くと、場側の位相 Hessian は半正定値または零になり得る。有限規格化ペナルティ、粒子-場混合、時間依存基準経路、非線形高速再励起も未解析である。従って、示したのは高速法線成分の条件付き除去であり、特定の停留経路または Schrödinger 解の選択ではない。
+
+2つの準備機構の役割も異なる。有限振幅浴と作用交換浴は局所的だが近似的であり、同型高速モード交換は大域的・精密調整型だが正定値2次模型では厳密である。どちらも、異なる標本を共通の \((r,\theta)\) へ集中させる coherent集中、\(r^2=\rho\) の密度同期、単流束化、節の制御を導かない。
 
 正則化した位相接続を
 
@@ -509,13 +554,15 @@ P(A,B\mid a,b)
 
 となる。従って Bell の前提違反は測定設定独立性にある。共通未来比較器が前向き因果として過去の局所記録を変更するわけではない。
 
-本改訂の中心的な前進は、位相接続による Schrödinger 型力学を支える局所作用整合と動径低速化を、有限特異 Hamiltonian の低速枝と時計制御された有限準備浴として部分的に具体化したことである。位置の Born 型入口標本化、同じ2成分場の低ランク対モードから得る Bell 余弦作用、共通未来比較器による2モード作用転送は維持した。最大の未解決問題は、殻容量に比例する共通境界測度を、結果別の事後選別を用いない実験周期として準備し、coherent集中、密度同期、記録、逆計算、再初期化まで統合することである。
+本改訂の中心的な前進は、厳密規格化・固定作用下の単体局所正準形を導き、正定値定数係数2次模型では低速・高速分離と高速成分の可逆な完全交換を示したことである。局所的な有限準備浴も別の近似機構として維持した。位置の Born 型入口標本化、同じ2成分場の低ランク対モードから得る Bell 余弦作用、共通未来比較器による2モード作用転送は変更していない。
+
+力学側の次の中心課題は、半正定値・零モード版を証明し、有限規格化、粒子-場を含む時間依存M0、非線形再励起へ拡張することである。測定側の最大課題は、殻容量に比例する共通境界測度を、結果別の事後選別を用いない実験周期として準備し、coherent集中、密度同期、記録、逆計算、準備浴と交換補助系の再初期化まで統合することである。
 
 \hypertarget{ux554fux984cux8a2dux5b9aux3068ux30e2ux30c7ux30ebux5730ux56f3}{%
 \chapter{問題設定とモデル地図}\label{ux554fux984cux8a2dux5b9aux3068ux30e2ux30c7ux30ebux5730ux56f3}}
 
 \begin{statusbox}
-位置づけ：位相接続を現行模型の力学的主線とし、局所作用整合・動径低速化の有限特異 Hamiltonian と時計制御準備浴を前段へ加える。Born 型入口殻と低ランク2モード Bell 境界構成は同じ2成分場の固定部分空間へ置く。配置拡散経路と旧3モード Bell 模型は現行模型に採用しない。
+位置づけ：位相接続を現行模型の力学的主線とし、厳密規格化下の局所正準形、局所的な準備浴、正定値2次模型の同型高速モード交換を前段へ加える。Born 型入口殻と低ランク2モード Bell 境界構成は同じ2成分場の固定部分空間へ置く。半正定値位相 HessianとM0全体への接続は未完成である。
 \end{statusbox}
 
 \hypertarget{ux554fux984cux8a2dux5b9a}{%
@@ -576,7 +623,25 @@ H_{\rm clk}
 \end{aligned}
 \]
 
-と書く。外部環境と仕事源まで含む拡大全系は
+と書く。準備項は
+
+\[
+H_{\rm prep}
+=
+H_{R{\rm B}}
++
+H_{J{\rm B}}
++
+H_{\rm f}
++
+\widetilde H_{\rm f}
++
+\chi_{\rm ex}(\vartheta)H_{\rm ex}
+\]
+
+を含み得る。\(H_{R{\rm B}}+H_{J{\rm B}}\) は付録Eの局所的な近似準備機構、\(H_{\rm f}+\widetilde H_{\rm f}+\chi_{\rm ex}H_{\rm ex}\) は付録Fの正定値2次模型に対する大域的な可解基準機構である。物理実装では、適用条件に応じて一方または両方を準備窓へ置く。
+
+外部環境と仕事源まで含む拡大全系は
 
 \[
 H_{\rm all}
@@ -686,7 +751,8 @@ P_{\rm ctrl}
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-局所作用整合準備 & 有限特異 Hamiltonian、振幅浴、位相差に結合した作用交換浴、準備時計 & \(P_i\) と \(J_i-\mathcal J_\phi q_i\) の低速化、\(\mathcal J_\phi\) の厳密保存 & coherent集中、密度同期、有限温度、再帰、一様収束 \\
+局所作用整合準備 & 有限特異 Hamiltonian、単体局所chart、振幅浴、位相差に結合した作用交換浴、準備時計 & 厳密chart、慣性逆恒等式、\(P_i\) と \(J_i-\mathcal J_\phi q_i\) の局所的な低速化、\(\mathcal J_\phi\) の厳密保存 & coherent集中、密度同期、有限温度、再帰、一様収束 \\
+高速モード交換 & 正定値2次場模型、高速Riesz射影、同型有限補助系 & 2帯分離、理想交換角での高速成分完全交換、低速方程式への \(O(\epsilon_{\rm s})\) 残差 & 半正定値位相 Hessian、有限規格化ペナルティ、大域的持ち上げ、非線形再励起 \\
 位相接続 & \(P-\mathcal J_\phi\mathbf a_\varepsilon(X)\) & 縮約作用、Madelung 方程式、局所 Schrödinger 型PDE、条件付き循環量子化 & coherent集中、密度同期、節の制御、停留点選択 \\
 Born 型入口殻 & 活性モードと共有明反応座標の2モード殻 & 位置入口の Born 型 Liouville 流束 & 共通流束因子、一般測定器、再埋め込み \\
 Bell 対モード & 反対称源、左右局所モード回転、共通未来比較器 & 余弦枝作用、2モード比較作用、条件付き Bell 共同確率 & 結果形成、共通境界測度の物理的準備、完全周期 \\
@@ -741,6 +807,9 @@ Bell 対モード & 反対称源、左右局所モード回転、共通未来比
 有限セル2成分位相場 & 補助モデル & 正準1形式、保存位相作用、局所作用分配を有限次元で計算する \\
 局所作用整合・動径低速 Hamiltonian & 補助モデル & 有界な低速枝で局所作用欠陥と動径運動量を \(O(\epsilon_{\rm s})\) にする。一般初期値からの収束は含まない \\
 時計制御された有限準備浴 & 補助モデル & 準備窓で欠陥エネルギーを有限浴へ移す。作用交換浴は全位相作用を保存するが、短記憶・低温・再帰前の近似を用いる \\
+厳密規格化・固定作用の単体局所 Hamiltonian & 補助モデル & 節から離れた局所chartで最小結合型 Hamiltonian と慣性逆恒等式を与える \\
+正定値2次低速・高速分離模型 & 補助モデル & 内点臨界点近傍で2帯分離と低速残差を与える。現行の半正定値位相 Hessian へは未接続 \\
+同型高速モード交換補助系 & 補助モデル & 理想2次模型で高速成分を可逆に完全交換する。局所実装と補助系再初期化は未達 \\
 位相接続縮約模型 & 補助モデル & coherent多様体上の Madelung 作用を与える \\
 2モード入口作用殻 & 補助モデル & 位置の Born 型入口流束を与える \\
 低ランク反対称対モード & 補助モデル & 局所回転から Bell 余弦作用を与える \\
@@ -812,9 +881,9 @@ Bell 比較 & \(A_\partial^{AB}=\Gamma^2K_{AB}/2\) & 排他的な結果組 \((A,
 \item
   規格化した活性場、反対称対モード、比較器基準状態の準備。
 \item
-  準備窓での動径欠陥除去と作用交換。
+  準備窓での局所浴による欠陥移送、または正定値2次模型の同型高速モード交換。
 \item
-  準備浴の切り離しと、位相接続の観測窓への移行。
+  準備浴と交換補助系の切り離し、および位相接続の観測窓への移行。
 \item
   設定 \(a,b\) の物理的生成。
 \item
@@ -830,10 +899,10 @@ Bell 比較 & \(A_\partial^{AB}=\Gamma^2K_{AB}/2\) & 排他的な結果組 \((A,
 \item
   比較混合、読み出し、戻り伝播、局所分析の逆計算。
 \item
-  場、装置、時計、準備浴、garbage自由度の再初期化。
+  場、装置、時計、準備浴、交換補助系、garbage自由度の再初期化。
 \end{enumerate}
 
-本論文は、1から3のうち局所作用整合と動径低速化、5の局所モード回転、7の理想比較読み出し、8の条件付き測度、10の理想的な比較器逆計算を与える。coherent集中、密度同期、一般的な結果形成、境界測度の物理的準備、長期反復は未解決である。
+本論文は、1から3のうち局所作用整合と動径低速化、および正定値2次模型に限った高速成分交換を与える。5の局所モード回転、7の理想比較読み出し、8の条件付き測度、10の理想的な比較器逆計算も与える。半正定値位相 Hessian、coherent集中、密度同期、一般的な結果形成、境界測度の物理的準備、長期反復は未解決である。
 
 \hypertarget{ux5c0eux51faux72b6ux614bux306eux8aadux307fux65b9}{%
 \section{導出状態の読み方}\label{ux5c0eux51faux72b6ux614bux306eux8aadux307fux65b9}}
@@ -849,7 +918,7 @@ Bell 比較 & \(A_\partial^{AB}=\Gamma^2K_{AB}/2\) & 排他的な結果組 \((A,
 \item
   共通境界密度を仮定した後の Bell 共同確率と非信号性は、仮説依存の厳密結果である。
 \item
-  ミクロ時間発展が coherent集中、密度同期、共通境界測度を準備することは別の主張である。局所作用整合と動径低速化だけは、第2章と付録Eで部分的に具体化する。
+  ミクロ時間発展が coherent集中、密度同期、共通境界測度を準備することは別の主張である。局所作用整合と動径低速化は第2章と付録Eで部分的に具体化し、正定値2次模型の高速法線成分だけは付録Fで厳密に交換する。
 \item
   正規化された集団の Hamiltonian 押し出しは、結果sectorの総確率質量を殻容量に比例させない。
 \item
@@ -864,7 +933,7 @@ Bell 比較 & \(A_\partial^{AB}=\Gamma^2K_{AB}/2\) & 排他的な結果組 \((A,
 \chapter{有限2成分誘導場と位相接続 Hamiltonian}\label{ux6709ux96502ux6210ux5206ux8a98ux5c0eux5834ux3068ux4f4dux76f8ux63a5ux7d9a-hamiltonian}}
 
 \begin{statusbox}
-位置づけ：有限セルの正準変換、内部回転対称性、保存位相作用、固定作用下の局所作用分配、特異 Hamiltonian の有限パラメータ消去、粒子運動量消去は厳密結果である。局所作用整合と動径低速化は低速枝および時計制御された準備浴として部分的に具体化する。coherent集中、密度同期、単流束化、交差応答の制御は未完成である。
+位置づけ：有限セルの正準変換、内部回転対称性、保存位相作用、固定作用下の局所作用分配、厳密規格化下の局所chart Hamiltonian、慣性逆恒等式、粒子運動量消去は厳密結果である。正定値2次模型では低速・高速分離と同型補助系への高速成分交換を厳密に示す。半正定値位相 Hessian、有限規格化ペナルティ、非線形再励起、coherent集中、密度同期、単流束化は未完成である。
 \end{statusbox}
 
 \hypertarget{ux6709ux9650ux30bbux30ebux304bux3089ux59cbux3081ux308bux7406ux7531}{%
@@ -1009,7 +1078,7 @@ H_{\rm norm}
 \ll1
 \]
 
-を誤差として管理する。
+を誤差として管理する。前者は厳密制約模型、後者は有限ペナルティ模型であり、同じ不変sectorではない。
 
 回転不変な場 Hamiltonian の代表形を
 
@@ -1271,7 +1340,7 @@ N-1
 \end{aligned}
 \]
 
-とする。固定 \(\mathcal J_\phi\) sectorでは、\(1/\epsilon_{\rm s}\) を持つ2項は動径運動量と局所作用欠陥に対して正定値である。ただし、\(\Lambda_N\) 項は規格化逸脱をエネルギー的に抑えるだけである。以下の正確な消去は、\(N=1\) をホロノミック制約として課した単体の局所座標上で行う。有限 \(\Lambda_N\) の場合は規格化誤差を別に加える。
+とする。固定 \(\mathcal J_\phi\) sectorでは、\(1/\epsilon_{\rm s}\) を持つ2項は動径運動量と局所作用欠陥に対して正定値である。ただし、\(\Lambda_N\) 項は規格化逸脱をエネルギー的に抑えるだけである。以下の正確な消去は、\(N=1\) をホロノミック制約として課した単体の局所座標上で行う。有限 \(\Lambda_N\) の場合は規格化誤差を別に加える。\(\mathcal J_\phi\) は保存量なので固定sectorを取れるが、\(N=1\) は別途課した制約である。
 
 \[
 q_i
@@ -1406,10 +1475,196 @@ J_i=\mathcal J_\phi q_i
 
 と呼び、第2.11節の coherent集中と区別する。
 
+\hypertarget{ux5358ux4f53ux5c40ux6240chartux3068ux6163ux6027ux9006ux6052ux7b49ux5f0f}{%
+\subsection{単体局所chartと慣性逆恒等式}\label{ux5358ux4f53ux5c40ux6240chartux3068ux6163ux6027ux9006ux6052ux7b49ux5f0f}}
+
+\(n=L-1\) とし、\(E^{\mathsf T}E=I_n\)、\(E^{\mathsf T}\boldsymbol1=0\) を満たす固定行列 \(E\) を取る。単体内点 \(q^*\) の近傍で
+
+\[
+q
+=
+q^*+E\xi,
+\qquad
+\boldsymbol\theta
+=
+\Theta\boldsymbol1+E\varphi
+\]
+
+と置く。\(\xi\) は振幅偏差、\(\varphi\) は相対位相、\(\Theta\) は共通位相である。共通位相を商で除き、固定 \(\mathcal J_\phi\) を課すと、正確な局所 Hamiltonian は
+
+\[
+\begin{aligned}
+H_{\epsilon_{\rm s}}^{\rm chart}
+={}&
+H_0(\xi,\varphi)
++
+\frac{
+2
+}{
+\epsilon_{\rm s}M
+}
+p_\xi^{\mathsf T}
+G_q^{-1}
+p_\xi
+\\
+&+
+\frac{
+1
+}{
+2\epsilon_{\rm s}I
+}
+\left(
+p_\varphi
+-
+\mathcal J_\phi\xi
+\right)^{\mathsf T}
+G_\varphi^{-1}
+\left(
+p_\varphi
+-
+\mathcal J_\phi\xi
+\right)
+\end{aligned}
+\]
+
+となる。ここで
+
+\[
+G_q
+=
+E^{\mathsf T}
+D_q^{-1}
+E,
+\qquad
+G_\varphi
+=
+E^{\mathsf T}
+\left(
+D_q-qq^{\mathsf T}
+\right)
+E,
+\qquad
+D_q
+=
+\operatorname{diag}(q)
+\]
+
+である。単体内点では厳密に
+
+\[
+G_q^{-1}
+=
+G_\varphi
+\]
+
+が成立する。導出と証明は付録F.1節からF.4節に置く。この結果は有限 \(\epsilon_{\rm s}\) で正確だが、節 \(q_i=0\) を含む大域chartではない。
+
+\hypertarget{ux5185ux70b9ux81e8ux754cux70b9ux307eux308fux308aux306e2ux6b21ux6a19ux6e96ux5f62}{%
+\subsection{内点臨界点まわりの2次標準形}\label{ux5185ux70b9ux81e8ux754cux70b9ux307eux308fux308aux306e2ux6b21ux6a19ux6e96ux5f62}}
+
+\[
+\nabla H_0(q^*,\varphi^*)
+=
+0
+\]
+
+を満たす内点臨界点の近傍で、慣性行列を基準点に固定し、線形正準変換を行う。2次 Hamiltonian は
+
+\[
+\begin{aligned}
+H_{\epsilon_{\rm s}}^{(2)}
+={}&
+\frac{1}{2\epsilon_{\rm s}}
+\left[
+p_x^{\mathsf T}p_x
++
+\left(
+p_y-g_\phi x
+\right)^{\mathsf T}
+\left(
+p_y-g_\phi x
+\right)
+\right]
+\\
+&+
+\frac12x^{\mathsf T}A x
++
+x^{\mathsf T}C y
++
+\frac12y^{\mathsf T}B y
+\end{aligned}
+\]
+
+となる。
+
+\[
+g_\phi
+=
+\frac{
+2\mathcal J_\phi
+}{
+\sqrt{MI}
+}
+\]
+
+であり、\(A\)、\(B\)、\(C\) は \(H_0\) の振幅、位相、混合 Hessian を正準標準化した行列である。一般には \(C\neq0\) である。臨界位相のまわりで
+
+\[
+H_0(x,y)
+=
+H_0(x,-y)
+\]
+
+が成立するときだけ \(C=0\) になる。
+
+\(C=0\)、\(A>0\)、\(B>0\) なら、十分小さい \(\epsilon_{\rm s}\) に対し、\(n\) 個の \(O(1)\) 低速振動と \(n\) 個の
+
+\[
+\omega_{{\rm f},k}
+=
+\frac{
+|g_\phi|
+}{
+\epsilon_{\rm s}
+}
++
+O(1)
+\]
+
+高速振動へ厳密に分かれる。低速部分空間上では、1階縮約方程式に対する残差が全時間で \(O(\epsilon_{\rm s})\) になる。ただし、軌道の位相差は \(O(\epsilon_{\rm s}t)\) と蓄積し得る。
+
+現行の Madelung 縮約では、場側の位相勾配エネルギーを重複させないため、\(B\) は半正定値、または零になり得る。従って、この正定値定理を現行 M0 へ無条件に適用しない。半正定値版、有限 \(\Lambda_N\) の規格化モード、時間依存基準経路は付録Fで未解決事項として分ける。
+
+\hypertarget{ux9ad8ux901fux90e8ux5206ux7a7aux9593ux306eux53efux9006ux4ea4ux63db}{%
+\subsection{高速部分空間の可逆交換}\label{ux9ad8ux901fux90e8ux5206ux7a7aux9593ux306eux53efux9006ux4ea4ux63db}}
+
+正定値2次模型では、高速固有値だけを囲む Riesz 射影により高速symplectic部分空間を定められる。その高速 Hamiltonian と同型の有限補助系を用意し、交換角を
+
+\[
+\Theta_{\rm ex}
+=
+\frac\pi2
+\]
+
+にすると、補助系が零状態から始まる理想模型では、対象系の高速成分を補助系へ完全に移せる。これは散逸でなく有限正準系間の状態交換である。
+
+この交換は、全セルへ広がる高速射影、同型補助 Hamiltonian、零初期状態、精密な交換角を必要とする。補助系へ移った情報とエネルギーは消えず、反復時には補助系の再初期化が必要である。また、元の全場変数への大域的な持ち上げ、半正定値 \(B\)、非線形再励起は未完成である。詳細は付録F.8節からF.13節に置く。
+
 \hypertarget{ux6e96ux5099ux7a93ux3068ux89b3ux6e2cux7a93ux306eux5206ux96e2}{%
 \section{準備窓と観測窓の分離}\label{ux6e96ux5099ux7a93ux3068ux89b3ux6e2cux7a93ux306eux5206ux96e2}}
 
-閉鎖系では高速欠陥エネルギーは消えず、有限特異 Hamiltonian だけで一般初期値を \(\mathcal M_{\rm slow}\) へ吸引できない。そこで、内部時計角 \(\vartheta\) と滑らかな窓関数 \(g_{\rm prep}(\vartheta)\) を使い、準備窓だけ有限振幅浴と有限作用交換浴を結合する。全 Hamiltonian の詳細と浴の正確な消去は付録Eに置く。
+閉鎖系では高速欠陥エネルギーは消えず、有限特異 Hamiltonian だけで一般初期値を \(\mathcal M_{\rm slow}\) へ吸引できない。本稿では、役割の異なる2つの準備機構を分ける。
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  付録Eの有限振幅浴と有限作用交換浴は、セル局所またはグラフ局所に書けるが、欠陥減衰に短記憶・固定振幅・低温近似を使う。
+\item
+  付録Fの同型高速モード交換補助系は、正定値定数係数2次模型では高速成分を厳密に零にできるが、大域的な高速射影と精密調整を必要とする。
+\end{enumerate}
+
+内部時計角 \(\vartheta\) と滑らかな窓関数 \(g_{\rm prep}(\vartheta)\) を使い、どちらも準備窓だけで作動させる。局所浴の全 Hamiltonian と正確な消去は付録E、同型交換の正準計算は付録Fに置く。
 
 作用交換浴は \(\theta_i-\theta_k\) の \(\cos\) と \(\sin\) へ対称に結合する。従って、
 
@@ -1447,7 +1702,7 @@ g_{\rm prep}
 
 とする。準備後の位相接続運動は \(H_{\epsilon_{\rm s}}\) の低速領域で行う。有限温度雑音床、有限浴再帰、窓の切断誤差、観測中の欠陥再成長は第8章で管理する。
 
-この機構が直接改善するのは、局所作用欠陥
+これらの機構が直接改善するのは、明記した近似または2次模型の範囲での局所作用欠陥
 
 \[
 \varepsilon_j
@@ -1722,7 +1977,7 @@ z^A_{\mu r}
 \chapter{縮約多様体、Madelung 作用、Schrödinger 型力学}\label{ux7e2eux7d04ux591aux69d8ux4f53madelung-ux4f5cux7528schruxf6dinger-ux578bux529bux5b66}}
 
 \begin{statusbox}
-位置づけ：coherent縮約多様体に制限した Madelung 作用、変分、Schrödinger 型方程式、同期差保存は厳密結果である。確率過程を前提にしない。局所作用整合と動径低速化は有限特異 Hamiltonian の低速枝と準備浴により部分的に具体化する。coherent集中、密度同期、一様な特異極限、微視的停留点選択は未完成である。
+位置づけ：coherent縮約多様体に制限した Madelung 作用、変分、Schrödinger 型方程式、同期差保存は厳密結果である。確率過程を前提にしない。正定値2次場模型では高速法線成分の除去と局所縮約残差を条件付きで制御する。半正定値位相 Hessian、粒子-場を含む全 Hessian、coherent集中、密度同期、一様な特異極限、時間依存停留経路は未完成である。
 \end{statusbox}
 
 \hypertarget{ux7e2eux7d04ux6761ux4ef6}{%
@@ -1801,7 +2056,7 @@ O(\varepsilon_{\rm node}).
 
 で抑える。 8. \textbf{位相勾配の非重複}：粒子流速へ入れた位相運動エネルギーと、場側の \(r^2|\nabla\theta|^2\) を二重に数えない。
 
-これらは縮約多様体の定義と誤差条件である。第2章と付録Eは3と7の準備を部分的に具体化するが、1、4、6、節の制御を導かない。有限 Hamiltonian 時間発展が一般の初期状態から縮約多様体全体へ吸引するとは仮定しない。
+これらは縮約多様体の定義と誤差条件である。第2章と付録Eは3と7の局所的な準備候補を与える。付録Fは、さらに正定値定数係数2次模型の高速法線成分を同型補助系へ完全に移す。しかし、1、4、6、半正定値位相 Hessian、節の制御を導かない。有限 Hamiltonian 時間発展が一般の初期状態から縮約多様体全体へ吸引するとは仮定しない。
 
 \hypertarget{ux6709ux9650ux7279ux7570ux30d1ux30e9ux30e1ux30fcux30bfux306eux6b8bux5dee}{%
 \subsection{有限特異パラメータの残差}\label{ux6709ux9650ux7279ux7570ux30d1ux30e9ux30e1ux30fcux30bfux306eux6b8bux5dee}}
@@ -1844,6 +2099,24 @@ dt
 が加わる。有界な低速枝では \(O(\epsilon_{\rm s})\) の作用補正である。準備浴の切断後には、さらに準備終了時の \(P_i\)、\(\delta J_i\)、記憶尾、有限温度雑音床を残差として加える。
 
 この有限パラメータ表示は、局所作用整合と動径低速化を直接代入するより強い。しかし、有限エネルギーだけからの誤差は一般に \(O(\sqrt{\epsilon_{\rm s}})\) であり、解と1次変分が観測時間に一様収束する定理はない。従って以下の Madelung 作用は、準備済み低速枝での形式的特異極限として扱う。
+
+\hypertarget{ux7a2eux985eux306eux505cux7559ux6761ux4ef6}{%
+\subsection{3種類の停留条件}\label{ux7a2eux985eux306eux505cux7559ux6761ux4ef6}}
+
+本稿では、次の3つを区別する。
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{場chartの局所2次縮約方程式}：付録Fの正定値2次模型で低速部分空間上の残差を \(O(\epsilon_{\rm s})\) に抑える。
+\item
+  \textbf{coherent多様体上の Madelung 作用}：本章で制限作用を変分する。
+\item
+  \textbf{M0全体の粗視化停留力学}：粒子、場、密度、装置を含むミクロ時間発展から2を導く。
+\end{enumerate}
+
+1は条件付きで部分達成したが、2の複数の解から特定解を選ばない。3は未解決である。従って「高速法線成分の除去」を「M0の停留点選択」と呼ばない。
 
 \hypertarget{ux7269ux8ceaux5faeux5206ux7d50ux5408}{%
 \section{物質微分結合}\label{ux7269ux8ceaux5faeux5206ux7d50ux5408}}
@@ -2199,7 +2472,19 @@ j\partial_t\theta
 \,dx\,dt
 \]
 
-とする。残余の場エネルギーが共通位相 \(\theta\) に依存しない理想縮約では、\(\theta\) 変分から
+とする。残余場 Hamiltonian を \(H_{\rm residual}\) とし、理想縮約で必要な条件を
+
+\[
+\frac{
+\delta H_{\rm residual}
+}{
+\delta\theta
+}
+=
+0
+\]
+
+とする。この条件の下で、\(\theta\) 変分から
 
 \[
 \partial_tj
@@ -2239,7 +2524,7 @@ $$
 粒子の連続の式との差を取る。
 \end{proof}
 
-これは同期差の中立的保存である。\(r^2\neq\rho\) の状態を同期へ引き戻す復元力は含まない。入口で \(r^2=\rho\) を作る作用殻流束を第4章で与える。
+これは同期差の中立的保存である。\(r^2\neq\rho\) の状態を同期へ引き戻す復元力は含まない。共通位相の定数回転に対する不変性だけでは上の汎関数微分条件に足りず、相対位相または位相勾配に依存する残余項は追加流束を作り得る。入口で \(r^2=\rho\) を作る作用殻流束を第4章で与える。
 
 \hypertarget{ux5faaux74b0ux91cfux5b50ux5316}{%
 \section{循環量子化}\label{ux5faaux74b0ux91cfux5b50ux5316}}
@@ -2297,11 +2582,17 @@ N\in\mathbb Z.
 \item
   一般の有限 Hamiltonian 初期集団から coherent集中と密度同期を準備すること。
 \item
-  付録Eの準備窓から観測窓まで、\(\varepsilon_j\) と \(\varepsilon_{\rm radial}\) の再成長を一様に抑えること。
+  現行の位相勾配非重複条件に適合する半正定値・零モード版の高速射影と交換定理を示すこと。
+\item
+  有限 \(\Lambda_N\) の規格化モードと、粒子-場を含む全 Hessian を扱うこと。
+\item
+  時間依存基準経路で回転する低速・高速射影と、非線形高速再励起を制御すること。
+\item
+  付録Eと付録Fの準備窓から観測窓まで、\(\varepsilon_j\) と \(\varepsilon_{\rm radial}\) の再成長を一様に抑えること。
 \item
   観測窓で \(\varepsilon_{\rm coh}\)、\(\varepsilon_j\)、\(\varepsilon_\rho\)、\(\varepsilon_{\rm radial}\)、\(\varepsilon_{\rm press}\) を同時に小さくすること。
 \item
-  ミクロ運動の粗視化が \(\mathcal A_{\rm red}\) の停留点を選ぶこと。
+  ミクロ運動の粗視化が \(\mathcal A_{\rm red}\) の時間依存停留経路を支配すること。
 \item
   一般の節構造を含む領域で同じ縮約を制御すること。
 \end{enumerate}
@@ -2693,7 +2984,9 @@ Born 側で必要なのは、各排他的sectorの2モード殻全体に対す�
 
 とする。本章は \(\varepsilon_{\rm reset}\) を有限 Hamiltonian 周期から小さくする構成を与えない。第6章の比較器では、結果を外部記録へコピーした後の理想的な逆計算を構成するが、入口側の活性場再埋め込みまで自動的に解決しない。
 
-付録Eの準備浴は、再埋め込み後に残る局所作用欠陥 \(J_i-\mathcal J_\phi q_i\) と動径運動量 \(P_i\) を再び小さくする候補である。しかし、標本化前の振幅 \(q_i\) 自体を復元せず、結果情報の可逆転送、共有明反応座標の復元、garbage処理、全チャンネルで偏りのない再準備を行わない。従って、再埋め込み問題を部分的な法線欠陥除去へ分解するが、\(\varepsilon_{\rm reset}\) 全体を解決しない。
+付録Eの準備浴は、再埋め込み後に残る局所作用欠陥 \(J_i-\mathcal J_\phi q_i\) と動径運動量 \(P_i\) を再び小さくする局所的な候補である。付録Fの同型高速モード交換補助系も、正定値2次模型では再埋め込み後の高速法線成分を完全に補助系へ移す候補になる。
+
+しかし、どちらも標本化前の振幅 \(q_i\) 自体を復元せず、結果情報の可逆転送、共有明反応座標の復元、garbage処理、全チャンネルで偏りのない再準備を行わない。同型交換では、さらに補助系へ移った高速情報とエネルギーを次試行前に処理する必要がある。従って、再埋め込み問題を部分的な法線欠陥除去へ分解するが、\(\varepsilon_{\rm reset}\) 全体を解決しない。
 
 \part{同じ2成分場の Bell 対モードと境界統計}
 
@@ -3565,6 +3858,8 @@ H_{\rm particles}
 +
 H_{\rm field}
 +
+H_{\rm prep}
++
 H_{\rm source}
 +
 H_{\rm analyzer}
@@ -3587,6 +3882,8 @@ H_{\rm clk}
 \]
 
 と書ける。外部時間依存を時計角依存 \(g_k(\vartheta)\) へ置換し、時計と仕事源を全系に含めれば、自律的な有限 Hamiltonian として表現できる。
+
+\(H_{\rm prep}\) は、付録Eの有限振幅浴・作用交換浴と、付録Fの高速部分・同型補助部分・交換結合を含み得る。観測窓ではこれらを切り離す。高速交換補助系へ移った情報とエネルギーは、比較器の理想逆計算では消えないため、試行間の再初期化対象に含める。
 
 本章は各項の理想部分と順序を与えるが、全ての窓を同時に滑らかで有限幅にし、交差誤差、記録安定性、境界測度準備、長期resetを一様に制御する完成模型は与えない。
 
@@ -4008,7 +4305,7 @@ Bell 関連条件 & 現模型での状態 \\
 \chapter{誤差、適用限界、反証条件、結論}\label{ux8aa4ux5deeux9069ux7528ux9650ux754cux53cdux8a3cux6761ux4ef6ux7d50ux8ad6}}
 
 \begin{statusbox}
-位置づけ：位相接続を主線とし、局所作用整合・動径低速化の有限特異 Hamiltonian と時計制御準備浴を追加する。Born 型入口殻、低ランク Bell 対モード、2モード境界比較器の厳密部分と仮説依存部分は維持する。coherent集中、密度同期、共通境界測度、一般測定器、完成 Hamiltonian 周期は未完成である。
+位置づけ：位相接続を主線とし、厳密規格化下の局所正準形、正定値2次模型の低速・高速分離、局所準備浴、同型高速モード交換を区別する。半正定値位相 Hessian、有限規格化ペナルティ、時間依存・非線形M0への拡張、coherent集中、密度同期、共通境界測度は未完成である。
 \end{statusbox}
 
 \hypertarget{ux5c0eux51faux72b6ux614b}{%
@@ -4030,7 +4327,10 @@ Bell 関連条件 & 現模型での状態 \\
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-局所作用整合準備 & 欠陥平方分解、有限特異パラメータの正確な消去、有限作用交換浴の全作用保存、余弦・正弦対の位相固定項消去、固定振幅・短記憶近似での欠陥減衰 & 一般初期値からの一様収束、有限温度、動的振幅、再帰、切断後の長時間安定性 \\
+単体局所正準形 & 厳密規格化・固定作用下の正確なchart Hamiltonian、振幅・位相慣性行列の逆恒等式 & 節を含む大域chart、有限規格化ペナルティ \\
+正定値2次スペクトル & \(n\) 個の低速帯と \(n\) 個の高速帯、Riesz射影、低速方程式への全時間 \(O(\epsilon_{\rm s})\) 残差 & 半正定値・零モード、混合 Hessian、粒子-場を含む全 Hessian \\
+局所作用整合準備浴 & 有限作用交換浴の全作用保存、余弦・正弦対の位相固定項消去、固定振幅・短記憶近似での欠陥減衰 & 一般初期値からの一様収束、有限温度、動的振幅、再帰、切断後の長時間安定性 \\
+同型高速モード交換 & 理想正定値2次模型で高速成分を補助系へ完全交換 & 局所実装、複製誤差、補助系再初期化、非線形高速再励起 \\
 位相接続 & 有限セル正準構造、保存位相作用、固定作用下の局所分配、Madelung 作用、局所 Schrödinger 型PDE、同期差保存、条件付き循環量子化 & coherent集中、密度同期、節、係数整合、停留点選択 \\
 Born 型入口殻 & 一般殻容量、2モード線形容量、共通流束下の位置入口重み、作用分配次元の剛性 & 共通流束因子、一般測定器、標本化後の再埋め込み \\
 Bell 対モード & 反対称低ランク源、局所回転、余弦枝作用、総和・周辺和 & 反対称源の動力学的準備、結果形成、一般測定軸 \\
@@ -4071,6 +4371,16 @@ Bell 対モード & 反対称低ランク源、局所回転、余弦枝作用、
 \(\varepsilon_{\rm cut}\) & 準備浴の切断と記憶尾 & 観測開始前に十分小さい \\
 \(\varepsilon_{\rm rec}\) & 有限浴再帰 & 観測終了まで再流入が小さい \\
 \(\varepsilon_{\rm grow}\) & 観測中の欠陥再成長 & 観測時間に一様に小さい \\
+\(\varepsilon_{\rm norm}\) & 厳密規格化制約と有限 \(\Lambda_N\) 模型の差 & 規格化中間帯を含む全 Hessian を制御する \\
+\(\varepsilon_{\rm semi}\) & 半正定値位相 Hessianと零モード & 高速帯だけを一様に分離する \\
+\(\varepsilon_{\rm quad}\) & 内点臨界点まわりの3次以上の残差 & 局所振幅と観測時間に一様に小さい \\
+\(\varepsilon_{\rm proj}\) & 高速Riesz射影の近似実装 & 真の高速部分空間への漏れが小さい \\
+\(\varepsilon_{\rm copy}\) & 補助 Hamiltonian の複製誤差 & 高速振動数と正準形が一致する \\
+\(\varepsilon_{\rm angle}\) & 交換角の \(\pi/2\) からのずれ & 高速振幅の残留が許容以下 \\
+\(\varepsilon_{\rm aux}\) & 交換補助系の非零初期エネルギー & 対象へ戻る高速成分が許容以下 \\
+\(\varepsilon_{\rm lift}\) & 縮約chartの交換を元の場へ持ち上げる誤差 & 規格化と \(\mathcal J_\phi\) を保存する \\
+\(\varepsilon_{\rm rot}\) & 時間依存基準経路による射影回転 & 断熱混合が許容以下 \\
+\(\varepsilon_{\rm nl}\) & 非線形高速再励起 & 観測時間に一様に小さい \\
 \(\varepsilon_{\rm press}\) & 条件付き速度分散 & 単流束化 \\
 \(\varepsilon_\kappa\) & \(\kappa-\mathcal J_\phi^2/(2m)\) & Madelung係数一致 \\
 \(\varepsilon_{\rm node}\) & 節正則化と接続誤差 & 非零領域または制御された極限 \\
@@ -4095,6 +4405,10 @@ Bell 対モード & 反対称低ランク源、局所回転、余弦枝作用、
 +
 \mathcal R_{\rm prep}
 +
+\mathcal R_{\rm spec}
++
+\mathcal R_{\rm ex}
++
 \mathcal R_{\rm press}
 +
 \mathcal R_\kappa
@@ -4105,6 +4419,8 @@ Bell 対モード & 反対称低ランク源、局所回転、余弦枝作用、
 \]
 
 と分ける。各項を個別に小さくしても、長時間での位相誤差蓄積が小さいとは限らない。観測時間に一様な上界が必要である。
+
+\(\mathcal R_{\rm spec}\) は半正定値、有限規格化、2次化、射影回転を含み、\(\mathcal R_{\rm ex}\) は射影、複製、交換角、補助初期状態、大域的持ち上げを含む。付録Fの全時間 \(O(\epsilon_{\rm s})\) 評価は正定値2次模型の方程式残差であり、軌道差または完全な \(\mathcal R_{\rm phase}\) の全時間評価ではない。
 
 \hypertarget{born-ux578bux5165ux53e3ux6d41ux675fux306eux8aa4ux5dee}{%
 \section{Born 型入口流束の誤差}\label{born-ux578bux5165ux53e3ux6d41ux675fux306eux8aa4ux5dee}}
@@ -4375,6 +4691,18 @@ V_{\rm Bell}
   現Bell模型は平面内の2出力分析設定に限定される。
 \item
   配置拡散経路の Brown 極限、配置 Markov 閉鎖、時間対称 Newton 則は未完成であり、現行主線には使わない。
+\item
+  厳密規格化模型と有限 \(\Lambda_N\) 模型は同じ不変sectorではない。後者には \(O(\epsilon_{\rm s}^{-1/2})\) の中間帯が現れ得る。
+\item
+  正定値2帯定理は、現行の位相勾配非重複条件で生じ得る半正定値 \(B\) へ未拡張である。
+\item
+  高速成分交換は低速部分空間を準備するが、その内部の特定の停留経路または Schrödinger 解を選ばない。
+\item
+  同型高速モード交換補助系は一般的な熱浴でなく、大域的射影、同型複製、零初期状態、精密な交換角を必要とする。
+\item
+  2次模型で高速成分を零にしても、3次以上の項と時間依存射影が高速成分を再生成し得る。
+\item
+  交換補助系へ移った情報とエネルギーは消えず、反復には補助系の再初期化が必要である。
 \end{enumerate}
 
 \hypertarget{ux53cdux8a3cux306bux4f7fux3048ux308bux89b3ux6e2cux91cf}{%
@@ -4390,6 +4718,12 @@ V_{\rm Bell}
   \(j-\mathcal J_\phi r^2\) と \(r^2-\rho\) の時間発展。
 \item
   準備終了時の \(P_i\)、\(\delta J_i\)、欠陥エネルギー、時間平均、観測中の再成長率。
+\item
+  単体慣性逆恒等式、低速・高速固有振動数、スペクトル間隙、Riesz射影の不変性。
+\item
+  交換前後の高速射影ノルム、交換角誤差、補助系初期エネルギー、複製誤差。
+\item
+  規格化方向の中間振動数、零モードのJordan成分、基準経路に沿う射影回転率、非線形高速再励起率。
 \item
   \(\mathcal J_\phi\) と全 Hamiltonian の保存誤差、浴モード数、温度、切断時刻、再帰時間への依存性。
 \item
@@ -4435,7 +4769,11 @@ V_{\rm Bell}
 \item
   位置入口側の標本化後に、活性場を coherent部分空間へ再埋め込みする。
 \item
-  局所作用整合準備を、動的振幅、有限温度、有限浴再帰、浴切断後の長時間安定性まで含む一様な誤差評価へ進める。
+  現行の位相勾配非重複条件に適合する半正定値・零モード版の高速射影と交換定理を示す。
+\item
+  有限 \(\Lambda_N\) の規格化中間帯、粒子-場を含む全 Hessian、時間依存射影、非線形再励起を制御する。
+\item
+  局所準備浴と同型交換を、動的振幅、有限温度、有限浴再帰、補助系再初期化、切断後の長時間安定性まで含む一様な誤差評価へ進める。
 \item
   coherent集中と密度同期を準備し、coherent多様体上の縮約作用が有限 Hamiltonian 粗視化運動を実際に支配することを示す。
 \item
@@ -4455,13 +4793,15 @@ V_{\rm Bell}
 
 有限2成分場の正準構造と位相接続を用いると、coherent縮約多様体上で Madelung 作用と局所 Schrödinger 型方程式を得る。保存位相作用は有効作用定数となり、単価な非零場は条件付き循環量子化を与える。この主線は配置拡散を前提にしない。
 
-局所作用整合と動径低速化については、有限特異 Hamiltonian の正確な消去により有界な低速枝を構成し、共通位相回転に不変な有限作用交換浴と振幅浴を準備窓へ加えた。固定振幅・短記憶・低温の準備近似では欠陥エネルギーが減少する。これは coherent多様体全体の導出ではなく、\(\varepsilon_j\) と \(\varepsilon_{\rm radial}\) の準備を部分的に具体化した結果である。
+局所作用整合と動径低速化については、厳密規格化・固定作用下で単体局所chart Hamiltonianと慣性逆恒等式を得た。正定値定数係数2次模型では低速・高速帯を分離し、高速成分を同型有限補助系へ完全に交換できる。局所的な有限作用交換浴と振幅浴は別の準備候補であり、固定振幅・短記憶・低温近似で欠陥エネルギーを減少させる。
+
+これらは coherent多様体全体または M0 の停留経路選択を導かない。現行の Madelung 縮約に必要な半正定値位相 Hessian、有限規格化ペナルティ、粒子-場を含む全 Hessian、時間依存基準経路、非線形高速再励起は未完成である。
 
 2モード作用殻の Liouville 流束は、共通流束因子と単一の直接作用分配方向の下で、位置の Born 型入口密度を与える。
 
 同じ2成分場の2つの直交源チャンネルは、反対称低ランク相関を通じて Bell 余弦作用を与える。共通未来の2つの比較モードは、その相関振幅の実部と虚部を比較総作用へ転送する。共通境界測度を仮定すれば、2モード殻の線形容量から Bell 共同確率、CHSH値、非信号周辺を得る。生成側へ引き戻した完全履歴測度は設定に依存し、Bell の測定設定独立性を満たさない。
 
-本論文は、Schrödinger 型力学、その法線欠陥の有限時間準備、位置の Born 型入口重み、Bell 余弦作用、2モード比較作用を1つの2成分場アーキテクチャへ整理した。しかし、coherent集中、密度同期、共通境界測度、一般的な結果形成、coherent場の再埋め込み、反復可能な完全周期を1本の有限 Hamiltonian から導いていない。この境界を超えて主張しない。
+本論文は、Schrödinger 型力学、局所2次模型の高速法線成分除去、位置の Born 型入口重み、Bell 余弦作用、2モード比較作用を1つの2成分場アーキテクチャへ整理した。しかし、半正定値・零モードを含むM0全体の縮約、coherent集中、密度同期、共通境界測度、一般的な結果形成、coherent場の再埋め込み、反復可能な完全周期を1本の有限 Hamiltonian から導いていない。この境界を超えて主張しない。
 
 \appendix
 
@@ -4837,9 +5177,21 @@ mv-\nabla S
 0
 \]
 
-を得るには、縮約後に残る場 Hamiltonian が共通位相 \(\theta\) そのものへ依存しないことが必要である。\(r^2|\nabla\theta|^2\) の独立な場エネルギーを残すと、位相流束が追加される。
+を得るため、残余場 Hamiltonian \(H_{\rm residual}\) に必要な条件は
 
-従って第3章の理想同期差保存は、位相勾配エネルギーを粒子流速の運動エネルギーへ吸収し、残差を \(\varepsilon_{\rm cross}\) または \(\varepsilon_{\rm press}\) へ含めた縮約に限定される。
+\[
+\frac{
+\delta H_{\rm residual}
+}{
+\delta\theta
+}
+=
+0
+\]
+
+である。共通位相の定数回転に対する不変性だけではこの条件に足りない。\(r^2|\nabla\theta|^2\) の独立な場エネルギーを残すと、位相流束が追加される。
+
+従って第3章の理想同期差保存は、位相勾配エネルギーを粒子流速の運動エネルギーへ吸収し、残差を \(\varepsilon_{\rm cross}\) または \(\varepsilon_{\rm press}\) へ含めた縮約に限定される。この非重複条件では、付録Fの位相 Hessian \(B\) が半正定値または零になり得るため、正定値2帯定理を直接適用できない。
 
 \hypertarget{ux5909ux5206ux7e2eux7d04ux306eux9650ux754c}{%
 \section{変分縮約の限界}\label{ux5909ux5206ux7e2eux7d04ux306eux9650ux754c}}
@@ -4857,7 +5209,7 @@ mv-\nabla S
   弱開放縮約が法線方向だけを安定化し、接方向の Hamiltonian 構造を保つ。
 \end{enumerate}
 
-本論文はこれらの一様誤差定理を与えない。第3章の定理は、制限作用内部の厳密結果として読む。
+付録Fは、正定値定数係数2次模型について2と3の一部を具体化し、高速法線成分を同型補助系へ移した後の局所縮約残差を \(O(\epsilon_{\rm s})\) に抑える。ただし、現行作用に必要な半正定値位相 Hessian、粒子-場混合、時間依存射影、非線形再励起を含む一様誤差定理は与えない。第3章の定理は、制限作用内部の厳密結果として読む。
 
 \hypertarget{ux4e00ux822cux4f5cux7528ux6bbbcoareaux5165ux53e3ux6d41ux675fux306eux8a73ux7d30}{%
 \chapter{一般作用殻、coarea、入口流束の詳細}\label{ux4e00ux822cux4f5cux7528ux6bbbcoareaux5165ux53e3ux6d41ux675fux306eux8a73ux7d30}}
@@ -5341,6 +5693,8 @@ H_{\rm particles}
 +
 H_{\rm field}
 +
+H_{\rm prep}
++
 H_{\rm source}
 +
 H_{\rm analyzer}
@@ -5390,7 +5744,7 @@ P_{\rm ctrl}
 
 と変化し得る。
 
-比較窓では \(\varepsilon_{\rm ext}\) の効果を小さくし、有限閉鎖系の正準写像として計算する。試行間では、外部記録、garbage移送、再準備に弱開放流路を用い得る。
+比較窓では \(\varepsilon_{\rm ext}\) の効果を小さくし、有限閉鎖系の正準写像として計算する。\(H_{\rm prep}\) は局所準備浴または同型高速モード交換補助系を含み、観測窓では切り離す。試行間では、外部記録、garbage移送、準備浴と交換補助系の再初期化に弱開放流路を用い得る。
 
 \hypertarget{ux56faux5b9aux30e2ux30fcux30c9ux5c04ux5f71ux306eux6b63ux6e96ux6027}{%
 \section{固定モード射影の正準性}\label{ux56faux5b9aux30e2ux30fcux30c9ux5c04ux5f71ux306eux6b63ux6e96ux6027}}
@@ -6109,7 +6463,7 @@ O
 \item
   設定生成器を含む境界測度を事後選別なしで実験的に実現すること。
 \item
-  外部記録を保持した長期反復reset。
+  外部記録を保持し、準備浴と高速交換補助系を再初期化する長期反復reset。
 \item
   位相活性、対、比較部分空間の交差誤差を長時間一様に小さくすること。
 \item
@@ -6540,13 +6894,15 @@ ma_{\rm ts}
 \chapter{局所作用整合と動径低速化の有限準備浴}\label{ux5c40ux6240ux4f5cux7528ux6574ux5408ux3068ux52d5ux5f84ux4f4eux901fux5316ux306eux6709ux9650ux6e96ux5099ux6d74}}
 
 \begin{statusbox}
-位置づけ：有限調和浴の Hamiltonian、共通位相回転対称性、全位相作用の保存、対称な余弦・正弦結合による位相固定項の消去は厳密結果である。記憶摩擦、欠陥減衰、有限温度床、有限時間準備は明記した短記憶・固定振幅近似の下での結果である。一般初期値に対する一様収束と長期反復は未完成である。
+位置づけ：セルまたはグラフに局所的な有限調和浴の Hamiltonian、共通位相回転対称性、全位相作用の保存、対称な余弦・正弦結合による位相固定項の消去は厳密結果である。記憶摩擦、欠陥減衰、有限温度床、有限時間準備は明記した短記憶・固定振幅近似の下での結果である。付録Fの大域的な同型高速モード交換とは役割が異なる。
 \end{statusbox}
 
 \hypertarget{ux76eeux7684ux3068ux6642ux9593ux7a93}{%
 \section{目的と時間窓}\label{ux76eeux7684ux3068ux6642ux9593ux7a93}}
 
 第2.6節の有限特異 Hamiltonian は、局所作用整合と動径低速化を低速枝として与えるが、一般初期値からその枝を準備しない。本付録では、対象場から高速欠陥エネルギーを有限浴へ移す Hamiltonian を明示する。
+
+本付録の構成はセルまたは固定グラフ辺へ局所的に書ける一方、欠陥減衰に短記憶・固定振幅・低温近似を使う。付録Fの同型高速モード交換は、正定値定数係数2次模型では厳密だが、高速Riesz射影と精密調整された大域的補助系を使う。2つを置き換えず、局所的な近似準備機構と、大域的な可解基準機構として分ける。
 
 準備に使う浴は観測中の位相運動を変え得るため、内部時計の準備窓だけ作動させる。時計正準対を \((\vartheta,J_\vartheta)\) とし、作動帯で滑らかな窓関数
 
@@ -6958,7 +7314,976 @@ T_{\rm rec}.
 
 を含める。各項は、短記憶化、有限温度、準備中の振幅変化、余弦・正弦浴の不一致、時計窓の切断、有限浴再帰からの誤差である。
 
-本付録は、局所作用欠陥と動径欠陥の準備を部分的に具体化する。coherent集中、\(r^2=\rho\) の密度同期、単流束化、節、入口標本化後の活性場再埋め込み、観測時間に一様な欠陥上界は導かない。
+本付録は、局所作用欠陥と動径欠陥の準備を局所的な浴結合として部分的に具体化する。付録Fの厳密交換定理と異なり、一般の高速スペクトル部分空間を完全に零へ移す定理ではない。coherent集中、\(r^2=\rho\) の密度同期、単流束化、節、入口標本化後の活性場再埋め込み、観測時間に一様な欠陥上界は導かない。
+
+\hypertarget{ux5358ux4f53ux5c40ux6240ux6b63ux6e96ux5f62ux4f4eux901fux9ad8ux901fux5206ux96e2ux9ad8ux901fux30e2ux30fcux30c9ux4ea4ux63db}{%
+\chapter{単体局所正準形、低速・高速分離、高速モード交換}\label{ux5358ux4f53ux5c40ux6240ux6b63ux6e96ux5f62ux4f4eux901fux9ad8ux901fux5206ux96e2ux9ad8ux901fux30e2ux30fcux30c9ux4ea4ux63db}}
+
+\begin{statusbox}
+位置づけ：厳密規格化・固定全位相作用の局所chart Hamiltonian、2つの慣性行列の逆恒等式、正定値2次模型の2帯分離、同型有限補助系への高速成分交換は、明記した条件の下で厳密結果である。半正定値位相 Hessian、有限規格化ペナルティ、時間依存基準経路、粒子-場を含む全 Hessian、非線形高速再励起は未完成である。
+\end{statusbox}
+
+\hypertarget{ux53b3ux5bc6ux5236ux7d04ux6a21ux578bux3068ux6709ux9650ux30daux30caux30ebux30c6ux30a3ux6a21ux578b}{%
+\section{厳密制約模型と有限ペナルティ模型}\label{ux53b3ux5bc6ux5236ux7d04ux6a21ux578bux3068ux6709ux9650ux30daux30caux30ebux30c6ux30a3ux6a21ux578b}}
+
+第2.6節の規格化量を
+
+\[
+N
+=
+\sum_{i=1}^{L}R_i^2
+\]
+
+とする。共通内部回転の生成子
+
+\[
+\mathcal J_\phi
+=
+\sum_{i=1}^{L}J_i
+\]
+
+は対称性から保存される。従って、固定 \(\mathcal J_\phi\) は Hamiltonian 流の不変sectorである。
+
+一方、有限ペナルティ
+
+\[
+\frac{\Lambda_N}{2}
+\left(
+N-1
+\right)^2
+\]
+
+だけでは \(N\) は一般に保存されない。本付録の厳密な局所縮約では、
+
+\[
+N=1
+\]
+
+をホロノミック制約として課し、正の規格化単体
+
+\[
+\Sigma_{L-1}^{\circ}
+=
+\left\{
+q\in\mathbb R^L:
+q_i>0,
+\quad
+\boldsymbol 1^{\mathsf T}q=1
+\right\}
+\]
+
+の余接束を用いる。有限 \(\Lambda_N\) の模型は別の Hamiltonian 系であり、規格化方向を追加モードとして含む。両者を同じ「固定規格化sector」と呼ばない。
+
+固定 \(\mathcal J_\phi\) を課した後、共通位相を商で除く。以下の局所chartは、節 \(q_i=0\) から離れた単体内点だけを覆う。
+
+\hypertarget{ux5358ux4f53ux3068ux76f8ux5bfeux4f4dux76f8ux306eux5c40ux6240ux5ea7ux6a19}{%
+\section{単体と相対位相の局所座標}\label{ux5358ux4f53ux3068ux76f8ux5bfeux4f4dux76f8ux306eux5c40ux6240ux5ea7ux6a19}}
+
+\(n=L-1\) とし、
+
+\[
+E^{\mathsf T}E
+=
+I_n,
+\qquad
+E^{\mathsf T}\boldsymbol 1
+=
+0
+\]
+
+を満たす \(L\times n\) 行列 \(E\) を固定する。単体内点 \(q^*\) の近傍で、振幅偏差 \(\xi\in\mathbb R^n\) と相対位相 \(\varphi\in\mathbb R^n\) を
+
+\[
+q
+=
+q^*
++
+E\xi,
+qquad
+\boldsymbol\theta
+=
+\Theta\boldsymbol 1
++
+E\varphi
+\]
+
+により定める。\(\Theta\) は共通位相である。
+
+位相正準項は
+
+\[
+\begin{aligned}
+\mathcal J_\phi
+q^{\mathsf T}
+d\boldsymbol\theta
+={}&
+\mathcal J_\phi d\Theta
++
+\mathcal J_\phi
+\left(
+E^{\mathsf T}q^*
++
+\xi
+\right)^{\mathsf T}
+d\varphi.
+\end{aligned}
+\]
+
+\(\mathcal J_\phi(E^{\mathsf T}q^*)^{\mathsf T}d\varphi\) は完全微分なので、局所運動方程式を変えずに除ける。固定 \(\mathcal J_\phi\) と共通位相の商を取った後に残る磁気型1形式は
+
+\[
+\mathcal J_\phi
+\xi^{\mathsf T}d\varphi
+\]
+
+である。この項が、以下の最小結合型運動量シフトを作る。
+
+\hypertarget{ux6b63ux78baux306aux5c40ux6240chart-hamiltonian}{%
+\section{正確な局所chart Hamiltonian}\label{ux6b63ux78baux306aux5c40ux6240chart-hamiltonian}}
+
+\[
+D_q
+=
+\operatorname{diag}
+\left(
+q_1,\ldots,q_L
+\right)
+\]
+
+とし、2つの正定値行列を
+
+\[
+G_q(q)
+=
+E^{\mathsf T}
+D_q^{-1}
+E,
+\]
+
+\[
+G_\varphi(q)
+=
+E^{\mathsf T}
+\left(
+D_q
+-
+qq^{\mathsf T}
+\right)
+E
+\]
+
+と定める。第2.6節の有限 \(\epsilon_{\rm s}\) Lagrangian は、このchartで正確に
+
+\[
+\begin{aligned}
+L_{\epsilon_{\rm s}}^{\rm chart}
+={}&
+\mathcal J_\phi
+\xi^{\mathsf T}\dot\varphi
+-
+H_0(\xi,\varphi)
+\\
+&+
+\frac{
+\epsilon_{\rm s}M
+}{
+8
+}
+\dot\xi^{\mathsf T}
+G_q(q)
+\dot\xi
++
+\frac{
+\epsilon_{\rm s}I
+}{
+2
+}
+\dot\varphi^{\mathsf T}
+G_\varphi(q)
+\dot\varphi
+\end{aligned}
+\]
+
+となる。共役運動量は
+
+\[
+p_\xi
+=
+\frac{
+\epsilon_{\rm s}M
+}{
+4
+}
+G_q(q)
+\dot\xi,
+\]
+
+\[
+p_\varphi
+=
+\mathcal J_\phi\xi
++
+\epsilon_{\rm s}I
+G_\varphi(q)
+\dot\varphi.
+\]
+
+従って、局所chart Hamiltonian は
+
+\[
+\begin{aligned}
+H_{\epsilon_{\rm s}}^{\rm chart}
+={}&
+H_0(\xi,\varphi)
++
+\frac{
+2
+}{
+\epsilon_{\rm s}M
+}
+p_\xi^{\mathsf T}
+G_q(q)^{-1}
+p_\xi
+\\
+&+
+\frac{
+1
+}{
+2\epsilon_{\rm s}I
+}
+\left(
+p_\varphi
+-
+\mathcal J_\phi\xi
+\right)^{\mathsf T}
+G_\varphi(q)^{-1}
+\left(
+p_\varphi
+-
+\mathcal J_\phi\xi
+\right).
+\end{aligned}
+\]
+
+\begin{proposition}[厳密制約下の局所chart Hamiltonian]
+$q_i>0$、$N=1$、固定 $\mathcal J_\phi$ の下で、上の Hamiltonian は第2.6節の有限特異 Hamiltonian の局所正準表示である。$\epsilon_{\rm s}\to0$ を取らず、2次化も用いていない。
+\end{proposition}
+
+\begin{proof}
+$\dot q=E\dot\xi$ を第2.6節の振幅慣性項へ代入すると $G_q$ を得る。相対位相速度から重み付き平均を除いた2次形式は
+
+$$
+\sum_i
+q_i
+\left(
+\dot\theta_i
+-
+\sum_jq_j\dot\theta_j
+\right)^2
+=
+\dot\varphi^{\mathsf T}
+G_\varphi
+\dot\varphi.
+$$
+
+正準項から完全微分を除き、2つの運動量を Legendre 変換すればよい。
+\end{proof}
+
+\hypertarget{ux632fux5e45ux4f4dux76f8ux6163ux6027ux884cux5217ux306eux9006ux6052ux7b49ux5f0f}{%
+\section{振幅・位相慣性行列の逆恒等式}\label{ux632fux5e45ux4f4dux76f8ux6163ux6027ux884cux5217ux306eux9006ux6052ux7b49ux5f0f}}
+
+\begin{theorem}[単体慣性行列の逆恒等式]
+$q\in\Sigma_{L-1}^{\circ}$ では、
+
+$$
+G_q(q)^{-1}
+=
+G_\varphi(q)
+$$
+
+が厳密に成立する。
+\end{theorem}
+
+\begin{proof}
+任意の $x\in\mathbb R^n$ に対し、$v=Ex$ と置く。$\boldsymbol1^{\mathsf T}v=0$ である。さらに
+
+$$
+w
+=
+\left(
+D_q
+-
+qq^{\mathsf T}
+\right)
+v
+$$
+
+と置くと、
+
+$$
+\boldsymbol1^{\mathsf T}w
+=
+q^{\mathsf T}v
+-
+\left(
+\boldsymbol1^{\mathsf T}q
+\right)
+q^{\mathsf T}v
+=
+0.
+$$
+
+従って $w=Ey$ を満たす一意な $y$ があり、
+
+$$
+y
+=
+E^{\mathsf T}w
+=
+G_\varphi x.
+$$
+
+一方、
+
+$$
+D_q^{-1}w
+=
+v
+-
+\boldsymbol1
+\left(
+q^{\mathsf T}v
+\right)
+$$
+
+なので、
+
+$$
+G_qy
+=
+E^{\mathsf T}
+D_q^{-1}
+Ey
+=
+E^{\mathsf T}v
+=
+x.
+$$
+
+従って $G_qG_\varphi=I_n$ である。
+\end{proof}
+
+この恒等式は、振幅方向の Fisher 型計量と、相対位相方向の重み付き共分散計量が同じ単体幾何の互いに逆な表示であることを示す。ただし、密度同期または Schrödinger 型力学を単独で導く結果ではない。
+
+\hypertarget{ux5185ux70b9ux81e8ux754cux70b9ux307eux308fux308aux306e2ux6b21ux6b63ux6e96ux6a19ux6e96ux5f62}{%
+\section{内点臨界点まわりの2次正準標準形}\label{ux5185ux70b9ux81e8ux754cux70b9ux307eux308fux308aux306e2ux6b21ux6b63ux6e96ux6a19ux6e96ux5f62}}
+
+\(H_0\) の内点臨界点を局所原点へ移し、
+
+\[
+\nabla H_0
+\left(
+0,0
+\right)
+=
+0
+\]
+
+とする。Hessianを
+
+\[
+K_{\xi\xi}
+=
+\partial_\xi^2H_0,
+\qquad
+K_{\xi\varphi}
+=
+\partial_\xi\partial_\varphi H_0,
+\qquad
+K_{\varphi\varphi}
+=
+\partial_\varphi^2H_0
+\]
+
+とする。全て臨界点で評価する。
+
+\[
+G_*
+=
+G_\varphi(q^*)
+\]
+
+を用い、線形正準変換を
+
+\[
+x
+=
+\frac{\sqrt M}{2}
+G_*^{-1/2}
+\xi,
+\qquad
+p_x
+=
+\frac{2}{\sqrt M}
+G_*^{1/2}
+p_\xi,
+\]
+
+\[
+y
+=
+\sqrt I
+G_*^{1/2}
+\varphi,
+\qquad
+p_y
+=
+\frac{1}{\sqrt I}
+G_*^{-1/2}
+p_\varphi
+\]
+
+と定める。また、
+
+\[
+g_\phi
+=
+\frac{
+2\mathcal J_\phi
+}{
+\sqrt{MI}
+}
+\]
+
+と置く。2次 Hamiltonian は
+
+\[
+\begin{aligned}
+H_{\epsilon_{\rm s}}^{(2)}
+={}&
+\frac{1}{2\epsilon_{\rm s}}
+\left[
+p_x^{\mathsf T}p_x
++
+\left(
+p_y-g_\phi x
+\right)^{\mathsf T}
+\left(
+p_y-g_\phi x
+\right)
+\right]
+\\
+&+
+\frac12x^{\mathsf T}A x
++
+x^{\mathsf T}C y
++
+\frac12y^{\mathsf T}B y
+\end{aligned}
+\]
+
+となる。\(A\)、\(B\) は実対称行列で、\(C\) は一般には零でない。これらは元の Hessian を上の線形変換で移した行列である。
+
+\begin{proposition}[内点臨界点まわりの2次標準形]
+節から離れた内点臨界点の近傍で、正確なchart Hamiltonianの2次部分は上の最小結合型標準形へ正準変換できる。$G_\varphi(q)$ の位置依存性は、原点で運動量が零なら3次以上の項へ入る。
+\end{proposition}
+
+位相反転対称性
+
+\[
+H_0(\xi,\varphi)
+=
+H_0(\xi,-\varphi)
+\]
+
+が臨界点近傍で成立し、臨界位相を \(\varphi=0\) に取れるなら、
+
+\[
+C=0.
+\]
+
+この対称性を仮定せずに混合 Hessian を捨ててはならない。
+
+\hypertarget{ux6b63ux5b9aux50242ux6b21ux6a21ux578bux306e2ux5e2fux5206ux96e2}{%
+\section{正定値2次模型の2帯分離}\label{ux6b63ux5b9aux50242ux6b21ux6a21ux578bux306e2ux5e2fux5206ux96e2}}
+
+以下では、
+
+\[
+g_\phi\neq0,
+\qquad
+C=0,
+\qquad
+A>0,
+\qquad
+B>0
+\]
+
+を仮定する。Hamilton方程式は
+
+\[
+\epsilon_{\rm s}\ddot x
+-
+g_\phi\dot y
++
+Ax
+=
+0,
+\]
+
+\[
+\epsilon_{\rm s}\ddot y
++
+g_\phi\dot x
++
+By
+=
+0.
+\]
+
+\begin{theorem}[正定値2次模型の低速・高速分離]
+上の条件の下で、十分小さい $\epsilon_{\rm s}>0$ に対し、正の固有振動数は $n$ 個の低速帯と $n$ 個の高速帯へ分かれる。低速帯は $O(1)$ で、その2乗は重複度込みで
+
+$$
+\operatorname{spec}
+\left[
+\frac{
+A^{1/2}BA^{1/2}
+}{
+g_\phi^2
+}
+\right]
+$$
+
+へ収束する。高速帯は
+
+$$
+\omega_{{\rm f},k}
+=
+\frac{
+|g_\phi|
+}{
+\epsilon_{\rm s}
+}
++
+O(1).
+$$
+
+2帯の間には $\epsilon_{\rm s}\to0$ で発散するスペクトル間隙がある。
+\end{theorem}
+
+\begin{proof}
+$e^{i\omega t}$ 型の解に対する固有値問題は
+
+$$
+\begin{pmatrix}
+A-\epsilon_{\rm s}\omega^2I_n
+&
+-i g_\phi\omega I_n
+\\
+i g_\phi\omega I_n
+&
+B-\epsilon_{\rm s}\omega^2I_n
+\end{pmatrix}
+\begin{pmatrix}
+x\\
+y
+\end{pmatrix}
+=
+0.
+$$
+
+$A>0$ と $B>0$ により2次 Hamiltonian は正定値であるため、線形 Hamiltonian 行列の非零固有値は半単純な純虚数対になる。$\omega=O(1)$ として $\epsilon_{\rm s}=0$ を代入し、$x$ を消去すると、
+
+$$
+B y
+=
+g_\phi^2\omega^2
+A^{-1}y.
+$$
+
+これは $A^{1/2}BA^{1/2}/g_\phi^2$ の正の固有値問題であり、$n$ 個の低速極限を与える。
+
+残る $n$ 個について $\zeta=\epsilon_{\rm s}\omega$ を固定すると、最高次の行列束は $\zeta^2=g_\phi^2$ を与える。固有値の連続性と正定値 Hamiltonian 束の慣性指数を用いると、低速根と合わせて正の根は合計 $2n$ 個であり、残りの $n$ 個は $\zeta\to|g_\phi|$ となる。従って2帯の個数と漸近式を得る。
+\end{proof}
+
+この定理は正定値2次部分模型の結果である。現行の Madelung 縮約へ無条件に適用しない。
+
+\hypertarget{ux4f4eux901fux90e8ux5206ux7a7aux9593ux4e0aux306eux7e2eux7d04ux6b8bux5dee}{%
+\section{低速部分空間上の縮約残差}\label{ux4f4eux901fux90e8ux5206ux7a7aux9593ux4e0aux306eux7e2eux7d04ux6b8bux5dee}}
+
+\(\mathcal E_{\rm s}^{\epsilon}\) を前節の低速固有モードが張る実不変部分空間とする。正定値2次模型では、その上の解は全時間で有界であり、各時間微分も初期エネルギーにより一様に抑えられる。
+
+形式的な1階縮約方程式は
+
+\[
+Ax
+-
+g_\phi\dot y
+=
+0,
+\]
+
+\[
+By
++
+g_\phi\dot x
+=
+0.
+\]
+
+完全2次方程式との差は
+
+\[
+\mathcal R_{\rm s}
+=
+\begin{pmatrix}
+-\epsilon_{\rm s}\ddot x\\
+-\epsilon_{\rm s}\ddot y
+\end{pmatrix}.
+\]
+
+\begin{proposition}[低速部分空間上の全時間残差]
+初期状態を $\mathcal E_{\rm s}^{\epsilon}$ に置き、初期2次エネルギーを一定に抑えると、十分小さい $\epsilon_{\rm s}$ に対し、
+
+$$
+\sup_{t\in\mathbb R}
+\left\|
+\mathcal R_{\rm s}(t)
+\right\|
+\leq
+C\epsilon_{\rm s}
+$$
+
+となる。$C$ はそのエネルギー上界には依存するが、時刻と $\epsilon_{\rm s}$ には依存しない。
+\end{proposition}
+
+これは各時刻の方程式残差である。低速固有振動数の \(O(\epsilon_{\rm s})\) 補正により、縮約軌道との位相差は一般に \(O(\epsilon_{\rm s}t)\) と蓄積し得る。従って、軌道差が全時間で \(O(\epsilon_{\rm s})\) とは結論しない。
+
+また、この残差は局所2次化された場chartの1階方程式に対するものである。粒子密度、粒子流速、密度同期を含む完全な Madelung 作用の変分残差ではない。
+
+\hypertarget{ux9ad8ux901frieszux5c04ux5f71}{%
+\section{高速Riesz射影}\label{ux9ad8ux901frieszux5c04ux5f71}}
+
+2次 Hamiltonian の線形生成子を \(\mathscr L_{\epsilon}\) とする。十分小さい \(\epsilon_{\rm s}\) では、低速固有値と高速固有値は分離している。高速固有値だけを囲む複素輪郭 \(\gamma_{\rm f}\) を取り、
+
+\[
+\Pi_{\rm f}^{\epsilon}
+=
+\frac{1}{2\pi i}
+\oint_{\gamma_{\rm f}}
+\left(
+z-\mathscr L_{\epsilon}
+\right)^{-1}
+\,dz
+\]
+
+と定める。実高速部分空間は、共役な正負固有値の射影を合わせて得る。
+
+\begin{proposition}[高速スペクトル射影]
+正定値2次模型では、$\Pi_{\rm f}^{\epsilon}$ と
+
+$$
+\Pi_{\rm s}^{\epsilon}
+=
+I-\Pi_{\rm f}^{\epsilon}
+$$
+
+は2次流と交換する。対応する実部分空間は不変かつsymplecticであり、2次 Hamiltonian は低速部分と高速部分の直和へ分かれる。
+\end{proposition}
+
+この射影は一般に全セルへ広がる。従って、固定グラフ辺だけへ結合する付録Eの局所作用交換浴と同じ局所機構ではない。
+
+\hypertarget{ux540cux578bux6709ux9650ux88dcux52a9ux7cfbux306bux3088ux308bux9ad8ux901fux6210ux5206ux4ea4ux63db}{%
+\section{同型有限補助系による高速成分交換}\label{ux540cux578bux6709ux9650ux88dcux52a9ux7cfbux306bux3088ux308bux9ad8ux901fux6210ux5206ux4ea4ux63db}}
+
+高速部分空間を Williamson 正準座標で
+
+\[
+H_{\rm f}
+=
+\frac12
+\sum_{k=1}^{n}
+\omega_{{\rm f},k}
+\left(
+Q_k^2+P_k^2
+\right)
+\]
+
+と書く。同じ振動数を持つ補助正準対 \((\widetilde Q_k,\widetilde P_k)\) と
+
+\[
+\widetilde H_{\rm f}
+=
+\frac12
+\sum_{k=1}^{n}
+\omega_{{\rm f},k}
+\left(
+\widetilde Q_k^2
++
+\widetilde P_k^2
+\right)
+\]
+
+を置く。交換生成子を
+
+\[
+H_{\rm ex}
+=
+\sum_{k=1}^{n}
+\left(
+Q_k\widetilde P_k
+-
+P_k\widetilde Q_k
+\right)
+\]
+
+とし、内部時計で制御された結合係数を \(\chi_{\rm ex}(t)\) とする。
+
+\[
+\Theta_{\rm ex}
+=
+\int
+\chi_{\rm ex}(t)
+\,dt
+\]
+
+を交換角と呼ぶ。\(H_{\rm ex}\) は \(H_{\rm f}+\widetilde H_{\rm f}\) と Poisson 可換なので、自由回転と交換回転を分離できる。
+
+\begin{theorem}[同型高速モードの完全交換]
+補助系が対象高速部分と同型で、交換窓の間に他の結合を無視できるとする。共通自由回転を除いた座標は
+
+$$
+\begin{pmatrix}
+z_{\rm f}^{\rm out}\\
+\widetilde z_{\rm f}^{\rm out}
+\end{pmatrix}
+=
+\begin{pmatrix}
+\cos\Theta_{\rm ex} & -\sin\Theta_{\rm ex}\\
+\sin\Theta_{\rm ex} & \cos\Theta_{\rm ex}
+\end{pmatrix}
+\begin{pmatrix}
+z_{\rm f}^{\rm in}\\
+\widetilde z_{\rm f}^{\rm in}
+\end{pmatrix}.
+$$
+
+$\widetilde z_{\rm f}^{\rm in}=0$ と $\Theta_{\rm ex}=\pi/2$ の下で、
+
+$$
+z_{\rm f}^{\rm out}
+=
+0
+$$
+
+となり、対象系の高速成分は補助系へ完全に移る。
+\end{theorem}
+
+この操作は散逸でなく、有限正準系間の可逆な状態交換である。交換後も全情報と高速エネルギーは補助系に残る。次試行までに補助系を零状態へ戻すには、外部記録または排熱を含む別の再初期化過程が必要である。
+
+定理は厳密制約後の局所2次chart内部で成立する。交換結合を元の全場変数へ大域的に持ち上げ、節を越えて規格化と \(\mathcal J_\phi\) を保存する構成は未完成である。
+
+\hypertarget{ux4ea4ux63dbux89d2ux3068ux88dcux52a9ux521dux671fux72b6ux614bux306eux8aa4ux5dee}{%
+\section{交換角と補助初期状態の誤差}\label{ux4ea4ux63dbux89d2ux3068ux88dcux52a9ux521dux671fux72b6ux614bux306eux8aa4ux5dee}}
+
+高速2次エネルギーが定めるノルムを \(\|\cdot\|_{H_{\rm f}}\) とする。前節の正確な同型模型では、
+
+\[
+\left\|
+z_{\rm f}^{\rm out}
+\right\|_{H_{\rm f}}
+\leq
+\left|
+\cos\Theta_{\rm ex}
+\right|
+\left\|
+z_{\rm f}^{\rm in}
+\right\|_{H_{\rm f}}
++
+\left|
+\sin\Theta_{\rm ex}
+\right|
+\left\|
+\widetilde z_{\rm f}^{\rm in}
+\right\|_{H_{\rm f}}.
+\]
+
+\(\Theta_{\rm ex}=\pi/2+\delta\Theta\) なら、
+
+\[
+\left\|
+z_{\rm f}^{\rm out}
+\right\|_{H_{\rm f}}
+\leq
+\left|
+\delta\Theta
+\right|
+\left\|
+z_{\rm f}^{\rm in}
+\right\|_{H_{\rm f}}
++
+\left\|
+\widetilde z_{\rm f}^{\rm in}
+\right\|_{H_{\rm f}}
++
+O
+\left(
+|\delta\Theta|^2
+\right).
+\]
+
+従って、交換角誤差は振幅に1次、残留エネルギーに2次で入り、補助系の非零初期エネルギーはそのまま対象へ戻り得る。
+
+補助 Hamiltonian の複製誤差、Riesz射影の実装誤差、交換窓中の非線形項は Duhamel 型積分として加わる。これらの一様な定数と連続極限での規模依存性は未評価である。
+
+\hypertarget{ux534aux6b63ux5b9aux5024ux4f4dux76f8hessianux3068ux96f6ux30e2ux30fcux30c9}{%
+\section{半正定値位相Hessianと零モード}\label{ux534aux6b63ux5b9aux5024ux4f4dux76f8hessianux3068ux96f6ux30e2ux30fcux30c9}}
+
+現行の Madelung 縮約では、位相勾配エネルギーを粒子流速側へ整理し、場側で二重計数しない。この分割では \(B\) は半正定値、極端には零になり得る。
+
+1自由度で
+
+\[
+A>0,
+\qquad
+B=0,
+\qquad
+C=0
+\]
+
+とすると、特性式は
+
+\[
+\omega^2
+\left[
+\epsilon_{\rm s}^2\omega^2
+-
+\epsilon_{\rm s}A
+-
+g_\phi^2
+\right]
+=
+0.
+\]
+
+高速振動数は
+
+\[
+\omega_{\rm f}
+=
+\frac{
+\sqrt{
+g_\phi^2
++
+\epsilon_{\rm s}A
+}
+}{
+\epsilon_{\rm s}
+}
+\]
+
+として残る。一方、低速側は正の振動数でなく零モードになる。一般初期値では零固有値の一般化固有空間に沿う線形成長が生じ得る。
+
+この例は、高速帯の存在に \(B>0\) が必須でないことを示す。しかし、一般の \(B\geq0\)、混合 Hessian、零固有値のJordan構造を含めて、
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  高速帯だけを一様に分離すること。
+\item
+  高速Riesz射影の正準性を保つこと。
+\item
+  低速一般化部分空間の多項式成長を評価すること。
+\item
+  高速交換後の残差を観測時間に一様に抑えること。
+\end{enumerate}
+
+は未証明である。正定値定理を現行 M0 へ適用するために場側へ人工的な位相剛性を戻してはならない。
+
+\hypertarget{ux6709ux9650ux898fux683cux5316ux30daux30caux30ebux30c6ux30a3ux306eux4e2dux9593ux5e2f}{%
+\section{有限規格化ペナルティの中間帯}\label{ux6709ux9650ux898fux683cux5316ux30daux30caux30ebux30c6ux30a3ux306eux4e2dux9593ux5e2f}}
+
+厳密制約を使わず、有限 \(\Lambda_N\) で規格化方向を残すと、その局所偏差を \(\eta_N=N-1\) として概略
+
+\[
+H_N^{(2)}
+=
+\frac{
+p_N^2
+}{
+2\epsilon_{\rm s}M_N
+}
++
+\frac{
+\Lambda_N
+}{
+2
+}
+\eta_N^2
+\]
+
+が現れる。\(\Lambda_N=O(1)\) なら、
+
+\[
+\omega_N
+=
+O
+\left(
+\epsilon_{\rm s}^{-1/2}
+\right).
+\]
+
+これは \(O(1)\) の低速帯と \(O(\epsilon_{\rm s}^{-1})\) の高速帯の間にある中間帯である。実際の係数と混合は \(H_0\)、規格化方向、相対位相方向の全 Hessian に依存する。
+
+従って、厳密制約模型の2帯定理を有限 \(\Lambda_N\) 模型へ直接移せない。有限ペナルティ模型には、少なくとも3帯を許す別のスペクトル解析が必要である。
+
+\hypertarget{ux975eux7ddaux5f62ux6642ux9593ux4f9dux5b58ux5168m0ux3078ux306eux9650ux754c}{%
+\section{非線形、時間依存、全M0への限界}\label{ux975eux7ddaux5f62ux6642ux9593ux4f9dux5b58ux5168m0ux3078ux306eux9650ux754c}}
+
+本付録の厳密交換定理は、固定内点の定数係数2次模型に対する結果である。完全な局所 Hamiltonian では、
+
+\[
+G_q
+=
+G_q(q),
+\qquad
+G_\varphi
+=
+G_\varphi(q)
+\]
+
+であり、\(H_0\) は3次以上の項を持つ。これらは低速運動から高速成分を再生成し得る。適用には、初期振幅、観測時間、\(\epsilon_{\rm s}\)、スペクトル間隙に依存する再励起率の評価が必要である。
+
+基準となる停留経路が時間依存なら、HessianとRiesz射影も時間に依存する。
+
+\[
+\dot\Pi_{\rm f}^{\epsilon}
+\neq
+0
+\]
+
+であるため、射影の回転自体が低速成分と高速成分を混合する。断熱条件と幾何学的接続項を含む別の定理が必要になる。
+
+さらに、現行 M0 には粒子座標、粒子運動量、密度、位相接続、装置、準備浴が含まれる。全系を2次化すると粒子-場混合 Hessian が現れる。本付録は場chart内部の高速法線成分を扱うが、M0全体の停留経路または特定の Schrödinger 解を選ばない。
+
+従って、本付録が示すのは、
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  厳密制約下の局所正準形。
+\item
+  正定値2次模型での低速・高速分離。
+\item
+  理想同型補助系への高速成分の可逆な完全交換。
+\item
+  交換後の局所2次縮約方程式に対する \(O(\epsilon_{\rm s})\) 残差。
+\end{enumerate}
+
+までである。coherent集中、密度同期、単流束化、節、半正定値位相 Hessian、一般の時間依存停留経路は解決していない。
 
 \begin{thebibliography}{99}
 

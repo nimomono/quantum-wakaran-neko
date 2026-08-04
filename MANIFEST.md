@@ -22,6 +22,7 @@
 - `sections/A3_hamiltonian_device_details.md`
 - `sections/A4_position_diffusion_auxiliary.md`
 - `sections/A5_action_alignment_baths.md`
+- `sections/A6_slow_fast_exchange.md`
 - `sections/90_references.md`
 
 ## 論文外の研究メモ
@@ -50,6 +51,7 @@
 - `tools/build_paper.py`
 - `tools/template.tex`
 - `tools/verify_action_distribution.py`
+- `tools/verify_slow_fast_exchange.py`
 - `figures/README.md`
 - `.github/workflows/verify.yml`
 - `.gitignore`
