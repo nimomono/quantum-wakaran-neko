@@ -25,10 +25,7 @@ THEOREM_LABELS = {
     "proof": "証明",
 }
 
-PART_TITLES = {
-    2: "第I部　位相接続による Schrödinger 型力学",
-    5: "第II部　同じ2成分場の Bell 対モードと境界統計",
-}
+PART_TITLES: dict[int, str] = {}
 
 REFERENCE_KEYS = {
     1: "bell1964",
@@ -280,11 +277,7 @@ def pandoc_markdown() -> str:
         "\n".join(preprocess(overview)),
     ])
 
-    for number in range(1, 9):
-        if number == 2:
-            chunks.append(r"\part{位相接続による Schrödinger 型力学}")
-        if number == 5:
-            chunks.append(r"\part{同じ2成分場の Bell 対モードと境界統計}")
+    for number in range(1, 7):
         path = next(SECTIONS.glob(f"{number:02d}_*.md"))
         meta, lines = parse_source(path)
         chunks.append("# " + meta["title"])
@@ -324,7 +317,7 @@ def combined_markdown() -> str:
         "\n".join(preprocess_public(overview)),
     ])
 
-    for number in range(1, 9):
+    for number in range(1, 7):
         if number in PART_TITLES:
             chunks.append("# " + PART_TITLES[number])
         path = next(SECTIONS.glob(f"{number:02d}_*.md"))
