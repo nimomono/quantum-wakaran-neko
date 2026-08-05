@@ -10,16 +10,14 @@
 
 - `sections/00_overview_and_contents.md`
 - `sections/01_scope_and_cycle.md`
-- `sections/02_hamiltonian_gaussian_core.md`
-- `sections/03_two_sided_gaussian_law.md`
-- `sections/04_c1_nelson_limit.md`
-- `sections/05_finite_measurement_boundary.md`
-- `sections/06_two_mode_boundary_comparator.md`
-- `sections/07_boundary_action_shell_bell_measure.md`
-- `sections/08_robustness_and_limits.md`
-- `sections/A1_fourier_schur_proofs.md`
-- `sections/A2_c1_estimates.md`
-- `sections/A3_hamiltonian_device_details.md`
+- `sections/02_two_component_field_and_preparation.md`
+- `sections/03_weak_schrodinger_reduction.md`
+- `sections/04_position_action_shell_sampling.md`
+- `sections/05_bell_boundary_measure.md`
+- `sections/06_errors_limits_and_open_problems.md`
+- `sections/A1_weak_reduction_proofs.md`
+- `sections/A2_action_shell_proofs.md`
+- `sections/A3_measurement_device_details.md`
 - `sections/A4_position_diffusion_auxiliary.md`
 - `sections/A5_action_alignment_baths.md`
 - `sections/A6_slow_fast_exchange.md`
@@ -52,6 +50,7 @@
 - `tools/template.tex`
 - `tools/verify_action_distribution.py`
 - `tools/verify_slow_fast_exchange.py`
+- `tools/verify_weak_reduction.py`
 - `figures/README.md`
 - `.github/workflows/verify.yml`
 - `.gitignore`
