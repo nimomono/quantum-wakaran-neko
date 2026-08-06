@@ -61,6 +61,10 @@ REFERENCE_KEYS = {
     31: "wilson_et_al2021",
     32: "leonard_roelly_zambrini2014",
     33: "marchiori_deaguiar2011",
+    34: "heslot1985",
+    35: "briggs_eisfeld2012",
+    36: "briggs_eisfeld2013",
+    37: "skinner2013",
 }
 
 
