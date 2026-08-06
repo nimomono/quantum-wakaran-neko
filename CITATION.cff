@@ -1,9 +1,9 @@
 cff-version: 1.2.0
 message: "この成果を利用する場合は、次の情報で引用すること。"
-title: "構造化2成分誘導場を持つ弱開放古典 Hamiltonian 系：位相接続による Schrödinger 型力学と2モード作用殻による Born 型・Bell 型統計"
+title: "有限正準位相担体の相関行列力学：Schrödinger 型統計振幅と2モード作用殻による Born 型・Bell 型統計"
 type: manuscript
 authors:
   - name: "nimomono"
-version: "draft-19"
+version: "draft-20"
 date-released: 2026-08-06
 repository-code: "https://github.com/nimomono/quantum-wakaran-neko"

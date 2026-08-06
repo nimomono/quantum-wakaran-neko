@@ -10,17 +10,14 @@
 
 - `sections/00_overview_and_contents.md`
 - `sections/01_scope_and_cycle.md`
-- `sections/02_two_component_field_and_preparation.md`
-- `sections/03_weak_schrodinger_reduction.md`
+- `sections/02_canonical_phase_carriers.md`
+- `sections/03_correlation_dynamics.md`
 - `sections/04_position_action_shell_sampling.md`
 - `sections/05_bell_boundary_measure.md`
 - `sections/06_errors_limits_and_open_problems.md`
-- `sections/A1_weak_reduction_proofs.md`
+- `sections/A1_phase_correlation_proofs.md`
 - `sections/A2_action_shell_proofs.md`
 - `sections/A3_measurement_device_details.md`
-- `sections/A4_position_diffusion_auxiliary.md`
-- `sections/A5_action_alignment_baths.md`
-- `sections/A6_slow_fast_exchange.md`
 - `sections/90_references.md`
 
 ## 論文外の研究メモ
@@ -34,6 +31,7 @@
 - `notes/measurement_dependence_comparisons.md`
 - `notes/superseded_position_coupling_fisher_closure.md`
 - `notes/superseded_three_mode_bell_shell.md`
+- `notes/superseded_two_component_induction_field.md`
 
 ## 状態・再現性
 
@@ -49,8 +47,7 @@
 - `tools/build_paper.py`
 - `tools/template.tex`
 - `tools/verify_action_distribution.py`
-- `tools/verify_slow_fast_exchange.py`
-- `tools/verify_weak_reduction.py`
+- `tools/verify_phase_correlation.py`
 - `figures/README.md`
 - `.github/workflows/verify.yml`
 - `.gitignore`
