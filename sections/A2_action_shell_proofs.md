@@ -1,421 +1,458 @@
 @number: A2
 @chapter: 付録
-@title: 一般作用殻、余面積公式、入口流束の詳細
-@status: 第4章と第5章で用いる2モード作用殻容量、排他的境界面、余面積 Jacobian、作用分配次元、殻接方向混合を補足し、正規化された混合集団と未規格化殻容量を区別する。
+@title: 母測度、作用選択器、履歴区間の証明
+@status: 本文第1章、第4章、第5章で用いる母測度の条件付け、エルゴード頻度、作用区間選択、固定作用公式、共分散補正、任意有限基底、Bell履歴区間と基準セクター密度を補足する。不変母測度の力学的生成は仮定である。
 
-## B.1 単体積分
+## B.1 条件付き母測度
 
-作用殻容量を
+試行開始面を $(\Sigma_0,\mathcal B)$、母測度を $\mu_*$ とする。調製条件、プログラム、基底、Bell設定は全て $\mathcal B$ 可測な開始点の関数またはレジスター領域として扱う。
+
+条件事象 $D\in\mathcal B$、$\mu_*(D)>0$ に対し、
 
 ```math
-\Omega_n(A)
+\mu_*^D(E)
 =
-(2\pi)^n
-\int_{J_k\geq0}
-\delta
-\left(
-A-\sum_{k=1}^nJ_k
+\frac{
+\mu_*(E\cap D)
+}{
+\mu_*(D)
+}
+```
+
+とする。本文の $\mathbb E_{\mu_*}[\cdot\mid\mathcal P,M,U]$ は、連続レジスターでは正則条件付き分布、離散レジスターでは上の条件事象による期待値を表す。
+
+相関行列は
+
+```math
+C_D(t)
+=
+\int_{\Sigma_0}
+b_t(z)b_t(z)^\dagger
+\,d\mu_*^D(z)
+```
+
+である。有限基底結果とBell結果も同じ $\mu_*^D$ の事象確率であるため、3つに独立な基礎測度を置かない。
+
+## B.2 不変性とエルゴード頻度
+
+周期写像 $\mathcal R$ が
+
+```math
+\mathcal R_*\mu_*
+=
+\mu_*
+```
+
+を満たし、$\mu_*$ に関してエルゴード的であると仮定する。Birkhoffのエルゴード定理により、$f\in L^1(\mu_*)$ に対して
+
+```math
+\frac1N
+\sum_{n=0}^{N-1}
+f\left(
+\mathcal R^nz
 \right)
-\prod_{k=1}^n dJ_k
+\longrightarrow
+\int f\,d\mu_*
 ```
 
-とする。$n=1$ では
+が $\mu_*$ に関してほとんど確実に成立する。
+
+事象 $E$ の指示関数を取れば
 
 ```math
-\Omega_1(A)
-=
-2\pi.
-```
-
-再帰関係
-
-```math
-\Omega_n(A)
-=
-2\pi
-\int_0^A
-\Omega_{n-1}(A-J_n)
-\,dJ_n
-```
-
-を用いると、
-
-```math
-\Omega_n(A)
-=
-\frac{(2\pi)^n}{(n-1)!}
-A^{n-1}
-```
-
-が帰納的に従う。
-
-## B.2 排他的な和と直積の違い
-
-位置チャンネルを排他的な和
-
-```math
-\Gamma_\partial
-=
-\bigsqcup_i
-\Gamma_{\partial,i}
-```
-
-とすれば、全入口流束は
-
-```math
-\mathscr F
-=
-\sum_i\mathscr F_i
-```
-
-であり、各 $\mathscr F_i$ に局所作用 $A_i$ の線形因子が残る。
-
-一方、全セルに独立な2モード作用殻を同時に課す直積構成では、容量は
-
-```math
-\prod_i\Omega_2(A_i)
-\propto
-\prod_iA_i
-```
-
-となる。1つのチャンネル $i$ を選ぶ相対重みではなく、全セル作用の積が現れる。この構成は位置の Born 型入口頻度を与えない。
-
-## B.3 余面積公式
-
-全入口正準位相空間を $\Gamma$、基準体積を $d\Gamma$ とする。固定作用制約と反応面制約を
-
-```math
-F_1(z)
-=
-A_i-K_i-I,
-```
-
-```math
-F_2(z)
-=
-s_i(z)
-```
-
-とする。正方向流束は記号的に
-
-```math
-\mathscr F_i
-=
-\int_\Gamma
-\rho_0(z)
-\delta(F_1)
-\delta(F_2)
+\frac1N
+\sum_{n=0}^{N-1}
+\mathbf 1_E
 \left(
-\dot s_i
-\right)_+
-d\Gamma.
+\mathcal R^nz
+\right)
+\longrightarrow
+\mu_*(E)
 ```
 
-一般の滑らかな写像 $F=(F_1,F_2)$ に対し、余面積公式は
+となる。条件事象 $D$ が正の測度を持ち、その出現回数が無限に増えるなら、比エルゴード定理または分子と分母への上式の適用により
 
 ```math
-\int_\Gamma
-g(z)
-\delta(F(z))
-d\Gamma
-=
-\int_{F^{-1}(0)}
-\frac{g(z)}{J_F(z)}
-d\Sigma(z),
-```
-
-```math
-J_F
-=
-\sqrt{
-\det
-\left[
-DF
+\frac{
+\sum_{n=0}^{N-1}
+\mathbf 1_{E\cap D}
 \left(
-DF
-\right)^{\mathsf T}
-\right]
-}.
-```
-
-従って共通流束因子には、$\dot s_i$ だけでなく $J_F^{-1}$、初期密度、解多重度、付随体積が含まれる。
-
-## B.4 2モード殻の明示積分
-
-理想作用角座標では、
-
-```math
-\int_0^\infty dK
-\int_0^\infty dI
-\,
-\delta(A-K-I)
-=
-\int_0^A dK
-=
-A.
-```
-
-角積分を加えると、
-
-```math
-\Omega_2(A)
-=
-(2\pi)^2A.
-```
-
-入口法線速度と付随因子が作用分配座標 $(K,I)$ に依存しない理想模型では、流束はこの容量に比例する。
-
-## B.5 有限入口幅
-
-デルタ関数の代わりに偶関数窓
-
-```math
-K_{\delta_A}(y)
-=
-\frac1{\delta_A}
-K
+\mathcal R^nz
+\right)
+}{
+\sum_{n=0}^{N-1}
+\mathbf 1_D
 \left(
-\frac y{\delta_A}
-\right),
+\mathcal R^nz
+\right)
+}
+\longrightarrow
+\mu_*(E\mid D)
 ```
 
+を得る。これは設定対ごとのBell相対頻度に用いる。エルゴード性は本稿の仮定であり、以下の有限次元積分からは導かれない。
+
+## B.3 作用区間選択
+
+$I_k\geq0$、$I_{\rm ph}=\sum_kI_k>0$ とする。$\vartheta$ が $(I_1,\ldots,I_L)$ の下で $[0,2\pi)$ 上に条件付き一様であるとする。
+
 ```math
-\int K(y)\,dy=1,
+u
+=
+\frac{\vartheta}{2\pi}
+I_{\rm ph},
 \qquad
-\int yK(y)\,dy=0
+S_k
+=
+\sum_{j=1}^kI_j
 ```
 
-を用いる。理想2モード容量は $A$ に線形なので、窓が $A=0$ の端へ触れず、他の因子が一定なら、対称な有限幅平均は線形重みを変えない。
+とし、$E_k=\{S_{k-1}\leq u<S_k\}$ とする。
 
-一般の滑らかな流束因子 $g(A)$ を含むと、
+<!-- theorem-start:lemma -->
+**補題（作用区間の条件付き確率）**
 
 ```math
-\mathscr F_i^{(\delta_A)}
+P(E_k\mid I_1,\ldots,I_L)
 =
-\mathscr F_i^{(0)}
-+
-O
-\left(
-\delta_A^2
-\sup
-\left|
-\partial_A^2
-\left[
-Ag(A)
-\right]
-\right|
-\right).
+\frac{I_k}{I_{\rm ph}}
 ```
 
-殻端の切断、非対称窓、結果依存幅では1次誤差が現れ得る。
-
-## B.6 作用分配方向の数
-
-活性モード $K$ と $q$ 個の明反応作用 $I_1,\ldots,I_q$ が
-
-```math
-K+\sum_{\alpha=1}^qI_\alpha
-=
-A
-```
-
-を分配すると、
-
-```math
-\int_{K,I_\alpha\geq0}
-\delta
-\left(
-A-K-\sum_\alpha I_\alpha
-\right)
-dK
-\prod_\alpha dI_\alpha
-=
-\frac{A^q}{q!}.
-```
-
-従って線形則には $q=1$ が必要である。$q>1$ の追加明モードを導入しながら線形 Born 型重みを保つには、それらを直接作用分配から外し、共通付随因子にしなければならない。
-
-## B.7 殻接方向 Hamiltonian
-
-$n$モード複素ベクトル $a$ と Hermitian 行列 $T_\alpha$ に対し、
-
-```math
-L_\alpha
-=
-a^\dagger T_\alpha a
-```
-
-を生成子とする。Poisson 括弧を
-
-```math
-\left\{
-a_j,a_k^*
-\right\}
-=
--i\delta_{jk}
-```
-
-とすれば、
-
-```math
-\dot a
-=
--iT_\alpha a,
-```
-
-```math
-\left\{
-a^\dagger a,
-L_\alpha
-\right\}
-=
-0.
-```
-
-従って
-
-```math
-H_{\rm mix}
-=
-\varepsilon
-\sum_\alpha
-\xi_\alpha(z_{\rm D})
-L_\alpha
-```
-
-は総作用殻に接する Hamiltonian 混合を与える。
-
-暗モードの相関が短く、生成子方向が等方なら、弱結合縮約は概念的に
-
-```math
-\mathcal L_{\rm eff}
-=
-D
-\sum_\alpha
-X_{L_\alpha}^2
-```
-
-となる。現行模型で用いる2モード全殻では $U(2)$ の Casimir型拡散に対応する。有限暗モードからこの生成子を一様誤差付きで導くことは未完成である。
-
-## B.8 Born側とBell側の2モード殻
-
-| 用途 | 全殻 | 比較する量 | 線形因子 |
-|---|---|---|---|
-| Born 型位置入口 | 活性＋共有明反応座標の2モード殻 | 位置セクターごとの全殻容量 | $A_i$ |
-| Bell 型共同統計 | 実部＋虚部の比較2モード殻 | 結果セクターごとの全殻容量 | $A_\partial^{AB}$ |
-
-両者は同じ2モード全殻の線形容量を使う。違いは、Born 側では固定振幅の階数1共通源により各試行で $I_i^\omega=\mathcal J_0p_i$ が成立し、その局所作用から $A_i=A_{\rm tot}p_i$ を作るのに対し、Bell 側では比較読み出しが $A_\partial^{AB}=\Gamma^2K_{AB}/2$ を作る点にある。$p_i=C_{ii}/\operatorname{tr}C$ は規格化セル重みなので、さらに $\Delta V$ を掛けない。
-
-## B.9 正規化された混合集団と殻容量
-
-固定セクター $\lambda$ の正規化測度を $\mu_\lambda$、正準写像を $\mathcal U_\lambda$ とする。押し出し測度は
-
-```math
-\mu_\lambda'
-=
-\left(
-\mathcal U_\lambda
-\right)_*
-\mu_\lambda
-```
-
-である。
-
-<!-- theorem-start:proposition -->
-**命題（正準混合によるセクター質量保存）**
-正準写像がセクター $\Gamma_\lambda$ を自身へ写すなら、
-
-```math
-\mu_\lambda'
-\left(
-\Gamma_\lambda
-\right)
-=
-\mu_\lambda
-\left(
-\Gamma_\lambda
-\right).
-```
-
-特に $\mu_\lambda$ が規格化されていれば、$U(2)$ 混合後もセクター総質量は1であり、$\Omega_2(A_\lambda)$ には比例しない。
-<!-- theorem-end:proposition -->
+が成立する。
+<!-- theorem-end:lemma -->
 
 <!-- theorem-start:proof -->
 **証明**
-押し出し測度の定義から、
-
-```math
-\mu_\lambda'
-\left(
-\Gamma_\lambda
-\right)
-=
-\mu_\lambda
-\left(
-\mathcal U_\lambda^{-1}
-\Gamma_\lambda
-\right).
-```
-
-$\mathcal U_\lambda^{-1}\Gamma_\lambda=\Gamma_\lambda$ を用いる。
+$u$ の条件付き密度は $1/I_{\rm ph}$ である。区間 $[S_{k-1},S_k)$ の長さが $I_k$ なので、積分は $I_k/I_{\rm ph}$ となる。
 <!-- theorem-end:proof -->
 
-一方、未規格化 Liouville 殻容量は
+$I_k=0$ の区間は空であり、正の確率を持たない。境界 $u=S_k$ の集合は、条件付き一様分布では零測度である。半開区間の選び方は確率を変えない。
+
+## B.4 正準基底混合と固定作用公式
+
+$b\in\mathbb C^L$、$U^\dagger U=I$ とし、
 
 ```math
-\Omega_2(A_\lambda)
+I_k
 =
-\int
-\delta
+\mathcal J_0
+\left|
+\left(Ub\right)_k
+\right|^2,
+\qquad
+I_{\rm ph}
+=
+\mathcal J_0b^\dagger b
+```
+
+とする。ユニタリ性により $\sum_kI_k=I_{\rm ph}$ である。
+
+条件付き相関行列を
+
+```math
+C_U
+=
+\mathbb E
+\left[
+bb^\dagger
+\mid
+U,\mathcal P,M=\mathsf{basis}
+\right]
+```
+
+とする。$I_{\rm ph}=I_0$ がほとんど確実なら、
+
+```math
+\begin{aligned}
+P_k
+&=
+\mathbb E
+\left[
+\frac{I_k}{I_0}
+\right]
+\\
+&=
+\frac{
+\mathcal J_0
+\mathbb E
+\left|
+\left(Ub\right)_k
+\right|^2
+}{
+I_0
+}
+\\
+&=
+\frac{
 \left(
-A_\lambda-J_1-J_2
-\right)
-d\Gamma
+UC_UU^\dagger
+\right)_{kk}
+}{
+\operatorname{tr}C_U
+}.
+\end{aligned}
 ```
 
-であり、異なる半径の殻を同じ密度で数えるときの測度である。従って、容量比例頻度には、セクターごとに別々に規格化した集団ではなく、全セクターへ共通の境界密度または流束を置く必要がある。
+この導出は $C_U$ の階数を使わない。
 
-## B.10 流束規格化と全試行監査
-
-位置入口または Bell 結果の確率を
+## B.5 全作用変動の共分散恒等式
 
 ```math
-P_\lambda
+r_k
 =
-\frac{\mathscr F_\lambda}{\sum_{\lambda'}\mathscr F_{\lambda'}}
+\frac{I_k}{I_{\rm ph}}
 ```
 
-と定義するには、分母が全開始試行の入口通過を数えなければならない。次を監査する。
-
-1. 各開始試行は高々1つの排他的境界面を正方向に横切る。
-2. 境界へ到達しない試行を無言で除外しない。
-3. 複数回交差を1試行としてどう数えるかを固定する。
-4. 結果別に異なる停止時間または滞在時間を頻度へ重複計上しない。
-5. 記録失敗、作用転送失敗、再初期化失敗を結果依存に捨てない。
-6. 局所記録数、比較完了数、外部記録数、再初期化完了数を結果別に監査する。
-7. Bell 側では設定生成に失敗した周期も無言で除外しない。
-
-これらを満たさなければ、作用殻容量が正しくても実験の無条件頻度にはならない。数学的な境界測度が全履歴を数えることと、実験準備がその測度を事後選別なしで生成することは別である。
-
-## B.11 再初期化写像に必要な保存量
-
-標本化後の状態を $z_{\rm post}$、次試行の準備面を $\Gamma_{\rm prep}$ とする。理想的な再初期化写像
+とする。$I_k=I_{\rm ph}r_k$ なので、
 
 ```math
-\mathcal U_{\rm reset}:
-z_{\rm post}
-\longmapsto
-z_{\rm next}\in\Gamma_{\rm prep}
+\mathbb E[I_k]
+=
+\mathbb E[I_{\rm ph}]
+\mathbb E[r_k]
++
+\operatorname{Cov}
+\left(
+I_{\rm ph},r_k
+\right)
 ```
 
-は、拡大全系で正準かつ1対1でなければならない。結果情報を消去する場合、その情報とエントロピーは仕事源または外部自由度へ移す必要がある [17,18]。
-
-有限装置部分だけで
+である。従って、
 
 ```math
-z_{\rm post}
-\longmapsto
-z_{\rm ref}
+\mathbb E[r_k]
+-
+\frac{
+\mathbb E[I_k]
+}{
+\mathbb E[I_{\rm ph}]
+}
+=
+-
+\frac{
+\operatorname{Cov}
+\left(
+I_{\rm ph},r_k
+\right)
+}{
+\mathbb E[I_{\rm ph}]
+}
 ```
 
-という多対1写像を置くことは Hamiltonian ではない。記録、不要情報モード、外部仕事自由度を含む拡大全系で可逆に実装し、有限部分の復元だけを縮約として得る必要がある。
+となる。固定作用は共分散を零にする十分条件である。独立性までは不要で、無相関でもよい。
+
+## B.6 測定基底に依存しない調製
+
+異なる $U$ に対する条件付き相関を $C_U$ とする。$C_U=C$ が全ての許容基底で成立するとき、固定作用公式は
+
+```math
+P_k(U)
+=
+\frac{
+\left(
+UCU^\dagger
+\right)_{kk}
+}{
+\operatorname{tr}C
+}
+```
+
+となる。
+
+$C_U\neq C$ なら同じ代数は
+
+```math
+P_k(U)
+=
+\frac{
+\left(
+UC_UU^\dagger
+\right)_{kk}
+}{
+\operatorname{tr}C_U
+}
+```
+
+を与えるだけである。これは基底依存の調製集団に対する式であり、1つの状態 $C$ の測定基底を変えた結果とは呼べない。
+
+## B.7 条件付き一様性からのずれ
+
+理想条件付き角分布を $m(d\vartheta)=d\vartheta/(2\pi)$、実分布を $\rho_{b,U}(d\vartheta)$ とする。任意の区間事象 $E_k$ に対して、全変動距離の定義から
+
+```math
+\left|
+\rho_{b,U}(E_k)
+-
+m(E_k)
+\right|
+\leq
+d_{\rm TV}
+\left(
+\rho_{b,U},m
+\right)
+```
+
+である。母測度で平均すれば、
+
+```math
+\left|
+P_k^{\rm real}
+-
+P_k^{\rm ideal}
+\right|
+\leq
+\mathbb E
+\left[
+d_{\rm TV}
+\left(
+\rho_{b,U},m
+\right)
+\right]
+```
+
+を得る。周辺角分布の全変動距離ではなく、$(b,U,\mathcal P)$ で条件付けた距離を使う必要がある。
+
+## B.8 有限幅比較器
+
+理想境界集合を
+
+```math
+\mathcal D
+=
+\bigcup_{k=1}^{L-1}
+\{u=S_k\}
+```
+
+とする。有限幅比較器が理想結果と異なり得る領域を
+
+```math
+\mathcal D_w
+=
+\left\{
+\min_k
+\left|u-S_k\right|
+\leq w
+\right\}
+```
+
+へ限定できるなら、結合不等式により理想分布と実分布の全変動距離は
+
+```math
+d_{\rm TV}
+\leq
+\mu_*(\mathcal D_w)
+```
+
+で抑えられる。
+
+条件付き $u$ 密度が $M_u$ 以下なら、粗い上界として
+
+```math
+\mu_*(\mathcal D_w)
+\leq
+2(L-1)M_uw
+```
+
+を得る。ただし、境界が接近または重複する場合は過大評価である。有限装置では二重ラッチ、無結果、比較順序依存も別に測る。
+
+## B.9 Bell枝区間
+
+固定設定 $(x,y)$ で、4つの非負枝作用 $K_{AB}^{xy}$ が
+
+```math
+\sum_{A,B}
+K_{AB}^{xy}
+=
+\mathcal K
+```
+
+を満たすとする。$u_{\rm B}$ を $[0,\mathcal K)$ 上の一様変数とし、区間 $\mathcal I_{AB}^{xy}$ の長さを $K_{AB}^{xy}$ とする。
+
+Bell側では $(A,B)$ が先に局所記録されるため、区間は結果生成に使わない。候補完結履歴の結果セクターを固定した後、
+
+```math
+G_{AB}^{xy}
+=
+\left\{
+u_{\rm B}
+\in
+\mathcal I_{AB}^{xy}
+\right\}
+```
+
+を整合条件とする。
+
+## B.10 基準セクター密度を含む Bell公式
+
+選択器座標を除く候補履歴変数を $\zeta$ とする。固定設定と結果セクターで、候補 Liouville 基準要素が
+
+```math
+d\nu_{AB}^{xy}
+=
+q_{AB}^{xy}
+d\bar\nu_{AB}^{xy}(\zeta)
+\frac{du_{\rm B}}{\mathcal K},
+\qquad
+\int
+d\bar\nu_{AB}^{xy}
+=
+1
+```
+
+と分解できるとする。$q_{AB}^{xy}$ は選択器以外の密度と体積を全て含む。
+
+整合事象の基準質量は
+
+```math
+\nu_{AB}^{xy}
+\left(
+G_{AB}^{xy}
+\right)
+=
+q_{AB}^{xy}
+\frac{K_{AB}^{xy}}{\mathcal K}
+```
+
+である。全4セクターを合わせて規格化すると、
+
+```math
+P(A,B\mid x,y,G)
+=
+\frac{
+q_{AB}^{xy}K_{AB}^{xy}
+}{
+\sum_{A',B'}
+q_{A'B'}^{xy}K_{A'B'}^{xy}
+}
+```
+
+を得る。
+
+<!-- theorem-start:corollary -->
+**系（共通基準密度）**
+$q_{AB}^{xy}=q^{xy}$ が4結果で共通なら、
+
+```math
+P(A,B\mid x,y,G)
+=
+\frac{K_{AB}^{xy}}{\mathcal K}
+```
+
+である。
+<!-- theorem-end:corollary -->
+
+この系は共通性を導くものではない。$q_{AB}^{xy}$ が不均等なら、一様なBell境界角だけでは余弦共同確率を得られない。
+
+## B.11 全試行監査と再初期化
+
+母測度確率を実験頻度と比較するには、次を監査する。
+
+1. 各開始点がほとんど確実に有限時間で次の開始面へ戻る。
+2. 1周期で結果レジスターが高々1回だけ確定する。
+3. 比較境界への複数回交差を重複計数しない。
+4. 基底、設定、結果に応じて失敗周期を捨てない。
+5. 開始数、設定生成数、局所記録数、比較完了数、外部記録数、再帰数を照合する。
+6. Bell側で整合しない周期を観測後に捨てない。
+7. 外部記録と不要情報を含む拡大全系の写像を1対1に保つ。
+
+異なる結果履歴を外部記録ごと同じ点へ押しつぶす多対1写像は Hamiltonian ではない。結果情報は外部記録、不要情報モード、仕事源、環境のいずれかへ残す必要がある [17,18]。
