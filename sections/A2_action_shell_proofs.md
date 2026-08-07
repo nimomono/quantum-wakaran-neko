@@ -1,209 +1,82 @@
 @number: A2
 @chapter: 付録
-@title: 母測度、作用選択器、履歴区間の証明
-@status: 本文第1章、第4章、第5章で用いる母測度の条件付け、エルゴード頻度、作用区間選択、固定作用公式、共分散補正、任意有限基底、Bell履歴区間と基準セクター密度を補足する。不変母測度の力学的生成は仮定である。
+@title: 作用区間、無理数回転、 Bell 履歴体積の証明
+@status: 本文第4章と第5章の確率式、不変測度、長期頻度、有限幅上界、 Bell 基準体積を証明する。
 
-## B.1 条件付き母測度
+## B.1 作用区間選択
 
-試行開始面を $(\Sigma_0,\mathcal B)$、母測度を $\mu_*$ とする。調製条件、プログラム、基底、Bell設定は全て $\mathcal B$ 可測な開始点の関数またはレジスター領域として扱う。
-
-条件事象 $D\in\mathcal B$、$\mu_*(D)>0$ に対し、
+固定した $b,W$ に対し、$I_k\geq0$、$I_{\rm ph}=\sum_kI_k>0$ とする。$u$ が $[0,I_{\rm ph})$ 上で一様なら、結果事象
 
 ```math
-\mu_*^D(E)
+E_k
 =
-\frac{
-\mu_*(E\cap D)
-}{
-\mu_*(D)
-}
+\left\{
+S_{k-1}\leq u<S_k
+\right\}
 ```
 
-とする。本文の $\mathbb E_{\mu_*}[\cdot\mid\mathcal P,M,U]$ は、連続レジスターでは正則条件付き分布、離散レジスターでは上の条件事象による期待値を表す。
-
-相関行列は
+の Lebesgue 長は $S_k-S_{k-1}=I_k$ である。従って
 
 ```math
-C_D(t)
-=
-\int_{\Sigma_0}
-b_t(z)b_t(z)^\dagger
-\,d\mu_*^D(z)
-```
-
-である。有限基底結果とBell結果も同じ $\mu_*^D$ の事象確率であるため、3つに独立な基礎測度を置かない。
-
-## B.2 不変性とエルゴード頻度
-
-周期写像 $\mathcal R$ が
-
-```math
-\mathcal R_*\mu_*
-=
-\mu_*
-```
-
-を満たし、$\mu_*$ に関してエルゴード的であると仮定する。Birkhoffのエルゴード定理により、$f\in L^1(\mu_*)$ に対して
-
-```math
-\frac1N
-\sum_{n=0}^{N-1}
-f\left(
-\mathcal R^nz
-\right)
-\longrightarrow
-\int f\,d\mu_*
-```
-
-が $\mu_*$ に関してほとんど確実に成立する。
-
-事象 $E$ の指示関数を取れば
-
-```math
-\frac1N
-\sum_{n=0}^{N-1}
-\mathbf 1_E
-\left(
-\mathcal R^nz
-\right)
-\longrightarrow
-\mu_*(E)
-```
-
-となる。条件事象 $D$ が正の測度を持ち、その出現回数が無限に増えるなら、比エルゴード定理または分子と分母への上式の適用により
-
-```math
-\frac{
-\sum_{n=0}^{N-1}
-\mathbf 1_{E\cap D}
-\left(
-\mathcal R^nz
-\right)
-}{
-\sum_{n=0}^{N-1}
-\mathbf 1_D
-\left(
-\mathcal R^nz
-\right)
-}
-\longrightarrow
-\mu_*(E\mid D)
-```
-
-を得る。これは設定対ごとのBell相対頻度に用いる。エルゴード性は本稿の仮定であり、以下の有限次元積分からは導かれない。
-
-## B.3 作用区間選択
-
-$I_k\geq0$、$I_{\rm ph}=\sum_kI_k>0$ とする。$\vartheta$ が $(I_1,\ldots,I_L)$ の下で $[0,2\pi)$ 上に条件付き一様であるとする。
-
-```math
-u
-=
-\frac{\vartheta}{2\pi}
-I_{\rm ph},
-\qquad
-S_k
-=
-\sum_{j=1}^kI_j
-```
-
-とし、$E_k=\{S_{k-1}\leq u<S_k\}$ とする。
-
-<!-- theorem-start:lemma -->
-**補題（作用区間の条件付き確率）**
-
-```math
-P(E_k\mid I_1,\ldots,I_L)
+P(E_k\mid b,W)
 =
 \frac{I_k}{I_{\rm ph}}
 ```
 
-が成立する。
-<!-- theorem-end:lemma -->
+となる。境界集合 $\{u=S_k\}$ は有限集合なので零測度である。
 
-<!-- theorem-start:proof -->
-**証明**
-$u$ の条件付き密度は $1/I_{\rm ph}$ である。区間 $[S_{k-1},S_k)$ の長さが $I_k$ なので、積分は $I_k/I_{\rm ph}$ となる。
-<!-- theorem-end:proof -->
-
-$I_k=0$ の区間は空であり、正の確率を持たない。境界 $u=S_k$ の集合は、条件付き一様分布では零測度である。半開区間の選び方は確率を変えない。
-
-## B.4 正準基底混合と固定作用公式
-
-$b\in\mathbb C^L$、$U^\dagger U=I$ とし、
+選択器角 $\vartheta$ が $(b,W,\mathcal P)$ の下で条件付き Haar 分布なら、$u=I_{\rm ph}\vartheta/(2\pi)$ は条件付き一様である。条件付き期待値を取れば、
 
 ```math
-I_k
-=
-\mathcal J_0
-\left|
-\left(Ub\right)_k
-\right|^2,
-\qquad
-I_{\rm ph}
-=
-\mathcal J_0b^\dagger b
-```
-
-とする。ユニタリ性により $\sum_kI_k=I_{\rm ph}$ である。
-
-条件付き相関行列を
-
-```math
-C_U
+P(k\mid W,\mathcal P)
 =
 \mathbb E
 \left[
-bb^\dagger
-\mid
-U,\mathcal P,M=\mathsf{basis}
+\frac{I_k}{I_{\rm ph}}
+\middle|
+W,\mathcal P
 \right]
 ```
 
-とする。$I_{\rm ph}=I_0$ がほとんど確実なら、
+を得る。
+
+## B.2 固定作用公式と共分散補正
+
+$I_{\rm ph}=I_0$ が集団で固定されるとする。$I_k=\mathcal J_0|(Wb)_k|^2$ なので、
 
 ```math
-\begin{aligned}
-P_k
-&=
-\mathbb E
-\left[
-\frac{I_k}{I_0}
-\right]
-\\
-&=
-\frac{
+\mathbb E[I_k]
+=
 \mathcal J_0
-\mathbb E
-\left|
-\left(Ub\right)_k
-\right|^2
-}{
+\left(
+WCW^\dagger
+\right)_{kk},
+```
+
+```math
+\mathbb E[I_{\rm ph}]
+=
+\mathcal J_0
+\operatorname{tr}C
+=
 I_0
-}
-\\
-&=
-\frac{
-\left(
-UC_UU^\dagger
-\right)_{kk}
-}{
-\operatorname{tr}C_U
-}.
-\end{aligned}
 ```
 
-この導出は $C_U$ の階数を使わない。
-
-## B.5 全作用変動の共分散恒等式
+である。従って
 
 ```math
-r_k
+P_k
 =
-\frac{I_k}{I_{\rm ph}}
+\frac{
+\left(WCW^\dagger\right)_{kk}
+}{
+\operatorname{tr}C
+}
 ```
 
-とする。$I_k=I_{\rm ph}r_k$ なので、
+を得る。
+
+全作用が変動する場合、$r_k=I_k/I_{\rm ph}$ と置けば $I_k=I_{\rm ph}r_k$ だから、
 
 ```math
 \mathbb E[I_k]
@@ -217,203 +90,332 @@ I_{\rm ph},r_k
 \right)
 ```
 
-である。従って、
+である。$P_k=\mathbb E[r_k]$ を解けば本文の共分散恒等式を得る。
+
+## B.3 無理数円回転の不変性
+
+正規化角 $r=\vartheta/(2\pi)\in\mathbb R/\mathbb Z$ を用い、
 
 ```math
-\mathbb E[r_k]
--
-\frac{
-\mathbb E[I_k]
-}{
-\mathbb E[I_{\rm ph}]
-}
+R_\alpha(r)
 =
--
-\frac{
-\operatorname{Cov}
+r+\alpha
+\pmod1,
+\qquad
+\alpha\notin\mathbb Q
+```
+
+とする。円周 Haar 測度 $m$ は平行移動不変なので、任意の可測集合 $A$ に対し
+
+```math
+m
 \left(
-I_{\rm ph},r_k
+R_\alpha^{-1}A
 \right)
-}{
-\mathbb E[I_{\rm ph}]
-}
-```
-
-となる。固定作用は共分散を零にする十分条件である。独立性までは不要で、無相関でもよい。
-
-## B.6 測定基底に依存しない調製
-
-異なる $U$ に対する条件付き相関を $C_U$ とする。$C_U=C$ が全ての許容基底で成立するとき、固定作用公式は
-
-```math
-P_k(U)
 =
-\frac{
-\left(
-UCU^\dagger
-\right)_{kk}
-}{
-\operatorname{tr}C
-}
+m(A)
 ```
 
-となる。
+である。従って $m$ は不変確率測度である。
 
-$C_U\neq C$ なら同じ代数は
+一意性を Fourier 係数で示す。$R_\alpha$ の不変確率測度を $\nu$ とし、整数 $n$ に対する Fourier 係数を
 
 ```math
-P_k(U)
+\widehat\nu(n)
 =
-\frac{
-\left(
-UC_UU^\dagger
-\right)_{kk}
-}{
-\operatorname{tr}C_U
-}
+\int_0^1
+e^{-2\pi inr}
+\,d\nu(r)
 ```
 
-を与えるだけである。これは基底依存の調製集団に対する式であり、1つの状態 $C$ の測定基底を変えた結果とは呼べない。
-
-## B.7 条件付き一様性からのずれ
-
-理想条件付き角分布を $m(d\vartheta)=d\vartheta/(2\pi)$、実分布を $\rho_{b,U}(d\vartheta)$ とする。任意の区間事象 $E_k$ に対して、全変動距離の定義から
+とする。不変性から
 
 ```math
-\left|
-\rho_{b,U}(E_k)
--
-m(E_k)
-\right|
-\leq
-d_{\rm TV}
+\widehat\nu(n)
+=
+e^{-2\pi in\alpha}
+\widehat\nu(n)
+```
+
+を得る。$n\neq0$ かつ $\alpha\notin\mathbb Q$ なら $e^{-2\pi in\alpha}\neq1$ なので、$\widehat\nu(n)=0$ である。$\widehat\nu(0)=1$ と合わせ、全 Fourier 係数が Haar 測度と一致する。三角多項式の一様稠密性により $\nu=m$ である。
+
+## B.4 一意エルゴード性と区間頻度
+
+連続関数 $f$ の時間平均を
+
+```math
+A_Nf(r)
+=
+\frac1N
+\sum_{j=0}^{N-1}
+f
 \left(
-\rho_{b,U},m
+r+j\alpha
 \right)
 ```
 
-である。母測度で平均すれば、
+とする。 Fourier モード $f_n(r)=e^{2\pi inr}$ に対し、$n\neq0$ なら
 
 ```math
-\left|
-P_k^{\rm real}
--
-P_k^{\rm ideal}
-\right|
+A_Nf_n(r)
+=
+e^{2\pi inr}
+\frac{
+1-e^{2\pi inN\alpha}
+}{
+N
+\left(
+1-e^{2\pi in\alpha}
+\right)
+}
+```
+
+であり、$N\to\infty$ で $r$ に一様に零へ収束する。$n=0$ では1である。三角多項式近似により、任意の連続 $f$ について
+
+```math
+A_Nf(r)
+\longrightarrow
+\int_0^1f(s)\,ds
+```
+
+が一様に成立する。従って回転は一意エルゴード的である。
+
+区間指示関数は端点で不連続だが、端点近傍を除いて上下から連続関数で挟める。よって任意の半開区間 $[a,b)$ について
+
+```math
+\lim_{N\to\infty}
+\frac1N
+\sum_{j=0}^{N-1}
+\mathbf1_{[a,b)}
+\left(
+r+j\alpha
+\right)
+=
+b-a
+```
+
+である。これを長さ $p_k$ の結果区間へ適用すると Born 型長期頻度を得る。
+
+## B.5 無理数回転は混合的でない
+
+Haar 空間上の非定数 Fourier モード $f_n$ に対し、
+
+```math
+f_n\circ R_\alpha^j
+=
+e^{2\pi inj\alpha}f_n
+```
+
+である。従って相関
+
+```math
+\int
+f_n
+\overline{f_n\circ R_\alpha^j}
+\,dm
+=
+e^{-2\pi inj\alpha}
+```
+
+の絶対値は1のままで零へ収束しない。よって無理数回転は混合的でない。一意エルゴード性から長期平均は得られるが、独立同分布型の有限標本揺らぎは従わない。
+
+## B.6 有限幅境界の測度上界
+
+固定作用 $I_{\rm ph}$ の区間内に $L-1$ 個の内部境界 $S_1,\ldots,S_{L-1}$ がある。各境界の半幅 $w$ 近傍は長さ高々 $2w$ なので、一様測度と和集合上界から
+
+```math
+\mu_{\chi,W}^{\rm cyc}
+\left(
+\min_{1\leq k<L}
+|u-S_k|<w
+\right)
 \leq
-\mathbb E
+2(L-1)
+\frac{w}{I_{\rm ph}}
+```
+
+を得る。境界近傍が重なれば左辺はさらに小さい。
+
+角の切断点近傍では、$f(\vartheta)=\vartheta/(2\pi)$ を円周上の滑らかな関数へ置き換える必要がある。その近傍の Haar 幅を $\varepsilon_{\rm cut}$ とすれば、全不適格結果質量は右辺に $\varepsilon_{\rm cut}$ を加えて抑えられる。
+
+## B.7 高階数集団に必要な追加自由度
+
+固定作用殻上の源状態を $b^\omega$ とし、選択器角が $b^\omega$ の下で条件付き一様なら、
+
+```math
+P(k)
+=
+\mathbb E_\omega
 \left[
-d_{\rm TV}
+\left|
+\left(Wb^\omega\right)_k
+\right|^2
+\right]
+=
 \left(
-\rho_{b,U},m
-\right)
+WCW^\dagger
+\right)_{kk}
+```
+
+である。ただし、本文の1次元不変トーラスでは $b^\omega=\chi$ が固定される。高階数 $C$ を単一軌道の時間平均として得るには、$b^omega$ を動かす別の不変力学と、その力学に条件付けても選択器角が Haar 分布を保つ積構造または十分な結合条件が必要である。
+
+## B.8 4成分 Bell 重み
+
+規格化反対称行列を
+
+```math
+\widehat\Xi_0
+=
+\frac1{\sqrt2}
+\begin{pmatrix}
+0&1\\
+-1&0
+\end{pmatrix}
+```
+
+とする。$d=\alpha_x-\beta_y$ と置くと、回転の積を直接計算して
+
+```math
+R(\alpha_x)
+\widehat\Xi_0
+R(\beta_y)^{\mathsf T}
+=
+\frac1{\sqrt2}
+\begin{pmatrix}
+\sin d&\cos d\\
+-\cos d&\sin d
+\end{pmatrix}
+```
+
+を得る。成分の絶対値2乗は
+
+```math
+w_{++}=w_{--}
+=
+\frac12\sin^2d,
+\qquad
+w_{+-}=w_{-+}
+=
+\frac12\cos^2d
+```
+
+である。$\sin^2d=(1-\cos2d)/2$、$\cos^2d=(1+\cos2d)/2$ から
+
+```math
+w_{AB}^{xy}
+=
+\frac14
+\left[
+1-AB\cos2d
 \right]
 ```
 
-を得る。周辺角分布の全変動距離ではなく、$(b,U,\mathcal P)$ で条件付けた距離を使う必要がある。
+が従う。また全成分の和は1である。
 
-## B.8 有限幅比較器
+## B.9 局所 Haar 角の基準セクター
 
-理想境界集合を
+固定設定 $x$ に対し、$A_x(\phi_A)=\operatorname{sgn}\cos(\phi_A-2\alpha_x)$ の正負領域はそれぞれ長さ $\pi$ の半円である。従って
 
 ```math
-\mathcal D
+P_0(A\mid x)
 =
-\bigcup_{k=1}^{L-1}
-\{u=S_k\}
+\frac12
 ```
 
-とする。有限幅比較器が理想結果と異なり得る領域を
+である。B側も同様であり、$\phi_A,\phi_B$ の独立性から
 
 ```math
-\mathcal D_w
-=
-\left\{
-\min_k
-\left|u-S_k\right|
-\leq w
-\right\}
-```
-
-へ限定できるなら、結合不等式により理想分布と実分布の全変動距離は
-
-```math
-d_{\rm TV}
-\leq
-\mu_*(\mathcal D_w)
-```
-
-で抑えられる。
-
-条件付き $u$ 密度が $M_u$ 以下なら、粗い上界として
-
-```math
-\mu_*(\mathcal D_w)
-\leq
-2(L-1)M_uw
-```
-
-を得る。ただし、境界が接近または重複する場合は過大評価である。有限装置では二重ラッチ、無結果、比較順序依存も別に測る。
-
-## B.9 Bell枝区間
-
-固定設定 $(x,y)$ で、4つの非負枝作用 $K_{AB}^{xy}$ が
-
-```math
-\sum_{A,B}
-K_{AB}^{xy}
-=
-\mathcal K
-```
-
-を満たすとする。$u_{\rm B}$ を $[0,\mathcal K)$ 上の一様変数とし、区間 $\mathcal I_{AB}^{xy}$ の長さを $K_{AB}^{xy}$ とする。
-
-Bell側では $(A,B)$ が先に局所記録されるため、区間は結果生成に使わない。候補完結履歴の結果セクターを固定した後、
-
-```math
-G_{AB}^{xy}
-=
-\left\{
-u_{\rm B}
-\in
-\mathcal I_{AB}^{xy}
-\right\}
-```
-
-を整合条件とする。
-
-## B.10 基準セクター密度を含む Bell公式
-
-選択器座標を除く候補履歴変数を $\zeta$ とする。固定設定と結果セクターで、候補 Liouville 基準要素が
-
-```math
-d\nu_{AB}^{xy}
-=
 q_{AB}^{xy}
-d\bar\nu_{AB}^{xy}(\zeta)
-\frac{du_{\rm B}}{\mathcal K},
-\qquad
-\int
-d\bar\nu_{AB}^{xy}
 =
-1
+P_0(A,B\mid x,y)
+=
+\frac14
 ```
 
-と分解できるとする。$q_{AB}^{xy}$ は選択器以外の密度と体積を全て含む。
+を得る。
 
-整合事象の基準質量は
+未来角区間の長さが $w_{AB}^{xy}$ なので、積測度により
 
 ```math
-\nu_{AB}^{xy}
+\nu_{\rm B}^0
 \left(
-G_{AB}^{xy}
+A,B,G
+\mid
+x,y
 \right)
 =
-q_{AB}^{xy}
-\frac{K_{AB}^{xy}}{\mathcal K}
+\frac14w_{AB}^{xy}
 ```
 
-である。全4セクターを合わせて規格化すると、
+である。全結果の和と $\sum_{A,B}w_{AB}^{xy}=1$ から
+
+```math
+\nu_{\rm B}^0
+\left(
+G
+\mid
+x,y
+\right)
+=
+\frac14
+```
+
+を得る。
+
+## B.10 二側条件付けと設定分布保存
+
+$d\mu_{\rm B}=4\mathbf1_G\,d\nu_{\rm B}^0$ とする。固定設定で
+
+```math
+P_{\mu_{\rm B}}(A,B\mid x,y)
+=
+\frac{
+\nu_{\rm B}^0(A,B,G\mid x,y)
+}{
+\nu_{\rm B}^0(G\mid x,y)
+}
+=
+w_{AB}^{xy}
+```
+
+である。また
+
+```math
+P_{\mu_{\rm B}}(x,y)
+=
+4\pi_x\pi_y
+\nu_{\rm B}^0(G\mid x,y)
+=
+\pi_x\pi_y
+```
+
+なので、設定生成器の分布は保たれる。
+
+## B.11 非信号周辺と測定設定独立性
+
+余弦重みを一側で和を取ると、$B=\pm1$ の線形項が相殺して
+
+```math
+\sum_Bw_{AB}^{xy}
+=
+\frac12
+```
+
+となる。B側周辺も同様である。これは理想反対称源と共通基準密度に依存する。
+
+一方、$d\mu_{\rm B}(\Lambda\mid x,y)=4\mathbf1_{G_{xy}}(\Lambda)d\nu_{\rm B}^0(\Lambda)$ であり、$G_{xy}$ は設定依存である。従って設定分布が保たれても、完全履歴の測定設定独立性は一般に成立しない。
+
+## B.12 一般基準密度
+
+付随自由度を含む基準測度が各結果セクター上で密度 $q_{AB}^{xy}$ を持つなら、
+
+```math
+\nu^0(A,B,G\mid x,y)
+\propto
+q_{AB}^{xy}K_{AB}^{xy}
+```
+
+である。条件付き規格化により
 
 ```math
 P(A,B\mid x,y,G)
@@ -426,33 +428,4 @@ q_{A'B'}^{xy}K_{A'B'}^{xy}
 }
 ```
 
-を得る。
-
-<!-- theorem-start:corollary -->
-**系（共通基準密度）**
-$q_{AB}^{xy}=q^{xy}$ が4結果で共通なら、
-
-```math
-P(A,B\mid x,y,G)
-=
-\frac{K_{AB}^{xy}}{\mathcal K}
-```
-
-である。
-<!-- theorem-end:corollary -->
-
-この系は共通性を導くものではない。$q_{AB}^{xy}$ が不均等なら、一様なBell境界角だけでは余弦共同確率を得られない。
-
-## B.11 全試行監査と再初期化
-
-母測度確率を実験頻度と比較するには、次を監査する。
-
-1. 各開始点がほとんど確実に有限時間で次の開始面へ戻る。
-2. 1周期で結果レジスターが高々1回だけ確定する。
-3. 比較境界への複数回交差を重複計数しない。
-4. 基底、設定、結果に応じて失敗周期を捨てない。
-5. 開始数、設定生成数、局所記録数、比較完了数、外部記録数、再帰数を照合する。
-6. Bell側で整合しない周期を観測後に捨てない。
-7. 外部記録と不要情報を含む拡大全系の写像を1対1に保つ。
-
-異なる結果履歴を外部記録ごと同じ点へ押しつぶす多対1写像は Hamiltonian ではない。結果情報は外部記録、不要情報モード、仕事源、環境のいずれかへ残す必要がある [17,18]。
+を得る。$q_{AB}^{xy}$ が4結果で共通なら余弦則へ戻る。非共通補正は共同分布と周辺分布へ同時に入るため、完全模型では結果別密度を独立に検査する必要がある。

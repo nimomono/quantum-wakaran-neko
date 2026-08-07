@@ -1,9 +1,9 @@
 cff-version: 1.2.0
 message: "この成果を利用する場合は、次の情報で引用すること。"
-title: "有限正準位相担体の相関行列力学：共通試行測度による有限基底 Born 型標本化と Bell 型履歴統計"
+title: "有限正準位相担体の相関行列力学と明示的測定周期：有限基底 Born 型頻度と Bell 型二側履歴統計"
 type: manuscript
 authors:
   - name: "nimomono"
-version: "draft-21"
-date-released: 2026-08-06
+version: "draft-22"
+date-released: 2026-08-07
 repository-code: "https://github.com/nimomono/quantum-wakaran-neko"
