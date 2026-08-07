@@ -12,12 +12,13 @@
 - `sections/01_scope_and_cycle.md`
 - `sections/02_canonical_phase_carriers.md`
 - `sections/03_correlation_dynamics.md`
-- `sections/04_position_action_shell_sampling.md`
+- `sections/04_finite_basis_measurement_cycle.md`
 - `sections/05_bell_boundary_measure.md`
 - `sections/06_errors_limits_and_open_problems.md`
 - `sections/A1_phase_correlation_proofs.md`
 - `sections/A2_action_shell_proofs.md`
 - `sections/A3_measurement_device_details.md`
+- `sections/A4_bell_two_sided_measure.md`
 - `sections/90_references.md`
 
 ## 論文外の研究メモ

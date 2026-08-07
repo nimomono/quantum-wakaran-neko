@@ -53,7 +53,7 @@
   linkcolor=PaperBlue,
   citecolor=PaperBlue,
   urlcolor=PaperBlue,
-  pdftitle={有限正準位相担体の相関行列力学：共通試行測度による有限基底 Born 型標本化と Bell 型履歴統計},
+  pdftitle={有限正準位相担体の相関行列力学と明示的測定周期：有限基底 Born 型頻度と Bell 型二側履歴統計},
   pdfauthor={Open research manuscript}
 }
 
@@ -133,17 +133,17 @@
   \centering
   \vspace*{29mm}
   {\sffamily\bfseries\color{PaperNavy}\fontsize{20}{29}\selectfont
-    有限正準位相担体の相関行列力学：\\[2mm]
-    共通試行測度による\\[2mm]
-    有限基底 Born 型標本化と\\[2mm]
-    Bell 型履歴統計\par}
+    有限正準位相担体の相関行列力学と\\[2mm]
+    明示的測定周期：\\[2mm]
+    有限基底 Born 型頻度と\\[2mm]
+    Bell 型二側履歴統計\par}
   \vspace{9mm}
-  {\Large\color{PaperBlue}相関行列、正準作用選択器、\\[1mm]
-    設定条件付き完全履歴\par}
+  {\Large\color{PaperBlue}無理数回転による測定周期、\\[1mm]
+    4成分作用重みと二側履歴測度\par}
   \vspace{14mm}
   {\color{PaperRule}\rule{0.68\textwidth}{0.9pt}\par}
   \vfill
-  {\large draft-21 改訂稿\par}
+  {\large draft-22 改訂稿\par}
   \vspace{22mm}
 \end{titlepage}
 
@@ -158,8 +158,6 @@
 
 本論文は、有限自由度の古典 Hamiltonian 系を基礎とし、対象部分を外部との微小なエネルギー交換を伴う弱開放系として扱う。目的は、量子力学をミクロ構成の入力に置かず、量子力学に特徴的な力学と確率構造が有効理論として現れ得る範囲を明らかにすることである。
 
-各試行で実在するものを、粒子、有限個の正準位相担体、源、浴、時計、測定器、比較器、記録装置、外部自由度に限定する。全自由度の位相空間を \(\Gamma_{\rm all}\)、自律 Hamiltonian を \(H_{\rm all}\)、流れを \(\Phi_t\) とする。時計の正方向横断で定めた試行開始面 \(\Sigma_0\) と、次の開始面までの周期写像 \(\mathcal R\) を導入する。本稿は、\(\Sigma_0\) 上に不変かつエルゴード的な母測度 \(\mu_*\) が存在し、ほとんど全ての開始点が有限時間で次の試行へ戻ることを中心仮定とする。エルゴード性により、同じ装置を繰り返した長期頻度を \(\mu_*\) の事象確率と同一視できる。ただし、具体的な全 Hamiltonian から目的の \(\mu_*\) を導くことは未完成である。
-
 実正準対 \((Q_i,P_i)\) から、固定作用尺度 \(\mathcal J_0>0\) を用いて
 
 \[
@@ -168,20 +166,18 @@ b_i
 \frac{Q_i+iP_i}{\sqrt{2\mathcal J_0}}
 \]
 
-を定める。複素数は量子的公理ではなく、実2次元正準平面の表示である。調製条件 \(\mathcal P\) と測定プログラム \(M\) で条件付けた相関行列を
+を定める。複素数は量子的公理ではなく、実2次元正準平面の表示である。調製された試行集団の相関行列を
 
 \[
 C(t)
 =
-\mathbb E_{\mu_*}
+\mathbb E_{mu_{\mathcal P,M}}
 \left[
 b_t b_t^\dagger
-\mid
-\mathcal P,M
 \right]
 \]
 
-とする。\(C\) は正半定値 Hermitian 行列であり、母測度の時刻別2次モーメントである。各試行で \(C\) という物質が存在するとは解釈しない。
+とする。ここで \(\mu_{\mathcal P,M}\) は調製条件 \(\mathcal P\) と観測プログラム \(M\) を固定した集団測度である。\(C\) は正半定値 Hermitian 行列であり、単一試行に追加する物質ではない。
 
 第1の主結果は、有限2次 Hamiltonian
 
@@ -205,65 +201,77 @@ i\mathcal J_0\dot C
 \left[h_L,C\right]
 \]
 
-が厳密に従うことである。同じ条件付き集団の全試行が共通の \(h_L\) に従う必要がある。閉鎖線形発展では \(C\) の跡、固有値、階数、純度が保存される。従って、混合集団が観測中に自発的に階数1へ純化することはない。共通源が階数1相関 \(C=\Lambda\chi\chi^\dagger\) を準備した場合に限り、共通位相を除いて \(i\mathcal J_0\dot\chi=h_L\chi\) を得る。
+が厳密に従うことである。同じ集団の全試行が共通の \(h_L\) に従う必要がある。閉鎖線形発展では \(C\) の跡、固有値、階数、純度が保存される。共通源が階数1相関 \(C=\Lambda\chi\chi^\dagger\) を準備した場合に限り、共通位相を除いて \(i\mathcal J_0\dot\chi=h_L\chi\) を得る。
 
-第2の主結果は、正準作用選択器による有限基底 Born 型標本化である。測定基底を表すユニタリ正準混合を \(U\) とし、各試行の出力作用を
+第2の主結果は、固定された任意の純粋準備 \(\chi\in\mathbb C^L\) と有限測定基底 \(\{|u_k\rangle\}_{k=1}^L\) に対する、明示的な自律 Hamiltonian 測定周期である。測定基底を標準基底へ移すユニタリ正準混合を \(W\) とし、\(W|u_k\rangle=e_k\) とする。各試行の出力作用は
 
 \[
 I_k
 =
 \mathcal J_0
 \left|
-\left(Ub\right)_k
+\left(W\chi\right)_k
 \right|^2,
 \qquad
+\sum_{k=1}^L I_k
+=
 I_{\rm ph}
 =
-\sum_k I_k
+\mathcal J_0
 \]
 
-とする。位相担体、基底、調製条件の下で条件付き一様な正準角から \([0,I_{\rm ph})\) 上の選択変数を作り、長さ \(I_k\) の累積区間を1つ選ぶ。このとき一般に
+である。1個の選択器角が長さ \(I_k\) の累積作用区間を1つ選ぶ。作用読出し、結果別テンプレート、正準 SWAP 、内部記録、逆計算を、互いに分離した時計窓で1本の自律 Hamiltonian にまとめる。測定直後の信号は \(|u_k\rangle\) となり、新しい空テンプレートを持つ第2装置で同じ基底を測れば結果は確率1で一致する。
+
+周期末には内部自由度が準備値へ戻り、選択器角だけが
 
 \[
-P(k\mid U,\mathcal P)
+\vartheta
+\longmapsto
+\vartheta+2\pi\alpha
+\pmod{2\pi},
+\qquad
+\alpha\notin\mathbb Q
+\]
+
+と進む。従って固定プログラムの Poincaré 写像は無理数円回転であり、
+
+\[
+d\mu_{\chi,W}^{\rm cyc}
 =
-\mathbb E_{\mu_*}
-\left[
-\frac{I_k}{I_{\rm ph}}
-\middle|
-U,\mathcal P,M=\mathsf{basis}
-\right]
+\frac{d\vartheta}{2\pi}
+\otimes
+\delta_{\rm reset}
 \]
 
-が厳密に成立する。さらに全位相作用が試行ごとに固定され、調製相関が \(U\) に依存しなければ、
+は不変で一意エルゴード的である。各結果の長期頻度は
 
 \[
-P(k\mid U,\mathcal P)
+\lim_{N\to\infty}
+\frac{N_k(N)}{N}
 =
-\frac{
-\left(UC U^\dagger\right)_{kk}
-}{
-\operatorname{tr}C
-}
+\left|
+\langle u_k|\chi\rangle
+\right|^2
 \]
 
-を得る。階数1は不要であり、高階数相関行列も扱える。\(U=I\) でモードが空間セルなら位置基底の重みになるが、これは位相担体モードの選択であり、粒子の局所検出または連続軌道を自動的には与えない。
+となる。ここでは選択器角の一様性を独立の統計仮定として置かない。ただし無理数回転は混合的ではないため、独立同分布試行の二項分布型揺らぎまでは与えない。高階数相関行列の一般作用区間公式も維持するが、それを1本の軌道から生成するには別の源状態用エルゴード自由度が必要である。
 
-第3の主結果は、同じ母測度から取り出す設定条件付き Bell 完全履歴統計である。設定記号を \(x,y\)、局所結果を \(A,B\in\{+1,-1\}\) とする。反対称左右交差相関と局所分析器から
+理想的な離散結果には不連続な比較関数を用いる。滑らかな比較器では境界近傍だけが遷移領域となり、その Haar 測度は比較半幅に比例して抑えられる。逆パルスは遷移領域を含めて内部状態を厳密に戻すが、遷移領域の出力は厳密な基底状態または整数記録ではない。永久外部記録まで含む全自由度を同じ点へ戻すことも、 Hamiltonian 流の1対1性と両立しない。
+
+第3の主結果は、 Bell 余弦枝重みを一般有限 \(L\) 標本化の \(L=4\) 代数へ統合した二側履歴模型である。反対称交差相関を規格化して
 
 \[
-K_{AB}^{xy}
+\chi_{\rm B}
 =
-\frac{\mathcal K}{4}
-\left[
-1-AB\cos\Delta_{xy}
-\right]
+\frac{\operatorname{rvec}\Xi_0}{\sqrt{\mathcal K}}
 \]
 
-という非負枝作用が厳密に得られる。局所結果は共通未来より前に記録されるため、未来の選択器を結果生成器とは解釈しない。共通未来の正準角は、既に記録された結果と枝区間が整合する完結履歴を定める。物理的母測度が整合履歴だけに支持を持ち、4結果の基準セクター密度が共通なら、
+と書く。左右の局所回転後の4成分重みは
 
 \[
-P(A,B\mid x,y)
+w_{AB}^{xy}
+=
+\frac{K_{AB}^{xy}}{\mathcal K}
 =
 \frac14
 \left[
@@ -271,230 +279,139 @@ P(A,B\mid x,y)
 \right]
 \]
 
-が従う。理想対称条件では非信号周辺と CHSH 値 \(2\sqrt2\) を得る。設定生成器も母測度に含まれ、一般に \(\mu_*(d\Lambda\mid x,y)\neq\mu_*(d\Lambda)\) となる。Bell の前提違反は測定設定独立性にあり、Bell の定理を否定しない。未来の比較器が過去の局所記録を変更する機構も導入しない。
+であり、有限 \(L=4\) の Born 型作用重みと同じ代数構造を持つ。\(\chi_{\rm B}\) は左右の局所担体から作る派生交差相関であり、新しい非局所的実在場ではない。
 
-3つの統計は別々の基礎測度ではなく、\(\mu_*\) の2次モーメント、有限基底結果事象、設定条件付き完結履歴事象として統一される。ただし、位置側と Bell 側の取り出し方は同じではない。位置側の正準角は前向きな結果選択器である一方、Bell 側の正準角は二側履歴の整合変数である。
+左右の局所結果角 \(\phi_A,\phi_B\) を独立な Haar 角とし、各翼を半円分割すると、制約前基準測度 \(\nu_{\rm B}^0\) 上で4結果セクターは全て \(1/4\) になる。共通未来角が記録済み結果の枝区間に入る事象を \(G\) とすると、\(\nu_{\rm B}^0(G\mid x,y)=1/4\) は設定に依存しない。物理的二側履歴測度を
 
-本文は6章から成る。第1章で統一試行系、母測度、主張の範囲、第2章で有限正準位相担体と相関行列、第3章で相関行列力学、空間グラフ、干渉と節、第4章で正準作用選択器と有限基底 Born 型標本化、第5章で Bell 余弦枝作用と設定条件付き履歴測度、第6章で誤差、反証条件、未解決問題を扱う。正準計算、母測度の条件付け、選択器定理、装置 Hamiltonian の候補は付録へ置く。
+\[
+d\mu_{\rm B}
+=
+4\mathbf 1_G
+\,d\nu_{\rm B}^0
+\]
 
-最大の未解決問題は4つある。第1に、局所古典結合から Schrödinger 型係数を設計値でなく必然的に得ること。第2に、累積レジスター、比較器、唯一結果形成、記録、逆計算を1つの滑らかな有限 Hamiltonian 周期へ統合すること。第3に、位相担体の有限基底選択を粒子の局所検出と連続運動へ接続すること。第4に、Bell 整合支持条件と共通基準セクター密度を持つ不変母測度を、事後選別なしの具体的な周期写像から導くことである。
+と定めれば、設定分布を変えずに余弦共同確率、非信号周辺、標準設定での CHSH 値 \(2\sqrt2\) を得る。完全ミクロ履歴の分布は設定に依存するため、 Bell の前提違反は測定設定独立性にある。
 
-\hypertarget{ux7d71ux4e00ux8a66ux884cux7cfbux6bcdux6e2cux5ea6ux4e3bux7d50ux679c}{%
-\chapter{統一試行系、母測度、主結果}\label{ux7d71ux4e00ux8a66ux884cux7cfbux6bcdux6e2cux5ea6ux4e3bux7d50ux679c}}
+ただし \(G\) は物理法則として解空間を制限する二側境界条件である。前向きに全ての候補軌道を生成して \(G^c\) を実験後に捨てる手続きではない。通常の前向き自律 Hamiltonian 初期値問題から \(\mu_{\rm B}\) が不変測度として自動生成されること、および付随自由度と境界 Jacobian を含む完全模型でも基準密度 \(1/4\) が保たれることは未証明である。
+
+以上により、相関集団測度 \(\mu_{\mathcal P,M}\)、固定測定周期の \(\mu_{\chi,W}^{\rm cyc}\)、 Bell 二側測度 \(\mu_{\rm B}\) を区別する。相関観測、可変基底、設定生成器、外部記録まで含む単一の不変かつエルゴード的な統一母測度 \(\mu_*\) は将来目標であり、本稿の結論として仮定しない。
+
+本文は6章から成る。第1章で測度の役割と主結果、第2章で有限正準位相担体と相関行列、第3章で相関行列力学、空間グラフ、干渉と節、第4章で明示的な有限基底測定周期、第5章で \(L=4\) Bell 型二側履歴測度、第6章で誤差、反証条件、未解決問題を扱う。正準計算、測定周期、 Bell 基準測度の証明は付録へ置く。
+
+\hypertarget{ux6e2cux5ea6ux306eux5f79ux5272ux660eux793aux5468ux671fux4e3bux7d50ux679c}{%
+\chapter{測度の役割、明示周期、主結果}\label{ux6e2cux5ea6ux306eux5f79ux5272ux660eux793aux5468ux671fux4e3bux7d50ux679c}}
 
 \begin{statusbox}
-位置づけ：相関行列、有限基底結果、Bell完全履歴統計を1つの不変母測度から定義する。不変性とエルゴード性は仮定する。正準作用選択器の確率式は条件付き一様性の下で厳密であり、Bell共同確率には二側履歴整合と共通基準セクター密度が必要である。
+位置づけ：固定純粋準備・固定有限基底の測定周期では、不変 Haar 測度と Born 型長期頻度を自律 Hamiltonian から明示する。 Bell 側では局所 Haar 基準測度と二側履歴測度を明示するが、整合支持条件の物理的必然性は未導出である。全プログラム共通の統一母測度は将来目標に残す。
 \end{statusbox}
 
 \hypertarget{ux554fux984cux8a2dux5b9a}{%
 \section{問題設定}\label{ux554fux984cux8a2dux5b9a}}
 
-本論文の目的は、明示的な古典 Hamiltonian 系から、量子力学に特徴的な確率構造が有効理論として出現し得るかを検証することである。量子力学をミクロ Hamiltonian の入力には使わず、得られた式と測定統計の特徴を判定するときだけ参照する。
+本論文の目的は、明示的な古典 Hamiltonian 系から、量子力学に特徴的な確率構造が有効理論として出現し得るかを検証することである。量子力学をミクロ Hamiltonian の入力には使わず、得られた力学と測定統計を判定するときだけ参照する。
 
-現行稿は、以前は別々に置いていた3つの統計構造を1つの試行空間へ統合する。
+現行稿は3つの統計構造を扱う。
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  相関行列は、母測度の時刻別2次モーメントである。
+  相関行列は、指定した調製集団の時刻別2次モーメントである。
 \item
-  有限基底結果は、条件付き一様な正準角が選ぶ累積作用区間である。
+  固定した純粋準備と有限基底の Born 型頻度は、明示的な反復測定周期の不変測度から得る。
 \item
-  Bell統計は、設定で条件付けた完結履歴事象の頻度である。
+  Bell 統計は、局所結果角と共通未来角を持つ制約前基準測度を二側整合事象で条件付けて得る。
 \end{enumerate}
 
-統一とは、3つを同じ確率公式へ還元することではない。同じ母測度から異なる観測写像で取り出すことを意味する。位置側の選択器は結果形成より前に働けるが、Bell側の共通未来変数は、既に形成された局所結果を作り直せない。この時間順序の違いを保つ。
+これらを同じ記号で表すと、導出済みの測度と未構成の測度を混同する。そこで本稿は、相関集団測度、固定測定周期の不変測度、 Bell 二側履歴測度、将来の統一母測度を分ける。
 
-\hypertarget{ux62e1ux5927ux5168ux7cfbux3068ux30d7ux30edux30b0ux30e9ux30e0ux5909ux6570}{%
-\section{拡大全系とプログラム変数}\label{ux62e1ux5927ux5168ux7cfbux3068ux30d7ux30edux30b0ux30e9ux30e0ux5909ux6570}}
+\hypertarget{ux7a2eux985eux306eux6e2cux5ea6}{%
+\section{4種類の測度}\label{ux7a2eux985eux306eux6e2cux5ea6}}
 
-全正準状態を概略
-
-\[
-Z
-=
-\left(
-X,P_X,
-b,
-Y_{\rm src},
-Y_{\rm set},
-Y_{\rm det},
-Y_{\rm cmp},
-Y_{\rm mem},
-Y_{\rm clk},
-Y_{\rm ext}
-\right)
-\]
-
-と書き、全位相空間を \(\Gamma_{\rm all}\) とする。\((X,P_X)\) は粒子、\(b\) は有限位相担体、残る変数は源、設定生成器、検出器、比較器、記録、時計、外部環境を表す。自律 Hamiltonian と流れを
-
-\[
-H_{\rm all}(Z),
-\qquad
-\Phi_t:
-\Gamma_{\rm all}
-\longrightarrow
-\Gamma_{\rm all}
-\]
-
-とする。有限装置部分だけを見ると、記録情報とエネルギーが外部へ移り得る。外部自由度まで含む拡大全系では Hamiltonian 流として扱う。
-
-測定プログラムを離散レジスター \(M\) で表し、相関観測、有限基底測定、Bell測定を区別する。離散値は、互いに分離した正準レジスター領域の略記であり、Hamiltonian が不連続であることを意味しない。単粒子測定基底を \(U\)、Bell設定を \(x,y\) とする。位相担体 \(b\) とBell右設定の記号を重ねない。
-
-\hypertarget{ux8a66ux884cux958bux59cbux9762ux3068ux5468ux671fux5199ux50cf}{%
-\section{試行開始面と周期写像}\label{ux8a66ux884cux958bux59cbux9762ux3068ux5468ux671fux5199ux50cf}}
-
-時計角を \(\vartheta_{\rm clk}\) とする。試行開始面を
-
-\[
-\Sigma_0
-=
-\left\{
-z:
-\vartheta_{\rm clk}=0,
-\dot\vartheta_{\rm clk}>0
-\right\}
-\cap
-\Gamma_{\rm prep}
-\]
-
-と定める。\(\Gamma_{\rm prep}\) は、源、指針、比較器が所定の準備範囲にあり、外部記録と不要情報には多数のミクロ状態を許す準備マクロ領域である。全自由度を同じ1点へ戻す面ではない。
-
-最初の再帰時刻と周期写像を
-
-\[
-\tau(z)
-=
-\inf
-\left\{
-t>T_{\min}:
-\Phi_tz\in\Sigma_0
-\right\},
-\]
-
-\[
-\mathcal R(z)
-=
-\Phi_{\tau(z)}z
-\]
-
-とする。結果別に異なる再横断を重複して数えないため、\(T_{\min}>0\) は1試行の測定窓より長く取る。戻らない周期を黙って標本から外さず、
-
-\[
-\mu_*
-\left(
-\tau<\infty
-\right)
-=
-1
-\]
-
-を要求する。
-
-\hypertarget{ux4e0dux5909ux304bux3064ux30a8ux30ebux30b4ux30fcux30c9ux7684ux306aux6bcdux6e2cux5ea6}{%
-\section{不変かつエルゴード的な母測度}\label{ux4e0dux5909ux304bux3064ux30a8ux30ebux30b4ux30fcux30c9ux7684ux306aux6bcdux6e2cux5ea6}}
-
-\(\Sigma_0\) 上の確率測度 \(\mu_*\) に対し、
-
-\[
-\mathcal R_*\mu_*
-=
-\mu_*
-\]
-
-を仮定する。さらに本稿では、\(\mathcal R\) が \(\mu_*\) に関してエルゴード的であると仮定する。従って任意の可積分な試行観測量 \(f\) に対し、典型的な開始点で
-
-\[
-\frac1N
-\sum_{n=0}^{N-1}
-f\left(\mathcal R^nz\right)
-\longrightarrow
-\int_{\Sigma_0}
-f
-\,d\mu_*
-\]
-
-が成立する。事象指示関数を選べば、単一装置の長期頻度が \(\mu_*\) の事象確率へ収束する。
-
-不変性とエルゴード性は現行模型の仮定であり、全 Hamiltonian から導いた結論ではない。エルゴード性は収束率を与えないため、有限試行数の自己相関と混合時間は別に評価する。また、目的の \(\mu_*\) の存在、一意性、物理的準備は未解決である。
-
-\hypertarget{ux3064ux306eux7d71ux8a08ux306eux5b9aux7fa9}{%
-\section{3つの統計の定義}\label{ux3064ux306eux7d71ux8a08ux306eux5b9aux7fa9}}
-
-開始点 \(z\in\Sigma_0\) から時刻 \(t\) の位相担体を
-
-\[
-b_t(z)
-=
-b\left(\Phi_tz\right)
-\]
-
-とする。調製条件 \(\mathcal P\) とプログラム \(M\) で条件付けた相関行列は
+調製条件 \(\mathcal P\) と観測プログラム \(M\) を固定した相関集団の測度を \(\mu_{\mathcal P,M}\) とする。相関行列は
 
 \[
 C_M(t)
 =
-\mathbb E_{\mu_*}
+\mathbb E_{\mu_{\mathcal P,M}}
 \left[
 b_t b_t^\dagger
-\mid
-\mathcal P,M
 \right]
 \]
 
-である。
+である。この有限時間の定義には周期写像のエルゴード性を要しない。
 
-有限基底測定で結果レジスターが \(k\) を記録する事象を \(E_k^U\) とする。結果頻度は
+固定純粋準備 \(\chi\) と固定基底変換 \(W\) に対する明示測定周期の不変測度を \(\mu_{\chi,W}^{\rm cyc}\) とする。第4章で自律 Hamiltonian と Poincaré 写像を構成し、
 
 \[
-P(k\mid U,\mathcal P)
+d\mu_{\chi,W}^{\rm cyc}
 =
-\mu_*
+\frac{d\vartheta}{2\pi}
+\otimes
+\delta_{\rm reset}
+\]
+
+が不変で一意エルゴード的であることを示す。
+
+Bell 側の制約前基準測度を \(\nu_{\rm B}^0\)、二側整合事象を \(G\) とし、物理的二側履歴測度を
+
+\[
+\mu_{\rm B}
+=
+\nu_{\rm B}^0
 \left(
-E_k^U
-\mid
-U,\mathcal P,M=\mathsf{basis}
+\,\cdot\mid G
 \right)
 \]
 
-である。
+とする。第5章の最小模型では \(\nu_{\rm B}^0(G)=1/4\) なので、\(d\mu_{\rm B}=4\mathbf1_G\,d\nu_{\rm B}^0\) と書ける。
 
-Bell設定生成器と局所記録を、それぞれ \(x(z),y(z)\) と \(A(z),B(z)\) とする。完結履歴事象を
+最後に、相関観測、可変基底、設定生成器、 Bell 境界条件、外部記録まで同じ反復系へ統合する将来目標の母測度を \(\mu_*\) と書く。本稿は \(\mu_*\) の存在、不変性、エルゴード性を主定理の仮定に使わない。
+
+\hypertarget{ux62e1ux5927ux5168ux7cfbux3068ux56faux5b9aux30d7ux30edux30b0ux30e9ux30e0ux5468ux671f}{%
+\section{拡大全系と固定プログラム周期}\label{ux62e1ux5927ux5168ux7cfbux3068ux56faux5b9aux30d7ux30edux30b0ux30e9ux30e0ux5468ux671f}}
+
+固定有限基底測定に使う全正準状態を概略
 
 \[
-F_{AB}^{xy}
+Z_{chi,W}
+=
+\left(
+b,t,
+Q_1,P_1,\ldots,Q_L,P_L,
+Q_U,P_U,
+Q_M,P_M,
+\vartheta,J_{\rm sel},
+\tau,P_\tau
+\right)
+\]
+
+と書く。\(b\in\mathbb C^L\) は信号、\(t\in\mathbb C^L\) はテンプレート、\((Q_k,P_k)\) は作用レジスター、\((Q_U,P_U)\) は閾値、\((Q_M,P_M)\) は内部結果記録、\((\vartheta,J_{\rm sel})\) は選択器、\((\tau,P_\tau)\) は時計である。明示構成は \(3L+4\) 正準対を使う。
+
+時計角の横断面を
+
+\[
+\Sigma_{\chi,W}
 =
 \left\{
-z:
-x(z)=x,
-y(z)=y,
-A(z)=A,
-B(z)=B
+\tau=0,
+\dot\tau>0
 \right\}
 \]
 
-と定めれば、
+とし、1周期の流れを \(\Phi_1^{\chi,W}\) とする。内部準備値と固定作用を課した不変集合を \(\mathcal T_{chi,W}\subset\Sigma_{\chi,W}\) とする。この集合で自由なのは選択器角 \(\vartheta\) だけである。
+
+Poincaré 写像は
 
 \[
-P(A,B\mid x,y)
+\mathcal R_{\chi,W}
 =
-\frac{
-\mu_*
-\left(
-F_{AB}^{xy}
-\cap
-\{M=\mathsf{Bell}\}
-\right)
-}{
-\mu_*
-\left(
-\{x(z)=x,y(z)=y,M=\mathsf{Bell}\}
-\right)
-}
+\left.
+\Phi_1^{\chi,W}
+\right|_{\mathcal T_{\chi,W}}
 \]
 
-である。分母が正の設定対だけを扱う。相関行列、有限基底頻度、Bell頻度の基礎測度は全て同じ \(\mu_*\) である。
+である。第4章と付録Cで、理想比較模型および同じ制御関数を逆実行する滑らかな有限幅模型について、内部変数が1周期後に準備値へ戻ることを示す。
 
 \hypertarget{ux4e3bux5b9aux74061ux306eux7bc4ux56f2}{%
 \section{主定理1の範囲}\label{ux4e3bux5b9aux74061ux306eux7bc4ux56f2}}
@@ -507,7 +424,7 @@ F_{AB}^{xy}
 \item
   \(H_{\rm ph}=b^\dagger h_Lb\) から \(i\mathcal J_0\dot b=h_Lb\) が厳密に従う。
 \item
-  同じ条件付き集団の全試行が共通 \(h_L\) に従うなら、\(i\mathcal J_0\dot C_M=[h_L,C_M]\) が厳密に閉じる。
+  同じ集団の全試行が共通 \(h_L\) に従うなら、\(i\mathcal J_0\dot C_M=[h_L,C_M]\) が厳密に閉じる。
 \item
   閉鎖線形発展では \(C_M\) の固有値、階数、純度が保存される。
 \item
@@ -516,80 +433,241 @@ F_{AB}^{xy}
   近似階数1の欠陥は干渉節の残留強度を上から抑える。
 \end{enumerate}
 
-プログラム、設定、ミクロ状態によって \(h_L\) が試行ごとに変わる場合は、単純な交換子閉包は一般に成立しない。測定と再初期化をまたぐ全周期が同じ交換子方程式に従うとも主張しない。
+プログラム、設定、ミクロ状態によって \(h_L\) が試行ごとに変わる場合は、単純な交換子閉包は一般に成立しない。測定と逆計算を含む全周期が同じ交換子方程式に従うとも主張しない。
 
-\hypertarget{ux4e3bux5b9aux74062ux306eux7bc4ux56f2}{%
-\section{主定理2の範囲}\label{ux4e3bux5b9aux74062ux306eux7bc4ux56f2}}
+\hypertarget{ux4e3bux5b9aux74062aux4e00ux822cux4f5cux7528ux533aux9593ux516cux5f0f}{%
+\section{主定理2A：一般作用区間公式}\label{ux4e3bux5b9aux74062aux4e00ux822cux4f5cux7528ux533aux9593ux516cux5f0f}}
 
-第4章の主定理2は、正準作用選択器による有限基底標本化である。各試行で測定前の正準混合 \(U\) を施し、
+第4章の最初の結果は、高階数集団にも使える一般作用区間公式である。測定基底変換を \(W\) とし、各試行の出力作用を
 
 \[
 I_k
 =
 \mathcal J_0
 \left|
-\left(Ub\right)_k
+\left(Wb\right)_k
 \right|^2,
 \qquad
 I_{\rm ph}
 =
-\sum_kI_k
+\sum_{k=1}^L I_k
 \]
 
-を作る。選択器角が \((b,U,\mathcal P)\) の下で条件付き一様なら、
+とする。選択器角が \((b,W,\mathcal P)\) の下で条件付き一様なら、
 
 \[
-P(k\mid U,\mathcal P)
+P(k\mid W,\mathcal P)
 =
-\mathbb E_{\mu_*}
+\mathbb E
 \left[
 \frac{I_k}{I_{\rm ph}}
 \middle|
-U,\mathcal P,M=\mathsf{basis}
+W,\mathcal P
 \right]
 \]
 
-が厳密に成立する。\(I_{\rm ph}\) が試行ごとに固定され、調製相関が \(U\) に依存しなければ、
+が成立する。\(I_{\rm ph}\) が試行ごとに固定され、調製相関が \(W\) に依存しなければ、
 
 \[
-P(k\mid U,\mathcal P)
+P(k\mid W,\mathcal P)
 =
 \frac{
-\left(UC U^\dagger\right)_{kk}
+\left(WCW^\dagger\right)_{kk}
 }{
 \operatorname{tr}C
 }
 \]
 
-を得る。階数1は不要である。全作用が変動する場合は比の平均と平均の比を区別し、共分散補正を残す。
+を得る。全作用が変動する場合は共分散補正を残す。この結果だけでは、条件付き一様角を作る力学を与えない。
 
-本定理は、条件付き一様角、累積作用読出し、比較、唯一結果記録が働くことを仮定する。候補となる正準レジスターは付録Cで示すが、全てを連結した滑らかな完成 Hamiltonian は未構成である。
+\hypertarget{ux4e3bux5b9aux74062bux660eux793aux7684ux306aux6709ux9650-l-ux6e2cux5b9aux5468ux671f}{%
+\section{主定理2B：明示的な有限 L 測定周期}\label{ux4e3bux5b9aux74062bux660eux793aux7684ux306aux6709ux9650-l-ux6e2cux5b9aux5468ux671f}}
 
-\hypertarget{ux4e3bux5b9aux74063ux306eux7bc4ux56f2}{%
-\section{主定理3の範囲}\label{ux4e3bux5b9aux74063ux306eux7bc4ux56f2}}
-
-第5章の主定理3は、同じ母測度上の設定条件付き Bell 完全履歴統計である。論理の順序は次である。
+固定した任意の \(L<\infty\)、\(\chi^\dagger\chi=1\)、\(W|u_k\rangle=e_k\) に対し、次を満たす区分的に滑らかな自律 Hamiltonian 周期を構成する。
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  反対称左右交差相関と局所分析器から余弦枝作用 \(K_{AB}^{xy}\) を得る。
+  \(b=e_1\) から \(\chi\) を準備し、\(W\chi\) を作る。
 \item
-  左右の局所結果 \(A,B\) は、戻り信号が共通未来へ到達する前に記録される。
+  各作用 \(I_k\) と選択閾値を、共役運動量が零のレジスターへ読む。
 \item
-  共通未来で枝作用と正準角から4つの区間を計算する。
+  累積区間から零測度境界を除いて唯一の結果 \(k\) を得る。
 \item
-  未来角が、既に記録された \((A,B)\) の区間に入る完結履歴だけを物理的支持とする。
+  空テンプレート \(t=e_1\) を \(e_k\) へ条件付き回転する。
 \item
-  整合前の4結果セクターの基準密度が共通なら、余弦共同確率を得る。
+  信号とテンプレートを正準 SWAP し、信号へ \(W^\dagger\) を施す。
 \item
-  対称条件から非信号周辺と CHSH 値を得る。
+  測定直後に \(b=|u_k\rangle\)、\(Q_M=k\) となる。
 \item
-  設定条件付き母測度により、Bell の測定設定独立性が成立しないことを特定する。
+  保持窓の後、全操作を逆順に実行して内部自由度を準備値へ戻す。
+\item
+  周期末に選択器角だけを無理数回転させる。
 \end{enumerate}
 
-未来選択器は結果生成器でなく履歴整合変数である。共通基準セクター密度と整合支持条件を具体的な周期写像から導くことは、主定理3の仮定であって結論ではない。観測条件付け \(P(A,B\mid x,y)\) と外部介入で設定だけを変更した分布も同一視しない。
+従って Poincaré 写像は
+
+\[
+\mathcal R_{\chi,W}:
+\vartheta
+\longmapsto
+\vartheta+2\pi\alpha
+\pmod{2\pi},
+\qquad
+\alpha\notin\mathbb Q
+\]
+
+となる。 Haar 測度は唯一の不変確率測度であり、各軌道は等分布する。結果 \(k\) の長期頻度は \(|\langle u_k|\chi\rangle|^2\) である。
+
+\hypertarget{ux4e3bux5b9aux74062cux6e2cux5b9aux5f8cux72b6ux614bux53cdux5fa9ux53efux80fdux6027ux6ed1ux3089ux304bux5316}{%
+\section{主定理2C：測定後状態、反復可能性、滑らか化}\label{ux4e3bux5b9aux74062cux6e2cux5b9aux5f8cux72b6ux614bux53cdux5fa9ux53efux80fdux6027ux6ed1ux3089ux304bux5316}}
+
+正準 SWAP 後、測定前状態はテンプレートへ \(-W\chi\) として退避し、信号だけが \(|u_k\rangle\) になる。全系の Hamiltonian 流は1対1のままであり、信号部分系を縮約したときだけ条件付き射影状態が現れる。結果を無視した測定後相関行列は
+
+\[
+C_{\rm post}
+=
+\sum_{k=1}^L
+\left|
+\langle u_k|\chi\rangle
+\right|^2
+|u_k\rangle
+\langle u_k|
+\]
+
+である。
+
+測定直後の信号を、新しい空テンプレートを持つ第2装置で同じ基底測定へ入れると、作用は \(I_j=\mathcal J_0\delta_{jk}\) となり、結果は確率1で同じ \(k\) になる。同じ装置を内部逆計算前にそのまま再使用することは、テンプレートが空でないため本定理に含めない。
+
+厳密な離散指示関数は不連続である。滑らかな幅 \(w\) の比較関数では、内部境界近傍の Haar 測度は
+
+\[
+\mu_{\chi,W}^{\rm cyc}
+\left(
+\mathcal B_w
+\right)
+\leq
+2(L-1)
+\frac{w}{I_{\rm ph}}
+\]
+
+で抑えられる。円周角を区間へ切る近傍の誤差は別に加える。遷移領域では厳密な基底状態と整数記録を失うが、同じ滑らかな制御を逆実行すれば内部逆計算は厳密である。
+
+\hypertarget{ux4e3bux5b9aux74063abell-ux679dux91cdux307fux3068-l4-ux4f5cux7528ux91cdux307f}{%
+\section{主定理3A：Bell 枝重みと L=4 作用重み}\label{ux4e3bux5b9aux74063abell-ux679dux91cdux307fux3068-l4-ux4f5cux7528ux91cdux307f}}
+
+反対称交差相関 \(\Xi_0\) を規格化し、
+
+\[
+\chi_{\rm B}
+=
+\frac{\operatorname{rvec}\Xi_0}{\sqrt{\mathcal K}}
+\in
+\mathbb C^4
+\]
+
+とする。左右局所回転後の4成分の絶対値2乗は
+
+\[
+w_{AB}^{xy}
+=
+\frac{K_{AB}^{xy}}{\mathcal K}
+=
+\frac14
+\left[
+1-AB\cos\Delta_{xy}
+\right]
+\]
+
+である。これは一般有限 \(L\) の作用重みの \(L=4\) 代数的特殊例である。ただし \(\chi_{\rm B}\) は左右の局所担体の交差相関を並べた派生量であり、単粒子側の独立した4モード信号または新しい実在場ではない。
+
+\hypertarget{ux4e3bux5b9aux74063bux6700ux5c0f-bell-ux57faux6e96ux6e2cux5ea6}{%
+\section{主定理3B：最小 Bell 基準測度}\label{ux4e3bux5b9aux74063bux6700ux5c0f-bell-ux57faux6e96ux6e2cux5ea6}}
+
+左右の局所結果角 \(\phi_A,\phi_B\) と共通未来角 \(\theta_F\) を独立な Haar 角とする。設定生成器の分布を \(\pi_x\pi_y\) とし、制約前基準測度を
+
+\[
+d\nu_{\rm B}^0
+=
+\pi_x\pi_y
+\frac{d\phi_A}{2\pi}
+\frac{d\phi_B}{2\pi}
+\frac{d\theta_F}{2\pi}
+\]
+
+とする。局所結果を各角の半円分割で作ると、固定した \(x,y\) に対する4結果セクターの基準体積は全て \(1/4\) である。
+
+記録済み結果 \((A,B)\) に対応する未来角区間の長さを \(w_{AB}^{xy}\) とし、整合事象を \(G\) とする。このとき
+
+\[
+\nu_{\rm B}^0
+\left(
+A,B,G
+\mid
+x,y
+\right)
+=
+\frac14
+w_{AB}^{xy},
+\]
+
+\[
+\nu_{\rm B}^0
+\left(
+G
+\mid
+x,y
+\right)
+=
+\frac14
+\]
+
+である。整合事象の総基準体積は設定に依存しない。
+
+\hypertarget{ux4e3bux5b9aux74063cux4e8cux5074ux5c65ux6b74ux7d71ux8a08ux3068-bell-ux524dux63d0ux76e3ux67fb}{%
+\section{主定理3C：二側履歴統計と Bell 前提監査}\label{ux4e3bux5b9aux74063cux4e8cux5074ux5c65ux6b74ux7d71ux8a08ux3068-bell-ux524dux63d0ux76e3ux67fb}}
+
+物理的履歴を \(G\) に支持する解として定め、\(d\mu_{\rm B}=4\mathbf1_G\,d\nu_{\rm B}^0\) とする。このとき
+
+\[
+P_{\mu_{\rm B}}
+\left(
+A,B
+\mid
+x,y
+\right)
+=
+w_{AB}^{xy}
+\]
+
+を得る。また \(\nu_{\rm B}^0(G\mid x,y)=1/4\) が設定に依存しないため、
+
+\[
+P_{\mu_{\rm B}}(x,y)
+=
+\pi_x\pi_y
+\]
+
+である。二側条件付けは設定生成器の観測頻度を変えない。一方、完全ミクロ履歴 \(\Lambda\) について一般に
+
+\[
+\mu_{\rm B}
+\left(
+d\Lambda
+\mid
+x,y
+\right)
+\neq
+\mu_{\rm B}
+\left(
+d\Lambda
+\right)
+\]
+
+なので、 Bell の測定設定独立性は成立しない。局所応答式は \(A=A(x,\phi_A)\)、\(B=B(y,\phi_B)\) であり、反対側の設定を参照しない。余弦重みから非信号周辺と標準設定での CHSH 値 \(2\sqrt2\) が従う。
+
+この結論は、\(G\) を物理的な二側境界法則として採用する場合に限る。候補履歴を前向きに全て生成して \(G^c\) を後から捨てれば、採用できない25\%事後選別になる。
 
 \hypertarget{ux5c0eux51faux72b6ux614b}{%
 \section{導出状態}\label{ux5c0eux51faux72b6ux614b}}
@@ -611,15 +689,18 @@ P(k\mid U,\mathcal P)
 \bottomrule\noalign{}
 \endlastfoot
 実正準対から複素位相担体への表示 & 厳密結果 & 有限自由度 \\
-相関行列の交換子発展 & 厳密結果 & 母測度の同じ条件付き集団で共通の2次 Hamiltonian \\
-跡、固有値、階数、純度の保存 & 厳密結果 & 閉鎖線形発展 \\
-共通源による階数1準備 & 厳密結果 & 理想正準準備回路 \\
-階数1因子の Schrödinger 型発展 & 厳密結果・仮説依存 & 階数1準備と \(h_L\) の選択 \\
-正準作用選択器の一般確率式 & 厳密結果・仮説依存 & 条件付き一様角と唯一結果形成 \\
-固定作用下の有限基底 Born 型則 & 厳密結果・仮説依存 & 固定全作用と単粒子側の基底独立準備 \\
-Bell余弦枝作用 & 厳密結果・仮説依存 & 反対称源と局所平面回転 \\
-共通基準密度下の Bell履歴統計 & 厳密結果・仮説依存 & 整合支持条件と基準密度の物理的準備は未完成 \\
-長期頻度と母測度確率の一致 & 厳密結果・仮説依存 & 周期写像の不変性とエルゴード性を仮定 \\
+相関行列の交換子発展 & 厳密結果 & 指定集団で共通の2次 Hamiltonian \\
+固定有限 \(L\) の内部測定周期 & 厳密結果 & 固定純粋準備、固定基底、理想比較では区分的に滑らか \\
+Poincaré 写像と Haar 不変測度 & 厳密結果 & 固定プログラムの1次元不変集合 \\
+Born 型長期頻度 & 厳密結果 & 無理数回転。有限標本の独立性は含まない \\
+条件付き測定後状態 & 厳密結果 & 信号部分系の縮約。情報はテンプレートへ退避 \\
+新しい第2装置での反復可能性 & 厳密結果 & 第2装置のテンプレートは空状態 \\
+滑らかな比較器 & 近似結果 & 結果誤差は境界近傍、内部逆計算は厳密 \\
+高階数の一般作用区間公式 & 厳密結果・仮説依存 & 条件付き一様角。源状態用エルゴード自由度は未構成 \\
+Bell 枝重みと \(L=4\) 重みの同値 & 厳密結果・仮説依存 & 反対称源と局所平面回転 \\
+最小 Bell 基準セクター密度 \(1/4\) & 厳密結果 & 独立局所 Haar 角と半円分割 \\
+Bell 二側履歴統計 & 厳密結果・仮説依存 & \(G\) を物理的支持条件として採用 \\
+全プログラム共通の \(\mu_*\) & 予想・未解決 & 統一 Poincaré 写像は未構成 \\
 \end{longtable}
 
 \hypertarget{ux672cux8ad6ux6587ux304cux4e3bux5f35ux3057ux306aux3044ux3053ux3068}{%
@@ -631,33 +712,37 @@ Bell余弦枝作用 & 厳密結果・仮説依存 & 反対称源と局所平面�
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  目的の母測度の存在、一意性、不変性、エルゴード性を具体的な全 Hamiltonian から導いたこと。
+  相関観測、可変基底、 Bell 設定生成器、外部記録を含む単一の不変かつエルゴード的な \(\mu_*\) を構成したこと。
+\item
+  固定プログラムごとの不変測度を混合すれば全体がエルゴード的になること。
 \item
   任意初期集団からの階数1純化。
 \item
-  古典振動子による Schrödinger 方程式表示そのものの新規性。
-\item
-  \(h_L\) の係数と局所結合をより原始的な古典模型から必然的に導いたこと。
+  \(h_L\) の係数をより原始的な古典模型から必然的に導いたこと。
 \item
   非線形ミクロ Hamiltonian に対する無条件な相関行列閉包。
 \item
+  高階数相関行列を1本の軌道から生成する源力学。
+\item
+  滑らかな有限時間 Hamiltonian による厳密な離散射影。
+\item
+  同じ装置を内部逆計算前に再使用する反復測定。
+\item
+  永久外部記録を保持したまま全自由度を同じ点へ戻す閉鎖周期。
+\item
   位相担体の有限基底選択が粒子の局所検出そのものであること。
 \item
-  粒子の連続軌道または全時刻での \(|\psi|^2\) 分布。
+  粒子の連続軌道、 Wallstrom 問題の解決、連続スペクトルを含む一般 Born 則。
 \item
-  Wallstrom 問題の解決または連続空間での循環量子化。
+  Bell 二側測度を通常の前向き初期値問題の不変測度として生成したこと。
 \item
-  連続スペクトルを含む一般 Born 則。
+  付随自由度、境界 Jacobian 、解多重度を含む完全 Bell 模型で基準密度 \(1/4\) を無条件に保つこと。
 \item
-  一般の複合状態または一般 Tsirelson 原理。
+  反対称 Bell 源の反復可能な物理準備。
 \item
-  Bell共通基準密度と履歴整合支持を生成する完成周期。
+  一般 Tsirelson 原理または外部設定介入に対する統計安定性。
 \item
-  Bell の定理の否定。
-\item
-  後の比較器が過去の記録を変更する逆因果制御。
-\item
-  二側境界模型と前周期記憶による共通原因模型の同値性。
+  Bell の定理の否定、または未来の比較器が過去の記録を変更する制御機構。
 \end{enumerate}
 
 配置拡散・Nelson経路、旧2成分誘導場、旧位置作用殻による標本化、前周期記憶模型は現行主線に採用しない。再利用価値のある結果と不採用理由は研究メモまたは版履歴で管理する。
@@ -846,16 +931,14 @@ U^\dagger U=I
 \hypertarget{ux5ba2ux89b3ux7684ux76f8ux95a2ux884cux5217}{%
 \section{客観的相関行列}\label{ux5ba2ux89b3ux7684ux76f8ux95a2ux884cux5217}}
 
-第1章の母測度 \(\mu_*\) を、共通調製条件 \(\mathcal P\) と測定プログラム \(M\) で条件付け、
+共通調製条件 \(\mathcal P\) と観測プログラム \(M\) を固定した集団測度を \(\mu_{\mathcal P,M}\) とし、
 
 \[
 C_M(t)
 =
-\mathbb E_{\mu_*}
+\mathbb E_{\mu_{\mathcal P,M}}
 \left[
 b_t b_t^\dagger
-\mid
-\mathcal P,M
 \right]
 \]
 
@@ -864,18 +947,16 @@ b_t b_t^\dagger
 \[
 v^\dagger Cv
 =
-\mathbb E_{\mu_*}
+\mathbb E_{\mu_{\mathcal P,M}}
 \left[
 \left|v^\dagger b\right|^2
-\mid
-\mathcal P,M
 \right]
 \geq0
 \]
 
 なので \(C\) は正半定値 Hermitian 行列である。対角成分 \(C_{ii}\) は局所作用の集団平均、非対角成分 \(C_{ij}\) は相対位相相関を保持する。
 
-\(C\) は調製条件とプログラムに依存するが、観測者の主観に依存するとは限らない。同じ源、Hamiltonian、母測度の条件付き集団を再現すれば同じ \(C\) が得られるという意味で、温度や流体密度と同様の客観的な集団状態量として扱う。\(C\) は独立の統計入力ではなく、同じ \(\mu_*\) の2次モーメントである。
+\(C\) は調製条件とプログラムに依存するが、観測者の主観に依存するとは限らない。同じ源、 Hamiltonian 、集団測度を再現すれば同じ \(C\) が得られるという意味で、温度や流体密度と同様の客観的な集団状態量として扱う。第4章の固定測定周期では \(\mu_{\mathcal P,M}\) の1例を \(\mu_{\chi,W}^{\rm cyc}\) として明示するが、一般の相関集団を全て同じ周期測度から生成したとはしない。
 
 \hypertarget{ux30bbux30ebux4f53ux7a4dux3092ux542bux3080ux898fux683cux5316}{%
 \section{セル体積を含む規格化}\label{ux30bbux30ebux4f53ux7a4dux3092ux542bux3080ux898fux683cux5316}}
@@ -894,11 +975,9 @@ b_i
 C_{ij}
 =
 \Delta V
-\mathbb E_{\mu_*}
+\mathbb E_{\mu_{\mathcal P,M}}
 \left[
 a_i a_j^*
-\mid
-\mathcal P,M
 \right]
 \]
 
@@ -1109,13 +1188,11 @@ D_C,
 \[
 D_C
 =
-\mathbb E_{\mu_*}
+\mathbb E_{\mu_{\mathcal P,M}}
 \left[
 r b^\dagger
 -
 b r^\dagger
-\mid
-\mathcal P,M
 \right]
 \]
 
@@ -1165,7 +1242,7 @@ b r^\dagger
 \hypertarget{ux76f8ux95a2ux884cux5217ux306eux9589ux3058ux305fux767aux5c55}{%
 \section{相関行列の閉じた発展}\label{ux76f8ux95a2ux884cux5217ux306eux9589ux3058ux305fux767aux5c55}}
 
-母測度を同じ調製条件 \(\mathcal P\) とプログラム \(M\) で条件付けた集団の各試行が、観測窓で共通の有限2次 Hamiltonian に従い、
+同じ調製条件 \(\mathcal P\) と観測プログラム \(M\) を持つ集団の各試行が、観測窓で共通の有限2次 Hamiltonian に従い、
 
 \[
 i\mathcal J_0\dot b^\omega
@@ -1181,12 +1258,10 @@ h(t)b^\omega
 $$
 C_M(t)
 =
-\mathbb E_{\mu_*}
+\mathbb E_{\mu_{\mathcal P,M}}
 \left[
 b^\omega(t)
 \left(b^\omega(t)\right)^\dagger
-\mid
-\mathcal P,M
 \right]
 $$
 
@@ -1368,7 +1443,7 @@ V_L(t)
   古典結合振動子がユニタリ行列と同型の線形発展を持つこと。
 \end{enumerate}
 
-本稿が検討する追加構造は、\(C\) を統一母測度の客観的集団相関として定義し、共通源による階数1準備、正準作用選択器、Bell設定条件付き履歴測度へ接続することである。
+本稿が検討する追加構造は、\(C\) を客観的な集団相関として定義し、共通源による階数1準備、明示的な有限基底測定周期、 Bell 設定条件付き二側履歴測度へ接続することである。これら全てを支える単一の統一母測度は将来目標として区別する。
 
 また、係数 \(\mathcal J_0^2/(2m)\) と局所ポテンシャル \(V_i\) は、本節では古典結合の設計値である。より原始的な粒子・媒質 Hamiltonian からこれらの値が必然的に現れることは未導出であり、Q1の未完成部分に残る。
 
@@ -1606,258 +1681,93 @@ Y^\omega
 
 旧2成分誘導場では、非零の単価な連続場に対する閉路巻数から条件付き循環量子化を記述できた。現行模型は有限グラフ上の位相担体を基礎とし、一般の閉路で位相差が定義できても、連続空間の単価性、節の生成・消滅、閉路変形に対する巻数保存をまだ統合していない。
 
-従って、Wallstrom 問題は未解決へ戻す。将来の課題は、非零位相担体が置かれた空間グラフ、辺位相差、閉路巻数、連続補間、節を通る位相すべりを同じ有限 Hamiltonian で記述することである。
+従って、 Wallstrom 問題は未解決へ戻す。将来の課題は、非零位相担体が置かれた空間グラフ、辺位相差、閉路巻数、連続補間、節を通る位相すべりを同じ有限 Hamiltonian で記述することである。
 
-\hypertarget{ux6b63ux6e96ux4f5cux7528ux9078ux629eux5668ux3068ux6709ux9650ux57faux5e95ux6a19ux672cux5316}{%
-\chapter{正準作用選択器と有限基底標本化}\label{ux6b63ux6e96ux4f5cux7528ux9078ux629eux5668ux3068ux6709ux9650ux57faux5e95ux6a19ux672cux5316}}
+\hypertarget{ux660eux793aux7684ux306aux6709ux9650ux57faux5e95ux6e2cux5b9aux5468ux671f}{%
+\chapter{明示的な有限基底測定周期}\label{ux660eux793aux7684ux306aux6709ux9650ux57faux5e95ux6e2cux5b9aux5468ux671f}}
 
 \begin{statusbox}
-位置づけ：条件付き一様な正準角から、各試行で作用比に一致する排他的な1結果を得る式は厳密である。固定全作用と基底に依存しない調製相関の下で、一般の正半定値相関行列に対する有限基底 Born 型則を得る。滑らかな比較器、粒子検出、完全周期は未完成である。
+位置づけ：固定純粋準備・固定有限基底では、作用読出し、唯一結果、条件付き測定後状態、内部記録、逆計算、無理数回転 Poincaré 写像を1本の自律 Hamiltonian 周期として構成する。理想離散結果は区分的に滑らかであり、滑らかな実装では境界近傍だけが近似になる。
 \end{statusbox}
 
-\hypertarget{ux6e2cux5b9aux57faux5e95ux3068ux51faux529bux4f5cux7528}{%
-\section{測定基底と出力作用}\label{ux6e2cux5b9aux57faux5e95ux3068ux51faux529bux4f5cux7528}}
+\hypertarget{ux4e00ux822cux4f5cux7528ux533aux9593ux516cux5f0f}{%
+\section{一般作用区間公式}\label{ux4e00ux822cux4f5cux7528ux533aux9593ux516cux5f0f}}
 
-\(L\) 個の位相担体モードを \(b\in\mathbb C^L\) とする。測定する有限直交基底をユニタリ行列 \(U\) で表し、測定前の正準モード混合を
+\(L\) 個の位相担体モードを \(b\in\mathbb C^L\) とする。測定する有限直交基底を \(\{|u_k\rangle\}_{k=1}^L\) とし、これを標準基底へ移すユニタリ正準混合 \(W\) を
 
 \[
-b'
+W|u_k\rangle
 =
-Ub
+e_k
 \]
 
-とする。複素ユニタリ変換は実正準変数 \((Q,P)\) 上の直交正準変換に対応する。出力モード \(k\) の作用と全位相作用を
+で定める。出力モードの作用と全位相作用は
 
 \[
 I_k
 =
 \mathcal J_0
-\left|b'_k\right|^2,
+\left|
+\left(Wb\right)_k
+\right|^2,
 \qquad
 I_{\rm ph}
 =
 \sum_{k=1}^L I_k
-=
-\mathcal J_0b^\dagger b
 \]
 
-とする。\(U\) は全作用を保存する。以下、\(I_{\rm ph}>0\) がほとんど確実に成立する条件付き集団を扱う。
-
-\(I_k\) は各試行に実在する正準作用である。装置は集団量 \(C\) を単一試行の Hamiltonian へ代入せず、各試行の \(I_k\) だけを読み出す。
-
-\hypertarget{ux56faux5b9aux4f5cux7528ux306eux6b63ux6e96ux9078ux629eux5668}{%
-\section{固定作用の正準選択器}\label{ux56faux5b9aux4f5cux7528ux306eux6b63ux6e96ux9078ux629eux5668}}
-
-補助振動子の作用角変数を
-
-\[
-\left(
-J_{\rm sel},
-\vartheta_{\rm sel}
-\right),
-\qquad
-J_{\rm sel}=J_*>0
-\]
-
-とする。選択器角に必要なのは周辺一様性ではなく、位相担体、測定基底、調製条件の下での条件付き一様性である。具体的に、
-
-\[
-\mu_*
-\left(
-d\vartheta_{\rm sel}
-\mid
-b,U,\mathcal P,M=\mathsf{basis}
-\right)
-=
-\frac{d\vartheta_{\rm sel}}{2\pi}
-\]
-
-を仮定する。\(\vartheta_{\rm sel}\) の周辺分布だけが一様でも、作用分配と相関していれば以下の区間則は一般に成立しない。
-
-選択変数を
-
-\[
-u
-=
-\frac{\vartheta_{\rm sel}}{2\pi}
-I_{\rm ph},
-\qquad
-0\leq u<I_{\rm ph}
-\]
-
-とする。角度の切断点 \(0=2\pi\) は零測度境界であり、有限幅実装では比較誤差として扱う。
-
-\hypertarget{ux7d2fux7a4dux4f5cux7528ux533aux9593ux3068ux552fux4e00ux7d50ux679c}{%
-\section{累積作用区間と唯一結果}\label{ux7d2fux7a4dux4f5cux7528ux533aux9593ux3068ux552fux4e00ux7d50ux679c}}
-
-累積作用を
+である。累積作用を
 
 \[
 S_0=0,
 \qquad
 S_k
 =
-\sum_{j=1}^k I_j
+\sum_{j=1}^kI_j
 \]
 
-とする。結果 \(k\) の事象を
+とする。選択器角 \(\vartheta\in[0,2\pi)\) から
 
 \[
-E_k^U
+u
 =
-\left\{
-S_{k-1}\leq u<S_k
-\right\}
+\frac{\vartheta}{2\pi}
+I_{\rm ph}
 \]
 
-と定める。\(S_L=I_{\rm ph}\) なので、境界を除いて事象 \(E_k^U\) は互いに素であり、全標本を覆う。従って、各試行はちょうど1つの結果を持つ。
+を作り、\(S_{k-1}\leq u<S_k\) を結果 \(k\) とする。境界を除けば結果区間は互いに素で全区間を覆うため、各試行で結果は唯一である。
 
-この結果は粒子が入口 \(k\) を最初に通過した事象ではない。結果レジスターが位相担体の出力モード \(k\) を記録した事象である。旧位置作用殻の共通入口流束、全入口の排他的作用転送、2モード殻容量は本定理の仮定から外れる。
-
-\hypertarget{ux4e3bux5b9aux74062ux306eux4e00ux822cux5f62}{%
-\section{主定理2の一般形}\label{ux4e3bux5b9aux74062ux306eux4e00ux822cux5f62}}
-
-\begin{theorem}[正準作用選択器による有限基底標本化]
-次を仮定する。
-
-1. $I_{\rm ph}>0$ がほとんど確実に成立する。
-2. 測定前の正準混合 $U$ が全作用を保存する。
-3. 選択器角が $(b,U,\mathcal P)$ の下で条件付き一様である。
-4. 累積作用区間が排他的に比較され、各試行で1つの結果だけが記録される。
-5. 比較失敗、記録失敗、再帰失敗を結果に応じて捨てない。
-
-このとき各試行の条件付き結果確率は
+\begin{theorem}[一般作用区間公式]
+選択器角が $(b,W,\mathcal P)$ の下で条件付き一様であり、比較失敗または記録失敗を結果依存に除外しないとする。このとき
 
 $$
-P(k\mid b,U)
+P(k\mid b,W)
 =
 \frac{I_k}{I_{\rm ph}}
-=
-\frac{
-\left|\left(Ub\right)_k\right|^2
-}{
-b^\dagger b
-}
 $$
 
-であり、母測度で平均した頻度は
+であり、集団平均は
 
 $$
-P(k\mid U,\mathcal P)
+P(k\mid W,\mathcal P)
 =
-\mathbb E_{\mu_*}
+\mathbb E
 \left[
 \frac{I_k}{I_{\rm ph}}
 \middle|
-U,\mathcal P,M=\mathsf{basis}
+W,\mathcal P
 \right]
 $$
 
-である。
+となる。
 \end{theorem}
 
-\begin{proof}
-$(b,U)$ を固定すると、$u$ は区間 $[0,I_{\rm ph})$ 上で一様である。$E_k^U$ の区間長は $S_k-S_{k-1}=I_k$ なので、条件付き確率は $I_k/I_{\rm ph}$ である。条件付き期待値を取ると第2式を得る。
-\end{proof}
-
-周期写像が \(\mu_*\) に関して不変かつエルゴード的であるという第1章の仮定により、同じ装置を繰り返した結果 \(k\) の長期相対頻度は、この母測度確率へ収束する。
-
-\hypertarget{ux56faux5b9aux5168ux4f5cux7528ux3068-born-ux578bux5247}{%
-\section{固定全作用と Born 型則}\label{ux56faux5b9aux5168ux4f5cux7528ux3068-born-ux578bux5247}}
-
-測定基底 \(U\) の下の相関行列を
-
-\[
-C_U
-=
-\mathbb E_{\mu_*}
-\left[
-bb^\dagger
-\mid
-U,\mathcal P,M=\mathsf{basis}
-\right]
-\]
-
-とする。全位相作用が条件付き集団で固定され、
-
-\[
-I_{\rm ph}=I_0>0
-\]
-
-なら、
-
-\[
-\operatorname{tr}C_U
-=
-\frac{I_0}{\mathcal J_0}
-\]
-
-である。
-
-\begin{corollary}[固定作用下の有限基底 Born 型則]
-主定理2の条件に加えて $I_{\rm ph}=I_0$ を仮定すると、
-
-$$
-P(k\mid U,\mathcal P)
-=
-\frac{
-\left(
-UC_UU^\dagger
-\right)_{kk}
-}{
-\operatorname{tr}C_U
-}
-$$
-
-が成立する。
-\end{corollary}
-
-階数1は仮定していない。従って、純度が1未満の高階数相関行列も同じ選択器で扱える。
-
-\hypertarget{ux5168ux4f5cux7528ux5909ux52d5ux306eux5171ux5206ux6563ux88dcux6b63}{%
-\section{全作用変動の共分散補正}\label{ux5168ux4f5cux7528ux5909ux52d5ux306eux5171ux5206ux6563ux88dcux6b63}}
-
-一般には比の平均と平均の比は一致しない。正規化作用分配を
-
-\[
-r_k
-=
-\frac{I_k}{I_{\rm ph}}
-\]
-
-とすると、主定理2は \(P_k=\mathbb E[r_k]\) を与える。一方、
-
-\[
-\frac{
-\mathbb E[I_k]
-}{
-\mathbb E[I_{\rm ph}]
-}
-=
-\mathbb E[r_k]
-+
-\frac{
-\operatorname{Cov}
-\left(
-I_{\rm ph},r_k
-\right)
-}{
-\mathbb E[I_{\rm ph}]
-}
-\]
-
-なので、
+この定理は階数1を要求しない。全作用が変動する場合、比の平均を平均の比へ置き換えてはならない。\(r_k=I_k/I_{\rm ph}\) とすれば、
 
 \[
 P_k
 -
-\frac{
-\left(
-UC_UU^\dagger
-\right)_{kk}
-}{
-\operatorname{tr}C_U
-}
+\frac{\mathbb E[I_k]}{\mathbb E[I_{\rm ph}]}
 =
 -
 \frac{
@@ -1870,73 +1780,449 @@ I_{\rm ph},r_k
 }
 \]
 
-である。従って、Born 型の平均比と一致する十分条件は次のいずれかである。
+である。固定全作用または無相関が、相関行列の対角比との一致条件になる。
 
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  \(I_{\rm ph}\) が試行ごとに固定される。
-\item
-  \(I_{\rm ph}\) と \(r_k\) が無相関である。
-\end{enumerate}
+\hypertarget{ux56faux5b9aux4f5cux7528ux3068ux9ad8ux968eux6570ux76f8ux95a2ux884cux5217}{%
+\section{固定作用と高階数相関行列}\label{ux56faux5b9aux4f5cux7528ux3068ux9ad8ux968eux6570ux76f8ux95a2ux884cux5217}}
 
-全作用変動を許すとき、この共分散項を消えたものとして扱わない。
-
-\hypertarget{ux4efbux610fux6709ux9650ux57faux5e95ux3068ux8abfux88fdux72ecux7acbux6027}{%
-\section{任意有限基底と調製独立性}\label{ux4efbux610fux6709ux9650ux57faux5e95ux3068ux8abfux88fdux72ecux7acbux6027}}
-
-同じ状態 \(C\) を異なる基底 \(U\) で測ったと主張するには、単粒子側の調製相関が基底選択に依存しないことが必要である。すなわち、
+固定作用殻 \(I_{\rm ph}=I_0>0\) 上の集団について
 
 \[
-C_U=C
+C
+=
+\mathbb E
+\left[
+bb^\dagger
+\middle|
+\mathcal P
+\right]
 \]
 
-を要求する。固定作用下では
+とする。調製集団が測定基底 \(W\) に依存しなければ、一般作用区間公式から
 
 \[
-P(k\mid U,\mathcal P)
+P(k\mid W,\mathcal P)
 =
 \frac{
-\left(
-UCU^\dagger
-\right)_{kk}
+\left(WCW^\dagger\right)_{kk}
 }{
 \operatorname{tr}C
 }
 \]
 
-となる。これは有限次元の任意の直交基底に対する Born 型則である。
+を得る。これは高階数の正半定値相関行列を含む。ただし、条件付き一様角を1本の軌道から作る力学と、高階数集団を同じ軌道上で生成する源力学は別問題である。
 
-Bell側では設定条件付き母測度を許すが、その測定設定依存性を単粒子側へ無条件に持ち込まない。\(C_U\neq C\) なら、上式は同じ状態の基底変更でなく、基底に応じて異なる条件付き集団を測っている。
+以下では、固定した純粋準備と固定基底に対象を絞る。この限定により、選択器角の Haar 測度と長期頻度を明示的な Poincaré 写像から導く。
 
-\hypertarget{ux7a7aux9593ux30bbux30ebux57faux5e95}{%
-\section{空間セル基底}\label{ux7a7aux9593ux30bbux30ebux57faux5e95}}
+\hypertarget{ux56faux5b9aux7d14ux7c8bux6e96ux5099ux3068ux5fc5ux8981ux81eaux7531ux5ea6}{%
+\section{固定純粋準備と必要自由度}\label{ux56faux5b9aux7d14ux7c8bux6e96ux5099ux3068ux5fc5ux8981ux81eaux7531ux5ea6}}
 
-\(U=I\) とし、モード \(i\) が体積 \(\Delta V\) の空間セルに対応するとする。第2章の規格化により、固定作用下では
-
-\[
-P_i
-=
-\frac{C_{ii}}{\operatorname{tr}C}
-\]
-
-である。階数1なら
+準備状態を
 
 \[
-C
-=
-\Lambda\chi\chi^\dagger,
+\chi\in\mathbb C^L,
 \qquad
-\psi_i
-=
-\frac{\chi_i}{\sqrt{\Delta V}}
+\chi^\dagger\chi=1
 \]
 
-なので、
+とし、全作用を \(I_{\rm ph}=\mathcal J_0\) に固定する。信号 \(b\) に加え、同じ \(L\) モードのテンプレート \(t\) を置く。周期開始時は
 
 \[
-P_i
+b=e_1,
+\qquad
+t=e_1
+\]
+
+とする。
+
+作用読出し用に \(L\) 個の正準対 \((Q_k,P_k)\)、閾値用に \((Q_U,P_U)\)、内部結果記録用に \((Q_M,P_M)\)、選択器に \((\vartheta,J_{\rm sel})\)、時計に \((\tau,P_\tau)\) を用いる。従って明示構成の正準対数は
+
+\[
+L+L+L+1+1+1+1
+=
+3L+4
+\]
+
+である。これは最小数の主張ではない。直列累積比較なら作用レジスターを減らせる一方、二分木比較なら比較深さを減らす代わりに補助レジスターが増える。
+
+\hypertarget{ux6e96ux5099ux57faux5e95ux5909ux63dbux4f5cux7528ux8aadux51faux3057}{%
+\section{準備、基底変換、作用読出し}\label{ux6e96ux5099ux57faux5e95ux5909ux63dbux4f5cux7528ux8aadux51faux3057}}
+
+任意の有限次元ユニタリ行列は Hermitian 生成子の指数として表せる。従って、互いに重ならない時計窓を使い、信号へ準備回路 \(U_{\rm prep}\) と基底変換 \(W\) を順に作用させられる。\(U_{\rm prep}e_1=\chi\) なので、作用読出し直前には
+
+\[
+b
+=
+W\chi
+\]
+
+となる。
+
+作用読出し生成子を
+
+\[
+G_{\rm read}
+=
+\sum_{k=1}^L
+P_kI_k
++
+P_UI_{\rm ph}
+f(\vartheta)
+\]
+
+とする。理想模型では \(f(\vartheta)=\vartheta/(2\pi)\) である。全レジスターを
+
+\[
+Q_k=P_k=Q_U=P_U=0
+\]
+
+から始め、単位面積パルスを作用させると
+
+\[
+Q_k=I_k,
+\qquad
+Q_U
+=
+I_{\rm ph}f(\vartheta)
+\]
+
+となる。共役運動量が零なので、理想入口では読出し中の信号と選択器への反作用は零である。
+
+\hypertarget{ux7d50ux679cux30bbux30afux30bfux30fcux3068ux30c6ux30f3ux30d7ux30ecux30fcux30c8}{%
+\section{結果セクターとテンプレート}\label{ux7d50ux679cux30bbux30afux30bfux30fcux3068ux30c6ux30f3ux30d7ux30ecux30fcux30c8}}
+
+読出しレジスターから
+
+\[
+\xi_k
+=
+\mathbf1
+\left[
+\sum_{j=1}^{k-1}Q_j
+\leq
+Q_U
+<
+\sum_{j=1}^{k}Q_j
+\right]
+\]
+
+を定める。境界以外では \(\xi_k\in\{0,1\}\) かつ \(\sum_k\xi_k=1\) である。
+
+\(k>1\) に対し、\(e_1\) と \(e_k\) を回転する Hermitian 生成子を
+
+\[
+Y_{1k}
+=
+-i|1\rangle\langle k|
++
+i|k\rangle\langle1|
+\]
+
+とする。このとき
+
+\[
+\exp
+\left(
+-i\frac{\pi}{2}Y_{1k}
+\right)e_1
+=
+e_k
+\]
+
+である。条件付きテンプレート生成子を
+
+\[
+G_{\rm branch}
+=
+\frac{\pi\mathcal J_0}{2}
+\sum_{k=2}^L
+\xi_k
+t^\dagger Y_{1k}t
++
+P_M
+\sum_{k=1}^L
+k\xi_k
+\]
+
+とする。単位面積パルス後に
+
+\[
+t=e_k,
+\qquad
+Q_M=k
+\]
+
+となる。入口で \(P_M=0\) であり、\(t^\dagger Y_{1k}t=0\) は当該回転中に保存されるため、結果関数のレジスター依存性による共役運動量への反作用も理想不変集合では零である。
+
+\hypertarget{ux6b63ux6e96-swap-ux3068ux6e2cux5b9aux5f8cux72b6ux614b}{%
+\section{正準 SWAP と測定後状態}\label{ux6b63ux6e96-swap-ux3068ux6e2cux5b9aux5f8cux72b6ux614b}}
+
+信号とテンプレートを交換する生成子を
+
+\[
+G_{\rm sw}
+=
+i
+\left(
+b^\dagger t
+-
+t^\dagger b
+\right)
+\]
+
+とする。 Hamiltonian \(\pi\mathcal J_0G_{\rm sw}/2\) を単位面積だけ作用させると、
+
+\[
+b\longmapsto t,
+\qquad
+t\longmapsto-b
+\]
+
+となる。 SWAP 直前は \(b=W\chi\)、\(t=e_k\) なので、直後は
+
+\[
+b=e_k,
+\qquad
+t=-W\chi
+\]
+
+である。信号だけに \(W^\dagger\) を作用させれば、
+
+\[
+b_{\rm post}
+=
+W^\dagger e_k
+=
+|u_k\rangle
+\]
+
+となる。測定前情報は消えず、テンプレートへ退避している。
+
+\begin{theorem}[条件付き測定後状態]
+固定純粋準備 $\chi$、固定基底 $\{|u_k\rangle\}$、理想結果セクターの下で、結果 $k$ の測定直後の信号相関行列は
+
+$$
+C_k^{\rm post}
+=
+|u_k\rangle
+\langle u_k|
+$$
+
+である。結果を無視した信号相関行列は
+
+$$
+C^{\rm post}
+=
+\sum_{k=1}^L
+\left|
+\langle u_k|\chi\rangle
+\right|^2
+|u_k\rangle
+\langle u_k|
+$$
+
+となる。
+\end{theorem}
+
+これは全系の非可逆な射影ではない。全系では正準 SWAP であり、信号部分だけを縮約すると非対角相関がテンプレートへ移ったように見える。
+
+\hypertarget{ux53cdux5fa9ux53efux80fdux6027ux306eux6b63ux78baux306aux7bc4ux56f2}{%
+\section{反復可能性の正確な範囲}\label{ux53cdux5fa9ux53efux80fdux6027ux306eux6b63ux78baux306aux7bc4ux56f2}}
+
+結果 \(k\) の直後に同じ基底変換を施すと
+
+\[
+Wb_{\rm post}
+=
+e_k,
+\]
+
+\[
+I_j
+=
+\mathcal J_0\delta_{jk}
+\]
+
+となる。従って選択器角にかかわらず、累積区間は結果 \(k\) を選ぶ。
+
+ただし現在の装置のテンプレートには \(-W\chi\) が保持されており、空状態ではない。従って厳密な主張は、測定直後の信号を新しい空テンプレートを持つ第2装置へ入れた場合に、同じ基底の結果が確率1で一致することである。同じ装置をその場で再使用するには、先に内部逆計算を完了するか、別の空テンプレートを用意する必要がある。
+
+\hypertarget{ux5185ux90e8ux8a18ux9332ux4fddux6301ux3068ux9006ux8a08ux7b97}{%
+\section{内部記録保持と逆計算}\label{ux5185ux90e8ux8a18ux9332ux4fddux6301ux3068ux9006ux8a08ux7b97}}
+
+測定結果を読める保持窓では、
+
+\[
+b=|u_k\rangle,
+\qquad
+Q_M=k
+\]
+
+を保つ。その後、次の順に逆操作する。
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  信号へ \(W\) を作用させる。
+\item
+  逆 SWAP を作用させる。
+\item
+  結果別テンプレート回転と内部記録を逆にする。
+\item
+  作用・閾値読出しを逆にする。
+\item
+  信号へ \(W^\dagger\) を作用させる。
+\item
+  準備回路 \(U_{\rm prep}\) を逆にする。
+\end{enumerate}
+
+順に追うと、逆 SWAP 後に \(b=W\chi\)、\(t=e_k\)、分岐逆計算後に \(t=e_1\)、\(Q_M=0\)、読出し逆計算後に \(Q_k=Q_U=0\)、最後に \(b=e_1\) となる。理想不変集合では各共役運動量も零へ戻る。
+
+この逆計算は内部記録を消去するのではなく、途中で作った情報を元の信号・選択器状態へ戻す操作である。周期を越えて永久保存する外部記録を同じ有限閉鎖系内で消し、全自由度を同じ点へ戻すことは要求しない。
+
+\hypertarget{ux672cux306eux81eaux5f8b-hamiltonian}{%
+\section{1本の自律 Hamiltonian}\label{ux672cux306eux81eaux5f8b-hamiltonian}}
+
+時計を
+
+\[
+(\tau,P_\tau),
+\qquad
+\tau\in S^1,
+\qquad
+H_{\rm clk}=P_\tau
+\]
+
+とする。\(\dot\tau=1\) なので、互いに重ならない滑らかな時計窓 \(g_r(\tau)\) と各生成子 \(G_r\) を用いて
+
+\[
+H_{\chi,W}^{\rm cyc}
+=
+P_\tau
++
+\sum_r
+g_r(\tau)G_r
+\]
+
+という1本の自律 Hamiltonian にまとめられる。時計窓の順序は、準備、\(W\)、読出し、分岐、 SWAP 、\(W^\dagger\)、保持、\(W\)、逆 SWAP 、逆分岐、逆読出し、\(W^\dagger\)、逆準備、選択器ドリフトである。
+
+最後の生成子を
+
+\[
+G_{\rm drift}
+=
+2\pi\alpha J_{\rm sel},
+\qquad
+\alpha\notin\mathbb Q
+\]
+
+とする。各窓の生成子はその窓内で保存され、窓端で \(g_r=0\) なので、時計運動量 \(P_\tau\) も1周期後に準備値へ戻る。詳細な写像追跡は付録Cに示す。
+
+\hypertarget{poincaruxe9-ux5199ux50cfux3068ux4e0dux5909ux6e2cux5ea6}{%
+\section{Poincaré 写像と不変測度}\label{poincaruxe9-ux5199ux50cfux3068ux4e0dux5909ux6e2cux5ea6}}
+
+Poincaré 断面 \(\Sigma_{\chi,W}=\{\tau=0\}\) 内で、信号、テンプレート、全レジスター、全共役運動量、選択器作用、時計運動量を準備値へ固定した集合を \(\mathcal T_{\chi,W}\) とする。自由変数は \(\vartheta\) だけである。
+
+\begin{theorem}[固定有限基底周期の不変測度]
+$L<\infty$、$\chi^\dagger\chi=1$、固定基底変換 $W$、互いに重ならない単位面積時計窓、$\alpha\notin\mathbb Q$ を仮定する。理想比較境界を除く $\mathcal T_{\chi,W}$ 上で、 Poincaré 写像は
+
+$$
+\mathcal R_{\chi,W}:
+\vartheta
+\longmapsto
+\vartheta+2\pi\alpha
+\pmod{2\pi}
+$$
+
+であり、他の全内部変数を準備値へ戻す。従って
+
+$$
+d\mu_{\chi,W}^{\rm cyc}
+=
+\frac{d\vartheta}{2\pi}
+\otimes
+\delta_{\rm reset}
+$$
+
+は不変であり、$\mathcal R_{\chi,W}$ はこの測度に関して一意エルゴード的である。
+\end{theorem}
+
+一意エルゴード性は付録Bで Fourier モードを用いて直接確認する。固定純粋準備と固定基底について、不変性とエルゴード性は仮定でなく計算結果である。
+
+\hypertarget{born-ux578bux9577ux671fux983bux5ea6}{%
+\section{Born 型長期頻度}\label{born-ux578bux9577ux671fux983bux5ea6}}
+
+正規化重みと累積境界を
+
+\[
+p_k
+=
+\left|
+\langle u_k|\chi\rangle
+\right|^2,
+\qquad
+a_0=0,
+\qquad
+a_k
+=
+\sum_{j=1}^kp_j
+\]
+
+とする。第 \(n\) 試行の選択角は
+
+\[
+\vartheta_n
+=
+\vartheta_0+2\pi n\alpha
+\pmod{2\pi}
+\]
+
+であり、\(a_{k-1}\leq\vartheta_n/(2\pi)<a_k\) のとき結果 \(k\) になる。無理数回転の等分布性から
+
+\[
+\lim_{N\to\infty}
+\frac{N_k(N)}{N}
+=
+a_k-a_{k-1}
+=
+\left|
+\langle u_k|\chi\rangle
+\right|^2
+\]
+
+を得る。
+
+無理数回転は混合的ではない。従って長期平均は Born 型重みに一致するが、結果列は独立同分布でなく、有限標本の分散を \(Np_k(1-p_k)\) とする二項分布型揺らぎを一般には再現しない。有限標本統計を得るには、選択器写像を混合的なシンプレクティック写像へ強化する必要がある。
+
+\hypertarget{ux6ed1ux3089ux304bux306aux6709ux9650ux5e45ux6a21ux578b}{%
+\section{滑らかな有限幅模型}\label{ux6ed1ux3089ux304bux306aux6709ux9650ux5e45ux6a21ux578b}}
+
+厳密な \(\xi_k\) は不連続である。滑らかな有限時間 Hamiltonian 流は初期条件に連続なので、連結した初期領域を有限時間で厳密な離散基底状態だけへ写すことはできない。厳密2値化には、特異極限、分離面、無限時間極限、または粗視化が必要になる。
+
+滑らかな比較関数を使い、各内部境界 \(S_k\) の半幅 \(w\) だけを遷移領域とする。選択変数が \([0,I_{\rm ph})\) 上で一様なので、内部境界近傍の和集合 \(\mathcal B_w\) は
+
+\[
+\mu_{\chi,W}^{\rm cyc}
+\left(
+\mathcal B_w
+\right)
+\leq
+2(L-1)
+\frac{w}{I_{\rm ph}}
+\]
+
+を満たす。境界近傍が重なる場合、この和上界は過大評価になる。角の切断点を滑らかに接続する幅を \(w_{\rm cut}\) とすれば、その誤差質量を別に加える。
+
+遷移領域外では理想結果と条件付き測定後状態を保つ。遷移領域ではテンプレート回転角と記録が中間値になり、厳密な基底状態を失う。一方、前向き操作と同じ滑らかな関数を逆符号・逆順で作用させれば、遷移領域を含めて内部状態の逆計算は厳密であり、 Poincaré 写像の無理数回転部分は保たれる。
+
+\hypertarget{ux7a7aux9593ux30bbux30ebux57faux5e95ux3068ux4e3bux5f35ux306eux7bc4ux56f2}{%
+\section{空間セル基底と主張の範囲}\label{ux7a7aux9593ux30bbux30ebux57faux5e95ux3068ux4e3bux5f35ux306eux7bc4ux56f2}}
+
+\(W=I\) とし、モード \(i\) が体積 \(\Delta V\) の空間セルに対応する場合、第2章の規格化から、階数1状態では
+
+\[
+p_i
 =
 \left|\chi_i\right|^2
 =
@@ -1944,165 +2230,26 @@ P_i
 \Delta V
 \]
 
-となる。
+となる。ただし、これは位相担体の空間セル基底を標本化する式である。粒子座標がセル \(i\) の局所検出器を作動させること、粒子と選択モードが同期すること、粒子が連続軌道を持つことは別の導出を要する。
 
-ただし、これは位相担体の空間セル基底を標本化する式である。粒子座標 \(X\) がセル \(i\) の局所検出器を作動させたこと、粒子と選択モードが同期すること、粒子が連続軌道を持つことは別の導出を要する。従って本稿では「粒子位置 Born 則」ではなく「空間セル基底の Born 型標本化」と呼ぶ。
+本章で明示したものは、固定純粋準備・固定有限基底に対する内部測定周期、不変 Haar 測度、 Born 型長期頻度、条件付き測定後状態、内部記録、内部逆計算である。可変基底を含む単一のエルゴード周期、高階数源の軌道生成、混合的有限標本統計、永久外部記録、粒子検出、連続スペクトルは未解決である。
 
-\hypertarget{ux53efux9006ux88c5ux7f6eux306eux5019ux88dc}{%
-\section{可逆装置の候補}\label{ux53efux9006ux88c5ux7f6eux306eux5019ux88dc}}
-
-理想装置は次の順序で働く。
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  正準回路 \(U\) が測定基底へモードを混合する。
-\item
-  各 \(I_k\) を累積作用レジスターへ可逆に加える。
-\item
-  選択器角から \(u\) を計算する。
-\item
-  \(u-S_k\) の符号変化を滑らかな有限幅比較器で検出する。
-\item
-  最初の1結果だけをラッチへ記録する。
-\item
-  結果を空の外部記録へ可逆にコピーする。
-\item
-  比較、累積加算、基底混合を逆計算する。
-\item
-  消せない結果情報と不要情報を外部自由度へ移す。
-\end{enumerate}
-
-正準加算と比較器の候補 Hamiltonian は付録Cに示す。直列走査の相互作用窓は \(O(L)\) 個であり、二分木比較では深さを \(O(\log L)\) にできるが、追加レジスターが必要である。本稿は構成要素を示すが、全てを1つの滑らかな自律 Hamiltonian と不変母測度へ統合していない。
-
-\hypertarget{ux6761ux4ef6ux4ed8ux304dux4e00ux69d8ux6027ux3068ux6bd4ux8f03ux5e45ux306eux8aa4ux5dee}{%
-\section{条件付き一様性と比較幅の誤差}\label{ux6761ux4ef6ux4ed8ux304dux4e00ux69d8ux6027ux3068ux6bd4ux8f03ux5e45ux306eux8aa4ux5dee}}
-
-選択器角の条件付き分布と一様分布の全変動距離を
-
-\[
-\varepsilon_{\rm sel}
-=
-\mathbb E
-\left[
-d_{\rm TV}
-\left(
-\mu_*
-\left(
-d\vartheta_{\rm sel}\mid b,U,\mathcal P,M=\mathsf{basis}
-\right),
-\frac{d\vartheta_{\rm sel}}{2\pi}
-\right)
-\right]
-\]
-
-とする。このとき各結果確率の一様選択器からの偏差は \(\varepsilon_{\rm sel}\) 以下である。
-
-比較境界の半幅を \(w>0\) とし、
-
-\[
-\varepsilon_{\rm cmp}(w)
-=
-\mu_*
-\left(
-\min_k
-\left|u-S_k\right|
-\leq w
-\middle|
-\mathcal P,M=\mathsf{basis}
-\right)
-\]
-
-とする。境界近傍だけで理想結果と有限幅結果が異なる装置なら、比較器による全変動誤差は \(\varepsilon_{\rm cmp}(w)\) で抑えられる。理想境界が零測度で、条件付き密度が有界なら \(w\to0\) でこの誤差は零へ近づく。
-
-\hypertarget{ux4e3bux5f35ux306eux7bc4ux56f2}{%
-\section{主張の範囲}\label{ux4e3bux5f35ux306eux7bc4ux56f2}}
-
-本章で得たものは次である。
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  各試行の作用分配から1結果を排他的に選ぶ厳密な区間則。
-\item
-  高階数を含む一般の正半定値相関行列への拡張。
-\item
-  固定作用下の任意有限直交基底 Born 型則。
-\item
-  全作用変動に対する厳密な共分散補正。
-\item
-  条件付き一様性と有限比較幅の誤差指標。
-\end{enumerate}
-
-一方、次は示していない。
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  選択器角の条件付き一様性を具体的な周期写像から導くこと。
-\item
-  累積、比較、ラッチ、記録、逆計算を統合した完成 Hamiltonian。
-\item
-  連続スペクトルと無限次元測定。
-\item
-  位相担体モードの選択と粒子の局所位置検出の同一性。
-\item
-  粒子の連続軌道。
-\end{enumerate}
-
-\hypertarget{bell-ux4f59ux5f26ux679dux4f5cux7528ux3068ux8a2dux5b9aux6761ux4ef6ux4ed8ux304dux5c65ux6b74ux6e2cux5ea6}{%
-\chapter{Bell 余弦枝作用と設定条件付き履歴測度}\label{bell-ux4f59ux5f26ux679dux4f5cux7528ux3068ux8a2dux5b9aux6761ux4ef6ux4ed8ux304dux5c65ux6b74ux6e2cux5ea6}}
+\hypertarget{ux6210ux5206-bell-ux91cdux307fux3068ux4e8cux5074ux5c65ux6b74ux6e2cux5ea6}{%
+\chapter{4成分 Bell 重みと二側履歴測度}\label{ux6210ux5206-bell-ux91cdux307fux3068ux4e8cux5074ux5c65ux6b74ux6e2cux5ea6}}
 
 \begin{statusbox}
-位置づけ：反対称左右交差相関と局所回転からの余弦枝作用は補助模型内部で厳密である。Bell共同確率は、同じ不変母測度の設定条件付き完結履歴として定義する。余弦頻度には二側履歴整合、条件付き一様な境界角、4結果で共通な基準セクター密度が必要であり、その物理的生成は未完成である。
+位置づけ：反対称交差相関の4成分重みを一般有限基底作用重みの特殊例として整理する。独立な局所 Haar 角から基準セクター密度1/4を導き、二側整合条件の下で Bell 余弦共同確率、設定分布保存、非信号性を得る。整合支持条件そのものの物理的必然性は未導出である。
 \end{statusbox}
 
-\hypertarget{ux56faux5b9aux3055ux308cux305fux5de6ux53f3ux4f4dux76f8ux62c5ux4f53ux30e2ux30fcux30c9}{%
-\section{固定された左右位相担体モード}\label{ux56faux5b9aux3055ux308cux305fux5de6ux53f3ux4f4dux76f8ux62c5ux4f53ux30e2ux30fcux30c9}}
+\hypertarget{ux5de6ux53f3ux4f4dux76f8ux62c5ux4f53ux3068ux53cdux5bfeux79f0ux4ea4ux5deeux76f8ux95a2}{%
+\section{左右位相担体と反対称交差相関}\label{ux5de6ux53f3ux4f4dux76f8ux62c5ux4f53ux3068ux53cdux5bfeux79f0ux4ea4ux5deeux76f8ux95a2}}
 
-Bell 構成では、左右へ伝播する有限個の局在位相担体モードを基礎変数とする。2粒子配置空間上の場も、単粒子側の統計振幅 \(\chi\) も局所 Hamiltonian へ追加しない。装置の組立時に固定した左右モードを
-
-\[
-z^A_{\mu r},
-\qquad
-z^B_{\nu r},
-\qquad
-\mu,\nu\in\{+,-\},
-\qquad
-r\in\{1,2\}
-\]
-
-とする。\(\mu,\nu\) は局所分析器の2出力、\(r\) は2つの直交源チャンネルである。設定または結果ごとにモード基底を選び直さない。
-
-左右モードの派生交差相関を
-
-\[
-\Xi_{\mu\nu}
-=
-\sum_{r=1}^2
-\eta_r
-z^A_{\mu r}
-\left(
-z^B_{\nu r}
-\right)^*
-\]
-
-と定める。\(\Xi\) は独立した場でも新しい正準変数でもない。左右の基礎位相担体から計算される階数2以下の交差相関である。単粒子側の \(C\) は正半定値 Hermitian 行列であるのに対し、\(\Xi\) は一般に正半定値でも Hermitian でもない。両者を同じ相関行列として扱わない。
-
-\hypertarget{ux53cdux5bfeux79f0ux6e90ux3068ux5c40ux6240ux5206ux6790ux5668}{%
-\section{反対称源と局所分析器}\label{ux53cdux5bfeux79f0ux6e90ux3068ux5c40ux6240ux5206ux6790ux5668}}
-
-理想源が準備する交差相関を
+左右に2モードずつを置き、局所モード振幅を \(z^A,z^B\in\mathbb C^2\) とする。共通源チャンネルを平均した左右交差相関を \(\Xi\in\mathbb C^{2\times2}\) とする。反対称源を
 
 \[
 \Xi_0
 =
-\sqrt{
-\frac{\mathcal K}{2}
-}
+\sqrt{\frac{\mathcal K}{2}}
 \begin{pmatrix}
 0&1\\
 -1&0
@@ -2111,689 +2258,390 @@ z^B_{\nu r}
 \mathcal K>0
 \]
 
-とする。これは2つの階数1交差項へ分解できるため、2つの直交源チャンネルで構成できる。有限 Hamiltonian 源が任意初期状態から \(\Xi_0\) を反復準備することと、比較時刻まで相対位相を保つことは独立の準備問題である。
+とする。\(\mathcal K=\operatorname{tr}(\Xi_0\Xi_0^\dagger)\) は全枝作用である。反対称源の反復可能な物理準備は本章の入力条件であり、結論ではない。
 
-Bell設定を \(x,y\)、対応する局所モード角を \(\alpha_x,\beta_y\) とする。左右の局所分析器は各側の基礎位相担体だけを
-
-\[
-z^{A,(r)}
-\longmapsto
-R(\alpha_x)
-z^{A,(r)},
-\qquad
-z^{B,(r)}
-\longmapsto
-R(\beta_y)
-z^{B,(r)}
-\]
-
-と回転する。ここで
+行優先ベクトル化を
 
 \[
-R(\theta)
+\operatorname{rvec}\Xi
 =
 \begin{pmatrix}
-\cos\theta&-\sin\theta\\
-\sin\theta&\cos\theta
+\Xi_{++}\\
+\Xi_{+-}\\
+\Xi_{-+}\\
+\Xi_{--}
 \end{pmatrix}
 \]
 
-である。交差相関表示は
+と定め、規格化4成分ベクトルを
 
 \[
-\Xi(x,y)
+\chi_{\rm B}
+=
+\frac{\operatorname{rvec}\Xi_0}{\sqrt{\mathcal K}}
+=
+\frac1{\sqrt2}
+\begin{pmatrix}
+0\\
+1\\
+-1\\
+0
+\end{pmatrix}
+\]
+
+とする。\(\chi_{\rm B}\) は左右の局所担体から作る派生交差相関の4次元表示である。独立した非局所実在場または単一試行の4モード粒子状態として追加しない。
+
+\hypertarget{ux5c40ux6240ux5206ux6790ux5668ux3068ux30c6ux30f3ux30bdux30ebux7a4dux8868ux793a}{%
+\section{局所分析器とテンソル積表示}\label{ux5c40ux6240ux5206ux6790ux5668ux3068ux30c6ux30f3ux30bdux30ebux7a4dux8868ux793a}}
+
+設定 \(x,y\) に対応する局所分析器角を \(\alpha_x,\beta_y\) とする。平面回転を
+
+\[
+R(\gamma)
+=
+\begin{pmatrix}
+\cos\gamma&-\sin\gamma\\
+\sin\gamma&\cos\gamma
+\end{pmatrix}
+\]
+
+とする。左右の分析器は
+
+\[
+z^A
+\longmapsto
+R(\alpha_x)z^A,
+\qquad
+z^B
+\longmapsto
+R(\beta_y)z^B
+\]
+
+と局所的に作用する。左右の正準変数は分離しているので、生成子 \(G_A,G_B\) は \(\{G_A,G_B\}=0\) を満たし、分析器 Hamiltonian は局所和として書ける。
+
+交差相関と4成分表示は
+
+\[
+\Xi_{xy}
 =
 R(\alpha_x)
 \Xi_0
-R(\beta_y)^{\mathsf T}
+R(\beta_y)^{\mathsf T},
 \]
-
-となるが、物理的に回すのは空間的に分離した左右の局所モードである。
-
-\hypertarget{ux4f59ux5f26ux679dux4f5cux7528}{%
-\section{余弦枝作用}\label{ux4f59ux5f26ux679dux4f5cux7528}}
-
-結果 \(A,B\in\{+1,-1\}\) に対応する基底を \(e_A,e_B\) とし、
 
 \[
-\Xi_{AB}^{xy}
+\chi_{xy}
 =
-e_A^{\mathsf T}
-\Xi(x,y)
-e_B,
-\qquad
-K_{AB}^{xy}
-=
-\left|
-\Xi_{AB}^{xy}
-\right|^2
+\left[
+R(\alpha_x)
+\otimes
+R(\beta_y)
+\right]
+\chi_{\rm B}
 \]
 
-と定める。
+となる。テンソル積表示は、左右の局所正準回転の交差相関への作用をまとめたものである。
 
-\begin{theorem}[反対称対モードの Bell 余弦枝作用]
-反対称源と左右の実回転の下で、
+\hypertarget{ux6210ux5206ux4f5cux7528ux91cdux307f}{%
+\section{4成分作用重み}\label{ux6210ux5206ux4f5cux7528ux91cdux307f}}
 
-$$
-K_{AB}^{xy}
+結果対 \(A,B\in\{+1,-1\}\) に対応する規格化重みを
+
+\[
+w_{AB}^{xy}
 =
-\frac{\mathcal K}{4}
-\left[
-1
--
-AB\cos\Delta_{xy}
-\right],
-\qquad
-\Delta_{xy}
+\left|
+\left(\chi_{xy}\right)_{AB}
+\right|^2
 =
-2
+\frac{
+\left|
+\left(\Xi_{xy}\right)_{AB}
+\right|^2
+}{
+\mathcal K
+}
+\]
+
+とする。直接計算すると
+
+\[
+w_{++}^{xy}
+=
+w_{--}^{xy}
+=
+\frac12
+\sin^2
+\left(
+\alpha_x-\beta_y
+\right),
+\]
+
+\[
+w_{+-}^{xy}
+=
+w_{-+}^{xy}
+=
+\frac12
+\cos^2
 \left(
 \alpha_x-\beta_y
 \right)
-$$
-
-が成立する。さらに、
-
-$$
-\sum_{A,B}
-K_{AB}^{xy}
-=
-\mathcal K,
-\qquad
-\sum_B
-K_{AB}^{xy}
-=
-\sum_A
-K_{AB}^{xy}
-=
-\frac{\mathcal K}{2}
-$$
-
-である。
-\end{theorem}
-
-\begin{proof}
-$\delta=\alpha_x-\beta_y$ とする。行列積から
-
-$$
-K_{++}^{xy}
-=
-K_{--}^{xy}
-=
-\frac{\mathcal K}{2}
-\sin^2\delta,
-\qquad
-K_{+-}^{xy}
-=
-K_{-+}^{xy}
-=
-\frac{\mathcal K}{2}
-\cos^2\delta
-$$
-
-を得る。$\cos2\delta=\cos\Delta_{xy}$ を用いる。
-\end{proof}
-
-この定理は設定依存の非負枝作用を与えるが、結果頻度をまだ与えない。
-
-\hypertarget{ux540cux3058ux6bcdux6e2cux5ea6ux4e0aux306eux5b8cux5168ux5c65ux6b74ux4e8bux8c61}{%
-\section{同じ母測度上の完全履歴事象}\label{ux540cux3058ux6bcdux6e2cux5ea6ux4e0aux306eux5b8cux5168ux5c65ux6b74ux4e8bux8c61}}
-
-第1章の母測度 \(\mu_*\) は、設定生成器、局所装置、比較器、記録、外部自由度まで含む開始面 \(\Sigma_0\) 上に置かれる。Bellプログラムの完結履歴事象を
-
-\[
-F_{AB}^{xy}
-=
-\left\{
-z\in\Sigma_0:
-x(z)=x,
-y(z)=y,
-A(z)=A,
-B(z)=B,
-M(z)=\mathsf{Bell}
-\right\}
 \]
 
-とする。Bell共同確率は新しいBell専用測度でなく、
+である。\(\Delta_{xy}=2(\alpha_x-\beta_y)\) とすれば、
 
 \[
-P(A,B\mid x,y)
+w_{AB}^{xy}
 =
-\mu_*
+\frac14
+\left[
+1-AB\cos\Delta_{xy}
+\right]
+\]
+
+となる。現行稿で枝作用と呼んだ量は
+
+\[
+K_{AB}^{xy}
+=
+\mathcal K
+w_{AB}^{xy}
+\]
+
+である。
+
+\begin{proposition}[Bell 枝作用と4成分作用重みの同値]
+反対称源と左右局所回転の下で、規格化 Bell 枝作用 $K_{AB}^{xy}/\mathcal K$ は、4成分ベクトル $\chi_{\rm B}$ に局所テンソル積回転を施した成分の絶対値2乗に一致する。従って Bell 余弦枝重みは、第4章の有限基底作用重みと同じ代数構造を持つ。
+\end{proposition}
+
+この同値は、単粒子側のテンプレート SWAP 測定器を Bell 装置へそのまま適用したことを意味しない。 Bell では左右の結果が共通未来へ情報が届く前に局所的に形成される必要がある。4成分重みは共通未来で結果を生成せず、記録済み結果を持つ完結履歴の整合区間を定める。
+
+\hypertarget{ux5c40ux6240ux7d50ux679cux751fux6210}{%
+\section{局所結果生成}\label{ux5c40ux6240ux7d50ux679cux751fux6210}}
+
+A側とB側に固定作用の正準角
+
+\[
+\phi_A,\phi_B
+\in
+[0,2\pi)
+\]
+
+を置く。理想局所結果を
+
+\[
+A_x(\phi_A)
+=
+\operatorname{sgn}
+\cos
 \left(
-F_{AB}^{xy}
-\mid
-x,y,M=\mathsf{Bell}
+\phi_A-2\alpha_x
+\right),
+\]
+
+\[
+B_y(\phi_B)
+=
+\operatorname{sgn}
+\cos
+\left(
+\phi_B-2\beta_y
 \right)
 \]
 
-である。第1章で仮定した不変性とエルゴード性により、設定対 \((x,y)\) が出現する部分列の長期相対頻度をこの条件付き確率と結び付ける。各設定対の母測度が正であることを仮定する。
+とする。零点は零測度境界である。各応答は同じ翼の設定と局所角だけを参照する。A側の式に \(y\) はなく、B側の式に \(x\) はない。
 
-\hypertarget{ux5c40ux6240ux8a18ux9332ux3068ux5171ux901aux672aux6765}{%
-\section{局所記録と共通未来}\label{ux5c40ux6240ux8a18ux9332ux3068ux5171ux901aux672aux6765}}
+実装では符号関数を滑らかな有限幅比較へ置き換える。結果の厳密2値化に関する連続性の制限は第4章と同じであり、境界近傍だけを誤差領域とする。
 
-本稿の局所装置は、既に形成された2値結果セクターを出力ポートと指針へ写す最小符号化器である。連続したミクロ状態から安定な唯一結果を形成する一般測定器は構成していない。
+\hypertarget{ux5236ux7d04ux524dux57faux6e96ux6e2cux5ea6}{%
+\section{制約前基準測度}\label{ux5236ux7d04ux524dux57faux6e96ux6e2cux5ea6}}
 
-左右の局所結果は、戻り信号が共通未来へ到達する前に記録される。理想局所応答は
+設定生成器のマクロセクター確率を \(\pi_x,\pi_y\) とする。局所結果角と共通未来角 \(\theta_F\) を独立な Haar 角とし、制約前基準測度を
 
 \[
+d\nu_{\rm B}^0
+=
+\pi_x\pi_y
+\frac{d\phi_A}{2\pi}
+\frac{d\phi_B}{2\pi}
+\frac{d\theta_F}{2\pi}
+\]
+
+とする。各局所応答は円周を等しい2つの半円へ分けるので、
+
+\[
+\nu_{\rm B}^0
+\left(
 A
+\mid
+x
+\right)
 =
-A(x,\Lambda_A),
+\frac12,
 \qquad
+\nu_{\rm B}^0
+\left(
 B
+\mid
+y
+\right)
 =
-B(y,\Lambda_B)
+\frac12
 \]
 
-と書ける。ここで \(\Lambda_A,\Lambda_B\) は各側へ到達するミクロ変数である。後の比較器は過去の記録を変更しない。
-
-従って、共通未来で \(K_{AB}^{xy}\) を計算してから \((A,B)\) を前向きに選ぶ模型は採用しない。共通未来の役割は、既に局所記録された結果と未来境界変数が整合する完結履歴を定めることである。
-
-\hypertarget{bell-ux5883ux754cux89d2ux3068ux6574ux5408ux4e8bux8c61}{%
-\section{Bell 境界角と整合事象}\label{bell-ux5883ux754cux89d2ux3068ux6574ux5408ux4e8bux8c61}}
-
-共通未来に固定作用の選択器振動子を置き、その角を \(\vartheta_{\rm B}\) とする。枝作用の総和は \(\mathcal K\) なので、
+である。独立性から
 
 \[
-u_{\rm B}
+q_{AB}^{xy}
+:=
+\nu_{\rm B}^0
+\left(
+A,B
+\mid
+x,y
+\right)
 =
-\frac{\vartheta_{\rm B}}{2\pi}
-\mathcal K,
-\qquad
-0\leq u_{\rm B}<\mathcal K
+\frac14
 \]
 
-とする。4結果を固定した順に並べ、累積枝作用を
+を全設定・全結果について得る。最小模型では、基準セクター密度の共通性は仮定でなく局所 Haar 角と半円分割の帰結である。
+
+\hypertarget{ux5171ux901aux672aux6765ux533aux9593ux3068ux6574ux5408ux4e8bux8c61}{%
+\section{共通未来区間と整合事象}\label{ux5171ux901aux672aux6765ux533aux9593ux3068ux6574ux5408ux4e8bux8c61}}
+
+4結果を \(++,+-,-+,--\) の順に並べ、累積重みを
 
 \[
-T_0^{xy}=0,
+T_0=0,
 \qquad
-T_m^{xy}
-=
-\sum_{n=1}^m
-K_n^{xy}
+T_1=w_{++}^{xy},
 \]
 
-とする。結果対 \((A,B)\) に対応する区間 \(\mathcal I_{AB}^{xy}\) の長さは
+\[
+T_2
+=
+w_{++}^{xy}+w_{+-}^{xy},
+\qquad
+T_3
+=
+T_2+w_{-+}^{xy},
+\qquad
+T_4=1
+\]
+
+とする。\(r_F=\theta_F/(2\pi)\) とし、各結果対の区間 \(\mathcal I_{AB}^{xy}\subset[0,1)\) を対応する累積区間とする。その長さは
 
 \[
 \left|
 \mathcal I_{AB}^{xy}
 \right|
 =
-K_{AB}^{xy}
+w_{AB}^{xy}
 \]
 
 である。
 
-完結履歴の整合事象を
+左右で既に記録された結果を \(A_x(\phi_A),B_y(\phi_B)\) とする。二側整合事象を
 
 \[
 G
 =
 \left\{
-u_{\rm B}
+r_F
 \in
-\mathcal I_{A(z)B(z)}^{x(z)y(z)}
+\mathcal I_{A_x(\phi_A),B_y(\phi_B)}^{xy}
 \right\}
 \]
 
-とする。物理的母測度には
+と定める。未来角は結果を作らない。局所結果を持つ履歴と、反対称交差相関から計算した枝区間が整合するかだけを制約する。
+
+\hypertarget{ux6574ux5408ux4f53ux7a4dux3068ux8a2dux5b9aux5206ux5e03}{%
+\section{整合体積と設定分布}\label{ux6574ux5408ux4f53ux7a4dux3068ux8a2dux5b9aux5206ux5e03}}
+
+固定した \(x,y,A,B\) について、局所角の結果セクター体積は \(1/4\)、未来角区間の体積は \(w_{AB}^{xy}\) である。従って
 
 \[
-\mu_*
+\nu_{\rm B}^0
+\left(
+A,B,G
+\mid
+x,y
+\right)
+=
+\frac14
+w_{AB}^{xy}
+\]
+
+となる。全結果について和を取ると、
+
+\[
+\nu_{\rm B}^0
 \left(
 G
 \mid
-M=\mathsf{Bell}
+x,y
 \right)
 =
-1
+\frac14
+\sum_{A,B}
+w_{AB}^{xy}
+=
+\frac14
 \]
 
-を要求する。実験で \(G\) を満たさない周期を後から捨てるなら事後選別であり、本稿の模型ではない。必要なのは、不整合周期が物理的解空間で零測度になることである。
+である。整合事象の総基準体積は設定に依存しない。
 
-\hypertarget{ux57faux6e96ux30bbux30afux30bfux30fcux5bc6ux5ea6}{%
-\section{基準セクター密度}\label{ux57faux6e96ux30bbux30afux30bfux30fcux5bc6ux5ea6}}
+\hypertarget{ux4e8cux5074ux5c65ux6b74ux6e2cux5ea6ux3068ux5171ux540cux78baux7387}{%
+\section{二側履歴測度と共同確率}\label{ux4e8cux5074ux5c65ux6b74ux6e2cux5ea6ux3068ux5171ux540cux78baux7387}}
 
-整合条件を課す前の候補完結履歴に対する Liouville 基準要素を \(\nu_*^{xy}\) とする。これは別の観測統計ではなく、\(\mu_*\) のBell条件付き部分を構成するための境界位相体積である。結果セクター \((A,B)\) で、選択器座標以外を積分した基準密度を \(q_{AB}^{xy}>0\) とする。
-
-選択器角が候補履歴の残る変数に対して条件付き一様で、整合条件以外の因子を \(q_{AB}^{xy}\) へ含めると、整合履歴の未規格化質量は
+物理的履歴を、初期側の準備条件と終端側の整合条件 \(G\) の双方を満たす Hamiltonian 軌道として定める。二側履歴測度を
 
 \[
-W_{AB}^{xy}
+d\mu_{\rm B}
 =
-q_{AB}^{xy}
-K_{AB}^{xy}
+4\mathbf1_G
+\,d\nu_{\rm B}^0
 \]
 
-となる。従って一般式は
+とする。\(\nu_{\rm B}^0(G)=1/4\) なので規格化されている。
 
-\[
-P(A,B\mid x,y,G)
-=
-\frac{
-q_{AB}^{xy}
-K_{AB}^{xy}
-}{
-\sum_{A',B'}
-q_{A'B'}^{xy}
-K_{A'B'}^{xy}
-}
-\]
-
-である。
-
-\(q_{AB}^{xy}\) は、局所結果形成後のセクター密度、時計流束、余面積 Jacobian、付随自由度の体積、解多重度、有限境界幅を含む。正準角を追加しただけでは \(q_{AB}^{xy}\) の共通性は従わない。これは旧共通境界測度の課題を別名で消したものではなく、その残存条件を1つの因子として明示した式である。
-
-\hypertarget{ux4e3bux5b9aux74063}{%
-\section{主定理3}\label{ux4e3bux5b9aux74063}}
-
-\begin{theorem}[共通基準密度下の Bell 完全履歴統計]
-次を仮定する。
-
-1. 第5.3節の余弦枝作用が成立する。
-2. 局所結果が共通未来より前に形成され、左右の局所応答が保たれる。
-3. Bell境界角が候補履歴の残る変数の下で条件付き一様である。
-4. 物理的母測度が整合事象 $G$ に支持を持つ。
-5. 各設定対で $q_{AB}^{xy}=q^{xy}>0$ が4結果に共通である。
-6. 結果依存の失敗周期を捨てない。
-
-このとき、同じ母測度の設定条件付き共同確率は
+\begin{theorem}[最小 Bell 二側履歴測度]
+反対称源、左右局所回転、独立局所 Haar 角、独立未来 Haar 角、整合支持条件 $G$ を仮定する。このとき
 
 $$
-P(A,B\mid x,y)
+P_{\mu_{\rm B}}
+\left(
+A,B
+\mid
+x,y
+\right)
+=
+w_{AB}^{xy}
 =
 \frac14
 \left[
-1
--
-AB\cos\Delta_{xy}
+1-AB\cos\Delta_{xy}
 \right]
 $$
 
-となる。
+であり、設定分布は
+
+$$
+P_{\mu_{\rm B}}(x,y)
+=
+\pi_x\pi_y
+$$
+
+のまま保たれる。
 \end{theorem}
 
-\begin{proof}
-共通 $q^{xy}$ は規格化で相殺する。第5.3節の $\sum_{A,B}K_{AB}^{xy}=\mathcal K$ を用いれば、$P(A,B\mid x,y)=K_{AB}^{xy}/\mathcal K$ となる。
-\end{proof}
+この定理では、 Bell 共同確率を直接基準測度へ置いていない。局所結果セクター体積 \(1/4\) と、交差相関から得た未来区間長 \(w_{AB}^{xy}\) の積を二側条件で規格化している。
 
-定理は、整合支持条件と共通基準密度を置いた後の厳密結果である。具体的な周期写像がこの母測度を生成することは示していない。
+\hypertarget{ux4e00ux822cux57faux6e96ux5bc6ux5ea6ux3068ux306eux95a2ux4fc2}{%
+\section{一般基準密度との関係}\label{ux4e00ux822cux57faux6e96ux5bc6ux5ea6ux3068ux306eux95a2ux4fc2}}
 
-\hypertarget{ux975eux4fe1ux53f7ux5468ux8fbaux3068-chsh-ux5024}{%
-\section{非信号周辺と CHSH 値}\label{ux975eux4fe1ux53f7ux5468ux8fbaux3068-chsh-ux5024}}
-
-\begin{corollary}[対称履歴測度下の非信号性]
-主定理3の条件の下で、
-
-$$
-\sum_B
-P(A,B\mid x,y)
-=
-\frac12,
-\qquad
-\sum_A
-P(A,B\mid x,y)
-=
-\frac12
-$$
-
-である。
-\end{corollary}
-
-共同相関は
-
-\[
-E(x,y)
-=
-\sum_{A,B}
-AB
-P(A,B\mid x,y)
-=
--\cos\Delta_{xy}
-\]
-
-となる。標準4設定では
-
-\[
-\left|
-S_{\rm CHSH}
-\right|
-=
-2\sqrt2
-\]
-
-を得る。これは平面内2出力の理想余弦則に対する値であり、一般 Tsirelson 原理の導出ではない。
-
-\hypertarget{ux6e2cux5b9aux8a2dux5b9aux72ecux7acbux6027ux3068ux8a2dux5b9aux4ecbux5165}{%
-\section{測定設定独立性と設定介入}\label{ux6e2cux5b9aux8a2dux5b9aux72ecux7acbux6027ux3068ux8a2dux5b9aux4ecbux5165}}
-
-設定生成器も \(\Sigma_0\) の正準自由度に含まれる。完全な隠れ変数を \(\Lambda\) とすると、整合支持が設定に依存するため一般に
-
-\[
-\mu_*
-\left(
-d\Lambda
-\mid
-x,y,M=\mathsf{Bell}
-\right)
-\neq
-\mu_*
-\left(
-d\Lambda
-\mid
-M=\mathsf{Bell}
-\right)
-\]
-
-となる。Bell の前提違反は測定設定独立性にある \cite{bell1964,chsh1969,wharton2010,wharton_argaman2020,hall2010,leifer_pusey2017,wood_spekkens2015,price_wharton2023,price_wharton2024,argaman2010,hossenfelder_palmer2020}。局所応答、結果の一意性、理想非信号周辺は維持する。Bell の定理を否定しない。
-
-本稿が求めるのは観測条件付き確率 \(P(A,B\mid x,y)\) である。周期内部の設定生成器を外部から差し替え、設定だけを介入変更した場合に同じ分布が保たれるとは示していない。二側境界模型を、前周期記憶が源と設定の共通原因になる前向き模型と同一視もしない。
-
-\hypertarget{ux57faux6e96ux5bc6ux5ea6ux3068ux6709ux9650ux5e45ux306eux8aa4ux5dee}{%
-\section{基準密度と有限幅の誤差}\label{ux57faux6e96ux5bc6ux5ea6ux3068ux6709ux9650ux5e45ux306eux8aa4ux5dee}}
-
-基準密度を
-
-\[
-q_{AB}^{xy}
-=
-q^{xy}
-\left(
-1+\delta_{AB}^{xy}
-\right)
-\]
-
-とし、
-
-\[
-\varepsilon_{\rm base}
-=
-\max_{A,B,x,y}
-\left|
-\delta_{AB}^{xy}
-\right|
-\]
-
-とする。\(\varepsilon_{\rm base}<1\) なら規格化共同分布の理想余弦則からの偏差は \(O(\varepsilon_{\rm base})\) である。
-
-枝作用、境界角、整合判定を含む実際の未規格化質量を \(W_{AB}^{xy}\) とし、理想共通密度を \(c^{xy}K_{AB}^{xy}\) とする。設定対ごとの総偏差を
-
-\[
-\varepsilon_{\rm Bell}^{xy}
-=
-\frac{
-\sum_{A,B}
-\left|
-W_{AB}^{xy}
--
-c^{xy}K_{AB}^{xy}
-\right|
-}{
-c^{xy}\mathcal K
-}
-\]
-
-と定める。\(\varepsilon_{\rm Bell}^{xy}<1\) なら、規格化後の共同分布と理想分布の全変動距離は
-
-\[
-d_{\rm TV}^{xy}
-\leq
-\frac{
-\varepsilon_{\rm Bell}^{xy}
-}{
-1-
-\varepsilon_{\rm Bell}^{xy}
-}
-\]
-
-で抑えられる。位相雑音、戻り損失、枝作用計算誤差、境界角の非一様性、有限比較幅、基準密度非対称性を分けて監査する。
-
-\hypertarget{ux6bd4ux8f03ux5668ux8a18ux9332ux9006ux8a08ux7b97}{%
-\section{比較器、記録、逆計算}\label{ux6bd4ux8f03ux5668ux8a18ux9332ux9006ux8a08ux7b97}}
-
-共通未来比較器は、設定と戻りモードから \(K_{AB}^{xy}\) と4区間の境界を可逆に計算する。比較器は過去へ制御信号を送らず、局所記録を変更しない。二側境界問題の終端自由度と整合レジスターを与える。
-
-結果を空の外部記録へ可逆にコピーした後、区間計算、枝作用計算、戻り伝播、局所分析器を逆実行できる。異なる結果を外部記録ごと同じ位相点へ戻すことは Hamiltonian flowの1対1性に反する \cite{landauer1961,bennett1982}。反復には外部記録、不要情報モード、仕事源、弱く結合した環境が必要である。
-
-\hypertarget{ux4e3bux5f35ux306eux7bc4ux56f2-1}{%
-\section{主張の範囲}\label{ux4e3bux5f35ux306eux7bc4ux56f2-1}}
-
-本章で得たものは次である。
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  固定左右位相担体と反対称源からの余弦枝作用。
-\item
-  Bell共同確率を同じ母測度の設定条件付き履歴事象として定義する統一形式。
-\item
-  任意の基準密度 \(q_{AB}^{xy}\) を含む一般共同確率式。
-\item
-  共通基準密度下の余弦共同確率、非信号周辺、CHSH値。
-\item
-  Bell の測定設定独立性が成立しないことの明示。
-\end{enumerate}
-
-一方、次は示していない。
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  一般初期集団から反対称源を反復準備すること。
-\item
-  連続した局所状態から安定な唯一結果を形成すること。
-\item
-  整合しない周期を事後選別せず零測度にする Hamiltonian 境界値問題。
-\item
-  4結果の基準密度を共通にする物理的準備。
-\item
-  目的のBell条件付き部分を持つ不変母測度の具体的な生成。
-\item
-  外部設定介入に対する統計の安定性。
-\item
-  一般複合状態、一般測定、一般 Tsirelson 原理。
-\end{enumerate}
-
-\hypertarget{ux8aa4ux5deeux53cdux8a3cux6761ux4ef6ux672aux89e3ux6c7aux554fux984c}{%
-\chapter{誤差、反証条件、未解決問題}\label{ux8aa4ux5deeux53cdux8a3cux6761ux4ef6ux672aux89e3ux6c7aux554fux984c}}
-
-\begin{statusbox}
-位置づけ：現行模型の誤差を、母測度、再帰、相関閉包、正準選択器、作用規格化、有限比較、Bell履歴整合、基準セクター密度、完全周期に分ける。不変性とエルゴード性は仮定であり、具体的な全 Hamiltonian からの導出は主張しない。
-\end{statusbox}
-
-\hypertarget{ux8aa4ux5deeux306eux5206ux96e2}{%
-\section{誤差の分離}\label{ux8aa4ux5deeux306eux5206ux96e2}}
-
-現行模型の主要誤差と未達条件を次のように分ける。
-
-\begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}@{}}
-\toprule\noalign{}
-\begin{minipage}[b]{\linewidth}\raggedright
-記号
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-内容
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-中心結論への影響
-\end{minipage} \\
-\midrule\noalign{}
-\endhead
-\bottomrule\noalign{}
-\endlastfoot
-\(\varepsilon_{\rm inv}\) & 周期写像による母測度不変性の破れ & 試行ごとに統計状態を漂移させる \\
-\(\varepsilon_{\rm ret}\) & 開始面へ戻らない周期または多重計数 & 母数と完了数をずらし、事後選別を生む \\
-\(\varepsilon_{\rm corr}\) & 試行間自己相関と有限混合時間 & 有限試行数の誤差を独立標本評価からずらす \\
-\(\varepsilon_{\rm src}\) & 源の相対振幅・相対位相準備誤差 & 初期相関方向、全作用、Bell可視度をずらす \\
-\(\varepsilon_{\rm rank}\) & 最大固有値以外の相対重量 & 節の残留強度を変える \\
-\(\varepsilon_{\rm close}\) & 非線形項または試行依存 \(h\) による相関閉包誤差 & 交換子発展と階数保存を破る \\
-\(\varepsilon_{\rm loc}\) & 空間グラフの不要な遠距離結合 & 局所性と意図した \(h_L\) を破る \\
-\(\varepsilon_{\rm disc}\) & 離散演算子と連続演算子の差 & Schrödinger 型連続近似をずらす \\
-\(\varepsilon_{\rm sel}\) & 選択器角の条件付き一様性の破れ & 作用区間長と結果頻度の一致を壊す \\
-\(\varepsilon_{\rm norm}\) & 全作用と正規化作用分配の相関 & 比の平均を \(C\) の平均比からずらす \\
-\(\varepsilon_{\rm cmp}\) & 累積、比較、ラッチの有限幅誤差 & 唯一結果と区間境界をずらす \\
-\(\varepsilon_{\rm base}\) & Bell基準セクター密度の非共通性 & 余弦共同分布と非信号周辺をずらす \\
-\(\varepsilon_{\rm hist}\) & Bell整合支持条件の不成立 & 不整合周期または事後選別を生む \\
-\(\varepsilon_{\rm Bell}\) & 枝作用、境界角、基準密度の総偏差 & 共同分布、非信号性、CHSH値をずらす \\
-\(\varepsilon_{\rm cyc}\) & 記録、逆計算、不要情報移送、再準備の周期誤差 & 反復可能性と母測度の再現性を破る \\
-\end{longtable}
-
-これらは独立とは限らない。それでも、どの段階で生じた誤差かを記録し、1つの総誤差だけで原因を隠さない。
-
-\hypertarget{ux6bcdux6e2cux5ea6ux518dux5e30ux9577ux671fux983bux5ea6}{%
-\section{母測度、再帰、長期頻度}\label{ux6bcdux6e2cux5ea6ux518dux5e30ux9577ux671fux983bux5ea6}}
-
-第1章では
-
-\[
-\mathcal R_*\mu_*
-=
-\mu_*,
-\qquad
-\mu_*(\tau<\infty)=1
-\]
-
-と、\(\mu_*\) に関するエルゴード性を仮定した。これらは相関行列または選択器の有限次元代数から従わない。
-
-有限データで不変性を検査するには、試行観測量 \(f_j\) の集合に対し
-
-\[
-\varepsilon_{\rm inv}
-=
-\max_j
-\left|
-\mathbb E_{\mu_*}
-\left[
-f_j\circ\mathcal R
-\right]
--
-\mathbb E_{\mu_*}
-\left[
-f_j
-\right]
-\right|
-\]
-
-を測る。有限個の観測量で零でも、測度全体の不変性を証明したことにはならない。
-
-エルゴード性は長期平均の極限を与えるが、有限試行数での収束率を与えない。結果指示関数、全作用、選択器角、設定、源状態の自己相関を測り、有効標本数を評価する必要がある。混合が遅くてもエルゴード的であり得るため、\(\varepsilon_{\rm corr}\) をエルゴード性の真偽と混同しない。
-
-\hypertarget{ux6b63ux6e96ux9078ux629eux5668ux306eux8aa4ux5dee}{%
-\section{正準選択器の誤差}\label{ux6b63ux6e96ux9078ux629eux5668ux306eux8aa4ux5dee}}
-
-第4章の一般式は
-
-\[
-P_k
-=
-\mathbb E
-\left[
-\frac{I_k}{I_{\rm ph}}
-\right]
-\]
-
-である。選択器角の周辺一様性だけでは足りない。作用分配、測定基底、調製条件の下での条件付き分布を検査する。
-
-全作用変動の補正は
-
-\[
-\varepsilon_{{\rm norm},k}
-=
-\left|
-\frac{
-\operatorname{Cov}
-\left(
-I_{\rm ph},
-I_k/I_{\rm ph}
-\right)
-}{
-\mathbb E[I_{\rm ph}]
-}
-\right|
-\]
-
-である。全作用の分散が小さくても、正規化分配との相関が強ければ無視できない。
-
-比較器の半幅を \(w\) とすると、境界近傍の母測度
-
-\[
-\varepsilon_{\rm cmp}(w)
-=
-\mu_*
-\left(
-\min_k
-\left|u-S_k\right|
-\leq w
-\middle|
-M=\mathsf{basis}
-\right)
-\]
-
-を測る。\(w\) を減らした収束、ラッチの二重作動率、無結果率、結果別失敗率を別に記録する。
-
-\hypertarget{ux76f8ux95a2ux9589ux5305ux3068ux7a7aux9593ux7d50ux5408}{%
-\section{相関閉包と空間結合}\label{ux76f8ux95a2ux9589ux5305ux3068ux7a7aux9593ux7d50ux5408}}
-
-閉包残差 \(D_C\) を
-
-\[
-i\mathcal J_0\dot C
--
-\left[h,C\right]
-=
-D_C
-\]
-
-で定める。有限観測時間 \([0,T]\) の積分誤差を
-
-\[
-\varepsilon_{\rm close}(T)
-=
-\frac1{\mathcal J_0}
-\int_0^T
-\left\|D_C(t)\right\|_{\rm op}
-\,dt
-\]
-
-とする。同じ条件付き集団の中で \(h\) が試行ごとに異なる場合も \(D_C\) に含める。4次以上の項がある場合は、高次モーメント、振幅範囲、観測時間を変えて元の有限試行を直接検証する。
-
-\(h_L\) の物理的実装では、不要な遠距離結合、\(Q\) と \(P\) の結合行列の差、境界条件、格子幅収束を監査する。\(\mathcal J_0^2/(2m)\) は現模型の設計係数であり、調整後に Schrödinger 型方程式と一致することは、その係数の創発的導出ではない。
-
-\hypertarget{ux6e90ux6e96ux5099ux968eux6570ux6b20ux9665ux5e72ux6e09}{%
-\section{源準備、階数欠陥、干渉}\label{ux6e90ux6e96ux5099ux968eux6570ux6b20ux9665ux5e72ux6e09}}
-
-理想出力を \(e^{i\beta^\omega}\chi_0\) とし、実出力を
-
-\[
-b^\omega
-=
-e^{i\beta^\omega}\chi_0
-+
-\delta b^\omega
-\]
-
-と書く。共通位相方向を除いた \(\delta b^\omega\) の2次平均を源準備誤差とする。絶対位相が一様でも \(C\) は階数1になり得るため、\(\mathbb E[b]\) の小ささを準備失敗と判定しない。
-
-階数欠陥については、第3章の節上界
-
-\[
-p_{\rm node}
-\leq
-\varepsilon_{\rm rank}
-\]
-
-を使う。再結合器誤差と位相雑音を含む場合は、節の絶対強度と全変動距離で評価する。閉鎖線形発展では \(\varepsilon_{\rm rank}\) は保存される。
-
-\hypertarget{bell-ux5c65ux6b74ux8aa4ux5dee}{%
-\section{Bell 履歴誤差}\label{bell-ux5c65ux6b74ux8aa4ux5dee}}
-
-Bell側の一般式は
+完全装置では、時計流束、境界面の Jacobian 、付随自由度、解多重度、記録失敗率が結果対に依存する可能性がある。これらをまとめた一般基準密度を \(q_{AB}^{xy}\) とすれば、共同確率は
 
 \[
 P(A,B\mid x,y,G)
@@ -2806,44 +2654,417 @@ q_{A'B'}^{xy}K_{A'B'}^{xy}
 }
 \]
 
-である。従って、余弦枝作用 \(K_{AB}^{xy}\) が正しくても、\(q_{AB}^{xy}\) が不均等なら理想共同分布は得られない。基準密度の結果依存性を、枝作用計算誤差へ吸収して隠さない。
-
-整合支持の失敗率を
-
-\[
-\varepsilon_{\rm hist}
-=
-\mu_*
-\left(
-G^c
-\mid
-M=\mathsf{Bell}
-\right)
-\]
-
-とする。本模型の理想仮定では \(\varepsilon_{\rm hist}=0\) である。実験で \(G^c\) を捨てて零に見せることは許されない。開始数、設定生成数、左右局所記録数、比較完了数、外部記録数、次周期再帰数を設定別・結果別に監査する。
-
-\hypertarget{ux7c92ux5b50ux4f4dux7f6eux3068ux306eux672aux63a5ux7d9a}{%
-\section{粒子位置との未接続}\label{ux7c92ux5b50ux4f4dux7f6eux3068ux306eux672aux63a5ux7d9a}}
-
-第4章の結果 \(E_k^U\) は位相担体モードの選択事象である。粒子位置の主張には、少なくとも次が必要である。
+となる。最小模型の \(q_{AB}^{xy}=1/4\) を完全模型へ拡張するには、少なくとも次が必要である。
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  粒子座標 \(X\) と局所検出器の明示 Hamiltonian。
+  付随測度が局所結果セクターから独立である。
 \item
-  選択された位相担体モードと局所粒子反応の同期。
+  境界面の Jacobian が4結果で共通である。
 \item
-  1試行1粒子結果を保つ増幅と記録。
+  各結果に対応する Hamiltonian 解の多重度が共通である。
 \item
-  途中の粒子流束または連続軌道。
-\item
-  2重スリット検出面での局所反応。
+  戻り伝播、比較、記録の失敗率が結果依存でない。
 \end{enumerate}
 
-これらがない限り、\(P_i=C_{ii}/\operatorname{tr}C\) を粒子の位置 Born 則が完全に導出されたとは評価しない。
+従って本章は、最小因子化模型での基準密度を導出するが、一般完全模型での共通性を無条件には主張しない。
+
+\hypertarget{ux975eux4fe1ux53f7ux6027ux3068-chsh-ux5024}{%
+\section{非信号性と CHSH 値}\label{ux975eux4fe1ux53f7ux6027ux3068-chsh-ux5024}}
+
+余弦重みを一側について和を取ると、
+
+\[
+\sum_B
+w_{AB}^{xy}
+=
+\frac12,
+\qquad
+\sum_A
+w_{AB}^{xy}
+=
+\frac12
+\]
+
+である。従って
+
+\[
+P(A\mid x,y)
+=
+P(A\mid x)
+=
+\frac12,
+\]
+
+\[
+P(B\mid x,y)
+=
+P(B\mid y)
+=
+\frac12
+\]
+
+となる。測定設定独立性は破れるが、理想対称模型の観測周辺は非信号である。
+
+相関は
+
+\[
+E(x,y)
+=
+-\cos
+2
+\left(
+\alpha_x-\beta_y
+\right)
+\]
+
+である。標準角
+
+\[
+\alpha_0=0,
+\qquad
+\alpha_1=\frac{\pi}{4},
+\qquad
+\beta_0=\frac{\pi}{8},
+\qquad
+\beta_1=-\frac{\pi}{8}
+\]
+
+に対し、
+
+\[
+\left|
+S_{\rm CHSH}
+\right|
+=
+2\sqrt2
+\]
+
+を得る。これは反対称4成分状態と平面内2出力に対する値であり、一般 Tsirelson 原理の導出ではない。
+
+\hypertarget{ux6e2cux5b9aux8a2dux5b9aux72ecux7acbux6027}{%
+\section{測定設定独立性}\label{ux6e2cux5b9aux8a2dux5b9aux72ecux7acbux6027}}
+
+完全ミクロ履歴を
+
+\[
+\Lambda
+=
+\left(
+\phi_A,
+\phi_B,
+\theta_F,
+\Lambda_{\rm src},
+\ldots
+\right)
+\]
+
+とする。物理測度では
+
+\[
+d\mu_{\rm B}
+\left(
+\Lambda
+\mid
+x,y
+\right)
+=
+4
+\mathbf1_{G_{xy}}(\Lambda)
+d\nu_{\rm B}^0(\Lambda)
+\]
+
+であり、\(G_{xy}\) は設定を通じて枝区間に依存する。従って一般に
+
+\[
+\mu_{\rm B}
+\left(
+d\Lambda
+\mid
+x,y
+\right)
+\neq
+\mu_{\rm B}
+\left(
+d\Lambda
+\right)
+\]
+
+である。 Bell の前提違反は測定設定独立性にある。局所応答は \(A=A(x,\phi_A)\)、\(B=B(y,\phi_B)\) のままであり、反対側の設定を引数に持たない。 Bell の定理は正しく、本模型はその前提を満たさない。
+
+設定分布保存は、完全ミクロ履歴の設定独立性を回復しない。観測される \(P(x,y)\) が制約前と同じことと、\(P(\Lambda\mid x,y)=P(\Lambda)\) は別の条件である。
+
+\hypertarget{hamiltonian-ux5883ux754cux5024ux554fux984cux3068ux3057ux3066ux306eux610fux5473}{%
+\section{Hamiltonian 境界値問題としての意味}\label{hamiltonian-ux5883ux754cux5024ux554fux984cux3068ux3057ux3066ux306eux610fux5473}}
+
+局所分析器、局所記録、有限速度の戻り伝播、未来での枝作用計算、区間比較、逆計算は、互いに分離した時計窓を持つ有限正準 Hamiltonian 候補として書ける。物理順序は次である。
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  共通源が反対称交差相関を準備する。
+\item
+  左右の担体が分離する。
+\item
+  各翼で設定を生成し、局所分析器を回す。
+\item
+  局所角と局所設定から結果を形成し記録する。
+\item
+  局所担体、設定、記録を有限速度で共通未来へ送る。
+\item
+  共通未来で4個の \(w_{AB}^{xy}\) を可逆計算する。
+\item
+  \(\theta_F\) と記録済み結果の区間を比較する。
+\item
+  終端境界条件として \(G\) を要求する。
+\item
+  計算レジスターを逆計算する。
+\end{enumerate}
+
+時刻 \(t_0\) の準備面と時刻 \(t_F\) の終端面 \(\mathcal B_F\) の両方を満たす軌道を解集合とする。 Hamiltonian 流を \(\Phi_T\) とすれば、許される初期状態は \(\Phi_T^{-1}(\mathcal B_F)\) である。Liouville体積保存により、この引戻し体積は終端区間体積と等しい。
+
+これは終端から過去へ制御力を送る機構ではない。初期条件だけでなく終端条件も満たす全履歴を物理的解とする二側境界値問題である。一方、\(G\) を物理法則として課さず、制約前候補を全て前向き生成して \(G^c\) を実験後に捨てれば、25\%だけを残す事後選別になる。その解釈は採用しない。
+
+\hypertarget{ux4e3bux5f35ux306eux7bc4ux56f2}{%
+\section{主張の範囲}\label{ux4e3bux5f35ux306eux7bc4ux56f2}}
+
+本章で得たものは次である。
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Bell 余弦枝重みと有限 \(L=4\) 作用重みの代数的同値。
+\item
+  左右の局所 Hamiltonian によるテンソル積回転。
+\item
+  独立局所 Haar 角と半円分割からの基準セクター密度 \(1/4\)。
+\item
+  整合事象の総基準体積 \(1/4\) と設定独立性。
+\item
+  二側履歴測度の下での Bell 共同確率と設定分布保存。
+\item
+  理想対称条件での非信号性、 CHSH 値、 Bell 前提監査。
+\end{enumerate}
+
+一方、次は示していない。
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  反対称源の反復可能な物理準備。
+\item
+  二側整合支持条件 \(G\) の物理的必然性。
+\item
+  \(\mu_{\rm B}\) を通常の前向き自律 Hamiltonian の Poincaré 不変測度として生成すること。
+\item
+  付随自由度と境界 Jacobian を含む完全模型での基準密度因子化。
+\item
+  外部設定介入に対する統計安定性。
+\item
+  非対称準備または有限比較幅の下での一般非信号条件。
+\item
+  平面内2出力を超える一般複合測定と一般 Tsirelson 原理。
+\end{enumerate}
+
+\hypertarget{ux8aa4ux5deeux53cdux8a3cux6761ux4ef6ux672aux89e3ux6c7aux554fux984c}{%
+\chapter{誤差、反証条件、未解決問題}\label{ux8aa4ux5deeux53cdux8a3cux6761ux4ef6ux672aux89e3ux6c7aux554fux984c}}
+
+\begin{statusbox}
+位置づけ：固定有限基底周期で解消した事項と、統一母測度、高階数源、滑らかな結果形成、永久記録、粒子検出、 Bell 二側支持に残る事項を分離する。
+\end{statusbox}
+
+\hypertarget{ux8aa4ux5deeux306eux5206ux96e2}{%
+\section{誤差の分離}\label{ux8aa4ux5deeux306eux5206ux96e2}}
+
+現行稿では、次の誤差と未解決条件を別々に追跡する。
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  相関行列閉包と階数欠陥。
+\item
+  有限基底周期のパルス、比較幅、角切断、内部逆計算。
+\item
+  無理数回転の有限標本相関。
+\item
+  高階数源と可変基底の周期統合。
+\item
+  粒子座標と位相担体結果の未接続。
+\item
+  Bell 源、局所結果比較、基準測度の因子化、二側整合支持。
+\end{enumerate}
+
+固定純粋準備・固定基底で Poincaré 写像を明示できたことを、全プログラム共通の統一母測度が完成したことへ拡張しない。
+
+\hypertarget{ux76f8ux95a2ux9589ux5305ux3068ux968eux6570ux6b20ux9665}{%
+\section{相関閉包と階数欠陥}\label{ux76f8ux95a2ux9589ux5305ux3068ux968eux6570ux6b20ux9665}}
+
+試行方程式が
+
+\[
+i\mathcal J_0\dot b
+=
+hb+r
+\]
+
+なら、相関行列は
+
+\[
+i\mathcal J_0\dot C
+=
+\left[h,C\right]
++
+D_C,
+\]
+
+\[
+D_C
+=
+\mathbb E
+\left[
+rb^\dagger-br^\dagger
+\right]
+\]
+
+を満たす。\(D_C\) は非線形閉包残差であり、一般には高次モーメントを含む。有限観測時間 \(T\) の伝播誤差は \(\int_0^T\|D_C(t)\|\,dt\) で評価する。
+
+最大固有値以外の相対重量 \(\varepsilon_{\rm rank}\) は、理想節に残る正規化強度を上から抑える。階数欠陥が有限なら完全暗出力は得られない。閉鎖線形発展では階数と純度が保存されるため、観測中の自発純化を仮定しない。
+
+\hypertarget{ux6709ux9650ux57faux5e95ux5468ux671fux306eux30d1ux30ebux30b9ux8aa4ux5dee}{%
+\section{有限基底周期のパルス誤差}\label{ux6709ux9650ux57faux5e95ux5468ux671fux306eux30d1ux30ebux30b9ux8aa4ux5dee}}
+
+各理想パルス面積を \(1+\eta_r\) とする。準備、基底変換、分岐、 SWAP 、逆パルスの誤差が独立に残る場合、1周期後の内部残差は一般に \(O(\sum_r|\eta_r|)\) である。前向きパルスと逆パルスに同じ系統誤差があり、同じ実現値で厳密に逆になる場合は相殺し得るが、無条件に仮定しない。
+
+時計窓の重なりを
+
+\[
+\varepsilon_{rs}
+=
+\int
+\left|
+g_r(\tau)g_s(\tau)
+\right|
+\,d\tau
+\]
+
+とすれば、非可換生成子の最低次補正は交換子と \(\varepsilon_{rs}\) に比例する。明示定理は相互に重ならない窓を仮定する。有限重なり模型ではMagnus展開または元の Hamiltonian との直接比較で誤差を評価する。
+
+作用読出しはレジスター共役運動量が零の不変集合で入力反作用を消す。入口で \(P_k,P_U,P_M\) が小さくずれる場合、そのずれは信号位相、選択器共役運動量、比較レジスターへ1次で入る。検算では全正準変数を追跡し、座標だけが戻ったことを完全再初期化と呼ばない。
+
+\hypertarget{ux6ed1ux3089ux304bux306aux6bd4ux8f03ux5668}{%
+\section{滑らかな比較器}\label{ux6ed1ux3089ux304bux306aux6bd4ux8f03ux5668}}
+
+理想結果指示関数は不連続である。滑らかな比較半幅を \(w\) とし、固定作用を \(I_{\rm ph}\) とすると、\(L-1\) 個の内部境界近傍の Haar 測度は
+
+\[
+\varepsilon_{\rm cmp}(w)
+\leq
+2(L-1)
+\frac{w}{I_{\rm ph}}
+\]
+
+で抑えられる。円周角を区間へ写す切断点近傍の幅を \(w_{\rm cut}\) とすれば、対応する誤差を別項として加える。
+
+遷移領域外では唯一結果と基底状態を保つ。遷移領域ではテンプレート回転と記録が中間値になり、離散結果として不適格になる。前向きと逆向きに同じ滑らかな制御関数を使う限り、内部逆計算は遷移領域を含めて厳密である。このため「結果形成誤差」と「再初期化残差」を同一視しない。
+
+\hypertarget{ux7121ux7406ux6570ux56deux8ee2ux306eux6709ux9650ux6a19ux672cux7d71ux8a08}{%
+\section{無理数回転の有限標本統計}\label{ux7121ux7406ux6570ux56deux8ee2ux306eux6709ux9650ux6a19ux672cux7d71ux8a08}}
+
+無理数回転は一意エルゴード的であり、各区間の長期訪問頻度を与える。一方、混合的ではないので、結果指示関数の時間相関は一般に有限遅延で消えない。従って、
+
+\[
+\operatorname{Var}N_k
+\sim
+Np_k(1-p_k)
+\]
+
+という独立同分布試行の二項分布型揺らぎを本模型からは導かない。
+
+反証または拡張の検査では、結果頻度だけでなく自己相関、標本分散、連続ブロック頻度を測る。実験的な有限標本統計まで目標に含める場合、無理数回転を混合的なシンプレクティック Poincaré 写像へ置き換える必要がある。
+
+\hypertarget{ux9ad8ux968eux6570ux96c6ux56e3ux3068ux53efux5909ux57faux5e95}{%
+\section{高階数集団と可変基底}\label{ux9ad8ux968eux6570ux96c6ux56e3ux3068ux53efux5909ux57faux5e95}}
+
+一般作用区間公式は高階数相関行列に適用できるが、明示した1次元不変トーラスは固定純粋準備だけを繰り返す。高階数 \(C\) を1本の軌道から生成するには、選択器角とは独立に源状態 \(b^\omega\) を動かすエルゴード自由度が必要である。
+
+また、基底 \(W\) を周期ごとに変える場合、固定 \(W\) ごとの不変トーラスを混合するだけでは一般に全体のエルゴード性を得ない。設定生成器と測定周期を組み合わせたねじれ積型 Poincaré 写像を構成し、調製状態が基底選択に依存しない条件を検証する必要がある。
+
+\hypertarget{ux53cdux5fa9ux53efux80fdux6027ux3068ux6c38ux4e45ux8a18ux9332}{%
+\section{反復可能性と永久記録}\label{ux53cdux5fa9ux53efux80fdux6027ux3068ux6c38ux4e45ux8a18ux9332}}
+
+測定直後の信号は基底状態なので、新しい空テンプレートを持つ第2装置では同じ結果を確率1で再現する。一方、最初の装置のテンプレートには測定前状態が残る。同じ装置を逆計算せず直ちに再使用する反復周期は未構成である。
+
+内部結果記録は保持窓の後に逆計算される。永久外部記録を有限閉鎖系内に残したまま、全自由度を同じ開始点へ戻すことは Hamiltonian 流の1対1性と両立しない。長期反復装置には、循環履歴レジスター、容量を増やす記録自由度、または外部への情報・エネルギー移送が必要である。
+
+\hypertarget{ux7c92ux5b50ux4f4dux7f6eux3068ux306eux672aux63a5ux7d9a}{%
+\section{粒子位置との未接続}\label{ux7c92ux5b50ux4f4dux7f6eux3068ux306eux672aux63a5ux7d9a}}
+
+空間セル基底の結果重みは
+
+\[
+P_i
+=
+\frac{C_{ii}}{\operatorname{tr}C}
+\]
+
+となるが、粒子座標 \(X\) の局所検出事象ではない。粒子検出へ進むには、少なくとも次を示す必要がある。
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  粒子が作動させる局所検出器と位相担体モード \(i\) の結果が一致する。
+\item
+  全セルで1試行1結果が形成される。
+\item
+  粒子運動と相関行列の統計流が有限観測時間で整合する。
+\item
+  有限セル極限から連続位置測定へ移る誤差を制御する。
+\end{enumerate}
+
+従って本稿の結果を「粒子位置 Born 則の導出」とは呼ばない。
+
+\hypertarget{bell-ux57faux6e96ux6e2cux5ea6ux306eux8aa4ux5dee}{%
+\section{Bell 基準測度の誤差}\label{bell-ux57faux6e96ux6e2cux5ea6ux306eux8aa4ux5dee}}
+
+最小 Bell 模型では独立な局所 Haar 角と半円分割から \(q_{AB}^{xy}=1/4\) を得る。完全模型では一般式
+
+\[
+P(A,B\mid x,y,G)
+=
+\frac{
+q_{AB}^{xy}K_{AB}^{xy}
+}{
+\sum_{A',B'}
+q_{A'B'}^{xy}K_{A'B'}^{xy}
+}
+\]
+
+を用いる。\(q_{AB}^{xy}=1/4+\delta q_{AB}^{xy}\) とし、\(\delta q\) が4結果で非共通なら、共同確率だけでなく一側周辺も一般に歪む。
+
+完全模型で追跡すべき量は、局所角の非一様性、左右角の相関、時計流束、境界 Jacobian 、解多重度、結果別記録失敗率、比較幅である。これらの結果依存性が小さいことを数値的一致だけでなく、対称性または誤差上界で示す必要がある。
+
+\hypertarget{bell-ux4e8cux5074ux652fux6301ux3068ux4e8bux5f8cux9078ux5225}{%
+\section{Bell 二側支持と事後選別}\label{bell-ux4e8cux5074ux652fux6301ux3068ux4e8bux5f8cux9078ux5225}}
+
+二側履歴測度
+
+\[
+d\mu_{\rm B}
+=
+4\mathbf1_G
+\,d\nu_{\rm B}^0
+\]
+
+は静的な履歴測度として明示されている。しかし \(G\) を物理的解空間の支持条件とする理由は未導出である。通常の前向き初期値問題で \(\nu_{\rm B}^0\) の候補を全て生成し、測定後に \(G^c\) を捨てるなら採用率は \(1/4\) であり、単なる事後選別になる。
+
+残る中心課題は、有限 Hamiltonian 境界値問題の物理から \(G\) を正当化し、二側履歴測度を反復実験の試行測度へ接続することである。前向き Poincaré 写像の不変測度として自動生成できたとは主張しない。
 
 \hypertarget{bell-ux306eux524dux63d0ux76e3ux67fb}{%
 \section{Bell の前提監査}\label{bell-ux306eux524dux63d0ux76e3ux67fb}}
@@ -2853,62 +3074,51 @@ M=\mathsf{Bell}
   >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.5000}}@{}}
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
-前提
+監査項目
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-現行模型での扱い
+現行模型での判定
 \end{minipage} \\
 \midrule\noalign{}
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-局所応答 & \(A=A(x,\Lambda_A)\)、\(B=B(y,\Lambda_B)\) を維持する \\
-結果の一意性 & 理想局所結果セクターとして仮定する。一般形成機構は未完成 \\
-測定設定独立性 & 成立しない。\(\mu_*(d\Lambda\mid x,y)\) は設定に依存し得る \\
-事後選別なし & \(\mu_*(G\mid M=\mathsf{Bell})=1\) を要求する。物理的生成は未完成 \\
-非信号性 & 共通基準密度と理想余弦枝作用の下で成立する \\
-試行測度 & 相関、有限基底、Bellで共通の \(\mu_*\) を用いる \\
+局所応答 & \(A=A(x,\phi_A)\)、\(B=B(y,\phi_B)\) であり、反対側の設定を参照しない \\
+測定設定独立性 & \(G_{xy}\) により \(\mu_{\rm B}(d\Lambda\mid x,y)\) が設定依存となるため不成立 \\
+結果の一意性 & 理想半円比較では零測度境界を除いて一意。滑らかな比較では有限遷移領域が残る \\
+事後選別 & \(G\) を物理的支持条件とする解釈では行わない。前向き生成後の除外なら25\%事後選別となり不採用 \\
+非信号性 & 反対称4成分重みの理想対称条件で成立。非対称誤差に対する一般条件は未証明 \\
+試行測度 & 最小基準測度と二側条件付き測度は明示。二側支持の物理的準備は未解決 \\
 \end{longtable}
 
-Bell の定理は正しい。本模型がCHSH不等式を破る条件付き相関を持てるのは、Bell の測定設定独立性を満たさないからである。
+Bell の定理は否定されない。本模型が CHSH 不等式を破る論理的理由は、完全履歴の測定設定独立性が成立しないことである。
 
 \hypertarget{ux53cdux8a3cux6761ux4ef6}{%
 \section{反証条件}\label{ux53cdux8a3cux6761ux4ef6}}
 
-次のいずれかが示されれば、対応する現行主張は成立しない。
+現行主線は、次のいずれかが示された場合に修正または棄却が必要になる。
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  同じ条件付き集団の位相担体が共通2次 Hamiltonian に従わず、閉包残差が観測時間で小さくならない。
+  有限基底周期の全正準写像を追跡すると、結果依存の内部残差または時計運動量残差が残る。
 \item
-  周期写像が目的の母測度を保存しない、または結果別に戻らない周期が残る。
+  無理数回転以外の内部変数が Poincaré 断面で準備値へ戻らない。
 \item
-  選択器角が作用分配の下で条件付き一様にならず、偏りが装置極限で消えない。
+  理想模型でも条件付き測定後信号が \(|u_k\rangle\) にならない。
 \item
-  固定作用セクターを準備できず、共分散補正が観測精度より大きい。
+  滑らかな比較器の不適格結果質量が \(w\to0\) で零へ近づかない。
 \item
-  累積比較器の二重結果率または無結果率が比較幅を狭めても消えない。
+  Bell の4成分重みが余弦則へ規格化されない。
 \item
-  単粒子側で測定基底を変えると調製相関 \(C_U\) が変わり、同じ状態の基底測定と解釈できない。
+  最小基準測度で \(q_{AB}^{xy}=1/4\) または \(\nu_{\rm B}^0(G\mid x,y)=1/4\) が成立しない。
 \item
-  Bell基準密度 \(q_{AB}^{xy}\) の非対称性が残り、余弦共同分布または非信号周辺が崩れる。
+  二側条件付けにより設定分布が変わる。
 \item
-  Bell不整合周期を捨てなければ目標分布が出ない。
+  理想 Bell 共同確率の一側周辺が反対設定に依存する。
 \item
-  非信号性が結果依存損失または設定依存の検出効率に依存する。
-\item
-  不要情報を含む拡大全系で、再準備写像を1対1の Hamiltonian 流として実装できない。
+  \(G\) を物理的境界法則として実装できず、実験的手続きが事後除外にしかならない。
 \end{enumerate}
-
-\hypertarget{ux65e7ux6a21ux578bux3092ux5916ux3057ux305fux3053ux3068ux306bux3088ux308bux5909ux66f4}{%
-\section{旧模型を外したことによる変更}\label{ux65e7ux6a21ux578bux3092ux5916ux3057ux305fux3053ux3068ux306bux3088ux308bux5909ux66f4}}
-
-本改訂では、位置結果の主機構から2モード作用殻、共通入口流束、局所作用の排他的全入口転送を外した。これにより、階数1だけでなく高階数相関行列と任意有限基底を扱える。一方、正準角の条件付き一様性と累積比較器が新しい成立条件になった。
-
-Bell側では、2モード比較殻の容量を確率機構から外し、枝作用に比例する区間と二側履歴整合へ置き換えた。しかし、4結果で共通な境界密度の課題は消えていない。新しい一般式では \(q_{AB}^{xy}\) として明示される。
-
-旧2成分誘導場を外したため、循環量子化、粒子・場同期、位相接続による粒子誘導は現行結果に含まれない。Wallstrom問題と粒子の連続運動は未解決である。
 
 \hypertarget{ux6700ux91cdux8981ux306eux672aux89e3ux6c7aux554fux984c}{%
 \section{最重要の未解決問題}\label{ux6700ux91cdux8981ux306eux672aux89e3ux6c7aux554fux984c}}
@@ -2917,27 +3127,27 @@ Bell側では、2モード比較殻の容量を確率機構から外し、枝作
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  \(h_L\) の局所結合構造と係数を、量子力学的演算子の転記でなく、より原始的な有限古典模型から導く。
+  \(h_L\) の局所結合構造と係数を、より原始的な有限古典模型から導く。
 \item
-  目的の \(\mu_*\) を持つ具体的な周期写像を全 Hamiltonian から構成し、不変性、再帰性、仮定したエルゴード性を検証する。
+  可変調製、可変基底、相関観測を含む単一のエルゴード的 Poincaré 写像を構成する。
 \item
-  選択器角の条件付き一様性を、測定結合と再準備を含む周期で維持する。
+  高階数相関行列を1本の軌道から生成する源状態用エルゴード自由度を構成する。
 \item
-  累積作用レジスター、有限幅比較器、唯一結果ラッチ、外部記録、逆計算を1つの滑らかな有限 Hamiltonian へ統合する。
+  選択器写像を混合的なシンプレクティック写像へ強化し、有限標本統計を評価する。
+\item
+  滑らかな有限幅比較、増幅、外部記録、同一装置反復を含む実用的測定周期を構成する。
 \item
   位相担体の有限基底結果を粒子の局所検出と連続運動へ接続する。
 \item
-  非線形項を含む有限時間の相関閉包誤差を制御する。
+  空間グラフの閉路巻数、節、位相すり抜け、連続補間を統合し、 Wallstrom 問題へ回答する。
 \item
-  空間グラフの閉路巻数、節、位相すり抜け、連続補間を統合し、Wallstrom問題へ回答する。
+  反対称 Bell 源を反復可能な有限 Hamiltonian 装置で準備する。
 \item
-  井戸型・調和型ポテンシャル、トンネル効果、Rabi振動を定量検証する。
+  Bell 整合支持条件 \(G\) を有限 Hamiltonian 境界値問題の物理から正当化する。
 \item
-  反対称 Bell源を反復可能な有限 Hamiltonian装置で準備し、相対位相を保持する。
+  付随自由度を含む完全 Bell 模型で基準密度因子化と非信号性の誤差上界を示す。
 \item
-  Bell整合支持条件と共通基準セクター密度を、事後選別なしの二側境界周期として実現する。
-\item
-  非対称準備と有限誤差を含む一般的な非信号条件を示す。
+  外部設定介入に対する二側履歴統計の安定性を定式化する。
 \item
   平面内2出力を超える一般複合状態と局所測定へ拡張する。
 \end{enumerate}
@@ -3011,7 +3221,7 @@ hb
 \hypertarget{ux5b9f2ux6b21-hamiltonian-ux306eux8868ux793a}{%
 \section{実2次 Hamiltonian の表示}\label{ux5b9f2ux6b21-hamiltonian-ux306eux8868ux793a}}
 
-\(h=A+iB\) と分ける。Hermitian 条件から
+\(h=A+iB\) と分ける。 Hermitian 条件から
 
 \[
 A^{\mathsf T}=A,
@@ -3107,7 +3317,7 @@ h
 \end{aligned}
 \]
 
-となる。母測度 \(\mu_*\) を調製条件 \(\mathcal P\) とプログラム \(M\) で条件付ける。同じ条件付き集団の全試行が共通の \(h(t)\) に従い、条件が観測窓で固定され、微分と条件付き平均を交換できるなら、
+となる。調製条件 \(\mathcal P\) と観測プログラム \(M\) を固定した集団測度を \(\mu_{\mathcal P,M}\) とする。同じ集団の全試行が共通の \(h(t)\) に従い、条件が観測窓で固定され、微分と平均を交換できるなら、
 
 \[
 i\mathcal J_0\dot C
@@ -3120,15 +3330,13 @@ i\mathcal J_0\dot C
 \[
 C(t)
 =
-\mathbb E_{\mu_*}
+\mathbb E_{\mu_{\mathcal P,M}}
 \left[
 b_t b_t^\dagger
-\mid
-\mathcal P,M
 \right]
 \]
 
-である。母測度の不変性またはエルゴード性は、この有限時間微分の代数には不要である。これらは同じ条件付き集団を周期間で再現し、長期頻度と母測度確率を結ぶために使う。
+である。周期測度の不変性またはエルゴード性は、この有限時間微分の代数には不要である。第4章では固定プログラムについて周期測度を明示するが、一般の相関集団を同じ周期へ統合したとはしない。
 
 \hypertarget{ux76f8ux95a2ux30b9ux30daux30afux30c8ux30ebux306eux4fddux5b58}{%
 \section{相関スペクトルの保存}\label{ux76f8ux95a2ux30b9ux30daux30afux30c8ux30ebux306eux4fddux5b58}}
@@ -3455,217 +3663,89 @@ v
 
 となる。これは残差の起源を導く式ではなく、試行残差から相関閉包誤差への伝播上界である。
 
-\hypertarget{ux6bcdux6e2cux5ea6ux4f5cux7528ux9078ux629eux5668ux5c65ux6b74ux533aux9593ux306eux8a3cux660e}{%
-\chapter{母測度、作用選択器、履歴区間の証明}\label{ux6bcdux6e2cux5ea6ux4f5cux7528ux9078ux629eux5668ux5c65ux6b74ux533aux9593ux306eux8a3cux660e}}
+\hypertarget{ux4f5cux7528ux533aux9593ux7121ux7406ux6570ux56deux8ee2-bell-ux5c65ux6b74ux4f53ux7a4dux306eux8a3cux660e}{%
+\chapter{作用区間、無理数回転、 Bell 履歴体積の証明}\label{ux4f5cux7528ux533aux9593ux7121ux7406ux6570ux56deux8ee2-bell-ux5c65ux6b74ux4f53ux7a4dux306eux8a3cux660e}}
 
 \begin{statusbox}
-位置づけ：本文第1章、第4章、第5章で用いる母測度の条件付け、エルゴード頻度、作用区間選択、固定作用公式、共分散補正、任意有限基底、Bell履歴区間と基準セクター密度を補足する。不変母測度の力学的生成は仮定である。
+位置づけ：本文第4章と第5章の確率式、不変測度、長期頻度、有限幅上界、 Bell 基準体積を証明する。
 \end{statusbox}
-
-\hypertarget{ux6761ux4ef6ux4ed8ux304dux6bcdux6e2cux5ea6}{%
-\section{条件付き母測度}\label{ux6761ux4ef6ux4ed8ux304dux6bcdux6e2cux5ea6}}
-
-試行開始面を \((\Sigma_0,\mathcal B)\)、母測度を \(\mu_*\) とする。調製条件、プログラム、基底、Bell設定は全て \(\mathcal B\) 可測な開始点の関数またはレジスター領域として扱う。
-
-条件事象 \(D\in\mathcal B\)、\(\mu_*(D)>0\) に対し、
-
-\[
-\mu_*^D(E)
-=
-\frac{
-\mu_*(E\cap D)
-}{
-\mu_*(D)
-}
-\]
-
-とする。本文の \(\mathbb E_{\mu_*}[\cdot\mid\mathcal P,M,U]\) は、連続レジスターでは正則条件付き分布、離散レジスターでは上の条件事象による期待値を表す。
-
-相関行列は
-
-\[
-C_D(t)
-=
-\int_{\Sigma_0}
-b_t(z)b_t(z)^\dagger
-\,d\mu_*^D(z)
-\]
-
-である。有限基底結果とBell結果も同じ \(\mu_*^D\) の事象確率であるため、3つに独立な基礎測度を置かない。
-
-\hypertarget{ux4e0dux5909ux6027ux3068ux30a8ux30ebux30b4ux30fcux30c9ux983bux5ea6}{%
-\section{不変性とエルゴード頻度}\label{ux4e0dux5909ux6027ux3068ux30a8ux30ebux30b4ux30fcux30c9ux983bux5ea6}}
-
-周期写像 \(\mathcal R\) が
-
-\[
-\mathcal R_*\mu_*
-=
-\mu_*
-\]
-
-を満たし、\(\mu_*\) に関してエルゴード的であると仮定する。Birkhoffのエルゴード定理により、\(f\in L^1(\mu_*)\) に対して
-
-\[
-\frac1N
-\sum_{n=0}^{N-1}
-f\left(
-\mathcal R^nz
-\right)
-\longrightarrow
-\int f\,d\mu_*
-\]
-
-が \(\mu_*\) に関してほとんど確実に成立する。
-
-事象 \(E\) の指示関数を取れば
-
-\[
-\frac1N
-\sum_{n=0}^{N-1}
-\mathbf 1_E
-\left(
-\mathcal R^nz
-\right)
-\longrightarrow
-\mu_*(E)
-\]
-
-となる。条件事象 \(D\) が正の測度を持ち、その出現回数が無限に増えるなら、比エルゴード定理または分子と分母への上式の適用により
-
-\[
-\frac{
-\sum_{n=0}^{N-1}
-\mathbf 1_{E\cap D}
-\left(
-\mathcal R^nz
-\right)
-}{
-\sum_{n=0}^{N-1}
-\mathbf 1_D
-\left(
-\mathcal R^nz
-\right)
-}
-\longrightarrow
-\mu_*(E\mid D)
-\]
-
-を得る。これは設定対ごとのBell相対頻度に用いる。エルゴード性は本稿の仮定であり、以下の有限次元積分からは導かれない。
 
 \hypertarget{ux4f5cux7528ux533aux9593ux9078ux629e}{%
 \section{作用区間選択}\label{ux4f5cux7528ux533aux9593ux9078ux629e}}
 
-\(I_k\geq0\)、\(I_{\rm ph}=\sum_kI_k>0\) とする。\(\vartheta\) が \((I_1,\ldots,I_L)\) の下で \([0,2\pi)\) 上に条件付き一様であるとする。
+固定した \(b,W\) に対し、\(I_k\geq0\)、\(I_{\rm ph}=\sum_kI_k>0\) とする。\(u\) が \([0,I_{\rm ph})\) 上で一様なら、結果事象
 
 \[
-u
+E_k
 =
-\frac{\vartheta}{2\pi}
-I_{\rm ph},
-\qquad
-S_k
-=
-\sum_{j=1}^kI_j
+\left\{
+S_{k-1}\leq u<S_k
+\right\}
 \]
 
-とし、\(E_k=\{S_{k-1}\leq u<S_k\}\) とする。
+の Lebesgue 長は \(S_k-S_{k-1}=I_k\) である。従って
 
-\begin{lemma}[作用区間の条件付き確率]
-
-$$
-P(E_k\mid I_1,\ldots,I_L)
+\[
+P(E_k\mid b,W)
 =
 \frac{I_k}{I_{\rm ph}}
-$$
-
-が成立する。
-\end{lemma}
-
-\begin{proof}
-$u$ の条件付き密度は $1/I_{\rm ph}$ である。区間 $[S_{k-1},S_k)$ の長さが $I_k$ なので、積分は $I_k/I_{\rm ph}$ となる。
-\end{proof}
-
-\(I_k=0\) の区間は空であり、正の確率を持たない。境界 \(u=S_k\) の集合は、条件付き一様分布では零測度である。半開区間の選び方は確率を変えない。
-
-\hypertarget{ux6b63ux6e96ux57faux5e95ux6df7ux5408ux3068ux56faux5b9aux4f5cux7528ux516cux5f0f}{%
-\section{正準基底混合と固定作用公式}\label{ux6b63ux6e96ux57faux5e95ux6df7ux5408ux3068ux56faux5b9aux4f5cux7528ux516cux5f0f}}
-
-\(b\in\mathbb C^L\)、\(U^\dagger U=I\) とし、
-
-\[
-I_k
-=
-\mathcal J_0
-\left|
-\left(Ub\right)_k
-\right|^2,
-\qquad
-I_{\rm ph}
-=
-\mathcal J_0b^\dagger b
 \]
 
-とする。ユニタリ性により \(\sum_kI_k=I_{\rm ph}\) である。
+となる。境界集合 \(\{u=S_k\}\) は有限集合なので零測度である。
 
-条件付き相関行列を
+選択器角 \(\vartheta\) が \((b,W,\mathcal P)\) の下で条件付き Haar 分布なら、\(u=I_{\rm ph}\vartheta/(2\pi)\) は条件付き一様である。条件付き期待値を取れば、
 
 \[
-C_U
+P(k\mid W,\mathcal P)
 =
 \mathbb E
 \left[
-bb^\dagger
-\mid
-U,\mathcal P,M=\mathsf{basis}
+\frac{I_k}{I_{\rm ph}}
+\middle|
+W,\mathcal P
 \right]
 \]
 
-とする。\(I_{\rm ph}=I_0\) がほとんど確実なら、
+を得る。
+
+\hypertarget{ux56faux5b9aux4f5cux7528ux516cux5f0fux3068ux5171ux5206ux6563ux88dcux6b63}{%
+\section{固定作用公式と共分散補正}\label{ux56faux5b9aux4f5cux7528ux516cux5f0fux3068ux5171ux5206ux6563ux88dcux6b63}}
+
+\(I_{\rm ph}=I_0\) が集団で固定されるとする。\(I_k=\mathcal J_0|(Wb)_k|^2\) なので、
 
 \[
-\begin{aligned}
-P_k
-&=
-\mathbb E
-\left[
-\frac{I_k}{I_0}
-\right]
-\\
-&=
-\frac{
+\mathbb E[I_k]
+=
 \mathcal J_0
-\mathbb E
-\left|
-\left(Ub\right)_k
-\right|^2
-}{
-I_0
-}
-\\
-&=
-\frac{
 \left(
-UC_UU^\dagger
-\right)_{kk}
-}{
-\operatorname{tr}C_U
-}.
-\end{aligned}
+WCW^\dagger
+\right)_{kk},
 \]
-
-この導出は \(C_U\) の階数を使わない。
-
-\hypertarget{ux5168ux4f5cux7528ux5909ux52d5ux306eux5171ux5206ux6563ux6052ux7b49ux5f0f}{%
-\section{全作用変動の共分散恒等式}\label{ux5168ux4f5cux7528ux5909ux52d5ux306eux5171ux5206ux6563ux6052ux7b49ux5f0f}}
 
 \[
-r_k
+\mathbb E[I_{\rm ph}]
 =
-\frac{I_k}{I_{\rm ph}}
+\mathcal J_0
+\operatorname{tr}C
+=
+I_0
 \]
 
-とする。\(I_k=I_{\rm ph}r_k\) なので、
+である。従って
+
+\[
+P_k
+=
+\frac{
+\left(WCW^\dagger\right)_{kk}
+}{
+\operatorname{tr}C
+}
+\]
+
+を得る。
+
+全作用が変動する場合、\(r_k=I_k/I_{\rm ph}\) と置けば \(I_k=I_{\rm ph}r_k\) だから、
 
 \[
 \mathbb E[I_k]
@@ -3679,208 +3759,342 @@ I_{\rm ph},r_k
 \right)
 \]
 
-である。従って、
+である。\(P_k=\mathbb E[r_k]\) を解けば本文の共分散恒等式を得る。
+
+\hypertarget{ux7121ux7406ux6570ux5186ux56deux8ee2ux306eux4e0dux5909ux6027}{%
+\section{無理数円回転の不変性}\label{ux7121ux7406ux6570ux5186ux56deux8ee2ux306eux4e0dux5909ux6027}}
+
+正規化角 \(r=\vartheta/(2\pi)\in\mathbb R/\mathbb Z\) を用い、
 
 \[
-\mathbb E[r_k]
--
-\frac{
-\mathbb E[I_k]
-}{
-\mathbb E[I_{\rm ph}]
-}
+R_\alpha(r)
 =
--
-\frac{
-\operatorname{Cov}
+r+\alpha
+\pmod1,
+\qquad
+\alpha\notin\mathbb Q
+\]
+
+とする。円周 Haar 測度 \(m\) は平行移動不変なので、任意の可測集合 \(A\) に対し
+
+\[
+m
 \left(
-I_{\rm ph},r_k
+R_\alpha^{-1}A
 \right)
-}{
-\mathbb E[I_{\rm ph}]
-}
-\]
-
-となる。固定作用は共分散を零にする十分条件である。独立性までは不要で、無相関でもよい。
-
-\hypertarget{ux6e2cux5b9aux57faux5e95ux306bux4f9dux5b58ux3057ux306aux3044ux8abfux88fd}{%
-\section{測定基底に依存しない調製}\label{ux6e2cux5b9aux57faux5e95ux306bux4f9dux5b58ux3057ux306aux3044ux8abfux88fd}}
-
-異なる \(U\) に対する条件付き相関を \(C_U\) とする。\(C_U=C\) が全ての許容基底で成立するとき、固定作用公式は
-
-\[
-P_k(U)
 =
-\frac{
-\left(
-UCU^\dagger
-\right)_{kk}
-}{
-\operatorname{tr}C
-}
+m(A)
 \]
 
-となる。
+である。従って \(m\) は不変確率測度である。
 
-\(C_U\neq C\) なら同じ代数は
+一意性を Fourier 係数で示す。\(R_\alpha\) の不変確率測度を \(\nu\) とし、整数 \(n\) に対する Fourier 係数を
 
 \[
-P_k(U)
+\widehat\nu(n)
 =
-\frac{
-\left(
-UC_UU^\dagger
-\right)_{kk}
-}{
-\operatorname{tr}C_U
-}
+\int_0^1
+e^{-2\pi inr}
+\,d\nu(r)
 \]
 
-を与えるだけである。これは基底依存の調製集団に対する式であり、1つの状態 \(C\) の測定基底を変えた結果とは呼べない。
-
-\hypertarget{ux6761ux4ef6ux4ed8ux304dux4e00ux69d8ux6027ux304bux3089ux306eux305aux308c}{%
-\section{条件付き一様性からのずれ}\label{ux6761ux4ef6ux4ed8ux304dux4e00ux69d8ux6027ux304bux3089ux306eux305aux308c}}
-
-理想条件付き角分布を \(m(d\vartheta)=d\vartheta/(2\pi)\)、実分布を \(\rho_{b,U}(d\vartheta)\) とする。任意の区間事象 \(E_k\) に対して、全変動距離の定義から
+とする。不変性から
 
 \[
-\left|
-\rho_{b,U}(E_k)
--
-m(E_k)
-\right|
-\leq
-d_{\rm TV}
+\widehat\nu(n)
+=
+e^{-2\pi in\alpha}
+\widehat\nu(n)
+\]
+
+を得る。\(n\neq0\) かつ \(\alpha\notin\mathbb Q\) なら \(e^{-2\pi in\alpha}\neq1\) なので、\(\widehat\nu(n)=0\) である。\(\widehat\nu(0)=1\) と合わせ、全 Fourier 係数が Haar 測度と一致する。三角多項式の一様稠密性により \(\nu=m\) である。
+
+\hypertarget{ux4e00ux610fux30a8ux30ebux30b4ux30fcux30c9ux6027ux3068ux533aux9593ux983bux5ea6}{%
+\section{一意エルゴード性と区間頻度}\label{ux4e00ux610fux30a8ux30ebux30b4ux30fcux30c9ux6027ux3068ux533aux9593ux983bux5ea6}}
+
+連続関数 \(f\) の時間平均を
+
+\[
+A_Nf(r)
+=
+\frac1N
+\sum_{j=0}^{N-1}
+f
 \left(
-\rho_{b,U},m
+r+j\alpha
 \right)
 \]
 
-である。母測度で平均すれば、
+とする。 Fourier モード \(f_n(r)=e^{2\pi inr}\) に対し、\(n\neq0\) なら
 
 \[
-\left|
-P_k^{\rm real}
--
-P_k^{\rm ideal}
-\right|
+A_Nf_n(r)
+=
+e^{2\pi inr}
+\frac{
+1-e^{2\pi inN\alpha}
+}{
+N
+\left(
+1-e^{2\pi in\alpha}
+\right)
+}
+\]
+
+であり、\(N\to\infty\) で \(r\) に一様に零へ収束する。\(n=0\) では1である。三角多項式近似により、任意の連続 \(f\) について
+
+\[
+A_Nf(r)
+\longrightarrow
+\int_0^1f(s)\,ds
+\]
+
+が一様に成立する。従って回転は一意エルゴード的である。
+
+区間指示関数は端点で不連続だが、端点近傍を除いて上下から連続関数で挟める。よって任意の半開区間 \([a,b)\) について
+
+\[
+\lim_{N\to\infty}
+\frac1N
+\sum_{j=0}^{N-1}
+\mathbf1_{[a,b)}
+\left(
+r+j\alpha
+\right)
+=
+b-a
+\]
+
+である。これを長さ \(p_k\) の結果区間へ適用すると Born 型長期頻度を得る。
+
+\hypertarget{ux7121ux7406ux6570ux56deux8ee2ux306fux6df7ux5408ux7684ux3067ux306aux3044}{%
+\section{無理数回転は混合的でない}\label{ux7121ux7406ux6570ux56deux8ee2ux306fux6df7ux5408ux7684ux3067ux306aux3044}}
+
+Haar 空間上の非定数 Fourier モード \(f_n\) に対し、
+
+\[
+f_n\circ R_\alpha^j
+=
+e^{2\pi inj\alpha}f_n
+\]
+
+である。従って相関
+
+\[
+\int
+f_n
+\overline{f_n\circ R_\alpha^j}
+\,dm
+=
+e^{-2\pi inj\alpha}
+\]
+
+の絶対値は1のままで零へ収束しない。よって無理数回転は混合的でない。一意エルゴード性から長期平均は得られるが、独立同分布型の有限標本揺らぎは従わない。
+
+\hypertarget{ux6709ux9650ux5e45ux5883ux754cux306eux6e2cux5ea6ux4e0aux754c}{%
+\section{有限幅境界の測度上界}\label{ux6709ux9650ux5e45ux5883ux754cux306eux6e2cux5ea6ux4e0aux754c}}
+
+固定作用 \(I_{\rm ph}\) の区間内に \(L-1\) 個の内部境界 \(S_1,\ldots,S_{L-1}\) がある。各境界の半幅 \(w\) 近傍は長さ高々 \(2w\) なので、一様測度と和集合上界から
+
+\[
+\mu_{\chi,W}^{\rm cyc}
+\left(
+\min_{1\leq k<L}
+|u-S_k|<w
+\right)
 \leq
-\mathbb E
+2(L-1)
+\frac{w}{I_{\rm ph}}
+\]
+
+を得る。境界近傍が重なれば左辺はさらに小さい。
+
+角の切断点近傍では、\(f(\vartheta)=\vartheta/(2\pi)\) を円周上の滑らかな関数へ置き換える必要がある。その近傍の Haar 幅を \(\varepsilon_{\rm cut}\) とすれば、全不適格結果質量は右辺に \(\varepsilon_{\rm cut}\) を加えて抑えられる。
+
+\hypertarget{ux9ad8ux968eux6570ux96c6ux56e3ux306bux5fc5ux8981ux306aux8ffdux52a0ux81eaux7531ux5ea6}{%
+\section{高階数集団に必要な追加自由度}\label{ux9ad8ux968eux6570ux96c6ux56e3ux306bux5fc5ux8981ux306aux8ffdux52a0ux81eaux7531ux5ea6}}
+
+固定作用殻上の源状態を \(b^\omega\) とし、選択器角が \(b^\omega\) の下で条件付き一様なら、
+
+\[
+P(k)
+=
+\mathbb E_\omega
 \left[
-d_{\rm TV}
+\left|
+\left(Wb^\omega\right)_k
+\right|^2
+\right]
+=
 \left(
-\rho_{b,U},m
-\right)
+WCW^\dagger
+\right)_{kk}
+\]
+
+である。ただし、本文の1次元不変トーラスでは \(b^\omega=\chi\) が固定される。高階数 \(C\) を単一軌道の時間平均として得るには、\(b^omega\) を動かす別の不変力学と、その力学に条件付けても選択器角が Haar 分布を保つ積構造または十分な結合条件が必要である。
+
+\hypertarget{ux6210ux5206-bell-ux91cdux307f}{%
+\section{4成分 Bell 重み}\label{ux6210ux5206-bell-ux91cdux307f}}
+
+規格化反対称行列を
+
+\[
+\widehat\Xi_0
+=
+\frac1{\sqrt2}
+\begin{pmatrix}
+0&1\\
+-1&0
+\end{pmatrix}
+\]
+
+とする。\(d=\alpha_x-\beta_y\) と置くと、回転の積を直接計算して
+
+\[
+R(\alpha_x)
+\widehat\Xi_0
+R(\beta_y)^{\mathsf T}
+=
+\frac1{\sqrt2}
+\begin{pmatrix}
+\sin d&\cos d\\
+-\cos d&\sin d
+\end{pmatrix}
+\]
+
+を得る。成分の絶対値2乗は
+
+\[
+w_{++}=w_{--}
+=
+\frac12\sin^2d,
+\qquad
+w_{+-}=w_{-+}
+=
+\frac12\cos^2d
+\]
+
+である。\(\sin^2d=(1-\cos2d)/2\)、\(\cos^2d=(1+\cos2d)/2\) から
+
+\[
+w_{AB}^{xy}
+=
+\frac14
+\left[
+1-AB\cos2d
 \right]
 \]
 
-を得る。周辺角分布の全変動距離ではなく、\((b,U,\mathcal P)\) で条件付けた距離を使う必要がある。
+が従う。また全成分の和は1である。
 
-\hypertarget{ux6709ux9650ux5e45ux6bd4ux8f03ux5668}{%
-\section{有限幅比較器}\label{ux6709ux9650ux5e45ux6bd4ux8f03ux5668}}
+\hypertarget{ux5c40ux6240-haar-ux89d2ux306eux57faux6e96ux30bbux30afux30bfux30fc}{%
+\section{局所 Haar 角の基準セクター}\label{ux5c40ux6240-haar-ux89d2ux306eux57faux6e96ux30bbux30afux30bfux30fc}}
 
-理想境界集合を
+固定設定 \(x\) に対し、\(A_x(\phi_A)=\operatorname{sgn}\cos(\phi_A-2\alpha_x)\) の正負領域はそれぞれ長さ \(\pi\) の半円である。従って
 
 \[
-\mathcal D
+P_0(A\mid x)
 =
-\bigcup_{k=1}^{L-1}
-\{u=S_k\}
+\frac12
 \]
 
-とする。有限幅比較器が理想結果と異なり得る領域を
+である。B側も同様であり、\(\phi_A,\phi_B\) の独立性から
 
 \[
-\mathcal D_w
-=
-\left\{
-\min_k
-\left|u-S_k\right|
-\leq w
-\right\}
-\]
-
-へ限定できるなら、結合不等式により理想分布と実分布の全変動距離は
-
-\[
-d_{\rm TV}
-\leq
-\mu_*(\mathcal D_w)
-\]
-
-で抑えられる。
-
-条件付き \(u\) 密度が \(M_u\) 以下なら、粗い上界として
-
-\[
-\mu_*(\mathcal D_w)
-\leq
-2(L-1)M_uw
-\]
-
-を得る。ただし、境界が接近または重複する場合は過大評価である。有限装置では二重ラッチ、無結果、比較順序依存も別に測る。
-
-\hypertarget{bellux679dux533aux9593}{%
-\section{Bell枝区間}\label{bellux679dux533aux9593}}
-
-固定設定 \((x,y)\) で、4つの非負枝作用 \(K_{AB}^{xy}\) が
-
-\[
-\sum_{A,B}
-K_{AB}^{xy}
-=
-\mathcal K
-\]
-
-を満たすとする。\(u_{\rm B}\) を \([0,\mathcal K)\) 上の一様変数とし、区間 \(\mathcal I_{AB}^{xy}\) の長さを \(K_{AB}^{xy}\) とする。
-
-Bell側では \((A,B)\) が先に局所記録されるため、区間は結果生成に使わない。候補完結履歴の結果セクターを固定した後、
-
-\[
-G_{AB}^{xy}
-=
-\left\{
-u_{\rm B}
-\in
-\mathcal I_{AB}^{xy}
-\right\}
-\]
-
-を整合条件とする。
-
-\hypertarget{ux57faux6e96ux30bbux30afux30bfux30fcux5bc6ux5ea6ux3092ux542bux3080-bellux516cux5f0f}{%
-\section{基準セクター密度を含む Bell公式}\label{ux57faux6e96ux30bbux30afux30bfux30fcux5bc6ux5ea6ux3092ux542bux3080-bellux516cux5f0f}}
-
-選択器座標を除く候補履歴変数を \(\zeta\) とする。固定設定と結果セクターで、候補 Liouville 基準要素が
-
-\[
-d\nu_{AB}^{xy}
-=
 q_{AB}^{xy}
-d\bar\nu_{AB}^{xy}(\zeta)
-\frac{du_{\rm B}}{\mathcal K},
-\qquad
-\int
-d\bar\nu_{AB}^{xy}
 =
-1
+P_0(A,B\mid x,y)
+=
+\frac14
 \]
 
-と分解できるとする。\(q_{AB}^{xy}\) は選択器以外の密度と体積を全て含む。
+を得る。
 
-整合事象の基準質量は
+未来角区間の長さが \(w_{AB}^{xy}\) なので、積測度により
 
 \[
-\nu_{AB}^{xy}
+\nu_{\rm B}^0
 \left(
-G_{AB}^{xy}
+A,B,G
+\mid
+x,y
 \right)
 =
-q_{AB}^{xy}
-\frac{K_{AB}^{xy}}{\mathcal K}
+\frac14w_{AB}^{xy}
 \]
 
-である。全4セクターを合わせて規格化すると、
+である。全結果の和と \(\sum_{A,B}w_{AB}^{xy}=1\) から
+
+\[
+\nu_{\rm B}^0
+\left(
+G
+\mid
+x,y
+\right)
+=
+\frac14
+\]
+
+を得る。
+
+\hypertarget{ux4e8cux5074ux6761ux4ef6ux4ed8ux3051ux3068ux8a2dux5b9aux5206ux5e03ux4fddux5b58}{%
+\section{二側条件付けと設定分布保存}\label{ux4e8cux5074ux6761ux4ef6ux4ed8ux3051ux3068ux8a2dux5b9aux5206ux5e03ux4fddux5b58}}
+
+\(d\mu_{\rm B}=4\mathbf1_G\,d\nu_{\rm B}^0\) とする。固定設定で
+
+\[
+P_{\mu_{\rm B}}(A,B\mid x,y)
+=
+\frac{
+\nu_{\rm B}^0(A,B,G\mid x,y)
+}{
+\nu_{\rm B}^0(G\mid x,y)
+}
+=
+w_{AB}^{xy}
+\]
+
+である。また
+
+\[
+P_{\mu_{\rm B}}(x,y)
+=
+4\pi_x\pi_y
+\nu_{\rm B}^0(G\mid x,y)
+=
+\pi_x\pi_y
+\]
+
+なので、設定生成器の分布は保たれる。
+
+\hypertarget{ux975eux4fe1ux53f7ux5468ux8fbaux3068ux6e2cux5b9aux8a2dux5b9aux72ecux7acbux6027}{%
+\section{非信号周辺と測定設定独立性}\label{ux975eux4fe1ux53f7ux5468ux8fbaux3068ux6e2cux5b9aux8a2dux5b9aux72ecux7acbux6027}}
+
+余弦重みを一側で和を取ると、\(B=\pm1\) の線形項が相殺して
+
+\[
+\sum_Bw_{AB}^{xy}
+=
+\frac12
+\]
+
+となる。B側周辺も同様である。これは理想反対称源と共通基準密度に依存する。
+
+一方、\(d\mu_{\rm B}(\Lambda\mid x,y)=4\mathbf1_{G_{xy}}(\Lambda)d\nu_{\rm B}^0(\Lambda)\) であり、\(G_{xy}\) は設定依存である。従って設定分布が保たれても、完全履歴の測定設定独立性は一般に成立しない。
+
+\hypertarget{ux4e00ux822cux57faux6e96ux5bc6ux5ea6}{%
+\section{一般基準密度}\label{ux4e00ux822cux57faux6e96ux5bc6ux5ea6}}
+
+付随自由度を含む基準測度が各結果セクター上で密度 \(q_{AB}^{xy}\) を持つなら、
+
+\[
+\nu^0(A,B,G\mid x,y)
+\propto
+q_{AB}^{xy}K_{AB}^{xy}
+\]
+
+である。条件付き規格化により
 
 \[
 P(A,B\mid x,y,G)
@@ -3893,603 +4107,897 @@ q_{A'B'}^{xy}K_{A'B'}^{xy}
 }
 \]
 
-を得る。
+を得る。\(q_{AB}^{xy}\) が4結果で共通なら余弦則へ戻る。非共通補正は共同分布と周辺分布へ同時に入るため、完全模型では結果別密度を独立に検査する必要がある。
 
-\begin{corollary}[共通基準密度]
-$q_{AB}^{xy}=q^{xy}$ が4結果で共通なら、
-
-$$
-P(A,B\mid x,y,G)
-=
-\frac{K_{AB}^{xy}}{\mathcal K}
-$$
-
-である。
-\end{corollary}
-
-この系は共通性を導くものではない。\(q_{AB}^{xy}\) が不均等なら、一様なBell境界角だけでは余弦共同確率を得られない。
-
-\hypertarget{ux5168ux8a66ux884cux76e3ux67fbux3068ux518dux521dux671fux5316}{%
-\section{全試行監査と再初期化}\label{ux5168ux8a66ux884cux76e3ux67fbux3068ux518dux521dux671fux5316}}
-
-母測度確率を実験頻度と比較するには、次を監査する。
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  各開始点がほとんど確実に有限時間で次の開始面へ戻る。
-\item
-  1周期で結果レジスターが高々1回だけ確定する。
-\item
-  比較境界への複数回交差を重複計数しない。
-\item
-  基底、設定、結果に応じて失敗周期を捨てない。
-\item
-  開始数、設定生成数、局所記録数、比較完了数、外部記録数、再帰数を照合する。
-\item
-  Bell側で整合しない周期を観測後に捨てない。
-\item
-  外部記録と不要情報を含む拡大全系の写像を1対1に保つ。
-\end{enumerate}
-
-異なる結果履歴を外部記録ごと同じ点へ押しつぶす多対1写像は Hamiltonian ではない。結果情報は外部記録、不要情報モード、仕事源、環境のいずれかへ残す必要がある \cite{landauer1961,bennett1982}。
-
-\hypertarget{ux9078ux629eux5668ux5c65ux6b74ux6bd4ux8f03ux5668ux53cdux5fa9ux5468ux671fux306e-hamiltonian-ux5019ux88dc}{%
-\chapter{選択器、履歴比較器、反復周期の Hamiltonian 候補}\label{ux9078ux629eux5668ux5c65ux6b74ux6bd4ux8f03ux5668ux53cdux5fa9ux5468ux671fux306e-hamiltonian-ux5019ux88dc}}
+\hypertarget{ux6709ux9650ux57faux5e95ux6e2cux5b9aux5468ux671fux306eux5b8cux5168ux6b63ux6e96ux69cbux6210}{%
+\chapter{有限基底測定周期の完全正準構成}\label{ux6709ux9650ux57faux5e95ux6e2cux5b9aux5468ux671fux306eux5b8cux5168ux6b63ux6e96ux69cbux6210}}
 
 \begin{statusbox}
-位置づけ：有限基底選択器とBell履歴比較器に必要な正準基底混合、作用加算、有限幅比較、記録、逆計算の候補 Hamiltonian を示す。全構成要素を連結した自律 Hamiltonian、目的の不変母測度、Bell整合支持と共通基準密度は未導出である。
+位置づけ：固定純粋準備・固定有限基底について、信号、テンプレート、レジスター、選択器、時計の全写像を追跡する。理想比較は区分的に滑らかであり、滑らかな比較では結果形成だけが近似になる。
 \end{statusbox}
 
-\hypertarget{ux62e1ux5927ux5168ux7cfbux3068ux30a8ux30cdux30ebux30aeux30fcux53ceux652f}{%
-\section{拡大全系とエネルギー収支}\label{ux62e1ux5927ux5168ux7cfbux3068ux30a8ux30cdux30ebux30aeux30fcux53ceux652f}}
+\hypertarget{ux6b63ux6e96ux81eaux7531ux5ea6}{%
+\section{正準自由度}\label{ux6b63ux6e96ux81eaux7531ux5ea6}}
 
-1試行を担う有限部分を
-
-\[
-\begin{aligned}
-H_{\rm fin}
-={}&
-H_{\rm particles}
-+
-H_{\rm ph}
-+
-H_{\rm prep}
-+
-H_{\rm program}
-+
-H_{\rm selector}
-\\
-&+
-H_{\rm analyzer}
-+
-H_{\rm pointer}
-+
-H_{\rm return}
-+
-H_{\rm compare}
-+
-H_{\rm memory}
-+
-H_{\rm clk}
-\end{aligned}
-\]
-
-とする。外部自由度と仕事源を含め、
+信号とテンプレートを
 
 \[
-H_{\rm all}
+b,t
+\in
+\mathbb C^L,
+\qquad
+b_j
 =
-H_{\rm fin}
-+
-H_{\rm ext}
-+
-\varepsilon_{\rm ext}H_{\rm link}
-+
-H_{\rm work}
+\frac{Q_j^{b}+iP_j^{b}}{\sqrt{2\mathcal J_0}},
+\qquad
+t_j
+=
+\frac{Q_j^{t}+iP_j^{t}}{\sqrt{2\mathcal J_0}}
 \]
 
-とする。\(H_{\rm all}\) は自律 Hamiltonian であり、有限部分だけのエネルギーは
+とする。作用レジスター、閾値、内部記録、選択器、時計は
 
 \[
-\dot E_{\rm fin}
-=
-J_{\rm in}
--
-J_{\rm out}
-+
-P_{\rm ctrl}
+(Q_k,P_k)_{k=1}^L,
+\quad
+(Q_U,P_U),
+\quad
+(Q_M,P_M),
+\quad
+(\vartheta,J_{\rm sel}),
+\quad
+(\tau,P_\tau)
 \]
 
-と変化し得る。測定窓では外部結合を小さくし、有限閉鎖系の正準写像として計算する。試行間では、外部記録、不要情報の移送、源と補助レジスターの再準備に弱開放流路を用い得る。
+である。正準対数は \(3L+4\) である。\(L=2\) では9正準対になる。
 
-\hypertarget{ux6642ux8a08ux3068ux30d7ux30edux30b0ux30e9ux30e0ux7a93}{%
-\section{時計とプログラム窓}\label{ux6642ux8a08ux3068ux30d7ux30edux30b0ux30e9ux30e0ux7a93}}
+周期開始値を
 
-時計作用角を \((I_{\rm clk},\vartheta_{\rm clk})\) とし、
+\[
+b=t=e_1,
+\]
+
+\[
+Q_k=P_k=Q_U=P_U=Q_M=P_M=0,
+\]
+
+\[
+J_{\rm sel}=J_*>0,
+\qquad
+P_\tau=E
+\]
+
+とする。選択器角 \(\vartheta\) だけを自由にする。
+
+\hypertarget{ux6642ux8a08ux7a93ux3068ux81eaux5f8bux5316}{%
+\section{時計窓と自律化}\label{ux6642ux8a08ux7a93ux3068ux81eaux5f8bux5316}}
+
+\(\tau\in S^1\) とし、
 
 \[
 H_{\rm clk}
 =
-\Omega_{\rm clk}I_{\rm clk}
+P_\tau
 \]
 
-とする。各相互作用を、互いに分離した滑らかな周期窓 \(g_j(\vartheta_{\rm clk})\) で作動させる。
-
-測定プログラム \(M\) は、正準レジスターの互いに分離した安定領域として実装する。相互作用を
+と置く。各時計窓 \(g_r(\tau)\) は滑らかで、支持が互いに交わらず、
 
 \[
-H_j
+\int_0^1g_r(\tau)\,d\tau
 =
-g_j(\vartheta_{\rm clk})
-\chi_M(Q_M)
-G_j
+1
 \]
 
-とすれば、滑らかな窓 \(\chi_M\) により有限基底測定とBell測定を分岐できる。\(M\) を外部の非 Hamiltonian 命令として扱わず、開始面 \(\Sigma_0\) の変数へ含める。
-
-\hypertarget{ux56faux5b9aux57faux5e95ux6df7ux5408ux306eux6b63ux6e96ux6027}{%
-\section{固定基底混合の正準性}\label{ux56faux5b9aux57faux5e95ux6df7ux5408ux306eux6b63ux6e96ux6027}}
-
-有限位相担体の実座標を \(Q,P\in\mathbb R^L\) とする。複素ユニタリ行列を \(U=A+iB\) と分けると、実表示
+とする。各窓で生成子 \(G_r\) を作用させ、
 
 \[
-\mathcal U_{\mathbb R}
+H_{\chi,W}^{\rm cyc}
 =
-\begin{pmatrix}
-A&-B\\
-B&A
-\end{pmatrix}
+P_\tau
++
+\sum_{r=1}^{14}
+g_r(\tau)G_r
 \]
 
-は直交かつシンプレクティックである。従って
+とする。\(\dot\tau=1\) なので、これは時間依存制御を正準時計で自律化した有限 Hamiltonian である。
+
+\hypertarget{ux6e96ux5099ux56deux8defux3068ux6e2cux5b9aux57faux5e95}{%
+\section{準備回路と測定基底}\label{ux6e96ux5099ux56deux8defux3068ux6e2cux5b9aux57faux5e95}}
+
+\(U_{\rm prep}e_1=\chi\) を満たすユニタリ行列を選ぶ。 Hermitian 行列 \(K_{\rm prep},K_W\) を
 
 \[
-\begin{pmatrix}
-Q'\\
-P'
-\end{pmatrix}
+U_{\rm prep}
 =
-\mathcal U_{\mathbb R}
-\begin{pmatrix}
-Q\\
-P
-\end{pmatrix}
-\]
-
-は正準変換であり、複素表示では \(b'=Ub\) となる。
-
-任意の有限 \(U\) は、2モード回転と位相回転の有限列へ分解できる。各回転を時計窓で作動させれば、有限正準回路として実装できる。ただし、単粒子側で同じ状態を異なる基底へ測るには、準備分布がプログラム \(U\) に依存しないことが別に必要である。
-
-\hypertarget{ux9078ux629eux5668ux632fux52d5ux5b50}{%
-\section{選択器振動子}\label{ux9078ux629eux5668ux632fux52d5ux5b50}}
-
-選択器の正準対を作用角変数
-
-\[
-\left(
-J_{\rm sel},
-\vartheta_{\rm sel}
-\right)
-\]
-
-とし、自由項を
-
-\[
-H_{\rm sel}
+e^{-iK_{\rm prep}},
+\qquad
+W
 =
-\omega_{\rm sel}J_{\rm sel}
+e^{-iK_W}
 \]
 
-とする。固定作用セクター \(J_{\rm sel}=J_*\) では角が等速回転する。Haar一様角は自由回転で保存されるが、測定結合と再準備を含む全周期で条件付き一様性が保存されることは、この自由項だけから従わない。
+で選べる。複素正準 Hamiltonian
 
-角の切断を避けるには、円周上の基準点を測定窓の外へ置く。実装では \(\vartheta_{ m sel}/(2\pi)\) の周期的な滑らか近似 \(f_w(\vartheta_{ m sel})\) を用い、切断近傍の幅 \(w\) を有限比較誤差へ含める。
+\[
+G_1
+=
+\mathcal J_0
+b^\dagger K_{\rm prep}b,
+\qquad
+G_2
+=
+\mathcal J_0
+b^\dagger K_Wb
+\]
 
-\hypertarget{ux4f5cux7528ux8aadux51faux3057ux3068ux7d2fux7a4dux30ecux30b8ux30b9ux30bfux30fc}{%
-\section{作用読出しと累積レジスター}\label{ux4f5cux7528ux8aadux51faux3057ux3068ux7d2fux7a4dux30ecux30b8ux30b9ux30bfux30fc}}
+の単位面積流は、それぞれ \(b\mapsto U_{\rm prep}b\)、\(b\mapsto Wb\) を生成する。第2窓後には
 
-測定基底混合後の局所作用を
+\[
+b
+=
+W\chi
+\]
+
+である。全位相作用は各ユニタリ正準写像で保存される。
+
+\hypertarget{ux4f5cux7528ux3068ux95beux5024ux306eux8aadux51faux3057}{%
+\section{作用と閾値の読出し}\label{ux4f5cux7528ux3068ux95beux5024ux306eux8aadux51faux3057}}
+
+読出し時のモード作用を
 
 \[
 I_k
 =
-\frac12
-\left[
-\left(Q'_k\right)^2
-+
-\left(P'_k\right)^2
-\right]
+\mathcal J_0|b_k|^2,
+\qquad
+I_{\rm ph}
+=
+\sum_{k=1}^LI_k
 =
 \mathcal J_0
-\left|b'_k\right|^2
 \]
 
-とする。累積レジスターを \((Q_S,P_S)\) とし、\(k\) 番目の加算窓で
+とする。理想角関数を \(f(\vartheta)=\vartheta/(2\pi)\) とし、
 
 \[
-H_{{\rm add},k}
+G_3
 =
-g_k(\vartheta_{\rm clk})
-P_S I_k
-\]
-
-を作動させる。パルス面積を1に取れば、自由発展を無視する理想極限で
-
-\[
-Q_S^{\rm out}
+G_{\rm read}
 =
-Q_S^{\rm in}
+\sum_{k=1}^L
+P_kI_k
 +
-I_k,
+P_UI_{\rm ph}f(\vartheta)
+\]
+
+と置く。Hamilton方程式は
+
+\[
+\dot Q_k=I_k,
 \qquad
-P_S^{\rm out}
+\dot Q_U=I_{\rm ph}f(\vartheta),
+\qquad
+\dot P_k=\dot P_U=0
+\]
+
+を与える。\(P_k=P_U=0\) なので、\(b\) と \(\vartheta\) の方程式へ入る読出し反作用は零である。従って第3窓後に
+
+\[
+Q_k=I_k,
+\qquad
+Q_U
 =
-P_S^{\rm in}
+I_{\rm ph}f(\vartheta)
 \]
 
 となる。
 
-位相担体への反作用は \(P_S\) に比例する。\(P_S=0\) の理想入口では読出し反作用が零であり、加算後も \(P_S=0\) が保たれる。他の Hamiltonian が加算窓中に \(P_S\) を生成しないことが必要である。
+\hypertarget{ux7d50ux679cux6307ux793aux95a2ux6570}{%
+\section{結果指示関数}\label{ux7d50ux679cux6307ux793aux95a2ux6570}}
 
-全作用を格納するレジスター \((Q_T,P_T)\) に対しても、
-
-\[
-H_{\rm total}
-=
-g_T(\vartheta_{\rm clk})
-P_T
-I_{\rm ph}
-\]
-
-を用いられる。選択閾値レジスター \((Q_U,P_U)\) へ
+レジスター座標から
 
 \[
-H_u
+\xi_k(Q,Q_U)
 =
-g_u(\vartheta_{\rm clk})
-P_U
-I_{\rm ph}
-f_w(\vartheta_{\rm sel})
-\]
-
-を作用させれば、理想的に \(Q_U=I_{\rm ph}\vartheta_{\rm sel}/(2\pi)\) を作る。角切断近傍と \(P_U\neq0\) の反作用を有限幅誤差へ含める。
-
-\hypertarget{ux6709ux9650ux5e45ux6bd4ux8f03ux3068ux552fux4e00ux7d50ux679cux30e9ux30c3ux30c1}{%
-\section{有限幅比較と唯一結果ラッチ}\label{ux6709ux9650ux5e45ux6bd4ux8f03ux3068ux552fux4e00ux7d50ux679cux30e9ux30c3ux30c1}}
-
-累積値 \(Q_S\) と閾値 \(Q_U\) の差を、滑らかな単調関数 \(F_w\) で読む。判定レジスター \((Q_{D,k},P_{D,k})\) に
-
-\[
-H_{{\rm cmp},k}
-=
-g_{{\rm cmp},k}
-(\vartheta_{\rm clk})
-P_{D,k}
-F_w
-\left(
-Q_S-Q_U
-\right)
-\]
-
-を作用させると、\(Q_{D,k}\) は比較結果に応じて移動する。\(F_w\) は幅 \(w\) の遷移領域を持ち、\(w\to0\) で符号関数へ近づく。
-
-最初の正の比較だけを結果にするには、空ラッチ領域の滑らかな窓 \(\chi_0(Q_L)\) と結果別ポインター生成子 \(G_{L,k}\) を用い、
-
-\[
-H_{{\rm latch},k}
-=
-g_{{\rm latch},k}
-(\vartheta_{\rm clk})
-\chi_0(Q_L)
-\chi_+(Q_{D,k})
-G_{L,k}
-\]
-
-とする。時計窓を \(k=1,\ldots,L\) の順に分離すれば、最初の正判定後は \(\chi_0(Q_L)\) が零となり、後の結果窓を抑制する候補になる。
-
-この式は滑らかな一方向論理の候補であり、全ての初期条件で完全な一熱安定性、増幅、二重結果の不可能性を証明するものではない。有限幅での二重作動率と無結果率を検証する必要がある。
-
-\hypertarget{ux7d50ux679cux8a18ux9332ux3068ux9006ux8a08ux7b97}{%
-\section{結果記録と逆計算}\label{ux7d50ux679cux8a18ux9332ux3068ux9006ux8a08ux7b97}}
-
-ラッチ結果を空の外部記録セルへ可逆にコピーする。記録コピー後、次を逆順に行う。
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  ラッチ前の判定レジスターを逆計算する。
-\item
-  閾値と累積加算を逆計算する。
-\item
-  基底混合 \(U\) を逆実行する。
-\item
-  補助レジスターを基準領域へ戻す。
-\end{enumerate}
-
-加算の逆は \(-H_{{\rm add},k}\)、閾値計算の逆は \(-H_u\)、基底混合の逆は \(U^\dagger\) である。逆計算に必要な制御履歴を時計または不要情報レジスターへ保持する。
-
-外部記録を含む全状態を同じ点へ戻すことはできない。異なる結果情報は外部記録、不要情報モード、仕事源、環境のどこかへ残る必要がある \cite{landauer1961,bennett1982}。
-
-\hypertarget{bellux6e90ux3068ux5c40ux6240ux5206ux6790ux5668}{%
-\section{Bell源と局所分析器}\label{bellux6e90ux3068ux5c40ux6240ux5206ux6790ux5668}}
-
-Bell左右モードを \(z^A_{\mu r},z^B_{\nu r}\) とする。理想反対称源は
-
-\[
-\Xi_0
-=
-\sqrt{
-\frac{\mathcal K}{2}
-}
+\mathbf1
 \left[
-e_+e_-^{\mathsf T}
--
-e_-e_+^{\mathsf T}
+\sum_{j=1}^{k-1}Q_j
+\leq
+Q_U
+<
+\sum_{j=1}^{k}Q_j
 \right]
 \]
 
-である。2つの直交源チャンネルを
+を定める。境界を除いて
 
 \[
-z^{A,(1)}=a_0e_+,
+\xi_k\in\{0,1\},
 \qquad
-z^{B,(1)}=b_0e_-,
+\sum_{k=1}^L\xi_k=1
 \]
 
-\[
-z^{A,(2)}=a_0e_-,
-\qquad
-z^{B,(2)}=-b_0e_+
-\]
+である。理想指示関数を含む \(H_{\chi,W}^{\rm cyc}\) は比較境界で不連続な区分的 Hamiltonian である。境界は Haar 測度零なので、ほとんど全ての初期角で写像が一意に定まる。
 
-と準備すれば、係数の選択により \(\Xi_0\) を構成できる。
+\hypertarget{ux6761ux4ef6ux4ed8ux304dux30c6ux30f3ux30d7ux30ecux30fcux30c8ux3068ux5185ux90e8ux8a18ux9332}{%
+\section{条件付きテンプレートと内部記録}\label{ux6761ux4ef6ux4ed8ux304dux30c6ux30f3ux30d7ux30ecux30fcux30c8ux3068ux5185ux90e8ux8a18ux9332}}
 
-A側の局所回転生成子を
+\(k>1\) に対し
 
 \[
-G_A
+Y_{1k}
 =
-\sum_r
+-i|1\rangle\langle k|
++
+i|k\rangle\langle1|
+\]
+
+とする。分岐生成子を
+
+\[
+G_4
+=
+G_{\rm branch}
+=
+\frac{\pi\mathcal J_0}{2}
+\sum_{k=2}^L
+\xi_k
+t^\dagger Y_{1k}t
++
+P_M
+\sum_{k=1}^L
+k\xi_k
+\]
+
+とする。唯一の \(\xi_k\) だけが1なので、
+
+\[
+t
+\longmapsto
+e_k,
+\qquad
+Q_M
+\longmapsto
+k
+\]
+
+となる。
+
+レジスター依存の \(\xi_k\) は、一般には \(P_j,P_U\) の方程式へ反作用を生む。しかし理想不変集合では、当該分岐中に
+
+\[
+t^\dagger Y_{1k}t=0,
+\qquad
+P_M=0
+\]
+
+が保たれる。従って \(\partial G_{\rm branch}/\partial Q_j\) と \(\partial G_{\rm branch}/\partial Q_U\) に掛かる係数は零であり、\(P_j=P_U=0\) のままである。
+
+\hypertarget{ux6b63ux6e96-swap}{%
+\section{正準 SWAP}\label{ux6b63ux6e96-swap}}
+
+SWAP 生成子を
+
+\[
+G_{\rm sw}
+=
+i
 \left(
-Q^A_{+r}P^A_{-r}
--
-Q^A_{-r}P^A_{+r}
+b^\dagger t-t^\dagger b
 \right)
 \]
 
-とする。\(H_A=\dot\alpha_xG_A\) はA側だけを \(R(\alpha_x)\) で回転する。B側も同様であり、
+とする。第5窓の生成子を
 
 \[
-\left\{
-G_A,G_B
-\right\}
+G_5
+=
+\frac{\pi\mathcal J_0}{2}
+G_{\rm sw}
+\]
+
+と置く。流れのパラメータを \(s\) とすれば、
+
+\[
+\frac{db}{ds}
+=
+\frac{\pi}{2}t,
+\qquad
+\frac{dt}{ds}
+=
+-\frac{\pi}{2}b
+\]
+
+である。\(s=1\) で
+
+\[
+b\longmapsto t,
+\qquad
+t\longmapsto-b
+\]
+
+となる。従って第5窓後は
+
+\[
+b=e_k,
+\qquad
+t=-W\chi
+\]
+
+である。
+
+\hypertarget{ux6e2cux5b9aux5f8cux57faux5e95ux3068ux4fddux6301ux7a93}{%
+\section{測定後基底と保持窓}\label{ux6e2cux5b9aux5f8cux57faux5e95ux3068ux4fddux6301ux7a93}}
+
+第6窓で
+
+\[
+G_6
+=
+-\mathcal J_0
+b^\dagger K_Wb
+\]
+
+を作用させる。これは \(W^\dagger\) を生成し、
+
+\[
+b
+=
+W^\dagger e_k
+=
+|u_k\rangle
+\]
+
+となる。第7窓は相互作用を置かない保持窓とし、信号と内部記録を読める状態に保つ。
+
+\hypertarget{ux9006ux8a08ux7b97}{%
+\section{逆計算}\label{ux9006ux8a08ux7b97}}
+
+第8窓から第13窓を
+
+\[
+G_8
+=
+\mathcal J_0b^\dagger K_Wb,
+\]
+
+\[
+G_9
+=
+-\frac{\pi\mathcal J_0}{2}G_{\rm sw},
+\]
+
+\[
+G_{10}
+=
+-G_{\rm branch},
+\qquad
+G_{11}
+=
+-G_{\rm read},
+\]
+
+\[
+G_{12}
+=
+-\mathcal J_0b^\dagger K_Wb,
+\qquad
+G_{13}
+=
+-\mathcal J_0b^\dagger K_{\rm prep}b
+\]
+
+とする。第8窓後に \(b=e_k\)、第9窓の逆 SWAP 後に \(b=W\chi\)、\(t=e_k\) となる。第10窓後に \(t=e_1\)、\(Q_M=0\)、第11窓後に \(Q_k=Q_U=0\) となる。第12窓後に \(b=\chi\)、第13窓後に \(b=e_1\) となる。
+
+逆分岐では、前向き分岐と同じレジスター値から同じ \(\xi_k\) を計算する。逆読出しより先に逆分岐を行う必要がある。順序を入れ替えると結果指示関数を再現できない。
+
+\hypertarget{ux9078ux629eux5668ux30c9ux30eaux30d5ux30c8}{%
+\section{選択器ドリフト}\label{ux9078ux629eux5668ux30c9ux30eaux30d5ux30c8}}
+
+第14窓で
+
+\[
+G_{14}
+=
+2\pi\alpha J_{\rm sel},
+\qquad
+\alpha\notin\mathbb Q
+\]
+
+を作用させる。Hamilton方程式から
+
+\[
+\vartheta
+\longmapsto
+\vartheta+2\pi\alpha
+\pmod{2\pi},
+\qquad
+J_{\rm sel}
+\longmapsto
+J_{\rm sel}
+\]
+
+となる。
+
+\hypertarget{ux6642ux8a08ux904bux52d5ux91cfux306eux5e30ux9084}{%
+\section{時計運動量の帰還}\label{ux6642ux8a08ux904bux52d5ux91cfux306eux5e30ux9084}}
+
+各単独窓では \(H=P_\tau+g_r(\tau)G_r\) である。\(G_r\) は自分自身が生成する流れに沿って保存されるので、
+
+\[
+\Delta P_\tau
+=
+-
+\int
+g_r'(\tau)G_r
+\,d\tau
+=
+-G_r
+\left[
+g_r
+\right]_{\rm in}^{\rm out}
 =
 0
 \]
 
-である。設定レジスター \(x,y\) はそれぞれの局所窓だけを制御する。
+である。窓は互いに重ならず、各窓端で \(g_r=0\) なので、全周期後にも \(P_\tau=E\) へ戻る。
 
-\hypertarget{ux623bux308aux4f1dux64adux3068ux679dux4f5cux7528ux8aadux51faux3057}{%
-\section{戻り伝播と枝作用読出し}\label{ux623bux308aux4f1dux64adux3068ux679dux4f5cux7528ux8aadux51faux3057}}
+\hypertarget{poincaruxe9-ux5199ux50cf}{%
+\section{Poincaré 写像}\label{poincaruxe9-ux5199ux50cf}}
 
-局所出力から共通未来比較領域までの線形伝播を
+断面 \(\Sigma_{\chi,W}=\{\tau=0\}\) 内の不変集合を
 
 \[
-z_{{\rm ret},\mu r}^{X}(t)
+\mathcal T_{\chi,W}
 =
-\sum_{\nu,s}
-\int
-G_{\mu r,\nu s}^{X}(t-t')
-z_{{\rm out},\nu s}^{X}(t')
-\,dt'
+\left\{
+b=t=e_1,
+Q_k=P_k=Q_U=P_U=Q_M=P_M=0,
+J_{\rm sel}=J_*,
+P_\tau=E
+\right\}
 \]
 
-と書く。局所有限伝播には \(G^X(t)=0\)、\(t<\tau_X\) が必要である。
-
-局所記録 \(A,B\) に対応する枝振幅 \(\Xi_{AB}^{xy}\) の実部と虚部を比較レジスター \((Q_{\rm R},P_{\rm R})\)、\((Q_{\rm I},P_{\rm I})\) へ写す候補は
+とする。自由なのは \(\vartheta\) だけである。C.3節からC.11節までの写像を合成すると、
 
 \[
-H_{\rm read}
+\mathcal R_{\chi,W}
+\left(
+\vartheta
+\right)
 =
-g_{\rm read}(\vartheta_{\rm clk})
-\left[
-P_{\rm R}
-\operatorname{Re}
-\Xi_{AB}^{xy}
-+
-P_{\rm I}
-\operatorname{Im}
-\Xi_{AB}^{xy}
-\right]
+\vartheta+2\pi\alpha
+\pmod{2\pi}
 \]
 
-である。\(P_{\rm R}=P_{\rm I}=0\) の理想入口では入力モードへの読出し反作用が零である。パルス面積を \(\Gamma\) とすると、
+であり、他の全変数は定義値へ戻る。従って \(\mathcal T_{\chi,W}\) は不変である。
+
+\hypertarget{ux6b21ux5143ux5177ux4f53ux4f8b}{%
+\section{2次元具体例}\label{ux6b21ux5143ux5177ux4f53ux4f8b}}
+
+\(L=2\)、実準備状態
 
 \[
-Q_{\rm R}^{\rm out}
+\chi_a
 =
-\Gamma
-\operatorname{Re}
-\Xi_{AB}^{xy},
+\begin{pmatrix}
+\cos a\\
+\sin a
+\end{pmatrix},
 \qquad
-Q_{\rm I}^{\rm out}
-=
-\Gamma
-\operatorname{Im}
-\Xi_{AB}^{xy}
+0<a<\frac{\pi}{2}
 \]
 
-となる。これらから
+を考える。標準基底測定では
 
 \[
-K_{AB}^{xy}
+I_1
 =
-\left|
-\Xi_{AB}^{xy}
-\right|^2
+\mathcal J_0\cos^2a,
+\qquad
+I_2
+=
+\mathcal J_0\sin^2a
 \]
 
-と4つの累積区間境界を可逆算術レジスターへ計算する。比較器は局所結果の後に働き、結果を生成しない。
-
-\hypertarget{bellux5883ux754cux89d2ux3068ux6574ux5408ux30ecux30b8ux30b9ux30bfux30fc}{%
-\section{Bell境界角と整合レジスター}\label{bellux5883ux754cux89d2ux3068ux6574ux5408ux30ecux30b8ux30b9ux30bfux30fc}}
-
-Bell選択器角を \(\vartheta_{\rm B}\) とし、
+である。差
 
 \[
-u_{\rm B}
+D
 =
-\frac{\vartheta_{\rm B}}{2\pi}
-\mathcal K
-\]
-
-を閾値レジスターへ写す。局所記録済みの \((A,B)\) に対応する区間境界を \((T_{AB}^-,T_{AB}^+)\) とする。2つの有限幅比較器で
-
-\[
-T_{AB}^-
-\leq
-u_{\rm B}
-<
-T_{AB}^+
-\]
-
-を検査し、整合レジスターへ写す。
-
-このレジスターは、既に記録された結果を変更しない。物理的完結履歴が整合領域だけに支持を持つことを表す終端自由度である。通常の前向き初期値問題で不整合レジスターを作った後にその周期を捨てるなら、事後選別になる。
-
-\hypertarget{ux57faux6e96ux30bbux30afux30bfux30fcux5bc6ux5ea6ux306eux4f4dux7f6eux3065ux3051}{%
-\section{基準セクター密度の位置づけ}\label{ux57faux6e96ux30bbux30afux30bfux30fcux5bc6ux5ea6ux306eux4f4dux7f6eux3065ux3051}}
-
-Bell整合区間の長さは \(K_{AB}^{xy}\) である。しかし結果セクターの整合前基準密度 \(q_{AB}^{xy}\) は、上の算術回路から決まらない。\(q_{AB}^{xy}\) は次を含む。
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  局所結果形成後のセクター密度。
-\item
-  時計面の正方向流束。
-\item
-  境界制約の余面積 Jacobian。
-\item
-  比較に直接参加しない付随自由度の体積。
-\item
-  完結履歴の解多重度。
-\item
-  結果窓と比較窓の有限幅。
-\end{enumerate}
-
-正規化された各結果セクターを正準写像で押し出しても、各セクターの総質量は保存される。正準角を追加するだけで \(q_{AB}^{xy}\) が共通になるわけではない。共通性は母測度のBell条件付き部分に必要な独立仮定である。
-
-\hypertarget{ux5468ux671fux306eux5019ux88dcux9806ux5e8f}{%
-\section{1周期の候補順序}\label{ux5468ux671fux306eux5019ux88dcux9806ux5e8f}}
-
-統一周期の候補は次の順序である。
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  時計が開始面 \(\Sigma_0\) を正方向に横切る。
-\item
-  源、プログラム、設定、選択器、空の補助レジスターを準備する。
-\item
-  位相担体を共通2次 Hamiltonian で伝播させる。
-\item
-  有限基底プログラムでは、\(U\)、累積加算、閾値比較、ラッチ、外部記録を実行する。
-\item
-  Bellプログラムでは、局所分析、局所結果記録、戻り伝播、枝作用計算、履歴整合比較を実行する。
-\item
-  結果を外部記録に残し、内部計算を可能な範囲で逆実行する。
-\item
-  消せない情報を不要情報または外部自由度へ移す。
-\item
-  時計が次の開始面へ戻る。
-\end{enumerate}
-
-この順序は周期写像 \(\mathcal R\) の設計図である。全項を1つの自律 Hamiltonian へ連結し、\(\mathcal R_*\mu_*=\mu_*\) とエルゴード性を示した完成模型ではない。
-
-\hypertarget{ux6709ux9650ux5e45ux3068ux53cdux4f5cux7528}{%
-\section{有限幅と反作用}\label{ux6709ux9650ux5e45ux3068ux53cdux4f5cux7528}}
-
-理想パルス \(H_j\) と同時に自由項 \(H_0\) が働くとする。相互作用表示の先頭補正は概略
-
-\[
-\delta\mathcal U_j
+Q_1-Q_U
 =
-O
+\mathcal J_0
 \left(
-\tau_j
-\|H_0\|
-\right)
-+
-O
-\left(
-\tau_j^2
-\left\|
-[H_j,H_0]
-\right\|
+\cos^2a
+-
+\frac{\vartheta}{2\pi}
 \right)
 \]
 
-である。古典系では交換子を対応する Poisson作用素の交換子として読む。読出しレジスターの初期共役運動量が零でなければ、入力モードへの反作用が1次で生じる。
+の符号が結果を定める。結果1の区間長は \(\cos^2a\)、結果2の区間長は \(\sin^2a\) である。テンプレートの条件付き回転は2モード回転1個で足り、正準対数は9となる。
 
-有限幅検証では次を別に測る。
+\hypertarget{ux6ed1ux3089ux304bux306aux6bd4ux8f03ux95a2ux6570}{%
+\section{滑らかな比較関数}\label{ux6ed1ux3089ux304bux306aux6bd4ux8f03ux95a2ux6570}}
 
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  作用加算誤差。
-\item
-  選択角切断近傍の質量。
-\item
-  比較境界近傍の質量。
-\item
-  二重ラッチ率と無結果率。
-\item
-  結果別の記録失敗率。
-\item
-  Bell整合判定の誤り率。
-\item
-  逆計算後の補助レジスター残差。
-\item
-  次周期開始面への再帰誤差。
-\end{enumerate}
+各理想 \(\xi_k\) を、境界から距離 \(w\) 以上では0または1の平坦部を持つ滑らかな関数 \(\xi_{k,w}\) へ置き換える。全生成子で同じ \(\xi_{k,w}\) を使い、逆分岐に \(-G_{\rm branch,w}\) を用いる。
+
+遷移領域では複数の \(\xi_{k,w}\) が中間値を取り得る。テンプレートは一般に基底ベクトルでなくなり、\(Q_M\) も整数にならない。従って結果形成は近似である。一方、 Hamiltonian 流は滑らかで可逆であり、前向き写像の厳密な逆を逆順に作用させるので、内部状態は遷移領域を含めて準備値へ戻る。
+
+理想角関数 \(f(\vartheta)=\vartheta/(2\pi)\) も円周切断点で不連続である。切断点近傍だけを滑らかに接続し、結果誤差を比較境界誤差と分けて評価する。
+
+\hypertarget{ux6c38ux4e45ux8a18ux9332ux306eux9650ux754c}{%
+\section{永久記録の限界}\label{ux6c38ux4e45ux8a18ux9332ux306eux9650ux754c}}
+
+本周期の \(Q_M\) は内部記録であり、第7窓後に逆計算される。保持窓で結果を別の外部記録へコピーすれば、その外部自由度は結果情報を保持する。 Hamiltonian 流の1対1性により、その外部記録まで結果に依存しない同一点へ戻すことはできない。
+
+永久記録を伴う反復装置では、外部自由度を拡大するか、記録を循環履歴レジスターへ移すか、弱開放系として情報とエネルギーを外へ運ぶ必要がある。本付録の閉鎖内部周期は、その外部過程を構成しない。
 
 \hypertarget{ux672aux5c0eux51faux4e8bux9805}{%
 \section{未導出事項}\label{ux672aux5c0eux51faux4e8bux9805}}
 
-本付録の候補 Hamiltonian からは、次は導かれない。
+本付録の明示周期からは、次は導かれない。
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  目的の母測度 \(\mu_*\) の存在、一意性、不変性、エルゴード性。
+  可変準備または可変基底を含む単一のエルゴード周期。
 \item
-  選択器角の条件付き一様性を全周期で維持すること。
+  高階数相関行列を1本の軌道から生成する源力学。
 \item
-  累積、比較、ラッチ、増幅が全初期条件で唯一結果を形成すること。
+  混合性と二項分布型有限標本揺らぎ。
 \item
-  位相担体の選択結果が粒子の局所位置検出になること。
+  同じ装置を内部逆計算前に再使用する反復測定。
 \item
-  一般初期集団から反対称Bell源を準備すること。
+  永久外部記録を含む閉鎖全系の完全帰還。
 \item
-  Bell整合しない周期を事後選別なしで零測度にすること。
+  滑らかな有限時間 Hamiltonian による厳密離散射影。
 \item
-  Bell基準セクター密度 \(q_{AB}^{xy}\) を4結果で共通にすること。
-\item
-  外部設定介入後にも同じBell統計を保つこと。
-\item
-  外部記録を保持しながら無期限に反復する完成周期。
-\item
-  平面内2出力を超える一般測定器と一般 Tsirelson原理。
+  位相担体結果と粒子局所検出の同一性。
 \end{enumerate}
 
-これらは補助模型内部の正準計算の厳密性とは別の、現行統一模型の準備、測定、境界、反復の課題である。
+\hypertarget{bell-ux4e8cux5074ux5c65ux6b74ux6a21ux578bux306eux6b63ux6e96ux5b9fux88c5ux3068ux56e0ux5b50ux5316ux6761ux4ef6}{%
+\chapter{Bell 二側履歴模型の正準実装と因子化条件}\label{bell-ux4e8cux5074ux5c65ux6b74ux6a21ux578bux306eux6b63ux6e96ux5b9fux88c5ux3068ux56e0ux5b50ux5316ux6761ux4ef6}}
+
+\begin{statusbox}
+位置づけ：局所分析器、局所記録、戻り伝播、未来枝計算、整合判定、逆計算の Hamiltonian 候補を示す。二側支持条件は境界法則として置き、前向き初期値問題からの生成とは区別する。
+\end{statusbox}
+
+\hypertarget{ux6b63ux6e96ux81eaux7531ux5ea6ux3068ux7269ux7406ux9806ux5e8f}{%
+\section{正準自由度と物理順序}\label{ux6b63ux6e96ux81eaux7531ux5ea6ux3068ux7269ux7406ux9806ux5e8f}}
+
+Bell 最小模型は次の正準部分系を使う。
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  左右の2モード位相担体と共通源チャンネル。
+\item
+  設定生成器 \(x,y\) と局所分析器。
+\item
+  局所結果角 \(\phi_A,\phi_B\)。
+\item
+  局所結果記録 \((Q_{M_A},P_{M_A})\)、\((Q_{M_B},P_{M_B})\)。
+\item
+  左右情報を共通未来へ運ぶ戻りモード。
+\item
+  交差相関、枝作用、累積境界を計算する正準レジスター。
+\item
+  共通未来角 \((\theta_F,J_F)\) と整合レジスター。
+\item
+  時計 \((\tau,P_\tau)\)。
+\end{enumerate}
+
+全 Hamiltonian 候補は
+
+\[
+H_{\rm B}^{\rm all}
+=
+P_\tau
++
+H_{\rm src}
++
+H_{\rm set}
++
+H_{\rm an}
++
+H_{\rm ptr}
++
+H_{\rm ret}
++
+H_{\rm calc}
++
+H_{\rm cmp}
++
+H_{\rm uncmp}
+\]
+
+と分けられる。各項は互いに重ならない時計窓で作用させる。\(H_{\rm src}\) の反復可能な構成と、二側境界法則の力学的必然性は本付録の入力条件として残る。
+
+\hypertarget{ux5c40ux6240ux5206ux6790ux5668}{%
+\section{局所分析器}\label{ux5c40ux6240ux5206ux6790ux5668}}
+
+A側とB側の平面回転生成子を \(G_A,G_B\) とし、
+
+\[
+\{G_A,G_B\}
+=
+0
+\]
+
+とする。局所分析器 Hamiltonian を
+
+\[
+H_{\rm an}
+=
+g_A(\tau)
+\alpha_xG_A
++
+g_B(\tau)
+\beta_yG_B
+\]
+
+とする。\(g_A,g_B\) は空間的に分離した局所窓を表す。交差相関への作用は
+
+\[
+\Xi_0
+\longmapsto
+R(\alpha_x)
+\Xi_0
+R(\beta_y)^{\mathsf T}
+\]
+
+である。
+
+\hypertarget{ux5c40ux6240ux7d50ux679cux8a18ux9332}{%
+\section{局所結果記録}\label{ux5c40ux6240ux7d50ux679cux8a18ux9332}}
+
+理想局所応答関数を
+
+\[
+A_x(\phi_A)
+=
+\operatorname{sgn}
+\cos
+\left(
+\phi_A-2\alpha_x
+\right),
+\]
+
+\[
+B_y(\phi_B)
+=
+\operatorname{sgn}
+\cos
+\left(
+\phi_B-2\beta_y
+\right)
+\]
+
+とする。局所記録 Hamiltonian 候補は
+
+\[
+H_{\rm ptr}
+=
+g_{M_A}(\tau)
+P_{M_A}A_x(\phi_A)
++
+g_{M_B}(\tau)
+P_{M_B}B_y(\phi_B)
+\]
+
+である。\(P_{M_A}=P_{M_B}=0\) の理想入口では局所結果角への反作用は零であり、単位面積パルス後に \(Q_{M_A}=A\)、\(Q_{M_B}=B\) となる。
+
+符号関数は不連続である。滑らかな有限幅関数へ置き換えると、零点近傍だけで記録が中間値になる。左右の比較幅と結果別失敗率は、基準セクター密度の誤差へ直接入る。
+
+\hypertarget{ux623bux308aux4f1dux64ad}{%
+\section{戻り伝播}\label{ux623bux308aux4f1dux64ad}}
+
+局所担体、設定、記録の情報を戻りモードへ正準交換し、有限速度で共通未来へ伝播させる。戻り伝播 Hamiltonian を
+
+\[
+H_{\rm ret}
+=
+H_{\rm ret}^{A}
++
+H_{\rm ret}^{B}
+\]
+
+とする。各項は同じ翼の局所自由度と戻りモードだけを結合し、分離中に反対翼を参照しない。伝播後、共通未来では \((x,y,A,B)\) と交差相関の必要情報が同じ局所領域へ集まる。
+
+本付録は具体的な伝送路の分散、損失、到着時刻揺らぎを無視した理想交換を用いる。結果依存の伝送効率は \(q_{AB}^{xy}\) を歪めるため、完全模型では独立に評価する。
+
+\hypertarget{ux4ea4ux5deeux76f8ux95a2ux3068ux679dux4f5cux7528ux306eux8aadux51faux3057}{%
+\section{交差相関と枝作用の読出し}\label{ux4ea4ux5deeux76f8ux95a2ux3068ux679dux4f5cux7528ux306eux8aadux51faux3057}}
+
+交差相関成分をレジスター \((Q_{R,AB},P_{R,AB})\) へ読む候補を
+
+\[
+H_{\rm read}
+=
+g_{\rm read}(\tau)
+\sum_{A,B}
+P_{R,AB}
+\left(
+\Xi_{xy}
+\right)_{AB}
+\]
+
+とする。平面実模型では成分が実なので、枝作用レジスター \((Q_{K,AB},P_{K,AB})\) へ
+
+\[
+H_{\rm sq}
+=
+g_{\rm sq}(\tau)
+\sum_{A,B}
+P_{K,AB}
+Q_{R,AB}^2
+\]
+
+を作用させれば、\(Q_{K,AB}=K_{AB}^{xy}\) を得る。複素交差相関では実部と虚部の2レジスターを読み、2乗和を計算する。
+
+全枝作用 \(\mathcal K=\sum_{A,B}K_{AB}^{xy}\) を読み、規格化重み \(w_{AB}^{xy}=K_{AB}^{xy}/\mathcal K\) と累積境界 \(T_j\) を可逆算術レジスターへ計算する。除算は \(\mathcal K>0\) の固定準備領域に限定する。
+
+\hypertarget{ux5171ux901aux672aux6765ux89d2ux3068ux6574ux5408ux5224ux5b9a}{%
+\section{共通未来角と整合判定}\label{ux5171ux901aux672aux6765ux89d2ux3068ux6574ux5408ux5224ux5b9a}}
+
+共通未来角から
+
+\[
+r_F
+=
+\frac{\theta_F}{2\pi}
+\]
+
+を作る。局所記録 \((A,B)\) に対応する累積区間を \(\mathcal I_{AB}^{xy}\) とし、理想整合指示関数を
+
+\[
+\zeta_G
+=
+\mathbf1
+\left[
+r_F
+\in
+\mathcal I_{Q_{M_A},Q_{M_B}}^{xy}
+\right]
+\]
+
+とする。整合レジスター \((Q_G,P_G)\) への候補は
+
+\[
+H_{\rm cmp}
+=
+g_G(\tau)
+P_G\zeta_G
+\]
+
+である。
+
+\(\zeta_G\) は未来角から結果を生成しない。\(Q_{M_A},Q_{M_B}\) は既に局所領域で記録されており、共通未来では整合性だけを計算する。
+
+\hypertarget{ux9006ux8a08ux7b97-1}{%
+\section{逆計算}\label{ux9006ux8a08ux7b97-1}}
+
+整合判定後、枝作用の累積計算、2乗計算、交差相関読出しを逆順・逆符号で戻す。局所記録を内部だけで消す周期を考える場合は、戻り交換と局所記録も逆にする。前向き写像と同じ比較関数を使う限り、有限幅遷移領域を含めて計算レジスターは逆計算できる。
+
+ただし、物理的結果を永久外部記録へコピーした場合、その外部記録は同じ閉鎖周期の準備点へ戻らない。第4章の有限基底周期と同じ情報保存の制限がある。
+
+\hypertarget{ux4e8cux5074ux5883ux754cux9762}{%
+\section{二側境界面}\label{ux4e8cux5074ux5883ux754cux9762}}
+
+準備時刻を \(t_0\)、共通未来時刻を \(t_F\) とし、終端境界面を
+
+\[
+\mathcal B_F
+=
+\left\{
+r_F
+\in
+\mathcal I_{AB}^{xy}
+\right\}
+\]
+
+とする。 Hamiltonian 流 \(\Phi_T\) のうち、準備面と \(\mathcal B_F\) の双方を満たす軌道だけを物理的解とする。許容初期集合は
+
+\[
+\Phi_T^{-1}
+\left(
+\mathcal B_F
+\right)
+\]
+
+である。 Hamiltonian 流はLiouville体積を保存するので、固定した局所結果セクター内で、この引戻し集合の体積は未来区間体積 \(w_{AB}^{xy}\) に比例する。
+
+この境界面は Hamiltonian の力項ではない。初期値問題へ未来から制御信号を追加するのでなく、解集合の支持を定める。なぜ自然界がこの二側境界法則を採用するかは未解決である。
+
+\hypertarget{ux57faux6e96ux6e2cux5ea6ux306eux56e0ux5b50ux5316}{%
+\section{基準測度の因子化}\label{ux57faux6e96ux6e2cux5ea6ux306eux56e0ux5b50ux5316}}
+
+最小模型では
+
+\[
+d\nu_{\rm B}^0
+=
+\pi_x\pi_y
+\frac{d\phi_A}{2\pi}
+\frac{d\phi_B}{2\pi}
+\frac{d\theta_F}{2\pi}
+\]
+
+を直接用いる。完全正準境界面上のLiouville流束測度を \(d\nu_{\rm full}^0\) とすると、最小結果へ還元する十分条件は
+
+\[
+d\nu_{\rm full}^0
+=
+d\nu_{\rm B}^0
+\,d\nu_{\rm aux}
+\]
+
+と因子化し、\(d\nu_{\rm aux}\) の総質量、境界 Jacobian 、解多重度が \(A,B\) に依存しないことである。この条件が破れる場合、結果別係数 \(q_{AB}^{xy}\) を残さなければならない。
+
+\hypertarget{ux8a2dux5b9aux5206ux5e03ux4fddux5b58ux3068ux4ecbux5165}{%
+\section{設定分布保存と介入}\label{ux8a2dux5b9aux5206ux5e03ux4fddux5b58ux3068ux4ecbux5165}}
+
+最小模型では \(\nu_{\rm B}^0(G\mid x,y)=1/4\) が設定に依存しないため、二側条件付け後も \(P(x,y)=\pi_x\pi_y\) である。これは観測された設定頻度の保存である。
+
+一方、外部介入で設定レジスターだけを変更し、他のミクロ境界変数を固定した分布は、条件付き観測分布 \(\mu_{\rm B}(\cdot\mid x,y)\) と同じとは限らない。二側境界模型の介入意味論は未構成であり、設定分布保存だけから介入安定性を結論しない。
+
+\hypertarget{ux6709ux9650ux5e45ux3068ux7d50ux679cux4f9dux5b58ux8aa4ux5dee}{%
+\section{有限幅と結果依存誤差}\label{ux6709ux9650ux5e45ux3068ux7d50ux679cux4f9dux5b58ux8aa4ux5dee}}
+
+完全模型で別々に測るべき誤差は次である。
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  局所結果比較の遷移領域質量。
+\item
+  左右結果角の非一様性と相互相関。
+\item
+  結果別の伝送損失と到着失敗率。
+\item
+  交差相関読出しと2乗計算の残差。
+\item
+  未来区間境界の比較幅。
+\item
+  結果別の境界 Jacobian と解多重度。
+\item
+  逆計算後の全正準変数残差。
+\item
+  外部記録を含む長期反復時の容量増加。
+\end{enumerate}
+
+これらを1個の有効誤差へまとめると、非信号周辺の破れと共同相関の破れを区別できない。共同確率、一側周辺、設定分布、事後除外率を別々に検証する。
+
+\hypertarget{ux672aux5c0eux51faux4e8bux9805-1}{%
+\section{未導出事項}\label{ux672aux5c0eux51faux4e8bux9805-1}}
+
+本付録の Hamiltonian 候補からは、次は導かれない。
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  一般初期集団からの反対称源準備。
+\item
+  二側整合支持条件 \(G\) の物理的必然性。
+\item
+  \(\mu_{\rm B}\) を通常の前向き Poincaré 写像の不変測度として生成すること。
+\item
+  付随自由度を含む完全境界流束測度の結果非依存因子化。
+\item
+  滑らかな有限幅比較での厳密2値結果。
+\item
+  外部設定介入に対する二側統計の安定性。
+\item
+  永久記録を含む有限閉鎖全系の完全再初期化。
+\item
+  平面内2出力を超える一般 Tsirelson 原理。
+\end{enumerate}
 
 \begin{thebibliography}{99}
 

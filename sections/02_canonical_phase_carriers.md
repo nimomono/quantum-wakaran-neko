@@ -178,16 +178,14 @@ U^\dagger U=I
 
 ## 2.4 客観的相関行列
 
-第1章の母測度 $\mu_*$ を、共通調製条件 $\mathcal P$ と測定プログラム $M$ で条件付け、
+共通調製条件 $\mathcal P$ と観測プログラム $M$ を固定した集団測度を $\mu_{\mathcal P,M}$ とし、
 
 ```math
 C_M(t)
 =
-\mathbb E_{\mu_*}
+\mathbb E_{\mu_{\mathcal P,M}}
 \left[
 b_t b_t^\dagger
-\mid
-\mathcal P,M
 \right]
 ```
 
@@ -196,18 +194,16 @@ b_t b_t^\dagger
 ```math
 v^\dagger Cv
 =
-\mathbb E_{\mu_*}
+\mathbb E_{\mu_{\mathcal P,M}}
 \left[
 \left|v^\dagger b\right|^2
-\mid
-\mathcal P,M
 \right]
 \geq0
 ```
 
 なので $C$ は正半定値 Hermitian 行列である。対角成分 $C_{ii}$ は局所作用の集団平均、非対角成分 $C_{ij}$ は相対位相相関を保持する。
 
-$C$ は調製条件とプログラムに依存するが、観測者の主観に依存するとは限らない。同じ源、Hamiltonian、母測度の条件付き集団を再現すれば同じ $C$ が得られるという意味で、温度や流体密度と同様の客観的な集団状態量として扱う。$C$ は独立の統計入力ではなく、同じ $\mu_*$ の2次モーメントである。
+$C$ は調製条件とプログラムに依存するが、観測者の主観に依存するとは限らない。同じ源、 Hamiltonian 、集団測度を再現すれば同じ $C$ が得られるという意味で、温度や流体密度と同様の客観的な集団状態量として扱う。第4章の固定測定周期では $\mu_{\mathcal P,M}$ の1例を $\mu_{\chi,W}^{\rm cyc}$ として明示するが、一般の相関集団を全て同じ周期測度から生成したとはしない。
 
 ## 2.5 セル体積を含む規格化
 
@@ -225,11 +221,9 @@ b_i
 C_{ij}
 =
 \Delta V
-\mathbb E_{\mu_*}
+\mathbb E_{\mu_{\mathcal P,M}}
 \left[
 a_i a_j^*
-\mid
-\mathcal P,M
 \right]
 ```
 
@@ -429,13 +423,11 @@ D_C,
 ```math
 D_C
 =
-\mathbb E_{\mu_*}
+\mathbb E_{\mu_{\mathcal P,M}}
 \left[
 r b^\dagger
 -
 b r^\dagger
-\mid
-\mathcal P,M
 \right]
 ```
 
