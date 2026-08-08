@@ -1,461 +1,324 @@
 @number: 2
 @chapter: 本文
-@title: 有限正準位相担体と階数1相関の準備
-@status: 実正準対、複素振幅、保存全位相作用、相関行列、階数1の同値条件、共通源準備は有限次元で厳密である。一般集団の純化、源の反復可能な再初期化、非線形閉包は未完成である。
+@title: 局所結合された実古典振動子網
+@status: 位置だけで結合した有限古典振動子網、局所回転包絡の厳密方程式、正常モード包絡への正準変換は有限次元で厳密である。局所包絡の Schrödinger 型発展と局所作用保存は弱結合・有限時間の近似である。
 
-## 2.1 実正準対と複素振幅
+## 2.1 3つの記述層
 
-有限モード $i=1,\ldots,L$ に実正準対
+本稿の力学側は、次の3層を区別する。
+
+1. ミクロ層は、実位置 $q_i$ と実運動量 $p_i$ を持つ有限個の古典振動子である。
+2. 有効担体層は、搬送振動を除いた局所複素包絡 $b_i$ である。
+3. 測定装置層は、第4章の作用読出し、比較、正準 SWAP、記録、逆計算を行う理想正準制御系である。
+
+ミクロ層から有効担体層への移行がQ1の対象である。有効担体層を入力とする測定装置はQ2の対象であり、任意の装置用正準混合が局所ばね網だけで実装できるとは仮定しない。
+
+振動子の個数を $L<\infty$、共通質量を $M_{\rm osc}>0$、搬送周波数を $\omega_0>0$ とする。$M_{\rm osc}$ はミクロ振動子の質量であり、第3章に現れる有効質量 $m$ と区別する。固定作用尺度 $\mathcal J_0>0$ は正準座標の規格化に使う。
+
+## 2.2 ミクロ Hamiltonian
+
+実正準対を
 
 ```math
-\left(Q_i,P_i\right),
-\qquad
-\left\{Q_i,P_j\right\}
+\left\{q_i,p_j\right\}
 =
 \delta_{ij}
 ```
 
-を置く。固定作用尺度 $\mathcal J_0>0$ を用いて
+とし、時間非依存な有限振動子網を
 
 ```math
-b_i
+H_{\rm micro}
 =
-\frac{Q_i+iP_i}{\sqrt{2\mathcal J_0}}
-```
-
-と定める。Poisson 括弧は
-
-```math
-\left\{
-b_i,b_j^*
-\right\}
-=
--
-\frac{i}{\mathcal J_0}
-\delta_{ij}
-```
-
-である。$b_i$ は実2次元正準平面の表示であり、量子的な生成消滅演算子ではない。
-
-各モードの作用と全位相作用を
-
-```math
-I_i
-=
-\frac12
+\frac{1}{2M_{\rm osc}}p^{\mathsf T}p
++
+\frac12q^{\mathsf T}
 \left(
-Q_i^2+P_i^2
-\right)
-=
-\mathcal J_0
-\left|b_i\right|^2,
+M_{\rm osc}\omega_0^2I+A
+\right)q
 ```
+
+で定める。$A=A^{\mathsf T}$ は実対称である。局所グラフ $G=(V,E)$ 上では
 
 ```math
-I_{\rm ph}
+A
 =
-\sum_iI_i
-=
-\mathcal J_0b^\dagger b
+D_\delta+L_\kappa
 ```
 
-とする。$I_{\rm ph}$ は状態に依存する保存量、$\mathcal J_0$ は座標尺度である。
-
-## 2.2 有限2次 Hamiltonian
-
-有限 Hermitian 行列 $h(t)=h(t)^\dagger$ に対して
+とし、成分表示を
 
 ```math
-H_{\rm ph}(t)
+H_{\rm micro}
 =
-b^\dagger h(t)b
+\sum_i
+\left[
+\frac{p_i^2}{2M_{\rm osc}}
++
+\frac{M_{\rm osc}\omega_0^2q_i^2}{2}
++
+\frac{\delta_iq_i^2}{2}
+\right]
++
+\frac12
+\sum_{\{i,j\}\in E}
+\kappa_{ij}
+\left(q_i-q_j\right)^2
 ```
 
-と置く。この量は実数であり、$Q_i,P_i$ だけからなる通常の2次 Hamiltonian である。
+と書ける。ここで $\kappa_{ij}=\kappa_{ji}\geq0$ である。$D_\delta$ は対角離調、$L_\kappa$ は重み付きグラフ Laplacian である。
+
+安定条件は
+
+```math
+\omega_0^2I
++
+\frac{A}{M_{\rm osc}}
+>
+0
+```
+
+である。離調 $\delta_i$ は負でもよいが、全剛性行列は正定値でなければならない。本章では浴、散逸、環境残差を加えない。閉鎖有限振動子網だけでQ1の基準定理を構成する。
+
+## 2.3 局所正準座標と回転包絡
+
+各振動子に局所的な規格化座標
+
+```math
+Q
+=
+\sqrt{M_{\rm osc}\omega_0}\,q,
+\qquad
+P
+=
+\frac{p}{\sqrt{M_{\rm osc}\omega_0}}
+```
+
+を導入する。これは頂点ごとに独立な正準変換であり、$\{Q_i,P_j\}=\delta_{ij}$ を保つ。局所複素振幅と回転包絡を
+
+```math
+a
+=
+\frac{Q+iP}{\sqrt{2\mathcal J_0}},
+\qquad
+b(t)
+=
+e^{i\omega_0t}a(t)
+```
+
+と定める。複素数は実2次元正準平面の表示であり、量子的な生成消滅演算子ではない。
+
+摂動行列に対応する有効演算子を
+
+```math
+h_0
+=
+\frac{\mathcal J_0}{2M_{\rm osc}\omega_0}A
+```
+
+とする。$A$ が局所疎行列なら $h_0$ も同じグラフ上で局所的である。
+
+## 2.4 反回転項を含む厳密方程式
 
 <!-- theorem-start:theorem -->
-**定理（有限正準位相担体の発展）**
-$H_{\rm ph}=b^\dagger hb$ の Hamilton 方程式は
+**定理（局所回転包絡の厳密方程式）**
+第2.2節のミクロ Hamiltonian に対し、局所回転包絡は厳密に
 
 ```math
 i\mathcal J_0\dot b
 =
-hb
+h_0b
++
+h_0e^{2i\omega_0t}\overline b
 ```
 
-である。$h$ が Hermitian なら $I_{\rm ph}$ は保存される。
+を満たす。
 <!-- theorem-end:theorem -->
 
 <!-- theorem-start:proof -->
 **証明**
-複素 Poisson 括弧から
+規格化座標で Hamiltonian は
 
 ```math
-\dot b_i
+H_{\rm micro}
 =
-\left\{b_i,H_{\rm ph}\right\}
-=
--
-\frac{i}{\mathcal J_0}
-\frac{\partial H_{\rm ph}}{\partial b_i^*}
-=
--
-\frac{i}{\mathcal J_0}
-\left(hb\right)_i
+\frac{\omega_0}{2}
+\left(P^{\mathsf T}P+Q^{\mathsf T}Q\right)
++
+\frac{1}{2M_{\rm osc}\omega_0}
+Q^{\mathsf T}AQ
 ```
 
-を得る。また
+となる。$Q=\sqrt{\mathcal J_0/2}(a+\overline a)$ を代入し、複素 Poisson 括弧を使うと
 
 ```math
-\frac{d}{dt}
-\left(b^\dagger b\right)
+i\mathcal J_0\dot a
 =
-\frac{i}{\mathcal J_0}
-b^\dagger hb
--
-\frac{i}{\mathcal J_0}
-b^\dagger hb
-=
-0
+\mathcal J_0\omega_0a
++
+h_0
+\left(a+\overline a\right)
 ```
 
-である。
+を得る。$b=e^{i\omega_0t}a$ へ移れば結論が従う。
 <!-- theorem-end:proof -->
 
-共通回転 $b\mapsto e^{i\beta}b$ は全位相作用 $I_{\rm ph}$ が生成する。観測可能な混合と干渉は絶対位相でなく、モード間の相対位相に依存する。
-
-## 2.3 局所回転、分岐、再結合
-
-実数 $\epsilon_i(t)$ による局所位相蓄積は
+第2項は反回転項である。位置結合だけの実ばね網では、この項を厳密に消すことはできない。従って
 
 ```math
-H_{\rm phase}
+i\mathcal J_0\dot b
 =
-\sum_i
-\epsilon_i(t)
-\left|b_i\right|^2
+h_0b
 ```
 
-で実装できる。$i$ と $j$ の2モード混合は
+をミクロ方程式として最初から置くのは正しくない。第3章で、反回転項の効果を正常モード変換と弱結合展開により有限時間で評価する。
+
+## 2.5 局所作用は厳密保存量ではない
+
+局所包絡から作る作用を
 
 ```math
-H_{ij}
+I_{\rm loc}(t)
 =
-g_{ij}(t)
+\mathcal J_0b(t)^\dagger b(t)
+```
+
+とする。厳密方程式から
+
+```math
+\frac{dI_{\rm loc}}{dt}
+=
+2
+\operatorname{Im}
+\left[
+b^\dagger h_0
+e^{2i\omega_0t}
+\overline b
+\right]
+```
+
+となり、一般には零でない。保存されるのはミクロエネルギーであり、局所回転包絡の作用ではない。
+
+この点は第4章との接続で重要である。測定器へ入る直前の $I_{\rm loc}$ を読み、その時点の作用比 $I_k/I_{\rm loc}$ を使う単発測定は定義できる。しかし、伝播中の局所作用を厳密保存量として扱ったり、準備から測定まで自動的に同じ規格化が保たれると主張したりしてはならない。
+
+## 2.6 厳密正常モード包絡
+
+正定値行列
+
+```math
+\Omega
+=
 \left(
-b_i^*b_j+b_j^*b_i
+\omega_0^2I
++
+\frac{A}{M_{\rm osc}}
+\right)^{1/2}
+```
+
+を定める。$\Omega$ を使って正常モード正準振幅 $c$ を作り、搬送回転を除いた厳密包絡を
+
+```math
+\widetilde b(t)
+=
+e^{i\omega_0t}c(t)
+```
+
+とする。付録Aで正準変換を明示し、厳密に
+
+```math
+i\mathcal J_0\dot{\widetilde b}
+=
+h_{\rm ex}\widetilde b,
+\qquad
+h_{\rm ex}
+=
+\mathcal J_0
+\left(
+\Omega-\omega_0I
 \right)
 ```
 
-または位相をずらした Hermitian 結合で実装できる。有限時間の流れはユニタリ行列 $U$ として
+が成立することを示す。
+
+$\widetilde b$ は厳密に $\mathcal J_0\widetilde b^\dagger\widetilde b$ を保存する。ただし $\Omega$ の行列平方根を含むので、一般には各頂点だけで定義できる局所変数ではない。役割分担は次の通りである。
+
+| 包絡 | 局所性 | 発展 | 作用保存 |
+|---|---|---|---|
+| $b$ | 頂点ごとに局所 | 反回転項を含めて厳密 | 一般には近似 |
+| $\widetilde b$ | 一般には非局所 | $h_{\rm ex}$ で厳密 | 厳密 |
+| 有効解 $b_L$ | 目標グラフ上で局所 | $h_L$ で近似 | 有効模型内で厳密 |
+
+## 2.7 目標グラフ演算子との係数対応
+
+有限空間グラフの重みを $g_{ij}=g_{ji}\geq0$ とし、
 
 ```math
-b_{\rm out}
+\left(L_G\chi\right)_i
 =
-Ub_{\rm in},
-\qquad
-U^\dagger U=I
+\sum_{j:\{i,j\}\in E}
+g_{ij}
+\left(\chi_i-\chi_j\right)
 ```
 
-と書ける。ここでユニタリ性は量子仮説でなく、全位相作用を保存する線形正準写像の複素表示である。
-
-経路モード $r$ が局所項 $\epsilon_r(t)|b_r|^2$ に従うなら、相対位相は
+とする。目標とする実対称演算子を
 
 ```math
-\theta_r(t)-\theta_s(t)
+h_L
 =
-\theta_r(0)-\theta_s(0)
--
-\frac1{\mathcal J_0}
-\int_0^t
-\left[
-\epsilon_r(u)-\epsilon_s(u)
-\right]
-\,du
-```
-
-となる。この式は位相担体が経路差の履歴を保持できることを示す。ただし、積分が粒子の古典作用差と一致することは別の導出を要する。
-
-## 2.4 客観的相関行列
-
-共通調製条件 $\mathcal P$ と観測プログラム $M$ を固定した集団測度を $\mu_{\mathcal P,M}$ とし、
-
-```math
-C_M(t)
-=
-\mathbb E_{\mu_{\mathcal P,M}}
-\left[
-b_t b_t^\dagger
-\right]
-```
-
-と定める。以下、条件を固定して混同がない場合は添字 $M$ と時刻 $t$ を省く。任意の $v\in\mathbb C^L$ に対して
-
-```math
-v^\dagger Cv
-=
-\mathbb E_{\mu_{\mathcal P,M}}
-\left[
-\left|v^\dagger b\right|^2
-\right]
-\geq0
-```
-
-なので $C$ は正半定値 Hermitian 行列である。対角成分 $C_{ii}$ は局所作用の集団平均、非対角成分 $C_{ij}$ は相対位相相関を保持する。
-
-$C$ は調製条件とプログラムに依存するが、観測者の主観に依存するとは限らない。同じ源、 Hamiltonian 、集団測度を再現すれば同じ $C$ が得られるという意味で、温度や流体密度と同様の客観的な集団状態量として扱う。第4章の固定測定周期では $\mu_{\mathcal P,M}$ の1例を $\mu_{\chi,W}^{\rm cyc}$ として明示するが、一般の相関集団を全て同じ周期測度から生成したとはしない。
-
-## 2.5 セル体積を含む規格化
-
-空間セルの体積を $\Delta V$ とする。連続密度に対応する振幅 $a_i$ を使う場合は、セル体積を吸収した正準振幅
-
-```math
-b_i
-=
-\sqrt{\Delta V}\,a_i
-```
-
-を相関行列の定義に用いる。従って
-
-```math
-C_{ij}
-=
-\Delta V
-\mathbb E_{\mu_{\mathcal P,M}}
-\left[
-a_i a_j^*
-\right]
-```
-
-であり、正規化対角成分
-
-```math
-p_i
-=
-\frac{C_{ii}}{\operatorname{tr}C}
-```
-
-は既に規格化セル重みである。$p_i$ へさらに $\Delta V$ を掛けない。
-
-階数1因子を $\chi$ とし、$\chi^\dagger\chi=1$ とする。連続密度表示を
-
-```math
-\psi_i
-=
-\frac{\chi_i}{\sqrt{\Delta V}}
-```
-
-と定めれば、
-
-```math
-p_i
-=
-\left|\chi_i\right|^2
-=
-\left|\psi_i\right|^2
-\Delta V,
-\qquad
-\sum_i p_i=1
-```
-
-となる。
-
-## 2.6 階数1条件の意味
-
-<!-- theorem-start:theorem -->
-**定理（階数1相関と試行振幅の同値条件）**
-$C\neq0$ とする。次の2条件は同値である。
-
-1. $C=\Lambda\chi\chi^\dagger$、$\Lambda>0$、$\chi^\dagger\chi=1$。
-2. ある複素確率変数 $c^\omega$ が存在し、$b^\omega=c^\omega\chi$ がほとんど確実に成立する。
-
-このとき $\Lambda=\mathbb E|c^\omega|^2$ である。
-<!-- theorem-end:theorem -->
-
-証明は付録Aに置く。この定理により、階数1は「平均すると1方向だけが残る」という弱い条件ではない。各試行の振幅ベクトルが共通射影方向 $\chi$ にあることを要求する。絶対位相と全振幅は試行ごとに異なってよいが、相対振幅と相対位相は共通でなければならない。
-
-従って、旧2成分場模型の標本間コヒーレント集中を単に弱い条件へ置き換えたとは言えない。準備問題の位置を、実在連続場の集中から有限共通源の出力方向へ移したのである。
-
-## 2.7 共通源による階数1準備
-
-入力モードを $e_0$ とし、各試行で
-
-```math
-b_{\rm in}^\omega
-=
-e^{i\beta^\omega}e_0
-```
-
-を準備する。$\beta^\omega$ は試行ごとに任意でよい。有限正準準備回路 $U_{\rm prep}$ が
-
-```math
-U_{\rm prep}e_0
-=
-\chi_0,
-\qquad
-\chi_0^\dagger\chi_0=1
-```
-
-を満たすなら、
-
-```math
-b_{\rm out}^\omega
-=
-e^{i\beta^\omega}\chi_0
-```
-
-となる。
-
-<!-- theorem-start:proposition -->
-**命題（共通源による階数1相関）**
-上の準備では、$\mathbb E[b_{\rm out}]=0$ であっても
-
-```math
-C_{\rm out}
-=
-\chi_0\chi_0^\dagger
-```
-
-が成立する。
-<!-- theorem-end:proposition -->
-
-共通絶対位相を固定する必要はない。必要なのは、1つの源から全モードの相対振幅と相対位相を同じ正準回路で作ることである。
-
-## 2.8 準備回路の物理的範囲
-
-任意の有限次元ユニタリ行列は、2モード混合と局所位相回転の有限列へ分解できる。従って、与えられた $\chi_0$ を準備する有限2次 Hamiltonian 回路は構成できる。
-
-ただし、この事実は任意の量子状態が自然に生成されることを意味しない。$\chi_0$ を装置へ設計値として入れれば、その相対振幅を古典回路へ符号化しただけである。物理源、外部ポテンシャル、境界条件から特定の $\chi_0$ が選ばれる機構は別に示す必要がある。
-
-また、反復運転には次が必要である。
-
-1. 源モードの作用を毎試行同じ範囲へ戻す。
-2. 前試行の相対位相情報を不要自由度へ移す。
-3. 外部記録を保ったまま有限装置を再初期化する。
-4. 源の失敗率を結果依存に除外しない。
-
-本稿は理想準備写像を明示するが、この全再初期化周期を完成していない。
-
-## 2.9 近似階数1
-
-$C$ の固有値を $\lambda_1\geq\lambda_2\geq\cdots\geq0$ とし、主固有ベクトルを $\chi$ とする。階数欠陥を
-
-```math
-\varepsilon_{\rm rank}
-=
-1
--
-\frac{\lambda_1}{\operatorname{tr}C}
-```
-
-と定める。すると
-
-```math
-C
-=
-\lambda_1\chi\chi^\dagger
+\frac{\mathcal J_0^2}{2m}L_G
 +
-E,
+V_L,
 \qquad
-E\geq0,
+V_L
+=
+\operatorname{diag}
+\left(V_1,\ldots,V_L\right)
+```
+
+とする。古典パラメータを
+
+```math
+\kappa_{ij}
+=
+\frac{M_{\rm osc}\omega_0\mathcal J_0}{m}
+g_{ij},
 \qquad
-\operatorname{tr}E
+\delta_i
 =
-\varepsilon_{\rm rank}
-\operatorname{tr}C
+\frac{2M_{\rm osc}\omega_0}{\mathcal J_0}
+V_i
 ```
 
-である。
+と選べば $h_0=h_L$ になる。従って、Laplacian の疎結合構造と局所ポテンシャルの形は、局所ばね結合と固有周波数離調から得られる。
 
-純度欠陥
+一方、$m$ と $\mathcal J_0$ の値はこの対応式の設計パラメータである。特定の普遍定数または粒子質量がミクロ振動子網から必然的に選ばれることは示していない。
+
+## 2.8 適用範囲
+
+位置ばね結合から直接得られる $A$ と $h_L$ は実対称である。磁場に対応する Peierls 位相、一般の複素 hopping、運動量に比例する結合は本定理に含まれない。これらを厳密に実装するには、位置と運動量の両方を結ぶ追加の正準結合が必要になる。
+
+本稿のQ1定理は時間非依存 $A$ に限定する。時間依存 $A(t)$ が有界であるだけでは不十分である。$2\omega_0$ 近傍の Fourier 成分が反回転項と共鳴し得るため、時間依存駆動には例えば
 
 ```math
-\varepsilon_{\rm pur}
-=
-1
--
-\frac{\operatorname{tr}C^2}{\left(\operatorname{tr}C\right)^2}
+\frac{\sup_t\left\|h_L(t)\right\|}
+{\mathcal J_0\omega_0}
+\ll1,
+\qquad
+\frac{\sup_t\left\|\dot h_L(t)\right\|}
+{\mathcal J_0\omega_0^2}
+\ll1
 ```
 
-も使えるが、節の残留強度には $\varepsilon_{\rm rank}$ の方が直接的である。両者を同じ誤差として扱わない。
+のような低速条件、または明示的な非共鳴条件が別に必要である。これはQ6の駆動問題として第7章に残す。
 
-## 2.10 閉鎖線形発展では純化しない
+## 2.9 既知の古典振動子表示との関係
 
-第3章で示すように、閉鎖線形発展では
+有限次元 Schrödinger 方程式を古典正準座標または結合振動子へ写すこと自体は既知である [34--37]。特に、位置結合だけを用いる弱結合近似と、位置・運動量の両結合を用いる厳密写像は先行研究で区別されている [35--37]。
 
-```math
-C(t)
-=
-U(t)C(0)U(t)^\dagger
-```
+本稿は次を新規性として主張しない。
 
-となる。従って固有値と $\varepsilon_{\rm rank}$ は保存される。
+1. 複素ベクトルを2倍次元の実ベクトルで表すこと。
+2. 任意の Hermitian 行列を設計済み2次 Hamiltonian へ埋め込むこと。
+3. 結合振動子が Schrödinger 型運動を近似できること。
 
-<!-- theorem-start:corollary -->
-**系（閉鎖線形発展による純化の不可能性）**
-$\operatorname{rank}C(0)>1$ なら、有限時間の閉鎖線形 Hamiltonian 発展だけで $C(t)$ を階数1にできない。
-<!-- theorem-end:corollary -->
-
-これは現行模型の否定的結果である。階数1準備には共通源による初期化、不要成分の補助系への交換、条件付け、弱い外部交換の少なくとも1つが必要になる。後段の厳密な交換子発展をもって、準備まで導出したとは書かない。
-
-## 2.11 非線形項と閉包残差
-
-各試行が
-
-```math
-i\mathcal J_0\dot b^\omega
-=
-h(t)b^\omega
-+
-r^\omega
-```
-
-に従う場合、相関行列は
-
-```math
-i\mathcal J_0\dot C
-=
-\left[h,C\right]
-+
-D_C,
-```
-
-```math
-D_C
-=
-\mathbb E_{\mu_{\mathcal P,M}}
-\left[
-r b^\dagger
--
-b r^\dagger
-\right]
-```
-
-を満たす。Cauchy--Schwarz 不等式により
-
-```math
-\left\|D_C\right\|_{\rm op}
-\leq
-2
-\left(
-\mathbb E\left\|r\right\|^2
-\right)^{1/2}
-\left(
-\mathbb E\left\|b\right\|^2
-\right)^{1/2}
-```
-
-である。
-
-4次以上の Hamiltonian では $r$ が $b$ に非線形に依存し、$D_C$ は一般に4次以上のモーメントを含む。$C$ だけの閉包は自動的に成立しない。本稿は2次模型を厳密な基準とし、準2次模型では有限観測時間内の $D_C$ を主要誤差として追跡する。
-
-## 2.12 階数1条件と標本化の役割分担
-
-階数1条件は、1つの統計振幅 $\chi$ とその Schrödinger 型発展を取り出すために必要である。一方、第4章の正準作用選択器は各試行の実際の作用分配を読むため、有限基底 Born 型標本化それ自体には階数1を要求しない。
-
-従って、次の2つを分ける。
-
-1. 階数1の $C$ から単一因子 $\chi$ を得て、干渉振幅として伝播させること。
-2. 一般の正半定値 $C$ に対し、固定全作用と条件付き一様角の下で有限基底結果を標本化すること。
-
-高階数相関行列は第1の目的には単一の $\chi$ を与えないが、第2の目的では正規化行列 $C/\operatorname{tr}C$ の対角要素を結果頻度として与え得る。
+本稿で追加するのは、局所位置結合網について反回転項を落とさない厳密式、正常モード生成子との作用素誤差、有限時間状態誤差、局所包絡誤差から有限基底測定分布への伝播を同じ誤差台帳で接続することである。
