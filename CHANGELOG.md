@@ -18,7 +18,7 @@
 
 - `PROJECT_STATUS.md` の固定目標一覧と現在地表を新Q1--Q12へ更新した。
 - `README.md` の現在地表へ「達成判定の中心」と「残る課題」を追加し、その正本を `PROJECT_STATUS.md` とした。
-- `PROJECT_STANCE.md` と `PROJECT_GUIDE.md` を、単一のQ系列と新しいREADME運用へ合わせた。
+- `PROJECT_GUIDE.md` を、新しいREADME運用へ合わせた。`PROJECT_STANCE.md` は変更していない。
 - 論文本文、導出結果、モデルの運用状態、TeX、PDFは変更していない。
 ## draft-22
 
