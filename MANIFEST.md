@@ -15,6 +15,7 @@
 - `sections/04_finite_basis_measurement_cycle.md`
 - `sections/05_bell_boundary_measure.md`
 - `sections/06_errors_limits_and_open_problems.md`
+- `sections/07_open_benchmarks.md`
 - `sections/A1_phase_correlation_proofs.md`
 - `sections/A2_action_shell_proofs.md`
 - `sections/A3_measurement_device_details.md`
@@ -48,6 +49,7 @@
 - `tools/build_paper.py`
 - `tools/template.tex`
 - `tools/verify_action_distribution.py`
+- `tools/verify_envelope_reduction.py`
 - `tools/verify_phase_correlation.py`
 - `figures/README.md`
 - `.github/workflows/verify.yml`

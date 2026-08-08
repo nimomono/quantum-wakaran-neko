@@ -29,6 +29,7 @@ jobs:
 
       - name: 数式と数値を検算
         run: |
+          python tools/verify_envelope_reduction.py
           python tools/verify_phase_correlation.py
           python tools/verify_action_distribution.py
 
@@ -38,7 +39,7 @@ jobs:
       - name: 生成物の同期を検査
         run: |
           git diff --exit-code -- paper.md main.tex
-          test "$(pdfinfo paper.pdf | awk '/^Pages:/ {print $2}')" = "70"
+          test "$(pdfinfo paper.pdf | awk '/^Pages:/ {print $2}')" = "74"
           ! grep -Eq "Citation .* undefined|Reference .* undefined|Overfull|Fatal error" build/latex/main.log
 
       - name: 標準構成を検査

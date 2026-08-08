@@ -1,9 +1,216 @@
 @number: A2
 @chapter: 付録
-@title: 作用区間、無理数回転、 Bell 履歴体積の証明
-@status: 本文第4章と第5章の確率式、不変測度、長期頻度、有限幅上界、 Bell 基準体積を証明する。
+@title: 相関行列、作用区間、無理数回転の補助結果
+@status: 理想有効担体の相関行列を補助統計モデルとして整理し、本文第4章と第5章の確率式、不変測度、長期頻度、有限幅上界、Bell 基準体積を証明する。
 
-## B.1 作用区間選択
+## B.1 理想有効担体と相関行列
+
+この節だけでは、実正準対から
+
+```math
+d_i
+=
+\frac{Q_i+iP_i}{\sqrt{2\mathcal J_0}}
+```
+
+を作り、設計済み有効 Hamiltonian
+
+```math
+H_{\rm eff}
+=
+d^\dagger h_Ld
+```
+
+を置く。これは第2章の位置ばね網そのものではなく、測定回路を記述する理想正準制御層である。この層内部では
+
+```math
+i\mathcal J_0\dot d
+=
+h_Ld,
+\qquad
+\mathcal J_0d^\dagger d
+=
+\operatorname{const}
+```
+
+が厳密に成立する。
+
+調製条件 $\mathcal P$ とプログラム $M$ を固定した集団について
+
+```math
+C_M(t)
+=
+\mathbb E_{\mu_{\mathcal P,M}}
+\left[
+d_t d_t^\dagger
+\right]
+```
+
+と定める。$C_M$ は正半定値 Hermitian 行列であり、単一試行に追加する物質または正準変数ではない。
+
+## B.2 相関行列の交換子発展
+
+同じ集団の全試行が共通の $h_L(t)$ に従うなら、
+
+```math
+\begin{aligned}
+i\mathcal J_0
+\frac{d}{dt}
+\left(dd^\dagger\right)
+={}&
+h_Ldd^\dagger
+-
+dd^\dagger h_L
+\end{aligned}
+```
+
+なので、
+
+```math
+i\mathcal J_0\dot C_M
+=
+\left[h_L,C_M\right]
+```
+
+を得る。時間発展作用素を $U$ とすれば
+
+```math
+C_M(t)
+=
+U(t,t_0)
+C_M(t_0)
+U(t,t_0)^\dagger
+```
+
+である。従って跡、全固有値、階数、
+
+```math
+\mathcal P_C
+=
+\frac{\operatorname{tr}C^2}
+{\left(\operatorname{tr}C\right)^2}
+```
+
+で定める純度が保存される。閉鎖線形発展だけでは高階数集団を階数1へ純化できない。
+
+局所包絡 $b$ の厳密ミクロ発展には反回転項があるため、この交換子方程式を $b$ の厳密集団方程式として使わない。Q1のミクロ集団へ適用する場合は、第3章の包絡誤差を残す必要がある。
+
+## B.3 階数1条件
+
+$C=\Lambda\chi\chi^\dagger$、$\Lambda>0$、$\chi^\dagger\chi=1$ とする。$\chi$ と直交する任意の $v$ について
+
+```math
+0
+=
+v^\dagger Cv
+=
+\mathbb E
+\left|
+v^\dagger d
+\right|^2
+```
+
+なので、$v^\dagger d=0$ がほとんど確実に成立する。有限次元直交補空間の基底を取れば、ある複素確率変数 $c^\omega$ が存在して
+
+```math
+d^\omega
+=
+c^\omega\chi
+```
+
+がほとんど確実に成立する。逆も明らかなので、階数1相関と共通射影方向は同値である。
+
+交換子発展の下では、共通位相を選んで
+
+```math
+i\mathcal J_0\dot\chi
+=
+h_L\chi
+```
+
+とできる。この結果は理想有効層内部では厳密であるが、Q1のミクロ導出を置き換えない。
+
+## B.4 近似階数1と閉包残差
+
+$C$ の最大固有値を $\lambda_1$、主固有ベクトルを $\chi$ とし、
+
+```math
+C
+=
+\lambda_1\chi\chi^\dagger
++
+E,
+\qquad
+E\geq0
+```
+
+とする。階数欠陥を
+
+```math
+\varepsilon_{\rm rank}
+=
+\frac{\operatorname{tr}E}
+{\operatorname{tr}C}
+```
+
+とする。ユニタリ $W$ の出力 $k$ が理想因子に対して節を持つなら、
+
+```math
+\frac{
+\left(WCW^\dagger\right)_{kk}
+}{
+\operatorname{tr}C
+}
+\leq
+\varepsilon_{\rm rank}
+```
+
+である。
+
+残差付き有効式
+
+```math
+i\mathcal J_0\dot d
+=
+h_Ld+r
+```
+
+では
+
+```math
+i\mathcal J_0\dot C
+=
+\left[h_L,C\right]
++
+D_C,
+```
+
+```math
+D_C
+=
+\mathbb E
+\left[
+rd^\dagger-dr^\dagger
+\right]
+```
+
+であり、
+
+```math
+\left\|D_C\right\|
+\leq
+2
+\left(
+\mathbb E\left\|r\right\|^2
+\right)^{1/2}
+\left(
+\mathbb E\left\|d\right\|^2
+\right)^{1/2}
+```
+
+を満たす。4次以上の Hamiltonian では $D_C$ が高次モーメントを含むため、$C$ だけの閉包は自動的に成立しない。
+
+## B.5 作用区間選択
 
 固定した $b,W$ に対し、$I_k\geq0$、$I_{\rm ph}=\sum_kI_k>0$ とする。$u$ が $[0,I_{\rm ph})$ 上で一様なら、結果事象
 
@@ -40,7 +247,7 @@ W,\mathcal P
 
 を得る。
 
-## B.2 固定作用公式と共分散補正
+## B.6 固定作用公式と共分散補正
 
 $I_{\rm ph}=I_0$ が集団で固定されるとする。$I_k=\mathcal J_0|(Wb)_k|^2$ なので、
 
@@ -92,7 +299,7 @@ I_{\rm ph},r_k
 
 である。$P_k=\mathbb E[r_k]$ を解けば本文の共分散恒等式を得る。
 
-## B.3 無理数円回転の不変性
+## B.7 無理数円回転の不変性
 
 正規化角 $r=\vartheta/(2\pi)\in\mathbb R/\mathbb Z$ を用い、
 
@@ -139,7 +346,7 @@ e^{-2\pi in\alpha}
 
 を得る。$n\neq0$ かつ $\alpha\notin\mathbb Q$ なら $e^{-2\pi in\alpha}\neq1$ なので、$\widehat\nu(n)=0$ である。$\widehat\nu(0)=1$ と合わせ、全 Fourier 係数が Haar 測度と一致する。三角多項式の一様稠密性により $\nu=m$ である。
 
-## B.4 一意エルゴード性と区間頻度
+## B.8 一意エルゴード性と区間頻度
 
 連続関数 $f$ の時間平均を
 
@@ -196,7 +403,7 @@ b-a
 
 である。これを長さ $p_k$ の結果区間へ適用すると Born 型長期頻度を得る。
 
-## B.5 無理数回転は混合的でない
+## B.9 無理数回転は混合的でない
 
 Haar 空間上の非定数 Fourier モード $f_n$ に対し、
 
@@ -219,7 +426,7 @@ e^{-2\pi inj\alpha}
 
 の絶対値は1のままで零へ収束しない。よって無理数回転は混合的でない。一意エルゴード性から長期平均は得られるが、独立同分布型の有限標本揺らぎは従わない。
 
-## B.6 有限幅境界の測度上界
+## B.10 有限幅境界の測度上界
 
 固定作用 $I_{\rm ph}$ の区間内に $L-1$ 個の内部境界 $S_1,\ldots,S_{L-1}$ がある。各境界の半幅 $w$ 近傍は長さ高々 $2w$ なので、一様測度と和集合上界から
 
@@ -238,7 +445,7 @@ e^{-2\pi inj\alpha}
 
 角の切断点近傍では、$f(\vartheta)=\vartheta/(2\pi)$ を円周上の滑らかな関数へ置き換える必要がある。その近傍の Haar 幅を $\varepsilon_{\rm cut}$ とすれば、全不適格結果質量は右辺に $\varepsilon_{\rm cut}$ を加えて抑えられる。
 
-## B.7 高階数集団に必要な追加自由度
+## B.11 高階数集団に必要な追加自由度
 
 固定作用殻上の源状態を $b^\omega$ とし、選択器角が $b^\omega$ の下で条件付き一様なら、
 
@@ -257,9 +464,9 @@ WCW^\dagger
 \right)_{kk}
 ```
 
-である。ただし、本文の1次元不変トーラスでは $b^\omega=\chi$ が固定される。高階数 $C$ を単一軌道の時間平均として得るには、$b^omega$ を動かす別の不変力学と、その力学に条件付けても選択器角が Haar 分布を保つ積構造または十分な結合条件が必要である。
+である。ただし、本文の1次元不変トーラスでは $b^\omega=\chi$ が固定される。高階数 $C$ を単一軌道の時間平均として得るには、$b^\omega$ を動かす別の不変力学と、その力学に条件付けても選択器角が Haar 分布を保つ積構造または十分な結合条件が必要である。
 
-## B.8 4成分 Bell 重み
+## B.12 4成分 Bell 重み
 
 規格化反対称行列を
 
@@ -312,7 +519,7 @@ w_{AB}^{xy}
 
 が従う。また全成分の和は1である。
 
-## B.9 局所 Haar 角の基準セクター
+## B.13 局所 Haar 角の基準セクター
 
 固定設定 $x$ に対し、$A_x(\phi_A)=\operatorname{sgn}\cos(\phi_A-2\alpha_x)$ の正負領域はそれぞれ長さ $\pi$ の半円である。従って
 
@@ -362,7 +569,7 @@ x,y
 
 を得る。
 
-## B.10 二側条件付けと設定分布保存
+## B.14 二側条件付けと設定分布保存
 
 $d\mu_{\rm B}=4\mathbf1_G\,d\nu_{\rm B}^0$ とする。固定設定で
 
@@ -391,7 +598,7 @@ P_{\mu_{\rm B}}(x,y)
 
 なので、設定生成器の分布は保たれる。
 
-## B.11 非信号周辺と測定設定独立性
+## B.15 非信号周辺と測定設定独立性
 
 余弦重みを一側で和を取ると、$B=\pm1$ の線形項が相殺して
 
@@ -405,7 +612,7 @@ P_{\mu_{\rm B}}(x,y)
 
 一方、$d\mu_{\rm B}(\Lambda\mid x,y)=4\mathbf1_{G_{xy}}(\Lambda)d\nu_{\rm B}^0(\Lambda)$ であり、$G_{xy}$ は設定依存である。従って設定分布が保たれても、完全履歴の測定設定独立性は一般に成立しない。
 
-## B.12 一般基準密度
+## B.16 一般基準密度
 
 付随自由度を含む基準測度が各結果セクター上で密度 $q_{AB}^{xy}$ を持つなら、
 
