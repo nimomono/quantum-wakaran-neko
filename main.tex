@@ -53,7 +53,7 @@
   linkcolor=PaperBlue,
   citecolor=PaperBlue,
   urlcolor=PaperBlue,
-  pdftitle={局所結合古典振動子網の Schrödinger 型包絡と明示的有限基底測定周期：Born 型頻度と Bell 型二側履歴統計},
+  pdftitle={有限古典 Hamiltonian 担体の2モード操作・射影測定型周期：空間 Schrödinger 型包絡と Bell 型二側履歴},
   pdfauthor={Open research manuscript}
 }
 
@@ -80,7 +80,7 @@
 
 \pagestyle{fancy}
 \fancyhf{}
-\fancyhead[L]{\small\color{PaperBlue}局所古典振動子網の Schrödinger 型包絡}
+\fancyhead[L]{\small\color{PaperBlue}有限古典 Hamiltonian 担体の2モード周期}
 \fancyhead[R]{\small\color{PaperBlue}\nouppercase{\leftmark}}
 \fancyfoot[C]{\thepage}
 \renewcommand{\headrulewidth}{0.4pt}
@@ -133,17 +133,17 @@
   \centering
   \vspace*{29mm}
   {\sffamily\bfseries\color{PaperNavy}\fontsize{20}{29}\selectfont
-    局所結合古典振動子網の\\[2mm]
-    Schrödinger 型包絡と\\[2mm]
-    明示的有限基底測定周期：\\[2mm]
-    Born 型頻度と Bell 型二側履歴統計\par}
+    有限古典 Hamiltonian 担体の\\[2mm]
+    2モード操作・射影測定型周期：\\[2mm]
+    空間 Schrödinger 型包絡と\\[2mm]
+    Bell 型二側履歴\par}
   \vspace{9mm}
-  {\Large\color{PaperBlue}有限時間誤差、作用区間、\\[1mm]
-    条件付き二側履歴測度\par}
+  {\Large\color{PaperBlue}Bloch 球、Rabi 振動、外部記録、\\[1mm]
+    弱開放 reset\par}
   \vspace{14mm}
   {\color{PaperRule}\rule{0.68\textwidth}{0.9pt}\par}
   \vfill
-  {\large draft-24 改訂稿\par}
+  {\large draft-25 改訂稿\par}
   \vspace{22mm}
 \end{titlepage}
 
@@ -156,9 +156,102 @@
 
 \addcontentsline{toc}{chapter}{概要}
 
-本論文は、有限自由度の古典 Hamiltonian 系を基礎とし、量子力学に特徴的な時間発展と確率構造が、どの仮定と誤差の下で有効理論として現れ得るかを検証する。力学、測定、Bell 統計を1つの完成理論として先取りせず、ミクロ振動子、有効包絡、局所正準測定装置、二側履歴測度を分離する。
+本論文は、有限自由度の古典Hamiltonian 系を基礎とし、量子力学に特徴的な可逆力学、測定操作、空間包絡、Bell 型統計が、どの仮定と誤差の下で現れ得るかを検証する。単一量子ビット型装置、空間振動子網、一般有限基底装置、Bell 二側履歴を別模型として明示し、未完成の統一模型を先取りしない。
 
-第1の主結果は、位置だけで局所結合した有限実古典振動子網からの Schrödinger 型包絡である。ミクロ Hamiltonian を
+第1の主結果は、2モード正準担体M38によるQ1--Q3の構成である。信号を
+
+\[
+b_j
+=
+\frac{Q_j+iP_j}{\sqrt{2\mathcal J_0}},
+\qquad
+I_{\rm ph}
+=
+\mathcal J_0b^\dagger b
+=
+\mathcal J_0
+\]
+
+とする。共通位相 \(b\mapsto e^{i\gamma}b\) に不変な操作・測定代数へ縮約すると、
+
+\[
+S^3/U(1)
+\simeq
+\mathbb{CP}^1
+\simeq
+S^2
+\]
+
+を得る。Bloch ベクトル \(\boldsymbol r=b^\dagger\boldsymbol\sigma b\) は
+
+\[
+\{r_i,r_j\}
+=
+\frac{2}{\mathcal J_0}
+\epsilon_{ijk}r_k
+\]
+
+を満たす。局所位相回転と \(QQ+PP\) 交換の有限列は同じ2モード担体上で任意の \(SU(2)\) を厳密に生成する。
+
+駆動作用・角変数を加えた時間非依存Hamiltonian は、回転座標で
+
+\[
+i\dot c
+=
+\frac12
+\left(
+\Delta\sigma_z+\Omega\sigma_x
+\right)c
+\]
+
+となる。従って
+
+\[
+P_{1\to2}(t)
+=
+\frac{\Omega^2}{\Omega^2+\Delta^2}
+\sin^2
+\left(
+\frac{\sqrt{\Omega^2+\Delta^2}}{2}t
+\right)
+\]
+
+が厳密に得られる。Q1は、Bloch 球、共通位相不変性、任意の \(SU(2)\)、Rabi 振動について達成と判定する。
+
+Q2では、任意の Bloch 軸 \(\boldsymbol n\) の2結果作用比
+
+\[
+p_s(\boldsymbol n)
+=
+\frac{1+s\boldsymbol n\cdot\boldsymbol r}{2}
+\]
+
+をM35型の滑らかな作用選択器へ渡す。安全結果 \(s\) では測定後信号が厳密に固有状態 \(|\boldsymbol n,s\rangle\) となる。滑らかな有限時間Hamiltonian 流は連結入力領域全体を相異なる2固有状態だけへ写せないため、比較境界近傍を正式な無反応結果とする。無反応率は有限増幅で任意に小さくできる。
+
+2つの独立選択器角を用い、周期末に2次元トーラス上の無理数平行移動を行う。同軸再測定では反対符号の安全結果が生じず、異軸 \(\boldsymbol n,\boldsymbol m\) の理想共同分布は
+
+\[
+P(s,t)
+=
+\frac{1+s\boldsymbol n\cdot\boldsymbol r}{2}
+\frac{1+st\boldsymbol n\cdot\boldsymbol m}{2}
+\]
+
+となる。有限幅分布との全変動距離は2段の無反応率の和以下である。Q2は、無反応を除外せず、制御された任意精度で達成と判定する。
+
+Q3では、滑らかな比較ポインターを外部記録セルへ正準剪断でコピーした後、第2測定、第1測定の順で内部逆計算する。装置は準備点へ戻り、記録は外部セルに残る。装置偏差と外部空モードの交換角を \(\phi\) とすると、
+
+\[
+\delta a^+
+=
+\cos\phi\,\delta a^-
++
+\sin\phi\,\eta
+\]
+
+である。完全交換または部分収縮により、旧装置状態は使用済み外部セルへ移る。有限個の能動自由度、永久記録セル流、reset セル流、局所作用・角時計を合わせ、次周期の準備集合へ任意精度で戻る弱開放完全周期を構成する。有限 \(N\) 周期は有限閉鎖Hamiltonian 系へ埋め込めるが、無期限運転は外部セル供給を要する。Q3も制御された任意精度で達成と判定する。
+
+第2の主結果は、別模型M37による空間Schrödinger 型包絡である。位置だけで局所結合した有限実古典振動子網を
 
 \[
 H_{\rm micro}
@@ -171,7 +264,7 @@ M_{\rm osc}\omega_0^2I+A
 \right)q
 \]
 
-とする。\(A=D_\delta+L_\kappa\) は局所離調とばね Laplacian からなる実対称疎行列である。局所正準振幅を搬送周波数で回して作る包絡 \(b\) は、厳密に
+とする。局所回転包絡は反回転項を含む厳密式
 
 \[
 i\mathcal J_0\dot b
@@ -181,134 +274,18 @@ h_Lb
 h_Le^{2i\omega_0t}\overline b
 \]
 
-を満たす。第2項は反回転項であり、位置結合だけの模型では厳密に消えない。
-
-一方、行列平方根
-
-\[
-\Omega
-=
-\left(
-\omega_0^2I
-+
-\frac{A}{M_{\rm osc}}
-\right)^{1/2}
-\]
-
-を使う正常モード包絡 \(\widetilde b\) は
-
-\[
-i\mathcal J_0\dot{\widetilde b}
-=
-h_{\rm ex}\widetilde b,
-\qquad
-h_{\rm ex}
-=
-\mathcal J_0
-\left(
-\Omega-\omega_0I
-\right)
-\]
-
-に厳密に従い、作用を保存する。ただし \(\widetilde b\) は一般に非局所である。
-
-古典係数を調整して
-
-\[
-h_L
-=
-\frac{\mathcal J_0^2}{2m}L_G
-+
-V_L
-\]
-
-を目標演算子とし、
+を満たす。行列平方根を使う正常モード包絡は厳密だが一般に非局所である。弱結合量
 
 \[
 \eta
 =
-\frac{2\left\|h_L\right\|}
-{\mathcal J_0\omega_0}
+\frac{2\|h_L\|}{\mathcal J_0\omega_0}
 <1
 \]
 
-とすると、
+の下で、自然時間における局所包絡と目標Schrödinger 型解の差を \(O(\eta)\) で抑える。Q9は、有限実振動子、実対称時間非依存演算子、弱結合・有限時間の範囲で達成と判定する。
 
-\[
-\left\|
-h_{\rm ex}-h_L
-\right\|
-\leq
-\frac{
-\left\|h_L\right\|^2
-}{
-2\mathcal J_0\omega_0
-\left(1-\eta\right)^{3/2}
-}
-\]
-
-を得る。自然時間 \(T=O(\mathcal J_0/\|h_L\|)\) では、厳密ミクロ局所包絡と目標 Schrödinger 型解の差は \(O(\eta)\) である。局所作用の変動も \(O(\eta)\) で抑えられる。従ってQ9は、有限個の実振動子、実対称時間非依存演算子、弱結合・弱離調・有限時間という限定で達成と判定する。
-
-第2の主結果は、Q9の包絡誤差を有限基底測定分布へ接続することである。測定時刻の実際の局所包絡を \(\widehat b_{\rm mic}\)、目標有効状態を \(\chi_L\) とし、任意の有限基底変換 \(W\) について
-
-\[
-p_k^{\rm mic}
-=
-\left|
-\left(W\widehat b_{\rm mic}\right)_k
-\right|^2,
-\qquad
-p_k^L
-=
-\left|
-\left(W\chi_L\right)_k
-\right|^2
-\]
-
-とする。このとき
-
-\[
-D_{\rm TV}
-\left(
-p^{\rm mic},p^L
-\right)
-\leq
-\sqrt{
-1-
-\left|
-\left\langle
-\widehat b_{\rm mic},
-\chi_L
-\right\rangle
-\right|^2
-}
-\]
-
-が成立する。これにより、Q9の状態方向誤差は、Q2の \(L=2\) 測定部分およびQ5の一般有限 \(L\) 測定部分に関係する Born 型分布誤差へ伝播する。
-
-固定された純粋準備 \(\chi\in\mathbb C^L\) と有限測定基底 \(\{|u_k\rangle\}\) については、任意の基底変換を局所位相回転と隣接 \(QQ+PP\) 交換の有限列へ分解する。作用読出し、累積剪断、双曲型増幅、滑らかな比較、隣接テンプレート経路、正準 SWAP、内部記録、逆計算を \(3L+4\) 正準対の自律 Hamiltonian 周期として構成する。周期末の選択器角が
-
-\[
-\vartheta
-\longmapsto
-\vartheta+2\pi\alpha
-\pmod{2\pi},
-\qquad
-\alpha\notin\mathbb Q
-\]
-
-と進むため、Haar 測度は不変かつ一意エルゴード的であり、各結果の長期頻度は
-
-\[
-\lim_{N\to\infty}
-\frac{N_k(N)}{N}
-=
-\left|
-\langle u_k|\chi\rangle
-\right|^2
-\]
-
-になる。結果集合を \(\{1,\ldots,L,\varnothing\}\) とし、比較境界近傍を正式な無反応結果に含める。安全な結果 \(k\) では測定後信号が厳密に \(|u_k\rangle\) となり、無反応領域でも内部逆計算は厳密である。無反応込みの長期分布と理想 Born 型分布の全変動距離は
+第3の結果は、M35による一般有限 \(L\) の固定基底測定である。任意有限基底変換を隣接2モード回路へ分解し、作用読出し、累積比較、滑らかな無反応領域、測定後状態、内部逆計算、無理数回転を \(3L+4\) 正準対で構成する。長期分布と理想Born 型分布の距離は
 
 \[
 D_{\rm TV}
@@ -319,9 +296,9 @@ D_{\rm TV}
 \varepsilon_{\rm cut}
 \]
 
-で抑えられるため、任意精度へ近づけられる。これは固定純粋準備・固定有限基底・有限次元の範囲で、Q2の \(L=2\) 測定部分とQ5の一般有限 \(L\) 測定部分を与える。ただし、異軸逐次測定、完全な操作・測定周期、一般有限 \(L\) の同一装置への統合が残るため、固定目標としてのQ2とQ5はいずれも部分達成である。無理数回転は混合的でないため、独立同分布または二項分布型有限標本揺らぎは得ない。
+である。一般有限 \(L\) の外部記録、弱開放 reset、複数段測定、長距離時計配線は未完成なので、Q5は部分達成である。
 
-第3の結果は Bell 型二側履歴模型である。左右担体の反対称な集団交差相関 \(\Xi_0\) から、4成分重み
+第4の結果はBell 型二側履歴模型M36である。反対称な左右集団交差相関から
 
 \[
 w_{AB}^{xy}
@@ -332,58 +309,45 @@ w_{AB}^{xy}
 \right]
 \]
 
-が代数的に得られる。これは有限 \(L=4\) の作用重みと同じ線形代数構造を持つが、\(\Xi_0\) は集団量であり、単一試行の正準変数ではない。
+が代数的に得られる。独立局所Haar 角の基準測度を、余弦区間への整合事象 \(G\) で条件付けると、余弦共同確率、非信号周辺、標準設定でのCHSH値 \(2\sqrt2\)、設定分布保存を得る。完全履歴測度は設定依存なので、Bell の前提違反は測定設定独立性にある。
 
-左右の局所結果角と共通未来角を独立 Haar 角とし、局所半円分割から4結果の基準密度 \(1/4\) を得る。記録済み結果に対応する余弦区間へ未来角が入る事象を \(G\) とし、
+ただし、余弦区間を単一試行の源変数から生成する有限Hamiltonian 、整合支持 \(G\) の物理的必然性、完全境界流束測度の結果非依存因子化は未導出である。Q7は条件付き模型として部分達成である。
 
-\[
-d\mu_{\rm B}
-=
-4\mathbf1_G
-\,d\nu_{\rm B}^0
-\]
-
-と定めれば、余弦共同確率、非信号周辺、標準設定での CHSH 値 \(2\sqrt2\)、設定分布保存を得る。完全ミクロ履歴の分布は設定に依存するので、Bell の前提違反は測定設定独立性にある。
-
-ただし、余弦区間は反対称集団源と設定角から指定する境界プログラムである。単一試行の源変数から同じ区間多重度を生成する有限 Hamiltonian、二側支持 \(G\) の物理的必然性、完全境界流束測度の結果非依存因子化は未導出である。Bell 結果は、Q9の伝播定理およびQ2・Q5に関係する有限基底測定定理と同じ完成度ではなく、明示した二側支持条件に依存する条件付き結果である。
-
-相関行列 \(C=\mathbb E[dd^\dagger]\) とその交換子発展、階数1条件、高階数作用公式は補助統計理論として付録へ移す。相関行列をミクロ力学の基礎状態とはしない。ミクロ振動子、固定測定周期、Bell 二側履歴で使う測度を区別し、全プログラム共通の統一母測度 \(\mu_*\) は将来目標に残す。
-
-本文は7章から成る。第1章で記述層、測度、主結果の確立度を示す。第2章で局所位置結合振動子網、第3章で Schrödinger 型包絡と有限時間誤差、第4章で有限基底 Born 型測定とQ9からQ2・Q5の測定部分への誤差伝播、第5章で Bell 型二側履歴模型、第6章で反復周期、性能、資源、第7章で反証条件と未完成ベンチマークを扱う。正常モード正準変換、相関行列と作用区間、測定装置、Bell 境界模型の詳細は付録へ置く。
+本文は8章から成る。第1章で記述層、測度、主結果の確立度を示す。第2章と第3章でM37の空間包絡、第4章でM38のQ1--Q3、第5章でM35の一般有限基底測定、第6章でBell 二側履歴、第7章で誤差と資源、第8章で反証条件と未完成ベンチマークを扱う。正常モード変換、作用区間、一般測定装置、Bell 境界、2モード完全周期の詳細は付録A--Eへ置く。
 
 \hypertarget{ux8a18ux8ff0ux5c64ux6e2cux5ea6ux4e3bux7d50ux679cux306eux7bc4ux56f2}{%
 \chapter{記述層、測度、主結果の範囲}\label{ux8a18ux8ff0ux5c64ux6e2cux5ea6ux4e3bux7d50ux679cux306eux7bc4ux56f2}}
 
 \begin{statusbox}
-位置づけ：ミクロ振動子、有効包絡、局所正準測定装置、Bell 二側履歴を分離する。Q9は弱結合・有限時間の範囲で達成とする。Q1、Q2、Q3、Q5、Q7は部分達成であり、未構成の統一母測度は現行定理の仮定に使わない。
+位置づけ：M38の2モード完全装置、M37の空間振動子網、M35の一般有限基底装置、M36のBell 二側履歴を分離する。Q1は厳密、Q2とQ3は制御された任意精度、Q9は弱結合・有限時間で達成とする。Q5とQ7は部分達成であり、未構成のM0と統一母測度を現行定理の仮定に使わない。
 \end{statusbox}
 
 \hypertarget{ux554fux984cux8a2dux5b9a}{%
 \section{問題設定}\label{ux554fux984cux8a2dux5b9a}}
 
-本論文の目的は、明示的な古典 Hamiltonian 系から、量子力学に特徴的な時間発展と確率構造が有効理論として現れ得る範囲を明らかにすることである。量子力学をミクロ Hamiltonian の入力には使わず、得られた力学と測定統計を判定するときに比較対象として使う。
+本論文の目的は、明示的な古典Hamiltonian 系から、量子力学に特徴的な可逆力学と確率構造が有効理論として現れ得る範囲を明らかにすることである。量子力学をミクロHamiltonian の入力には使わず、得られた力学、測定操作、統計を判定するときに比較対象として使う。
 
-有限次元 Schrödinger 方程式を実正準座標へ写すことだけでは、量子力学の創発にならない。そこで本稿は次の順序を要求する。
+有限次元Schrödinger 方程式を実正準座標へ写すことだけでは、量子力学の創発にならない。本稿は次を分けて要求する。
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  通常の位置結合を持つ有限実古典振動子網を先に書く。
+  \(L=2\) の同じ正準担体上で、状態空間、可逆操作、Rabi 振動を構成する。
 \item
-  厳密局所包絡から反回転項を消さない。
+  その担体を滑らかな測定後状態、逐次測定、記録、reset へ接続する。
 \item
-  弱結合・有限時間の誤差を明示して有効 Schrödinger 型発展を得る。
+  空間Schrödinger 型包絡は、通常の位置結合を持つ有限実振動子網から誤差付きで導く。
 \item
-  包絡誤差が有限基底測定分布へどう伝わるかを示す。
+  一般有限 \(L\) の測定回路と完全周期を、\(L=2\) の達成から分離して評価する。
 \item
-  唯一結果、測定後状態、記録、反復周期を別の装置定理として構成する。
-\item
-  Bell 統計は二側履歴支持に依存する条件付き模型として分離する。
+  Bell 統計は二側履歴支持に依存する条件付き模型として監査する。
 \end{enumerate}
 
+M38は1と2、M37は3、M35は4、M36は5を担う。これらを1つのM0へ統合したとは主張しない。
+
 \hypertarget{ux3064ux306eux8a18ux8ff0ux5c64}{%
-\section{4つの記述層}\label{ux3064ux306eux8a18ux8ff0ux5c64}}
+\section{5つの記述層}\label{ux3064ux306eux8a18ux8ff0ux5c64}}
 
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2500}}
@@ -404,18 +368,19 @@ d\mu_{\rm B}
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-ミクロ振動子層 & \(q,p\) & 位置ばね結合 \(H_{\rm micro}\) & 厳密 \\
-局所有効包絡層 & \(b\) & 反回転項を含む厳密式、\(h_L\) による有限時間近似 & 近似誤差付き \\
-局所正準測定装置層 & 信号、テンプレート、作用・記録レジスター、時計 & 隣接2モード回路、滑らかな比較、SWAP、逆計算 & 固定プログラムでは厳密または明示誤差付き \\
-Bell 二側履歴層 & 局所結果角、未来角、終端支持 & 条件付き履歴測度 & 支持条件に依存 \\
+M37ミクロ振動子層 & \(q,p\) & 位置ばね結合 \(H_{\rm micro}\) & 厳密 \\
+M37局所有効包絡層 & \(b\) & 反回転項を含む厳密式、\(h_L\) による有限時間近似 & 近似誤差付き \\
+M38の2モード装置層 & 2モード信号、2段測定器、局所時計、外部セル & \(SU(2)\)、Rabi 振動、逐次測定、記録、逆計算、reset & 厳密または明示誤差付き \\
+M35の一般有限基底層 & \(L\) モード信号、テンプレート、作用・記録レジスター、時計 & 隣接2モード回路、滑らかな比較、SWAP 、内部逆計算 & 固定プログラムで厳密または明示誤差付き \\
+M36のBell 二側履歴層 & 局所結果角、未来角、終端支持 & 条件付き履歴測度 & 支持条件に依存 \\
 \end{longtable}
 
-正常モード包絡 \(\widetilde b\) は、ミクロ振動子層を解析するための厳密だが一般に非局所な正準変数である。独立した物理層または非局所場として追加しない。
+M37の正常モード包絡 \(\widetilde b\) は、ミクロ振動子を解析するための厳密だが一般に非局所な正準変数である。独立した非局所物理場として追加しない。
 
-測定装置の任意複素基底変換は、局所位相回転と隣接 \(QQ+PP\) 交換の有限列として厳密に実装する。\(QQ+PP\) 交換は運動量間結合を含むため、M37の位置ばね網と同じハードウェアではない。M37からM35の測定装置の全結合を導いたとはしない。
+M38とM35の任意複素基底変換は、局所位相回転と \(QQ+PP\) 交換の有限列で実装する。\(QQ+PP\) 交換は運動量間結合を含むため、M37の位置ばね網と同じハードウェアではない。\(L=2\) のQ1--Q3はM38内部で閉じ、M37との統合を達成条件へ入れない。
 
-\hypertarget{ux3064ux306eux73feux884cux6e2cux5ea6ux3068ux5c06ux6765ux306eux7d71ux4e00ux6e2cux5ea6}{%
-\section{3つの現行測度と将来の統一測度}\label{ux3064ux306eux73feux884cux6e2cux5ea6ux3068ux5c06ux6765ux306eux7d71ux4e00ux6e2cux5ea6}}
+\hypertarget{ux73feux884cux6e2cux5ea6ux3068ux5c06ux6765ux306eux7d71ux4e00ux6e2cux5ea6}{%
+\section{現行測度と将来の統一測度}\label{ux73feux884cux6e2cux5ea6ux3068ux5c06ux6765ux306eux7d71ux4e00ux6e2cux5ea6}}
 
 理想有効担体の調製集団については
 
@@ -428,19 +393,31 @@ d_td_t^\dagger
 \right]
 \]
 
-と相関行列を定める。\(\mu_{\mathcal P,M}\) は調製条件 \(\mathcal P\) とプログラム \(M\) を固定した集団測度である。\(C_M\) は補助統計量であり、ミクロ局所包絡 \(b\) の厳密基礎状態ではない。
+と相関行列を定める。\(\mu_{\mathcal P,M}\) は調製条件 \(\mathcal P\) とプログラム \(M\) を固定した集団測度であり、補助統計理論に使う。
 
-固定純粋準備 \(\chi\) と固定基底変換 \(W\) の明示測定周期では、
+M35の固定純粋準備 \(\chi\) と固定基底 \(W\) の周期では、
 
 \[
-d\mu_{\chi,W}^{\rm cyc}
+d\mu_{\chi,W}^{\rm M35}
 =
 \frac{d\vartheta}{2\pi}
 \otimes
-\delta_{\rm reset}
+\delta_*
 \]
 
-が Poincaré 不変測度になる。
+がPoincaré 不変測度になる。\(\delta_*\) は選択器角以外の内部準備集合を表す。
+
+M38の固定2軸プログラムでは、
+
+\[
+d\mu_{\chi,\boldsymbol n,\boldsymbol m}^{\rm M38}
+=
+\frac{d\vartheta_1d\vartheta_2}{(2\pi)^2}
+\otimes
+\delta_*
+\]
+
+が理想Poincaré 不変測度になる。\(1,\alpha_1,\alpha_2\) の有理数体上の1次独立性により、2角平行移動は一意エルゴード的である。
 
 Bell 側では制約前基準測度を \(\nu_{\rm B}^0\)、二側整合事象を \(G\) とし、
 
@@ -453,12 +430,126 @@ d\mu_{\rm B}
 
 を使う。
 
-相関観測、可変基底、設定生成器、Bell 境界、外部記録まで同じ反復系へ統合する将来目標の母測度を \(\mu_*\) と書く。本稿は \(\mu_*\) の存在、不変性、エルゴード性を現行主定理の仮定に使わない。
+これらの測度は役割が異なる。可変調製、可変基底、空間伝播、Bell 境界、外部記録までを同じ反復系へ統合する将来目標の母測度を \(\mu_*\) と書く。本稿は \(\mu_*\) の存在、不変性、エルゴード性を現行定理の仮定に使わない。
 
-\hypertarget{ux4e3bux7d50ux679c1ux5c40ux6240ux632fux52d5ux5b50ux7db2ux304bux3089ux306e-schruxf6dinger-ux578bux5305ux7d61}{%
-\section{主結果1：局所振動子網からの Schrödinger 型包絡}\label{ux4e3bux7d50ux679c1ux5c40ux6240ux632fux52d5ux5b50ux7db2ux304bux3089ux306e-schruxf6dinger-ux578bux5305ux7d61}}
+\hypertarget{ux4e3bux7d50ux679c1a2ux30e2ux30fcux30c9ux53efux9006ux529bux5b66}{%
+\section{主結果1A：2モード可逆力学}\label{ux4e3bux7d50ux679c1a2ux30e2ux30fcux30c9ux53efux9006ux529bux5b66}}
 
-有限実振動子網を
+M38の固定作用面を
+
+\[
+I_{\rm ph}
+=
+\frac12
+\sum_{j=1}^2
+\left(
+Q_j^2+P_j^2
+\right)
+=
+\mathcal J_0
+\]
+
+とする。共通位相に不変なBloch 写像により、有効状態空間は \(S^2\) になる。Bloch 成分のPoisson 代数は
+
+\[
+\{r_i,r_j\}
+=
+\frac{2}{\mathcal J_0}
+\epsilon_{ijk}r_k
+\]
+
+である。任意の実ベクトル \(\boldsymbol\Omega\) に対する
+
+\[
+H_{\boldsymbol\Omega}
+=
+\frac{\mathcal J_0}{2}
+b^\dagger
+\left(
+\boldsymbol\Omega\cdot\boldsymbol\sigma
+\right)b
+\]
+
+は
+
+\[
+\dot{\boldsymbol r}
+=
+\boldsymbol\Omega\times\boldsymbol r
+\]
+
+を厳密に与える。局所位相回転と2モード交換のEuler 分解により、任意の \(SU(2)\) を同じ担体上で実装できる。
+
+駆動作用・角変数を加えた自律Hamiltonian は、共鳴振幅、一般化Rabi 振動数、離調による振幅低下を厳密に与える。従ってQ1はM38内部で達成である。
+
+\hypertarget{ux4e3bux7d50ux679c1bux4efbux610fux8ef8ux3068ux9010ux6b21ux6e2cux5b9a}{%
+\section{主結果1B：任意軸と逐次測定}\label{ux4e3bux7d50ux679c1bux4efbux610fux8ef8ux3068ux9010ux6b21ux6e2cux5b9a}}
+
+任意の Bloch 軸 \(\boldsymbol n\) と結果 \(s=\pm1\) に対し、M38の出力作用比は
+
+\[
+p_s(\boldsymbol n)
+=
+\frac{1+s\boldsymbol n\cdot\boldsymbol r}{2}
+\]
+
+である。安全セクターでは正準SWAP 後の信号が厳密に \(|\boldsymbol n,s\rangle\) となる。
+
+滑らかな有限時間Hamiltonian 流の連続性により、連結入力領域全体を相異なる2固有状態だけへ写すことはできない。本稿は比較境界の遷移領域を正式な無反応結果とし、無反応率を
+
+\[
+\delta_j
+\leq
+2\frac{w_{{\rm eff},j}}{\mathcal J_0}
++
+\varepsilon_{{\rm cut},j}
+\]
+
+で抑える。
+
+同軸再測定では反対符号の安全結果が生じない。異軸測定では独立な2選択器を使い、理想共同分布
+
+\[
+P(s,t)
+=
+\frac{1+s\boldsymbol n\cdot\boldsymbol r}{2}
+\frac{1+st\boldsymbol n\cdot\boldsymbol m}{2}
+\]
+
+を得る。無反応を含む実分布との距離は \(\delta_1+\delta_2\) 以下である。従ってQ2は制御された任意精度で達成である。
+
+\hypertarget{ux4e3bux7d50ux679c1cux6c38ux4e45ux8a18ux9332ux3068ux5f31ux958bux653eux5468ux671f}{%
+\section{主結果1C：永久記録と弱開放周期}\label{ux4e3bux7d50ux679c1cux6c38ux4e45ux8a18ux9332ux3068ux5f31ux958bux653eux5468ux671f}}
+
+滑らかな比較ポインター \(\Pi_j(z)\) と空の外部記録セルを
+
+\[
+G_{\rm rec}
+=
+\sum_{j=1}^2
+P_j^R\Pi_j(z)
+\]
+
+で結合する。理想入口 \(P_j^R=0\) では装置へ反作用せず、記録座標だけが移動する。記録後に第2段、第1段の順で逆計算すれば、内部装置は準備点へ戻り、記録は外部セルへ残る。
+
+外部空モードとの正準交換は
+
+\[
+\delta a^+
+=
+\cos\phi\,\delta a^-
++
+\sin\phi\,\eta
+\]
+
+を与える。完全交換では装置偏差を空セルへ置換し、部分交換では収縮する。局所作用・角時計、外部記録セル、reset セル流を加えると、固定有限プログラムの能動装置は次周期の準備集合へ任意精度で戻る。
+
+有限 \(N\) 周期は外部セルを含む有限閉鎖Hamiltonian 系へ埋め込める。無期限運転では外部セル流が必要であり、情報と旧偏差を消去していない。従ってQ3は制御された任意精度で達成である。
+
+\hypertarget{ux4e3bux7d50ux679c2ux5c40ux6240ux632fux52d5ux5b50ux7db2ux304bux3089ux306eux7a7aux9593ux5305ux7d61}{%
+\section{主結果2：局所振動子網からの空間包絡}\label{ux4e3bux7d50ux679c2ux5c40ux6240ux632fux52d5ux5b50ux7db2ux304bux3089ux306eux7a7aux9593ux5305ux7d61}}
+
+M37の有限実振動子網を
 
 \[
 H_{\rm micro}
@@ -471,15 +562,7 @@ M_{\rm osc}\omega_0^2I+A
 \right)q
 \]
 
-とする。\(A=D_\delta+L_\kappa\) は局所実対称行列である。係数を調整して
-
-\[
-h_L
-=
-\frac{\mathcal J_0}{2M_{\rm osc}\omega_0}A
-\]
-
-とすると、局所包絡は厳密に
+とする。局所包絡は反回転項を含む厳密式
 
 \[
 i\mathcal J_0\dot b
@@ -489,50 +572,23 @@ h_Lb
 h_Le^{2i\omega_0t}\overline b
 \]
 
-を満たす。
-
-厳密正常モード生成子は
-
-\[
-h_{\rm ex}
-=
-\mathcal J_0\omega_0
-\left[
-\left(
-I+
-\frac{2h_L}{\mathcal J_0\omega_0}
-\right)^{1/2}
--I
-\right]
-\]
-
-である。\(\eta=2\|h_L\|/(\mathcal J_0\omega_0)<1\) の下で、
+を満たす。厳密正常モード生成子と目標生成子の差は、\(\eta=2\|h_L\|/(\mathcal J_0\omega_0)<1\) の下で
 
 \[
 \left\|h_{\rm ex}-h_L\right\|
 \leq
-\frac{\left\|h_L\right\|^2}
+\frac{\|h_L\|^2}
 {2\mathcal J_0\omega_0(1-\eta)^{3/2}}
 \]
 
-を得る。局所包絡と目標有効解の有限時間誤差は
+である。自然時間では局所包絡状態誤差を \(O(\eta)\) で抑える。Q9は有限自由度、実対称時間非依存演算子、弱結合・有限時間の範囲で達成である。
 
-\[
-\sup_{0\leq t\leq T}
-\left\|b(t)-b_L(t)\right\|
-\leq
-\varepsilon_{\rm car}(T)
-\left\|\widetilde b(0)\right\|
-\]
+\hypertarget{ux4e3bux7d50ux679c3ux4e00ux822cux6709ux9650ux57faux5e95ux6e2cux5b9a}{%
+\section{主結果3：一般有限基底測定}\label{ux4e3bux7d50ux679c3ux4e00ux822cux6709ux9650ux57faux5e95ux6e2cux5b9a}}
 
-であり、自然時間では \(O(\eta)\) である。
+M35は任意の有限 \(L\)、固定純粋準備、固定基底について、\(3L+4\) 正準対の内部測定周期を構成する。任意基底変換を隣接2モード回路へ分解し、滑らかな安全結果、無反応、測定後状態、内部逆計算、無理数回転による長期頻度を得る。
 
-この結果は実対称時間非依存演算子に限定する。\(\mathcal J_0\) と有効質量 \(m\) の普遍値、磁場、時間依存駆動、非線形閉包、一般連続極限、粒子運動は含まない。
-
-\hypertarget{ux4e3bux7d50ux679c2aq9ux304bux3089ux6709ux9650ux57faux5e95ux5206ux5e03ux3078ux306eux63a5ux7d9a}{%
-\section{主結果2A：Q9から有限基底分布への接続}\label{ux4e3bux7d50ux679c2aq9ux304bux3089ux6709ux9650ux57faux5e95ux5206ux5e03ux3078ux306eux63a5ux7d9a}}
-
-測定時刻の規格化局所包絡と目標有効状態を \(\widehat b_{\rm mic}\)、\(\chi_L\) とする。任意の有限基底 \(W\) について
+Q9の規格化包絡 \(\widehat b_{\rm mic}\) と目標状態 \(\chi_L\) について、任意有限基底の作用比分布は
 
 \[
 D_{\rm TV}
@@ -543,86 +599,19 @@ p^{\rm mic},p^L
 \sqrt{
 1-
 \left|
-\left\langle
-\widehat b_{\rm mic},
-\chi_L
-\right\rangle
+\langle\widehat b_{\rm mic},\chi_L\rangle
 \right|^2
 }
 \]
 
-を得る。さらに第3章の包絡誤差から、\(\delta_{\rm loc}<1\) なら
+を満たす。この数学的インターフェースはM37とM35の同一ハードウェア化を意味しない。
 
-\[
-D_{\rm TV}
-\left(
-p^{\rm mic},p^L
-\right)
-\leq
-\min
-\left\{
-1,
-\frac{2\varepsilon_{\rm car}(T)}
-{1-\delta_{\rm loc}(\eta)}
-\right\}
-\]
+一般有限 \(L\) の複数段測定、永久外部記録、弱開放 reset、長距離時計配線は未完成なので、Q5は部分達成である。
 
-である。これに基底回路、読出し、比較器幅、角切断、時計、準備誤差を加えることで、Q9からQ2・Q5の測定部分までの分布誤差台帳を作る。
+\hypertarget{ux4e3bux7d50ux679c4ux6761ux4ef6ux4ed8ux304dbell-ux4e8cux5074ux5c65ux6b74}{%
+\section{主結果4：条件付きBell 二側履歴}\label{ux4e3bux7d50ux679c4ux6761ux4ef6ux4ed8ux304dbell-ux4e8cux5074ux5c65ux6b74}}
 
-\hypertarget{ux4e3bux7d50ux679c2bux56faux5b9aux6709ux9650ux57faux5e95ux306eux660eux793aux5468ux671f}{%
-\section{主結果2B：固定有限基底の明示周期}\label{ux4e3bux7d50ux679c2bux56faux5b9aux6709ux9650ux57faux5e95ux306eux660eux793aux5468ux671f}}
-
-固定した \(L<\infty\)、\(\chi^\dagger\chi=1\)、\(W|u_k\rangle=e_k\) に対し、\(3L+4\) 正準対の自律 Hamiltonian 周期を構成する。周期は次を行う。
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  固定状態 \(\chi\) を隣接2モード回路で準備し、同じ局所生成子から \(W\chi\) を作る。
-\item
-  各出力作用と選択閾値を正準レジスターへ読む。
-\item
-  累積差を局所剪断と双曲型増幅で比較ポインターへ移す。
-\item
-  安全な作動結果 \(k\) と正式な無反応結果 \(\varnothing\) からなる完全結果集合を作る。
-\item
-  空テンプレートを隣接経路で \(e_k\) へ移す。
-\item
-  信号とテンプレートを正準 SWAP する。
-\item
-  安全セクターでは測定直後の信号を \(|u_k\rangle\)、内部記録を \(k\) にする。
-\item
-  保持窓の後に無反応領域を含む全操作を逆順に実行する。
-\item
-  周期末に選択器角だけを無理数回転させる。
-\end{enumerate}
-
-Poincaré 写像は
-
-\[
-\vartheta
-\longmapsto
-\vartheta+2\pi\alpha
-\pmod{2\pi},
-\qquad
-\alpha\notin\mathbb Q
-\]
-
-なので、Haar 測度が一意不変である。有限幅で失われる作動質量を無反応成分へ入れると、長期分布と理想分布の全変動距離は無反応頻度に等しい。
-
-入力換算比較幅 \(w=Xe^{-\Lambda}\) では、内部境界近傍の測度が
-
-\[
-2(L-1)
-\frac{w}{I_{\rm ph}}
-\]
-
-以下になる。角切断接続領域を加えても、この誤差は任意に小さくできる。これは固定純粋準備・固定有限基底・有限次元・任意精度の範囲で、Q2の \(L=2\) 測定部分とQ5の一般有限 \(L\) 測定部分を与える。ただし、異軸逐次測定、完全な操作・測定周期、一般有限 \(L\) の同一装置への統合が残るため、固定目標としてのQ2とQ5はいずれも部分達成である。
-
-\hypertarget{ux4e3bux7d50ux679c3ux6761ux4ef6ux4ed8ux304d-bell-ux4e8cux5074ux5c65ux6b74}{%
-\section{主結果3：条件付き Bell 二側履歴}\label{ux4e3bux7d50ux679c3ux6761ux4ef6ux4ed8ux304d-bell-ux4e8cux5074ux5c65ux6b74}}
-
-左右の反対称な集団交差相関を規格化すると、
+左右の反対称集団交差相関を規格化すると、
 
 \[
 w_{AB}^{xy}
@@ -633,19 +622,9 @@ w_{AB}^{xy}
 \right]
 \]
 
-を得る。これは4成分作用重みとの代数的同型である。ただし交差相関 \(\Xi\) は集団統計量であり、単一試行の Hamiltonian が読む正準変数ではない。
+を得る。独立局所Haar 角の半円分割から4結果の基準密度 \(1/4\) を得る。未来角が記録済み結果の余弦区間へ入る事象を \(G\) とし、物理履歴を \(G\) に支持させれば、余弦共同確率、非信号周辺、標準設定でのCHSH値 \(2\sqrt2\) を得る。完全履歴測度は設定依存なので、Bell の測定設定独立性は成立しない。
 
-独立局所 Haar 角の半円分割から、制約前4結果セクターの基準密度 \(1/4\) を得る。未来角が記録済み結果の余弦区間へ入る事象を \(G\) とし、物理履歴を \(G\) に支持させれば
-
-\[
-P_{\mu_{\rm B}}(A,B\mid x,y)
-=
-w_{AB}^{xy}
-\]
-
-となる。余弦重みから非信号周辺と標準設定での CHSH 値 \(2\sqrt2\) が従う。完全履歴の測度は設定依存なので、Bell の測定設定独立性は成立しない。
-
-これは二側支持条件に依存する条件付き定理である。単一試行変数からの余弦区間多重度、\(G\) の物理的必然性、前向き不変測度としての生成、完全境界流束の因子化は未解決である。
+単一試行変数からの余弦区間多重度、\(G\) の物理的必然性、完全境界流束の因子化は未解決である。Q7は仮説依存の条件付き模型として部分達成である。
 
 \hypertarget{ux5c0eux51faux72b6ux614b}{%
 \section{導出状態}\label{ux5c0eux51faux72b6ux614b}}
@@ -666,21 +645,22 @@ w_{AB}^{xy}
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-局所位置結合振動子網 & 厳密結果 & 有限自由度、時間非依存 \\
-反回転項を含む局所包絡 & 厳密結果 & 実対称位置結合 \\
-厳密正常モード包絡 & 厳密結果 & 一般には非局所 \\
-Schrödinger 型局所包絡 & 近似結果 & \(\eta<1\)、有限時間 \\
-Q9誤差から有限基底分布誤差 & 厳密な誤差命題 & 非零包絡、有限基底 \\
-任意基底の隣接2モード回路 & 厳密結果 & \(QQ+PP\) 交換と局所位相回転 \\
-滑らかな固定有限基底周期 & 厳密結果 & 固定純粋準備、固定基底、無反応込み \\
-Born 型長期頻度 & 明示誤差付き結果 & 任意精度、無理数回転、非混合 \\
-相関行列の交換子発展 & 補助モデル内で厳密 & 設計済み理想有効担体 \\
-Bell 4成分余弦重み & 集団代数として厳密 & 反対称集団相関 \\
-Bell 基準密度 \(1/4\) & 最小模型で厳密 & 独立局所 Haar 角 \\
+M38のBloch 球と共通位相縮約 & 厳密結果 & 固定作用面、採用操作・測定代数 \\
+M38の任意の \(SU(2)\) & 厳密結果 & \(QQ+PP\) と局所位相回転 \\
+M38の自律Rabi 振動 & 厳密結果 & 固定2モード模型 \\
+任意の Bloch 軸の安全測定後状態 & 厳密結果 & 無反応込み \\
+同軸・異軸逐次測定分布 & 明示誤差付き結果 & 固定純粋入力、固定2軸、非混合 \\
+外部記録剪断と内部逆計算 & 厳密結果 & 理想空記録セル \\
+外部セル交換 reset & 厳密写像と誤差上界 & 外部セル準備幅、有限流路 \\
+M38の完全周期 & 明示誤差付き結果 & 固定有限プログラム、弱開放 \\
+M37の局所位置結合振動子網 & 厳密結果 & 有限自由度、時間非依存 \\
+M37のSchrödinger 型局所包絡 & 近似結果 & \(\eta<1\)、有限時間 \\
+M35の一般有限基底周期 & 厳密または明示誤差付き & 固定純粋準備、固定基底 \\
 Bell 二側履歴統計 & 仮説依存結果 & 余弦区間と支持 \(G\) を採用 \\
-性能と資源の台帳 & 部分結果 & 総エネルギーと長期安定性は未評価 \\
-全プログラム共通の \(\mu_*\) & 予想・未解決 & 統一周期は未構成 \\
+全プログラム共通のM0と \(\mu_*\) & 予想・未解決 & 統一周期は未構成 \\
 \end{longtable}
+
+Q2とQ3の「達成」は、任意の \(\epsilon>0\) に対して有限装置の無反応率、分布誤差、周期帰還誤差を \(\epsilon\) 未満にできることを意味する。有限資源で誤差が厳密に零であることを意味しない。
 
 \hypertarget{ux672cux8ad6ux6587ux304cux4e3bux5f35ux3057ux306aux3044ux3053ux3068}{%
 \section{本論文が主張しないこと}\label{ux672cux8ad6ux6587ux304cux4e3bux5f35ux3057ux306aux3044ux3053ux3068}}
@@ -691,53 +671,51 @@ Bell 二側履歴統計 & 仮説依存結果 & 余弦区間と支持 \(G\) を�
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  Schrödinger 型方程式が任意の古典系から必然的に現れること。
+  量子力学の全構造を導出したこと。
 \item
-  \(\mathcal J_0\) または有効質量 \(m\) の普遍値を導いたこと。
+  M37、M38、M35、M36を1つのM0へ統合したこと。
 \item
-  一般複素 Hamiltonian、磁場、時間依存駆動、非線形閉包を含むQ9定理への一般化。
+  M38の \(QQ+PP\) 操作をM37の位置ばねだけから導いたこと。
 \item
-  局所包絡作用がミクロ発展中に厳密保存されること。
+  M37とM38が同じハードウェアであること。
 \item
-  正常モード包絡が局所物理場であること。
+  一般有限 \(L\) の完全操作・測定周期を閉じたこと。
 \item
-  相関行列をミクロ基礎状態として採用したこと。
-\item
-  任意初期集団からの階数1純化。
-\item
-  M35の \(QQ+PP\) 測定回路をM37の位置ばね網から導いたこと。
+  可変調製・可変基底を含む統一エルゴード周期。
 \item
   無理数回転が独立同分布または二項分布型有限標本統計を与えること。
 \item
-  無反応領域なしに、滑らかな有限時間 Hamiltonian で連結入力領域全体を厳密な離散状態だけへ写すこと。
+  無反応なしに滑らかな有限時間Hamiltonian で連結入力領域全体を厳密な2固有状態だけへ写すこと。
 \item
-  永久外部記録を保持したまま有限閉鎖全系を同じ点へ戻すこと。
+  有限閉鎖系の固定容量で永久記録を無期限に蓄積すること。
+\item
+  異なる結果履歴を外部記録ごと同じ位相点へ押しつぶすこと。
+\item
+  reset の熱力学的最小仕事、総エネルギー収支、資源下界を導いたこと。
+\item
+  局所包絡作用がM37のミクロ発展中に厳密保存されること。
+\item
+  正常モード包絡が局所物理場であること。
 \item
   位相担体のセル選択が粒子の局所検出そのものであること。
 \item
-  粒子の連続軌道、Wallstrom 問題、連続スペクトルを含む一般 Born 則。
-\item
-  集団交差相関 \(\Xi\) を単一試行の装置が読み取ること。
+  粒子の連続軌道、Wallstrom 問題、連続スペクトルを含む一般Born 則。
 \item
   Bell 余弦区間を単一試行のミクロ源から導いたこと。
 \item
   Bell 二側測度を通常の前向き初期値問題の不変測度として生成したこと。
 \item
-  一般 Tsirelson 原理または外部設定介入に対する統計安定性。
-\item
-  相関観測、可変基底、Bell 履歴、外部記録を統合する単一の \(\mu_*\)。
-\item
-  1個の時計自由度から各局所辺へ制御窓を伝える物理的な局所時計配線。
+  一般Tsirelson 原理または外部設定介入に対する統計安定性。
 \end{enumerate}
 
-配置拡散・Nelson 経路、旧2成分誘導場、旧位置作用殻、前周期記憶模型は現行主線に採用しない。再利用価値のある結果と不採用理由は研究メモまたは版履歴で管理する。
+配置拡散・Nelson経路、旧2成分誘導場、旧位置作用殻、前周期記憶模型は現行主線に採用しない。再利用価値のある結果と不採用理由は研究メモまたは版履歴で管理する。
 
 \hypertarget{ux672cux6587ux3068ux4ed8ux9332ux306eux69cbux6210}{%
 \section{本文と付録の構成}\label{ux672cux6587ux3068ux4ed8ux9332ux306eux69cbux6210}}
 
-第2章と第3章がQ9のミクロ導出を担う。第4章はQ9からQ2・Q5の測定部分への分布誤差と明示測定周期を扱う。第5章は別の二側履歴測度に基づくQ7を扱う。第6章はQ3・Q5に関係する反復と、各目標に属する誤差・資源を集計する。第7章は未完成の固定目標と部分達成目標の残る課題を示す。
+第2章と第3章はM37によるQ9のミクロ導出を扱う。第4章はM38によるQ1--Q3、第5章はM35によるQ5の一般有限基底部分、第6章はM36によるQ7の条件付きBell 二側履歴、第7章は各模型の誤差と資源、第8章は未完成目標と反証条件を扱う。
 
-付録Aは正常モード正準変換、付録Bは相関行列と作用選択の補助結果、付録CはM35の局所滑らか測定装置、付録DはBell 境界模型の条件付き実装を扱う。
+付録Aは正常モード正準変換、付録Bは相関行列と作用選択、付録CはM35の一般有限基底装置、付録DはBell 境界模型、付録EはM38の2モード完全周期を扱う。
 
 \hypertarget{ux5c40ux6240ux7d50ux5408ux3055ux308cux305fux5b9fux53e4ux5178ux632fux52d5ux5b50ux7db2}{%
 \chapter{局所結合された実古典振動子網}\label{ux5c40ux6240ux7d50ux5408ux3055ux308cux305fux5b9fux53e4ux5178ux632fux52d5ux5b50ux7db2}}
@@ -759,10 +737,10 @@ Bell 二側履歴統計 & 仮説依存結果 & 余弦区間と支持 \(G\) を�
 \item
   有効担体層は、搬送振動を除いた局所複素包絡 \(b_i\) である。
 \item
-  測定装置層は、第4章の作用読出し、比較、正準 SWAP、記録、逆計算を行う理想正準制御系である。
+  測定装置層は、第4章のM38と第5章のM35で、作用読出し、比較、正準SWAP 、記録、逆計算を行う正準制御系である。
 \end{enumerate}
 
-ミクロ層から有効担体層への移行はQ9の対象である。有効担体層を入力とする測定装置は、\(L=2\) ではQ2、一般有限 \(L\) ではQ5の対象であり、任意の装置用正準混合が局所ばね網だけで実装できるとは仮定しない。
+ミクロ層から有効担体層への移行はQ9の対象である。M38は \(L=2\) のQ1--Q3、M35は一般有限 \(L\) のQ5を扱う。任意の装置用正準混合がM37の局所ばね網だけで実装できるとは仮定せず、M37とM38の同一ハードウェア化も主張しない。
 
 振動子の個数を \(L<\infty\)、共通質量を \(M_{\rm osc}>0\)、搬送周波数を \(\omega_0>0\) とする。\(M_{\rm osc}\) はミクロ振動子の質量であり、第3章に現れる有効質量 \(m\) と区別する。固定作用尺度 \(\mathcal J_0>0\) は正準座標の規格化に使う。
 
@@ -952,7 +930,7 @@ e^{2i\omega_0t}
 
 となり、一般には零でない。保存されるのはミクロエネルギーであり、局所回転包絡の作用ではない。
 
-この点は第4章との接続で重要である。測定器へ入る直前の \(I_{\rm loc}\) を読み、その時点の作用比 \(I_k/I_{\rm loc}\) を使う単発測定は定義できる。しかし、伝播中の局所作用を厳密保存量として扱ったり、準備から測定まで自動的に同じ規格化が保たれると主張したりしてはならない。
+この点は第5章との接続で重要である。測定器へ入る直前の \(I_{\rm loc}\) を読み、その時点の作用比 \(I_k/I_{\rm loc}\) を使う単発測定は定義できる。しかし、伝播中の局所作用を厳密保存量として扱ったり、準備から測定まで自動的に同じ規格化が保たれると主張したりしてはならない。
 
 \hypertarget{ux53b3ux5bc6ux6b63ux5e38ux30e2ux30fcux30c9ux5305ux7d61}{%
 \section{厳密正常モード包絡}\label{ux53b3ux5bc6ux6b63ux5e38ux30e2ux30fcux30c9ux5305ux7d61}}
@@ -1071,7 +1049,7 @@ V_i
 \ll1
 \]
 
-のような低速条件、または明示的な非共鳴条件が別に必要である。これはQ1の Rabi 駆動課題として第7章に残す。
+のような低速条件、または明示的な非共鳴条件が別に必要である。M38のQ1はこの位置ばね近似を使わず厳密に閉じる。時間依存M37を同じハードウェアへ統合する課題は、Q9を超える一般化として第8章に残す。
 
 \hypertarget{ux65e2ux77e5ux306eux53e4ux5178ux632fux52d5ux5b50ux8868ux793aux3068ux306eux95a2ux4fc2}{%
 \section{既知の古典振動子表示との関係}\label{ux65e2ux77e5ux306eux53e4ux5178ux632fux52d5ux5b50ux8868ux793aux3068ux306eux95a2ux4fc2}}
@@ -1448,7 +1426,7 @@ p_-
 
 を得る。理想暗出力は \(\phi_1-\phi_2=\pi\) で零になる。
 
-ミクロ局所包絡では、反回転項と正常モード補正により出力方向が \(O(\eta)\) だけずれる。暗出力確率の誤差は振幅誤差の2乗だけとは限らない。規格化と任意基底測定を含む安全な上界は、第4章で全変動距離として与える。
+ミクロ局所包絡では、反回転項と正常モード補正により出力方向が \(O(\eta)\) だけずれる。暗出力確率の誤差は振幅誤差の2乗だけとは限らない。規格化と任意有限基底測定を含む安全な上界は、第5章で全変動距離として与える。
 
 \hypertarget{ux6570ux5024ux691cux7b97}{%
 \section{数値検算}\label{ux6570ux5024ux691cux7b97}}
@@ -1486,7 +1464,7 @@ T
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  有限個の実古典振動子からなる局所位置結合 Hamiltonian。
+  有限個の実古典振動子からなる局所位置結合 Hamiltonian 。
 \item
   反回転項を含む局所包絡の厳密方程式。
 \item
@@ -1525,13 +1503,667 @@ T
   Born 則、Bell 統計、唯一結果形成のミクロ導出。
 \end{enumerate}
 
-特に最後の3項は、Schrödinger 型包絡が得られただけでは従わない。第4章以降で測定装置との接続を別に検討する。
+特に最後の3項は、Schrödinger 型包絡が得られただけでは従わない。第4章のM38と第5章のM35で測定装置を別模型として検討する。
+
+\hypertarget{ux30e2ux30fcux30c9ux5358ux4e00ux91cfux5b50ux30d3ux30c3ux30c8ux578bux64cdux4f5cux6e2cux5b9aux5f31ux958bux653eux5468ux671f}{%
+\chapter{2モード単一量子ビット型操作・測定・弱開放周期}\label{ux30e2ux30fcux30c9ux5358ux4e00ux91cfux5b50ux30d3ux30c3ux30c8ux578bux64cdux4f5cux6e2cux5b9aux5f31ux958bux653eux5468ux671f}}
+
+\begin{statusbox}
+位置づけ：M35と同じ2モード正準信号担体を使うM38を構成し、Bloch 球、共通位相不変性、任意の $SU(2)$ 操作、自律Rabi 振動、任意軸の2段測定、永久外部記録、内部逆計算、外部セル交換 reset を接続する。Q1は厳密、Q2とQ3は無反応と装置誤差を含む制御された任意精度で達成する。M37との同一ハードウェア化は主張しない。
+\end{statusbox}
+
+\hypertarget{m38ux3068ux4e3bux5f35ux7bc4ux56f2}{%
+\section{M38と主張範囲}\label{m38ux3068ux4e3bux5f35ux7bc4ux56f2}}
+
+本章では、\(L=2\) に限定した単一量子ビット型装置M38を構成する。信号担体は2つの実正準対
+
+\[
+(Q_1,P_1),
+\qquad
+(Q_2,P_2)
+\]
+
+であり、複素正準振幅を
+
+\[
+b
+=
+\begin{pmatrix}
+b_1\\
+b_2
+\end{pmatrix},
+\qquad
+b_j
+=
+\frac{Q_j+iP_j}{\sqrt{2\mathcal J_0}}
+\]
+
+と定める。全位相作用は
+
+\[
+I_{\rm ph}
+=
+\frac12
+\sum_{j=1}^2
+\left(
+Q_j^2+P_j^2
+\right)
+=
+\mathcal J_0 b^\dagger b
+\]
+
+である。本章では固定作用面
+
+\[
+I_{\rm ph}=\mathcal J_0
+\]
+
+を使うので、\(b^\dagger b=1\) である。
+
+M38は次の3層からなる。
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  同じ2モード信号担体上の可逆操作層。
+\item
+  M35を \(L=2\) に特殊化し、独立な2つの選択器を持たせた逐次測定層。
+\item
+  外部記録セル、外部 reset セル、局所作用・角時計を加えた弱開放周期層。
+\end{enumerate}
+
+任意の操作、測定軸、初期純粋状態を1つの可変プログラム装置で切り替えるとは主張しない。固定した有限プログラムごとに有限Hamiltonian を構成する。M38の信号担体はM35の測定信号と同じであるが、M37の位置ばね網と同じハードウェアではない。M37はQ9の空間Schrödinger 型包絡、M38はQ1--Q3の最小装置を担う。
+
+\hypertarget{ux56faux5b9aux4f5cux7528ux9762ux3068bloch-ux7403}{%
+\section{固定作用面とBloch 球}\label{ux56faux5b9aux4f5cux7528ux9762ux3068bloch-ux7403}}
+
+共通位相変換
+
+\[
+b
+\longmapsto
+e^{i\gamma}b
+\]
+
+は \(I_{\rm ph}\) が生成する正準変換である。本章で使う操作量 \(b^\dagger A b\)、出力作用 \(|(Wb)_s|^2\)、比較ポインターはこの変換に不変である。
+
+Bloch ベクトルを
+
+\[
+\boldsymbol r
+=
+b^\dagger\boldsymbol\sigma b
+\]
+
+と定める。実正準座標では
+
+\[
+r_x
+=
+\frac{Q_1Q_2+P_1P_2}{\mathcal J_0},
+\]
+
+\[
+r_y
+=
+\frac{Q_1P_2-P_1Q_2}{\mathcal J_0},
+\]
+
+\[
+r_z
+=
+\frac{
+Q_1^2+P_1^2-Q_2^2-P_2^2
+}{2\mathcal J_0}
+\]
+
+となる。
+
+\begin{proposition}[固定作用面の共通位相縮約]
+固定作用面 $I_{\rm ph}=\mathcal J_0$ は $S^3$ である。写像 $b\mapsto\boldsymbol r$ は
+
+$$
+|\boldsymbol r|=1
+$$
+
+を満たし、同じBloch ベクトルを持つ2点は共通位相だけ異なる。従って、採用する操作・測定代数に対する有効状態空間は
+
+$$
+S^3/U(1)
+\simeq
+\mathbb{CP}^1
+\simeq
+S^2
+$$
+
+である。
+\end{proposition}
+
+正準Poisson 括弧から
+
+\[
+\{b_j,b_k^*\}
+=
+-\frac{i}{\mathcal J_0}\delta_{jk}
+\]
+
+が従うので、Bloch 成分は
+
+\[
+\{r_i,r_j\}
+=
+\frac{2}{\mathcal J_0}
+\epsilon_{ijk}r_k
+\]
+
+を満たす。この縮約は、古典位相空間で共通位相変数が存在しないという主張ではない。採用する操作量と測定量が共通位相を識別しないことを表す。
+
+有限次元量子力学を実Hamiltonian 系として表示できること自体は既知である \cite{heslot1985}。本章の追加内容は、この表示をM35型の滑らかな測定、逐次記録、逆計算、外部セル reset へ接続した点にある。
+
+\hypertarget{ux4efbux610fux306esu2-ux64cdux4f5c}{%
+\section{任意のSU(2) 操作}\label{ux4efbux610fux306esu2-ux64cdux4f5c}}
+
+任意の実ベクトル \(\boldsymbol\Omega\) に対し、信号Hamiltonian を
+
+\[
+H_{\boldsymbol\Omega}
+=
+\frac{\mathcal J_0}{2}
+b^\dagger
+\left(
+\boldsymbol\Omega\cdot\boldsymbol\sigma
+\right)b
+\]
+
+と置く。Hamilton方程式は
+
+\[
+i\dot b
+=
+\frac12
+\left(
+\boldsymbol\Omega\cdot\boldsymbol\sigma
+\right)b,
+\]
+
+\[
+\dot{\boldsymbol r}
+=
+\boldsymbol\Omega\times\boldsymbol r
+\]
+
+となる。全位相作用は厳密に保存される。
+
+M35で使う局所位相回転と2モード交換の生成子は
+
+\[
+G_{Z,j}
+=
+\frac{Q_j^2+P_j^2}{2},
+\]
+
+\[
+G_X
+=
+Q_1Q_2+P_1P_2
+\]
+
+である。前者の相対位相回転と後者の交換回転を有限回合成すれば、Euler 分解
+
+\[
+U
+=
+e^{-i\alpha\sigma_z/2}
+e^{-i\beta\sigma_x/2}
+e^{-i\gamma\sigma_z/2}
+\]
+
+により任意の \(U\in SU(2)\) を同じ2モード担体上で厳密に実装できる。
+
+\begin{theorem}[2モード正準担体上の任意のSU(2)]
+任意の $U\in SU(2)$ に対し、$G_{Z,1}$、$G_{Z,2}$、$G_X$ の有限パルス列が存在し、その信号部分の正準写像は $b\mapsto Ub$ と一致する。各パルスは $I_{\rm ph}$ を保存し、逆操作はパルス順序と符号を反転して得られる。
+\end{theorem}
+
+これは固定された操作ごとの構成である。全ての \(U\) を1本のエルゴード周期が自動的に列挙すること、位置ばねだけで \(G_X\) を厳密に実装することは含まない。
+
+\hypertarget{ux81eaux5f8brabi-ux632fux52d5}{%
+\section{自律Rabi 振動}\label{ux81eaux5f8brabi-ux632fux52d5}}
+
+駆動用の作用・角変数を \((J_d,\tau_d)\) とし、次の自律Hamiltonian を置く。
+
+\[
+H_{\rm Rabi}
+=
+\omega_dJ_d
++
+\frac{\omega_q}{4}
+\left(
+Q_1^2+P_1^2-Q_2^2-P_2^2
+\right)
+\]
+
+\[
+\quad
++
+\frac{\Omega}{2}
+\left[
+\cos\tau_d
+\left(
+Q_1Q_2+P_1P_2
+\right)
++
+\sin\tau_d
+\left(
+Q_1P_2-P_1Q_2
+\right)
+\right].
+\]
+
+\(H_{\rm Rabi}\) は時計を含む有限自由度の時間非依存Hamiltonian である。相互作用は \(J_d\) に依存しないので
+
+\[
+\dot\tau_d=\omega_d
+\]
+
+が厳密に成立する。\(b=e^{-i\tau_d\sigma_z/2}c\) と置くと、回転座標では
+
+\[
+i\dot c
+=
+\frac12
+\left(
+\Delta\sigma_z+\Omega\sigma_x
+\right)c,
+\qquad
+\Delta=\omega_q-\omega_d
+\]
+
+となる。
+
+\begin{proposition}[自律2モードRabi 公式]
+初期状態を $b(0)=e_1$ とする。第2モードへの作用比は
+
+$$
+P_{1\to2}(t)
+=
+\frac{\Omega^2}{\Omega^2+\Delta^2}
+\sin^2
+\left(
+\frac{\sqrt{\Omega^2+\Delta^2}}{2}t
+\right)
+$$
+
+である。従って共鳴時の完全振動、一般離調での振動数、駆動強度依存性、離調による振幅低下が同じ有限自律Hamiltonian から厳密に従う。
+\end{proposition}
+
+このRabi 模型はM38の \(QQ+PP\) と交差位置・運動量結合を使う。M37の時間依存位置ばね近似、反回転補正、Bloch--Siegert型補正はQ1の達成条件に使わない。
+
+\hypertarget{ux4efbux610fux306e-bloch-ux8ef8ux306eux6e2cux5b9a}{%
+\section{任意の Bloch 軸の測定}\label{ux4efbux610fux306e-bloch-ux8ef8ux306eux6e2cux5b9a}}
+
+測定軸を単位ベクトル \(\boldsymbol n\)、結果を \(s\in\{+1,-1\}\) とする。射影成分を
+
+\[
+P_s(\boldsymbol n)
+=
+\frac{
+I+s\boldsymbol n\cdot\boldsymbol\sigma
+}{2}
+\]
+
+と定める。\(W_{\boldsymbol n}\in SU(2)\) を
+
+\[
+W_{\boldsymbol n}
+|\boldsymbol n,s\rangle
+=
+e_s
+\]
+
+となるように選ぶ。第5章のM35作用選択器を \(L=2\) に特殊化すると、2つの出力作用比は
+
+\[
+p_s(\boldsymbol n)
+=
+\left|
+\langle\boldsymbol n,s|b\rangle
+\right|^2
+=
+\frac{
+1+s\boldsymbol n\cdot\boldsymbol r
+}{2}
+\]
+
+となる。
+
+有限幅比較では、作動結果 \(+1\)、\(-1\) と無反応 \(\varnothing\) を完全結果集合とする。入力換算有効半幅を \(w_{{\rm eff},j}\)、角切断接続領域のHaar 質量を \(\varepsilon_{{\rm cut},j}\) とすると、測定段 \(j\) の無反応率は
+
+\[
+\delta_j
+\leq
+2\frac{w_{{\rm eff},j}}{\mathcal J_0}
++
+\varepsilon_{{\rm cut},j}
+\]
+
+で抑えられる。安全結果 \(s\) では正準SWAP 後の信号は厳密に \(|\boldsymbol n,s\rangle\) となり、測定前情報はテンプレートへ退避する。無反応試行を除外して2値分布を再規格化しない。
+
+\hypertarget{ux6ed1ux3089ux304bux306aux53b3ux5bc62ux5024ux6e2cux5b9aux306eux9023ux7d9aux6027ux969cux5bb3}{%
+\section{滑らかな厳密2値測定の連続性障害}\label{ux6ed1ux3089ux304bux306aux53b3ux5bc62ux5024ux6e2cux5b9aux306eux9023ux7d9aux6027ux969cux5bb3}}
+
+滑らかな有限時間Hamiltonian 流は初期値に連続に依存する。この事実は、有限幅比較器で無反応領域を残す理由を与える。
+
+\begin{theorem}[連結入力に対する厳密2値像の障害]
+連結な初期領域 $X$ と、滑らかな有限時間Hamiltonian 流から得る連続写像 $F:X\to Y$ を考える。出力信号が全入力について相異なる2点 $y_+$、$y_-$ のいずれかだけを取り、両方が実現されると仮定すると矛盾する。
+\end{theorem}
+
+連続像 \(F(X)\) は連結であるが、\(\{y_+,y_-\}\) の2点集合で両点を含む部分集合は連結でない。従って、次の4条件は同時には成立しない。
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  滑らかな有限時間Hamiltonian 流。
+\item
+  連結な選択器入力領域。
+\item
+  無反応または遷移領域がないこと。
+\item
+  全入力を2つの異なる固有状態だけへ写すこと。
+\end{enumerate}
+
+M38は安全セクターで厳密な固有状態を作り、その間を正式な無反応結果とする。無反応率を任意に小さくできるが、有限資源で厳密に零とはしない。
+
+\hypertarget{ux540cux8ef8ux53cdux5fa9ux6e2cux5b9a}{%
+\section{同軸反復測定}\label{ux540cux8ef8ux53cdux5fa9ux6e2cux5b9a}}
+
+第1測定の軸を \(\boldsymbol n\) とし、安全結果 \(s\) が得られたとする。信号は厳密に \(|\boldsymbol n,s\rangle\) である。新しい空テンプレートと独立選択器を持つ第2測定段も同じ軸に設定すれば、理想作用比は
+
+\[
+p_t
+=
+\delta_{ts}
+\]
+
+となる。
+
+有限幅でも反対符号の安全結果は生じない。第2段の結果は同じ符号または無反応であり、
+
+\[
+P_{\rm safe}(-s\mid s)=0,
+\qquad
+P(\varnothing\mid s)\leq\delta_2
+\]
+
+である。ここでも無反応を除く条件付き確率だけを表示して反復性を主張しない。
+
+\hypertarget{ux7570ux8ef8ux9010ux6b21ux6e2cux5b9a}{%
+\section{異軸逐次測定}\label{ux7570ux8ef8ux9010ux6b21ux6e2cux5b9a}}
+
+第1軸を \(\boldsymbol n\)、第2軸を \(\boldsymbol m\) とする。第1段の安全結果 \(s\) の後、信号は \(|\boldsymbol n,s\rangle\) なので、第2段の理想条件付き重みは
+
+\[
+P(t\mid s)
+=
+\left|
+\langle\boldsymbol m,t|\boldsymbol n,s\rangle
+\right|^2
+=
+\frac{
+1+st\boldsymbol n\cdot\boldsymbol m
+}{2}.
+\]
+
+従って理想共同分布は
+
+\[
+\pi_{st}
+=
+\frac{
+1+s\boldsymbol n\cdot\boldsymbol r
+}{2}
+\frac{
+1+st\boldsymbol n\cdot\boldsymbol m
+}{2}.
+\]
+
+2段の選択器角を \((\vartheta_1,\vartheta_2)\) とし、周期末に
+
+\[
+(\vartheta_1,\vartheta_2)
+\longmapsto
+(\vartheta_1+2\pi\alpha_1,
+\vartheta_2+2\pi\alpha_2)
+\pmod{2\pi}
+\]
+
+と進める。\(1,\alpha_1,\alpha_2\) が有理数体上で1次独立なら、この平行移動は2次元トーラス上で一意エルゴード的であり、Haar 測度は積測度になる。
+
+\begin{theorem}[2選択器による異軸逐次測定]
+固定純粋入力、固定軸 $\boldsymbol n,\boldsymbol m$、独立な2つの選択器、互いに重ならない時計窓を仮定する。零幅極限の長期共同頻度は $\pi_{st}$ に一致する。有限幅では結果空間を $\{+1,-1,\varnothing\}^2$ とし、理想分布を無反応成分0で拡張すれば、実分布 $p^{(2)}$ は
+
+$$
+D_{\rm TV}
+\left(
+p^{(2)},\pi
+\right)
+\leq
+\delta_1+\delta_2
+$$
+
+を満たす。
+\end{theorem}
+
+同じ選択器角を2段で再利用すると、第1結果で条件付けた後の第2角の一様性が一般に失われるため採用しない。一意エルゴード性は長期頻度を与えるが、結果列の独立同分布性や二項分布型有限標本揺らぎは与えない。
+
+\hypertarget{ux5916ux90e8ux8a18ux9332ux3078ux306eux6b63ux6e96ux30b3ux30d4ux30fc}{%
+\section{外部記録への正準コピー}\label{ux5916ux90e8ux8a18ux9332ux3078ux306eux6b63ux6e96ux30b3ux30d4ux30fc}}
+
+各測定段の滑らかな比較ポインターと角切断指標から、結果コード \(\Pi_j(z)\) を作る。\(\Pi_j\) は安全な正結果で \(+1\)、安全な負結果で \(-1\)、比較遷移域または角切断接続域からなる無反応領域で \((-1,1)\) の値を取る滑らかな関数とする。外部記録セル \((Q_j^R,P_j^R)\) への記録生成子を
+
+\[
+G_{\rm rec}
+=
+\sum_{j=1}^2
+P_j^R\Pi_j(z)
+\]
+
+とする。理想空記録セル \(Q_j^R=P_j^R=0\) から単位面積パルスを作用させると
+
+\[
+Q_j^R
+\longmapsto
+Q_j^R+\Pi_j(z),
+\qquad
+P_j^R
+\longmapsto
+P_j^R
+\]
+
+となる。\(P_j^R=0\) なので、記録窓中の装置変数 \(z\) への反作用は零である。有限な \(P_j^R\) 準備誤差は記録反作用として誤差台帳へ入れる。
+
+記録後は、\(Q_j^R\) が正安全域、負安全域、中間域のどこにあるかをそれぞれ \(+1\)、\(-1\)、無反応として読む。不連続な離散ラベルをHamiltonian で直接コピーせず、滑らかな比較ポインターをコピーするため、前節の連続性障害を再導入しない。
+
+\hypertarget{ux5185ux90e8ux9006ux8a08ux7b97ux3068ux5916ux90e8ux30bbux30eb-reset}{%
+\section{内部逆計算と外部セル reset}\label{ux5185ux90e8ux9006ux8a08ux7b97ux3068ux5916ux90e8ux30bbux30eb-reset}}
+
+第2測定、第1測定の順に前向き操作を逆実行する。装置内部状態を \(z\)、結果 \(y\) の記録値を \(R_y\) と略記すると、理想写像は
+
+\[
+(z_0,0_R)
+\longmapsto
+(z_y,0_R)
+\longmapsto
+(z_y,R_y)
+\longmapsto
+(z_0,R_y)
+\]
+
+となる。装置は準備状態へ戻り、外部記録は残る。全写像は正準的で1対1であり、結果情報を消去せず外部セルへ移している。
+
+有限誤差と長期運転のため、装置の準備値からの偏差モードを \(\delta a_j\)、毎周期流入する外部空モードを \(\eta_{n,j}\) とする。固定並進後の複素正準座標で、交換生成子を
+
+\[
+G_{\rm rst}
+=
+i\mathcal J_0
+\sum_j
+\left(
+\delta a_j^*\eta_{n,j}
+-
+\eta_{n,j}^*\delta a_j
+\right)
+\]
+
+とする。交換角を \(\phi\) とすると
+
+\[
+\delta a_j^+
+=
+\cos\phi\,\delta a_j^-
++
+\sin\phi\,\eta_{n,j},
+\]
+
+\[
+\eta_{n,j}^+
+=
+-\sin\phi\,\delta a_j^-
++
+\cos\phi\,\eta_{n,j}
+\]
+
+である。\(\phi=\pi/2\) では完全交換、\(0<|\cos\phi|<1\) では装置偏差の収縮になる。旧装置状態は使用済み外部モードへ移り、Hamiltonian 可逆性は失われない。
+
+1周期の内部逆計算残差を \(\varepsilon_{\rm cyc}\)、流入セル幅を \(\|\eta_n\|\leq\sigma_E\) とすると、
+
+\[
+\limsup_{n\to\infty}
+\|\delta a_n\|
+\leq
+\frac{
+\varepsilon_{\rm cyc}
++
+|\sin\phi|\sigma_E
+}{
+1-|\cos\phi|
+}
+\]
+
+を得る。結合強度を \(g\) とすれば交換時間は
+
+\[
+T_{\rm rst}
+=
+\frac{\phi}{g}
+\]
+
+である。弱い結合でも接触時間を長くすれば完全交換へ到達できる。本稿で「弱開放」と呼ぶのは結合強度または単位時間当たり交換が弱いという意味であり、1周期のreset 効果が必ず微小という意味ではない。
+
+\hypertarget{ux5c40ux6240ux6642ux8a08ux3068ux8cc7ux6e90}{%
+\section{局所時計と資源}\label{ux5c40ux6240ux6642ux8a08ux3068ux8cc7ux6e90}}
+
+全ての操作を1つの作用・角時計 \((J_c,\tau_c)\) で自律化する。互いに重ならない時計窓を \(g_r(\tau_c)\)、各局所生成子を \(G_r\) とし、
+
+\[
+H_{\rm cyc}
+=
+\Omega_cJ_c
++
+\Omega_c
+\sum_r
+g_r(\tau_c)G_r
+\]
+
+と置く。各窓は
+
+\[
+\int g_r(\tau_c)\,d\tau_c=1
+\]
+
+に規格化する。\(\dot\tau_c=\Omega_c\) なので、各生成子の流れが単位パルス面積で実行される。窓が重ならず、各 \(G_r\) が自身の流れで保存される理想構成では
+
+\[
+\Delta J_c
+=
+-\int g_r'(\tau_c)G_r\,d\tau_c
+=0
+\]
+
+であり、時計作用も各窓後に戻る。\(J_c\) に十分な正の余裕を持たせれば、周期中も正作用領域に保てる。
+
+M35の正準対数は \(3L+4\) なので、\(L=2\) の1段測定は10正準対である。2段装置で信号2対と時計1対だけを共有する単純上界は
+
+\[
+2+2\times7+1=17
+\]
+
+正準対である。2つの外部記録セルは1周期当たり2対を使う。信号、テンプレート、作用・閾値・内部記録を全て外部空モードと交換する保守的上界は1周期当たり14対である。選択器2対は無理数平行移動を続け、時計1対は周期運動を続けるので、この14対には含めない。
+
+\(N\) 周期を完全な有限閉鎖Hamiltonian 系へ埋め込む単純上界は、輸送自由度を除いて
+
+\[
+17+16N
+\]
+
+正準対である。能動装置の大きさは一定だが、永久記録と使用済みreset 状態の保存量は \(O(N)\) で増える。無期限運転だけが外部からのセル供給と使用済みセルの流出を必要とする。
+
+\(L=2\) の能動装置は1つの局所セル内へ置けるため、一般有限 \(L\) で残る長距離時計配線問題は生じない。有限なパルス面積誤差、時計窓の重なり、外部セルの有限準備幅は最終誤差へ加える。
+
+\hypertarget{ux5b8cux5168ux5468ux671fux5b9aux7406ux3068ux9054ux6210ux5224ux5b9a}{%
+\section{完全周期定理と達成判定}\label{ux5b8cux5168ux5468ux671fux5b9aux7406ux3068ux9054ux6210ux5224ux5b9a}}
+
+2段測定の前向き順序は、準備、任意の \(SU(2)\) 操作、第1測定、第2測定、増幅、外部記録である。その後に第2測定、第1測定、準備回路を逆計算し、最後に外部空モード交換を行う。
+
+\begin{theorem}[2モード弱開放完全操作・測定周期]
+固定純粋入力、固定された有限 $SU(2)$ 操作列、固定された2つのBloch 軸、任意の $\epsilon>0$ に対し、有限個の正準自由度からなる能動装置と外部記録・reset セル流路を構成できる。安全結果の測定後信号は厳密な対応固有状態である。無反応を含む2段結果分布と理想逐次射影分布の全変動距離、記録誤差、周期末準備集合からの偏差を全て $\epsilon$ 未満に選べる。全系の写像は正準的で1対1であり、装置は次周期の準備集合へ戻り、結果履歴と旧装置偏差は外部流へ残る。
+\end{theorem}
+
+理想Poincaré 写像は
+
+\[
+(z_*,\vartheta_1,\vartheta_2)
+\longmapsto
+\left(
+z_*,
+\vartheta_1+2\pi\alpha_1,
+\vartheta_2+2\pi\alpha_2
+\right)
+\]
+
+である。誤差は、正準状態誤差、状態方向誤差、比較境界移動量、結果分布の全変動距離の順に変換して評価する。異なる単位の誤差を直接加えない。
+
+以上により、Q1はBloch 球、共通位相不変性、任意の \(SU(2)\)、Rabi 振動を厳密に満たす。Q2は任意軸、排他的安全結果、測定後固有状態、同軸反復、異軸逐次測定を制御された任意精度で満たす。Q3は永久外部記録、内部逆計算、弱開放 reset、次周期復帰を制御された任意精度で満たす。
+
+Q1--Q3の達成は、M38内部の固定純粋入力・固定有限プログラムに限る。次は含まない。
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  M37とM38の同一ハードウェア化。
+\item
+  一般有限 \(L\) の2段完全周期。
+\item
+  可変プログラム全体の統一エルゴード測度。
+\item
+  独立同分布または二項分布型有限標本揺らぎ。
+\item
+  有限閉鎖系の固定容量で永久記録を無期限に蓄積すること。
+\item
+  無反応なしの厳密2値測定。
+\item
+  reset の熱力学的最小仕事または総エネルギー収支。
+\end{enumerate}
+
+これらはQ1--Q3を別の未確立仮説へ移したものではない。M38の達成範囲を超える一般化、資源評価、M0への統合課題である。
 
 \hypertarget{ux6ed1ux3089ux304bux306aux5c40ux6240ux6709ux9650ux57faux5e95ux6e2cux5b9aux5468ux671f}{%
 \chapter{滑らかな局所有限基底測定周期}\label{ux6ed1ux3089ux304bux306aux5c40ux6240ux6709ux9650ux57faux5e95ux6e2cux5b9aux5468ux671f}}
 
 \begin{statusbox}
-位置づけ：固定純粋準備・固定有限基底・有限次元について、局所位相回転、隣接2モード交換、滑らかな累積比較、無反応結果、条件付き測定後状態、内部記録、逆計算、無理数回転 Poincaré 写像を1本の有限自律 Hamiltonian 周期として構成する。Born 型長期頻度は任意精度で得られる。M37の位置ばね網、局所時計配線、永久記録、弱開放 reset を同じ完全装置へ統合することは未完成であり、固定目標としてのQ2、Q3、Q5は部分達成である。
+位置づけ：M35について、固定純粋準備・固定有限基底・一般有限Lの局所基底回路、滑らかな比較、無反応結果、測定後状態、内部逆計算、無理数回転Poincaré 写像を構成する。M38で閉じたL=2のQ1--Q3と分離し、一般有限Lの外部記録、弱開放 reset、逐次基底一般化はQ5へ残す。
 \end{statusbox}
 
 \hypertarget{ux4e00ux822cux4f5cux7528ux533aux9593ux516cux5f0f}{%
@@ -1732,7 +2364,7 @@ p^{\rm mic},p^L
 
 を得る。\(\varepsilon_{\rm dist}\) は包絡方向のずれが測定分布へ伝わる誤差であり、環境誤差ではない。
 
-本章の自律周期は \(I_{\rm ph}=\mathcal J_0\) の固定準備を使う。Q9から直接渡す単発入力で全局所作用が変動する場合は、測定時点の実際の \(I_{\rm ph}(T)\) を読み、閾値も同じ値で規格化する必要がある。この受渡しを同じ局所反復装置へ組み込む問題は、\(L=2\) ではQ3、一般有限 \(L\) ではQ5に残す。
+本章の自律周期は \(I_{\rm ph}=\mathcal J_0\) の固定準備を使う。Q9から直接渡す単発入力で全局所作用が変動する場合は、測定時点の実際の \(I_{\rm ph}(T)\) を読み、閾値も同じ値で規格化する必要がある。この受渡しを同じ局所反復装置へ組み込む問題は、一般有限 \(L\) のQ5、および空間局所検出へ接続するQ13に残す。\(L=2\) の完全周期は第4章のM38で独立に扱う。
 
 \hypertarget{ux4efbux610fux6709ux9650ux57faux5e95ux306eux5c40ux6240ux6b63ux6e96ux56deux8def}{%
 \section{任意有限基底の局所正準回路}\label{ux4efbux610fux6709ux9650ux57faux5e95ux306eux5c40ux6240ux6b63ux6e96ux56deux8def}}
@@ -2183,7 +2815,7 @@ G_{\rm drift}
 \alpha\notin\mathbb Q
 \]
 
-とする。各窓の生成子はその窓内で保存され、窓端で \(g_r=0\) なので、時計運動量 \(P_\tau\) も1周期後に準備値へ戻る。1個の時計変数から各局所辺へ窓信号を物理的に配る配線は、本章の代数構成には含めず、\(L=2\) ではQ3、一般有限 \(L\) ではQ5に残す。
+とする。各窓の生成子はその窓内で保存され、窓端で \(g_r=0\) なので、時計運動量 \(P_\tau\) も1周期後に準備値へ戻る。1個の時計変数から空間的に離れた各局所辺へ窓信号を物理的に配る配線は、本章の代数構成には含めず、一般有限 \(L\) のQ5に残す。\(L=2\) では全能動装置を1つの局所セルへ置く第4章の構成を使う。
 
 \hypertarget{poincaruxe9-ux5199ux50cfux3068ux4e0dux5909ux6e2cux5ea6}{%
 \section{Poincaré 写像と不変測度}\label{poincaruxe9-ux5199ux50cfux3068ux4e0dux5909ux6e2cux5ea6}}
@@ -2314,7 +2946,7 @@ p_i
 
 となる。ただし、これは位相担体の空間セル基底を標本化する式である。粒子座標がセル \(i\) の局所検出器を作動させること、粒子と選択モードが同期すること、粒子が連続軌道を持つことは別の導出を要する。
 
-本章は、固定純粋準備・固定有限基底・有限次元・任意精度という範囲で、Q2の \(L=2\) 測定部分とQ5の一般有限 \(L\) 測定部分を与える。ただし、Q2には任意の Bloch 軸による異軸逐次測定、Q3にはM37とM35の統合、局所時計配線、永久外部記録、弱開放 reset、同じ装置での直後反復、Q5にはこれらを含む一般有限 \(L\) の完全周期への統合が残る。従って固定目標としてのQ2、Q3、Q5はいずれも部分達成である。一般混合状態を1本の軌道から生成すること、混合的有限標本統計、粒子の局所検出、連続スペクトルも本章の結果に含めない。
+本章は、固定純粋準備・固定有限基底・有限次元・任意精度という範囲で、Q5の一般有限 \(L\) 測定部分を与える。\(L=2\) の任意の Bloch 軸、同軸反復、異軸逐次測定、永久外部記録、弱開放 reset は第4章のM38で閉じる。一般有限 \(L\) については、複数段の独立選択器、外部記録・reset セル流、長距離時計配線、完全周期の資源増加が残るため、Q5は部分達成である。一般混合状態を1本の軌道から生成すること、混合的有限標本統計、粒子の局所検出、連続スペクトルも本章の結果に含めない。
 
 \hypertarget{ux6210ux5206-bell-ux91cdux307fux3068ux4e8cux5074ux5c65ux6b74ux6e2cux5ea6}{%
 \chapter{4成分 Bell 重みと二側履歴測度}\label{ux6210ux5206-bell-ux91cdux307fux3068ux4e8cux5074ux5c65ux6b74ux6e2cux5ea6}}
@@ -2508,7 +3140,7 @@ w_{AB}^{xy}
 とする。
 
 \begin{proposition}[Bell 集団重みと4成分作用重みの代数的同型]
-反対称な集団交差相関と左右局所回転の下で、規格化重み $K_{AB}^{xy}/\mathcal K$ は、4成分ベクトル $\chi_{\rm B}$ に局所テンソル積回転を施した成分の絶対値2乗に一致する。従って Bell 余弦集団重みは、第4章の有限基底作用重みと同じ代数構造を持つ。
+反対称な集団交差相関と左右局所回転の下で、規格化重み $K_{AB}^{xy}/\mathcal K$ は、4成分ベクトル $\chi_{\rm B}$ に局所テンソル積回転を施した成分の絶対値2乗に一致する。従ってBell 余弦集団重みは、第5章の有限基底作用重みと同じ代数構造を持つ。
 \end{proposition}
 
 この同値は線形代数上の同型であり、単粒子側のテンプレート SWAP 測定器を Bell 装置へ適用したことを意味しない。\(\chi_{\rm B}\) と \(w_{AB}^{xy}\) は集団相関から計算した量であり、単一試行の Hamiltonian が直接読み取れる正準レジスターではない。Bell では左右の結果が共通未来へ情報が届く前に局所的に形成される必要がある。
@@ -2960,55 +3592,55 @@ r_F
   平面内2出力を超える一般複合測定と一般 Tsirelson 原理。
 \end{enumerate}
 
-\hypertarget{ux53cdux5fa9ux5468ux671fux8aa4ux5deeux6027ux80fdux3068ux8cc7ux6e90}{%
-\chapter{反復周期、誤差、性能と資源}\label{ux53cdux5fa9ux5468ux671fux8aa4ux5deeux6027ux80fdux3068ux8cc7ux6e90}}
+\hypertarget{ux8aa4ux5deeux53cdux5fa9ux5468ux671fux6027ux80fdux3068ux8cc7ux6e90}{%
+\chapter{誤差、反復周期、性能と資源}\label{ux8aa4ux5deeux53cdux5fa9ux5468ux671fux6027ux80fdux3068ux8cc7ux6e90}}
 
 \begin{statusbox}
-位置づけ：Q9の包絡誤差、Q2・Q5に関係する局所基底回路・読出し・比較・時計誤差、有限基底装置の正準対数、ゲート数、動作深さを共通台帳へ集計する。これらは各目標の検証項目であり、量子ゲート型計算機の実装コストを扱うQ8は未着手である。
+位置づけ：M38のQ1--Q3誤差、M37からM35への分布誤差、一般有限基底装置、Bell 二側履歴の性能指標を分離して集計する。Q2とQ3の達成は任意精度を意味し、有限資源での零誤差や総エネルギー最適性を意味しない。量子ゲート型計算機の実装コストを扱うQ8は未着手である。
 \end{statusbox}
 
 \hypertarget{ux5bfeux8c61ux7bc4ux56f2}{%
 \section{対象範囲}\label{ux5bfeux8c61ux7bc4ux56f2}}
 
-本章は、次の3つを同一視せずに性能を集計する。
+本章は次の4つを同一視せずに集計する。
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  Q9の局所振動子網による伝播。
+  M38の2モード操作、2段測定、外部記録、弱開放 reset 。
 \item
-  Q2・Q5に関係する固定純粋準備・固定有限基底の内部測定周期。
+  M37の局所振動子網による空間伝播。
 \item
-  Q7の条件付き Bell 二側履歴模型。
+  M35の一般有限基底内部測定周期。
+\item
+  M36の条件付きBell 二側履歴模型。
 \end{enumerate}
 
-Q9と有限基底測定の数学的インターフェースは第4.3節で与えた。しかし、ミクロ振動子の準備、伝播、測定装置への受渡し、結果増幅、外部記録、reset を1本の実装へ統合してはいない。この完全装置への統合は、\(L=2\) ではQ3、一般有限 \(L\) ではQ5の課題である。従って本章の性能表は、完成装置の総合性能ではなく、導出済み部分の台帳である。
+M38はQ1--Q3を閉じるが、M37との同一ハードウェア化を含まない。M37からM35への接続は、状態方向誤差から有限基底分布誤差への数学的上界であり、同一装置の構成ではない。M0への統合、一般有限 \(L\) の完全周期、量子計算機としての規模依存性は別の課題である。
 
-\hypertarget{ux6709ux9650ux57faux5e95ux5206ux5e03ux306eux8aa4ux5deeux53f0ux5e33}{%
-\section{有限基底分布の誤差台帳}\label{ux6709ux9650ux57faux5e95ux5206ux5e03ux306eux8aa4ux5deeux53f0ux5e33}}
+\hypertarget{m38ux306eux8aa4ux5deeux53f0ux5e33}{%
+\section{M38の誤差台帳}\label{m38ux306eux8aa4ux5deeux53f0ux5e33}}
 
-目標有効状態の Born 型分布と観測分布の全変動距離を
+M38の理想逐次分布と観測分布の全変動距離を、次の無次元誤差へ分ける。
 
 \[
-D_{\rm TV}^{\rm obs}
+D_{\rm TV}^{\rm M38}
 \leq
-\varepsilon_{\rm dist}(T)
+\delta_1+\delta_2
 +
-\varepsilon_{\rm prep}
-+
-\varepsilon_W
-+
-\varepsilon_{\rm read}
-+
-\varepsilon_{\rm cmp}
-+
-\varepsilon_{\rm cut}
+\varepsilon_{\rm op}
 +
 \varepsilon_{\rm clk}
++
+\varepsilon_{\rm rec}
++
+\varepsilon_{\rm inv}
++
+\varepsilon_{\rm rst}
++
+\varepsilon_{\rm port}.
 \]
-
-と分ける。各項は次を表す。
 
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
@@ -3026,43 +3658,16 @@ D_{\rm TV}^{\rm obs}
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-\(\varepsilon_{\rm dist}\) & ミクロ局所包絡と目標有効状態の方向差 & 第3章と第4.3節の解析上界 \\
-\(\varepsilon_{\rm prep}\) & 初期作用、相対位相、伝播時刻の再現誤差 & 完全準備系で未評価 \\
-\(\varepsilon_W\) & 局所基底回路のゲート誤差 & 理想 \(QQ+PP\) 回路では0、実装誤差はゲート誤差の和以下 \\
-\(\varepsilon_{\rm read}\) & 作用・閾値読出しと累積剪断の誤差 & 理想入口では0、有限誤差は比較入力へ加算 \\
-\(\varepsilon_{\rm cmp}\) & 双曲型増幅後の滑らかな比較幅 & \(2(L-1)w_{\rm eff}/I_{\rm ph}\) 以下 \\
-\(\varepsilon_{\rm cut}\) & 円周角を区間へ切る接続領域 & 接続幅の Haar 質量 \\
-\(\varepsilon_{\rm clk}\) & 時計窓の面積、順序、局所配線の誤差 & 理想時計では0、物理配線は未評価 \\
+\(\delta_1,\delta_2\) & 2段比較器の無反応質量 & 各段で \(2w_{{\rm eff},j}/\mathcal J_0+\varepsilon_{{\rm cut},j}\) 以下 \\
+\(\varepsilon_{\rm op}\) & \(SU(2)\) パルス面積、順序、生成子の実装誤差 & 理想正準回路では0、有限列の和上界 \\
+\(\varepsilon_{\rm clk}\) & 時計窓面積、重なり、作用帰還誤差 & 非重複理想窓では0 \\
+\(\varepsilon_{\rm rec}\) & 記録セルの共役運動量幅と読出し幅 & \(T_R\sigma_PK_\Pi\) から状態誤差へ換算 \\
+\(\varepsilon_{\rm inv}\) & 第2段、第1段、準備回路の逆計算残差 & 理想逆回路では0 \\
+\(\varepsilon_{\rm rst}\) & 外部セル幅と交換角誤差 & 収縮上界で評価 \\
+\(\varepsilon_{\rm port}\) & 外部セルの流入・流出と接触時間のずれ & 個別実装で評価 \\
 \end{longtable}
 
-相関や独立性を仮定して2乗和にせず、安全な和上界を使う。上界が1を超える場合は確率距離の自明上界1へ切る。
-
-第3章の自然時間
-
-\[
-T
-=
-O
-\left(
-\frac{\mathcal J_0}{\left\|h_L\right\|}
-\right)
-\]
-
-では \(\varepsilon_{\rm dist}=O(\eta)\) である。したがって目標精度を \(\epsilon\) とするなら、他の誤差を固定した単純な十分条件は
-
-\[
-\omega_0
-=
-O
-\left(
-\frac{\left\|h_L\right\|}
-{\mathcal J_0\epsilon}
-\right)
-\]
-
-である。これは搬送周波数を上げるコストを明示するが、最適性は主張しない。
-
-増幅前誤差を \(\Delta_{\rm in}\)、増幅後誤差を \(\Delta_{\rm out}\) とすると、
+比較幅の入力換算量は
 
 \[
 w_{\rm eff}
@@ -3074,29 +3679,129 @@ Xe^{-\Lambda}
 e^{-\Lambda}\Delta_{\rm out}
 \]
 
-である。入力誤差は双曲型増幅で減らない。増幅後の固定出力誤差だけが入力換算で抑えられる。
+である。増幅前誤差は双曲型増幅で減らない。増幅後の固定出力誤差だけが入力換算で小さくなる。
 
-\hypertarget{ux5c40ux6240ux632fux52d5ux5b50ux7db2ux306eux8cc7ux6e90}{%
-\section{局所振動子網の資源}\label{ux5c40ux6240ux632fux52d5ux5b50ux7db2ux306eux8cc7ux6e90}}
+異なる単位の誤差を表のまま加えない。付録Eの順序に従い、正準状態誤差を状態方向誤差へ、状態方向誤差を比較境界移動量へ、境界移動量をHaar 質量と全変動距離へ変換する。上式の各 \(\varepsilon\) は最終的に全変動距離へ換算した後の量である。
 
-\(L\) 頂点、\(|E|\) 辺のグラフに対し、ミクロ担体は \(L\) 正準対 \((q_i,p_i)\) を使う。剛性行列は
+\hypertarget{m37ux304bux3089m35ux3078ux306eux5206ux5e03ux8aa4ux5dee}{%
+\section{M37からM35への分布誤差}\label{m37ux304bux3089m35ux3078ux306eux5206ux5e03ux8aa4ux5dee}}
+
+測定時刻の規格化局所包絡を \(\widehat b_{\rm mic}\)、目標有効状態を \(\chi_L\) とする。任意有限基底について
 
 \[
-A
-=
-D_\delta+L_\kappa
+D_{\rm TV}
+\left(
+p^{\rm mic},p^L
+\right)
+\leq
+\sqrt{
+1-
+\left|
+\langle\widehat b_{\rm mic},\chi_L\rangle
+\right|^2
+}
 \]
 
-なので、物理パラメータ数は概ね \(L+|E|\) である。固定次数の局所格子では \(|E|=O(L)\) であり、自由度と結合数は線形に増える。
+である。装置誤差を加える場合は
 
-一方、任意の密な実対称 \(h_L\) を直接実装すれば \(|E|=O(L^2)\) になる。Q9は局所疎結合を中心とするため、密行列の一般実装を性能優位性として数えない。
+\[
+D_{\rm TV}^{\rm M35}
+\leq
+\varepsilon_{\rm dist}(T)
++
+\varepsilon_{\rm prep}
++
+\varepsilon_W
++
+\varepsilon_{\rm read}
++
+\varepsilon_{\rm cmp}
++
+\varepsilon_{\rm cut}
++
+\varepsilon_{\rm clk}
+\]
 
-厳密正常モード包絡 \(\widetilde b\) は行列平方根を含むが、これは物理装置へ追加する非局所結合ではなく解析変数である。物理ミクロ系は局所 \(A\) のままである。
+とする。
 
-\hypertarget{ux6709ux9650ux57faux5e95ux6e2cux5b9aux88c5ux7f6eux306eux8cc7ux6e90}{%
-\section{有限基底測定装置の資源}\label{ux6709ux9650ux57faux5e95ux6e2cux5b9aux88c5ux7f6eux306eux8cc7ux6e90}}
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+誤差
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+内容
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+現行評価
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\(\varepsilon_{\rm dist}\) & M37の局所包絡と目標状態の方向差 & 第3章と第5.3節の解析上界 \\
+\(\varepsilon_{\rm prep}\) & 初期作用、相対位相、伝播時刻の再現誤差 & 完全準備系で未評価 \\
+\(\varepsilon_W\) & M35局所基底回路の誤差 & 理想 \(QQ+PP\) 回路では0 \\
+\(\varepsilon_{\rm read}\) & 作用・閾値読出しと累積剪断の誤差 & 理想入口では0 \\
+\(\varepsilon_{\rm cmp}\) & 滑らかな比較幅 & \(2(L-1)w_{\rm eff}/I_{\rm ph}\) 以下 \\
+\(\varepsilon_{\rm cut}\) & 角切断の接続領域 & 接続幅のHaar 質量 \\
+\(\varepsilon_{\rm clk}\) & 一般有限 \(L\) の時計配線誤差 & 物理配線は未評価 \\
+\end{longtable}
 
-第4章の明示構成は
+第3章の自然時間では \(\varepsilon_{\rm dist}=O(\eta)\) である。目標精度を \(\epsilon\) とする単純な十分条件は
+
+\[
+\omega_0
+=
+O
+\left(
+\frac{\|h_L\|}{\mathcal J_0\epsilon}
+\right)
+\]
+
+である。最適性は主張しない。
+
+\hypertarget{m38ux306eux8cc7ux6e90}{%
+\section{M38の資源}\label{m38ux306eux8cc7ux6e90}}
+
+M38の単純上界は次である。
+
+\begin{longtable}[]{@{}lr@{}}
+\toprule\noalign{}
+装置 & 正準対数 \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Q1の信号担体 & 2 \\
+自律Rabi 装置 & 3 \\
+\(L=2\) M35測定1段 & 10 \\
+信号と時計を共有する2段測定器 & 17 \\
+外部記録セル & 2対／周期 \\
+外部 reset セル & 最大14対／周期 \\
+\end{longtable}
+
+2段測定器の17対は
+
+\[
+2+2\times7+1
+\]
+
+からなる。共有するのは信号2対と時計1対であり、各段はテンプレート2、作用2、閾値1、内部記録1、選択器1の7対を持つ。
+
+\(N\) 周期を有限閉鎖Hamiltonian 系へ埋め込む単純上界は
+
+\[
+17+16N
+\]
+
+正準対である。輸送自由度は含まない。能動装置は一定サイズだが、永久記録と使用済みreset 状態の保存量は \(O(N)\) で増える。有限閉鎖系の固定容量で無期限記録を行うとは主張しない。
+
+\hypertarget{ux4e00ux822cux6709ux9650ux57faux5e95ux88c5ux7f6eux306eux8cc7ux6e90}{%
+\section{一般有限基底装置の資源}\label{ux4e00ux822cux6709ux9650ux57faux5e95ux88c5ux7f6eux306eux8cc7ux6e90}}
+
+M35の一般有限 \(L\) 構成は
 
 \[
 N_{\rm pair}^{\rm meas}
@@ -3106,7 +3811,7 @@ N_{\rm pair}^{\rm meas}
 
 正準対を使う。内訳は信号 \(L\)、テンプレート \(L\)、作用レジスター \(L\)、閾値1、内部記録1、選択器1、時計1である。
 
-これは最小数ではない。任意の密な基底変換 \(W\) は
+任意の密な基底変換 \(W\) は
 
 \[
 N_W
@@ -3114,69 +3819,46 @@ N_W
 \frac{L(L-1)}2
 \]
 
-個の隣接2モード混合と対角位相へ分解できる。周期内では \(W\) と \(W^\dagger\) を合計4回使うため、混合回数は \(2L(L-1)\) 以下である。固定純粋準備と逆準備は合計 \(2(L-1)\) 回以下である。
+個の隣接2モード混合と対角位相へ分解できる。逐次Givens 消去の深さは \(O(L^2)\)、互いに素な辺を並列化する配置では \(O(L)\) である。累積剪断とテンプレート経路は \(O(L)\) である。
 
-\begin{itemize}
-\tightlist
-\item
-  逐次 Givens 消去の基底回路深さは \(O(L^2)\) である。
-\item
-  互いに素な辺を並列化する Clements 型配置では基底回路深さを \(O(L)\) にできる。
-\item
-  累積剪断と隣接テンプレート経路の深さは \(O(L)\) である。
-\item
-  信号鎖の交換辺は \(L-1\) 本で、同じ辺を時計順に再利用する。
-\item
-  空間セル基底 \(W=I\) では基底変換コストを省ける。
-\end{itemize}
+一般有限 \(L\) の複数段装置では、独立選択器、テンプレート、外部記録・reset セルの数が段数とともに増える。空間的に離れた各辺への時計配線と伝播遅延も必要になる。Q5の完全周期資源は未評価である。
 
-従って「測定装置の自由度は線形」だけでは計算時間を評価できない。正準対数、結合数、時計窓数、最大並列度を別々に示す必要がある。
+\hypertarget{ux52d5ux4f5cux6642ux9593ux4f5cux7528ux30a8ux30cdux30ebux30aeux30fc}{%
+\section{動作時間、作用、エネルギー}\label{ux52d5ux4f5cux6642ux9593ux4f5cux7528ux30a8ux30cdux30ebux30aeux30fc}}
 
-\hypertarget{ux52d5ux4f5cux6642ux9593}{%
-\section{動作時間}\label{ux52d5ux4f5cux6642ux9593}}
+M38とM35の各時計窓はパルス面積を指定する。最大結合強度を制限しなければ物理時間を任意に短縮できるので、絶対動作時間の主張にはならない。意味のある評価には最大生成子ノルムまたは最大結合強度を固定する必要がある。
 
-Q9の有効時間は \(\mathcal J_0/\|h_L\|\) を基準とする。Q2・Q5に関係する局所周期は、各時計窓のパルス面積だけを指定しており、結合強度に上限を置かなければ物理時間を任意に短縮できてしまう。
-
-意味のある性能評価には、各生成子の最大ノルム \(G_{\max}\) または最大結合強度を固定し、古典正準回転時間、局所時計信号の伝播遅延、双曲型増幅に必要な時間を評価する必要がある。現稿はこの強度制約を置いていないため、測定周期の絶対時間は未評価である。
-
-\hypertarget{ux4f5cux7528ux3068ux30a8ux30cdux30ebux30aeux30fc}{%
-\section{作用とエネルギー}\label{ux4f5cux7528ux3068ux30a8ux30cdux30ebux30aeux30fc}}
-
-ミクロ振動子網のエネルギー \(H_{\rm micro}\) は厳密保存される。局所包絡作用は
+reset 交換の接触時間は
 
 \[
-\left|
-\frac{I_{\rm loc}(t)}{I_{\rm ex}}-1
-\right|
-\leq
-2\delta_{\rm loc}
-+
-\delta_{\rm loc}^2
+T_{\rm rst}
+=
+\frac{\phi}{g}
 \]
 
-の範囲で変動する。測定器は入口時点の実際の \(I_{\rm ph}\) を読むため、単発の作用比は定義できる。
+である。弱結合では接触時間が長くなる。比較精度を上げると双曲型増幅率 \(\Lambda\) とポインター座標範囲が増える。
 
-しかし、準備装置、時計、比較器、外部増幅器、永久記録、空テンプレート供給源まで含む総エネルギー収支は計算していない。Landauer 原理を引用するだけでは、弱開放 reset の具体的な熱・仕事収支にならない \cite{landauer1961,bennett1982}。
+M37のミクロエネルギーは厳密保存される。M38の各理想正準パルスと外部セル交換も全Hamiltonian 内では可逆である。しかし、準備装置、時計、記録媒体、外部セル輸送、低エントロピーセル供給まで含む総エネルギー収支は計算していない。Landauer 原理を引用するだけでは、具体的なreset の熱・仕事収支にならない \cite{landauer1961,bennett1982}。
 
 \hypertarget{ux53cdux5fa9ux53efux80fdux6027}{%
 \section{反復可能性}\label{ux53cdux5fa9ux53efux80fdux6027}}
 
-M35の内部周期では、保持窓の後に信号、テンプレート、内部レジスターを逆計算し、選択器角だけを無理数回転させる。従って固定プログラムの内部 Poincaré 写像は閉じている。
-
-次は同じ意味の反復ではない。
+反復には3つの意味がある。
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  測定直後の信号を新しい空テンプレートを持つ第2装置へ送る反復測定。
+  安全な測定後信号を新しい第2測定段へ渡す同軸または異軸逐次測定。
 \item
-  同じ装置の内部逆計算を完了してから次周期を始める連続運転。
+  外部記録後に内部逆計算し、同じ能動装置で次周期を始めること。
 \item
-  永久外部記録を保持しつつ有限閉鎖全系を同じ点へ戻す完全 reset。
+  外部記録と使用済みreset セルまで含む全系を結果非依存の同一点へ戻すこと。
 \end{enumerate}
 
-1と2は条件付きで記述できる。3は Hamiltonian 流の1対1性と両立しないため、外部流路または増加する記録容量が必要である。弱開放な空モード流入と使用済みモード流出を明示することは、\(L=2\) ではQ3、一般有限 \(L\) ではQ5の残る課題である。
+M38は1と2を構成する。3はHamiltonian 流の1対1性と両立せず、要求しない。有限 \(N\) なら履歴を有限個の外部セルへ保存し、全系を有限閉鎖Hamiltonian として扱える。無期限運転では空セル流入と使用済みセル流出を持つ弱開放系として扱う。
+
+M35の一般有限 \(L\) では内部逆計算は構成済みだが、複数段測定と外部セル流は未構成である。
 
 \hypertarget{bell-ux5074ux306eux6027ux80fdux6307ux6a19}{%
 \section{Bell 側の性能指標}\label{bell-ux5074ux306eux6027ux80fdux6307ux6a19}}
@@ -3213,12 +3895,10 @@ P(B\mid x,y)-P(B\mid x',y)
 \right|.
 \]
 
-さらに設定分布の変化、整合支持質量、結果別基準密度 \(q_{AB}^{xy}\)、事後除外率を記録する。共同相関が余弦則へ近くても、一側周辺が設定依存なら理想 Bell 模型には一致しない。
+現行最小模型では非信号誤差が解析的に零である。非対称比較幅、伝送損失、境界Jacobianを含む完全模型の上界は未導出である。設定分布、整合支持質量、結果別基準密度、事後除外率も別に記録する。
 
-現行の最小模型は解析的に零の非信号誤差を持つが、非対称比較幅、伝送損失、境界 Jacobian を含む完全模型の上界はない。
-
-\hypertarget{ux5c0eux51faux6e08ux307fux90e8ux5206ux306eux6027ux80fdux8cc7ux6e90ux8a55ux4fa1}{%
-\section{導出済み部分の性能・資源評価}\label{ux5c0eux51faux6e08ux307fux90e8ux5206ux306eux6027ux80fdux8cc7ux6e90ux8a55ux4fa1}}
+\hypertarget{ux5c0eux51faux6e08ux307fux90e8ux5206ux3068ux6b8bux308bux8cc7ux6e90ux8a55ux4fa1}{%
+\section{導出済み部分と残る資源評価}\label{ux5c0eux51faux6e08ux307fux90e8ux5206ux3068ux6b8bux308bux8cc7ux6e90ux8a55ux4fa1}}
 
 本稿は次を定量化した。
 
@@ -3226,33 +3906,146 @@ P(B\mid x,y)-P(B\mid x',y)
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  Q9の作用素誤差、状態誤差、局所作用変動と搬送周波数依存性。
+  M38のBloch 球、\(SU(2)\)、Rabi 遷移公式。
 \item
-  Q9誤差からQ2・Q5に関係する有限基底分布誤差への全変動距離上界。
+  M38の2段無反応率と全変動距離上界。
 \item
-  無反応込みの比較器幅、入力誤差、出力誤差による結果誤差。
+  外部記録剪断の反作用上界、reset 交換の収縮上界。
 \item
-  M35の正準対数 \(3L+4\)。
+  M38の能動正準対数17と外部セル数。
 \item
-  任意有限基底の隣接2モード混合回数と \(O(L^2)\) ゲート数。
+  M37の作用素誤差、状態誤差、局所作用変動。
 \item
-  逐次回路と並列回路の時間・空間トレードオフ。
+  M37からM35への有限基底分布誤差。
 \item
-  比較精度と双曲型増幅率の対数関係。
-\item
-  疎グラフと密グラフの結合数増加。
+  M35の正準対数 \(3L+4\) と基底回路深さ。
 \item
   Bell 共同誤差と非信号誤差の分離。
 \end{enumerate}
 
-以上はQ9、Q2・Q5、Q7に関係する性能・資源上の検証項目であり、量子ゲート型計算機の実装コストを扱うQ8の達成とは数えない。Q8は未着手である。各目標に残る検証課題は、強度制約下の絶対動作時間、準備とresetを含む総エネルギー収支、雑音耐性、完全周期の長期安定性、資源下界、連続空間または多体系での規模依存性である。
+残る課題は、強度制約下の絶対動作時間、総エネルギー収支、雑音耐性、M38の長期安定性、資源下界、一般有限 \(L\) の完全周期、多体系での規模依存性である。これらは各目標の検証項目であり、\(n\) 量子ビット回路の実装コストを扱うQ8の達成とは数えない。Q8は未着手である。
 
 \hypertarget{ux53cdux8a3cux6761ux4ef6ux3068ux672aux5b8cux6210ux30d9ux30f3ux30c1ux30deux30fcux30af}{%
 \chapter{反証条件と未完成ベンチマーク}\label{ux53cdux8a3cux6761ux4ef6ux3068ux672aux5b8cux6210ux30d9ux30f3ux30c1ux30deux30fcux30af}}
 
 \begin{statusbox}
-位置づけ：Q9は限定された局所実振動子網について達成である。Q1、Q2、Q3、Q5、Q7は部分達成、Q4、Q6、Q8は未着手、Q10--Q13は未達であり、各固定目標の残る課題を入力・出力・合格条件が検査可能な形で列挙する。
+位置づけ：Q1--Q3はM38の範囲で達成、Q9はM37の限定範囲で達成である。Q5とQ7は部分達成、Q4、Q6、Q8は未着手、Q10--Q13は未達であり、達成済み主張の反証条件と未完成目標の合格条件を分けて示す。
 \end{statusbox}
+
+\hypertarget{zeno-ux52b9ux679cq4}{%
+\section{Zeno 効果（Q4）}\label{zeno-ux52b9ux679cq4}}
+
+Q4では、第4章のRabi 遷移とM38型測定を同じ周期内で接続する。未測定の短時間生存確率と、有限間隔で測定を繰り返した生存確率を比較し、
+
+\[
+P_{\rm surv}(T;N)
+\]
+
+の測定回数 \(N\) と間隔 \(T/N\) への依存性を導く必要がある。
+
+Hamiltonian を測定中に停止するだけ、摩擦で遷移を抑えるだけ、無反応試行を除外するだけではZeno 効果と判定しない。各測定の外部記録、テンプレート供給、reset セル消費、有限幅誤差を含めても遷移抑制が残ることを示す。
+
+\hypertarget{ux4e00ux822cux6709ux9650lux3078ux306eux62e1ux5f35q5}{%
+\section{一般有限Lへの拡張（Q5）}\label{ux4e00ux822cux6709ux9650lux3078ux306eux62e1ux5f35q5}}
+
+M35は一般有限 \(L\) の任意基底回路、Born 型長期頻度、測定後状態、内部逆計算を与える。Q5を閉じるには、第4章のM38で構成した要素を一般有限 \(L\) へ拡張する必要がある。
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  一般有限 \(L\) の有効純粋状態空間と共通位相縮約。
+\item
+  任意の \(U(L)\) 操作と一般時間依存駆動。
+\item
+  独立選択器を持つ複数段の異基底逐次測定。
+\item
+  外部記録セルへの結果非依存正準コピー。
+\item
+  一般有限 \(L\) の外部 reset セル交換。
+\item
+  空間的に離れた各辺への時計配線と遅延上界。
+\item
+  自由度、時計窓数、外部セル数の規模依存性。
+\end{enumerate}
+
+\(L=2\) の達成を、記号だけ \(L\) へ置き換えることでは合格としない。
+
+\hypertarget{ux91cfux5b50ux30d3ux30c3ux30c8ux578bux7d50ux5408ux30b2ux30fcux30c8q6}{%
+\section{2量子ビット型結合ゲート（Q6）}\label{ux91cfux5b50ux30d3ux30c3ux30c8ux578bux7d50ux5408ux30b2ux30fcux30c8q6}}
+
+2つの論理部分系とテンソル積構造を有限古典正準変数へ明示し、少なくとも1種類のエンタングリングゲートを構成する必要がある。合格条件は次である。
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  入力論理基底と一般重ね合わせの定義。
+\item
+  外付け行列演算でない明示Hamiltonian 。
+\item
+  全基底入力に対する作用。
+\item
+  積状態から非分離な相関を作ること。
+\item
+  局所操作だけへ分解できないこと。
+\item
+  有限時間忠実度と資源上界。
+\end{enumerate}
+
+Q1の2モード \(SU(2)\) 操作だけではQ6の達成にならない。
+
+\hypertarget{bell-ux578bux6e2cux5b9aux7d71ux8a08q7}{%
+\section{Bell 型測定統計（Q7）}\label{bell-ux578bux6e2cux5b9aux7d71ux8a08q7}}
+
+現行M36は余弦共同確率、CHSH値、非信号性、設定分布保存、測定設定独立性の不成立を同じ条件付き二側測度で示す。残る課題は次である。
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  反対称集団相関の反復可能な準備。
+\item
+  集団量 \(\Xi\) を読まずに単一試行変数から余弦区間多重度を作ること。
+\item
+  整合支持 \(G\) の物理的必然性。
+\item
+  完全境界流束測度の結果非依存因子化。
+\item
+  非対称誤差下の非信号上界。
+\item
+  外部設定介入の意味論。
+\item
+  M38の局所測定装置との接続。
+\item
+  平面内2出力を超える一般Tsirelson 原理。
+\end{enumerate}
+
+\(G^c\) の試行を実験後に捨てて25\%だけ残す実装は、採用する二側模型ではなく事後選別なので反証になる。
+
+\hypertarget{ux91cfux5b50ux30b2ux30fcux30c8ux578bux8a08ux7b97ux6a5fux306eux5b9fux88c5ux30b3ux30b9ux30c8q8}{%
+\section{量子ゲート型計算機の実装コスト（Q8）}\label{ux91cfux5b50ux30b2ux30fcux30c8ux578bux8a08ux7b97ux6a5fux306eux5b9fux88c5ux30b3ux30b9ux30c8q8}}
+
+Q8には、\(n\) 量子ビット、回路深さ \(d\)、目標誤差 \(\epsilon\) に対する少なくとも次の増加率が必要である。
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  信号と補助装置の正準対数。
+\item
+  局所結合数と最大並列度。
+\item
+  時計窓数と動作時間。
+\item
+  制御角、比較器、reset セルの必要精度。
+\item
+  永久記録と使用済みセルの容量。
+\item
+  隠れた指数コストの有無。
+\end{enumerate}
+
+M38の17対と1周期当たり16外部セルは \(n=1\) の予備値であり、Q8の達成とは数えない。
 
 \hypertarget{ux4f4dux76f8ux91cfux5b50ux5316q10}{%
 \section{位相量子化（Q10）}\label{ux4f4dux76f8ux91cfux5b50ux5316q10}}
@@ -3267,11 +4060,11 @@ P(B\mid x,y)-P(B\mid x',y)
 \item
   非零領域での閉路巻数の整数性。
 \item
-  節を通る位相すべりの有限 Hamiltonian 記述。
+  節を通る位相すべりの有限Hamiltonian 記述。
 \item
   格子細分化に対する巻数の安定性。
 \item
-  Wallstrom 問題の追加量子化条件を外から置かないこと。
+  追加量子化条件を別の形で仮定していないこと。
 \end{enumerate}
 
 閉路位相を数値的に丸めて整数へ投影するだけでは達成としない。
@@ -3296,12 +4089,12 @@ P(B\mid x,y)-P(B\mid x',y)
   弱開放条件下の状態選択または安定性。
 \end{enumerate}
 
-固有ベクトルを初期条件として入れて時間発展させるだけでは、状態選択を示したことにならない。
+固有ベクトルを初期条件として入れるだけでは、状態選択を示したことにならない。
 
 \hypertarget{ux30c8ux30f3ux30cdux30ebux52b9ux679cq12}{%
 \section{トンネル効果（Q12）}\label{ux30c8ux30f3ux30cdux30ebux52b9ux679cq12}}
 
-障壁高、幅、入射エネルギーを掃引し、透過率を目標 Schrödinger 解と比較する。少なくとも
+障壁高、幅、入射エネルギーを掃引し、透過率を目標Schrödinger 解と比較する。少なくとも
 
 \[
 \epsilon_{\rm tun}
@@ -3314,25 +4107,8 @@ T_{\rm micro}(r)-T_L(r)
 
 を有限領域 \(\mathcal R\) で評価する。熱浴温度、古典的共鳴、障壁越えエネルギーの寄与を分離し、熱活性化だけで同じ透過率を説明できないことを検査する。
 
-\hypertarget{rabi-ux632fux52d5q1}{%
-\section{Rabi 振動（Q1）}\label{rabi-ux632fux52d5q1}}
-
-Q9は時間非依存 \(h_L\) に限定した。Q1の駆動2準位系には、時間依存演算子 \(h_L(t)\) とミクロ剛性 \(A(t)\) を使い、反回転項が搬送周波数 \(2\omega_0\) と共鳴しない条件が必要である。
-
-最低限、
-
-\[
-\frac{\sup_t\left\|h_L(t)\right\|}
-{\mathcal J_0\omega_0},
-\qquad
-\frac{\sup_t\left\|\dot h_L(t)\right\|}
-{\mathcal J_0\omega_0^2}
-\]
-
-を掃引し、共鳴時の振動数、振幅、離調依存性、Bloch--Siegert 型補正、長時間誤差を評価する。有界な駆動という条件だけでは合格としない。
-
-\hypertarget{ux91cdux30b9ux30eaux30c3ux30c8ux3068ux5c40ux6240ux691cux51faq13}{%
-\section{2重スリットと局所検出（Q13）}\label{ux91cdux30b9ux30eaux30c3ux30c8ux3068ux5c40ux6240ux691cux51faq13}}
+\hypertarget{ux91cdux30b9ux30eaux30c3ux30c8ux5e72ux6e09q13}{%
+\section{2重スリット干渉（Q13）}\label{ux91cdux30b9ux30eaux30c3ux30c8ux5e72ux6e09q13}}
 
 第3章の2経路干渉は位相担体の出力作用を与えるが、粒子検出を導かない。Q13には次が必要である。
 
@@ -3346,106 +4122,17 @@ Q9は時間非依存 \(h_L\) に限定した。Q1の駆動2準位系には、時
 \item
   作動、無反応、複数作動を含む完全結果集合。
 \item
-  理想的には各試行で唯一の局所記録。
+  各試行で唯一の局所記録を得る条件。
 \item
   検出網内の信号伝播速度と比較時間。
 \item
   スリット開閉に対する分布と総検出率の変化。
 \end{enumerate}
 
-点粒子の連続軌道は1つの候補だが、Q13の必須形式とはしない。局所セル記録と完全結果集合が得られれば、連続軌道を持たない検出模型も検討できる。
+点粒子の連続軌道は1つの候補だが、Q13の必須形式とはしない。
 
-\hypertarget{ux91cfux5b50ux30d3ux30c3ux30c8ux578bux7d50ux5408ux30b2ux30fcux30c8q6}{%
-\section{2量子ビット型結合ゲート（Q6）}\label{ux91cfux5b50ux30d3ux30c3ux30c8ux578bux7d50ux5408ux30b2ux30fcux30c8q6}}
-
-最小限2つの論理自由度を有限古典正準変数へ符号化し、CNOT 型または制御位相型の結合操作を実現する必要がある。合格条件は次である。
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  入力論理基底と一般重ね合わせの定義。
-\item
-  外付け行列演算でない明示 Hamiltonian。
-\item
-  全基底入力に対する作用。
-\item
-  積状態から相関を作ること。
-\item
-  局所操作だけでは分解できない結合性。
-\item
-  Q9と同様の有限時間忠実度上界。
-\end{enumerate}
-
-単一量子ビット型可逆力学はQ1で独立に扱う。Q6ではQ1の局所操作を2つの論理部分系へ拡張し、テンソル積構造とエンタングリングゲートを検査する。
-
-\hypertarget{bell-ux578bux6e2cux5b9aux7d71ux8a08q7}{%
-\section{Bell 型測定統計（Q7）}\label{bell-ux578bux6e2cux5b9aux7d71ux8a08q7}}
-
-現行模型は余弦重み、CHSH値、非信号性、設定分布保存、測定設定独立性の不成立を同じ条件付き二側測度で示す。残る課題は次である。
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  反対称集団相関の反復可能な準備。
-\item
-  集団量 \(\Xi\) を読まずに単一試行変数から余弦区間多重度を作ること。
-\item
-  整合支持 \(G\) の物理的必然性。
-\item
-  完全境界流束測度の結果非依存因子化。
-\item
-  非対称誤差下の非信号上界。
-\item
-  外部設定介入の意味論。
-\item
-  平面内2出力を超える一般 Tsirelson 原理。
-\end{enumerate}
-
-\(G^c\) の試行を実験後に捨てて25\%だけ残す実装は、採用する二側模型ではなく事後選別なので反証になる。
-
-\hypertarget{ux5b8cux5168ux64cdux4f5cux6e2cux5b9aux5468ux671fq3q5}{%
-\section{完全操作・測定周期（Q3、Q5）}\label{ux5b8cux5168ux64cdux4f5cux6e2cux5b9aux5468ux671fq3q5}}
-
-M35は固定プログラム内部の可逆周期を与える。完全周期には、
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  ミクロ振動子の準備。
-\item
-  Q9伝播。
-\item
-  Q2・Q5の有限基底測定またはQ7の Bell 型測定。
-\item
-  1個の時計から各局所辺への有限速度の制御配線。
-\item
-  結果増幅と永久外部記録。
-\item
-  使用済みテンプレートと記録媒体の流出。
-\item
-  新しい空モードと低エントロピー資源の流入。
-\item
-  同じ装置による直後反復。
-\end{enumerate}
-
-を1つの弱開放系として接続する必要がある。永久記録まで含む有限閉鎖全系を同じ点へ戻す構成は求めない。代わりに、流入・流出を含む周期ごとのエネルギー、記録容量、失敗率を明示する。
-
-\hypertarget{zeno-ux52b9ux679cq4}{%
-\section{Zeno 効果（Q4）}\label{zeno-ux52b9ux679cq4}}
-
-未測定の短時間生存確率と、有限間隔でM35型測定を繰り返した生存確率を同じミクロモデルで比較する。必要な判定量は
-
-\[
-P_{\rm surv}(T;N)
-\]
-
-の \(N\) 依存性である。Hamiltonian を測定中に停止するだけ、摩擦で遷移を抑えるだけ、失敗試行を除外するだけでは Zeno 効果と判定しない。テンプレート供給と測定間resetを含む資源増加もQ4の検証項目とする。
-
-\hypertarget{ux53cdux8a3cux6761ux4ef6}{%
-\section{反証条件}\label{ux53cdux8a3cux6761ux4ef6}}
+\hypertarget{ux9054ux6210ux6e08ux307fux4e3bux5f35ux306eux53cdux8a3cux6761ux4ef6}{%
+\section{達成済み主張の反証条件}\label{ux9054ux6210ux6e08ux307fux4e3bux5f35ux306eux53cdux8a3cux6761ux4ef6}}
 
 現行主張は、次のいずれかが起きれば反証または範囲縮小が必要である。
 
@@ -3453,25 +4140,35 @@ P_{\rm surv}(T;N)
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  \(\eta<1\) の検証例で生成子上界または有限時間上界が破れる。
+  固定作用面のBloch ベクトルが単位球面を満たさない。
 \item
-  同じミクロ初期条件と時刻で、包絡誤差が \(\omega_0\) 増加に対して減少しない。
+  \(G_Z,G_X\) の有限列が目標 \(SU(2)\) を再構成しない、または正準性・作用を保存しない。
 \item
-  Q9の状態方向誤差より大きなQ2・Q5に関係する有限基底分布誤差が、比較器など別誤差なしで生じる。
+  自律Rabi Hamiltonian の数値軌道が解析遷移公式と一致しない。
 \item
-  隣接2モード分解が目標 \(W\) を再構成しない、または作用・正準性を保存しない。
+  同軸再測定で反対符号の安全結果が生じる。
 \item
-  M35の1周期後に選択器以外の内部変数が準備値へ戻らない。
+  異軸共同分布の全変動距離が \(\delta_1+\delta_2\) を超える。
 \item
-  無反応込みの滑らかな比較器の全変動距離が導出上界を超える。
+  外部記録剪断が理想空セル入口で装置へ反作用する。
+\item
+  記録後の逆計算で内部装置が準備値へ戻らない。
+\item
+  外部セル交換が正準性を失う、または収縮上界を破る。
+\item
+  \(L=2\) M35測定段の正準対数を10以外として資源評価する。
+\item
+  M37の \(\eta<1\) の例で生成子上界または有限時間上界が破れる。
+\item
+  M35の無反応込み分布が導出上界を超える。
 \item
   Bell 最小測度で設定分布または一側周辺が設定依存になる。
 \item
-  Bell 完全模型の \(q_{AB}^{xy}\) が結果依存なのに共通因子として消している。
-\item
   集団相関 \(\Xi\) を単一試行の正準変数として再導入する。
 \item
-  未構成の統一母測度 \(\mu_*\) を現行定理の仮定として暗黙に使う。
+  M37とM38を同一ハードウェアとして暗黙に扱う。
+\item
+  未構成のM0または \(\mu_*\) を現行定理の仮定として使う。
 \item
   生成物と章別正本で式、結果ID、目標の現在地が一致しない。
 \end{enumerate}
@@ -3479,20 +4176,20 @@ P_{\rm surv}(T;N)
 \hypertarget{ux6700ux91cdux8981ux306eux672aux89e3ux6c7aux554fux984c}{%
 \section{最重要の未解決問題}\label{ux6700ux91cdux8981ux306eux672aux89e3ux6c7aux554fux984c}}
 
-Q9の限定達成とQ2・Q5の測定部分を踏まえた中心課題は、局所振動子網の出力、局所 \(QQ+PP\) 測定回路、局所時計配線、永久記録、弱開放resetを同じ明示的な古典装置に統合することである。
-
-この課題は2つに分かれる。
+Q1--Q3をM38で閉じた後の中心課題は、次の3本に分かれる。
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  単粒子側では、Q9の局所包絡誤差と作用変動を保ったまま、位置ばね網、M35の運動量結合を含む局所測定回路、有限速度の時計配線を接続する。
+  Q4とQ5側では、M38のRabi 遷移、逐次測定、外部セル周期をZeno 効果と一般有限 \(L\) へ拡張する。
 \item
-  Bell 側では、集団交差相関を単一試行で読むことなく、余弦区間多重度と二側支持をミクロ Hamiltonian の解空間から作る。
+  Q7側では、集団交差相関を単一試行で読まず、余弦区間多重度と二側支持をミクロHamiltonian の解空間から作る。
+\item
+  Q10--Q13側では、M37の空間包絡を位相量子化、束縛状態、トンネル、局所検出へ拡張する。
 \end{enumerate}
 
-前者が閉じればQ9の位置ばね網とQ2・Q5の有限基底測定を同一装置へ統合し、Q3、Q5、Q13への接続が進む。後者が閉じればQ7の条件付き代数が物理的な試行模型へ進む。両者を1つの統一母測度へまとめることは、その後の目標である。
+M37、M38、M35、M36を1つのM0と統一母測度へまとめることは、その後の統合目標である。特にM37とM38の同一ハードウェア化はQ3の達成条件ではなく、空間伝播と最小測定装置を同じ物理系へ接続する追加課題である。
 
 \appendix
 
@@ -4658,7 +5355,7 @@ q_{A'B'}^{xy}K_{A'B'}^{xy}
 \chapter{局所滑らか有限基底測定周期の完全正準構成}\label{ux5c40ux6240ux6ed1ux3089ux304bux6709ux9650ux57faux5e95ux6e2cux5b9aux5468ux671fux306eux5b8cux5168ux6b63ux6e96ux69cbux6210}}
 
 \begin{statusbox}
-位置づけ：固定純粋準備・固定有限基底について、局所2モード回路、累積比較ポインター、無反応を含む結果集合、信号、テンプレート、レジスター、選択器、時計の全写像を追跡する。安全セクターでは測定後状態が厳密であり、全入力で内部逆計算が厳密に成立する。
+位置づけ：M35の一般有限L構成について、局所2モード回路、累積比較ポインター、無反応を含む結果集合、信号、テンプレート、レジスター、選択器、時計の全写像を追跡する。L=2の2段測定、外部記録、弱開放 reset は付録Eで扱う。
 \end{statusbox}
 
 \hypertarget{ux6b63ux6e96ux81eaux7531ux5ea6}{%
@@ -4694,7 +5391,7 @@ t_j
 (\tau,P_\tau)
 \]
 
-である。正準対数は \(3L+4\) である。\(L=2\) では9正準対になる。
+である。正準対数は \(3L+4\) である。\(L=2\) では10正準対になる。
 
 周期開始値を
 
@@ -5120,8 +5817,8 @@ t^\dagger Y_{j,j+1}t
 
 \(\mathcal O_\varnothing\) では複数の \(\ell_j\) が中間値を取り得る。例えば \(\sum_j\ell_j\) が整数でも、全 \(h_j\) が平坦部にあるとは限らない。従って整数の \(Q_M\) は必要な内部記録だが、十分な結果判定ではない。
 
-\hypertarget{ux6b63ux6e96-swapux6e2cux5b9aux5f8cux57faux5e95ux4fddux6301}{%
-\section{正準 SWAP、測定後基底、保持}\label{ux6b63ux6e96-swapux6e2cux5b9aux5f8cux57faux5e95ux4fddux6301}}
+\hypertarget{ux6b63ux6e96-swap-ux6e2cux5b9aux5f8cux57faux5e95ux4fddux6301}{%
+\section{正準 SWAP 、測定後基底、保持}\label{ux6b63ux6e96-swap-ux6e2cux5b9aux5f8cux57faux5e95ux4fddux6301}}
 
 SWAP 生成子を
 
@@ -5305,51 +6002,6 @@ p_{\varnothing}^{\rm cyc}
 
 である。C.6節の上界により、有限 \(\Lambda\) と有限切断幅で任意精度へ近づけられる。
 
-\hypertarget{ux6b21ux5143ux5177ux4f53ux4f8b}{%
-\section{2次元具体例}\label{ux6b21ux5143ux5177ux4f53ux4f8b}}
-
-\(L=2\)、実準備状態
-
-\[
-\chi_a
-=
-\begin{pmatrix}
-\cos a\\
-\sin a
-\end{pmatrix},
-\qquad
-0<a<\frac{\pi}{2}
-\]
-
-を考える。標準基底測定では
-
-\[
-I_1
-=
-\mathcal J_0\cos^2a,
-\qquad
-I_2
-=
-\mathcal J_0\sin^2a
-\]
-
-である。累積剪断後の差は
-
-\[
-d_1
-=
-I_1-u
-=
-\mathcal J_0
-\left(
-\cos^2a
--
-\frac{\vartheta}{2\pi}
-\right)
-\]
-
-である。\(e^\Lambda d_1\geq X\) なら結果1、\(e^\Lambda d_1\leq-X\) なら結果2、その間は無反応である。無反応幅を零へ近づけると、結果1の区間長は \(\cos^2a\)、結果2の区間長は \(\sin^2a\) へ近づく。テンプレート経路は隣接回転1個で足り、正準対数は9である。
-
 \hypertarget{ux6709ux9650ux8aa4ux5deeux306bux5bfeux3059ux308bux5b89ux5168ux4f59ux88d5}{%
 \section{有限誤差に対する安全余裕}\label{ux6709ux9650ux8aa4ux5deeux306bux5bfeux3059ux308bux5b89ux5168ux4f59ux88d5}}
 
@@ -5438,14 +6090,14 @@ h(t)e^{2i\omega_0t}\overline b
 
 と評価できる。しかし現行Q9定理は時間非依存 \(h_L\) に限定され、順方向と逆方向の反回転誤差が無限反復で相殺されることも証明していない。古典振動子による一般複素状態の厳密表示に位置・運動量の双方の結合または符号調整が必要になることは、既存研究とも整合する \cite{briggs_eisfeld2012,briggs_eisfeld2013,skinner2013}。
 
-従って本付録では \(QQ+PP\) 型の局所交換を測定装置の現行構成とし、M37の位置ばね網との同一ハードウェア化を、\(L=2\) ではQ3、一般有限 \(L\) ではQ5へ残す。
+従って本付録では \(QQ+PP\) 型の局所交換を測定装置の現行構成とする。M37の位置ばね網との同一ハードウェア化はQ1--Q3の達成条件ではなく、M0、Q5またはQ13へ接続する一般統合課題である。
 
 \hypertarget{ux6c38ux4e45ux8a18ux9332ux306eux9650ux754c}{%
 \section{永久記録の限界}\label{ux6c38ux4e45ux8a18ux9332ux306eux9650ux754c}}
 
 本周期の \(Q_M\) と比較ポインターは内部記録であり、保持窓後に逆計算される。保持窓で結果を別の外部記録へコピーすれば、その外部自由度は結果情報を保持する。Hamiltonian 流の1対1性により、その外部記録まで結果に依存しない同一点へ戻すことはできない。
 
-永久記録を伴う反復装置では、外部自由度を拡大するか、記録を循環履歴レジスターへ移すか、弱開放系として情報とエネルギーを外へ運ぶ必要がある。本付録の閉鎖内部周期は、その外部過程を構成しない。
+永久記録を伴う反復装置では、外部自由度を拡大するか、記録を循環履歴レジスターへ移すか、弱開放系として情報とエネルギーを外へ運ぶ必要がある。\(L=2\) では付録EのM38が外部記録セルとreset セル流を構成する。本付録の一般有限 \(L\) のM35は、その外部過程を含まない。
 
 \hypertarget{ux672aux5c0eux51faux4e8bux9805}{%
 \section{未導出事項}\label{ux672aux5c0eux51faux4e8bux9805}}
@@ -5462,9 +6114,9 @@ h(t)e^{2i\omega_0t}\overline b
 \item
   混合性と二項分布型有限標本揺らぎ。
 \item
-  同じ装置を内部逆計算前に再使用する反復測定。
+  一般有限 \(L\) の複数段逐次測定、外部記録、弱開放 reset 、長距離時計配線。
 \item
-  永久外部記録を含む閉鎖全系の完全帰還。
+  永久外部記録を含む有限閉鎖全系の同一点への完全帰還。
 \item
   無反応なしで連結入力領域全体を厳密な離散基底状態だけへ写す滑らかな有限時間流。
 \item
@@ -5472,7 +6124,7 @@ h(t)e^{2i\omega_0t}\overline b
 \item
   連続スペクトル極限。
 \item
-  M37の位置ばね網、M35の測定回路、局所時計配線、弱開放 reset の完全統合。
+  M37の位置ばね網、M35またはM38の測定回路を含むM0の完全統合。
 \end{enumerate}
 
 \hypertarget{bell-ux4e8cux5074ux5c65ux6b74ux6a21ux578bux306eux6761ux4ef6ux4ed8ux304dux5b9fux88c5ux3068ux56e0ux5b50ux5316ux6761ux4ef6}{%
@@ -5830,6 +6482,560 @@ q_{A'B'}^{xy}w_{A'B'}^{xy}
 \item
   平面内2出力を超える一般 Tsirelson 原理。
 \end{enumerate}
+
+\hypertarget{ux30e2ux30fcux30c9ux5b8cux5168ux5468ux671fux306eux6b63ux6e96ux69cbux6210ux3068ux8aa4ux5deeux4e0aux754c}{%
+\chapter{2モード完全周期の正準構成と誤差上界}\label{ux30e2ux30fcux30c9ux5b8cux5168ux5468ux671fux306eux6b63ux6e96ux69cbux6210ux3068ux8aa4ux5deeux4e0aux754c}}
+
+\begin{statusbox}
+位置づけ：M38の共通位相縮約、SU(2) 生成子、Rabi 解、2選択器トーラス、連続性障害、外部記録剪断、外部セル交換 reset、局所時計、完全周期写像を検算可能な形で与える。
+\end{statusbox}
+
+\hypertarget{hopf-ux5199ux50cfux306eux7e4aux7dad}{%
+\section{Hopf 写像の繊維}\label{hopf-ux5199ux50cfux306eux7e4aux7dad}}
+
+固定作用面では
+
+\[
+b
+=
+\begin{pmatrix}
+z_1\\
+z_2
+\end{pmatrix},
+\qquad
+|z_1|^2+|z_2|^2=1
+\]
+
+である。Bloch 成分は
+
+\[
+r_x=2\operatorname{Re}(z_1^*z_2),
+\qquad
+r_y=2\operatorname{Im}(z_1^*z_2),
+\qquad
+r_z=|z_1|^2-|z_2|^2
+\]
+
+となる。直接計算すると
+
+\[
+r_x^2+r_y^2+r_z^2
+=
+4|z_1|^2|z_2|^2
++
+\left(|z_1|^2-|z_2|^2\right)^2
+=1
+\]
+
+を得る。
+
+\(r_z\neq-1\) なら、Bloch ベクトルから代表元を
+
+\[
+b(\boldsymbol r)
+=
+\begin{pmatrix}
+\sqrt{(1+r_z)/2}\\
+(r_x+ir_y)/\sqrt{2(1+r_z)}
+\end{pmatrix}
+\]
+
+と選べる。南極では \(b=(0,1)^{\mathsf T}\) を選ぶ。同じ \(\boldsymbol r\) を持つ別の規格化ベクトルはこの代表元の共通位相倍である。従ってHopf 写像の各繊維は \(U(1)\) 軌道である。
+
+\hypertarget{bloch-ux6210ux5206ux306epoisson-ux4ee3ux6570}{%
+\section{Bloch 成分のPoisson 代数}\label{bloch-ux6210ux5206ux306epoisson-ux4ee3ux6570}}
+
+複素正準振幅は
+
+\[
+\{b_j,b_k^*\}
+=
+-\frac{i}{\mathcal J_0}\delta_{jk}
+\]
+
+を満たす。Hermitian行列 \(A,B\) に対し
+
+\[
+F_A=b^\dagger A b,
+\qquad
+F_B=b^\dagger B b
+\]
+
+と置くと、
+
+\[
+\{F_A,F_B\}
+=
+-\frac{i}{\mathcal J_0}
+b^\dagger[A,B]b
+\]
+
+である。Pauli 行列の交換関係
+
+\[
+[\sigma_i,\sigma_j]
+=
+2i\epsilon_{ijk}\sigma_k
+\]
+
+を代入すれば
+
+\[
+\{r_i,r_j\}
+=
+\frac{2}{\mathcal J_0}
+\epsilon_{ijk}r_k
+\]
+
+が従う。
+
+\hypertarget{su2-ux751fux6210ux5b50ux306eux6b63ux6e96ux6d41}{%
+\section{SU(2) 生成子の正準流}\label{su2-ux751fux6210ux5b50ux306eux6b63ux6e96ux6d41}}
+
+\(G_{Z,j}\) の時間 \(\theta\) の流れは
+
+\[
+b_j
+\longmapsto
+e^{-i\theta}b_j
+\]
+
+であり、他のモードを変えない。\(G_X\) の時間 \(\theta\) の流れは
+
+\[
+\begin{pmatrix}
+b_1\\
+b_2
+\end{pmatrix}
+\longmapsto
+e^{-i\theta\sigma_x}
+\begin{pmatrix}
+b_1\\
+b_2
+\end{pmatrix}
+\]
+
+である。相対位相回転
+
+\[
+e^{-i\theta\sigma_z/2}
+\]
+
+は \(G_{Z,1}\) と \(G_{Z,2}\) に逆符号の半角パルスを加えて得る。従って \(Z\)--\(X\)--\(Z\) のEuler 分解を各正準流へ置き換えれば、任意の \(SU(2)\) を有限パルスで実装できる。
+
+各生成子 \(G\) は自身の流れで保存される。時計窓 \(g(\tau)\) の面積が目標角に等しければ、パルス形状によらず同じ正準写像を得る。
+
+\hypertarget{rabi-ux56deux8ee2ux5ea7ux6a19}{%
+\section{Rabi 回転座標}\label{rabi-ux56deux8ee2ux5ea7ux6a19}}
+
+第4.4節の信号部分は
+
+\[
+i\dot b
+=
+\frac12
+\left[
+\omega_q\sigma_z
++
+\Omega
+\left(
+\cos\tau_d\,\sigma_x
++
+\sin\tau_d\,\sigma_y
+\right)
+\right]b
+\]
+
+を与える。恒等式
+
+\[
+\cos\tau_d\,\sigma_x
++
+\sin\tau_d\,\sigma_y
+=
+e^{-i\tau_d\sigma_z/2}
+\sigma_x
+e^{i\tau_d\sigma_z/2}
+\]
+
+を使い、\(b=e^{-i\tau_d\sigma_z/2}c\) と置く。\(\dot\tau_d=\omega_d\) なので
+
+\[
+i\dot c
+=
+\frac12
+\left[
+(\omega_q-\omega_d)\sigma_z
++
+\Omega\sigma_x
+\right]c
+\]
+
+となる。定生成子の指数関数
+
+\[
+e^{-it(\Delta\sigma_z+\Omega\sigma_x)/2}
+=
+\cos\frac{\Omega_Rt}{2}\,I
+-
+i\sin\frac{\Omega_Rt}{2}
+\frac{\Delta\sigma_z+\Omega\sigma_x}{\Omega_R},
+\]
+
+\[
+\Omega_R
+=
+\sqrt{\Delta^2+\Omega^2}
+\]
+
+を \(e_1\) へ作用させれば、第4.4節の遷移公式を得る。
+
+\hypertarget{ux4efbux610fux8ef8ux306eux4f5cux7528ux6bd4}{%
+\section{任意軸の作用比}\label{ux4efbux610fux8ef8ux306eux4f5cux7528ux6bd4}}
+
+規格化信号のBloch 表示は
+
+\[
+bb^\dagger
+=
+\frac12
+\left(
+I+\boldsymbol r\cdot\boldsymbol\sigma
+\right)
+\]
+
+である。従って
+
+\[
+p_s(\boldsymbol n)
+=
+b^\dagger P_s(\boldsymbol n)b
+=
+\operatorname{tr}
+\left[
+bb^\dagger P_s(\boldsymbol n)
+\right]
+=
+\frac{1+s\boldsymbol n\cdot\boldsymbol r}{2}
+\]
+
+となる。第1結果 \(s\) の後は \(\boldsymbol r=s\boldsymbol n\) なので、別軸 \(\boldsymbol m\) について
+
+\[
+p_t(\boldsymbol m\mid s)
+=
+\frac{1+st\boldsymbol n\cdot\boldsymbol m}{2}
+\]
+
+が従う。同軸 \(\boldsymbol m=\boldsymbol n\) では反対符号の作用区間長が零になる。
+
+\hypertarget{ux6b21ux5143ux30c8ux30fcux30e9ux30b9ux306eux4e00ux610fux30a8ux30ebux30b4ux30fcux30c9ux6027}{%
+\section{2次元トーラスの一意エルゴード性}\label{ux6b21ux5143ux30c8ux30fcux30e9ux30b9ux306eux4e00ux610fux30a8ux30ebux30b4ux30fcux30c9ux6027}}
+
+Poincaré 写像を
+
+\[
+R_{\boldsymbol\alpha}(\boldsymbol\vartheta)
+=
+\boldsymbol\vartheta+2\pi\boldsymbol\alpha
+\pmod{2\pi},
+\qquad
+\boldsymbol\alpha=(\alpha_1,\alpha_2)
+\]
+
+とする。整数ベクトル \(k\in\mathbb Z^2\setminus\{0\}\) に対し
+
+\[
+k\cdot\boldsymbol\alpha
+\notin
+\mathbb Z
+\]
+
+であることは、\(1,\alpha_1,\alpha_2\) の有理数体上の1次独立性と同値である。Fourier 指標の軌道平均は
+
+\[
+\frac1N
+\sum_{n=0}^{N-1}
+e^{ik\cdot(\boldsymbol\vartheta+2\pi n\boldsymbol\alpha)}
+\longrightarrow0
+\]
+
+となる。三角多項式の稠密性から、連続関数の軌道平均はトーラスHaar 積分へ収束する。境界がHaar 零の結果集合についても指示関数近似により長期頻度が得られる。
+
+第1結果集合のHaar 幅は \(p_s(\boldsymbol n)\)、その安全結果後の第2集合の条件付き幅は \(p_t(\boldsymbol m\mid s)\) である。2角の積測度から
+
+\[
+P(s,t)
+=
+p_s(\boldsymbol n)
+p_t(\boldsymbol m\mid s)
+\]
+
+が従う。有限幅で理想結果が変わり得るのは、第1または第2の無反応集合に入る試行だけである。合併上界により
+
+\[
+D_{\rm TV}
+\leq
+P(\mathcal O_{\varnothing,1})
++
+P(\mathcal O_{\varnothing,2})
+\leq
+\delta_1+\delta_2
+\]
+
+となる。
+
+\hypertarget{ux9023ux7d9aux6027ux969cux5bb3}{%
+\section{連続性障害}\label{ux9023ux7d9aux6027ux969cux5bb3}}
+
+滑らかなHamiltonian \(H\) の有限時間流 \(\Phi_T\) は、解が存在する領域で微分同相写像である。信号部分への射影を \(\pi_{\rm sig}\) とすれば
+
+\[
+F
+=
+\pi_{\rm sig}\circ\Phi_T
+\]
+
+は連続である。連結集合 \(X\) の連続像 \(F(X)\) は連結である。相異なる2点だけからなり両点を含む像は非連結なので、全入力を2点だけへ送る滑らかな結果写像は存在しない。
+
+M35とM38では、平坦な安全セクター間に滑らかな遷移領域を置き、その全体を無反応結果とする。従って信号像は遷移領域で連続につながり、定理と矛盾しない。
+
+\hypertarget{ux6bb5ux5199ux50cfux3068ux9006ux8a08ux7b97ux9806ux5e8f}{%
+\section{2段写像と逆計算順序}\label{ux6bb5ux5199ux50cfux3068ux9006ux8a08ux7b97ux9806ux5e8f}}
+
+第1測定段の前向き正準写像を \(M_1\)、第2段を \(M_2\)、外部記録剪断を \(C_R\) とする。第1段のテンプレートを \(t_1\)、第2段を \(t_2\) とし、両方を空準備する。前向き写像は
+
+\[
+M_2M_1
+\]
+
+である。第1安全結果の後の信号を第2段が測定するため、順序を交換してはならない。
+
+記録後の内部逆計算は
+
+\[
+M_1^{-1}M_2^{-1}
+\]
+
+である。合成全体は
+
+\[
+\left(M_1^{-1}M_2^{-1}\right)
+C_R
+\left(M_2M_1\right).
+\]
+
+記録セルの共役運動量が零なら、\(C_R\) は内部変数を変えない。従って内部制限は恒等写像になり、記録座標だけが結果コード分だけ平行移動する。
+
+無反応領域でも \(M_1\) と \(M_2\) は滑らかな正準写像として定義されているので、同じ逆計算が成立する。離散結果が定義されないことと、逆写像が存在しないことを混同しない。
+
+\hypertarget{ux5916ux90e8ux8a18ux9332ux526aux65adux306eux6b63ux6e96ux6027}{%
+\section{外部記録剪断の正準性}\label{ux5916ux90e8ux8a18ux9332ux526aux65adux306eux6b63ux6e96ux6027}}
+
+1つの記録セルについて
+
+\[
+G_{\rm rec}
+=
+P^R\Pi(z)
+\]
+
+とする。Hamilton方程式は
+
+\[
+\dot Q^R=\Pi(z),
+\qquad
+\dot P^R=0,
+\]
+
+\[
+\dot z
+=
+P^R X_{\Pi}(z)
+\]
+
+である。\(P^R=0\) の理想入口では \(z\) が固定され、\(Q^R\) だけが移動する。これはHamiltonian 流なので正準性は自動的に成立する。
+
+\(|P^R|\leq\sigma_P\) なら、記録窓長を \(T_R\)、対象領域でのHamiltonian ベクトル場上界を \(\|X_\Pi\|\leq K_\Pi\) として
+
+\[
+\|\Delta z\|
+\leq
+T_R\sigma_PK_\Pi
+\]
+
+を得る。この量を \(\varepsilon_{\rm rec}\) の状態誤差へ入れる。
+
+\hypertarget{ux5916ux90e8ux30bbux30ebux4ea4ux63dbux3068ux53ceux7e2e}{%
+\section{外部セル交換と収縮}\label{ux5916ux90e8ux30bbux30ebux4ea4ux63dbux3068ux53ceux7e2e}}
+
+1つの装置偏差 \(a\) と外部偏差 \(e\) について
+
+\[
+G
+=
+i\mathcal J_0
+\left(a^*e-e^*a\right)
+\]
+
+とする。交換角を流れ時間 \(\phi\) とすれば
+
+\[
+\begin{pmatrix}
+a^+\\
+e^+
+\end{pmatrix}
+=
+\begin{pmatrix}
+\cos\phi&\sin\phi\\
+-\sin\phi&\cos\phi
+\end{pmatrix}
+\begin{pmatrix}
+a^-\\
+e^-
+\end{pmatrix}.
+\]
+
+この行列は直交かつユニタリであり、実正準座標ではシンプレクティックである。\(\phi=\pi/2\) では \(a^+=e^-\)、\(e^+=-a^-\) となる。
+
+内部周期後の加法残差を \(\xi_n\) とし、
+
+\[
+a_{n+1}
+=
+c a_n+s e_n+\xi_n,
+\qquad
+c=\cos\phi,
+\qquad
+s=\sin\phi
+\]
+
+と書く。\(|c|<1\)、\(\|e_n\|\leq\sigma_E\)、\(\|\xi_n\|\leq\varepsilon_{\rm cyc}\) なら反復により
+
+\[
+\|a_n\|
+\leq
+|c|^n\|a_0\|
++
+\frac{1-|c|^n}{1-|c|}
+\left(
+|s|\sigma_E+\varepsilon_{\rm cyc}
+\right).
+\]
+
+従って第4.10節の極限上界が従う。
+
+\hypertarget{ux4f5cux7528ux89d2ux6642ux8a08ux306eux5e30ux9084}{%
+\section{作用・角時計の帰還}\label{ux4f5cux7528ux89d2ux6642ux8a08ux306eux5e30ux9084}}
+
+1つの窓について
+
+\[
+H
+=
+\Omega_cJ_c
++
+\Omega_cg(\tau_c)G(z)
+\]
+
+とする。\(\dot\tau_c=\Omega_c\) である。\(G\) は自身のHamiltonian 流で保存されるので、窓中の \(G\) は一定である。時計作用の変化は
+
+\[
+\Delta J_c
+=
+-\int
+\Omega_cg'(\tau_c)G\,dt
+=
+-G\int g'(\tau_c)\,d\tau_c
+=0
+\]
+
+となる。支持が交わらない複数窓では同じ計算を順に適用できる。
+
+窓が重なる場合、または窓中に別のHamiltonian が \(G\) を変える場合はこの厳密帰還を使えない。有限誤差は
+
+\[
+|\Delta J_c|
+\leq
+\int
+|g'(\tau_c)|
+|G(\tau_c)-G_*|
+\,d\tau_c
+\]
+
+で評価し、時計誤差へ入れる。
+
+\hypertarget{ux6b63ux6e96ux5bfeux6570}{%
+\section{正準対数}\label{ux6b63ux6e96ux5bfeux6570}}
+
+\(L=2\) のM35測定段の内訳は次である。
+
+\begin{longtable}[]{@{}lr@{}}
+\toprule\noalign{}
+対象 & 正準対数 \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+信号 & 2 \\
+テンプレート & 2 \\
+作用レジスター & 2 \\
+閾値 & 1 \\
+内部記録 & 1 \\
+選択器 & 1 \\
+時計 & 1 \\
+合計 & 10 \\
+\end{longtable}
+
+2段では信号と時計だけを共有する。各段の固有部分はテンプレート2、作用2、閾値1、内部記録1、選択器1の7対なので、合計は17対である。
+
+外部交換の14対は、共有信号2対と、各段のテンプレート2、作用2、閾値1、内部記録1を合計した12対からなる。選択器と時計は理想Poincaré 写像の一部なので交換しない。外部記録2対を加え、1周期当たり16対の外部セルを使う。
+
+\hypertarget{ux5b8cux5168ux5468ux671fux306eux8aa4ux5deeux5408ux6210}{%
+\section{完全周期の誤差合成}\label{ux5b8cux5168ux5468ux671fux306eux8aa4ux5deeux5408ux6210}}
+
+誤差を次の4層に分ける。
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  正準状態誤差 \(\varepsilon_z\)。
+\item
+  規格化信号方向誤差 \(\varepsilon_{\rm dir}\)。
+\item
+  比較境界の入力換算移動量 \(\Delta_{\rm cmp}\)。
+\item
+  結果分布の全変動距離 \(\varepsilon_{\rm TV}\)。
+\end{enumerate}
+
+パルス、時計、記録反作用、逆計算、reset セル幅は最初に \(\varepsilon_z\) へ評価する。信号作用が零から離れた領域で規格化写像のLipschitz上界を使い \(\varepsilon_{\rm dir}\) へ移す。作用読出しと累積差の微分上界を使って \(\Delta_{\rm cmp}\) へ移し、最後に境界近傍のHaar 質量へ変換する。
+
+2段分布について、安全な和上界は
+
+\[
+\varepsilon_{\rm TV}
+\leq
+\delta_1+\delta_2
++
+\varepsilon_{\rm op}
++
+\varepsilon_{\rm clk}
++
+\varepsilon_{\rm rec}
++
+\varepsilon_{\rm inv}
++
+\varepsilon_{\rm rst}
++
+\varepsilon_{\rm port}
+\]
+
+の形になる。右辺の各装置誤差は、前段の変換を通して全変動距離へ換算した後の無次元量を表す。
+
+有限個のパルスと有限個の滑らかな写像だけを使うため、各誤差源を十分小さく選べば任意の \(\epsilon>0\) に対して \(\varepsilon_{\rm TV}<\epsilon\) と周期末偏差 \(<\epsilon\) を同時に満たせる。有限幅を零、時計誤差を零、外部セル幅を零と置いた理想極限では、内部Poincaré 写像は2角の平行移動を除いて恒等写像である。
+
+この証明は、固定プログラムごとに必要な窓数が有限であることを使う。可変プログラム全体、一般有限 \(L\)、無限記録容量、熱力学的最小コストへ一様な資源上界を与えるものではない。
 
 \begin{thebibliography}{99}
 

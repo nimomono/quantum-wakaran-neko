@@ -283,7 +283,7 @@ def pandoc_markdown() -> str:
         "\n".join(preprocess(overview)),
     ])
 
-    for number in range(1, 8):
+    for number in range(1, 9):
         path = next(SECTIONS.glob(f"{number:02d}_*.md"))
         meta, lines = parse_source(path)
         chunks.append("# " + meta["title"])
@@ -323,7 +323,7 @@ def combined_markdown() -> str:
         "\n".join(preprocess_public(overview)),
     ])
 
-    for number in range(1, 8):
+    for number in range(1, 9):
         if number in PART_TITLES:
             chunks.append("# " + PART_TITLES[number])
         path = next(SECTIONS.glob(f"{number:02d}_*.md"))
