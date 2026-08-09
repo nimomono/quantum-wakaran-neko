@@ -443,7 +443,7 @@ e^{-2\pi inj\alpha}
 
 を得る。境界近傍が重なれば左辺はさらに小さい。
 
-角の切断点近傍では、$f(\vartheta)=\vartheta/(2\pi)$ を円周上の滑らかな関数へ置き換える必要がある。その近傍の Haar 幅を $\varepsilon_{\rm cut}$ とすれば、全不適格結果質量は右辺に $\varepsilon_{\rm cut}$ を加えて抑えられる。
+角の切断点近傍では、$f(\vartheta)=\vartheta/(2\pi)$ を円周上の滑らかな関数へ置き換える必要がある。その近傍の Haar 幅を $\varepsilon_{\rm cut}$ とすれば、無反応結果の全質量は右辺に $\varepsilon_{\rm cut}$ を加えて抑えられる。
 
 ## B.11 高階数集団に必要な追加自由度
 

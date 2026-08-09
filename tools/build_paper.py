@@ -65,6 +65,8 @@ REFERENCE_KEYS = {
     35: "briggs_eisfeld2012",
     36: "briggs_eisfeld2013",
     37: "skinner2013",
+    38: "reck_et_al1994",
+    39: "clements_et_al2016",
 }
 
 
