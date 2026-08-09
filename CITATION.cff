@@ -1,9 +1,9 @@
 cff-version: 1.2.0
 message: "この成果を利用する場合は、次の情報で引用すること。"
-title: "局所結合古典振動子網の Schrödinger 型包絡と明示的有限基底測定周期：Born 型頻度と Bell 型二側履歴統計"
+title: "有限古典 Hamiltonian 担体の2モード操作・射影測定型周期：空間 Schrödinger 型包絡と Bell 型二側履歴"
 type: manuscript
 authors:
   - name: "nimomono"
-version: "draft-24"
-date-released: 2026-08-09
+version: "draft-25"
+date-released: 2026-08-10
 repository-code: "https://github.com/nimomono/quantum-wakaran-neko"
