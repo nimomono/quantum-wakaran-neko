@@ -38,8 +38,6 @@
 
 詳しい達成判定、根拠、残る課題、新旧IDの対応は [PROJECT_STATUS.md](PROJECT_STATUS.md) で管理する。
 
-現行論文中のQ番号は、固定目標再編前の体系を使用している。
-
 ## 運用文書
 
 - [プロジェクトの長期的方針](PROJECT_STANCE.md)
