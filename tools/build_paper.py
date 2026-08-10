@@ -67,6 +67,9 @@ REFERENCE_KEYS = {
     37: "skinner2013",
     38: "reck_et_al1994",
     39: "clements_et_al2016",
+    40: "misra_sudarshan1977",
+    41: "itano_et_al1990",
+    42: "ruseckas_kaulakys2001",
 }
 
 
@@ -267,10 +270,15 @@ def bibliography_tex() -> str:
                 match.group(2),
             )
             entries[int(match.group(1))] = entry
-    body = [r"\begin{thebibliography}{99}", r"\addcontentsline{toc}{chapter}{参考文献}"]
+    body = [
+        r"\begingroup",
+        r"\small",
+        r"\begin{thebibliography}{99}",
+        r"\addcontentsline{toc}{chapter}{参考文献}",
+    ]
     for number in range(1, max(REFERENCE_KEYS) + 1):
         body.append(rf"\bibitem{{{REFERENCE_KEYS[number]}}} {entries[number]}")
-    body.append(r"\end{thebibliography}")
+    body.extend([r"\end{thebibliography}", r"\endgroup"])
     return "\n\n".join(body)
 
 
