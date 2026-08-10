@@ -22,6 +22,7 @@
 - `sections/A3_measurement_device_details.md`
 - `sections/A4_bell_two_sided_measure.md`
 - `sections/A5_l2_complete_cycle_proofs.md`
+- `sections/A6_l2_zeno_cycle_proofs.md`
 - `sections/90_references.md`
 
 ## 論文外の研究メモ
@@ -53,6 +54,7 @@
 - `tools/verify_action_distribution.py`
 - `tools/verify_envelope_reduction.py`
 - `tools/verify_l2_cycle.py`
+- `tools/verify_l2_zeno.py`
 - `tools/verify_phase_correlation.py`
 - `figures/README.md`
 - `.github/workflows/verify.yml`
