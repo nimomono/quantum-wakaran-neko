@@ -45,3 +45,4 @@
 - [40] B. Misra and E. C. G. Sudarshan, ``The Zeno's Paradox in Quantum Theory,'' Journal of Mathematical Physics 18, 756--763 (1977). <https://doi.org/10.1063/1.523304>
 - [41] W. M. Itano, D. J. Heinzen, J. J. Bollinger, and D. J. Wineland, ``Quantum Zeno Effect,'' Physical Review A 41, 2295--2300 (1990). <https://doi.org/10.1103/PhysRevA.41.2295>
 - [42] J. Ruseckas and B. Kaulakys, ``Real Measurements and the Quantum Zeno Effect,'' Physical Review A 63, 062103 (2001). <https://doi.org/10.1103/PhysRevA.63.062103>
+- [43] M. A. Nielsen, ``A Simple Formula for the Average Gate Fidelity of a Quantum Dynamical Operation,'' Physics Letters A 303, 249--252 (2002). <https://doi.org/10.1016/S0375-9601(02)01272-0>
