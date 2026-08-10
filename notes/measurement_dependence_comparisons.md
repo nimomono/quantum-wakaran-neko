@@ -1,6 +1,6 @@
 # 測定設定依存度の表現論的比較
 
-> **位置づけ。** draft-10の付録E.1〜E.3を整理した比較メモ。Bell の前提監査は現行本文第7.9節で完結するため、装置事後分布の依存度と、同じ観測分布を再現する抽象表現の最小値との比較を論文生成から外した。
+> **位置づけ。** draft-10の付録E.1〜E.3を整理した比較メモ。Bell の前提監査は現行本文第7.11節で完結するため、装置事後分布の依存度と、同じ観測分布を再現する抽象表現の最小値との比較を論文生成から外した。
 
 関連文献：A. Fine, “Hidden Variables, Joint Probability, and the Bell Inequalities,” Physical Review Letters 48, 291–295 (1982). <https://doi.org/10.1103/PhysRevLett.48.291>
 

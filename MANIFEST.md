@@ -14,15 +14,17 @@
 - `sections/03_correlation_dynamics.md`
 - `sections/04_l2_qubit_operation_measurement_cycle.md`
 - `sections/05_finite_basis_measurement_cycle.md`
-- `sections/06_bell_boundary_measure.md`
-- `sections/07_errors_limits_and_open_problems.md`
-- `sections/08_open_benchmarks.md`
+- `sections/06_l4_two_qubit_gate.md`
+- `sections/07_bell_boundary_measure.md`
+- `sections/08_errors_limits_and_open_problems.md`
+- `sections/09_open_benchmarks.md`
 - `sections/A1_phase_correlation_proofs.md`
 - `sections/A2_action_shell_proofs.md`
 - `sections/A3_measurement_device_details.md`
 - `sections/A4_bell_two_sided_measure.md`
 - `sections/A5_l2_complete_cycle_proofs.md`
 - `sections/A6_l2_zeno_cycle_proofs.md`
+- `sections/A7_l4_two_qubit_gate_proofs.md`
 - `sections/90_references.md`
 
 ## 論文外の研究メモ
@@ -56,6 +58,7 @@
 - `tools/verify_l2_cycle.py`
 - `tools/verify_l2_zeno.py`
 - `tools/verify_phase_correlation.py`
+- `tools/verify_q2_1_gate.py`
 - `figures/README.md`
 - `.github/workflows/verify.yml`
 - `.gitignore`

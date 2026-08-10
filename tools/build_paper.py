@@ -5,13 +5,13 @@ import os
 import re
 import shutil
 import subprocess
+import tempfile
 from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parent.parent
 SECTIONS = ROOT / "sections"
 WORK = ROOT / "build" / "latex"
-FMT_DIR = ROOT / "build" / "texfmt"
 TEMPLATE = ROOT / "tools" / "template.tex"
 PAPER_MD = ROOT / "paper.md"
 MAIN_TEX = ROOT / "main.tex"
@@ -70,6 +70,7 @@ REFERENCE_KEYS = {
     40: "misra_sudarshan1977",
     41: "itano_et_al1990",
     42: "ruseckas_kaulakys2001",
+    43: "nielsen2002",
 }
 
 
@@ -291,7 +292,7 @@ def pandoc_markdown() -> str:
         "\n".join(preprocess(overview)),
     ])
 
-    for number in range(1, 9):
+    for number in range(1, 10):
         path = next(SECTIONS.glob(f"{number:02d}_*.md"))
         meta, lines = parse_source(path)
         chunks.append("# " + meta["title"])
@@ -331,7 +332,7 @@ def combined_markdown() -> str:
         "\n".join(preprocess_public(overview)),
     ])
 
-    for number in range(1, 9):
+    for number in range(1, 10):
         if number in PART_TITLES:
             chunks.append("# " + PART_TITLES[number])
         path = next(SECTIONS.glob(f"{number:02d}_*.md"))
@@ -375,23 +376,6 @@ def tex_environment() -> dict[str, str]:
     return env
 
 
-def ensure_xelatex_format() -> Path:
-    fmt = FMT_DIR / "xelatex.fmt"
-    if fmt.exists():
-        return fmt
-    FMT_DIR.mkdir(parents=True, exist_ok=True)
-    subprocess.run(
-        ["xetex", "-ini", "-etex", "xelatex.ini"],
-        cwd=FMT_DIR,
-        env=tex_environment(),
-        check=True,
-        stdout=subprocess.PIPE,
-        stderr=subprocess.STDOUT,
-        text=True,
-    )
-    return fmt
-
-
 def build() -> None:
     WORK.mkdir(parents=True, exist_ok=True)
     for source in sorted(SECTIONS.glob("*.md")):
@@ -420,16 +404,25 @@ def build() -> None:
     template = TEMPLATE.read_text(encoding="utf-8")
     MAIN_TEX.write_text(template.replace("$body$", body.read_text(encoding="utf-8")), encoding="utf-8")
 
-    fmt = ensure_xelatex_format()
-    for _ in range(3):
+    latex_run = Path(tempfile.mkdtemp(prefix="latex-run-", dir=WORK.parent))
+    try:
         run_command([
-            "xetex",
-            f"-fmt={fmt}",
+            "bash",
+            "-c",
+            'for _ in 1 2 3; do "$@" || exit $?; done',
+            "bash",
+            "xelatex",
             "-interaction=nonstopmode",
             "-halt-on-error",
-            f"-output-directory={WORK}",
-            str(MAIN_TEX),
+            f"-output-directory={latex_run.relative_to(ROOT)}",
+            MAIN_TEX.name,
         ], cwd=ROOT)
+        shutil.copy2(latex_run / "main.pdf", WORK / "main.pdf")
+    finally:
+        log = latex_run / "main.log"
+        if log.exists():
+            shutil.copy2(log, WORK / "main.log")
+        shutil.rmtree(latex_run)
 
     built = WORK / "main.pdf"
     shutil.copy2(built, PDF)
