@@ -25,7 +25,17 @@ THEOREM_LABELS = {
     "proof": "証明",
 }
 
-PART_TITLES: dict[int, str] = {}
+CHAPTER_NUMBERS = tuple(range(1, 12))
+
+PART_TITLES: dict[int, str] = {
+    1: "問題設定と共通言語",
+    3: "単一量子ビット型操作と測定",
+    6: "2論理部分系とBell型統計",
+    9: "空間Schrödinger型包絡",
+    10: "総合評価",
+}
+
+PART_NUMERALS = {1: "I", 3: "II", 6: "III", 9: "IV", 10: "V"}
 
 REFERENCE_KEYS = {
     1: "bell1964",
@@ -292,7 +302,9 @@ def pandoc_markdown() -> str:
         "\n".join(preprocess(overview)),
     ])
 
-    for number in range(1, 10):
+    for number in CHAPTER_NUMBERS:
+        if number in PART_TITLES:
+            chunks.append(r"\part{" + PART_TITLES[number] + "}")
         path = next(SECTIONS.glob(f"{number:02d}_*.md"))
         meta, lines = parse_source(path)
         chunks.append("# " + meta["title"])
@@ -332,9 +344,14 @@ def combined_markdown() -> str:
         "\n".join(preprocess_public(overview)),
     ])
 
-    for number in range(1, 10):
+    for number in CHAPTER_NUMBERS:
         if number in PART_TITLES:
-            chunks.append("# " + PART_TITLES[number])
+            chunks.append(
+                "# 第"
+                + PART_NUMERALS[number]
+                + "部　"
+                + PART_TITLES[number]
+            )
         path = next(SECTIONS.glob(f"{number:02d}_*.md"))
         meta, lines = parse_source(path)
         chunks.append("# " + meta["title"])

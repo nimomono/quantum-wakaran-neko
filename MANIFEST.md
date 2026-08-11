@@ -10,21 +10,23 @@
 
 - `sections/00_overview_and_contents.md`
 - `sections/01_scope_and_cycle.md`
-- `sections/02_canonical_phase_carriers.md`
-- `sections/03_correlation_dynamics.md`
-- `sections/04_l2_qubit_operation_measurement_cycle.md`
-- `sections/05_finite_basis_measurement_cycle.md`
+- `sections/02_common_canonical_modules.md`
+- `sections/03_l2_operation_measurement_cycle.md`
+- `sections/04_l2_zeno_cycle.md`
+- `sections/05_finite_basis_measurement_module.md`
 - `sections/06_l4_two_qubit_gate.md`
-- `sections/07_bell_initial_common_cause.md`
-- `sections/08_errors_limits_and_open_problems.md`
-- `sections/09_open_benchmarks.md`
-- `sections/A1_phase_correlation_proofs.md`
-- `sections/A2_action_shell_proofs.md`
-- `sections/A3_measurement_device_details.md`
-- `sections/A4_bell_initial_common_cause_proofs.md`
-- `sections/A5_l2_complete_cycle_proofs.md`
-- `sections/A6_l2_zeno_cycle_proofs.md`
-- `sections/A7_l4_two_qubit_gate_proofs.md`
+- `sections/07_m41_preparation_measurement_cycle.md`
+- `sections/08_bell_statistics_assumptions.md`
+- `sections/09_m37_spatial_envelope.md`
+- `sections/10_errors_resources_open_targets.md`
+- `sections/11_conclusion.md`
+- `sections/A1_common_carrier_lemmas.md`
+- `sections/A2_l2_complete_cycle_proofs.md`
+- `sections/A3_l2_zeno_cycle_proofs.md`
+- `sections/A4_finite_basis_measurement_proofs.md`
+- `sections/A5_l4_two_qubit_gate_proofs.md`
+- `sections/A6_m41_cycle_proofs.md`
+- `sections/A7_m37_envelope_proofs.md`
 - `sections/90_references.md`
 
 ## 論文外の研究メモ
