@@ -4,6 +4,6 @@ title: "有限古典 Hamiltonian 担体の量子ビット型操作・測定・�
 type: manuscript
 authors:
   - name: "nimomono"
-version: "draft-28"
-date-released: 2026-08-11
+version: "draft-29"
+date-released: 2026-08-12
 repository-code: "https://github.com/nimomono/quantum-wakaran-neko"
