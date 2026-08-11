@@ -10,6 +10,7 @@
 | `complementary_terminal_halfspaces.md` | draft-10 第8.4節、付録C.4 | M12の不採用記録 | 相補半空間の等重み平均は余弦項を消す |
 | `gaussian_nelson_examples.md` | draft-10 第2.6節、付録D | M3と補助計算 | 主定理と現行 Bell 論証を実質的に支えない |
 | `measurement_dependence_comparisons.md` | draft-10 付録E.1〜E.3 | 表現論的比較 | Bell の前提監査は本文だけで完結し、最適化比較は中心論証に不要 |
+| `rejected_bell_causal_alternatives.md` | draft-27 第7章、付録B.12〜B.16、付録D、およびM40設計検討 | M30、M33、M36、M40の不採用記録 | M41初期共通原因型と因果仮定が異なるため、旧論証を本文から分離した |
 | `superseded_position_coupling_fisher_closure.md` | draft-13 第2〜4章 | M13の不採用記録 | 力密度閉鎖を、運動量結合から配置拡散へ進む直接経路で置き換えた |
 | `superseded_three_mode_bell_shell.md` | draft-12〜draft-15 第6〜7章、付録C | M7〜M9の不採用記録 | 比較作用を直接読む2モード境界殻へ置き換えた |
 | `superseded_two_component_induction_field.md` | draft-15〜draft-19 第2〜3章、付録A・D〜F | M14、M20〜M25の不採用記録 | 実在2成分誘導場を有限正準位相担体の相関行列力学へ置き換えた |
