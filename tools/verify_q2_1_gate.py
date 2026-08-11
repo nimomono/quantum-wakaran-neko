@@ -145,7 +145,110 @@ def main() -> None:
         3.0e-14,
     ))
 
-    # A product input becomes a maximally nonfactorized logical state.
+    # A finite family of fixed input programs and product output bases gives
+    # an explicit joint input-label/two-bit-output distribution.  The final
+    # column used below is the formal no-response outcome of the M35 readout.
+    hadamard = np.array([[1.0, 1.0], [1.0, -1.0]], dtype=complex) / np.sqrt(2.0)
+    phase = np.diag([1.0, 1j])
+    complex_product = np.kron(
+        np.array([1.0, 1j], dtype=complex) / np.sqrt(2.0),
+        np.array([np.sqrt(3.0), 1.0], dtype=complex) / 2.0,
+    )
+    benchmark_inputs = (
+        identity_4[:, 0],
+        identity_4[:, 1],
+        identity_4[:, 2],
+        identity_4[:, 3],
+        complex_product,
+    )
+    benchmark_bases = (
+        identity_4,
+        np.kron(hadamard, identity_2),
+        np.kron(identity_2, hadamard),
+        np.kron(hadamard, hadamard),
+        np.kron(hadamard @ phase.conj().T, hadamard),
+    )
+    multiplicities = np.array([2, 4, 3, 5, 6], dtype=float)
+    input_weights = multiplicities / np.sum(multiplicities)
+    checks.append(record_max(
+        "input_weight_multiplicity_error",
+        np.max(np.abs(input_weights - np.array([0.10, 0.20, 0.15, 0.25, 0.30]))),
+        2.0e-14,
+    ))
+
+    conditional_outputs = np.array([
+        np.abs(basis @ cx_flow @ state) ** 2
+        for state, basis in zip(benchmark_inputs, benchmark_bases, strict=True)
+    ])
+    checks.append(record_max(
+        "joint_benchmark_normalization_error",
+        np.max(np.abs(np.sum(conditional_outputs, axis=1) - 1.0)),
+        2.0e-14,
+    ))
+    joint_outputs = input_weights[:, None] * conditional_outputs
+    expected_joint = np.array([
+        weight * np.abs(basis @ cnot @ state) ** 2
+        for weight, state, basis in zip(
+            input_weights,
+            benchmark_inputs,
+            benchmark_bases,
+            strict=True,
+        )
+    ])
+    checks.append(record_max(
+        "joint_input_output_distribution_error",
+        np.max(np.abs(joint_outputs - expected_joint)),
+        2.0e-14,
+    ))
+
+    no_response_rates = np.array([0.004, 0.007, 0.003, 0.006, 0.005])
+    observed_with_no_response = np.zeros((len(input_weights), 5), dtype=float)
+    observed_with_no_response[:, :4] = (
+        input_weights[:, None]
+        * (1.0 - no_response_rates[:, None])
+        * conditional_outputs
+    )
+    observed_with_no_response[:, 4] = input_weights * no_response_rates
+    ideal_with_no_response = np.zeros_like(observed_with_no_response)
+    ideal_with_no_response[:, :4] = joint_outputs
+    observed_tv = 0.5 * np.sum(np.abs(
+        observed_with_no_response - ideal_with_no_response
+    ))
+    expected_tv = float(np.dot(input_weights, no_response_rates))
+    checks.append(record_max(
+        "no_response_total_variation_formula_error",
+        abs(observed_tv - expected_tv),
+        2.0e-14,
+    ))
+
+    statistics_area_error = 0.17
+    statistics_relative = (
+        identity_4
+        + (np.exp(-1j * statistics_area_error) - 1.0) * projector
+    )
+    statistics_implemented = cx_flow @ statistics_relative
+    statistics_operator_bound = min(
+        1.0,
+        operator_norm(statistics_implemented - cx_flow),
+    )
+    statistics_tv_excess = []
+    for state, basis in zip(benchmark_inputs, benchmark_bases, strict=True):
+        ideal_probabilities = np.abs(basis @ cx_flow @ state) ** 2
+        actual_probabilities = np.abs(basis @ statistics_implemented @ state) ** 2
+        total_variation = 0.5 * np.sum(np.abs(
+            actual_probabilities - ideal_probabilities
+        ))
+        statistics_tv_excess.append(max(
+            0.0,
+            total_variation - statistics_operator_bound,
+        ))
+    checks.append(record_max(
+        "joint_statistics_gate_error_bound_excess",
+        max(statistics_tv_excess),
+        2.0e-14,
+    ))
+
+    # Nonfactorization remains an internal diagnostic, not a Q2-1 pass condition.
     plus_zero = np.array([1.0, 0.0, 1.0, 0.0], dtype=complex) / np.sqrt(2.0)
     phi_plus_output = cx_flow @ plus_zero
     nonfactorization = 2.0 * abs(np.linalg.det(phi_plus_output.reshape(2, 2)))
