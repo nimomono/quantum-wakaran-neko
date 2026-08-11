@@ -299,134 +299,38 @@ I_{\rm ph},r_k
 
 である。$P_k=\mathbb E[r_k]$ を解けば本文の共分散恒等式を得る。
 
-## B.7 無理数円回転の不変性
+## B.7 無理数円回転の長期頻度と非混合性
 
-正規化角 $r=\vartheta/(2\pi)\in\mathbb R/\mathbb Z$ を用い、
+正規化角 $r\in\mathbb R/\mathbb Z$ と無理数 $\alpha$ に対し、
 
 ```math
 R_\alpha(r)
 =
 r+\alpha
-\pmod1,
-\qquad
-\alpha\notin\mathbb Q
+\pmod1
 ```
 
-とする。円周 Haar 測度 $m$ は平行移動不変なので、任意の可測集合 $A$ に対し
+とする。円周Haar測度は平行移動不変である。非零整数 $n$ に対するFourier指標の軌道平均は
 
 ```math
-m
-\left(
-R_\alpha^{-1}A
-\right)
-=
-m(A)
-```
-
-である。従って $m$ は不変確率測度である。
-
-一意性を Fourier 係数で示す。$R_\alpha$ の不変確率測度を $\nu$ とし、整数 $n$ に対する Fourier 係数を
-
-```math
-\widehat\nu(n)
-=
-\int_0^1
-e^{-2\pi inr}
-\,d\nu(r)
-```
-
-とする。不変性から
-
-```math
-\widehat\nu(n)
-=
-e^{-2\pi in\alpha}
-\widehat\nu(n)
-```
-
-を得る。$n\neq0$ かつ $\alpha\notin\mathbb Q$ なら $e^{-2\pi in\alpha}\neq1$ なので、$\widehat\nu(n)=0$ である。$\widehat\nu(0)=1$ と合わせ、全 Fourier 係数が Haar 測度と一致する。三角多項式の一様稠密性により $\nu=m$ である。
-
-## B.8 一意エルゴード性と区間頻度
-
-連続関数 $f$ の時間平均を
-
-```math
-A_Nf(r)
-=
 \frac1N
 \sum_{j=0}^{N-1}
-f
-\left(
-r+j\alpha
-\right)
-```
-
-とする。 Fourier モード $f_n(r)=e^{2\pi inr}$ に対し、$n\neq0$ なら
-
-```math
-A_Nf_n(r)
+e^{2\pi in(r+j\alpha)}
 =
 e^{2\pi inr}
 \frac{
 1-e^{2\pi inN\alpha}
 }{
-N
-\left(
-1-e^{2\pi in\alpha}
-\right)
+N\left(1-e^{2\pi in\alpha}\right)
 }
-```
-
-であり、$N\to\infty$ で $r$ に一様に零へ収束する。$n=0$ では1である。三角多項式近似により、任意の連続 $f$ について
-
-```math
-A_Nf(r)
 \longrightarrow
-\int_0^1f(s)\,ds
+0
 ```
 
-が一様に成立する。従って回転は一意エルゴード的である。
+となる。三角多項式近似により回転は一意エルゴード的であり、境界がHaar零の半開区間 $[a,b)$ について、全初期角で訪問頻度が $b-a$ へ収束する。本文で使うBorn型長期頻度はこの区間頻度である。
 
-区間指示関数は端点で不連続だが、端点近傍を除いて上下から連続関数で挟める。よって任意の半開区間 $[a,b)$ について
-
-```math
-\lim_{N\to\infty}
-\frac1N
-\sum_{j=0}^{N-1}
-\mathbf1_{[a,b)}
-\left(
-r+j\alpha
-\right)
-=
-b-a
-```
-
-である。これを長さ $p_k$ の結果区間へ適用すると Born 型長期頻度を得る。
-
-## B.9 無理数回転は混合的でない
-
-Haar 空間上の非定数 Fourier モード $f_n$ に対し、
-
-```math
-f_n\circ R_\alpha^j
-=
-e^{2\pi inj\alpha}f_n
-```
-
-である。従って相関
-
-```math
-\int
-f_n
-\overline{f_n\circ R_\alpha^j}
-\,dm
-=
-e^{-2\pi inj\alpha}
-```
-
-の絶対値は1のままで零へ収束しない。よって無理数回転は混合的でない。一意エルゴード性から長期平均は得られるが、独立同分布型の有限標本揺らぎは従わない。
-
-## B.10 有限幅境界の測度上界
+一方、同じFourier指標の時間相関の絶対値は1のままなので、この回転は混合的でない。従って長期平均は得られるが、結果列の独立同分布性または二項分布型有限標本揺らぎは従わない。
+## B.8 有限幅境界の測度上界
 
 固定作用 $I_{\rm ph}$ の区間内に $L-1$ 個の内部境界 $S_1,\ldots,S_{L-1}$ がある。各境界の半幅 $w$ 近傍は長さ高々 $2w$ なので、一様測度と和集合上界から
 
@@ -445,7 +349,7 @@ e^{-2\pi inj\alpha}
 
 角の切断点近傍では、$f(\vartheta)=\vartheta/(2\pi)$ を円周上の滑らかな関数へ置き換える必要がある。その近傍の Haar 幅を $\varepsilon_{\rm cut}$ とすれば、無反応結果の全質量は右辺に $\varepsilon_{\rm cut}$ を加えて抑えられる。
 
-## B.11 高階数集団に必要な追加自由度
+## B.9 高階数集団に必要な追加自由度
 
 固定作用殻上の源状態を $b^\omega$ とし、選択器角が $b^\omega$ の下で条件付き一様なら、
 

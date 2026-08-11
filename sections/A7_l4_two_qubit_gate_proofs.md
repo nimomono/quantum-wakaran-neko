@@ -3,149 +3,55 @@
 @title: 4モード操作代数、CNOT流、忠実度上界
 @status: M39について、複素振幅と実正準座標の対応、局所操作代数の可換性、積状態の階数条件、差モード射影、厳密CNOT、面積誤差、一般制御誤差、資源上界を検算可能な形で証明する。
 
-## G.1 複素振幅の正準括弧
+## G.1 複素振幅と実正準流
 
-各モードについて
+各複素振幅を
 
 ```math
 b_j
 =
-\frac{Q_j+iP_j}{\sqrt{2\mathcal J_0}},
-\qquad
-\overline b_j
-=
-\frac{Q_j-iP_j}{\sqrt{2\mathcal J_0}}
+\frac{Q_j+iP_j}{\sqrt{2\mathcal J_0}}
 ```
 
-と置くと、
-
-```math
-\{b_j,\overline b_k\}
-=
--\frac{i}{\mathcal J_0}\delta_{jk},
-\qquad
-\{b_j,b_k\}
-=0
-```
-
-である。Hermitian 行列 $K,L$ に対して
-
-```math
-F_K
-=
-\mathcal J_0b^\dagger Kb,
-\qquad
-F_L
-=
-\mathcal J_0b^\dagger Lb
-```
-
-とすれば、直接計算により
+とすると、$\{b_j,\overline b_k\}=-i\delta_{jk}/\mathcal J_0$ である。Hermitian行列 $K,L$ に対する2次Hamiltonian $F_K=\mathcal J_0b^\dagger Kb$ は
 
 ```math
 \{F_K,F_L\}
 =
--i\mathcal J_0b^\dagger[K,L]b
-```
-
-を得る。また、
-
-```math
-\dot b_j
+-i\mathcal J_0b^\dagger[K,L]b,
+\qquad
+i\dot b
 =
-\{b_j,F_K\}
-=
--i(Kb)_j
+Kb
 ```
 
-なので、$i\dot b=Kb$ である。$K$ がHermitian なら $e^{-itK}$ はユニタリであり、
-
-```math
-\frac{\mathrm d}{\mathrm dt}
-b^\dagger b
-=0
-```
-
-となる。複素ユニタリ写像の実表示は直交かつシンプレクティックなので、元の実8次元位相空間で正準性を保存する。
+を満たす。従って有限流 $e^{-itK}$ はユニタリであり、実8次元表示では正準性と全作用 $\mathcal J_0b^\dagger b$ を保存する。以下の代数計算を実正準Hamiltonianへ移す根拠はこの対応である。
 
 ## G.2 2つの局所操作代数
 
-基底順序を
-
-```math
-|00\rangle,
-|01\rangle,
-|10\rangle,
-|11\rangle
-```
-
-とする。行列単位を $E_{ab}$ と書けば、
+基底順序を $|00\rangle,|01\rangle,|10\rangle,|11\rangle$ とし、
 
 ```math
 \mathcal A
 =
-\operatorname{span}_{\mathbb C}
-\left\{
-E_{aa'}\otimes I_2
-\right\},
-```
-
-```math
+M_2(\mathbb C)\otimes I_2,
+\qquad
 \mathcal B
 =
-\operatorname{span}_{\mathbb C}
-\left\{
-I_2\otimes E_{bb'}
-\right\}
+I_2\otimes M_2(\mathbb C)
 ```
 
-である。任意の要素について
-
-```math
-(A\otimes I_2)(I_2\otimes B)
-=
-A\otimes B
-=
-(I_2\otimes B)(A\otimes I_2)
-```
-
-なので両代数は可換である。
-
-$X\in M_4(\mathbb C)$ が全ての $A\otimes I_2$ と可換すると仮定する。$X$ をA添字に関する $2\times2$ 区画行列へ分け、対角行列単位と非対角行列単位との交換関係を順に使うと、全対角区画が同じ行列 $B$、非対角区画が0になる。従って
-
-```math
-\mathcal A'
-=
-\mathcal B.
-```
-
-同様に $\mathcal B'=\mathcal A$ である。また積 $A\otimes B$ の線形包は $M_4(\mathbb C)$ 全体なので、2つの代数は4次元振幅空間を完全に分離する操作的な部分系構造を与える。
+と置く。任意の $A,B\in M_2(\mathbb C)$ について $(A\otimes I_2)(I_2\otimes B)=A\otimes B$ なので、両代数は可換である。区画行列に対する行列単位との交換関係から、相互可換代数は $\mathcal A'=\mathcal B$、$\mathcal B'=\mathcal A$ となる。積 $A\otimes B$ の線形包は $M_4(\mathbb C)$ 全体であるため、この2代数が操作誘導テンソル積を定める。
 
 <!-- theorem-start:proof -->
 **証明（R104）**
 
-G.1節の括弧公式へ $K=A\otimes I_2$、$L=I_2\otimes B$ を代入すると、行列交換子が0なので対応するHamiltonian のPoisson 括弧も0である。Pauli 行列と恒等行列のHermitian 線形包は各 $M_2(\mathbb C)$ のHermitian 部分全体である。G.3節の正方形配線がその $X$ と $Z$ を実装し、交換子から $Y$ も生成する。相互可換代数と相互可換代数の計算から操作誘導テンソル積が定まる。積状態保存はG.4節で示す。
+G.1節の括弧公式へ $K=A\otimes I_2$、$L=I_2\otimes B$ を代入すると、対応するHamiltonianはPoisson可換である。G.3節の正方形配線が各代数のPauli生成子を実装し、G.4節の階数条件が局所操作による積状態保存を与える。
 <!-- theorem-end:proof -->
 
-## G.3 正方形配線の行列表現
+## G.3 正方形配線
 
-交換生成子は
-
-```math
-G^X_{jk}
-=
-Q_jQ_k+P_jP_k
-=
-\mathcal J_0
-b^\dagger
-\left(
-|j\rangle\langle k|
-+
-|k\rangle\langle j|
-\right)b
-```
-
-である。従って
+交換生成子 $G^X_{jk}=Q_jQ_k+P_jP_k$ とモード作用差を正方形の対辺へ同期配置すると、
 
 ```math
 G_A^X
@@ -154,10 +60,8 @@ G_A^X
 \qquad
 G_B^X
 =
-\mathcal J_0b^\dagger(I_2\otimes X)b.
+\mathcal J_0b^\dagger(I_2\otimes X)b,
 ```
-
-同様に作用差から
 
 ```math
 G_A^Z
@@ -169,93 +73,51 @@ G_B^Z
 \mathcal J_0b^\dagger(I_2\otimes Z)b
 ```
 
-を得る。各部分系の $X$ と $Z$ は $su(2)$ を生成する。異なる部分系の全生成子は可換であり、同一制御窓に入れても順序誤差を生じない。
+を得る。同じ部分系の $X,Z$ は $su(2)$ を生成し、異なる部分系の生成子は全て可換である。このため局所位相回転と $QQ+PP$ 交換の有限列が、両局所操作代数を実正準流として実装する。
 
 ## G.4 積状態の階数条件
 
-状態 $b$ が積状態なら、ある非零ベクトル $u,v\in\mathbb C^2$ により $b_{ab}=u_av_b$ と書ける。従って
+4振幅を係数行列
 
 ```math
 B(b)
 =
-uv^{\mathsf T}
+\begin{pmatrix}
+b_{00}&b_{01}\\
+b_{10}&b_{11}
+\end{pmatrix}
 ```
 
-は階数1で、$\det B=0$ である。
-
-逆に、規格化された非零 $2\times2$ 行列 $B$ が $\det B=0$ を満たすなら階数は1である。任意の非零列を $u$ とし、他方の列はその複素数倍として $v$ の成分へ吸収できるので、$B=uv^{\mathsf T}$ と因子化できる。
-
-局所操作では
+へ並べる。非零状態が積状態であることは、$B=uv^{\mathsf T}$、すなわち $\operatorname{rank}B=1$ または $\det B=0$ と同値である。局所操作では
 
 ```math
-B'
-=
+B
+\longmapsto
 U_ABU_B^{\mathsf T}
 ```
 
-である。$U_A,U_B$ は可逆なので、
-
-```math
-\operatorname{rank}B'
-=
-\operatorname{rank}B
-```
-
-となる。行列式は
-
-```math
-\det B'
-=
-(\det U_A)(\det U_B)\det B
-```
-
-なので、ユニタリ局所操作では $|\det B|$ も保存される。
+となるため、階数と $|\det B|$ は保存される。これはM39内部の論理因子化条件であり、2つの独立物理担体への分解ではない。
 
 ## G.5 差モード射影の正準表示
 
-差モード $|d\rangle=(|10\rangle-|11\rangle)/\sqrt2$ に対し、
+差モード $|d\rangle=(|10\rangle-|11\rangle)/\sqrt2$ への射影は
 
 ```math
 \Pi_{\rm CX}
 =
 |d\rangle\langle d|
-```
-
-は
-
-```math
-\Pi_{\rm CX}^2
-=
-\Pi_{\rm CX},
-\qquad
-\Pi_{\rm CX}^\dagger
-=
-\Pi_{\rm CX}
-```
-
-を満たす。制御値1の2次元部分空間では、反対称標的状態への射影が $(I_2-X)/2$ なので、
-
-```math
-\Pi_{\rm CX}
 =
 |1\rangle\langle1|_A
 \otimes
 \frac{I_2-X_B}{2}
 ```
 
-である。
-
-正準座標で生成関数を展開すると、
+である。対応する実2次生成子は
 
 ```math
-\mathcal J_0
-b^\dagger\Pi_{\rm CX}b
+G_{\rm CX}
 =
-\frac{\mathcal J_0}{2}
-|b_{10}-b_{11}|^2
-```
-
-```math
+\mathcal J_0b^\dagger\Pi_{\rm CX}b
 =
 \frac14
 \left[
@@ -265,11 +127,11 @@ b^\dagger\Pi_{\rm CX}b
 \right].
 ```
 
-これは非負であり、$b^\dagger b=1$ なら $0\leq G_{\rm CX}\leq\mathcal J_0$ である。
+従って $b^\dagger b=1$ なら $0\leq G_{\rm CX}\leq\mathcal J_0$ であり、新しい相互作用次数を導入せず、下側1交換辺と2作用項で実装できる。
 
 ## G.6 射影指数と厳密CNOT
 
-射影の冪は $\Pi_{m CX}^n=\Pi_{m CX}$ なので、指数級数から
+射影の冪は $\Pi_{\rm CX}^n=\Pi_{\rm CX}$ なので、
 
 ```math
 e^{-iA\Pi_{\rm CX}}
@@ -280,32 +142,13 @@ I_4
 \Pi_{\rm CX}
 ```
 
-を得る。$A=\pi$ では
-
-```math
-e^{-i\pi\Pi_{\rm CX}}
-=
-I_4-2\Pi_{\rm CX}.
-```
-
-制御値0の部分空間では $\Pi_{\rm CX}=0$ なので恒等写像である。制御値1の部分空間では
-
-```math
-I_2
--
-2\frac{I_2-X}{2}
-=
-X
-```
-
-となるため、全行列はCNOTに一致する。
+である。$A=\pi$ では制御値0部分空間に恒等写像、制御値1部分空間に $I_2-2(I_2-X)/2=X$ が作用する。従って全行列はCNOTに一致する。
 
 <!-- theorem-start:proof -->
 **証明（R105）**
 
-$H_{\rm CX}=P_\tau+g(\tau)G_{\rm CX}$ では $\dot\tau=1$ であり、信号生成子は全時刻で同じ射影の実数倍である。従って異なる時刻の生成子は可換で、時間順序積は面積 $A$ の指数へ厳密に縮約する。$A=\pi$ で上の計算からCNOTを得る。G.1節により流れは正準かつ作用保存である。G.7節の積入力を階数2へ写すため、局所操作の積には分解できない。
+$H_{\rm CX}=P_\tau+g(\tau)G_{\rm CX}$ では $\dot\tau=1$ で、信号生成子は全時刻で同じ射影の実数倍である。時間順序積は窓面積 $A$ の指数へ厳密に縮約し、$A=\pi$ で上のCNOTを得る。G.1節により流れは正準かつ作用保存である。G.7節の積入力を階数2へ写すため、局所操作の積には分解できない。
 <!-- theorem-end:proof -->
-
 ## G.7 非因子化生成と相関
 
 入力 $|+0\rangle$ の係数行列は
