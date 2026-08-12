@@ -193,6 +193,37 @@ def validate_github_markdown(path: Path, text: str) -> None:
         raise ValueError(f"{path}: " + "、".join(errors))
 
 
+def validate_fixed_goal_language() -> None:
+    status_text = (ROOT / "PROJECT_STATUS.md").read_text(encoding="utf-8")
+    readme_text = (ROOT / "README.md").read_text(encoding="utf-8")
+
+    fixed_block = status_text.split("### 固定目標一覧", 1)[1].split("### 現在地", 1)[0]
+    readme_block = readme_text.split("## 長期目標の現在地", 1)[1].split(
+        "詳しい達成判定", 1
+    )[0]
+    forbidden = {
+        "モデルID": r"(?<![A-Za-z])M\d+",
+        "結果ID": r"(?<![A-Za-z])R\d+",
+        "複素振幅場": r"複素振幅場",
+        "実現配置": r"実現配置",
+    }
+    for label, block in (
+        ("PROJECT_STATUS.mdの固定目標", fixed_block),
+        ("README.mdの長期目標", readme_block),
+    ):
+        hits = [name for name, pattern in forbidden.items() if re.search(pattern, block)]
+        if hits:
+            raise ValueError(f"{label}: モデル固有語を検出: " + "、".join(hits))
+
+    current_block = status_text.split("### 現在地", 1)[1].split(
+        "### 直前版IDとの対応", 1
+    )[0]
+    for goal_id in ("Q3-2", "Q3-3", "Q3-4", "Q3-5"):
+        pattern = rf"^\| {re.escape(goal_id)} \| 未達 \|"
+        if not re.search(pattern, current_block, flags=re.MULTILINE):
+            raise ValueError(f"{goal_id}: 現在地が未達ではない")
+
+
 def preprocess(lines: list[str]) -> list[str]:
     lines = restore_markdown_source(lines)
     output: list[str] = []
@@ -397,6 +428,7 @@ def tex_environment() -> dict[str, str]:
 
 def build() -> None:
     WORK.mkdir(parents=True, exist_ok=True)
+    validate_fixed_goal_language()
     for source in sorted(SECTIONS.glob("*.md")):
         validate_github_markdown(source, source.read_text(encoding="utf-8"))
 
