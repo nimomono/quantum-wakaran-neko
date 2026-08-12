@@ -401,6 +401,78 @@ def main() -> None:
         5.0e-8,
     ))
 
+    complex_matrix = np.array(
+        [
+            [0.11, 0.37 + 0.19j, 0.0],
+            [0.37 - 0.19j, -0.08, -0.29 + 0.13j],
+            [0.0, -0.29 - 0.13j, 0.17],
+        ],
+        dtype=complex,
+    )
+    complex_initial = np.array([0.61 + 0.12j, -0.27 + 0.43j, 0.31 - 0.49j])
+    complex_initial /= np.linalg.norm(complex_initial)
+    complex_flow = currents(complex_initial, complex_matrix)
+    complex_derivative = probability_derivative(complex_initial, complex_matrix)
+    complex_rates = minimal_rates(complex_initial, complex_matrix)
+    complex_generator = generator_from_rates(complex_rates)
+    checks.append(Check(
+        "complex-Hermitian current antisymmetry",
+        float(np.max(np.abs(complex_flow + complex_flow.T))),
+        TOL,
+    ))
+    checks.append(Check(
+        "complex-Hermitian continuity equation",
+        float(np.max(np.abs(complex_derivative - np.sum(complex_flow, axis=0)))),
+        TOL,
+    ))
+    checks.append(Check(
+        "complex-Hermitian minimal-rate equivariance",
+        float(np.max(np.abs(probability(complex_initial) @ complex_generator - complex_derivative))),
+        TOL,
+    ))
+
+    projector = np.zeros((4, 4), dtype=complex)
+    difference = np.array([0.0, 0.0, 1.0, -1.0], dtype=complex) / np.sqrt(2.0)
+    projector = np.outer(difference, np.conj(difference))
+    cnot_from_edge = np.eye(4, dtype=complex) - 2.0 * projector
+    cnot_target = np.array(
+        [
+            [1.0, 0.0, 0.0, 0.0],
+            [0.0, 1.0, 0.0, 0.0],
+            [0.0, 0.0, 0.0, 1.0],
+            [0.0, 0.0, 1.0, 0.0],
+        ],
+        dtype=complex,
+    )
+    checks.append(Check(
+        "one-edge projector gives CNOT",
+        float(np.max(np.abs(cnot_from_edge - cnot_target))),
+        TOL,
+    ))
+    basis_outputs = np.argmax(np.abs(cnot_from_edge), axis=0)
+    checks.append(Check(
+        "joint realized-configuration CNOT truth table",
+        float(np.max(np.abs(basis_outputs - np.array([0, 1, 3, 2])))),
+        0.0,
+    ))
+
+    spring_bounds = []
+    for eta in (0.08, 0.04, 0.02):
+        spring_bounds.append(
+            2.0 * ((1.0 - eta) ** (-0.25) - 1.0)
+            + pi * eta / (4.0 * (1.0 - eta) ** 1.5)
+        )
+    checks.append(Check(
+        "one-edge spring CNOT bound decreases",
+        max(spring_bounds[index + 1] - spring_bounds[index] for index in range(2)),
+        0.0,
+    ))
+    checks.append(Check(
+        "one-edge spring CNOT bound tends to zero",
+        spring_bounds[-1],
+        3.0e-2,
+    ))
+
     output = {
         "seed": 20260812,
         "check_count": len(checks),
@@ -422,6 +494,7 @@ def main() -> None:
             "maximum_rate_bound": rate_bound,
             "carrier_tv": carrier_tv,
             "carrier_transfer_bound": 0.5 * duration * generator_distance,
+            "one_edge_spring_bounds": spring_bounds,
         },
         "passed": bool(all(check.passed for check in checks)),
     }
