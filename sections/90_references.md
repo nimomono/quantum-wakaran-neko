@@ -46,3 +46,5 @@
 - [41] W. M. Itano, D. J. Heinzen, J. J. Bollinger, and D. J. Wineland, ``Quantum Zeno Effect,'' Physical Review A 41, 2295--2300 (1990). <https://doi.org/10.1103/PhysRevA.41.2295>
 - [42] J. Ruseckas and B. Kaulakys, ``Real Measurements and the Quantum Zeno Effect,'' Physical Review A 63, 062103 (2001). <https://doi.org/10.1103/PhysRevA.63.062103>
 - [43] M. A. Nielsen, ``A Simple Formula for the Average Gate Fidelity of a Quantum Dynamical Operation,'' Physics Letters A 303, 249--252 (2002). <https://doi.org/10.1016/S0375-9601(02)01272-0>
+- [44] D. Dürr, S. Goldstein, R. Tumulka, and N. Zanghì, ``Quantum Hamiltonians and Stochastic Jumps,'' Communications in Mathematical Physics 254, 129--166 (2005). <https://doi.org/10.1007/s00220-004-1242-0>
+- [45] H.-O. Georgii and R. Tumulka, ``Global Existence of Bell's Time-Inhomogeneous Jump Process for Lattice Quantum Field Theory,'' Markov Processes and Related Fields 11, 1--18 (2005). <https://arxiv.org/abs/math/0312294>
