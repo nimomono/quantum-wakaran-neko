@@ -27,7 +27,7 @@
 - `sections/A5_l4_two_qubit_gate_proofs.md`
 - `sections/A6_m41_cycle_proofs.md`
 - `sections/A7_m37_envelope_proofs.md`
-- `sections/A8_spatial_token_proofs.md`
+- `sections/A8_realized_configuration_proofs.md`
 - `sections/90_references.md`
 
 ## 論文外の研究メモ
@@ -64,7 +64,7 @@
 - `tools/verify_phase_correlation.py`
 - `tools/verify_q2_1_gate.py`
 - `tools/verify_q2_2_m41.py`
-- `tools/verify_spatial_token.py`
+- `tools/verify_realized_configuration.py`
 - `figures/README.md`
 - `.github/workflows/verify.yml`
 - `.gitignore`
