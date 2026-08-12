@@ -31,7 +31,7 @@ PART_TITLES: dict[int, str] = {
     1: "問題設定と共通言語",
     3: "単一量子ビット型操作と測定",
     6: "2論理部分系とBell型統計",
-    9: "空間Schrödinger型包絡",
+    9: "空間位相担体と局在粒子トークン",
     10: "総合評価",
 }
 
@@ -81,6 +81,8 @@ REFERENCE_KEYS = {
     41: "itano_et_al1990",
     42: "ruseckas_kaulakys2001",
     43: "nielsen2002",
+    44: "duerr_et_al2005",
+    45: "georgii_tumulka2005",
 }
 
 
@@ -421,19 +423,20 @@ def build() -> None:
     template = TEMPLATE.read_text(encoding="utf-8")
     MAIN_TEX.write_text(template.replace("$body$", body.read_text(encoding="utf-8")), encoding="utf-8")
 
-    latex_run = Path(tempfile.mkdtemp(prefix="latex-run-", dir=WORK.parent))
+    # Keep the multi-pass TeX state on the local temporary filesystem.  Some
+    # synced workspaces expose newly rewritten .aux files before their final
+    # bytes are visible to the next XeLaTeX process.
+    latex_run = Path(tempfile.mkdtemp(prefix="quantum-wakaran-neko-latex-"))
     try:
-        run_command([
-            "bash",
-            "-c",
-            'for _ in 1 2 3; do "$@" || exit $?; done',
-            "bash",
+        command = [
             "xelatex",
             "-interaction=nonstopmode",
             "-halt-on-error",
-            f"-output-directory={latex_run.relative_to(ROOT)}",
+            f"-output-directory={latex_run}",
             MAIN_TEX.name,
-        ], cwd=ROOT)
+        ]
+        for _ in range(3):
+            run_command(command, cwd=ROOT)
         shutil.copy2(latex_run / "main.pdf", WORK / "main.pdf")
     finally:
         log = latex_run / "main.log"

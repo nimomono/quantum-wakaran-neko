@@ -1,9 +1,9 @@
 cff-version: 1.2.0
 message: "この成果を利用する場合は、次の情報で引用すること。"
-title: "有限古典 Hamiltonian 担体の量子ビット型操作・測定・結合ゲート：空間 Schrödinger 型包絡と初期共通原因型 Bell 統計"
+title: "有限古典 Hamiltonian 担体の量子ビット型操作・測定・結合ゲート：空間位相担体・局在粒子トークンと初期共通原因型 Bell 統計"
 type: manuscript
 authors:
   - name: "nimomono"
-version: "draft-32"
+version: "draft-33"
 date-released: 2026-08-12
 repository-code: "https://github.com/nimomono/quantum-wakaran-neko"
