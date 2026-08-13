@@ -37,6 +37,7 @@ jobs:
           python tools/verify_q2_1_gate.py
           python tools/verify_q2_2_m41.py
           python tools/verify_realized_configuration.py
+          python tools/verify_q3_completion.py
 
       - name: 論文を再生成
         run: python tools/build_paper.py
@@ -44,7 +45,7 @@ jobs:
       - name: 生成物の同期を検査
         run: |
           git diff --exit-code -- paper.md main.tex
-          test "$(pdfinfo paper.pdf | awk '/^Pages:/ {print $2}')" = "142"
+          test "$(pdfinfo paper.pdf | awk '/^Pages:/ {print $2}')" = "149"
           ! grep -Eq "Citation .* undefined|Reference .* undefined|Overfull|Underfull|Fatal error|Missing character" build/latex/main.log
 
       - name: 標準構成を検査

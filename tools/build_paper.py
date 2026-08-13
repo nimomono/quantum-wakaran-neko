@@ -220,9 +220,9 @@ def validate_fixed_goal_language() -> None:
     )[0]
     expected_status = {
         "Q3-2": "未達（凍結中）",
-        "Q3-3": "未達",
-        "Q3-4": "未達",
-        "Q3-5": "未達",
+        "Q3-3": "達成",
+        "Q3-4": "達成",
+        "Q3-5": "達成",
     }
     for goal_id, status in expected_status.items():
         pattern = rf"^\| {re.escape(goal_id)} \| {re.escape(status)} \|"
