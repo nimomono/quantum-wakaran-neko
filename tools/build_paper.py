@@ -218,10 +218,16 @@ def validate_fixed_goal_language() -> None:
     current_block = status_text.split("### 現在地", 1)[1].split(
         "### 直前版IDとの対応", 1
     )[0]
-    for goal_id in ("Q3-2", "Q3-3", "Q3-4", "Q3-5"):
-        pattern = rf"^\| {re.escape(goal_id)} \| 未達 \|"
+    expected_status = {
+        "Q3-2": "未達（凍結中）",
+        "Q3-3": "未達",
+        "Q3-4": "未達",
+        "Q3-5": "未達",
+    }
+    for goal_id, status in expected_status.items():
+        pattern = rf"^\| {re.escape(goal_id)} \| {re.escape(status)} \|"
         if not re.search(pattern, current_block, flags=re.MULTILINE):
-            raise ValueError(f"{goal_id}: 現在地が未達ではない")
+            raise ValueError(f"{goal_id}: 現在地が{status}ではない")
 
 
 def preprocess(lines: list[str]) -> list[str]:
