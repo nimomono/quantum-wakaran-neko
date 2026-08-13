@@ -25,17 +25,17 @@ THEOREM_LABELS = {
     "proof": "証明",
 }
 
-CHAPTER_NUMBERS = tuple(range(1, 12))
+CHAPTER_NUMBERS = tuple(range(1, 10))
 
 PART_TITLES: dict[int, str] = {
     1: "問題設定と共通言語",
     3: "単一量子ビット型操作と測定",
-    6: "2論理部分系とBell型統計",
-    9: "空間複素振幅場と空間実現配置",
-    10: "総合評価",
+    4: "2論理部分系とBell型統計",
+    6: "空間複素振幅場と空間実現配置",
+    8: "総合評価",
 }
 
-PART_NUMERALS = {1: "I", 3: "II", 6: "III", 9: "IV", 10: "V"}
+PART_NUMERALS = {1: "I", 3: "II", 4: "III", 6: "IV", 8: "V"}
 
 REFERENCE_KEYS = {
     1: "bell1964",
