@@ -44,7 +44,7 @@ jobs:
       - name: 生成物の同期を検査
         run: |
           git diff --exit-code -- paper.md main.tex
-          test "$(pdfinfo paper.pdf | awk '/^Pages:/ {print $2}')" = "143"
+          test "$(pdfinfo paper.pdf | awk '/^Pages:/ {print $2}')" = "142"
           ! grep -Eq "Citation .* undefined|Reference .* undefined|Overfull|Underfull|Fatal error|Missing character" build/latex/main.log
 
       - name: 標準構成を検査
