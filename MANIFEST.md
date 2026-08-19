@@ -25,6 +25,7 @@
 - `sections/A5_m37_envelope_proofs.md`
 - `sections/A6_realized_configuration_proofs.md`
 - `sections/A7_q3_completion_proofs.md`
+- `sections/A8_capture_entropy_preparation.md`
 - `sections/90_references.md`
 
 ## 論文外の研究メモ
@@ -63,6 +64,7 @@
 - `tools/verify_q2_2_m41.py`
 - `tools/verify_realized_configuration.py`
 - `tools/verify_q3_completion.py`
+- `tools/verify_capture_entropy_preparation.py`
 - `figures/README.md`
 - `.github/workflows/verify.yml`
 - `.gitignore`
