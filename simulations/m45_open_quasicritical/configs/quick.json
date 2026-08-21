@@ -1,0 +1,9 @@
+{
+  "paths": 128,
+  "duration": 300.0,
+  "burn_in": 180.0,
+  "dt": 0.004,
+  "sample_interval": 0.08,
+  "confirmation_time": 0.5,
+  "seed": 20260832
+}

@@ -25,7 +25,7 @@
 - `sections/A5_m37_envelope_proofs.md`
 - `sections/A6_realized_configuration_proofs.md`
 - `sections/A7_q3_completion_proofs.md`
-- `sections/A8_capture_entropy_preparation.md`
+- `sections/A8_open_quasicritical_preparation.md`
 - `sections/90_references.md`
 
 ## 論文外の研究メモ
@@ -38,6 +38,7 @@
 - `notes/gaussian_nelson_examples.md`
 - `notes/measurement_dependence_comparisons.md`
 - `notes/rejected_bell_causal_alternatives.md`
+- `notes/rejected_m44_capture_entropy_preparation.md`
 - `notes/superseded_position_coupling_fisher_closure.md`
 - `notes/superseded_three_mode_bell_shell.md`
 - `notes/superseded_two_component_induction_field.md`
@@ -64,10 +65,30 @@
 - `tools/verify_q2_2_m41.py`
 - `tools/verify_realized_configuration.py`
 - `tools/verify_q3_completion.py`
-- `tools/verify_capture_entropy_preparation.py`
 - `figures/README.md`
+- `figures/m45_open_trap_diagnostics.png`
+- `figures/m45_conditional_ground_comparison.png`
 - `.github/workflows/verify.yml`
 - `.gitignore`
+
+## 現行モデルの数値シミュレーション
+
+- `simulations/README.md`
+- `simulations/m45_open_quasicritical/README.md`
+- `simulations/m45_open_quasicritical/requirements.txt`
+- `simulations/m45_open_quasicritical/configs/quick.json`
+- `simulations/m45_open_quasicritical/configs/reference.json`
+- `simulations/m45_open_quasicritical/m45/__init__.py`
+- `simulations/m45_open_quasicritical/m45/model.py`
+- `simulations/m45_open_quasicritical/m45/integrator.py`
+- `simulations/m45_open_quasicritical/m45/observables.py`
+- `simulations/m45_open_quasicritical/m45/entropy.py`
+- `simulations/m45_open_quasicritical/m45/operator_audit.py`
+- `simulations/m45_open_quasicritical/run.py`
+- `simulations/m45_open_quasicritical/verify.py`
+- `simulations/m45_open_quasicritical/reference/metrics.json`
+- `simulations/m45_open_quasicritical/reference/convergence.json`
+- `simulations/m45_open_quasicritical/reference/curves.csv`
 
 ## 組版用フォント
 
@@ -76,4 +97,4 @@
 - `fonts/NotoSerifJP-Bold.ttf`
 - `fonts/NotoSerifJP-Regular.ttf`
 
-旧版セクション、置換済みセクション、旧PDF、査読回答履歴は収録しない。
+旧版セクション、置換済みセクション、旧数値コード、旧PDF、査読回答履歴は収録しない。置換済みモデルの完全な実装はGit履歴から参照する。
