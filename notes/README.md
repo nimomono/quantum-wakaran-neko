@@ -14,5 +14,8 @@
 | `superseded_position_coupling_fisher_closure.md` | draft-13 第2〜4章 | M13の不採用記録 | 力密度閉鎖を、運動量結合から配置拡散へ進む直接経路で置き換えた |
 | `superseded_three_mode_bell_shell.md` | draft-12〜draft-15 第6〜7章、付録C | M7〜M9の不採用記録 | 比較作用を直接読む2モード境界殻へ置き換えた |
 | `superseded_two_component_induction_field.md` | draft-15〜draft-19 第2〜3章、付録A・D〜F | M14、M20〜M25の不採用記録 | 実在2成分誘導場を有限正準位相担体の相関行列力学へ置き換えた |
+| `rejected_m44_capture_entropy_preparation.md` | draft-39・draft-40 第8.13節、付録H、R126 | M44の不採用記録 | 有限Hamiltonian候補から基準位置拡散、時間比例準備率、自律再生、周辺可逆性を同時導出できず、開放M45へ置換した |
 
 完全な旧原稿は版タグと公開版で保存し、ここには置かない。
+
+不採用モデルの数値コード、設定、生出力は`notes/`へ複製しない。旧パス、最終収録版、対応コミット、主要結果を研究メモへ記録し、完全な実装はGit履歴から参照する。

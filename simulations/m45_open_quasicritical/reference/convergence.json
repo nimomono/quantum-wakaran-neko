@@ -1,0 +1,188 @@
+[
+  {
+    "label": "reference_dt",
+    "simulation_parameters": {
+      "paths": 160,
+      "duration": 360.0,
+      "burn_in": 180.0,
+      "dt": 0.002,
+      "sample_interval": 0.04,
+      "confirmation_time": 0.5,
+      "seed": 20260832,
+      "hazard_min_energy": 0.18,
+      "hazard_max_energy": 0.38,
+      "hazard_bins": 60
+    },
+    "model_parameters": {
+      "separatrix_energy": 0.25,
+      "theta": 0.05,
+      "log_core": 0.02,
+      "shift_coupling": 0.5,
+      "structural_mass": 0.8,
+      "log_mass": 0.25,
+      "bath_temperature": 0.004,
+      "gamma_s": 0.01,
+      "gamma_r": 0.06,
+      "active_gain": 0.085,
+      "active_speed": 0.7
+    },
+    "summary": {
+      "mean_ready_energy": 0.24132042625138672,
+      "std_ready_energy": 0.017351094691567752,
+      "median_ready_energy": 0.24266607155359562,
+      "ready_sector_fraction": 0.7332541666666668,
+      "stationary_block_means": [
+        0.24116298596214514,
+        0.2412641122796638,
+        0.241288429610346,
+        0.2415274300396966
+      ],
+      "near_separatrix_fraction": 0.8065908630287739,
+      "crossing_rate_per_path": 0.030208333333333334,
+      "episode_rate_per_path": 0.02486111111111111,
+      "recorded_crossings": 870,
+      "recorded_episodes": 716,
+      "recorded_recoveries": 672,
+      "recovery_per_episode": 0.9385474860335196,
+      "mean_event_energy": 0.26739554096627044,
+      "mean_recovery_energy": 0.2382295132218725,
+      "std_recovery_energy": 0.005764602621564321,
+      "median_recovery_delay": 8.156999999999996,
+      "median_inter_episode_time": 19.95599999999999
+    },
+    "energy_balance": {
+      "mean_active_power": 0.0033496860246542822,
+      "mean_friction_power": 0.004306460545993669,
+      "ito_thermal_return": 0.00101,
+      "mean_balance_residual": 5.322547866061294e-05
+    },
+    "hazard_monotonicity": {
+      "correlation": 0.8084625802119756,
+      "upper_lower_ratio": 35.47551319973358
+    }
+  },
+  {
+    "label": "half_dt",
+    "simulation_parameters": {
+      "paths": 160,
+      "duration": 360.0,
+      "burn_in": 180.0,
+      "dt": 0.001,
+      "sample_interval": 0.04,
+      "confirmation_time": 0.5,
+      "seed": 20260832,
+      "hazard_min_energy": 0.18,
+      "hazard_max_energy": 0.38,
+      "hazard_bins": 60
+    },
+    "model_parameters": {
+      "separatrix_energy": 0.25,
+      "theta": 0.05,
+      "log_core": 0.02,
+      "shift_coupling": 0.5,
+      "structural_mass": 0.8,
+      "log_mass": 0.25,
+      "bath_temperature": 0.004,
+      "gamma_s": 0.01,
+      "gamma_r": 0.06,
+      "active_gain": 0.085,
+      "active_speed": 0.7
+    },
+    "summary": {
+      "mean_ready_energy": 0.2426354421282303,
+      "std_ready_energy": 0.016765402106025236,
+      "median_ready_energy": 0.24395408593544513,
+      "ready_sector_fraction": 0.7174680555555555,
+      "stationary_block_means": [
+        0.24333567156768085,
+        0.2424291049948615,
+        0.24331197478715016,
+        0.2414615150403179
+      ],
+      "near_separatrix_fraction": 0.8279636917632802,
+      "crossing_rate_per_path": 0.03180555555555555,
+      "episode_rate_per_path": 0.025868055555555554,
+      "recorded_crossings": 916,
+      "recorded_episodes": 745,
+      "recorded_recoveries": 698,
+      "recovery_per_episode": 0.9369127516778524,
+      "mean_event_energy": 0.26795308810254354,
+      "mean_recovery_energy": 0.238165488810113,
+      "std_recovery_energy": 0.005735827557302517,
+      "median_recovery_delay": 8.07050000000001,
+      "median_inter_episode_time": 18.075999999999965
+    },
+    "energy_balance": {
+      "mean_active_power": 0.003317438022579401,
+      "mean_friction_power": 0.004335372755127229,
+      "ito_thermal_return": 0.00101,
+      "mean_balance_residual": -7.934732547827759e-06
+    },
+    "hazard_monotonicity": {
+      "correlation": 0.8626232977530486,
+      "upper_lower_ratio": 32.60680372047033
+    }
+  },
+  {
+    "label": "independent_seed",
+    "simulation_parameters": {
+      "paths": 160,
+      "duration": 360.0,
+      "burn_in": 180.0,
+      "dt": 0.002,
+      "sample_interval": 0.04,
+      "confirmation_time": 0.5,
+      "seed": 20262832,
+      "hazard_min_energy": 0.18,
+      "hazard_max_energy": 0.38,
+      "hazard_bins": 60
+    },
+    "model_parameters": {
+      "separatrix_energy": 0.25,
+      "theta": 0.05,
+      "log_core": 0.02,
+      "shift_coupling": 0.5,
+      "structural_mass": 0.8,
+      "log_mass": 0.25,
+      "bath_temperature": 0.004,
+      "gamma_s": 0.01,
+      "gamma_r": 0.06,
+      "active_gain": 0.085,
+      "active_speed": 0.7
+    },
+    "summary": {
+      "mean_ready_energy": 0.2430133405941192,
+      "std_ready_energy": 0.016736136677026524,
+      "median_ready_energy": 0.2446364162291073,
+      "ready_sector_fraction": 0.7413708333333333,
+      "stationary_block_means": [
+        0.24336491016759004,
+        0.24356005226314684,
+        0.24207303510694506,
+        0.24297460398859705
+      ],
+      "near_separatrix_fraction": 0.8333117891593463,
+      "crossing_rate_per_path": 0.029513888888888888,
+      "episode_rate_per_path": 0.025451388888888888,
+      "recorded_crossings": 850,
+      "recorded_episodes": 733,
+      "recorded_recoveries": 689,
+      "recovery_per_episode": 0.9399727148703957,
+      "mean_event_energy": 0.2680003107859259,
+      "mean_recovery_energy": 0.23832702518419338,
+      "std_recovery_energy": 0.005929003062561275,
+      "median_recovery_delay": 8.038000000000011,
+      "median_inter_episode_time": 18.909999999999997
+    },
+    "energy_balance": {
+      "mean_active_power": 0.0032804601338521228,
+      "mean_friction_power": 0.004286087893856685,
+      "ito_thermal_return": 0.00101,
+      "mean_balance_residual": 4.372239995437902e-06
+    },
+    "hazard_monotonicity": {
+      "correlation": 0.8232856307514355,
+      "upper_lower_ratio": 45.34405439347631
+    }
+  }
+]
