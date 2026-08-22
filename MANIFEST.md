@@ -26,6 +26,7 @@
 - `sections/A6_realized_configuration_proofs.md`
 - `sections/A7_q3_completion_proofs.md`
 - `sections/A8_open_quasicritical_preparation.md`
+- `sections/A9_common_action_port_nelson_flow.md`
 - `sections/90_references.md`
 
 ## 論文外の研究メモ
