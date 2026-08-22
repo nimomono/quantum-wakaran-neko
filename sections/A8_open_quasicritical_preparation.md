@@ -748,3 +748,11 @@ H.9の運動量積分後の2次元積分をGauss--Legendre求積し、直接軌�
 7. 条件付き作用素の格子細分化で基底密度比較またはDoob核が収束しない。
 
 M45とR127--R129は、定常基底状態の初期共通原因準備候補と、その条件付き定常sectorにおけるNelson時間対称Newton則までを扱う。一般の時間依存Schrödinger発展、励起状態、位相量子化、スピン、Born型測定則全体、Bell型統計、統一M0をこの結果だけから導かない。M37、M42、R118、M35の役割とQ1--Q3の達成判定は変更しない。
+
+## H.20 M46との関係
+
+M46はM45を撤回または置換しない。M45は、負性抵抗limit cycle、対数型capacity、準安定反応座標、入出力線を持つ具体的な下位実装候補であり、R127とR128の直接収支・指数位相体積を保持する。M46は、M45で橋として残した三角形capacity loadingと共通作用ポートのphase-reduced応答を採用方程式へ昇格し、M37/M42の複素slow covarianceと実現配置へ接続する別の模型層である。
+
+R129の $G_{\delta,V}=A_\delta K_\delta A_\delta$ は条件付き準備作用素として残す。M46では、古典生存核 $\mathsf P_\delta=K_\delta D_\delta$ と複素共分散核 $\mathsf S_\delta=A_\delta K_\delta A_\delta$ を区別し、$A_\delta=D_\delta^{1/2}$ をphase-preserving線形散逸portから導く。従ってR129の3つの橋をM45の直接Langevin方程式から導出済みに変更するのでなく、より明示的な開放方程式を持つM46で別結果R130--R134として管理する。
+
+M45の数値結果はM46の数値検証ではない。特に、主共分散選択、局所current transducer、一般時間依存Nelson流について、付録Hの既存数値値を証拠として流用しない。

@@ -291,18 +291,20 @@ M41の条件付き達成を越えるには、準備後の自由な設定変更�
 | Q3-4トンネル効果 | 初期状態に障壁値以上のスペクトル成分が残る、反対側確率の増分が正でない、初期の反対側裾を無視する、位置読出しへの接続誤差が増分以上になる |
 | Q3-5干渉 | コヒーレント入力と非干渉混合の位置分布が一致する、相対位相を変えても位置分布が変わらない、位置読出しへの接続誤差が分布差以上になる |
 | M45開放準臨界準備 | 能動項を外しても同じ準備殻が現れる、位相すべり後の自律帰還が再現しない、捕捉位相体積比が指数則から大きく外れる、$W(X)$ の局所帳簿に二重計数が残る、時間切片則または位置核の周辺可逆性が成立しない、条件付き基底密度比較が格子細分化で収束しない |
+| M46三角形開放層 | capacity loadingが $O(1)$ の位置反作用を残す、同じ作用ポートから $A=D^{1/2}$ が出ない、$W$ 依存位相shiftが散逸と同次数で残る、主共分散がrank-oneへ集中しない、current rateの正味差が辺流と一致しない、伝播modeで選別散逸が残る、nodeまたは連続極限の誤差が消えない |
 | 文書上の範囲 | M37とM38を同一ハードウェアと扱う、M37だけからM42の跳躍則が必然的に出ると扱う、M39相関を空間分離Bell統計と扱う、M41を準備後自由設定または標準空間分離Bell実験と扱う、生成物と正本が食い違う |
 
 目的共同分布を設定条件付き初期測度へ直接書き込み、前向き準備写像を省いた場合も、M41の中心主張は成立しない。無反応試行を除外して共同分布またはCHSH値を再規格化した場合は事後選別となり、現行判定を使えない。
 
 ## 8.12 次の目標と統合課題
 
-中心課題は次の4本である。
+中心課題は次の5本である。
 
 1. Q2-3として、M39の $2^n$ 直接モードコストを監査し、多量子ビット回路の物理自由度、時間、精度、記録、resetの規模依存性を評価する。
 2. Q3-2は判定基準を保持したまま凍結する。達成済みのQ3-3からQ3-5についてはR123--R125の有限モード・有限時間範囲を維持し、源、シャッター、全検出器、散乱極限、初回到達、吸収、時間積分流束、連続運転スクリーンを独立した強い拡張として管理する。
 3. M41の達成範囲を越える拡張として、準備後設定変更、空間分離、一般状態の作用側チャネル除去、独立同分布型標本統計を検査する。
 4. M45について、開放捕捉器の準臨界殻、位相すべり、自律帰還、捕捉エントロピー則の頑健性を検査し、$W(X)$ の局所帳簿、時間比例切片則、位置核の周辺可逆性という3つの橋を直接結合模型から導けるかを判定する。
+5. M46について、採用した三角形capacity方程式、半減衰、主共分散選択、current transducerを、具体的負性抵抗limit cycleと一つの入出力線から同じ係数で導けるかを判定する。任意複素状態の自律準備、node正則化、graph-to-continuum一様誤差は別の解析課題とする。
 
 一般有限 $L$ への拡張はM35の一般化課題として並行して管理する。M37、M38、M35、M39、M41、M42を1つのM0と統一母測度へまとめることは、その後の統合目標である。
 
@@ -529,3 +531,264 @@ ma_N
 現行数値コードは `simulations/m45_open_quasicritical/` に置く。直接Langevin検査では、分離面近傍率0.8275、3096離脱エピソード中2959件の有限時間帰還、平均収支残差 $3.45\times10^{-6}$ を得た。能動項を外した対照の分離面近傍率は0である。捕捉位相体積比の対数傾きは $-1.0673$、指数目標からの最大偏差は0.0220だった。これとは別に、3つの橋を入力した条件付き位置作用素監査では、量子基底密度との全変動距離が調和型0.00404、二重井戸型0.00882となった。後者を直接模型の量子基底状態再現とは呼ばない。
 
 M45とR127--R129はM37、M42、R118、M35を置換せず、Q1--Q3の現行達成判定も変更しない。正の主固有関数を選ぶため一般の励起状態を準備せず、一般の時間依存Nelson流、複素位相、Schrödinger時間発展を導かない。完全な方程式、位相体積積分、数値事象定義、条件付き作用素、反証条件は付録Hに示す。
+
+## 8.14 M46共通作用ポート型三角形capacity-current統合開放模型
+
+M45で未導出だった局所帳簿、時間比例率、二方向因子を、さらに下位の閉鎖Hamiltonian系から導いたとはまだ言えない。一方、三角形capacity方程式と共通作用ポートをphase-reducedミクロ開放方程式として採用すれば、M37の複素slow covarianceを正の主固有関数だけへ潰さず、一般時間依存Nelson流までの数学的鎖を閉じられる。これをM46とする。
+
+M46は新しい独立reservoir、積分器、外部clock、未来probeを追加しない。M37のmatching Hamiltonian、M42の複素振幅場と実現配置、M45の負性抵抗limit cycle、対数型capacity、周期反応座標 $s$ を再利用する。$s$ の準安定領域を準備modeと伝播modeの内部記憶に使い、同じlimit-cycle位相の異なる窓でcapacity pulse、局所位相比較、判定を駆動する。
+
+作用尺度を
+
+```math
+\mathcal J_0
+=
+\frac{\Theta}{\omega_c}
+=
+2m\nu
+```
+
+とする。残りenergy $Z$ をaction capacity $I=Z/\omega_c$ へ換算すると、理想ready分布は
+
+```math
+P(I>i)
+=
+\exp
+\left(
+-\frac{i}{\mathcal J_0}
+\right).
+```
+
+準備modeで採用する三角形loading則は
+
+```math
+\dot I_t
+=
+-W(X_t),
+\qquad
+W=V-V_{\rm ref}\geq0.
+```
+
+energy表示では $\dot Z=-\omega_cW(X)$ なので、$\dot Z=-\alpha W(X)$ の規約で
+
+```math
+\alpha=\omega_c,
+\qquad
+\nu
+=
+\frac{\Theta}{2m\omega_c}
+```
+
+となる。これは三つの係数を独立に合わせたのでなく、指数escape閾値をactionへ換算する一回のmatchingから出る模型予言である。
+
+R130は指数分布の無記憶性から、位置経路を固定したready生存率を
+
+```math
+D[X]
+=
+\exp
+\left[
+-\frac{1}{\mathcal J_0}
+\int_0^tW(X_s)\,ds
+\right]
+```
+
+とする。有限グラフの1周期では
+
+```math
+\mathsf P_\delta
+=
+K_\delta D_\delta,
+\qquad
+D_\delta
+=
+\exp
+\left(
+-\frac{\delta W}{\mathcal J_0}
+\right),
+```
+
+である。$\mathsf P_\delta$ は古典的な非正規化生存核である。
+
+古典thresholdだけでは複素振幅の平方根則は出ない。M46は同じ作用ポートが複素包絡へphase-preservingな純散逸として作用し、
+
+```math
+\dot b_x
+=
+-\frac{W(x)}{2\mathcal J_0}b_x
+```
+
+を与えると採用する。R131により
+
+```math
+A_\delta
+=
+\exp
+\left(
+-\frac{\delta W}{2\mathcal J_0}
+\right)
+=
+D_\delta^{1/2}
+```
+
+となる。複素共分散核は
+
+```math
+\mathsf S_\delta
+=
+A_\delta K_\delta A_\delta
+```
+
+であり、古典生存核とは
+
+```math
+\mathsf S_\delta
+=
+A_\delta
+\mathsf P_\delta
+A_\delta^{-1}
+```
+
+の相似関係にある。確率核と共分散核を同じ記号で呼ばない。
+
+正のグラフLaplacian $L_{\mathcal G}$ について
+
+```math
+K_\delta
+=
+\exp
+\left(
+-\delta\nu L_{\mathcal G}
+\right)
+```
+
+とすれば、
+
+```math
+\mathsf S_\delta
+=
+I
+-
+\frac{\delta}{\mathcal J_0}
+\left(
+H_V-V_{\rm ref}
+\right)
++
+O(\delta^2),
+```
+
+```math
+H_V
+=
+\mathcal J_0\nu L_{\mathcal G}+V
+=
+\frac{\mathcal J_0^2}{2m}L_{\mathcal G}+V
+```
+
+を得る。
+
+準備modeの線形化を
+
+```math
+Y_{n+1}
+=
+g\mathsf S_\delta Y_n
++
+\eta_n
+```
+
+とする。$\mathsf S_\delta h_0=\lambda_0h_0$、$h_0>0$ とし、雑音が主モードへ非零成分を持つなら、R132は $g\lambda_0\uparrow1$ で規格化共分散が
+
+```math
+\frac{C_g}{\operatorname{tr}C_g}
+\longrightarrow
+\frac{|h_0\rangle\langle h_0|}
+{\langle h_0,h_0\rangle}
+```
+
+へ収束することを与える。配置密度 $h_0^2$ は、一方向の生存終端分布からでなく、同一時刻の複素共分散が持つ二本の脚の対角から生じる。物理的な未来条件付けまたは二つの独立浴を置かない。
+
+伝播modeではcapacity port、選別散逸、負性抵抗gainを切り、M37/M42のHamiltonian流
+
+```math
+i\mathcal J_0\dot\psi
+=
+h(t)\psi
+```
+
+を作動させる。これによりrank-one共分散の実部と虚部、相対振幅と相対位相を保持する。M46の自律主モード選択だけなら $\psi_0=h_0$ は定常基底状態である。一般時間依存流には、M35/M42の準備回路または外部操作で与えた非固有rank-one初期状態が必要であり、その自律準備は未解決である。
+
+R133はmatching Hamiltonianの辺位相を非負rateへ変える局所current transducerを与える。$h_{ij}=|h_{ij}|e^{i\gamma_{ij}}$ とし、$\rho_i=|\psi_i|^2>0$ 上で
+
+```math
+q_{i\to j}^{\rm ct}
+=
+\frac{|h_{ij}|}
+{2\mathcal J_0\rho_i}
+\left|
+\psi_i
++
+i e^{i\gamma_{ij}}\psi_j
+\right|^2
+```
+
+とすると、
+
+```math
+\rho_iq_{i\to j}^{\rm ct}
+-
+\rho_jq_{j\to i}^{\rm ct}
+=
+J_{i\to j}
+```
+
+が厳密に成り立つ。このrateはR113の最小率を置換せず、対称往復流を含む別の物理候補である。等間隔格子の連続極限では、その対称部分が拡散係数 $\nu$、反対称部分がcurrentを作り、
+
+```math
+b_+=v+u,
+\qquad
+b_-=v-u,
+```
+
+```math
+v
+=
+\frac{\nabla S}{m},
+\qquad
+u
+=
+\nu\nabla\log\rho,
+\qquad
+\psi
+=
+\sqrt\rho
+\exp
+\left(
+\frac{iS}{\mathcal J_0}
+\right)
+```
+
+を得る。
+
+R134は、この一般時間依存密度と位相について
+
+```math
+a_N
+=
+\frac12
+\left(
+D_+D_-+D_-D_+
+\right)X
+```
+
+を展開し、Madelung方程式を用いることで
+
+```math
+m a_N
+=
+-\nabla V
+```
+
+を導く。R129の $v=0$ 定常式を、非固有初期状態の時間依存sectorへ拡張する結果である。
+
+M46内で厳密なのは、採用三角形方程式後の指数消去、線形半減衰、有限グラフcurrent恒等式、線形準臨界共分散極限、Schrödinger流からのNelson恒等式である。未導出なのは、具体的負性抵抗回路から純散逸係数と非相反性を得ること、$W$ 依存frequency pullingと独立dump-line雑音を抑えること、任意複素状態の自律準備、nodeを含む有限率実装、一般graph-to-continuum誤差である。完全な方程式、証明、二値thresholdの限界、mode受渡し、反証条件は付録Iに示す。M46はQ1--Q3の現行達成判定を変更せず、数値結果もこの節では追加しない。
