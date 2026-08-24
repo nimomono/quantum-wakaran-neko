@@ -26,7 +26,7 @@
 - `sections/A6_realized_configuration_proofs.md`
 - `sections/A7_q3_completion_proofs.md`
 - `sections/A8_open_quasicritical_preparation.md`
-- `sections/A9_common_action_port_nelson_flow.md`
+- `sections/A9_w_two_mode_hopf_statistics.md`
 - `sections/90_references.md`
 
 ## 論文外の研究メモ
@@ -40,6 +40,7 @@
 - `notes/measurement_dependence_comparisons.md`
 - `notes/rejected_bell_causal_alternatives.md`
 - `notes/rejected_m44_capture_entropy_preparation.md`
+- `notes/rejected_m46_current_transducer.md`
 - `notes/superseded_position_coupling_fisher_closure.md`
 - `notes/superseded_three_mode_bell_shell.md`
 - `notes/superseded_two_component_induction_field.md`
