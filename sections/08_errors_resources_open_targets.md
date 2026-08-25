@@ -1,7 +1,7 @@
 @number: 8
 @chapter: 本文
 @title: 誤差、資源、反証条件、未完成目標
-@status: 各モデルの誤差、資源、反証条件、Q2-3、M41拡張、M0の未完成条件を横断整理する。
+@status: 各モデルの誤差、資源、反証条件、Q2-3、M48へのBell移行、M41補助結果、M0の未完成条件を横断整理する。
 
 ## 8.1 モデル間受渡しと共通有効代数
 
@@ -36,6 +36,22 @@ Q1ではM42の受渡しを使わない。M47傾斜測定の中心誤差を
 ```
 
 と分ける。$\varepsilon_{\rm prep}$ と $\varepsilon_{\rm match}$ は入力共同測度、$\varepsilon_{2m}$ と $\varepsilon_{\rm ctrl}$ はW型制御、$\eta_W$ は左右空間効果の有限コントラスト、$\varepsilon_{\rm lock}$ は左右占有周辺の傾斜保持、$\varepsilon_{\rm res}$ は単一試行の実現配置が記録中に安全井戸を離れる経路確率、$\varepsilon_{\rm rec}$ と $\varepsilon_{\rm br}$ は局所記録と枝別テンプレート交換、$\varepsilon_{\rm ret}$ は次周期への帰還である。前向き分布誤差と帰還誤差は同じ観測へ二重に加えない。
+
+R145を反映し、M47の準備誤差を
+
+```math
+\varepsilon_{\rm prep}
+=
+\varepsilon_{\rm Hopf}
++
+\varepsilon_{\rm Xmatch}
++
+\varepsilon_{\rm cond}
++
+\varepsilon_{\rm cut}
+```
+
+と分ける。雑音零の採用開放方程式では $\varepsilon_{\rm Hopf}$ のbath方向成分を有限時間指数率で抑えられる。他の3項を同じ率へ吸収しない。
 
 M37の規格化局所包絡を $\widehat b_{\rm mic}$、目標状態を $\chi_L$ とすると、任意有限基底の分布誤差は
 
@@ -137,7 +153,7 @@ D_{\rm TV}
 | 状態・操作誤差 | 包絡方向、ゲート作用素、正準状態 | 測定境界移動量または出力分布距離へ換算してから比較する |
 | 未評価実装量 | 配線、輸送、長期雑音、総エネルギー | 既知の上界へ数値として混ぜず、必要な入力として分ける |
 
-M47、M39、M41、M42の前向き分布は対象周期と因果律が異なる。M47のQ1誤差へM42の最小率誤差を混ぜない。M37からM35への接続は状態方向誤差から有限基底分布誤差への数学的受渡しであり、M42の局所実現配置力学または同一ハードウェアの構成ではない。
+M47、M48、M39、M41、M42の前向き分布は対象周期と因果律が異なる。M47のQ1誤差またはM48のBell誤差へM42の最小率誤差を混ぜない。M37からM35への接続は状態方向誤差から有限基底分布誤差への数学的受渡しであり、M42の局所実現配置力学または同一ハードウェアの構成ではない。
 
 ## 8.3 中心誤差の横断表
 
@@ -151,7 +167,8 @@ M47、M39、M41、M42の前向き分布は対象周期と因果律が異なる�
 | M35 | 補助的な作用区間分布と条件付き場準備の誤差 | 比較増幅、角切断幅、無反応 | 第2章、付録A |
 | M39 | 共通位相を除いた操作距離とQ2-1共同配置分布距離 | 面積誤差、一般制御誤差、入力頻度近似、実現配置装置 | 第4章、付録C、付録F |
 | M41 | 設定対ごとの共同分布全変動距離 | singlet準備、正則化、配置移動、条件付き2端準備、検出、記録、時計 | 第5章、付録D、付録F |
-| M47の基礎閉包 | W型左右占有率と統計核の距離 | rank-oneずれ、配置対角matching、浴記憶、切断残差 | 第8.15節、付録I |
+| M47の基礎閉包 | W型左右占有率、統計核、Hopf位相円の距離 | Hopf有限時間率、rank-oneずれ、配置対角matching、浴記憶、切断残差 | 第8.15節、付録I |
+| M48 Bell準備 | bath対の吸引多様体距離、singlet交差共分散、共同分布全変動距離 | paired-Hopf時間、盆余裕、枝対称性、完全matching、局所instrument、切断、記録 | 第8.16節、付録J |
 
 ## 8.4 前向き誤差と帰還誤差
 
@@ -961,7 +978,159 @@ R144は固定有限段の記録、逆計算、外部空セル交換を合成す�
 | 左右実現配置のBorn型読出し | R142、有限コントラスト |
 | 局所記録と枝別状態更新 | R143、matching条件付き |
 | 固定有限弱開放周期 | R144、matching帰還に条件付き |
-| 開放Hopf系によるmatching多様体の自然準備 | 未導出 |
+| 採用開放Hopf方程式によるbath方向準備 | R145、雑音零の方程式後に厳密 |
+| 開放Hopf系による完全matching多様体の自然準備 | 未導出 |
 | 切断後の局所 $X$--bath流によるmatching保存 | 未導出 |
 
-この改訂でQ1-1はM47へ移行して達成、Q1-2とQ1-3は部分達成、Q1-4は未達・凍結となる。M42/R113はQ2・Q3だけに残す。R139--R144の定義、証明、誤差目標は第3章と付録B、M47共同統計の基礎は付録Iに示す。新しいW型数値simulationまたは図は追加しない。
+この改訂でQ1-1はM47へ移行して達成、Q1-2とQ1-3は部分達成、Q1-4は未達・凍結となる。M42/R113はQ2・Q3だけに残す。R139--R145の定義、証明、誤差目標は第3章、付録B、付録Iに示す。新しいW型数値simulationまたは図は追加しない。
+
+## 8.16 M48設定依存paired-Hopf Bell準備
+
+M48は設定前の共通基準測度 $\nu_0$ から、設定生成後のA設定 $x$ に依存する決定論的開放流で2翼bath対を準備する。bright変数とdark変数を
+
+```math
+m
+=
+\frac{z_A-\mathsf E\overline{z_B}}{2},
+\qquad
+d
+=
+\frac{z_A+\mathsf E\overline{z_B}}{2}
+```
+
+とし、
+
+```math
+\frac{dm}{d\tau}
+=
+g(1-m^\dagger m)m
++
+\kappa h_x(m)
+\left(
+\Sigma_x-h_x(m)I_2
+\right)m,
+```
+
+```math
+\frac{dd}{d\tau}
+=
+-\kappa_{\rm p}d
+```
+
+を採用する。$h_x=m^\dagger\Sigma_xm/(m^\dagger m)$ である。動径供給・飽和、設定依存整列、dark散逸、外部切断を持つ開放古典模型であり、有限閉鎖Hamiltonian系から導出したとは呼ばない。
+
+R146は積標本 $z_A\otimes z_B$ の直接4次元共分散をsinglet階数1射影へできないことを示す。M48は代わりに交差共分散
+
+```math
+M_{AB}^{G}
+=
+\mathbb E
+\left[
+\mathbf1_{G_x}z_Az_B^{\mathsf T}
+\right]
+```
+
+を使う。R147は $|h_x(m_0)|\geq h_*>0$ で2枝吸引多様体への有限時間率
+
+```math
+\gamma_{48}
+=
+\min
+\left\{
+2g,2\kappa,\kappa_{\rm p}
+\right\}
+```
+
+を与える。Haar方向基準測度では盆無反応率は $h_*$、安全な2枝の質量はそれぞれ $(1-h_*)/2$ である。
+
+R148は全ての有限A設定について
+
+```math
+M_{AB}^{G}(\infty\mid x)
+=
+-\frac{1-h_*}{2}\mathsf E,
+\qquad
+B_{AB}(\infty\mid x)
+=
+-\frac{\mathsf E}{\sqrt2}
+```
+
+を与える。規格化交差共分散をベクトル化した階数1射影は $c_{\rm s}c_{\rm s}^\dagger$ であり、$x$ に依存しない。これは集団統計であり、単一試行の2値結果ではない。
+
+R149は2翼の完全M47 matchingと局所instrumentを仮定した後に
+
+```math
+P(A=a,B=b\mid x,y)
+=
+\frac14
+\left(
+1-ab\,n_x\cdot n_y
+\right)
+```
+
+を与える。平面内では相関は $-\cos(x-y)$ である。有限時間の盆境界は無反応として完全結果集合へ残し、再規格化しない。
+
+M48経路の前向き誤差を
+
+```math
+\begin{aligned}
+\varepsilon_{\rm Bell}^{48}
+\leq{}&
+\delta_{\rm set}
++
+\varepsilon_{\rm link}
++
+\varepsilon_{\rm PH}
++
+\varepsilon_{\rm basin}
++
+\varepsilon_{\rm fib}^{A}
++
+\varepsilon_{\rm fib}^{B}\\
+&+
+\varepsilon_{\rm inst}^{A}
++
+\varepsilon_{\rm inst}^{B}
++
+\varepsilon_{\rm cut}
++
+\varepsilon_{\rm rec}
++
+\varepsilon_{\rm clk}
+\end{aligned}
+```
+
+と分ける。各設定対の全変動距離が $\varepsilon_{\rm Bell}^{48}$ 以下なら、R150により一側周辺の設定差は $2\varepsilon_{\rm Bell}^{48}$ 以下、CHSH値のずれは $8\varepsilon_{\rm Bell}^{48}$ 以下である。
+
+```math
+\varepsilon_{\rm Bell}^{48}
+<
+\frac{\sqrt2-1}{4}
+```
+
+なら有限誤差下でもCHSH不等式の破れが残る。
+
+M48の状態、誤差、資源、反証条件は次の通りである。
+
+| 項目 | draft-45Aの状態 |
+|---|---|
+| 積bath直接共分散の否定的結果 | R146、厳密 |
+| paired-Hopf吸引多様体と有限時間率 | R147、採用開放方程式後に厳密 |
+| 共通基準測度からのsinglet交差共分散 | R148、有限設定族で厳密、有限時間誤差付き |
+| 余弦共同分布、非信号性、CHSH破れ | R149、R150、2翼完全matchingと局所instrumentに条件付き |
+| 開放資源 | bright pump、設定controller、dark sink、切断器、時計、2翼bath対 |
+| 未評価資源 | M39からの物理的受渡し、実現配置matching装置、2翼記録、reset、総エネルギー・総エントロピー収支 |
+| 反証条件 | 吸引率、枝対称性、設定非依存singlet射影、局所条件付き確率、有限誤差上界のいずれかが破れること |
+
+切断後は局所応答を
+
+```math
+P(A,B\mid\Lambda,x,y)
+=
+P_A(A\mid\Lambda_A,x)
+P_B(B\mid\Lambda_B,y)
+```
+
+と因子化する。一方、測定開始面の $\Lambda$ の分布は $\mu_x$ なので測定設定独立性は成立しない。Bellの定理を否定せず、前提違反の位置を設定生成後の中央準備へ置く。
+
+M48はbath対の射影吸引を示すが、実現配置 $X_A,X_B$ の周辺、条件付きbath分布、切断後保存、局所記録、resetを含む完全matching周期を与えない。M39との接続も同じsinglet射影という代数契約にとどまる。従ってQ2-2は部分達成である。M41のR107--R111、R121は現行補助結果として保持し、正式な置換判断はdraft-45Bへ送る。

@@ -86,6 +86,9 @@ REFERENCE_KEYS = {
 }
 
 
+APPENDIX_FILENAME = re.compile(r"A(\d+)_.*\.md")
+
+
 def parse_source(path: Path) -> tuple[dict[str, str], list[str]]:
     lines = path.read_text(encoding="utf-8").splitlines()
     meta: dict[str, str] = {}
@@ -93,6 +96,31 @@ def parse_source(path: Path) -> tuple[dict[str, str], list[str]]:
         key, value = lines.pop(0)[1:].split(":", 1)
         meta[key.strip()] = value.strip()
     return meta, lines
+
+
+def ordered_appendix_paths() -> list[Path]:
+    numbered: list[tuple[int, Path]] = []
+    for path in SECTIONS.glob("A*_*.md"):
+        match = APPENDIX_FILENAME.fullmatch(path.name)
+        if match:
+            numbered.append((int(match.group(1)), path))
+
+    numbers = [number for number, _ in numbered]
+    if len(numbers) != len(set(numbers)):
+        raise ValueError("duplicate appendix number")
+
+    ordered = sorted(numbered)
+    for number, path in ordered:
+        meta, _ = parse_source(path)
+        if not 1 <= number <= 26:
+            raise ValueError(f"unsupported appendix number: {path.name}")
+        expected = chr(ord("A") + number - 1)
+        if meta.get("number") != expected or meta.get("chapter") != "付録":
+            raise ValueError(
+                f"{path.name}: appendix metadata must be "
+                f"@number: {expected} and @chapter: 付録"
+            )
+    return [path for _, path in ordered]
 
 
 def citation_keys(spec: str) -> list[str]:
@@ -223,6 +251,7 @@ def validate_fixed_goal_language() -> None:
         "Q1-2": "部分達成",
         "Q1-3": "部分達成",
         "Q1-4": "未達（凍結中）",
+        "Q2-2": "部分達成",
         "Q3-2": "未達（凍結中）",
         "Q3-3": "達成",
         "Q3-4": "達成",
@@ -236,6 +265,7 @@ def validate_fixed_goal_language() -> None:
     required_paths = (
         SECTIONS / "03_m47_controlled_w_instrument.md",
         SECTIONS / "A2_m47_controlled_w_instrument_proofs.md",
+        SECTIONS / "A10_m48_paired_hopf_bell_preparation.md",
     )
     obsolete_paths = (
         SECTIONS / "03_l2_operation_measurement_zeno.md",
@@ -389,7 +419,7 @@ def pandoc_markdown() -> str:
             )
         chunks.append("\n".join(preprocess(lines)))
 
-    appendix_paths = sorted(SECTIONS.glob("A?_*.md"))
+    appendix_paths = ordered_appendix_paths()
     if appendix_paths:
         chunks.append(r"\appendix")
     for path in appendix_paths:
@@ -432,7 +462,7 @@ def combined_markdown() -> str:
             chunks.append("> **位置づけ：** " + status)
         chunks.append("\n".join(preprocess_public(lines)))
 
-    appendix_paths = sorted(SECTIONS.glob("A?_*.md"))
+    appendix_paths = ordered_appendix_paths()
     if appendix_paths:
         chunks.append("# 付録")
     for path in appendix_paths:
