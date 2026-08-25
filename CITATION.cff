@@ -1,9 +1,9 @@
 cff-version: 1.2.0
 message: "この成果を利用する場合は、次の情報で引用すること。"
-title: "有限配置グラフ上の複素振幅場-実現配置モデル：量子ビット型操作・測定・結合ゲート、空間伝播、初期共通原因型Bell統計"
+title: "古典力学系からの量子型有効構造：W型2モード操作・測定、有限配置ゲート、空間伝播、Bell型統計"
 type: manuscript
 authors:
   - name: "nimomono"
-version: "draft-43"
+version: "draft-44"
 date-released: 2026-08-25
 repository-code: "https://github.com/nimomono/quantum-wakaran-neko"

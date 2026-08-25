@@ -11,7 +11,7 @@
 - `sections/00_overview_and_contents.md`
 - `sections/01_scope_and_cycle.md`
 - `sections/02_common_canonical_modules.md`
-- `sections/03_l2_operation_measurement_zeno.md`
+- `sections/03_m47_controlled_w_instrument.md`
 - `sections/04_l4_two_qubit_gate.md`
 - `sections/05_m41_bell_cycle_and_audit.md`
 - `sections/06_m37_spatial_envelope.md`
@@ -19,7 +19,7 @@
 - `sections/08_errors_resources_open_targets.md`
 - `sections/09_conclusion.md`
 - `sections/A1_common_action_finite_basis.md`
-- `sections/A2_l2_cycle_and_zeno_proofs.md`
+- `sections/A2_m47_controlled_w_instrument_proofs.md`
 - `sections/A3_l4_two_qubit_gate_proofs.md`
 - `sections/A4_m41_cycle_proofs.md`
 - `sections/A5_m37_envelope_proofs.md`
@@ -41,6 +41,8 @@
 - `notes/rejected_bell_causal_alternatives.md`
 - `notes/rejected_m44_capture_entropy_preparation.md`
 - `notes/rejected_m46_current_transducer.md`
+- `notes/superseded_m38_m42_q1.md`
+- `notes/frozen_q1_zeno.md`
 - `notes/superseded_position_coupling_fisher_closure.md`
 - `notes/superseded_three_mode_bell_shell.md`
 - `notes/superseded_two_component_induction_field.md`
@@ -60,8 +62,7 @@
 - `tools/template.tex`
 - `tools/verify_action_distribution.py`
 - `tools/verify_envelope_reduction.py`
-- `tools/verify_l2_cycle.py`
-- `tools/verify_l2_zeno.py`
+- `tools/verify_m47_q1_instrument.py`
 - `tools/verify_phase_correlation.py`
 - `tools/verify_q2_1_gate.py`
 - `tools/verify_q2_2_m41.py`

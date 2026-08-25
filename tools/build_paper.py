@@ -219,6 +219,10 @@ def validate_fixed_goal_language() -> None:
         "### 直前版IDとの対応", 1
     )[0]
     expected_status = {
+        "Q1-1": "達成",
+        "Q1-2": "部分達成",
+        "Q1-3": "部分達成",
+        "Q1-4": "未達（凍結中）",
         "Q3-2": "未達（凍結中）",
         "Q3-3": "達成",
         "Q3-4": "達成",
@@ -228,6 +232,35 @@ def validate_fixed_goal_language() -> None:
         pattern = rf"^\| {re.escape(goal_id)} \| {re.escape(status)} \|"
         if not re.search(pattern, current_block, flags=re.MULTILINE):
             raise ValueError(f"{goal_id}: 現在地が{status}ではない")
+
+    required_paths = (
+        SECTIONS / "03_m47_controlled_w_instrument.md",
+        SECTIONS / "A2_m47_controlled_w_instrument_proofs.md",
+    )
+    obsolete_paths = (
+        SECTIONS / "03_l2_operation_measurement_zeno.md",
+        SECTIONS / "A2_l2_cycle_and_zeno_proofs.md",
+    )
+    for path in required_paths:
+        if not path.is_file():
+            raise ValueError(f"現行Q1ファイルがない: {path.name}")
+    for path in obsolete_paths:
+        if path.exists():
+            raise ValueError(f"置換済みQ1ファイルが残っている: {path.name}")
+
+    terminology_paths = [
+        ROOT / "README.md",
+        ROOT / "PROJECT_STATUS.md",
+        ROOT / "CHANGELOG.md",
+        *sorted(SECTIONS.glob("*.md")),
+    ]
+    inconsistent = [
+        path.relative_to(ROOT).as_posix()
+        for path in terminology_paths
+        if re.search(r"二mode|二モード", path.read_text(encoding="utf-8"))
+    ]
+    if inconsistent:
+        raise ValueError("2モード表記の不一致: " + "、".join(inconsistent))
 
 
 def preprocess(lines: list[str]) -> list[str]:
