@@ -13,7 +13,7 @@
 - `sections/02_common_canonical_modules.md`
 - `sections/03_m47_controlled_w_instrument.md`
 - `sections/04_l4_two_qubit_gate.md`
-- `sections/05_m41_bell_cycle_and_audit.md`
+- `sections/05_m48_bell_cycle_and_audit.md`
 - `sections/06_m37_spatial_envelope.md`
 - `sections/07_q3_finite_graph_phenomena.md`
 - `sections/08_errors_resources_open_targets.md`
@@ -21,7 +21,7 @@
 - `sections/A1_common_action_finite_basis.md`
 - `sections/A2_m47_controlled_w_instrument_proofs.md`
 - `sections/A3_l4_two_qubit_gate_proofs.md`
-- `sections/A4_m41_cycle_proofs.md`
+- `sections/A4_m48_cycle_proofs.md`
 - `sections/A5_m37_envelope_proofs.md`
 - `sections/A6_realized_configuration_proofs.md`
 - `sections/A7_q3_completion_proofs.md`
@@ -43,6 +43,8 @@
 - `notes/rejected_m44_capture_entropy_preparation.md`
 - `notes/rejected_m46_current_transducer.md`
 - `notes/superseded_m38_m42_q1.md`
+- `notes/superseded_m41_bell_cycle.md`
+- `notes/superseded_m41_cycle_proofs.md`
 - `notes/frozen_q1_zeno.md`
 - `notes/superseded_position_coupling_fisher_closure.md`
 - `notes/superseded_three_mode_bell_shell.md`
@@ -66,9 +68,9 @@
 - `tools/verify_m47_q1_instrument.py`
 - `tools/verify_m47_hopf_preparation.py`
 - `tools/verify_m48_paired_hopf.py`
+- `tools/verify_m48_full_cycle.py`
 - `tools/verify_phase_correlation.py`
 - `tools/verify_q2_1_gate.py`
-- `tools/verify_q2_2_m41.py`
 - `tools/verify_realized_configuration.py`
 - `tools/verify_q3_completion.py`
 - `figures/README.md`
@@ -103,4 +105,4 @@
 - `fonts/NotoSerifJP-Bold.ttf`
 - `fonts/NotoSerifJP-Regular.ttf`
 
-旧版セクション、置換済みセクション、旧数値コード、旧PDF、査読回答履歴は収録しない。置換済みモデルの完全な実装はGit履歴から参照する。
+旧版セクション、旧数値コード、旧PDF、査読回答履歴は原則として収録しない。M41の第5章と付録Dだけは、R107--R111、R121の置換済み理論記録として `notes/` に残す。その他の置換済みモデルの完全な実装はGit履歴から参照する。

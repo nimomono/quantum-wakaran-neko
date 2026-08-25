@@ -251,7 +251,7 @@ def validate_fixed_goal_language() -> None:
         "Q1-2": "部分達成",
         "Q1-3": "部分達成",
         "Q1-4": "未達（凍結中）",
-        "Q2-2": "部分達成",
+        "Q2-2": "条件付き達成",
         "Q3-2": "未達（凍結中）",
         "Q3-3": "達成",
         "Q3-4": "達成",
@@ -265,18 +265,22 @@ def validate_fixed_goal_language() -> None:
     required_paths = (
         SECTIONS / "03_m47_controlled_w_instrument.md",
         SECTIONS / "A2_m47_controlled_w_instrument_proofs.md",
+        SECTIONS / "05_m48_bell_cycle_and_audit.md",
+        SECTIONS / "A4_m48_cycle_proofs.md",
         SECTIONS / "A10_m48_paired_hopf_bell_preparation.md",
     )
     obsolete_paths = (
         SECTIONS / "03_l2_operation_measurement_zeno.md",
         SECTIONS / "A2_l2_cycle_and_zeno_proofs.md",
+        SECTIONS / "05_m41_bell_cycle_and_audit.md",
+        SECTIONS / "A4_m41_cycle_proofs.md",
     )
     for path in required_paths:
         if not path.is_file():
-            raise ValueError(f"現行Q1ファイルがない: {path.name}")
+            raise ValueError(f"現行モデルファイルがない: {path.name}")
     for path in obsolete_paths:
         if path.exists():
-            raise ValueError(f"置換済みQ1ファイルが残っている: {path.name}")
+            raise ValueError(f"置換済みモデルファイルが残っている: {path.name}")
 
     terminology_paths = [
         ROOT / "README.md",

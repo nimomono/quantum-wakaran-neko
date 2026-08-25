@@ -1,175 +1,96 @@
-# 検証記録
+# 検算と品質確認
 
-2026年8月26日、draft-45Aの検証記録である。対象は、M47の単一Hopf有限時間準備R145、M48のpaired-Hopf Bell準備R146--R150、Q2-2の部分達成への変更、M41の補助模型化、第4章、第5章、第8.16節、付録I、付録J、生成済みPDFである。Q2-3の第8.9節と現在地行は基準コミット `4cf1f311c220679f29f1c566f7d890004e64eb16` と同じSHA-256を持ち、Q3の章、付録、現在地行も変更していない。M45の既存数値結果と図は変更していない。新しいsimulationまたは図は追加せず、M47とM48の解析恒等式を監査する検証scriptを2本追加した。
+この文書は draft-45B の再現計算、静的整合性、PDF 生成、および目視確認の記録である。検証日は 2026-08-26。
 
-## 実行コマンド
+## 実行方法
 
-```text
-python3 -m py_compile tools/*.py simulations/m45_open_quasicritical/m45/*.py simulations/m45_open_quasicritical/*.py
-python3 tools/verify_envelope_reduction.py
-python3 tools/verify_phase_correlation.py
-python3 tools/verify_action_distribution.py
-python3 tools/verify_m47_q1_instrument.py
-python3 tools/verify_m47_hopf_preparation.py
-python3 tools/verify_q2_1_gate.py
-python3 tools/verify_q2_2_m41.py
-python3 tools/verify_m48_paired_hopf.py
-python3 tools/verify_realized_configuration.py
-python3 tools/verify_q3_completion.py
-python3 simulations/m45_open_quasicritical/verify.py --quick
-python3 tools/build_paper.py
+リポジトリ直下で次を実行する。
+
+```bash
+python tools/verify_envelope_reduction.py
+python tools/verify_phase_correlation.py
+python tools/verify_action_distribution.py
+python tools/verify_m47_q1_instrument.py
+python tools/verify_m47_hopf_preparation.py
+python tools/verify_q2_1_gate.py
+python tools/verify_m48_paired_hopf.py
+python tools/verify_m48_full_cycle.py
+python tools/verify_realized_configuration.py
+python tools/verify_q3_completion.py
+python simulations/m45_open_quasicritical/verify.py --quick
+python tools/build_paper.py
 ```
 
-全コマンドは終了コード0で完了した。自動検査は合計344件である。内訳は包絡還元19件、位相相関15件、作用分布40件、M47 Q1傾斜instrument 43件、M47単一Hopf準備20件、M39結合ゲート25件、M41 Bell周期25件、M48 paired-Hopf準備56件、共通実現配置42件、Q3-3からQ3-5の完成検査36件、M45 quick検査23件である。旧M38完全周期22件と有限Zeno周期20件は現行CIから外した。M45の基準simulationは再実行せず、保存済みdraft-41数値記録とquick回帰を維持した。`verify_realized_configuration.py` はQ2-1、Q2-3、Q3とM41補助結果に暫定保持するM42/R113だけを検査し、M47またはM48の因果律を検証しない。
+## draft-45B 理論監査
 
-## M47傾斜instrument、単一Hopf準備、M42縮小の解析監査
+- R151 は M39 から M48 への破壊的 SWAP 引渡しと、反対称な paired-Hopf 制御入力を固定する。
+- R152 は有限設定族ごとの有限状態 matching CTMC、正則化定常分布、paired-phase 流、および有限時間の準備誤差を明示する。
+- R153 は結合切断時の matching fiber 条件を与える。連続分布から特異な ray fiber への有限時間収束を全状態の全変動距離で主張せず、半径誤差と共通位相商を含む射影的 paired-fiber 距離で評価する。
+- R154 は切断後の局所分析器、再整合、傾斜固定、および局所記録を規定する。
+- R155 は固定 singlet、有限設定族、有限誤差の範囲で余弦共同分布、無信号周辺分布、CHSH 値、および設定依存性をまとめる。
+- R156 は fresh-cell reset を規定し、次試行への記憶持越しを排除する。
+- Q2-2 は上記の限定された意味で「条件付き達成」とする。R152 の微視的導出、空間的局所性、自由設定、一般状態への拡張は未達である。
+- M41 は現行モデルから外し、置換前の履歴として `notes/` に移した。
+- Q1、Q2-1、Q2-3、Q3 の判定と既存の主張範囲は変更していない。
 
-新しい軌道simulationを作らず、古典作用角流、W型2モード制御、傾斜固定、空間読出し、局所記録、条件付き状態更新、主張境界を原稿と解析検証器で監査した。
+## 数値・代数検証
 
-- R130は指数尾確率と無記憶性からready生存率、条件付き残量分布、行核 $\mathsf P_\delta=K_\delta D_\delta$、Feynman--Kac経路重みを導く補助結果へ狭めた。複素振幅または実現配置の時間発展を導かない。
-- R131はphase-preserving線形散逸を補助条件として置いた後に $A_\delta^2=D_\delta$ を得る。二値thresholdの共有だけでは幾何平均にならず、M47の統計振幅を導かない。
-- R132は線形Lyapunov級数を固有基底で足し、$g\lambda_0\uparrow1$ でtrace規格化共分散が主固有射影へ収束する。実現配置周辺、一般複素相対位相、有限振幅Hopf定常測度、切断後matchingは未導出のまま分離した。
-- R133、R134は旧M46内の解析結果として不採用ノートへ位置づけ、M47の因果鎖、現行達成判定、回帰検査の根拠から外した。
-- M47の規格化bath共分散 $C$ がHermitian、正半定値、trace 1であり、$K_W=\Phi C\Phi^\dagger$ のrank-one因子が共通位相を除いて一意であることを確認した。実現配置周辺との対角一致を独立のmatching条件として残した。
-- R135は古典作用角Hamiltonianから $C(t)=U(t)C(t_0)U(t)^\dagger$ と $i\mathcal J_0\dot C=[D_W,C]$ を得る。unitary共役によるtrace、正値性、rank保存を照合した。
-- R136は実偶 $\phi_0$ と実奇 $\phi_1$ の交差項を展開し、規格化密度、左右占有率、角周波数 $(E_1-E_0)/\mathcal J_0$ を照合した。Wronskian恒等式から連続方程式も確認した。
-- R137は切断時matching、閉鎖作用角流、matching多様体保存、2モード外漏れ・散逸・記憶なしを仮定した後の条件付き閉包である。matching保存を古典ミクロ系から導出済みに変更していない。
-- R138は一様ラベルの累積区間長が $\rho_i$ に一致することを確認した。全密度を先に使う逆設計であり、自然な局所実現配置軌道またはR137の物理的証明には使わない。
-- $\lambda_{\rm prep}>0$ の開放Hopf準備と $\lambda_{\rm prep}=0$ の閉鎖作用角伝播を分離し、切替が外部操作であること、内部latchを採用しないことを本文と付録で一致させた。
-- R145は回転座標を $\widetilde z=ac_*+p$、$c_*^\dagger p=0$ と分け、$p/a=(p_0/a_0)e^{-\kappa\tau}$ と $y=|a|^{-2}$ の閉形式を $\kappa\neq g$、$\kappa=g$ の両方で照合した。不要だった条件 $\kappa>g$ を外した。
-- $a_0\neq0$ の有界seed集合で、目標位相円への率 $\gamma_{47}=\min\{2g,\kappa\}$ と規格化bath共分散の同率収束を確認した。$a_0=0$ の不変超平面、雑音付き定常測度、実現配置周辺、条件付きbath分布、切断後matching保存はR145に含めない。
-- R139はtrace 1の正半定値2次Hermitian共分散をBloch球へ縮約し、rank 1とBloch球面、因子の共通位相同値を照合した。
-- R140はW型局在基底でトンネル結合が $-J\sigma_x$、一次傾斜が $\varepsilon(t)\sigma_z/2$ を与えることを確認した。2本の非平行生成子が $\mathfrak{su}(2)$ を生成するので、区分一定傾斜の有限積で任意の $SU(2)$ を有限精度近似できる。一定傾斜の離調Rabi式も行列指数と照合した。
-- R141は傾斜保持中の任意の規格化共分散について、左右占有率の変化を $2|J|/\sqrt{\varepsilon_m^2+4J^2}$ で抑えた。局在projector入力については反対井戸への遷移確率を $4J^2/(\varepsilon_m^2+4J^2)$ で抑える強い上界も別に確認した。これは周辺分布の固定であり、単一試行の実現配置 $X$ が同じ井戸へ経路ごとに残ることを証明しない。
-- 2モード窓と傾斜切替の尺度階層 $J\ll|\varepsilon_m|\ll G$、$\mathcal J_0/G\ll\tau_q\ll\mathcal J_0/J$ を監査した。2モード外漏れ $\varepsilon_{2m}$ と2モード内の保持誤差 $\varepsilon_{\rm lock}$ を別項に保った。
-- R142は最低2モードへ射影した左効果が、理想射影に有限コントラスト $\eta_W=1/2-B_W$ を加えた二値効果であることを対角化して確認した。深いW型極限で $\eta_W\to0$ とする主張は漸近条件であり、一般の有限障壁で厳密な射影とは呼ばない。
-- R143は分析器、傾斜固定、局所記録、枝別template交換を有限装置として合成し、全変動誤差を $\eta_W+\varepsilon_{\rm ctrl}+\varepsilon_{2m}+\varepsilon_{\rm match}+\varepsilon_{\rm lock}+\varepsilon_{\rm res}+\varepsilon_{\rm guard}+\varepsilon_{\rm rec}+\varepsilon_{\rm br}$ で評価した。$\varepsilon_{\rm res}$ はR141から導かず、単一試行の経路滞在に関する独立仮定として明記した。
-- 局所記録は各井戸の検出関数と局所ポインタだけを使い、統計振幅、共分散、全密度、確率流、遷移率、M42/R113、current transducerを入力しない。大域rank-one共分散だけでは結果枝ごとの測定後固有状態が出ないため、枝別matchingとtemplate交換を独立条件として残した。
-- R144は固定有限段の記録、逆計算、外部空セルとの交換resetを合成する条件付き周期である。自然な周期間matching帰還と開放準備は未導出であり、Q1-2とQ1-3の判定を部分達成に保った。
-- Q1-1はR139・R140で達成、Q1-2はR141--R143、R145で部分達成、Q1-3はR143--R145で部分達成、Q1-4は未達・凍結中とした。R145が閉じるのはbath方向だけであり、完全matchingを達成済みへ変更しない。傾斜による離調固定、障壁増大、駆動停止、摩擦、事後選別をZeno効果と呼ばない。
-- 旧R92--R96、R100、R119はQ1の現行根拠から外し、旧R101--R103はZeno記録とともに凍結した。再利用するR97--R99はM42固有結果ではなく、連続性障害、局所記録、逆計算・交換resetの一般補助結果として位置づけた。
+`tools/verify_m48_full_cycle.py` は R151--R156 に対応する 88 項目を確認する。主な確認対象は、反対称制御、分岐 seed、有限四頂点埋込み、正規化、詳細釣合い、定常残差、正のスペクトルギャップ、有限時間混合、余弦相関、無偏り周辺分布、CHSH 値、および reset である。
 
-## M48 paired-Hopf Bell準備の解析監査
+- 最小 matching gap: `1.900700696128881`
+- 例示する draft-45B 誤差上界: `0.028`
 
-- R146は、積標本 $Z=z_A\otimes z_B$ の直接4次元共分散がsinglet階数1射影なら非零標本がsinglet直線へ属する必要がある一方、積係数行列は階数1、singlet係数行列は階数2であることから不可能性を確認した。
-- bright/dark変換 $m=(z_A-\mathsf E\overline{z_B})/2$、$d=(z_A+\mathsf E\overline{z_B})/2$ と逆変換を照合し、spin-flip恒等式 $\mathsf E\overline{\Sigma_x}=-\Sigma_x\mathsf E$ を有限設定族で確認した。
-- R147の動径 $\|m\|^2$、整列量 $h_x^2$ のlogistic厳密解、dark減衰 $d(\tau)=e^{-\kappa_{\rm p}\tau}d_0$、射影距離上界、明示定数 $K_{48}$、率 $\gamma_{48}=\min\{2g,2\kappa,\kappa_{\rm p}\}$ を解析式と数値積分で照合した。
-- 設定生成角を含む設定前測度 $\nu_0$ と、設定値から独立な物理seed周辺 $\overline\nu_0$ を分離した。設定窓で条件付けてもseed周辺は同じであり、設定生成後に $\Phi_x^\tau$ で押し出した測定開始面だけがA設定へ依存する。
-- Haar方向では $h_x$ が $[-1,1]$ 上で一様であり、盆無反応質量が $h_*$、安全2枝の質量が各 $(1-h_*)/2$ になることを24万標本で確認した。無反応を捨てて再規格化しない。
-- R148は安全枝の交差共分散が $-(1-h_*)\mathsf E/2$、規格化代表が $-\mathsf E/\sqrt2$ で全ての有限A設定に依存しないことを確認した。階数1なのはベクトル化代表の外積 $C_{AB}^{\times}$ であり、$2\times2$ 交差共分散行列または直接標本共分散ではない。
-- M39の行優先係数順序では $-\mathsf E/\sqrt2$ が $-c_{\rm s}$、列優先では $c_{\rm s}$ となる。全体位相を除いた射影だけが一致し、M39出力からM48 portへの物理的受渡しは $\varepsilon_{\rm link}$ と未解決契約に残した。
-- R149は2翼完全matchingと局所M47 instrumentを仮定した後に $P(A=a,B=b\mid x,y)=[1-ab\,n_x\cdot n_y]/4$ を与える。交差共分散だけから単一試行頻度が生じたとは扱わない。
-- R150は各設定対の全変動誤差 $\varepsilon_{\rm Bell}^{48}$ から、一側周辺差 $2\varepsilon_{\rm Bell}^{48}$、CHSHずれ $8\varepsilon_{\rm Bell}^{48}$ を導く。$\varepsilon_{\rm Bell}^{48}<(\sqrt2-1)/4$ なら破れが残ることを照合した。
-- 開放模型の8項目監査では、状態、drift、雑音零、pump、controller、dark sink、切断、試行測度を明示した。熱流、仕事、エントロピー、情報流の総収支、環境消去、Markov近似、Hamiltonianへの持ち上げは未構成と記録した。
-- Q2-2は部分達成とし、M41のR107--R111、R121と既存検証器を補助結果として保持した。Q2-3とQ3の現在地、数式、数値結果、図は変更していない。
+既存検証を含む結果は次の通り。
 
-## draft-41から継続するM45数値記録
-
-### M44の退役とM45への置換
-
-- M44とR126は本文・付録・現行数値コードから除いた。
-- 再利用可能な発想、退役理由、元コミットと旧パスを `notes/rejected_m44_capture_entropy_preparation.md` に記録した。旧コードの複製は置いていない。
-- `simulations/` は現行M45だけを含む。不採用モデルのコード、設定、出力、図は現行ツリーから削除し、Git履歴を参照する運用を `PROJECT_GUIDE.md` に明記した。
-- 本文の英語ラベルを準備領域、離脱領域、位相すべり、帰還、捕捉エントロピー、分離面へ統一した。「自己組織化臨界」ではなく、有限幅の殻を保つ限定的な「自己組織化準臨界」と表記した。
-
-### M45直接Langevin検査
-
-直接モデルは周期反応座標 $s$、対数捕捉エントロピー座標 $r$、Rayleigh型負性抵抗、受動摩擦、熱雑音を持つ開放Langevin系である。位相すべり率、帰還率、強制リセット、量子基底密度は運動方程式へ入力していない。基準計算は512軌道、$dt=0.002$、全時間420、過渡除去180で行った。
-
-| 指標 | 実測値 |
+| 検証 | 確認数 |
 |---|---:|
-| 準備領域の平均エネルギー | 0.242437 |
-| 準備領域時間率 | 0.730127 |
-| $|E_C-E_{\rm sep}|\leq\Theta/2$ の割合 | 0.827495 |
-| 離脱エピソード数 | 3096 |
-| 確認済み帰還数 | 2959 |
-| エピソード当たり帰還率 | 0.955749 |
-| 帰還時間中央値 | 8.126 |
-| エピソード間隔中央値 | 19.923 |
-| 平均エネルギー収支残差 | $3.455\times10^{-6}$ |
-| 離脱hazardとエネルギーの相関 | 0.859165 |
+| envelope reduction | 19 |
+| phase correlation | 15 |
+| action distribution | 40 |
+| M47 Q1 | 43 |
+| M47 Hopf | 20 |
+| Q2-1 | 25 |
+| M48 paired-Hopf | 56 |
+| M48 full cycle | 88 |
+| realized cycle | 42 |
+| Q3 pair model | 36 |
+| M45 quick diagnostics | 23 |
+| **合計** | **407** |
 
-能動利得を零にした受動対照では平均エネルギー0.008356、分離面近傍率0、位相すべり0となった。従って基準パラメータの準備殻は熱雑音だけの平衡分布ではなく、能動供給、非線形飽和、受動散逸の釣り合いを必要とする。
+全項目が成功した。
 
-時間刻み半減と独立乱数種による160軌道監査では、準備領域平均エネルギーは0.241320--0.243013、準備領域時間率は0.717468--0.741371、帰還率は0.936913--0.939973に入った。生軌道は保存せず、集約JSON、曲線CSV、論文用図だけを版管理する。
+## 静的整合性
 
-### 位相体積と条件付き作用素の監査
+- 定理系環境の開始・終了数は一致した。theorem 34、proposition 5、lemma 4、corollary 3、proof 35。
+- `PROJECT_STATUS.md`、`README.md`、`CHANGELOG.md`、`MANIFEST.md`、本文、および付録の draft-45B 表記と参照先を照合した。
+- 現行検証から旧 M41 検証を外し、M48 full-cycle 検証へ置換した。
+- Q2-3 節、Q3 節、Q3 付録、および M45 図版が基準コミットから不変であることを SHA-256 で確認した。
+- `git diff --check` に空白エラーはない。
 
-対数座標のLiouville劣位相体積から、完全接触時の捕捉位相体積比を数値積分した。
+## PDF 生成
 
-| 検査 | 実測値 |
-|---|---:|
-| 準備エネルギー集団の対数傾き | -1.067278 |
-| $\exp(-z)$ からの最大偏差 | 0.021958 |
-| 固定 $E=E_{\rm sep}$ の対数傾き | -1.055997 |
-| 固定エネルギー最大偏差 | 0.018464 |
-
-位置作用素の監査は、直接$(s,r)$ Langevin軌道とは別の条件付き検査である。無偏向Gauss拡散、時間比例切片則、捕捉器消去後の周辺可逆性という3つの橋を入力し、調和型と二重井戸型で対称作用素、主固有関数、Doob核、定常Nelson恒等式を検査した。
-
-| 検査 | 調和型 | 二重井戸型 |
-|---|---:|---:|
-| 量子基底密度との全変動距離 | 0.004038 | 0.008818 |
-| 作用素非対称度 | $6.30\times10^{-17}$ | $6.66\times10^{-17}$ |
-| Doob行和誤差 | $7.42\times10^{-14}$ | $5.14\times10^{-13}$ |
-| 詳細釣り合い誤差 | $1.73\times10^{-18}$ | $1.73\times10^{-18}$ |
-| 定常Nelson恒等式残差 | $1.00\times10^{-14}$ | $5.20\times10^{-15}$ |
-
-この表は「直接Langevin軌道が量子基底状態を再現した」という結果ではない。3つの橋を仮定した条件付き作用素監査である。
-
-### R127--R129の整合性監査
-
-- R127はM45の厳密なItôエネルギー恒等式と、定常分布が存在する場合の条件付き平均収支を与える。数値計算は有限時間の自律帰還を支持するが、無限時間の正再帰性や帰還時間分布の閉形式は証明していない。
-- R128は対数座標が作る指数位相体積と、局所帳簿 $E\mapsto E-W(X)$ の下での指数選別を与える。粒子$X$との局所結合、位置依存Jacobianの排除、1回の選別から時間比例準備率への切片則は橋として残す。
-- R129は、無偏向拡散、時間比例切片則、周辺可逆性を仮定した条件付き対称作用素から、正の基底密度、Doob変換、定常Nelsonの時間対称Newton則を導く。3条件を直接M45軌道から導く定理ではない。
-- 直接モデル、位相体積計算、条件付き作用素監査の主張範囲を本文、付録H、結果JSON、図の説明で分離した。
-- M45は一般の励起状態、一般の時間依存Nelson流、複素位相、Schrödinger時間発展、Born型測定則全体、Bell型統計を単独では導かない。
-
-## 既存回帰
-
-- `verify_envelope_reduction.py`: 19件合格。M37の弱結合・有限時間包絡還元。
-- `verify_phase_correlation.py`: 15件合格。相関行列、階数1源、干渉節、グラフ局所性。
-- `verify_action_distribution.py`: 40件合格。M35の作用区間、角切断、無反応、条件付き場準備、逆計算。
-- `verify_m47_q1_instrument.py`: 43件合格。Bloch共分散、W型局在基底、傾斜Rabi式、任意入力の周辺固定上界、局在入力の遷移上界、尺度階層、有限コントラスト左右効果、instrument誤差和、逐次誤差、資源数。
-- `verify_m47_hopf_preparation.py`: 20件合格。M47単一Hopf準備の回転座標解、目標位相円への有限時間収束、規格化共分散の収束、例外超平面。
-- `verify_q2_1_gate.py`: 25件合格。可換局所代数、CNOT場、理想共同分布、無反応込み誤差式、面積誤差、資源。
-- `verify_q2_2_m41.py`: 25件合格。singlet条件付き状態、非選択B状態、余弦共同分布、局所Hamiltonianの可換性、非信号性、CHSH値、有限誤差則。
-- `verify_m48_paired_hopf.py`: 56件合格。paired-Hopf方程式、bright/dark変換、厳密logistic解、有限時間吸引上界、設定独立交差共分散、Bell全変動誤差則。
-- `verify_realized_configuration.py`: 42件合格。Q2-1、Q2-3、Q3とM41補助結果に暫定保持するM42の局所辺流、最小率、Born型等変性、節一様正則化、有限Hamiltonian更新、位置ばねCNOT誤差上界。M47またはM48の因果律の証拠ではない。
-- `verify_q3_completion.py`: 36件合格。固有値、節数、有限環境位相緩和、障壁横断、コヒーレント再結合、有限誤差余裕。
-- `simulations/m45_open_quasicritical/verify.py`: 23件合格。勾配、準臨界殻、自律帰還、エネルギー収支、受動対照、位相体積、条件付き作用素。
-
-Q2-2だけを条件付き達成から部分達成へ変更した。Q2-3とQ3の達成判定は変更していない。Q3-2は未達のまま凍結し、Q3-3からQ3-5も従来の判定を保つ。固定目標ブロックにM45や結果番号を混入させていない。
-
-## 構造・生成物監査
-
-- 定理29件、命題5件、補題4件、系4件、証明30件の開始・終了マーカーが一致した。
-- Markdown数式フェンスは全て閉じ、日本語を `\text`、`\mathrm`、`\boxed` の引数へ入れていない。
-- 参照JSONは標準JSONとして読み込め、NaNは`null`へ正規化した。
-- `tools/build_paper.py` は概要、5部、第1--9章、付録A--J、参考文献を連結し、`paper.md`、`main.tex`、`paper.pdf` を生成した。XeLaTeXは一時ディレクトリで3回実行した。
-
-`paper.pdf` の最終値は次のとおりである。
-
-- ページ数: 185
+- 出力: `paper.pdf`
+- ページ数: 192
 - 用紙: A4
-- ファイルサイズ: 1347451 byte
-- SHA-256: `d539076994211f229811f46f10b51c8ef8d6ff1b3329309c4a74074877553d3a`
+- ファイルサイズ: 1,383,568 bytes
+- SHA-256: `b796fd2cc31323897f26dc359a4adda03a50061306c68e4f53b8f6d33d465a61`
+- 未解決の citation/reference、overfull/underfull box、fatal error、欠落文字、過大 float はない。
+- Latin Modern Math の一部に bold fallback 警告があるが、文字欠落や配置崩れはない。
 
-最終ログに未定義引用、未定義参照、Overfull、Underfull、Float too large、Fatal error、欠落文字はない。数式太字の代替フォント警告だけが残り、本文の欠落や配置には影響しない。
+## PDF 目視確認
 
-## PDF目視検査
+全 192 ページを低解像度コンタクトシートで通覧した。さらに、物理ページ 1--10、45--54、123--132、177--190 を高解像度で確認し、表紙、目次、第 5 章の M48 方程式、付録 D の証明、付録 J の状態表を重点監査した。
 
-最終PDFの全185ページを55dpiでレンダリングし、20ページ以下の10枚の一覧画像で全ページを確認した。さらに表紙・目次のPDFページ1--10、R145と付録Iの156--163、付録Jの170--182を170dpiで確認した。
+クリッピング、重なり、意図しない空白ページ、黒塗り領域、数式の欠落、および見出しの破綻は見つからなかった。
 
-- 表紙の題名、副題、draft-45A表記に欠落、切れ、孤立改行はない。「W型2モード」の表記も表紙、目次、柱、本文で一致する。
-- 目次は5部、本文9章、付録A--JとJ.1--J.15を収録し、章構成と一致する。
-- 第3章と付録Bは、R139--R144、任意軸分析器、傾斜切替の尺度階層、周辺固定と経路滞在の区別、有限コントラスト読出し、局所記録、枝別template交換、誤差台帳、凍結したZenoを区別している。定理、証明、数式、表にクリッピング、重なり、越境はない。
-- 第8.14節はM46から保持するR130--R132と、不採用に移したR133--R134を区別している。第8.15節と付録Iは、M47の実現配置--bath共同統計、外部制御された開放Hopf準備、閉鎖作用角伝播、R135--R144、matching保存の未導出条件を区別している。
-- R145と付録Iは、単一Hopf準備の閉形式、率 $\gamma_{47}$、例外超平面、有限seed条件と、matching未導出部分を区別している。
-- 付録Jは、積標本共分散のno-go、paired-Hopf流、吸引多様体、有限時間率、初期共通基準測度、設定依存fiber、singlet交差共分散、条件付きBell則、開放模型監査、未解決受渡しを区別している。R147の明示定数表と8項目監査表にも越境はない。
-- 結論はQ1のM47移行、Q2-2のM48候補化と部分達成、M41の補助模型化、Q2-3・Q3の不変更、M42/R113の限定範囲を本文と同じ境界で記載する。
-- draft-41から継続する付録Hと2枚の図にも、一覧画像上で新しい配置異常はない。
-- 各部扉、章見出し、長表、参考文献に欠落字形、黒塗り、意図しない空白ページ、図表の重なりはない。
+## CI
 
-## 継続検査
+GitHub Actions は次を確認する。
 
-GitHub Actionsは10本の解析・回帰検証とM45 quick検査の計11本、draft-45A移行と「2モード」表記の静的検査、論文再生成、生成物差分、185ページのページ数、組版ログ、標準生成物の構成を検査する。合計検査数は344件である。
+- 上記 11 本の検証スクリプト
+- 現行章・付録・検証器の存在と旧 M41 現行パスの不在
+- status guide と本文の整合性
+- `paper.md`、`main.tex`、`paper.pdf` の再生成差分
+- 192 ページであること
+- LaTeX ログに重大警告がないこと
+- `git diff --check`
