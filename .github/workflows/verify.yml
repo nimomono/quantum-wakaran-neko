@@ -78,13 +78,21 @@ jobs:
           grep -Fq 'R152を具体的ミクロ模型から導出済みと扱う' sections/08_errors_resources_open_targets.md
           ! grep -REn '二mode|二モード' README.md PROJECT_STATUS.md CHANGELOG.md sections notes
 
+      - name: 収録PDFを退避
+        run: cp paper.pdf /tmp/paper-committed.pdf
+
       - name: 論文を再生成
         run: python tools/build_paper.py
 
       - name: 生成物の同期を検査
         run: |
-          git diff --exit-code -- paper.md main.tex
-          test "$(pdfinfo paper.pdf | awk '/^Pages:/ {print $2}')" = "192"
+          git diff --exit-code -- paper.md main.tex paper.pdf
+          pdftotext -layout /tmp/paper-committed.pdf /tmp/paper-committed.txt
+          pdftotext -layout paper.pdf /tmp/paper-regenerated.txt
+          diff -u /tmp/paper-committed.txt /tmp/paper-regenerated.txt
+          test "$(pdfinfo /tmp/paper-committed.pdf | awk '/^Pages:/ {print $2}')" = "$(pdfinfo paper.pdf | awk '/^Pages:/ {print $2}')"
+          test "$(pdfinfo /tmp/paper-committed.pdf | awk -F: '/^Page size:/ {sub(/^ +/, "", $2); print $2}')" = "$(pdfinfo paper.pdf | awk -F: '/^Page size:/ {sub(/^ +/, "", $2); print $2}')"
+          test "$(pdfinfo paper.pdf | awk '/^Pages:/ {print $2}')" = "190"
           ! grep -Eq "Citation .* undefined|Reference .* undefined|Overfull|Underfull|Fatal error|Missing character" build/latex/main.log
 
       - name: 標準構成を検査
@@ -92,5 +100,8 @@ jobs:
           test -f paper.md
           test -f main.tex
           test -f paper.pdf
+          test -f LICENSE_STATUS.md
+          test -f fonts/README.md
+          test -f fonts/OFL.txt
           test ! -e compiled_paper.pdf
           test ! -d output

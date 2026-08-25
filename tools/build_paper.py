@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 from __future__ import annotations
 
+import hashlib
 import os
 import re
 import shutil
@@ -492,11 +493,28 @@ def run_command(command: list[str], cwd: Path | None = None) -> None:
 def tex_environment() -> dict[str, str]:
     env = os.environ.copy()
     env.update({
+        # Keep PDF metadata stable for the current cited draft.  Update this
+        # epoch together with CITATION.cff when a new draft is released.
+        "SOURCE_DATE_EPOCH": "1787702400",
+        "FORCE_SOURCE_DATE": "1",
+        "TZ": "UTC",
         "TEXINPUTS": "/usr/share/texlive/texmf-dist/tex//:",
         "TFMFONTS": "/usr/share/texlive/texmf-dist/fonts/tfm//:",
         "OPENTYPEFONTS": "/usr/share/texmf/fonts/opentype//:/usr/share/texlive/texmf-dist/fonts/opentype//:",
     })
     return env
+
+
+def normalize_pdf_id(path: Path) -> None:
+    """Replace xdvipdfmx's random trailer ID with a content-derived ID."""
+    data = path.read_bytes()
+    pattern = re.compile(rb"/ID\[<[0-9A-Fa-f]{32}><[0-9A-Fa-f]{32}>\]")
+    placeholder = b"/ID[<" + b"0" * 32 + b"><" + b"0" * 32 + b">]"
+    normalized, count = pattern.subn(placeholder, data)
+    if count != 1:
+        raise RuntimeError(f"expected one PDF trailer ID in {path}, found {count}")
+    stable_id = hashlib.sha256(normalized).hexdigest()[:32].encode("ascii")
+    path.write_bytes(pattern.sub(b"/ID[<" + stable_id + b"><" + stable_id + b">]", data))
 
 
 def build() -> None:
@@ -543,6 +561,7 @@ def build() -> None:
         for _ in range(3):
             run_command(command, cwd=ROOT)
         shutil.copy2(latex_run / "main.pdf", WORK / "main.pdf")
+        normalize_pdf_id(WORK / "main.pdf")
     finally:
         log = latex_run / "main.log"
         if log.exists():
