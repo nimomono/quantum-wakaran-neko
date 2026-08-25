@@ -27,6 +27,7 @@
 - `sections/A7_q3_completion_proofs.md`
 - `sections/A8_open_quasicritical_preparation.md`
 - `sections/A9_w_two_mode_hopf_statistics.md`
+- `sections/A10_m48_paired_hopf_bell_preparation.md`
 - `sections/90_references.md`
 
 ## 論文外の研究メモ
@@ -63,6 +64,8 @@
 - `tools/verify_action_distribution.py`
 - `tools/verify_envelope_reduction.py`
 - `tools/verify_m47_q1_instrument.py`
+- `tools/verify_m47_hopf_preparation.py`
+- `tools/verify_m48_paired_hopf.py`
 - `tools/verify_phase_correlation.py`
 - `tools/verify_q2_1_gate.py`
 - `tools/verify_q2_2_m41.py`

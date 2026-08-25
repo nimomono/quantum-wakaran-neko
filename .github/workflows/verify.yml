@@ -34,17 +34,26 @@ jobs:
           python tools/verify_phase_correlation.py
           python tools/verify_action_distribution.py
           python tools/verify_m47_q1_instrument.py
+          python tools/verify_m47_hopf_preparation.py
           python tools/verify_q2_1_gate.py
           python tools/verify_q2_2_m41.py
+          python tools/verify_m48_paired_hopf.py
           python tools/verify_realized_configuration.py
           python tools/verify_q3_completion.py
           python simulations/m45_open_quasicritical/verify.py --quick
 
-      - name: Q1移行と表記を検査
+      - name: draft-45A移行と表記を検査
         run: |
           test -f sections/03_m47_controlled_w_instrument.md
           test -f sections/A2_m47_controlled_w_instrument_proofs.md
+          test -f sections/A9_w_two_mode_hopf_statistics.md
+          test -f sections/A10_m48_paired_hopf_bell_preparation.md
           test -f tools/verify_m47_q1_instrument.py
+          test -f tools/verify_m47_hopf_preparation.py
+          test -f tools/verify_m48_paired_hopf.py
+          test -f sections/05_m41_bell_cycle_and_audit.md
+          test -f sections/A4_m41_cycle_proofs.md
+          test -f tools/verify_q2_2_m41.py
           test ! -e sections/03_l2_operation_measurement_zeno.md
           test ! -e sections/A2_l2_cycle_and_zeno_proofs.md
           test ! -e tools/verify_l2_cycle.py
@@ -53,8 +62,15 @@ jobs:
           grep -Fq '| Q1-2 | 部分達成 |' PROJECT_STATUS.md
           grep -Fq '| Q1-3 | 部分達成 |' PROJECT_STATUS.md
           grep -Fq '| Q1-4 | 未達（凍結中） |' PROJECT_STATUS.md
-          grep -Fq 'M42/R113はQ2とQ3にだけ残る暫定模型' PROJECT_STATUS.md
+          grep -Fq '| Q2-2 | 部分達成 |' PROJECT_STATUS.md
+          ! grep -Fq '| Q2-2 | 条件付き達成 |' PROJECT_STATUS.md
+          grep -Fq '| M41 | 初期共通原因型2端Bell測定周期 | 現行補助モデル・置換移行中 |' PROJECT_STATUS.md
+          grep -Fq '| M48 | 設定依存paired-Hopf初期共通原因Bell準備模型 | 現行Q2-2候補モデル |' PROJECT_STATUS.md
+          grep -Fq 'M42はQ2-1・Q2-3・Q3とM41補助結果に残る暫定模型' PROJECT_STATUS.md
+          grep -Fq 'Q2-3とQ3の現在地は変更しない。' PROJECT_STATUS.md
           grep -Fq 'M42/R113またはcurrent transducerを使わない' sections/03_m47_controlled_w_instrument.md
+          grep -Fq 'R149、R150は完全matching条件付き' sections/01_scope_and_cycle.md
+          grep -Fq 'M41の定理を撤回または削除しない' sections/A10_m48_paired_hopf_bell_preparation.md
           ! grep -REn '二mode|二モード' README.md PROJECT_STATUS.md CHANGELOG.md sections notes
 
       - name: 論文を再生成
@@ -63,7 +79,7 @@ jobs:
       - name: 生成物の同期を検査
         run: |
           git diff --exit-code -- paper.md main.tex
-          test "$(pdfinfo paper.pdf | awk '/^Pages:/ {print $2}')" = "166"
+          test "$(pdfinfo paper.pdf | awk '/^Pages:/ {print $2}')" = "185"
           ! grep -Eq "Citation .* undefined|Reference .* undefined|Overfull|Underfull|Fatal error|Missing character" build/latex/main.log
 
       - name: 標準構成を検査
