@@ -29,16 +29,33 @@ jobs:
 
       - name: 数式と数値を検算
         run: |
+          python -m py_compile tools/*.py simulations/m45_open_quasicritical/m45/*.py simulations/m45_open_quasicritical/*.py
           python tools/verify_envelope_reduction.py
           python tools/verify_phase_correlation.py
           python tools/verify_action_distribution.py
-          python tools/verify_l2_cycle.py
-          python tools/verify_l2_zeno.py
+          python tools/verify_m47_q1_instrument.py
           python tools/verify_q2_1_gate.py
           python tools/verify_q2_2_m41.py
           python tools/verify_realized_configuration.py
           python tools/verify_q3_completion.py
           python simulations/m45_open_quasicritical/verify.py --quick
+
+      - name: Q1移行と表記を検査
+        run: |
+          test -f sections/03_m47_controlled_w_instrument.md
+          test -f sections/A2_m47_controlled_w_instrument_proofs.md
+          test -f tools/verify_m47_q1_instrument.py
+          test ! -e sections/03_l2_operation_measurement_zeno.md
+          test ! -e sections/A2_l2_cycle_and_zeno_proofs.md
+          test ! -e tools/verify_l2_cycle.py
+          test ! -e tools/verify_l2_zeno.py
+          grep -Fq '| Q1-1 | 達成 |' PROJECT_STATUS.md
+          grep -Fq '| Q1-2 | 部分達成 |' PROJECT_STATUS.md
+          grep -Fq '| Q1-3 | 部分達成 |' PROJECT_STATUS.md
+          grep -Fq '| Q1-4 | 未達（凍結中） |' PROJECT_STATUS.md
+          grep -Fq 'M42/R113はQ2とQ3にだけ残る暫定模型' PROJECT_STATUS.md
+          grep -Fq 'M42/R113またはcurrent transducerを使わない' sections/03_m47_controlled_w_instrument.md
+          ! grep -REn '二mode|二モード' README.md PROJECT_STATUS.md CHANGELOG.md sections notes
 
       - name: 論文を再生成
         run: python tools/build_paper.py
@@ -46,7 +63,7 @@ jobs:
       - name: 生成物の同期を検査
         run: |
           git diff --exit-code -- paper.md main.tex
-          test "$(pdfinfo paper.pdf | awk '/^Pages:/ {print $2}')" = "172"
+          test "$(pdfinfo paper.pdf | awk '/^Pages:/ {print $2}')" = "166"
           ! grep -Eq "Citation .* undefined|Reference .* undefined|Overfull|Underfull|Fatal error|Missing character" build/latex/main.log
 
       - name: 標準構成を検査
