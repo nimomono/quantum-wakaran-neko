@@ -59,6 +59,7 @@
 - `CHANGELOG.md`
 - `VALIDATION.md`
 - `MANIFEST.md`
+- `LICENSE_STATUS.md`
 - `CITATION.cff`
 - `references.bib`
 - `tools/build_paper.py`
@@ -100,6 +101,8 @@
 
 ## 組版用フォント
 
+- `fonts/README.md`
+- `fonts/OFL.txt`
 - `fonts/NotoSansJP-Bold.ttf`
 - `fonts/NotoSansJP-Regular.ttf`
 - `fonts/NotoSerifJP-Bold.ttf`
