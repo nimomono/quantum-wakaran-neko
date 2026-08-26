@@ -38,24 +38,28 @@ jobs:
           python tools/verify_q2_1_gate.py
           python tools/verify_m48_paired_hopf.py
           python tools/verify_m48_full_cycle.py
+          python tools/verify_m39_m48_ablation.py
           python tools/verify_realized_configuration.py
           python tools/verify_q3_completion.py
           python simulations/m45_open_quasicritical/verify.py --quick
 
-      - name: draft-45B移行と表記を検査
+      - name: draft-46のQ2受渡し境界と表記を検査
         run: |
           test -f sections/03_m47_controlled_w_instrument.md
           test -f sections/A2_m47_controlled_w_instrument_proofs.md
           test -f sections/A9_w_two_mode_hopf_statistics.md
           test -f sections/A10_m48_paired_hopf_bell_preparation.md
+          test -f sections/A11_q2_joint_bath_contract.md
           test -f tools/verify_m47_q1_instrument.py
           test -f tools/verify_m47_hopf_preparation.py
           test -f tools/verify_m48_paired_hopf.py
           test -f tools/verify_m48_full_cycle.py
+          test -f tools/verify_m39_m48_ablation.py
           test -f sections/05_m48_bell_cycle_and_audit.md
           test -f sections/A4_m48_cycle_proofs.md
           test -f notes/superseded_m41_bell_cycle.md
           test -f notes/superseded_m41_cycle_proofs.md
+          test -f notes/superseded_m39_m48_handoff_claim.md
           test ! -e sections/05_m41_bell_cycle_and_audit.md
           test ! -e sections/A4_m41_cycle_proofs.md
           test ! -e tools/verify_q2_2_m41.py
@@ -67,15 +71,21 @@ jobs:
           grep -Fq '| Q1-2 | 部分達成 |' PROJECT_STATUS.md
           grep -Fq '| Q1-3 | 部分達成 |' PROJECT_STATUS.md
           grep -Fq '| Q1-4 | 未達（凍結中） |' PROJECT_STATUS.md
-          grep -Fq '| Q2-2 | 条件付き達成 | R146--R156 |' PROJECT_STATUS.md
-          ! grep -Fq '| Q2-2 | 部分達成 |' PROJECT_STATUS.md
+          grep -Fq '| Q2-2 | 部分達成 | R146--R156、付録K |' PROJECT_STATUS.md
+          ! grep -Fq '| Q2-2 | 条件付き達成 |' PROJECT_STATUS.md
           grep -Fq '| M41 | 初期共通原因型2端Bell測定周期 | 置換済みモデル |' PROJECT_STATUS.md
-          grep -Fq '| M48 | 設定依存paired-Hopf初期共通原因Bell周期模型 | 現行Q2-2モデル |' PROJECT_STATUS.md
+          grep -Fq '| M48 | 設定依存paired-Hopf初期共通原因Bell周期模型 | 現行Q2-2 receiverモデル |' PROJECT_STATUS.md
           grep -Fq 'Q1、Q2-1、Q2-3、Q3の現在地は変更しない。' PROJECT_STATUS.md
           grep -Fq 'M42/R113またはcurrent transducerを使わない' sections/03_m47_controlled_w_instrument.md
           grep -Fq 'R151--R156' sections/01_scope_and_cycle.md
           grep -Fq 'R151--R154' sections/A10_m48_paired_hopf_bell_preparation.md
+          grep -Fq 'state-carrying' sections/A11_q2_joint_bath_contract.md
+          grep -Fq 'branch-carrying' sections/A11_q2_joint_bath_contract.md
+          grep -Fq 'provenance-only' sections/A11_q2_joint_bath_contract.md
           grep -Fq 'R152を具体的ミクロ模型から導出済みと扱う' sections/08_errors_resources_open_targets.md
+          ! grep -Fq 'M39からM48への固定singlet型破壊的受渡し' README.md PROJECT_STATUS.md sections/*.md
+          ! grep -Fq '\varepsilon_{39}' sections/05_m48_bell_cycle_and_audit.md sections/A4_m48_cycle_proofs.md sections/08_errors_resources_open_targets.md
+          ! grep -Fq '\varepsilon_{\rm link}' sections/05_m48_bell_cycle_and_audit.md sections/A4_m48_cycle_proofs.md sections/08_errors_resources_open_targets.md
           ! grep -REn '二mode|二モード' README.md PROJECT_STATUS.md CHANGELOG.md sections notes
 
       - name: 収録PDFを退避
@@ -92,7 +102,7 @@ jobs:
           diff -u /tmp/paper-committed.txt /tmp/paper-regenerated.txt
           test "$(pdfinfo /tmp/paper-committed.pdf | awk '/^Pages:/ {print $2}')" = "$(pdfinfo paper.pdf | awk '/^Pages:/ {print $2}')"
           test "$(pdfinfo /tmp/paper-committed.pdf | awk -F: '/^Page size:/ {sub(/^ +/, "", $2); print $2}')" = "$(pdfinfo paper.pdf | awk -F: '/^Page size:/ {sub(/^ +/, "", $2); print $2}')"
-          test "$(pdfinfo paper.pdf | awk '/^Pages:/ {print $2}')" = "190"
+          test "$(pdfinfo paper.pdf | awk '/^Pages:/ {print $2}')" = "194"
           ! grep -Eq "Citation .* undefined|Reference .* undefined|Overfull|Underfull|Fatal error|Missing character" build/latex/main.log
 
       - name: 標準構成を検査

@@ -1,83 +1,42 @@
 @number: 5
 @chapter: 本文
 @title: M48の2端Bell測定周期と前提監査
-@status: 固定singlet型・固定有限設定族について、M39からの破壊的受渡し、2翼matching、切断後局所分析、記録、弱開放帰還を閉じる。Q2-2は操作的接続の範囲で条件付き達成とする。
+@status: 固定singlet型・固定有限設定族について、M48内部の等重みseed routing、2翼matching、切断後局所分析、記録、弱開放帰還を閉じる。M48単独周期は条件付き達成、Q2-1からの物理的接続を含むQ2-2全体は部分達成とする。
 
 ## 5.1 目的と模型の境界
 
-本章は、付録JのM48 paired-Hopf準備を、M39の固定singlet型出力から2つの物理的測定端、局所記録、次周期入口まで接続する。M48の各試行で実在する信号変数は、2翼のbath作用角表示 $z_A,z_B$、W型有限配置グラフ上の実現配置 $X_A,X_B$、設定、時計、局所雑音seed、記録・履歴・resetセルである。交差共分散射影は集団統計であり、単一試行の結果変数ではない。
+本章は、付録JのM48 paired-Hopf準備を、setting-freeな等重みseedから2つの物理的測定端、局所記録、次周期入口まで閉じる。M48の各試行で実在する信号変数は、2翼のbath作用角表示 $z_A,z_B$、W型有限配置グラフ上の実現配置 $X_A,X_B$、設定、時計、局所雑音seed、記録・履歴・resetセルである。交差共分散射影は集団統計であり、単一試行のcontrollerまたは結果変数ではない。
 
-draft-45Aで未完成だった5項目を次の順序で閉じる。
+M48単独周期は次の5項目を順に閉じる。
 
-1. M39の4モード場と共同実現配置をM48中央portへ破壊的に渡す。
+1. 設定前の等重みseedを履歴から独立に保持し、A設定生成後に安全盆へ送る。
 2. paired-Hopf流の各安全枝について、bath対と2翼実現配置を強いmatching fiberへ準備する。
 3. 中央結合を切った後は、A端とB端の生成子を因子化する。
 4. 各局所分析器の終了後にmatchingを局所的に回復し、傾斜固定した実現配置だけを記録する。
 5. 外部記録を残したまま、能動部をfresh cell交換で次周期入口へ戻す。
 
-全時刻でmatching多様体が厳密不変であるとは主張しない。切断面、局所分析器終了面、記録面というプロトコル面ごとにmatching誤差を評価する。これでBell結果頻度に必要な橋は閉じるが、M47の一般Q1測定で残る自然なmatching保存問題は解消しない。
+全時刻でmatching多様体が厳密不変であるとは主張しない。切断面、局所分析器終了面、記録面というプロトコル面ごとにmatching誤差を評価する。これでM48内部のBell結果頻度に必要な橋は閉じるが、付録Kの共同bath--実現配置契約を満たすQ2-1側providerと受渡し写像は構成しない。M47の一般Q1測定で残る自然なmatching保存問題も解消しない。
 
 M48は採用開放古典模型である。paired-Hopf pump、設定controller、配置交換bath、傾斜固定、記録cell、fresh cell流を明示するが、全系を有限閉鎖Hamiltonianへ持ち上げたとは呼ばない。
 
-## 5.2 設定前開始面とM39出力
+## 5.2 設定前開始面と等重みseed
 
-固定した有限A設定族を $\mathcal X$、有限B設定族を $\mathcal Y$ とする。設定前開始面では、M39の鋭い基準入力、設定生成角、M48の空controller、共通seed、2翼の空W型配置、局所雑音seed、記録・履歴・resetセルを設定非依存測度 $\nu_0$ に置く。
-
-M39の固定回路は
+固定した有限A設定族を $\mathcal X$、有限B設定族を $\mathcal Y$ とする。設定前開始面では、設定生成角、固定pairing tensor $\mathsf E$、等重み枝seed $S_0\in\{+1,-1\}$、2翼の空W型配置、局所雑音seed、記録・履歴・resetセルを設定非依存測度 $\nu_0$ に置く。
 
 ```math
-c_{\rm s}
-=
-\frac{1}{\sqrt2}
-\begin{pmatrix}
-0&1&-1&0
-\end{pmatrix}^{\mathsf T}
+P(S_0=+1)=P(S_0=-1)=\frac12,
+\qquad
+\operatorname{Law}(S_0\mid x,y)=\operatorname{Law}(S_0).
 ```
 
-と、共同実現配置
+$S_0$ は測定結果ではなく、設定生成前に存在する共通原因seedである。履歴識別子 $H_{\rm prov}$ を付けてもよいが、設定と結果形成には入力しない。M39の共同配置 $X^{39}=01,10$ をそれぞれ $S_0=+1,-1$ へ写す有限adapterは許される。ただしM48はそのadapterを必要とせず、付録Kのstate-carrying受渡しを実現したとも数えない。
+
+## 5.3 setting-pre seedの履歴付き安全盆routing
+
+A設定 $x$ の生成後、有限controllerはbright seed $m$ を
 
 ```math
-X^{39}
-\in
-\{01,10\}
-```
-
-を準備する。理想頻度は各 $1/2$ であり、この準備は $x,y$ に依存しない。有限M39準備の全変動誤差と場方向誤差をまとめて $\varepsilon_{39}$ とする。
-
-M39の4モード場を2つの2モード場へ複製しない。中央に1つだけ置く4成分受渡しregisterへ正準SWAPし、元のM39信号slotを空にする。共同配置は履歴を保存した可逆な有限routingで枝seed registerへ渡す。
-
-## 5.3 固定singlet型の破壊的受渡しport
-
-4モード係数 $c$ を行優先で $2\times2$ 行列 $B(c)$ へ並べ、反対称成分を
-
-```math
-\mathcal P_-(B)
-=
-\frac12
-\left(
-B-B^{\mathsf T}
-\right)
-```
-
-とする。$\|\mathcal P_-(B)\|_{\rm F}\geq b_*>0$ の安全領域で、pairing controllerを
-
-```math
-\mathsf J(c)
-=
-\sqrt2
-\frac{
-\mathcal P_-(B(c))
-}{
-\|\mathcal P_-(B(c))\|_{\rm F}
-}
-```
-
-と定める。$c=c_{\rm s}$ では $\mathsf J(c)=\mathsf E$ である。全体位相が残っても、ベクトル化した交差共分散射影は同じsinglet射影になる。
-
-$X^{39}=01$ を $s_0=+1$、$X^{39}=10$ を $s_0=-1$ と符号化する。これは測定結果ではなく、設定生成前に存在する等重み共通原因seedである。A設定 $x$ の生成後、有限controllerはbright seed $m$ を
-
-```math
-s_0h_x(m)
+S_0h_x(m)
 \geq
 h_*,
 \qquad
@@ -86,12 +45,20 @@ h_x(m)
 \frac{m^\dagger\Sigma_xm}{m^\dagger m}
 ```
 
-となる安全盆へ有限時間で送る。有限設定族なので、各 $(s_0,x)$ に1つずつ安全seedと有限routingを用意できる。目的の測定開始分布を開始面へ直接置くのではなく、設定生成後の前向き開放写像として実行する。
+となる安全盆へ有限時間で送る。有限設定族なので、各 $(S_0,x)$ に1つずつ安全seedと有限routingを用意できる。目的の測定開始分布を開始面へ直接置くのではなく、設定生成後の前向き開放写像として実行する。
 
 <!-- theorem-start:theorem -->
-**定理（R151：M39からM48への固定singlet型破壊的受渡し）**
+**定理（R151：setting-pre等重みseedの履歴付き安全盆routing）**
 
-固定singlet型M39回路、有限設定族 $\mathcal X$、$b_*,h_*>0$ を固定する。M39の4モード場を単一中央controllerへSWAPし、その反対称成分から $\mathsf J(c)$ を作り、共同実現配置から等重み枝seedを作る有限正準routingと開放seed整列を構成できる。理想M39出力では $\mathsf J=\mathsf E$、$P(s_0=\pm1)=1/2$ であり、各設定について $s_0h_x(m)\geq h_*$ となる。有限装置では失敗質量を無反応へ送り、controller、枝重み、安全盆の総誤差を $\varepsilon_{\rm link}$ で抑えられる。受渡しは元の4モード場を保存した2翼分配ではなく、固定singlet型に限定した破壊的操作接続である。
+有限設定族 $\mathcal X$ と $h_*>0$ を固定する。設定前の等重みseed $S_0\in\{+1,-1\}$ と固定tensor $\mathsf E$ から開始し、各 $(S_0,x)$ について $S_0h_x(m)\geq h_*$ となるbright seedへ送る有限前向きroutingを構成できる。有限装置ではseed bias誤差を $\varepsilon_{\rm seed}$、盆外・routing失敗質量を $\varepsilon_{\rm route}$ として無反応へ送る。任意の許された履歴値 $h$ について
+
+```math
+\operatorname{Law}(A,B\mid x,y,H_{\rm prov}=h)
+=
+\operatorname{Law}(A,B\mid x,y)
+```
+
+とし、履歴はprovenance監査にだけ残す。M39共同配置から枝値とbiasを保存して $S_0$ を作るadapterはbranch-carrying、履歴識別子だけを残すadapterはprovenance-onlyである。いずれも本定理の入力依存性ではなく、Q2-1状態を運ぶstate-carrying受渡しでもない。
 <!-- theorem-end:theorem -->
 
 ## 5.4 単一試行bath座標からの局所matching流
@@ -247,7 +214,7 @@ v_{s,x}
 <!-- theorem-start:theorem -->
 **定理（R153：M48中央切断面の2翼強matching準備）**
 
-R147の有界seed条件、R151の安全受渡し、R152の有限配置グラフを仮定する。paired-Hopf時間を $T_{\rm PH}$、配置混合時間を $T_X$ とする。理想切断面fiber混合を
+R147の有界seed条件、R151の安全盆routing、R152の有限配置グラフを仮定する。paired-Hopf時間を $T_{\rm PH}$、配置混合時間を $T_X$ とする。理想切断面fiber混合を
 
 ```math
 \nu_x^0
@@ -270,9 +237,9 @@ d_{\rm fib}
 \leq
 \varepsilon_{\rm fib}
 \leq{}&
-\varepsilon_{39}
+\varepsilon_{\rm seed}
 +
-\varepsilon_{\rm link}
+\varepsilon_{\rm route}
 +
 K_{48}e^{-\gamma_{48}T_{\rm PH}}\\
 &+
@@ -391,11 +358,11 @@ M48完全周期の前向き誤差を
 
 ```math
 \begin{aligned}
-\varepsilon_{45B}
+\varepsilon_{\rm Bell}^{48,{\rm cyc}}
 \leq{}&
 \delta_{\rm set}
-+\varepsilon_{39}
-+\varepsilon_{\rm link}
++\varepsilon_{\rm seed}
++\varepsilon_{\rm route}
 +\varepsilon_{\rm PH}
 +L_{\rm fib}\varepsilon_{\rm fib}\\
 &+
@@ -419,17 +386,17 @@ M48完全周期の前向き誤差を
 とする。$L_{\rm fib}<\infty$ は固定有限設定族の安全域上で局所応答核を結果全変動距離へ移す一様Lipschitz定数である。R153の展開を使う場合、$\varepsilon_{\rm PH}$ と $\varepsilon_{\rm fib}$ の中の同じpaired-Hopf項を二重に数えない。
 
 <!-- theorem-start:theorem -->
-**定理（R155：M48完全周期の有限誤差Bell統計と前提監査）**
+**定理（R155：M48単独完全周期の有限誤差Bell統計と前提監査）**
 
-各設定対について、無反応を含む完全結果分布と理想singlet分布の全変動距離は $\varepsilon_{45B}$ 以下である。従って一側周辺の反対設定による差は $2\varepsilon_{45B}$ 以下、CHSH値の理想値からのずれは $8\varepsilon_{45B}$ 以下である。
+各設定対について、M48の無反応を含む完全結果分布 $P_{\rm Bell}^{48,{\rm cyc}}$ と理想singlet分布の全変動距離は $\varepsilon_{\rm Bell}^{48,{\rm cyc}}$ 以下である。従って一側周辺の反対設定による差は $2\varepsilon_{\rm Bell}^{48,{\rm cyc}}$ 以下、CHSH値の理想値からのずれは $8\varepsilon_{\rm Bell}^{48,{\rm cyc}}$ 以下である。
 
 ```math
-\varepsilon_{45B}
+\varepsilon_{\rm Bell}^{48,{\rm cyc}}
 <
 \frac{\sqrt2-1}{4}
 ```
 
-ならCHSH不等式の破れが残る。設定前測度 $\nu_0$ は設定に依存しないが、R151とR147の前向き準備後の切断面測度 $\mu_{\rm cut}^x$ はA設定に依存する。切断後の応答は局所因子化し、理想周辺は非信号的である。従ってBellの定理を否定せず、成立しない前提は測定設定独立性である。
+ならCHSH不等式の破れが残る。設定前測度 $\nu_0$ は設定に依存しないが、R151とR147の前向き準備後の切断面測度 $\mu_{\rm cut}^x$ はA設定に依存する。切断後の応答は局所因子化し、理想周辺は非信号的である。従ってBellの定理を否定せず、成立しない前提は測定設定独立性である。本定理はM48のreceiver側を閉じるが、付録Kの $T_{\rm link}$ を構成しない。
 <!-- theorem-end:theorem -->
 
 R149とR150は、完全matchingを抽象的に仮定した条件付き結果として残る。R153とR154は、固定Bell装置についてその仮定を有限誤差で充足し、R155を与える。
@@ -441,9 +408,10 @@ R149とR150は、完全matchingを抽象的に仮定した条件付き結果と�
 | 局所性 | 切断後の生成子は $\mathcal L_A^x+\mathcal L_B^y$。反対翼の設定、結果、noiseを入力にしない |
 | 測定設定独立性 | 設定前は共通測度。A設定生成後のseed routingとpaired-Hopf準備により $\mu_{\rm cut}^x$ が $x$ に依存するため成立しない |
 | 結果の一意性 | noise seedを含む完全状態と記録時刻を固定すれば、各翼の実現配置と記録は一意 |
-| 事後選別 | 分離面、受渡し失敗、盆失敗、時計境界を $\varnothing$ として分母へ残す |
-| 非信号性 | 理想singlet対称性から両周辺は $1/2$。有限装置では反対設定差を $2\varepsilon_{45B}$ で抑える |
-| 試行測度 | 枝重みはM39共同配置、配置頻度はR152の有限時間開放流から作り、測定開始面へ目的分布を直接置かない |
+| 事後選別 | seed失敗、盆失敗、時計境界を $\varnothing$ として分母へ残す |
+| 非信号性 | 理想singlet対称性から両周辺は $1/2$。有限装置では反対設定差を $2\varepsilon_{\rm Bell}^{48,{\rm cyc}}$ で抑える |
+| 試行測度 | 枝重みはsetting-pre等重みseed、配置頻度はR152の有限時間開放流から作り、測定開始面へ目的分布を直接置かない |
+| provenance | 履歴は監査にだけ使い、許された履歴値で条件付けても結果法則を変えない |
 
 $x$ と $x'$ が同じ非順序軸を表さない場合、理想切断面の2枝支持
 
@@ -507,14 +475,14 @@ C_{\rm ret}e^{-\lambda_{\rm ret}T_{\rm ret}}
 \varepsilon_{\rm seed}
 ```
 
-とできる。$\varepsilon_{\rm ret}$ は同じ周期の記録分布へ遡って加えず、次周期の $\varepsilon_{39}+\varepsilon_{\rm link}$ へ渡す。固定有限周期数について、永久記録、使用済み状態、fresh cellを含む有限装置を選べる。
+とできる。$\varepsilon_{\rm ret}$ は同じ周期の記録分布へ遡って加えず、次周期の $\varepsilon_{\rm seed}+\varepsilon_{\rm route}$ へ渡す。固定有限周期数について、永久記録、使用済み状態、fresh cellを含む有限装置を選べる。
 <!-- theorem-end:theorem -->
 
 ## 5.12 開放模型の局所帳簿
 
 | 段階 | 外部作用 | 散逸先・情報流 |
 |---|---|---|
-| M39受渡し | 中央SWAP、反対称filter、seed routingの仕事 | 元のM39 slotと不採用成分を履歴・流出portへ渡す |
+| seed routing | setting-pre seedの読出しと安全盆routingの仕事 | seed履歴を使用済みcellへ移し、結果形成へ再注入しない |
 | paired-Hopf準備 | bright pump、設定controller | dark sinkと振幅飽和bathへ熱・位相情報を渡す |
 | 配置matching | $z$ 依存局所有効ポテンシャルの制御仕事 | 各翼の配置交換bathへjump熱を渡す |
 | 中央切断 | pairing、共通clock、中央配置bathとの結合を停止する仕事 | 切断残差を $\varepsilon_{\rm cut}$ へ入れる |
@@ -585,16 +553,14 @@ T_{\rm ret}
 
 ## 5.14 Q2-2判定と非主張
 
-R151--R156により、固定singlet型、固定有限設定族、破壊的操作受渡し、準備先行、非空間分離、プロトコル面matching、無反応込み、弱開放帰還という解釈では、Q2-2の固定条件を同じM39--M48周期で満たす。この意味でQ2-2を条件付き達成とする。
+R151--R156により、固定singlet型、固定有限設定族、準備先行、非空間分離、プロトコル面matching、無反応込み、弱開放帰還という解釈では、M48単独Bell周期を条件付き達成とする。固定目標Q2-2は「Q2-1の出力を2つの物理的測定端へ接続する」ことも要求する。付録Kの共同bath providerと $T_{\rm link}$ は未構成なので、Q2-2全体は部分達成である。
 
-M41のR107--R111、R121は数学的に撤回せず、置換済み模型内の補助結果として研究メモへ移す。M42/R113はQ2-1、Q2-3、Q3の暫定根拠に残るが、M39出力からM48結果形成までの因果鎖には使わない。
-
-ただし、R151へ渡すQ2-1の共同実現配置 $X_{39}$ の生成根拠はR120/M42に依存する。従ってQ2-1出力の生成からM48記録までを含む全接続をM42非依存とは呼ばない。
+M41のR107--R111、R121は数学的に撤回せず、置換済み模型内の補助結果として研究メモへ移す。M42/R113はQ2-1、Q2-3、Q3の暫定根拠に残るが、M48単独周期の結果形成には使わない。M39共同配置を任意adapterで枝seedへ写す場合だけ、そのadapterの由来としてR120/M42依存が復活する。
 
 本章は次を主張しない。
 
-1. 任意のM39二論理状態を2翼へ状態保存的に分配すること。
-2. M39の非因子化4モード場を2つの独立物理場へ複製すること。
+1. Q2-1出力を付録Kの同じ試行レジスタとしてM48へ渡すこと。
+2. 任意のM39二論理状態を2翼へ状態保存的に分配すること。
 3. 標準的な空間分離Bell実験または準備後の自由設定変更。
 4. 一般測定族に対するTsirelson原理。
 5. 独立同分布型有限標本揺らぎ。

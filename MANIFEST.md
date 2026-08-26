@@ -28,6 +28,7 @@
 - `sections/A8_open_quasicritical_preparation.md`
 - `sections/A9_w_two_mode_hopf_statistics.md`
 - `sections/A10_m48_paired_hopf_bell_preparation.md`
+- `sections/A11_q2_joint_bath_contract.md`
 - `sections/90_references.md`
 
 ## 論文外の研究メモ
@@ -45,6 +46,7 @@
 - `notes/superseded_m38_m42_q1.md`
 - `notes/superseded_m41_bell_cycle.md`
 - `notes/superseded_m41_cycle_proofs.md`
+- `notes/superseded_m39_m48_handoff_claim.md`
 - `notes/frozen_q1_zeno.md`
 - `notes/superseded_position_coupling_fisher_closure.md`
 - `notes/superseded_three_mode_bell_shell.md`
@@ -70,6 +72,7 @@
 - `tools/verify_m47_hopf_preparation.py`
 - `tools/verify_m48_paired_hopf.py`
 - `tools/verify_m48_full_cycle.py`
+- `tools/verify_m39_m48_ablation.py`
 - `tools/verify_phase_correlation.py`
 - `tools/verify_q2_1_gate.py`
 - `tools/verify_realized_configuration.py`

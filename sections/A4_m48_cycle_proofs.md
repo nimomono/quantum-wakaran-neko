@@ -1,7 +1,7 @@
 @number: D
 @chapter: 付録
 @title: M48完全Bell周期の証明
-@status: R151--R156の固定singlet型受渡し、局所matching生成子、切断面fiber、局所記録、Bell監査、弱開放帰還を証明する。
+@status: R151--R156のsetting-pre seed routing、局所matching生成子、切断面fiber、局所記録、Bell監査、弱開放帰還を証明する。
 
 ## D.1 記号と有限設定族
 
@@ -64,94 +64,17 @@ z^\dagger z
 =1.
 ```
 
-## D.2 R151の証明：M39からの破壊的受渡し
+## D.2 R151の証明：setting-pre seedの安全盆routing
 
-M39の4モード場を
-
-```math
-c
-=
-\begin{pmatrix}
-c_{00}&c_{01}&c_{10}&c_{11}
-\end{pmatrix}^{\mathsf T}
-```
-
-とし、行優先係数行列を
+設定前の枝seedを $S_0\in\{+1,-1\}$ とし、
 
 ```math
-B(c)
-=
-\begin{pmatrix}
-c_{00}&c_{01}\\
-c_{10}&c_{11}
-\end{pmatrix}
+P(S_0=+1)=P(S_0=-1)=\frac12
 ```
 
-とする。理想singletでは
+とする。これはM48内部の設定非依存registerであり、pairing tensor $\mathsf E$ も固定装置定数として置く。許されたprovenance履歴 $H_{\rm prov}$ はseedと同じ拡大状態に保存できるが、routing核、paired-Hopf流、局所分析器、記録核のいずれにも入力しない。
 
-```math
-B(c_{\rm s})
-=
-\frac1{\sqrt2}
-\mathsf E.
-```
-
-反対称射影は線形かつ縮小的なので、Frobenius距離について
-
-```math
-\left\|
-\mathcal P_-(B(c))
--
-\mathcal P_-(B(c_{\rm s}))
-\right\|_{\rm F}
-\leq
-\left\|
-B(c)-B(c_{\rm s})
-\right\|_{\rm F}.
-```
-
-$\|\mathcal P_-(B(c))\|_{\rm F}\geq b_*$ の領域では規格化写像はLipschitzであり、ある $L_{\rm link}(b_*)<\infty$ に対して
-
-```math
-\inf_{\alpha}
-\left\|
-\mathsf J(c)
--
-e^{i\alpha}\mathsf E
-\right\|_{\rm F}
-\leq
-L_{\rm link}
-\inf_{\beta}
-\left\|
-c-e^{i\beta}c_{\rm s}
-\right\|
-```
-
-となる。全体位相は交差共分散射影から消える。
-
-4モード信号 $c$ と空の中央register $q$ の交換生成子を、実quadratureごとの標準交換の和として選ぶ。接触角 $\pi/2$ で
-
-```math
-(c,q)
-\longmapsto
-(0,c)
-```
-
-となる。有限幅入力では空slot残差を $\varepsilon_{\rm swap}$ へ入れる。この写像は1対1であり、4モード信号をA、Bの2箇所へ複製しない。
-
-理想M39共同配置では
-
-```math
-P(X^{39}=01)
-=
-P(X^{39}=10)
-=
-\frac12.
-```
-
-枝seed写像 $01\mapsto+1$、$10\mapsto-1$ は単射な履歴付きroutingとして実装する。M39共同配置分布が理想から全変動距離 $\varepsilon_{39}^{X}$ 以内なら、data processingにより枝分布のずれも同じ上界以内である。
-
-任意の $h_0\in[h_*,1)$ を固定する。各 $(s,x)$ について
+任意の $h_0\in[h_*,1)$ を固定し、$s=S_0$ と置く。各 $(s,x)$ について
 
 ```math
 m_{s,x}
@@ -189,12 +112,12 @@ m-m_{s,x}
 
 という採用開放整列を時間 $T_{\rm seed}$ だけ作用させれば、誤差は $e^{-\kappa_{\rm seed}T_{\rm seed}}$ の定数倍で減衰する。十分小さい誤差では $s h_x(m)\geq h_*$ を保てる。設定はこの前向き整列前に生成され、設定前測度へ $m_{s,x}$ を置いていない。
 
-安全域外、反対称成分不足、routing接続域は無反応へ送る。場、枝重み、SWAP、seed整列の誤差を加えれば $\varepsilon_{\rm link}$ を得る。
+seed準備のbiasと欠損を $\varepsilon_{\rm seed}$、安全域外とrouting接続域の失敗質量を $\varepsilon_{\rm route}$ として無反応へ送る。M39共同配置から $S_0$ を作るadapterを前置する場合も、M48入口は $S_0$ と履歴だけであり、M39の4-mode状態はR151の入力にしない。
 
 <!-- theorem-start:proof -->
 **証明（R151）**
 
-反対称射影と安全域上の規格化がpairing controllerの有限誤差を与える。中央SWAPは4モード場を1つのcontrollerへ破壊的に移す。M39共同配置の等重み2支持が枝seedを与え、明示seed $m_{s,x}$ と有限時間整列が各設定の安全盆を与える。全写像は設定前共通測度に設定依存分布を置かず、設定生成後の有限前向き操作である。安全域外を無反応へ含め、逐次核の全変動誤差を加えれば定理が従う。証明終。
+等重みseedと明示seed $m_{s,x}$ が各設定の安全盆を与え、有限時間整列がそこへ指数的に近づける。全写像は設定前共通測度に設定依存分布を置かず、設定生成後の有限前向き操作である。履歴を全結果形成核の入力から外しているため、履歴で条件付けた結果法則は周辺結果法則と一致する。seed誤差と安全域外を無反応へ含めれば定理が従う。証明終。
 <!-- theorem-end:proof -->
 
 ## D.3 R152の証明：局所matching生成子
@@ -340,7 +263,7 @@ z_B-e^{-i\alpha}v_{s,x}
 K_{48}e^{-\gamma_{48}T_{\rm PH}}
 ```
 
-となる。pairing controllerの有限誤差は $\varepsilon_{\rm link}$ へ入れる。
+となる。seed biasと安全盆routingの有限誤差は、それぞれ $\varepsilon_{\rm seed}$ と $\varepsilon_{\rm route}$ へ入れる。
 
 R152の $\pi^\delta(z)$ は、$\|z\|$ が零から離れたcompact集合で $z$ の射影にLipschitzである。その定数をpaired-Hopf前因子へ吸収すれば、有限時間bath方向誤差から配置目標の誤差も $K_{48}e^{-\gamma_{48}T_{\rm PH}}$ の定数倍で抑えられる。
 
@@ -362,7 +285,7 @@ u_{s,x}v_{s,x}^{\mathsf T}\\
 
 である。最後の等式は付録Jのspin-flip恒等式である。規格化ベクトル化射影はsinglet射影で、$x$ に依存しない。
 
-枝分布を最大couplingし、bath対を同じseedとpaired位相でcoupleし、配置を条件付き最大couplingする。枝、bath対、配置正則化、有限混合、切断の期待costを加えると、理想fiber混合 $\nu_x^0$ に対するR153の $d_{\rm fib}\leq\varepsilon_{\rm fib}$ を得る。$\varepsilon_{39}$ と $\varepsilon_{\rm link}$ に含めた同じ源誤差を別の項へ重複して入れない。
+枝分布を最大couplingし、bath対を同じseedとpaired位相でcoupleし、配置を条件付き最大couplingする。枝、bath対、配置正則化、有限混合、切断の期待costを加えると、理想fiber混合 $\nu_x^0$ に対するR153の $d_{\rm fib}\leq\varepsilon_{\rm fib}$ を得る。$\varepsilon_{\rm seed}$ と $\varepsilon_{\rm route}$ に含めた同じ源誤差を別の項へ重複して入れない。
 
 <!-- theorem-start:proof -->
 **証明（R153）**
@@ -476,11 +399,11 @@ D_{\rm TV}
 \sum_j\epsilon_j.
 ```
 
-状態方向またはcontroller誤差は、対応する有限設定核のLipschitz定数を通して結果分布距離へ換算してから加える。特にR153のprojective fiber誤差は $L_{\rm fib}\varepsilon_{\rm fib}$ として加える。この和が第5章の $\varepsilon_{45B}$ である。
+状態方向またはcontroller誤差は、対応する有限設定核のLipschitz定数を通して結果分布距離へ換算してから加える。特にR153のprojective fiber誤差は $L_{\rm fib}\varepsilon_{\rm fib}$ として加える。この和が第5章の $\varepsilon_{\rm Bell}^{48,{\rm cyc}}$ である。
 
-周辺化は全変動距離を増やさない。A周辺が同じ理想周辺から各設定で $\varepsilon_{45B}$ 以内なら、三角不等式により反対設定間の差は $2\varepsilon_{45B}$ 以下である。
+周辺化は全変動距離を増やさない。A周辺が同じ理想周辺から各設定で $\varepsilon_{\rm Bell}^{48,{\rm cyc}}$ 以内なら、三角不等式により反対設定間の差は $2\varepsilon_{\rm Bell}^{48,{\rm cyc}}$ 以下である。
 
-各相関関数の被積分関数は、無反応を数値0として絶対値1以下である。従って1設定対の相関差は $2\varepsilon_{45B}$ 以下、4項のCHSH差は $8\varepsilon_{45B}$ 以下である。
+各相関関数の被積分関数は、無反応を数値0として絶対値1以下である。従って1設定対の相関差は $2\varepsilon_{\rm Bell}^{48,{\rm cyc}}$ 以下、4項のCHSH差は $8\varepsilon_{\rm Bell}^{48,{\rm cyc}}$ 以下である。
 
 設定前測度は同じ $\nu_0$ だが、R151のseed routingとR147の吸引先は $x$ に依存する。異なる非順序軸 $x,x'$ では2つの固有ray集合が異なるため、理想切断面測度の支持も異なる。従って一般に
 
@@ -495,7 +418,7 @@ D_{\rm TV}
 <!-- theorem-start:proof -->
 **証明（R155）**
 
-等重み枝とB条件付き重みを合成するとsinglet共同分布を得る。逐次核の全変動上界が前向き誤差和を与え、周辺化、三角不等式、有界観測量の期待値差から非信号周辺差とCHSH差を得る。$2\sqrt2-8\varepsilon_{45B}>2$ を解けば定理の破れ条件になる。切断面支持の設定依存性と切断後核の因子化がBell前提監査を与える。証明終。
+等重み枝とB条件付き重みを合成するとsinglet共同分布を得る。逐次核の全変動上界が前向き誤差和を与え、周辺化、三角不等式、有界観測量の期待値差から非信号周辺差とCHSH差を得る。$2\sqrt2-8\varepsilon_{\rm Bell}^{48,{\rm cyc}}>2$ を解けば定理の破れ条件になる。切断面支持の設定依存性と切断後核の因子化がBell前提監査を与える。証明終。
 <!-- theorem-end:proof -->
 
 ## D.8 R156の証明：fresh cell帰還
@@ -589,9 +512,9 @@ $\delta$ を小さくすると最小定常重みが小さくなり、$\lambda_X^
 
 ## D.10 M41との置換境界
 
-旧M41はM42/R113の場から配置への最小率と、A結果に条件付けた2担体準備を使った。M48は、M39共同配置を結果でなく設定前枝seedとして使い、paired-Hopf bath対、単一試行bath座標に条件付けたR152の局所配置bath、切断後の局所再matchingから結果を作る。両者の因果律を同じ証明へ混ぜない。
+旧M41はM42/R113の場から配置への最小率と、A結果に条件付けた2担体準備を使った。M48は、内部のsetting-pre等重みseed、paired-Hopf bath対、単一試行bath座標に条件付けたR152の局所配置bath、切断後の局所再matchingから結果を作る。両者の因果律を同じ証明へ混ぜない。
 
-M41のR107--R111、R121は置換済み模型内の結果として研究メモに保存する。R151--R156はM41の4モード条件付き2端準備を仮定せず、M42/R113をM48の実現配置頻度へ使わない。
+M41のR107--R111、R121は置換済み模型内の結果として研究メモに保存する。R151--R156はM41の4モード条件付き2端準備もM39の4-mode状態受渡しも仮定せず、M42/R113をM48の実現配置頻度へ使わない。Q2-1からの共同bath受渡しは付録Kの契約に従う別の未完了課題である。
 
 ## D.11 証明範囲
 

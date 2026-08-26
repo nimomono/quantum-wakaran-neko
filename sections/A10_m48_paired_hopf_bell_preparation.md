@@ -29,7 +29,7 @@
 4. 2翼の完全なM47 matchingと局所instrumentを仮定した後の余弦共同分布R149。
 5. 無反応を捨てない有限誤差、非信号性、CHSH値、Bell前提監査R150。
 
-R146--R148が単独で厳密に吸引するのは2翼bath方向である。実現配置 $X_A,X_B$ の周辺、条件付きbath分布、切断後局所分析、記録、周期末resetは、draft-45Bで追加する第5章と付録Dの別の開放配置流・装置定理R151--R156が閉じる。付録Jだけの結果を単一試行Bell周期と同一視しない。
+R146--R148が単独で厳密に吸引するのは2翼bath方向である。実現配置 $X_A,X_B$ の周辺、条件付きbath分布、切断後局所分析、記録、周期末resetは、第5章と付録Dの別の開放配置流・装置定理R151--R156がM48単独周期として閉じる。付録Jだけの結果を単一試行Bell周期またはQ2-1からの物理的受渡しと同一視しない。
 
 ## J.2 R146：積bath標本の直接共分散に対する否定的結果
 
@@ -159,17 +159,17 @@ B_{AB}
 {\left\|M_{AB}^{G}\right\|_{\rm F}}
 ```
 
-とする。列優先ベクトル化を
+とする。付録Kとの共通規約として行優先ベクトル化を
 
 ```math
-\operatorname{vec}_{\rm col}
+\operatorname{vec}_{\rm row}
 \begin{pmatrix}
 a&b\\
 c&d
 \end{pmatrix}
 =
 \begin{pmatrix}
-a&c&b&d
+a&b&c&d
 \end{pmatrix}^{\mathsf T}
 ```
 
@@ -178,7 +178,7 @@ a&c&b&d
 ```math
 \beta_{AB}
 =
-\operatorname{vec}_{\rm col}(B_{AB}),
+\operatorname{vec}_{\rm row}(B_{AB}),
 \qquad
 C_{AB}^{\times}
 =
@@ -187,16 +187,15 @@ C_{AB}^{\times}
 
 をM48の**交差共分散射影**と呼ぶ。階数1なのは $C_{AB}^{\times}$ であり、$2\times2$ 行列 $B_{AB}$ 自体ではない。また、$C_{AB}^{\times}$ はR146で退けた直接標本共分散 $C_Z$ ではない。
 
-M39は行優先の係数順序 $(00,01,10,11)$ を使う。M48で得る代表が $B_{AB}=-\mathsf E/\sqrt2$ なら
+列優先記法との関係は、中央2成分を交換する $P_{23}$ により
 
 ```math
 \operatorname{vec}_{\rm col}
-\left(
--\frac{\mathsf E}{\sqrt2}
-\right)
-=
-c_{\rm s},
+\left(B\right)
+=P_{23}\operatorname{vec}_{\rm row}\left(B\right)
 ```
+
+である。M48で得る代表が $B_{AB}=-\mathsf E/\sqrt2$ なら
 
 ```math
 \operatorname{vec}_{\rm row}
@@ -207,7 +206,7 @@ c_{\rm s},
 -c_{\rm s}.
 ```
 
-従って列優先では同じ代表、M39の行優先では全体位相 $-1$ だけ異なる。同じ階数1射影
+従ってM39の行優先singlet代表とはglobal phase $-1$ だけ異なり、同じ階数1射影
 
 ```math
 C_{AB}^{\times}
@@ -215,7 +214,7 @@ C_{AB}^{\times}
 c_{\rm s}c_{\rm s}^\dagger
 ```
 
-を与えるので、係数順序の違いを物理的な符号差と解釈しない。
+を与える。singletでは $P_{23}$ がglobal signに退化するが、一般行列では退化しないため、row-majorとcolumn-majorを暗黙に交換しない。
 
 ## J.4 設定前共通基準測度と試行の順序
 
@@ -876,7 +875,7 @@ R147、R148が単独で証明するのはbath射影
 \mathfrak M_x
 ```
 
-という完全共同測度の吸引ではない。交差共分散だけから単一試行頻度を作ったと扱うと、集団余弦重みだけを持ち単一試行周期を欠いた旧M30と同じ問題へ戻る。R149、R150はこの完全matchingと局所instrumentを抽象仮定にする。draft-45BのR151--R154は、固定singlet型Bell装置について、単一試行bath座標に条件付けた局所配置生成子、切断面の強いmatching fiber、切断後局所分析、再matching、固定、記録を構成し、この抽象仮定を有限誤差で充足する。
+という完全共同測度の吸引ではない。交差共分散だけから単一試行頻度を作った扱いにすると、集団余弦重みだけを持ち単一試行周期を欠いた旧M30と同じ問題へ戻る。R149、R150はこの完全matchingと局所instrumentを抽象仮定にする。第5章のR151--R154は、固定singlet型Bell装置について、単一試行bath座標に条件付けた局所配置生成子、切断面の強いmatching fiber、切断後局所分析、再matching、固定、記録を構成し、この抽象仮定を有限誤差で充足する。Q2-1から同じ試行状態を渡す条件は付録Kで別に固定する。
 
 ## J.11 R149：局所分析器からの条件付き余弦共同分布
 
@@ -983,7 +982,7 @@ p_{xy}^{\rm ideal}
 h_*.
 ```
 
-従って $h_*$ は事後選別率でなく、完全結果集合に残す有限時間誤差 $\varepsilon_{\rm basin}$ である。$h_*\downarrow0$ で無反応率は下がるが、R147の一様収束定数は増える。これは有限準備時間との交換である。R151でM39共同配置を等重み枝seedとして使う完全周期では、有限setting routingが最初から $|h_x|\geq h_*$ の安全盆へ入れる。そこではHaar盆境界質量 $h_*$ を固有の無反応率として加えず、routing失敗を $\varepsilon_{\rm link}$ へ入れる。
+従って $h_*$ は事後選別率でなく、完全結果集合に残す有限時間誤差 $\varepsilon_{\rm basin}$ である。$h_*\downarrow0$ で無反応率は下がるが、R147の一様収束定数は増える。これは有限準備時間との交換である。R151のsetting-pre等重みseedを使う完全周期では、有限setting routingが最初から $|h_x|\geq h_*$ の安全盆へ入れる。そこではHaar盆境界質量 $h_*$ を固有の無反応率として加えず、seed biasとrouting失敗を $\varepsilon_{\rm seed}+\varepsilon_{\rm route}$ へ入れる。
 
 ## J.13 R150：有限誤差、非信号性、CHSH値、Bell監査
 
@@ -995,7 +994,9 @@ M48経路の1設定対当たりの前向き全変動誤差を
 \leq{}&
 \delta_{\rm set}
 +
-\varepsilon_{\rm link}
+\varepsilon_{\rm seed}
++
+\varepsilon_{\rm route}
 +
 \varepsilon_{\rm PH}
 +
@@ -1017,7 +1018,7 @@ M48経路の1設定対当たりの前向き全変動誤差を
 \end{aligned}
 ```
 
-と分ける。$\delta_{\rm set}$ は有限設定生成、$\varepsilon_{\rm link}$ はM39出力とM48準備portの物理的受渡し、$\varepsilon_{\rm PH}$ はR147、R148の有限時間吸引、$\varepsilon_{\rm basin}=h_*$ は無反応盆、$\varepsilon_{\rm fib}^{A,B}$ は完全matching、$\varepsilon_{\rm inst}^{A,B}$ は局所分析器・傾斜固定、$\varepsilon_{\rm cut}$ は中央切断、$\varepsilon_{\rm rec}$ は局所記録、$\varepsilon_{\rm clk}$ は時計窓である。帰還誤差は次周期へ渡し、同じ周期の観測済み分布へ遡って加えない。draft-45BのR153では連続bath方向を完全状態全変動距離でなくprojective fiber距離で評価し、R154の一様Lipschitz定数を通して結果全変動距離へ移す。
+と分ける。$\delta_{\rm set}$ は有限設定生成、$\varepsilon_{\rm seed}$ は等重みseed、$\varepsilon_{\rm route}$ は安全盆routing、$\varepsilon_{\rm PH}$ はR147、R148の有限時間吸引、$\varepsilon_{\rm basin}=h_*$ は無反応盆、$\varepsilon_{\rm fib}^{A,B}$ は完全matching、$\varepsilon_{\rm inst}^{A,B}$ は局所分析器・傾斜固定、$\varepsilon_{\rm cut}$ は中央切断、$\varepsilon_{\rm rec}$ は局所記録、$\varepsilon_{\rm clk}$ は時計窓である。帰還誤差は次周期へ渡し、同じ周期の観測済み分布へ遡って加えない。R153では連続bath方向を完全状態全変動距離でなくprojective fiber距離で評価し、R154の一様Lipschitz定数を通して結果全変動距離へ移す。
 
 <!-- theorem-start:corollary -->
 **系（R150：M48経路の有限誤差非信号性、CHSH破れ、Bell前提監査）**
@@ -1056,9 +1057,9 @@ Bell前提の監査は次の通りである。
 | 非信号性 | 理想周辺は $1/2$、有限誤差差はR150の上界を持つ |
 | 試行測度 | 設定前基準測度 $\nu_0$、設定生成、M48押出し、切断、局所記録の順で定め、目的共同分布を初期測度へ直接置かない |
 
-M48はBellの定理を否定しない。CHSH破れを可能にする位置は測定設定独立性であり、切断後の局所因子化とは別である。また、A設定が中央準備へ入るため、標準的な2側空間分離Bell実験を再現したとは主張しない。R150の抽象誤差項は、第5章のR153--R155でM39受渡し、強いmatching、局所記録を含む $\varepsilon_{45B}$ へ具体化する。
+M48はBellの定理を否定しない。CHSH破れを可能にする位置は測定設定独立性であり、切断後の局所因子化とは別である。また、A設定が中央準備へ入るため、標準的な2側空間分離Bell実験を再現したとは主張しない。R150の抽象誤差項は、第5章のR153--R155でseed routing、強いmatching、局所記録を含む $\varepsilon_{\rm Bell}^{48,{\rm cyc}}$ へ具体化する。
 
-## J.14 M39との射影契約とR151の物理的受渡し
+## J.14 M39との代数的射影比較と物理的受渡しの境界
 
 M39の行優先係数ベクトル $c=(c_{00},c_{01},c_{10},c_{11})^{\mathsf T}$ を係数行列へ戻す写像を
 
@@ -1079,21 +1080,21 @@ c_{10}&c_{11}
 \frac{\mathsf E}{\sqrt2}.
 ```
 
-R148の $B_{AB}=-\mathsf E/\sqrt2$ は $-c_{\rm s}$ に対応し、同じ射影 $c_{\rm s}c_{\rm s}^\dagger$ を与える。従ってM39のsinglet出力とM48の交差共分散射影は代数的に一致する。
+R148の $B_{AB}=-\mathsf E/\sqrt2$ はrow-majorで $-c_{\rm s}$ に対応し、同じ射影 $c_{\rm s}c_{\rm s}^\dagger$ を与える。従ってM39のsinglet出力とM48の交差共分散射影は代数的に一致する。
 
-draft-45Aではここまでを代数契約とし、物理的受渡しを未構成に残した。draft-45BのR151は、M39の4モード場を単一中央controllerへSWAPし、反対称成分からpairing tensorを作り、M39共同配置を等重み枝seedへ移す。従って固定singlet型については物理的な破壊的操作受渡しを構成する。4モード状態全体を2つの独立物理担体へ複製または状態保存的に分配したとは扱わない。
+ただし、代数的射影一致は単一試行の物理的受渡しではない。旧R151の反対称filterは、非零な全入力をglobal phaseを除いて同じ $\mathsf E$ へ正規化するため、M39状態の違いをM48へ運ばない。等重み枝も内部fair seedで代替できる。このため現行R151はM48内部のseed routingとして定義し直し、Q2-1からのstate-carrying受渡しは付録Kの $T_{\rm link}$ に従う未構成課題とする。旧主張の監査は `notes/superseded_m39_m48_handoff_claim.md` に残す。
 
-## J.15 draft-45Bで閉じた項目と残る非主張
+## J.15 M48単独周期で閉じた項目と残る非主張
 
-draft-45Aで未完成だったM39受渡し、2翼強matching、切断後局所分析、2翼記録、周期末帰還は、第5章と付録DのR151--R156で固定singlet型・固定有限設定族について閉じる。M41は置換済み模型へ移す。
+setting-pre等重みseed、安全盆routing、2翼強matching、切断後局所分析、2翼記録、周期末帰還は、第5章と付録DのR151--R156で固定singlet型・固定有限設定族について閉じる。M41は置換済み模型へ移す。一方、Q2-1出力と同じ試行レジスタをM48へ渡す共同bath providerは閉じていない。
 
-draft-45Bでも主張しない事項は次である。
+現稿で主張しない事項は次である。
 
 1. M48開放方程式の具体的回路、流体、振動子浴からの導出。
 2. M48の有限閉鎖Hamiltonian系への持ち上げ。
 3. R152の配置応答率を具体的回路または有限閉鎖Hamiltonianから導出したこと。
 4. 連続時間の全区間で強いmatching fiberが不変であること。
-5. 任意のM39二論理状態を状態保存的に2翼へ分配すること。
+5. 付録KのQ2-1--Q2-2受渡し写像、または任意のM39二論理状態を状態保存的に2翼へ分配すること。
 6. 準備後にA設定を自由変更する介入分布。
 7. 空間的に隔たった2設定選択、有限伝播円錐、標準Bell実験。
 8. 一般測定族を拘束するTsirelson原理。
