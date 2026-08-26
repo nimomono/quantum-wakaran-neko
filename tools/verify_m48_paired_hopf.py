@@ -189,18 +189,25 @@ def main() -> None:
 
     normalized_cross = -antisymmetric / sqrt(2.0)
     singlet = np.array([0.0, 1.0, -1.0, 0.0], dtype=complex) / sqrt(2.0)
-    column_vectorization = normalized_cross.reshape(-1, order="F")
     row_vectorization = normalized_cross.reshape(-1, order="C")
     checks.append(record_max(
-        "column_vectorized_singlet_error",
-        np.linalg.norm(column_vectorization - singlet),
-        2.0e-14,
-    ))
-    checks.append(record_max(
-        "m39_row_vectorized_singlet_ray_error",
+        "row_vectorized_singlet_ray_error",
         np.linalg.norm(
             np.outer(row_vectorization, row_vectorization.conj())
             - np.outer(singlet, singlet.conj())
+        ),
+        2.0e-14,
+    ))
+    permutation_23 = np.eye(4, dtype=complex)[[0, 2, 1, 3]]
+    general_matrix = np.array(
+        [[0.2 + 0.7j, -0.4 + 0.1j], [0.9 - 0.3j, -0.6 + 0.8j]],
+        dtype=complex,
+    )
+    checks.append(record_max(
+        "general_row_column_permutation_error",
+        np.linalg.norm(
+            general_matrix.reshape(-1, order="F")
+            - permutation_23 @ general_matrix.reshape(-1, order="C")
         ),
         3.0e-14,
     ))

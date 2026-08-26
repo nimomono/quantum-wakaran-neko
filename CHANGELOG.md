@@ -11,6 +11,25 @@
 - プロジェクト固有ファイルのライセンスが未指定であることを明記し、同梱フォントの著作権表示とSIL Open Font License Version 1.1を追加した。
 - 理論の達成判定、数式、数値結果、版番号は変更していない。
 
+## draft-46
+
+### Q2-2 receiverとQ2-1受渡しの分離
+
+- 固定目標Q2-2の文言は変更せず、R146--R156が閉じるM48単独Bell周期をreceiver側の条件付き達成、Q2-1から同じ試行状態を渡す物理的接続を未達成として、Q2-2全体を部分達成へ再分類した。Q2-1のR104--R106、R118、R120、R122と達成判定は変更していない。
+- R151を「M39からM48への固定singlet型破壊的受渡し」から「setting-pre等重みseedの履歴付き安全盆routing」へ改めた。M48の必須入力を固定pairing tensor、等重みseed、provenance履歴に限定し、M39の共同配置を枝へ写す処理は任意adapterへ下げた。
+- 旧反対称filterが非零な入力状態をglobal phaseを除いて同じ $\mathsf E$ へ潰し、M39枝を内部fair seedで置換してもBell分布が変わらないことをablationとして固定した。旧state handoff主張と再利用可能なbranch・provenance部品は `notes/superseded_m39_m48_handoff_claim.md` に移した。
+
+### 共同bath--実現配置契約
+
+- 付録K `sections/A11_q2_joint_bath_contract.md` を追加し、共通試行状態 $\Gamma_{\rm Q2}$、cross matching、単一試行配置matching、row-major vectorization、setting-free受渡し面 $\Sigma_{\rm link}$、同一レジスタの $T_{\rm link}$、拡大系で一対一な破壊的dilationを固定した。
+- 受渡しをstate-carrying、branch-carrying、provenance-onlyに分類し、枝bias sweepと履歴条件付き不変性を必須監査にした。将来の受渡し誤差 $\varepsilon_{\rm Q2-link}$ は予約するが、provider未構成のためM48単独周期の誤差へ算入しない。
+- M48のvectorizationをrow-majorへ統一し、column-majorとの関係 $\operatorname{vec}_{\rm col}=P_{23}\operatorname{vec}_{\rm row}$ を一般複素行列について検算する。R153--R156の入口誤差を $\varepsilon_{\rm seed}+\varepsilon_{\rm route}$、周期分布を $P_{\rm Bell}^{48,{\rm cyc}}$、前向き誤差を $\varepsilon_{\rm Bell}^{48,{\rm cyc}}$ へ改名した。
+
+### 回帰・文書同期
+
+- `tools/verify_m39_m48_ablation.py` を追加し、controller ray collapse、内部fair-seed置換、枝bias保存、provenance不活性、row/column permutationを回帰検算する。`tools/verify_m48_full_cycle.py` の正経路からM39入力依存を除いた。
+- README、状態台帳、本文、付録、誤差・資源台帳、結論、検証記録、構成一覧、引用情報、統合原稿、TeX、PDFをdraft-46へ同期した。
+
 ## draft-45B
 
 ### M39からM48への固定singlet型受渡し

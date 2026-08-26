@@ -252,7 +252,7 @@ def validate_fixed_goal_language() -> None:
         "Q1-2": "部分達成",
         "Q1-3": "部分達成",
         "Q1-4": "未達（凍結中）",
-        "Q2-2": "条件付き達成",
+        "Q2-2": "部分達成",
         "Q3-2": "未達（凍結中）",
         "Q3-3": "達成",
         "Q3-4": "達成",
@@ -269,6 +269,7 @@ def validate_fixed_goal_language() -> None:
         SECTIONS / "05_m48_bell_cycle_and_audit.md",
         SECTIONS / "A4_m48_cycle_proofs.md",
         SECTIONS / "A10_m48_paired_hopf_bell_preparation.md",
+        SECTIONS / "A11_q2_joint_bath_contract.md",
     )
     obsolete_paths = (
         SECTIONS / "03_l2_operation_measurement_zeno.md",

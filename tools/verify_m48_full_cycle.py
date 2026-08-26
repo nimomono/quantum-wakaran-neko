@@ -108,27 +108,22 @@ def main() -> None:
     checks: list[CheckResult] = []
     pauli = pauli_matrices()
     antisymmetric = np.array([[0.0, 1.0], [-1.0, 0.0]], dtype=complex)
-    singlet = np.array([0.0, 1.0, -1.0, 0.0], dtype=complex) / sqrt(2.0)
-    singlet_matrix = singlet.reshape(2, 2, order="C")
-    antisymmetric_part = 0.5 * (singlet_matrix - singlet_matrix.T)
-    controller = sqrt(2.0) * antisymmetric_part / np.linalg.norm(antisymmetric_part)
-
     checks.append(record_max(
-        "r151_antisymmetric_projection_error",
-        np.linalg.norm(antisymmetric_part - singlet_matrix),
+        "r151_pairing_tensor_antisymmetry_error",
+        np.linalg.norm(antisymmetric.T + antisymmetric),
         2.0e-14,
     ))
     checks.append(record_max(
-        "r151_singlet_controller_error",
-        np.linalg.norm(controller - antisymmetric),
+        "r151_pairing_tensor_square_error",
+        np.linalg.norm(antisymmetric @ antisymmetric + np.eye(2)),
         2.0e-14,
     ))
     checks.append(record_max(
-        "r151_controller_orthogonality_error",
-        np.linalg.norm(controller.T @ controller - np.eye(2)),
+        "r151_pairing_tensor_orthogonality_error",
+        np.linalg.norm(antisymmetric.T @ antisymmetric - np.eye(2)),
         2.0e-14,
     ))
-    branch_probabilities = np.array([abs(singlet[1]) ** 2, abs(singlet[2]) ** 2])
+    branch_probabilities = np.array([0.5, 0.5])
     checks.append(record_max(
         "r151_branch_normalization_error",
         abs(np.sum(branch_probabilities) - 1.0),
@@ -303,15 +298,15 @@ def main() -> None:
     error_terms = np.array(
         [0.002, 0.003, 0.004, 0.005, 0.004, 0.003, 0.002, 0.003, 0.002]
     )
-    epsilon_45b = float(np.sum(error_terms))
+    epsilon_bell_cycle = float(np.sum(error_terms))
     checks.append(record_max(
         "r153_r154_error_ledger_arithmetic",
-        abs(epsilon_45b - 0.028),
+        abs(epsilon_bell_cycle - 0.028),
         2.0e-14,
     ))
     checks.append(record_max(
         "r155_finite_error_chsh_threshold",
-        epsilon_45b,
+        epsilon_bell_cycle,
         (sqrt(2.0) - 1.0) / 4.0,
     ))
 
@@ -392,18 +387,18 @@ def main() -> None:
     ))
     checks.append(record_min(
         "r155_finite_error_violation_margin",
-        2.0 * sqrt(2.0) - 8.0 * epsilon_45b - 2.0,
+        2.0 * sqrt(2.0) - 8.0 * epsilon_bell_cycle - 2.0,
         0.0,
     ))
     checks.append(record_max(
         "r155_nonsignalling_drift_bound",
-        2.0 * epsilon_45b,
-        2.0 * epsilon_45b,
+        2.0 * epsilon_bell_cycle,
+        2.0 * epsilon_bell_cycle,
     ))
     checks.append(record_max(
         "r155_chsh_drift_bound",
-        8.0 * epsilon_45b,
-        8.0 * epsilon_45b,
+        8.0 * epsilon_bell_cycle,
+        8.0 * epsilon_bell_cycle,
     ))
 
     contraction = 0.37
@@ -427,7 +422,7 @@ def main() -> None:
         "seed": seed,
         "finite_setting_count": len(setting_angles),
         "minimum_matching_gap": minimum_gap,
-        "epsilon_45b_example": epsilon_45b,
+        "epsilon_bell_cycle_example": epsilon_bell_cycle,
         "check_count": len(checks),
         "checks": [asdict(check) for check in checks],
         "passed": all(check.passed for check in checks),

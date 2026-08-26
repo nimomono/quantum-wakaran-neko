@@ -18,8 +18,9 @@
 | `rejected_m46_current_transducer.md` | draft-42 第8.14節、付録I、R130--R134 | M46の不採用記録。R130--R132は補助結果として一部保持 | 場からrateを作って実現配置を動かす因果律が、複素振幅を実現配置--浴共同統計として定義するM47と両立しない |
 | `superseded_m38_m42_q1.md` | draft-43以前の第3章、付録B、M38、R92--R100、R119 | 旧Q1操作・測定模型の置換記録。R97--R99は一般装置補題として一部保持 | Q1をW型2モード共同統計と傾斜測定を使うM47/R139--R144へ移行した |
 | `frozen_q1_zeno.md` | draft-43以前の第3章、付録B、R101--R103 | Q1-4と旧有限Zeno構成の凍結記録 | M47測定へ接続する手順を今回構成せず、傾斜による離調固定をZeno効果と区別するため |
-| `superseded_m41_bell_cycle.md` | draft-45A以前の第5章、M41、R107--R111、R121 | 旧初期共通原因型2端Bell周期の置換記録 | M39からM48への破壊的受渡し、2翼strong matching、切断後局所instrument、resetをR151--R156で閉じ、現行Q2-2をM48へ移した |
+| `superseded_m41_bell_cycle.md` | draft-45A以前の第5章、M41、R107--R111、R121 | 旧初期共通原因型2端Bell周期の置換記録 | M48のpaired-Hopf receiver、2翼strong matching、切断後局所instrument、resetへ主線を移し、因果律の異なる旧周期を現行根拠から外した |
 | `superseded_m41_cycle_proofs.md` | draft-45A以前の付録D | M41周期の旧証明記録 | R107--R111、R121を撤回せず保存する一方、現行Q2-2の証明依存から外すため |
+| `superseded_m39_m48_handoff_claim.md` | draft-45BのR151、旧第4.9節・第5.3節・付録D.2・付録J.14 | 旧M39--M48 state handoff主張の置換記録 | 反対称filterが非零入力を同じsinglet射影へ潰し、等重み枝も内部fair seedで代替できるため、物理的なstate-carrying受渡しと分類できない |
 
 完全な旧原稿は版タグと公開版で保存し、ここには置かない。
 
