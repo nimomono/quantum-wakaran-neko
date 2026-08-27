@@ -29,6 +29,7 @@
 - `sections/A9_w_two_mode_hopf_statistics.md`
 - `sections/A10_m48_paired_hopf_bell_preparation.md`
 - `sections/A11_q2_joint_bath_contract.md`
+- `sections/A12_m47_collision_bath_thermodynamics.md`
 - `sections/90_references.md`
 
 ## 論文外の研究メモ
@@ -71,6 +72,7 @@
 - `tools/verify_envelope_reduction.py`
 - `tools/verify_m47_q1_instrument.py`
 - `tools/verify_m47_hopf_preparation.py`
+- `tools/verify_m47_collision_thermodynamics.py`
 - `tools/verify_m48_paired_hopf.py`
 - `tools/verify_m48_full_cycle.py`
 - `tools/verify_m39_m48_ablation.py`

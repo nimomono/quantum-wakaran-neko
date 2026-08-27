@@ -1,6 +1,6 @@
 # 検算と品質確認
 
-この文書は draft-47 の再現計算、静的整合性、PDF 生成、および目視確認の記録である。検証日は 2026-08-27。
+この文書は draft-48 の再現計算、静的整合性、PDF 生成、および目視確認の記録である。検証日は 2026-08-27。
 
 ## 実行方法
 
@@ -12,6 +12,7 @@ python tools/verify_phase_correlation.py
 python tools/verify_action_distribution.py
 python tools/verify_m47_q1_instrument.py
 python tools/verify_m47_hopf_preparation.py
+python tools/verify_m47_collision_thermodynamics.py
 python tools/verify_q2_1_gate.py
 python tools/verify_m49_joint_bath_provider.py
 python tools/verify_m48_paired_hopf.py
@@ -23,11 +24,17 @@ python simulations/m45_open_quasicritical/verify.py --quick
 python tools/build_paper.py
 ```
 
-## draft-47 理論監査
+## draft-48 理論監査
+
+- R161 は任意のM47階数1信号bath方向について、正則化条件付きGibbs標的、自由エネルギー、平方根型局所率、詳細釣合い、一意定常分布、全ray一様混合率、共通位相・振幅不変性、node no-goを明示する。
+- R162 は有限衝突bath、対称条件付き障壁、エネルギー保存散乱からR161の率を実現し、有限セルoverflow、有限エネルギー、閾値平滑化、時計、信号bath保持を誤差として分離する。
+- R163 は配置部分の正逆経路確率比、積分ゆらぎ関係、quench仕事と相対エントロピーの恒等式を与える。周期全体の熱力学収支とは扱わない。
+- R143、R144 は連続matching保存を仮定せず、操作面ごとの再平衡化、入射停止、辺閉鎖、局所記録、template交換、測定後再平衡化を合成する。
+- Q1-2 はBorn型条件付き配置エネルギーの位相体積起源、Q1-3はHopf pumpからresetまでの周期総収支を残すため部分達成を維持する。
 
 - 付録KはQ2共同bath--実現配置の共通状態、cross matching、単一試行配置matching、row-major規約、setting-free受渡し面、破壊的dilationを固定する。
 - R151 は M48 内部の setting-pre 等重み seed を履歴から独立に paired-Hopf 安全盆へ送る。M39共同配置をseedへ写す処理は任意adapterであり、M48の必須入力ではない。
-- R152 は有限設定族ごとの有限状態 matching CTMC、正則化定常分布、paired-phase 流、および有限時間の準備誤差を明示する。
+- R152 はR161のBell限定形であり、有限設定族ごとの有限状態 matching CTMC、正則化定常分布、paired-phase 流、および有限時間の準備誤差を明示する。R162の有限衝突実現を利用できる。
 - R153 は結合切断時の matching fiber 条件を与える。連続分布から特異な ray fiber への有限時間収束を全状態の全変動距離で主張せず、半径誤差と共通位相商を含む射影的 paired-fiber 距離で評価する。
 - R154 は切断後の局所分析器、再整合、傾斜固定、および局所記録を規定する。
 - R155 はM48単独周期について、固定 singlet、有限設定族、有限誤差の範囲で余弦共同分布、無信号周辺分布、CHSH 値、および設定依存性をまとめる。
@@ -36,7 +43,7 @@ python tools/build_paper.py
 - R158 は担体、B bath、B配置へ同じCNOTを同一時計窓で作用させ、cross momentと共同配置を点ごとに同じ出力programへ写す。
 - R159 はprogram、入力配置、出力読出しに独立な3選択器を使い、固定有限入力、入力頻度、固定積出力基底の共同統計を閉じる。1角共有反例と一意エルゴード性・混合性の区別を含む。
 - R160 は固定singlet出力の同じbath・配置registerをsetting-free面からM48へ渡し、cross projector感度と枝biasを保存する。
-- M48単独周期と固定目標Q2-2全体は、固定singlet型、固定有限設定族、準備先行、非空間分離、採用開放法則の限定された意味で「条件付き達成」とする。R152 の微視的導出、空間的局所性、自由設定、一般状態への拡張は未達である。
+- M48単独周期と固定目標Q2-2全体は、固定singlet型、固定有限設定族、準備先行、非空間分離、採用開放法則の限定された意味で「条件付き達成」とする。R162とpaired-Hopf・seed routing・2翼controllerの統合、空間的局所性、自由設定、一般状態への拡張は未達である。
 - M41 は現行モデルから外し、置換前の履歴として `notes/` に移した。
 - M39を置換済みQ2-1模型へ移し、M42/R113をQ2-3・Q3だけに限定した。Q1、Q2-1、Q2-3、Q3 の判定は変更していない。
 
@@ -47,6 +54,8 @@ python tools/build_paper.py
 `tools/verify_m39_m48_ablation.py` は16項目を確認する。10,000件の一般入力に対する旧controller ray collapse、M39枝と内部fair seedのBell共同分布一致、枝bias sweep、provenance条件付き不変性、一般複素行列のrow/column permutationを検査する。
 
 `tools/verify_m49_joint_bath_provider.py` は29項目を確認する。10,000件の一般複素programについて、R157のcross moment・配置matching・稀な行の作用下界・有限失敗上界、R158の担体・bath・配置CNOT共変性、R159の固定有限benchmarkと1角共有反例、R160のsinglet fiber・state感度・枝bias保存を検査する。
+
+`tools/verify_m47_collision_thermodynamics.py` は29項目を確認する。R161の正規化、詳細釣合い、一様スペクトルギャップ下界、正則化誤差、位相・振幅不変性、node no-go、R162の衝突率、エネルギー保存、逆散乱、有限セルoverflow、有限エネルギー尾、R163のquench仕事、相対エントロピー、経路積分ゆらぎ関係を検査する。
 
 - 最小 matching gap: `1.900700696128881`
 - 例示するM48単独周期の誤差上界: `0.028`
@@ -60,6 +69,7 @@ python tools/build_paper.py
 | action distribution | 40 |
 | M47 Q1 | 43 |
 | M47 Hopf | 20 |
+| M47 collision thermodynamics | 29 |
 | Q2-1 | 25 |
 | M49 joint-bath provider | 29 |
 | M48 paired-Hopf | 56 |
@@ -68,14 +78,14 @@ python tools/build_paper.py
 | realized cycle | 42 |
 | Q3 pair model | 36 |
 | M45 quick diagnostics | 23 |
-| **合計** | **452** |
+| **合計** | **481** |
 
 全項目が成功した。
 
 ## 静的整合性
 
-- 定理系環境の開始・終了数は一致した。theorem 37、proposition 5、lemma 4、corollary 2、proof 37。
-- `PROJECT_STATUS.md`、`README.md`、`CHANGELOG.md`、`MANIFEST.md`、本文、および付録の draft-47 表記と参照先を照合した。
+- 定理系環境の開始・終了数は一致した。theorem 43、proposition 6、lemma 4、corollary 2、proof 40。
+- `PROJECT_STATUS.md`、`README.md`、`CHANGELOG.md`、`MANIFEST.md`、本文、および付録の draft-48 表記と参照先を照合した。
 - 現行検証から旧 M41 検証を外し、M48 full-cycle 検証へ置換した。
 - Q2-3・Q3の達成判定、Q3本体、Q3付録の定理・証明ブロック、および M45 図版が基準コミットから不変であることを確認した。Q2-3資源台帳はM49の直接モード費用へ更新し、付録Fは冒頭の適用範囲だけを「Q2-3・Q3」に更新した。
 - `git diff --check` に空白エラーはない。
@@ -83,17 +93,17 @@ python tools/build_paper.py
 ## PDF 生成
 
 - 出力: `paper.pdf`
-- ページ数: 196
+- ページ数: 212
 - 用紙: A4
-- ファイルサイズ: 1,418,045 bytes
-- SHA-256: `e2ac3cfa708b583186ca1ac2e2bbae0882a66e7e50cff9d274ec9860458332db`
+- ファイルサイズ: 1,494,194 bytes
+- SHA-256: `d5e7dec94c0842ccfdef2f76317d85d29c6df44603e9627dbbb05489cc15f8c5`
 - `SOURCE_DATE_EPOCH` と内容由来のPDF trailer IDを固定し、連続2回の生成でPDFバイナリが一致した。
 - 未解決の citation/reference、overfull/underfull box、fatal error、欠落文字、過大 float はない。
 - Latin Modern Math の一部に bold fallback 警告があるが、文字欠落や配置崩れはない。
 
 ## PDF 目視確認
 
-全 196 ページを低解像度コンタクトシートで通覧した。さらに、物理ページ 1、15--18、39--44、78、116--144、177--193 を高解像度または重点コンタクトシートで確認し、表紙、第1章の判定表、第4章のR157--R160、第5章のM48境界、第8章の誤差表、付録C・D・F・Jの証明、付録Kの受渡し契約を重点監査した。
+全 212 ページを低解像度コンタクトシートで通覧した。さらに、物理ページ 1、15--31、39--49、68--91、188--212 を高解像度または重点コンタクトシートで確認し、表紙、第1章の判定表、第3章のR161--R163とQ1周期、第5章のM48境界、第8章の誤差・資源表、付録Kの受渡し契約、付録Lの有限衝突熱浴とゆらぎ関係を重点監査した。
 
 クリッピング、重なり、意図しない空白ページ、黒塗り領域、数式の欠落、および見出しの破綻は見つからなかった。
 
@@ -101,11 +111,11 @@ python tools/build_paper.py
 
 GitHub Actions は次を確認する。
 
-- 上記 13 本の検証スクリプト
+- 上記 14 本の検証スクリプト
 - 現行章・付録・検証器の存在と旧 M41 現行パスの不在
 - status guide と本文の整合性
 - `paper.md`、`main.tex`、`paper.pdf` の再生成差分
 - 収録PDFと再生成PDFのテキスト層、ページ数、用紙寸法の一致
-- 196 ページであること
+- 212 ページであること
 - LaTeX ログに重大警告がないこと
 - `git diff --check`

@@ -1094,7 +1094,7 @@ setting-pre等重みseed、安全盆routing、2翼強matching、切断後局所�
 
 1. M48開放方程式の具体的回路、流体、振動子浴からの導出。
 2. M48の有限閉鎖Hamiltonian系への持ち上げ。
-3. R152の配置応答率を具体的回路または有限閉鎖Hamiltonianから導出したこと。
+3. R162の衝突熱浴とpaired-Hopf pump、seed routing、信号bath保持を同じ具体的回路または有限閉鎖Hamiltonianへ統合したこと。
 4. 連続時間の全区間で強いmatching fiberが不変であること。
 5. 任意のQ2-1出力を一般状態M48測定へ接続すること。
 6. 準備後にA設定を自由変更する介入分布。
