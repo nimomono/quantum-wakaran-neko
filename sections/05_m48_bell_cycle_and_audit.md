@@ -1,7 +1,7 @@
 @number: 5
 @chapter: 本文
 @title: M48の2端Bell測定周期と前提監査
-@status: 固定singlet型・固定有限設定族について、M48内部の等重みseed routing、2翼matching、切断後局所分析、記録、弱開放帰還を閉じる。M48単独周期は条件付き達成、Q2-1からの物理的接続を含むQ2-2全体は部分達成とする。
+@status: 固定singlet型・固定有限設定族について、M48内部またはM49由来の等重みseed routing、2翼matching、切断後局所分析、記録、弱開放帰還を閉じる。M48単独周期とM49接続周期を条件付き達成とする。
 
 ## 5.1 目的と模型の境界
 
@@ -15,7 +15,7 @@ M48単独周期は次の5項目を順に閉じる。
 4. 各局所分析器の終了後にmatchingを局所的に回復し、傾斜固定した実現配置だけを記録する。
 5. 外部記録を残したまま、能動部をfresh cell交換で次周期入口へ戻す。
 
-全時刻でmatching多様体が厳密不変であるとは主張しない。切断面、局所分析器終了面、記録面というプロトコル面ごとにmatching誤差を評価する。これでM48内部のBell結果頻度に必要な橋は閉じるが、付録Kの共同bath--実現配置契約を満たすQ2-1側providerと受渡し写像は構成しない。M47の一般Q1測定で残る自然なmatching保存問題も解消しない。
+全時刻でmatching多様体が厳密不変であるとは主張しない。切断面、局所分析器終了面、記録面というプロトコル面ごとにmatching誤差を評価する。M48内部のBell結果頻度に必要な橋はR151--R156、Q2-1から同じ試行registerを渡す橋はM49/R160が閉じる。M47の一般Q1測定で残る自然なmatching保存問題は解消しない。
 
 M48は採用開放古典模型である。paired-Hopf pump、設定controller、配置交換bath、傾斜固定、記録cell、fresh cell流を明示するが、全系を有限閉鎖Hamiltonianへ持ち上げたとは呼ばない。
 
@@ -29,7 +29,7 @@ P(S_0=+1)=P(S_0=-1)=\frac12,
 \operatorname{Law}(S_0\mid x,y)=\operatorname{Law}(S_0).
 ```
 
-$S_0$ は測定結果ではなく、設定生成前に存在する共通原因seedである。履歴識別子 $H_{\rm prov}$ を付けてもよいが、設定と結果形成には入力しない。M39の共同配置 $X^{39}=01,10$ をそれぞれ $S_0=+1,-1$ へ写す有限adapterは許される。ただしM48はそのadapterを必要とせず、付録Kのstate-carrying受渡しを実現したとも数えない。
+$S_0$ は測定結果ではなく、設定生成前に存在する共通原因seedである。M48単独運転では内部等重みcellを使い、M49接続運転ではR160が渡した同じ実現配置から $S_0=(-1)^{X_A}$ と読む。後者はM49のbath対、配置対を恒等搬送した後のbranch-carrying成分であり、state-carrying性は受渡し面のcross projector感度で別に検査する。履歴識別子 $H_{\rm prov}$ は設定と結果形成へ入力しない。
 
 ## 5.3 setting-pre seedの履歴付き安全盆routing
 
@@ -50,7 +50,7 @@ h_x(m)
 <!-- theorem-start:theorem -->
 **定理（R151：setting-pre等重みseedの履歴付き安全盆routing）**
 
-有限設定族 $\mathcal X$ と $h_*>0$ を固定する。設定前の等重みseed $S_0\in\{+1,-1\}$ と固定tensor $\mathsf E$ から開始し、各 $(S_0,x)$ について $S_0h_x(m)\geq h_*$ となるbright seedへ送る有限前向きroutingを構成できる。有限装置ではseed bias誤差を $\varepsilon_{\rm seed}$、盆外・routing失敗質量を $\varepsilon_{\rm route}$ として無反応へ送る。任意の許された履歴値 $h$ について
+有限設定族 $\mathcal X$ と $h_*>0$ を固定する。設定前の等重みseed $S_0\in\{+1,-1\}$ と固定tensor $\mathsf E$ から開始し、各 $(S_0,x)$ について $S_0h_x(m)\geq h_*$ となるbright seedへ送る有限前向きroutingを構成できる。$S_0$ はM48内部cellまたはM49/R160の $X_A$ から供給してよく、いずれも設定生成前に存在する。接続運転では受渡された同じ $z_A,z_B$ registerをbright/dark portとして使い、ensembleから新しいbath対を再標本化しない。有限装置ではseed bias誤差を $\varepsilon_{\rm seed}$、盆外・routing失敗質量を $\varepsilon_{\rm route}$ として無反応へ送る。任意の許された履歴値 $h$ について
 
 ```math
 \operatorname{Law}(A,B\mid x,y,H_{\rm prov}=h)
@@ -58,7 +58,7 @@ h_x(m)
 \operatorname{Law}(A,B\mid x,y)
 ```
 
-とし、履歴はprovenance監査にだけ残す。M39共同配置から枝値とbiasを保存して $S_0$ を作るadapterはbranch-carrying、履歴識別子だけを残すadapterはprovenance-onlyである。いずれも本定理の入力依存性ではなく、Q2-1状態を運ぶstate-carrying受渡しでもない。
+とし、履歴はprovenance監査にだけ残す。M49接続では枝biasは保存され、bath・配置registerのstate-carrying受渡しはR160で評価する。R151自体は設定生成後の安全盆routingであり、一般状態Bell測定を主張しない。
 <!-- theorem-end:theorem -->
 
 ## 5.4 単一試行bath座標からの局所matching流
@@ -553,19 +553,18 @@ T_{\rm ret}
 
 ## 5.14 Q2-2判定と非主張
 
-R151--R156により、固定singlet型、固定有限設定族、準備先行、非空間分離、プロトコル面matching、無反応込み、弱開放帰還という解釈では、M48単独Bell周期を条件付き達成とする。固定目標Q2-2は「Q2-1の出力を2つの物理的測定端へ接続する」ことも要求する。付録Kの共同bath providerと $T_{\rm link}$ は未構成なので、Q2-2全体は部分達成である。
+R151--R156によりM48単独Bell周期を閉じ、M49/R160によりQ2-1の固定singlet出力を同じbath・配置registerのままsetting-free面から接続する。従って固定singlet型、固定有限設定族、準備先行、非空間分離、プロトコル面matching、無反応込み、採用開放法則、弱開放帰還という解釈では、固定目標Q2-2全体を条件付き達成とする。
 
-M41のR107--R111、R121は数学的に撤回せず、置換済み模型内の補助結果として研究メモへ移す。M42/R113はQ2-1、Q2-3、Q3の暫定根拠に残るが、M48単独周期の結果形成には使わない。M39共同配置を任意adapterで枝seedへ写す場合だけ、そのadapterの由来としてR120/M42依存が復活する。
+M41のR107--R111、R121は数学的に撤回せず、置換済み模型内の補助結果として研究メモへ置く。M39単独模型とM42/R113のQ2-1適用も現行因果鎖から外す。M42はQ2-3とQ3だけに残り、M48単独周期またはM49接続周期の結果形成には使わない。
 
 本章は次を主張しない。
 
-1. Q2-1出力を付録Kの同じ試行レジスタとしてM48へ渡すこと。
-2. 任意のM39二論理状態を2翼へ状態保存的に分配すること。
-3. 標準的な空間分離Bell実験または準備後の自由設定変更。
-4. 一般測定族に対するTsirelson原理。
-5. 独立同分布型有限標本揺らぎ。
-6. R152の配置応答則を具体的回路または有限閉鎖Hamiltonianから導出したこと。
-7. 連続時間の全区間で強いmatching fiberが不変であること。
-8. M47の一般Q1 matching準備、測定後状態、逐次測定を解いたこと。
-9. 全系の総エネルギー・総エントロピー収支を閉じたこと。
-10. Q2-3の多量子ビット資源問題を進めたこと。
+1. 任意のQ2-1出力を一般状態Bell測定へ渡すこと。
+2. 標準的な空間分離Bell実験または準備後の自由設定変更。
+3. 一般測定族に対するTsirelson原理。
+4. 独立同分布型有限標本揺らぎ。
+5. R151、R152の応答則を具体的回路または有限閉鎖Hamiltonianから導出したこと。
+6. 連続時間の全区間で強いmatching fiberが不変であること。
+7. M47の一般Q1 matching準備、測定後状態、逐次測定を解いたこと。
+8. 全系の総エネルギー・総エントロピー収支を閉じたこと。
+9. Q2-3の多量子ビット資源問題を進めたこと。

@@ -21,6 +21,7 @@
 | `superseded_m41_bell_cycle.md` | draft-45A以前の第5章、M41、R107--R111、R121 | 旧初期共通原因型2端Bell周期の置換記録 | M48のpaired-Hopf receiver、2翼strong matching、切断後局所instrument、resetへ主線を移し、因果律の異なる旧周期を現行根拠から外した |
 | `superseded_m41_cycle_proofs.md` | draft-45A以前の付録D | M41周期の旧証明記録 | R107--R111、R121を撤回せず保存する一方、現行Q2-2の証明依存から外すため |
 | `superseded_m39_m48_handoff_claim.md` | draft-45BのR151、旧第4.9節・第5.3節・付録D.2・付録J.14 | 旧M39--M48 state handoff主張の置換記録 | 反対称filterが非零入力を同じsinglet射影へ潰し、等重み枝も内部fair seedで代替できるため、物理的なstate-carrying受渡しと分類できない |
+| `superseded_m39_m42_q2_1.md` | draft-46以前の第4章、付録C、M39、R118・R120・R122のQ2-1適用 | 旧Q2-1模型の置換記録。R104--R106はM49内部へ再利用 | Q2-2へ必要な2端bath・配置registerを供給せず、付録Kの同一試行受渡し契約を満たさないため |
 
 完全な旧原稿は版タグと公開版で保存し、ここには置かない。
 
