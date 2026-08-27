@@ -36,6 +36,7 @@ jobs:
           python tools/verify_m47_q1_instrument.py
           python tools/verify_m47_hopf_preparation.py
           python tools/verify_q2_1_gate.py
+          python tools/verify_m49_joint_bath_provider.py
           python tools/verify_m48_paired_hopf.py
           python tools/verify_m48_full_cycle.py
           python tools/verify_m39_m48_ablation.py
@@ -43,23 +44,27 @@ jobs:
           python tools/verify_q3_completion.py
           python simulations/m45_open_quasicritical/verify.py --quick
 
-      - name: draft-46のQ2受渡し境界と表記を検査
+      - name: draft-47のM49供給模型とQ2接続境界を検査
         run: |
           test -f sections/03_m47_controlled_w_instrument.md
           test -f sections/A2_m47_controlled_w_instrument_proofs.md
           test -f sections/A9_w_two_mode_hopf_statistics.md
           test -f sections/A10_m48_paired_hopf_bell_preparation.md
           test -f sections/A11_q2_joint_bath_contract.md
+          test -f sections/04_l4_two_qubit_gate.md
+          test -f sections/A3_l4_two_qubit_gate_proofs.md
           test -f tools/verify_m47_q1_instrument.py
           test -f tools/verify_m47_hopf_preparation.py
           test -f tools/verify_m48_paired_hopf.py
           test -f tools/verify_m48_full_cycle.py
           test -f tools/verify_m39_m48_ablation.py
+          test -f tools/verify_m49_joint_bath_provider.py
           test -f sections/05_m48_bell_cycle_and_audit.md
           test -f sections/A4_m48_cycle_proofs.md
           test -f notes/superseded_m41_bell_cycle.md
           test -f notes/superseded_m41_cycle_proofs.md
           test -f notes/superseded_m39_m48_handoff_claim.md
+          test -f notes/superseded_m39_m42_q2_1.md
           test ! -e sections/05_m41_bell_cycle_and_audit.md
           test ! -e sections/A4_m41_cycle_proofs.md
           test ! -e tools/verify_q2_2_m41.py
@@ -71,13 +76,19 @@ jobs:
           grep -Fq '| Q1-2 | 部分達成 |' PROJECT_STATUS.md
           grep -Fq '| Q1-3 | 部分達成 |' PROJECT_STATUS.md
           grep -Fq '| Q1-4 | 未達（凍結中） |' PROJECT_STATUS.md
-          grep -Fq '| Q2-2 | 部分達成 | R146--R156、付録K |' PROJECT_STATUS.md
-          ! grep -Fq '| Q2-2 | 条件付き達成 |' PROJECT_STATUS.md
+          grep -Fq '| Q2-1 | 達成 | R104--R106、R157--R159 |' PROJECT_STATUS.md
+          grep -Fq '| Q2-2 | 条件付き達成 | R146--R160、付録K |' PROJECT_STATUS.md
           grep -Fq '| M41 | 初期共通原因型2端Bell測定周期 | 置換済みモデル |' PROJECT_STATUS.md
           grep -Fq '| M48 | 設定依存paired-Hopf初期共通原因Bell周期模型 | 現行Q2-2 receiverモデル |' PROJECT_STATUS.md
-          grep -Fq 'Q1、Q2-1、Q2-3、Q3の現在地は変更しない。' PROJECT_STATUS.md
+          grep -Fq '| M49 | 行分解共同bath--実現配置CNOT供給模型 | 現行Q2-1モデル・Q2-2供給模型 |' PROJECT_STATUS.md
+          grep -Fq '| M42 | 有限配置グラフ上の複素振幅場-実現配置モデル | Q2-3・Q3限定の現行モデル |' PROJECT_STATUS.md
           grep -Fq 'M42/R113またはcurrent transducerを使わない' sections/03_m47_controlled_w_instrument.md
           grep -Fq 'R151--R156' sections/01_scope_and_cycle.md
+          grep -Fq 'R157：M49の行分解bath・配置matchingと有限Hamiltonian準備' sections/04_l4_two_qubit_gate.md
+          grep -Fq 'R158：担体・bath・配置へ同期する同一試行CNOT' sections/04_l4_two_qubit_gate.md
+          grep -Fq 'R159：固定有限入力、入力頻度、固定積出力基底の共同入力--出力統計' sections/04_l4_two_qubit_gate.md
+          grep -Fq 'R160：M49固定singlet providerからM48へのsetting-free同一register受渡し' sections/04_l4_two_qubit_gate.md
+          grep -Fq 'M42はQ2-3とQ3だけに残す' sections/04_l4_two_qubit_gate.md
           grep -Fq 'R151--R154' sections/A10_m48_paired_hopf_bell_preparation.md
           grep -Fq 'state-carrying' sections/A11_q2_joint_bath_contract.md
           grep -Fq 'branch-carrying' sections/A11_q2_joint_bath_contract.md
@@ -86,6 +97,8 @@ jobs:
           ! grep -Fq 'M39からM48への固定singlet型破壊的受渡し' README.md PROJECT_STATUS.md sections/*.md
           ! grep -Fq '\varepsilon_{39}' sections/05_m48_bell_cycle_and_audit.md sections/A4_m48_cycle_proofs.md sections/08_errors_resources_open_targets.md
           ! grep -Fq '\varepsilon_{\rm link}' sections/05_m48_bell_cycle_and_audit.md sections/A4_m48_cycle_proofs.md sections/08_errors_resources_open_targets.md
+          ! grep -Fq 'Q2-1から同じ試行レジスタを渡すproviderが未構成' README.md PROJECT_STATUS.md VALIDATION.md sections/*.md
+          ! grep -Fq '固定目標Q2-2全体は、付録KのQ2-1--Q2-2物理受渡しが未構成' README.md PROJECT_STATUS.md sections/*.md
           ! grep -REn '二mode|二モード' README.md PROJECT_STATUS.md CHANGELOG.md sections notes
 
       - name: 収録PDFを退避
@@ -102,7 +115,7 @@ jobs:
           diff -u /tmp/paper-committed.txt /tmp/paper-regenerated.txt
           test "$(pdfinfo /tmp/paper-committed.pdf | awk '/^Pages:/ {print $2}')" = "$(pdfinfo paper.pdf | awk '/^Pages:/ {print $2}')"
           test "$(pdfinfo /tmp/paper-committed.pdf | awk -F: '/^Page size:/ {sub(/^ +/, "", $2); print $2}')" = "$(pdfinfo paper.pdf | awk -F: '/^Page size:/ {sub(/^ +/, "", $2); print $2}')"
-          test "$(pdfinfo paper.pdf | awk '/^Pages:/ {print $2}')" = "194"
+          test "$(pdfinfo paper.pdf | awk '/^Pages:/ {print $2}')" = "196"
           ! grep -Eq "Citation .* undefined|Reference .* undefined|Overfull|Underfull|Fatal error|Missing character" build/latex/main.log
 
       - name: 標準構成を検査

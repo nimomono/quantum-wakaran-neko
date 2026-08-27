@@ -252,7 +252,10 @@ def validate_fixed_goal_language() -> None:
         "Q1-2": "部分達成",
         "Q1-3": "部分達成",
         "Q1-4": "未達（凍結中）",
-        "Q2-2": "部分達成",
+        "Q2-1": "達成",
+        "Q2-2": "条件付き達成",
+        "Q2-3": "未着手",
+        "Q3-1": "達成",
         "Q3-2": "未達（凍結中）",
         "Q3-3": "達成",
         "Q3-4": "達成",
@@ -266,6 +269,8 @@ def validate_fixed_goal_language() -> None:
     required_paths = (
         SECTIONS / "03_m47_controlled_w_instrument.md",
         SECTIONS / "A2_m47_controlled_w_instrument_proofs.md",
+        SECTIONS / "04_l4_two_qubit_gate.md",
+        SECTIONS / "A3_l4_two_qubit_gate_proofs.md",
         SECTIONS / "05_m48_bell_cycle_and_audit.md",
         SECTIONS / "A4_m48_cycle_proofs.md",
         SECTIONS / "A10_m48_paired_hopf_bell_preparation.md",
@@ -297,6 +302,18 @@ def validate_fixed_goal_language() -> None:
     ]
     if inconsistent:
         raise ValueError("2モード表記の不一致: " + "、".join(inconsistent))
+
+    m49_text = (SECTIONS / "04_l4_two_qubit_gate.md").read_text(encoding="utf-8")
+    for token in (
+        "R157：M49の行分解bath・配置matchingと有限Hamiltonian準備",
+        "R158：担体・bath・配置へ同期する同一試行CNOT",
+        "R159：固定有限入力、入力頻度、固定積出力基底の共同入力--出力統計",
+        "R160：M49固定singlet providerからM48へのsetting-free同一register受渡し",
+        r"\rho_*",
+        r"\varepsilon_{\rm Q2-link}",
+    ):
+        if token not in m49_text:
+            raise ValueError(f"M49本文の固定要素がない: {token}")
 
 
 def preprocess(lines: list[str]) -> list[str]:

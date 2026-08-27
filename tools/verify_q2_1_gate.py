@@ -344,7 +344,7 @@ def main() -> None:
     checks.append(record_max("duhamel_operator_bound_excess", duhamel_excess, 2.0e-14))
 
     # Explicit resource upper bounds.
-    checks.append(record_equal("m39_gate_pair_count_error", 4 + 1, 5))
+    checks.append(record_equal("m49_carrier_gate_pair_count_error", 4 + 1, 5))
     checks.append(record_equal("m35_l4_pair_count_error", 3 * 4 + 4, 16))
 
     payload = {

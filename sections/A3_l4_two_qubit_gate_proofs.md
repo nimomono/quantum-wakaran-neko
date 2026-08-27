@@ -1,530 +1,490 @@
 @number: C
 @chapter: 付録
-@title: M39の4モード操作代数、CNOT流、共同統計
-@status: R104--R106、R120、R122の代数、誤差、共同統計を証明する。
+@title: M49共同bath CNOT供給模型の証明
+@status: R104--R106の4モード担体、R157--R160の行分解bath--配置matching、同期CNOT、固定有限共同統計、M48受渡しを証明する。
 
-## C.1 複素振幅と実正準流
+## C.1　4モード正準担体
 
-各複素振幅を
-
-```math
-b_j
-=
-\frac{Q_j+iP_j}{\sqrt{2\mathcal J_0}}
-```
-
-とすると、$\{b_j,\overline b_k\}=-i\delta_{jk}/\mathcal J_0$ である。Hermitian行列 $K,L$ に対する2次Hamiltonian $F_K=\mathcal J_0b^\dagger Kb$ は
+$C\in\mathbb C^{2\times2}$ を行優先で
 
 ```math
-\{F_K,F_L\}
-=
--i\mathcal J_0b^\dagger[K,L]b,
-\qquad
-i\dot b
-=
-Kb
+ c=\operatorname{vec}_{\rm row}(C)
+ =(C_{00},C_{01},C_{10},C_{11})^{\mathsf T}
+ \tag{C.1}
 ```
 
-を満たす。従って有限流 $e^{-itK}$ はユニタリであり、実8次元表示では正準性と全作用 $\mathcal J_0b^\dagger b$ を保存する。以下の代数計算を実正準Hamiltonianへ移す根拠はこの対応である。
-
-## C.2 2つの局所操作代数
-
-基底順序を $|00\rangle,|01\rangle,|10\rangle,|11\rangle$ とし、
+と並べ、
 
 ```math
-\mathcal A
-=
-M_2(\mathbb C)\otimes I_2,
-\qquad
-\mathcal B
-=
-I_2\otimes M_2(\mathbb C)
+ C_{ab}
+ =\frac{Q_{ab}+iP_{ab}}{\sqrt{2\mathcal J_0}}
+ \tag{C.2}
 ```
 
-と置く。任意の $A,B\in M_2(\mathbb C)$ について $(A\otimes I_2)(I_2\otimes B)=A\otimes B$ なので、両代数は可換である。区画行列に対する行列単位との交換関係から、相互可換代数は $\mathcal A'=\mathcal B$、$\mathcal B'=\mathcal A$ となる。積 $A\otimes B$ の線形包は $M_4(\mathbb C)$ 全体であるため、この2代数が操作誘導テンソル積を定める。
+とする。Hermitian行列 $K$ に対する実2次Hamiltonian
+
+```math
+ F_K=\mathcal J_0c^\dagger Kc
+ \tag{C.3}
+```
+
+は $i\dot c=Kc$ を与える。従ってunitaryは実正準流であり、$c^\dagger c$ を保存する。
+
+局所代数
+
+```math
+ \mathcal A=M_2(\mathbb C)\otimes I_2,
+ \qquad
+ \mathcal B=I_2\otimes M_2(\mathbb C)
+ \tag{C.4}
+```
+
+は相互に可換で、互いの可換代数に一致する。積 $A\otimes B$ の線形包は $M_4(\mathbb C)$ 全体なので、この二代数が操作誘導テンソル積を定める。局所unitaryは
+
+```math
+ C\longmapsto U_ACU_B^{\mathsf T}
+ \tag{C.5}
+```
+
+と作用し、$\operatorname{rank}C$ と $|\det C|$ を保存する。
 
 <!-- theorem-start:proof -->
 **証明（R104）**
 
-C.1節の括弧公式へ $K=A\otimes I_2$、$L=I_2\otimes B$ を代入すると、対応するHamiltonianはPoisson可換である。C.3節の正方形配線が各代数のPauli生成子を実装し、C.4節の階数条件が局所操作による積状態保存を与える。
+式(C.3)へ $K=A\otimes I_2$ と $L=I_2\otimes B$ を入れると、対応HamiltonianのPoisson括弧は行列交換子 $[K,L]=0$ に比例して零となる。正方形配線の対辺へ同じ $QQ+PP$ 交換と作用差を置けば、各局所Pauli生成子を有限2次Hamiltonianで実装できる。式(C.5)が積状態集合を保存する。証明終。
 <!-- theorem-end:proof -->
 
-## C.3 正方形配線
-
-交換生成子 $G^X_{jk}=Q_jQ_k+P_jP_k$ とモード作用差を正方形の対辺へ同期配置すると、
-
-```math
-G_A^X
-=
-\mathcal J_0b^\dagger(X\otimes I_2)b,
-\qquad
-G_B^X
-=
-\mathcal J_0b^\dagger(I_2\otimes X)b,
-```
-
-```math
-G_A^Z
-=
-\mathcal J_0b^\dagger(Z\otimes I_2)b,
-\qquad
-G_B^Z
-=
-\mathcal J_0b^\dagger(I_2\otimes Z)b
-```
-
-を得る。同じ部分系の $X,Z$ は $su(2)$ を生成し、異なる部分系の生成子は全て可換である。このため局所位相回転と $QQ+PP$ 交換の有限列が、両局所操作代数を実正準流として実装する。
-
-## C.4 積状態の階数条件
-
-4振幅を係数行列
-
-```math
-B(b)
-=
-\begin{pmatrix}
-b_{00}&b_{01}\\
-b_{10}&b_{11}
-\end{pmatrix}
-```
-
-へ並べる。非零状態が積状態であることは、$B=uv^{\mathsf T}$、すなわち $\operatorname{rank}B=1$ または $\det B=0$ と同値である。局所操作では
-
-```math
-B
-\longmapsto
-U_ABU_B^{\mathsf T}
-```
-
-となるため、階数と $|\det B|$ は保存される。これはM39内部の論理因子化条件であり、2つの独立物理担体への分解ではない。
-
-## C.5 差モード射影の正準表示
+## C.2　CNOT担体とR105、R106
 
 差モード $|d\rangle=(|10\rangle-|11\rangle)/\sqrt2$ への射影は
 
 ```math
-\Pi_{\rm CX}
-=
-|d\rangle\langle d|
-=
-|1\rangle\langle1|_A
-\otimes
-\frac{I_2-\sigma_x^{(B)}}{2}
+ \Pi_{\rm CX}
+ =|d\rangle\langle d|
+ =|1\rangle\langle1|_A
+ \otimes\frac{I_2-X}{2}.
+ \tag{C.6}
 ```
 
-である。対応する実2次生成子は
+対応する実2次生成子は
 
 ```math
-G_{\rm CX}
-=
-\mathcal J_0b^\dagger\Pi_{\rm CX}b
-=
-\frac14
-\left[
-(Q_{10}-Q_{11})^2
-+
-(P_{10}-P_{11})^2
-\right].
+ G_C
+ =\mathcal J_0c^\dagger\Pi_{\rm CX}c
+ =\frac14\left[(Q_{10}-Q_{11})^2+(P_{10}-P_{11})^2\right].
+ \tag{C.7}
 ```
-
-従って $b^\dagger b=1$ なら $0\leq G_{\rm CX}\leq\mathcal J_0$ であり、新しい相互作用次数を導入せず、下側1交換辺と2作用項で実装できる。
-
-## C.6 射影指数と厳密CNOT
 
 射影の冪は $\Pi_{\rm CX}^n=\Pi_{\rm CX}$ なので、
 
 ```math
-e^{-iA\Pi_{\rm CX}}
-=
-I_4
-+
-\left(e^{-iA}-1\right)
-\Pi_{\rm CX}
+ e^{-iA\Pi_{\rm CX}}
+ =I_4+(e^{-iA}-1)\Pi_{\rm CX}.
+ \tag{C.8}
 ```
 
-である。$A=\pi$ では制御値0部分空間に恒等写像、制御値1部分空間に $I_2-2(I_2-X)/2=X$ が作用する。従って全行列はCNOTに一致する。
+$A=\pi$ では制御値0部分空間に恒等、制御値1部分空間に $X$ が作用するためCNOTに一致する。
 
 <!-- theorem-start:proof -->
 **証明（R105）**
 
-$H_{\rm CX}=P_\tau+g(\tau)G_{\rm CX}$ では $\dot\tau=1$ で、信号生成子は全時刻で同じ射影の実数倍である。時間順序積は窓面積 $A$ の指数へ厳密に縮約し、$A=\pi$ で上のCNOTを得る。C.1節により流れは正準かつ作用保存である。C.7節の積入力を階数2へ写すため、局所操作の積には分解できない。
+$H_C=P_\tau+g(\tau)G_C$ では $\dot\tau=1$ で、信号生成子は全時刻で同じ射影の実数倍である。時間順序積は窓面積 $A$ の式(C.8)へ厳密に縮約する。$A=\pi$ でCNOTを得て、式(C.3)により正準性と作用保存が従う。積入力 $|+0\rangle$ の出力係数行列は階数2なので、局所操作の積ではない。証明終。
 <!-- theorem-end:proof -->
 
-## C.7 非因子化生成と相関
-
-入力 $|+0\rangle$ の係数行列は
+固定作用面では $0\leq G_C\leq\mathcal J_0$ である。$0\leq g\leq g_{max}$ の非負窓には
 
 ```math
-B_{\rm in}
-=
-\frac1{\sqrt2}
-\begin{pmatrix}
-1&0\\
-1&0
-\end{pmatrix}
+ T_{\rm g}\geq\frac{\pi}{g_{max}}
+ \tag{C.9}
 ```
 
-であり、階数1である。CNOT後は
+が必要である。面積誤差を $\delta A\in[-\pi,\pi]$ とすると、相対行列は $e^{-i\delta A\Pi_{\rm CX}}$ であり、固有値は1が3重、$e^{-i\delta A}$ が1重である。このため
 
 ```math
-B_{\rm out}
-=
-\frac1{\sqrt2}
-\begin{pmatrix}
-1&0\\
-0&1
-\end{pmatrix}
-```
-
-となるため、階数2かつ $2|\det B_{\rm out}|=1$ である。
-
-状態を $|\Phi^+\rangle=(|00\rangle+|11\rangle)/\sqrt2$ と書く。Pauli 作用を基底へ直接適用すると、
-
-```math
-(X\otimes X)|\Phi^+\rangle
-=
-|\Phi^+\rangle,
+ d_{\rm mat}
+ =2\left|\sin\frac{\delta A}{2}\right|,
+ \qquad
+ d_{\rm proj}
+ =2\sin\frac{|\delta A|}{4},
+ \tag{C.10}
 ```
 
 ```math
-(Z\otimes Z)|\Phi^+\rangle
-=
-|\Phi^+\rangle,
+ F_{\rm avg}
+ =1-\frac35\sin^2\frac{\delta A}{2}.
+ \tag{C.11}
 ```
+
+一般Hermitian誤差 $\Delta K(t)$ には
 
 ```math
-(Y\otimes Y)|\Phi^+\rangle
-=
--|\Phi^+\rangle
+ \eta_C
+ :=\inf_{q(t)\in\mathbb R}
+ \int_0^{T_{\rm g}}
+ \lVert\Delta K(t)-q(t)I_4\rVert_{\rm op},dt
+ \tag{C.12}
 ```
 
-となり、本文の3相関が従う。
-
-## C.8 面積誤差の厳密評価
-
-理想行列と実行列の相対行列は
+を使う。共通位相を除いた相互作用表示のDuhamel式から
 
 ```math
-W(\delta A)
-=
-U_{\rm CX}^\dagger
-U(\pi+\delta A)
-=
-e^{-i\delta A\Pi_{\rm CX}}.
+ \inf_\phi
+ \lVert\widetilde U-e^{i\phi}U_{\rm CX}\rVert_{\rm op}
+ \leq\min{2,\eta_C}.
+ \tag{C.13}
 ```
 
-固有値は1が3重、$e^{-i\delta A}$ が1重である。従って固定ゲージの作用素距離は
-
-```math
-\|W-I_4\|_{\rm op}
-=
-|e^{-i\delta A}-1|
-=
-2
-\left|
-\sin\frac{\delta A}{2}
-\right|.
-```
-
-共通位相を最適化すると、単位円上の2固有値の中点位相が最適であり、$|\delta A|\leq\pi$ について
-
-```math
-\inf_\phi
-\|W-e^{i\phi}I_4\|_{\rm op}
-=
-2\sin\frac{|\delta A|}{4}.
-```
-
-規格化入力について $p=\langle\psi|\Pi_{\rm CX}|\psi\rangle$ と置けば、目標出力との重なりは
-
-```math
-\langle\psi|W|\psi\rangle
-=
-1-p+pe^{-i\delta A}
-```
-
-なので、
-
-```math
-F_\psi
-=
-1
--
-4p(1-p)
-\sin^2\frac{\delta A}{2}.
-```
-
-$p=1/2$ で最小になり、最悪入力非忠実度は $\sin^2(\delta A/2)$ である。$|+0\rangle$ では $p=1/4$ なので、目標非忠実度は $3\sin^2(\delta A/2)/4$ となる。
-
-4次元ユニタリの平均ゲート忠実度は
-
-```math
-F_{\rm avg}
-=
-\frac{|\operatorname{tr}W|^2+4}{20}.
-```
-
-$\operatorname{tr}W=3+e^{-i\delta A}$ を代入すると、
-
-```math
-F_{\rm avg}
-=
-1
--
-\frac35
-\sin^2\frac{\delta A}{2}
-```
-
-を得る。
-
-面積誤差付き $|+0\rangle$ 出力の係数行列を直接計算すると、
-
-```math
-2|\det B|
-=
-\frac{|1+e^{-i\delta A}|}{2}
-=
-\left|
-\cos\frac{\delta A}{2}
-\right|.
-```
-
-真理値表について、制御値0の2基底は射影の核にあるため誤り0である。制御値1の各基底は対称・反対称標的成分を等重みで含むため、誤り確率は $\sin^2(\delta A/2)$ となる。
-
-## C.9 一般Hermitian 誤差の上界
-
-共通位相関数 $c(t)$ を1つ選び、
-
-```math
-\Delta K_c(t)
-=
-\Delta K(t)-c(t)I_4
-```
-
-と置く。対応する共通位相を実伝播行列から除いた後、理想伝播との相互作用表示を $V(t)$ とする。Duhamel 公式は
-
-```math
-V(T)-I_4
-=
--i
-\int_0^T
-U_0(t)^\dagger
-\Delta K_c(t)
-\widetilde U_c(t)
-\,\mathrm dt
-```
-
-を与える。両側の伝播行列はユニタリなので、
-
-```math
-\|V(T)-I_4\|_{\rm op}
-\leq
-\int_0^T
-\|\Delta K_c(t)\|_{\rm op}
-\,\mathrm dt.
-```
-
-$c(t)$ について下限を取ると本文の $\eta_{\rm g}$ 上界を得る。ユニタリ行列間の距離は最大2なので右辺を $\min\{2,\eta_{\rm g}\}$ とできる。
-
-規格化ベクトル $x,y$ の共通位相最適化後の距離を $d$ とすると、
-
-```math
-1-|x^\dagger y|^2
-\leq
-d^2.
-```
-
-従って $1-F_\psi\leq\min\{1,\eta_{\rm g}^2\}$ である。$|\Phi^+\rangle$ と任意の積状態の重なり2乗はSchmidt 係数から最大 $1/2$ なので、$\eta_{\rm g}<1/\sqrt2$ なら実出力は積状態でない。
-
-## C.10 有限時間と資源数
-
-非負窓、$g\leq g_{\max}$、支持長 $T_{\rm g}$ なら、
-
-```math
-\pi
-=
-\int g(t)\,\mathrm dt
-\leq
-g_{\max}T_{\rm g}
-```
-
-から $T_{\rm g}\geq\pi/g_{\max}$ を得る。滑らかな有限支持関数は端に立上りと立下りを持つため、同じ最大値で任意の $T_{\rm g}>\pi/g_{\max}$ に面積 $\pi$ を調整できる。
-
-信号には4正準対、窓の自律化には1時計正準対を使う。生成子は2つの単一モード作用項と1つの $QQ+PP$ 交換辺から成る。従ってゲート単体は5正準対で構成できる。
-
-M35の $L=4$ 構成は、信号4対、テンプレート4対、作用レジスター4対、閾値1対、内部記録1対、選択器1対、時計1対を使う。合計は
-
-```math
-4+4+4+1+1+1+1
-=16
-```
-
-である。ゲート信号と時計をM35側の信号と時計へ組み込む場合、固定設定の検算周期に追加の正準対は不要である。
-
-## C.11 M35作用区間による補助検算
-
-共同実現配置を使う主結果R120とは独立に、場の作用区間だけでも分布を検算できる。固定ラベル $s$ のM35周期で、準備回路 $U_{{\rm prep},s}$ の後、基底回路 $W_s$ の前にM39の面積 $\pi$ のCNOT窓を挿入する。逆計算側では対応する位置に逆CNOT窓を挿入する。第2章のM35検算式を
-
-```math
-\chi
-=
-U_{\rm CX}\chi_s,
-\qquad
-W
-=
-W_s
-```
-
-へ適用すると、結果 $r$ の理想長期頻度は
-
-```math
-p_s^{\rm id}
-\left(r\right)
-=
-\left|
-\left[
-W_sU_{\rm CX}\chi_s
-\right]_r
-\right|^2
-```
-
-となり、滑らかな比較で失われる質量は全て無反応へ入る。
-
-実ゲートを $\widetilde U_s$ とし、ある共通位相 $\phi_s$ について
-
-```math
-\left\|
-\widetilde U_s
--
-e^{i\phi_s}U_{\rm CX}
-\right\|_{\rm op}
-\leq
-\min
-\left\{
-2,\eta_{{\rm g},s}
-\right\}
-```
-
-とする。任意の固定基底測定の全変動距離は純粋状態間の跡距離以下であり、その跡距離は共通位相最適化後のベクトル距離以下なので、ゲート誤差の寄与は $\min\{1,\eta_{{\rm g},s}\}$ 以下である。M35の無反応質量 $\delta_s$ を加えると、固定 $s$ の出力分布誤差は
-
-```math
-D_{\rm TV}
-\left(
-p_s^{\rm cyc},p_s^{\rm id}
-\right)
-\leq
-\delta_s
-+
-\min
-\left\{
-1,\eta_{{\rm g},s}
-\right\}.
-```
-
-有限入力集合の目標頻度 $\lambda_s$ を有理頻度 $n_s/N$ で近似し、合計 $N$ 個のラベル付きセルを直積する。$1$ と全選択器角増分を有理数体上で1次独立に選べば、直積回転は積Haar測度に関して一意エルゴード的である。従ってラベル付き共同分布の全変動距離は、入力頻度の近似誤差と各セルの出力誤差の加重和以下になる。$N$、比較増幅、角切断幅を有限値のまま順に選べば、任意の目標精度を得る。各セルは16正準対なので単純上界は $16N$ 正準対である。
+4信号正準対と1時計正準対で担体CNOTを実装できる。
 
 <!-- theorem-start:proof -->
 **証明（R106）**
 
-C.5節から固定作用面上の相互作用エネルギー上界、C.10節から動作時間下界と5正準対上界を得る。C.8節が面積誤差の厳密式、C.9節が一般制御誤差の上界を与える。C.11節はM35による補助的な作用区間検算を与える。これらを合わせると、場部分と資源上界に関するR106が従う。共同実現配置による入力--出力分布はC.12節のR120で別に証明する。
+式(C.9)は窓面積、式(C.10)、式(C.11)は射影の固有値、式(C.13)はDuhamel式から従う。生成子は4信号正準対上の2作用項と1交換辺で、時計に1正準対を要する。証明終。
 <!-- theorem-end:proof -->
 
-## C.12 共同実現配置による統計
+## C.3　R157の理想行分解
 
-M35の直接作用区間標本化を主結果から外し、鋭い基準配置から同じ前向き場プログラムを実現配置へ作用させる。R118により、準備回路後、CNOT後、積分析器後の各断面で
-
-```math
-P(X=r)
-=
-\left|
-\left[
-W_sU_{\rm CX}\chi_s
-\right]_r
-\right|^2
-```
-
-が成立する。実現配置正則化、時間離散化、局所選択、辺輸送、検出の合計誤差を $\delta_s^X$ とする。Markov発展の全変動縮小性と逐次結合により、固定 $s$ の出力分布誤差は
+非零行の集合を $I_C={a:\rho_a>0}$ とする。M35の理想作用区間は4モード担体の作用比をそのまま使うため、
 
 ```math
-D_{\rm TV}
-\left(
-p_s^X,p_s^{\rm id}
-\right)
-\leq
-\delta_s^X
-+
-\min
-\left\{
-1,\eta_{{\rm g},s}
-\right\}.
+ P(T_X=e_{ab})=|C_{ab}|^2,
+ \qquad
+ P(X_A=a)=\rho_a.
+ \tag{C.14}
 ```
 
-入力頻度の有理近似を加えれば第4.7節の共同分布上界を得る。第2章と付録Fにより、任意の固定有限プログラムと精度について $\delta_s^X$ を有限パラメータで任意に小さくできる。
+safe sector $T_X=e_{ab}$ から式(4.10)のone-hot配置へcontrolled SWAPすると、
+
+```math
+ P(X_A=a,X_B=b)=|C_{ab}|^2.
+ \tag{C.15}
+```
+
+第 $a$ 行bath templateの1試行外積は
+
+```math
+ z_Az_B^{\mathsf T}
+ =\rho_a^{-1}e_aC_{a\bullet}.
+ \tag{C.16}
+```
+
+従って
+
+```math
+ \mathbb E[z_Az_B^{\mathsf T}]
+ =\sum_{a\in I_C}\rho_a
+ \rho_a^{-1}e_aC_{a\bullet}
+ =C.
+ \tag{C.17}
+```
+
+共通位相は外積から消える。$z_A$ は $e_a$ のray上にあり、$z_B$ の規格化成分比は $C_{a\bullet}$ と同じなので、
+
+```math
+ \operatorname{Law}(X_A\mid z_A)=\pi_A^0(z_A),
+ \qquad
+ \operatorname{Law}(X_B=b\mid z_B)
+ =\frac{|C_{ab}|^2}{\rho_a}.
+ \tag{C.18}
+```
+
+## C.4　R157の有限Hamiltonian準備
+
+M35のsafe作用区間には互いに素な有限幅sectorがある。各sectorをcontrolとして、freshなone-hot配置registerへ有限列の2モード交換を作用させる。active配置を残した後、M35内部の比較pointerと一時作用registerを逆計算する。外部配置へ写した情報と使用済みcellを含む全写像は1対1である。
+
+固定program $s$ とactive行 $a$ ごとに、式(4.11)の4複素成分を持つtemplate cellを事前校正する。$X_A=a$ のsafe plateauをcontrolとするcanonical SWAPにより、templateをactive $z_A,z_B$ portへ移す。全窓を
+
+```math
+ H_{157}
+ =P_\tau+\sum_{r=1}^{R_{157}}g_r(\tau)G_r
+ \tag{C.19}
+```
+
+と書ける。$R_{157}$ は固定program族で有限、各 $G_r$ は有限個の作用差、$QQ+PP$ 交換、滑らかなplateau controlから成る。従って有限正準対と有限時間のHamiltonian準備である。templateの値は装置programであり、ensemble量を測定して再注入したものではない。
+
+各非零branchのsurvival係数を $r_{ab}\in[1-\varepsilon_0,1]$ とする。安全事象上の非規格化配置分布は $|C_{ab}|^2r_{ab}$ であり、失敗質量を無反応へ置けば理想完全分布からの全変動距離は $\varepsilon_0$ 以下である。
+
+式(C.16)のFrobeniusノルムは
+
+```math
+ \lVert z_Az_B^{\mathsf T}\rVert_F
+ =\rho_a^{-1/2}
+ \leq\rho_*^{-1/2}.
+ \tag{C.20}
+```
+
+従って
+
+```math
+ \lVert M^G_{AB}-C\rVert_F
+ \leq
+ \sum_{a,b}|C_{ab}|^2(1-r_{ab})\rho_a^{-1/2}
+ \leq\frac{\varepsilon_0}{\sqrt{\rho_*}}.
+ \tag{C.21}
+```
+
+$\delta=\varepsilon_0/\sqrt{\rho_*}<1$ と置く。$\lVert C\rVert_F=1$ と三角不等式から
+
+```math
+ \left\lVert
+ \frac{M^G_{AB}}{\lVert M^G_{AB}\rVert_F}-C
+ \right\rVert_F
+ \leq2\delta.
+ \tag{C.22}
+```
+
+単位ベクトルの距離は対応する階数1projectorのtrace距離を上から抑えるため式(4.16)が従う。
+
+A配置は全safe branchで行labelと一致する。B側では、行 $a$ の理想条件付き分布を $q_b=|C_{ab}|^2/\rho_a$ とすると、安全条件付き分布は
+
+```math
+ q_b^G
+ =\frac{q_br_{ab}}{\sum_jq_jr_{aj}}.
+ \tag{C.23}
+```
+
+分母は $1-\varepsilon_0$ 以上なので
+
+```math
+ D_{\rm TV}(q^G,q)
+ \leq\frac{\varepsilon_0}{1-\varepsilon_0}.
+ \tag{C.24}
+```
 
 <!-- theorem-start:proof -->
-**証明（R120）**
+**証明（R157）**
 
-鋭い基準配置からの準備はR118、理想共同分布はR113、有限実現配置誤差はR115、R116、ゲート作用素誤差から出力分布への換算はC.11節を使う。有限入力頻度の近似誤差を加えればR120が従う。
+式(C.15)、式(C.17)、式(C.18)が理想matchingを与える。式(C.19)が有限Hamiltonian準備、式(C.21)--(C.24)が無反応込みの有限誤差上界を与える。証明終。
 <!-- theorem-end:proof -->
 
-## C.13 1辺位置ばねによるCNOT近似
+## C.5　稀な行の資源下界
 
-$h_L=\alpha\Pi_{\rm CX}$ は固有値 $0,\alpha$ を持つので、$T_{\rm CX}=\pi\mathcal J_0/\alpha$ で
-
-```math
-e^{-ih_LT_{\rm CX}/\mathcal J_0}
-=
-e^{-i\pi\Pi_{\rm CX}}
-=
-U_{\rm CX}.
-```
-
-1辺Laplacianは $L_G=2g_e\Pi_{\rm CX}$ であり、第6章の係数対応から
+行 $a$ に条件付けた目標momentは
 
 ```math
-h_L
-=
-\frac{\mathcal J_0^2}{2m}L_G
-=
-\frac{\mathcal J_0^2g_e}{m}\Pi_{\rm CX}.
+ \mathbb E[z_Az_B^{\mathsf T}\mid a]
+ =\frac{e_aC_{a\bullet}}{\rho_a},
+ \qquad
+ \left\lVert
+ \mathbb E[z_Az_B^{\mathsf T}\mid a]
+ \right\rVert_F
+ =\rho_a^{-1/2}.
+ \tag{C.25}
 ```
 
-従って $\alpha=\mathcal J_0^2g_e/m$ である。R86へ $\|h_L\|=\alpha$ と $T=T_{\rm CX}$ を代入すると
+Cauchy--Schwarzから
 
 ```math
-\varepsilon_{\rm car}(T_{\rm CX})
-=
-2
-\left[
-(1-\eta)^{-1/4}-1
-\right]
-+
-\frac{\pi\eta}{4(1-\eta)^{3/2}},
+ \mathbb E[\lVert z_A\rVert^2\mid a]
+ \mathbb E[\lVert z_B\rVert^2\mid a]
+ \geq\frac1{\rho_a}.
+ \tag{C.26}
 ```
+
+従って $\rho_a\to0$ を含むprogram族について両端bath作用を一様有界にはできない。式(4.11)では各端の作用が $\mathcal J_0/\sqrt{\rho_a}$、active pair全体が $2\mathcal J_0/\sqrt{\rho_a}$ である。行平均は
 
 ```math
-\eta
-=
-\frac{2\alpha}{\mathcal J_0\omega_0}
+ \sum_a\rho_a\frac{2\mathcal J_0}{\sqrt{\rho_a}}
+ =2\mathcal J_0\sum_a\sqrt{\rho_a}
+ \leq2\sqrt2\mathcal J_0.
+ \tag{C.27}
 ```
 
-を得る。
+この有限平均を全program一様の最大作用と混同しない。
+
+## C.6　R158の点ごとの共変性
+
+係数行列CNOTは行ごとに
+
+```math
+ (\mathcal C_X(C))_{0\bullet}=C_{0\bullet},
+ \qquad
+ (\mathcal C_X(C))_{1\bullet}=C_{1\bullet}X.
+ \tag{C.28}
+```
+
+R157 branch $a$ で $z_B^+=X^az_B$ とすると
+
+```math
+ \begin{aligned}
+ \mathbb E[z_A^+(z_B^+)^{\mathsf T}]
+ &=\sum_a\rho_a
+ \rho_a^{-1}e_aC_{a\bullet}X^a\\
+ &=\mathcal C_X(C).
+ \end{aligned}
+ \tag{C.29}
+```
+
+配置は $b^+=b\oplus a$ なので
+
+```math
+ P(X_A^+=a,X_B^+=b)
+ =|C_{a,b\oplus a}|^2
+ =|\mathcal C_X(C)_{ab}|^2.
+ \tag{C.30}
+```
+
+行重み $\rho_a$ は列交換で保存される。従って式(4.11)の各入力templateは、式(4.20)により出力programの対応templateへ点ごとに移る。
+
+## C.7　三port CNOTのHamiltonian
+
+4モード担体には式(C.7)、B bathとB配置には
+
+```math
+ G_z=\mathcal J_z\chi_1(x_A)z_B^\dagger\Pi_-z_B,
+ \qquad
+ G_X=\mathcal J_X\chi_1(x_A)x_B^\dagger\Pi_-x_B
+ \tag{C.31}
+```
+
+を使う。$\chi_1$ はA配置のsafe one-hot sectorで0または1のplateauを持ち、共役運動量へ依存しない。$G_C$ は担体、$G_z$ はB bath、$G_X$ はB配置へ作用し、共有するA配置についてはいずれも共役運動量を含まない。従って
+
+```math
+ {G_C,G_z}
+ ={G_C,G_X}
+ ={G_z,G_X}=0
+ \tag{C.32}
+```
+
+である。一つの時計窓で各面積を $\pi$ にすれば、三流の積は順序に依存せず式(4.20)、式(4.21)になる。各流は自己逆であり、全active・使用済みregisterを含む拡大写像も1対1である。
+
+有限bath unitaryを理想値から作用素距離 $\eta_z$ 以下とする。式(C.20)の重み付き平均から
+
+```math
+ \begin{aligned}
+ \left\lVert
+ \mathbb E[z_A(R_z-X^{X_A})z_B^{\mathsf T}]
+ \right\rVert_F
+ &\leq
+ \eta_z\sum_a\rho_a\rho_a^{-1/2}\\
+ &\leq\sqrt2\eta_z.
+ \end{aligned}
+ \tag{C.33}
+```
+
+配置XORの失敗質量を $\varepsilon_\oplus$ とすれば、全変動距離は同じ量以下だけ増える。担体誤差と時計誤差を別に加えると式(4.24)、式(4.25)を得る。
 
 <!-- theorem-start:proof -->
-**証明（R122）**
+**証明（R158）**
 
-上の1辺係数対応とR86の局所包絡有限時間上界を組み合わせればよい。右辺は $\eta\to0$ で0へ収束する。ただし $T_{\rm CX}$ を固定したまま $\eta$ を下げるには、$\alpha$ を固定して搬送周波数 $\omega_0$ を上げる必要がある。
+式(C.29)、式(C.30)が理想共変性、式(C.31)、式(C.32)が同一時計の有限Hamiltonian実装、式(C.33)が有限bath誤差を与える。証明終。
 <!-- theorem-end:proof -->
 
-## C.14 適用限界
+## C.8　R159の三選択器周期
 
-本付録の証明は、4複素モードの直接符号化、固定作用面、Hermitian 2次制御、1つの論理分解に限定される。次は証明していない。
+入力源を
 
-1. 4頂点分解のミクロ物理的一意性。
-2. 2つの独立物理担体への分解。
-3. 空間的に離れた局所制御信号の有限速度配線。
-4. Bell 共同頻度またはBell 前提監査。
-5. 一般雑音過程の確率分布と長時間蓄積。
-6. $2^n$ 頂点未満の多量子ビット符号化。
-7. 資源上界の最小性。
-8. 未知入力、未知装置の完全過程トモグラフィー、独立同分布型有限標本統計。
+```math
+ r_\lambda
+ =(\sqrt{\lambda_1},\ldots,\sqrt{\lambda_S})^{\mathsf T}
+ \tag{C.34}
+```
+
+とする。外側M35の作用区間はprogram label $S=s$ を頻度 $\lambda_s$ で選ぶ。safe labelをfresh program registerへdecodeし、そのlabelで $C_s$ とR157 template bankをactive portへroutingする。入力配置のM35には独立角 $u_X$ を使う。
+
+provider運転はR158後の $\Sigma_{\rm gate}$ で終わる。benchmark運転では同じ担体に $W_A^s\otimes W_B^s$ を作用させ、
+
+```math
+ D_s=W_A^s\mathcal C_X(C_s)(W_B^s)^{\mathsf T}
+ \tag{C.35}
+```
+
+を得る。出力M35は第三角 $u_Y$ と実在する $D_s$ の作用区間を使うため、
+
+```math
+ P(Y_A=a,Y_B=b\mid S=s)=|(D_s)_{ab}|^2.
+ \tag{C.36}
+```
+
+出力safe sectorをfresh結果registerへdecodeし、内部pointerを逆計算する。CNOTを恒等窓へ置き換えると式(C.35)そのものが変わるため、出力器が理想CNOT表を固定的に返す構成ではない。
+
+三つの選択器角の積回転に対し、$1,\alpha_S,\alpha_X,\alpha_Y$ が有理数体上一次独立なら、Weylの判定条件から3トーラス上で一意エルゴード的である。従って積Haar測度に関する長期頻度が得られる。一方、Fourier指標の時間相関は減衰しないので混合的ではない。
+
+共有角反例では、$S=0$ を $u<1/2$ とする。$S=0$ で $Y=1$ を $u<1/4$、$S=1$ で $Y=1$ を $u<3/4$ と同じ $u$ から決めると、四つの共同sectorは全て幅 $1/4$ になる。従って
+
+```math
+ P_{\rm shared}
+ =\begin{pmatrix}1/4&1/4\\1/4&1/4\end{pmatrix},
+ \qquad
+ D_{\rm TV}(P_{\rm shared},P_{\rm id})=\frac14.
+ \tag{C.37}
+```
+
+独立な $u_S,u_Y$ なら条件付き作用区間を積分して式(4.30)を得る。
+
+入力label誤差を含む結合を先に作り、各 $s$ でR157、担体unitary、出力作用区間、decodeを順にcoupleする。全変動距離の縮小性と三角不等式から式(4.31)が従う。失敗は $\varnothing$ に送るので事後選別はない。各項は固定有限program族について、比較幅、時計幅、template精度を有限値で選んで任意に小さくできる。
+
+<!-- theorem-start:proof -->
+**証明（R159）**
+
+式(C.34)--(C.36)が理想共同分布、三トーラスの一意エルゴード性が長期頻度、逐次couplingが式(4.31)を与える。式(C.37)により選択器独立性は省略できない。証明終。
+<!-- theorem-end:proof -->
+
+## C.9　R160の固定singlet provider
+
+式(4.33)の二行はともノルム2乗 $1/2$ である。CNOT後は
+
+```math
+ \mathcal C_X(C_{\rm in}^{\rm s})
+ =\frac1{\sqrt2}
+ \begin{pmatrix}0&-1\\1&0\end{pmatrix}
+ =-\frac{\mathsf E}{\sqrt2}.
+ \tag{C.38}
+```
+
+$r_*=2^{1/4}$ とすると、CNOT後の二枝は
+
+```math
+ \begin{array}{c|c|c|c}
+ a&z_A&z_B&(X_A,X_B)\\ \hline
+ 0&r_*e^{i\theta}e_0&-r_*e^{-i\theta}e_1&(0,1)\\
+ 1&r_*e^{i\theta}e_1& r_*e^{-i\theta}e_0&(1,0)
+ \end{array}.
+ \tag{C.39}
+```
+
+付録Kの $\mathsf E$ について各枝で
+
+```math
+ z_B=\mathsf E\overline{z_A},
+ \qquad
+ \frac{z_A-\mathsf E\overline{z_B}}2=z_A,
+ \qquad
+ \frac{z_A+\mathsf E\overline{z_B}}2=0.
+ \tag{C.40}
+```
+
+従ってM48のbright変数は $m=z_A$、dark変数は $d=0$ であり、cross momentと配置分布は式(4.35)、式(4.36)に一致する。
+
+$T_{\rm link}^{49\to48}$ はbath・配置registerに恒等で、設定角は受渡し後に生成される。よって
+
+```math
+ \operatorname{Law}(\Gamma_{\Sigma_{\rm link}}\mid x,y)
+ =\operatorname{Law}(\Gamma_{\Sigma_{\rm link}}).
+ \tag{C.41}
+```
+
+有限port交換では元cellを使用済み側へ残すため、拡大写像は1対1である。
+
+state-carrying感度には、link面族内の $C_0=e_0e_0^{\mathsf T}$ と $C_{\rm out}^{\rm s}$ を使う。対応する規格化row-majorベクトルは直交するので、cross projectorのtrace距離は1である。恒等portはこの距離を保存する。枝seed $S_0=(-1)^{X_A}$ は $P(X_A=0)=p$ をそのまま $P(S_0=+1)=p$ へ写すため、$p=0,1/4,1/2,3/4,1$ のbias監査を全て通る。履歴は受動的で、結果形成核へ入れない。
+
+<!-- theorem-start:proof -->
+**証明（R160）**
+
+式(C.38)--(C.40)が固定singletのcross matchingと単一試行配置matching、式(C.41)がsetting-free性を与える。同一registerの恒等搬送がprogram matchingを、canonical SWAP dilationが有限装置の1対1性を与える。state距離と枝biasも保存される。M48結果分布へ全変動距離の三角不等式を適用すると式(4.39)が従う。証明終。
+<!-- theorem-end:proof -->
+
+## C.10　資源と適用限界
+
+一programのR157準備は、M35の16対、2配置registerの4対、active bathの4対、2行template bankの8対からなる単純上界32対を持つ。CNOT担体はM35の4信号対と共有できる。外側program選択器とbenchmark出力選択器はprogram数と運転modeに応じて別に加える。template bankは固定有限族について $O(S)$、全装置も固定2論理部分系では有限である。
+
+本付録は次を証明しない。
+
+1. 未知入力を保持する一般量子channel。
+2. 任意Q2-1出力に対する一般状態M48測定。
+3. 独立同分布型有限標本統計。
+4. 空間分離、準備後の自由設定変更、有限伝播円錐。
+5. R151、R152、paired-Hopf流の閉鎖Hamiltonian導出。
+6. $2^n$ モードを避ける多量子ビット拡張。
+
+M39単独模型とM42最小率はQ2-1の現行因果鎖に使わない。R104--R106はM49内部担体の再利用可能な有限正準結果として維持する。R122の位置ばね近似は担体部分の補助計算であり、R157--R160のbath・配置・受渡しを導かない。

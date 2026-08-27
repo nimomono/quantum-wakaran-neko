@@ -1,468 +1,514 @@
 @number: 4
 @chapter: 本文
-@title: M39の4頂点CNOTと共同入力--出力統計
-@status: 操作誘導テンソル積、厳密CNOT、共同実現配置統計、有限時間誤差を依存順に整理しQ2-1を扱う。
+@title: M49の共同bath CNOT供給模型と共同入力--出力統計
+@status: M49の行分解bath--配置matching、担体・bath・配置へ同期するCNOT、固定有限ベンチマーク、M48へのsetting-free受渡しを構成し、Q2-1を旧M39/M42経路から移行する。
 
-## 4.1 M39と主張範囲
+## 4.1　目的、試行状態、二つの終了面
 
-M38の2頂点特殊化は、単一量子ビット型状態空間、任意の $SU(2)$、測定、記録、resetを同じ装置内で閉じた。しかし2頂点を2進添字で並べるだけでは、2つの論理部分系、テンソル積、局所操作、結合ゲートは定義されない。本章では共通モデルを4頂点共同配置へ特殊化したM39を導入し、2量子ビット型結合ゲートと同じ共同入力--出力統計を生成する有限古典Hamiltonian過程を構成する。結合ゲート内部に非分離状態が実在することはQ2-1の固定達成条件ではないが、M39では操作誘導テンソル積に関する非因子化も内部診断として示せる。
+Q2-1の固定目標は、2量子ビット型結合ゲートと同一の共同入力--出力統計を生成する有限古典Hamiltonian過程を構成することである。本章ではM49「行分解共同bath--実現配置CNOT供給模型」を採用し、旧M39の4モード担体とM42/R113の最小率を組み合わせた経路を置き換える。
 
-M39の主張は次の4段階から成る。
-
-1. 2つの相互可換な局所操作代数により、4次元振幅空間へ操作誘導テンソル積を定める。
-2. 局所操作と区別された差モード射影のHamiltonian 流により、4論理基底上でCNOTを厳密に実装する。
-3. 固定された有限個の入力準備と出力基底について、共同実現配置を同じ準備、CNOT、分析器プログラムで発展させ、2ビット出力と無反応からなる長期共同頻度を構成する。
-4. 有限パルス幅、結合強度、面積誤差、統計誤差、一般制御誤差、正準対数を定量化する。
-
-4次元複素振幅を実正準座標で表すこと、およびHermitian 行列を2次Hamiltonian へ写すこと自体は既知である [34--37]。本章の役割は、その表示に局所操作代数、積状態条件、明示結合流、誤差、資源を加え、Q2-1の判定を閉じることである。
-
-## 4.2 4頂点複素振幅場、共同実現配置、正準流
-
-論理添字を $a,b\in\{0,1\}$ とし、4つの複素振幅を
+固定有限program族を $s=1,\ldots,S$ とし、1試行状態を
 
 ```math
-b
-=
-\begin{pmatrix}
-b_{00}&b_{01}&b_{10}&b_{11}
-\end{pmatrix}^{\mathsf T},
-\qquad
-b_{ab}
-=
-\frac{Q_{ab}+iP_{ab}}{\sqrt{2\mathcal J_0}}
+ \Gamma_{49}
+ =\bigl(S,C,u_S,u_X,u_Y,T_X,T_Y,X_A,X_B,Y_A,Y_B,z_A,z_B,\tau,H,R\bigr)
+ \tag{4.1}
 ```
 
-とまとめる。各試行の共同実現配置は
+とする。$S$ はprogram番号、$C\in\mathbb C^{2\times2}$ はFrobenius規格化された4モード正準担体、$u_S,u_X,u_Y$ はprogram、入力配置、出力読出しに使う相異なる選択器角、$T_X,T_Y$ は入力・出力の一時作用区間pointer、$X_A,X_B$ は2端の実現配置、$Y_A,Y_B$ はbenchmark専用のfresh出力register、$z_A,z_B\in\mathbb C^2$ は2端へ継続するbath座標、$\tau$ は共有時計、$H$ は不変な履歴、$R$ は未使用・使用済みcellを含む補助レジスタである。provider運転では $T_Y,Y_A,Y_B$ を空のまま保つ。$C$ は各試行に存在する物理担体であり、交差モーメントを推定して試行へ書き戻すensemble controllerではない。
+
+M49は次の4層を同じ固定programで閉じる。
+
+1. 4モード担体の作用区間から一時pointer $T_X=e_{ab}$ を作り、共同配置 $X_A=a,X_B=b$ を可逆にdecodeする。
+2. $X_A=a$ が指定する有限bath templateをactive port $z_A,z_B$ へroutingし、交差モーメントと単一試行配置matchingを同時に作る。
+3. $C$、$z_A,z_B$、$X_A,X_B$ へ同じCNOTを同一時計窓で作用させる。
+4. provider運転ではCNOT直後に停止し、benchmark運転では固定積分析器と独立な出力選択器を追加する。
+
+CNOT直後かつ積分析器前の面を $\Sigma_{\rm gate}$、固定積分析器と出力読出し後の面を $\Sigma_{\rm bench}$ とする。$\Sigma_{\rm gate}$ はM48へ状態を渡すprovider面、$\Sigma_{\rm bench}$ はQ2-1の共同統計を監査する面である。同じ試行で先にbenchmark読出しを行い、その後にprovider状態を渡したとは扱わない。
+
+旧M39のR104--R106はM49内部の4モード担体に対する有限正準代数として再利用する。M42/R113の最小率、確率流、current transducerはQ2-1に使わない。M42はQ2-3とQ3だけに残す。
+
+## 4.2　4モード担体とCNOT代数
+
+行優先ベクトル化を
 
 ```math
-X
-=
-(X_A,X_B)
-\in
-\{0,1\}^2
+ c
+ :=\operatorname{vec}_{\rm row}(C)
+ =(C_{00},C_{01},C_{10},C_{11})^{\mathsf T}
+ \tag{4.2}
 ```
 
-である。固定作用面 $\mathcal J_0b^\dagger b=\mathcal J_0$ と共通位相不変な操作代数により、複素振幅場の有効状態空間は $\mathbb{CP}^3$ である。Hermitian行列 $K$ に対する実2次Hamiltonian
+とする。局所操作代数は
 
 ```math
-F_K
-=
-\mathcal J_0b^\dagger Kb
+ \mathcal A=M_2(\mathbb C)\otimes I_2,
+ \qquad
+ \mathcal B=I_2\otimes M_2(\mathbb C)
+ \tag{4.3}
 ```
 
-は $i\dot b=Kb$ を与え、全作用と正準性を保存する。複素行列表示と実正準流の対応は付録C.1に示す。
-
-## 4.3 操作誘導テンソル積
-
-4モード添字だけに依存せず、局所操作代数を
+であり、局所unitaryは
 
 ```math
-\mathcal A
-=
-M_2(\mathbb C)\otimes I_2,
-\qquad
-\mathcal B
-=
-I_2\otimes M_2(\mathbb C)
+ C\longmapsto U_ACU_B^{\mathsf T}
+ \tag{4.4}
 ```
 
-と指定する。両代数は可換で、互いの相互可換代数になり、積は $M_4(\mathbb C)$ 全体を生成する。正方形配線の縦対辺と横対辺へ $QQ+PP$ 交換を同期配置し、作用差による $Z$ 生成子を加えると、$U_A\otimes I_2$ と $I_2\otimes U_B$ を有限正準流で実装できる。
-
-4振幅を係数行列
-
-```math
-B(b)
-=
-\begin{pmatrix}
-b_{00}&b_{01}\\
-b_{10}&b_{11}
-\end{pmatrix}
-```
-
-へ並べると、論理積状態は $\operatorname{rank}B=1$ で特徴付けられる。局所操作は $B\mapsto U_ABU_B^{\mathsf T}$ と作用するため、この階数条件を保存する。代数、配線、階数条件の検算は付録C.2--C.4に置く。
-
-共同配置グラフでは、A局所操作は $00\leftrightarrow10$ と $01\leftrightarrow11$ の2辺を同じプログラムで駆動し、B局所操作は $00\leftrightarrow01$ と $10\leftrightarrow11$ の2辺を同じプログラムで駆動する。従ってA局所操作は $X_A$、B局所操作は $X_B$ の成分だけを更新する。CNOTは $10\leftrightarrow11$ の1辺だけを駆動する。
+と作用する。両代数は相互に可換で、積状態条件 $\det C=0$ を保存する。
 
 <!-- theorem-start:lemma -->
-**補題（R104：局所操作代数による操作誘導テンソル積）**
+**補題（R104：M49有限program担体の操作誘導テンソル積）**
 
-固定作用4モード正準担体上に、正方形配線で2つの局所 $SU(2)$ 操作代数を実装する。両代数は互いに可換で、それぞれ $M_2(\mathbb C)\otimes I_2$ と $I_2\otimes M_2(\mathbb C)$ のHermitian部分に一致する。これらは4次元振幅空間へ操作誘導テンソル積を定め、局所操作は積状態集合を保存する。
+固定作用4モード正準担体上に、式(4.3)の二つの局所操作代数を有限2次Hamiltonian流として実装できる。両代数は互いの可換代数に一致し、4次元担体へ操作誘導テンソル積を定める。これは一つの物理担体内の論理分解であり、2物理端への分配ではない。
 <!-- theorem-end:lemma -->
 
-これは単一4モード物理担体内の論理分解であり、2つの独立した古典位相空間への物理分解ではない。
-
-## 4.4 差モード射影によるCNOT
-
-制御論理値1の下側反対称差モードへの射影を
+CNOT射影を
 
 ```math
-\Pi_{\rm CX}
-=
-|1\rangle\langle1|_A
-\otimes
-\frac{I_2-\sigma_x^{(B)}}{2}
+ \Pi_{\rm CX}
+ =|1\rangle\langle1|_A
+ \otimes\frac{I_2-X}{2}
+ \tag{4.5}
 ```
 
-とする。対応する生成子は
+とする。対応する実2次生成子と時計Hamiltonianは
 
 ```math
-G_{\rm CX}
-=
-\frac14
-\left[
-(Q_{10}-Q_{11})^2
-+
-(P_{10}-P_{11})^2
-\right]
+ G_C
+ =\frac14\left[(Q_{10}-Q_{11})^2+(P_{10}-P_{11})^2\right],
+ \qquad
+ H_C=P_\tau+g(\tau)G_C.
+ \tag{4.6}
 ```
 
-であり、下側1交換辺と2作用項だけで実装できる。時計正準対 $(\tau,P_\tau)$ と有限支持窓 $g(\tau)$ を使う自律Hamiltonian
-
-```math
-H_{\rm CX}
-=
-P_\tau
-+
-g(\tau)G_{\rm CX}
-```
-
-の信号流は、窓面積 $A$ に対して $e^{-iA\Pi_{\rm CX}}$ である。$A=\pi$ なら
-
-```math
-e^{-i\pi\Pi_{\rm CX}}
-=
-I_4-2\Pi_{\rm CX}
-=
-U_{\rm CX}.
-```
+窓面積が $\pi$ なら、$e^{-i\pi\Pi_{\rm CX}}=U_{\rm CX}$ である。
 
 <!-- theorem-start:lemma -->
-**補題（R105：差モード射影による厳密CNOT流）**
+**補題（R105：M49 program担体の厳密CNOT流）**
 
-R104の操作誘導テンソル積を持つ4頂点複素振幅場で、面積 $\pi$ の滑らかな有限時計窓は、全作用と正準性を保存しながら4論理基底上でCNOTと厳密に一致する。この流れは局所操作だけで準備した積入力を非因子化状態へ写すため、局所操作の積へ分解できない。
+面積 $\pi$ の有限時計窓は、4モードprogram担体上でCNOTと厳密に一致し、全作用と正準性を保存する。積入力 $|+0\rangle$ を $(|00\rangle+|11\rangle)/\sqrt2$ へ写すため、局所操作の積へは分解できない。
 <!-- theorem-end:lemma -->
 
-射影の正準表示と指数の証明は付録C.5、C.6に置く。設計済み $QQ+PP$ 生成子はCNOT場を厳密に与える。通常の位置ばねによる近似は、厳密結果R105と分けてR122で扱う。
-
-1辺だけを持つ目標演算子を
+固定作用面で $0\leq G_C\leq\mathcal J_0$ である。$0\leq g\leq g_{max}$ なら動作時間は $T_{\rm g}\geq\pi/g_{max}$、面積誤差 $\delta A\in[-\pi,\pi]$ には
 
 ```math
-h_L
-=
-\alpha\Pi_{\rm CX}
+ F_{\rm avg}
+ =1-\frac35\sin^2\frac{\delta A}{2},
+ \qquad
+ d_{\rm proj}
+ =2\sin\frac{|\delta A|}{4}
+ \tag{4.7}
 ```
 
-とする。作用時間
-
-```math
-T_{\rm CX}
-=
-\frac{\pi\mathcal J_0}{\alpha}
-```
-
-で目標場は厳密CNOTになる。M37の空間辺係数なら
-
-```math
-\alpha
-=
-\frac{\mathcal J_0^2}{m}g_e,
-\qquad
-T_{\rm CX}
-=
-\frac{\pi m}{\mathcal J_0g_e}.
-```
-
-弱結合量を
-
-```math
-\eta
-=
-\frac{2\alpha}{\mathcal J_0\omega_0}
-<1
-```
-
-とすると、R86の局所包絡誤差は
-
-```math
-\varepsilon_{\rm spring}^{\rm CX}
-\leq
-2
-\left[
-(1-\eta)^{-1/4}-1
-\right]
-+
-\frac{\pi\eta}{4(1-\eta)^{3/2}}.
-```
-
-<!-- theorem-start:corollary -->
-**系（R122：1辺位置ばねによるCNOT場の有限時間近似）**
-
-4振動子のM37型位置ばね網で、$10\leftrightarrow11$ の1辺に対応する $h_L=\alpha\Pi_{\rm CX}$ を選ぶ。$\eta<1$ の下で、時刻 $T_{\rm CX}$ の局所複素振幅場は理想CNOT出力から上式以下のノルム誤差にあり、固定 $T_{\rm CX}$ で $\eta\to0$ に伴い収束する。
-<!-- theorem-end:corollary -->
-
-これは場部分のミクロ接続である。任意の時間依存ゲート列、実現配置更新、測定、記録、resetを同じ位置ばねハードウェアへ統合したとはしない。
-
-## 4.5 非因子化は内部診断である
-
-積入力 $|+0\rangle$ はCNOTにより
-
-```math
-|+0\rangle
-\longmapsto
-\frac{|00\rangle+|11\rangle}{\sqrt2}
-```
-
-と写り、係数行列の階数が1から2へ変わる。局所操作は階数を保存するため、CNOT流は局所操作の積へ分解できない。局所操作 $\sigma_z^{(A)}\otimes\sigma_x^{(B)}$ を追加すれば、第5章が使うsinglet型4モード状態も準備できる。詳細な相関計算は付録C.7に示す。
-
-この非因子化はM39の操作誘導テンソル積に関する内部診断であり、Q2-1の合格条件ではない。また、この時点では単一4頂点複素振幅場内の代数的相関にすぎず、空間分離Bell統計を意味しない。
-
-## 4.6 有限時間と制御誤差
-
-非負窓に $g\leq g_{\max}$ を課すと、面積 $\pi$ の動作時間は $T_{\rm g}\geq\pi/g_{\max}$ を満たす。面積誤差 $\delta A\in[-\pi,\pi]$ に対し、共通位相を除いた操作距離は
-
-```math
-d_{\rm proj}
-=
-2\sin\frac{|\delta A|}{4}
-```
-
-である。平均忠実度、真理値表、非因子化指標を含む他の診断式は付録C.8に置き、Q2-1の中心評価にはこの距離と第4.7節の共同分布全変動距離を使う。
-
-一般Hermitian制御誤差 $\Delta K(t)$ は
-
-```math
-\eta_{\rm g}
-=
-\inf_{c(t)\in\mathbb R}
-\int_0^{T_{\rm g}}
-\left\|
-\Delta K(t)-c(t)I_4
-\right\|_{\rm op}
-\,\mathrm dt
-```
-
-でまとめる。ある共通位相 $\phi$ に対して
-
-```math
-\left\|
-\widetilde U
--
-e^{i\phi}U_{\rm CX}
-\right\|_{\rm op}
-\leq
-\min\{2,\eta_{\rm g}\}
-```
-
-である。Duhamel評価、面積誤差の全診断量、動作時間と正準対数は付録C.8--C.10に示す。
-
-## 4.7 共同実現配置による固定有限ベンチマーク統計
-
-鋭い基準場 $b=e_{00}$ と基準実現配置 $X=(0,0)$ から、固定準備回路、CNOT、積出力分析器を順に通す。有限ベンチマーク集合を
-
-```math
-\mathcal B
-=
-\left\{
-\left(
-\chi_s,W_s,\lambda_s
-\right)
-\right\}_{s=1}^{S},
-\qquad
-\sum_{s=1}^{S}\lambda_s=1
-```
-
-とする。$\chi_s\in\mathbb C^4$ は固定された規格化入力、$W_s=W_s^A\otimes W_s^B$ は固定された積出力基底を標準基底へ移す局所回路、$\lambda_s$ は入力ラベルの目標頻度である。出力を $r=(a,b)\in\{00,01,10,11\}$ とし、無反応を $\varnothing$ と書く。目標共同分布を
-
-```math
-P_{\rm CX}^{\rm id}
-\left(
-s,r
-\right)
-=
-\lambda_s
-\left|
-\left[
-W_sU_{\rm CX}\chi_s
-\right]_r
-\right|^2,
-\qquad
-P_{\rm CX}^{\rm id}
-\left(
-s,\varnothing
-\right)
-=0
-```
-
-と定める。これは入力ラベルと2ビット出力を同時に含むQ2-1の比較対象である。
-
-各 $s$ について、前向き複素振幅場は
-
-```math
-e_{00}
-\longmapsto
-\chi_s
-\longmapsto
-U_{\rm CX}\chi_s
-\longmapsto
-W_sU_{\rm CX}\chi_s
-```
-
-と進む。実現配置は全ての窓で同じグラフ流に従い、積出力分析器の出口で $X=(X_A,X_B)=r$ を読む。理想層ではR113により
-
-```math
-P_s
-\left(X=r\right)
-=
-\left|
-\left[
-W_sU_{\rm CX}\chi_s
-\right]_r
-\right|^2
-```
-
-となる。有限装置では、実現配置の正則化、離散化、局所選択、辺輸送、分析器検出の誤差を無反応込みの分布誤差へ数える。M35の4作用区間は、同じ分布を与える補助検算と、任意初期場を直接与える場合の初期実現配置準備にだけ使う。
-
-入力頻度 $\lambda_s$ は、任意の $\epsilon_{\rm in}>0$ に対して有理頻度 $n_s/N$ で
-
-```math
-D_{\rm TV}
-\left(
-\lambda^{(N)},\lambda
-\right)
-<
-\epsilon_{\rm in}
-```
-
-と近似できる。$n_s$ 個の同一ラベルセルを並列に置き、全セルの選択器角増分を有理数体上で1次独立に選ぶ。直積Poincaré写像は積Haar測度に関して一意エルゴード的であり、ラベル付き記録を集計すると入力頻度 $\lambda_s^{(N)}=n_s/N$ を持つ1つの有限自律Hamiltonian ベンチになる。各セルは固定プログラムであり、未知入力を複製する操作ではない。
-
-第 $s$ セルの実現配置装置誤差を $\delta_s^X$、M39ゲート流の共通位相を除いた作用素距離上界を $\eta_{{\rm g},s}$ とすると、無反応を除外しない実共同分布は
-
-```math
-\begin{aligned}
-D_{\rm TV}
-\left(
-P_{\rm CX}^{\rm cyc},
-P_{\rm CX}^{\rm id}
-\right)
-\leq{}&
-D_{\rm TV}
-\left(
-\lambda^{(N)},\lambda
-\right)\\
-&+
-\sum_{s=1}^{S}
-\lambda_s^{(N)}
-\left[
-\delta_s^X
-+
-\min
-\left\{
-1,\eta_{{\rm g},s}
-\right\}
-\right].
-\end{aligned}
-```
-
-を満たす。理想CNOT窓では $\eta_{{\rm g},s}=0$ であり、R115、R116の順に実現配置装置の有限パラメータを選び、有理入力頻度の分母 $N$ を増やせば、任意の目標精度へ到達できる。正準合成と全変動距離上界は付録C.12、付録Fに示す。
-
-## 4.8 資源上界と達成判定
-
-CNOT流単体の明示資源上界は次である。
-
-| 資源 | 上界 |
-|---|---:|
-| 信号正準対 | 4 |
-| 時計正準対 | 1 |
-| 合計 | 5 |
-| CNOT用交換辺 | $10\leftrightarrow11$ の1本 |
-| 単一モード作用項 | 2 |
-| 新しい相互作用次数 | 0 |
-| 実現配置、検出、resetセル | 0 |
-
-これは最小性の証明ではなく、1回のゲート流に対する上界である。
-
-M35の直接作用区間検算セルは
-
-```math
-3L+4
-=16
-```
-
-正準対である。これは場、作用区間、内部帰還の補助セルであり、実現配置の通信路、局所更新、履歴、検出を含む完全装置数ではない。固定 $K$ 更新の完全局所構成は、第2章の一般上界に $|\Omega|=4$ を代入した $O(K(4+|E|))$ 対を追加する。M39の4信号対とM35の4信号対は同一視できる。上の $N$ セル構成ではこれらを入力多重度ごとに複製する。これは存在上界であり、最小性またはQ2-3の多項式資源上界ではない。
-
-このM39実現配置構成は、固定有限ベンチマークに対する長期共同頻度を構成する。有限標本の独立同分布統計、未知入力、未知装置の完全過程トモグラフィー、1セル内での可変設定切替、永久外部記録、空間的に分離した局所測定は与えない。
+が成立する。一般Hermitian制御誤差を共通位相を除いた積分作用素ノルム $\eta_C$ で評価すると、実行unitaryはCNOTから作用素距離 $\min{2,\eta_C}$ 以下にある。
 
 <!-- theorem-start:lemma -->
-**補題（R106：有限時間安定性と場部分の資源上界）**
+**補題（R106：M49 CNOT担体の有限時間安定性と資源上界）**
 
-面積 $\pi$ の滑らかな時計窓は、4信号正準対と1時計正準対からなる有限自律Hamiltonian上でCNOT場を厳密に実行する。固定作用面上で相互作用エネルギーは有界であり、最大結合強度に応じた有限動作時間下界を持つ。面積誤差には厳密な忠実度式、一般Hermitian制御誤差には共通位相を除いた積分作用素ノルム上界が成立する。ゲート場単体は5正準対、M35の固定作用区間検算セルは16正準対で構成できる。実現配置の完全装置資源は別に加える。
+M49のCNOT担体は4信号正準対と1時計正準対で実装でき、式(4.7)の面積誤差式と一般制御誤差上界を持つ。bath、配置、選択器、記録を含むM49全体の資源は別に加える。
 <!-- theorem-end:lemma -->
+
+## 4.3　R157：行分解bath--配置matching
+
+規格化program $C$ の行重みを
+
+```math
+ \rho_a
+ :=\sum_{b=0}^1|C_{ab}|^2,
+ \qquad
+ \rho_0+\rho_1=1
+ \tag{4.8}
+```
+
+とする。$\rho_a=0$ の行はactive枝から除く。入力配置選択器 $u_X$ と同じ4モード担体 $c$ にM35の4作用区間を作用させ、一時pointerを
+
+```math
+ T_X=e_{ab},
+ \qquad
+ P(T_X=e_{ab})=|C_{ab}|^2
+ \tag{4.9}
+```
+
+とする。安全区間ではfreshな2端配置registerへ
+
+```math
+ (T_X=e_{ab},x_A=e_0,x_B=e_0)
+ \longmapsto
+ (T_X=e_{ab},x_A=e_a,x_B=e_b)
+ \tag{4.10}
+```
+
+を可逆decodeする。ここで $x_A,x_B$ は $X_A,X_B$ を担う2モードone-hot正準registerである。decode後にM35の比較器、一時pointer、選択器内部を逆計算しても、$x_A,x_B$ と使用済みcellに保存した履歴は残る。
+
+共通位相 $\theta$ を設定と独立に選び、第 $a$ 行用の事前校正bath templateを
+
+```math
+ z_A^{(a)}
+ =\rho_a^{-1/4}e^{i\theta}e_a,
+ \qquad
+ z_B^{(a)}
+ =\rho_a^{-3/4}e^{-i\theta}C_{a\bullet}^{\mathsf T}
+ \tag{4.11}
+```
+
+とする。$X_A=a$ のsafe plateauをcontrolとして、有限template bankからactive $z_A,z_B$ portへcanonical SWAPする。これにより
+
+```math
+ \mathbb E[z_Az_B^{\mathsf T}]=C,
+ \qquad
+ P(X_A=a,X_B=b)=|C_{ab}|^2
+ \tag{4.12}
+```
+
+が同じ試行族で厳密に成立する。さらに付録Kの局所核 $\pi_w^0$ に対して
+
+```math
+ \operatorname{Law}(X_A\mid z_A)=\pi_A^0(z_A),
+ \qquad
+ \operatorname{Law}(X_B\mid z_B)=\pi_B^0(z_B).
+ \tag{4.13}
+```
+
+式(4.12)の第一式はensemble上の交差モーメント、式(4.13)は単一試行bathに条件付けた配置法則であり、役割を混同しない。
+
+安全事象を $G$ とする。各固定programの各非零branchで、比較境界、decode、template routingの失敗率が一様に $\varepsilon_0$ 以下になるよう有限装置を選ぶ。失敗は全て無反応へ送る。固定有限program族について
+
+```math
+ \rho_*
+ :=\min_{s,a:\rho_a(C_s)>0}\rho_a(C_s)>0
+ \tag{4.14}
+```
+
+と置けば、safe cross moment $M^G_{AB}=\mathbb E[\mathbf1_Gz_Az_B^{\mathsf T}]$ は
+
+```math
+ P(G^c)\leq\varepsilon_0,
+ \qquad
+ \lVert M^G_{AB}-C\rVert_F
+ \leq\frac{\varepsilon_0}{\sqrt{\rho_*}}
+ \tag{4.15}
+```
+
+を満たす。$\varepsilon_0<\sqrt{\rho_*}$ なら、規格化cross projectorについて
+
+```math
+ d_\times(C^\times_G,cc^\dagger)
+ \leq
+ \min\left\{1,\frac{2\varepsilon_0}{\sqrt{\rho_*}}\right\},
+ \qquad
+ c=\operatorname{vec}_{\rm row}(C)
+ \tag{4.16}
+```
+
+である。A側matchingはsafe branch上で厳密、B側は
+
+```math
+ \varepsilon_X^A=0,
+ \qquad
+ \varepsilon_X^B
+ \leq\frac{\varepsilon_0}{1-\varepsilon_0}
+ \tag{4.17}
+```
+
+と評価できる。
 
 <!-- theorem-start:theorem -->
-**定理（R120：共同実現配置によるCNOT入力--出力統計）**
+**定理（R157：M49の行分解bath・配置matchingと有限Hamiltonian準備）**
 
-任意の有限個の固定純粋入力、固定積出力基底、入力頻度、任意の $\epsilon>0$ に対し、鋭い基準配置から準備、CNOT、積分析器を通す有限Hamiltonianベンチを構成できる。出力は分析器出口の共同実現配置 $X=(X_A,X_B)$ である。無反応を含む入力ラベルと2ビット出力の長期共同分布は、目標CNOT共同分布からの全変動距離を $\epsilon$ 未満にできる。
+任意の固定有限規格化program族について、同じ4モード担体の作用区間から共同配置を可逆decodeし、行配置から事前校正bath templateをactive portへcanonical routingする有限Hamiltonian装置を構成できる。理想層では式(4.12)、式(4.13)が厳密に成立し、有限装置では無反応を除外せず式(4.15)--(4.17)で誤差を抑えられる。cross momentまたは共同頻度を単一試行controllerへ書き戻さない。
 <!-- theorem-end:theorem -->
 
-Q2-1の合格条件と根拠の対応は次である。
-
-| 合格条件 | 根拠 |
-|---|---|
-| 入力論理基底と一般重ね合わせ | R104 |
-| 外付け行列でない明示Hamiltonian と全基底入力への作用 | R105 |
-| 固定有限入力・出力基底に対する共同実現配置分布 | R120 |
-| 無反応を含む完全結果集合と全変動距離上界 | R120 |
-| 有限時間安定性と資源上界 | R106 |
-
-従ってQ2-1は、固定有限ベンチマーク、無反応込み、制御された任意精度の範囲で、CNOTプログラムを実際に通過した共同実現配置の検出統計として、2量子ビット型結合ゲートと同じ共同入力--出力統計を生成する有限古典Hamiltonian過程を達成したと判定する。M39の操作誘導テンソル積は入力、出力、局所基底の意味を固定する実装構造である。積入力からの非因子化生成と局所操作だけへの分解不能性は内部診断として残すが、Q2-1の合格条件ではない。ただし次はQ2-1の達成範囲に含まない。
-
-1. 2つの独立した古典位相空間または物理担体。
-2. 空間的に分離した2量子ビット型装置。
-3. Bell 非局所性またはBell 実験。
-4. 結合Hamiltonian の自然なミクロ起源。
-5. 配線誤差を含む具体的工学実装。
-6. $n$ 論理量子ビットへの多項式資源拡張。
-7. 完全な未知装置認証。
-
-直接モード符号化をそのまま一般化すると、$n$ 論理量子ビットに $2^n$ 複素モードが必要になる。従ってQ2-1の達成はQ2-3の進展ではあるが、隠れた指数コストを解消しない。
-
-置換済みM41の出力契約、R107--R111、R121は研究メモに保存する。Q2-1の根拠は引き続きR104--R106、R118、R120、R122であり、M48単独周期と混同しない。
-
-## 4.9 M48との代数的射影比較と未接続境界
-
-M39の行優先係数ベクトルを係数行列へ戻す写像を
+「有限Hamiltonian準備」は、固定program用に校正済みの有限template bankからactive portへ可逆routingする意味である。未知入力の自然な自己分解ではない。また稀な行に一様資源上界はない。行 $a$ の条件付きcross momentを作る任意分解にはCauchy--Schwarzから
 
 ```math
-\mathcal R(c)
-=
-\begin{pmatrix}
-c_{00}&c_{01}\\
-c_{10}&c_{11}
-\end{pmatrix}
+ \mathbb E[\lVert z_A\rVert^2\mid a]
+ \mathbb E[\lVert z_B\rVert^2\mid a]
+ \geq\frac1{\rho_a}
+ \tag{4.18}
 ```
 
-とする。singlet代表について
+が必要である。従って固定有限program族では有限だが、$\rho_a\to0$ を含む全program一様上界は主張しない。
+
+## 4.4　R158：担体・bath・配置へ同期するCNOT
+
+係数行列上のCNOTを
 
 ```math
-\mathcal R(c_{\rm s})
-=
-\frac{1}{\sqrt2}
-\begin{pmatrix}
-0&1\\
--1&0
-\end{pmatrix}
-=
-\frac{\mathsf E}{\sqrt2}
+ \mathcal C_X(C)
+ :=P_0C+P_1CX,
+ \qquad
+ P_a=|a\rangle\langle a|
+ \tag{4.19}
 ```
 
-である。M48が準備する規格化交差共分散は $-\mathsf E/\sqrt2$ であり、row-majorでM39の代表とはglobal phase $-1$ だけ異なる。従って両者の階数1射影は
+とする。row-majorで $\operatorname{vec}_{\rm row}(\mathcal C_X(C))=U_{\rm CX}c$ である。R157の各試行へ
 
 ```math
-c_{\rm s}c_{\rm s}^\dagger
+ C^+=\mathcal C_X(C^-),
+ \qquad
+ z_A^+=z_A^-,
+ \qquad
+ z_B^+=X^{X_A}z_B^-,
+ \tag{4.20}
 ```
 
-として一致する。この比較はensemble上の代数的一致であり、単一試行の状態受渡しではない。
+```math
+ X_A^+=X_A^-,
+ \qquad
+ X_B^+=X_B^-\oplus X_A
+ \tag{4.21}
+```
 
-旧R151の反対称filterは、非零な反対称成分を持つ全入力をglobal phaseを除いて同じ $\mathsf E$ へ規格化する。また、共同実現配置 $01,10$ が供給した等重み枝は、M48内部のsetting-pre fair seedで置換できる。従って旧写像はM39状態を運ぶstate-carrying受渡しではなく、最大でもbranch-carryingまたはprovenance-onlyなadapterである。
+を作用させる。A配置registerのsafe value 1でだけ値1となり、境界では滑らかに0へ落ちるplateau関数を $\chi_1(x_A)$ とする。B側反対称射影 $\Pi_-=(I_2-X)/2$ を用い、同じ時計窓に
 
-現行R151はM48内部の等重みseed routingとして定義する。Q2-1からQ2-2への物理的接続は、付録Kの共同状態、matching条件、setting-free受渡し面、拡大系での破壊的dilationを同じ試行レジスタ上で満たす必要があり、現稿では未構成である。Q2-1の既存定理はこの再分類で変更しない。
+```math
+ G_C=\mathcal J_Cc^\dagger\Pi_{\rm CX}c,
+ \qquad
+ G_z=\mathcal J_z\chi_1(x_A)z_B^\dagger\Pi_-z_B,
+ \qquad
+ G_X=\mathcal J_X\chi_1(x_A)x_B^\dagger\Pi_-x_B
+ \tag{4.22}
+```
+
+を置く。三生成子はsafe sector上で異なるtarget registerに作用し、共有control $x_A$ の共役運動量を使わないためPoisson可換である。各面積を $\pi$ に合わせれば式(4.20)、式(4.21)を同時に得る。境界は無反応へ送り、反作用は使用済みcellへ残す。
+
+理想層では行重みが保存され、各R157 branchは出力program $\mathcal C_X(C)$ の対応branchへ点ごとに写る。従って
+
+```math
+ M_{AB}^+=\mathcal C_X(M_{AB}^-),
+ \qquad
+ P(X_A^+=a,X_B^+=b)
+ =|\mathcal C_X(C)_{ab}|^2.
+ \tag{4.23}
+```
+
+<!-- theorem-start:theorem -->
+**定理（R158：担体・bath・配置へ同期する同一試行CNOT）**
+
+R157の各safe試行について、4モード担体、B bath、B配置へ式(4.20)、式(4.21)の同じCNOTを一つの有限時計窓で作用させられる。理想写像は自己逆、正準、作用保存であり、cross momentと共同配置を式(4.23)へ同時に写す。別標本化またはensemble controllerを使用しない。
+<!-- theorem-end:theorem -->
+
+有限bath反転誤差を $\eta_z$、配置XOR誤差を $\varepsilon_\oplus$、担体誤差を $\eta_C$、時計同期誤差を $\varepsilon_{\rm clk}^{49}$ とする。例えば
+
+```math
+ \lVert M_{AB}^+-\mathcal C_X(C)\rVert_F
+ \leq
+ \frac{\varepsilon_0}{\sqrt{\rho_*}}
+ +\sqrt2\eta_z
+ +\varepsilon_{\rm clk}^{49},
+ \tag{4.24}
+```
+
+```math
+ D_{\rm TV}(P_X^+,P_{\mathcal C_X(C)})
+ \leq\varepsilon_0+\varepsilon_\oplus,
+ \qquad
+ \varepsilon_{\rm sync}
+ \leq\eta_C+\eta_z+\varepsilon_\oplus+\varepsilon_{\rm clk}^{49}.
+ \tag{4.25}
+```
+
+と分ける。$\varepsilon_{\rm sync}$ は担体、bath、配置が同じprogram出力を表すかの監査量であり、Q2-1共同分布誤差と同じ記号に吸収しない。
+
+## 4.5　R159：固定有限共同入力--出力統計
+
+固定有限benchmarkを
+
+```math
+ \mathcal B
+ ={(C_s,W_A^s,W_B^s,\lambda_s)}_{s=1}^S,
+ \qquad
+ \sum_s\lambda_s=1
+ \tag{4.26}
+```
+
+とする。CNOT後と固定積分析器後の係数行列を
+
+```math
+ C_s^+=\mathcal C_X(C_s),
+ \qquad
+ D_s=W_A^sC_s^+(W_B^s)^{\mathsf T}
+ \tag{4.27}
+```
+
+とし、理想共同分布を
+
+```math
+ P_{\rm CX}^{\rm id}(s,a,b)
+ =\lambda_s|(D_s)_{ab}|^2,
+ \qquad
+ P_{\rm CX}^{\rm id}(s,\varnothing)=0
+ \tag{4.28}
+```
+
+とする。
+
+入力program頻度は、固定源 $r_\lambda=(\sqrt{\lambda_1},\ldots,\sqrt{\lambda_S})$ に対する外側M35選択器 $u_S$ から作る。選ばれた物理register $S=s$ により、program担体 $C_s$ と対応するR157 template bankをactive portへroutingする。R157の配置branchには独立な $u_X$ を使う。R158後、provider運転は $\Sigma_{\rm gate}$ で停止する。
+
+benchmark運転だけは、同じ担体 $C_s^+$ へ固定局所分析器を作用させて $D_s$ を得る。その実在担体にM35の4作用区間と第三の角 $u_Y$ を作用させ、一時pointer $T_Y=e_{ab}$ をfresh結果register $Y_A=e_a,Y_B=e_b$ へ可逆decodeする。その後に出力選択器内部を逆計算する。分析器前の担体を複製せず、出力表を装置へ直接書き込まない。
+
+三つの選択器角は積Haar測度、または
+
+```math
+ (u_S,u_X,u_Y)
+ \longmapsto
+ (u_S+\alpha_S,u_X+\alpha_X,u_Y+\alpha_Y)
+ \pmod{1}
+ \tag{4.29}
+```
+
+で $1,\alpha_S,\alpha_X,\alpha_Y$ が有理数体上一次独立な3トーラス回転を使う。これは長期頻度を与えるが、混合性または独立同分布型有限標本揺らぎを与えない。
+
+一つの角を入力と出力へ共有してはならない。例えば $\lambda_0=\lambda_1=1/2$、$P(Y=1\mid S=0)=1/4$、$P(Y=1\mid S=1)=3/4$ の目標分布は
+
+```math
+ P_{\rm id}(S,Y)
+ =\begin{pmatrix}3/8&1/8\\1/8&3/8\end{pmatrix}.
+ \tag{4.30}
+```
+
+$S=0$ を $u<1/2$、各条件付き出力を同じ $u$ の閾値で選ぶと共同分布は全成分 $1/4$ となり、式(4.30)からの全変動距離は $1/4$ である。独立角はこのprogram--結果相関を除く。
+
+入力選択誤差を $\varepsilon_S$、R157失敗を $\varepsilon_{157,s}$、準備・CNOT・分析器の純粋状態距離を $\delta_{\rm state,s}$、出力作用区間誤差を $\varepsilon_{Y,s}$、decode誤差を $\varepsilon_{\rm dec,s}$、記録誤差を $\varepsilon_{\rm rec}$ とする。無反応込みの実分布は
+
+```math
+ D_{\rm TV}(P_{\rm obs},P_{\rm CX}^{\rm id})
+ \leq
+ \varepsilon_S
+ +\sum_s\lambda_s
+ \left(
+ \varepsilon_{157,s}
+ +\delta_{\rm state,s}
+ +\varepsilon_{Y,s}
+ +\varepsilon_{\rm dec,s}
+ \right)
+ +\varepsilon_{\rm rec}.
+ \tag{4.31}
+```
+
+<!-- theorem-start:theorem -->
+**定理（R159：固定有限入力、入力頻度、固定積出力基底の共同入力--出力統計）**
+
+任意の固定有限純粋入力、入力頻度、固定積出力基底、任意の $\epsilon>0$ に対し、三つの独立選択器、M49の行分解準備、同期CNOT、固定積分析器、無反応込みの出力decodeからなる有限Hamiltonian benchmarkを構成できる。入力labelと2配置出力の長期共同分布は式(4.28)から全変動距離 $\epsilon$ 未満にできる。
+<!-- theorem-end:theorem -->
+
+共同分布全体の精度に最小入力頻度は不要である。ただし各入力に条件付けた誤差を一様に主張する場合は
+
+```math
+ \lambda_*
+ :=\min_{s:\lambda_s>0}\lambda_s
+ \tag{4.32}
+```
+
+に対する条件付け誤差の増幅を別に評価する。R159は未知入力、完全過程tomography、独立同分布型有限標本、一般測定後状態を与えない。
+
+## 4.6　R160：M49からM48への受渡し
+
+M48へ渡す固定積入力を
+
+```math
+ C_{\rm in}^{\rm s}
+ =\frac1{\sqrt2}
+ \begin{pmatrix}0&-1\\0&1\end{pmatrix}
+ \tag{4.33}
+```
+
+とする。R158後には
+
+```math
+ \mathcal C_X(C_{\rm in}^{\rm s})
+ =-\frac{\mathsf E}{\sqrt2}
+ =:C_{\rm out}^{\rm s}
+ \tag{4.34}
+```
+
+となる。$\rho_0=\rho_1=1/2$ なので、R157の二枝はCNOT後に
+
+```math
+ z_B=\mathsf E\overline{z_A},
+ \qquad
+ P(X_A,X_B)
+ =\tfrac12\delta_{01}+\tfrac12\delta_{10},
+ \tag{4.35}
+```
+
+```math
+ \mathbb E[z_Az_B^{\mathsf T}]
+ =-\frac{\mathsf E}{\sqrt2}
+ \tag{4.36}
+```
+
+を満たす。これはM48の固定singlet fiberと同じbath・配置matchingである。
+
+$\Sigma_{\rm gate}$ を局所設定生成前の $\Sigma_{\rm link}$ とする。受渡し写像 $T_{\rm link}^{49\to48}$ は、active $z_A,z_B,X_A,X_B$ の恒等搬送、または元portを使用済みcellへ残すcanonical SWAPとする。$C$、program label、履歴は受動registerに保持し、M48の結果形成へ入力しない。M48のseedは
+
+```math
+ S_0=(-1)^{X_A}
+ \tag{4.37}
+```
+
+と定める。固定singlet programでは等重みであり、branch biasを変えた監査では同じbiasを保存する。
+
+理想singlet接続では $\varepsilon_{\rm Q2-link}=0$ である。有限装置では
+
+```math
+ \varepsilon_{\rm Q2-link}
+ =\varepsilon_\times
+ +\varepsilon_X^A+\varepsilon_X^B
+ +\varepsilon_{\rm carry}
+ \tag{4.38}
+```
+
+とし、M48単独周期の誤差を $\varepsilon_{\rm Bell}^{48,{\rm cyc}}$ とすると
+
+```math
+ \varepsilon_{\rm Bell}^{49\to48}
+ \leq
+ \varepsilon_{\rm Q2-link}
+ +\varepsilon_{\rm Bell}^{48,{\rm cyc}}.
+ \tag{4.39}
+```
+<!-- theorem-start:theorem -->
+**定理（R160：M49固定singlet providerからM48へのsetting-free同一register受渡し）**
+
+$T_{\rm link}^{49\to48}$ はM49のlink面族全体でbath・配置registerを変えず、付録Kのprogram matching、setting-free性、拡大系での1対1性を満たす。異なる二つのcross projector間距離と枝biasを保存するため、受渡し面ではstate-carryingかつbranch-carryingである。M48 Bell周期へ接続する現行結論は式(4.33)の固定singlet programに限る。理想singlet接続では式(4.38)が零となり、有限装置では式(4.39)の接続Bell誤差上界を持つ。
+<!-- theorem-end:theorem -->
+
+右辺が $(\sqrt2-1)/4$ 未満なら、R155のCHSH不等式の破れが接続周期でも残る。一般Q2-1出力を一般状態Bell receiverへ渡す定理ではない。
+
+## 4.7　資源、達成判定、非主張
+
+一つの固定programに対するR157準備の透明な単純上界は次である。
+
+| 部品 | 正準対 |
+|---|---:|
+| M35 $L=4$ 入力配置選択器 | 16 |
+| $X_A,X_B$ one-hot配置register | 4 |
+| active $z_A,z_B$ | 4 |
+| 2行分bath template bank | 8 |
+| 合計 | 32 |
+
+4モード担体はM35信号部と共有する。CNOT時計、外側program選択器、出力benchmark選択器、履歴、永久記録は運転方式に応じて別に加える。これは存在上界であり最小性を主張しない。active bath作用は
+
+```math
+ \mathcal J_{\rm bath}^{max}
+ \leq\frac{2\mathcal J_0}{\sqrt{\rho_*}},
+ \qquad
+ \mathbb E[\mathcal J_{\rm bath}^{\rm active}]
+ \leq2\sqrt2\mathcal J_0.
+ \tag{4.40}
+```
+
+R157--R159により、Q2-1は固定有限benchmark、無反応込み、制御された任意精度の範囲で引き続き達成である。根拠はR104--R106、R157--R159へ更新され、M42/R113をQ2-1から外す。R160により、固定singlet programは付録Kの契約を満たしてM48へ物理的に接続される。このためQ2-2全体を、固定singlet型、固定有限設定族、準備先行、非空間分離、採用開放法則という範囲で条件付き達成へ更新する。
+
+次は含まない。
+
+1. 未知入力に対する一般量子channel。
+2. 任意Q2-1出力を処理する一般状態Bell receiver。
+3. 独立同分布型有限標本統計。
+4. 空間的に分離した自由設定Bell実験。
+5. R151、R152、paired-Hopf流の具体的ミクロHamiltonian導出。
+6. $2^n$ モードを避ける多量子ビット拡張。
+
+旧M39の単独模型、M42を使うQ2-1読出し、R118・R120の旧Q2-1適用、R122のM39--M37橋は現行根拠から外し、研究メモとGit履歴へ保存する。R122の4モード担体近似は補助計算として再利用できるが、bath・配置まで同期するM49の根拠にはしない。
