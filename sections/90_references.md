@@ -48,3 +48,7 @@
 - [43] M. A. Nielsen, ``A Simple Formula for the Average Gate Fidelity of a Quantum Dynamical Operation,'' Physics Letters A 303, 249--252 (2002). <https://doi.org/10.1016/S0375-9601(02)01272-0>
 - [44] D. Dürr, S. Goldstein, R. Tumulka, and N. Zanghì, ``Quantum Hamiltonians and Stochastic Jumps,'' Communications in Mathematical Physics 254, 129--166 (2005). <https://doi.org/10.1007/s00220-004-1242-0>
 - [45] H.-O. Georgii and R. Tumulka, ``Global Existence of Bell's Time-Inhomogeneous Jump Process for Lattice Quantum Field Theory,'' Markov Processes and Related Fields 11, 1--18 (2005). <https://arxiv.org/abs/math/0312294>
+- [46] C. Jarzynski, ``Nonequilibrium Equality for Free Energy Differences,'' Physical Review Letters 78, 2690--2693 (1997). <https://doi.org/10.1103/PhysRevLett.78.2690>
+- [47] G. E. Crooks, ``Entropy Production Fluctuation Theorem and the Nonequilibrium Work Relation for Free Energy Differences,'' Physical Review E 60, 2721--2726 (1999). <https://doi.org/10.1103/PhysRevE.60.2721>
+- [48] U. Seifert, ``Entropy Production along a Stochastic Trajectory and an Integral Fluctuation Theorem,'' Physical Review Letters 95, 040602 (2005). <https://doi.org/10.1103/PhysRevLett.95.040602>
+- [49] J. Ehrich, M. Esposito, F. Barra, and J. M. R. Parrondo, ``Micro-Reversibility and Thermalization with Collisional Baths,'' Physica A: Statistical Mechanics and its Applications 552, 122108 (2020). <https://doi.org/10.1016/j.physa.2019.122108>
