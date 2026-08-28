@@ -1088,13 +1088,13 @@ M49/R160はこのfilterを使わない。設定前行分解共同bathへCNOTを�
 
 ## J.15 M48単独周期で閉じた項目と残る非主張
 
-setting-pre等重みseed、安全盆routing、2翼強matching、切断後局所分析、2翼記録、周期末帰還は、第5章と付録DのR151--R156で固定singlet型・固定有限設定族について閉じる。M49/R160はQ2-1の固定singlet出力を同じ試行registerでM48へ渡す。M41とM39単独模型は置換済み模型へ移す。
+setting-pre等重みseed、安全盆routing、2翼強matching、切断後局所分析、2翼記録、周期末帰還は、第5章と付録DのR151--R156で固定singlet型・固定有限設定族について閉じる。各翼の固定単一試行bath座標に対するR152の局所状態数には、付録MのR164を利用できる。M49/R160はQ2-1の固定singlet出力を同じ試行registerでM48へ渡す。M41とM39単独模型は置換済み模型へ移す。
 
 現稿で主張しない事項は次である。
 
 1. M48開放方程式の具体的回路、流体、振動子浴からの導出。
 2. M48の有限閉鎖Hamiltonian系への持ち上げ。
-3. R162の衝突熱浴とpaired-Hopf pump、seed routing、信号bath保持を同じ具体的回路または有限閉鎖Hamiltonianへ統合したこと。
+3. R164の作用容量fiberとR162の衝突熱浴を、paired-Hopf pump、seed routing、2翼controller、信号bath保持へ同じ具体的回路または有限閉鎖Hamiltonianとして統合したこと。
 4. 連続時間の全区間で強いmatching fiberが不変であること。
 5. 任意のQ2-1出力を一般状態M48測定へ接続すること。
 6. 準備後にA設定を自由変更する介入分布。
