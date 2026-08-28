@@ -7,7 +7,7 @@
 
 Q2では作用殻を2つの異なる段階で使う。
 
-1. M49の中央4枝作用殻は、4成分信号 $D_{ab}$ から共同枝 $(a,b)$ を1回だけ選ぶ。
+1. M49の中央4枝作用殻は、4成分の物理program信号 $(D_{\rm prog})_{ab}$ から共同枝 $(a,b)$ を1回だけ選ぶ。
 2. M48の中央準備は、paired-Hopf流により2翼のrayと共通原因を準備する。
 3. 中央切断後は、各翼がfreshな局所2枝作用殻と局所衝突熱浴を持つ。
 
@@ -17,16 +17,16 @@ M50は共通理論部品であり、M49とM48に同一の殻ハードウェア�
 
 ## N.2 M49中央4枝の単一母測度
 
-固定積分析器後の規格化係数行列を $D\in\mathbb C^{2\times2}$ とし、行優先ベクトル化を
+ある段階の規格化された物理program係数行列を $D_{\rm prog}\in\mathbb C^{2\times2}$ とし、行優先ベクトル化を
 
 ```math
-d
+d_{\rm prog}
 =
-\operatorname{vec}_{\rm row}(D)
+\operatorname{vec}_{\rm row}(D_{\rm prog})
 =
-(D_{00},D_{01},D_{10},D_{11})^{\mathsf T},
+((D_{\rm prog})_{00},(D_{\rm prog})_{01},(D_{\rm prog})_{10},(D_{\rm prog})_{11})^{\mathsf T},
 \qquad
-d^\dagger d=1
+d_{\rm prog}^\dagger d_{\rm prog}=1
 ```
 
 とする。M50で $m=L=4$、$\Psi=I_4$、枝集合を
@@ -42,13 +42,13 @@ d^\dagger d=1
 ```math
 J_{\rm sig}
 =
-\mathcal J_0d^\dagger d
+\mathcal J_0d_{\rm prog}^\dagger d_{\rm prog}
 =
 \mathcal J_0,
 \qquad
 J_{ab}
 =
-\mathcal J_0|D_{ab}|^2
+\mathcal J_0|(D_{\rm prog})_{ab}|^2
 ```
 
 である。M49の直接有限選択では $\delta=0$ とし、$J_{ab}>0$ の活性支持だけに枝を置く。零容量枝は状態数零であり、有限幅境界またはdecode失敗は無反応へ送る。
@@ -62,55 +62,55 @@ K_{ab}+I_{ab}=J_{ab}
 を課す。付録MのR164から
 
 ```math
-\Omega_{ab}(D)
+\Omega_{ab}(D_{\rm prog})
 =
 \frac{(2\pi)^2}{J_{\rm ref}}J_{ab}
 =
 \frac{(2\pi)^2\mathcal J_0}{J_{\rm ref}}
-|D_{ab}|^2
+|(D_{\rm prog})_{ab}|^2
 ```
 
 となる。4枝を非交和として1回だけ規格化すれば
 
 ```math
-P(a,b\mid D)
+P(a,b\mid D_{\rm prog})
 =
-\frac{\Omega_{ab}(D)}
-{\sum_{c,d}\Omega_{cd}(D)}
+\frac{\Omega_{ab}(D_{\rm prog})}
+{\sum_{r,s}\Omega_{rs}(D_{\rm prog})}
 =
-|D_{ab}|^2
+|(D_{\rm prog})_{ab}|^2
 \tag{N.1}
 ```
 
 を得る。A周辺とAに条件付けたB分布は
 
 ```math
-P(A=a\mid D)
+P(A=a\mid D_{\rm prog})
 =
 \rho_a,
 \qquad
 \rho_a
 =
-\sum_b|D_{ab}|^2,
+\sum_b|(D_{\rm prog})_{ab}|^2,
 ```
 
 ```math
-P(B=b\mid A=a,D)
+P(B=b\mid A=a,D_{\rm prog})
 =
-\frac{|D_{ab}|^2}{\rho_a}
+\frac{|(D_{\rm prog})_{ab}|^2}{\rho_a}
 \tag{N.2}
 ```
 
-である。式(N.2)はR157の行templateが作る単一試行配置matchingと一致する。
+である。式(N.2)はR157の行templateが作る単一試行粒子位置matchingと一致する。
 
 ## N.3 M35作用区間への測度押し出し
 
-M35の4作用区間は、規格化信号 $d$ の累積作用
+M35の4作用区間は、規格化信号 $d_{\rm prog}$ の累積作用
 
 ```math
 s_{ab}
 =
-\sum_{(c,d)\preceq(ab)}|D_{cd}|^2
+\sum_{(r,s)\preceq(a,b)}|(D_{\rm prog})_{rs}|^2
 ```
 
 から区間
@@ -124,7 +124,7 @@ s_{ab}
 を作る。中央2作用殻の枝内で一様化した角座標を $u_X\in[0,1)$ とし、枝ラベル写像を
 
 ```math
-\chi_D(u_X)
+\chi_{D_{\rm prog}}(u_X)
 =
 (a,b)
 \quad\Longleftrightarrow\quad
@@ -136,7 +136,7 @@ u_X\in\mathcal O_{ab}
 <!-- theorem-start:theorem -->
 **定理（R165：M49中央4枝作用殻とM35作用区間標本化の同値性）**
 
-規格化された固定有限 $D$ 族について、各活性枝に同じ2作用殻Liouville規約を使い、$\delta=0$ とする。中央母測度を枝ラベルへ直接射影して得る分布と、枝内一様座標 $u_X$ をM35作用区間へ押し出して可逆decodeした分布は、ともに式(N.1)である。行周辺と行条件付き分布は式(N.2)となり、R157の行分解bath templateと整合する。
+規格化された固定有限 $D_{\rm prog}$ 族について、各活性枝に同じ2作用殻Liouville規約を使い、$\delta=0$ とする。中央母測度を枝ラベルへ直接射影して得る分布と、枝内一様座標 $u_X$ をM35作用区間へ押し出して可逆decodeした分布は、ともに式(N.1)である。行周辺と行条件付き分布は式(N.2)となり、R157の行分解bath templateと整合する。
 
 有限装置の全変動誤差を次の4項へ分ける。
 
@@ -153,7 +153,7 @@ decode誤差を $\varepsilon_{\rm dec}^{49}$ とする。
 ```math
 D_{\rm TV}
 \left(
-P_{49}^{\rm obs},P_D
+P_{49}^{\rm obs},P_{D_{\rm prog}}
 \right)
 \leq
 \varepsilon_{\rm cap}^{49}
@@ -163,13 +163,13 @@ P_{49}^{\rm obs},P_D
 +\varepsilon_{\rm dec}^{49}
 ```
 
-を満たす。配置混合誤差と衝突熱浴誤差は、この直接標本化定理の必須項ではない。
+を満たす。粒子位置混合誤差と衝突熱浴誤差は、この直接標本化定理の必須項ではない。
 <!-- theorem-end:theorem -->
 
 <!-- theorem-start:proof -->
 **証明（R165）**
 
-R164の4枝特殊化から中央殻の枝測度は $|D_{ab}|^2$ に比例する。M35区間のLebesgue長も $|D_{ab}|^2$ であるため、平坦化座標の押し出しは同じ枝分布を与える。行で和を取り、正の行重みで割れば式(N.2)を得る。有限誤差は母測度、座標平坦化、境界、decodeの順に三角不等式で加える。証明終。
+R164の4枝特殊化から中央殻の枝測度は $|(D_{\rm prog})_{ab}|^2$ に比例する。M35区間のLebesgue長も $|(D_{\rm prog})_{ab}|^2$ であるため、平坦化座標の押し出しは同じ枝分布を与える。行で和を取り、正の行重みで割れば式(N.2)を得る。有限誤差は母測度、座標平坦化、境界、decodeの順に三角不等式で加える。証明終。
 <!-- theorem-end:proof -->
 
 R165はM35を作用殻の熱化証明とは分類しない。M35は固定有限Hamiltonian標本器であり、殻内一様性または条件付き平衡化はM50側の準備条件である。
@@ -179,44 +179,44 @@ R165はM35を作用殻の熱化証明とは分類しない。M35は固定有限H
 CNOTが枝へ作用する置換を
 
 ```math
-P_X(a,b)
+P_{\rm CX}(a,b)
 =
 (a,b\oplus a)
 ```
 
-とする。係数行列への作用を $D\mapsto\mathcal C_XD$ とすれば
+とする。係数行列への作用を $D_{\rm prog}\mapsto\mathcal C_{\rm CX}(D_{\rm prog})$ とすれば
 
 ```math
-| (\mathcal C_XD)_{P_X(a,b)} |^2
+| (\mathcal C_{\rm CX}(D_{\rm prog}))_{P_{\rm CX}(a,b)} |^2
 =
-|D_{ab}|^2
+|(D_{\rm prog})_{ab}|^2
 ```
 
 なので
 
 ```math
-\Omega_{P_X(a,b)}(\mathcal C_XD)
+\Omega_{P_{\rm CX}(a,b)}(\mathcal C_{\rm CX}(D_{\rm prog}))
 =
-\Omega_{ab}(D).
+\Omega_{ab}(D_{\rm prog}).
 \tag{N.3}
 ```
 
 作用殻消去表示では
 
 ```math
-E_{P_X(a,b)}(\mathcal C_XD)
+E_{P_{\rm CX}(a,b)}(\mathcal C_{\rm CX}(D_{\rm prog}))
 =
-E_{ab}(D)
+E_{ab}(D_{\rm prog})
 ```
 
-であり、状態数と条件付き有効自由エネルギー地形は担体・bath・配置と共に置換される。式(N.3)は分布地形の共変性であって、CNOTパルスの機械仕事が零であることを意味しない。全作用保存だけでは時計、制御器、作用殻変形の仕事を消去できない。
+であり、状態数と条件付き有効自由エネルギー地形は担体・bath・粒子位置と共に置換される。式(N.3)は分布地形の共変性であって、CNOTパルスの機械仕事が零であることを意味しない。全作用保存だけでは時計、制御器、作用殻変形の仕事を消去できない。
 
 一般の積分析器 $W_A,W_B$ の後は
 
 ```math
-D
+D_{\rm out}
 =
-W_A\mathcal C_X(C)W_B^{\mathsf T}
+W_A\mathcal C_{\rm CX}(D_{\rm in})W_B^{\mathsf T}
 ```
 
 に対するfreshな出力殻とfreshな結果レジスタ $Y_A,Y_B$ を使う。入力枝用の $u_X$ と出力枝用の $u_Y$ は、同じ試行に属しても異なる殻微視的状態を平坦化した座標である。1つの座標を入力と出力に再利用すると目標共同分布を壊し得るため、独立性の要請は「同じ殻微視的状態を再利用しない」という物理要請である。$u_S$ は入力program頻度を作る外側scheduleであり、作用殻の熱座標ではない。

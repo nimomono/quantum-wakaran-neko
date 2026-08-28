@@ -451,7 +451,7 @@ def main() -> None:
     ))
     basis_outputs = np.argmax(np.abs(cnot_from_edge), axis=0)
     checks.append(Check(
-        "joint realized-configuration CNOT truth table",
+        "joint particle-position CNOT truth table",
         float(np.max(np.abs(basis_outputs - np.array([0, 1, 3, 2])))),
         0.0,
     ))

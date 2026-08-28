@@ -1,22 +1,22 @@
 @number: C
 @chapter: 付録
 @title: M49共同bath CNOT供給模型の証明
-@status: R104--R106の4モード担体、R157--R160の行分解bath--配置matching、同期CNOT、固定有限共同統計、M48受渡しを証明する。
+@status: R104--R106の4モード担体、R157--R160の行分解bath--粒子位置matching、同期CNOT、固定有限共同統計、M48受渡しを証明する。
 
 ## C.1　4モード正準担体
 
-$C\in\mathbb C^{2\times2}$ を行優先で
+$D_{\rm prog}\in\mathbb C^{2\times2}$ を行優先で
 
 ```math
- c=\operatorname{vec}_{\rm row}(C)
- =(C_{00},C_{01},C_{10},C_{11})^{\mathsf T}
+ d_{\rm prog}=\operatorname{vec}_{\rm row}(D_{\rm prog})
+ =((D_{\rm prog})_{00},(D_{\rm prog})_{01},(D_{\rm prog})_{10},(D_{\rm prog})_{11})^{\mathsf T}
  \tag{C.1}
 ```
 
 と並べ、
 
 ```math
- C_{ab}
+ (D_{\rm prog})_{ab}
  =\frac{Q_{ab}+iP_{ab}}{\sqrt{2\mathcal J_0}}
  \tag{C.2}
 ```
@@ -24,11 +24,11 @@ $C\in\mathbb C^{2\times2}$ を行優先で
 とする。Hermitian行列 $K$ に対する実2次Hamiltonian
 
 ```math
- F_K=\mathcal J_0c^\dagger Kc
+ F_K=\mathcal J_0d_{\rm prog}^\dagger Kd_{\rm prog}
  \tag{C.3}
 ```
 
-は $i\dot c=Kc$ を与える。従ってunitaryは実正準流であり、$c^\dagger c$ を保存する。
+は $i\dot d_{\rm prog}=Kd_{\rm prog}$ を与える。従ってunitaryは実正準流であり、$d_{\rm prog}^\dagger d_{\rm prog}$ を保存する。
 
 局所代数
 
@@ -42,11 +42,11 @@ $C\in\mathbb C^{2\times2}$ を行優先で
 は相互に可換で、互いの可換代数に一致する。積 $A\otimes B$ の線形包は $M_4(\mathbb C)$ 全体なので、この二代数が操作誘導テンソル積を定める。局所unitaryは
 
 ```math
- C\longmapsto U_ACU_B^{\mathsf T}
+ D_{\rm prog}\longmapsto U_AD_{\rm prog}U_B^{\mathsf T}
  \tag{C.5}
 ```
 
-と作用し、$\operatorname{rank}C$ と $|\det C|$ を保存する。
+と作用し、$\operatorname{rank}D_{\rm prog}$ と $|\det D_{\rm prog}|$ を保存する。
 
 <!-- theorem-start:proof -->
 **証明（R104）**
@@ -62,7 +62,7 @@ $C\in\mathbb C^{2\times2}$ を行優先で
  \Pi_{\rm CX}
  =|d\rangle\langle d|
  =|1\rangle\langle1|_A
- \otimes\frac{I_2-X}{2}.
+ \otimes\frac{I_2-\sigma_x}{2}.
  \tag{C.6}
 ```
 
@@ -70,7 +70,7 @@ $C\in\mathbb C^{2\times2}$ を行優先で
 
 ```math
  G_C
- =\mathcal J_0c^\dagger\Pi_{\rm CX}c
+ =\mathcal J_0d_{\rm prog}^\dagger\Pi_{\rm CX}d_{\rm prog}
  =\frac14\left[(Q_{10}-Q_{11})^2+(P_{10}-P_{11})^2\right].
  \tag{C.7}
 ```
@@ -83,7 +83,7 @@ $C\in\mathbb C^{2\times2}$ を行優先で
  \tag{C.8}
 ```
 
-$A=\pi$ では制御値0部分空間に恒等、制御値1部分空間に $X$ が作用するためCNOTに一致する。
+$A=\pi$ では制御値0部分空間に恒等、制御値1部分空間に $\sigma_x$ が作用するためCNOTに一致する。
 
 <!-- theorem-start:proof -->
 **証明（R105）**
@@ -144,21 +144,21 @@ $H_C=P_\tau+g(\tau)G_C$ では $\dot\tau=1$ で、信号生成子は全時刻で
 
 ## C.3　R157の理想行分解
 
-R157の共同枝確率は、付録NのR165によりM50中央4枝作用殻の状態数 $\Omega_{ab}\propto|C_{ab}|^2$ と同じ単一母測度から得られる。以下の行分解は別の確率源ではなく、その共同母測度をA周辺とB条件付き分布へ分解した表示である。
+R157の共同枝確率は、付録NのR165によりM50中央4枝作用殻の状態数 $\Omega_{ab}\propto|(D_{\rm prog})_{ab}|^2$ と同じ単一母測度から得られる。以下の行分解は別の確率源ではなく、その共同母測度をA周辺とB条件付き分布へ分解した表示である。
 
-非零行の集合を $I_C={a:\rho_a>0}$ とする。M35の理想作用区間は4モード担体の作用比をそのまま使うため、
+非零行の集合を $I_D={a:\rho_a>0}$ とする。M35の理想作用区間は4モード担体の作用比をそのまま使うため、
 
 ```math
- P(T_X=e_{ab})=|C_{ab}|^2,
+ P(T_X=e_{ab})=|(D_{\rm prog})_{ab}|^2,
  \qquad
  P(X_A=a)=\rho_a.
  \tag{C.14}
 ```
 
-safe sector $T_X=e_{ab}$ から式(4.10)のone-hot配置へcontrolled SWAPすると、
+safe sector $T_X=e_{ab}$ から式(4.10)のone-hot粒子位置へcontrolled SWAPすると、
 
 ```math
- P(X_A=a,X_B=b)=|C_{ab}|^2.
+ P(X_A=a,X_B=b)=|(D_{\rm prog})_{ab}|^2.
  \tag{C.15}
 ```
 
@@ -166,7 +166,7 @@ safe sector $T_X=e_{ab}$ から式(4.10)のone-hot配置へcontrolled SWAPする
 
 ```math
  z_Az_B^{\mathsf T}
- =\rho_a^{-1}e_aC_{a\bullet}.
+ =\rho_a^{-1}e_a(D_{\rm prog})_{a\bullet}.
  \tag{C.16}
 ```
 
@@ -174,25 +174,25 @@ safe sector $T_X=e_{ab}$ から式(4.10)のone-hot配置へcontrolled SWAPする
 
 ```math
  \mathbb E[z_Az_B^{\mathsf T}]
- =\sum_{a\in I_C}\rho_a
- \rho_a^{-1}e_aC_{a\bullet}
- =C.
+ =\sum_{a\in I_D}\rho_a
+ \rho_a^{-1}e_a(D_{\rm prog})_{a\bullet}
+ =D_{\rm prog}.
  \tag{C.17}
 ```
 
-共通位相は外積から消える。$z_A$ は $e_a$ のray上にあり、$z_B$ の規格化成分比は $C_{a\bullet}$ と同じなので、
+共通位相は外積から消える。$z_A$ は $e_a$ のray上にあり、$z_B$ の規格化成分比は $(D_{\rm prog})_{a\bullet}$ と同じなので、
 
 ```math
  \operatorname{Law}(X_A\mid z_A)=\pi_A^0(z_A),
  \qquad
  \operatorname{Law}(X_B=b\mid z_B)
- =\frac{|C_{ab}|^2}{\rho_a}.
+ =\frac{|(D_{\rm prog})_{ab}|^2}{\rho_a}.
  \tag{C.18}
 ```
 
 ## C.4　R157の有限Hamiltonian準備
 
-M35のsafe作用区間には互いに素な有限幅sectorがある。各sectorをcontrolとして、freshなone-hot配置registerへ有限列の2モード交換を作用させる。active配置を残した後、M35内部の比較pointerと一時作用registerを逆計算する。外部配置へ写した情報と使用済みcellを含む全写像は1対1である。
+M35のsafe作用区間には互いに素な有限幅sectorがある。各sectorをcontrolとして、freshなone-hot粒子位置registerへ有限列の2モード交換を作用させる。activeな粒子位置を残した後、M35内部の比較pointerと一時作用registerを逆計算する。外部の粒子位置へ写した情報と使用済みcellを含む全写像は1対1である。
 
 固定program $s$ とactive行 $a$ ごとに、式(4.11)の4複素成分を持つtemplate cellを事前校正する。$X_A=a$ のsafe plateauをcontrolとするcanonical SWAPにより、templateをactive $z_A,z_B$ portへ移す。全窓を
 
@@ -204,7 +204,7 @@ M35のsafe作用区間には互いに素な有限幅sectorがある。各sector�
 
 と書ける。$R_{157}$ は固定program族で有限、各 $G_r$ は有限個の作用差、$QQ+PP$ 交換、滑らかなplateau controlから成る。従って有限正準対と有限時間のHamiltonian準備である。templateの値は装置programであり、ensemble量を測定して再注入したものではない。
 
-各非零branchのsurvival係数を $r_{ab}\in[1-\varepsilon_0,1]$ とする。安全事象上の非規格化配置分布は $|C_{ab}|^2r_{ab}$ であり、失敗質量を無反応へ置けば理想完全分布からの全変動距離は $\varepsilon_0$ 以下である。
+各非零branchのsurvival係数を $r_{ab}\in[1-\varepsilon_0,1]$ とする。安全事象上の非規格化粒子位置分布は $|(D_{\rm prog})_{ab}|^2r_{ab}$ であり、失敗質量を無反応へ置けば理想完全分布からの全変動距離は $\varepsilon_0$ 以下である。
 
 式(C.16)のFrobeniusノルムは
 
@@ -218,18 +218,18 @@ M35のsafe作用区間には互いに素な有限幅sectorがある。各sector�
 従って
 
 ```math
- \lVert M^G_{AB}-C\rVert_F
+ \lVert M^G_{AB}-D_{\rm prog}\rVert_F
  \leq
- \sum_{a,b}|C_{ab}|^2(1-r_{ab})\rho_a^{-1/2}
+ \sum_{a,b}|(D_{\rm prog})_{ab}|^2(1-r_{ab})\rho_a^{-1/2}
  \leq\frac{\varepsilon_0}{\sqrt{\rho_*}}.
  \tag{C.21}
 ```
 
-$\delta=\varepsilon_0/\sqrt{\rho_*}<1$ と置く。$\lVert C\rVert_F=1$ と三角不等式から
+$\delta=\varepsilon_0/\sqrt{\rho_*}<1$ と置く。$\lVert D_{\rm prog}\rVert_F=1$ と三角不等式から
 
 ```math
  \left\lVert
- \frac{M^G_{AB}}{\lVert M^G_{AB}\rVert_F}-C
+ \frac{M^G_{AB}}{\lVert M^G_{AB}\rVert_F}-D_{\rm prog}
  \right\rVert_F
  \leq2\delta.
  \tag{C.22}
@@ -237,7 +237,7 @@ $\delta=\varepsilon_0/\sqrt{\rho_*}<1$ と置く。$\lVert C\rVert_F=1$ と三�
 
 単位ベクトルの距離は対応する階数1projectorのtrace距離を上から抑えるため式(4.16)が従う。
 
-A配置は全safe branchで行labelと一致する。B側では、行 $a$ の理想条件付き分布を $q_b=|C_{ab}|^2/\rho_a$ とすると、安全条件付き分布は
+A粒子位置は全safe branchで行labelと一致する。B側では、行 $a$ の理想条件付き分布を $q_b=|(D_{\rm prog})_{ab}|^2/\rho_a$ とすると、安全条件付き分布は
 
 ```math
  q_b^G
@@ -265,7 +265,7 @@ A配置は全safe branchで行labelと一致する。B側では、行 $a$ の理
 
 ```math
  \mathbb E[z_Az_B^{\mathsf T}\mid a]
- =\frac{e_aC_{a\bullet}}{\rho_a},
+ =\frac{e_a(D_{\rm prog})_{a\bullet}}{\rho_a},
  \qquad
  \left\lVert
  \mathbb E[z_Az_B^{\mathsf T}\mid a]
@@ -299,30 +299,30 @@ Cauchy--Schwarzから
 係数行列CNOTは行ごとに
 
 ```math
- (\mathcal C_X(C))_{0\bullet}=C_{0\bullet},
- \qquad
- (\mathcal C_X(C))_{1\bullet}=C_{1\bullet}X.
+ (\mathcal C_{\rm CX}(D_{\rm prog}))_{0\bullet}=(D_{\rm prog})_{0\bullet},
+\qquad
+ (\mathcal C_{\rm CX}(D_{\rm prog}))_{1\bullet}=(D_{\rm prog})_{1\bullet}\sigma_x.
  \tag{C.28}
 ```
 
-R157 branch $a$ で $z_B^+=X^az_B$ とすると
+R157 branch $a$ で $z_B^+=\sigma_x^az_B$ とすると
 
 ```math
  \begin{aligned}
  \mathbb E[z_A^+(z_B^+)^{\mathsf T}]
  &=\sum_a\rho_a
- \rho_a^{-1}e_aC_{a\bullet}X^a\\
- &=\mathcal C_X(C).
+ \rho_a^{-1}e_a(D_{\rm prog})_{a\bullet}\sigma_x^a\\
+ &=\mathcal C_{\rm CX}(D_{\rm prog}).
  \end{aligned}
  \tag{C.29}
 ```
 
-配置は $b^+=b\oplus a$ なので
+粒子位置は $b^+=b\oplus a$ なので
 
 ```math
  P(X_A^+=a,X_B^+=b)
- =|C_{a,b\oplus a}|^2
- =|\mathcal C_X(C)_{ab}|^2.
+ =|(D_{\rm prog})_{a,b\oplus a}|^2
+ =|\mathcal C_{\rm CX}(D_{\rm prog})_{ab}|^2.
  \tag{C.30}
 ```
 
@@ -330,9 +330,9 @@ R157 branch $a$ で $z_B^+=X^az_B$ とすると
 
 ## C.7　三port CNOTのHamiltonian
 
-3つのportへ同期するCNOTは、中央作用殻の枝labelにも $P_X(a,b)=(a,b\oplus a)$ を作用させる。$\Omega_{P_X(a,b)}(\mathcal C_XC)=\Omega_{ab}(C)$ なので状態数地形は共変だが、以下の有限時計Hamiltonianが行う機械仕事を零とはしない。
+3つのportへ同期するCNOTは、中央作用殻の枝labelにも $P_{\rm CX}(a,b)=(a,b\oplus a)$ を作用させる。$\Omega_{P_{\rm CX}(a,b)}(\mathcal C_{\rm CX}(D_{\rm prog}))=\Omega_{ab}(D_{\rm prog})$ なので状態数地形は共変だが、以下の有限時計Hamiltonianが行う機械仕事を零とはしない。
 
-4モード担体には式(C.7)、B bathとB配置には
+4モード担体には式(C.7)、B bathとB粒子位置には
 
 ```math
  G_z=\mathcal J_z\chi_1(x_A)z_B^\dagger\Pi_-z_B,
@@ -341,7 +341,7 @@ R157 branch $a$ で $z_B^+=X^az_B$ とすると
  \tag{C.31}
 ```
 
-を使う。$\chi_1$ はA配置のsafe one-hot sectorで0または1のplateauを持ち、共役運動量へ依存しない。$G_C$ は担体、$G_z$ はB bath、$G_X$ はB配置へ作用し、共有するA配置についてはいずれも共役運動量を含まない。従って
+を使う。$\chi_1$ はA粒子位置のsafe one-hot sectorで0または1のplateauを持ち、共役運動量へ依存しない。$G_C$ は担体、$G_z$ はB bath、$G_X$ はB粒子位置へ作用し、共有するA粒子位置についてはいずれも共役運動量を含まない。従って
 
 ```math
  {G_C,G_z}
@@ -357,7 +357,7 @@ R157 branch $a$ で $z_B^+=X^az_B$ とすると
 ```math
  \begin{aligned}
  \left\lVert
- \mathbb E[z_A(R_z-X^{X_A})z_B^{\mathsf T}]
+ \mathbb E[z_A(R_z-\sigma_x^{X_A})z_B^{\mathsf T}]
  \right\rVert_F
  &\leq
  \eta_z\sum_a\rho_a\rho_a^{-1/2}\\
@@ -366,7 +366,7 @@ R157 branch $a$ で $z_B^+=X^az_B$ とすると
  \tag{C.33}
 ```
 
-配置XORの失敗質量を $\varepsilon_\oplus$ とすれば、全変動距離は同じ量以下だけ増える。担体誤差と時計誤差を別に加えると式(4.24)、式(4.25)を得る。
+粒子位置XORの失敗質量を $\varepsilon_\oplus$ とすれば、全変動距離は同じ量以下だけ増える。担体誤差と時計誤差を別に加えると式(4.24)、式(4.25)を得る。
 
 <!-- theorem-start:proof -->
 **証明（R158）**
@@ -384,19 +384,19 @@ R157 branch $a$ で $z_B^+=X^az_B$ とすると
  \tag{C.34}
 ```
 
-とする。外側M35の作用区間はprogram label $S=s$ を頻度 $\lambda_s$ で選ぶ。safe labelをfresh program registerへdecodeし、そのlabelで $C_s$ とR157 template bankをactive portへroutingする。入力配置のM35には独立角 $u_X$ を使う。
+とする。外側M35の作用区間はprogram label $S=s$ を頻度 $\lambda_s$ で選ぶ。safe labelをfresh program registerへdecodeし、そのlabelで $D_{{\rm in},s}$ とR157 template bankをactive portへroutingする。入力粒子位置のM35には独立角 $u_X$ を使う。
 
 provider運転はR158後の $\Sigma_{\rm gate}$ で終わる。benchmark運転では同じ担体に $W_A^s\otimes W_B^s$ を作用させ、
 
 ```math
- D_s=W_A^s\mathcal C_X(C_s)(W_B^s)^{\mathsf T}
+ D_{{\rm out},s}=W_A^s\mathcal C_{\rm CX}(D_{{\rm in},s})(W_B^s)^{\mathsf T}
  \tag{C.35}
 ```
 
-を得る。出力M35は第三角 $u_Y$ と実在する $D_s$ の作用区間を使うため、
+を得る。出力M35は第三角 $u_Y$ と実在する $D_{{\rm out},s}$ の作用区間を使うため、
 
 ```math
- P(Y_A=a,Y_B=b\mid S=s)=|(D_s)_{ab}|^2.
+ P(Y_A=a,Y_B=b\mid S=s)=|(D_{{\rm out},s})_{ab}|^2.
  \tag{C.36}
 ```
 
@@ -429,7 +429,7 @@ provider運転はR158後の $\Sigma_{\rm gate}$ で終わる。benchmark運転�
 式(4.33)の二行はともノルム2乗 $1/2$ である。CNOT後は
 
 ```math
- \mathcal C_X(C_{\rm in}^{\rm s})
+ \mathcal C_{\rm CX}(D_{\rm in}^{\rm s})
  =\frac1{\sqrt2}
  \begin{pmatrix}0&-1\\1&0\end{pmatrix}
  =-\frac{\mathsf E}{\sqrt2}.
@@ -458,9 +458,9 @@ $r_*=2^{1/4}$ とすると、CNOT後の二枝は
  \tag{C.40}
 ```
 
-従ってM48のbright変数は $m=z_A$、dark変数は $d=0$ であり、cross momentと配置分布は式(4.35)、式(4.36)に一致する。
+従ってM48のbright変数は $m=z_A$、dark変数は $d=0$ であり、cross momentと粒子位置分布は式(4.35)、式(4.36)に一致する。
 
-$T_{\rm link}^{49\to48}$ はbath・配置registerに恒等で、設定角は受渡し後に生成される。よって
+$T_{\rm link}^{49\to48}$ はbath・粒子位置registerに恒等で、設定角は受渡し後に生成される。よって
 
 ```math
  \operatorname{Law}(\Gamma_{\Sigma_{\rm link}}\mid x,y)
@@ -470,17 +470,17 @@ $T_{\rm link}^{49\to48}$ はbath・配置registerに恒等で、設定角は受�
 
 有限port交換では元cellを使用済み側へ残すため、拡大写像は1対1である。
 
-state-carrying感度には、link面族内の $C_0=e_0e_0^{\mathsf T}$ と $C_{\rm out}^{\rm s}$ を使う。対応する規格化row-majorベクトルは直交するので、cross projectorのtrace距離は1である。恒等portはこの距離を保存する。枝seed $S_0=(-1)^{X_A}$ は $P(X_A=0)=p$ をそのまま $P(S_0=+1)=p$ へ写すため、$p=0,1/4,1/2,3/4,1$ のbias監査を全て通る。履歴は受動的で、結果形成核へ入れない。
+state-carrying感度には、link面族内の $D_0=e_0e_0^{\mathsf T}$ と $D_{\rm out}^{\rm s}$ を使う。対応する規格化row-majorベクトルは直交するので、cross projectorのtrace距離は1である。恒等portはこの距離を保存する。枝seed $S_0=(-1)^{X_A}$ は $P(X_A=0)=p$ をそのまま $P(S_0=+1)=p$ へ写すため、$p=0,1/4,1/2,3/4,1$ のbias監査を全て通る。履歴は受動的で、結果形成核へ入れない。
 
 <!-- theorem-start:proof -->
 **証明（R160）**
 
-式(C.38)--(C.40)が固定singletのcross matchingと単一試行配置matching、式(C.41)がsetting-free性を与える。同一registerの恒等搬送がprogram matchingを、canonical SWAP dilationが有限装置の1対1性を与える。state距離と枝biasも保存される。M48結果分布へ全変動距離の三角不等式を適用すると式(4.39)が従う。証明終。
+式(C.38)--(C.40)が固定singletのcross matchingと単一試行粒子位置matching、式(C.41)がsetting-free性を与える。同一registerの恒等搬送がprogram matchingを、canonical SWAP dilationが有限装置の1対1性を与える。state距離と枝biasも保存される。M48結果分布へ全変動距離の三角不等式を適用すると式(4.39)が従う。証明終。
 <!-- theorem-end:proof -->
 
 ## C.10　資源と適用限界
 
-一programのR157準備は、M35の16対、2配置registerの4対、active bathの4対、2行template bankの8対からなる単純上界32対を持つ。CNOT担体はM35の4信号対と共有できる。外側program選択器とbenchmark出力選択器はprogram数と運転modeに応じて別に加える。template bankは固定有限族について $O(S)$、全装置も固定2論理部分系では有限である。
+一programのR157準備は、M35の16対、2粒子位置registerの4対、active bathの4対、2行template bankの8対からなる単純上界32対を持つ。CNOT担体はM35の4信号対と共有できる。外側program選択器とbenchmark出力選択器はprogram数と運転modeに応じて別に加える。template bankは固定有限族について $O(S)$、全装置も固定2論理部分系では有限である。
 
 本付録は次を証明しない。
 
@@ -488,7 +488,7 @@ state-carrying感度には、link面族内の $C_0=e_0e_0^{\mathsf T}$ と $C_{\
 2. 任意Q2-1出力に対する一般状態M48測定。
 3. 独立同分布型有限標本統計。
 4. 空間分離、準備後の自由設定変更、有限伝播円錐。
-5. R162の有限衝突配置bathとR151、paired-Hopf流、2翼controllerの閉鎖Hamiltonian統合。
+5. R162の有限衝突粒子位置bathとR151、paired-Hopf流、2翼controllerの閉鎖Hamiltonian統合。
 6. $2^n$ モードを避ける多量子ビット拡張。
 
-M39単独模型とM42最小率はQ2-1の現行因果鎖に使わない。R104--R106はM49内部担体の再利用可能な有限正準結果として維持する。R122の位置ばね近似は担体部分の補助計算であり、R157--R160のbath・配置・受渡しを導かない。
+M39単独模型とM42最小率はQ2-1の現行因果鎖に使わない。R104--R106はM49内部担体の再利用可能な有限正準結果として維持する。R122の位置ばね近似は担体部分の補助計算であり、R157--R160のbath・粒子位置・受渡しを導かない。

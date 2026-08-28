@@ -23,7 +23,7 @@
 - `sections/A3_l4_two_qubit_gate_proofs.md`
 - `sections/A4_m48_cycle_proofs.md`
 - `sections/A5_m37_envelope_proofs.md`
-- `sections/A6_realized_configuration_proofs.md`
+- `sections/A6_particle_position_proofs.md`
 - `sections/A7_q3_completion_proofs.md`
 - `sections/A8_open_quasicritical_preparation.md`
 - `sections/A9_w_two_mode_hopf_statistics.md`
@@ -83,7 +83,7 @@
 - `tools/verify_phase_correlation.py`
 - `tools/verify_q2_1_gate.py`
 - `tools/verify_m49_joint_bath_provider.py`
-- `tools/verify_realized_configuration.py`
+- `tools/verify_particle_position.py`
 - `tools/verify_q3_completion.py`
 - `figures/README.md`
 - `figures/m45_open_trap_diagnostics.png`

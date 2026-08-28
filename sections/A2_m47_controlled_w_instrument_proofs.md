@@ -44,30 +44,30 @@ U^\dagger.
 分母 $\mathbb E[Z^\dagger Z]$ は保存される。従って
 
 ```math
-C(t)
+C_Z(t)
 =
-U(t,t_0)C(t_0)U(t,t_0)^\dagger
+U(t,t_0)C_Z(t_0)U(t,t_0)^\dagger
 ```
 
-であり、微分すると $i\mathcal J_0\dot C=[G,C]$ を得る。
+であり、微分すると $i\mathcal J_0\dot C_Z=[G,C_Z]$ を得る。
 
 ## B.2 R139の証明
 
 2次Hermitian行列はPauli基底で
 
 ```math
-C
+C_Z
 =
 \frac12
 \left(
-\operatorname{tr}C\,I_2
+\operatorname{tr}C_Z\,I_2
 +
 \sum_{k=x,y,z}
-\operatorname{tr}(C\sigma_k)\sigma_k
+\operatorname{tr}(C_Z\sigma_k)\sigma_k
 \right)
 ```
 
-と展開できる。$\operatorname{tr}C=1$ なので本文の表示を得る。固有値は
+と展開できる。$\operatorname{tr}C_Z=1$ なので本文の表示を得る。固有値は
 
 ```math
 \lambda_\pm
@@ -77,12 +77,12 @@ C
 
 である。正半定値性は $|\boldsymbol r|\leq1$、階数1は固有値集合が $\{1,0\}$ であることと同値なので $|\boldsymbol r|=1$ である。
 
-階数1なら $C=cc^\dagger$ と因数分解できる。同じ $C$ を与える規格化因子 $d$ は、$C$ の1次元像を張るので $d=e^{i\alpha}c$ である。従って因子空間は $S^3/U(1)=\mathbb{CP}^1$ である。
+階数1なら $C_Z=cc^\dagger$ と因数分解できる。同じ $C_Z$ を与える規格化因子 $d$ は、$C_Z$ の1次元像を張るので $d=e^{i\alpha}c$ である。従って因子空間は $S^3/U(1)=\mathbb{CP}^1$ である。
 
 <!-- theorem-start:proof -->
 **証明（R139）**
 
-上の固有値計算により階数1条件と単位Bloch球面が同値である。B.1のunitary共役は階数1を保存し、共通位相を変えても $C$ を変えない。従ってM47階数1共分散の有効状態空間はBloch球面であり、古典正準流がその回転を与える。証明終。
+上の固有値計算により階数1条件と単位Bloch球面が同値である。B.1のunitary共役は階数1を保存し、共通位相を変えても $C_Z$ を変えない。従ってM47階数1共分散の有効状態空間はBloch球面であり、古典正準流がその回転を与える。証明終。
 <!-- theorem-end:proof -->
 
 ## B.3 傾斜W型の2モード行列
@@ -355,21 +355,7 @@ P_L
 
 ## B.8 大域階数1と枝別共分散の違い
 
-入力共分散が $C=cc^\dagger$ なら、$c$ に直交する $v$ について
-
-```math
-\mathbb E
-\left[
-|v^\dagger Z|^2
-\right]
-=
-\mathbb E[Z^\dagger Z]
-v^\dagger Cv
-=
-0.
-```
-
-従って $Z=\alpha c$ がほとんど確実に成り立つ。結果事象 $R=s$ で条件付けても、交換前の $Z$ の方向は $c$ のままである。一般の $c$ は同時に $|L\rangle$ と $|R\rangle$ に平行ではないため、条件付けだけでは2つの測定後固有状態を作れない。
+入力共分散が $C_Z=cc^\dagger$ なら、付録M.2の階数1共分散の支持補題により $Z=\alpha c$ がほとんど確実に成り立つ。結果事象 $R=s$ で条件付けても、交換前の $Z$ の方向は $c$ のままである。一般の $c$ は同時に $|L\rangle$ と $|R\rangle$ に平行ではないため、条件付けだけでは2つの測定後固有状態を作れない。
 
 結果別テンプレート交換は、この不足を物理写像として補う。交換前の信号浴を捨てず使用済みテンプレートへ移すので、異なる入力を同じ出力へ不可逆に押しつぶさない。
 
@@ -478,12 +464,12 @@ D_{\rm TV}(p^{(12)},p^{(0)})
 
 増分を順に $\varepsilon_{\rm Hopf}$、$\varepsilon_{\rm eq}$、$\varepsilon_{\rm ctrl}$、$\varepsilon_{2m}$、$\varepsilon_{\rm eq}$、$\eta_W$、$\varepsilon_{\rm lock}$、$\varepsilon_{\rm res}$、$\varepsilon_{\rm guard}$、$\varepsilon_{\rm rec}$、$\varepsilon_{\rm br}$、$\varepsilon_{\rm post}$ と取ると本文の $\varepsilon_{\rm inst}$ になる。各 $\varepsilon_{\rm eq}$ はR164の作用殻誤差 $\varepsilon_{\rm sh}$、R161の有限混合、正則化、R162の有限衝突、信号bath保持を一度ずつ含む。fiber内準備誤差を $\varepsilon_{\rm hold}$ へ重ねて数えない。R161の全変動縮小性により、各再平衡化段は前段誤差を増幅しない。
 
-安全枝ではB.10により信号共分散が $|s\rangle\langle s|$ へ近づく。記録後にR161をtemplate方向へ作用させると、条件付き配置分布は $\pi^\delta(s)$ から $\varepsilon_{\rm post}$ 以内になる。従って枝別共同状態の条件付きGibbs整合誤差は $\varepsilon_{\rm br}+\varepsilon_{\rm post}+O(\eta_W)$ である。
+安全枝ではB.10により信号共分散が $|s\rangle\langle s|$ へ近づく。記録後にR161をtemplate方向へ作用させると、条件付き粒子位置分布は $\pi^\delta(s)$ から $\varepsilon_{\rm post}$ 以内になる。従って枝別共同状態の条件付きGibbs整合誤差は $\varepsilon_{\rm br}+\varepsilon_{\rm post}+O(\eta_W)$ である。
 
 <!-- theorem-start:proof -->
 **証明（R143）**
 
-R145で信号bath方向、R164で条件付き作用殻、R161で初期配置分布を準備し、衝突熱浴を切ってR140で任意軸を左右基底へ写す。分析器終了後に作用殻fiberを更新し、R161、R162で配置を新しい信号bath方向へ戻す。R141で傾斜保持中の信号bath左右周辺変化を抑え、R162の入射停止と辺ゲート閉鎖で単一試行の経路滞在失敗を抑え、R142で左右読出しとBorn重みの差を評価する。B.9の局所剪断で既存の $X$ を記録し、B.10の結果別正準交換で安全枝の条件付き共分散を作る。最後にtemplate方向へ作用殻準備と再平衡化を行う。分布誤差は上の三角不等式、条件付き状態誤差は交換、再平衡化、局在裾の評価で抑えられる。証明終。
+R145で信号bath方向、R164で条件付き作用殻、R161で初期粒子位置分布を準備し、衝突熱浴を切ってR140で任意軸を左右基底へ写す。分析器終了後に作用殻fiberを更新し、R161、R162で配置を新しい信号bath方向へ戻す。R141で傾斜保持中の信号bath左右周辺変化を抑え、R162の入射停止と辺ゲート閉鎖で単一試行の経路滞在失敗を抑え、R142で左右読出しとBorn重みの差を評価する。B.9の局所剪断で既存の $X$ を記録し、B.10の結果別正準交換で安全枝の条件付き共分散を作る。最後にtemplate方向へ作用殻準備と再平衡化を行う。分布誤差は上の三角不等式、条件付き状態誤差は交換、再平衡化、局在裾の評価で抑えられる。証明終。
 <!-- theorem-end:proof -->
 
 この証明はR137の全時刻matching保存を使わない。付録Mの条件付き状態数、付録Lの有限混合率、有限衝突誤差、辺閉鎖誤差を使う。一方、作用容量結合、fiber内平衡化、枝対称性を含む有限局所Hamiltonianと、信号bath保持controllerの完全な反作用は別の未導出事項である。
@@ -611,7 +597,7 @@ R144は各段でR164の作用殻準備とR161の有限時間再平衡化を明�
 2. 左右テンプレートの4正準対。
 3. 左右記録ポインターの2正準対。
 4. 傾斜制御と共通時計の有限正準対。
-5. 実現配置の局所位置と共役運動量。
+5. 粒子位置の局所位置と共役運動量。
 6. 条件付き作用殻fiber、容量controller、fiber内混合器。
 7. 条件付き障壁controller、辺ゲート、有限衝突セル。
 8. 使用済み信号、衝突履歴、制御履歴を保持する外部セル。
