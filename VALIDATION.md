@@ -1,6 +1,6 @@
 # 検算と品質確認
 
-この文書は draft-48 の再現計算、静的整合性、PDF 生成、および目視確認の記録である。検証日は 2026-08-27。
+この文書は draft-49 の再現計算、静的整合性、PDF 生成、および目視確認の記録である。検証日は 2026-08-28。
 
 ## 実行方法
 
@@ -13,6 +13,7 @@ python tools/verify_action_distribution.py
 python tools/verify_m47_q1_instrument.py
 python tools/verify_m47_hopf_preparation.py
 python tools/verify_m47_collision_thermodynamics.py
+python tools/verify_m47_action_shell_origin.py
 python tools/verify_q2_1_gate.py
 python tools/verify_m49_joint_bath_provider.py
 python tools/verify_m48_paired_hopf.py
@@ -24,13 +25,16 @@ python simulations/m45_open_quasicritical/verify.py --quick
 python tools/build_paper.py
 ```
 
-## draft-48 理論監査
+## draft-49 理論監査
 
-- R161 は任意のM47階数1信号bath方向について、正則化条件付きGibbs標的、自由エネルギー、平方根型局所率、詳細釣合い、一意定常分布、全ray一様混合率、共通位相・振幅不変性、node no-goを明示する。
-- R162 は有限衝突bath、対称条件付き障壁、エネルギー保存散乱からR161の率を実現し、有限セルoverflow、有限エネルギー、閾値平滑化、時計、信号bath保持を誤差として分離する。
-- R163 は配置部分の正逆経路確率比、積分ゆらぎ関係、quench仕事と相対エントロピーの恒等式を与える。周期全体の熱力学収支とは扱わない。
+- R164 は旧R24の一般作用殻容量を現行M47へ移植し、単一試行信号作用のW型mode分解、正則化枝容量、排他的2作用殻、単一母Liouville測度からBorn型条件付き重みを導く。旧M15の入口標本化、等方混合、標本化後再埋込み、測定周期は復活させない。
+- R164 の状態数は2作用殻で容量に線形であり、直接作用分配次元を増やすと一般に容量の冪になる。共通spectator因子は規格化で消えるが、枝依存spectator体積、coarea因子、入口流束は枝対称性誤差として残る。
+- R164 は厳密作用殻に加えて滑らかな有限剛性殻を評価し、有限幅、枝対称性、作用容量結合、fiber内準備を独立誤差に分ける。正則化を外す極限では必要剛性が少なくとも $O(\delta^{-2})$ まで増え得る。
+- R161 はR164で得た正則化条件付き状態数とmesostate有効自由エネルギーについて、平方根型局所率、詳細釣合い、一意定常分布、全ray一様混合率、共通位相・振幅不変性、node no-goを明示する。
+- R162 は有限衝突bath、対称基準障壁、粗視化有効自由エネルギー保存散乱からR161の率を実現し、有限セルoverflow、有限エネルギー、閾値平滑化、時計、信号bath保持を誤差として分離する。fiberを含む全微視的Hamiltonianのエネルギー保存とは同一視しない。
+- R163 は配置部分の正逆経路確率比、積分ゆらぎ関係、quench有効仕事と相対エントロピーの恒等式を与える。ゆらぎの定理はR164で得た地形の下流整合性検査であり、状態数の線形則を選ぶ起源ではない。
 - R143、R144 は連続matching保存を仮定せず、操作面ごとの再平衡化、入射停止、辺閉鎖、局所記録、template交換、測定後再平衡化を合成する。
-- Q1-2 はBorn型条件付き配置エネルギーの位相体積起源、Q1-3はHopf pumpからresetまでの周期総収支を残すため部分達成を維持する。
+- Q1-2 は作用容量結合、fiber内平衡化、枝対称性、信号bath反作用を同じ有限局所Hamiltonian周期へ統合する問題を残し、Q1-3はHopf pumpからresetまでの周期総収支を残すため、いずれも部分達成を維持する。
 
 - 付録KはQ2共同bath--実現配置の共通状態、cross matching、単一試行配置matching、row-major規約、setting-free受渡し面、破壊的dilationを固定する。
 - R151 は M48 内部の setting-pre 等重み seed を履歴から独立に paired-Hopf 安全盆へ送る。M39共同配置をseedへ写す処理は任意adapterであり、M48の必須入力ではない。
@@ -43,7 +47,7 @@ python tools/build_paper.py
 - R158 は担体、B bath、B配置へ同じCNOTを同一時計窓で作用させ、cross momentと共同配置を点ごとに同じ出力programへ写す。
 - R159 はprogram、入力配置、出力読出しに独立な3選択器を使い、固定有限入力、入力頻度、固定積出力基底の共同統計を閉じる。1角共有反例と一意エルゴード性・混合性の区別を含む。
 - R160 は固定singlet出力の同じbath・配置registerをsetting-free面からM48へ渡し、cross projector感度と枝biasを保存する。
-- M48単独周期と固定目標Q2-2全体は、固定singlet型、固定有限設定族、準備先行、非空間分離、採用開放法則の限定された意味で「条件付き達成」とする。R162とpaired-Hopf・seed routing・2翼controllerの統合、空間的局所性、自由設定、一般状態への拡張は未達である。
+- M48単独周期と固定目標Q2-2全体は、固定singlet型、固定有限設定族、準備先行、非空間分離、採用開放法則の限定された意味で「条件付き達成」とする。各翼のR164作用殻とR162、paired-Hopf・seed routing・2翼controllerの同一有限局所Hamiltonian統合、空間的局所性、自由設定、一般状態への拡張は未達である。
 - M41 は現行モデルから外し、置換前の履歴として `notes/` に移した。
 - M39を置換済みQ2-1模型へ移し、M42/R113をQ2-3・Q3だけに限定した。Q1、Q2-1、Q2-3、Q3 の判定は変更していない。
 
@@ -55,7 +59,9 @@ python tools/build_paper.py
 
 `tools/verify_m49_joint_bath_provider.py` は29項目を確認する。10,000件の一般複素programについて、R157のcross moment・配置matching・稀な行の作用下界・有限失敗上界、R158の担体・bath・配置CNOT共変性、R159の固定有限benchmarkと1角共有反例、R160のsinglet fiber・state感度・枝bias保存を検査する。
 
-`tools/verify_m47_collision_thermodynamics.py` は29項目を確認する。R161の正規化、詳細釣合い、一様スペクトルギャップ下界、正則化誤差、位相・振幅不変性、node no-go、R162の衝突率、エネルギー保存、逆散乱、有限セルoverflow、有限エネルギー尾、R163のquench仕事、相対エントロピー、経路積分ゆらぎ関係を検査する。
+`tools/verify_m47_collision_thermodynamics.py` は29項目を確認する。R164の作用殻容量から作るR161標的の正規化、詳細釣合い、一様スペクトルギャップ下界、正則化誤差、位相・振幅不変性、node no-go、R162の衝突率、粗視化有効自由エネルギー保存、逆散乱、有限セルoverflow、有限エネルギー尾、R163のquench有効仕事、相対エントロピー、経路積分ゆらぎ関係を検査する。
+
+`tools/verify_m47_action_shell_origin.py` は31項目を確認する。R164の信号作用分解、正則化枝容量、一般作用殻公式、2作用殻の線形性、Born型規格化重み、有効自由エネルギー、作用分配次元の剛性、共通spectator因子の相殺、枝依存流束誤差、滑らかな有限幅殻、$\delta^{-2}$ 剛性増大、零seed、障壁gauge不変性、およびR161との詳細釣合い接続を検査する。
 
 - 最小 matching gap: `1.900700696128881`
 - 例示するM48単独周期の誤差上界: `0.028`
@@ -70,6 +76,7 @@ python tools/build_paper.py
 | M47 Q1 | 43 |
 | M47 Hopf | 20 |
 | M47 collision thermodynamics | 29 |
+| M47 action-shell origin | 31 |
 | Q2-1 | 25 |
 | M49 joint-bath provider | 29 |
 | M48 paired-Hopf | 56 |
@@ -78,14 +85,14 @@ python tools/build_paper.py
 | realized cycle | 42 |
 | Q3 pair model | 36 |
 | M45 quick diagnostics | 23 |
-| **合計** | **481** |
+| **合計** | **512** |
 
 全項目が成功した。
 
 ## 静的整合性
 
-- 定理系環境の開始・終了数は一致した。theorem 43、proposition 6、lemma 4、corollary 2、proof 40。
-- `PROJECT_STATUS.md`、`README.md`、`CHANGELOG.md`、`MANIFEST.md`、本文、および付録の draft-48 表記と参照先を照合した。
+- 定理系環境の開始・終了数は一致した。theorem 45、proposition 7、lemma 5、corollary 2、proof 42。
+- `PROJECT_STATUS.md`、`README.md`、`CHANGELOG.md`、`MANIFEST.md`、本文、および付録の draft-49 表記と参照先を照合した。
 - 現行検証から旧 M41 検証を外し、M48 full-cycle 検証へ置換した。
 - Q2-3・Q3の達成判定、Q3本体、Q3付録の定理・証明ブロック、および M45 図版が基準コミットから不変であることを確認した。Q2-3資源台帳はM49の直接モード費用へ更新し、付録Fは冒頭の適用範囲だけを「Q2-3・Q3」に更新した。
 - `git diff --check` に空白エラーはない。
@@ -93,17 +100,17 @@ python tools/build_paper.py
 ## PDF 生成
 
 - 出力: `paper.pdf`
-- ページ数: 212
+- ページ数: 224
 - 用紙: A4
-- ファイルサイズ: 1,494,194 bytes
-- SHA-256: `d5e7dec94c0842ccfdef2f76317d85d29c6df44603e9627dbbb05489cc15f8c5`
+- ファイルサイズ: 1,545,851 bytes
+- SHA-256: `04334da0523255844bdc84ae7d9d9778e50213316bd928e2bbb481518bfb8c4e`
 - `SOURCE_DATE_EPOCH` と内容由来のPDF trailer IDを固定し、連続2回の生成でPDFバイナリが一致した。
 - 未解決の citation/reference、overfull/underfull box、fatal error、欠落文字、過大 float はない。
 - Latin Modern Math の一部に bold fallback 警告があるが、文字欠落や配置崩れはない。
 
 ## PDF 目視確認
 
-全 212 ページを低解像度コンタクトシートで通覧した。さらに、物理ページ 1、15--31、39--49、68--91、188--212 を高解像度または重点コンタクトシートで確認し、表紙、第1章の判定表、第3章のR161--R163とQ1周期、第5章のM48境界、第8章の誤差・資源表、付録Kの受渡し契約、付録Lの有限衝突熱浴とゆらぎ関係を重点監査した。
+全 224 ページを5枚の低解像度コンタクトシートで通覧した。さらに、物理ページ 14--33、193--221 を144--168 dpiで確認し、第1章の判定表、第3章のR164とQ1周期、付録LのR161--R163・有限衝突熱浴・有効仕事、付録Mの作用殻容量・R164・有限幅誤差・非主張を重点監査した。
 
 クリッピング、重なり、意図しない空白ページ、黒塗り領域、数式の欠落、および見出しの破綻は見つからなかった。
 
@@ -111,11 +118,11 @@ python tools/build_paper.py
 
 GitHub Actions は次を確認する。
 
-- 上記 14 本の検証スクリプト
+- 上記 15 本の検証スクリプト
 - 現行章・付録・検証器の存在と旧 M41 現行パスの不在
 - status guide と本文の整合性
 - `paper.md`、`main.tex`、`paper.pdf` の再生成差分
 - 収録PDFと再生成PDFのテキスト層、ページ数、用紙寸法の一致
-- 212 ページであること
+- 224 ページであること
 - LaTeX ログに重大警告がないこと
 - `git diff --check`

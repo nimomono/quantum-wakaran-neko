@@ -45,16 +45,19 @@ def graph_laplacian(edges: list[tuple[int, int]], size: int) -> np.ndarray:
     return laplacian
 
 
-def target_distribution(
+def action_shell_distribution(
     isometry: np.ndarray,
     state: np.ndarray,
     delta: float,
     reference: np.ndarray,
 ) -> tuple[np.ndarray, np.ndarray]:
-    normalized = state / np.linalg.norm(state)
-    ideal = np.abs(isometry @ normalized) ** 2
-    regularized = (ideal + delta * reference) / (1.0 + delta)
-    return ideal, regularized
+    signal_action = float(np.vdot(state, state).real)
+    branch_actions = np.abs(isometry @ state) ** 2
+    capacities = branch_actions + delta * reference * signal_action
+    shell_counts = (2.0 * np.pi) ** 2 * capacities
+    ideal = branch_actions / signal_action
+    target = shell_counts / np.sum(shell_counts)
+    return ideal, target
 
 
 def generator(
@@ -132,9 +135,9 @@ def main() -> None:
 
     for _ in range(400):
         state = rng.normal(size=2) + 1j * rng.normal(size=2)
-        ideal, target = target_distribution(isometry, state, delta, reference)
+        ideal, target = action_shell_distribution(isometry, state, delta, reference)
         phase = np.exp(1j * rng.uniform(-np.pi, np.pi))
-        _, phase_target = target_distribution(isometry, phase * state, delta, reference)
+        _, phase_target = action_shell_distribution(isometry, phase * state, delta, reference)
         matrix = generator(target, edges, activities, scale)
         spectrum = reversible_spectrum(matrix, target)
         positive_gap = spectrum[1]
@@ -194,7 +197,7 @@ def main() -> None:
 
     # R162: activation barriers reproduce the square-root rates.
     state = rng.normal(size=2) + 1j * rng.normal(size=2)
-    _, target = target_distribution(isometry, state, delta, reference)
+    _, target = action_shell_distribution(isometry, state, delta, reference)
     theta = 1.7
     beta = 1.0 / theta
     first, second = 1, 4
@@ -221,7 +224,7 @@ def main() -> None:
     incident_energy = threshold_forward + 0.73
     outgoing_energy = incident_energy + energies[first] - energies[second]
     checks.append(record_max(
-        "collision_energy_conservation_error",
+        "coarse_effective_energy_conservation_error",
         abs(incident_energy + energies[first] - outgoing_energy - energies[second]),
         2.0e-14,
     ))
@@ -242,8 +245,8 @@ def main() -> None:
     # R163: quench work, KL divergence, and an exact one-step path IFT.
     first_state = rng.normal(size=2) + 1j * rng.normal(size=2)
     second_state = rng.normal(size=2) + 1j * rng.normal(size=2)
-    _, first_target = target_distribution(isometry, first_state, delta, reference)
-    _, second_target = target_distribution(isometry, second_state, delta, reference)
+    _, first_target = action_shell_distribution(isometry, first_state, delta, reference)
+    _, second_target = action_shell_distribution(isometry, second_state, delta, reference)
     work = theta * np.log(first_target / second_target)
     jarzynski = float(np.sum(first_target * np.exp(-beta * work)))
     mean_work = float(np.sum(first_target * work))

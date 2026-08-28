@@ -88,6 +88,8 @@ REFERENCE_KEYS = {
     47: "crooks1999",
     48: "seifert2005",
     49: "ehrich_et_al2020",
+    50: "esposito2012",
+    51: "jarzynski2004",
 }
 
 
@@ -280,6 +282,7 @@ def validate_fixed_goal_language() -> None:
         SECTIONS / "A10_m48_paired_hopf_bell_preparation.md",
         SECTIONS / "A11_q2_joint_bath_contract.md",
         SECTIONS / "A12_m47_collision_bath_thermodynamics.md",
+        SECTIONS / "A13_m47_action_shell_state_count.md",
     )
     obsolete_paths = (
         SECTIONS / "03_l2_operation_measurement_zeno.md",

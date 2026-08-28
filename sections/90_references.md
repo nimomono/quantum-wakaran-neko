@@ -52,3 +52,5 @@
 - [47] G. E. Crooks, ``Entropy Production Fluctuation Theorem and the Nonequilibrium Work Relation for Free Energy Differences,'' Physical Review E 60, 2721--2726 (1999). <https://doi.org/10.1103/PhysRevE.60.2721>
 - [48] U. Seifert, ``Entropy Production along a Stochastic Trajectory and an Integral Fluctuation Theorem,'' Physical Review Letters 95, 040602 (2005). <https://doi.org/10.1103/PhysRevLett.95.040602>
 - [49] J. Ehrich, M. Esposito, F. Barra, and J. M. R. Parrondo, ``Micro-Reversibility and Thermalization with Collisional Baths,'' Physica A: Statistical Mechanics and its Applications 552, 122108 (2020). <https://doi.org/10.1016/j.physa.2019.122108>
+- [50] M. Esposito, ``Stochastic Thermodynamics under Coarse Graining,'' Physical Review E 85, 041125 (2012). <https://doi.org/10.1103/PhysRevE.85.041125>
+- [51] C. Jarzynski, ``Nonequilibrium Work Theorem for a System Strongly Coupled to a Thermal Environment,'' Journal of Statistical Mechanics: Theory and Experiment 2004, P09005 (2004). <https://doi.org/10.1088/1742-5468/2004/09/P09005>
