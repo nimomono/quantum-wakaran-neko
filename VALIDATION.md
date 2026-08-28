@@ -1,6 +1,6 @@
 # 検算と品質確認
 
-この文書は draft-49 の再現計算、静的整合性、PDF 生成、および目視確認の記録である。検証日は 2026-08-28。
+この文書は draft-50 の再現計算、静的整合性、PDF 生成、および目視確認の記録である。検証日は 2026-08-28。
 
 ## 実行方法
 
@@ -14,6 +14,7 @@ python tools/verify_m47_q1_instrument.py
 python tools/verify_m47_hopf_preparation.py
 python tools/verify_m47_collision_thermodynamics.py
 python tools/verify_m47_action_shell_origin.py
+python tools/verify_q2_action_shell_integration.py
 python tools/verify_q2_1_gate.py
 python tools/verify_m49_joint_bath_provider.py
 python tools/verify_m48_paired_hopf.py
@@ -25,31 +26,19 @@ python simulations/m45_open_quasicritical/verify.py --quick
 python tools/build_paper.py
 ```
 
-## draft-49 理論監査
+## draft-50 理論監査
 
-- R164 は旧R24の一般作用殻容量を現行M47へ移植し、単一試行信号作用のW型mode分解、正則化枝容量、排他的2作用殻、単一母Liouville測度からBorn型条件付き重みを導く。旧M15の入口標本化、等方混合、標本化後再埋込み、測定周期は復活させない。
-- R164 の状態数は2作用殻で容量に線形であり、直接作用分配次元を増やすと一般に容量の冪になる。共通spectator因子は規格化で消えるが、枝依存spectator体積、coarea因子、入口流束は枝対称性誤差として残る。
-- R164 は厳密作用殻に加えて滑らかな有限剛性殻を評価し、有限幅、枝対称性、作用容量結合、fiber内準備を独立誤差に分ける。正則化を外す極限では必要剛性が少なくとも $O(\delta^{-2})$ まで増え得る。
-- R161 はR164で得た正則化条件付き状態数とmesostate有効自由エネルギーについて、平方根型局所率、詳細釣合い、一意定常分布、全ray一様混合率、共通位相・振幅不変性、node no-goを明示する。
-- R162 は有限衝突bath、対称基準障壁、粗視化有効自由エネルギー保存散乱からR161の率を実現し、有限セルoverflow、有限エネルギー、閾値平滑化、時計、信号bath保持を誤差として分離する。fiberを含む全微視的Hamiltonianのエネルギー保存とは同一視しない。
-- R163 は配置部分の正逆経路確率比、積分ゆらぎ関係、quench有効仕事と相対エントロピーの恒等式を与える。ゆらぎの定理はR164で得た地形の下流整合性検査であり、状態数の線形則を選ぶ起源ではない。
-- R143、R144 は連続matching保存を仮定せず、操作面ごとの再平衡化、入射停止、辺閉鎖、局所記録、template交換、測定後再平衡化を合成する。
-- Q1-2 は作用容量結合、fiber内平衡化、枝対称性、信号bath反作用を同じ有限局所Hamiltonian周期へ統合する問題を残し、Q1-3はHopf pumpからresetまでの周期総収支を残すため、いずれも部分達成を維持する。
-
-- 付録KはQ2共同bath--実現配置の共通状態、cross matching、単一試行配置matching、row-major規約、setting-free受渡し面、破壊的dilationを固定する。
-- R151 は M48 内部の setting-pre 等重み seed を履歴から独立に paired-Hopf 安全盆へ送る。M39共同配置をseedへ写す処理は任意adapterであり、M48の必須入力ではない。
-- R152 はR161のBell限定形であり、有限設定族ごとの有限状態 matching CTMC、正則化定常分布、paired-phase 流、および有限時間の準備誤差を明示する。R162の有限衝突実現を利用できる。
-- R153 は結合切断時の matching fiber 条件を与える。連続分布から特異な ray fiber への有限時間収束を全状態の全変動距離で主張せず、半径誤差と共通位相商を含む射影的 paired-fiber 距離で評価する。
-- R154 は切断後の局所分析器、再整合、傾斜固定、および局所記録を規定する。
-- R155 はM48単独周期について、固定 singlet、有限設定族、有限誤差の範囲で余弦共同分布、無信号周辺分布、CHSH 値、および設定依存性をまとめる。
-- R156 は fresh-cell reset を規定し、次試行への記憶持越しを排除する。
-- R157 はM49の同じ4モードprogram担体の作用区間から共同配置をdecodeし、行templateからcross momentと2端の単一試行配置matchingを同時に作る。固定有限program族の $\rho_*$、稀な行の作用下界、無反応込み誤差を分ける。
-- R158 は担体、B bath、B配置へ同じCNOTを同一時計窓で作用させ、cross momentと共同配置を点ごとに同じ出力programへ写す。
-- R159 はprogram、入力配置、出力読出しに独立な3選択器を使い、固定有限入力、入力頻度、固定積出力基底の共同統計を閉じる。1角共有反例と一意エルゴード性・混合性の区別を含む。
-- R160 は固定singlet出力の同じbath・配置registerをsetting-free面からM48へ渡し、cross projector感度と枝biasを保存する。
-- M48単独周期と固定目標Q2-2全体は、固定singlet型、固定有限設定族、準備先行、非空間分離、採用開放法則の限定された意味で「条件付き達成」とする。各翼のR164作用殻とR162、paired-Hopf・seed routing・2翼controllerの同一有限局所Hamiltonian統合、空間的局所性、自由設定、一般状態への拡張は未達である。
-- M41 は現行モデルから外し、置換前の履歴として `notes/` に移した。
-- M39を置換済みQ2-1模型へ移し、M42/R113をQ2-3・Q3だけに限定した。Q1、Q2-1、Q2-3、Q3 の判定は変更していない。
+- M50をQ1・Q2共通モジュールとして導入した。任意の有限信号 $v\in\mathbb C^m$、等長埋込み $\Psi:\mathbb C^m\to\mathbb C^L$、枝容量 $A_i^\delta$、各枝2作用殻の単一Liouville母測度から、R164のBorn型状態数を導く。Q1は $m=2$、M49中央枝は $m=L=4$ の特殊化である。
+- 「各枝に2作用があること」と「枝数が2であること」を区別した。2作用殻では状態数が容量に線形だが、直接作用分配次元を増やすと一般に容量の冪になる。共通spectator因子は規格化で消え、枝依存spectator体積、coarea因子、入口流束は枝対称性誤差として残る。
+- 作用殻を明示する表示と作用殻を消去する表示を分離した。前者の状態数 $\Omega_i$ と後者の $\exp(-\beta E_i)$ を同時に掛けてBorn重みを二重計数しない。$E_i^\delta$ は条件付き中間状態の相対有効自由エネルギーであり、追加仮定なしに無条件のHamiltonian of mean forceとは呼ばない。
+- R161--R163を任意の有限信号方向へ一般化した。R161は平方根型局所率、詳細釣合い、一意定常分布、全ray一様混合率を、R162は有限衝突bathによる粗視化実現を、R163は相対有効仕事 $W^{\rm rel}$ と経路ゆらぎ関係を与える。殻変形仕事 $W^{\rm sh}$ と全微視的仕事・熱は別台帳に置く。
+- 有限幅殻の剛性は、$\delta\downarrow0$ で一様精度を保つため少なくとも $\Omega(\delta^{-2})$ が必要であり、$\Theta(\delta^{-2})$ は代表的選択と記した。Q1の有限正準制御と有限セル弱開放bathを同じ有限周期として扱い、強い意味の閉鎖Hamiltonian実現へ読み替えない。
+- Q1-2は作用容量結合、殻内平衡化、枝対称性、信号bath反作用の有限局所Hamiltonian統合を残し、Q1-3はHopf pumpからresetまでの周期総収支を残すため、いずれも部分達成を維持した。
+- R165はM49中央4枝の状態数 $\Omega_{ab}\propto|D_{ab}|^2$ とM35作用区間標本化を同じ母測度の押し出しとして同定した。M35は運用上の有限Hamiltonian標本器であって、殻の熱化証明ではない。直接標本化に配置混合誤差・衝突熱浴誤差を必須項として二重加算しない。
+- CNOTは担体・bath・配置だけでなく作用殻状態数と条件付き有効自由エネルギー地形も同じ枝置換で運ぶ。ただしこの共変性からCNOTパルスの機械仕事が零とは結論しない。入力枝と出力読出しには別のfresh作用殻を使い、同じ殻微視的状態を再利用しない。
+- M49からM48へは $z_A,z_B,X_A,X_B$ をstate-carrying・branch-carrying成分として渡し、使用済み中央殻はprovenance-onlyとした。M48単独の等重みseedは対称2枝状態数から、M49接続時のseedは固定singlet中央状態数の非零2枝から得る。paired-Hopf rayは準備機構であり、Born重みの起源ではない。
+- R166は完全共通原因 $\Lambda$ に条件付け、fresh局所殻、衝突セル、雑音seed、切断後生成子がA/B積へ分離することを仮定して、局所状態数の積、局所率の分離、経路エントロピー生成の加法性を示す。$\Lambda$ を積分した後の相関は許すが、$-\Theta\log P(a,b\mid x,y)$ を切断後の物理的大域Bellポテンシャルとして局所率へ戻さない。
+- Q2-1はR165を追加しても達成、Q2-2はR166を追加しても固定singlet型・有限設定族・非空間分離・設定依存準備の意味で条件付き達成とし、Q2-3・Q3を含む全達成判定は変更していない。
 
 ## 数値・代数検証
 
@@ -62,6 +51,8 @@ python tools/build_paper.py
 `tools/verify_m47_collision_thermodynamics.py` は29項目を確認する。R164の作用殻容量から作るR161標的の正規化、詳細釣合い、一様スペクトルギャップ下界、正則化誤差、位相・振幅不変性、node no-go、R162の衝突率、粗視化有効自由エネルギー保存、逆散乱、有限セルoverflow、有限エネルギー尾、R163のquench有効仕事、相対エントロピー、経路積分ゆらぎ関係を検査する。
 
 `tools/verify_m47_action_shell_origin.py` は31項目を確認する。R164の信号作用分解、正則化枝容量、一般作用殻公式、2作用殻の線形性、Born型規格化重み、有効自由エネルギー、作用分配次元の剛性、共通spectator因子の相殺、枝依存流束誤差、滑らかな有限幅殻、$\delta^{-2}$ 剛性増大、零seed、障壁gauge不変性、およびR161との詳細釣合い接続を検査する。
+
+`tools/verify_q2_action_shell_integration.py` は33項目を確認する。M50の一般等長埋込み、M49中央4枝Born状態数、R165の行周辺・条件付き分布、CNOTの状態数・有効自由エネルギー共変性、状態数とBoltzmann因子の二重計数反例、fresh出力殻、固定singlet seed、R166の条件付き積因子化・局所詳細釣合い・経路エントロピー生成加法性、および平均後の大域対数非加法性を検査する。
 
 - 最小 matching gap: `1.900700696128881`
 - 例示するM48単独周期の誤差上界: `0.028`
@@ -77,6 +68,7 @@ python tools/build_paper.py
 | M47 Hopf | 20 |
 | M47 collision thermodynamics | 29 |
 | M47 action-shell origin | 31 |
+| Q2 action-shell integration | 33 |
 | Q2-1 | 25 |
 | M49 joint-bath provider | 29 |
 | M48 paired-Hopf | 56 |
@@ -85,14 +77,14 @@ python tools/build_paper.py
 | realized cycle | 42 |
 | Q3 pair model | 36 |
 | M45 quick diagnostics | 23 |
-| **合計** | **512** |
+| **合計** | **545** |
 
 全項目が成功した。
 
 ## 静的整合性
 
-- 定理系環境の開始・終了数は一致した。theorem 45、proposition 7、lemma 5、corollary 2、proof 42。
-- `PROJECT_STATUS.md`、`README.md`、`CHANGELOG.md`、`MANIFEST.md`、本文、および付録の draft-49 表記と参照先を照合した。
+- 定理系環境の開始・終了数は一致した。theorem 47、proposition 7、lemma 5、corollary 2、proof 44。
+- `PROJECT_STATUS.md`、`README.md`、`CHANGELOG.md`、`MANIFEST.md`、本文、および付録の draft-50 表記と参照先を照合した。
 - 現行検証から旧 M41 検証を外し、M48 full-cycle 検証へ置換した。
 - Q2-3・Q3の達成判定、Q3本体、Q3付録の定理・証明ブロック、および M45 図版が基準コミットから不変であることを確認した。Q2-3資源台帳はM49の直接モード費用へ更新し、付録Fは冒頭の適用範囲だけを「Q2-3・Q3」に更新した。
 - `git diff --check` に空白エラーはない。
@@ -100,17 +92,17 @@ python tools/build_paper.py
 ## PDF 生成
 
 - 出力: `paper.pdf`
-- ページ数: 224
+- ページ数: 238
 - 用紙: A4
-- ファイルサイズ: 1,545,851 bytes
-- SHA-256: `04334da0523255844bdc84ae7d9d9778e50213316bd928e2bbb481518bfb8c4e`
+- ファイルサイズ: 1,597,840 bytes
+- SHA-256: `bb61503939e2db04714e5089edede3e7a3a3f28fa75872e08158deffa4ed29be`
 - `SOURCE_DATE_EPOCH` と内容由来のPDF trailer IDを固定し、連続2回の生成でPDFバイナリが一致した。
 - 未解決の citation/reference、overfull/underfull box、fatal error、欠落文字、過大 float はない。
 - Latin Modern Math の一部に bold fallback 警告があるが、文字欠落や配置崩れはない。
 
 ## PDF 目視確認
 
-全 224 ページを5枚の低解像度コンタクトシートで通覧した。さらに、物理ページ 14--33、193--221 を144--168 dpiで確認し、第1章の判定表、第3章のR164とQ1周期、付録LのR161--R163・有限衝突熱浴・有効仕事、付録Mの作用殻容量・R164・有限幅誤差・非主張を重点監査した。
+全 238 ページを5枚の低解像度コンタクトシートで通覧した。さらに、第3章のR164とQ1周期、第4章のR157、付録Kの受渡し契約、付録LのR161--R163とQ1・Q2接続、付録Mの共通作用殻容量、付録NのR165・R166・CNOT共変性・誤差台帳を144 dpiで重点監査した。
 
 クリッピング、重なり、意図しない空白ページ、黒塗り領域、数式の欠落、および見出しの破綻は見つからなかった。
 
@@ -118,11 +110,11 @@ python tools/build_paper.py
 
 GitHub Actions は次を確認する。
 
-- 上記 15 本の検証スクリプト
+- 上記 16 本の検証スクリプト
 - 現行章・付録・検証器の存在と旧 M41 現行パスの不在
 - status guide と本文の整合性
 - `paper.md`、`main.tex`、`paper.pdf` の再生成差分
 - 収録PDFと再生成PDFのテキスト層、ページ数、用紙寸法の一致
-- 224 ページであること
+- 238 ページであること
 - LaTeX ログに重大警告がないこと
 - `git diff --check`

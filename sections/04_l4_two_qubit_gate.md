@@ -1,7 +1,7 @@
 @number: 4
 @chapter: 本文
 @title: M49の共同bath CNOT供給模型と共同入力--出力統計
-@status: M49の行分解bath--配置matching、担体・bath・配置へ同期するCNOT、固定有限ベンチマーク、M48へのsetting-free受渡しを構成し、Q2-1を旧M39/M42経路から移行する。
+@status: M49の中央4枝作用殻、M35作用区間への測度押し出し、行分解bath--配置matching、担体・bath・配置・作用殻地形へ同期するCNOT、fresh出力殻を使う固定有限ベンチマーク、M48へのsetting-free受渡しを構成する。Q2-1の達成判定は維持する。
 
 ## 4.1　目的、試行状態、二つの終了面
 
@@ -11,18 +11,18 @@ Q2-1の固定目標は、2量子ビット型結合ゲートと同一の共同入
 
 ```math
  \Gamma_{49}
- =\bigl(S,C,u_S,u_X,u_Y,T_X,T_Y,X_A,X_B,Y_A,Y_B,z_A,z_B,\tau,H,R\bigr)
+ =\bigl(S,C,u_S,u_X,u_Y,T_X,T_Y,X_A,X_B,Y_A,Y_B,z_A,z_B,\Gamma_X,\Gamma_Y,\tau,H,R\bigr)
  \tag{4.1}
 ```
 
-とする。$S$ はprogram番号、$C\in\mathbb C^{2\times2}$ はFrobenius規格化された4モード正準担体、$u_S,u_X,u_Y$ はprogram、入力配置、出力読出しに使う相異なる選択器角、$T_X,T_Y$ は入力・出力の一時作用区間pointer、$X_A,X_B$ は2端の実現配置、$Y_A,Y_B$ はbenchmark専用のfresh出力register、$z_A,z_B\in\mathbb C^2$ は2端へ継続するbath座標、$\tau$ は共有時計、$H$ は不変な履歴、$R$ は未使用・使用済みcellを含む補助レジスタである。provider運転では $T_Y,Y_A,Y_B$ を空のまま保つ。$C$ は各試行に存在する物理担体であり、交差モーメントを推定して試行へ書き戻すensemble controllerではない。
+とする。$S$ はprogram番号、$C\in\mathbb C^{2\times2}$ はFrobenius規格化された4モード正準担体である。$u_S$ はprogram頻度を作る外側scheduleであり、$u_X,u_Y$ はそれぞれ入力中央殻 $\Gamma_X$ とfresh出力殻 $\Gamma_Y$ の枝周辺を平坦化した相異なる座標である。$T_X,T_Y$ は入力・出力の一時作用区間pointer、$X_A,X_B$ は2端の実現配置、$Y_A,Y_B$ はbenchmark専用のfresh出力register、$z_A,z_B\in\mathbb C^2$ は2端へ継続するbath座標、$\tau$ は共有時計、$H$ は不変な履歴、$R$ は未使用・使用済みcellを含む補助レジスタである。provider運転では $\Gamma_Y,T_Y,Y_A,Y_B$ を空のまま保つ。$C$ は各試行に存在する物理担体であり、交差モーメントを推定して試行へ書き戻す集団制御器ではない。
 
 M49は次の4層を同じ固定programで閉じる。
 
-1. 4モード担体の作用区間から一時pointer $T_X=e_{ab}$ を作り、共同配置 $X_A=a,X_B=b$ を可逆にdecodeする。
+1. 4モード担体からM50中央4枝作用殻を作り、その枝周辺をM35作用区間へ押し出して一時pointer $T_X=e_{ab}$ と共同配置 $X_A=a,X_B=b$ を可逆にdecodeする。
 2. $X_A=a$ が指定する有限bath templateをactive port $z_A,z_B$ へroutingし、交差モーメントと単一試行配置matchingを同時に作る。
-3. $C$、$z_A,z_B$、$X_A,X_B$ へ同じCNOTを同一時計窓で作用させる。
-4. provider運転ではCNOT直後に停止し、benchmark運転では固定積分析器と独立な出力選択器を追加する。
+3. $C$、$z_A,z_B$、$X_A,X_B$ と中央作用殻の枝地形へ同じCNOT置換を同一時計窓で作用させる。
+4. provider運転ではCNOT直後に停止し、benchmark運転では固定積分析器とfreshな出力作用殻を追加する。
 
 CNOT直後かつ積分析器前の面を $\Sigma_{\rm gate}$、固定積分析器と出力読出し後の面を $\Sigma_{\rm bench}$ とする。$\Sigma_{\rm gate}$ はM48へ状態を渡すprovider面、$\Sigma_{\rm bench}$ はQ2-1の共同統計を監査する面である。同じ試行で先にbenchmark読出しを行い、その後にprovider状態を渡したとは扱わない。
 
@@ -121,7 +121,19 @@ M49のCNOT担体は4信号正準対と1時計正準対で実装でき、式(4.7)
  \tag{4.8}
 ```
 
-とする。$\rho_a=0$ の行はactive枝から除く。入力配置選択器 $u_X$ と同じ4モード担体 $c$ にM35の4作用区間を作用させ、一時pointerを
+とする。$\rho_a=0$ の行は活性枝から除く。M50で $v=c\in\mathbb C^4$、$\Psi=I_4$、$\delta=0$ とし、中央枝 $ab$ の作用と状態数を
+
+```math
+J_{ab}(C)
+=
+\mathcal J_0|C_{ab}|^2,
+\qquad
+\Omega_{ab}(C)
+=
+\frac{(2\pi)^2}{J_{\rm ref}}J_{ab}(C)
+```
+
+とする。従って活性支持上の単一母測度は $P(ab)=|C_{ab}|^2$ を持つ。零容量枝は中央殻に存在せず、有限幅境界とdecode失敗は無反応とする。中央殻の枝周辺を平坦化した座標 $u_X$ とM35の4作用区間を使い、一時pointerを
 
 ```math
  T_X=e_{ab},
@@ -170,7 +182,7 @@ M49のCNOT担体は4信号正準対と1時計正準対で実装でき、式(4.7)
  \tag{4.13}
 ```
 
-式(4.12)の第一式はensemble上の交差モーメント、式(4.13)は単一試行bathに条件付けた配置法則であり、役割を混同しない。
+式(4.12)の第1式は集団上の交差モーメント、式(4.13)は単一試行bathに条件付けた配置法則であり、役割を混同しない。付録NのR165は、中央4枝作用殻の枝周辺とM35作用区間が同じ測度の2表現であることを示す。M35は有限Hamiltonian標本器であり、作用殻の熱化証明ではない。
 
 安全事象を $G$ とする。各固定programの各非零branchで、比較境界、decode、template routingの失敗率が一様に $\varepsilon_0$ 以下になるよう有限装置を選ぶ。失敗は全て無反応へ送る。固定有限program族について
 
@@ -214,9 +226,9 @@ M49のCNOT担体は4信号正準対と1時計正準対で実装でき、式(4.7)
 と評価できる。
 
 <!-- theorem-start:theorem -->
-**定理（R157：M49の行分解bath・配置matchingと有限Hamiltonian準備）**
+**定理（R157：M49中央4枝状態数の有限Hamiltonian準備）**
 
-任意の固定有限規格化program族について、同じ4モード担体の作用区間から共同配置を可逆decodeし、行配置から事前校正bath templateをactive portへcanonical routingする有限Hamiltonian装置を構成できる。理想層では式(4.12)、式(4.13)が厳密に成立し、有限装置では無反応を除外せず式(4.15)--(4.17)で誤差を抑えられる。cross momentまたは共同頻度を単一試行controllerへ書き戻さない。
+任意の固定有限規格化program族について、M50中央4枝作用殻とR165の作用区間押し出しから共同配置を可逆decodeし、行配置から事前校正bath templateをactive portへcanonical routingする有限Hamiltonian装置を構成できる。理想層では共同Born状態数、行周辺、式(4.12)、式(4.13)が厳密に整合し、有限装置では無反応を除外せず式(4.15)--(4.17)で誤差を抑えられる。交差モーメントまたは共同頻度を単一試行制御器へ書き戻さない。
 <!-- theorem-end:theorem -->
 
 「有限Hamiltonian準備」は、固定program用に校正済みの有限template bankからactive portへ可逆routingする意味である。未知入力の自然な自己分解ではない。また稀な行に一様資源上界はない。行 $a$ の条件付きcross momentを作る任意分解にはCauchy--Schwarzから
@@ -283,10 +295,23 @@ M49のCNOT担体は4信号正準対と1時計正準対で実装でき、式(4.7)
  \tag{4.23}
 ```
 
+CNOT枝置換を $P_X(a,b)=(a,b\oplus a)$ とすると、中央作用殻は
+
+```math
+\Omega_{P_X(a,b)}
+\left(
+\mathcal C_X(C)
+\right)
+=
+\Omega_{ab}(C)
+```
+
+を満たす。作用殻消去表示の条件付き有効自由エネルギーも同じ置換で共変である。従って担体、bath、配置だけでなく、Born型状態数と熱力学的地形も同じ出力programへ移る。この共変性は分布地形についての主張であり、時計パルス、制御器反作用、作用殻変形を含むCNOTの機械仕事が零であることを意味しない。
+
 <!-- theorem-start:theorem -->
 **定理（R158：担体・bath・配置へ同期する同一試行CNOT）**
 
-R157の各safe試行について、4モード担体、B bath、B配置へ式(4.20)、式(4.21)の同じCNOTを一つの有限時計窓で作用させられる。理想写像は自己逆、正準、作用保存であり、cross momentと共同配置を式(4.23)へ同時に写す。別標本化またはensemble controllerを使用しない。
+R157の各safe試行について、4モード担体、B bath、B配置へ式(4.20)、式(4.21)の同じCNOTを1つの有限時計窓で作用させられる。理想写像は自己逆、正準、作用保存であり、交差モーメント、共同配置、中央作用殻の状態数地形を式(4.23)と上の置換共変式へ同時に写す。別標本化または集団制御器を使用しない。
 <!-- theorem-end:theorem -->
 
 有限bath反転誤差を $\eta_z$、配置XOR誤差を $\varepsilon_\oplus$、担体誤差を $\eta_C$、時計同期誤差を $\varepsilon_{\rm clk}^{49}$ とする。例えば
@@ -344,11 +369,11 @@ R157の各safe試行について、4モード担体、B bath、B配置へ式(4.2
 
 とする。
 
-入力program頻度は、固定源 $r_\lambda=(\sqrt{\lambda_1},\ldots,\sqrt{\lambda_S})$ に対する外側M35選択器 $u_S$ から作る。選ばれた物理register $S=s$ により、program担体 $C_s$ と対応するR157 template bankをactive portへroutingする。R157の配置branchには独立な $u_X$ を使う。R158後、provider運転は $\Sigma_{\rm gate}$ で停止する。
+入力program頻度は、固定源 $r_\lambda=(\sqrt{\lambda_1},\ldots,\sqrt{\lambda_S})$ に対する外側M35 schedule $u_S$ から作る。$u_S$ はprogram labelの長期頻度用であり、中央作用殻の熱座標ではない。選ばれた物理register $S=s$ により、program担体 $C_s$ と対応するR157 template bankをactive portへroutingする。R157の中央入力殻には独立な平坦化座標 $u_X$ を使う。R158後、provider運転は $\Sigma_{\rm gate}$ で停止する。
 
-benchmark運転だけは、同じ担体 $C_s^+$ へ固定局所分析器を作用させて $D_s$ を得る。その実在担体にM35の4作用区間と第三の角 $u_Y$ を作用させ、一時pointer $T_Y=e_{ab}$ をfresh結果register $Y_A=e_a,Y_B=e_b$ へ可逆decodeする。その後に出力選択器内部を逆計算する。分析器前の担体を複製せず、出力表を装置へ直接書き込まない。
+benchmark運転だけは、同じ担体 $C_s^+$ へ固定局所分析器を作用させて $D_s$ を得る。$D_s$ からfreshな中央4枝出力殻 $\Gamma_Y$ を準備し、その枝周辺を平坦化した別座標 $u_Y$ とM35の4作用区間を使い、一時pointer $T_Y=e_{ab}$ をfresh結果register $Y_A=e_a,Y_B=e_b$ へ可逆decodeする。その後に出力標本器内部を逆計算する。入力殻 $\Gamma_X$ と出力殻 $\Gamma_Y$ は同じ熱力学的中間状態の連続経路ではなく、分析器前の担体を複製せず、出力表を装置へ直接書き込まない。
 
-三つの選択器角は積Haar測度、または
+3つの座標は積Haar測度、または
 
 ```math
  (u_S,u_X,u_Y)
@@ -360,7 +385,7 @@ benchmark運転だけは、同じ担体 $C_s^+$ へ固定局所分析器を作�
 
 で $1,\alpha_S,\alpha_X,\alpha_Y$ が有理数体上一次独立な3トーラス回転を使う。これは長期頻度を与えるが、混合性または独立同分布型有限標本揺らぎを与えない。
 
-一つの角を入力と出力へ共有してはならない。例えば $\lambda_0=\lambda_1=1/2$、$P(Y=1\mid S=0)=1/4$、$P(Y=1\mid S=1)=3/4$ の目標分布は
+入力殻と出力殻で同じ微視的座標を再利用してはならない。例えば $\lambda_0=\lambda_1=1/2$、$P(Y=1\mid S=0)=1/4$、$P(Y=1\mid S=1)=3/4$ の目標分布は
 
 ```math
  P_{\rm id}(S,Y)
@@ -368,7 +393,7 @@ benchmark運転だけは、同じ担体 $C_s^+$ へ固定局所分析器を作�
  \tag{4.30}
 ```
 
-$S=0$ を $u<1/2$、各条件付き出力を同じ $u$ の閾値で選ぶと共同分布は全成分 $1/4$ となり、式(4.30)からの全変動距離は $1/4$ である。独立角はこのprogram--結果相関を除く。
+$S=0$ を $u<1/2$、各条件付き出力を同じ $u$ の閾値で選ぶと共同分布は全成分 $1/4$ となり、式(4.30)からの全変動距離は $1/4$ である。この反例は抽象的な角独立性だけでなく、使用済み入力殻の微視的状態をfresh出力殻へ再利用してはならないことを示す。
 
 入力選択誤差を $\varepsilon_S$、R157失敗を $\varepsilon_{157,s}$、準備・CNOT・分析器の純粋状態距離を $\delta_{\rm state,s}$、出力作用区間誤差を $\varepsilon_{Y,s}$、decode誤差を $\varepsilon_{\rm dec,s}$、記録誤差を $\varepsilon_{\rm rec}$ とする。無反応込みの実分布は
 
@@ -390,7 +415,7 @@ $S=0$ を $u<1/2$、各条件付き出力を同じ $u$ の閾値で選ぶと共�
 <!-- theorem-start:theorem -->
 **定理（R159：固定有限入力、入力頻度、固定積出力基底の共同入力--出力統計）**
 
-任意の固定有限純粋入力、入力頻度、固定積出力基底、任意の $\epsilon>0$ に対し、三つの独立選択器、M49の行分解準備、同期CNOT、固定積分析器、無反応込みの出力decodeからなる有限Hamiltonian benchmarkを構成できる。入力labelと2配置出力の長期共同分布は式(4.28)から全変動距離 $\epsilon$ 未満にできる。
+任意の固定有限純粋入力、入力頻度、固定積出力基底、任意の $\epsilon>0$ に対し、program schedule、M49の中央入力殻・行分解準備、同期CNOT、固定積分析器、fresh中央出力殻、無反応込みの出力decodeからなる有限Hamiltonian benchmarkを構成できる。入力labelと2配置出力の長期共同分布は式(4.28)から全変動距離 $\epsilon$ 未満にできる。
 <!-- theorem-end:theorem -->
 
 共同分布全体の精度に最小入力頻度は不要である。ただし各入力に条件付けた誤差を一様に主張する場合は
@@ -441,7 +466,7 @@ M48へ渡す固定積入力を
 
 を満たす。これはM48の固定singlet fiberと同じbath・配置matchingである。
 
-$\Sigma_{\rm gate}$ を局所設定生成前の $\Sigma_{\rm link}$ とする。受渡し写像 $T_{\rm link}^{49\to48}$ は、active $z_A,z_B,X_A,X_B$ の恒等搬送、または元portを使用済みcellへ残すcanonical SWAPとする。$C$、program label、履歴は受動registerに保持し、M48の結果形成へ入力しない。M48のseedは
+$\Sigma_{\rm gate}$ を局所設定生成前の $\Sigma_{\rm link}$ とする。受渡し写像 $T_{\rm link}^{49\to48}$ は、active $z_A,z_B,X_A,X_B$ の恒等搬送、または元portを使用済みcellへ残すcanonical SWAPとする。$C$、program label、履歴は受動registerに保持し、M48の結果形成へ入力しない。使用済み中央作用殻の作用・角座標はM48へ渡さず、履歴識別子だけをprovenance-onlyで残す。M48の各局所作用殻はfreshな空registerから準備する。M48のseedは
 
 ```math
  S_0=(-1)^{X_A}
@@ -484,12 +509,13 @@ $T_{\rm link}^{49\to48}$ はM49のlink面族全体でbath・配置registerを変
 | 部品 | 正準対 |
 |---|---:|
 | M35 $L=4$ 入力配置選択器 | 16 |
+| 中央2作用殻のactive枝 | 2 |
 | $X_A,X_B$ one-hot配置register | 4 |
 | active $z_A,z_B$ | 4 |
 | 2行分bath template bank | 8 |
-| 合計 | 32 |
+| 合計 | 34 |
 
-4モード担体はM35信号部と共有する。CNOT時計、外側program選択器、出力benchmark選択器、履歴、永久記録は運転方式に応じて別に加える。これは存在上界であり最小性を主張しない。active bath作用は
+4モード担体はM35信号部と共有する。表の16正準対はM35を使う運用上の標本器上界であり、中央作用殻を平衡準備する実際の自由度数と同一ではない。CNOT時計、外側program schedule、fresh出力benchmark殻、履歴、永久記録は運転方式に応じて別に加える。これは存在上界であり最小性を主張しない。active bath作用は
 
 ```math
  \mathcal J_{\rm bath}^{max}
@@ -500,7 +526,7 @@ $T_{\rm link}^{49\to48}$ はM49のlink面族全体でbath・配置registerを変
  \tag{4.40}
 ```
 
-R157--R159により、Q2-1は固定有限benchmark、無反応込み、制御された任意精度の範囲で引き続き達成である。根拠はR104--R106、R157--R159へ更新され、M42/R113をQ2-1から外す。R160により、固定singlet programは付録Kの契約を満たしてM48へ物理的に接続される。このためQ2-2全体を、固定singlet型、固定有限設定族、準備先行、非空間分離、採用開放法則という範囲で条件付き達成へ更新する。
+R157--R159とR165により、Q2-1は固定有限benchmark、無反応込み、制御された任意精度の範囲で引き続き達成である。根拠はR104--R106、R157--R159、R165となり、Born型共同頻度の統計力学的起源を追加しても判定語は変えない。R160により、固定singlet programは付録Kの契約を満たしてM48へ物理的に接続される。Q2-2全体はR166を加えても、固定singlet型、固定有限設定族、準備先行、非空間分離、採用開放法則という範囲の条件付き達成を維持する。
 
 次は含まない。
 

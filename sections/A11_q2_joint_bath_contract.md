@@ -230,3 +230,30 @@ M48単独周期は、固定された $\mathsf E$、設定前の等重み枝seed�
 | 固定目標Q2-2全体 | 条件付き達成 | 固定singlet、固定有限設定族、準備先行、非空間分離、採用開放法則に限定 |
 
 この区別により、M48単独周期とM49--M48接続周期を別々に誤差評価し、固定singletの接続達成を一般状態受渡しへ拡張しない。
+
+## K.9　作用殻registerの役割契約
+
+Q2で使う作用殻registerを次の3種類へ分ける。
+
+| 役割 | 物理的内容 | 受渡し |
+|---|---|---|
+| state-carrying | $z_A,z_B$ とcross projector感度を保持するbath・配置register | M49からM48へ同じ物理registerを運ぶ |
+| branch-carrying | 中央4枝状態数から選ばれた $X_A,X_B$ と固定singlet枝bias | M48の $S_0=(-1)^{X_A}$ へ渡す |
+| provenance-only shell | 使用済み中央殻の作用・角座標を退避した履歴 | 履歴識別子だけを残し、結果形成へ再注入しない |
+
+中央作用殻の使用済み微視的状態はM48へ渡さない。各翼はfreshな局所作用殻、局所衝突セル、局所雑音seedから開始する。完全共通原因 $\Lambda$ に条件付けた切断後契約を
+
+```math
+\mu_{\rm sh}^{AB}
+(d\gamma_A,d\gamma_B\mid\Lambda,x,y)
+=
+\mu_{{\rm sh},A}^x
+(d\gamma_A\mid\Lambda)
+\otimes
+\mu_{{\rm sh},B}^y
+(d\gamma_B\mid\Lambda)
+```
+
+とする。有限偏差は $\varepsilon_{\rm prod}$ として接続誤差、局所instrument誤差、paired-Hopf誤差と分けて監査する。
+
+切断後に $-\Theta\log P(a,b\mid x,y)$ を物理的な大域自由エネルギーとして局所率へ入力することを禁止する。これは式(K.9)の局所因子化に反する。条件付き局所有効自由エネルギーは各翼で使えるが、$\Lambda$ を平均した後の共同分布の対数は情報的要約に限る。

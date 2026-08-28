@@ -2,12 +2,34 @@
 
 この文書には、理論上の変更と、現行稿に対する置換関係を記録する。誤字修正や構成だけの変更は、理論的内容を変えないことを明記する。
 
+## draft-50
+
+### M50によるQ1・Q2の状態数起源の統合
+
+- M50「有限信号作用・作用殻・配置熱化共通モジュール」を追加した。$v\in\mathbb C^m$、$\Psi^\dagger\Psi=I_m$、$J_i=\mathcal J_0|(\Psi v)_i|^2$、$A_i^\delta=J_i+\delta q_iJ_{\rm sig}$ を共通形とし、各排他的枝の2作用殻から $\Omega_i=(2\pi)^2A_i/J_{\rm ref}$ を得る。2作用殻は枝数でなく各枝の内部作用数を表す。
+- R161--R164をM47専用からM50の共通結果へ一般化した。作用殻明示表示 $P_i=\Omega_i/\sum_j\Omega_j$ と作用殻消去表示 $E_i=-\Theta\log P_i$ を分け、同じ分配関数で $\Omega_i e^{-\beta E_i}$ を掛ける二重計数を禁止した。
+- 殻自由エネルギー仕事 $W_i^{\rm sh}=\Delta F_i^{\rm sh}$ と相対有効仕事 $W_i^{\rm rel}=\Delta E_i=W_i^{\rm sh}-\Delta F_{\rm eq}^{\rm sh}$ を区別した。全作用保存unitaryでは共通項が一定になり得るが、pumpとresetでは一定とは限らない。全系の平衡Hamiltonianを別に与えない限り、条件付き中間状態有効自由エネルギーを無条件に平均力Hamiltonianとは呼ばない。
+- 次元を固定し、有限幅を正則化極限で一様に保つ殻剛性を必要条件 $\Omega(\delta^{-2})$、代表選択 $\Theta(\delta^{-2})$ と訂正した。
+
+### Q2-1中央4枝とQ2-2切断後局所殻
+
+- 付録NとR165を追加した。M49で $m=L=4$、$\Psi=I_4$、$\delta=0$ とし、中央4枝状態数 $\Omega_{ab}\propto|D_{ab}|^2$ とM35作用区間への測度押し出しが同じ共同Born分布を与えることを示した。M35は有限Hamiltonian標本器であり、殻内熱化の証明ではない。
+- CNOTで $\Omega_{P_X(ab)}(\mathcal C_XD)=\Omega_{ab}(D)$ となる状態数地形の置換共変性を追加した。この式からCNOTパルスの機械仕事が零とは結論しない。一般積分析器後はfresh出力殻を使い、入力殻の微視的状態を再利用しない。
+- R166を追加した。M48の切断後fresh局所作用殻、衝突セル、局所雑音は完全共通原因 $\Lambda$ に条件付けて積因子化し、$\Sigma_{\rm post}=\Sigma_A+\Sigma_B$ となる。$\Lambda$ を平均した後の $-\Theta\log P(a,b\mid x,y)$ は情報的要約に限り、切断後の物理的大域ポテンシャルへ戻さない。
+- M48単独seedは対称2枝作用殻、M49接続seedは固定singlet中央4枝状態数から得る。paired-Hopfは共有rayを準備するがBorn重みを生成しない。使用済み中央殻はprovenance-only、$z_A,z_B,X_A,X_B$ はstate・branch-carrying、各翼の局所殻はfreshとした。
+
+### 誤差、資源、判定、生成物
+
+- 共通誤差を $\varepsilon_{M50}=\varepsilon_{\rm cap}+\varepsilon_{\rm width}+\varepsilon_{\rm sym}+\varepsilon_{\rm ad}+\varepsilon_\delta+\varepsilon_{\rm mix}+\varepsilon_{\rm coll}+\varepsilon_{\rm hold}$ とした。Q2-1直接標本化では混合・衝突を必須とせず、Q2-2へ積因子化偏差 $\varepsilon_{\rm prod}$ を追加した。
+- M35の16正準対を運用上の標本器上界とし、実際の平衡作用殻自由度と区別した。付録L、Mを共通名へ改名し、付録N、専用検証、本文、証明付録、状態・資源台帳、CI、統合原稿、TeX、PDFを同期した。
+- Q1-1達成、Q1-2・Q1-3部分達成、Q1-4未達・凍結、Q2-1達成、Q2-2条件付き達成、Q2-3未着手、Q3の全判定を変更していない。
+
 ## draft-49
 
 ### R164とBorn型有効自由エネルギーの状態数起源
 
 - 付録MとR164「M47条件付き作用殻の状態数起源」を追加した。単一試行信号作用 $J_{\rm sig}=\mathcal J_0z^\dagger z$、枝作用 $J_i=\mathcal J_0|(\Phi z)_i|^2$、背景容量 $A_i^\delta=J_i+\delta q_iJ_{\rm sig}$ を定め、排他的2作用殻を単一Liouville母測度で数えると $\Omega_i^\delta\propto A_i^\delta$、$\Omega_i^\delta/\sum_j\Omega_j^\delta=\pi_i^\delta$ となることを示した。
-- R161の $E_i^\delta=-\Theta\log\pi_i^\delta$ を、確率から直接設計した裸エネルギーでなく、作用殻fiberを消去したmesostate有効自由エネルギーとして再解釈した。一般作用殻容量、直接作用分配次元の剛性、共通spectator・流束因子、枝非対称誤差を明示した。
+- R161の $E_i^\delta=-\Theta\log\pi_i^\delta$ を、確率から直接設計した裸エネルギーでなく、作用殻fiberを消去した条件付き中間状態有効自由エネルギーとして再解釈した。一般作用殻容量、直接作用分配次元の剛性、共通spectator・流束因子、枝非対称誤差を明示した。
 - 厳密デルタ殻に加え、有限剛性 $H_{\kappa,i}=\kappa(K_i+I_i-A_i^\delta)^2/2$ の条件付き分配関数を閉形式で計算し、有限幅誤差を評価した。$\delta\downarrow0$ の一様精度では作用殻剛性が $O(\delta^{-2})$ まで増え得ること、零seedと安全域外を無反応へ残すことを固定した。
 - 旧R24の一般作用殻容量と2作用殻線形性だけを現行M47へ再導入した。旧M15の位置入口模型、等方混合、標本化後再埋込み、測定周期は復活させず、履歴上の補助モデルとして保持する。
 

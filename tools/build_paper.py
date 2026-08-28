@@ -281,8 +281,9 @@ def validate_fixed_goal_language() -> None:
         SECTIONS / "A4_m48_cycle_proofs.md",
         SECTIONS / "A10_m48_paired_hopf_bell_preparation.md",
         SECTIONS / "A11_q2_joint_bath_contract.md",
-        SECTIONS / "A12_m47_collision_bath_thermodynamics.md",
-        SECTIONS / "A13_m47_action_shell_state_count.md",
+        SECTIONS / "A12_common_collision_bath_thermodynamics.md",
+        SECTIONS / "A13_common_action_shell_state_count.md",
+        SECTIONS / "A14_q2_action_shell_statistics.md",
     )
     obsolete_paths = (
         SECTIONS / "03_l2_operation_measurement_zeno.md",
@@ -313,7 +314,7 @@ def validate_fixed_goal_language() -> None:
 
     m49_text = (SECTIONS / "04_l4_two_qubit_gate.md").read_text(encoding="utf-8")
     for token in (
-        "R157：M49の行分解bath・配置matchingと有限Hamiltonian準備",
+        "R157：M49中央4枝状態数の有限Hamiltonian準備",
         "R158：担体・bath・配置へ同期する同一試行CNOT",
         "R159：固定有限入力、入力頻度、固定積出力基底の共同入力--出力統計",
         "R160：M49固定singlet providerからM48へのsetting-free同一register受渡し",
