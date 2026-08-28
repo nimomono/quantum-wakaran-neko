@@ -37,6 +37,7 @@ jobs:
           python tools/verify_m47_hopf_preparation.py
           python tools/verify_m47_collision_thermodynamics.py
           python tools/verify_m47_action_shell_origin.py
+          python tools/verify_q2_action_shell_integration.py
           python tools/verify_q2_1_gate.py
           python tools/verify_m49_joint_bath_provider.py
           python tools/verify_m48_paired_hopf.py
@@ -46,21 +47,23 @@ jobs:
           python tools/verify_q3_completion.py
           python simulations/m45_open_quasicritical/verify.py --quick
 
-      - name: draft-49のM47作用殻起源とQ2接続境界を検査
+      - name: draft-50のM50・Q1・Q2作用殻統合を検査
         run: |
           test -f sections/03_m47_controlled_w_instrument.md
           test -f sections/A2_m47_controlled_w_instrument_proofs.md
           test -f sections/A9_w_two_mode_hopf_statistics.md
           test -f sections/A10_m48_paired_hopf_bell_preparation.md
           test -f sections/A11_q2_joint_bath_contract.md
-          test -f sections/A12_m47_collision_bath_thermodynamics.md
-          test -f sections/A13_m47_action_shell_state_count.md
+          test -f sections/A12_common_collision_bath_thermodynamics.md
+          test -f sections/A13_common_action_shell_state_count.md
+          test -f sections/A14_q2_action_shell_statistics.md
           test -f sections/04_l4_two_qubit_gate.md
           test -f sections/A3_l4_two_qubit_gate_proofs.md
           test -f tools/verify_m47_q1_instrument.py
           test -f tools/verify_m47_hopf_preparation.py
           test -f tools/verify_m47_collision_thermodynamics.py
           test -f tools/verify_m47_action_shell_origin.py
+          test -f tools/verify_q2_action_shell_integration.py
           test -f tools/verify_m48_paired_hopf.py
           test -f tools/verify_m48_full_cycle.py
           test -f tools/verify_m39_m48_ablation.py
@@ -82,15 +85,16 @@ jobs:
           grep -Fq '| Q1-2 | 部分達成 |' PROJECT_STATUS.md
           grep -Fq '| Q1-3 | 部分達成 |' PROJECT_STATUS.md
           grep -Fq '| Q1-4 | 未達（凍結中） |' PROJECT_STATUS.md
-          grep -Fq '| Q2-1 | 達成 | R104--R106、R157--R159 |' PROJECT_STATUS.md
-          grep -Fq '| Q2-2 | 条件付き達成 | R146--R164、付録K--M |' PROJECT_STATUS.md
+          grep -Fq '| Q2-1 | 達成 | R104--R106、R157--R159、R165 |' PROJECT_STATUS.md
+          grep -Fq '| Q2-2 | 条件付き達成 | R146--R166、付録K--N |' PROJECT_STATUS.md
           grep -Fq '| M41 | 初期共通原因型2端Bell測定周期 | 置換済みモデル |' PROJECT_STATUS.md
           grep -Fq '| M48 | 設定依存paired-Hopf初期共通原因Bell周期模型 | 現行Q2-2 receiverモデル |' PROJECT_STATUS.md
           grep -Fq '| M49 | 行分解共同bath--実現配置CNOT供給模型 | 現行Q2-1モデル・Q2-2供給模型 |' PROJECT_STATUS.md
+          grep -Fq '| M50 | 有限信号作用・作用殻・配置熱化共通モジュール | 現行Q1・Q2共通補助モデル |' PROJECT_STATUS.md
           grep -Fq '| M42 | 有限配置グラフ上の複素振幅場-実現配置モデル | Q2-3・Q3限定の現行モデル |' PROJECT_STATUS.md
           grep -Fq 'M42/R113またはcurrent transducerを使わない' sections/03_m47_controlled_w_instrument.md
-          grep -Fq 'R151--R156' sections/01_scope_and_cycle.md
-          grep -Fq 'R157：M49の行分解bath・配置matchingと有限Hamiltonian準備' sections/04_l4_two_qubit_gate.md
+          grep -Fq 'R151--R156とR166' sections/01_scope_and_cycle.md
+          grep -Fq 'R157：M49中央4枝状態数の有限Hamiltonian準備' sections/04_l4_two_qubit_gate.md
           grep -Fq 'R158：担体・bath・配置へ同期する同一試行CNOT' sections/04_l4_two_qubit_gate.md
           grep -Fq 'R159：固定有限入力、入力頻度、固定積出力基底の共同入力--出力統計' sections/04_l4_two_qubit_gate.md
           grep -Fq 'R160：M49固定singlet providerからM48へのsetting-free同一register受渡し' sections/04_l4_two_qubit_gate.md
@@ -99,13 +103,19 @@ jobs:
           grep -Fq 'state-carrying' sections/A11_q2_joint_bath_contract.md
           grep -Fq 'branch-carrying' sections/A11_q2_joint_bath_contract.md
           grep -Fq 'provenance-only' sections/A11_q2_joint_bath_contract.md
+          grep -Fq 'R165：M49中央4枝作用殻とM35作用区間標本化の同値性' sections/A14_q2_action_shell_statistics.md
+          grep -Fq 'R166：M48切断後局所作用殻の条件付き積因子化' sections/A14_q2_action_shell_statistics.md
+          grep -Fq 'Omega_{P_X(a,b)}' sections/A14_q2_action_shell_statistics.md
+          grep -Fq 'varepsilon_{\rm prod}' sections/05_m48_bell_cycle_and_audit.md sections/A14_q2_action_shell_statistics.md
           grep -Fq 'R162またはR164だけでHopf準備またはpaired-Hopf周期全体をミクロ導出済みと扱う' sections/08_errors_resources_open_targets.md
-          grep -Fq 'R161 任意のM47階数1bath方向に対する有限W型配置再平衡化' PROJECT_STATUS.md
-          grep -Fq 'R162 M47局所詳細釣合い率の有限衝突熱浴実現' PROJECT_STATUS.md
-          grep -Fq 'R163 M47解析器quench・配置再平衡化の経路ゆらぎ関係' PROJECT_STATUS.md
-          grep -Fq 'R164 M47条件付き作用殻の状態数起源' PROJECT_STATUS.md
+          grep -Fq 'R161 任意の有限信号方向に対する配置再平衡化' PROJECT_STATUS.md
+          grep -Fq 'R162 局所詳細釣合い率の有限衝突熱浴実現' PROJECT_STATUS.md
+          grep -Fq 'R163 有限信号制御切替・配置再平衡化の経路ゆらぎ関係' PROJECT_STATUS.md
+          grep -Fq 'R164 有限信号作用のBorn型殻状態数' PROJECT_STATUS.md
+          grep -Fq 'R165 M49中央4枝作用殻とM35作用区間標本化の同値性' PROJECT_STATUS.md
+          grep -Fq 'R166 M48切断後局所作用殻の条件付き積因子化' PROJECT_STATUS.md
           grep -Fq '条件付き厳密結果＋滑らかな有限幅近似' PROJECT_STATUS.md
-          grep -Fq '作用容量結合、fiber内平衡化、枝対称性、信号bath反作用' README.md PROJECT_STATUS.md sections/03_m47_controlled_w_instrument.md
+          grep -Fq '作用容量結合、殻内平衡化、枝対称性、信号bath反作用' README.md
           grep -Fq 'ゆらぎの定理はR164の地形の下流整合性を検査' sections/03_m47_controlled_w_instrument.md
           grep -Fq 'R164だけで一般Born則' PROJECT_STATUS.md
           ! grep -Fq 'M39からM48への固定singlet型破壊的受渡し' README.md PROJECT_STATUS.md sections/*.md
@@ -113,6 +123,9 @@ jobs:
           ! grep -Fq '\varepsilon_{\rm link}' sections/05_m48_bell_cycle_and_audit.md sections/A4_m48_cycle_proofs.md sections/08_errors_resources_open_targets.md
           ! grep -Fq 'Q2-1から同じ試行レジスタを渡すproviderが未構成' README.md PROJECT_STATUS.md VALIDATION.md sections/*.md
           ! grep -Fq '固定目標Q2-2全体は、付録KのQ2-1--Q2-2物理受渡しが未構成' README.md PROJECT_STATUS.md sections/*.md
+          ! grep -Fq 'sections/A12_m47_collision_bath_thermodynamics.md' MANIFEST.md
+          ! grep -Fq 'sections/A13_m47_action_shell_state_count.md' MANIFEST.md
+          ! grep -Fq '\widetilde\Omega_i^delta' README.md PROJECT_STATUS.md CHANGELOG.md VALIDATION.md sections/*.md
           ! grep -REn '二mode|二モード' README.md PROJECT_STATUS.md CHANGELOG.md sections notes
 
       - name: 収録PDFを退避
@@ -129,7 +142,7 @@ jobs:
           diff -u /tmp/paper-committed.txt /tmp/paper-regenerated.txt
           test "$(pdfinfo /tmp/paper-committed.pdf | awk '/^Pages:/ {print $2}')" = "$(pdfinfo paper.pdf | awk '/^Pages:/ {print $2}')"
           test "$(pdfinfo /tmp/paper-committed.pdf | awk -F: '/^Page size:/ {sub(/^ +/, "", $2); print $2}')" = "$(pdfinfo paper.pdf | awk -F: '/^Page size:/ {sub(/^ +/, "", $2); print $2}')"
-          test "$(pdfinfo paper.pdf | awk '/^Pages:/ {print $2}')" = "224"
+          test "$(pdfinfo paper.pdf | awk '/^Pages:/ {print $2}')" = "238"
           ! grep -Eq "Citation .* undefined|Reference .* undefined|Overfull|Underfull|Fatal error|Missing character" build/latex/main.log
 
       - name: 標準構成を検査

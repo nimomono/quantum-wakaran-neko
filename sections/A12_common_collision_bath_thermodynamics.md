@@ -1,114 +1,114 @@
 @number: L
 @chapter: 付録
-@title: M47条件付きGibbs再平衡化と有限衝突熱浴
-@status: R161--R163について、R164の条件付き作用殻状態数から得た有効自由エネルギーに対する有限W型配置再平衡化、有限衝突熱浴による局所詳細釣合い率、解析器quenchの経路ゆらぎ関係を証明する。粗視化された有効仕事・熱と全微視的収支を区別し、作用殻準備を含む周期統合は未導出として残す。
+@title: 有限配置再平衡化と有限衝突熱浴
+@status: M50とR161--R163について、R164の有限信号作用殻状態数から得た条件付き中間状態有効自由エネルギーに対する有限配置再平衡化、有限衝突熱浴による局所詳細釣合い率、制御切替の経路ゆらぎ関係を証明する。Q1とQ2に共通な熱化部品として扱い、粗視化された有効仕事・熱と全微視的収支を区別する。
 
 ## L.1 目的、用語、主張範囲
 
-本付録は、M47のmatchingを全時刻で保存することを要求しない。2モード信号bath座標をHamiltonian制御する仕事行程と、その座標を固定して実現配置を再平衡化する熱化行程を分離する。各操作面で条件付きGibbs分布へ戻せば、制御中に実現配置が瞬時の分布を追跡する必要はない。
+本付録は、M50を使うQ1またはQ2の整合条件を全時刻で保存することを要求しない。有限信号座標をHamiltonian制御する仕事行程と、その座標を固定して実現配置を再平衡化する熱化行程を分離する。各操作面で条件付きGibbs分布へ戻せば、制御中に実現配置が瞬時の分布を追跡する必要はない。
 
-記号 $z\in\mathbb C^2$ は各試行に存在する2モード信号bath座標、$X$ は有限W型配置グラフ上の実現配置である。$X$ を動かす有限セル列を衝突熱浴と呼ぶ。信号bathと衝突熱浴は別の物理部分系であり、単にbathとは書かない。
+記号 $v\in\mathbb C^m$ は各試行に存在する有限信号座標、$X$ は有限連結配置グラフ上の実現配置である。$X$ を動かす有限セル列を衝突熱浴と呼ぶ。信号担体、作用殻、衝突熱浴は互いに別の物理部分系である。
 
-本付録が導くのは、単一試行の $z$ に条件付けた局所再平衡化機構である。集団共分散 $C$、統計振幅、全配置密度、確率流をcontrollerへ入力しない。付録MのR164は、同じ試行の信号作用を枝容量へ写し、排他的2作用殻を単一Liouville母測度で数えるとBorn型条件付き状態数が得られることを示す。本付録はその作用殻fiberを消去した有効自由エネルギーを使う。有限衝突bathの微視的可逆性と熱化は既存の衝突模型の考え方を参照する [49]。粗視化熱力学と強結合での有効自由エネルギーの語義は [50,51] に従って区別する。
+本付録が導くのは、単一試行の $v$ に条件付けた局所再平衡化機構である。集団共分散 $C$、統計振幅、全配置密度、確率流を制御器へ入力しない。付録MのR164は、同じ試行の信号作用を枝容量へ写し、各排他的枝の2作用殻を単一Liouville母測度で数えるとBorn型条件付き状態数が得られることを示す。本付録はその作用殻を消去した条件付き中間状態有効自由エネルギーを使う。有限衝突熱浴の微視的可逆性と熱化は既存の衝突模型を参照する [49]。粗視化熱力学と強結合での有効自由エネルギーの語義は [50,51] に従って区別する。
 
 ## L.2 R164状態数から得る条件付きGibbs族と有効自由エネルギー
 
-有限連結無向グラフを $G_W=(\Omega_W,E_W)$ とし、$L=|\Omega_W|$ とする。W型最低2モードの配置埋込みを
+有限連結無向グラフを $G_X=(\mathcal I,E_X)$ とし、$L=|\mathcal I|$ とする。信号次元 $m\leq L$ の等長埋込みを
 
 ```math
-\Phi:\mathbb C^2\longrightarrow\mathbb C^L,
+\Psi:\mathbb C^m\longrightarrow\mathbb C^L,
 \qquad
-\Phi^\dagger\Phi=I_2
+\Psi^\dagger\Psi=I_m
 ```
 
 とする。正の基準分布 $q_i>0$、$\sum_iq_i=1$ と正則化 $\delta>0$ を固定する。付録Mでは、単一試行の信号作用と枝容量を
 
 ```math
-J_{\rm sig}(z)
+J_{\rm sig}(v)
 =
-\mathcal J_0z^\dagger z,
+\mathcal J_0v^\dagger v,
 \qquad
-A_i^\delta(z)
+A_i^\delta(v)
 =
 \mathcal J_0
 \left[
-|(\Phi z)_i|^2
+|(\Psi v)_i|^2
 +
-\delta q_i z^\dagger z
+\delta q_i v^\dagger v
 \right]
 ```
 
-と置き、排他的2作用殻の状態数が $\Omega_i^\delta\propto A_i^\delta$ となることをR164で示す。従って $z\neq0$ に対して
+と置き、排他的2作用殻の状態数が $\Omega_i^\delta\propto A_i^\delta$ となることをR164で示す。従って $v\neq0$ に対して
 
 ```math
-w_i(z)
+w_i(v)
 =
-\frac{|(\Phi z)_i|^2}{z^\dagger z},
+\frac{|(\Psi v)_i|^2}{v^\dagger v},
 \qquad
-\pi_i^\delta(z)
+\pi_i^\delta(v)
 =
-\frac{w_i(z)+\delta q_i}{1+\delta}
+\frac{w_i(v)+\delta q_i}{1+\delta}
 ```
 
 と置くと、R164から
 
 ```math
-\pi_i^\delta(z)
+\pi_i^\delta(v)
 =
-\frac{\Omega_i^\delta(z)}
-{\sum_j\Omega_j^\delta(z)}
+\frac{\Omega_i^\delta(v)}
+{\sum_j\Omega_j^\delta(v)}
 ```
 
-である。$\Phi^\dagger\Phi=I_2$ から $\sum_iw_i=1$ であり、$\pi^\delta$ は正の確率分布である。共通位相と全振幅に対して
+である。$\Psi^\dagger\Psi=I_m$ から $\sum_iw_i=1$ であり、$\pi^\delta$ は正の確率分布である。共通位相と全振幅に対して
 
 ```math
-\pi^\delta(\alpha z)
+\pi^\delta(\alpha v)
 =
-\pi^\delta(z),
+\pi^\delta(v),
 \qquad
 \alpha\in\mathbb C\setminus\{0\}
 ```
 
 なので、目標分布はbath rayだけに依存する。
 
-熱作用尺度を $\Theta>0$、$\beta=\Theta^{-1}$ とする。作用殻fiberの枝自由エネルギーと全枝基準を
+熱エネルギー尺度を $\Theta>0$、$\beta=\Theta^{-1}$ とする。作用殻の枝自由エネルギーと全枝基準を
 
 ```math
-F_i^{\rm sh}(z)
+F_i^{\rm sh}(v)
 =
--\Theta\log\Omega_i^\delta(z),
+-\Theta\log\Omega_i^\delta(v),
 \qquad
-F_{\rm eq}^{\rm sh}(z)
+F_{\rm eq}^{\rm sh}(v)
 =
--\Theta\log\sum_j\Omega_j^\delta(z)
+-\Theta\log\sum_j\Omega_j^\delta(v)
 ```
 
 とし、gauge固定した条件付き配置有効自由エネルギーを
 
 ```math
-E_i^\delta(z)
+E_i^\delta(v)
 =
-F_i^{\rm sh}(z)-F_{\rm eq}^{\rm sh}(z)
+F_i^{\rm sh}(v)-F_{\rm eq}^{\rm sh}(v)
 =
--\Theta\log\pi_i^\delta(z)
+-\Theta\log\pi_i^\delta(v)
 ```
 
-と定める。$E_i^\delta$ は裸の配置エネルギーでなく、作用殻fiberを消去したmesostate有効自由エネルギーである。この規約では
+と定める。$E_i^\delta$ は裸の配置エネルギーでなく、作用殻を消去した条件付き中間状態有効自由エネルギーである。全系の平衡Hamiltonianと周辺化を別に与えた場合を除き、無条件に平均力Hamiltonianとは呼ばない。この規約では
 
 ```math
 \sum_i
-e^{-\beta E_i^\delta(z)}
+e^{-\beta E_i^\delta(v)}
 =1
 ```
 
-であり、平衡自由エネルギーの基準値は全ての $z$ で零である。
+であり、平衡自由エネルギーの基準値は全ての $v$ で零である。作用殻明示表示の $\Omega_i^\delta$ と、作用殻消去表示の $e^{-\beta E_i^\delta}$ は同じ縮約を表すため、同じ分配関数内で積 $\Omega_i^\delta e^{-\beta E_i^\delta}$ を使わない。これは状態数の二重計数を避けるための表現規約である。
 
 任意の配置分布 $p$ に対し、非平衡自由エネルギーを
 
 ```math
-\mathcal F[p\mid z]
+\mathcal F[p\mid v]
 =
-\sum_i p_iE_i^\delta(z)
+\sum_i p_iE_i^\delta(v)
 +
 \Theta\sum_i p_i\log p_i
 ```
@@ -116,39 +116,39 @@ e^{-\beta E_i^\delta(z)}
 と置けば
 
 ```math
-\mathcal F[p\mid z]
+\mathcal F[p\mid v]
 -
-\mathcal F[\pi^\delta\mid z]
+\mathcal F[\pi^\delta\mid v]
 =
 \Theta
 D_{\rm KL}
 \left(
-p\|\pi^\delta(z)
+p\|\pi^\delta(v)
 \right)
 ```
 
-である。従って条件付き再平衡化は、固定した $z$ における相対エントロピーと非平衡自由エネルギーの緩和として解釈できる。
+である。従って条件付き再平衡化は、固定した $v$ における相対エントロピーと非平衡自由エネルギーの緩和として解釈できる。
 
-## L.3 R161：任意のbath方向への有限W型再平衡化
+## L.3 R161：任意の有限信号方向への配置再平衡化
 
-各無向辺 $\{i,j\}\in E_W$ に対称活動度 $a_{ij}=a_{ji}>0$ を置く。固定した $z\neq0$ に対して
+各無向辺 $\{i,j\}\in E_X$ に対称活動度 $a_{ij}=a_{ji}>0$ を置く。固定した $v\neq0$ に対して
 
 ```math
-k_{i\to j}^\delta(z)
+k_{i\to j}^\delta(v)
 =
 \kappa_Xa_{ij}
 \sqrt{
-\frac{\pi_j^\delta(z)}{\pi_i^\delta(z)}
+\frac{\pi_j^\delta(v)}{\pi_i^\delta(v)}
 }
 ```
 
 とし、非隣接頂点間の率は零とする。生成子を
 
 ```math
-(\mathcal L_z^\delta f)(i)
+(\mathcal L_v^\delta f)(i)
 =
 \sum_{j:j\sim i}
-k_{i\to j}^\delta(z)
+k_{i\to j}^\delta(v)
 [f(j)-f(i)]
 ```
 
@@ -159,7 +159,7 @@ k_{i\to j}^\delta(z)
 ```math
 q_{\min}=\min_iq_i,
 \qquad
-a_{\min}=\min_{\{i,j\}\in E_W}a_{ij},
+a_{\min}=\min_{\{i,j\}\in E_X}a_{ij},
 \qquad
 m_\delta=\frac{\delta q_{\min}}{1+\delta}
 ```
@@ -167,12 +167,12 @@ m_\delta=\frac{\delta q_{\min}}{1+\delta}
 とする。無重みグラフLaplacianの第1非零固有値を $\lambda_G>0$ とする。
 
 <!-- theorem-start:theorem -->
-**定理（R161：有限W型配置再平衡化）**
+**定理（R161：任意の有限信号方向に対する配置再平衡化）**
 
-有限連結 $G_W$、$\delta>0$、任意の $z\neq0$ について、上の生成子は既約かつ可逆であり、唯一の定常分布は $\pi^\delta(z)$ である。$L^2(\pi^\delta)$ における第1非零固有値を $\lambda_\delta(z)$ とすれば
+有限連結 $G_X$、$\delta>0$、任意の $v\neq0$ について、上の生成子は既約かつ可逆であり、唯一の定常分布は $\pi^\delta(v)$ である。$L^2(\pi^\delta)$ における第1非零固有値を $\lambda_\delta(v)$ とすれば
 
 ```math
-\lambda_\delta(z)
+\lambda_\delta(v)
 \geq
 \kappa_Xa_{\min}m_\delta\lambda_G
 =:
@@ -185,7 +185,7 @@ m_\delta=\frac{\delta q_{\min}}{1+\delta}
 D_{\rm TV}
 \left(
 p_T,
-\pi^\delta(z)
+\pi^\delta(v)
 \right)
 \leq
 C_\delta e^{-\lambda_\delta T},
@@ -201,8 +201,8 @@ C_\delta
 ```math
 D_{\rm TV}
 \left(
-\pi^\delta(z),
-w(z)
+\pi^\delta(v),
+w(v)
 \right)
 \leq
 \frac{\delta}{1+\delta}
@@ -228,7 +228,7 @@ w(z)
 \mathcal E_z^\delta(f,f)
 =
 \kappa_X
-\sum_{\{i,j\}\in E_W}
+\sum_{\{i,j\}\in E_X}
 a_{ij}
 \sqrt{\pi_i^\delta\pi_j^\delta}
 (f_i-f_j)^2
@@ -240,14 +240,14 @@ a_{ij}
 \mathcal E_z^\delta(f,f)
 \geq
 \kappa_Xa_{\min}m_\delta
-\sum_{\{i,j\}\in E_W}
+\sum_{\{i,j\}\in E_X}
 (f_i-f_j)^2.
 ```
 
 一様平均を $\overline f=L^{-1}\sum_if_i$ とすれば、グラフPoincaré不等式と分散の最小化性から
 
 ```math
-\sum_{\{i,j\}\in E_W}
+\sum_{\{i,j\}\in E_X}
 (f_i-f_j)^2
 \geq
 \lambda_G
@@ -304,7 +304,7 @@ D_{\rm TV}(\pi^\delta,w)
 <!-- theorem-start:proposition -->
 **命題（零占有切断点に対する局所詳細釣合いno-go）**
 
-$\delta=0$ とし、目標分布 $w$ の零頂点 $v$ が $G_W$ の切断点であるとする。隣接辺だけを使い、$w$ に関して詳細釣合いを満たす有限率生成子は、$G_W\setminus\{v\}$ の異なる連結成分間で確率質量を輸送できない。従って全初期分布から $w$ へ収束する既約な局所生成子は存在しない。
+$\delta=0$ とし、目標分布 $w$ の零頂点 $v$ が $G_X$ の切断点であるとする。隣接辺だけを使い、$w$ に関して詳細釣合いを満たす有限率生成子は、$G_X\setminus\{v\}$ の異なる連結成分間で確率質量を輸送できない。従って全初期分布から $w$ へ収束する既約な局所生成子は存在しない。
 <!-- theorem-end:proposition -->
 
 $w_v=0$ と $w_i>0$ に対し、詳細釣合いは
@@ -318,22 +318,22 @@ w_vk_{v\to i}
 
 を強制するので $k_{i\to v}=0$ である。切断点を通る全経路が閉じるため、各成分の確率質量は独立に保存される。
 
-この障害を避けるには、正の背景占有率、非局所辺、補助bridge状態の少なくとも一つが必要である。M47では $\delta>0$ を採用し、有限資源誤差として台帳に残す。
+この障害を避けるには、正の背景占有率、非局所辺、補助橋状態の少なくとも1つが必要である。配置熱化を使うM50の特殊化では $\delta>0$ を採用し、有限資源誤差として台帳に残す。混合を使わない1回限りの直接作用区間標本化は、このnode命題の対象外である。
 
 ## L.4 R162：有限衝突熱浴による率の実現
 
-固定した $z$ と辺 $\{i,j\}$ に対し、対称な基準障壁 $B_{ij}^0=B_{ji}^0$ を置く。制御された障壁を
+固定した $v$ と辺 $\{i,j\}$ に対し、対称な基準障壁 $B_{ij}^0=B_{ji}^0$ を置く。制御された障壁を
 
 ```math
-B_{ij}^\delta(z)
+B_{ij}^\delta(v)
 =
 B_{ij}^0
 +
 \frac12
 \left[
-E_i^\delta(z)
+E_i^\delta(v)
 +
-E_j^\delta(z)
+E_j^\delta(v)
 \right]
 ```
 
@@ -356,7 +356,7 @@ $X=i$ のセルが辺 $i\to j$ へ到着したとき、
 ```math
 \epsilon
 \geq
-B_{ij}^\delta(z)-E_i^\delta(z)
+B_{ij}^\delta(v)-E_i^\delta(v)
 ```
 
 なら通過させ、通過後のセルエネルギーを
@@ -366,9 +366,9 @@ B_{ij}^\delta(z)-E_i^\delta(z)
 =
 \epsilon
 +
-E_i^\delta(z)
+E_i^\delta(v)
 -
-E_j^\delta(z)
+E_j^\delta(v)
 ```
 
 とする。閾値未満なら反射させる。通過時には
@@ -382,17 +382,17 @@ E_j^\delta(z)
 が成り立つ。ここで保存されるのは、作用殻fiberを消去した配置有効自由エネルギーとセルエネルギーの粗視化和である。fiberを明示した全微視的Hamiltonianのエネルギー保存をこの式だけから主張しない。さらに前向き閾値を満たすことと、出射状態が逆向き閾値を満たすことは同値である。
 
 <!-- theorem-start:theorem -->
-**定理（R162：M47局所詳細釣合い率の有限衝突熱浴実現）**
+**定理（R162：局所詳細釣合い率の有限衝突熱浴実現）**
 
 各辺の衝突試行流束を $\nu_{ij}=\nu_{ji}>0$ とする。上の流束分布、対称障壁、粗視化有効自由エネルギー保存散乱を採用すると、縮約された配置遷移率は
 
 ```math
-k_{i\to j}^{\rm coll}(z)
+k_{i\to j}^{\rm coll}(v)
 =
 \nu_{ij}
 e^{-\beta B_{ij}^0}
 \sqrt{
-\frac{\pi_j^\delta(z)}{\pi_i^\delta(z)}
+\frac{\pi_j^\delta(v)}{\pi_i^\delta(v)}
 }
 ```
 
@@ -423,7 +423,7 @@ e^{-\beta B_{ij}^0}
 と評価できる。信号bath座標の有限保持誤差 $\varepsilon_{\rm hold}$ はこれと別に加える。超過衝突、閾値平滑化帯、controller保持失敗は正式な無反応結果へ含め、除外後の再規格化を行わない。
 <!-- theorem-end:theorem -->
 
-有効自由エネルギーを全枝共通の $g(z)$ だけ移し、障壁も同じだけ移すgauge変換
+有効自由エネルギーを全枝共通の $g(v)$ だけ移し、障壁も同じだけ移すgauge変換
 
 ```math
 E_i^\delta
@@ -489,7 +489,7 @@ E_j^\delta-E_i^\delta
 ```math
 \varepsilon_{\rm overflow}
 \leq
-\sum_{\{i,j\}\in E_W}
+\sum_{\{i,j\}\in E_X}
 P(N_{ij}>K_{ij}).
 ```
 
@@ -511,9 +511,9 @@ K_{\rm tot}e^{-\beta E_{\max}}
 指数流束分布の尾確率へ活性化エネルギーを代入すると表示した遷移率が得られる。対称障壁は正逆率比を配置有効自由エネルギー差だけにし、通過後エネルギー式は正逆散乱を一対一に対応させる。有限時間では到着数と最大エネルギーを切り、超過事象を完全結果集合へ残す。閾値比較、反射、通過、履歴保存を滑らかな有限幅散乱へ近似した誤差を加えれば有限セル上界が従う。証明終。
 <!-- theorem-end:proof -->
 
-## L.5 R163：解析器quenchと経路ゆらぎ関係
+## L.5 R163：制御切替と経路ゆらぎ関係
 
-以下は、非平衡仕事関係と経路エントロピー生成の標準形 [46--48] をR161、R162の条件付き配置過程へ適用したものである。$E_i^\delta$ はR164の作用殻fiberを消去した有効自由エネルギーなので、ここで定義する仕事と熱には上付き $\rm eff$ を付け、全微視的仕事・熱と区別する [50,51]。
+以下は、非平衡仕事関係と経路エントロピー生成の標準形 [46--48] をR161、R162の条件付き配置過程へ適用したものである。$E_i^\delta$ はR164の作用殻を消去した相対有効自由エネルギーなので、ここで定義する仕事と熱には上付き $\rm rel$ を付け、全微視的仕事・熱と区別する [50,51]。
 
 bath方向を外部protocol $c_t$ とし、配置有効自由エネルギーを $E_i^\delta(c_t)$ とする。配置経路を
 
@@ -523,10 +523,10 @@ bath方向を外部protocol $c_t$ とし、配置有効自由エネルギーを 
 (i_0,t_1,i_1,\ldots,t_N,i_N)
 ```
 
-と書く。経路中の有効地形仕事と配置mesostateへ入る有効熱を
+と書く。経路中の有効地形仕事と条件付き配置中間状態へ入る有効熱を
 
 ```math
-W^{\rm eff}[\omega]
+W^{\rm rel}[\omega]
 =
 \int_0^T
 \dot E_{X_t}^\delta(c_t)
@@ -534,7 +534,7 @@ W^{\rm eff}[\omega]
 ```
 
 ```math
-Q^{\rm eff}[\omega]
+Q^{\rm rel}[\omega]
 =
 \sum_{\ell=1}^N
 \left[
@@ -544,7 +544,7 @@ E_{i_{\ell-1}}^\delta(c_{t_\ell})
 \right]
 ```
 
-と定義すれば、粗視化された経路ごとに $\Delta E=W^{\rm eff}+Q^{\rm eff}$ である。
+と定義すれば、粗視化された経路ごとに $\Delta E=W^{\rm rel}+Q^{\rm rel}$ である。
 
 前向きprotocolを初期分布 $p_0$ から走らせ、その終端分布を $p_T$ とする。時間反転protocolは $p_T$ から開始する。両者の経路確率を $\mathcal P_F[\omega]$、$\mathcal P_R[\omega^\dagger]$ とする。全エントロピー生成を
 
@@ -565,7 +565,7 @@ k_{i_\ell\to i_{\ell-1}}^\delta(c_{t_\ell})
 とする。
 
 <!-- theorem-start:theorem -->
-**定理（R163：M47解析器quench・配置再平衡化の経路ゆらぎ関係）**
+**定理（R163：有限信号制御切替・配置再平衡化の経路ゆらぎ関係）**
 
 R161の生成子またはR162の衝突熱浴を、正逆protocolで同じ熱作用尺度 $\Theta$ により駆動する。このとき
 
@@ -591,7 +591,7 @@ e^{-\Sigma}
 初期方向 $c$ の平衡分布から方向 $c'$ へ瞬間quenchする場合、状態 $i$ の有効地形仕事は
 
 ```math
-W_i^{\rm eff}
+W_i^{\rm rel}
 =
 \Theta
 \log
@@ -603,13 +603,13 @@ W_i^{\rm eff}
 
 ```math
 \left\langle
-e^{-\beta W^{\rm eff}}
+e^{-\beta W^{\rm rel}}
 \right\rangle
 =1,
 ```
 
 ```math
-\langle W^{\rm eff}\rangle
+\langle W^{\rm rel}\rangle
 =
 \Theta
 D_{\rm KL}
@@ -620,7 +620,7 @@ D_{\rm KL}
 \right).
 ```
 
-一般の有効自由エネルギー基準では $W^{\rm eff}$ を $W^{\rm eff}-\Delta F^{\rm eff}$ へ置き換える。
+作用殻明示表示では $W_i^{\rm sh}=\Delta F_i^{\rm sh}$ と書き、$W_i^{\rm rel}=W_i^{\rm sh}-\Delta F_{\rm eq}^{\rm sh}$ である。全作用保存unitaryでは共通項が一定になり得るが、pumpまたはresetでは一定とは限らない。
 <!-- theorem-end:theorem -->
 
 連続時間jump経路の待機因子は正逆比で相殺し、jump因子の比が局所詳細釣合い率の積になる。初期終端密度比を加えると経路確率比を得る。逆経路測度について和を取れば積分ゆらぎ関係、Jensen不等式から平均非負性が従う。
@@ -629,7 +629,7 @@ D_{\rm KL}
 
 ```math
 \begin{aligned}
-\left\langle e^{-\beta W^{\rm eff}}\right\rangle
+\left\langle e^{-\beta W^{\rm rel}}\right\rangle
 &=
 \sum_i
 \pi_i^\delta(c)
@@ -639,7 +639,7 @@ D_{\rm KL}
 \end{aligned}
 ```
 
-平均を取れば相対エントロピー式になる。正逆経路確率比と積分ゆらぎ関係は粗視化jump過程について厳密である。一方、作用容量を変えるprotocol、fiber内平衡化、controller反作用を含む完全Hamiltonianを構成しない限り、$W^{\rm eff}$ を全装置の機械仕事、$Q^{\rm eff}$ を全微視的熱と呼ばない。ゆらぎの定理はR164で得た地形の整合性を検査するが、作用殻状態数の線形則を導く定理ではない。
+平均を取れば相対エントロピー式になる。正逆経路確率比と積分ゆらぎ関係は粗視化跳躍過程について厳密である。一方、作用容量を変える過程、殻内平衡化、制御器反作用を含む完全Hamiltonianを構成しない限り、$W^{\rm rel}$ を全装置の機械仕事、$Q^{\rm rel}$ を全微視的熱と呼ばない。ゆらぎの定理はR164で得た地形の整合性を検査するが、作用殻状態数の線形則を導く定理ではない。
 
 <!-- theorem-start:proof -->
 **証明（R163）**
@@ -647,9 +647,9 @@ D_{\rm KL}
 正逆経路の初期密度、jump率、待機因子を比べる。待機因子は反転protocolの対応区間と相殺し、残る率比と端点密度比が $e^\Sigma$ を与える。逆経路確率の総和は1なので積分ゆらぎ関係が従う。瞬間quench式は規格化されたGibbs分布へ直接代入して得る。証明終。
 <!-- theorem-end:proof -->
 
-## L.6 M47測定周期への接続
+## L.6 Q1・Q2周期への接続
 
-M47の1段測定を次の操作面へ分ける。
+M47の1段測定はM50のQ1特殊化として次の操作面へ分ける。
 
 1. R145で信号bath方向を目標rayへ準備する。
 2. 方向を保持し、R164の作用枝容量と条件付き作用殻fiberを準備する。
@@ -659,37 +659,25 @@ M47の1段測定を次の操作面へ分ける。
 6. 入射セルを止めて辺ゲートを閉じ、R141の傾斜保持とR143の局所記録を行う。
 7. 結果別テンプレート交換後、そのテンプレート方向に対して作用殻準備と再平衡化を行い、次の逐次測定へ渡す。
 
-1回の再平衡化誤差を
+1回の再平衡化誤差をM50の共通台帳
 
 ```math
-\varepsilon_{\rm eq}
-=
-\varepsilon_{\rm sh}
-+
-C_\delta e^{-\lambda_\delta T_X}
-+
-\frac{\delta}{1+\delta}
-+
-\varepsilon_{\rm coll}
-+
-\varepsilon_{\rm hold}
+\begin{aligned}
+\varepsilon_{M50}
+={}&\varepsilon_{\rm cap}
++\varepsilon_{\rm width}
++\varepsilon_{\rm sym}
++\varepsilon_{\rm ad}\\
+&+\varepsilon_\delta
++\varepsilon_{\rm mix}
++\varepsilon_{\rm coll}
++\varepsilon_{\rm hold}
+\end{aligned}
 ```
 
-とする。ここで付録Mに従い
+で記帳する。$\varepsilon_{\rm mix}=C_\delta e^{-\lambda_\delta T_X}$、$\varepsilon_\delta=\delta/(1+\delta)$ と選べる。Q1では2モード漏れと局所辺閉鎖誤差をそれぞれ $\varepsilon_{2m}$、$\varepsilon_{\rm res}$ として別に加える。この段階分離により、R137の全時刻整合保存をR143、R144の仮定に使わない。
 
-```math
-\varepsilon_{\rm sh}
-=
-\varepsilon_{\rm cap}
-+
-\varepsilon_{\rm width}
-+
-\varepsilon_{\rm sym}
-+
-\varepsilon_{\rm ad}
-```
-
-は作用容量結合、有限幅拘束、枝対称性、fiber内準備の誤差である。2モード漏れと局所辺閉鎖誤差はそれぞれ $\varepsilon_{2m}$、$\varepsilon_{\rm res}$ として別に加える。この段階分離により、R137の全時刻matching保存をR143、R144の仮定に使わない。
+Q2-1の中央4枝作用殻は1回限りのM35作用区間標本化を使い、配置混合または衝突熱浴を確率の起源にしないため、$\varepsilon_{\rm mix}$ と $\varepsilon_{\rm coll}$ は必須でない。Q2-2の切断後局所殻は各翼でR161、R162を使えるが、完全共通原因 $\Lambda$ に条件付けた積因子化誤差を別の $\varepsilon_{\rm prod}$ として加える。
 
 ## L.7 有限資源と正則化極限
 
@@ -719,18 +707,18 @@ O(\delta)
 \kappa_Xa_{ij}m_\delta^{-1/2}
 ```
 
-が必要になり得る。さらにR164の有限幅作用殻を一様精度で保つ剛性は、他の尺度を固定すると
+が必要になり得る。さらにR164の有限幅作用殻を一様精度で保つ剛性は、他の尺度を固定すると下界の次数として
 
 ```math
 \kappa
 =
-O
+\Omega
 \left(
 \delta^{-2}
 \right)
 ```
 
-まで増え得る。従って $\delta\downarrow0$ では、有効地形幅、衝突流束、混合時間、作用殻剛性の少なくとも一つが発散する。有限資源のまま厳密nodeを全方向で追跡するとは主張しない。
+と増大する必要があり、$\kappa=\Theta(\delta^{-2})$ は代表的な選択である。従って $\delta\downarrow0$ では、有効地形幅、衝突流束、混合時間、作用殻剛性の少なくとも1つが発散する。有限資源のまま厳密nodeを全方向で追跡するとは主張しない。
 
 有限周期数 $N_{\rm cyc}$ に対するfresh cellと履歴セルは少なくとも衝突数と記録数に比例する。固定容量の閉鎖系による無期限の熱化、永久記録、resetは行わない。
 
@@ -739,23 +727,23 @@ O
 R164は単一試行信号作用から枝容量を作り、排他的2作用殻のLiouville状態数を単一母測度で規格化すると
 
 ```math
-\Omega_i^\delta(z)
+\Omega_i^\delta(v)
 \propto
-|(\Phi z)_i|^2
+|(\Psi v)_i|^2
 +
-\delta q_i z^\dagger z
+\delta q_i v^\dagger v
 ```
 
-となり、$E_i^\delta=-\Theta\log\pi_i^\delta$ が作用殻fiberの有効自由エネルギーとして得られることを条件付きで厳密に示す。従って旧版の「Born型地形を確率から直接設計した」という未解決性は一段狭くなる。一方、本付録と付録Mは次を主張しない。
+となり、$E_i^\delta=-\Theta\log\pi_i^\delta$ が作用殻を消去した条件付き中間状態有効自由エネルギーとして得られることを条件付きで厳密に示す。従って旧版の「Born型地形を確率から直接設計した」という未解決性は一段狭くなる。一方、本付録と付録Mは次を主張しない。
 
-1. 枝容量結合 $A_i^\delta(z)$ と作用殻fiber内平衡化を同じ有限局所Hamiltonianから自動的に準備すること。
-2. 枝対称な角周期、coarea因子、入口流束がW型装置だけから自動的に従うこと。
+1. 枝容量結合 $A_i^\delta(v)$ と作用殻fiber内平衡化を同じ有限局所Hamiltonianから自動的に準備すること。
+2. 枝対称な角周期、余面積因子、入口流束が信号担体だけから自動的に従うこと。
 3. 信号bath座標を有限反作用で保持するcontrollerを含む全装置の最小Hamiltonian。
 4. R145のHopf方程式を作用殻fiberまたは同じ衝突熱浴から導いたこと。
 5. 有限個のセルが無限時間のMarkov浴を厳密に再現すること。
 6. 無反応またはoverflowを除外した後の条件付き統計。
 7. $\delta=0$ で任意のnode方向を一様有限資源で再平衡化すること。
 8. 解析器、Hopf pump、fiber、記録、template交換、resetまで含む周期全体の微視的仕事・熱・エントロピー収支。
-9. 2準位W型を越える任意次元、任意POVM、連続スペクトルの一般Born則。
+9. 有限信号次元を越える任意POVM、連続スペクトルの一般Born則。
 
-残る最重要目標は、作用容量結合、fiber内平衡化、枝対称性、信号bath保持反作用をM47測定周期の有限局所Hamiltonianとして統合することである。R161--R164を完全な有限装置による一般Born測度の第一原理導出とは分類しない。
+残る最重要目標は、作用容量結合、殻内平衡化、枝対称性、信号保持反作用をQ1・Q2の各完全周期の有限局所Hamiltonianとして統合することである。R161--R164を完全な有限装置による一般Born測度の第一原理導出とは分類しない。
