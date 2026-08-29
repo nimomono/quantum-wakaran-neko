@@ -72,11 +72,11 @@
 - `references.bib`
 - `tools/build_paper.py`
 - `tools/template.tex`
-- `tools/verify_m35_canonical_control.py`
+- `tools/verify_common_canonical_control.py`
 - `tools/verify_envelope_reduction.py`
 - `tools/verify_m47_q1_instrument.py`
 - `tools/verify_m47_hopf_preparation.py`
-- `tools/verify_m47_collision_thermodynamics.py`
+- `tools/verify_common_collision_thermodynamics.py`
 - `tools/verify_m47_action_shell_origin.py`
 - `tools/verify_q2_shell_and_locality.py`
 - `tools/verify_m48_paired_hopf.py`

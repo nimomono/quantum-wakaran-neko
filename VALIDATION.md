@@ -1,6 +1,6 @@
 # 検算と品質確認
 
-この文書はdraft-54の定理・モデル集約、再現計算、静的整合性、PDF生成、目視確認の記録である。検証日は2026-08-29。
+この文書はdraft-55の定理・モデル集約、再現計算、静的整合性、PDF生成、目視確認の記録である。検証日は2026-08-29。
 
 ## 実行方法
 
@@ -15,21 +15,21 @@ python tools/build_paper.py
 主要検算器を個別に実行するときは次を使う。
 
 ```bash
-python tools/verify_m35_canonical_control.py
+python tools/verify_common_canonical_control.py
+python tools/verify_common_collision_thermodynamics.py
 python tools/verify_q2_shell_and_locality.py
 python tools/verify_m48_full_cycle.py
 python tools/verify_common_signal_m50.py
 ```
 
-## draft-54理論監査
+## draft-55理論監査
 
-- 共通層では、有限unitary合成をR112へ、正確・摂動的な規格化第2モーメント輸送をR135へ、一般ray平均をR168へ、固定入力時刻instrumentをR170へ集約した。旧R89、R139、R167は独立結果として残していない。
-- M37系列では、旧R83--R85、R87、R88の局所包絡、生成子誤差、有限時間誤差、作用変動、有限基底診断をR86へ集約した。Q3章はR135、R168、R170への特殊化だけを持つ。
-- Q1系列では、制御、零傾斜占有振動、離調Rabi式、傾斜保持をR140へ、有限コントラストと結果別状態更新をR143へ集約した。旧R136、R141、R142は独立結果として残していない。
-- Q2-1では、正確CNOT流、面積誤差、一般制御誤差、有限資源をR105へ集約した。旧R106は独立結果として残していない。
-- Bell系列では、必要な非積構造をR147、準備とroutingをR153、局所応答・因子化・有限誤差・帰還をR155へ集約した。旧R146、R148、R149、R151、R154、R156、R166は独立結果として残していない。
-- M43を独立モデルから外し、有限環境純位相緩和をR123へ吸収した。付録Mの独自内容だった条件付き局所因子化を付録Jへ移し、重複再掲を削除した。
-- 現行原稿、状態表、検算コードから吸収済み結果ID、M43、旧付録名、旧検算器名を除いた。追跡情報は `notes/superseded_result_index.md`、変更履歴、Git履歴へ分離した。
+- R90、R97--R99をR112へ吸収し、有限unitary、時計、安全比較・無反応、正準SWAP、テンプレート交換、局所記録、逆計算を一つの共通定理にした。独立M35は現行モデル一覧から外した。
+- R164、R161、R162の定理文は第2章だけに置き、Q1章は二枝特殊化、付録K・Lは証明だけにした。旧R163の数式と検算は無番号の粗視化経路熱力学系として保持した。
+- R170へ全変動距離、事象確率、有界観測量の共通安定性系を追加し、R124、R125、R155へ適用した。
+- Q2-1ではR104、R105をR112の4モード特殊化へ、R157、R158をR159の入力準備節・同期CNOT節へ吸収した。R159は準備、同期、benchmark統計の三節を持ち、R160はQ2-2受渡しへ分離した。
+- R123--R125の定理文は第7章だけに置き、付録Gは証明専用にした。静的検査はR161、R162、R164、R123--R125の定理宣言が各1回であることを確認する。
+- 現行結果は29件から20件へ集約した。現行原稿、状態表、検算コードから吸収済み9結果IDとM35を除き、追跡情報を `notes/superseded_result_index.md`、変更履歴、Git履歴へ分離した。
 - 固定長期目標と全ての達成判定語は変更していない。
 
 ## 数値・代数検証
@@ -48,9 +48,9 @@ python tools/verify_common_signal_m50.py
 | 検証 | 自動確認項目数 |
 |---|---:|
 | envelope reduction | 19 |
-| M35 canonical control | 29 |
+| common canonical control | 29 |
 | M47 action-shell origin | 35 |
-| M47 collision thermodynamics | 29 |
+| common collision thermodynamics | 29 |
 | M47 Hopf preparation | 20 |
 | M47 Q1 instrument | 43 |
 | M48 full cycle | 88 |
@@ -67,19 +67,19 @@ python tools/verify_common_signal_m50.py
 
 ## 静的整合性
 
-- 定理系環境の開始・終了数は一致した。theorem 29、proposition 2、lemma 9、corollary 0、proof 34。
+- 定理系環境の開始・終了数は一致した。theorem 20、proposition 2、lemma 2、corollary 0、proof 34。
 - 付録はA--Lの連番で、ファイル名、`@number`、章見出し、式参照を照合した。
-- `README.md`、`PROJECT_STATUS.md`、`CHANGELOG.md`、`MANIFEST.md`、`CITATION.cff`、本文、付録をdraft-54へ同期した。
-- 現行原稿と検算コードに吸収済み結果ID、M43、旧付録名、旧検算器名が残っていないことを確認した。
+- `README.md`、`PROJECT_STATUS.md`、`CHANGELOG.md`、`MANIFEST.md`、`CITATION.cff`、本文、付録をdraft-55へ同期した。
+- 現行原稿と検算コードに吸収済み結果ID、M35、旧付録名、旧検算器名が残っていないことを確認した。
 - `python -m py_compile tools/*.py` と `git diff --check` は成功した。
 
 ## PDF生成
 
 - 出力: `paper.pdf`
-- ページ数: 174
+- ページ数: 173
 - 用紙: A4
-- ファイルサイズ: 1,137,426 bytes
-- SHA-256: `e9919f8b508fbff65341cd161be5d047a62e0371af47e4a53b45fc9f6f4054b8`
+- ファイルサイズ: 1,126,573 bytes
+- SHA-256: `e49b0f03a017f78ab26ea620e153f1fecf53c6a5e311a47bccbe25e6ad6425ef`
 - `SOURCE_DATE_EPOCH` は2026-08-29 00:00:00 UTCである。
 - 連続2回の生成で `paper.md`、`main.tex`、`paper.pdf` のバイナリが一致した。
 - 未解決のcitation/reference、overfull/underfull box、fatal error、欠落文字はない。
@@ -87,9 +87,9 @@ python tools/verify_common_signal_m50.py
 
 ## PDF目視確認
 
-全174ページを72 dpiでレンダリングし、20ページずつ9枚のコンタクトシートで通覧した。さらに1、18、19、26、33、40、52、63、150、174ページを150 dpiで重点確認した。対象には表紙、共通R135・R168、R140、R143、R105、R155、R86、付録Jの条件付き局所因子化、参考文献末尾を含む。
+全173ページを72 dpiでレンダリングし、20ページずつ9枚のコンタクトシートで通覧した。さらに1、9、12、16、28、35、60、86、113、142、153、173ページを150 dpiで重点確認した。対象には表紙、共通R112・R161・R162・R164・R170、R140、R143、R159、R155、R86、付録G・K・L、参考文献末尾を含む。
 
-クリッピング、重なり、意図しない空白ページ、黒塗り領域、数式の欠落、表の破綻、見出しの破綻は見つからなかった。表紙の版表示はdraft-54で、ヘッダー、フッター、ページ番号、章・付録の切替も正常である。
+クリッピング、重なり、意図しない空白ページ、黒塗り領域、数式の欠落、表の破綻、見出しの破綻は見つからなかった。表紙の版表示はdraft-55で、ヘッダー、フッター、ページ番号、章・付録の切替も正常である。
 
 ## CI
 
@@ -97,7 +97,7 @@ GitHub Actionsは次を確認する。
 
 - 現行14本の検証スクリプトとPython構文検査
 - 付録A--L、現行検算器、退役索引の存在と旧現行パスの不在
-- R112、R135、R168、R170の共通層、R86、R140、R143、R105、R147、R153、R155の集約条件
+- R112、R135、R161、R162、R164、R168、R170の共通層、R86、R140、R143、R147、R153、R155、R159の集約条件
 - 固定長期目標の全達成判定語
 - 現行原稿と検算コードにおける吸収済みモデルID・結果IDの不在
 - `paper.md`、`main.tex`、`paper.pdf` の再生成差分

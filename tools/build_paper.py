@@ -341,8 +341,9 @@ def validate_fixed_goal_language() -> None:
         raise ValueError("現行章に退役済みM42/R113--R118が残っている: " + "、".join(retired_m42))
 
     absorbed_result_pattern = re.compile(
-        r"R(?:83|84|85|87|88|89|106|136|139|141|142|146|148|149|151|154|156|166|167)(?!\d)"
+        r"R(?:83|84|85|87|88|89|90|97|98|99|104|105|106|136|139|141|142|146|148|149|151|154|156|157|158|163|166|167)(?!\d)"
     )
+    absorbed_model_pattern = re.compile(r"M" r"35(?!\d)")
     absorbed_result_paths = [
         ROOT / "README.md",
         ROOT / "PROJECT_STATUS.md",
@@ -351,12 +352,22 @@ def validate_fixed_goal_language() -> None:
     absorbed_hits = [
         path.relative_to(ROOT).as_posix()
         for path in absorbed_result_paths
-        if absorbed_result_pattern.search(path.read_text(encoding="utf-8"))
+        if (
+            absorbed_result_pattern.search(path.read_text(encoding="utf-8"))
+            or absorbed_model_pattern.search(path.read_text(encoding="utf-8"))
+        )
     ]
     if absorbed_hits:
         raise ValueError(
-            "現行文書に吸収済み結果IDが残っている: " + "、".join(absorbed_hits)
+            "現行文書に吸収済み結果IDまたはモデルIDが残っている: " + "、".join(absorbed_hits)
         )
+
+    all_section_text = "\n".join(
+        path.read_text(encoding="utf-8") for path in sorted(SECTIONS.glob("*.md"))
+    )
+    for result_id in ("R161", "R162", "R164", "R123", "R124", "R125"):
+        if all_section_text.count(f"定理（{result_id}：") != 1:
+            raise ValueError(f"{result_id}の定理宣言は現行章全体で1回でなければならない")
 
     q3_text = (SECTIONS / "06_m37_spatial_envelope.md").read_text(encoding="utf-8")
     for token in (
@@ -373,8 +384,8 @@ def validate_fixed_goal_language() -> None:
 
     m49_text = (SECTIONS / "04_l4_two_qubit_gate.md").read_text(encoding="utf-8")
     for token in (
-        "R157：M49中央4枝状態数の有限Hamiltonian準備",
-        "R158：担体・bath・粒子位置へ同期する同一試行CNOT",
+        "R159内部補題：入力の行分解bath--粒子位置matching",
+        "R159内部補題：担体・bath・粒子位置へ同期するCNOT",
         "R159：固定有限入力、入力頻度、固定積出力基底の共同入力--出力統計",
         "R160：M49固定singlet providerからM48へのsetting-free同一register受渡し",
         r"\rho_*",

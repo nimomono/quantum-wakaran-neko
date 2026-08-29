@@ -1,7 +1,7 @@
 @number: C
 @chapter: 付録
 @title: M49共同bath CNOT供給模型の証明
-@status: R104、R105の4モード担体、R157--R160の行分解bath--粒子位置matching、同期CNOT、固定有限共同統計、M48受渡しを証明する。
+@status: R112の4モード特殊化と、R159の入力準備・同期CNOT・固定有限共同統計、R160のM48受渡しを証明する。
 
 ## C.1　4モード正準担体
 
@@ -49,12 +49,12 @@ $D_{\rm prog}\in\mathbb C^{2\times2}$ を行優先で
 と作用し、$\operatorname{rank}D_{\rm prog}$ と $|\det D_{\rm prog}|$ を保存する。
 
 <!-- theorem-start:proof -->
-**証明（R104）**
+**証明（R112の4モードテンソル積節）**
 
 式(C.3)へ $K=A\otimes I_2$ と $L=I_2\otimes B$ を入れると、対応HamiltonianのPoisson括弧は行列交換子 $[K,L]=0$ に比例して零となる。正方形配線の対辺へ同じ $QQ+PP$ 交換と作用差を置けば、各局所Pauli生成子を有限2次Hamiltonianで実装できる。式(C.5)が積状態集合を保存する。証明終。
 <!-- theorem-end:proof -->
 
-## C.2　R105：CNOT担体と有限制御評価
+## C.2　R112の4モードCNOT特殊化
 
 差モード $|d\rangle=(|10\rangle-|11\rangle)/\sqrt2$ への射影は
 
@@ -86,7 +86,7 @@ $D_{\rm prog}\in\mathbb C^{2\times2}$ を行優先で
 $A=\pi$ では制御値0部分空間に恒等、制御値1部分空間に $\sigma_x$ が作用するためCNOTに一致する。
 
 <!-- theorem-start:proof -->
-**証明（R105）**
+**証明（R112の4モードCNOT節）**
 
 $H_C=P_\tau+g(\tau)G_C$ では $\dot\tau=1$ で、信号生成子は全時刻で同じ射影の実数倍である。時間順序積は窓面積 $A$ の式(C.8)へ厳密に縮約する。$A=\pi$ でCNOTを得て、式(C.3)により正準性と作用保存が従う。積入力 $|+0\rangle$ の出力係数行列は階数2なので、局所操作の積ではない。証明終。
 <!-- theorem-end:proof -->
@@ -136,13 +136,13 @@ $H_C=P_\tau+g(\tau)G_C$ では $\dot\tau=1$ で、信号生成子は全時刻で
 
 4信号正準対と1時計正準対で担体CNOTを実装できる。
 
-**R105の有限制御節。**
+**R112特殊化の有限制御節。**
 
 式(C.9)は窓面積、式(C.10)、式(C.11)は射影の固有値、式(C.13)はDuhamel式から従う。生成子は4信号正準対上の2作用項と1交換辺で、時計に1正準対を要する。証明終。
 
-## C.3　R157の理想行分解
+## C.3　R159入力準備節の理想行分解
 
-R157の共同枝確率は、R164を $m=L=4$、$\Psi=I_4$、$\delta=0$ としたM50中央4枝作用殻の状態数 $\Omega_{ab}\propto|(D_{\rm prog})_{ab}|^2$ から直接得られる。以下の行分解は別の確率源ではなく、その共同母測度をA周辺とB条件付き分布へ分解した表示である。
+共同枝確率は、R164を $m=L=4$、$\Psi=I_4$、$\delta=0$ としたM50中央4枝作用殻の状態数 $\Omega_{ab}\propto|(D_{\rm prog})_{ab}|^2$ から直接得られる。以下の行分解は別の確率源ではなく、その共同母測度をA周辺とB条件付き分布へ分解した表示である。
 
 非零行の集合を $I_D={a:\rho_a>0}$ とする。M50の排他的物理枝を $\gamma_{ab}$ と書けば、
 
@@ -188,19 +188,19 @@ safe branch $\gamma_{ab}$ から式(4.9)のone-hot粒子位置へcontrolled SWAP
  \tag{C.18}
 ```
 
-## C.4　R157の有限Hamiltonian準備
+## C.4　R159入力準備節の有限Hamiltonian実現
 
 M50の排他的safe枝 $\gamma_{ab}$ をcontrolとして、freshなone-hot粒子位置registerへ有限列の2モード交換を作用させる。枝registerを使用済み履歴へ残すため、粒子位置への直接decodeを含む拡大写像は1対1である。独立な選択器角、作用区間pointer、比較器の逆計算は不要である。
 
 固定program $s$ とactive行 $a$ ごとに、式(4.11)の4複素成分を持つtemplate cellを事前校正する。$X_A=a$ のsafe plateauをcontrolとするcanonical SWAPにより、templateをactive $z_A,z_B$ portへ移す。全窓を
 
 ```math
- H_{157}
- =P_\tau+\sum_{r=1}^{R_{157}}g_r(\tau)G_r
+ H_{\rm prep}
+ =P_\tau+\sum_{r=1}^{R_{\rm prep}}g_r(\tau)G_r
  \tag{C.19}
 ```
 
-と書ける。$R_{157}$ は固定program族で有限、各 $G_r$ は有限個の作用差、$QQ+PP$ 交換、滑らかなplateau controlから成る。従って有限正準対と有限時間のHamiltonian準備である。templateの値は装置programであり、ensemble量を測定して再注入したものではない。
+と書ける。$R_{\rm prep}$ は固定program族で有限、各 $G_r$ は有限個の作用差、$QQ+PP$ 交換、滑らかなplateau controlから成る。従って有限正準対と有限時間のHamiltonian準備である。templateの値は装置programであり、ensemble量を測定して再注入したものではない。
 
 各非零branchのsurvival係数を $r_{ab}\in[1-\varepsilon_0,1]$ とする。安全事象上の非規格化粒子位置分布は $|(D_{\rm prog})_{ab}|^2r_{ab}$ であり、失敗質量を無反応へ置けば理想完全分布からの全変動距離は $\varepsilon_0$ 以下である。
 
@@ -252,7 +252,7 @@ A粒子位置は全safe branchで行labelと一致する。B側では、行 $a$ 
 ```
 
 <!-- theorem-start:proof -->
-**証明（R157）**
+**証明（R159の入力準備節）**
 
 式(C.15)、式(C.17)、式(C.18)が理想matchingを与える。式(C.19)が有限Hamiltonian準備、式(C.21)--(C.24)が無反応込みの有限誤差上界を与える。証明終。
 <!-- theorem-end:proof -->
@@ -292,7 +292,7 @@ Cauchy--Schwarzから
 
 この有限平均を全program一様の最大作用と混同しない。
 
-## C.6　R158の点ごとの共変性
+## C.6　R159同期CNOT節の点ごとの共変性
 
 係数行列CNOTは行ごとに
 
@@ -303,7 +303,7 @@ Cauchy--Schwarzから
  \tag{C.28}
 ```
 
-R157 branch $a$ で $z_B^+=\sigma_x^az_B$ とすると
+入力branch $a$ で $z_B^+=\sigma_x^az_B$ とすると
 
 ```math
  \begin{aligned}
@@ -367,7 +367,7 @@ R157 branch $a$ で $z_B^+=\sigma_x^az_B$ とすると
 粒子位置XORの失敗質量を $\varepsilon_\oplus$ とすれば、全変動距離は同じ量以下だけ増える。担体誤差と時計誤差を別に加えると式(4.24)、式(4.25)を得る。
 
 <!-- theorem-start:proof -->
-**証明（R158）**
+**証明（R159の同期CNOT節）**
 
 式(C.29)、式(C.30)が理想共変性、式(C.31)、式(C.32)が同一時計の有限Hamiltonian実装、式(C.33)が有限bath誤差を与える。証明終。
 <!-- theorem-end:proof -->
@@ -382,9 +382,9 @@ R157 branch $a$ で $z_B^+=\sigma_x^az_B$ とすると
  \tag{C.34}
 ```
 
-とする。外側scheduleはprogram label $S=s$ を頻度 $\lambda_s$ で提示する。これはbenchmarkの入力条件であり、出力確率源ではない。safe labelをfresh program registerへdecodeし、そのlabelで $D_{{\rm in},s}$ とR157 template bankをactive portへroutingする。入力粒子位置はM50物理枝から直接decodeする。
+とする。外側scheduleはprogram label $S=s$ を頻度 $\lambda_s$ で提示する。これはbenchmarkの入力条件であり、出力確率源ではない。safe labelをfresh program registerへdecodeし、そのlabelで $D_{{\rm in},s}$ と入力template bankをactive portへroutingする。入力粒子位置はM50物理枝から直接decodeする。
 
-provider運転はR158後の $\Sigma_{\rm gate}$ で終わる。benchmark運転では同じ担体に $W_A^s\otimes W_B^s$ を作用させ、
+provider運転は同期CNOT後の $\Sigma_{\rm gate}$ で終わる。benchmark運転では同じ担体に $W_A^s\otimes W_B^s$ を作用させ、
 
 ```math
  D_{{\rm out},s}=W_A^s\mathcal C_{\rm CX}(D_{{\rm in},s})(W_B^s)^{\mathsf T}
@@ -410,9 +410,9 @@ fresh殻条件が必要である。使用済み入力殻の同一微視的順位
  \tag{C.37}
 ```
 
-fresh出力殻を条件付きで準備すれば、そのM50枝周辺を平均して式(4.30)を得る。必要なのは別registerであり、独立なM35角ではない。
+fresh出力殻を条件付きで準備すれば、そのM50枝周辺を平均して式(4.30)を得る。必要なのは別registerであり、独立な選択器角ではない。
 
-入力label誤差を含む結合を先に作り、各 $s$ でR157、担体unitary、fresh M50出力殻、直接decodeを順にcoupleする。全変動距離の縮小性と三角不等式から式(4.31)が従う。失敗は $\varnothing$ に送るので事後選別はない。各項は固定有限program族について、殻幅、時計幅、template精度を有限値で選んで任意に小さくできる。
+入力label誤差を含む結合を先に作り、各 $s$ で入力準備、担体unitary、fresh M50出力殻、直接decodeを順にcoupleする。全変動距離の縮小性と三角不等式から式(4.31)が従う。失敗は $\varnothing$ に送るので事後選別はない。各項は固定有限program族について、殻幅、時計幅、template精度を有限値で選んで任意に小さくできる。
 
 <!-- theorem-start:proof -->
 **証明（R159）**
@@ -476,7 +476,7 @@ state-carrying感度には、link面族内の $D_0=e_0e_0^{\mathsf T}$ と $D_{\
 
 ## C.10　資源と適用限界
 
-一programのR157準備は、4モードprogram担体4対、active作用殻2対、2粒子位置register4対、active bath4対、2行template bank8対からなる単純上界22対を持つ。時計、外側program schedule、benchmark用fresh出力殻、履歴、記録は運転modeに応じて別に加える。template bankは固定有限族について $O(S)$、全装置も固定2論理部分系では有限である。
+一programのR159入力準備節は、4モードprogram担体4対、active作用殻2対、2粒子位置register4対、active bath4対、2行template bank8対からなる単純上界22対を持つ。時計、外側program schedule、benchmark用fresh出力殻、履歴、記録は運転modeに応じて別に加える。template bankは固定有限族について $O(S)$、全装置も固定2論理部分系では有限である。
 
 本付録は次を証明しない。
 
@@ -487,4 +487,4 @@ state-carrying感度には、link面族内の $D_0=e_0e_0^{\mathsf T}$ と $D_{\
 5. R162の有限衝突粒子位置bathとR153のrouting、paired-Hopf流、2翼controllerの閉鎖Hamiltonian統合。
 6. $2^n$ モードを避ける多量子ビット拡張。
 
-R104、R105はM49内部担体の有限正準結果として使う。これらの担体代数だけでは、R157--R160のbath、粒子位置、物理的受渡しは従わない。
+R112の4モード特殊化はM49内部担体の有限正準結果として使う。この担体代数だけでは、R159、R160のbath、粒子位置、物理的受渡しは従わない。

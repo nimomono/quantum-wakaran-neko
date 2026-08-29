@@ -119,7 +119,7 @@ def main() -> None:
     rng = np.random.default_rng(seed)
     checks: list[CheckResult] = []
 
-    # M35 control surface: unitary synthesis, post-state routing, recording, and inverse.
+    # Common R112 surface: unitary synthesis, post-state routing, recording, and inverse.
     pure_modes = 6
     chi = rng.normal(size=pure_modes) + 1j * rng.normal(size=pure_modes)
     chi /= np.linalg.norm(chi)
