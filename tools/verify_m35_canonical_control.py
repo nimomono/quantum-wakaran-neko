@@ -119,98 +119,7 @@ def main() -> None:
     rng = np.random.default_rng(seed)
     checks: list[CheckResult] = []
 
-    # General fixed-action, high-rank interval sampling.
-    sample_count = 120_000
-    mode_count = 7
-    amplitudes = rng.normal(size=(sample_count, mode_count)) + 1j * rng.normal(
-        size=(sample_count, mode_count)
-    )
-    amplitudes /= np.linalg.norm(amplitudes, axis=1)[:, None]
-    correlation = amplitudes.T @ amplitudes.conj() / sample_count
-    eigenvalues = np.linalg.eigvalsh(correlation)
-    checks.append(record_min(
-        "high_rank_second_eigenvalue",
-        np.sort(eigenvalues)[-2],
-        8.0e-2,
-    ))
-
-    action_shares = np.abs(amplitudes) ** 2
-    selector_expectation = np.mean(action_shares, axis=0)
-    correlation_diagonal = np.real(np.diag(correlation)) / np.trace(correlation).real
-    checks.append(record_max(
-        "fixed_action_selector_correlation_error",
-        np.max(np.abs(selector_expectation - correlation_diagonal)),
-        3.0e-14,
-    ))
-
-    uniform_fractions = rng.random(sample_count)
-    outcomes = interval_outcomes(uniform_fractions, action_shares)
-    empirical = np.bincount(outcomes, minlength=mode_count) / sample_count
-    checks.append(record_max(
-        "uniform_selector_empirical_error",
-        np.max(np.abs(empirical - selector_expectation)),
-        6.0e-3,
-    ))
-
-    # An arbitrary finite orthonormal basis has the same fixed-action formula.
-    unitary = random_unitary(rng, mode_count)
-    transformed = amplitudes @ unitary.T
-    transformed_shares = np.abs(transformed) ** 2
-    transformed_selector = np.mean(transformed_shares, axis=0)
-    transformed_correlation = unitary @ correlation @ unitary.conj().T
-    transformed_expected = np.real(np.diag(transformed_correlation)) / np.trace(
-        transformed_correlation
-    ).real
-    checks.append(record_max(
-        "unitary_basis_selector_error",
-        np.max(np.abs(transformed_selector - transformed_expected)),
-        3.0e-14,
-    ))
-    checks.append(record_max(
-        "unitary_basis_action_normalization_error",
-        np.max(np.abs(np.sum(transformed_shares, axis=1) - 1.0)),
-        3.0e-14,
-    ))
-
-    # Variable total action requires the covariance correction.
-    variable_count = 90_000
-    total_action = np.exp(0.55 * rng.normal(size=variable_count))
-    logits = rng.normal(size=(variable_count, 4))
-    standardized_total = (total_action - np.mean(total_action)) / np.std(total_action)
-    logits[:, 0] += 1.1 * standardized_total
-    logits -= np.max(logits, axis=1)[:, None]
-    shares = np.exp(logits)
-    shares /= np.sum(shares, axis=1)[:, None]
-    actions = total_action[:, None] * shares
-    selector_probability = np.mean(shares, axis=0)
-    ratio_of_means = np.mean(actions, axis=0) / np.mean(total_action)
-    covariance = np.mean(
-        (total_action - np.mean(total_action))[:, None]
-        * (shares - np.mean(shares, axis=0)),
-        axis=0,
-    )
-    covariance_corrected = ratio_of_means - covariance / np.mean(total_action)
-    checks.append(record_max(
-        "variable_action_covariance_identity_error",
-        np.max(np.abs(selector_probability - covariance_corrected)),
-        3.0e-14,
-    ))
-    checks.append(record_min(
-        "variable_action_naive_ratio_mismatch",
-        np.max(np.abs(selector_probability - ratio_of_means)),
-        2.0e-2,
-    ))
-
-    biased_fractions = 0.5 * shares[:, 0]
-    biased_outcomes = interval_outcomes(biased_fractions, shares)
-    biased_empirical = np.bincount(biased_outcomes, minlength=shares.shape[1]) / variable_count
-    checks.append(record_min(
-        "conditional_selector_bias_detection",
-        np.max(np.abs(biased_empirical - selector_probability)),
-        2.0e-1,
-    ))
-
-    # Fixed pure preparation: irrational rotation, post-state, repeatability, reset.
+    # M35 control surface: unitary synthesis, post-state routing, recording, and inverse.
     pure_modes = 6
     chi = rng.normal(size=pure_modes) + 1j * rng.normal(size=pure_modes)
     chi /= np.linalg.norm(chi)
@@ -288,28 +197,6 @@ def main() -> None:
     orbit_count = 240_000
     orbit = (0.137 + alpha * np.arange(orbit_count)) % 1.0
     orbit_outcomes = interval_outcomes(orbit, pure_shares)
-    orbit_frequency = np.bincount(orbit_outcomes, minlength=pure_modes) / orbit_count
-    checks.append(record_max(
-        "irrational_rotation_born_frequency_error",
-        np.max(np.abs(orbit_frequency - pure_shares)),
-        1.5e-4,
-    ))
-
-    fourier_averages = [
-        abs(np.mean(np.exp(2j * pi * harmonic * orbit)))
-        for harmonic in range(1, 17)
-    ]
-    checks.append(record_max(
-        "irrational_rotation_fourier_average",
-        max(fourier_averages),
-        1.0e-4,
-    ))
-    nonmixing_correlation = abs(np.exp(-2j * pi * 37 * alpha))
-    checks.append(record_min(
-        "irrational_rotation_nonmixing_correlation",
-        nonmixing_correlation,
-        1.0 - 1.0e-14,
-    ))
 
     selected = int(np.argmax(pure_shares))
     template = np.zeros(pure_modes, dtype=complex)

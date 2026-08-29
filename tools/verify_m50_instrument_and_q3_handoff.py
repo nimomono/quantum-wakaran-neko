@@ -152,7 +152,7 @@ def main() -> None:
         pure_distance / (1.0 + delta) + 2.0e-14,
     ))
 
-    # R169: fixed-action high-rank ensemble.
+    # R168: fixed-action and variable-action clauses of the general ray average.
     fixed_samples = rng.normal(size=(trials, size)) + 1j * rng.normal(size=(trials, size))
     fixed_action = 2.7
     fixed_samples *= sqrt(fixed_action) / np.linalg.norm(fixed_samples, axis=1)[:, None]
@@ -170,17 +170,17 @@ def main() -> None:
         for index, operator in enumerate(operators)
     ])
     checks.append(record_max(
-        "r169_fixed_action_per_trial_error",
+        "r168_general_fixed_action_per_trial_error",
         float(np.max(np.abs(np.sum(np.abs(fixed_samples) ** 2, axis=1) - fixed_action))),
         3.0e-14,
     ))
     checks.append(record_max(
-        "r169_fixed_action_readout_error",
+        "r168_general_fixed_action_readout_error",
         float(np.max(np.abs(empirical_probabilities - covariance_probabilities))),
         4.0e-14,
     ))
     checks.append(record_max(
-        "r169_branch_normalization_error",
+        "r168_general_branch_normalization_error",
         abs(float(np.sum(covariance_probabilities)) - 1.0),
         2.0e-14,
     ))
@@ -195,17 +195,17 @@ def main() -> None:
     ], axis=0)
     covariance_average = covariance(variable_samples)
     checks.append(record_max(
-        "r169_variable_action_ray_target",
+        "r168_general_variable_action_ray_target",
         np.linalg.norm(radial_average - np.diag([0.5, 0.5])),
         2.0e-15,
     ))
     checks.append(record_max(
-        "r169_variable_action_covariance_target",
+        "r168_general_variable_action_covariance_target",
         np.linalg.norm(covariance_average - np.diag([0.75, 0.25])),
         2.0e-15,
     ))
     checks.append(record_min(
-        "r169_variable_action_counterexample_gap",
+        "r168_general_variable_action_counterexample_gap",
         trace_distance(radial_average, covariance_average),
         0.249999999999,
     ))
@@ -220,8 +220,8 @@ def main() -> None:
     mean_action = float(np.mean(radial_actions))
     radial_l1_bound = 0.5 * float(np.mean(np.abs(radial_actions / mean_action - 1.0)))
     radial_variance_bound = 0.5 * float(np.std(radial_actions)) / mean_action
-    checks.append(record_max("r169_radial_l1_bound", radial_distance, radial_l1_bound + 2.0e-14))
-    checks.append(record_max("r169_radial_variance_bound", radial_l1_bound, radial_variance_bound + 2.0e-14))
+    checks.append(record_max("r168_general_radial_l1_bound", radial_distance, radial_l1_bound + 2.0e-14))
+    checks.append(record_max("r168_general_radial_variance_bound", radial_l1_bound, radial_variance_bound + 2.0e-14))
 
     # R170: canonical sample-and-hold, R161 mixing, no-response, and local record.
     pairs = 2 * size
@@ -337,7 +337,7 @@ def main() -> None:
         "check_count": len(checks),
         "r167_trace_distance": covariance_error,
         "r167_bound": r167_bound,
-        "r169_variable_action_gap": trace_distance(radial_average, covariance_average),
+        "r168_general_variable_action_gap": trace_distance(radial_average, covariance_average),
         "r170_mixing_error": mixing_error,
         "r170_mixing_bound": mixing_bound,
         "epsilon_170_example": epsilon_170,

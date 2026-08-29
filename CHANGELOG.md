@@ -2,6 +2,26 @@
 
 この文書には、理論上の変更と、現行稿に対する置換関係を記録する。誤字修正や構成だけの変更は、理論的内容を変えないことを明記する。
 
+## draft-53
+
+### M50とR170への枝生成・読出し統合
+
+- Born型枝確率の物理的起源をM50/R164の有限作用殻状態数へ一本化した。M35は有限正準unitary、時計、比較、SWAP、記録、逆計算の補助回路に限定し、作用区間を独立な確率源として使わない。
+- 固定入力時刻の有限枝instrumentを共通R170として第2章と付録Kへ集約した。R143はM47の分析器、有限コントラスト、結果別状態更新、R154は2翼局所合成と条件付きBell応答だけを追加する特殊化とした。
+- Q2-1の中央4枝をR157/R164の直接特殊化へ改め、M35作用区間との同値性を主張した旧R165を現行結果から外した。M49の固定有限共同入力--出力統計と達成判定は維持した。
+
+### 定理の統合と独立研究線の分離
+
+- 旧R168とR169を、安全事象上の一般ray平均定理R168へ統合した。階数1、固定作用高階数、可変作用のradial補正を同一定理の節として区別する。
+- 旧R152をR161の $m=2$、$\Psi=\Phi$ 特殊化へ吸収し、旧R150の統計距離評価をR155の証明内補題へ移した。旧IDと統合先は `notes/superseded_result_index.md` に保存した。
+- M45開放準臨界準備をQ1--Q3から独立した研究線として本文、付録、状態表、数値コード、専用図から外した。旧M46計算と連続matching線も現行付録から除き、再検討条件を研究メモとGit履歴に残した。
+- 付録をA--Mへ詰め、`PROJECT_STATUS.md` を現行モデル、現行結果、未解決境界だけの台帳へ整理した。固定目標と全ての達成判定語は変更していない。
+
+### 検証と生成物
+
+- 検算コードと継続的検証を新しい結果構造へ同期し、退役した確率経路と旧結果IDが現行原稿へ戻らない静的検査を追加した。
+- README、執筆規約、検算記録、構成一覧、引用情報、統合原稿、TeX、PDFをdraft-53へ同期した。
+
 ## draft-52
 
 ### M42の退役とQ3受渡しの再構成
@@ -135,7 +155,7 @@
 
 ### 共同bath--実現配置契約
 
-- 付録K `sections/A11_q2_joint_bath_contract.md` を追加し、共通試行状態 $\Gamma_{\rm Q2}$、cross matching、単一試行配置matching、row-major vectorization、setting-free受渡し面 $\Sigma_{\rm link}$、同一レジスタの $T_{\rm link}$、拡大系で一対一な破壊的dilationを固定した。
+- 付録K `sections/A10_q2_joint_bath_contract.md` を追加し、共通試行状態 $\Gamma_{\rm Q2}$、cross matching、単一試行配置matching、row-major vectorization、setting-free受渡し面 $\Sigma_{\rm link}$、同一レジスタの $T_{\rm link}$、拡大系で一対一な破壊的dilationを固定した。
 - 受渡しをstate-carrying、branch-carrying、provenance-onlyに分類し、枝bias sweepと履歴条件付き不変性を必須監査にした。将来の受渡し誤差 $\varepsilon_{\rm Q2-link}$ は予約するが、provider未構成のためM48単独周期の誤差へ算入しない。
 - M48のvectorizationをrow-majorへ統一し、column-majorとの関係 $\operatorname{vec}_{\rm col}=P_{23}\operatorname{vec}_{\rm row}$ を一般複素行列について検算する。R153--R156の入口誤差を $\varepsilon_{\rm seed}+\varepsilon_{\rm route}$、周期分布を $P_{\rm Bell}^{48,{\rm cyc}}$、前向き誤差を $\varepsilon_{\rm Bell}^{48,{\rm cyc}}$ へ改名した。
 
@@ -195,7 +215,7 @@
 
 ### 構成、検証、生成物
 
-- 付録J `sections/A10_m48_paired_hopf_bell_preparation.md` を追加した。第4章にM39--M48の暫定代数契約、第5章にM48への置換境界、第8.16節に誤差・資源・反証条件を追加した。
+- 付録J `sections/A9_m48_paired_hopf_bell_preparation.md` を追加した。第4章にM39--M48の暫定代数契約、第5章にM48への置換境界、第8.16節に誤差・資源・反証条件を追加した。
 - `tools/build_paper.py` の付録探索を1桁globから数値順探索へ変更し、付録J以後を欠落なく組み込むmetadata検査を追加した。
 - `tools/verify_m47_hopf_preparation.py` と `tools/verify_m48_paired_hopf.py` を追加した。単一Hopf厳密解、bright/dark変換、吸引率、spin-flip恒等式、singlet交差共分散、直接共分散否定的結果、局所余弦則、CHSH値、有限誤差則を独立に検算する。
 - 本文、状態台帳、README、検証記録、構成一覧、引用情報、統合原稿、TeX、PDFをdraft-45Aへ同期した。新しいsimulationまたは図は追加していない。
@@ -247,7 +267,7 @@
 
 ### 構成、主張境界、生成物
 
-- 第8.14節をM46から保持する補助結果と不採用部分の整理へ変更し、第8.15節にM47の本文要約を追加した。付録Iを `sections/A9_w_two_mode_hopf_statistics.md` へ差し替えた。
+- 第8.14節をM46から保持する補助結果と不採用部分の整理へ変更し、第8.15節にM47の本文要約を追加した。付録Iを `sections/A8_w_two_mode_hopf_statistics.md` へ差し替えた。
 - 付録FはM42既存模型の証明でありM47には使わないこと、付録HのM45数値はM47のmatchingまたは左右占有振動の証拠ではないことを明記した。
 - 自然な局所Hopf--bath相互作用によるmatching多様体準備、外部切断時の仕事と残留相関、閉鎖流によるmatching保存、2モード外漏れを未導出として維持した。
 - 新しい数値解析、simulation、図、検証scriptを追加せず、M45の既存数値、267件の回帰検査、Q1--Q3の固定長期目標と現行達成判定を変更していない。統合原稿、TeX、PDFをdraft-43へ更新した。

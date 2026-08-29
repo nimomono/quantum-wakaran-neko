@@ -375,7 +375,7 @@ def main() -> None:
             abs(routed_probability_plus - probability_plus),
         )
     checks.append(record_max("r160_branch_bias_transport_error", maximum_bias_error, 0.0))
-    checks.append(record_equal("r157_simple_pair_count_error", 16 + 4 + 4 + 8, 32))
+    checks.append(record_equal("r157_current_pair_count_error", 4 + 2 + 4 + 4 + 8, 22))
 
     payload = {
         "seed": seed,

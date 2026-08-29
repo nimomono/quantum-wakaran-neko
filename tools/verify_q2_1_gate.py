@@ -147,7 +147,7 @@ def main() -> None:
 
     # A finite family of fixed input programs and product output bases gives
     # an explicit joint input-label/two-bit-output distribution.  The final
-    # column used below is the formal no-response outcome of the M35 readout.
+    # column used below is the formal no-response outcome of the M50 direct readout.
     hadamard = np.array([[1.0, 1.0], [1.0, -1.0]], dtype=complex) / np.sqrt(2.0)
     phase = np.diag([1.0, 1j])
     complex_product = np.kron(
@@ -345,7 +345,7 @@ def main() -> None:
 
     # Explicit resource upper bounds.
     checks.append(record_equal("m49_carrier_gate_pair_count_error", 4 + 1, 5))
-    checks.append(record_equal("m35_l4_pair_count_error", 3 * 4 + 4, 16))
+    checks.append(record_equal("m49_current_pair_count_error", 4 + 2 + 4 + 4 + 8, 22))
 
     payload = {
         "seed": seed,

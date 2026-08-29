@@ -177,12 +177,12 @@ def main() -> None:
     )
     prefactor = 0.9
     checks.append(record_max(
-        "r152_embedding_isometry_error",
+        "r161_m48_embedding_isometry_error",
         np.linalg.norm(embedding.conj().T @ embedding - np.eye(2)),
         3.0e-14,
     ))
     checks.append(record_max(
-        "r152_adjacency_symmetry_error",
+        "r161_m48_adjacency_symmetry_error",
         np.linalg.norm(adjacency - adjacency.T),
         2.0e-14,
     ))
@@ -208,27 +208,27 @@ def main() -> None:
             regularization,
         )
         checks.append(record_max(
-            f"r152_setting_{setting_index}_weight_normalization_error",
+            f"r161_m48_setting_{setting_index}_weight_normalization_error",
             abs(np.sum(weights) - 1.0),
             3.0e-14,
         ))
         checks.append(record_max(
-            f"r152_setting_{setting_index}_target_normalization_error",
+            f"r161_m48_setting_{setting_index}_target_normalization_error",
             abs(np.sum(target) - 1.0),
             3.0e-14,
         ))
         checks.append(record_min(
-            f"r152_setting_{setting_index}_target_minimum",
+            f"r161_m48_setting_{setting_index}_target_minimum",
             np.min(target),
             regularization * np.min(reference) / (1.0 + regularization),
         ))
         checks.append(record_max(
-            f"r152_setting_{setting_index}_phase_invariance_error",
+            f"r161_m48_setting_{setting_index}_phase_invariance_error",
             np.linalg.norm(phase_target - target),
             3.0e-14,
         ))
         checks.append(record_max(
-            f"r152_setting_{setting_index}_regularization_tv_bound",
+            f"r161_m48_setting_{setting_index}_regularization_tv_bound",
             total_variation(target, weights),
             regularization / (1.0 + regularization),
         ))
@@ -236,17 +236,17 @@ def main() -> None:
         generator = matching_generator(target, adjacency, prefactor)
         detailed_balance = np.diag(target) @ generator
         checks.append(record_max(
-            f"r152_setting_{setting_index}_row_sum_error",
+            f"r161_m48_setting_{setting_index}_row_sum_error",
             np.max(np.abs(np.sum(generator, axis=1))),
             3.0e-14,
         ))
         checks.append(record_max(
-            f"r152_setting_{setting_index}_stationarity_error",
+            f"r161_m48_setting_{setting_index}_stationarity_error",
             np.linalg.norm(target @ generator),
             3.0e-14,
         ))
         checks.append(record_max(
-            f"r152_setting_{setting_index}_detailed_balance_error",
+            f"r161_m48_setting_{setting_index}_detailed_balance_error",
             np.linalg.norm(detailed_balance - detailed_balance.T),
             3.0e-14,
         ))
@@ -259,17 +259,17 @@ def main() -> None:
         )
         minimum_gap = min(minimum_gap, gap)
         checks.append(record_max(
-            f"r152_setting_{setting_index}_symmetrized_generator_error",
+            f"r161_m48_setting_{setting_index}_symmetrized_generator_error",
             symmetry_error,
             3.0e-14,
         ))
         checks.append(record_min(
-            f"r152_setting_{setting_index}_spectral_gap",
+            f"r161_m48_setting_{setting_index}_spectral_gap",
             gap,
             1.0e-6,
         ))
         checks.append(record_max(
-            f"r152_setting_{setting_index}_semigroup_row_sum_error",
+            f"r161_m48_setting_{setting_index}_semigroup_row_sum_error",
             np.max(np.abs(np.sum(semigroup, axis=1) - 1.0)),
             2.0e-13,
         ))

@@ -25,131 +25,54 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y pandoc poppler-utils texlive-latex-extra texlive-xetex
-          python -m pip install -r simulations/m45_open_quasicritical/requirements.txt
+          python -m pip install numpy
 
       - name: 数式と数値を検算
         run: |
-          python -m py_compile tools/*.py simulations/m45_open_quasicritical/m45/*.py simulations/m45_open_quasicritical/*.py
-          python tools/verify_envelope_reduction.py
-          python tools/verify_phase_correlation.py
-          python tools/verify_action_distribution.py
-          python tools/verify_m47_q1_instrument.py
-          python tools/verify_m47_hopf_preparation.py
-          python tools/verify_m47_collision_thermodynamics.py
-          python tools/verify_m47_action_shell_origin.py
-          python tools/verify_q2_action_shell_integration.py
-          python tools/verify_q2_1_gate.py
-          python tools/verify_m49_joint_bath_provider.py
-          python tools/verify_m48_paired_hopf.py
-          python tools/verify_m48_full_cycle.py
-          python tools/verify_m39_m48_ablation.py
-          python tools/verify_m37_m50_position_instrument.py
-          python tools/verify_q3_completion.py
-          python simulations/m45_open_quasicritical/verify.py --quick
+          python -m py_compile tools/*.py
+          for script in tools/verify_*.py; do
+            python "$script"
+          done
 
-      - name: draft-52のM42退役・M37--M50 Q3受渡しを検査
+      - name: draft-53の理論統合を検査
         run: |
-          test -f sections/03_m47_controlled_w_instrument.md
-          test -f sections/A2_m47_controlled_w_instrument_proofs.md
-          test -f sections/A9_w_two_mode_hopf_statistics.md
-          test -f sections/A10_m48_paired_hopf_bell_preparation.md
-          test -f sections/A11_q2_joint_bath_contract.md
-          test -f sections/A12_common_collision_bath_thermodynamics.md
-          test -f sections/A13_common_action_shell_state_count.md
-          test -f sections/A14_q2_action_shell_statistics.md
-          test -f sections/04_l4_two_qubit_gate.md
-          test -f sections/A3_l4_two_qubit_gate_proofs.md
-          test -f tools/verify_m47_q1_instrument.py
-          test -f tools/verify_m47_hopf_preparation.py
-          test -f tools/verify_m47_collision_thermodynamics.py
-          test -f tools/verify_m47_action_shell_origin.py
-          test -f tools/verify_q2_action_shell_integration.py
-          test -f tools/verify_m48_paired_hopf.py
-          test -f tools/verify_m48_full_cycle.py
-          test -f tools/verify_m39_m48_ablation.py
-          test -f tools/verify_m49_joint_bath_provider.py
-          test -f sections/05_m48_bell_cycle_and_audit.md
-          test -f sections/A4_m48_cycle_proofs.md
-          test -f sections/A6_m37_m50_position_instrument_proofs.md
-          test -f tools/verify_m37_m50_position_instrument.py
-          test -f notes/superseded_m41_bell_cycle.md
-          test -f notes/superseded_m41_cycle_proofs.md
-          test -f notes/superseded_m39_m48_handoff_claim.md
-          test -f notes/superseded_m39_m42_q2_1.md
-          test -f notes/superseded_m42_continuous_particle_position.md
-          test ! -e sections/05_m41_bell_cycle_and_audit.md
-          test ! -e sections/A4_m41_cycle_proofs.md
-          test ! -e tools/verify_q2_2_m41.py
-          test ! -e sections/03_l2_operation_measurement_zeno.md
-          test ! -e sections/A2_l2_cycle_and_zeno_proofs.md
-          test ! -e tools/verify_l2_cycle.py
-          test ! -e tools/verify_l2_zeno.py
-          test ! -e sections/A6_realized_configuration_proofs.md
-          test ! -e tools/verify_realized_configuration.py
-          test ! -e sections/A6_particle_position_proofs.md
-          test ! -e tools/verify_particle_position.py
+          test -f sections/A8_w_two_mode_hopf_statistics.md
+          test -f sections/A9_m48_paired_hopf_bell_preparation.md
+          test -f sections/A10_q2_joint_bath_contract.md
+          test -f sections/A11_common_collision_bath_thermodynamics.md
+          test -f sections/A12_common_action_shell_state_count.md
+          test -f sections/A13_q2_action_shell_statistics.md
+          test ! -e sections/A8_open_quasicritical_preparation.md
+          test ! -e sections/A14_q2_action_shell_statistics.md
+          test ! -d simulations/m45_open_quasicritical
+          test ! -e figures/m45_open_trap_diagnostics.png
+          test ! -e figures/m45_conditional_ground_comparison.png
+          test -f tools/verify_m35_canonical_control.py
+          test -f tools/verify_m50_instrument_and_q3_handoff.py
+          test ! -e tools/verify_action_distribution.py
+          test ! -e tools/verify_m37_m50_position_instrument.py
+          test ! -e tools/verify_m39_m48_ablation.py
+          grep -Fq 'R170：M50固定入力時刻有限枝instrument' sections/02_common_canonical_modules.md
+          grep -Fq 'R143：M47のR170特殊化と結果別状態更新' sections/03_m47_controlled_w_instrument.md
+          grep -Fq 'R154：R170の2翼局所合成と条件付きBell応答' sections/05_m48_bell_cycle_and_audit.md
+          grep -Fq 'R168：一般ray平均からM50枝統計へのQ3受渡し' sections/06_m37_spatial_envelope.md
+          grep -Fq 'M35 | 有限正準制御・比較・記録モジュール' PROJECT_STATUS.md
+          grep -Fq 'Born型枝生成には使わない' PROJECT_STATUS.md
           grep -Fq '| Q1-1 | 達成 |' PROJECT_STATUS.md
           grep -Fq '| Q1-2 | 部分達成 |' PROJECT_STATUS.md
           grep -Fq '| Q1-3 | 部分達成 |' PROJECT_STATUS.md
           grep -Fq '| Q1-4 | 未達（凍結中） |' PROJECT_STATUS.md
-          grep -Fq '| Q2-1 | 達成 | R104--R106、R157--R159、R165 |' PROJECT_STATUS.md
-          grep -Fq '| Q2-2 | 条件付き達成 | R146--R166、付録K--N |' PROJECT_STATUS.md
-          grep -Fq '| Q3-4 | 条件付き達成 | R124、R167--R170 |' PROJECT_STATUS.md
-          grep -Fq '| Q3-5 | 条件付き達成 | R125、R167--R170 |' PROJECT_STATUS.md
-          grep -Fq '| M41 | 初期共通原因型2端Bell測定周期 | 置換済みモデル |' PROJECT_STATUS.md
-          grep -Fq '| M48 | 設定依存paired-Hopf初期共通原因Bell周期模型 | 現行Q2-2 receiverモデル |' PROJECT_STATUS.md
-          grep -Fq '| M49 | 行分解共同bath--粒子位置CNOT供給模型 | 現行Q2-1モデル・Q2-2供給模型 |' PROJECT_STATUS.md
-          grep -Fq '| M50 | 有限信号作用・作用殻・粒子位置熱化共通モジュール | 現行Q1・Q2・Q3共通補助モデル |' PROJECT_STATUS.md
-          grep -Fq '| M42 | 有限配置グラフ上の複素振幅場-連続粒子位置模型 | 置換済みモデル |' PROJECT_STATUS.md
-          grep -Fq 'R151--R156とR166' sections/01_scope_and_cycle.md
-          grep -Fq 'R157：M49中央4枝状態数の有限Hamiltonian準備' sections/04_l4_two_qubit_gate.md
-          grep -Fq 'R158：担体・bath・粒子位置へ同期する同一試行CNOT' sections/04_l4_two_qubit_gate.md
-          grep -Fq 'R159：固定有限入力、入力頻度、固定積出力基底の共同入力--出力統計' sections/04_l4_two_qubit_gate.md
-          grep -Fq 'R160：M49固定singlet providerからM48へのsetting-free同一register受渡し' sections/04_l4_two_qubit_gate.md
-          grep -Fq 'R167：M37標本力学から統計共分散への有限時間持上げ' sections/06_m37_spatial_envelope.md
-          grep -Fq 'R168：階数1支持からM50枝状態数へのQ3受渡し' sections/06_m37_spatial_envelope.md
-          grep -Fq 'R169：固定全作用集団の高階数M50読出し' sections/06_m37_spatial_envelope.md
-          grep -Fq 'R170：M37--M50固定入力時刻粒子位置instrument' sections/06_m37_spatial_envelope.md
-          grep -Fq 't_{\rm out}>t_\star' sections/06_m37_spatial_envelope.md
-          grep -Fq '可変作用反例' sections/A6_m37_m50_position_instrument_proofs.md
-          grep -Fq 'R151--R154' sections/A10_m48_paired_hopf_bell_preparation.md
-          grep -Fq 'state-carrying' sections/A11_q2_joint_bath_contract.md
-          grep -Fq 'branch-carrying' sections/A11_q2_joint_bath_contract.md
-          grep -Fq 'provenance-only' sections/A11_q2_joint_bath_contract.md
-          grep -Fq 'R165：M49中央4枝作用殻とM35作用区間標本化の同値性' sections/A14_q2_action_shell_statistics.md
-          grep -Fq 'R166：M48切断後局所作用殻の条件付き積因子化' sections/A14_q2_action_shell_statistics.md
-          grep -Fq 'Omega_{P_{\rm CX}(a,b)}' sections/A14_q2_action_shell_statistics.md
-          grep -Fq 'varepsilon_{\rm prod}' sections/05_m48_bell_cycle_and_audit.md sections/A14_q2_action_shell_statistics.md
-          grep -Fq 'R162またはR164だけでHopf準備・paired-Hopf周期・R170全体をミクロ導出済みと扱う' sections/08_errors_resources_open_targets.md
-          grep -Fq '階数1共分散の支持補題（M50前置補題）' PROJECT_STATUS.md
-          grep -Fq 'R161 任意の有限信号方向に対する粒子位置再平衡化' PROJECT_STATUS.md
-          grep -Fq 'R162 局所詳細釣合い率の有限衝突熱浴実現' PROJECT_STATUS.md
-          grep -Fq 'R163 信号切替と粒子位置の経路ゆらぎ関係' PROJECT_STATUS.md
-          grep -Fq 'R164 有限信号作用のBorn型殻状態数' PROJECT_STATUS.md
-          grep -Fq 'R165 M49中央4枝作用殻とM35作用区間標本化の同値性' PROJECT_STATUS.md
-          grep -Fq 'R166 M48切断後局所作用殻の条件付き積因子化' PROJECT_STATUS.md
-          grep -Fq '条件付き厳密結果＋滑らかな有限幅近似' PROJECT_STATUS.md
-          grep -Fq '作用容量結合、殻内平衡化、枝対称性、信号bath反作用' README.md
-          grep -Fq 'ゆらぎの定理はR164の地形の下流整合性を検査' sections/03_m47_controlled_w_instrument.md
-          grep -Fq 'R164だけで一般Born則' PROJECT_STATUS.md
-          grep -Fq '階数1共分散の支持' sections/A13_common_action_shell_state_count.md
-          grep -Fq '非中心化された規格化第2モーメント' sections/A13_common_action_shell_state_count.md
-          grep -Fq 'v=d_{\rm prog}' sections/A13_common_action_shell_state_count.md
-          grep -Fq 'D_{\rm prog}' sections/04_l4_two_qubit_gate.md
-          grep -Fq 'd_{\rm prog}' sections/04_l4_two_qubit_gate.md
-          grep -Fq 'C_Z' sections/03_m47_controlled_w_instrument.md
-          grep -Fq 'beta^G_{AB}' sections/A11_q2_joint_bath_contract.md
-          ! grep -Fq '実現配置' README.md PROJECT_STATUS.md MANIFEST.md sections/*.md
-          ! grep -Fq 'M39からM48への固定singlet型破壊的受渡し' README.md PROJECT_STATUS.md sections/*.md
-          ! grep -Fq '\varepsilon_{39}' sections/05_m48_bell_cycle_and_audit.md sections/A4_m48_cycle_proofs.md sections/08_errors_resources_open_targets.md
-          ! grep -Fq '\varepsilon_{\rm link}' sections/05_m48_bell_cycle_and_audit.md sections/A4_m48_cycle_proofs.md sections/08_errors_resources_open_targets.md
-          ! grep -Fq 'Q2-1から同じ試行レジスタを渡すproviderが未構成' README.md PROJECT_STATUS.md VALIDATION.md sections/*.md
-          ! grep -Fq '固定目標Q2-2全体は、付録KのQ2-1--Q2-2物理受渡しが未構成' README.md PROJECT_STATUS.md sections/*.md
-          ! grep -Fq 'sections/A12_m47_collision_bath_thermodynamics.md' MANIFEST.md
-          ! grep -Fq 'sections/A13_m47_action_shell_state_count.md' MANIFEST.md
-          ! grep -Fq '\widetilde\Omega_i^delta' README.md PROJECT_STATUS.md CHANGELOG.md VALIDATION.md sections/*.md
-          ! grep -REn '二mode|二モード' README.md PROJECT_STATUS.md CHANGELOG.md sections notes
-          ! grep -REn 'M42|R11[3-8]' sections/*.md
+          grep -Fq '| Q2-1 | 達成 |' PROJECT_STATUS.md
+          grep -Fq '| Q2-2 | 条件付き達成 |' PROJECT_STATUS.md
+          grep -Fq '| Q2-3 | 未着手 |' PROJECT_STATUS.md
+          grep -Fq '| Q3-1 | 達成 |' PROJECT_STATUS.md
+          grep -Fq '| Q3-2 | 未達（凍結中） |' PROJECT_STATUS.md
+          grep -Fq '| Q3-3 | 達成 |' PROJECT_STATUS.md
+          grep -Fq '| Q3-4 | 条件付き達成 |' PROJECT_STATUS.md
+          grep -Fq '| Q3-5 | 条件付き達成 |' PROJECT_STATUS.md
+          ! grep -REn 'R(150|152|165|169)|M(39|41|45|46)|R(107|108|109|110|111|120|121|122|130|131|132|137|138)' README.md PROJECT_STATUS.md sections/*.md tools/*.py
+          ! grep -REn 'A14_|A13_common|A12_common_collision|A11_q2|A10_m48|A9_w_two' MANIFEST.md tools/*.py
+          ! grep -REn '二mode|二モード|実現配置' README.md PROJECT_STATUS.md sections/*.md
 
       - name: 収録PDFを退避
         run: cp paper.pdf /tmp/paper-committed.pdf
@@ -177,3 +100,4 @@ jobs:
           test -f fonts/OFL.txt
           test ! -e compiled_paper.pdf
           test ! -d output
+          git diff --check

@@ -112,7 +112,7 @@ m-m_{s,x}
 
 という採用開放整列を時間 $T_{\rm seed}$ だけ作用させれば、誤差は $e^{-\kappa_{\rm seed}T_{\rm seed}}$ の定数倍で減衰する。十分小さい誤差では $s h_x(m)\geq h_*$ を保てる。設定はこの前向き整列前に生成され、設定前測度へ $m_{s,x}$ を置いていない。
 
-seed準備のbiasと欠損を $\varepsilon_{\rm seed}$、安全域外とrouting接続域の失敗質量を $\varepsilon_{\rm route}$ として無反応へ送る。M49接続ではbranch biasと同一register搬送の誤差を式(K.12)と式(4.24)で別に管理し、R151のrouting誤差と二重計上しない。
+seed準備のbiasと欠損を $\varepsilon_{\rm seed}$、安全域外とrouting接続域の失敗質量を $\varepsilon_{\rm route}$ として無反応へ送る。M49接続ではbranch biasと同一register搬送の誤差を式(J.12)と式(4.24)で別に管理し、R151のrouting誤差と二重計上しない。
 
 <!-- theorem-start:proof -->
 **証明（R151）**
@@ -120,110 +120,44 @@ seed準備のbiasと欠損を $\varepsilon_{\rm seed}$、安全域外とrouting�
 内部またはM49由来の等重みseedと明示seed $m_{s,x}$ が各設定の安全盆を与え、有限時間整列がそこへ指数的に近づける。全写像は設定前共通測度に設定依存分布を置かず、設定生成後の有限前向き操作である。M49接続でもbath・粒子位置registerをensembleから再構成せず、そのまま前向きroutingへ使う。履歴を全結果形成核の入力から外しているため、履歴で条件付けた結果法則は周辺結果法則と一致する。seed誤差と安全域外を無反応へ含めれば定理が従う。証明終。
 <!-- theorem-end:proof -->
 
-## D.3 R152の証明：局所matching生成子
+## D.3 R161/R170のM48局所特殊化
 
-各翼の固定した単一試行bath座標 $z$ に対し、付録MのR164を局所適用する。信号作用 $J_{\rm sig}=\mathcal J_0z^\dagger z$、枝作用 $J_i=\mathcal J_0|(\Phi z)_i|^2$、正則化枝容量 $A_i^\delta=J_i+\delta q_iJ_{\rm sig}$ を排他的2作用殻で数えると
+各翼の固定した単一試行bath座標 $z$ に対し、R164とR161へ
+
+```math
+m=2,
+\qquad
+\Psi=\Phi,
+\qquad
+v=z
+```
+
+を代入する。従って条件付き状態数は
 
 ```math
 \frac{\Omega_i^\delta(z)}
 {\sum_j\Omega_j^\delta(z)}
 =
-\pi_i^\delta(z)
+\pi_i^\delta(z),
 ```
 
-となる。従って以下の定常分布は、Born型確率を初期粒子位置分布へ直接置いた量でなく、条件付き作用殻状態数から得た局所有効地形である。
-
-$w_i(z)\geq0$ かつ $\sum_iw_i(z)=1$ なので
-
-```math
-\pi_i^\delta(z)
-\geq
-\frac{\delta q_i}{1+\delta}
->0,
-\qquad
-\sum_i\pi_i^\delta(z)=1.
-```
-
-従って全ての採用辺率は有限かつ正である。対称性 $a_{ij}=a_{ji}$ から
-
-```math
-\begin{aligned}
-\pi_i^\delta k_{i\to j}^\delta
-&=
-\kappa_Xa_{ij}
-\sqrt{
-\pi_i^\delta\pi_j^\delta
-}\\
-&=
-\pi_j^\delta k_{j\to i}^\delta
-\end{aligned}
-```
-
-となる。有限連結グラフ上の連続時間鎖なので既約であり、$\pi^\delta$ は一意定常分布である。
-
-$-\mathcal L_X^z$ を $L^2(\pi^\delta)$ で見ると自己共役非負である。固有値を
-
-```math
-0
-=
-\lambda_0
-<
-\lambda_1
-\leq
-\cdots
-```
-
-と並べ、$\lambda_X^\delta(z)=\lambda_1$ とする。既約性から $\lambda_1>0$ である。初期分布を $\rho_0$ とすれば、標準的な有限次元スペクトル分解から
-
-```math
-\left\|
-\frac{\rho_T}{\pi^\delta}-1
-\right\|_{L^2(\pi^\delta)}
-\leq
-e^{-\lambda_X^\delta(z)T}
-\left\|
-\frac{\rho_0}{\pi^\delta}-1
-\right\|_{L^2(\pi^\delta)}.
-```
-
-Cauchy--Schwarz不等式により
+R161の一様混合評価は
 
 ```math
 D_{\rm TV}
 \left(
-\rho_T,\pi^\delta
+\operatorname{Law}(X_T\mid z),
+\pi^\delta(z)
 \right)
 \leq
-\frac12
-\left\|
-\frac{\rho_T}{\pi^\delta}-1
-\right\|_{L^2(\pi^\delta)}.
+C_\delta e^{-\lambda_\delta T}
 ```
 
-$\pi_i^\delta\geq\delta q_{\min}/(1+\delta)$ なので、全初期分布に対する右辺前因子を有限定数 $C_X$ で一様に抑えられる。$z$ を規格化し、有限次元単位球面上の安全なcompact集合へ制限すると、生成子行列は $z$ に連続である。固有値の連続性と各点での正値性から、固定有限seed集合上で $\lambda_X^\delta(z)$ の正の一様下界を選べる。
+となる。詳細釣合い、正値性、一意定常分布、有限衝突実現は共通R161/R162の証明を使い、ここで重複証明しない。
 
-共通位相に対し $w_i(e^{i\alpha}z)=w_i(z)$ なので $\pi^\delta$ も不変である。また
+M48固有に必要なのは、paired-Hopfが作る有限設定族の安全ray集合上で $z\mapsto\pi^\delta(z)$ が射影距離に関して一様Lipschitzであることだけである。$\|z\|$ が零から離れ、有限次元のcompact集合に制限されるため、分母 $z^\dagger z$ は正の下界を持ち、微分は有界である。この定数を $L_{48}$ とすれば、bath方向誤差 $d_{\rm ray}$ は粒子位置目標分布へ高々 $L_{48}d_{\rm ray}$ だけ伝播する。
 
-```math
-\begin{aligned}
-D_{\rm TV}
-\left(
-\pi^\delta,w
-\right)
-&=
-\frac{\delta}{2(1+\delta)}
-\sum_i
-\left|q_i-w_i\right|\\
-&\leq
-\frac{\delta}{1+\delta}.
-\end{aligned}
-```
-
-<!-- theorem-start:proof -->
-**証明（R152）**
-
-R164が各翼の条件付き状態数と正規化を与える。上の正値性、詳細釣合い、既約性が一意定常分布を与える。有限可逆生成子のスペクトル分解と正則化による一様正値性から指数全変動収束を得る。共通位相不変性と正則化誤差は表示式から直接従う。証明終。
-<!-- theorem-end:proof -->
+局所分析後は、共通R170を各翼の2枝グラフへ適用する。fresh局所作用殻、局所衝突セル、辺閉鎖、局所記録を使い、無反応を完全結果集合へ残す。この対応はM48固有の独立定理ではない。
 
 ## D.4 強いfiberの基本性質
 
@@ -276,9 +210,9 @@ K_{48}e^{-\gamma_{48}T_{\rm PH}}
 
 となる。seed biasと安全盆routingの有限誤差は、それぞれ $\varepsilon_{\rm seed}$ と $\varepsilon_{\rm route}$ へ入れる。
 
-R152の $\pi^\delta(z)$ は、$\|z\|$ が零から離れたcompact集合で $z$ の射影にLipschitzである。その定数をpaired-Hopf前因子へ吸収すれば、有限時間bath方向誤差から配置目標の誤差も $K_{48}e^{-\gamma_{48}T_{\rm PH}}$ の定数倍で抑えられる。
+R161のM48特殊化の $\pi^\delta(z)$ は、$\|z\|$ が零から離れたcompact集合で $z$ の射影にLipschitzである。その定数をpaired-Hopf前因子へ吸収すれば、有限時間bath方向誤差から配置目標の誤差も $K_{48}e^{-\gamma_{48}T_{\rm PH}}$ の定数倍で抑えられる。
 
-paired-Hopf終了時の $z_A,z_B$ をcontrollerで保持する。条件付き独立なA、B粒子位置bathを時間 $T_X$ だけ作用させると、R152から各翼の条件付き粒子位置分布は対応する $\pi^\delta$ から $C_Xe^{-\lambda_X^\delta T_X}$ 以内になる。最大couplingを各翼へ使うと配置不一致確率は各全変動誤差の和以下である。さらに $\pi^\delta$ と理想 $w$ の全変動距離は各翼で $\delta/(1+\delta)$ 以下なので、理想fiber $\mathcal F_W^0$ への正則化costは2翼で $2\delta/(1+\delta)$ 以下である。
+paired-Hopf終了時の $z_A,z_B$ をcontrollerで保持する。条件付き独立なA、B粒子位置bathを時間 $T_X$ だけ作用させると、R161のM48特殊化から各翼の条件付き粒子位置分布は対応する $\pi^\delta$ から $C_Xe^{-\lambda_X^\delta T_X}$ 以内になる。最大couplingを各翼へ使うと配置不一致確率は各全変動誤差の和以下である。さらに $\pi^\delta$ と理想 $w$ の全変動距離は各翼で $\delta/(1+\delta)$ 以下なので、理想fiber $\mathcal F_W^0$ への正則化costは2翼で $2\delta/(1+\delta)$ 以下である。
 
 理想安全枝の非規格化交差モーメントは
 
@@ -294,19 +228,19 @@ u_{s,x}v_{s,x}^{\mathsf T}\\
 \end{aligned}
 ```
 
-である。最後の等式は付録Jのspin-flip恒等式である。規格化ベクトル化射影はsinglet射影で、$x$ に依存しない。
+である。最後の等式は付録Iのspin-flip恒等式である。規格化ベクトル化射影はsinglet射影で、$x$ に依存しない。
 
 枝分布を最大couplingし、bath対を同じseedとpaired位相でcoupleし、粒子位置を条件付き最大couplingする。枝、bath対、配置正則化、有限混合、切断の期待costを加えると、理想fiber混合 $\nu_x^0$ に対するR153の $d_{\rm fib}\leq\varepsilon_{\rm fib}$ を得る。$\varepsilon_{\rm seed}$ と $\varepsilon_{\rm route}$ に含めた同じ源誤差を別の項へ重複して入れない。
 
 <!-- theorem-start:proof -->
 **証明（R153）**
 
-R151が等重み安全枝、R147がpaired bath対の有限時間近接、R152が各bath座標に条件付けた粒子位置分布の有限時間収束を与える。正則化誤差、積核誤差、切断誤差を上のcouplingで加えると、強い理想2翼fiberへのprojective fiber距離上界を得る。連続bath状態の全変動近接は使わない。交差モーメントは枝和恒等式からsinglet射影になる。証明終。
+R151が等重み安全枝、R147がpaired bath対の有限時間近接、R161のM48特殊化が各bath座標に条件付けた粒子位置分布の有限時間収束を与える。正則化誤差、積核誤差、切断誤差を上のcouplingで加えると、強い理想2翼fiberへのprojective fiber距離上界を得る。連続bath状態の全変動近接は使わない。交差モーメントは枝和恒等式からsinglet射影になる。証明終。
 <!-- theorem-end:proof -->
 
-## D.6 R154の証明：局所分析と記録
+## D.6 R154の証明：R170の2翼合成とBell応答
 
-局所分析に入る作用殻は中央殻の使用済み微視的状態でなく、各翼のfresh registerに準備する。切断後半群と初期条件付き測度の積因子化は付録NのR166で証明し、ここではその有限偏差 $\varepsilon_{\rm prod}$ を局所instrument誤差とは別に加える。
+局所分析に入る作用殻は中央殻の使用済み微視的状態でなく、各翼のfresh registerに準備する。切断後半群と初期条件付き測度の積因子化は付録MのR166で証明し、ここではその有限偏差 $\varepsilon_{\rm prod}$ を局所instrument誤差とは別に加える。
 
 切断後、A、Bの正準変数、粒子位置bath、noise seedを別々にする。共有する $s,\alpha$ は切断面に存在する共通過去であり、切断後の相互作用ではない。生成子の和に交差項がないため、その後の遷移核は完全状態に条件付けて
 
@@ -355,7 +289,7 @@ v_{s,x}
 
 最後の式は $v_{s,x}$ のBlochベクトルが $-s\boldsymbol n_x$ であることから従う。
 
-各分析器終了後にbath方向を固定し、R152の局所粒子位置bathを走らせる。従って記録直前の粒子位置分布は分析器後bath座標のW型対角から有限混合誤差内にある。R142により左右空間効果と理想2モード射影の差は $\eta_W$ 以下である。固定有限設定族のguardから離れたcompact安全域では、分析器、$w(z)$、記録効果の合成応答核は $d_\Omega$ に関して一様Lipschitzである。その定数を $L_{\rm fib}$ とすれば、切断面fiber誤差が結果分布へ与える寄与は $L_{\rm fib}\varepsilon_{\rm fib}$ 以下である。
+各分析器終了後にbath方向を固定し、R161のM48特殊化の局所粒子位置bathを走らせる。従って記録直前の粒子位置分布は分析器後bath座標のW型対角から有限混合誤差内にある。R142により左右空間効果と理想2モード射影の差は $\eta_W$ 以下である。固定有限設定族のguardから離れたcompact安全域では、分析器、$w(z)$、記録効果の合成応答核は $d_\Omega$ に関して一様Lipschitzである。その定数を $L_{\rm fib}$ とすれば、切断面fiber誤差が結果分布へ与える寄与は $L_{\rm fib}\varepsilon_{\rm fib}$ 以下である。
 
 粒子位置jump prefactorを零に切り替えた後、傾斜保持と局所記録剪断を作用させる。理想rate切断では記録窓中にjumpは起きない。有限切断残差、傾斜保持、分離面、記録cell幅をそれぞれ独立誤差へ入れる。
 
@@ -364,7 +298,7 @@ v_{s,x}
 <!-- theorem-start:proof -->
 **証明（R154）**
 
-局所2モード分析器が理想条件付き重みを与え、R152がそのbath座標に対応する粒子位置分布を記録前に局所的に回復する。rate切断と傾斜保持後の局所剪断が粒子位置だけを記録する。生成子とnoiseが切断後にA、Bへ分かれるため応答核は因子化する。有限制御、混合、W型コントラスト、固定、境界、記録の誤差を加えれば定理が従う。証明終。
+局所2モード分析器が理想条件付き重みを与え、各翼のR170がそのbath座標に対応する粒子位置分布を回復して局所記録する。R166により生成子、作用殻、noiseは完全共通原因に条件付けてA、Bへ分かれる。従って2つのR170応答核は条件付きで積になる。spin-flip恒等式がB側の条件付き余弦応答を与える。共通容量、混合、固定、記録誤差は各 $\varepsilon_{170}^{A,B}$ へ1回だけ入れ、M48固有の分析器、W型コントラスト、fiber誤差と合成すれば定理が従う。証明終。
 <!-- theorem-end:proof -->
 
 ## D.7 R155の証明：共同分布と有限誤差
@@ -525,12 +459,10 @@ T_X
 
 $\delta$ を小さくすると最小定常重みが小さくなり、$\lambda_X^\delta$ または最大rateが悪化し得る。W型を深くすると読出し誤差は下がるが、2モード操作時間が伸び得る。この構成は任意精度を同じ固定性能装置で得るとは主張しない。
 
-## D.10 M41との置換境界
+## D.10 M49との接続境界
 
-旧M41は場currentから粒子位置への最小率と、A結果に条件付けた2担体準備を使った。M48は、内部のsetting-pre等重みseed、paired-Hopf bath対、単一試行bath座標に条件付けたR152の局所粒子位置bath、切断後の局所再matchingから結果を作る。両者の因果律を同じ証明へ混ぜない。
-
-M41のR107--R111、R121は置換済み模型内の結果として研究メモに保存する。R151--R156はM41の4モード条件付き2端準備もM39の4-mode状態受渡しも仮定せず、場current型最小率をM48の粒子位置頻度へ使わない。Q2-1からの共同bath受渡しは、M49/R160が付録Kの契約に従って固定singlet供給プログラムについて閉じる。一般Q2-1出力を扱う一般状態receiverは未完了である。
+M48は、内部のsetting-pre等重みseed、paired-Hopf bath対、単一試行bath座標に条件付けたR161のM48特殊化、切断後の局所再平衡化から結果を作る。Q2-1からの共同bath受渡しは、M49/R160が付録Jの契約に従って固定singlet供給プログラムについて閉じる。一般Q2-1出力を扱う一般状態receiverは未完了である。
 
 ## D.11 証明範囲
 
-本付録で厳密なのは、採用した有限次元paired-Hopf方程式、有限Markov生成子、有限設定controller、局所分析器、記録・帰還式の後段である。R152の局所状態数には付録MのR164、rate形には第3章R161、固定bath座標の有限衝突熱浴には付録LのR162を利用できる。一方、作用容量fiber、seed整列drift、paired-Hopf pump、信号bath保持、2翼controller、fresh cell流までを同じ具体的電子回路、流体装置、振動子浴、有限閉鎖Hamiltonianへ統合した結果ではない。Bell統計の条件付き達成範囲は変更しない。
+本付録で厳密なのは、採用した有限次元paired-Hopf方程式、有限Markov生成子、有限設定controller、局所分析器、記録・帰還式の後段である。R161のM48特殊化の局所状態数には付録LのR164、rate形には第3章R161、固定bath座標の有限衝突熱浴には付録KのR162を利用できる。一方、作用容量fiber、seed整列drift、paired-Hopf pump、信号bath保持、2翼controller、fresh cell流までを同じ具体的電子回路、流体装置、振動子浴、有限閉鎖Hamiltonianへ統合した結果ではない。Bell統計の条件付き達成範囲は変更しない。
