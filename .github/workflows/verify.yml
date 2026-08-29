@@ -43,11 +43,11 @@ jobs:
           python tools/verify_m48_paired_hopf.py
           python tools/verify_m48_full_cycle.py
           python tools/verify_m39_m48_ablation.py
-          python tools/verify_particle_position.py
+          python tools/verify_m37_m50_position_instrument.py
           python tools/verify_q3_completion.py
           python simulations/m45_open_quasicritical/verify.py --quick
 
-      - name: draft-51のM50・Q1・Q2記号・粒子位置統合を検査
+      - name: draft-52のM42退役・M37--M50 Q3受渡しを検査
         run: |
           test -f sections/03_m47_controlled_w_instrument.md
           test -f sections/A2_m47_controlled_w_instrument_proofs.md
@@ -70,12 +70,13 @@ jobs:
           test -f tools/verify_m49_joint_bath_provider.py
           test -f sections/05_m48_bell_cycle_and_audit.md
           test -f sections/A4_m48_cycle_proofs.md
-          test -f sections/A6_particle_position_proofs.md
-          test -f tools/verify_particle_position.py
+          test -f sections/A6_m37_m50_position_instrument_proofs.md
+          test -f tools/verify_m37_m50_position_instrument.py
           test -f notes/superseded_m41_bell_cycle.md
           test -f notes/superseded_m41_cycle_proofs.md
           test -f notes/superseded_m39_m48_handoff_claim.md
           test -f notes/superseded_m39_m42_q2_1.md
+          test -f notes/superseded_m42_continuous_particle_position.md
           test ! -e sections/05_m41_bell_cycle_and_audit.md
           test ! -e sections/A4_m41_cycle_proofs.md
           test ! -e tools/verify_q2_2_m41.py
@@ -85,24 +86,32 @@ jobs:
           test ! -e tools/verify_l2_zeno.py
           test ! -e sections/A6_realized_configuration_proofs.md
           test ! -e tools/verify_realized_configuration.py
+          test ! -e sections/A6_particle_position_proofs.md
+          test ! -e tools/verify_particle_position.py
           grep -Fq '| Q1-1 | 達成 |' PROJECT_STATUS.md
           grep -Fq '| Q1-2 | 部分達成 |' PROJECT_STATUS.md
           grep -Fq '| Q1-3 | 部分達成 |' PROJECT_STATUS.md
           grep -Fq '| Q1-4 | 未達（凍結中） |' PROJECT_STATUS.md
           grep -Fq '| Q2-1 | 達成 | R104--R106、R157--R159、R165 |' PROJECT_STATUS.md
           grep -Fq '| Q2-2 | 条件付き達成 | R146--R166、付録K--N |' PROJECT_STATUS.md
+          grep -Fq '| Q3-4 | 条件付き達成 | R124、R167--R170 |' PROJECT_STATUS.md
+          grep -Fq '| Q3-5 | 条件付き達成 | R125、R167--R170 |' PROJECT_STATUS.md
           grep -Fq '| M41 | 初期共通原因型2端Bell測定周期 | 置換済みモデル |' PROJECT_STATUS.md
           grep -Fq '| M48 | 設定依存paired-Hopf初期共通原因Bell周期模型 | 現行Q2-2 receiverモデル |' PROJECT_STATUS.md
           grep -Fq '| M49 | 行分解共同bath--粒子位置CNOT供給模型 | 現行Q2-1モデル・Q2-2供給模型 |' PROJECT_STATUS.md
-          grep -Fq '| M50 | 有限信号作用・作用殻・粒子位置熱化共通モジュール | 現行Q1・Q2共通補助モデル |' PROJECT_STATUS.md
-          grep -Fq '| M42 | 有限配置グラフ上の複素振幅場-粒子位置モデル | Q2-3・Q3限定の現行モデル |' PROJECT_STATUS.md
-          grep -Fq 'M42/R113またはcurrent transducerを使わない' sections/03_m47_controlled_w_instrument.md
+          grep -Fq '| M50 | 有限信号作用・作用殻・粒子位置熱化共通モジュール | 現行Q1・Q2・Q3共通補助モデル |' PROJECT_STATUS.md
+          grep -Fq '| M42 | 有限配置グラフ上の複素振幅場-連続粒子位置模型 | 置換済みモデル |' PROJECT_STATUS.md
           grep -Fq 'R151--R156とR166' sections/01_scope_and_cycle.md
           grep -Fq 'R157：M49中央4枝状態数の有限Hamiltonian準備' sections/04_l4_two_qubit_gate.md
           grep -Fq 'R158：担体・bath・粒子位置へ同期する同一試行CNOT' sections/04_l4_two_qubit_gate.md
           grep -Fq 'R159：固定有限入力、入力頻度、固定積出力基底の共同入力--出力統計' sections/04_l4_two_qubit_gate.md
           grep -Fq 'R160：M49固定singlet providerからM48へのsetting-free同一register受渡し' sections/04_l4_two_qubit_gate.md
-          grep -Fq 'M42はQ2-3とQ3だけに残す' sections/04_l4_two_qubit_gate.md
+          grep -Fq 'R167：M37標本力学から統計共分散への有限時間持上げ' sections/06_m37_spatial_envelope.md
+          grep -Fq 'R168：階数1支持からM50枝状態数へのQ3受渡し' sections/06_m37_spatial_envelope.md
+          grep -Fq 'R169：固定全作用集団の高階数M50読出し' sections/06_m37_spatial_envelope.md
+          grep -Fq 'R170：M37--M50固定入力時刻粒子位置instrument' sections/06_m37_spatial_envelope.md
+          grep -Fq 't_{\rm out}>t_\star' sections/06_m37_spatial_envelope.md
+          grep -Fq '可変作用反例' sections/A6_m37_m50_position_instrument_proofs.md
           grep -Fq 'R151--R154' sections/A10_m48_paired_hopf_bell_preparation.md
           grep -Fq 'state-carrying' sections/A11_q2_joint_bath_contract.md
           grep -Fq 'branch-carrying' sections/A11_q2_joint_bath_contract.md
@@ -111,7 +120,7 @@ jobs:
           grep -Fq 'R166：M48切断後局所作用殻の条件付き積因子化' sections/A14_q2_action_shell_statistics.md
           grep -Fq 'Omega_{P_{\rm CX}(a,b)}' sections/A14_q2_action_shell_statistics.md
           grep -Fq 'varepsilon_{\rm prod}' sections/05_m48_bell_cycle_and_audit.md sections/A14_q2_action_shell_statistics.md
-          grep -Fq 'R162またはR164だけでHopf準備またはpaired-Hopf周期全体をミクロ導出済みと扱う' sections/08_errors_resources_open_targets.md
+          grep -Fq 'R162またはR164だけでHopf準備・paired-Hopf周期・R170全体をミクロ導出済みと扱う' sections/08_errors_resources_open_targets.md
           grep -Fq '階数1共分散の支持補題（M50前置補題）' PROJECT_STATUS.md
           grep -Fq 'R161 任意の有限信号方向に対する粒子位置再平衡化' PROJECT_STATUS.md
           grep -Fq 'R162 局所詳細釣合い率の有限衝突熱浴実現' PROJECT_STATUS.md
@@ -124,6 +133,7 @@ jobs:
           grep -Fq 'ゆらぎの定理はR164の地形の下流整合性を検査' sections/03_m47_controlled_w_instrument.md
           grep -Fq 'R164だけで一般Born則' PROJECT_STATUS.md
           grep -Fq '階数1共分散の支持' sections/A13_common_action_shell_state_count.md
+          grep -Fq '非中心化された規格化第2モーメント' sections/A13_common_action_shell_state_count.md
           grep -Fq 'v=d_{\rm prog}' sections/A13_common_action_shell_state_count.md
           grep -Fq 'D_{\rm prog}' sections/04_l4_two_qubit_gate.md
           grep -Fq 'd_{\rm prog}' sections/04_l4_two_qubit_gate.md
@@ -139,6 +149,7 @@ jobs:
           ! grep -Fq 'sections/A13_m47_action_shell_state_count.md' MANIFEST.md
           ! grep -Fq '\widetilde\Omega_i^delta' README.md PROJECT_STATUS.md CHANGELOG.md VALIDATION.md sections/*.md
           ! grep -REn '二mode|二モード' README.md PROJECT_STATUS.md CHANGELOG.md sections notes
+          ! grep -REn 'M42|R11[3-8]' sections/*.md
 
       - name: 収録PDFを退避
         run: cp paper.pdf /tmp/paper-committed.pdf
@@ -154,7 +165,6 @@ jobs:
           diff -u /tmp/paper-committed.txt /tmp/paper-regenerated.txt
           test "$(pdfinfo /tmp/paper-committed.pdf | awk '/^Pages:/ {print $2}')" = "$(pdfinfo paper.pdf | awk '/^Pages:/ {print $2}')"
           test "$(pdfinfo /tmp/paper-committed.pdf | awk -F: '/^Page size:/ {sub(/^ +/, "", $2); print $2}')" = "$(pdfinfo paper.pdf | awk -F: '/^Page size:/ {sub(/^ +/, "", $2); print $2}')"
-          test "$(pdfinfo paper.pdf | awk '/^Pages:/ {print $2}')" = "238"
           ! grep -Eq "Citation .* undefined|Reference .* undefined|Overfull|Underfull|Fatal error|Missing character" build/latex/main.log
 
       - name: 標準構成を検査

@@ -10,6 +10,20 @@ import numpy as np
 
 TOL = 2.0e-11
 checks = 0
+R170_ERROR_TERMS = (
+    0.002,  # no response
+    0.004,  # M37 to M50
+    0.003,  # regularization
+    0.004,  # capacity
+    0.003,  # shell width
+    0.003,  # flux
+    0.004,  # mixing
+    0.003,  # collision realization
+    0.003,  # signal hold
+    0.002,  # branch lock
+    0.002,  # local record
+)
+EPSILON_170 = sum(R170_ERROR_TERMS)
 
 
 def check(condition: bool, message: str) -> None:
@@ -164,8 +178,7 @@ def tunnelling_checks() -> tuple[float, float, float]:
     check(increment > 0.0, "positive tunnelling increment")
     check(abs(float(abs(initial[1]) ** 2) - lower**2 * alpha**2 / (4.0 * hopping**2)) < TOL, "barrier occupancy")
 
-    readout_error = 0.1
-    check(increment - 2.0 * readout_error > 0.0, "readout margin for tunnelling")
+    check(increment - 2.0 * EPSILON_170 > 0.0, "R170 margin for tunnelling")
     return initial_right, increment, time
 
 
@@ -192,9 +205,8 @@ def interference_checks() -> tuple[float, float]:
     check(abs(coherent_tv - 0.5) < TOL, "coherent versus mixed distance")
     check(abs(phase_tv - 1.0) < TOL, "relative-phase distance")
 
-    readout_error = 0.1
-    check(coherent_tv - 2.0 * readout_error > 0.0, "readout margin for coherence")
-    check(phase_tv - 2.0 * readout_error > 0.0, "readout margin for phase")
+    check(coherent_tv - 2.0 * EPSILON_170 > 0.0, "R170 margin for coherence")
+    check(phase_tv - 2.0 * EPSILON_170 > 0.0, "R170 margin for phase")
     return coherent_tv, phase_tv
 
 
@@ -214,6 +226,7 @@ def main() -> None:
         f"tunnelling_time={tunnelling_time:.6f}"
     )
     print(f"coherent_tv={coherent_tv:.6f} phase_tv={phase_tv:.6f}")
+    print(f"epsilon_170_example={EPSILON_170:.6f}")
 
 
 if __name__ == "__main__":

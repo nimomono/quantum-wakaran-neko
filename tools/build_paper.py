@@ -263,8 +263,8 @@ def validate_fixed_goal_language() -> None:
         "Q3-1": "達成",
         "Q3-2": "未達（凍結中）",
         "Q3-3": "達成",
-        "Q3-4": "達成",
-        "Q3-5": "達成",
+        "Q3-4": "条件付き達成",
+        "Q3-5": "条件付き達成",
     }
     for goal_id, status in expected_status.items():
         pattern = rf"^\| {re.escape(goal_id)} \| {re.escape(status)} \|"
@@ -278,7 +278,7 @@ def validate_fixed_goal_language() -> None:
         SECTIONS / "A3_l4_two_qubit_gate_proofs.md",
         SECTIONS / "05_m48_bell_cycle_and_audit.md",
         SECTIONS / "A4_m48_cycle_proofs.md",
-        SECTIONS / "A6_particle_position_proofs.md",
+        SECTIONS / "A6_m37_m50_position_instrument_proofs.md",
         SECTIONS / "A10_m48_paired_hopf_bell_preparation.md",
         SECTIONS / "A11_q2_joint_bath_contract.md",
         SECTIONS / "A12_common_collision_bath_thermodynamics.md",
@@ -291,6 +291,7 @@ def validate_fixed_goal_language() -> None:
         SECTIONS / "05_m41_bell_cycle_and_audit.md",
         SECTIONS / "A4_m41_cycle_proofs.md",
         SECTIONS / "A6_realized_configuration_proofs.md",
+        SECTIONS / "A6_particle_position_proofs.md",
     )
     for path in required_paths:
         if not path.is_file():
@@ -326,6 +327,28 @@ def validate_fixed_goal_language() -> None:
     ]
     if deprecated:
         raise ValueError("現行文書に旧称『実現配置』が残っている: " + "、".join(deprecated))
+
+    current_sections = sorted(SECTIONS.glob("*.md"))
+    retired_m42 = [
+        path.relative_to(ROOT).as_posix()
+        for path in current_sections
+        if re.search(r"M42|R11[3-8]", path.read_text(encoding="utf-8"))
+    ]
+    if retired_m42:
+        raise ValueError("現行章に退役済みM42/R113--R118が残っている: " + "、".join(retired_m42))
+
+    q3_text = (SECTIONS / "06_m37_spatial_envelope.md").read_text(encoding="utf-8")
+    for token in (
+        "R167：M37標本力学から統計共分散への有限時間持上げ",
+        "R168：階数1支持からM50枝状態数へのQ3受渡し",
+        "R169：固定全作用集団の高階数M50読出し",
+        "R170：M37--M50固定入力時刻粒子位置instrument",
+        r"t_\star",
+        r"t_{\rm out}>t_\star",
+        r"\varepsilon_{170}",
+    ):
+        if token not in q3_text:
+            raise ValueError(f"Q3受渡し本文の固定要素がない: {token}")
 
     m49_text = (SECTIONS / "04_l4_two_qubit_gate.md").read_text(encoding="utf-8")
     for token in (
@@ -539,7 +562,7 @@ def tex_environment() -> dict[str, str]:
     env.update({
         # Keep PDF metadata stable for the current cited draft.  Update this
         # epoch together with CITATION.cff when a new draft is released.
-        "SOURCE_DATE_EPOCH": "1787702400",
+        "SOURCE_DATE_EPOCH": "1787961600",
         "FORCE_SOURCE_DATE": "1",
         "TZ": "UTC",
         "TEXINPUTS": "/usr/share/texlive/texmf-dist/tex//:",

@@ -23,7 +23,7 @@
 - `sections/A3_l4_two_qubit_gate_proofs.md`
 - `sections/A4_m48_cycle_proofs.md`
 - `sections/A5_m37_envelope_proofs.md`
-- `sections/A6_particle_position_proofs.md`
+- `sections/A6_m37_m50_position_instrument_proofs.md`
 - `sections/A7_q3_completion_proofs.md`
 - `sections/A8_open_quasicritical_preparation.md`
 - `sections/A9_w_two_mode_hopf_statistics.md`
@@ -51,6 +51,7 @@
 - `notes/superseded_m41_cycle_proofs.md`
 - `notes/superseded_m39_m48_handoff_claim.md`
 - `notes/superseded_m39_m42_q2_1.md`
+- `notes/superseded_m42_continuous_particle_position.md`
 - `notes/frozen_q1_zeno.md`
 - `notes/superseded_position_coupling_fisher_closure.md`
 - `notes/superseded_three_mode_bell_shell.md`
@@ -83,7 +84,7 @@
 - `tools/verify_phase_correlation.py`
 - `tools/verify_q2_1_gate.py`
 - `tools/verify_m49_joint_bath_provider.py`
-- `tools/verify_particle_position.py`
+- `tools/verify_m37_m50_position_instrument.py`
 - `tools/verify_q3_completion.py`
 - `figures/README.md`
 - `figures/m45_open_trap_diagnostics.png`
