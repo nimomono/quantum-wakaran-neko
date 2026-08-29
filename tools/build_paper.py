@@ -279,11 +279,12 @@ def validate_fixed_goal_language() -> None:
         SECTIONS / "05_m48_bell_cycle_and_audit.md",
         SECTIONS / "A4_m48_cycle_proofs.md",
         SECTIONS / "A6_m37_m50_position_instrument_proofs.md",
-        SECTIONS / "A10_m48_paired_hopf_bell_preparation.md",
-        SECTIONS / "A11_q2_joint_bath_contract.md",
-        SECTIONS / "A12_common_collision_bath_thermodynamics.md",
-        SECTIONS / "A13_common_action_shell_state_count.md",
-        SECTIONS / "A14_q2_action_shell_statistics.md",
+        SECTIONS / "A8_w_two_mode_hopf_statistics.md",
+        SECTIONS / "A9_m48_paired_hopf_bell_preparation.md",
+        SECTIONS / "A10_q2_joint_bath_contract.md",
+        SECTIONS / "A11_common_collision_bath_thermodynamics.md",
+        SECTIONS / "A12_common_action_shell_state_count.md",
+        SECTIONS / "A13_q2_action_shell_statistics.md",
     )
     obsolete_paths = (
         SECTIONS / "03_l2_operation_measurement_zeno.md",
@@ -340,9 +341,8 @@ def validate_fixed_goal_language() -> None:
     q3_text = (SECTIONS / "06_m37_spatial_envelope.md").read_text(encoding="utf-8")
     for token in (
         "R167：M37標本力学から統計共分散への有限時間持上げ",
-        "R168：階数1支持からM50枝状態数へのQ3受渡し",
-        "R169：固定全作用集団の高階数M50読出し",
-        "R170：M37--M50固定入力時刻粒子位置instrument",
+        "R168：一般ray平均からM50枝統計へのQ3受渡し",
+        "共通R170のQ3特殊化",
         r"t_\star",
         r"t_{\rm out}>t_\star",
         r"\varepsilon_{170}",

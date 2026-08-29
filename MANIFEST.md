@@ -25,13 +25,12 @@
 - `sections/A5_m37_envelope_proofs.md`
 - `sections/A6_m37_m50_position_instrument_proofs.md`
 - `sections/A7_q3_completion_proofs.md`
-- `sections/A8_open_quasicritical_preparation.md`
-- `sections/A9_w_two_mode_hopf_statistics.md`
-- `sections/A10_m48_paired_hopf_bell_preparation.md`
-- `sections/A11_q2_joint_bath_contract.md`
-- `sections/A12_common_collision_bath_thermodynamics.md`
-- `sections/A13_common_action_shell_state_count.md`
-- `sections/A14_q2_action_shell_statistics.md`
+- `sections/A8_w_two_mode_hopf_statistics.md`
+- `sections/A9_m48_paired_hopf_bell_preparation.md`
+- `sections/A10_q2_joint_bath_contract.md`
+- `sections/A11_common_collision_bath_thermodynamics.md`
+- `sections/A12_common_action_shell_state_count.md`
+- `sections/A13_q2_action_shell_statistics.md`
 - `sections/90_references.md`
 
 ## 論文外の研究メモ
@@ -46,6 +45,9 @@
 - `notes/rejected_bell_causal_alternatives.md`
 - `notes/rejected_m44_capture_entropy_preparation.md`
 - `notes/rejected_m46_current_transducer.md`
+- `notes/independent_m45_open_quasicritical_preparation.md`
+- `notes/superseded_m35_born_sampler.md`
+- `notes/superseded_result_index.md`
 - `notes/superseded_m38_m42_q1.md`
 - `notes/superseded_m41_bell_cycle.md`
 - `notes/superseded_m41_cycle_proofs.md`
@@ -71,7 +73,7 @@
 - `references.bib`
 - `tools/build_paper.py`
 - `tools/template.tex`
-- `tools/verify_action_distribution.py`
+- `tools/verify_m35_canonical_control.py`
 - `tools/verify_envelope_reduction.py`
 - `tools/verify_m47_q1_instrument.py`
 - `tools/verify_m47_hopf_preparation.py`
@@ -80,36 +82,18 @@
 - `tools/verify_q2_action_shell_integration.py`
 - `tools/verify_m48_paired_hopf.py`
 - `tools/verify_m48_full_cycle.py`
-- `tools/verify_m39_m48_ablation.py`
 - `tools/verify_phase_correlation.py`
 - `tools/verify_q2_1_gate.py`
 - `tools/verify_m49_joint_bath_provider.py`
-- `tools/verify_m37_m50_position_instrument.py`
+- `tools/verify_m50_instrument_and_q3_handoff.py`
 - `tools/verify_q3_completion.py`
 - `figures/README.md`
-- `figures/m45_open_trap_diagnostics.png`
-- `figures/m45_conditional_ground_comparison.png`
 - `.github/workflows/verify.yml`
 - `.gitignore`
 
 ## 現行モデルの数値シミュレーション
 
 - `simulations/README.md`
-- `simulations/m45_open_quasicritical/README.md`
-- `simulations/m45_open_quasicritical/requirements.txt`
-- `simulations/m45_open_quasicritical/configs/quick.json`
-- `simulations/m45_open_quasicritical/configs/reference.json`
-- `simulations/m45_open_quasicritical/m45/__init__.py`
-- `simulations/m45_open_quasicritical/m45/model.py`
-- `simulations/m45_open_quasicritical/m45/integrator.py`
-- `simulations/m45_open_quasicritical/m45/observables.py`
-- `simulations/m45_open_quasicritical/m45/entropy.py`
-- `simulations/m45_open_quasicritical/m45/operator_audit.py`
-- `simulations/m45_open_quasicritical/run.py`
-- `simulations/m45_open_quasicritical/verify.py`
-- `simulations/m45_open_quasicritical/reference/metrics.json`
-- `simulations/m45_open_quasicritical/reference/convergence.json`
-- `simulations/m45_open_quasicritical/reference/curves.csv`
 
 ## 組版用フォント
 
@@ -120,4 +104,4 @@
 - `fonts/NotoSerifJP-Bold.ttf`
 - `fonts/NotoSerifJP-Regular.ttf`
 
-旧版セクション、旧数値コード、旧PDF、査読回答履歴は原則として収録しない。M41の第5章と付録Dだけは、R107--R111、R121の置換済み理論記録として `notes/` に残す。その他の置換済みモデルの完全な実装はGit履歴から参照する。
+旧版セクション、旧数値コード、旧PDF、査読回答履歴は収録しない。置換・退役した理論の最小索引と再検討条件は `notes/` に残し、完全な原稿と実装はGit履歴から参照する。

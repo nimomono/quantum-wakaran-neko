@@ -144,18 +144,18 @@ $H_C=P_\tau+g(\tau)G_C$ では $\dot\tau=1$ で、信号生成子は全時刻で
 
 ## C.3　R157の理想行分解
 
-R157の共同枝確率は、付録NのR165によりM50中央4枝作用殻の状態数 $\Omega_{ab}\propto|(D_{\rm prog})_{ab}|^2$ と同じ単一母測度から得られる。以下の行分解は別の確率源ではなく、その共同母測度をA周辺とB条件付き分布へ分解した表示である。
+R157の共同枝確率は、R164を $m=L=4$、$\Psi=I_4$、$\delta=0$ としたM50中央4枝作用殻の状態数 $\Omega_{ab}\propto|(D_{\rm prog})_{ab}|^2$ から直接得られる。以下の行分解は別の確率源ではなく、その共同母測度をA周辺とB条件付き分布へ分解した表示である。
 
-非零行の集合を $I_D={a:\rho_a>0}$ とする。M35の理想作用区間は4モード担体の作用比をそのまま使うため、
+非零行の集合を $I_D={a:\rho_a>0}$ とする。M50の排他的物理枝を $\gamma_{ab}$ と書けば、
 
 ```math
- P(T_X=e_{ab})=|(D_{\rm prog})_{ab}|^2,
+ P(\gamma_{ab})=|(D_{\rm prog})_{ab}|^2,
  \qquad
  P(X_A=a)=\rho_a.
  \tag{C.14}
 ```
 
-safe sector $T_X=e_{ab}$ から式(4.10)のone-hot粒子位置へcontrolled SWAPすると、
+safe branch $\gamma_{ab}$ から式(4.9)のone-hot粒子位置へcontrolled SWAPすると、
 
 ```math
  P(X_A=a,X_B=b)=|(D_{\rm prog})_{ab}|^2.
@@ -192,7 +192,7 @@ safe sector $T_X=e_{ab}$ から式(4.10)のone-hot粒子位置へcontrolled SWAP
 
 ## C.4　R157の有限Hamiltonian準備
 
-M35のsafe作用区間には互いに素な有限幅sectorがある。各sectorをcontrolとして、freshなone-hot粒子位置registerへ有限列の2モード交換を作用させる。activeな粒子位置を残した後、M35内部の比較pointerと一時作用registerを逆計算する。外部の粒子位置へ写した情報と使用済みcellを含む全写像は1対1である。
+M50の排他的safe枝 $\gamma_{ab}$ をcontrolとして、freshなone-hot粒子位置registerへ有限列の2モード交換を作用させる。枝registerを使用済み履歴へ残すため、粒子位置への直接decodeを含む拡大写像は1対1である。独立な選択器角、作用区間pointer、比較器の逆計算は不要である。
 
 固定program $s$ とactive行 $a$ ごとに、式(4.11)の4複素成分を持つtemplate cellを事前校正する。$X_A=a$ のsafe plateauをcontrolとするcanonical SWAPにより、templateをactive $z_A,z_B$ portへ移す。全窓を
 
@@ -374,7 +374,7 @@ R157 branch $a$ で $z_B^+=\sigma_x^az_B$ とすると
 式(C.29)、式(C.30)が理想共変性、式(C.31)、式(C.32)が同一時計の有限Hamiltonian実装、式(C.33)が有限bath誤差を与える。証明終。
 <!-- theorem-end:proof -->
 
-## C.8　R159の三選択器周期
+## C.8　R159のfresh M50出力殻周期
 
 入力源を
 
@@ -384,7 +384,7 @@ R157 branch $a$ で $z_B^+=\sigma_x^az_B$ とすると
  \tag{C.34}
 ```
 
-とする。外側M35の作用区間はprogram label $S=s$ を頻度 $\lambda_s$ で選ぶ。safe labelをfresh program registerへdecodeし、そのlabelで $D_{{\rm in},s}$ とR157 template bankをactive portへroutingする。入力粒子位置のM35には独立角 $u_X$ を使う。
+とする。外側scheduleはprogram label $S=s$ を頻度 $\lambda_s$ で提示する。これはbenchmarkの入力条件であり、出力確率源ではない。safe labelをfresh program registerへdecodeし、そのlabelで $D_{{\rm in},s}$ とR157 template bankをactive portへroutingする。入力粒子位置はM50物理枝から直接decodeする。
 
 provider運転はR158後の $\Sigma_{\rm gate}$ で終わる。benchmark運転では同じ担体に $W_A^s\otimes W_B^s$ を作用させ、
 
@@ -393,18 +393,16 @@ provider運転はR158後の $\Sigma_{\rm gate}$ で終わる。benchmark運転�
  \tag{C.35}
 ```
 
-を得る。出力M35は第三角 $u_Y$ と実在する $D_{{\rm out},s}$ の作用区間を使うため、
+を得る。実在する $D_{{\rm out},s}$ からfreshなM50出力殻を準備し、その物理枝を直接decodeするため、
 
 ```math
  P(Y_A=a,Y_B=b\mid S=s)=|(D_{{\rm out},s})_{ab}|^2.
  \tag{C.36}
 ```
 
-出力safe sectorをfresh結果registerへdecodeし、内部pointerを逆計算する。CNOTを恒等窓へ置き換えると式(C.35)そのものが変わるため、出力器が理想CNOT表を固定的に返す構成ではない。
+出力safe branchをfresh結果registerへdecodeし、枝registerを履歴へ残す。CNOTを恒等窓へ置き換えると式(C.35)そのものが変わるため、出力器が理想CNOT表を固定的に返す構成ではない。
 
-三つの選択器角の積回転に対し、$1,\alpha_S,\alpha_X,\alpha_Y$ が有理数体上一次独立なら、Weylの判定条件から3トーラス上で一意エルゴード的である。従って積Haar測度に関する長期頻度が得られる。一方、Fourier指標の時間相関は減衰しないので混合的ではない。
-
-共有角反例では、$S=0$ を $u<1/2$ とする。$S=0$ で $Y=1$ を $u<1/4$、$S=1$ で $Y=1$ を $u<3/4$ と同じ $u$ から決めると、四つの共同sectorは全て幅 $1/4$ になる。従って
+fresh殻条件が必要である。使用済み入力殻の同一微視的順位を、$S=0$ では条件付き出力重み $1/4$、$S=1$ では $3/4$ の出力殻へ再利用すると、四つの共同枝が全て $1/4$ になる場合がある。従って
 
 ```math
  P_{\rm shared}
@@ -414,14 +412,14 @@ provider運転はR158後の $\Sigma_{\rm gate}$ で終わる。benchmark運転�
  \tag{C.37}
 ```
 
-独立な $u_S,u_Y$ なら条件付き作用区間を積分して式(4.30)を得る。
+fresh出力殻を条件付きで準備すれば、そのM50枝周辺を平均して式(4.30)を得る。必要なのは別registerであり、独立なM35角ではない。
 
-入力label誤差を含む結合を先に作り、各 $s$ でR157、担体unitary、出力作用区間、decodeを順にcoupleする。全変動距離の縮小性と三角不等式から式(4.31)が従う。失敗は $\varnothing$ に送るので事後選別はない。各項は固定有限program族について、比較幅、時計幅、template精度を有限値で選んで任意に小さくできる。
+入力label誤差を含む結合を先に作り、各 $s$ でR157、担体unitary、fresh M50出力殻、直接decodeを順にcoupleする。全変動距離の縮小性と三角不等式から式(4.31)が従う。失敗は $\varnothing$ に送るので事後選別はない。各項は固定有限program族について、殻幅、時計幅、template精度を有限値で選んで任意に小さくできる。
 
 <!-- theorem-start:proof -->
 **証明（R159）**
 
-式(C.34)--(C.36)が理想共同分布、三トーラスの一意エルゴード性が長期頻度、逐次couplingが式(4.31)を与える。式(C.37)により選択器独立性は省略できない。証明終。
+式(C.34)--(C.36)が理想共同分布、逐次couplingが式(4.31)を与える。式(C.37)によりfresh出力殻は省略できない。証明終。
 <!-- theorem-end:proof -->
 
 ## C.9　R160の固定singlet provider
@@ -447,7 +445,7 @@ $r_*=2^{1/4}$ とすると、CNOT後の二枝は
  \tag{C.39}
 ```
 
-付録Kの $\mathsf E$ について各枝で
+付録Jの $\mathsf E$ について各枝で
 
 ```math
  z_B=\mathsf E\overline{z_A},
@@ -480,7 +478,7 @@ state-carrying感度には、link面族内の $D_0=e_0e_0^{\mathsf T}$ と $D_{\
 
 ## C.10　資源と適用限界
 
-一programのR157準備は、M35の16対、2粒子位置registerの4対、active bathの4対、2行template bankの8対からなる単純上界32対を持つ。CNOT担体はM35の4信号対と共有できる。外側program選択器とbenchmark出力選択器はprogram数と運転modeに応じて別に加える。template bankは固定有限族について $O(S)$、全装置も固定2論理部分系では有限である。
+一programのR157準備は、4モードprogram担体4対、active作用殻2対、2粒子位置register4対、active bath4対、2行template bank8対からなる単純上界22対を持つ。時計、外側program schedule、benchmark用fresh出力殻、履歴、記録は運転modeに応じて別に加える。template bankは固定有限族について $O(S)$、全装置も固定2論理部分系では有限である。
 
 本付録は次を証明しない。
 
@@ -491,4 +489,4 @@ state-carrying感度には、link面族内の $D_0=e_0e_0^{\mathsf T}$ と $D_{\
 5. R162の有限衝突粒子位置bathとR151、paired-Hopf流、2翼controllerの閉鎖Hamiltonian統合。
 6. $2^n$ モードを避ける多量子ビット拡張。
 
-M39単独模型と場current型最小率はQ2-1の現行因果鎖に使わない。R104--R106はM49内部担体の再利用可能な有限正準結果として維持する。R122の位置ばね近似は担体部分の補助計算であり、R157--R160のbath・粒子位置・受渡しを導かない。
+R104--R106はM49内部担体の有限正準結果として使う。これらの担体代数だけでは、R157--R160のbath、粒子位置、物理的受渡しは従わない。

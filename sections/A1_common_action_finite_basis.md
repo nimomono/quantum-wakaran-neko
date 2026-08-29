@@ -1,1101 +1,183 @@
 @number: A
 @chapter: 付録
-@title: 共通作用、相関行列、M35有限基底補助
-@status: 共通相関行列、作用区間、一意エルゴード性、M35の任意有限基底回路と完全正準構成をまとめる。
+@title: M35有限正準制御、比較、記録
+@status: M35の有限ユニタリ回路、時計、滑らかな比較、正準SWAP、記録、逆計算を整理する。作用区間によるBorn型長期頻度は退役し、M50/R164へ一本化する。
 
-## A.1 理想有効担体と相関行列
+## A.1 目的と役割境界
 
-この節だけでは、実正準対から
+M35は有限次元複素信号を実正準座標で制御する補助モジュールである。現行論文で使う機能は次の4つに限る。
 
-```math
-d_i
-=
-\frac{Q_i+iP_i}{\sqrt{2\mathcal J_0}}
-```
+1. 局所位相回転と隣接2モード交換から有限ユニタリを合成する。
+2. 有限時計窓で制御を自律化する。
+3. 外部から与えた制御値を滑らかに比較し、遷移帯を無反応へ送る。
+4. 正準SWAP、局所記録、テンプレート交換、内部逆計算を行う。
 
-を作り、設計済み有効 Hamiltonian
+一様選択器角の作用区間長をBorn型頻度と同一視する旧経路は使わない。旧数式、非混合性、再利用反例、退役結果IDは `notes/superseded_m35_born_sampler.md` に置く。M35はM50の作用容量、枝状態数、作用殻fiber内平衡化、粒子位置熱化を代替しない。
 
-```math
-H_{\rm eff}
-=
-d^\dagger h_Ld
-```
+## A.2 有限正準信号
 
-を置く。これは第6章の位置ばね網そのものではなく、測定回路を記述する理想正準制御層である。この層内部では
+$L$ 個の実正準対 $(Q_j,P_j)$ から
 
 ```math
-i\mathcal J_0\dot d
+d_j
 =
-h_Ld,
+\frac{Q_j+iP_j}{\sqrt{2\mathcal J_0}},
 \qquad
-\mathcal J_0d^\dagger d
-=
-\operatorname{const}
+d=(d_1,\ldots,d_L)^{\mathsf T}
 ```
 
-が厳密に成立する。
-
-調製条件 $\mathcal P$ とプログラム $M$ を固定した集団について
+を作る。全作用は
 
 ```math
-C_M(t)
+J_{\rm sig}=\mathcal J_0d^\dagger d
+```
+
+である。Hermitian行列 $h(t)$ に対する2次Hamiltonian
+
+```math
+H_h(t)=d^\dagger h(t)d
+```
+
+は
+
+```math
+i\mathcal J_0\dot d=h(t)d
+```
+
+を与え、全作用とLiouville体積を保存する。集団の非中心化第2モーメント
+
+```math
+C_d
 =
-\mathbb E_{\mu_{\mathcal P,M}}
+\frac{\mathbb E[dd^\dagger]}{\mathbb E[d^\dagger d]}
+```
+
+は $d\mapsto Ud$ の下で $C_d\mapsto UC_dU^\dagger$ と変換する。$C_d$ は集団量であり、M35の単一試行controllerへ入力しない。
+
+## A.3 隣接2モード回路
+
+モード $j,k$ の位相回転と交換を
+
+```math
+R_j(\varphi)
+=
+\exp(-i\varphi|j\rangle\langle j|),
+```
+
+```math
+G_{jk}(\theta,\varphi)
+=
+\exp
 \left[
-d_t d_t^\dagger
-\right]
-```
-
-と定める。$C_M$ は正半定値 Hermitian 行列であり、単一試行に追加する物質または正準変数ではない。
-
-## A.2 相関行列の交換子発展
-
-同じ集団の全試行が共通の $h_L(t)$ に従うなら、
-
-```math
-\begin{aligned}
-i\mathcal J_0
-\frac{d}{dt}
-\left(dd^\dagger\right)
-={}&
-h_Ldd^\dagger
--
-dd^\dagger h_L
-\end{aligned}
-```
-
-なので、
-
-```math
-i\mathcal J_0\dot C_M
-=
-\left[h_L,C_M\right]
-```
-
-を得る。時間発展作用素を $U$ とすれば
-
-```math
-C_M(t)
-=
-U(t,t_0)
-C_M(t_0)
-U(t,t_0)^\dagger
-```
-
-である。従って跡、全固有値、階数、
-
-```math
-\mathcal P_C
-=
-\frac{\operatorname{tr}C^2}
-{\left(\operatorname{tr}C\right)^2}
-```
-
-で定める純度が保存される。閉鎖線形発展だけでは高階数集団を階数1へ純化できない。
-
-局所包絡 $b$ の厳密ミクロ発展には反回転項があるため、この交換子方程式を $b$ の厳密集団方程式として使わない。Q3-1のミクロ集団へ適用する場合は、第6章の包絡誤差を残す必要がある。
-
-## A.3 階数1相関の支持
-
-付録M.2の階数1共分散の支持補題を、規格化していない相関行列 $C=\mathbb E[dd^\dagger]$ へ適用する。$C=\Lambda\chi\chi^\dagger$、$\Lambda>0$、$\chi^\dagger\chi=1$ なら、ある複素確率変数 $a^\omega$ が存在して
-
-```math
-d^\omega
-=
-a^\omega\chi
-\qquad\text{a.s.}
-```
-
-となる。逆も成り立つため、階数1相関と単一試行担体の共通射影方向は同値である。$\chi$ は集団相関の統計因子であり、各試行に別の物質場として追加しない。
-
-交換子発展の下では、共通位相を選んで
-
-```math
-i\mathcal J_0\dot\chi
-=
-h_L\chi
-```
-
-とできる。この結果は理想有効層内部では厳密であるが、Q3-1のミクロ導出を置き換えない。
-
-## A.4 近似階数1と閉包残差
-
-$C$ の最大固有値を $\lambda_1$、主固有ベクトルを $\chi$ とし、
-
-```math
-C
-=
-\lambda_1\chi\chi^\dagger
-+
-E,
-\qquad
-E\geq0
-```
-
-とする。階数欠陥を
-
-```math
-\varepsilon_{\rm rank}
-=
-\frac{\operatorname{tr}E}
-{\operatorname{tr}C}
-```
-
-とする。これは付録M.2の支持誤差と
-
-```math
-\varepsilon_{\rm rank}
-=
-\frac{
-\mathbb E
-\left\|
-\left(I-\chi\chi^\dagger\right)d
-\right\|^2
-}{
-\mathbb E[d^\dagger d]
-}
-=
-\varepsilon_{\rm supp}(\chi)
-```
-
-により一致する。ただし平均二乗評価から全試行の一様方向評価は従わない。ユニタリ $W$ の出力 $k$ が理想因子に対して節を持つなら、
-
-```math
-\frac{
-\left(WCW^\dagger\right)_{kk}
-}{
-\operatorname{tr}C
-}
-\leq
-\varepsilon_{\rm rank}
-```
-
-である。
-
-残差付き有効式
-
-```math
-i\mathcal J_0\dot d
-=
-h_Ld+r
-```
-
-では
-
-```math
-i\mathcal J_0\dot C
-=
-\left[h_L,C\right]
-+
-D_C,
-```
-
-```math
-D_C
-=
-\mathbb E
-\left[
-rd^\dagger-dr^\dagger
-\right]
-```
-
-であり、
-
-```math
-\left\|D_C\right\|
-\leq
-2
+-i\theta
 \left(
-\mathbb E\left\|r\right\|^2
-\right)^{1/2}
-\left(
-\mathbb E\left\|d\right\|^2
-\right)^{1/2}
-```
-
-を満たす。4次以上の Hamiltonian では $D_C$ が高次モーメントを含むため、$C$ だけの閉包は自動的に成立しない。
-
-## A.5 作用区間選択
-
-M49へ適用する場合、以下の一様角は付録Nの中央2作用殻で枝周辺を平坦化した座標と解釈する。作用区間写像はその母測度を枝labelへ押し出す有限Hamiltonian標本器であり、M35だけから殻内Gibbs熱化、混合時間、または独立同分布型標本を導かない。
-
-固定した $b,W$ に対し、$I_k\geq0$、$I_{\rm ph}=\sum_kI_k>0$ とする。$u$ が $[0,I_{\rm ph})$ 上で一様なら、結果事象
-
-```math
-E_k
-=
-\left\{
-S_{k-1}\leq u<S_k
-\right\}
-```
-
-の Lebesgue 長は $S_k-S_{k-1}=I_k$ である。従って
-
-```math
-P(E_k\mid b,W)
-=
-\frac{I_k}{I_{\rm ph}}
-```
-
-となる。境界集合 $\{u=S_k\}$ は有限集合なので零測度である。
-
-選択器角 $\vartheta$ が $(b,W,\mathcal P)$ の下で条件付き Haar 分布なら、$u=I_{\rm ph}\vartheta/(2\pi)$ は条件付き一様である。条件付き期待値を取れば、
-
-```math
-P(k\mid W,\mathcal P)
-=
-\mathbb E
-\left[
-\frac{I_k}{I_{\rm ph}}
-\middle|
-W,\mathcal P
-\right]
-```
-
-を得る。
-
-## A.6 固定作用公式と共分散補正
-
-$I_{\rm ph}=I_0$ が集団で固定されるとする。$I_k=\mathcal J_0|(Wb)_k|^2$ なので、
-
-```math
-\mathbb E[I_k]
-=
-\mathcal J_0
-\left(
-WCW^\dagger
-\right)_{kk},
-```
-
-```math
-\mathbb E[I_{\rm ph}]
-=
-\mathcal J_0
-\operatorname{tr}C
-=
-I_0
-```
-
-である。従って
-
-```math
-P_k
-=
-\frac{
-\left(WCW^\dagger\right)_{kk}
-}{
-\operatorname{tr}C
-}
-```
-
-を得る。
-
-全作用が変動する場合、$r_k=I_k/I_{\rm ph}$ と置けば $I_k=I_{\rm ph}r_k$ だから、
-
-```math
-\mathbb E[I_k]
-=
-\mathbb E[I_{\rm ph}]
-\mathbb E[r_k]
-+
-\operatorname{Cov}
-\left(
-I_{\rm ph},r_k
+e^{i\varphi}|j\rangle\langle k|
++e^{-i\varphi}|k\rangle\langle j|
 \right)
-```
-
-である。$P_k=\mathbb E[r_k]$ を解けば本文の共分散恒等式を得る。
-
-## A.7 無理数円回転の長期頻度と非混合性
-
-正規化角 $r\in\mathbb R/\mathbb Z$ と無理数 $\alpha$ に対し、
-
-```math
-R_\alpha(r)
-=
-r+\alpha
-\pmod1
-```
-
-とする。円周Haar測度は平行移動不変である。非零整数 $n$ に対するFourier指標の軌道平均は
-
-```math
-\frac1N
-\sum_{j=0}^{N-1}
-e^{2\pi in(r+j\alpha)}
-=
-e^{2\pi inr}
-\frac{
-1-e^{2\pi inN\alpha}
-}{
-N\left(1-e^{2\pi in\alpha}\right)
-}
-\longrightarrow
-0
-```
-
-となる。三角多項式近似により回転は一意エルゴード的であり、境界がHaar零の半開区間 $[a,b)$ について、全初期角で訪問頻度が $b-a$ へ収束する。本文で使うBorn型長期頻度はこの区間頻度である。
-
-一方、同じFourier指標の時間相関の絶対値は1のままなので、この回転は混合的でない。従って長期平均は得られるが、結果列の独立同分布性または二項分布型有限標本揺らぎは従わない。
-
-## A.8 有限幅境界の測度上界
-
-固定作用 $I_{\rm ph}$ の区間内に $L-1$ 個の内部境界 $S_1,\ldots,S_{L-1}$ がある。各境界の半幅 $w$ 近傍は長さ高々 $2w$ なので、一様測度と和集合上界から
-
-```math
-\mu_{\chi,W}^{\rm cyc}
-\left(
-\min_{1\leq k<L}
-|u-S_k|<w
-\right)
-\leq
-2(L-1)
-\frac{w}{I_{\rm ph}}
-```
-
-を得る。境界近傍が重なれば左辺はさらに小さい。
-
-角の切断点近傍では、$f(\vartheta)=\vartheta/(2\pi)$ を円周上の滑らかな関数へ置き換える必要がある。その近傍の Haar 幅を $\varepsilon_{\rm cut}$ とすれば、無反応結果の全質量は右辺に $\varepsilon_{\rm cut}$ を加えて抑えられる。
-
-## A.9 高階数集団に必要な追加自由度
-
-固定作用殻上の源状態を $b^\omega$ とし、選択器角が $b^\omega$ の下で条件付き一様なら、
-
-```math
-P(k)
-=
-\mathbb E_\omega
-\left[
-\left|
-\left(Wb^\omega\right)_k
-\right|^2
 \right]
-=
-\left(
-WCW^\dagger
-\right)_{kk}
 ```
 
-である。ただし、本文の1次元不変トーラスでは $b^\omega=\chi$ が固定される。高階数 $C$ を単一軌道の時間平均として得るには、$b^\omega$ を動かす別の不変力学と、その力学に条件付けても選択器角が Haar 分布を保つ積構造または十分な結合条件が必要である。
+とする。対応する実Hamiltonianは $Q_jQ_k+P_jP_k$ 型交換と局所作用項の有限和である。
 
-## A.10 正準自由度
+<!-- theorem-start:lemma -->
+**補題（R89：隣接2モード回路による有限ユニタリ合成）**
 
-信号とテンプレートを
+任意の $U\in U(L)$ は、隣接2モード交換と局所位相回転の有限積として表せる。完全結合を仮定した分解を1次元隣接線へ移す場合も、有限個の隣接SWAPを挿入すればよい。ゲート数は一般の密な $U$ について $O(L^2)$、直列深さは単純構成で $O(L^2)$ である。
+<!-- theorem-end:lemma -->
 
-```math
-b,t
-\in
-\mathbb C^L,
-\qquad
-b_j
-=
-\frac{Q_j^{b}+iP_j^{b}}{\sqrt{2\mathcal J_0}},
-\qquad
-t_j
-=
-\frac{Q_j^{t}+iP_j^{t}}{\sqrt{2\mathcal J_0}}
-```
+各2モードブロックはユニタリなので、対応する実写像はシンプレクティックで全作用を保存する。逆回路はゲート順を反転し、各角を反転して得る。
 
-とする。作用レジスター、閾値、内部記録、選択器、時計は
+## A.4 有限時計窓
 
-```math
-(Q_k,P_k)_{k=1}^L,
-\quad
-(Q_U,P_U),
-\quad
-(Q_M,P_M),
-\quad
-(\vartheta,J_{\rm sel}),
-\quad
-(\tau,P_\tau)
-```
-
-である。正準対数は $3L+4$ である。$L=2$ では10正準対になる。
-
-周期開始値を
-
-```math
-b=t=e_1,
-```
-
-```math
-Q_k=P_k=Q_U=P_U=Q_M=P_M=0,
-```
-
-```math
-J_{\rm sel}=J_*>0,
-\qquad
-P_\tau=E
-```
-
-とする。選択器角 $\vartheta$ だけを自由にする。
-
-## A.11 時計窓と自律化
-
-$\tau\in S^1$ とし、
+時計正準対 $(\tau,P_\tau)$ とcompact支持の窓 $g_r(\tau)$ を使い、
 
 ```math
 H_{\rm clk}
 =
 P_\tau
++\sum_{r=1}^R g_r(\tau)G_r
 ```
 
-と置く。各時計窓 $g_r(\tau)$ は滑らかで、逐次実行する窓の支持は互いに交わらず、
+とする。$\dot\tau=1$ なので、窓を通過するたびに $G_r$ が有限面積だけ作用する。窓の重なりを避ければ指定順のPoincaré写像を得る。有限幅、面積ずれ、時計初期値ずれは制御誤差へ入れる。
+
+<!-- theorem-start:lemma -->
+**補題（R90：有限時計による正準回路の自律化）**
+
+固定有限個の2次正準ゲートと滑らかなcontrol gateは、有限個の時計窓を持つ自律Hamiltonianへ埋め込める。初期時計面と使用済み窓を履歴へ残せば、境界失敗を含む拡大写像は1対1である。
+<!-- theorem-end:lemma -->
+
+## A.5 滑らかな比較器と無反応
+
+外部から指定された有限個の互いに素な安全領域 $O_i$ を考える。各領域内部で1、他の安全領域と境界帯で0となる滑らかなplateau関数 $\chi_i(u)$ を選ぶ。安全領域外を正式な無反応 $\varnothing$ とする。
+
+空pointer正準対 $(T_i,P_{T_i})$ に
 
 ```math
-\int_0^1g_r(\tau)\,d\tau
+G_{\rm cmp}
 =
-1
+\sum_i\chi_i(u)P_{T_i}
 ```
 
-とする。互いに素な辺の生成子は同じ窓へまとめてもよい。全周期を
+を作用させれば、安全領域では該当pointerだけが動く。$u$ はprogram番号、枝register、時計面など外部ですでに定まった制御値である。振幅作用から結果確率を作る目的には使わない。
 
-```math
-H_{\chi,W}^{\rm cyc}
-=
-P_\tau
-+
-\sum_{r=1}^{N_{\rm cyc}(L,W)}
-g_r(\tau)G_r
-```
+<!-- theorem-start:lemma -->
+**補題（R97：有限幅比較と完全結果集合）**
 
-とする。$\dot\tau=1$ なので、これは時計を含む1本の有限自律 Hamiltonian である。旧来の固定14窓表示は、基底回路の長さが $L$ と $W$ に依存するため使わない。
+有限個の互いに素な安全領域に対し、上の滑らかな比較器を有限Hamiltonian窓として実装できる。異なる安全結果は排他的であり、境界帯、時計ずれ、pointer準備失敗を $\varnothing$ へ送ると結果集合は完全になる。無反応を除いて再規格化してはならない。
+<!-- theorem-end:lemma -->
 
-## A.12 隣接2モード回路による任意ユニタリ
+## A.6 正準SWAPとテンプレート交換
 
-単一モード位相回転と隣接交換の実生成子を
-
-```math
-G_{Z,j}
-=
-\frac{
-\left(Q_j^b\right)^2
-+
-\left(P_j^b\right)^2
-}{2},
-```
-
-```math
-G_{X,j}
-=
-Q_j^bQ_{j+1}^b
-+
-P_j^bP_{j+1}^b
-```
-
-とする。複素表示では
-
-```math
-G_{Z,j}
-=
-\mathcal J_0|b_j|^2,
-```
-
-```math
-G_{X,j}
-=
-\mathcal J_0
-\left(
-b_j^*b_{j+1}
-+
-b_{j+1}^*b_j
-\right)
-```
-
-である。$G_{Z,j}-G_{Z,j+1}$ と $G_{X,j}$ の Poisson 交換子は、行列表現で
-
-```math
-Y_j
-=
--i|j\rangle\langle j+1|
-+
-i|j+1\rangle\langle j|
-```
-
-の方向を生成する。従って $Z$、$X$、$Z$ の有限列で任意の隣接 $U(2)$ を実装できる。各流れはユニタリ正準変換であり、全作用を厳密に保存する。
-
-構成的分解を確認する。複素数 $a,c$ に対し、
-
-```math
-G(a,c)
-=
-\frac1{\sqrt{|a|^2+|c|^2}}
-\begin{pmatrix}
-a^*&c^*\\
--c&a
-\end{pmatrix}
-```
-
-とすれば、
-
-```math
-G(a,c)
-\begin{pmatrix}
-a\\
-c
-\end{pmatrix}
-=
-\begin{pmatrix}
-\sqrt{|a|^2+|c|^2}\\
-0
-\end{pmatrix}
-```
-
-である。任意の $W\in U(L)$ に対し、列ごとに下から隣接2行へこの変換を掛けると、$L(L-1)/2$ 回以下で対角位相だけが残る。逆向きに並べ、残った対角位相を $D$ とすれば
-
-```math
-W
-=
-V_1V_2
-\cdots
-V_{N_W}D,
-\qquad
-N_W
-\leq
-\frac{L(L-1)}2
-```
-
-という隣接2モード変換と対角位相回転の積を得る。$D$ は $L$ 個以下の単一モード位相回転で実装する [38,39]。
-
-逆回路は
-
-```math
-W^\dagger
-=
-D^\dagger
-V_{N_W}^\dagger
-\cdots
-V_2^\dagger
-V_1^\dagger
-```
-
-であり、同じ辺を逆順・逆角で使う。固定状態だけを作る $U_{\rm prep}e_1=\chi$ は、下成分を順に消去することで $L-1$ 個以下の2モード混合と位相調整に分解できる。
-
-## A.13 準備回路と測定基底
-
-第1の局所回路で
-
-```math
-b=e_1
-\longmapsto
-U_{\rm prep}e_1
-=
-\chi
-```
-
-とし、第2の局所回路で
-
-```math
-b
-=
-W\chi
-```
-
-とする。両回路はC.3節の生成子だけからなり、全位相作用を厳密に保存する。逆計算では同じ回路を逆順に使うため、密な一括生成子 $K_W$ を装置へ置かない。
-
-信号鎖とテンプレート鎖を並べ、同じ番号の信号・テンプレートを SWAP 用の辺で結ぶ。作用レジスターは別の1次元鎖に置き、$Q_U$ を $Q_1$ の隣へ置く。基底変換、累積比較、テンプレート経路はこの有限次数グラフ上で局所になる。
-
-## A.14 作用、閾値、累積差の読出し
-
-読出し時のモード作用を
-
-```math
-I_k
-=
-\mathcal J_0|b_k|^2,
-\qquad
-I_{\rm ph}
-=
-\sum_{k=1}^LI_k
-=
-\mathcal J_0
-```
-
-とする。角の切断接続領域を除いて $f(\vartheta)=\vartheta/(2\pi)$ とし、
-
-```math
-G_{\rm read}
-=
-\sum_{k=1}^L
-P_kI_k
-+
-P_U\mathcal J_0f(\vartheta)
-```
-
-と置く。Hamilton 方程式は
-
-```math
-\dot Q_k=I_k,
-\qquad
-\dot Q_U=\mathcal J_0f(\vartheta),
-\qquad
-\dot P_k=\dot P_U=0
-```
-
-を与える。$P_k=P_U=0$ なので、信号と選択器の方程式へ入る読出し反作用は零である。単位面積流の後に
-
-```math
-Q_k=I_k,
-\qquad
-Q_U=u
-```
-
-となる。
-
-続いて
-
-```math
-G_{0}^{\rm cum}
-=
--P_1Q_U
-```
-
-を作用させ、次に
-
-```math
-G_j^{\rm cum}
-=
-P_{j+1}Q_j,
-\qquad
-j=1,\ldots,L-2
-```
-
-を番号順に作用させる。帰納的に
-
-```math
-Q_j
-=
-\sum_{r=1}^jI_r-u
-=
-S_j-u,
-\qquad
-j=1,\ldots,L-1
-```
-
-を得る。逆計算では $G_j^{\rm cum}$ を逆番号順・逆符号で使い、最後に $G_0^{\rm cum}$ を逆にする。
-
-## A.15 双曲型増幅と滑らかな比較
-
-累積差を
-
-```math
-G_{\rm amp}
-=
-\Lambda
-\sum_{j=1}^{L-1}Q_jP_j
-```
-
-で増幅する。単位面積流は
-
-```math
-Q_j
-\longmapsto
-e^\Lambda Q_j,
-\qquad
-P_j
-\longmapsto
-e^{-\Lambda}P_j
-```
-
-である。$P_j=0$ は保たれ、逆流は $\Lambda\mapsto-\Lambda$ で得られる。
-
-滑らかな関数を
-
-```math
-\rho(z)
-=
-\begin{cases}
-0,&z\leq0,\\
-e^{-1/z},&z>0,
-\end{cases}
-```
-
-```math
-\sigma(z)
-=
-\frac{\rho(z+1)}{\rho(z+1)+\rho(1-z)}
-```
-
-とし、
-
-```math
-h_j
-=
-\sigma
-\left(
-\frac{Q_j}{X}
-\right),
-\qquad
-h_0=0,
-\qquad
-h_L=1
-```
-
-と置く。$Q_1\leq\cdots\leq Q_{L-1}$ なので $h_1\leq\cdots\leq h_{L-1}$ である。従って
-
-```math
-c_k
-=
-h_k-h_{k-1}
-```
-
-は非負で総和1となる。
-
-角の切断接続領域を $\mathcal C_{\rm cut}$ とし、安全セクターを
-
-```math
-\mathcal O_k
-=
-\left\{
-\vartheta\notin\mathcal C_{\rm cut},
-\quad
-Q_j\leq-X\quad(j<k),
-\quad
-Q_j\geq X\quad(j\geq k)
-\right\}
-```
-
-とする。これらは互いに素である。補集合を $\mathcal O_\varnothing$ と定める。結果は比較ポインターセクターで判定し、後段の $Q_M$ だけでは判定しない。
-
-入力換算幅は $w=Xe^{-\Lambda}$ である。$u$ が一様なので、
-
-```math
-\mu_{\chi,W}^{\rm cyc}
-\left(
-\mathcal O_\varnothing
-\right)
-\leq
-2(L-1)
-\frac{Xe^{-\Lambda}}{I_{\rm ph}}
-+
-\varepsilon_{\rm cut}
-```
-
-となる。境界近傍が重なれば右辺は過大評価になる。
-
-## A.16 隣接テンプレート経路と記録
-
-隣接生成子を
-
-```math
-Y_{j,j+1}
-=
--i|j\rangle\langle j+1|
-+
-i|j+1\rangle\langle j|
-```
-
-とし、$\ell_j=1-h_j$ とする。最初に
-
-```math
-G_M^{(0)}
-=
-P_M
-```
-
-を作用させ、$Q_M=1$ とする。続いて $j=1,\ldots,L-1$ の順に
-
-```math
-G_j^{\rm route}
-=
-\frac{\pi\mathcal J_0}{2}
-\ell_j
-t^\dagger Y_{j,j+1}t
-+
-P_M\ell_j
-```
-
-を作用させる。
-
-$\mathcal O_k$ では
-
-```math
-\ell_j
-=
-\begin{cases}
-1,&j<k,\\
-0,&j\geq k,
-\end{cases}
-```
-
-なので、$t=e_k$、$Q_M=k$ となる。初期テンプレートの成分は実で、各 $Y_{j,j+1}$ の流れも実回転として作用する。従って全経路で
-
-```math
-t^\dagger Y_{j,j+1}t
-=
-0
-```
-
-が保たれる。$P_M=0$ と合わせ、$\ell_j(Q)$ の座標依存性がポインター共役運動量へ与える反作用は零である。
-
-$\mathcal O_\varnothing$ では複数の $\ell_j$ が中間値を取り得る。例えば $\sum_j\ell_j$ が整数でも、全 $h_j$ が平坦部にあるとは限らない。従って整数の $Q_M$ は必要な内部記録だが、十分な結果判定ではない。
-
-## A.17 正準 SWAP 、測定後基底、保持
-
-SWAP 生成子を
+同じ次元の2つの複素正準register $d,e$ に対し、
 
 ```math
 G_{\rm sw}
 =
-i
+\mathcal J_0
 \left(
-b^\dagger t-t^\dagger b
+d^\dagger e+e^\dagger d
 \right)
 ```
 
-とする。$\pi\mathcal J_0G_{\rm sw}/2$ の単位面積流は
+を面積 $\pi/2$ だけ作用させると、位相規約を除いて2つのregisterを交換できる。空registerへ値を移し、元registerと使用済みcellを履歴へ残すことで情報を消去せず転送する。
+
+結果枝 $i$ に対して事前校正テンプレート $e_i^{\rm tpl}$ を用意し、$\chi_i$ をcontrolとして対応SWAPだけを開けば、結果別状態更新を実装できる。template値は固定装置programであり、集団共分散を測定して単一試行へ書き戻したものではない。
+
+<!-- theorem-start:lemma -->
+**補題（R98：結果別テンプレート交換）**
+
+固定有限枝と固定有限テンプレートbankについて、排他的safe branchをcontrolとする正準SWAPを有限回路で構成できる。入力情報は使用済みtemplate側に残るため、枝別交換を含む拡大写像は1対1である。
+<!-- theorem-end:lemma -->
+
+## A.7 局所記録と逆計算
+
+物理枝 $i$ だけに支持を持つ局所関数 $d_i(x)$ と空の記録器 $(D_i,P_{D_i})$ に
 
 ```math
-b\longmapsto t,
-\qquad
-t\longmapsto-b
-```
-
-を与える。$\mathcal O_k$ では SWAP 後に
-
-```math
-b=e_k,
-\qquad
-t=-W\chi
-```
-
-となる。信号へC.3節の逆局所回路 $W^\dagger$ を作用させると、
-
-```math
-b
+G_{\rm rec}
 =
-W^\dagger e_k
-=
-|u_k\rangle
+\sum_i d_i(x)P_{D_i}
 ```
 
-となる。次の時計窓は相互作用を置かない保持窓とし、比較ポインター、信号、$Q_M$ を読める状態に保つ。$\mathcal O_\varnothing$ では信号は一般に基底ベクトルではなく、結果は無反応である。
+を作用させる。理想空pointerで $P_{D_i}=0$ なら、記録中の被測定系への反作用は零である。有限pointer幅と境界帯を記録誤差または無反応へ入れる。
 
-## A.18 全入力に対する逆計算
+<!-- theorem-start:lemma -->
+**補題（R99：記録を残した内部逆計算）**
 
-保持窓後に次を実行する。
+有限回路が入力、時計、pointer、template、使用済みcellを含む拡大系で1対1なら、外部記録を固定したまま、記録前の補助操作を逆順に作用させて内部作業registerを準備集合へ戻せる。ただし入力情報または使用済み状態は外部履歴へ残り、永久記録を有限閉鎖自由度から消去できない。
+<!-- theorem-end:lemma -->
 
-1. 信号へ局所回路 $W$ を作用させる。
-2. $-\pi\mathcal J_0G_{\rm sw}/2$ の流れで逆 SWAP する。
-3. $G_j^{\rm route}$ を $j=L-1,\ldots,1$ の順に逆符号で作用させる。
-4. $-G_M^{(0)}$ を作用させる。
-5. $-G_{\rm amp}$ を作用させる。
-6. $G_j^{\rm cum}$ を逆番号順・逆符号で作用させ、最後に $-G_0^{\rm cum}$ を作用させる。
-7. $-G_{\rm read}$ を作用させる。
-8. 信号へ $W^\dagger$ と $U_{\rm prep}^\dagger$ の局所回路を作用させる。
+## A.8 資源と限界
 
-逆経路では読出しレジスターを消す前に、前向きと同じ $h_j$ と $\ell_j$ を再計算する。順序を入れ替えると逆写像にならない。
+一般の密な $L$ モードunitaryには $L$ 信号正準対、$O(L^2)$ 個の校正ゲート窓、時計、pointer、template、履歴が必要である。固定有限 $L$、固定有限回路、固定精度では全て有限である。永久記録と使用済みcellは試行数に少なくとも比例する。
 
-各操作は前向き流れの厳密な逆なので、安全セクターだけでなく $\mathcal O_\varnothing$ でも
+本付録から次は従わない。
 
-```math
-b=t=e_1,
-```
+1. 振幅2乗に比例する枝状態数または結果頻度。
+2. 作用殻fiber内のGibbs平衡化。
+3. 有限熱化した粒子位置の独立同分布性。
+4. 未知入力用の自己校正template bank。
+5. 無期限反復と永久記録を持つ有限閉鎖装置。
+6. 一般有限 $L$ の多項式資源量子計算機。
 
-```math
-Q_k=P_k=Q_U=P_U=Q_M=P_M=0
-```
-
-へ戻る。滑らかな有限幅モデルでは、結果形成を無反応込みの粗視化で定義しながら、内部 Hamiltonian 写像そのものは全入力で厳密に可逆である。
-
-## A.19 選択器ドリフトと時計運動量
-
-最後に
-
-```math
-G_{\rm drift}
-=
-2\pi\alpha J_{\rm sel},
-\qquad
-\alpha\notin\mathbb Q
-```
-
-を作用させる。Hamilton 方程式から
-
-```math
-\vartheta
-\longmapsto
-\vartheta+2\pi\alpha
-\pmod{2\pi},
-\qquad
-J_{\rm sel}
-\longmapsto
-J_{\rm sel}
-```
-
-となる。
-
-各単独窓では $H=P_\tau+g_r(\tau)G_r$ である。$G_r$ は自分自身が生成する流れに沿って保存されるので、
-
-```math
-\Delta P_\tau
-=
--\int
-g_r'(\tau)G_r
-\,d\tau
-=
--G_r
-\left[
-g_r
-\right]_{\rm in}^{\rm out}
-=
-0
-```
-
-である。窓は互いに重ならず、各窓端で $g_r=0$ なので、全周期後にも $P_\tau=E$ へ戻る。
-
-## A.20 Poincaré 写像と長期分布
-
-断面 $\Sigma_{\chi,W}=\{\tau=0\}$ 内の不変集合を
-
-```math
-\mathcal T_{\chi,W}
-=
-\left\{
-b=t=e_1,
-Q_k=P_k=Q_U=P_U=Q_M=P_M=0,
-J_{\rm sel}=J_*,
-P_\tau=E
-\right\}
-```
-
-とする。自由なのは $\vartheta$ だけである。C.3節からC.10節までの写像を合成すると、
-
-```math
-\mathcal R_{\chi,W}
-\left(
-\vartheta
-\right)
-=
-\vartheta+2\pi\alpha
-\pmod{2\pi}
-```
-
-であり、他の全変数は定義値へ戻る。従って $\mathcal T_{\chi,W}$ は不変であり、Haar 測度の下で一意エルゴード的である。
-
-理想累積区間の分布を
-
-```math
-p^{\rm id}
-=
-\left(
-|\langle u_1|\chi\rangle|^2,
-\ldots,
-|\langle u_L|\chi\rangle|^2,
-0
-\right)
-```
-
-とする。実際の結果 $k$ は安全セクター $\mathcal O_k$、実際の無反応は $\mathcal O_\varnothing$ で定める。理想結果から失われた質量と無反応質量が一致するので、
-
-```math
-D_{\rm TV}
-\left(
-p^{\rm cyc},p^{\rm id}
-\right)
-=
-p_{\varnothing}^{\rm cyc}
-```
-
-である。C.6節の上界により、有限 $\Lambda$ と有限切断幅で任意精度へ近づけられる。
-
-## A.21 有限誤差に対する安全余裕
-
-増幅前の累積差誤差を $\Delta_{\rm in}$、増幅後のポインター誤差を $\Delta_{\rm out}$ とする。入力換算された有効半幅は
-
-```math
-w_{\rm eff}
-=
-Xe^{-\Lambda}
-+
-\Delta_{\rm in}
-+
-e^{-\Lambda}\Delta_{\rm out}
-```
-
-である。従って
-
-```math
-\varepsilon_{\rm cmp}
-\leq
-\min
-\left\{
-1,
-2(L-1)
-\frac{w_{\rm eff}}{I_{\rm ph}}
-\right\}
-```
-
-となる。増幅前の入力誤差は双曲型増幅で減らない。増幅後の固定出力誤差だけが入力換算で $e^{-\Lambda}$ 倍になる。
-
-装置誤差が他にない場合、比較誤差を $\epsilon$ 以下にする十分条件は概ね
-
-```math
-\Lambda
-\geq
-\log
-\frac{2(L-1)X}{\epsilon I_{\rm ph}}
-```
-
-である。精度を上げるほど必要な増幅率とポインター座標範囲が増える。有限温度での雑音床と長時間保持は本付録では評価しない。
-
-## A.22 ゲート数と直列深さ
-
-密な $W$ に対する資源上界は次である。
-
-| 対象 | 隣接2モード混合回数 |
-|---|---:|
-| $W$ 1回 | $L(L-1)/2$ 以下 |
-| 周期内の $W$、$W^\dagger$ 4回 | $2L(L-1)$ 以下 |
-| 固定純粋準備 $U_{\rm prep}$ | $L-1$ 以下 |
-| 準備と逆準備 | $2(L-1)$ 以下 |
-
-比較剪断、テンプレート経路、逆実行はそれぞれ $O(L)$ 回である。信号モード数と物理交換辺数は増えず、1次元鎖の $L-1$ 辺を再利用する。
-
-逐次 Givens 消去では基底回路の直列深さは $O(L^2)$ である。互いに素な辺を同じ時計層へ並列化する Clements 型配置では、基底回路の深さを $O(L)$ にできる [39]。ただし1個の時計自由度から空間的に離れた各辺へ窓信号を局所伝播させる配線自由度と遅延は、この数え上げに含めない。
-
-## A.23 通常の位置ばねだけに限定した場合
-
-正の位置ばね1本から得る有効2モード生成子は、対角離調を補正すれば交換方向へ近づけられる。しかし局所回転包絡は厳密には
-
-```math
-i\mathcal J_0\dot b
-=
-h(t)b
-+
-h(t)e^{2i\omega_0t}\overline b
-```
-
-を満たし、第2項が反回転項として残る。従って通常の位置ばねだけによる時間依存基底回路は、弱結合・非共鳴の近似である。
-
-固定有限個のゲートでは、各ゲート誤差を $\delta_r$ とすれば
-
-```math
-\varepsilon_W^{\rm spr}
-\leq
-\sum_r\delta_r
-```
-
-と評価できる。しかし現行Q3-1定理は時間非依存 $h_L$ に限定され、順方向と逆方向の反回転誤差が無限反復で相殺されることも証明していない。古典振動子による一般複素状態の厳密表示に位置・運動量の双方の結合または符号調整が必要になることは、既存研究とも整合する [35--37]。
-
-従って本付録では $QQ+PP$ 型の局所交換をQ2・Q3補助装置の現行構成とする。M37の位置ばね網、M47のQ1傾斜装置、本付録の交換回路を同一ハードウェアへ統合することは、M0またはM35の一般化として扱う別課題である。
-
-## A.24 永久記録の限界
-
-本周期の $Q_M$ と比較ポインターは内部記録であり、保持窓後に逆計算される。保持窓で結果を別の外部記録へコピーすれば、その外部自由度は結果情報を保持する。Hamiltonian 流の1対1性により、その外部記録まで結果に依存しない同一点へ戻すことはできない。
-
-永久記録を伴う反復装置では、外部自由度を拡大するか、記録を循環履歴レジスターへ移すか、弱開放系として情報とエネルギーを外へ運ぶ必要がある。$L=2$ では付録BのM47/R144が、付録Lの操作面再平衡化を用いて外部記録セルとresetセル流を構成する。本付録の一般有限 $L$ のM35は、その外部過程を含まない。
-
-## A.25 未導出事項
-
-本付録の明示周期からは、次は導かれない。
-
-1. 可変準備または可変基底を含む単一のエルゴード周期。
-2. 高階数相関行列を1本の軌道から生成する源力学。
-3. 混合性と二項分布型有限標本揺らぎ。
-4. 一般有限 $L$ の複数段逐次測定、外部記録、弱開放 reset 、長距離時計配線。
-5. 永久外部記録を含む有限閉鎖全系の同一点への完全帰還。
-6. 無反応なしで連結入力領域全体を厳密な離散基底状態だけへ写す滑らかな有限時間流。
-7. 作用区間ラベルと分析器出口の粒子位置が各試行で同一であること。
-8. 連続スペクトル極限。
-9. M37の位置ばね網、M35またはM47の測定・記録回路を含むM0の完全統合。
+Born型枝生成はM50/R164、有限再平衡化と記録はR161/R162/R170を正本とする。

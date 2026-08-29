@@ -39,4 +39,4 @@ M39の $01/10$ 読出しをM48へ付ける場合も、現行の必須入力で�
 4. ensemble統計から単一試行controllerを再構成しない。
 5. 破壊的読出しを使う場合は、環境を含む一対一dilationと因果順序を与える。
 
-現行の共同契約と判定基準は [付録K](../sections/A11_q2_joint_bath_contract.md) を正本とする。旧R151の詳細な式と検証履歴はGit履歴に残す。
+現行の共同契約と判定基準は [付録J](../sections/A10_q2_joint_bath_contract.md) を正本とする。旧R151の詳細な式と検証履歴はGit履歴に残す。

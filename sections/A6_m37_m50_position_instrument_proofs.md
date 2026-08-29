@@ -1,7 +1,7 @@
 @number: F
 @chapter: 付録
-@title: M37--M50固定入力時刻位置instrumentの証明
-@status: R167--R170を証明する。M37標本包絡と集団共分散、単一試行M50信号、固定全作用、粒子位置枝、入力標本時刻、出力記録時刻を分離し、可変作用反例、無反応、履歴単射性、誤差の非二重計数を明示する。
+@title: M37からM50有限枝instrumentへの受渡し証明
+@status: R167と一般ray平均定理R168を証明し、共通R170のQ3特殊化を与える。M37標本包絡と集団第2モーメント、単一試行M50信号、入力時刻、出力時刻を分離し、可変作用反例と無反応を明示する。
 
 ## F.1 設定と受渡し契約
 
@@ -197,7 +197,7 @@ r_T\leq2q_T+q_T^2
 
 となる。これでR167を得る。
 
-## F.3 R168の証明
+## F.3 R168の階数1節の証明
 
 $C_Z(t_\star)=c_\star c_\star^\dagger$、$\|c_\star\|=1$ とする。直交射影 $P_\star^\perp=I-c_\star c_\star^\dagger$ に対して
 
@@ -283,9 +283,31 @@ R167のベクトル誤差から直接ray誤差を作る場合、目標rayを $c$
 
 である。左辺は $z$ と $c$ の純粋状態trace距離なので、$\rho_T=q_T/(1-q_T)$ を使える。同じ $q_T$ をR167のtrace誤差とR168のray誤差の双方へ加算してはならない。これでR168を得る。
 
-## F.4 R169の証明と可変作用反例
+## F.4 R168の一般ray平均、固定作用節、可変作用反例
 
-$S(\omega)=Z_{t_\star}(\omega)^\dagger Z_{t_\star}(\omega)=s_*$ がほとんど確実に成り立つとする。$M_i=\Psi^\dagger|i\rangle\langle i|\Psi$ に対し
+安全事象 $G$ を固定し、安全ray平均を
+
+```math
+R_Z^G
+=
+\mathbb E
+\left[
+\mathbf1_G
+\frac{ZZ^\dagger}{Z^\dagger Z}
+\right]
+```
+
+と置く。M50の枝平均は線形性から
+
+```math
+P(i)
+=
+\frac{\operatorname{tr}(M_iR_Z^G)+\delta q_iP(G)}{1+\delta},
+\qquad
+P(\varnothing)=P(G^c)
+```
+
+である。次に $P(G)=1$ かつ $S(\omega)=Z_{t_\star}(\omega)^\dagger Z_{t_\star}(\omega)=s_*$ がほとんど確実に成り立つとする。$M_i=\Psi^\dagger|i\rangle\langle i|\Psi$ に対し
 
 ```math
 \mathbb E[w_i(Z)]
@@ -312,7 +334,7 @@ M_i
 \frac{\operatorname{tr}(M_iC_Z)+\delta q_i}{1+\delta}.
 ```
 
-これは各試行でray規格化してから平均する操作と、集団第2モーメントを規格化してから枝射影を取る操作が、固定作用面上で可換であることを示す。
+これは固定作用面で $R_Z^G=C_Z$ となること、従って各試行でray規格化してから平均する操作と、集団第2モーメントを規格化してから枝射影を取る操作が可換であることを示す。
 
 固定作用を外すと一般には可換しない。2次元で、確率 $1/2$ ずつ
 
@@ -391,7 +413,7 @@ D_{\rm TV}
 D_{\rm tr}(R_Z,C_Z)
 ```
 
-で抑えられる。これでR169とradial補正を得る。
+で抑えられる。これでR168の固定作用節、可変作用反例、半径方向補正を得る。階数1ならF.3により $R_Z^G=P(G)c_\star c_\star^\dagger$ である。
 
 ## F.5 入力標本化、保持、作用殻消去表示
 
@@ -403,7 +425,7 @@ M37信号registerを $Z$、同じ次元の空registerを $V$ とする。対応�
 
 は正準であり、自己逆である。入力面で $V=0$ なら、交換後は $V=Z_{t_\star}$ を保持し、M37側registerは空になる。交換前の値、時計面、保持controllerの状態を履歴へ残せば、閾値判定と保持失敗を含めても拡大写像は1対1にできる。
 
-保持した $V\neq0$ に対し、付録MのM50容量は
+保持した $V\neq0$ に対し、付録LのM50容量は
 
 ```math
 A_i^\delta(V)
@@ -425,51 +447,9 @@ E_i^\delta(V)=-\Theta\log\pi_i^\delta(V)
 
 作用容量結合、殻内平衡化、枝対称性、保持controller反作用を一つの有限局所Hamiltonianへ統合した定理はまだない。R170は、これらを指定誤差で実行できるという条件付きinstrument定理である。
 
-## F.6 R170の有限熱化と局所記録
+## F.6 共通R170のQ3特殊化
 
-固定した安全信号 $V$ に対して、R161の生成子は唯一の定常分布 $\pi^\delta(V)$ を持つ。$q_{\min}>0$、$a_{\min}>0$ と有限連結枝グラフのgap $\lambda_G>0$ により
-
-```math
-m_\delta
-=
-\frac{\delta q_{\min}}{1+\delta},
-\qquad
-\lambda_\delta
-=
-\kappa_Xa_{\min}m_\delta\lambda_G,
-```
-
-```math
-C_\delta
-=
-\frac12\sqrt{m_\delta^{-1}-1}
-```
-
-と置けば
-
-```math
-D_{\rm TV}
-\left(
-p_{\tau_X},
-\pi^\delta(V)
-\right)
-\leq
-C_\delta e^{-\lambda_\delta\tau_X}.
-```
-
-R162の有限衝突bathは、固定時間、有限エネルギー切断、有限セル数でこの生成子を任意精度に近似する。衝突数超過、閾値平滑化帯、保持失敗は $\varnothing$ へ送る。
-
-熱化後は枝間ゲートを閉じる。枝 $i$ の安全井戸内で1、他枝と通信路上で0となる滑らかな局所関数を $d_i(x)$ とし、空の記録器 $(D_i,P_{D_i})$ に
-
-```math
-G_{\rm rec}
-=
-\sum_i d_i(x)P_{D_i}
-```
-
-を作用させる。理想入口で1個の枝だけが占有されていれば、対応する1個の記録だけが動く。有限井戸幅、辺閉鎖、記録パルスの誤差を $\varepsilon_{\rm lock}$、$\varepsilon_{\rm rec}$ へ入れる。
-
-履歴には少なくとも、入力register、SWAP前後の時計、作用殻枝、衝突セル列、反射または透過ラベル、枝閉鎖状態、局所記録、無反応原因を残す。異なる入力または異なる衝突履歴を同じ最終拡大状態へ潰さないため、有限試行写像は単射である。外部記録だけを残して内部履歴をresetするにはfreshな空セル流が必要である。
+有限熱化、衝突近似、辺閉鎖、局所記録、履歴単射性の共通証明は付録K.6のR170へ集約する。Q3で追加するのは、F.5のSWAPにより $v=V=Z_{t_\star}(\omega)$ を固定することと、集団理想分布をR168で評価することだけである。安全事象外は全て $\varnothing$ へ送り、$t_{\rm out}>t_\star$ を保つ。
 
 各段階の全変動誤差を合成すると
 
@@ -499,9 +479,9 @@ G_{\rm rec}
 C_\delta e^{-\lambda_\delta\tau_X}.
 ```
 
-$\varepsilon_{37\to50}$ にはR168のray評価またはR169の共分散・radial評価を入れる。同じM37標本偏差を $\varepsilon_{\rm reg}$、$\varepsilon_{\rm cap}$ へ再び入れない。
+$\varepsilon_{37\to50}$ にはR168の階数1ray評価、固定作用等式、半径方向補正の必要なものだけを入れる。同じM37標本偏差を $\varepsilon_{\rm reg}$、$\varepsilon_{\rm cap}$ へ再び入れない。
 
-無反応質量を $p^{\rm out}(\varnothing)$ とし、理想分布を $p^{\rm id}(\varnothing)=0$ として同じ完全結果集合へ埋め込む。無反応を含む全変動距離は、その質量と安全枝の条件付き実装誤差の和で上から抑えられる。従って成功試行の再規格化なしにR170の結論を得る。
+R168の理想分布は既に $P(\varnothing)=P(G^c)$ を含む。R170固有の実装失敗だけを追加し、上流の無反応質量を再加算しない。これにより成功試行の再規格化なしにQ3特殊化を得る。
 
 ## F.7 R124とR125への接続
 
@@ -536,7 +516,7 @@ D_{\rm TV}
 
 ## F.8 物理的限界と反証条件
 
-R167--R170から次は従わない。
+R167、R168とR170のQ3特殊化から次は従わない。
 
 1. 集団共分散 $C_Z$ を単一試行制御器が直接読むこと。
 2. 可変全作用集団で $\mathbb E[ZZ^\dagger]/\mathbb E[Z^\dagger Z]$ と $\mathbb E[ZZ^\dagger/(Z^\dagger Z)]$ が一致すること。
