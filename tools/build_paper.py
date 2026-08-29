@@ -256,12 +256,12 @@ def validate_fixed_goal_language() -> None:
         "Q1-1": "達成",
         "Q1-2": "部分達成",
         "Q1-3": "部分達成",
-        "Q1-4": "未達（凍結中）",
+        "Q1-4": "未達",
         "Q2-1": "達成",
         "Q2-2": "条件付き達成",
-        "Q2-3": "未着手",
+        "Q2-3": "未達",
         "Q3-1": "達成",
-        "Q3-2": "未達（凍結中）",
+        "Q3-2": "未達",
         "Q3-3": "達成",
         "Q3-4": "条件付き達成",
         "Q3-5": "条件付き達成",
@@ -270,6 +270,44 @@ def validate_fixed_goal_language() -> None:
         pattern = rf"^\| {re.escape(goal_id)} \| {re.escape(status)} \|"
         if not re.search(pattern, current_block, flags=re.MULTILINE):
             raise ValueError(f"{goal_id}: 現在地が{status}ではない")
+
+    required_goal_fragments = (
+        "Q2-3 | 多項式資源による量子ゲート型計算機",
+        "全変動距離",
+        "期待試行回数",
+        "指数表",
+        "事後選別",
+    )
+    missing_goal_fragments = [
+        fragment for fragment in required_goal_fragments if fragment not in fixed_block
+    ]
+    if missing_goal_fragments:
+        raise ValueError(
+            "Q2-3の多項式資源判定が不足: " + "、".join(missing_goal_fragments)
+        )
+
+    current_goal_paths = [
+        ROOT / "README.md",
+        ROOT / "PROJECT_STATUS.md",
+        *sorted(SECTIONS.glob("*.md")),
+    ]
+    stale_freeze_pattern = re.compile(
+        r"未達（凍結中）|未達・凍結|未達のまま凍結|凍結状態|凍結を維持"
+    )
+    stale_freeze_hits = [
+        path.relative_to(ROOT).as_posix()
+        for path in current_goal_paths
+        if stale_freeze_pattern.search(path.read_text(encoding="utf-8"))
+    ]
+    if stale_freeze_hits:
+        raise ValueError(
+            "現行文書に凍結中の表記が残っている: " + "、".join(stale_freeze_hits)
+        )
+
+    revival_note = ROOT / "notes" / "q1_zeno_revival.md"
+    frozen_note = ROOT / "notes" / "frozen_q1_zeno.md"
+    if not revival_note.is_file() or frozen_note.exists():
+        raise ValueError("Q1-4再開メモの改名が未完了")
 
     required_paths = (
         SECTIONS / "03_m47_controlled_w_instrument.md",

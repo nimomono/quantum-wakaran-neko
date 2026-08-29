@@ -42,6 +42,8 @@ jobs:
           test -f sections/A10_q2_joint_bath_contract.md
           test -f sections/A11_common_collision_bath_thermodynamics.md
           test -f sections/A12_common_action_shell_state_count.md
+          test -f notes/q1_zeno_revival.md
+          test ! -e notes/frozen_q1_zeno.md
           test ! -e sections/A6_m37_m50_position_instrument_proofs.md
           test ! -e sections/A8_w_two_mode_hopf_statistics.md
           test ! -e sections/A13_q2_action_shell_statistics.md
@@ -71,15 +73,21 @@ jobs:
           grep -Fq '| Q1-1 | 達成 |' PROJECT_STATUS.md
           grep -Fq '| Q1-2 | 部分達成 |' PROJECT_STATUS.md
           grep -Fq '| Q1-3 | 部分達成 |' PROJECT_STATUS.md
-          grep -Fq '| Q1-4 | 未達（凍結中） |' PROJECT_STATUS.md
+          grep -Fq '| Q1-4 | 未達 |' PROJECT_STATUS.md
           grep -Fq '| Q2-1 | 達成 |' PROJECT_STATUS.md
           grep -Fq '| Q2-2 | 条件付き達成 |' PROJECT_STATUS.md
-          grep -Fq '| Q2-3 | 未着手 |' PROJECT_STATUS.md
+          grep -Fq '| Q2-3 | 未達 |' PROJECT_STATUS.md
           grep -Fq '| Q3-1 | 達成 |' PROJECT_STATUS.md
-          grep -Fq '| Q3-2 | 未達（凍結中） |' PROJECT_STATUS.md
+          grep -Fq '| Q3-2 | 未達 |' PROJECT_STATUS.md
           grep -Fq '| Q3-3 | 達成 |' PROJECT_STATUS.md
           grep -Fq '| Q3-4 | 条件付き達成 |' PROJECT_STATUS.md
           grep -Fq '| Q3-5 | 条件付き達成 |' PROJECT_STATUS.md
+          grep -Fq '| Q2-3 | 多項式資源による量子ゲート型計算機 |' PROJECT_STATUS.md
+          grep -Fq '期待試行回数' PROJECT_STATUS.md
+          grep -Fq '成功試行だけを再規格化しない' sections/08_errors_resources_open_targets.md
+          if grep -REn '未達（凍結中）|未達・凍結|未達のまま凍結|凍結状態|凍結を維持' README.md PROJECT_STATUS.md sections/*.md; then
+            exit 1
+          fi
           if grep -REn 'R(83|84|85|87|88|89|90|97|98|99|104|105|106|136|139|141|142|146|148|149|150|151|152|154|156|157|158|163|165|166|167|169)|M(35|39|41|43|45|46)|R(107|108|109|110|111|120|121|122|130|131|132|137|138)' README.md PROJECT_STATUS.md sections/*.md tools/*.py; then
             exit 1
           fi
