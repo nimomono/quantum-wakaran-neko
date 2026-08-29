@@ -278,7 +278,10 @@ def main() -> None:
     mixing_error = total_variation(mixed_position, pi_target)
     mixing_bound = c_delta * exp(-lambda_lower * mixing_time)
     checks.append(record_max("r170_r161_mixing_bound", mixing_error, mixing_bound + 2.0e-14))
-    checks.append(record_max("r170_mixed_mass_error", abs(float(np.sum(mixed_position)) - 1.0), 1.0e-12))
+    # Long-time diagonalization amplifies LAPACK-dependent roundoff in the
+    # numerically reconstructed zero mode. Keep this implementation check far
+    # below the 4e-3 analytical mixing budget without tying it to one BLAS build.
+    checks.append(record_max("r170_mixed_mass_error", abs(float(np.sum(mixed_position)) - 1.0), 1.0e-10))
 
     response_mass = 0.956
     no_response = np.array([0.012, 0.009, 0.008, 0.015])
