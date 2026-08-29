@@ -278,13 +278,12 @@ def validate_fixed_goal_language() -> None:
         SECTIONS / "A3_l4_two_qubit_gate_proofs.md",
         SECTIONS / "05_m48_bell_cycle_and_audit.md",
         SECTIONS / "A4_m48_cycle_proofs.md",
-        SECTIONS / "A6_m37_m50_position_instrument_proofs.md",
-        SECTIONS / "A8_w_two_mode_hopf_statistics.md",
+        SECTIONS / "A6_common_signal_statistics.md",
+        SECTIONS / "A8_m47_hopf_preparation.md",
         SECTIONS / "A9_m48_paired_hopf_bell_preparation.md",
         SECTIONS / "A10_q2_joint_bath_contract.md",
         SECTIONS / "A11_common_collision_bath_thermodynamics.md",
         SECTIONS / "A12_common_action_shell_state_count.md",
-        SECTIONS / "A13_q2_action_shell_statistics.md",
     )
     obsolete_paths = (
         SECTIONS / "03_l2_operation_measurement_zeno.md",
@@ -293,6 +292,9 @@ def validate_fixed_goal_language() -> None:
         SECTIONS / "A4_m41_cycle_proofs.md",
         SECTIONS / "A6_realized_configuration_proofs.md",
         SECTIONS / "A6_particle_position_proofs.md",
+        SECTIONS / "A6_m37_m50_position_instrument_proofs.md",
+        SECTIONS / "A8_w_two_mode_hopf_statistics.md",
+        SECTIONS / "A13_q2_action_shell_statistics.md",
     )
     for path in required_paths:
         if not path.is_file():
@@ -338,10 +340,29 @@ def validate_fixed_goal_language() -> None:
     if retired_m42:
         raise ValueError("現行章に退役済みM42/R113--R118が残っている: " + "、".join(retired_m42))
 
+    absorbed_result_pattern = re.compile(
+        r"R(?:83|84|85|87|88|89|106|136|139|141|142|146|148|149|151|154|156|166|167)(?!\d)"
+    )
+    absorbed_result_paths = [
+        ROOT / "README.md",
+        ROOT / "PROJECT_STATUS.md",
+        *sorted(SECTIONS.glob("*.md")),
+    ]
+    absorbed_hits = [
+        path.relative_to(ROOT).as_posix()
+        for path in absorbed_result_paths
+        if absorbed_result_pattern.search(path.read_text(encoding="utf-8"))
+    ]
+    if absorbed_hits:
+        raise ValueError(
+            "現行文書に吸収済み結果IDが残っている: " + "、".join(absorbed_hits)
+        )
+
     q3_text = (SECTIONS / "06_m37_spatial_envelope.md").read_text(encoding="utf-8")
     for token in (
-        "R167：M37標本力学から統計共分散への有限時間持上げ",
-        "R168：一般ray平均からM50枝統計へのQ3受渡し",
+        "R86：M37有限時間包絡線縮約",
+        "共通R135のM37有限時間特殊化",
+        "共通R168のQ3特殊化",
         "共通R170のQ3特殊化",
         r"t_\star",
         r"t_{\rm out}>t_\star",

@@ -200,25 +200,25 @@ def main() -> None:
     local_a = np.array([0.63, 0.37])
     local_b = np.array([0.28, 0.72])
     conditional_product = np.outer(local_a, local_b)
-    checks.append(record_max("r166_product_normalization_error", abs(float(np.sum(conditional_product)) - 1.0), 2.0e-15))
-    checks.append(record_max("r166_a_marginal_error", float(np.max(np.abs(np.sum(conditional_product, axis=1) - local_a))), 2.0e-15))
-    checks.append(record_max("r166_b_marginal_error", float(np.max(np.abs(np.sum(conditional_product, axis=0) - local_b))), 2.0e-15))
+    checks.append(record_max("r155_product_normalization_error", abs(float(np.sum(conditional_product)) - 1.0), 2.0e-15))
+    checks.append(record_max("r155_a_marginal_error", float(np.max(np.abs(np.sum(conditional_product, axis=1) - local_a))), 2.0e-15))
+    checks.append(record_max("r155_b_marginal_error", float(np.max(np.abs(np.sum(conditional_product, axis=0) - local_b))), 2.0e-15))
     additive_energy = -theta * np.log(conditional_product)
     expected_additive = -theta * np.log(local_a)[:, None] - theta * np.log(local_b)[None, :]
-    checks.append(record_max("r166_conditional_energy_additivity_error", float(np.max(np.abs(additive_energy - expected_additive))), 3.0e-15))
+    checks.append(record_max("r155_conditional_energy_additivity_error", float(np.max(np.abs(additive_energy - expected_additive))), 3.0e-15))
 
     rate_a_forward = 0.81 * sqrt(local_a[1] / local_a[0])
     rate_a_backward = 0.81 * sqrt(local_a[0] / local_a[1])
     rate_b_forward = 0.57 * sqrt(local_b[1] / local_b[0])
     rate_b_backward = 0.57 * sqrt(local_b[0] / local_b[1])
-    checks.append(record_max("r166_a_detailed_balance_error", abs(local_a[0] * rate_a_forward - local_a[1] * rate_a_backward), 2.0e-15))
-    checks.append(record_max("r166_b_detailed_balance_error", abs(local_b[0] * rate_b_forward - local_b[1] * rate_b_backward), 2.0e-15))
+    checks.append(record_max("r155_a_detailed_balance_error", abs(local_a[0] * rate_a_forward - local_a[1] * rate_a_backward), 2.0e-15))
+    checks.append(record_max("r155_b_detailed_balance_error", abs(local_b[0] * rate_b_forward - local_b[1] * rate_b_backward), 2.0e-15))
 
     forward_a, reverse_a = 0.17, 0.11
     forward_b, reverse_b = 0.23, 0.19
     joint_entropy = np.log((forward_a * forward_b) / (reverse_a * reverse_b))
     local_entropy = np.log(forward_a / reverse_a) + np.log(forward_b / reverse_b)
-    checks.append(record_max("r166_path_entropy_additivity_error", abs(joint_entropy - local_entropy), 2.0e-15))
+    checks.append(record_max("r155_path_entropy_additivity_error", abs(joint_entropy - local_entropy), 2.0e-15))
 
     conditional_plus = np.array([[0.45, 0.05], [0.05, 0.45]])
     conditional_minus = np.array([[0.05, 0.45], [0.45, 0.05]])

@@ -20,7 +20,7 @@ draft-51以後の現行文書では、各試行で局在する物理変数を「
 | `rejected_m46_current_transducer.md` | draft-42 第8.14節、付録I、R130--R134 | M46の不採用記録。R130--R132は補助結果として一部保持 | 場からrateを作って実現配置を動かす因果律が、複素振幅を実現配置--浴共同統計として定義するM47と両立しない |
 | `independent_m45_open_quasicritical_preparation.md` | draft-52までの第8.13節、付録H、R127--R129 | Q1--Q3と独立の開放準臨界準備研究線 | 固定入力時刻の有限枝読出しを与えず、現行Born型主線の準備問題と確率生成機構を分離するため |
 | `superseded_m35_born_sampler.md` | draft-52までの付録A、R70--R72、R77、R78、R91、R165の一部 | M35旧Born型標本器の退役記録 | 確率生成をM50/R164/R170へ一本化し、M35を有限正準制御補助へ限定するため |
-| `superseded_result_index.md` | draft-53で本文から外した結果ID | 旧結果IDと現行統合先の索引 | 統合後の本文と状態表へ旧IDを混在させず、追跡可能性を保つため |
+| `superseded_result_index.md` | draft-53--draft-54で本文から外した結果ID | 旧結果IDと現行統合先の索引 | 統合後の本文と状態表へ旧IDを混在させず、追跡可能性を保つため |
 | `superseded_m38_m42_q1.md` | draft-43以前の第3章、付録B、M38、R92--R100、R119 | 旧Q1操作・測定模型の置換記録。R97--R99は一般装置補題として一部保持 | Q1をW型2モード共同統計と傾斜測定を使うM47/R139--R144へ移行した |
 | `superseded_m42_continuous_particle_position.md` | draft-51までの第2章、第6章、付録F、M42、R113--R118 | 旧全時刻等変粒子位置模型の退役記録 | Q3読出しをR167--R170の固定入力時刻M37--M50 instrumentへ移行し、確率起源と装置論をM50へ統一した |
 | `frozen_q1_zeno.md` | draft-43以前の第3章、付録B、R101--R103 | Q1-4と旧有限Zeno構成の凍結記録 | M47測定へ接続する手順を今回構成せず、傾斜による離調固定をZeno効果と区別するため |

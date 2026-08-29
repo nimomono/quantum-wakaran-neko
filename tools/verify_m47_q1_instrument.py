@@ -63,7 +63,7 @@ def main() -> None:
     identity_2 = np.eye(2, dtype=complex)
     checks: list[CheckResult] = []
 
-    # R139: rank-one normalized covariance and its Bloch reduction.
+    # R135: rank-one normalized second moment and its two-dimensional reduction.
     state = rng.normal(size=2) + 1j * rng.normal(size=2)
     state /= np.linalg.norm(state)
     covariance = np.outer(state, state.conj())
@@ -140,7 +140,7 @@ def main() -> None:
     checks.append(record_max("detuned_rabi_transition_formula_error", abs(transition_numeric - transition_formula), 3.0e-14))
     checks.append(record_max("controlled_propagator_unitarity_error", np.linalg.norm(controlled_propagator.conj().T @ controlled_propagator - identity_2), 3.0e-14))
 
-    # R141: simultaneous fast/slow switching window and locking bound.
+    # R140: simultaneous fast/slow switching window and locking bound.
     tunnel = 1.0e-4
     high_mode_gap = 1.0
     action_scale = 1.0
@@ -193,7 +193,7 @@ def main() -> None:
     checks.append(record_max("deep_w_uniform_lock_error_monotonicity", np.max(np.diff(family_uniform_lock)), 0.0))
     checks.append(record_min("deep_w_rotation_time_monotonicity", np.min(np.diff(family_rotation_time)), 0.0))
 
-    # R142: finite-contrast spatial effect and Born-weight error.
+    # R143: finite-contrast spatial effect and Born-weight error.
     eta_w = 0.037
     left_effect = np.diag([1.0 - eta_w, eta_w]).astype(complex)
     checks.append(record_max("left_effect_eigenvalue_error", np.max(np.abs(np.linalg.eigvalsh(left_effect) - np.array([eta_w, 1.0 - eta_w]))), 2.0e-14))

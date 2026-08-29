@@ -249,3 +249,77 @@ Q2で使う作用殻registerを次の3種類へ分ける。
 とする。有限偏差は $\varepsilon_{\rm prod}$ として接続誤差、局所instrument誤差、paired-Hopf誤差と分けて監査する。
 
 切断後に $-\Theta\log P(a,b\mid x,y)$ を物理的な大域自由エネルギーとして局所率へ入力することを禁止する。これは式(J.9)の局所因子化に反する。条件付き局所有効自由エネルギーは各翼で使えるが、$\Lambda$ を平均した後の共同分布の対数は情報的要約に限る。
+
+## J.10 R155の条件付き局所因子化補題
+
+中央切断面の完全共通原因を
+
+```math
+\Lambda
+=
+(s,\alpha,z_A,z_B,X_A,X_B,H_{\rm prov},R_{\rm cut})
+```
+
+とする。切断後の各翼はfreshな局所2枝作用殻、局所衝突セル、局所雑音seedから開始し、これらの条件付き初期測度がA、B間で積であると仮定する。
+
+<!-- theorem-start:lemma -->
+**補題（R155の条件付き局所因子化）**
+
+切断後のHamiltonianまたは開放生成子が
+
+```math
+\mathcal L_{\rm post}^{xy}
+=
+\mathcal L_A^x+\mathcal L_B^y
+```
+
+と分離するなら、任意有限時刻の作用殻測度は
+
+```math
+\mu_{\rm sh}^{AB}
+(d\gamma_A,d\gamma_B\mid\Lambda,x,y)
+=
+\mu_{{\rm sh},A}^x
+(d\gamma_A\mid\Lambda)
+\otimes
+\mu_{{\rm sh},B}^y
+(d\gamma_B\mid\Lambda)
+```
+
+と因子化する。従って状態数、局所詳細釣合い率、経路エントロピー生成は
+
+```math
+\Omega_{rs}^{AB}
+=
+\Omega_{A,r}^x\Omega_{B,s}^y,
+\qquad
+\Sigma_{\rm post}=\Sigma_A+\Sigma_B
+```
+
+と積または和に分かれる。有限な残留結合、共通雑音、レジスタ取り違えによる全変動偏差は $\varepsilon_{\rm prod}$ としてR155へ一度だけ加える。
+<!-- theorem-end:lemma -->
+
+<!-- theorem-start:proof -->
+**証明（R155の条件付き局所因子化）**
+
+条件付き初期測度が積で、切断後半群が
+
+```math
+e^{t\mathcal L_A^x}\otimes e^{t\mathcal L_B^y}
+```
+
+と因子化するため、積測度は任意有限時刻で保たれる。状態数は積測度の全質量なので積になり、局所跳躍率は反対翼の状態を含まない。正逆経路確率比の対数は積経路測度の対数比なので和になる。証明終。
+<!-- theorem-end:proof -->
+
+$\Lambda$ を積分した後のA、Bは一般に相関する。
+
+```math
+P(a,b\mid x,y)
+=
+\int
+P_A(a\mid x,\Lambda)
+P_B(b\mid y,\Lambda)
+\,\mu_{\rm cut}^x(d\Lambda).
+```
+
+従って条件付き因子化はBell相関を消さない。切断後に $-\Theta\log P(a,b\mid x,y)$ を物理的な大域ポテンシャルへ戻すことは、反対翼の設定を局所率へ再注入し、この補題の仮定を壊す。

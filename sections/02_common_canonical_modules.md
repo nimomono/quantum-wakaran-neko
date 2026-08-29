@@ -1,7 +1,7 @@
 @number: 2
 @chapter: 本文
-@title: 有限正準信号、M50枝状態数、共通有限枝instrument
-@status: R112、R161--R164、R170をQ1・Q2・Q3の共通主線として整理する。M35は有限正準制御、比較、記録の補助部品に限定し、Born型枝生成はM50へ一本化する。
+@title: 有限正準信号、信号集団、M50枝状態数、共通有限枝instrument
+@status: R112、R135、R161--R164、R168、R170をQ1・Q2・Q3の共通主線として整理する。M35は有限正準制御、比較、記録の補助部品に限定し、Born型枝生成はM50へ一本化する。
 
 ## 2.1 共通主線と統一M0の違い
 
@@ -26,7 +26,7 @@ D_i.
 | Q1 | M47の信号bath座標 $Z(\omega)$ | 左右井戸 | W型制御、有限コントラスト、結果別テンプレート |
 | Q2-1 | M49のprogram担体 $d_{\rm prog}(\omega)$ | 4中央枝、2粒子位置 | 行分解bath、CNOT、直接枝decode |
 | Q2-2 | M48切断後の各翼の局所信号 | 各翼2枝 | paired-Hopf準備、2翼局所合成、Bell監査 |
-| Q3 | M37標本包絡 $Z_{t_\star}(\omega)$ | 有限空間セル | R167とR168による一般ray平均受渡し |
+| Q3 | M37標本包絡 $Z_{t_\star}(\omega)$ | 有限空間セル | R135の有限時間誤差節とR168による一般ray平均受渡し |
 
 この共有は同一ハードウェアを意味しない。全系列の信号準備、容量結合、作用殻、衝突bath、時計、記録、resetを1つの有限局所Hamiltonian周期へまとめるM0は未完成である。
 
@@ -66,9 +66,9 @@ G_e
 とする。
 
 <!-- theorem-start:lemma -->
-**補題（R112：有限正準信号担体の共通辺代数）**
+**補題（R112：有限正準信号の辺実現と有限回路合成）**
 
-有限正準信号の可逆有効力学は、有限配置グラフ上の頂点作用項と差モード辺生成子の有限プログラムとして表せる。Q1、Q2、Q3の違いは、頂点集合、信号の物理的由来、係数、時計窓、排他的出力の実装にある。この代数だけから枝確率、粒子位置、記録、resetは従わない。
+有限正準信号の可逆有効力学は、有限配置グラフ上の頂点作用項と差モード辺生成子の有限プログラムとして表せる。連結グラフでは隣接2モード交換と局所位相から $U(L)$ の任意の有限unitaryを有限積として合成でき、有限時計窓による自律化と有限制御誤差評価を持つ。Q1、Q2、Q3の違いは、頂点集合、信号の物理的由来、係数、時計窓、排他的出力の実装にある。この代数だけから枝確率、粒子位置、記録、resetは従わない。
 <!-- theorem-end:lemma -->
 
 ## 2.3 M35の限定された役割
@@ -84,7 +84,150 @@ M35の作用区間と一様選択器角から長期Born型頻度を得る旧経�
 
 固定benchmarkのprogram順序を外部scheduleで作ることは許す。このscheduleは入力条件の提示であり、同じ試行のBorn型出力を生成する機構ではない。
 
-## 2.4 M50の作用容量と枝状態数
+## 2.4 有限信号集団の第2モーメント輸送
+
+有限試行空間上の非零複素信号 $Z\in\mathbb C^m$ と、有限で正の集団作用
+
+```math
+S_Z=\mathbb E[Z^\dagger Z]
+```
+
+を考える。非中心化された規格化第2モーメントを
+
+```math
+C_Z
+=
+\frac{\mathbb E[ZZ^\dagger]}{S_Z}
+```
+
+と定める。これは通常の中心化共分散ではなく、$\mathbb E[Z]=0$ の場合にだけ中心化した量と比例して一致する。
+
+<!-- theorem-start:theorem -->
+**定理（R135：有限信号集団の規格化第2モーメント輸送）**
+
+各試行の信号が同じ有限次元unitary $U(t)$ により $Z(t)=U(t)Z(0)$ と発展するなら、
+
+```math
+C_Z(t)=U(t)C_Z(0)U(t)^\dagger
+```
+
+であり、trace、正値性、rankは保存される。$i\mathcal J_0\dot U=G(t)U$ なら
+
+```math
+i\mathcal J_0\dot C_Z=[G(t),C_Z]
+```
+
+である。
+
+さらに、同じ初期標本から作る理想信号 $\widetilde Z_t=U(t)\widetilde Z_0$ に対し
+
+```math
+\|Z_t-\widetilde Z_t\|
+\leq
+\varepsilon(T)\|\widetilde Z_0\|
+```
+
+が全試行、$0\leq t\leq T$ で一様に成り立つとする。$\widetilde S_0=\mathbb E\|\widetilde Z_0\|^2$、$S_t=\mathbb E\|Z_t\|^2$、
+
+```math
+\kappa_T
+=
+\sup_{0\leq t\leq T}
+\frac{\widetilde S_0}{S_t}
+```
+
+と置けば、
+
+```math
+D_{\rm tr}
+\left(
+C_Z(t),
+U(t)C_Z(0)U(t)^\dagger
+\right)
+\leq
+\min
+\left\{
+1,
+2\varepsilon(T)\sqrt{\kappa_T}
++\varepsilon(T)^2\kappa_T
+\right\}.
+```
+<!-- theorem-end:theorem -->
+
+階数1なら $C_Z=cc^\dagger$、$c^\dagger c=1$ と書け、非負量
+
+```math
+\mathbb E\|(I-cc^\dagger)Z\|^2
+```
+
+が零になるため、$Z=\alpha c$ がほとんど確実に成り立つ。$m=2$ では
+
+```math
+C_Z
+=
+\frac12
+\left(I_2+\boldsymbol r\cdot\boldsymbol\sigma\right)
+```
+
+と書け、階数1条件は $|\boldsymbol r|=1$ と同値である。従ってBloch球はR135の2次元系であり、独立の結果を必要としない。正確輸送、有限時間誤差、階数1支持、2次元幾何を同じ第2モーメントの定理として使い、同じ上流偏差を複数の誤差項へ加算しない。証明は付録Fに置く。
+
+## 2.5 一般ray平均からM50枝統計への受渡し
+
+安全事象 $G$ 上の有限信号 $Z$ に対し、失敗質量を捨てない安全ray平均を
+
+```math
+R_Z^G
+=
+\mathbb E
+\left[
+\mathbf1_G
+\frac{ZZ^\dagger}{Z^\dagger Z}
+\right]
+```
+
+とする。等長埋込み $\Psi$ と $M_i=\Psi^\dagger|i\rangle\langle i|\Psi$ を固定する。
+
+<!-- theorem-start:theorem -->
+**定理（R168：一般ray平均からM50枝統計への受渡し）**
+
+各安全試行にM50を適用し、安全事象外を無反応へ送ると、完全結果分布は
+
+```math
+P(i)
+=
+\frac{\operatorname{tr}(M_iR_Z^G)+\delta q_iP(G)}{1+\delta},
+\qquad
+P(\varnothing)=P(G^c)
+```
+
+である。さらに次が成り立つ。
+
+1. $C_Z=cc^\dagger$ かつ $G$ 上で信号が非零なら、R135の支持節により $R_Z^G=P(G)cc^\dagger$ である。
+2. $Z^\dagger Z=s_*>0$ がほとんど確実で $P(G)=1$ なら、$R_Z^G=C_Z$ である。
+3. 一般の可変作用集団では $R_Z^G$ が読出し対象であり、$C_Z$ への置換には動径補正が必要である。
+4. 安全な近似rayが目標rayから純粋状態距離 $s$ 以内なら、対応する枝分布の全変動距離は $s/(1+\delta)$ 以下である。
+
+成功試行だけで再規格化しない。
+<!-- theorem-end:theorem -->
+
+$P(G)=1$、$\overline S=\mathbb E[Z^\dagger Z]$ の場合、動径補正は
+
+```math
+D_{\rm tr}(R_Z^G,C_Z)
+\leq
+\frac12
+\mathbb E
+\left|
+\frac{Z^\dagger Z}{\overline S}-1
+\right|
+\leq
+\frac12
+\frac{\sqrt{\operatorname{Var}(Z^\dagger Z)}}{\overline S}
+```
+
+で抑えられる。R168はM37を前提とせず、Q1、Q2、Q3が単一試行信号をM50へ渡すときの共通統計写像である。証明と可変作用反例は付録Fに置く。
+
+## 2.6 M50の作用容量と枝状態数
 
 非零有限信号 $v\in\mathbb C^m$、等長埋込み $\Psi:\mathbb C^m\to\mathbb C^L$、排他的枝 $i\in\mathcal I$ を考える。正の基準分布 $q_i>0$、$\sum_iq_i=1$ と正則化 $\delta>0$ を固定し、
 
@@ -122,7 +265,7 @@ E_i^\delta(v)=-\Theta\log\pi_i^\delta(v)
 
 を条件付き中間状態有効自由エネルギーとして使う。状態数を残す表示と消去表示は同値であり、同じ縮約分配関数へ $\Omega_i^\delta e^{-E_i^\delta/\Theta}$ を入れて二重計数してはならない。
 
-## 2.5 R161/R162の有限再平衡化
+## 2.7 R161/R162の有限再平衡化
 
 有限連結枝グラフ $G_X=(\mathcal I,E_X)$ で
 
@@ -153,7 +296,7 @@ C_\delta e^{-\lambda_\delta\tau_X}
 
 である。R162はこの率を有限衝突熱浴と履歴セルを持つ局所Hamiltonian散乱へ任意精度で近似する。作用殻fiberは状態数を、衝突bathは粒子位置遷移を担い、同じ自由度ではない。
 
-## 2.6 R170：M50固定入力時刻有限枝instrument
+## 2.8 R170：M50固定入力時刻有限枝instrument
 
 <!-- theorem-start:theorem -->
 **定理（R170：M50固定入力時刻有限枝instrument）**
@@ -202,9 +345,9 @@ D_{\rm TV}(p_v^{\rm out},p_v^{\rm id})
 であり、同じ物理偏差を複数項へ入れない。無反応を除いて再規格化しない。
 <!-- theorem-end:theorem -->
 
-R170は有限枝instrumentの共通定理であり、M37を前提にしない。Q1のR143、Q2-2のR154、Q3の固定時刻読出しはこの定理の特殊化または合成である。完全な証明と誤差台帳は付録Kに置く。
+R170は有限枝instrumentの共通定理であり、M37を前提にしない。Q1のR143、Q2-2のR155、Q3の固定時刻読出しはこの定理の特殊化または合成である。完全な証明と誤差台帳は付録Kに置く。
 
-## 2.7 物理的意味と限界
+## 2.9 物理的意味と限界
 
 熱化終了後の局所記録生成子は、枝 $i$ に支持を持つ滑らかな関数 $d_i(x)$ と空の記録運動量 $P_{D_i}$ を使い、
 
