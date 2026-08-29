@@ -242,7 +242,7 @@ def main() -> None:
     checks.append(record_max("finite_cell_poisson_overflow", overflow, 3.0e-5))
     checks.append(record_max("finite_energy_tail", energy_tail, 2.0e-8))
 
-    # R163: quench work, KL divergence, and an exact one-step path IFT.
+    # Coarse-grained thermodynamics corollary: quench work, KL divergence, and an exact one-step path IFT.
     first_state = rng.normal(size=2) + 1j * rng.normal(size=2)
     second_state = rng.normal(size=2) + 1j * rng.normal(size=2)
     _, first_target = action_shell_distribution(isometry, first_state, delta, reference)

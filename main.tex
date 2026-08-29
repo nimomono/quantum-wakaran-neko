@@ -150,7 +150,7 @@
   \vspace{14mm}
   {\color{PaperRule}\rule{0.68\textwidth}{0.9pt}\par}
   \vfill
-  {\large draft-54 改訂稿\par}
+  {\large draft-55 改訂稿\par}
   \vspace{22mm}
 \end{titlepage}
 
@@ -165,11 +165,11 @@
 
 本論文は、明示的な古典力学モデルから、量子力学に似た可逆操作、Born型測定統計、結合ゲート、空間伝播、Bell型統計を構成できる範囲を調べる。有限閉鎖Hamiltonianモデルと開放古典モデルを区別し、採用方程式後の厳密結果と、その方程式自体のミクロ導出を分ける。
 
-Born型読出しの主線は1つに統一する。各試行の有限正準信号 \(v\) をM50へ渡し、R164の作用殻状態数から排他的枝重み \(\pi_i^\delta(v)\) を得る。R161/R162で粒子位置を有限時間再平衡化し、R170で枝を固定して局所記録する。M35は有限正準制御、滑らかな比較、SWAP、記録、逆計算だけを担い、独立のBorn型枝生成には使わない。
+Born型読出しの主線は1つに統一する。各試行の有限正準信号 \(v\) を共通instrument仕様M50へ渡し、R164の作用殻状態数から排他的枝重み \(\pi_i^\delta(v)\) を得る。R161/R162で粒子位置を有限時間再平衡化し、R170で枝を固定して局所記録する。R112は有限正準制御、安全比較、SWAP、記録、逆計算を担うが、独立のBorn型枝生成には使わない。
 
 Q1はM47のW型最低2モードと信号bathを使う。共通R135がBloch球型状態空間、R140が任意の \(SU(2)\) 操作、Rabi型占有振動、傾斜保持を与える。R143は共通R170へW型分析器、有限コントラスト、結果別テンプレート交換を加えた特殊化である。可逆操作は達成、射影測定と完全周期は部分達成、Zeno効果は未達のまま凍結する。
 
-Q2-1はM49の4モード担体、行分解bath、二粒子位置を使う。M50中央4枝を粒子位置へ直接decodeし、同じ試行の担体、bath、粒子位置へCNOTを同期させる。R157--R160により固定有限入力族の共同入力--出力統計と固定singlet供給を構成する。Q2-2はR147のpaired-Hopf準備後、R153で設定前routingと2翼strong matchingを作り、R155で2つの局所R170、条件付き積因子化、余弦共同分布、非信号性、CHSH不等式の破れ、Bell前提監査、fresh-cell帰還をまとめる。CNOT型統計は達成、Bell型統計は固定singlet、固定有限設定族、準備先行、非空間分離、採用開放法則の範囲で条件付き達成である。
+Q2-1はM49の4モード担体、行分解bath、二粒子位置を使う。M50中央4枝を粒子位置へ直接decodeし、同じ試行の担体、bath、粒子位置へCNOTを同期させる。R159が入力準備、同期CNOT、固定有限入力族の共同入力--出力統計を一つにまとめ、R160が固定singletをQ2-2へ渡す。Q2-2はR147のpaired-Hopf準備後、R153で設定前routingと2翼strong matchingを作り、R155で2つの局所R170、条件付き積因子化、余弦共同分布、非信号性、CHSH不等式の破れ、Bell前提監査、fresh-cell帰還をまとめる。CNOT型統計は達成、Bell型統計は固定singlet、固定有限設定族、準備先行、非空間分離、採用開放法則の範囲で条件付き達成である。
 
 Q3はM37の局所振動子網からR86の有限時間Schrödinger型包絡を導く。共通R135が標本集団の非中心化第2モーメントを持ち上げ、R168が安全事象を含む一般ray平均をM50枝統計へ渡し、R170が固定入力時刻の信号を後刻の排他的粒子位置記録へ変換する。空間Schrödinger型力学と束縛状態は達成、トンネル効果と最小2経路干渉は単一Hamiltonian統合を条件に達成、位相量子化は未達のまま凍結する。
 
@@ -221,7 +221,7 @@ X=i
 D_i
 \]
 
-の1本に統一する。M35は有限基底制御、時計、比較、SWAP、記録、逆計算の補助部品であり、作用区間の一様角から別のBorn型結果を作らない。
+の1本に統一する。M50は共通instrument仕様であって完成済みHamiltonian模型ではない。R112は有限基底制御、時計、比較、SWAP、記録、逆計算の共通定理であり、作用区間の一様角から別のBorn型結果を作らない。
 
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2500}}
@@ -243,7 +243,7 @@ M50入力
 \bottomrule\noalign{}
 \endlastfoot
 Q1 & M47、R135、R140、R143--R145 & 単一試行のW型信号bath座標 & R143のW型分析器と結果別状態更新 \\
-Q2-1 & M49、R104、R105、R157--R160 & 4モードprogram担体 & 中央4枝の直接decode、CNOT、M48受渡し \\
+Q2-1 & M49、R112、R159、R160 & 4モードprogram担体 & 中央4枝の直接decode、CNOT、M48受渡し \\
 Q2-2 & M48、R147、R153、R155 & 切断後の各翼の局所信号 & 2つのR170の条件付き局所合成とBell監査、帰還 \\
 Q3 & M37、R86、R135、R168 & 入力時刻のM37標本包絡 & 固定時刻位置読出し、R123--R125への接続 \\
 \end{longtable}
@@ -270,12 +270,11 @@ Q3 & M37、R86、R135、R168 & 入力時刻のM37標本包絡 & 固定時刻位�
 \bottomrule\noalign{}
 \endlastfoot
 M0 & Q1--Q3を同一ハードウェアと反復周期へ統合する目標 & 未完成 \\
-M35 & 有限正準制御、比較、SWAP、記録、逆計算 & 現行補助模型 \\
-M37 & 局所振動子網からの空間包絡 & 現行Q3模型 \\
-M47 & W型2モード信号bath、粒子位置、作用殻、衝突bath & 現行Q1模型 \\
-M48 & 設定依存paired-Hopf Bell周期 & 現行Q2-2模型 \\
-M49 & 行分解bath--粒子位置CNOT供給 & 現行Q2-1模型・Q2-2供給模型 \\
-M50 & 有限信号作用、作用殻状態数、粒子位置再平衡化、R170 & Q1--Q3共通理論部品 \\
+M37 & 局所振動子網からの空間包絡 & 現行基礎Hamiltonian模型 \\
+M47 & W型2モード信号bath・粒子位置の測定protocol & 現行Q1複合protocol \\
+M48 & 設定依存paired-Hopf Bell周期 & 現行Q2-2開放複合protocol \\
+M49 & 行分解bath--粒子位置CNOT供給 & 現行Q2-1複合protocol・Q2-2供給protocol \\
+M50 & 有限信号作用、作用殻状態数、粒子位置再平衡化、R170 & Q1--Q3共通instrument仕様 \\
 \end{longtable}
 
 置換済み模型と独立研究線は本文の模型地図へ並べない。最小索引は \texttt{notes/superseded\_result\_index.md}、詳細は各研究メモとGit履歴に置く。
@@ -305,10 +304,10 @@ M50 & 有限信号作用、作用殻状態数、粒子位置再平衡化、R170 
 \bottomrule\noalign{}
 \endlastfoot
 Q1-1 & 達成 & R135、R140 & なし \\
-Q1-2 & 部分達成 & R140、R143--R145、R161--R164、R168、R170 & 作用容量、fiber、保持反作用の同一有限Hamiltonian統合 \\
+Q1-2 & 部分達成 & R140、R143--R145、R161、R162、R164、R168、R170 & 作用容量、fiber、保持反作用の同一有限Hamiltonian統合 \\
 Q1-3 & 部分達成 & R143--R145、R170 & Hopf pumpからresetまでの周期総収支 \\
 Q1-4 & 未達・凍結 & \texttt{notes/frozen\_q1\_zeno.md} & 同一ミクロ模型での反復測定と遷移抑制 \\
-Q2-1 & 達成 & R104、R105、R157--R160、R164 & 未知入力channelと多量子ビット資源は範囲外 \\
+Q2-1 & 達成 & R112、R159、R164 & 未知入力channelと多量子ビット資源は範囲外。R160はQ2-2受渡しに使う \\
 Q2-2 & 条件付き達成 & R147、R153、R155、R160、R164、R168、R170 & 自由設定、空間分離、一般状態、同一Hamiltonian統合 \\
 Q2-3 & 未着手 & 資源評価のみ & 指数モード数を避ける構成 \\
 Q3-1 & 達成 & R86 & 一般複素hoppingと時間依存一様極限は範囲外 \\
@@ -354,13 +353,13 @@ Q3-5 & 条件付き達成 & R86、R125、R135、R168、R170 & 同上。幾何学
 
 第2章はM50/R170の共通主線、第3章はM47によるQ1、第4章と第5章はM49--M48によるQ2、第6章と第7章はM37--M50によるQ3を扱う。第8章は現行主線の誤差、資源、反証条件、未完成目標だけをまとめ、第9章で結論を述べる。
 
-付録AはM35制御部品、BはM47測定特殊化、CはM49、DはM48、EはM37包絡、Fは共通R135/R168とR170のQ3特殊化、GはQ3現象、HはM47 Hopf準備、IはM48 paired-Hopf準備、JはQ2受渡し契約と条件付き因子化、KはR161--R163とR170、LはR164を扱う。
+付録AはR112の制御・比較・記録証明、BはM47測定特殊化、CはM49、DはM48、EはM37包絡、Fは共通R135/R168とR170のQ3特殊化、GはQ3現象の証明、HはM47 Hopf準備、IはM48 paired-Hopf準備、JはQ2受渡し契約と条件付き因子化、KはR161、R162、粗視化経路熱力学、R170の証明、LはR164の証明を扱う。
 
-\hypertarget{ux6709ux9650ux6b63ux6e96ux4fe1ux53f7ux4fe1ux53f7ux96c6ux56e3m50ux679dux72b6ux614bux6570ux5171ux901aux6709ux9650ux679dinstrument}{%
-\chapter{有限正準信号、信号集団、M50枝状態数、共通有限枝instrument}\label{ux6709ux9650ux6b63ux6e96ux4fe1ux53f7ux4fe1ux53f7ux96c6ux56e3m50ux679dux72b6ux614bux6570ux5171ux901aux6709ux9650ux679dinstrument}}
+\hypertarget{ux6709ux9650ux6b63ux6e96ux5236ux5fa1ux4fe1ux53f7ux96c6ux56e3m50ux679dux72b6ux614bux6570ux5171ux901aux6709ux9650ux679dinstrument}{%
+\chapter{有限正準制御、信号集団、M50枝状態数、共通有限枝instrument}\label{ux6709ux9650ux6b63ux6e96ux5236ux5fa1ux4fe1ux53f7ux96c6ux56e3m50ux679dux72b6ux614bux6570ux5171ux901aux6709ux9650ux679dinstrument}}
 
 \begin{statusbox}
-位置づけ：R112、R135、R161--R164、R168、R170をQ1・Q2・Q3の共通主線として整理する。M35は有限正準制御、比較、記録の補助部品に限定し、Born型枝生成はM50へ一本化する。
+位置づけ：R112、R135、R161、R162、R164、R168、R170をQ1・Q2・Q3の共通主線として整理する。有限正準制御、比較、記録はR112へ、Born型枝生成はM50/R164へ一本化する。
 \end{statusbox}
 
 \hypertarget{ux5171ux901aux4e3bux7ddaux3068ux7d71ux4e00m0ux306eux9055ux3044}{%
@@ -380,7 +379,7 @@ X=i
 D_i.
 \]
 
-有限正準信号 \(v\) をM50の作用容量へ渡し、R164で排他的枝の状態数を数え、R161/R162で粒子位置を有限時間再平衡化し、R170で枝を固定して局所記録する。Q1、Q2、Q3の特殊性は信号の準備、枝グラフ、局所分析器、記録後状態にある。確率源は共通にM50であり、M35の選択器角を第2のBorn型機構として併用しない。
+有限正準信号 \(v\) をM50の作用容量へ渡し、R164で排他的枝の状態数を数え、R161/R162で粒子位置を有限時間再平衡化し、R170で枝を固定して局所記録する。Q1、Q2、Q3の特殊性は信号の準備、枝グラフ、局所分析器、記録後状態にある。確率源は共通にM50であり、別の選択器角を第2のBorn型機構として併用しない。
 
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2500}}
@@ -407,7 +406,7 @@ Q2-2 & M48切断後の各翼の局所信号 & 各翼2枝 & paired-Hopf準備、2
 Q3 & M37標本包絡 \(Z_{t_\star}(\omega)\) & 有限空間セル & R135の有限時間誤差節とR168による一般ray平均受渡し \\
 \end{longtable}
 
-この共有は同一ハードウェアを意味しない。全系列の信号準備、容量結合、作用殻、衝突bath、時計、記録、resetを1つの有限局所Hamiltonian周期へまとめるM0は未完成である。
+この共有は同一ハードウェアを意味しない。M50は共通instrument仕様であり、それ自体を単一の完成済みHamiltonianモデルとは呼ばない。全系列の信号準備、容量結合、作用殻、衝突bath、時計、記録、resetを1つの有限局所Hamiltonian周期へまとめるM0は未完成である。
 
 \hypertarget{ux6709ux9650ux6b63ux6e96ux4fe1ux53f7ux306eux8fbaux4ee3ux6570}{%
 \section{有限正準信号の辺代数}\label{ux6709ux9650ux6b63ux6e96ux4fe1ux53f7ux306eux8fbaux4ee3ux6570}}
@@ -445,15 +444,22 @@ G_e
 
 とする。
 
-\begin{lemma}[R112：有限正準信号の辺実現と有限回路合成]
+\begin{theorem}[R112：有限正準信号の制御・比較・記録回路]
 
-有限正準信号の可逆有効力学は、有限配置グラフ上の頂点作用項と差モード辺生成子の有限プログラムとして表せる。連結グラフでは隣接2モード交換と局所位相から $U(L)$ の任意の有限unitaryを有限積として合成でき、有限時計窓による自律化と有限制御誤差評価を持つ。Q1、Q2、Q3の違いは、頂点集合、信号の物理的由来、係数、時計窓、排他的出力の実装にある。この代数だけから枝確率、粒子位置、記録、resetは従わない。
-\end{lemma}
+有限正準信号の可逆有効力学は、有限配置グラフ上の頂点作用項と差モード辺生成子の有限プログラムとして表せる。連結グラフでは隣接2モード交換と局所位相から $U(L)$ の任意の有限unitaryを有限積として合成できる。さらに、固定有限個の信号register、時計、比較対象、安全領域、記録枝、テンプレートについて、次を有限個の正準対と滑らかな有限時計窓で実装できる。
 
-\hypertarget{m35ux306eux9650ux5b9aux3055ux308cux305fux5f79ux5272}{%
-\section{M35の限定された役割}\label{m35ux306eux9650ux5b9aux3055ux308cux305fux5f79ux5272}}
+1. 指定した有限unitary列の自律化と有限制御誤差評価。
+2. 互いに素な安全領域の滑らかな比較と、境界失敗を含む正式な無反応結果。
+3. 空registerと使用済みregisterを区別した正準SWAPおよび結果別テンプレート交換。
+4. 各枝だけに支持を持つ局所記録と、外部履歴を残した内部作業registerの逆計算。
 
-M35から現行主線に残すのは次の部品である。
+全入力、時計、使用済みcell、無反応、外部記録を含む拡大写像は1対1に保てる。Q1、Q2、Q3の違いは、頂点集合、信号の物理的由来、係数、時計窓、排他的出力の実装にある。本定理だけから枝確率、Born型状態数、粒子位置分布、無期限resetは従わない。
+\end{theorem}
+
+\hypertarget{r112ux306eux5f79ux5272ux5883ux754c}{%
+\section{R112の役割境界}\label{r112ux306eux5f79ux5272ux5883ux754c}}
+
+R112が現行主線へ供給するのは次の部品である。
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -468,7 +474,7 @@ M35から現行主線に残すのは次の部品である。
   正準SWAP、局所記録、テンプレート交換、内部逆計算。
 \end{enumerate}
 
-M35の作用区間と一様選択器角から長期Born型頻度を得る旧経路は現行定理に使わない。M35は作用殻fiber内の平衡化も、結果列の独立同分布性も証明しない。旧経路の数式と結果IDは \texttt{notes/superseded\_m35\_born\_sampler.md} に整理する。
+作用区間と一様選択器角から長期Born型頻度を得る旧経路は現行定理に使わない。R112は作用殻fiber内の平衡化も、結果列の独立同分布性も証明しない。旧正準標本器の確率生成経路は \texttt{notes/superseded\_m35\_born\_sampler.md} に整理し、非確率的な制御・比較・記録内容はR112へ吸収する。
 
 固定benchmarkのprogram順序を外部scheduleで作ることは許す。このscheduleは入力条件の提示であり、同じ試行のBorn型出力を生成する機構ではない。
 
@@ -626,25 +632,30 @@ J_i(v)=\mathcal J_0|(\Psi v)_i|^2,
 A_i^\delta(v)=J_i(v)+\delta q_iJ_{\rm sig}(v)
 \]
 
-と置く。各枝に2つの非負作用を持つ排他的作用殻を置けば、R164の状態数は
+と置く。各枝に2つの非負作用を持つ排他的作用殻を置く。
 
-\[
+\begin{theorem}[R164：有限信号作用のBorn型殻状態数]
+
+上の仮定の下で、全枝を同じLiouville母測度で数えると枝状態数は
+
+$$
 \Omega_i^\delta(v)
 =
 \frac{(2\pi)^2}{J_{\rm ref}}A_i^\delta(v)
-\]
+$$
 
 であり、単一Liouville母測度を1回だけ規格化すると
 
-\[
+$$
 \pi_i^\delta(v)
 =
 \frac{\Omega_i^\delta(v)}{\sum_j\Omega_j^\delta(v)}
 =
 \frac{|(\Psi v)_i|^2/(v^\dagger v)+\delta q_i}{1+\delta}
-\]
+$$
 
-を得る。零信号、安全閾値未満、有限幅遷移域は無反応 \(\varnothing\) へ送る。
+となる。零信号、安全閾値未満、有限幅遷移域は無反応 $\varnothing$ へ送る。一般に各明反応枝が $q$ 個の独立な作用分配方向を持てば $\Omega_i\propto(A_i^\delta)^q$ であり、全容量族でBorn型線形則を保つのは $q=1$ に限る。
+\end{theorem}
 
 作用殻を消去する表示では
 
@@ -676,15 +687,57 @@ m_\delta=\frac{\delta q_{\min}}{1+\delta},
 C_\delta=\frac12\sqrt{m_\delta^{-1}-1}
 \]
 
-と置く。R161により任意の初期枝分布 \(p_0\) から
+と置く。
 
-\[
+\begin{theorem}[R161：任意の有限信号方向に対する粒子位置再平衡化]
+
+任意の非零入力 $v$ に対して $\pi^\delta(v)$ は上の連続時間跳躍過程の唯一の定常分布であり、任意の初期枝分布 $p_0$ から
+
+$$
 D_{\rm TV}(p_{\tau_X},\pi^\delta(v))
 \leq
 C_\delta e^{-\lambda_\delta\tau_X}
+$$
+
+である。また理想枝重み $w_i(v)=|(\Psi v)_i|^2/(v^\dagger v)$ との差は $D_{\rm TV}(\pi^\delta,w)\leq\delta/(1+\delta)$ である。
+\end{theorem}
+
+\begin{theorem}[R162：局所詳細釣合い率の有限衝突熱浴実現]
+
+各辺に対称障壁と有限個の入射cellを置き、入射位置、到着時計、運動方向、反射枝、出射エネルギー、履歴cellを完全状態へ含めれば、正逆衝突を1対1に対応させる有限Hamiltonian散乱でR161の率を任意精度で近似できる。固定観測時間での縮約経路測度誤差は、cell overflow、エネルギー尾部、閾値平滑化、時計、入力保持の誤差和で抑えられ、超過cellと比較境界は無反応へ送れる。
+\end{theorem}
+
+作用殻fiberは状態数を、衝突bathは粒子位置遷移を担い、同じ自由度ではない。
+
+\textbf{系（粗視化経路熱力学）}
+
+R161の局所詳細釣合い過程、またはR162の縮約過程の正逆protocolについて、粗視化経路エントロピー生成 \(\Sigma\) は
+
+\[
+\frac{\mathcal P_F[\omega]}{\mathcal P_R[\omega^\dagger]}
+=e^{\Sigma[\omega]},
+\qquad
+\left\langle e^{-\Sigma}\right\rangle_F=1,
+\qquad
+\langle\Sigma\rangle_F\geq0
 \]
 
-である。R162はこの率を有限衝突熱浴と履歴セルを持つ局所Hamiltonian散乱へ任意精度で近似する。作用殻fiberは状態数を、衝突bathは粒子位置遷移を担い、同じ自由度ではない。
+を満たす。瞬間quench \(v^-\to v^+\) では
+
+\[
+W_i^{\rm rel}
+=\Theta\log\frac{\pi_i^\delta(v^-)}{\pi_i^\delta(v^+)},
+\qquad
+\left\langle e^{-\beta W^{\rm rel}}\right\rangle=1,
+\]
+
+\[
+\langle W^{\rm rel}\rangle
+=\Theta D_{\rm KL}
+\left(\pi^\delta(v^-)\|\pi^\delta(v^+)\right).
+\]
+
+これは作用殻を消去した粒子位置跳躍過程の厳密な関係であり、全装置周期の機械仕事・微視的熱収支ではない。証明と表示間の仕事の換算は付録Kに置く。
 
 \hypertarget{r170m50ux56faux5b9aux5165ux529bux6642ux523bux6709ux9650ux679dinstrument}{%
 \section{R170：M50固定入力時刻有限枝instrument}\label{r170m50ux56faux5b9aux5165ux529bux6642ux523bux6709ux9650ux679dinstrument}}
@@ -736,6 +789,44 @@ $$
 \end{theorem}
 
 R170は有限枝instrumentの共通定理であり、M37を前提にしない。Q1のR143、Q2-2のR155、Q3の固定時刻読出しはこの定理の特殊化または合成である。完全な証明と誤差台帳は付録Kに置く。
+
+\textbf{系（共通instrumentの安定性）}
+
+理想分布 \(p,p'\) と実分布 \(q,q'\) が
+
+\[
+D_{\rm TV}(q,p)\leq\varepsilon,
+\qquad
+D_{\rm TV}(q',p')\leq\varepsilon'
+\]
+
+を満たせば
+
+\[
+D_{\rm TV}(q,q')
+\geq
+D_{\rm TV}(p,p')-\varepsilon-\varepsilon'.
+\]
+
+任意の事象 \(A\) について
+
+\[
+|q(A)-q'(A)|
+\geq
+|p(A)-p'(A)|-\varepsilon-\varepsilon'
+\]
+
+であり、任意の有界観測量 \(f\) について
+
+\[
+|\mathbb E_qf-\mathbb E_pf|
+\leq
+\operatorname{osc}(f)\varepsilon,
+\qquad
+\operatorname{osc}(f)=\sup f-\inf f.
+\]
+
+従って理想分布間の分離が誤差和より大きければ、有限装置でも区別可能性が残る。この系をR124/R125の識別とR155のBell監査へ共通に用いる。
 
 \hypertarget{ux7269ux7406ux7684ux610fux5473ux3068ux9650ux754c}{%
 \section{物理的意味と限界}\label{ux7269ux7406ux7684ux610fux5473ux3068ux9650ux754c}}
@@ -818,9 +909,9 @@ X
 
 という因果律を使わない。
 
-付録HのR145は、雑音零の採用開放Hopf方程式について信号bath方向を目標位相円へ吸引する厳密解と有限時間率を与える。共通R135は階数1共分散の統計因子を単一試行信号の支持へ接続し、M50/R164は同じ試行の有限信号作用を正則化枝容量へ写し、各排他的枝の2作用殻状態数からBorn型条件付き重みと有効自由エネルギーを導く。付録KのR161は任意有限信号方向に対する粒子位置の一様指数再平衡化、R162はその局所詳細釣合い率の有限衝突実現、R163は制御切替と粒子位置経路のゆらぎ関係を与える。R145、R135、R164、R161を順に使えば、信号bath方向、条件付き状態数、粒子位置分布を同じ操作面へ有限誤差で準備できる。
+付録HのR145は、雑音零の採用開放Hopf方程式について信号bath方向を目標位相円へ吸引する厳密解と有限時間率を与える。共通R135は階数1共分散の統計因子を単一試行信号の支持へ接続し、M50/R164は同じ試行の有限信号作用を正則化枝容量へ写し、各排他的枝の2作用殻状態数からBorn型条件付き重みと有効自由エネルギーを導く。第2章のR161は任意有限信号方向に対する粒子位置の一様指数再平衡化、R162はその局所詳細釣合い率の有限衝突実現、続く粗視化経路熱力学系は制御切替と粒子位置経路の監査式を与える。R145、R135、R164、R161を順に使えば、信号bath方向、条件付き状態数、粒子位置分布を同じ操作面へ有限誤差で準備できる。
 
-第5章のR161のM48特殊化は、固定singlet型Bell装置に限って同じ平方根率を先に採用した結果である。R161はその数学的核を任意のM47 rayへ拡張し、R162は固定した単一試行信号bath座標に対する衝突熱浴実現を与える。R164は各翼の局所条件付き地形にも使えるが、paired-Hopf準備や2翼周期全体を導かない。R161のM48特殊化を一般Q1定理として遡及的に読み替えず、R161--R164をQ1の新しい根拠とする。
+第5章のR161のM48特殊化は、固定singlet型Bell装置に限って同じ平方根率を先に採用した結果である。R161はその数学的核を任意のM47 rayへ拡張し、R162は固定した単一試行信号bath座標に対する衝突熱浴実現を与える。R164は各翼の局所条件付き地形にも使えるが、paired-Hopf準備や2翼周期全体を導かない。R161、R162、R164をQ1の共通根拠とする。
 
 R164により、条件付き地形 \(E_i^\delta=-\Theta\log\pi_i^\delta\) は確率から直接設計する量でなく、作用殻を消去した条件付き中間状態有効自由エネルギーとして得られる。作用殻明示表示の \(\Omega_i^\delta\) と消去表示の \(e^{-\beta E_i^\delta}\) を同じ分配関数で掛けず、状態数を二重計数しない。ただし枝容量結合、殻内平衡化、枝対称性、信号bath保持反作用を同じ有限局所Hamiltonianへ統合しておらず、Hopf pump、記録、resetを含む周期全体の仕事・熱・エントロピー収支も未閉鎖である。このためQ1-2とQ1-3の判定は部分達成のまま維持する。
 
@@ -965,7 +1056,7 @@ P_{L\to R}(t)
 
 \begin{theorem}[R140：W型2モードの制御、占有振動、傾斜保持]
 
-$J>0$ とし、傾斜 $\varepsilon(t)$ を正負の2値以上へ区分的に設定できるとする。最低2モード射影内では、有限個の定傾斜区間からなる制御列で任意の $U\in SU(2)$ を実現できる。各区間の共分散流はunitary共役であり、trace、正値性、階数を保存する。零傾斜では角周波数 $(E_1-E_0)/\mathcal J_0$ の左右占有振動を与え、一定傾斜では上の離調公式に従う。さらに $J\ll|\varepsilon_m|\ll G$ と $\mathcal J_0/G\ll\tau_q\ll\mathcal J_0/J$ の尺度階層では、高モード漏れを抑えながら左右占有変化を第3.10節の $\varepsilon_{\rm lock}$ で一様に抑えられる。
+$J>0$ とし、傾斜 $\varepsilon(t)$ を正負の2値以上へ区分的に設定できるとする。最低2モード射影内では、有限個の定傾斜区間からなる制御列で任意の $U\in SU(2)$ を実現できる。各区間の共分散流はunitary共役であり、trace、正値性、階数を保存する。零傾斜では角周波数 $(E_1-E_0)/\mathcal J_0$ の左右占有振動を与え、一定傾斜では上の離調公式に従う。さらに $J\ll|\varepsilon_m|\ll G$ と $\mathcal J_0/G\ll\tau_q\ll\mathcal J_0/J$ の尺度階層では、高モード漏れを抑えながら左右占有変化を第3.7節の $\varepsilon_{\rm lock}$ で一様に抑えられる。
 \end{theorem}
 
 R140は制御された2モード生成子についての厳密結果である。元の全W型系で同じ精度を得るには、高モード漏れと傾斜切替誤差を別に評価する。
@@ -1046,300 +1137,26 @@ C_W
 
 は全て \(\sqrt{J/G}\) の次数で零へ近づく。
 
-\hypertarget{ux6761ux4ef6ux4ed8ux304dux4f5cux7528ux6bbbux72b6ux614bux6570ux6709ux52b9ux81eaux7531ux30a8ux30cdux30ebux30aeux30fc}{%
-\section{条件付き作用殻、状態数、有効自由エネルギー}\label{ux6761ux4ef6ux4ed8ux304dux4f5cux7528ux6bbbux72b6ux614bux6570ux6709ux52b9ux81eaux7531ux30a8ux30cdux30ebux30aeux30fc}}
+\hypertarget{m50r170ux306eq1ux4e8cux679dux7279ux6b8aux5316}{%
+\section{M50/R170のQ1二枝特殊化}\label{m50r170ux306eq1ux4e8cux679dux7279ux6b8aux5316}}
 
-有限W型配置グラフを \(G_W=(V_W,E_W)\)、最低2モード埋込みを \(\Phi\) とする。単一試行の信号bath座標 \(z\neq0\) に対し、総信号作用、枝信号作用、正則化枝容量を
-
-\[
-J_{\rm sig}(z)
-=
-\mathcal J_0z^\dagger z,
-\qquad
-J_i(z)
-=
-\mathcal J_0|(\Phi z)_i|^2,
-\]
+Q1では共通仕様M50に \(v=z\)、\(\mathcal I=\{L,R\}\)、\(\Psi=\Phi\) を代入する。第2章のR164により
 
 \[
-A_i^\delta(z)
+\pi_i^\delta(z)
 =
-J_i(z)
-+
-\delta q_iJ_{\rm sig}(z)
+\frac{|(\Phi z)_i|^2/(z^\dagger z)+\delta q_i}{1+\delta}
 \]
 
-とする。\(q_i>0\)、\(\sum_iq_i=1\) は固定背景作用の枝配分、\(\delta>0\) は有限装置の背景容量である。\(\Phi^\dagger\Phi=I_2\) から
+が2作用殻の規格化状態数として得られ、R161はこの分布への有限時間再平衡化、R162はその有限衝突実現を与える。R170では再平衡化後に入射cellを止め、左右ゲートを閉じ、局所記録を作る。従ってQ1章で独立に必要なのは、W型信号の準備と分析器、左右固定、結果別テンプレート交換であり、共通定理を再宣言しない。
+
+作用殻を消去した条件付き中間状態有効自由エネルギーは
 
 \[
-\sum_iA_i^\delta(z)
-=
-(1+\delta)J_{\rm sig}(z)
+E_i^\delta(z)=-\Theta\log\pi_i^\delta(z)
 \]
 
-となる。
-
-各位置枝 \(i\) に、非負作用 \(K_i,I_i\) と2つの角を持つ排他的fiberを置き、\(K_i+I_i=A_i^\delta(z)\) の作用殻を同じLiouville規約で数える。作用基準を \(J_{\rm ref}\) とすれば、付録Lで
-
-\[
-\Omega_i^\delta(z)
-=
-\frac{(2\pi)^2}{J_{\rm ref}}
-A_i^\delta(z)
-\]
-
-を得る。
-
-\begin{theorem}[R164：有限信号作用のBorn型殻状態数]
-
-$\Phi^\dagger\Phi=I_2$、$z\neq0$、$q_i>0$、$\sum_iq_i=1$、$\delta>0$ とする。各排他的枝を同じ2作用殻Liouville母測度で数えると、規格化状態数は
-
-$$
-\begin{aligned}
-\frac{\Omega_i^\delta(z)}
-{\sum_j\Omega_j^\delta(z)}
-&=
-\frac{
-|(\Phi z)_i|^2/(z^\dagger z)
-+
-\delta q_i
-}{1+\delta}\\
-&=:
-\pi_i^\delta(z).
-\end{aligned}
-$$
-
-作用殻fiberの枝自由エネルギーを $F_i^{\rm sh}=-\Theta\log\Omega_i^\delta$、全枝基準を $F_{\rm eq}^{\rm sh}=-\Theta\log\sum_j\Omega_j^\delta$ とすれば
-
-$$
-E_i^\delta(z)
-=
-F_i^{\rm sh}(z)-F_{\rm eq}^{\rm sh}(z)
-=
--\Theta\log\pi_i^\delta(z).
-$$
-
-従ってBorn型条件付き重みとR161の有効自由エネルギーは、確率を枝容量へ書き込まず、信号作用のmode分解と2作用殻の状態数から得られる。
-\end{theorem}
-
-R164の証明、一般 \(n\) 作用殻、作用分配次元の剛性、共通流束、有限幅拘束は付録Lに置く。直接作用を受け取る明反応方向が \(q\) 本なら \(\Omega\propto A^q\) なので、Born型線形則を全容量族で保つのは \(q=1\) だけである。有限剛性 \(\kappa\) の滑らかな作用殻は有限幅誤差を持ち、\(\delta\downarrow0\) で一様精度を保つには必要条件として \(\kappa=\Omega(\delta^{-2})\) であり、\(\Theta(\delta^{-2})\) は代表的な選択である。
-
-\(E_i^\delta\) は裸の粒子位置エネルギーでなく、作用殻を消去した条件付き中間状態有効自由エネルギーである。任意の粒子位置分布 \(p\) に対して
-
-\[
-\mathcal F[p\mid z]
--
-\mathcal F[\pi^\delta\mid z]
-=
-\Theta
-D_{\rm KL}
-\left(
-p\|\pi^\delta(z)
-\right)
-\]
-
-となる。従ってrematchingを、抽象多様体への射影でなく有効自由エネルギーの緩和として扱える。ただしR164は作用容量結合、fiber内平衡化、枝対称性をM47周期の有限局所Hamiltonianから導かない。
-
-\hypertarget{ux4efbux610fux306eux4fe1ux53f7bathux65b9ux5411ux306bux5bfeux3059ux308bux7c92ux5b50ux4f4dux7f6eux518dux5e73ux8861ux5316}{%
-\section{任意の信号bath方向に対する粒子位置再平衡化}\label{ux4efbux610fux306eux4fe1ux53f7bathux65b9ux5411ux306bux5bfeux3059ux308bux7c92ux5b50ux4f4dux7f6eux518dux5e73ux8861ux5316}}
-
-有限連結W型グラフの各辺 \(i\sim j\) に \(a_{ij}=a_{ji}>0\) を置き、
-
-\[
-k_{i\to j}^\delta(z)
-=
-\kappa_Xa_{ij}
-\sqrt{
-\frac{\pi_j^\delta(z)}{\pi_i^\delta(z)}
-}
-\]
-
-とする。これは単一試行の \(z\) に条件付けた粒子位置応答であり、物理的複素場からcurrent rateを作る因果律ではない。
-
-\begin{theorem}[R161：任意の有限信号方向に対する粒子位置再平衡化]
-
-$$
-q_{\min}=\min_iq_i,
-\qquad
-a_{\min}=\min_{i\sim j}a_{ij},
-\qquad
-m_\delta=\frac{\delta q_{\min}}{1+\delta}
-$$
-
-とする。無重みW型グラフLaplacianの第1非零固有値を $\lambda_G$ とすれば、任意の $z\neq0$ に対して $\pi^\delta(z)$ は唯一の定常分布であり、全初期粒子位置分布から
-
-$$
-D_{\rm TV}
-\left(
-\operatorname{Law}(X_T\mid z),
-\pi^\delta(z)
-\right)
-\leq
-C_\delta e^{-\lambda_\delta T}
-$$
-
-で収束する。ここで一様に
-
-$$
-\lambda_\delta
-\geq
-\kappa_Xa_{\min}m_\delta\lambda_G,
-\qquad
-C_\delta
-=
-\frac12\sqrt{m_\delta^{-1}-1}
-$$
-
-と選べる。目標分布は共通位相と全振幅に不変であり、理想W型対角との差は
-
-$$
-D_{\rm TV}
-\left(
-\pi^\delta(z),
-w(z)
-\right)
-\leq
-\frac{\delta}{1+\delta}
-$$
-
-である。
-\end{theorem}
-
-証明は付録Kに置く。R161のM48特殊化は固定Bell装置の有限設定族について同じ平方根率を採用した先行結果である。R161は全M47 rayへ拡張し、\(q_{\min}\)、\(a_{\min}\)、\(\lambda_G\) による明示的一様下界を与える。
-
-\(\delta=0\) で目標占有が零となる頂点がグラフの切断点なら、詳細釣合いは正占有頂点からそのnodeへの流入を零にする。従って局所隣接率だけで全初期状態を任意の理想rayへ一様再平衡化することはできない。有限M47では \(\delta>0\) を採用し、正則化誤差と資源増大を台帳へ残す。
-
-\hypertarget{ux6709ux9650ux885dux7a81ux71b1ux6d74ux3068ux5c40ux6240ux8a73ux7d30ux91e3ux5408ux3044}{%
-\section{有限衝突熱浴と局所詳細釣合い}\label{ux6709ux9650ux885dux7a81ux71b1ux6d74ux3068ux5c40ux6240ux8a73ux7d30ux91e3ux5408ux3044}}
-
-R164の粒子位置有効自由エネルギーに対して、辺の対称障壁を
-
-\[
-B_{ij}^\delta(z)
-=
-B_{ij}^0
-+
-\frac12
-\left[
-E_i^\delta(z)+E_j^\delta(z)
-\right]
-\]
-
-とする。衝突面へ実際に到着するセルの運動エネルギー分布を
-
-\[
-f_{\rm in}(\epsilon)
-=
-\beta e^{-\beta\epsilon},
-\qquad
-\beta=\Theta^{-1}
-\]
-
-とし、\(\epsilon\geq B_{ij}^\delta-E_i^\delta\) の場合だけ辺を通す。通過後のセルエネルギーは
-
-\[
-\epsilon'
-=
-\epsilon
-+
-E_i^\delta
--
-E_j^\delta
-\]
-
-とするので、粗視化された粒子位置有効自由エネルギーとセルエネルギーの和は保存される。作用殻fiberを含む全微視的エネルギー保存は、fiberを明示したprotocolを構成するまで主張しない。
-
-\begin{theorem}[R162：局所詳細釣合い率の有限衝突熱浴実現]
-
-辺衝突流束を $\nu_{ij}=\nu_{ji}$ とする。入射位置、到着時計、運動方向、反射枝、出射エネルギー、履歴セルを完全状態へ含めると、正逆衝突を一対一に対応させる有限Hamiltonian散乱を構成できる。縮約粒子位置率は
-
-$$
-k_{i\to j}^{\rm coll}(z)
-=
-\nu_{ij}e^{-\beta B_{ij}^0}
-\sqrt{
-\frac{\pi_j^\delta(z)}{\pi_i^\delta(z)}
-}
-$$
-
-となる。$\nu_{ij}e^{-\beta B_{ij}^0}=\kappa_Xa_{ij}$ と校正すればR161に一致する。固定観測時間、各辺の有限セル数、有限エネルギー切断では、理想経路測度との差をoverflow、エネルギー尾部、閾値平滑化、時計、信号bath保持の誤差和で抑えられる。超過セルと比較境界は無反応結果へ含める。
-\end{theorem}
-
-記録前には入射セルを止め、辺ゲートを閉じる。これによりR143が仮定していた単一試行の局所滞在失敗率を、障壁裾、エネルギー尾部、時計ずれの和として評価できる。固定有限個のセルで無期限のMarkov浴を実現するとは主張せず、反復にはfresh cell流を使う。
-
-\hypertarget{ux89e3ux6790ux5668quenchux3068ux3086ux3089ux304eux95a2ux4fc2}{%
-\section{解析器quenchとゆらぎ関係}\label{ux89e3ux6790ux5668quenchux3068ux3086ux3089ux304eux95a2ux4fc2}}
-
-単一試行信号 \(z_t\) を外部制御写像により動かす。作用殻を消去した条件付き中間状態の相対有効仕事と相対有効熱を
-
-\[
-W^{\rm rel}
-=
-\int_0^T
-\dot E_{X_t}^\delta(z_t)
-\,dt,
-\]
-
-\[
-Q^{\rm rel}
-=
-\sum_{\ell}
-\left[
-E_{i_\ell}^\delta(z_{t_\ell})
--
-E_{i_{\ell-1}}^\delta(z_{t_\ell})
-\right]
-\]
-
-とすれば、各粗視化経路で \(\Delta E=W^{\rm rel}+Q^{\rm rel}\) である。
-
-\begin{theorem}[R163：信号切替と粒子位置の経路ゆらぎ関係]
-
-R161またはR162の正逆protocolについて、経路エントロピー生成 $\Sigma$ は
-
-$$
-\frac{\mathcal P_F[\omega]}
-{\mathcal P_R[\omega^\dagger]}
-=
-e^{\Sigma[\omega]},
-\qquad
-\left\langle e^{-\Sigma}\right\rangle_F
-=1,
-\qquad
-\langle\Sigma\rangle_F
-\geq0
-$$
-
-を満たす。単一試行信号 $z^-$ から $z^+$ への瞬間quenchでは
-
-$$
-W_i^{\rm eff}
-=
-\Theta
-\log
-\frac{\pi_i^\delta(z^-)}
-{\pi_i^\delta(z^+)},
-$$
-
-$$
-\left\langle e^{-\beta W^{\rm rel}}\right\rangle
-=1,
-\qquad
-\langle W^{\rm rel}\rangle
-=
-\Theta
-D_{\rm KL}
-\left(
-\pi^\delta(z^-)
-\|
-\pi^\delta(z^+)
-\right)
-$$
-
-である。作用殻明示表示では $W_i^{\rm sh}=\Delta F_i^{\rm sh}$、作用殻消去表示では $W_i^{\rm rel}=\Delta E_i=W_i^{\rm sh}-\Delta F_{\rm eq}^{\rm sh}$ と区別する。全作用保存unitaryでは共通項が一定になり得るが、pumpまたはresetでは一定とは限らない。
-\end{theorem}
-
-R163は、局所詳細釣合い率が単に目的分布を不変にするだけでなく、正逆経路確率比と相対有効散逸仕事を固定することを示す。経路確率比と積分ゆらぎ関係は粗視化跳躍過程で厳密だが、\(W^{\rm rel}\) を全装置の機械仕事、\(Q^{\rm rel}\) を全微視的熱と同一視しない。ゆらぎの定理はR164の地形の下流整合性を検査し、作用殻状態数の線形則を選び出すものではない。Hopf pump、作用殻準備、信号bath保持、傾斜回路、記録、template交換、resetを含む全周期の総収支は別に閉じる必要がある。
+である。第2章の粗視化経路熱力学系は、解析器quenchと粒子位置遷移の正逆経路比、積分ゆらぎ関係、相対有効散逸を監査する。ただしこれはHopf pump、作用殻準備、信号bath保持、記録、template交換、resetを含む全周期の機械仕事・微視的熱収支ではない。
 
 \hypertarget{r140ux306eux50beux659cux4fddux6301ux7bc0}{%
 \section{R140の傾斜保持節}\label{r140ux306eux50beux659cux4fddux6301ux7bc0}}
@@ -1778,7 +1595,7 @@ Q1測定の中心誤差を
 
 と分ける。R145は \(\varepsilon_{\rm Hopf}\) の信号bath方向部分を有限準備時間で抑える。条件付き作用殻状態数、粒子位置周辺、条件付き粒子位置分布はR164、R161、R162の後段準備・再平衡化へ移し、R145単独の誤差へ入れない。零seedと位相基準の失敗は独立に完全結果集合へ残す。
 
-熱力学台帳では、信号bath方向を変える解析器仕事 \(W_{\rm ctrl}\)、作用枝容量と作用殻拘束を切り替える殻自由エネルギー仕事 \(W_{\rm sh}\)、作用殻消去表示の相対有効仕事 \(W_{\rm q}^{\rm rel}\)、相対有効熱 \(Q_X^{\rm rel}\)、Hopf pump仕事 \(W_{\rm Hopf}\)、記録・template交換・reset仕事を分ける。R163は条件付き中間状態について
+熱力学台帳では、信号bath方向を変える解析器仕事 \(W_{\rm ctrl}\)、作用枝容量と作用殻拘束を切り替える殻自由エネルギー仕事 \(W_{\rm sh}\)、作用殻消去表示の相対有効仕事 \(W_{\rm q}^{\rm rel}\)、相対有効熱 \(Q_X^{\rm rel}\)、Hopf pump仕事 \(W_{\rm Hopf}\)、記録・template交換・reset仕事を分ける。第2章の粗視化経路熱力学系は条件付き中間状態について
 
 \[
 \Delta E_X^{\rm rel}
@@ -1828,8 +1645,8 @@ Q_X^{\rm rel}
 \bottomrule\noalign{}
 \endlastfoot
 Q1-1 & 達成 & R135、R140 & 全W型制御は有限2モード誤差。精度--時間交換を持つ \\
-Q1-2 & 部分達成 & R140、R143--R145、R161--R164、R168、R170 & Born型状態数と有効自由エネルギーの条件付き起源を導出。作用容量結合、fiber内平衡化、枝対称性、信号bath反作用の有限局所Hamiltonian統合が残る \\
-Q1-3 & 部分達成 & R143--R145、R161--R164 & 連続matching保存は不要化。Hopf pump、fiber、controller、記録、resetを含む周期総収支が残る \\
+Q1-2 & 部分達成 & R140、R143--R145、R161、R162、R164、R168、R170 & Born型状態数と有効自由エネルギーの条件付き起源を導出。作用容量結合、fiber内平衡化、枝対称性、信号bath反作用の有限局所Hamiltonian統合が残る \\
+Q1-3 & 部分達成 & R143--R145、R170 & 連続matching保存は不要化。Hopf pump、fiber、controller、記録、resetを含む周期総収支が残る \\
 Q1-4 & 未達（凍結中） & --- & 判定基準を保持し、反復測定の新規構成・証明・検証を凍結 \\
 \end{longtable}
 
@@ -1881,7 +1698,7 @@ Q1-4の固定目標は削除しない。旧M38の有限Zeno結果は、置換済
 \chapter{M49の共同bath CNOT供給模型と共同入力--出力統計}\label{m49ux306eux5171ux540cbath-cnotux4f9bux7d66ux6a21ux578bux3068ux5171ux540cux5165ux529bux51faux529bux7d71ux8a08}}
 
 \begin{statusbox}
-位置づけ：M49の中央4枝作用殻から粒子位置への直接decode、行分解bath--粒子位置matching、担体・bath・粒子位置・作用殻地形へ同期するCNOT、fresh出力殻を使う固定有限ベンチマーク、M48へのsetting-free受渡しを構成する。Q2-1の達成判定は維持する。
+位置づけ：R159に、M49の中央4枝作用殻からの入力準備、担体・bath・粒子位置・作用殻地形へ同期するCNOT、fresh出力殻を使う固定有限benchmarkを統合する。R160でM48へのsetting-free受渡しを分離し、Q2-1の達成判定は維持する。
 \end{statusbox}
 
 \hypertarget{ux76eeux7684ux8a66ux884cux72b6ux614bux4e8cux3064ux306eux7d42ux4e86ux9762}{%
@@ -1916,7 +1733,7 @@ M49は次の4層を同じ固定programで閉じる。
 
 CNOT直後かつ積分析器前の面を \(\Sigma_{\rm gate}\)、固定積分析器と出力読出し後の面を \(\Sigma_{\rm bench}\) とする。\(\Sigma_{\rm gate}\) はM48へ状態を渡すprovider面、\(\Sigma_{\rm bench}\) はQ2-1の共同統計を監査する面である。同じ試行で先にbenchmark読出しを行い、その後にprovider状態を渡したとは扱わない。
 
-R104、R105はM49内部の4モード担体に対する有限正準代数として使う。この代数だけからM50中央枝、bath、粒子位置は従わない。
+4モード担体の有限正準代数はR112の特殊化として使う。この代数だけからM50中央枝、bath、粒子位置は従わない。
 
 \hypertarget{ux30e2ux30fcux30c9ux62c5ux4f53ux3068cnotux4ee3ux6570}{%
 \section{4モード担体とCNOT代数}\label{ux30e2ux30fcux30c9ux62c5ux4f53ux3068cnotux4ee3ux6570}}
@@ -1948,10 +1765,9 @@ R104、R105はM49内部の4モード担体に対する有限正準代数とし�
 
 と作用する。両代数は相互に可換で、積状態条件 \(\det D_{\rm prog}=0\) を保存する。
 
-\begin{lemma}[R104：M49有限program担体の操作誘導テンソル積]
+\textbf{R112の4モード特殊化。}
 
 固定作用4モード正準担体上に、式(4.3)の二つの局所操作代数を有限2次Hamiltonian流として実装できる。両代数は互いの可換代数に一致し、4次元担体へ操作誘導テンソル積を定める。これは一つの物理担体内の論理分解であり、2物理端への分配ではない。
-\end{lemma}
 
 CNOT射影を
 
@@ -1974,10 +1790,9 @@ CNOT射影を
 
 窓面積が \(\pi\) なら、\(e^{-i\pi\Pi_{\rm CX}}=U_{\rm CX}\) である。
 
-\begin{lemma}[R105：M49 program担体の厳密CNOT流と有限制御評価]
+\textbf{R112の4モードCNOT特殊化。}
 
-面積 $\pi$ の有限時計窓は、4モードprogram担体上でCNOTと厳密に一致し、全作用と正準性を保存する。積入力 $|+0\rangle$ を $(|00\rangle+|11\rangle)/\sqrt2$ へ写すため、局所操作の積へは分解できない。4信号正準対と1時計正準対で実装でき、面積誤差と一般制御誤差は式(4.7)および直後の作用素距離で評価される。bath、粒子位置、選択器、記録を含むM49全体の資源は別に加える。
-\end{lemma}
+面積 \(\pi\) の有限時計窓は、4モードprogram担体上でCNOTと厳密に一致し、全作用と正準性を保存する。積入力 \(|+0\rangle\) を \((|00\rangle+|11\rangle)/\sqrt2\) へ写すため、局所操作の積へは分解できない。4信号正準対と1時計正準対で実装でき、面積誤差と一般制御誤差は式(4.7)および直後の作用素距離で評価される。bath、粒子位置、選択器、記録を含むM49全体の資源は別に加える。
 
 固定作用面で \(0\leq G_C\leq\mathcal J_0\) である。\(0\leq g\leq g_{max}\) なら動作時間は \(T_{\rm g}\geq\pi/g_{max}\)、面積誤差 \(\delta A\in[-\pi,\pi]\) には
 
@@ -1992,10 +1807,10 @@ CNOT射影を
 
 が成立する。一般Hermitian制御誤差を共通位相を除いた積分作用素ノルム \(\eta_C\) で評価すると、実行unitaryはCNOTから作用素距離 \(\min{2,\eta_C}\) 以下にある。
 
-これらはR105の有限制御節であり、正確CNOTと別の結果を構成しない。
+これらはR112の有限制御節の4モード特殊化であり、正確CNOTと別の結果を構成しない。
 
-\hypertarget{r157ux884cux5206ux89e3bathux7c92ux5b50ux4f4dux7f6ematching}{%
-\section{R157：行分解bath--粒子位置matching}\label{r157ux884cux5206ux89e3bathux7c92ux5b50ux4f4dux7f6ematching}}
+\hypertarget{r159ux5185ux90e8ux88dcux984cux5165ux529bux306eux884cux5206ux89e3bathux7c92ux5b50ux4f4dux7f6ematching}{%
+\section{R159内部補題：入力の行分解bath--粒子位置matching}\label{r159ux5185ux90e8ux88dcux984cux5165ux529bux306eux884cux5206ux89e3bathux7c92ux5b50ux4f4dux7f6ematching}}
 
 規格化program \(D_{\rm prog}\) の行重みを
 
@@ -2028,7 +1843,7 @@ J_{ab}(D_{\rm prog})
  \tag{4.9}
 \]
 
-をcontrolled SWAPで直接decodeする。ここで \(x_A,x_B\) は \(X_A,X_B\) を担う2モードone-hot正準registerである。物理枝 \(\gamma_{ab}\) を使用済み履歴へ残すため、decodeは拡大系で1対1である。M35の作用区間、一様選択器角、一時pointerを挟まない。
+をcontrolled SWAPで直接decodeする。ここで \(x_A,x_B\) は \(X_A,X_B\) を担う2モードone-hot正準registerである。物理枝 \(\gamma_{ab}\) を使用済み履歴へ残すため、decodeは拡大系で1対1である。別の作用区間標本器、一様選択器角、一時pointerを挟まない。
 
 共通位相 \(\theta\) を設定と独立に選び、第 \(a\) 行用の事前校正bath templateを
 
@@ -2102,10 +1917,9 @@ J_{ab}(D_{\rm prog})
 
 と評価できる。
 
-\begin{theorem}[R157：M49中央4枝状態数の有限Hamiltonian準備]
+\textbf{R159の入力準備節。}
 
 任意の固定有限規格化program族について、M50中央4枝作用殻から二粒子位置を直接かつ可逆にdecodeし、行配置から事前校正bath templateをactive portへcanonical routingする有限Hamiltonian装置を構成できる。理想層では共同Born状態数、行周辺、式(4.11)、式(4.12)が厳密に整合し、有限装置では無反応を除外せず式(4.15)--(4.17)で誤差を抑えられる。交差モーメントまたは共同頻度を単一試行制御器へ書き戻さない。
-\end{theorem}
 
 「有限Hamiltonian準備」は、固定program用に校正済みの有限template bankからactive portへ可逆routingする意味である。未知入力の自然な自己分解ではない。また稀な行に一様資源上界はない。行 \(a\) の条件付きcross momentを作る任意分解にはCauchy--Schwarzから
 
@@ -2118,8 +1932,8 @@ J_{ab}(D_{\rm prog})
 
 が必要である。従って固定有限program族では有限だが、\(\rho_a\to0\) を含む全program一様上界は主張しない。
 
-\hypertarget{r158ux62c5ux4f53bathux7c92ux5b50ux4f4dux7f6eux3078ux540cux671fux3059ux308bcnot}{%
-\section{R158：担体・bath・粒子位置へ同期するCNOT}\label{r158ux62c5ux4f53bathux7c92ux5b50ux4f4dux7f6eux3078ux540cux671fux3059ux308bcnot}}
+\hypertarget{r159ux5185ux90e8ux88dcux984cux62c5ux4f53bathux7c92ux5b50ux4f4dux7f6eux3078ux540cux671fux3059ux308bcnot}{%
+\section{R159内部補題：担体・bath・粒子位置へ同期するCNOT}\label{r159ux5185ux90e8ux88dcux984cux62c5ux4f53bathux7c92ux5b50ux4f4dux7f6eux3078ux540cux671fux3059ux308bcnot}}
 
 係数行列上のCNOTを
 
@@ -2131,7 +1945,7 @@ J_{ab}(D_{\rm prog})
  \tag{4.19}
 \]
 
-とする。row-majorで \(\operatorname{vec}_{\rm row}(\mathcal C_{\rm CX}(D_{\rm prog}))=U_{\rm CX}d_{\rm prog}\) である。R157の各試行へ
+とする。row-majorで \(\operatorname{vec}_{\rm row}(\mathcal C_{\rm CX}(D_{\rm prog}))=U_{\rm CX}d_{\rm prog}\) である。入力準備節の各試行へ
 
 \[
  D_{\rm prog}^+=\mathcal C_{\rm CX}(D_{\rm prog}^-),
@@ -2162,7 +1976,7 @@ J_{ab}(D_{\rm prog})
 
 を置く。三生成子はsafe sector上で異なるtarget registerに作用し、共有control \(x_A\) の共役運動量を使わないためPoisson可換である。各面積を \(\pi\) に合わせれば式(4.20)、式(4.21)を同時に得る。境界は無反応へ送り、反作用は使用済みcellへ残す。
 
-理想層では行重みが保存され、各R157 branchは出力program \(\mathcal C_{\rm CX}(D_{\rm prog})\) の対応branchへ点ごとに写る。従って
+理想層では行重みが保存され、各入力branchは出力program \(\mathcal C_{\rm CX}(D_{\rm prog})\) の対応branchへ点ごとに写る。従って
 
 \[
  M_{AB}^+=\mathcal C_{\rm CX}(M_{AB}^-),
@@ -2185,10 +1999,9 @@ CNOT枝置換を \(P_{\rm CX}(a,b)=(a,b\oplus a)\) とすると、中央作用�
 
 を満たす。作用殻消去表示の条件付き有効自由エネルギーも同じ置換で共変である。従って担体、bath、粒子位置だけでなく、Born型状態数と熱力学的地形も同じ出力programへ移る。この共変性は分布地形についての主張であり、時計パルス、制御器反作用、作用殻変形を含むCNOTの機械仕事が零であることを意味しない。
 
-\begin{theorem}[R158：担体・bath・粒子位置へ同期する同一試行CNOT]
+\textbf{R159の同期CNOT節。}
 
-R157の各safe試行について、4モード担体、B bath、B粒子位置へ式(4.20)、式(4.21)の同じCNOTを1つの有限時計窓で作用させられる。理想写像は自己逆、正準、作用保存であり、交差モーメント、二粒子位置、中央作用殻の状態数地形を式(4.23)と上の置換共変式へ同時に写す。別標本化または集団制御器を使用しない。
-\end{theorem}
+入力準備節の各safe試行について、4モード担体、B bath、B粒子位置へ式(4.20)、式(4.21)の同じCNOTを1つの有限時計窓で作用させられる。理想写像は自己逆、正準、作用保存であり、交差モーメント、二粒子位置、中央作用殻の状態数地形を式(4.23)と上の置換共変式へ同時に写す。別標本化または集団制御器を使用しない。
 
 有限bath反転誤差を \(\eta_z\)、粒子位置XOR誤差を \(\varepsilon_\oplus\)、担体誤差を \(\eta_C\)、時計同期誤差を \(\varepsilon_{\rm clk}^{49}\) とする。例えば
 
@@ -2246,7 +2059,7 @@ R157の各safe試行について、4モード担体、B bath、B粒子位置へ�
 
 とする。
 
-入力program頻度は、固定源 \(r_\lambda=(\sqrt{\lambda_1},\ldots,\sqrt{\lambda_S})\) に対する外側schedule \(u_S\) から作る。これはbenchmark入力条件の提示であり、Born型出力の確率源ではない。選ばれた物理register \(S=s\) により、program担体 \(D_{{\rm in},s}\) と対応するR157 template bankをactive portへroutingする。R157の入力結果は中央M50殻の物理枝から直接decodeする。R158後、provider運転は \(\Sigma_{\rm gate}\) で停止する。
+入力program頻度は、固定源 \(r_\lambda=(\sqrt{\lambda_1},\ldots,\sqrt{\lambda_S})\) に対する外側schedule \(u_S\) から作る。これはbenchmark入力条件の提示であり、Born型出力の確率源ではない。選ばれた物理register \(S=s\) により、program担体 \(D_{{\rm in},s}\) と対応する入力template bankをactive portへroutingする。入力結果は中央M50殻の物理枝から直接decodeする。同期CNOT後、provider運転は \(\Sigma_{\rm gate}\) で停止する。
 
 benchmark運転だけは、同じ担体 \(D_{{\rm gate},s}\) へ固定局所分析器を作用させて \(D_{{\rm out},s}\) を得る。\(D_{{\rm out},s}\) からfreshな中央4枝M50出力殻 \(\Gamma_Y\) を準備し、その物理枝 \((a,b)\) をfresh結果register \(Y_A=e_a,Y_B=e_b\) へ直接かつ可逆にdecodeする。入力殻 \(\Gamma_X\) と出力殻 \(\Gamma_Y\) は異なる物理registerであり、分析器前の担体を複製せず、出力表を装置へ直接書き込まない。
 
@@ -2260,7 +2073,7 @@ benchmark運転だけは、同じ担体 \(D_{{\rm gate},s}\) へ固定局所分�
 
 \(S=0\) と \(S=1\) の入力枝を作った使用済み殻状態を、そのまま条件付き出力殻として再利用すると、入力枝との相関が残り得る。上の目標に対し、再利用した同一微視的順位が4共同枝を全て \(1/4\) にする場合、式(4.30)からの全変動距離は \(1/4\) である。この反例は、M50を使っても使用済み入力殻の微視的状態をfresh出力殻へ再利用してはならないことを示す。
 
-入力選択誤差を \(\varepsilon_S\)、R157失敗を \(\varepsilon_{157,s}\)、準備・CNOT・分析器の純粋状態距離を \(\delta_{\rm state,s}\)、fresh出力殻の準備誤差を \(\varepsilon_{{\rm sh},s}\)、直接decode誤差を \(\varepsilon_{\rm dec,s}\)、記録誤差を \(\varepsilon_{\rm rec}\) とする。無反応込みの実分布は
+入力選択誤差を \(\varepsilon_S\)、入力準備失敗を \(\varepsilon_{{\rm prep},s}\)、準備・CNOT・分析器の純粋状態距離を \(\delta_{\rm state,s}\)、fresh出力殻の準備誤差を \(\varepsilon_{{\rm sh},s}\)、直接decode誤差を \(\varepsilon_{\rm dec,s}\)、記録誤差を \(\varepsilon_{\rm rec}\) とする。無反応込みの実分布は
 
 \[
  D_{\rm TV}(P_{\rm obs},P_{\rm CX}^{\rm id})
@@ -2268,7 +2081,7 @@ benchmark運転だけは、同じ担体 \(D_{{\rm gate},s}\) へ固定局所分�
  \varepsilon_S
  +\sum_s\lambda_s
  \left(
- \varepsilon_{157,s}
+ \varepsilon_{{\rm prep},s}
  +\delta_{\rm state,s}
  +\varepsilon_{{\rm sh},s}
  +\varepsilon_{\rm dec,s}
@@ -2279,7 +2092,11 @@ benchmark運転だけは、同じ担体 \(D_{{\rm gate},s}\) へ固定局所分�
 
 \begin{theorem}[R159：固定有限入力、入力頻度、固定積出力基底の共同入力--出力統計]
 
-任意の固定有限純粋入力、入力頻度、固定積出力基底、任意の $\epsilon>0$ に対し、program schedule、M49の中央入力殻・行分解準備、同期CNOT、固定積分析器、fresh中央M50出力殻、無反応込みの直接枝decodeからなる有限Hamiltonian benchmarkを構成できる。入力labelと2粒子位置出力の長期共同分布は式(4.28)から全変動距離 $\epsilon$ 未満にできる。
+任意の固定有限純粋入力、入力頻度、固定積出力基底、任意の $\epsilon>0$ に対して、次の三節を一つの有限Hamiltonian protocolとして構成できる。
+
+1. M50中央4枝から二粒子位置を直接かつ可逆にdecodeし、行配置から事前校正bath templateをroutingする入力準備節。理想層では共同状態数、行周辺、交差モーメント、単一試行matchingが整合する。
+2. 4モード担体、bath、粒子位置、中央作用殻地形へ同じCNOT置換を一つの時計窓で作用させる同期節。理想写像は自己逆、正準、作用保存であり、別標本化または集団制御器を使わない。
+3. 固定積分析器、fresh中央M50出力殻、無反応込みの直接枝decodeを使うbenchmark統計節。入力labelと二粒子位置出力の共同分布は式(4.28)から全変動距離 $\epsilon$ 未満にできる。
 \end{theorem}
 
 共同分布全体の精度に最小入力頻度は不要である。ただし各入力に条件付けた誤差を一様に主張する場合は
@@ -2304,7 +2121,7 @@ M48へ渡す固定積入力を
  \tag{4.33}
 \]
 
-とする。R158後には
+とする。R159の同期CNOT節後には
 
 \[
  \mathcal C_{\rm CX}(D_{\rm in}^{\rm s})
@@ -2313,7 +2130,7 @@ M48へ渡す固定積入力を
  \tag{4.34}
 \]
 
-となる。\(\rho_0=\rho_1=1/2\) なので、R157の二枝はCNOT後に
+となる。\(\rho_0=\rho_1=1/2\) なので、R159の入力準備節の二枝はCNOT後に
 
 \[
  z_B=\mathsf E\overline{z_A},
@@ -2370,7 +2187,7 @@ $T_{\rm link}^{49\to48}$ はM49のlink面族全体でbath・粒子位置register
 \hypertarget{ux8cc7ux6e90ux9054ux6210ux5224ux5b9aux975eux4e3bux5f35}{%
 \section{資源、達成判定、非主張}\label{ux8cc7ux6e90ux9054ux6210ux5224ux5b9aux975eux4e3bux5f35}}
 
-一つの固定programに対するR157準備の透明な単純上界は次である。
+一つの固定programに対するR159入力準備節の透明な単純上界は次である。
 
 \begin{longtable}[]{@{}lr@{}}
 \toprule\noalign{}
@@ -2398,7 +2215,7 @@ active \(z_A,z_B\) & 4 \\
  \tag{4.40}
 \]
 
-R157--R159と共通R164により、Q2-1は固定有限benchmark、無反応込み、制御された任意精度の範囲で引き続き達成である。根拠はR104、R105、R157--R159、R164となり、M50枝からの直接decodeを明示しても判定語は変えない。R160により、固定singlet programは付録Jの契約を満たしてM48へ物理的に接続される。Q2-2全体はR155の条件付き局所因子化を加えても、固定singlet型、固定有限設定族、準備先行、非空間分離、採用開放法則という範囲の条件付き達成を維持する。
+R112、R159、R164により、Q2-1は固定有限benchmark、無反応込み、制御された任意精度の範囲で引き続き達成である。M50枝からの直接decodeを明示しても判定語は変えない。R160により、固定singlet programは付録Jの契約を満たしてM48へ物理的に接続される。Q2-2全体はR155の条件付き局所因子化を加えても、固定singlet型、固定有限設定族、準備先行、非空間分離、採用開放法則という範囲の条件付き達成を維持する。
 
 次は含まない。
 
@@ -2848,7 +2665,7 @@ $$
 ならCHSH不等式の破れが残る。設定前測度 $\nu_0$ は設定に依存しないが、R153の前向きroutingとR147の準備後の切断面測度 $\mu_{\rm cut}^x$ はA設定に依存する。切断後の応答は完全共通原因に条件付けて局所因子化し、理想周辺は非信号的である。周期末に $r_{\rm ret}<1$ のfresh cell交換を行えば、第5.11節の上界で次周期入口へ戻せる。従ってBellの定理を否定せず、成立しない前提は測定設定独立性である。本定理はM48のreceiver側を記録と帰還まで閉じるが、付録Jの $T_{\rm link}$ を構成しない。
 \end{theorem}
 
-付録Iの理想局所応答補題は完全matchingを抽象的に仮定する。R153と本章の局所応答補題は固定Bell装置についてその仮定を有限誤差で充足する。全変動距離から周辺差とCHSH差を抑える統計補題をR155の証明内で適用し、完全周期の結論を得る。
+付録Iの理想局所応答補題は完全matchingを抽象的に仮定する。R153と本章の局所応答補題は固定Bell装置についてその仮定を有限誤差で充足する。第2章R170の安定性系を有界相関観測量へ適用して周辺差とCHSH差を抑え、R155の完全周期の結論を得る。
 
 \hypertarget{bellux524dux63d0ux76e3ux67fb}{%
 \section{Bell前提監査}\label{bellux524dux63d0ux76e3ux67fb}}
@@ -2996,7 +2813,7 @@ U_j^\delta-U_i^\delta
 \right]
 \]
 
-となる。固定 \(z\) でのjump熱は局所有効ポテンシャル差、\(z\) またはsettingを変える間のポテンシャル変化はcontroller仕事である。R163の経路確率比と積分ゆらぎ関係は各翼の粒子位置応答にも適用できる。一方、paired-Hopf pump、中央controller、2翼記録、resetまで含む総仕事、総熱、総エントロピー生成を閉じてはいない。
+となる。固定 \(z\) でのjump熱は局所有効ポテンシャル差、\(z\) またはsettingを変える間のポテンシャル変化はcontroller仕事である。第2章の粗視化経路熱力学系は各翼の粒子位置応答にも適用できる。一方、paired-Hopf pump、中央controller、2翼記録、resetまで含む総仕事、総熱、総エントロピー生成を閉じてはいない。
 
 切断後に共同分布から
 
@@ -3042,7 +2859,7 @@ T_{\rm ret}
 \hypertarget{q2-2ux5224ux5b9aux3068ux975eux4e3bux5f35}{%
 \section{Q2-2判定と非主張}\label{q2-2ux5224ux5b9aux3068ux975eux4e3bux5f35}}
 
-R147、R153、R155によりM48単独Bell周期を閉じ、M49/R160とR157/R164の直接枝構成によりQ2-1の固定singlet出力を同じbath・粒子位置registerのままsetting-free面から接続する。従って固定singlet型、固定有限設定族、準備先行、非空間分離、プロトコル面matching、無反応込み、採用開放法則、弱開放帰還という解釈では、固定目標Q2-2全体を条件付き達成とする。
+R147、R153、R155によりM48単独Bell周期を閉じ、M49/R160とR159/R164の直接枝構成によりQ2-1の固定singlet出力を同じbath・粒子位置registerのままsetting-free面から接続する。従って固定singlet型、固定有限設定族、準備先行、非空間分離、プロトコル面matching、無反応込み、採用開放法則、弱開放帰還という解釈では、固定目標Q2-2全体を条件付き達成とする。
 
 本章は次を主張しない。
 
@@ -3100,7 +2917,7 @@ R147、R153、R155によりM48単独Bell周期を閉じ、M49/R160とR157/R164�
 
 ミクロ層から有効場層への移行はQ3-1の固定達成基準である。M37は、各試行に存在する空間複素包絡を共通R135、R168、R170へ供給する。M37だけから粒子位置、Born型枝状態数、局所記録が必然的に出るとは主張しない。位置instrumentは入力時刻の標本化、信号保持、作用殻状態数、有限熱化、枝固定、記録を別段階として追加する。
 
-Q1はM47のW型2モード、Q2-2はM48のpaired-Hopf周期を使う。Q3の現行読出しはM50の一般有限枝状態数とR161/R162を使う。M35は有限基底制御の補助部品であり、Q3のBorn型枝を生成しない。任意の装置用正準混合がM37の局所ばね網だけで実装できるとは仮定しない。M37がM47へ供給するのは、時間非依存の対称W型生成子、最低2固有モード、スペクトル間隔である。置換済み模型の旧利用関係は現行因果鎖に含めない。
+Q1はM47のW型2モード、Q2-2はM48のpaired-Hopf周期を使う。Q3の現行読出しはM50の一般有限枝状態数とR161/R162を使う。R112は有限基底制御の共通道具であり、Q3のBorn型枝を生成しない。任意の装置用正準混合がM37の局所ばね網だけで実装できるとは仮定しない。M37がM47へ供給するのは、時間非依存の対称W型生成子、最低2固有モード、スペクトル間隔である。置換済み模型の旧利用関係は現行因果鎖に含めない。
 
 振動子の個数を \(L<\infty\)、共通質量を \(M_{\rm osc}>0\)、搬送周波数を \(\omega_0>0\) とする。\(M_{\rm osc}\) はミクロ振動子の質量であり、第6.6節に現れる有効質量 \(m\) と区別する。固定作用尺度 \(\mathcal J_0>0\) は正準座標の規格化に使う。
 
@@ -3790,7 +3607,7 @@ p_i
 \Delta V
 \]
 
-となる。これは空間セル基底での作用比恒等式に留まる。R170は独立の有限枝位置 \(X\) とM50熱化を追加し、入力標本時刻より後の局所位置記録を別に構成する。従ってこの式はR86の有限基底診断系であり、M35または別のBorn型標本器への受渡しとは分類しない。
+となる。これは空間セル基底での作用比恒等式に留まる。R170は独立の有限枝位置 \(X\) とM50熱化を追加し、入力標本時刻より後の局所位置記録を別に構成する。従ってこの式はR86の有限基底診断系であり、別のBorn型標本器への受渡しとは分類しない。
 
 \hypertarget{m37ux6a19ux672cux96c6ux56e3ux3068ux7d71ux8a08ux5171ux5206ux6563}{%
 \section{M37標本集団と統計共分散}\label{m37ux6a19ux672cux96c6ux56e3ux3068ux7d71ux8a08ux5171ux5206ux6563}}
@@ -4111,7 +3928,7 @@ Q3-1の固定基準自体はR86で満たされ、今回の改訂で後から基�
 
 M47ではM37を、対称W型生成子 \(h_W\)、最低2モード \(\phi_0,\phi_1\)、モード分裂 \(E_1-E_0\) を供給する層としてだけ使う。M37の物理包絡 \(b\) をM47の独立実在場とはせず、\(b\) からrateを作って粒子位置を動かさない。M47の統計振幅は、粒子位置--浴共同測度のrank-one核として別に定義する。M37のHamiltonianと反回転項の評価は変更しない。外部 \(\lambda_{\rm prep}(t)\) による開放準備と閉鎖作用角伝播、matching受渡しの条件は第8.15節と付録Hに示す。
 
-R170はBorn型位置分布を「入力信号の標本化」「M50作用殻状態数」「有限熱化」「局所記録」に分ける。状態数だけで物理熱化を説明したとはせず、有限熱化だけで作用容量のミクロ起源を説明したとも扱わない。M35は有限基底制御の補助部品に限り、独立のセル確率源として使わない。
+R170はBorn型位置分布を「入力信号の標本化」「M50作用殻状態数」「有限熱化」「局所記録」に分ける。状態数だけで物理熱化を説明したとはせず、有限熱化だけで作用容量のミクロ起源を説明したとも扱わない。R112は有限基底制御の共通道具に限り、独立のセル確率源として使わない。
 
 \hypertarget{q3ux306eux675fux7e1bux72b6ux614bux7d14ux4f4dux76f8ux7de9ux548cux969cux58c12ux7d4cux8defux5e72ux6e09}{%
 \chapter{Q3の束縛状態、純位相緩和、障壁、2経路干渉}\label{q3ux306eux675fux7e1bux72b6ux614bux7d14ux4f4dux76f8ux7de9ux548cux969cux58c12ux7d4cux8defux5e72ux6e09}}
@@ -4317,7 +4134,7 @@ p_R(T_{\rm bar})-p_R(0)=\alpha>0
 
 第6.14、6.15節のR170が初期・終期の各分布を全変動距離 \(\varepsilon_{170}\) 以内で再現すれば、観測増分は \(\alpha-2\varepsilon_{170}\) 以上である。\(\varepsilon_{170}<\alpha/2\) を満たす有限パラメータを条件付きで選べるため、正の増分は読出し後にも残る。完全な代数証明は付録F.7、G.3節に置く。
 
-\textbf{達成判定。} R124は有限グラフの3分割、生成子、障壁値、障壁値未満の厳密スペクトル支持、初期基準確率、有限時刻の正の増分を与える。R170は固定入力時刻の位置instrumentへ誤差付きで接続するが、作用容量結合から局所記録までの単一Hamiltonian統合を仮定に残す。従ってQ3-4は改訂後の固定範囲で条件付き達成である。
+\textbf{達成判定。} R124は有限グラフの3分割、生成子、障壁値、障壁値未満の厳密スペクトル支持、初期基準確率、有限時刻の正の増分を与える。R170は固定入力時刻の位置instrumentへ誤差付きで接続し、その安定性系により理想的な確率増分から読出し誤差を差し引いた識別下界を与える。ただし作用容量結合から局所記録までの単一Hamiltonian統合を仮定に残す。従ってQ3-4は改訂後の固定範囲で条件付き達成である。
 
 \textbf{非主張。} 障壁高・幅・入射エネルギーに対する連続的な透過率曲線、半無限散乱極限、透過・反射・未確定を含む完全散乱装置、熱活性化との装置比較、初回通過、吸収器、到達時間分布は固定目標より強い拡張であり、本結果には含めない。
 
@@ -4400,7 +4217,7 @@ p_{\pi/2},p_{-\pi/2}
 
 R170固定入力時刻位置instrumentが各理想分布を全変動距離 \(\varepsilon_{170}\) 以内で再現すれば、読出し分布間の距離はそれぞれ \(1/2-2\varepsilon_{170}\)、\(1-2\varepsilon_{170}\) 以上である。\(\varepsilon_{170}<1/4\) を満たす有限パラメータを条件付きで選べるので両方の差が正に残る。完全な証明は付録F.7、G.4節に置く。
 
-\textbf{達成判定。} R125は、有限グラフの直交2経路入力、同一発展、コヒーレント入力、同じ重みの混合、正のコヒーレンス差、正の相対位相差を与える。R170との接続は作用容量結合から局所記録までの単一Hamiltonian統合を仮定に残す。従ってQ3-5は改訂後の固定範囲で条件付き達成である。
+\textbf{達成判定。} R125は、有限グラフの直交2経路入力、同一発展、コヒーレント入力、同じ重みの混合、正のコヒーレンス差、正の相対位相差を与える。R170の安定性系により、二つの理想分布間距離から各instrument誤差を差し引いても正なら有限装置で識別できる。ただし作用容量結合から局所記録までの単一Hamiltonian統合を仮定に残す。従ってQ3-5は改訂後の固定範囲で条件付き達成である。
 
 \textbf{非主張。} 幾何学的な開口、源、シャッター、多画素スクリーン、全検出器のHamiltonian、無検出を含む完全装置、初回到達、吸収、永久記録、反復resetは固定目標より強い拡張であり、本結果には含めない。
 
@@ -4526,7 +4343,7 @@ R143は共通R170を初期操作面と分析器後操作面へ適用し、M47固
 \hypertarget{q2-1ux306eux8aa4ux5deeux3068ux8cc7ux6e90}{%
 \section{Q2-1の誤差と資源}\label{q2-1ux306eux8aa4ux5deeux3068ux8cc7ux6e90}}
 
-M49はM50中央4枝を二粒子位置へ直接decodeする。M35作用区間の標本化誤差は加えない。固定program \(s\) の誤差は
+M49はM50中央4枝を二粒子位置へ直接decodeする。別の作用区間標本器の誤差は加えない。固定program \(s\) の誤差は
 
 \[
 \varepsilon_{49,s}
@@ -4541,7 +4358,7 @@ M49はM50中央4枝を二粒子位置へ直接decodeする。M35作用区間の�
 
 で分ける。benchmark運転ではfresh出力殻の準備と出力decodeを追加する。使用済み入力殻の微視的状態を出力殻へ再利用すると共同分布が歪み得る。
 
-一programのR157準備に対する単純上界は次である。
+一programのR159入力準備節に対する単純上界は次である。
 
 \begin{longtable}[]{@{}lr@{}}
 \toprule\noalign{}
@@ -4698,7 +4515,7 @@ R124の理想トンネル型増分を \(\alpha>0\)、R125の理想干渉分布�
 \bottomrule\noalign{}
 \endlastfoot
 M47/R143 & Hopf方向が有限時間で準備できない、R170特殊化後もBorn型枝と局所記録が一致しない、結果別状態更新が失敗する \\
-M49/R157--R160 & M50中央枝の直接decodeが1対1でない、CNOTが担体・bath・粒子位置へ同期しない、fresh出力殻で共同分布が閉じない \\
+M49/R159・R160 & M50中央枝の直接decodeが1対1でない、CNOTが担体・bath・粒子位置へ同期しない、fresh出力殻で共同分布が閉じない \\
 M48/R155 & 条件付き積因子化が破れる、局所R170応答が反対翼設定を参照する、無反応込みでCHSH誤差上界を満たさない \\
 M37/R86・R135 & 有限時間包絡上界または第2モーメント持上げ上界を超える \\
 R168 & 可変作用集団でray平均を第2モーメントへ補正なしに置換する、安全事象外を再規格化して消す \\
@@ -4741,11 +4558,11 @@ R170 & 混合上界、局所記録の排他性、履歴単射性、正の処理�
 
 Q1をM47のW型2モード共同統計へ移した。共通R135は階数1bath共分散のBloch球、R140は1次傾斜制御による任意の \(SU(2)\)、零傾斜占有振動、離調Rabi式、左右エネルギー差による占有周辺固定を与える。R143は有限コントラストの左右読出しと結果別状態更新を共通R170へ追加する。R145は雑音零の採用開放Hopf方程式について信号bathの目標位相円への厳密解と有限時間率を与える。2モード射影内の共分散制御と遷移式は厳密であり、全W型系では高モード間隔、切替時間、左右重なりを明示誤差として分けた。R135、R140によりQ1-1を再構成し、達成と判定した。
 
-M50/R164は一般有限信号作用を枝容量へ写し、各排他的枝の2作用殻を単一Liouville母測度で数えるとBorn型条件付き状態数が得られることを示す。R161は条件付きGibbs再平衡化、R162は有限衝突熱浴、R163は条件付き中間状態の正逆経路確率比と相対有効仕事を与える。作用殻明示表示と消去表示を同じ分配関数で二重計数せず、殻自由エネルギー仕事 \(W^{\rm sh}\) と相対有効仕事 \(W^{\rm rel}\) を区別する。
+M50/R164は一般有限信号作用を枝容量へ写し、各排他的枝の2作用殻を単一Liouville母測度で数えるとBorn型条件付き状態数が得られることを示す。R161は条件付きGibbs再平衡化、R162は有限衝突熱浴を与え、その系として条件付き中間状態の正逆経路確率比と相対有効仕事が従う。作用殻明示表示と消去表示を同じ分配関数で二重計数せず、殻自由エネルギー仕事 \(W^{\rm sh}\) と相対有効仕事 \(W^{\rm rel}\) を区別する。
 
 R143はHopf方向準備、操作面ごとの再平衡化、解析器、傾斜固定、辺閉鎖、M47粒子位置の局所記録、結果別テンプレート交換、測定後再平衡化を合成する有限誤差instrumentである。記録器は統計振幅、共分散、全密度、確率流、遷移率を入力にせず、各試行に存在する \(X\) の局所位置だけを読む。R144は固定有限段について永久記録、内部逆計算、外部空セル交換を合成する。解析器中または周期間に配置--信号bath matchingを連続保存することは仮定しない。
 
-Q2-1にはM49を採用した。中央4枝はM50/R164の直接特殊化として状態数 \(\Omega_{ab}\propto|D_{ab}|^2\) を持ち、R157は同じ共同母測度を行分解bathと2粒子位置matchingへ写す。R158はCNOTを担体、bath、粒子位置、状態数地形へ共変に作用させ、R159はfresh出力殻を使って固定有限CNOT共同入力--出力統計を任意精度で閉じる。M35の作用区間標本化は確率源として使わない。
+Q2-1にはM49を採用した。中央4枝はM50/R164の直接特殊化として状態数 \(\Omega_{ab}\propto|D_{ab}|^2\) を持つ。R159は同じ共同母測度を行分解bathと2粒子位置matchingへ写す入力準備、担体・bath・粒子位置・状態数地形へ共変に作用する同期CNOT、fresh出力殻を使う固定有限共同入力--出力統計を一つにまとめる。別の作用区間標本化は確率源として使わない。
 
 Q2-2にはM48を採用した。付録Iの否定命題は積bath標本の直接4次元共分散をsinglet階数1射影へできないことを示し、R147は設定依存paired-Hopf流の2枝吸引多様体と有限時間率を与える。singlet交差モーメントはR153の準備補題、完全matching下の余弦共同分布はR155の理想応答補題として管理する。
 
@@ -4769,7 +4586,7 @@ M48単独周期は条件付き達成である。条件は、固定singlet型、�
 \hypertarget{ux78baux7acbux3057ux3066ux3044ux306aux3044ux3053ux3068}{%
 \section{確立していないこと}\label{ux78baux7acbux3057ux3066ux3044ux306aux3044ux3053ux3068}}
 
-M47について未導出なのは、自然な局所Hopf--bath相互作用からR145の採用方程式を導くこと、R164の作用容量結合・fiber内平衡化・枝対称性を有限局所Hamiltonianとして構成すること、R162の衝突散乱と信号bath保持controllerを同じ最小有限Hamiltonianへ統合すること、R163の有効仕事・熱を全微視的台帳へ持ち上げてHopf pumpからresetまでの全周期ゆらぎ関係へ拡張することである。時間依存傾斜をM37のミクロ位置ばね網から一様誤差付きで導くこと、連続空間極限、多粒子も未完成である。
+M47について未導出なのは、自然な局所Hopf--bath相互作用からR145の採用方程式を導くこと、R164の作用容量結合・fiber内平衡化・枝対称性を有限局所Hamiltonianとして構成すること、R162の衝突散乱と信号bath保持controllerを同じ最小有限Hamiltonianへ統合すること、粗視化された有効仕事・熱を全微視的台帳へ持ち上げてHopf pumpからresetまでの全周期ゆらぎ関係へ拡張することである。時間依存傾斜をM37のミクロ位置ばね網から一様誤差付きで導くこと、連続空間極限、多粒子も未完成である。
 
 M48について未導出なのは、具体的な回路または振動子bathからpaired-Hopf方程式とR153のseed整列を導き、R162の衝突粒子位置bath、fresh cell流まで統合すること、連続時間の全区間で強いmatching fiberを不変にすること、一般Q2-1出力を一般状態Bell測定へ接続することである。A設定が中央準備へ入るため、空間的に分離した自由設定Bell実験を再現したとはいえない。総仕事、総熱、総エントロピー生成も閉じていない。
 
@@ -4780,7 +4597,7 @@ Q3-4とQ3-5は条件付き達成である。有限グラフ現象の代数部分
 \hypertarget{ux6b21ux306eux6c7aux5b9aux7684ux691cux67fb}{%
 \section{次の決定的検査}\label{ux6b21ux306eux6c7aux5b9aux7684ux691cux67fb}}
 
-Q1の次の検査は、R164の作用容量結合、fiber内平衡化、枝対称性をW型装置の有限局所Hamiltonianから導くことである。その上で、R145のHopf pump、R162の有限衝突bath、信号bath保持controller、任意軸分析器、傾斜切替、局所記録、枝別テンプレート交換、resetを同じ有限時間Hamiltonian台帳へまとめ、R163を周期全体の微視的ゆらぎ関係へ拡張する。\(\delta\downarrow0\)、深いW型、長いfiber準備・混合時間の精度--時間--エネルギー交換を同時に評価する。
+Q1の次の検査は、R164の作用容量結合、fiber内平衡化、枝対称性をW型装置の有限局所Hamiltonianから導くことである。その上で、R145のHopf pump、R162の有限衝突bath、信号bath保持controller、任意軸分析器、傾斜切替、局所記録、枝別テンプレート交換、resetを同じ有限時間Hamiltonian台帳へまとめ、粗視化経路熱力学を周期全体の微視的ゆらぎ関係へ拡張する。\(\delta\downarrow0\)、深いW型、長いfiber準備・混合時間の精度--時間--エネルギー交換を同時に評価する。
 
 Q2-2の次の検査は、R162の有限衝突bathをR153の安全盆routing、paired-Hopf pump、2翼controllerへ統合し、作用依存詳細釣合い、rate切断、局所記録までの熱・仕事・情報流を同じミクロ模型で閉じることである。別の強化課題として、一般Q2-1出力に対する一般状態受渡し、準備後の設定変更、有限伝播を持つ空間分離版を検査する。Q2-3はこの検査範囲に含めない。
 
@@ -4788,17 +4605,17 @@ Q3の次の検査は、R170の作用容量結合、殻内平衡化、信号保�
 
 \appendix
 
-\hypertarget{m35ux6709ux9650ux6b63ux6e96ux5236ux5fa1ux6bd4ux8f03ux8a18ux9332}{%
-\chapter{M35有限正準制御、比較、記録}\label{m35ux6709ux9650ux6b63ux6e96ux5236ux5fa1ux6bd4ux8f03ux8a18ux9332}}
+\hypertarget{r112ux6709ux9650ux6b63ux6e96ux5236ux5fa1ux6bd4ux8f03ux8a18ux9332ux306eux8a3cux660e}{%
+\chapter{R112有限正準制御・比較・記録の証明}\label{r112ux6709ux9650ux6b63ux6e96ux5236ux5fa1ux6bd4ux8f03ux8a18ux9332ux306eux8a3cux660e}}
 
 \begin{statusbox}
-位置づけ：M35の有限ユニタリ回路、時計、滑らかな比較、正準SWAP、記録、逆計算を整理する。作用区間によるBorn型長期頻度は退役し、M50/R164へ一本化する。
+位置づけ：R112の有限ユニタリ回路、時計、滑らかな比較、正準SWAP、記録、逆計算を一つの証明として整理する。Born型枝生成はM50/R164へ分離する。
 \end{statusbox}
 
 \hypertarget{ux76eeux7684ux3068ux5f79ux5272ux5883ux754c}{%
 \section{目的と役割境界}\label{ux76eeux7684ux3068ux5f79ux5272ux5883ux754c}}
 
-M35は有限次元複素信号を実正準座標で制御する補助モジュールである。現行論文で使う機能は次の4つに限る。
+R112は有限次元複素信号を実正準座標で制御する共通定理である。証明は次の4節に分かれる。
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -4813,7 +4630,7 @@ M35は有限次元複素信号を実正準座標で制御する補助モジュ�
   正準SWAP、局所記録、テンプレート交換、内部逆計算を行う。
 \end{enumerate}
 
-一様選択器角の作用区間長をBorn型頻度と同一視する旧経路は使わない。旧数式、非混合性、再利用反例、退役結果IDは \texttt{notes/superseded\_m35\_born\_sampler.md} に置く。M35はM50の作用容量、枝状態数、作用殻fiber内平衡化、粒子位置熱化を代替しない。
+一様選択器角の作用区間長をBorn型頻度と同一視する旧経路は使わない。旧数式、非混合性、再利用反例、退役結果IDは \texttt{notes/superseded\_m35\_born\_sampler.md} に置く。R112はM50の作用容量、枝状態数、作用殻fiber内平衡化、粒子位置熱化を代替しない。
 
 \hypertarget{ux6709ux9650ux6b63ux6e96ux4fe1ux53f7}{%
 \section{有限正準信号}\label{ux6709ux9650ux6b63ux6e96ux4fe1ux53f7}}
@@ -4854,7 +4671,7 @@ C_d
 \frac{\mathbb E[dd^\dagger]}{\mathbb E[d^\dagger d]}
 \]
 
-は \(d\mapsto Ud\) の下で \(C_d\mapsto UC_dU^\dagger\) と変換する。\(C_d\) は集団量であり、M35の単一試行controllerへ入力しない。
+は \(d\mapsto Ud\) の下で \(C_d\mapsto UC_dU^\dagger\) と変換する。\(C_d\) は集団量であり、R112の単一試行controllerへ入力しない。
 
 \hypertarget{r112ux306eux6709ux9650unitaryux5408ux6210ux7bc0}{%
 \section{R112の有限unitary合成節}\label{r112ux306eux6709ux9650unitaryux5408ux6210ux7bc0}}
@@ -4888,8 +4705,8 @@ e^{i\varphi}|j\rangle\langle k|
 
 各2モードブロックはユニタリなので、対応する実写像はシンプレクティックで全作用を保存する。逆回路はゲート順を反転し、各角を反転して得る。
 
-\hypertarget{ux6709ux9650ux6642ux8a08ux7a93}{%
-\section{有限時計窓}\label{ux6709ux9650ux6642ux8a08ux7a93}}
+\hypertarget{r112ux306eux6709ux9650ux6642ux8a08ux7bc0}{%
+\section{R112の有限時計節}\label{r112ux306eux6709ux9650ux6642ux8a08ux7bc0}}
 
 時計正準対 \((\tau,P_\tau)\) とcompact支持の窓 \(g_r(\tau)\) を使い、
 
@@ -4902,13 +4719,12 @@ P_\tau
 
 とする。\(\dot\tau=1\) なので、窓を通過するたびに \(G_r\) が有限面積だけ作用する。窓の重なりを避ければ指定順のPoincaré写像を得る。有限幅、面積ずれ、時計初期値ずれは制御誤差へ入れる。
 
-\begin{lemma}[R90：有限時計による正準回路の自律化]
+\textbf{有限時計による正準回路の自律化。}
 
 固定有限個の2次正準ゲートと滑らかなcontrol gateは、有限個の時計窓を持つ自律Hamiltonianへ埋め込める。初期時計面と使用済み窓を履歴へ残せば、境界失敗を含む拡大写像は1対1である。
-\end{lemma}
 
-\hypertarget{ux6ed1ux3089ux304bux306aux6bd4ux8f03ux5668ux3068ux7121ux53cdux5fdc}{%
-\section{滑らかな比較器と無反応}\label{ux6ed1ux3089ux304bux306aux6bd4ux8f03ux5668ux3068ux7121ux53cdux5fdc}}
+\hypertarget{r112ux306eux6ed1ux3089ux304bux306aux6bd4ux8f03ux7121ux53cdux5fdcux7bc0}{%
+\section{R112の滑らかな比較・無反応節}\label{r112ux306eux6ed1ux3089ux304bux306aux6bd4ux8f03ux7121ux53cdux5fdcux7bc0}}
 
 外部から指定された有限個の互いに素な安全領域 \(O_i\) を考える。各領域内部で1、他の安全領域と境界帯で0となる滑らかなplateau関数 \(\chi_i(u)\) を選ぶ。安全領域外を正式な無反応 \(\varnothing\) とする。
 
@@ -4922,13 +4738,12 @@ G_{\rm cmp}
 
 を作用させれば、安全領域では該当pointerだけが動く。\(u\) はprogram番号、枝register、時計面など外部ですでに定まった制御値である。振幅作用から結果確率を作る目的には使わない。
 
-\begin{lemma}[R97：有限幅比較と完全結果集合]
+\textbf{有限幅比較と完全結果集合。}
 
-有限個の互いに素な安全領域に対し、上の滑らかな比較器を有限Hamiltonian窓として実装できる。異なる安全結果は排他的であり、境界帯、時計ずれ、pointer準備失敗を $\varnothing$ へ送ると結果集合は完全になる。無反応を除いて再規格化してはならない。
-\end{lemma}
+有限個の互いに素な安全領域に対し、上の滑らかな比較器を有限Hamiltonian窓として実装できる。異なる安全結果は排他的であり、境界帯、時計ずれ、pointer準備失敗を \(\varnothing\) へ送ると結果集合は完全になる。無反応を除いて再規格化してはならない。
 
-\hypertarget{ux6b63ux6e96swapux3068ux30c6ux30f3ux30d7ux30ecux30fcux30c8ux4ea4ux63db}{%
-\section{正準SWAPとテンプレート交換}\label{ux6b63ux6e96swapux3068ux30c6ux30f3ux30d7ux30ecux30fcux30c8ux4ea4ux63db}}
+\hypertarget{r112ux306eux6b63ux6e96swapux30c6ux30f3ux30d7ux30ecux30fcux30c8ux4ea4ux63dbux7bc0}{%
+\section{R112の正準SWAP・テンプレート交換節}\label{r112ux306eux6b63ux6e96swapux30c6ux30f3ux30d7ux30ecux30fcux30c8ux4ea4ux63dbux7bc0}}
 
 同じ次元の2つの複素正準register \(d,e\) に対し、
 
@@ -4945,13 +4760,12 @@ d^\dagger e+e^\dagger d
 
 結果枝 \(i\) に対して事前校正テンプレート \(e_i^{\rm tpl}\) を用意し、\(\chi_i\) をcontrolとして対応SWAPだけを開けば、結果別状態更新を実装できる。template値は固定装置programであり、集団共分散を測定して単一試行へ書き戻したものではない。
 
-\begin{lemma}[R98：結果別テンプレート交換]
+\textbf{結果別テンプレート交換。}
 
 固定有限枝と固定有限テンプレートbankについて、排他的safe branchをcontrolとする正準SWAPを有限回路で構成できる。入力情報は使用済みtemplate側に残るため、枝別交換を含む拡大写像は1対1である。
-\end{lemma}
 
-\hypertarget{ux5c40ux6240ux8a18ux9332ux3068ux9006ux8a08ux7b97}{%
-\section{局所記録と逆計算}\label{ux5c40ux6240ux8a18ux9332ux3068ux9006ux8a08ux7b97}}
+\hypertarget{r112ux306eux5c40ux6240ux8a18ux9332ux9006ux8a08ux7b97ux7bc0}{%
+\section{R112の局所記録・逆計算節}\label{r112ux306eux5c40ux6240ux8a18ux9332ux9006ux8a08ux7b97ux7bc0}}
 
 物理枝 \(i\) だけに支持を持つ局所関数 \(d_i(x)\) と空の記録器 \((D_i,P_{D_i})\) に
 
@@ -4963,10 +4777,9 @@ G_{\rm rec}
 
 を作用させる。理想空pointerで \(P_{D_i}=0\) なら、記録中の被測定系への反作用は零である。有限pointer幅と境界帯を記録誤差または無反応へ入れる。
 
-\begin{lemma}[R99：記録を残した内部逆計算]
+\textbf{記録を残した内部逆計算。}
 
 有限回路が入力、時計、pointer、template、使用済みcellを含む拡大系で1対1なら、外部記録を固定したまま、記録前の補助操作を逆順に作用させて内部作業registerを準備集合へ戻せる。ただし入力情報または使用済み状態は外部履歴へ残り、永久記録を有限閉鎖自由度から消去できない。
-\end{lemma}
 
 \hypertarget{ux8cc7ux6e90ux3068ux9650ux754c}{%
 \section{資源と限界}\label{ux8cc7ux6e90ux3068ux9650ux754c}}
@@ -5615,7 +5428,7 @@ R144は各段でR164の作用殻準備とR161の有限時間再平衡化を明�
 
 連結な初期領域から滑らかな有限時間Hamiltonian流で得る写像は連続であり、その像は連結である。2つの異なる離散固有状態だけを両方含む像は連結でない。従って、安全な左右結果の間には、遷移領域または無反応領域が必要である。
 
-この一般事実は旧R97から保持する。M47の局所記録では、分離面近傍、傾斜切替中、高モード漏れが大きい領域を無反応へ含める。無反応率を有限パラメータで厳密零にせず、理想2値分布側へ質量0の第3結果を追加して全変動距離を評価する。
+この一般事実はR112の安全比較・無反応節を使う。M47の局所記録では、分離面近傍、傾斜切替中、高モード漏れが大きい領域を無反応へ含める。無反応率を有限パラメータで厳密零にせず、理想2値分布側へ質量0の第3結果を追加して全変動距離を評価する。
 
 \hypertarget{ux8cc7ux6e90ux3068ux9069ux7528ux7bc4ux56f2}{%
 \section{資源と適用範囲}\label{ux8cc7ux6e90ux3068ux9069ux7528ux7bc4ux56f2}}
@@ -5651,7 +5464,7 @@ R144は各段でR164の作用殻準備とR161の有限時間再平衡化を明�
 \chapter{M49共同bath CNOT供給模型の証明}\label{m49ux5171ux540cbath-cnotux4f9bux7d66ux6a21ux578bux306eux8a3cux660e}}
 
 \begin{statusbox}
-位置づけ：R104、R105の4モード担体、R157--R160の行分解bath--粒子位置matching、同期CNOT、固定有限共同統計、M48受渡しを証明する。
+位置づけ：R112の4モード特殊化と、R159の入力準備・同期CNOT・固定有限共同統計、R160のM48受渡しを証明する。
 \end{statusbox}
 
 \hypertarget{ux30e2ux30fcux30c9ux6b63ux6e96ux62c5ux4f53}{%
@@ -5700,13 +5513,13 @@ R144は各段でR164の作用殻準備とR161の有限時間再平衡化を明�
 
 と作用し、\(\operatorname{rank}D_{\rm prog}\) と \(|\det D_{\rm prog}|\) を保存する。
 
-\begin{proof}[R104]
+\begin{proof}[R112の4モードテンソル積節]
 
 式(C.3)へ $K=A\otimes I_2$ と $L=I_2\otimes B$ を入れると、対応HamiltonianのPoisson括弧は行列交換子 $[K,L]=0$ に比例して零となる。正方形配線の対辺へ同じ $QQ+PP$ 交換と作用差を置けば、各局所Pauli生成子を有限2次Hamiltonianで実装できる。式(C.5)が積状態集合を保存する。証明終。
 \end{proof}
 
-\hypertarget{r105cnotux62c5ux4f53ux3068ux6709ux9650ux5236ux5fa1ux8a55ux4fa1}{%
-\section{R105：CNOT担体と有限制御評価}\label{r105cnotux62c5ux4f53ux3068ux6709ux9650ux5236ux5fa1ux8a55ux4fa1}}
+\hypertarget{r112ux306e4ux30e2ux30fcux30c9cnotux7279ux6b8aux5316}{%
+\section{R112の4モードCNOT特殊化}\label{r112ux306e4ux30e2ux30fcux30c9cnotux7279ux6b8aux5316}}
 
 差モード \(|d\rangle=(|10\rangle-|11\rangle)/\sqrt2\) への射影は
 
@@ -5737,7 +5550,7 @@ R144は各段でR164の作用殻準備とR161の有限時間再平衡化を明�
 
 \(A=\pi\) では制御値0部分空間に恒等、制御値1部分空間に \(\sigma_x\) が作用するためCNOTに一致する。
 
-\begin{proof}[R105]
+\begin{proof}[R112の4モードCNOT節]
 
 $H_C=P_\tau+g(\tau)G_C$ では $\dot\tau=1$ で、信号生成子は全時刻で同じ射影の実数倍である。時間順序積は窓面積 $A$ の式(C.8)へ厳密に縮約する。$A=\pi$ でCNOTを得て、式(C.3)により正準性と作用保存が従う。積入力 $|+0\rangle$ の出力係数行列は階数2なので、局所操作の積ではない。証明終。
 \end{proof}
@@ -5787,14 +5600,14 @@ $H_C=P_\tau+g(\tau)G_C$ では $\dot\tau=1$ で、信号生成子は全時刻で
 
 4信号正準対と1時計正準対で担体CNOTを実装できる。
 
-\textbf{R105の有限制御節。}
+\textbf{R112特殊化の有限制御節。}
 
 式(C.9)は窓面積、式(C.10)、式(C.11)は射影の固有値、式(C.13)はDuhamel式から従う。生成子は4信号正準対上の2作用項と1交換辺で、時計に1正準対を要する。証明終。
 
-\hypertarget{r157ux306eux7406ux60f3ux884cux5206ux89e3}{%
-\section{R157の理想行分解}\label{r157ux306eux7406ux60f3ux884cux5206ux89e3}}
+\hypertarget{r159ux5165ux529bux6e96ux5099ux7bc0ux306eux7406ux60f3ux884cux5206ux89e3}{%
+\section{R159入力準備節の理想行分解}\label{r159ux5165ux529bux6e96ux5099ux7bc0ux306eux7406ux60f3ux884cux5206ux89e3}}
 
-R157の共同枝確率は、R164を \(m=L=4\)、\(\Psi=I_4\)、\(\delta=0\) としたM50中央4枝作用殻の状態数 \(\Omega_{ab}\propto|(D_{\rm prog})_{ab}|^2\) から直接得られる。以下の行分解は別の確率源ではなく、その共同母測度をA周辺とB条件付き分布へ分解した表示である。
+共同枝確率は、R164を \(m=L=4\)、\(\Psi=I_4\)、\(\delta=0\) としたM50中央4枝作用殻の状態数 \(\Omega_{ab}\propto|(D_{\rm prog})_{ab}|^2\) から直接得られる。以下の行分解は別の確率源ではなく、その共同母測度をA周辺とB条件付き分布へ分解した表示である。
 
 非零行の集合を \(I_D={a:\rho_a>0}\) とする。M50の排他的物理枝を \(\gamma_{ab}\) と書けば、
 
@@ -5840,20 +5653,20 @@ safe branch \(\gamma_{ab}\) から式(4.9)のone-hot粒子位置へcontrolled SW
  \tag{C.18}
 \]
 
-\hypertarget{r157ux306eux6709ux9650hamiltonianux6e96ux5099}{%
-\section{R157の有限Hamiltonian準備}\label{r157ux306eux6709ux9650hamiltonianux6e96ux5099}}
+\hypertarget{r159ux5165ux529bux6e96ux5099ux7bc0ux306eux6709ux9650hamiltonianux5b9fux73fe}{%
+\section{R159入力準備節の有限Hamiltonian実現}\label{r159ux5165ux529bux6e96ux5099ux7bc0ux306eux6709ux9650hamiltonianux5b9fux73fe}}
 
 M50の排他的safe枝 \(\gamma_{ab}\) をcontrolとして、freshなone-hot粒子位置registerへ有限列の2モード交換を作用させる。枝registerを使用済み履歴へ残すため、粒子位置への直接decodeを含む拡大写像は1対1である。独立な選択器角、作用区間pointer、比較器の逆計算は不要である。
 
 固定program \(s\) とactive行 \(a\) ごとに、式(4.11)の4複素成分を持つtemplate cellを事前校正する。\(X_A=a\) のsafe plateauをcontrolとするcanonical SWAPにより、templateをactive \(z_A,z_B\) portへ移す。全窓を
 
 \[
- H_{157}
- =P_\tau+\sum_{r=1}^{R_{157}}g_r(\tau)G_r
+ H_{\rm prep}
+ =P_\tau+\sum_{r=1}^{R_{\rm prep}}g_r(\tau)G_r
  \tag{C.19}
 \]
 
-と書ける。\(R_{157}\) は固定program族で有限、各 \(G_r\) は有限個の作用差、\(QQ+PP\) 交換、滑らかなplateau controlから成る。従って有限正準対と有限時間のHamiltonian準備である。templateの値は装置programであり、ensemble量を測定して再注入したものではない。
+と書ける。\(R_{\rm prep}\) は固定program族で有限、各 \(G_r\) は有限個の作用差、\(QQ+PP\) 交換、滑らかなplateau controlから成る。従って有限正準対と有限時間のHamiltonian準備である。templateの値は装置programであり、ensemble量を測定して再注入したものではない。
 
 各非零branchのsurvival係数を \(r_{ab}\in[1-\varepsilon_0,1]\) とする。安全事象上の非規格化粒子位置分布は \(|(D_{\rm prog})_{ab}|^2r_{ab}\) であり、失敗質量を無反応へ置けば理想完全分布からの全変動距離は \(\varepsilon_0\) 以下である。
 
@@ -5904,7 +5717,7 @@ A粒子位置は全safe branchで行labelと一致する。B側では、行 \(a\
  \tag{C.24}
 \]
 
-\begin{proof}[R157]
+\begin{proof}[R159の入力準備節]
 
 式(C.15)、式(C.17)、式(C.18)が理想matchingを与える。式(C.19)が有限Hamiltonian準備、式(C.21)--(C.24)が無反応込みの有限誤差上界を与える。証明終。
 \end{proof}
@@ -5945,8 +5758,8 @@ Cauchy--Schwarzから
 
 この有限平均を全program一様の最大作用と混同しない。
 
-\hypertarget{r158ux306eux70b9ux3054ux3068ux306eux5171ux5909ux6027}{%
-\section{R158の点ごとの共変性}\label{r158ux306eux70b9ux3054ux3068ux306eux5171ux5909ux6027}}
+\hypertarget{r159ux540cux671fcnotux7bc0ux306eux70b9ux3054ux3068ux306eux5171ux5909ux6027}{%
+\section{R159同期CNOT節の点ごとの共変性}\label{r159ux540cux671fcnotux7bc0ux306eux70b9ux3054ux3068ux306eux5171ux5909ux6027}}
 
 係数行列CNOTは行ごとに
 
@@ -5957,7 +5770,7 @@ Cauchy--Schwarzから
  \tag{C.28}
 \]
 
-R157 branch \(a\) で \(z_B^+=\sigma_x^az_B\) とすると
+入力branch \(a\) で \(z_B^+=\sigma_x^az_B\) とすると
 
 \[
  \begin{aligned}
@@ -6021,7 +5834,7 @@ R157 branch \(a\) で \(z_B^+=\sigma_x^az_B\) とすると
 
 粒子位置XORの失敗質量を \(\varepsilon_\oplus\) とすれば、全変動距離は同じ量以下だけ増える。担体誤差と時計誤差を別に加えると式(4.24)、式(4.25)を得る。
 
-\begin{proof}[R158]
+\begin{proof}[R159の同期CNOT節]
 
 式(C.29)、式(C.30)が理想共変性、式(C.31)、式(C.32)が同一時計の有限Hamiltonian実装、式(C.33)が有限bath誤差を与える。証明終。
 \end{proof}
@@ -6037,9 +5850,9 @@ R157 branch \(a\) で \(z_B^+=\sigma_x^az_B\) とすると
  \tag{C.34}
 \]
 
-とする。外側scheduleはprogram label \(S=s\) を頻度 \(\lambda_s\) で提示する。これはbenchmarkの入力条件であり、出力確率源ではない。safe labelをfresh program registerへdecodeし、そのlabelで \(D_{{\rm in},s}\) とR157 template bankをactive portへroutingする。入力粒子位置はM50物理枝から直接decodeする。
+とする。外側scheduleはprogram label \(S=s\) を頻度 \(\lambda_s\) で提示する。これはbenchmarkの入力条件であり、出力確率源ではない。safe labelをfresh program registerへdecodeし、そのlabelで \(D_{{\rm in},s}\) と入力template bankをactive portへroutingする。入力粒子位置はM50物理枝から直接decodeする。
 
-provider運転はR158後の \(\Sigma_{\rm gate}\) で終わる。benchmark運転では同じ担体に \(W_A^s\otimes W_B^s\) を作用させ、
+provider運転は同期CNOT後の \(\Sigma_{\rm gate}\) で終わる。benchmark運転では同じ担体に \(W_A^s\otimes W_B^s\) を作用させ、
 
 \[
  D_{{\rm out},s}=W_A^s\mathcal C_{\rm CX}(D_{{\rm in},s})(W_B^s)^{\mathsf T}
@@ -6065,9 +5878,9 @@ fresh殻条件が必要である。使用済み入力殻の同一微視的順位
  \tag{C.37}
 \]
 
-fresh出力殻を条件付きで準備すれば、そのM50枝周辺を平均して式(4.30)を得る。必要なのは別registerであり、独立なM35角ではない。
+fresh出力殻を条件付きで準備すれば、そのM50枝周辺を平均して式(4.30)を得る。必要なのは別registerであり、独立な選択器角ではない。
 
-入力label誤差を含む結合を先に作り、各 \(s\) でR157、担体unitary、fresh M50出力殻、直接decodeを順にcoupleする。全変動距離の縮小性と三角不等式から式(4.31)が従う。失敗は \(\varnothing\) に送るので事後選別はない。各項は固定有限program族について、殻幅、時計幅、template精度を有限値で選んで任意に小さくできる。
+入力label誤差を含む結合を先に作り、各 \(s\) で入力準備、担体unitary、fresh M50出力殻、直接decodeを順にcoupleする。全変動距離の縮小性と三角不等式から式(4.31)が従う。失敗は \(\varnothing\) に送るので事後選別はない。各項は固定有限program族について、殻幅、時計幅、template精度を有限値で選んで任意に小さくできる。
 
 \begin{proof}[R159]
 
@@ -6131,7 +5944,7 @@ state-carrying感度には、link面族内の \(D_0=e_0e_0^{\mathsf T}\) と \(D
 \hypertarget{ux8cc7ux6e90ux3068ux9069ux7528ux9650ux754c}{%
 \section{資源と適用限界}\label{ux8cc7ux6e90ux3068ux9069ux7528ux9650ux754c}}
 
-一programのR157準備は、4モードprogram担体4対、active作用殻2対、2粒子位置register4対、active bath4対、2行template bank8対からなる単純上界22対を持つ。時計、外側program schedule、benchmark用fresh出力殻、履歴、記録は運転modeに応じて別に加える。template bankは固定有限族について \(O(S)\)、全装置も固定2論理部分系では有限である。
+一programのR159入力準備節は、4モードprogram担体4対、active作用殻2対、2粒子位置register4対、active bath4対、2行template bank8対からなる単純上界22対を持つ。時計、外側program schedule、benchmark用fresh出力殻、履歴、記録は運転modeに応じて別に加える。template bankは固定有限族について \(O(S)\)、全装置も固定2論理部分系では有限である。
 
 本付録は次を証明しない。
 
@@ -6152,7 +5965,7 @@ state-carrying感度には、link面族内の \(D_0=e_0e_0^{\mathsf T}\) と \(D
   \(2^n\) モードを避ける多量子ビット拡張。
 \end{enumerate}
 
-R104、R105はM49内部担体の有限正準結果として使う。これらの担体代数だけでは、R157--R160のbath、粒子位置、物理的受渡しは従わない。
+R112の4モード特殊化はM49内部担体の有限正準結果として使う。この担体代数だけでは、R159、R160のbath、粒子位置、物理的受渡しは従わない。
 
 \hypertarget{m48ux5b8cux5168bellux5468ux671fux306eux8a3cux660e}{%
 \chapter{M48完全Bell周期の証明}\label{m48ux5b8cux5168bellux5468ux671fux306eux8a3cux660e}}
@@ -7719,7 +7532,7 @@ R135、R168とR170のQ3特殊化から次は従わない。
 \chapter{Q3-3からQ3-5の詳細形と証明}\label{q3-3ux304bux3089q3-5ux306eux8a73ux7d30ux5f62ux3068ux8a3cux660e}}
 
 \begin{statusbox}
-位置づけ：第7章で要約したR123--R125の仮定と結論を完全な形で記し、低位束縛状態、純位相緩和、障壁値未満確率移動、最小2経路干渉を証明する。
+位置づけ：第7章で一度だけ宣言したR123--R125について、低位束縛状態、純位相緩和、障壁値未満確率移動、最小2経路干渉の証明を与える。
 \end{statusbox}
 
 \hypertarget{ux8a18ux6cd5ux3068ux8a3cux660eux7bc4ux56f2}{%
@@ -7729,16 +7542,21 @@ R135、R168とR170のQ3特殊化から次は従わない。
 
 源、シャッター、幾何学的開口、散乱状態、吸収器、初回到達時刻、多画素スクリーン、永久記録、全検出器のHamiltonianは本付録の仮定にも結論にも入れない。
 
-\hypertarget{r123ux675fux7e1bux72b6ux614bux3068ux30a8ux30cdux30ebux30aeux30fcux4fddux5b58ux578bux7d14ux4f4dux76f8ux7de9ux548c}{%
-\section{R123：束縛状態とエネルギー保存型純位相緩和}\label{r123ux675fux7e1bux72b6ux614bux3068ux30a8ux30cdux30ebux30aeux30fcux4fddux5b58ux578bux7d14ux4f4dux76f8ux7de9ux548c}}
+\hypertarget{r123ux306eux8a3cux660eux675fux7e1bux72b6ux614bux3068ux30a8ux30cdux30ebux30aeux30fcux4fddux5b58ux578bux7d14ux4f4dux76f8ux7de9ux548c}{%
+\section{R123の証明：束縛状態とエネルギー保存型純位相緩和}\label{r123ux306eux8a3cux660eux675fux7e1bux72b6ux614bux3068ux30a8ux30cdux30ebux30aeux30fcux4fddux5b58ux578bux7d14ux4f4dux76f8ux7de9ux548c}}
 
-\begin{theorem}[R123：低位束縛状態と有限環境純位相緩和]
+\textbf{証明で用いる設定と評価。}
 
-正数 $\ell,m,\omega,\mathcal J_0$ と有限モード数 $K$ を固定する。
+正数 \(\ell,m,\omega,\mathcal J_0\) と有限モード数 \(K\) を固定する。
 
-1. 区間 $(0,\ell)$ のDirichlet井戸を $N$ 個の内部格子点で離散化すると、生成子 $h_N^{\rm well}$ は単純固有値
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  区間 \((0,\ell)\) のDirichlet井戸を \(N\) 個の内部格子点で離散化すると、生成子 \(h_N^{\rm well}\) は単純固有値
+\end{enumerate}
 
-$$
+\[
 E_{k,N}^{\rm well}
 =
 \frac{2\mathcal J_0^2}{ma^2}
@@ -7750,11 +7568,11 @@ E_{k,N}^{\rm well}
 a=\frac{\ell}{N+1},
 \qquad
 1\leq k\leq N
-$$
+\]
 
 と規格化固有ベクトル
 
-$$
+\[
 u_{k,N}(j)
 =
 \sqrt{\frac{2}{N+1}}
@@ -7762,21 +7580,20 @@ u_{k,N}(j)
 \left(
 \frac{k\pi j}{N+1}
 \right)
-$$
+\]
 
-を持つ。固定 $k$ について固有値、格子密度 $|u_{k,N}(j)|^2/a$、節の位置は連続Dirichlet井戸の値へ収束し、固有値誤差は $O(a^2)$ である。
-2. 区間 $(-L,L)$ のDirichlet格子に調和型ポテンシャル $m\omega^2x^2/2$ を置いた生成子 $h_{N,L}^{\rm osc}$ は単純固有値を持ち、第 $k$ 固有ベクトルはちょうど $k$ 回符号を変える。固定 $k<K$ について、$a\to0$、$L\to\infty$ とすると
+を持つ。固定 \(k\) について固有値、格子密度 \(|u_{k,N}(j)|^2/a\)、節の位置は連続Dirichlet井戸の値へ収束し、固有値誤差は \(O(a^2)\) である。 2. 区間 \((-L,L)\) のDirichlet格子に調和型ポテンシャル \(m\omega^2x^2/2\) を置いた生成子 \(h_{N,L}^{\rm osc}\) は単純固有値を持ち、第 \(k\) 固有ベクトルはちょうど \(k\) 回符号を変える。固定 \(k<K\) について、\(a\to0\)、\(L\to\infty\) とすると
 
-$$
+\[
 E_{k,N,L}^{\rm osc}
 \longrightarrow
 \mathcal J_0\omega
 \left(k+\frac12\right)
-$$
+\]
 
-であり、密度と節位置も対応するHermite--Gauss状態へ収束する。適切な正数 $C_k,c_k$ により誤差は
+であり、密度と節位置も対応するHermite--Gauss状態へ収束する。適切な正数 \(C_k,c_k\) により誤差は
 
-$$
+\[
 \left|
 E_{k,N,L}^{\rm osc}
 -
@@ -7788,12 +7605,11 @@ C_k
 \left(
 a^2+e^{-c_kL^2}
 \right)
-$$
+\]
 
-と抑えられる。
-3. いずれかの模型の先頭 $K$ モードの作用を $I_n=\mathcal J_0|b_n|^2$ とし、環境に $K$ 個の正準対 $(\theta_n,P_n)$ を置く。自律Hamiltonian
+と抑えられる。 3. いずれかの模型の先頭 \(K\) モードの作用を \(I_n=\mathcal J_0|b_n|^2\) とし、環境に \(K\) 個の正準対 \((\theta_n,P_n)\) を置く。自律Hamiltonian
 
-$$
+\[
 H_{\rm deph}
 =
 \sum_{n=0}^{K-1}
@@ -7805,15 +7621,15 @@ H_{\rm deph}
 \frac{\lambda}{\mathcal J_0}
 \sum_{n=0}^{K-1}
 I_nP_n
-$$
+\]
 
-を採用する。$\lambda>0$ とし、初期環境運動量を互いに独立な $P_n=\pm p_*$ の等重み集団で調製し、系の初期調製とは独立にする。環境を読まずに縮約した相関行列 $C_{nm}(t)$ は
+を採用する。\(\lambda>0\) とし、初期環境運動量を互いに独立な \(P_n=\pm p_*\) の等重み集団で調製し、系の初期調製とは独立にする。環境を読まずに縮約した相関行列 \(C_{nm}(t)\) は
 
-$$
+\[
 C_{nn}(t)=C_{nn}(0),
-$$
+\]
 
-$$
+\[
 C_{nm}(t)
 =
 C_{nm}(0)
@@ -7826,19 +7642,19 @@ C_{nm}(0)
 \frac{\lambda p_*t}{\mathcal J_0}
 \right),
 \qquad n\neq m
-$$
+\]
 
 を満たす。従って
 
-$$
+\[
 T_{\rm dec}
 =
 \frac{\pi\mathcal J_0}{2\lambda p_*}
-$$
+\]
 
-で全ての非対角相関が厳密に零となり、対角占有率は全時刻で厳密に保存される。任意の $0<\delta<1$ に対し
+で全ての非対角相関が厳密に零となり、対角占有率は全時刻で厳密に保存される。任意の \(0<\delta<1\) に対し
 
-$$
+\[
 \mathcal W_\delta
 =
 \left[
@@ -7852,20 +7668,19 @@ T_{\rm dec}
 \frac{\mathcal J_0}{\lambda p_*}
 \arcsin\sqrt\delta
 \right]
-$$
+\]
 
-では非対角減衰因子が $\delta$ 以下である。最初の完全コヒーレンス回復時刻は
+では非対角減衰因子が \(\delta\) 以下である。最初の完全コヒーレンス回復時刻は
 
-$$
+\[
 T_{\rm rec}
 =
 \frac{\pi\mathcal J_0}{\lambda p_*}
 =
 2T_{\rm dec}
-$$
+\]
 
 である。全Hamiltonianと注目系エネルギーはともに保存されるが、注目系は環境と相互作用し、環境を読まないため縮約記述では開放系である。
-\end{theorem}
 
 \begin{proof}[R123]
 
@@ -7954,14 +7769,14 @@ $n=m$ では因子は1である。これで縮約相関式が従う。$T_{\rm de
 $I_n$ と $P_n$ が全て一定なので、$H_{\rm deph}$、注目系エネルギー $\sum_nE_nI_n/\mathcal J_0$、各占有率 $I_n/\sum_mI_m$ は厳密に保存される。一方、$\lambda\neq0$ では系の位相速度が読まない環境運動量に依存する。従って全系は有限自由度の閉じたHamiltonian系だが、その環境を縮約した注目系はエネルギー交換を伴わない開放系である。
 \end{proof}
 
-\hypertarget{r1243ux9802ux70b9ux6709ux9650ux969cux58c1ux306eux969cux58c1ux5024ux672aux6e80ux78baux7387ux79fbux52d5}{%
-\section{R124：3頂点有限障壁の障壁値未満確率移動}\label{r1243ux9802ux70b9ux6709ux9650ux969cux58c1ux306eux969cux58c1ux5024ux672aux6e80ux78baux7387ux79fbux52d5}}
+\hypertarget{r124ux306eux8a3cux660e3ux9802ux70b9ux6709ux9650ux969cux58c1ux306eux969cux58c1ux5024ux672aux6e80ux78baux7387ux79fbux52d5}{%
+\section{R124の証明：3頂点有限障壁の障壁値未満確率移動}\label{r124ux306eux8a3cux660e3ux9802ux70b9ux6709ux9650ux969cux58c1ux306eux969cux58c1ux5024ux672aux6e80ux78baux7387ux79fbux52d5}}
 
-\begin{theorem}[R124：障壁値未満状態の反対側確率増加]
+\textbf{証明で用いる設定と評価。}
 
-正数 $\kappa,V$ に対し、頂点集合を障壁手前 $\{L\}$、障壁 $\{B\}$、障壁反対側 $\{R\}$ に分け、生成子を
+正数 \(\kappa,V\) に対し、頂点集合を障壁手前 \(\{L\}\)、障壁 \(\{B\}\)、障壁反対側 \(\{R\}\) に分け、生成子を
 
-$$
+\[
 h_{\rm bar}
 =
 \begin{pmatrix}
@@ -7969,11 +7784,11 @@ h_{\rm bar}
 -\kappa&V&-\kappa\\
 0&-\kappa&0
 \end{pmatrix}
-$$
+\]
 
-とする。障壁値を $V$ とし、
+とする。障壁値を \(V\) とし、
 
-$$
+\[
 E_-
 =
 \frac{V-\sqrt{V^2+8\kappa^2}}{2},
@@ -7983,11 +7798,11 @@ E_-
 \left(
 1+\frac{E_-^2}{2\kappa^2}
 \right)^{-1/2}
-$$
+\]
 
-と置く。零固有ベクトル $a=(|L\rangle-|R\rangle)/\sqrt2$ と、$E_-$ の規格化固有ベクトル
+と置く。零固有ベクトル \(a=(|L\rangle-|R\rangle)/\sqrt2\) と、\(E_-\) の規格化固有ベクトル
 
-$$
+\[
 v_-
 =
 \frac{\alpha}{\sqrt2}
@@ -7997,36 +7812,36 @@ v_-
 -
 \frac{E_-\alpha}{\sqrt2\kappa}
 |B\rangle
-$$
+\]
 
 から
 
-$$
+\[
 b_0
 =
 \frac{a+v_-}{\sqrt2}
-$$
+\]
 
 を調製する。この初期状態は
 
-$$
+\[
 \mathbf 1_{[V,\infty)}
 (h_{\rm bar})b_0
 =
 0
-$$
+\]
 
 を満たす。有限時刻
 
-$$
+\[
 T_{\rm bar}
 =
 \frac{\pi\mathcal J_0}{|E_-|}
-$$
+\]
 
 では
 
-$$
+\[
 p_R(0)
 =
 \frac{(1-\alpha)^2}{4},
@@ -8034,24 +7849,23 @@ p_R(0)
 p_R(T_{\rm bar})
 =
 \frac{(1+\alpha)^2}{4},
-$$
+\]
 
 従って
 
-$$
+\[
 p_R(T_{\rm bar})-p_R(0)=\alpha>0
-$$
+\]
 
-である。各入力時刻に対するR170の出力分布 $q_t$ が $t=0,T_{\rm bar}$ の各理想位置分布から全変動距離 $\varepsilon_{170}$ 以内なら
+である。各入力時刻に対するR170の出力分布 \(q_t\) が \(t=0,T_{\rm bar}\) の各理想位置分布から全変動距離 \(\varepsilon_{170}\) 以内なら
 
-$$
+\[
 q_{T_{\rm bar}}(R)-q_0(R)
 \geq
 \alpha-2\varepsilon_{170}.
-$$
+\]
 
-従って $\varepsilon_{170}<\alpha/2$ なら読出し後にも正の増分が残る。
-\end{theorem}
+従って \(\varepsilon_{170}<\alpha/2\) なら読出し後にも正の増分が残る。
 
 \begin{proof}[R124]
 
@@ -8087,14 +7901,14 @@ $R$ 成分を取ると、初期振幅は $(\alpha-1)/2$、終期振幅は $-(1+\
 全変動距離が $\epsilon$ 以下なら任意事象の確率差は $\epsilon$ 以下である。初期と終期の2回について三角不等式を使えば、読出し増分は理想増分から最大 $2\epsilon$ だけ減り得る。これで結論を得る。
 \end{proof}
 
-\hypertarget{r1252ux9802ux70b9ux518dux7d50ux5408ux5668ux306eux30b3ux30d2ux30fcux30ecux30f3ux30b9ux5deeux3068ux4f4dux76f8ux5dee}{%
-\section{R125：2頂点再結合器のコヒーレンス差と位相差}\label{r1252ux9802ux70b9ux518dux7d50ux5408ux5668ux306eux30b3ux30d2ux30fcux30ecux30f3ux30b9ux5deeux3068ux4f4dux76f8ux5dee}}
+\hypertarget{r125ux306eux8a3cux660e2ux9802ux70b9ux518dux7d50ux5408ux5668ux306eux30b3ux30d2ux30fcux30ecux30f3ux30b9ux5deeux3068ux4f4dux76f8ux5dee}{%
+\section{R125の証明：2頂点再結合器のコヒーレンス差と位相差}\label{r125ux306eux8a3cux660e2ux9802ux70b9ux518dux7d50ux5408ux5668ux306eux30b3ux30d2ux30fcux30ecux30f3ux30b9ux5deeux3068ux4f4dux76f8ux5dee}}
 
-\begin{theorem}[R125：最小2経路干渉と位置読出し]
+\textbf{証明で用いる設定と評価。}
 
-直交する2経路入力を有限グラフの頂点 $|L\rangle,|R\rangle$ とし、同一のSchrödinger型生成子
+直交する2経路入力を有限グラフの頂点 \(|L\rangle,|R\rangle\) とし、同一のSchrödinger型生成子
 
-$$
+\[
 h_{\rm int}
 =
 \kappa
@@ -8105,11 +7919,11 @@ h_{\rm int}
 \right),
 \qquad
 \kappa>0
-$$
+\]
 
 を使う。コヒーレント入力と同じ経路重みの非干渉混合を
 
-$$
+\[
 |\psi_\phi\rangle
 =
 \frac{|L\rangle+e^{i\phi}|R\rangle}{\sqrt2},
@@ -8122,19 +7936,19 @@ $$
 +
 |R\rangle\langle R|
 \right)
-$$
+\]
 
 とする。有限時刻
 
-$$
+\[
 T_{\rm int}
 =
 \frac{\pi\mathcal J_0}{4\kappa}
-$$
+\]
 
 の位置分布は
 
-$$
+\[
 p_\phi
 =
 \left(
@@ -8147,11 +7961,11 @@ p_{\rm mix}
 \left(
 \frac12,\frac12
 \right).
-$$
+\]
 
 特に
 
-$$
+\[
 D_{\rm TV}
 \left(
 p_{\pi/2},p_{\rm mix}
@@ -8165,10 +7979,9 @@ p_{\pi/2},p_{-\pi/2}
 \right)
 =
 1.
-$$
+\]
 
-R170固定入力時刻位置instrumentが各入力の理想分布から全変動距離 $\varepsilon_{170}$ 以内なら、読出し分布間の距離はそれぞれ $1/2-2\varepsilon_{170}$ 以上、$1-2\varepsilon_{170}$ 以上である。従って $\varepsilon_{170}<1/4$ なら、コヒーレント入力と混合の差、および相対位相変更による差がともに正に残る。
-\end{theorem}
+R170固定入力時刻位置instrumentが各入力の理想分布から全変動距離 \(\varepsilon_{170}\) 以内なら、読出し分布間の距離はそれぞれ \(1/2-2\varepsilon_{170}\) 以上、\(1-2\varepsilon_{170}\) 以上である。従って \(\varepsilon_{170}<1/4\) なら、コヒーレント入力と混合の差、および相対位相変更による差がともに正に残る。
 
 \begin{proof}[R125]
 
@@ -10087,7 +9900,7 @@ P_B(b\mid y,\Lambda)
 \chapter{有限粒子位置再平衡化と有限衝突熱浴}\label{ux6709ux9650ux7c92ux5b50ux4f4dux7f6eux518dux5e73ux8861ux5316ux3068ux6709ux9650ux885dux7a81ux71b1ux6d74}}
 
 \begin{statusbox}
-位置づけ：M50とR161--R163について、R164の有限信号作用殻状態数から得た条件付き中間状態有効自由エネルギーに対する有限粒子位置再平衡化、有限衝突熱浴による局所詳細釣合い率、制御切替の経路ゆらぎ関係を証明する。Q1・Q2・Q3に共通な熱化部品として扱い、粗視化された有効仕事・熱と全微視的収支を区別する。
+位置づけ：M50、R161、R162について、R164の有限信号作用殻状態数から得た条件付き中間状態有効自由エネルギーに対する有限粒子位置再平衡化、有限衝突熱浴による局所詳細釣合い率、粗視化経路熱力学系を証明する。Q1・Q2・Q3に共通な熱化部品として扱い、粗視化された有効仕事・熱と全微視的収支を区別する。
 \end{statusbox}
 
 \hypertarget{ux76eeux7684ux7528ux8a9eux4e3bux5f35ux7bc4ux56f2}{%
@@ -10218,8 +10031,8 @@ p\|\pi^\delta(v)
 
 である。従って条件付き再平衡化は、固定した \(v\) における相対エントロピーと非平衡自由エネルギーの緩和として解釈できる。
 
-\hypertarget{r161ux4efbux610fux306eux6709ux9650ux4fe1ux53f7ux65b9ux5411ux3078ux306eux7c92ux5b50ux4f4dux7f6eux518dux5e73ux8861ux5316}{%
-\section{R161：任意の有限信号方向への粒子位置再平衡化}\label{r161ux4efbux610fux306eux6709ux9650ux4fe1ux53f7ux65b9ux5411ux3078ux306eux7c92ux5b50ux4f4dux7f6eux518dux5e73ux8861ux5316}}
+\hypertarget{r161ux306eux8a3cux660eux4efbux610fux306eux6709ux9650ux4fe1ux53f7ux65b9ux5411ux3078ux306eux7c92ux5b50ux4f4dux7f6eux518dux5e73ux8861ux5316}{%
+\section{R161の証明：任意の有限信号方向への粒子位置再平衡化}\label{r161ux306eux8a3cux660eux4efbux610fux306eux6709ux9650ux4fe1ux53f7ux65b9ux5411ux3078ux306eux7c92ux5b50ux4f4dux7f6eux518dux5e73ux8861ux5316}}
 
 各無向辺 \(\{i,j\}\in E_X\) に対称活動度 \(a_{ij}=a_{ji}>0\) を置く。固定した \(v\neq0\) に対して
 
@@ -10256,21 +10069,21 @@ m_\delta=\frac{\delta q_{\min}}{1+\delta}
 
 とする。無重みグラフLaplacianの第1非零固有値を \(\lambda_G>0\) とする。
 
-\begin{theorem}[R161：任意の有限信号方向に対する粒子位置再平衡化]
+\textbf{第2章R161で用いる一様評価。}
 
-有限連結 $G_X$、$\delta>0$、任意の $v\neq0$ について、上の生成子は既約かつ可逆であり、唯一の定常分布は $\pi^\delta(v)$ である。$L^2(\pi^\delta)$ における第1非零固有値を $\lambda_\delta(v)$ とすれば
+有限連結 \(G_X\)、\(\delta>0\)、任意の \(v\neq0\) について、上の生成子は既約かつ可逆であり、唯一の定常分布は \(\pi^\delta(v)\) である。\(L^2(\pi^\delta)\) における第1非零固有値を \(\lambda_\delta(v)\) とすれば
 
-$$
+\[
 \lambda_\delta(v)
 \geq
 \kappa_Xa_{\min}m_\delta\lambda_G
 =:
 \lambda_\delta
-$$
+\]
 
-が全bath rayに一様に成り立つ。任意の初期粒子位置分布 $p_0$ に対して
+が全bath rayに一様に成り立つ。任意の初期粒子位置分布 \(p_0\) に対して
 
-$$
+\[
 D_{\rm TV}
 \left(
 p_T,
@@ -10283,11 +10096,11 @@ C_\delta
 =
 \frac12
 \sqrt{m_\delta^{-1}-1}
-$$
+\]
 
 である。また
 
-$$
+\[
 D_{\rm TV}
 \left(
 \pi^\delta(v),
@@ -10295,10 +10108,9 @@ w(v)
 \right)
 \leq
 \frac{\delta}{1+\delta}
-$$
+\]
 
 であり、全有限時間誤差は混合誤差と正則化誤差に分かれる。
-\end{theorem}
 
 詳細釣合いは各辺で
 
@@ -10408,8 +10220,8 @@ w_vk_{v\to i}
 
 この障害を避けるには、正の背景占有率、非局所辺、補助橋状態の少なくとも1つが必要である。粒子位置熱化を使うM50の特殊化では \(\delta>0\) を採用し、有限資源誤差として台帳に残す。混合を使わずM50枝を粒子位置へ直接decodeする1回限りの運転は、このnode命題の対象外である。
 
-\hypertarget{r162ux6709ux9650ux885dux7a81ux71b1ux6d74ux306bux3088ux308bux7387ux306eux5b9fux73fe}{%
-\section{R162：有限衝突熱浴による率の実現}\label{r162ux6709ux9650ux885dux7a81ux71b1ux6d74ux306bux3088ux308bux7387ux306eux5b9fux73fe}}
+\hypertarget{r162ux306eux8a3cux660eux6709ux9650ux885dux7a81ux71b1ux6d74ux306bux3088ux308bux7387ux306eux5b9fux73fe}{%
+\section{R162の証明：有限衝突熱浴による率の実現}\label{r162ux306eux8a3cux660eux6709ux9650ux885dux7a81ux71b1ux6d74ux306bux3088ux308bux7387ux306eux5b9fux73fe}}
 
 固定した \(v\) と辺 \(\{i,j\}\) に対し、対称な基準障壁 \(B_{ij}^0=B_{ji}^0\) を置く。制御された障壁を
 
@@ -10470,11 +10282,11 @@ E_j^\delta(v)
 
 が成り立つ。ここで保存されるのは、作用殻fiberを消去した粒子位置有効自由エネルギーとセルエネルギーの粗視化和である。fiberを明示した全微視的Hamiltonianのエネルギー保存をこの式だけから主張しない。さらに前向き閾値を満たすことと、出射状態が逆向き閾値を満たすことは同値である。
 
-\begin{theorem}[R162：局所詳細釣合い率の有限衝突熱浴実現]
+\textbf{第2章R162で用いる有限衝突評価。}
 
-各辺の衝突試行流束を $\nu_{ij}=\nu_{ji}>0$ とする。上の流束分布、対称障壁、粗視化有効自由エネルギー保存散乱を採用すると、縮約された配置遷移率は
+各辺の衝突試行流束を \(\nu_{ij}=\nu_{ji}>0\) とする。上の流束分布、対称障壁、粗視化有効自由エネルギー保存散乱を採用すると、縮約された配置遷移率は
 
-$$
+\[
 k_{i\to j}^{\rm coll}(v)
 =
 \nu_{ij}
@@ -10482,21 +10294,21 @@ e^{-\beta B_{ij}^0}
 \sqrt{
 \frac{\pi_j^\delta(v)}{\pi_i^\delta(v)}
 }
-$$
+\]
 
 である。従って
 
-$$
+\[
 \nu_{ij}e^{-\beta B_{ij}^0}
 =
 \kappa_Xa_{ij}
-$$
+\]
 
 と校正すればR161の生成子に一致する。上の反応座標ポテンシャルに、入射位置、到着時計、運動方向、反射枝、出射エネルギー、履歴セルを含めれば、拡大散乱写像は一対一な時間反転対を持つ滑らかなHamiltonian散乱で任意精度に近似できる。
 
-固定観測時間 $T$、各辺の有限セル数 $K_{ij}$、有限エネルギー切断 $E_{\max}$ では、理想生成子の経路測度との差を
+固定観測時間 \(T\)、各辺の有限セル数 \(K_{ij}\)、有限エネルギー切断 \(E_{\max}\) では、理想生成子の経路測度との差を
 
-$$
+\[
 \varepsilon_{\rm coll}
 \leq
 \varepsilon_{\rm overflow}
@@ -10506,10 +10318,9 @@ $$
 \varepsilon_{\rm smooth}
 +
 \varepsilon_{\rm clock}
-$$
+\]
 
-と評価できる。信号bath座標の有限保持誤差 $\varepsilon_{\rm hold}$ はこれと別に加える。超過衝突、閾値平滑化帯、controller保持失敗は正式な無反応結果へ含め、除外後の再規格化を行わない。
-\end{theorem}
+と評価できる。信号bath座標の有限保持誤差 \(\varepsilon_{\rm hold}\) はこれと別に加える。超過衝突、閾値平滑化帯、controller保持失敗は正式な無反応結果へ含め、除外後の再規格化を行わない。
 
 有効自由エネルギーを全枝共通の \(g(v)\) だけ移し、障壁も同じだけ移すgauge変換
 
@@ -10598,8 +10409,8 @@ K_{\rm tot}e^{-\beta E_{\max}}
 指数流束分布の尾確率へ活性化エネルギーを代入すると表示した遷移率が得られる。対称障壁は正逆率比を粒子位置有効自由エネルギー差だけにし、通過後エネルギー式は正逆散乱を一対一に対応させる。有限時間では到着数と最大エネルギーを切り、超過事象を完全結果集合へ残す。閾値比較、反射、通過、履歴保存を滑らかな有限幅散乱へ近似した誤差を加えれば有限セル上界が従う。証明終。
 \end{proof}
 
-\hypertarget{r163ux5236ux5fa1ux5207ux66ffux3068ux7d4cux8defux3086ux3089ux304eux95a2ux4fc2}{%
-\section{R163：制御切替と経路ゆらぎ関係}\label{r163ux5236ux5fa1ux5207ux66ffux3068ux7d4cux8defux3086ux3089ux304eux95a2ux4fc2}}
+\hypertarget{ux7c97ux8996ux5316ux7d4cux8defux71b1ux529bux5b66ux7cfbux306eux8a3cux660e}{%
+\section{粗視化経路熱力学系の証明}\label{ux7c97ux8996ux5316ux7d4cux8defux71b1ux529bux5b66ux7cfbux306eux8a3cux660e}}
 
 以下は、非平衡仕事関係と経路エントロピー生成の標準形 \cite{jarzynski1997,crooks1999,seifert2005} をR161、R162の条件付き粒子位置過程へ適用したものである。\(E_i^\delta\) はR164の作用殻を消去した相対有効自由エネルギーなので、ここで定義する仕事と熱には上付き \(\rm rel\) を付け、全微視的仕事・熱と区別する \cite{esposito2012,jarzynski2004}。
 
@@ -10652,18 +10463,18 @@ k_{i_\ell\to i_{\ell-1}}^\delta(v_{t_\ell})
 
 とする。
 
-\begin{theorem}[R163：信号切替と粒子位置の経路ゆらぎ関係]
+\textbf{第2章の粗視化経路熱力学系。}
 
-R161の生成子またはR162の衝突熱浴を、正逆protocolで同じ熱作用尺度 $\Theta$ により駆動する。このとき
+R161の生成子またはR162の衝突熱浴を、正逆protocolで同じ熱作用尺度 \(\Theta\) により駆動する。このとき
 
-$$
+\[
 \frac{\mathcal P_F[\omega]}
 {\mathcal P_R[\omega^\dagger]}
 =
 e^{\Sigma[\omega]},
-$$
+\]
 
-$$
+\[
 \left\langle
 e^{-\Sigma}
 \right\rangle_F
@@ -10673,29 +10484,29 @@ e^{-\Sigma}
 \Sigma
 \right\rangle_F
 \geq0.
-$$
+\]
 
-単一試行信号 $v^-$ の平衡分布から $v^+$ へ瞬間quenchする場合、状態 $i$ の有効地形仕事は
+単一試行信号 \(v^-\) の平衡分布から \(v^+\) へ瞬間quenchする場合、状態 \(i\) の有効地形仕事は
 
-$$
+\[
 W_i^{\rm rel}
 =
 \Theta
 \log
 \frac{\pi_i^\delta(v^-)}
 {\pi_i^\delta(v^+)}
-$$
+\]
 
 であり、採用した自由エネルギー基準では
 
-$$
+\[
 \left\langle
 e^{-\beta W^{\rm rel}}
 \right\rangle
 =1,
-$$
+\]
 
-$$
+\[
 \langle W^{\rm rel}\rangle
 =
 \Theta
@@ -10705,10 +10516,9 @@ D_{\rm KL}
 \|
 \pi^\delta(v^+)
 \right).
-$$
+\]
 
-作用殻明示表示では $W_i^{\rm sh}=\Delta F_i^{\rm sh}$ と書き、$W_i^{\rm rel}=W_i^{\rm sh}-\Delta F_{\rm eq}^{\rm sh}$ である。全作用保存unitaryでは共通項が一定になり得るが、pumpまたはresetでは一定とは限らない。
-\end{theorem}
+作用殻明示表示では \(W_i^{\rm sh}=\Delta F_i^{\rm sh}\) と書き、\(W_i^{\rm rel}=W_i^{\rm sh}-\Delta F_{\rm eq}^{\rm sh}\) である。全作用保存unitaryでは共通項が一定になり得るが、pumpまたはresetでは一定とは限らない。
 
 連続時間jump経路の待機因子は正逆比で相殺し、jump因子の比が局所詳細釣合い率の積になる。初期終端密度比を加えると経路確率比を得る。逆経路測度について和を取れば積分ゆらぎ関係、Jensen不等式から平均非負性が従う。
 
@@ -10728,7 +10538,7 @@ $$
 
 平均を取れば相対エントロピー式になる。正逆経路確率比と積分ゆらぎ関係は粗視化跳躍過程について厳密である。一方、作用容量を変える過程、殻内平衡化、制御器反作用を含む完全Hamiltonianを構成しない限り、\(W^{\rm rel}\) を全装置の機械仕事、\(Q^{\rm rel}\) を全微視的熱と呼ばない。ゆらぎの定理はR164で得た地形の整合性を検査するが、作用殻状態数の線形則を導く定理ではない。
 
-\begin{proof}[R163]
+\begin{proof}[粗視化経路熱力学系]
 
 正逆経路の初期密度、jump率、待機因子を比べる。待機因子は反転protocolの対応区間と相殺し、残る率比と端点密度比が $e^\Sigma$ を与える。逆経路確率の総和は1なので積分ゆらぎ関係が従う。瞬間quench式は規格化されたGibbs分布へ直接代入して得る。証明終。
 \end{proof}
@@ -10838,7 +10648,7 @@ M47の1段測定はM50のQ1特殊化として次の操作面へ分ける。
 
 で記帳する。\(\varepsilon_{\rm mix}=C_\delta e^{-\lambda_\delta T_X}\)、\(\varepsilon_\delta=\delta/(1+\delta)\) と選べる。Q1では2モード漏れと局所辺閉鎖誤差をそれぞれ \(\varepsilon_{2m}\)、\(\varepsilon_{\rm res}\) として別に加える。この段階分離により、旧連続matching保存をR143、R144の仮定に使わない。
 
-Q2-1の中央4枝はR164の作用殻を直接decodeする。M35作用区間を確率源として挟まない。Q2-2の切断後局所殻は各翼でR170を特殊化し、完全共通原因 \(\Lambda\) に条件付けた積因子化誤差を別の \(\varepsilon_{\rm prod}\) として加える。Q3は入力時刻 \(t_\star\) のM37標本を保持してR170へ渡す。\(t_{\rm out}>t_\star\) の局所記録までのQ3固有の上流誤差は付録Fで記帳する。
+Q2-1の中央4枝はR164の作用殻を直接decodeする。別の作用区間標本器を確率源として挟まない。Q2-2の切断後局所殻は各翼でR170を特殊化し、完全共通原因 \(\Lambda\) に条件付けた積因子化誤差を別の \(\varepsilon_{\rm prod}\) として加える。Q3は入力時刻 \(t_\star\) のM37標本を保持してR170へ渡す。\(t_{\rm out}>t_\star\) の局所記録までのQ3固有の上流誤差は付録Fで記帳する。
 
 \hypertarget{ux6709ux9650ux8cc7ux6e90ux3068ux6b63ux5247ux5316ux6975ux9650}{%
 \section{有限資源と正則化極限}\label{ux6709ux9650ux8cc7ux6e90ux3068ux6b63ux5247ux5316ux6975ux9650}}
@@ -10922,7 +10732,7 @@ R164は単一試行信号作用から枝容量を作り、排他的2作用殻の
   有限信号次元を越える任意POVM、連続スペクトルの一般Born則。
 \end{enumerate}
 
-残る最重要目標は、作用容量結合、殻内平衡化、枝対称性、信号保持反作用をQ1・Q2・Q3の各完全周期または固定入力instrumentの有限局所Hamiltonianとして統合することである。R161--R164を完全な有限装置による一般Born測度の第一原理導出とは分類しない。
+残る最重要目標は、作用容量結合、殻内平衡化、枝対称性、信号保持反作用をQ1・Q2・Q3の各完全周期または固定入力instrumentの有限局所Hamiltonianとして統合することである。R161、R162、R164を完全な有限装置による一般Born測度の第一原理導出とは分類しない。
 
 \hypertarget{ux6709ux9650ux4fe1ux53f7ux4f5cux7528ux3068ux4f5cux7528ux6bbbux72b6ux614bux6570ux306eux5171ux901aux8d77ux6e90}{%
 \chapter{有限信号作用と作用殻状態数の共通起源}\label{ux6709ux9650ux4fe1ux53f7ux4f5cux7528ux3068ux4f5cux7528ux6bbbux72b6ux614bux6570ux306eux5171ux901aux8d77ux6e90}}
@@ -10944,7 +10754,7 @@ E_i^\delta(v)
 
 を制御器へ設計した地形として置いていた。本付録ではBorn型確率を先に定義せず、同じ試行に存在する信号作用と、位置枝ごとの排他的な作用殻状態数から \(\pi_i^\delta\) を導く。
 
-旧R24の一般作用殻容量と2作用殻の線形性は、この目的に使える。ただし旧M15の位置入口模型、等方混合、標本化後の再埋込み、測定周期を復活させない。R164は、旧R24の状態数補題を一般有限信号、正則化、R161--R163の語義へ移植した条件付き結果である。M50は共通理論部品であり、Q1、Q2、Q3が同一ハードウェアを共有するという主張ではない。
+旧R24の一般作用殻容量と2作用殻の線形性は、この目的に使える。ただし旧M15の位置入口模型、等方混合、標本化後の再埋込み、測定周期を復活させない。R164は、旧R24の状態数補題を一般有限信号、正則化、R161・R162と粗視化経路熱力学の語義へ移植した条件付き結果である。M50は共通instrument仕様であり、それ自体を完成したHamiltonian模型とは呼ばない。
 
 本付録で区別する物理部分系は次の4つである。
 
@@ -11219,14 +11029,14 @@ $$
 角積分は $(2\pi)^n$ を与える。作用積分は $J_r\geq0$、$\sum_rJ_r=A$ が作る $(n-1)$ 次元単体のデルタ測度であり、$A^{n-1}/(n-1)!$ である。作用基準で無次元化すれば表示式を得る。証明終。
 \end{proof}
 
-\hypertarget{r164ux6761ux4ef6ux4ed8ux304dux4f5cux7528ux6bbbux306eux72b6ux614bux6570ux8d77ux6e90}{%
-\section{R164：条件付き作用殻の状態数起源}\label{r164ux6761ux4ef6ux4ed8ux304dux4f5cux7528ux6bbbux306eux72b6ux614bux6570ux8d77ux6e90}}
+\hypertarget{r164ux306eux8a3cux660eux6761ux4ef6ux4ed8ux304dux4f5cux7528ux6bbbux306eux72b6ux614bux6570ux8d77ux6e90}{%
+\section{R164の証明：条件付き作用殻の状態数起源}\label{r164ux306eux8a3cux660eux6761ux4ef6ux4ed8ux304dux4f5cux7528ux6bbbux306eux72b6ux614bux6570ux8d77ux6e90}}
 
-\begin{theorem}[R164：有限信号作用のBorn型殻状態数]
+\textbf{第2章R164で用いる状態数評価。}
 
-$\Psi:\mathbb C^m\to\mathbb C^L$、$\Psi^\dagger\Psi=I_m$、$v\neq0$、$q_i>0$、$\sum_iq_i=1$、$\delta\geq0$ とする。$\delta=0$ では正容量を持つ活性支持だけを枝集合とする。枝容量を
+\(\Psi:\mathbb C^m\to\mathbb C^L\)、\(\Psi^\dagger\Psi=I_m\)、\(v\neq0\)、\(q_i>0\)、\(\sum_iq_i=1\)、\(\delta\geq0\) とする。\(\delta=0\) では正容量を持つ活性支持だけを枝集合とする。枝容量を
 
-$$
+\[
 A_i^\delta(v)
 =
 \mathcal J_0
@@ -11235,20 +11045,20 @@ A_i^\delta(v)
 +
 \delta q_i v^\dagger v
 \right]
-$$
+\]
 
 とし、各排他的枝を同じ2作用殻Liouville測度で数える。このとき
 
-$$
+\[
 \Omega_i^\delta(v)
 =
 \frac{(2\pi)^2}{J_{\rm ref}}
 A_i^\delta(v)
-$$
+\]
 
 であり、非交和上の規格化枝重みは
 
-$$
+\[
 \begin{aligned}
 P_i^\delta(v)
 &=
@@ -11263,10 +11073,9 @@ P_i^\delta(v)
 &=
 \pi_i^\delta(v).
 \end{aligned}
-$$
+\]
 
-従ってBorn型条件付き重みは、確率を枝容量へ書き込むことなく、有限信号作用の枝分解、背景作用容量、各排他的枝の2作用殻の状態数、単一母測度の規格化から得られる。ここで「2作用殻」は各枝の内部に非負作用が2本あるという意味であり、枝数が2であることを意味しない。Q1では典型的に $m=2$、Q2の中央共同読出しでは $m=L=4$ である。
-\end{theorem}
+従ってBorn型条件付き重みは、確率を枝容量へ書き込むことなく、有限信号作用の枝分解、背景作用容量、各排他的枝の2作用殻の状態数、単一母測度の規格化から得られる。ここで「2作用殻」は各枝の内部に非負作用が2本あるという意味であり、枝数が2であることを意味しない。Q1では典型的に \(m=2\)、Q2の中央共同読出しでは \(m=L=4\) である。
 
 \begin{proof}[R164]
 
@@ -11540,8 +11349,8 @@ x_{\min}
 
 \(\delta=0\) で \(A_i=0\) となるnodeは、厳密殻では状態数零である。一方、有限 \(\kappa\) の滑らかな分配関数は \(A_i=0\) でも正の端点寄与を持つため、厳密nodeを有限剛性で再現しない。零seed \(v=0\) ではrayも規格化枝重みも定義せず、正式な無反応結果とする。安全閾値 \(r_*\) 未満の試行、容量比較境界、枝選択失敗も完全結果集合へ残し、除外後の2値再規格化を行わない。
 
-\hypertarget{r162r163ux306eux71b1ux529bux5b66ux8a9eux7fa9}{%
-\section{R162、R163の熱力学語義}\label{r162r163ux306eux71b1ux529bux5b66ux8a9eux7fa9}}
+\hypertarget{r162ux3068ux7c97ux8996ux5316ux7d4cux8defux71b1ux529bux5b66ux306eux8a9eux7fa9}{%
+\section{R162と粗視化経路熱力学の語義}\label{r162ux3068ux7c97ux8996ux5316ux7d4cux8defux71b1ux529bux5b66ux306eux8a9eux7fa9}}
 
 R164後の付録Kでは、\(E_i^\delta\) を作用殻fiberの有効自由エネルギーとして読む。辺障壁は
 
@@ -11558,7 +11367,7 @@ E_i^\delta(v)+E_j^\delta(v)
 
 と書ける。全ての \(E_i^\delta\) を共通関数 \(g(v)\) だけ移し、障壁も同じだけ移せば、活性化差 \(B_{ij}^\delta-E_i^\delta\)、衝突率、経路確率は不変である。
 
-R163の正逆経路確率比と積分ゆらぎ関係は、粗視化された粒子位置跳躍過程について厳密である。作用殻明示表示での殻自由エネルギー仕事と、作用殻消去表示での相対有効仕事を
+第2章の正逆経路確率比と積分ゆらぎ関係は、粗視化された粒子位置跳躍過程について厳密である。作用殻明示表示での殻自由エネルギー仕事と、作用殻消去表示での相対有効仕事を
 
 \[
 W_i^{\rm sh}
@@ -11620,7 +11429,7 @@ R164の達成範囲は「条件付き厳密結果＋滑らかな有限幅近似�
 \item
   作用殻とR162の衝突熱浴が同一の物理部分系であること。
 \item
-  作用殻、信号保持制御器、衝突セルを含む全微視的仕事・熱収支がR163だけから従うこと。
+  作用殻、信号保持制御器、衝突セルを含む全微視的仕事・熱収支が粗視化経路熱力学だけから従うこと。
 \item
   \(\delta=0\) のnodeを有限剛性、有限衝突流束、有限混合時間で一様に実現できること。
 \item
@@ -11629,7 +11438,7 @@ R164の達成範囲は「条件付き厳密結果＋滑らかな有限幅近似�
   旧M15の入口標本化、殻等方混合、標本化後再埋込み、全測定周期が再び現行結果になること。
 \end{enumerate}
 
-従ってQ1-2は部分達成のままである。Q2-1は中央4枝をR157とR164の直接特殊化として構成しても達成判定を変えず、Q2-2はR155の切断後局所因子化を追加しても条件付き達成のままである。Q3のR168は階数1、固定作用高階数、可変作用radial補正を同じray平均定理で扱うが、R170の作用容量結合から局所記録までの統合を自動的に与えない。Q3-4、Q3-5は条件付き達成のままである。
+従ってQ1-2は部分達成のままである。Q2-1は中央4枝をR159の入力準備節とR164の直接特殊化として構成しても達成判定を変えず、Q2-2はR155の切断後局所因子化を追加しても条件付き達成のままである。Q3のR168は階数1、固定作用高階数、可変作用radial補正を同じray平均定理で扱うが、R170の作用容量結合から局所記録までの統合を自動的に与えない。Q3-4、Q3-5は条件付き達成のままである。
 
 \begingroup
 

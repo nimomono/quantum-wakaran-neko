@@ -215,25 +215,25 @@ def main() -> None:
             float(np.linalg.norm(column_vector - permutation_23 @ row_vector)),
         )
 
-    checks.append(record_max("r157_cross_moment_error", maximum_cross_error, 4.0e-14))
-    checks.append(record_max("r157_joint_configuration_error", maximum_joint_error, 2.0e-14))
-    checks.append(record_max("r157_a_local_matching_error", maximum_a_matching_error, 2.0e-14))
-    checks.append(record_max("r157_b_local_matching_error", maximum_b_matching_error, 3.0e-14))
+    checks.append(record_max("r159_input_cross_moment_error", maximum_cross_error, 4.0e-14))
+    checks.append(record_max("r159_input_joint_configuration_error", maximum_joint_error, 2.0e-14))
+    checks.append(record_max("r159_input_a_local_matching_error", maximum_a_matching_error, 2.0e-14))
+    checks.append(record_max("r159_input_b_local_matching_error", maximum_b_matching_error, 3.0e-14))
     checks.append(record_max(
-        "r157_rare_row_action_lower_bound_error",
+        "r159_input_rare_row_action_lower_bound_error",
         maximum_conditional_action_error,
         2.0e-12,
     ))
     checks.append(record_max(
-        "r157_mean_active_action_bound_excess",
+        "r159_input_mean_active_action_bound_excess",
         maximum_mean_action_excess,
         2.0e-14,
     ))
-    checks.append(record_max("r158_cross_covariance_error", maximum_cnot_cross_error, 4.0e-14))
-    checks.append(record_max("r158_configuration_xor_error", maximum_cnot_joint_error, 2.0e-14))
-    checks.append(record_max("r158_pointwise_template_error", maximum_cnot_template_error, 4.0e-14))
-    checks.append(record_max("r158_involution_error", maximum_involution_error, 0.0))
-    checks.append(record_max("r158_row_weight_preservation_error", maximum_row_weight_error, 2.0e-14))
+    checks.append(record_max("r159_sync_cross_covariance_error", maximum_cnot_cross_error, 4.0e-14))
+    checks.append(record_max("r159_sync_configuration_xor_error", maximum_cnot_joint_error, 2.0e-14))
+    checks.append(record_max("r159_sync_pointwise_template_error", maximum_cnot_template_error, 4.0e-14))
+    checks.append(record_max("r159_sync_involution_error", maximum_involution_error, 0.0))
+    checks.append(record_max("r159_sync_row_weight_preservation_error", maximum_row_weight_error, 2.0e-14))
     checks.append(record_max("row_column_permutation_error", maximum_row_col_error, 0.0))
 
     finite_matrix = random_normalized_matrix(rng, row_floor=0.12)
@@ -255,9 +255,9 @@ def main() -> None:
     normalized_safe = safe_moment / np.linalg.norm(safe_moment)
     cross_distance = projector_trace_distance(normalized_safe, finite_matrix)
     cross_bound = min(1.0, 2.0 * epsilon_0 / sqrt(rho_star))
-    checks.append(record_max("r157_no_response_mass", failed_mass, epsilon_0))
-    checks.append(record_max("r157_finite_moment_bound_excess", moment_error - moment_bound, 0.0))
-    checks.append(record_max("r157_cross_projector_bound_excess", cross_distance - cross_bound, 0.0))
+    checks.append(record_max("r159_input_no_response_mass", failed_mass, epsilon_0))
+    checks.append(record_max("r159_input_finite_moment_bound_excess", moment_error - moment_bound, 0.0))
+    checks.append(record_max("r159_input_cross_projector_bound_excess", cross_distance - cross_bound, 0.0))
 
     maximum_conditional_tv = 0.0
     for row in range(2):
@@ -266,7 +266,7 @@ def main() -> None:
         safe /= np.sum(safe)
         maximum_conditional_tv = max(maximum_conditional_tv, total_variation(safe, ideal))
     checks.append(record_max(
-        "r157_b_matching_bound_excess",
+        "r159_input_b_matching_bound_excess",
         maximum_conditional_tv - epsilon_0 / (1.0 - epsilon_0),
         0.0,
     ))
@@ -375,7 +375,7 @@ def main() -> None:
             abs(routed_probability_plus - probability_plus),
         )
     checks.append(record_max("r160_branch_bias_transport_error", maximum_bias_error, 0.0))
-    checks.append(record_equal("r157_current_pair_count_error", 4 + 2 + 4 + 4 + 8, 22))
+    checks.append(record_equal("r159_input_current_pair_count_error", 4 + 2 + 4 + 4 + 8, 22))
 
     payload = {
         "seed": seed,
