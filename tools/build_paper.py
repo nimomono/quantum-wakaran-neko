@@ -32,7 +32,7 @@ PART_TITLES: dict[int, str] = {
     1: "問題設定と共通言語",
     3: "単一量子ビット型操作と測定",
     4: "2論理部分系とBell型統計",
-    6: "空間複素振幅場と空間実現配置",
+    6: "空間複素振幅場と粒子位置",
     8: "総合評価",
 }
 
@@ -240,7 +240,6 @@ def validate_fixed_goal_language() -> None:
         "モデルID": r"(?<![A-Za-z])M\d+",
         "結果ID": r"(?<![A-Za-z])R\d+",
         "複素振幅場": r"複素振幅場",
-        "実現配置": r"実現配置",
     }
     for label, block in (
         ("PROJECT_STATUS.mdの固定目標", fixed_block),
@@ -279,6 +278,7 @@ def validate_fixed_goal_language() -> None:
         SECTIONS / "A3_l4_two_qubit_gate_proofs.md",
         SECTIONS / "05_m48_bell_cycle_and_audit.md",
         SECTIONS / "A4_m48_cycle_proofs.md",
+        SECTIONS / "A6_particle_position_proofs.md",
         SECTIONS / "A10_m48_paired_hopf_bell_preparation.md",
         SECTIONS / "A11_q2_joint_bath_contract.md",
         SECTIONS / "A12_common_collision_bath_thermodynamics.md",
@@ -290,6 +290,7 @@ def validate_fixed_goal_language() -> None:
         SECTIONS / "A2_l2_cycle_and_zeno_proofs.md",
         SECTIONS / "05_m41_bell_cycle_and_audit.md",
         SECTIONS / "A4_m41_cycle_proofs.md",
+        SECTIONS / "A6_realized_configuration_proofs.md",
     )
     for path in required_paths:
         if not path.is_file():
@@ -312,14 +313,30 @@ def validate_fixed_goal_language() -> None:
     if inconsistent:
         raise ValueError("2モード表記の不一致: " + "、".join(inconsistent))
 
+    current_terminology_paths = [
+        ROOT / "README.md",
+        ROOT / "PROJECT_STATUS.md",
+        ROOT / "MANIFEST.md",
+        *sorted(SECTIONS.glob("*.md")),
+    ]
+    deprecated = [
+        path.relative_to(ROOT).as_posix()
+        for path in current_terminology_paths
+        if "実現配置" in path.read_text(encoding="utf-8")
+    ]
+    if deprecated:
+        raise ValueError("現行文書に旧称『実現配置』が残っている: " + "、".join(deprecated))
+
     m49_text = (SECTIONS / "04_l4_two_qubit_gate.md").read_text(encoding="utf-8")
     for token in (
         "R157：M49中央4枝状態数の有限Hamiltonian準備",
-        "R158：担体・bath・配置へ同期する同一試行CNOT",
+        "R158：担体・bath・粒子位置へ同期する同一試行CNOT",
         "R159：固定有限入力、入力頻度、固定積出力基底の共同入力--出力統計",
         "R160：M49固定singlet providerからM48へのsetting-free同一register受渡し",
         r"\rho_*",
         r"\varepsilon_{\rm Q2-link}",
+        r"D_{\rm prog}",
+        r"d_{\rm prog}",
     ):
         if token not in m49_text:
             raise ValueError(f"M49本文の固定要素がない: {token}")
@@ -533,13 +550,17 @@ def tex_environment() -> dict[str, str]:
 
 
 def normalize_pdf_id(path: Path) -> None:
-    """Replace xdvipdfmx's random trailer ID with a content-derived ID."""
+    """Normalize an xdvipdfmx trailer ID when the PDF contains one."""
     data = path.read_bytes()
     pattern = re.compile(rb"/ID\[<[0-9A-Fa-f]{32}><[0-9A-Fa-f]{32}>\]")
     placeholder = b"/ID[<" + b"0" * 32 + b"><" + b"0" * 32 + b">]"
     normalized, count = pattern.subn(placeholder, data)
+    if count == 0:
+        # TeX Live 2023 may omit /ID entirely when reproducible-output
+        # variables are set.  There is then no random trailer field to fix.
+        return
     if count != 1:
-        raise RuntimeError(f"expected one PDF trailer ID in {path}, found {count}")
+        raise RuntimeError(f"expected at most one PDF trailer ID in {path}, found {count}")
     stable_id = hashlib.sha256(normalized).hexdigest()[:32].encode("ascii")
     path.write_bytes(pattern.sub(b"/ID[<" + stable_id + b"><" + stable_id + b">]", data))
 

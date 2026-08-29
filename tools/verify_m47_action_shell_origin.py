@@ -71,6 +71,42 @@ def main() -> None:
     rng = np.random.default_rng(seed)
     checks: list[CheckResult] = []
 
+    support_ray = rng.normal(size=2) + 1j * rng.normal(size=2)
+    support_ray /= np.linalg.norm(support_ray)
+    amplitudes = rng.normal(size=4096) + 1j * rng.normal(size=4096)
+    supported_samples = amplitudes[:, None] * support_ray[None, :]
+    supported_covariance = supported_samples.T @ supported_samples.conj()
+    supported_covariance /= np.trace(supported_covariance).real
+    support_projector = np.outer(support_ray, support_ray.conj())
+    perpendicular = np.eye(2) - support_projector
+    checks.append(record_max(
+        "rank_one_covariance_factor_error",
+        np.linalg.norm(supported_covariance - support_projector),
+        3.0e-14,
+    ))
+    checks.append(record_max(
+        "rank_one_sample_support_error",
+        np.max(np.linalg.norm(supported_samples @ perpendicular.T, axis=1)),
+        3.0e-14,
+    ))
+
+    orthogonal_ray = np.array([-support_ray[1].conjugate(), support_ray[0].conjugate()])
+    leakage = 0.07 * (rng.normal(size=4096) + 1j * rng.normal(size=4096))
+    approximate_samples = supported_samples + leakage[:, None] * orthogonal_ray[None, :]
+    approximate_covariance = approximate_samples.T @ approximate_samples.conj()
+    total_action = np.trace(approximate_covariance).real
+    approximate_covariance /= total_action
+    support_trace_error = float(np.trace(perpendicular @ approximate_covariance).real)
+    support_sample_error = float(
+        np.sum(np.linalg.norm(approximate_samples @ perpendicular.T, axis=1) ** 2)
+        / total_action
+    )
+    checks.append(record_max(
+        "approximate_support_identity_error",
+        abs(support_trace_error - support_sample_error),
+        3.0e-14,
+    ))
+
     size = 7
     isometry = random_isometry(rng, size)
     state = rng.normal(size=2) + 1j * rng.normal(size=2)
@@ -128,6 +164,21 @@ def main() -> None:
         "capacity_scale_covariance_error",
         np.linalg.norm(scaled_capacities - abs(amplitude) ** 2 * capacities),
         2.0e-13,
+    ))
+    supported_signal = amplitudes[0] * support_ray
+    _, supported_branches, supported_capacities = action_capacities(
+        isometry, supported_signal, action_unit, delta, reference
+    )
+    supported_target = supported_capacities / np.sum(supported_capacities)
+    ray_signal, ray_branches, ray_capacities = action_capacities(
+        isometry, support_ray, action_unit, delta, reference
+    )
+    ray_target = ray_capacities / np.sum(ray_capacities)
+    checks.append(record_max(
+        "single_trial_ray_weight_invariance_error",
+        np.linalg.norm(supported_target - ray_target)
+        + abs(np.sum(ray_branches) - ray_signal),
+        4.0e-14,
     ))
 
     two_mode_expected = (2.0 * pi) ** 2 * capacities / reference_action

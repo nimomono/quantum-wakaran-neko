@@ -1,11 +1,11 @@
 @number: K
 @chapter: 付録
-@title: Q2共同bath--実現配置の受渡し契約
+@title: Q2共同bath--二粒子位置の受渡し契約
 @status: 本文と同格の規約
 
 ## K.1　目的と適用範囲
 
-本付録は、Q2-1の二体ゲート過程とQ2-2のBell周期を同じ「共同bath--実現配置」体系へ接続する共通契約を固定する。共有する試行状態、matching条件、受渡し面、設定独立性、破壊的読出しに許す範囲を定め、第4章のM49とR160が固定singlet供給プログラムについてこの契約を満たすことを監査する。一般Q2-1出力または一般状態Bell測定への拡張を含めない。
+本付録は、Q2-1の二体ゲート過程とQ2-2のBell周期を同じ「共同bath--粒子位置」体系へ接続する共通契約を固定する。共有する試行状態、matching条件、受渡し面、設定独立性、破壊的読出しに許す範囲を定め、第4章のM49とR160が固定singlet供給プログラムについてこの契約を満たすことを監査する。一般Q2-1出力または一般状態Bell測定への拡張を含めない。
 
 1試行の共通状態を
 
@@ -15,7 +15,7 @@
  \tag{K.1}
 ```
 
-とする。$X_A,X_B$ は両端の実現配置、$z_A,z_B$ は局所応答へ渡す有限次元状態、$\eta$ は同一試行で共有されるbath変数、$H$ は不変な履歴台帳、$R$ は未使用・使用済みを含む補助レジスタである。試行測度を $\mu$、安全事象を $G$ と書く。
+とする。$X_A,X_B$ は両端の粒子位置、$z_A,z_B$ は局所応答へ渡す有限次元状態、$\eta$ は同一試行で共有されるbath変数、$H$ は不変な履歴台帳、$R$ は未使用・使用済みを含む補助レジスタである。試行測度を $\mu$、安全事象を $G$ と書く。
 
 ## K.2　共同bathのcross momentと共通vectorization
 
@@ -37,7 +37,7 @@
 ```math
  \beta^G_{AB}:=\operatorname{vec}_{\rm row}(B^G_{AB}),
  \qquad
- C^\times_G:=\beta^G_{AB}(\beta^G_{AB})^\dagger
+ C_G^\times:=\beta^G_{AB}(\beta^G_{AB})^\dagger
  \tag{K.3}
 ```
 
@@ -49,9 +49,9 @@
  \qquad
  B_{\rm s}:=\frac{\mathsf E}{\sqrt2},
  \qquad
- c_{\rm s}:=\operatorname{vec}_{\rm row}(B_{\rm s}),
- \qquad
- C_{\rm s}:=c_{\rm s}c_{\rm s}^\dagger
+ \beta_{\rm s}:=\operatorname{vec}_{\rm row}(B_{\rm s}),
+\qquad
+ C_{\rm s}^\times:=\beta_{\rm s}\beta_{\rm s}^\dagger
  \tag{K.4}
 ```
 
@@ -87,18 +87,18 @@ column-major記法を使う場合は、中央2成分を交換する置換
 
 ## K.3　matching条件
 
-共同bathと実現配置のmatchingは、次の3条件を同一の安全事象 $G$ 上で満たすことをいう。
+共同bathと粒子位置のmatchingは、次の3条件を同一の安全事象 $G$ 上で満たすことをいう。
 
 第一に、cross projectorの統計的matchingを
 
 ```math
- d_\times(C^\times_G,C_{\rm s})
- :=\frac12\lVert C^\times_G-C_{\rm s}\rVert_1
+ d_\times(C_G^\times,C_{\rm s}^\times)
+ :=\frac12\lVert C_G^\times-C_{\rm s}^\times\rVert_1
  \leq \varepsilon_\times
  \tag{K.7}
 ```
 
-とする。第二に、各端 $w\in\{A,B\}$ の単一試行配置matchingを
+とする。第二に、各端 $w\in\{A,B\}$ の単一試行粒子位置matchingを
 
 ```math
  \mathbb E_\mu\!\left[
@@ -124,7 +124,7 @@ column-major記法を使う場合は、中央2成分を交換する置換
 
 とする。第一式はensembleから新しい端状態を再標本化せず、受け取った $X_w,z_w,R_w$ を局所programへ渡すことを表す。第二式は中央切断後の因数分解を表す。
 
-式(K.7)はensemble統計、式(K.8)は単一試行の条件付き配置法則であり、役割が異なる。$B^G_{AB}$ や $C^\times_G$ を各試行で利用できるcontrollerとして再注入してはならない。それを行う場合は、別の推定器、記憶、準備過程とその因果位置を明示する必要がある。
+式(K.7)はensemble統計、式(K.8)は単一試行の条件付き粒子位置法則であり、役割が異なる。$B^G_{AB}$ や $C_G^\times$ を各試行で利用できるcontrollerとして再注入してはならない。それを行う場合は、別の推定器、記憶、準備過程とその因果位置を明示する必要がある。付録M.2の階数1共分散の支持補題は自己共分散 $\mathbb E[ZZ^\dagger]$ に対する結果であり、交差モーメント $\mathbb E[z_Az_B^{\mathsf T}]$ または $C_G^\times$ から積標本 $z_A\otimes z_B$ の支持を導くためには使えない。
 
 ## K.4　設定前受渡し面
 
@@ -216,7 +216,7 @@ M48単独周期は、固定された $\mathsf E$、設定前の等重み枝seed�
  \tag{K.16}
 ```
 
-であり、非零出力を正規化すると常に $[B_{\rm s}]$ へ潰れる。したがって一般のM39状態情報を運ぶstate-carrying写像ではない。M49はこのfilterを使わず、同じ4モード担体の作用区間から配置をdecodeし、行templateをactive bathへroutingした後、担体・bath・配置へCNOTを点ごとに作用させる。R160の $T_{\rm link}^{49\to48}$ はbath・配置registerの恒等搬送であり、M49 link面族の少なくとも2つのcross projector間距離を保存するため、受渡し面に対してstate-carryingである。Bell結果まで閉じる現行定理は固定singletに限る。$S_0=(-1)^{X_A}$ は枝biasも保存し、履歴は結果形成へ入れない。
+であり、非零出力を正規化すると常に $[B_{\rm s}]$ へ潰れる。したがって一般のM39状態情報を運ぶstate-carrying写像ではない。M49はこのfilterを使わず、同じ4モード担体の作用区間から配置をdecodeし、行templateをactive bathへroutingした後、担体・bath・粒子位置へCNOTを点ごとに作用させる。R160の $T_{\rm link}^{49\to48}$ はbath・粒子位置registerの恒等搬送であり、M49 link面族の少なくとも2つのcross projector間距離を保存するため、受渡し面に対してstate-carryingである。Bell結果まで閉じる現行定理は固定singletに限る。$S_0=(-1)^{X_A}$ は枝biasも保存し、履歴は結果形成へ入れない。
 
 ## K.8　段階判定
 
@@ -237,7 +237,7 @@ Q2で使う作用殻registerを次の3種類へ分ける。
 
 | 役割 | 物理的内容 | 受渡し |
 |---|---|---|
-| state-carrying | $z_A,z_B$ とcross projector感度を保持するbath・配置register | M49からM48へ同じ物理registerを運ぶ |
+| state-carrying | $z_A,z_B$ とcross projector感度を保持するbath・粒子位置register | M49からM48へ同じ物理registerを運ぶ |
 | branch-carrying | 中央4枝状態数から選ばれた $X_A,X_B$ と固定singlet枝bias | M48の $S_0=(-1)^{X_A}$ へ渡す |
 | provenance-only shell | 使用済み中央殻の作用・角座標を退避した履歴 | 履歴識別子だけを残し、結果形成へ再注入しない |
 
