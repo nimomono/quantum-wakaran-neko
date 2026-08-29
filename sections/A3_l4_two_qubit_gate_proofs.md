@@ -1,7 +1,7 @@
 @number: C
 @chapter: 付録
 @title: M49共同bath CNOT供給模型の証明
-@status: R104--R106の4モード担体、R157--R160の行分解bath--粒子位置matching、同期CNOT、固定有限共同統計、M48受渡しを証明する。
+@status: R104、R105の4モード担体、R157--R160の行分解bath--粒子位置matching、同期CNOT、固定有限共同統計、M48受渡しを証明する。
 
 ## C.1　4モード正準担体
 
@@ -54,7 +54,7 @@ $D_{\rm prog}\in\mathbb C^{2\times2}$ を行優先で
 式(C.3)へ $K=A\otimes I_2$ と $L=I_2\otimes B$ を入れると、対応HamiltonianのPoisson括弧は行列交換子 $[K,L]=0$ に比例して零となる。正方形配線の対辺へ同じ $QQ+PP$ 交換と作用差を置けば、各局所Pauli生成子を有限2次Hamiltonianで実装できる。式(C.5)が積状態集合を保存する。証明終。
 <!-- theorem-end:proof -->
 
-## C.2　CNOT担体とR105、R106
+## C.2　R105：CNOT担体と有限制御評価
 
 差モード $|d\rangle=(|10\rangle-|11\rangle)/\sqrt2$ への射影は
 
@@ -136,11 +136,9 @@ $H_C=P_\tau+g(\tau)G_C$ では $\dot\tau=1$ で、信号生成子は全時刻で
 
 4信号正準対と1時計正準対で担体CNOTを実装できる。
 
-<!-- theorem-start:proof -->
-**証明（R106）**
+**R105の有限制御節。**
 
 式(C.9)は窓面積、式(C.10)、式(C.11)は射影の固有値、式(C.13)はDuhamel式から従う。生成子は4信号正準対上の2作用項と1交換辺で、時計に1正準対を要する。証明終。
-<!-- theorem-end:proof -->
 
 ## C.3　R157の理想行分解
 
@@ -486,7 +484,7 @@ state-carrying感度には、link面族内の $D_0=e_0e_0^{\mathsf T}$ と $D_{\
 2. 任意Q2-1出力に対する一般状態M48測定。
 3. 独立同分布型有限標本統計。
 4. 空間分離、準備後の自由設定変更、有限伝播円錐。
-5. R162の有限衝突粒子位置bathとR151、paired-Hopf流、2翼controllerの閉鎖Hamiltonian統合。
+5. R162の有限衝突粒子位置bathとR153のrouting、paired-Hopf流、2翼controllerの閉鎖Hamiltonian統合。
 6. $2^n$ モードを避ける多量子ビット拡張。
 
-R104--R106はM49内部担体の有限正準結果として使う。これらの担体代数だけでは、R157--R160のbath、粒子位置、物理的受渡しは従わない。
+R104、R105はM49内部担体の有限正準結果として使う。これらの担体代数だけでは、R157--R160のbath、粒子位置、物理的受渡しは従わない。

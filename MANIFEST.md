@@ -23,14 +23,13 @@
 - `sections/A3_l4_two_qubit_gate_proofs.md`
 - `sections/A4_m48_cycle_proofs.md`
 - `sections/A5_m37_envelope_proofs.md`
-- `sections/A6_m37_m50_position_instrument_proofs.md`
+- `sections/A6_common_signal_statistics.md`
 - `sections/A7_q3_completion_proofs.md`
-- `sections/A8_w_two_mode_hopf_statistics.md`
+- `sections/A8_m47_hopf_preparation.md`
 - `sections/A9_m48_paired_hopf_bell_preparation.md`
 - `sections/A10_q2_joint_bath_contract.md`
 - `sections/A11_common_collision_bath_thermodynamics.md`
 - `sections/A12_common_action_shell_state_count.md`
-- `sections/A13_q2_action_shell_statistics.md`
 - `sections/90_references.md`
 
 ## 論文外の研究メモ
@@ -79,13 +78,13 @@
 - `tools/verify_m47_hopf_preparation.py`
 - `tools/verify_m47_collision_thermodynamics.py`
 - `tools/verify_m47_action_shell_origin.py`
-- `tools/verify_q2_action_shell_integration.py`
+- `tools/verify_q2_shell_and_locality.py`
 - `tools/verify_m48_paired_hopf.py`
 - `tools/verify_m48_full_cycle.py`
 - `tools/verify_phase_correlation.py`
 - `tools/verify_q2_1_gate.py`
 - `tools/verify_m49_joint_bath_provider.py`
-- `tools/verify_m50_instrument_and_q3_handoff.py`
+- `tools/verify_common_signal_m50.py`
 - `tools/verify_q3_completion.py`
 - `figures/README.md`
 - `.github/workflows/verify.yml`

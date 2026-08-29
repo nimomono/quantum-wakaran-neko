@@ -67,7 +67,7 @@ def main() -> None:
     rng = np.random.default_rng(seed)
     checks: list[CheckResult] = []
 
-    # R167: lift a uniform finite-time sample error to normalized covariance.
+    # R135: lift a uniform finite-time sample error to normalized second moments.
     trials = 4096
     size = 4
     initial = rng.normal(size=(trials, size)) + 1j * rng.normal(size=(trials, size))
@@ -87,12 +87,12 @@ def main() -> None:
     ideal_action = float(np.mean(np.sum(np.abs(ideal) ** 2, axis=1)))
     actual_action = float(np.mean(np.sum(np.abs(actual) ** 2, axis=1)))
     kappa_t = ideal_action / actual_action
-    r167_bound = 2.0 * epsilon_car * sqrt(kappa_t) + epsilon_car**2 * kappa_t
-    checks.append(record_max("r167_covariance_trace_error", covariance_error, r167_bound + 1.0e-14))
-    checks.append(record_max("r167_covariance_trace_one", abs(np.trace(covariance_actual).real - 1.0), 2.0e-14))
-    checks.append(record_min("r167_covariance_positive", float(np.min(np.linalg.eigvalsh(covariance_actual))), -2.0e-14))
+    r135_bound = 2.0 * epsilon_car * sqrt(kappa_t) + epsilon_car**2 * kappa_t
+    checks.append(record_max("r135_second_moment_trace_error", covariance_error, r135_bound + 1.0e-14))
+    checks.append(record_max("r135_second_moment_trace_one", abs(np.trace(covariance_actual).real - 1.0), 2.0e-14))
+    checks.append(record_min("r135_second_moment_positive", float(np.min(np.linalg.eigvalsh(covariance_actual))), -2.0e-14))
     checks.append(record_max(
-        "r167_pointwise_carrier_bound",
+        "r135_pointwise_carrier_bound",
         float(np.max(np.linalg.norm(perturbation, axis=1) / np.linalg.norm(initial, axis=1))),
         epsilon_car + 2.0e-15,
     ))
@@ -335,8 +335,8 @@ def main() -> None:
     payload = {
         "seed": seed,
         "check_count": len(checks),
-        "r167_trace_distance": covariance_error,
-        "r167_bound": r167_bound,
+        "r135_trace_distance": covariance_error,
+        "r135_bound": r135_bound,
         "r168_general_variable_action_gap": trace_distance(radial_average, covariance_average),
         "r170_mixing_error": mixing_error,
         "r170_mixing_bound": mixing_bound,

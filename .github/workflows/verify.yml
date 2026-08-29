@@ -34,28 +34,36 @@ jobs:
             python "$script"
           done
 
-      - name: draft-53の理論統合を検査
+      - name: draft-54の理論階層統合を検査
         run: |
-          test -f sections/A8_w_two_mode_hopf_statistics.md
+          test -f sections/A6_common_signal_statistics.md
+          test -f sections/A8_m47_hopf_preparation.md
           test -f sections/A9_m48_paired_hopf_bell_preparation.md
           test -f sections/A10_q2_joint_bath_contract.md
           test -f sections/A11_common_collision_bath_thermodynamics.md
           test -f sections/A12_common_action_shell_state_count.md
-          test -f sections/A13_q2_action_shell_statistics.md
+          test ! -e sections/A6_m37_m50_position_instrument_proofs.md
+          test ! -e sections/A8_w_two_mode_hopf_statistics.md
+          test ! -e sections/A13_q2_action_shell_statistics.md
           test ! -e sections/A8_open_quasicritical_preparation.md
           test ! -e sections/A14_q2_action_shell_statistics.md
           test ! -d simulations/m45_open_quasicritical
           test ! -e figures/m45_open_trap_diagnostics.png
           test ! -e figures/m45_conditional_ground_comparison.png
           test -f tools/verify_m35_canonical_control.py
-          test -f tools/verify_m50_instrument_and_q3_handoff.py
+          test -f tools/verify_common_signal_m50.py
+          test -f tools/verify_q2_shell_and_locality.py
           test ! -e tools/verify_action_distribution.py
           test ! -e tools/verify_m37_m50_position_instrument.py
+          test ! -e tools/verify_m50_instrument_and_q3_handoff.py
+          test ! -e tools/verify_q2_action_shell_integration.py
           test ! -e tools/verify_m39_m48_ablation.py
+          grep -Fq 'R135：有限信号集団の規格化第2モーメント輸送' sections/02_common_canonical_modules.md
+          grep -Fq 'R168：一般ray平均からM50枝統計への受渡し' sections/02_common_canonical_modules.md
           grep -Fq 'R170：M50固定入力時刻有限枝instrument' sections/02_common_canonical_modules.md
-          grep -Fq 'R143：M47のR170特殊化と結果別状態更新' sections/03_m47_controlled_w_instrument.md
-          grep -Fq 'R154：R170の2翼局所合成と条件付きBell応答' sections/05_m48_bell_cycle_and_audit.md
-          grep -Fq 'R168：一般ray平均からM50枝統計へのQ3受渡し' sections/06_m37_spatial_envelope.md
+          grep -Fq 'R143：M47有限コントラスト読出しと結果別状態更新' sections/03_m47_controlled_w_instrument.md
+          grep -Fq 'R155：M48完全Bell周期、有限誤差、局所性監査、帰還' sections/05_m48_bell_cycle_and_audit.md
+          grep -Fq 'R86：M37有限時間包絡線縮約' sections/06_m37_spatial_envelope.md
           grep -Fq 'M35 | 有限正準制御・比較・記録モジュール' PROJECT_STATUS.md
           grep -Fq 'Born型枝生成には使わない' PROJECT_STATUS.md
           grep -Fq '| Q1-1 | 達成 |' PROJECT_STATUS.md
@@ -70,8 +78,8 @@ jobs:
           grep -Fq '| Q3-3 | 達成 |' PROJECT_STATUS.md
           grep -Fq '| Q3-4 | 条件付き達成 |' PROJECT_STATUS.md
           grep -Fq '| Q3-5 | 条件付き達成 |' PROJECT_STATUS.md
-          ! grep -REn 'R(150|152|165|169)|M(39|41|45|46)|R(107|108|109|110|111|120|121|122|130|131|132|137|138)' README.md PROJECT_STATUS.md sections/*.md tools/*.py
-          ! grep -REn 'A14_|A13_common|A12_common_collision|A11_q2|A10_m48|A9_w_two' MANIFEST.md tools/*.py
+          ! grep -REn 'R(83|84|85|87|88|89|106|136|139|141|142|146|148|149|150|151|152|154|156|165|166|167|169)|M(39|41|43|45|46)|R(107|108|109|110|111|120|121|122|130|131|132|137|138)' README.md PROJECT_STATUS.md sections/*.md tools/*.py
+          ! grep -REn 'A14_|A13_|A12_common_collision|A11_q2|A10_m48|A9_w_two|A8_w_two|A6_m37_m50' MANIFEST.md tools/*.py
           ! grep -REn '二mode|二モード|実現配置' README.md PROJECT_STATUS.md sections/*.md
 
       - name: 収録PDFを退避
