@@ -19,6 +19,8 @@ M48単独周期は次の5項目を順に閉じる。
 
 M48は採用開放古典模型である。paired-Hopf pump、設定controller、配置交換bath、傾斜固定、記録cell、fresh cell流を明示するが、全系を有限閉鎖Hamiltonianへ持ち上げたとは呼ばない。
 
+共通M51/R171は各翼の有限ray seedを準備する局所部品として使えるが、M48のsinglet型交差モーメントや2翼strong matchingを準備しない。交差統計を単一試行のM51 templateへ書き戻す経路は採用しない。従ってM48のpaired-Hopf準備とM51を同じ結果として統合せず、共通なのは実担体、開放port、切断後の統計輸送という記述契約だけである。
+
 ## 5.2 設定前開始面と等重みseed
 
 固定した有限A設定族を $\mathcal X$、有限B設定族を $\mathcal Y$ とする。設定前開始面では、設定生成角、固定pairing tensor $\mathsf E$、等重み枝seed $S_0\in\{+1,-1\}$、2翼の空W型配置、局所雑音seed、記録・履歴・resetセルを設定非依存測度 $\nu_0$ に置く。

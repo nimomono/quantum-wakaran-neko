@@ -42,6 +42,7 @@ jobs:
           test -f sections/A10_q2_joint_bath_contract.md
           test -f sections/A11_common_collision_bath_thermodynamics.md
           test -f sections/A12_common_action_shell_state_count.md
+          test -f sections/A13_common_open_preparation.md
           test -f notes/q1_zeno_revival.md
           test ! -e notes/frozen_q1_zeno.md
           test ! -e sections/A6_m37_m50_position_instrument_proofs.md
@@ -55,6 +56,7 @@ jobs:
           test -f tools/verify_common_canonical_control.py
           test -f tools/verify_common_collision_thermodynamics.py
           test -f tools/verify_common_signal_m50.py
+          test -f tools/verify_m51_common_open_preparation.py
           test -f tools/verify_q2_shell_and_locality.py
           test ! -e tools/verify_action_distribution.py
           test ! -e tools/verify_m37_m50_position_instrument.py
@@ -62,6 +64,7 @@ jobs:
           test ! -e tools/verify_q2_action_shell_integration.py
           test ! -e tools/verify_m39_m48_ablation.py
           grep -Fq 'R135：有限信号集団の規格化第2モーメント輸送' sections/02_common_canonical_modules.md
+          grep -Fq 'R171：M51共通開放ray準備の有限時間率と切断後輸送' sections/02_common_canonical_modules.md
           grep -Fq 'R168：一般ray平均からM50枝統計への受渡し' sections/02_common_canonical_modules.md
           grep -Fq 'R170：M50固定入力時刻有限枝instrument' sections/02_common_canonical_modules.md
           grep -Fq 'R143：M47有限コントラスト読出しと結果別状態更新' sections/03_m47_controlled_w_instrument.md
@@ -69,6 +72,7 @@ jobs:
           grep -Fq 'R86：M37有限時間包絡線縮約' sections/06_m37_spatial_envelope.md
           grep -Fq 'R112 | 厳密結果 | 有限正準信号のunitary合成' PROJECT_STATUS.md
           grep -Fq 'M50 | 有限信号作用・作用殻・粒子位置熱化・有限枝instrument | 現行共通instrument仕様' PROJECT_STATUS.md
+          grep -Fq 'M51 | 有限実正準担体の共通開放ray準備 | 現行基礎開放模型' PROJECT_STATUS.md
           grep -Fq 'R159：固定有限入力、入力頻度、固定積出力基底の共同入力--出力統計' sections/04_l4_two_qubit_gate.md
           grep -Fq '| Q1-1 | 達成 |' PROJECT_STATUS.md
           grep -Fq '| Q1-2 | 部分達成 |' PROJECT_STATUS.md
@@ -92,12 +96,13 @@ jobs:
             exit 1
           fi
           test "$(grep -Rho '定理（R161：' sections/*.md | wc -l)" -eq 1
+          test "$(grep -Rho '定理（R171：' sections/*.md | wc -l)" -eq 1
           test "$(grep -Rho '定理（R162：' sections/*.md | wc -l)" -eq 1
           test "$(grep -Rho '定理（R164：' sections/*.md | wc -l)" -eq 1
           test "$(grep -Rho '定理（R123：' sections/*.md | wc -l)" -eq 1
           test "$(grep -Rho '定理（R124：' sections/*.md | wc -l)" -eq 1
           test "$(grep -Rho '定理（R125：' sections/*.md | wc -l)" -eq 1
-          if grep -REn 'A14_|A13_|A12_common_collision|A11_q2|A10_m48|A9_w_two|A8_w_two|A6_m37_m50' MANIFEST.md tools/verify_*.py; then
+          if grep -REn 'A14_|A13_q2|A12_common_collision|A11_q2|A10_m48|A9_w_two|A8_w_two|A6_m37_m50' MANIFEST.md tools/verify_*.py; then
             exit 1
           fi
           if grep -REn '二mode|二モード|実現配置' README.md PROJECT_STATUS.md sections/*.md; then

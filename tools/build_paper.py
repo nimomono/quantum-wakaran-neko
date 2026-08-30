@@ -322,6 +322,7 @@ def validate_fixed_goal_language() -> None:
         SECTIONS / "A10_q2_joint_bath_contract.md",
         SECTIONS / "A11_common_collision_bath_thermodynamics.md",
         SECTIONS / "A12_common_action_shell_state_count.md",
+        SECTIONS / "A13_common_open_preparation.md",
     )
     obsolete_paths = (
         SECTIONS / "03_l2_operation_measurement_zeno.md",
@@ -403,9 +404,22 @@ def validate_fixed_goal_language() -> None:
     all_section_text = "\n".join(
         path.read_text(encoding="utf-8") for path in sorted(SECTIONS.glob("*.md"))
     )
-    for result_id in ("R161", "R162", "R164", "R123", "R124", "R125"):
+    for result_id in ("R171", "R161", "R162", "R164", "R123", "R124", "R125"):
         if all_section_text.count(f"定理（{result_id}：") != 1:
             raise ValueError(f"{result_id}の定理宣言は現行章全体で1回でなければならない")
+
+    common_text = (SECTIONS / "02_common_canonical_modules.md").read_text(
+        encoding="utf-8"
+    )
+    for token in (
+        "M51有限実正準担体の共通開放ray準備",
+        "R171：M51共通開放ray準備の有限時間率と切断後輸送",
+        r"\lambda_{\rm prep}",
+        r"C_{Z,G_*}",
+        "成功試行だけを結果分布として再規格化しない",
+    ):
+        if token not in common_text:
+            raise ValueError(f"M51/R171共通準備の固定要素がない: {token}")
 
     q3_text = (SECTIONS / "06_m37_spatial_envelope.md").read_text(encoding="utf-8")
     for token in (
