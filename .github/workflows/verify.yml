@@ -44,7 +44,8 @@ jobs:
           test -f sections/A12_common_action_shell_state_count.md
           test -f sections/A13_common_open_preparation.md
           test -f sections/A14_m37_m42_spatial_token.md
-          test -f notes/q1_zeno_revival.md
+          test -f notes/q1_2_zeno_integration.md
+          test ! -e notes/q1_zeno_revival.md
           test ! -e notes/frozen_q1_zeno.md
           test ! -e sections/A6_m37_m50_position_instrument_proofs.md
           test ! -e sections/A8_w_two_mode_hopf_statistics.md
@@ -85,8 +86,13 @@ jobs:
           grep -Fq 'R159：固定有限入力、入力頻度、固定積出力基底の共同入力--出力統計' sections/04_l4_two_qubit_gate.md
           grep -Fq '| Q1-1 | 達成 |' PROJECT_STATUS.md
           grep -Fq '| Q1-2 | 部分達成 |' PROJECT_STATUS.md
-          grep -Fq '| Q1-3 | 部分達成 |' PROJECT_STATUS.md
-          grep -Fq '| Q1-4 | 未達 |' PROJECT_STATUS.md
+          grep -Fq '| Q1-2 | 射影測定統計とZeno効果 |' PROJECT_STATUS.md
+          grep -Fq '| Q1-2 | 射影測定統計とZeno効果 |' README.md
+          grep -Fq '同軸再測定の反復分布' PROJECT_STATUS.md
+          grep -Fq '異なる軸による逐次測定分布' PROJECT_STATUS.md
+          if grep -En '^\| Q1-(3|4) \|' README.md PROJECT_STATUS.md sections/*.md; then
+            exit 1
+          fi
           grep -Fq '| Q2-1 | 達成 |' PROJECT_STATUS.md
           grep -Fq '| Q2-2 | 条件付き達成 |' PROJECT_STATUS.md
           grep -Fq '| Q2-3 | 未達 |' PROJECT_STATUS.md

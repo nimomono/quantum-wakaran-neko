@@ -255,8 +255,6 @@ def validate_fixed_goal_language() -> None:
     expected_status = {
         "Q1-1": "達成",
         "Q1-2": "部分達成",
-        "Q1-3": "部分達成",
-        "Q1-4": "未達",
         "Q2-1": "達成",
         "Q2-2": "条件付き達成",
         "Q2-3": "未達",
@@ -270,6 +268,33 @@ def validate_fixed_goal_language() -> None:
         pattern = rf"^\| {re.escape(goal_id)} \| {re.escape(status)} \|"
         if not re.search(pattern, current_block, flags=re.MULTILINE):
             raise ValueError(f"{goal_id}: 現在地が{status}ではない")
+
+    retired_q1_rows = re.compile(r"^\| Q1-(?:3|4) \|", flags=re.MULTILINE)
+    for label, block in (
+        ("PROJECT_STATUS.mdの固定目標", fixed_block),
+        ("PROJECT_STATUS.mdの現在地", current_block),
+        ("README.mdの長期目標", readme_block),
+    ):
+        if retired_q1_rows.search(block):
+            raise ValueError(f"{label}: 旧Q1-3または旧Q1-4の現行行が残っている")
+
+    required_q1_fragments = (
+        "Q1-2 | 射影測定統計とZeno効果",
+        "2値Born分布",
+        "同軸再測定の反復分布",
+        "異なる軸による逐次測定分布",
+        "Zeno型遷移抑制",
+        "tiltだけによる抑制",
+    )
+    missing_q1_fragments = [
+        fragment for fragment in required_q1_fragments if fragment not in fixed_block
+    ]
+    if missing_q1_fragments:
+        raise ValueError(
+            "Q1-2の統合達成判定が不足: " + "、".join(missing_q1_fragments)
+        )
+    if "Q1-2 | 射影測定統計とZeno効果" not in readme_block:
+        raise ValueError("README.mdのQ1-2名称が固定目標と一致しない")
 
     required_goal_fragments = (
         "Q2-3 | 多項式資源による量子ゲート型計算機",
@@ -304,10 +329,13 @@ def validate_fixed_goal_language() -> None:
             "現行文書に凍結中の表記が残っている: " + "、".join(stale_freeze_hits)
         )
 
-    revival_note = ROOT / "notes" / "q1_zeno_revival.md"
-    frozen_note = ROOT / "notes" / "frozen_q1_zeno.md"
-    if not revival_note.is_file() or frozen_note.exists():
-        raise ValueError("Q1-4再開メモの改名が未完了")
+    integration_note = ROOT / "notes" / "q1_2_zeno_integration.md"
+    obsolete_zeno_notes = (
+        ROOT / "notes" / "q1_zeno_revival.md",
+        ROOT / "notes" / "frozen_q1_zeno.md",
+    )
+    if not integration_note.is_file() or any(path.exists() for path in obsolete_zeno_notes):
+        raise ValueError("Q1-2 Zeno統合メモの改名が未完了")
 
     required_paths = (
         SECTIONS / "03_m47_controlled_w_instrument.md",
