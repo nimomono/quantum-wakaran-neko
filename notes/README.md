@@ -23,7 +23,7 @@ draft-51以後の現行文書では、各試行で局在する物理変数を「
 | `superseded_result_index.md` | draft-53--draft-54で本文から外した結果ID | 旧結果IDと現行統合先の索引 | 統合後の本文と状態表へ旧IDを混在させず、追跡可能性を保つため |
 | `superseded_m38_m42_q1.md` | draft-43以前の第3章、付録B、M38、R92--R100、R119 | 旧Q1操作・測定模型の置換記録。比較・記録内容はR112へ統合 | Q1をW型2モード共同統計と傾斜測定を使うM47/R139--R144へ移行した |
 | `superseded_m42_continuous_particle_position.md` | draft-51までの第2章、第6章、付録F、M42、R113--R118 | 旧全時刻等変粒子位置模型の退役記録 | Q3読出しをR167--R170の固定入力時刻M37--M50 instrumentへ移行し、確率起源と装置論をM50へ統一した |
-| `q1_zeno_revival.md` | draft-43以前の第3章、付録B、R101--R103 | Q1-4と旧有限Zeno構成の保存、draft-56以後の再開条件 | 旧結果を現行根拠へ戻さず、零傾斜Rabi対照、反復測定、全履歴、tilt対照、誤差・資源監査から再構成するため |
+| `q1_2_zeno_integration.md` | draft-43以前の第3章、付録B、R101--R103 | 旧Q1-4と旧有限Zeno構成の保存、draft-59以後のQ1-2統合条件 | 旧結果を現行根拠へ戻さず、零傾斜Rabi対照、反復測定、全履歴、tilt対照、誤差・資源監査からQ1-2のZeno部分を構成するため |
 | `superseded_m41_bell_cycle.md` | draft-45A以前の第5章、M41、R107--R111、R121 | 旧初期共通原因型2端Bell周期の置換記録 | M48のpaired-Hopf receiver、2翼strong matching、切断後局所instrument、resetへ主線を移し、因果律の異なる旧周期を現行根拠から外した |
 | `superseded_m41_cycle_proofs.md` | draft-45A以前の付録D | M41周期の旧証明記録 | R107--R111、R121を撤回せず保存する一方、現行Q2-2の証明依存から外すため |
 | `superseded_m39_m48_handoff_claim.md` | draft-45BのR151、旧第4.9節・第5.3節・付録D.2・付録J.14 | 旧M39--M48 state handoff主張の置換記録 | 反対称filterが非零入力を同じsinglet射影へ潰し、等重み枝も内部fair seedで代替できるため、物理的なstate-carrying受渡しと分類できない |

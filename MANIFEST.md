@@ -55,7 +55,7 @@
 - `notes/superseded_m39_m48_handoff_claim.md`
 - `notes/superseded_m39_m42_q2_1.md`
 - `notes/superseded_m42_continuous_particle_position.md`
-- `notes/q1_zeno_revival.md`
+- `notes/q1_2_zeno_integration.md`
 - `notes/superseded_position_coupling_fisher_closure.md`
 - `notes/superseded_three_mode_bell_shell.md`
 - `notes/superseded_two_component_induction_field.md`
