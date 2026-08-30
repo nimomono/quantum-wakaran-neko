@@ -323,6 +323,7 @@ def validate_fixed_goal_language() -> None:
         SECTIONS / "A11_common_collision_bath_thermodynamics.md",
         SECTIONS / "A12_common_action_shell_state_count.md",
         SECTIONS / "A13_common_open_preparation.md",
+        SECTIONS / "A14_m37_m42_spatial_token.md",
     )
     obsolete_paths = (
         SECTIONS / "03_l2_operation_measurement_zeno.md",
@@ -371,13 +372,13 @@ def validate_fixed_goal_language() -> None:
         raise ValueError("現行文書に旧称『実現配置』が残っている: " + "、".join(deprecated))
 
     current_sections = sorted(SECTIONS.glob("*.md"))
-    retired_m42 = [
+    retired_m42_results = [
         path.relative_to(ROOT).as_posix()
         for path in current_sections
-        if re.search(r"M42|R11[3-8]", path.read_text(encoding="utf-8"))
+        if re.search(r"R11[3-8](?!\d)", path.read_text(encoding="utf-8"))
     ]
-    if retired_m42:
-        raise ValueError("現行章に退役済みM42/R113--R118が残っている: " + "、".join(retired_m42))
+    if retired_m42_results:
+        raise ValueError("現行章に退役済みR113--R118が残っている: " + "、".join(retired_m42_results))
 
     absorbed_result_pattern = re.compile(
         r"R(?:83|84|85|87|88|89|90|97|98|99|104|105|106|136|139|141|142|146|148|149|151|154|156|157|158|163|166|167)(?!\d)"
@@ -404,7 +405,9 @@ def validate_fixed_goal_language() -> None:
     all_section_text = "\n".join(
         path.read_text(encoding="utf-8") for path in sorted(SECTIONS.glob("*.md"))
     )
-    for result_id in ("R171", "R161", "R162", "R164", "R123", "R124", "R125"):
+    for result_id in (
+        "R171", "R172", "R173", "R174", "R161", "R162", "R164", "R123", "R124", "R125"
+    ):
         if all_section_text.count(f"定理（{result_id}：") != 1:
             raise ValueError(f"{result_id}の定理宣言は現行章全体で1回でなければならない")
 
@@ -425,14 +428,27 @@ def validate_fixed_goal_language() -> None:
     for token in (
         "R86：M37有限時間包絡線縮約",
         "共通R135のM37有限時間特殊化",
-        "共通R168のQ3特殊化",
-        "共通R170のQ3特殊化",
-        r"t_\star",
-        r"t_{\rm out}>t_\star",
-        r"\varepsilon_{170}",
+        "R172：M37有効辺流に沿うM42局在トークンの等変輸送",
+        "R173：M42の節一様正則化と有限衝突Hamiltonian近似",
+        "R174：M51--M37--M42の有限時間準備・輸送・記録受渡し",
+        "別のM50位置を生成せず",
+        "R162の平衡率公式をそのまま用いる主張ではない",
+        r"\varepsilon_{174}",
     ):
         if token not in q3_text:
             raise ValueError(f"Q3受渡し本文の固定要素がない: {token}")
+
+    m42_text = (SECTIONS / "A14_m37_m42_spatial_token.md").read_text(
+        encoding="utf-8"
+    )
+    for token in (
+        "方向別controllerと仕事registerを持つ駆動衝突模型",
+        "物理的な一様閾値座標",
+        r"\nu_{e,m}",
+        "成功試行だけを再規格化しない",
+    ):
+        if token not in m42_text:
+            raise ValueError(f"M42方向別衝突模型の固定要素がない: {token}")
 
     m49_text = (SECTIONS / "04_l4_two_qubit_gate.md").read_text(encoding="utf-8")
     for token in (
@@ -646,7 +662,7 @@ def tex_environment() -> dict[str, str]:
     env.update({
         # Keep PDF metadata stable for the current cited draft.  Update this
         # epoch together with CITATION.cff when a new draft is released.
-        "SOURCE_DATE_EPOCH": "1787961600",
+        "SOURCE_DATE_EPOCH": "1788048000",
         "FORCE_SOURCE_DATE": "1",
         "TZ": "UTC",
         "TEXINPUTS": "/usr/share/texlive/texmf-dist/tex//:",

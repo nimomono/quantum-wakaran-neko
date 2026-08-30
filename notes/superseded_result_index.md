@@ -6,7 +6,7 @@
 |---|---|---|---|
 | R70--R72、R77、R78、R91 | M35作用区間によるBorn型長期頻度 | 確率源として退役。M50/R164へ一本化 | `superseded_m35_born_sampler.md` |
 | R107--R111、R121 | M41 Bell周期 | M48/R151--R156、R166、R170へ置換 | `superseded_m41_bell_cycle.md` |
-| R113--R118 | 連続粒子位置閉包 | 固定入力時刻M50/R170へ置換 | `superseded_m42_continuous_particle_position.md` |
+| R113--R118 | 旧M42連続粒子位置閉包 | 旧結果は退役。現行Q3は再定義M42/R172--R174へ再編 | `superseded_m42_continuous_particle_position.md`、付録N |
 | R127--R129 | M45開放準臨界準備 | Q1--Q3と独立の研究線 | `independent_m45_open_quasicritical_preparation.md` |
 | R130--R132 | M46のcapacity・半減衰・主モード計算 | 現行本文から退役。再検討用の有限次元計算 | `rejected_m46_current_transducer.md` |
 | R133、R134 | M46 current恒等式と条件付きNelson恒等式 | 現行因果鎖では不採用 | `rejected_m46_current_transducer.md` |

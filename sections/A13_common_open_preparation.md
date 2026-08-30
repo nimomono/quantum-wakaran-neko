@@ -286,13 +286,13 @@ D_{\rm TV}(p^{\rm M51\to M50},p_c^{\rm id})
 | Q1 | $m=2$、W型生成子、目標Bloch ray。R145はこの特殊化 | W型粒子位置、Born枝、測定後template交換、周期収支 |
 | Q2-1 | 固定有限program rayの担体準備 | 未知入力の自己分解、CNOT、二粒子位置、資源の多項式性 |
 | Q2-2 | setting-free局所seedまたは有限ray template | singlet交差モーメント、paired-Hopf強matching、Bell因果構造 |
-| Q3 | M37へ渡すrank-one初期標本集団 | M37との同一局所Hamiltonian統合、空間伝播、位置記録 |
+| Q3 | M37へ渡すrank-one初期標本集団とM42初期位置用の単一試行信号 | M37--M42との同一局所Hamiltonian統合、空間伝播、終位置記録 |
 
 M51/R171は状態準備の共通開放模型を与えるが、次を主張しない。
 
 1. pump、sink、template、clockを含む有限閉鎖Hamiltonian実現。
 2. 雑音付き定常測度、揺らぎ散逸関係、有限bathによる誤差上界。
-3. M51とM37、M47、M48、M49、M50が同じ物理装置であること。
+3. M51とM37、M42、M47、M48、M49、M50が同じ物理装置であること。
 4. M51単独で粒子位置、Born型排他的結果、測定後状態を生成すること。
 5. template設定から独立に任意の未知入力状態を自己準備すること。
 6. 試行列の独立同分布性または二項型有限標本揺らぎ。

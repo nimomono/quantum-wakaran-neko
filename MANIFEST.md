@@ -31,6 +31,7 @@
 - `sections/A11_common_collision_bath_thermodynamics.md`
 - `sections/A12_common_action_shell_state_count.md`
 - `sections/A13_common_open_preparation.md`
+- `sections/A14_m37_m42_spatial_token.md`
 - `sections/90_references.md`
 
 ## 論文外の研究メモ
@@ -87,6 +88,7 @@
 - `tools/verify_m49_joint_bath_provider.py`
 - `tools/verify_common_signal_m50.py`
 - `tools/verify_m51_common_open_preparation.py`
+- `tools/verify_m42_spatial_token.py`
 - `tools/verify_q3_completion.py`
 - `figures/README.md`
 - `.github/workflows/verify.yml`
