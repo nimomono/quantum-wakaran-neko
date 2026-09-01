@@ -258,6 +258,8 @@ def validate_fixed_goal_language() -> None:
         "Q2-1": "達成",
         "Q2-2": "条件付き達成",
         "Q2-3": "未達",
+        "Q2-4": "未達",
+        "Q2-5": "未達",
         "Q3-1": "達成",
         "Q3-2": "未達",
         "Q3-3": "達成",
@@ -297,18 +299,39 @@ def validate_fixed_goal_language() -> None:
         raise ValueError("README.mdのQ1-2名称が固定目標と一致しない")
 
     required_goal_fragments = (
-        "Q2-3 | 多項式資源による量子ゲート型計算機",
+        "Q2-3 | 有限回路の機能的再現",
+        "中間の非分離状態",
+        "最終出力分布を事前計算",
+        "Q2-4 | 多項式資源による量子出力サンプリング",
+        "一出力標本",
         "全変動距離",
-        "期待試行回数",
         "指数表",
         "事後選別",
+        "Q2-5 | 自律非平衡計算と平衡化運命の決定不能性",
+        "停止時刻",
+        "長時間極限",
+        "熱力学極限",
+        "非計算可能な実数",
     )
     missing_goal_fragments = [
         fragment for fragment in required_goal_fragments if fragment not in fixed_block
     ]
     if missing_goal_fragments:
         raise ValueError(
-            "Q2-3の多項式資源判定が不足: " + "、".join(missing_goal_fragments)
+            "Q2-3--Q2-5の達成判定が不足: " + "、".join(missing_goal_fragments)
+        )
+
+    required_readme_goals = (
+        "Q2-3 | 有限回路の機能的再現",
+        "Q2-4 | 多項式資源による量子出力サンプリング",
+        "Q2-5 | 自律非平衡計算と平衡化運命の決定不能性",
+    )
+    missing_readme_goals = [
+        fragment for fragment in required_readme_goals if fragment not in readme_block
+    ]
+    if missing_readme_goals:
+        raise ValueError(
+            "README.mdのQ2固定目標が不足: " + "、".join(missing_readme_goals)
         )
 
     current_goal_paths = [
