@@ -248,7 +248,8 @@ def main() -> None:
         2.0e-14,
     ))
 
-    # Nonfactorization remains an internal diagnostic, not a Q2-1 pass condition.
+    # Q2-1 must be able to create an internally nonfactorized state; its
+    # connection to two physical measurement ends is assessed under Q2-2.
     plus_zero = np.array([1.0, 0.0, 1.0, 0.0], dtype=complex) / np.sqrt(2.0)
     phi_plus_output = cx_flow @ plus_zero
     nonfactorization = 2.0 * abs(np.linalg.det(phi_plus_output.reshape(2, 2)))

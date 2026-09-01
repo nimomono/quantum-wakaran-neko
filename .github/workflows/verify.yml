@@ -96,13 +96,20 @@ jobs:
           grep -Fq '| Q2-1 | 達成 |' PROJECT_STATUS.md
           grep -Fq '| Q2-2 | 条件付き達成 |' PROJECT_STATUS.md
           grep -Fq '| Q2-3 | 未達 |' PROJECT_STATUS.md
+          grep -Fq '| Q2-4 | 未達 |' PROJECT_STATUS.md
+          grep -Fq '| Q2-5 | 未達 |' PROJECT_STATUS.md
           grep -Fq '| Q3-1 | 達成 |' PROJECT_STATUS.md
           grep -Fq '| Q3-2 | 未達 |' PROJECT_STATUS.md
           grep -Fq '| Q3-3 | 達成 |' PROJECT_STATUS.md
           grep -Fq '| Q3-4 | 条件付き達成 |' PROJECT_STATUS.md
           grep -Fq '| Q3-5 | 条件付き達成 |' PROJECT_STATUS.md
-          grep -Fq '| Q2-3 | 多項式資源による量子ゲート型計算機 |' PROJECT_STATUS.md
-          grep -Fq '期待試行回数' PROJECT_STATUS.md
+          grep -Fq '| Q2-3 | 有限回路の機能的再現 |' PROJECT_STATUS.md
+          grep -Fq '| Q2-4 | 多項式資源による量子出力サンプリング |' PROJECT_STATUS.md
+          grep -Fq '| Q2-5 | 自律非平衡計算と平衡化運命の決定不能性 |' PROJECT_STATUS.md
+          grep -Fq '積入力を非分離な共同内部状態へ移し得る' PROJECT_STATUS.md
+          grep -Fq '最終出力分布を事前計算' PROJECT_STATUS.md
+          grep -Fq '一出力標本' PROJECT_STATUS.md
+          grep -Fq '長時間極限の後に熱力学極限' PROJECT_STATUS.md
           grep -Fq '成功試行だけを再規格化しない' sections/08_errors_resources_open_targets.md
           if grep -REn '未達（凍結中）|未達・凍結|未達のまま凍結|凍結状態|凍結を維持' README.md PROJECT_STATUS.md sections/*.md; then
             exit 1
