@@ -90,6 +90,7 @@ REFERENCE_KEYS = {
     49: "ehrich_et_al2020",
     50: "esposito2012",
     51: "jarzynski2004",
+    52: "shiraishi_matsumoto2021",
 }
 
 
@@ -200,6 +201,8 @@ def restore_markdown_source(lines: list[str]) -> list[str]:
 
 
 def validate_github_markdown(path: Path, text: str) -> None:
+    if re.search(rb"[\x00-\x08\x0b\x0c\x0d\x0e-\x1f]", path.read_bytes()):
+        raise ValueError(f"{path}: 規約外の制御文字を検出")
     forbidden = {
         "独自数式マクロ": r"\\(?:dd|E|R|Tr|GM|Nel)(?![A-Za-z])",
         "生の定理環境": (
@@ -257,7 +260,7 @@ def validate_fixed_goal_language() -> None:
         "Q1-2": "部分達成",
         "Q2-1": "達成",
         "Q2-2": "条件付き達成",
-        "Q2-3": "未達",
+        "Q2-3": "条件付き達成",
         "Q2-4": "未達",
         "Q2-5": "未達",
         "Q3-1": "達成",
@@ -332,6 +335,33 @@ def validate_fixed_goal_language() -> None:
     if missing_readme_goals:
         raise ValueError(
             "README.mdのQ2固定目標が不足: " + "、".join(missing_readme_goals)
+        )
+
+    body_text = "\n".join(
+        path.read_text(encoding="utf-8")
+        for path in (
+            SECTIONS / "01_scope_and_cycle.md",
+            SECTIONS / "02_common_canonical_modules.md",
+            SECTIONS / "08_errors_resources_open_targets.md",
+            SECTIONS / "09_conclusion.md",
+        )
+    )
+    required_body_fragments = (
+        "Q2-3有限回路の機能的再現",
+        "Q2-3を条件付き達成",
+        "L=2^n",
+        "回路末尾",
+        "Q2-4多項式資源による量子出力サンプリング",
+        "Q2-5自律非平衡計算と平衡化運命の決定不能性",
+        "白石と松本",
+        "有限時間で非停止を判定",
+    )
+    missing_body_fragments = [
+        fragment for fragment in required_body_fragments if fragment not in body_text
+    ]
+    if missing_body_fragments:
+        raise ValueError(
+            "Q2-3--Q2-5の本文同期が不足: " + "、".join(missing_body_fragments)
         )
 
     current_goal_paths = [
@@ -713,7 +743,7 @@ def tex_environment() -> dict[str, str]:
     env.update({
         # Keep PDF metadata stable for the current cited draft.  Update this
         # epoch together with CITATION.cff when a new draft is released.
-        "SOURCE_DATE_EPOCH": "1788048000",
+        "SOURCE_DATE_EPOCH": "1788220800",
         "FORCE_SOURCE_DATE": "1",
         "TZ": "UTC",
         "TEXINPUTS": "/usr/share/texlive/texmf-dist/tex//:",
@@ -726,7 +756,8 @@ def tex_environment() -> dict[str, str]:
 def normalize_pdf_id(path: Path) -> None:
     """Normalize an xdvipdfmx trailer ID when the PDF contains one."""
     data = path.read_bytes()
-    pattern = re.compile(rb"/ID\[<[0-9A-Fa-f]{32}><[0-9A-Fa-f]{32}>\]")
+    pdf_string = rb"(?:<[0-9A-Fa-f]+>|\((?:\\.|[^\\)])*\))"
+    pattern = re.compile(rb"/ID\[\s*" + pdf_string + rb"\s*" + pdf_string + rb"\s*\]")
     placeholder = b"/ID[<" + b"0" * 32 + b"><" + b"0" * 32 + b">]"
     normalized, count = pattern.subn(placeholder, data)
     if count == 0:
@@ -736,7 +767,8 @@ def normalize_pdf_id(path: Path) -> None:
     if count != 1:
         raise RuntimeError(f"expected at most one PDF trailer ID in {path}, found {count}")
     stable_id = hashlib.sha256(normalized).hexdigest()[:32].encode("ascii")
-    path.write_bytes(pattern.sub(b"/ID[<" + stable_id + b"><" + stable_id + b">]", data))
+    stable = b"/ID[<" + stable_id + b"><" + stable_id + b">]"
+    path.write_bytes(normalized.replace(placeholder, stable, 1))
 
 
 def build() -> None:
