@@ -36,6 +36,8 @@ jobs:
 
       - name: 現行の理論階層統合を検査
         run: |
+          set -Ee -o pipefail
+          trap 'rc=$?; echo "::error::理論階層統合の失敗 (exit ${rc}): ${BASH_COMMAND}"' ERR
           test -f sections/A6_common_signal_statistics.md
           test -f sections/A8_m47_hopf_preparation.md
           test -f sections/A9_m48_paired_hopf_bell_preparation.md
@@ -115,7 +117,7 @@ jobs:
           grep -Fq 'Q2-3を条件付き達成' sections/08_errors_resources_open_targets.md
           grep -Fq 'Q2-4多項式資源による量子出力サンプリング' sections/08_errors_resources_open_targets.md
           grep -Fq 'Q2-5自律非平衡計算と平衡化運命の決定不能性' sections/08_errors_resources_open_targets.md
-          grep -Fq '白石--松本' sections/08_errors_resources_open_targets.md
+          grep -Fq '白石と松本' sections/08_errors_resources_open_targets.md
           grep -Fq '有限時間で非停止を判定' sections/08_errors_resources_open_targets.md
           grep -Fq '積入力から非分離な共同内部状態への写像' PROJECT_STATUS.md
           if grep -REn '未達（凍結中）|未達・凍結|未達のまま凍結|凍結状態|凍結を維持' README.md PROJECT_STATUS.md sections/*.md; then

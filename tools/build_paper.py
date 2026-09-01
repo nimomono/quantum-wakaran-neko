@@ -353,7 +353,7 @@ def validate_fixed_goal_language() -> None:
         "回路末尾",
         "Q2-4多項式資源による量子出力サンプリング",
         "Q2-5自律非平衡計算と平衡化運命の決定不能性",
-        "白石--松本",
+        "白石と松本",
         "有限時間で非停止を判定",
     )
     missing_body_fragments = [
@@ -756,7 +756,8 @@ def tex_environment() -> dict[str, str]:
 def normalize_pdf_id(path: Path) -> None:
     """Normalize an xdvipdfmx trailer ID when the PDF contains one."""
     data = path.read_bytes()
-    pattern = re.compile(rb"/ID\[<[0-9A-Fa-f]{32}><[0-9A-Fa-f]{32}>\]")
+    pdf_string = rb"(?:<[0-9A-Fa-f]+>|\((?:\\.|[^\\)])*\))"
+    pattern = re.compile(rb"/ID\[\s*" + pdf_string + rb"\s*" + pdf_string + rb"\s*\]")
     placeholder = b"/ID[<" + b"0" * 32 + b"><" + b"0" * 32 + b">]"
     normalized, count = pattern.subn(placeholder, data)
     if count == 0:
@@ -766,7 +767,8 @@ def normalize_pdf_id(path: Path) -> None:
     if count != 1:
         raise RuntimeError(f"expected at most one PDF trailer ID in {path}, found {count}")
     stable_id = hashlib.sha256(normalized).hexdigest()[:32].encode("ascii")
-    path.write_bytes(pattern.sub(b"/ID[<" + stable_id + b"><" + stable_id + b">]", data))
+    stable = b"/ID[<" + stable_id + b"><" + stable_id + b">]"
+    path.write_bytes(normalized.replace(placeholder, stable, 1))
 
 
 def build() -> None:
