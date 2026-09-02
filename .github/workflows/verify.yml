@@ -110,15 +110,23 @@ jobs:
           grep -Fq '最終出力分布を事前計算' PROJECT_STATUS.md
           grep -Fq '一出力標本' PROJECT_STATUS.md
           grep -Fq '互いに論理的に独立に判定' PROJECT_STATUS.md
-          grep -Fq '一様な共通ハードウェア族' PROJECT_STATUS.md
+          grep -Fq '根拠モデルと根拠結果' PROJECT_STATUS.md
+          grep -Fq '固定目標の達成条件ではなく実装上の努力目標' PROJECT_STATUS.md
+          grep -Fq '| 目標ID | 現在地 | 根拠モデル | 根拠となる結果 |' PROJECT_STATUS.md
+          grep -Fq '| Q2-1 | 達成 | M49、M50 | R112、R159、R164 |' PROJECT_STATUS.md
+          grep -Fq '| Q2-2 | 条件付き達成 | M48、M50 | R147、R153、R155、R164、R168、R170 |' PROJECT_STATUS.md
           grep -Fq '受動的な浴自由度' PROJECT_STATUS.md
           grep -Fq '指数個の自由度を個別に初期化' PROJECT_STATUS.md
           grep -Fq '成功試行だけを再規格化しない' sections/08_errors_resources_open_targets.md
-          grep -Fq 'Q2共通ハードウェアと資源分類' sections/08_errors_resources_open_targets.md
+          grep -Fq 'Q2の根拠モデル、共通ハードウェア努力目標、資源分類' sections/08_errors_resources_open_targets.md
+          grep -Fq '固定目標の達成条件ではなく実装努力目標' sections/08_errors_resources_open_targets.md
           grep -Fq 'Q2-3の3量子ビット型二段ゲート合成' sections/08_errors_resources_open_targets.md
           grep -Fq 'Q2-3は部分達成' sections/08_errors_resources_open_targets.md
           grep -Fq 'Q2-4多項式外部制御による量子出力サンプリング' sections/08_errors_resources_open_targets.md
           grep -Fq '指数的な受動自由度' sections/08_errors_resources_open_targets.md
+          if grep -REn 'Q2共通ハードウェアへの統合は未達|Q2共通ハードウェア統合|一様な共通ハードウェア族を使うことを横断条件|Q2固定目標は、規模ごとの一様な共通ハードウェア族を要求する' README.md PROJECT_STATUS.md sections/*.md; then
+            exit 1
+          fi
           if grep -En '^\| Q2-5 \|' README.md PROJECT_STATUS.md sections/*.md; then
             exit 1
           fi
