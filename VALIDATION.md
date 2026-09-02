@@ -1,6 +1,6 @@
 # 検算と品質確認
 
-この文書はdraft-62の共通ハードウェア条件の努力目標化、再現計算、静的整合性、PDF生成、目視確認の記録である。検証日は2026-09-02。
+この文書はdraft-63のQ1×Q1共同bathゲート再構築、再現計算、静的整合性、PDF生成、目視確認の記録である。検証日は2026-09-02。
 
 ## 実行方法
 
@@ -19,10 +19,22 @@ python tools/verify_common_canonical_control.py
 python tools/verify_common_collision_thermodynamics.py
 python tools/verify_m51_common_open_preparation.py
 python tools/verify_m42_spatial_token.py
+python tools/verify_q1xq1_common_bath.py
 python tools/verify_q2_shell_and_locality.py
 python tools/verify_m48_full_cycle.py
 python tools/verify_common_signal_m50.py
 ```
+
+## draft-63方針監査
+
+- Q2-1の4モード担体を現行構成から退役し、達成判定を「部分達成」へ引き下げた。旧M49、R159、R160は現行本文・付録・README・現在地表から除き、履歴メモと退役索引にだけ保存した。
+- 新しい候補M52を、1試行内のQ1×Q1共同bath path族として導入した。共同二体量は各試行のpath和 $D_\Gamma=\sum_r\gamma_r a_rb_r^{\mathsf T}$ として定義し、M48の試行集団交差モーメント $\mathbb E[\mathbf 1_Gz_Az_B^{\mathsf T}]$ と区別した。
+- R175で局所共変性、pathwise CNOT、任意の外部参照系に対する代数的一致、逆演算、非分離性の保存を示した。path選択やselectorによる試行集団への置換は、coherent handoffの代用にならないことを明記した。
+- R176「Q1×Q1共同bath合成定理」は未解決予想として配置した。一般入力lift、有限局所Hamiltonian、bath次元に依存しない参照系安定誤差、同じ符号化への復号、逆演算、M50 Born読出しまでを単一の証明義務とした。
+- Q2-3には、三台のQ1と永続状態bathに二つのinteraction zoneを順次作用させる最小合成試験を追加した。条件付き命題R177は $\mathrm{CX}_{A\to B}$、$\mathrm{CX}_{B\to C}$、$T_A$、全逆演算のcoherent予測とdephased予測の全変動距離差 $1/(2\sqrt2)$ を与える。
+- 指数個の受動bath自由度は許容する一方、指数個の個別制御、振幅表、mode走査、指数時間、指数精度、稀な成功、事後選別は引き続き不許可とした。誤差評価はbath次元に依存しない作用素または参照系安定ノルムで行う。
+- M48はQ2-2のBell型統計生成器として維持したが、Q2-1のcoherent gate carrierまたはM52へのconnectorとしては使わない。M50もR176が復号を与えた後の終端Born読出しに限定した。
+- 固定長期目標の文言は変更せず、`PROJECT_STATUS.md`、README、本文、付録、研究メモ、CI、生成器をこの再構築へ同期した。
 
 ## draft-62方針監査
 
@@ -99,38 +111,37 @@ python tools/verify_common_signal_m50.py
 | M47 Q1 instrument | 43 |
 | M48 full cycle | 88 |
 | M48 paired-Hopf | 56 |
-| M49 joint-bath provider | 29 |
 | common signal and M50 | 31 |
 | phase correlation | 15 |
-| Q2-1 gate | 25 |
-| Q2 shell and locality | 33 |
+| Q1×Q1 common bath | 20 |
+| Q2 shell and locality | 17 |
 | Q3 finite-graph phenomena | 36 |
 | M42 spatial token | 26 |
-| **合計** | **539** |
+| **合計** | **489** |
 
 全項目が成功した。
 
 ## 静的整合性
 
-- 定理系環境の開始・終了数は一致した。theorem 24、proposition 2、lemma 2、corollary 0、proof 37。
+- 定理系環境の開始・終了数は一致した。theorem 23、proposition 3、lemma 1、corollary 0、proof 31。
 - 付録はA--Nの連番で、ファイル名、`@number`、章見出し、式参照を照合した。
-- `README.md`、`PROJECT_STANCE.md`、`PROJECT_GUIDE.md`、`PROJECT_STATUS.md`、`CHANGELOG.md`、`MANIFEST.md`、`CITATION.cff`、本文、付録、研究メモ、CIをdraft-62へ同期した。
-- 現行固定目標表、現在地表、README、本文の達成表に旧Q1-3と旧Q1-4の行が残っていないことを確認した。履歴説明では旧IDを明示して統合・削除関係を保存した。
-- 固定目標検査へQ1-2の新名称、Born分布、同軸反復分布、異軸逐次分布、Zeno型抑制、tilt対照の必須語と、旧Q1行の不在検査を追加した。
-- 固定目標検査へQ2-1とQ2-2の独立判定、根拠モデル・根拠結果、共通ハードウェアの努力目標化、受動自由度と能動制御の分類、Q2-3の3量子ビット型二段ゲート合成、Q2-4の多項式外部制御の必須語を追加した。現在地はQ2-1を達成、Q2-2を条件付き達成、Q2-3を部分達成、Q2-4を未達として全表で一致させた。
-- 現行固定目標表、現在地表、README、本文にQ2-5の行が残っておらず、白石--松本型の記述と文献項目が退役索引以外の現行原稿から除かれていることを確認した。
-- `notes/q1_2_zeno_integration.md` の存在と旧Zenoメモ2パスの不在を、生成器とCIの必須条件へ変更した。
+- `README.md`、`PROJECT_STATUS.md`、`CHANGELOG.md`、`MANIFEST.md`、`CITATION.cff`、本文、付録、研究メモ、CIをdraft-63へ同期した。固定目標を定める `PROJECT_STANCE.md` と `PROJECT_GUIDE.md` は変更していない。
+- 現行本文・付録・README・現在地表にM49、R159、R160が残っておらず、旧構成の記録が `notes/` にだけ残ることを確認した。
+- 新しい本文・付録・検算器のパスと、M52、R175、R176、R177の必須語を生成器とCIで検査した。R175の定理宣言とR177の命題宣言は各1回である。
+- Q2-1は全表で「部分達成」、Q2-2は「条件付き達成」、Q2-3は「部分達成」、Q2-4とQ3-2は「未達」で一致した。
+- R175のpathwise CNOT、外部参照系の不変性、逆演算、rank-2 witnessと、R177のGHZ--$T$--全逆演算、dephased対照、全変動距離差を数値検算した。
+- M48の試行集団交差モーメントとM52の1試行内path和を別概念として扱い、M48をcoherent handoffの根拠に使う記述がないことを確認した。
 - 現行原稿と検算コードに吸収済み結果ID、M35、旧付録名、旧検算器名が残っていないことを確認した。
-- 生成対象MarkdownにC0制御文字が含まれないことを検査する規則を追加した。
+- 生成対象MarkdownにC0制御文字が含まれないことを検査した。
 - `python -m py_compile tools/*.py` と `git diff --check` は成功した。
 
 ## PDF生成
 
 - 出力: `paper.pdf`
-- ページ数: 198
+- ページ数: 188
 - 用紙: A4
-- ファイルサイズ: 1,239,150 bytes
-- SHA-256: `aff7e717706b41febf0ce76152f60c266c7e08379f26b74b539001a56380b633`
+- ファイルサイズ: 1,205,399 bytes
+- SHA-256: `7b70f22dbfda6b58cced6b9b76fbefc59239046636f54d994dff09ec8e40f196`
 - `SOURCE_DATE_EPOCH` は2026-09-01 00:00:00 UTCである。
 - 連続2回の生成で `paper.md`、`main.tex`、`paper.pdf` のバイナリが一致した。
 - 未解決のcitation/reference、overfull/underfull box、fatal error、欠落文字はない。
@@ -138,22 +149,23 @@ python tools/verify_common_signal_m50.py
 
 ## PDF目視確認
 
-全198ページを30 dpiでレンダリングし、20ページずつ10枚のコンタクトシートで通覧した。さらに物理PDFページ1、5、11、15--16、19、87--88、90、92--93、114、184を110 dpiで重点確認した。対象には表紙のdraft-62表示、目次、概要の判定独立性、第1章の根拠モデル・根拠結果表、第2章の装置非同一性、第8章の共通ハードウェア努力目標・Q2-3・Q2-4判定、第9章の結論、付録Cの直接モード再分類、付録Lの $L=8$ と $L=2^n$ の分離を含む。
+全188ページを30 dpiでレンダリングし、20ページずつ10枚のコンタクトシートで通覧した。さらに物理PDFページ1、8、15--16、43--48、82、87、150--154、188を重点確認した。対象にはdraft-63表紙、目次、現在地表、M52とR175/R176の本文、M48との境界、Q2-3の資源規約、付録Cの証明義務、付録Jの二段合成とR177、参考文献を含む。
 
-クリッピング、重なり、意図しない空白ページ、黒塗り領域、数式の欠落、表の破綻、見出しの破綻は見つからなかった。初回重点確認では2.10節の `\varepsilon_g` に混入した制御文字を検出したため、原稿を修正し、C0制御文字検査を生成器へ追加して再生成した。最終ログではoverfull、underfull、未定義参照、欠落文字はなく、ヘッダー、フッター、ページ番号、章・付録の切替も正常である。
+初回確認で表紙の副題に旧「有限配置ゲート」が残っているのを検出したため、「共同bathゲート」へ同期して再生成した。最終版にクリッピング、重なり、意図しない空白ページ、黒塗り領域、数式の欠落、表・見出しの破綻はない。最終ログでもoverfull、underfull、未定義参照、欠落文字はなく、ヘッダー、フッター、ページ番号、章・付録の切替は正常である。
 
 ## CI
 
 GitHub Actionsは次を確認する。
 
-- 現行16本の検証スクリプトとPython構文検査
-- 付録A--N、現行検算器、退役索引の存在と旧現行パスの不在
-- R112、R171--R174、R135、R161、R162、R164、R168、R170の共通層、R86、R123--R125、R140、R143、R145、R147、R153、R155、R159の集約条件
-- M51/M37/M42とR171--R174の必須語、R172--R174定理宣言の一意性、M42検算器の26項目
-- 固定長期目標の全達成判定語、Q1-2の新名称と統合基準、旧Q1-3・旧Q1-4行の不在
-- Q2-1とQ2-2の独立判定、各固定目標の根拠モデル・根拠結果、Q2共通ハードウェアの努力目標化、受動自由度と能動制御の分類、Q2-3の3量子ビット型二段ゲート合成、Q2-4の多項式外部制御
-- Q2-5現行行の不在、Q2-3--Q2-4とQ3-2を凍結中と扱う旧記述の不在、Q2-3の「部分達成」、Q2-4・Q3-2の「未達」判定
-- Q1-2 Zeno統合メモの存在と旧Zenoメモパスの不在
+- 現行15本の検証スクリプトによる489項目とPython構文検査
+- 付録A--N、新しいQ1×Q1共同bath原稿・検算器、退役索引の存在と、旧M49原稿・検算器パスの不在
+- R112、R171--R174、R135、R161、R162、R164、R168、R170の共通層、R86、R123--R125、R140、R143、R145、R147、R153、R155、R175--R177の集約条件
+- M52とR175--R177の必須語、R175定理宣言とR177命題宣言の一意性、Q1×Q1検算器の20項目
+- 現行本文・付録・README・現在地表におけるM49、R159、R160の不在
+- 固定長期目標の全達成判定語、Q1-2の統合基準、旧Q1-3・旧Q1-4行の不在
+- Q2-1の「部分達成」、Q2-2の「条件付き達成」、Q2-3の「部分達成」、Q2-4・Q3-2の「未達」判定
+- M52の1試行内path和とM48の試行集団交差モーメントの分離、M50の終端Born読出しへの限定、指数的受動bath自由度と多項式外部制御の区別
+- Q2-5現行行の不在、Q2-3--Q2-4とQ3-2を凍結中と扱う旧記述の不在
 - 現行原稿と検算コードにおける吸収済みモデルID・結果IDの不在
 - 生成対象MarkdownにおけるC0制御文字の不在
 - `paper.md`、`main.tex` の再生成差分と、`paper.pdf` のテキスト層・ページ数・用紙寸法の一致。TeX Liveなどの環境差によるPDFバイナリ差は失敗条件にしない

@@ -257,7 +257,7 @@ def validate_fixed_goal_language() -> None:
     expected_status = {
         "Q1-1": "達成",
         "Q1-2": "部分達成",
-        "Q2-1": "達成",
+        "Q2-1": "部分達成",
         "Q2-2": "条件付き達成",
         "Q2-3": "部分達成",
         "Q2-4": "未達",
@@ -335,9 +335,9 @@ def validate_fixed_goal_language() -> None:
     required_status_evidence = (
         "目標ID | 現在地 | 根拠モデル | 根拠となる結果",
         "Q1-1 | 達成 | M47 | R135、R140",
-        "Q2-1 | 達成 | M49、M50 | R112、R159、R164",
+        "Q2-1 | 部分達成 | M52候補、M50末端読出し | R112、R164、R170、R175。R176は未解決",
         "Q2-2 | 条件付き達成 | M48、M50 | R147、R153、R155、R164、R168、R170",
-        "Q2-3 | 部分達成 | 完結モデルなし。8モード正準担体が候補 | R112",
+        "Q2-3 | 部分達成 | M52永続状態bathの三部分系候補 | R112、R175、条件付きR177",
         "Q2-4 | 未達 | 完結モデルなし。直接モード構成が候補 | R112、R164、R170",
     )
     missing_status_evidence = [
@@ -362,7 +362,7 @@ def validate_fixed_goal_language() -> None:
         )
 
     required_readme_evidence = (
-        "Q2-1 | M49、M50 | R112、R159、R164",
+        "Q2-1 | M52候補、M50末端読出し | R112、R164、R170、R175。R176は未解決",
         "Q2-2 | M48、M50 | R147、R153、R155、R164、R168、R170",
         "この表は固定目標の定義ではなく、現行版の判定根拠",
     )
@@ -389,7 +389,9 @@ def validate_fixed_goal_language() -> None:
         "固定目標の達成条件ではなく実装努力目標",
         "Q2-3の3量子ビット型二段ゲート合成",
         "Q2-3は部分達成",
-        "永続状態浴",
+        "M52永続状態bath",
+        "GHZ--$T$--逆演算",
+        "1/(2\\sqrt2)",
         "非破壊",
         "L=2^n",
         "回路末尾",
@@ -449,14 +451,14 @@ def validate_fixed_goal_language() -> None:
     required_paths = (
         SECTIONS / "03_m47_controlled_w_instrument.md",
         SECTIONS / "A2_m47_controlled_w_instrument_proofs.md",
-        SECTIONS / "04_l4_two_qubit_gate.md",
-        SECTIONS / "A3_l4_two_qubit_gate_proofs.md",
+        SECTIONS / "04_q1xq1_common_bath_gate.md",
+        SECTIONS / "A3_q1xq1_common_bath_gate_proofs.md",
         SECTIONS / "05_m48_bell_cycle_and_audit.md",
         SECTIONS / "A4_m48_cycle_proofs.md",
         SECTIONS / "A6_common_signal_statistics.md",
         SECTIONS / "A8_m47_hopf_preparation.md",
         SECTIONS / "A9_m48_paired_hopf_bell_preparation.md",
-        SECTIONS / "A10_q2_joint_bath_contract.md",
+        SECTIONS / "A10_q2_common_bath_composition.md",
         SECTIONS / "A11_common_collision_bath_thermodynamics.md",
         SECTIONS / "A12_common_action_shell_state_count.md",
         SECTIONS / "A13_common_open_preparation.md",
@@ -472,6 +474,9 @@ def validate_fixed_goal_language() -> None:
         SECTIONS / "A6_m37_m50_position_instrument_proofs.md",
         SECTIONS / "A8_w_two_mode_hopf_statistics.md",
         SECTIONS / "A13_q2_action_shell_statistics.md",
+        SECTIONS / "04_l4_two_qubit_gate.md",
+        SECTIONS / "A3_l4_two_qubit_gate_proofs.md",
+        SECTIONS / "A10_q2_joint_bath_contract.md",
     )
     for path in required_paths:
         if not path.is_file():
@@ -543,7 +548,7 @@ def validate_fixed_goal_language() -> None:
         path.read_text(encoding="utf-8") for path in sorted(SECTIONS.glob("*.md"))
     )
     for result_id in (
-        "R171", "R172", "R173", "R174", "R161", "R162", "R164", "R123", "R124", "R125"
+        "R171", "R172", "R173", "R174", "R175", "R161", "R162", "R164", "R123", "R124", "R125"
     ):
         if all_section_text.count(f"定理（{result_id}：") != 1:
             raise ValueError(f"{result_id}の定理宣言は現行章全体で1回でなければならない")
@@ -587,19 +592,31 @@ def validate_fixed_goal_language() -> None:
         if token not in m42_text:
             raise ValueError(f"M42方向別衝突模型の固定要素がない: {token}")
 
-    m49_text = (SECTIONS / "04_l4_two_qubit_gate.md").read_text(encoding="utf-8")
+    m52_text = (SECTIONS / "04_q1xq1_common_bath_gate.md").read_text(encoding="utf-8")
     for token in (
-        "R159内部補題：入力の行分解bath--粒子位置matching",
-        "R159内部補題：担体・bath・粒子位置へ同期するCNOT",
-        "R159：固定有限入力、入力頻度、固定積出力基底の共同入力--出力統計",
-        "R160：M49固定singlet providerからM48へのsetting-free同一register受渡し",
-        r"\rho_*",
-        r"\varepsilon_{\rm Q2-link}",
-        r"D_{\rm prog}",
-        r"d_{\rm prog}",
+        "M52の1試行状態と存在論",
+        "R175：1試行有限経路和の局所共変性、CNOT、参照系安定性、逆演算",
+        "R176：Q1×Q1共同bath合成定理",
+        "一枝選択と集団交差モーメントが代用にならない理由",
+        r"D_\Gamma",
+        r"\varepsilon_{176}",
+        "coherent末端decoder",
     ):
-        if token not in m49_text:
-            raise ValueError(f"M49本文の固定要素がない: {token}")
+        if token not in m52_text:
+            raise ValueError(f"M52本文の固定要素がない: {token}")
+
+    q2_composition_text = (SECTIONS / "A10_q2_common_bath_composition.md").read_text(
+        encoding="utf-8"
+    )
+    for token in (
+        "R177：二段共同bath合成のGHZ--T--逆演算証人",
+        r"g_{\rm coh}",
+        r"\frac{1}{2\sqrt2}",
+        "成功試行だけを結果分布として再規格化しない",
+        "1試行経路と集団交差モーメントの分離",
+    ):
+        if token not in q2_composition_text:
+            raise ValueError(f"Q2共同bath合成の固定要素がない: {token}")
 
 
 def preprocess(lines: list[str]) -> list[str]:

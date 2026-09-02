@@ -72,7 +72,7 @@ z^\dagger z
 P(S_0=+1)=P(S_0=-1)=\frac12
 ```
 
-とする。M48単独運転では内部の設定非依存registerを使う。M49接続運転では、R160がsetting-free面へ渡した $X_A$ から $S_0=(-1)^{X_A}$ と読み、同じ $z_A,z_B$ registerをbright/dark変数へ接続する。pairing tensor $\mathsf E$ は固定装置定数である。許されたprovenance履歴 $H_{\rm prov}$ は同じ拡大状態に保存できるが、routing核、paired-Hopf流、局所分析器、記録核のいずれにも入力しない。
+とする。M48内部の設定非依存registerを使う。pairing tensor $\mathsf E$ は固定装置定数である。許されたprovenance履歴 $H_{\rm prov}$ は同じ拡大状態に保存できるが、routing核、paired-Hopf流、局所分析器、記録核のいずれにも入力しない。
 
 任意の $h_0\in[h_*,1)$ を固定し、$s=S_0$ と置く。各 $(s,x)$ について
 
@@ -112,12 +112,12 @@ m-m_{s,x}
 
 という採用開放整列を時間 $T_{\rm seed}$ だけ作用させれば、誤差は $e^{-\kappa_{\rm seed}T_{\rm seed}}$ の定数倍で減衰する。十分小さい誤差では $s h_x(m)\geq h_*$ を保てる。設定はこの前向き整列前に生成され、設定前測度へ $m_{s,x}$ を置いていない。
 
-seed準備のbiasと欠損を $\varepsilon_{\rm seed}$、安全域外とrouting接続域の失敗質量を $\varepsilon_{\rm route}$ として無反応へ送る。M49接続ではbranch biasと同一register搬送の誤差を式(J.12)と式(4.24)で別に管理し、R153のrouting誤差と二重計上しない。
+seed準備のbiasと欠損を $\varepsilon_{\rm seed}$、安全域外とrouting接続域の失敗質量を $\varepsilon_{\rm route}$ として無反応へ送る。
 
 <!-- theorem-start:proof -->
 **証明（R153のrouting節）**
 
-内部またはM49由来の等重みseedと明示seed $m_{s,x}$ が各設定の安全盆を与え、有限時間整列がそこへ指数的に近づける。全写像は設定前共通測度に設定依存分布を置かず、設定生成後の有限前向き操作である。M49接続でもbath・粒子位置registerをensembleから再構成せず、そのまま前向きroutingへ使う。履歴を全結果形成核の入力から外しているため、履歴で条件付けた結果法則は周辺結果法則と一致する。seed誤差と安全域外を無反応へ含めれば定理が従う。証明終。
+内部等重みseedと明示seed $m_{s,x}$ が各設定の安全盆を与え、有限時間整列がそこへ指数的に近づける。全写像は設定前共通測度に設定依存分布を置かず、設定生成後の有限前向き操作である。履歴を全結果形成核の入力から外しているため、履歴で条件付けた結果法則は周辺結果法則と一致する。seed誤差と安全域外を無反応へ含めれば定理が従う。証明終。
 <!-- theorem-end:proof -->
 
 ## D.3 R161/R170のM48局所特殊化
@@ -459,9 +459,9 @@ T_X
 
 $\delta$ を小さくすると最小定常重みが小さくなり、$\lambda_X^\delta$ または最大rateが悪化し得る。W型を深くすると読出し誤差は下がるが、2モード操作時間が伸び得る。この構成は任意精度を同じ固定性能装置で得るとは主張しない。
 
-## D.10 M49との接続境界
+## D.10 M52との境界
 
-M48は、内部のsetting-pre等重みseed、paired-Hopf bath対、単一試行bath座標に条件付けたR161のM48特殊化、切断後の局所再平衡化から結果を作る。Q2-1からの共同bath受渡しは、M49/R160が付録Jの契約に従って固定singlet供給プログラムについて閉じる。一般Q2-1出力を扱う一般状態receiverは未完了である。
+M48は、内部のsetting-pre等重みseed、paired-Hopf bath対、単一試行bath座標に条件付けたR161のM48特殊化、切断後の局所再平衡化から結果を作る。M52の1試行coherent経路和はM48の集団交差モーメントと同一でなく、現行M48はM52出力を受け取る一般状態receiverを持たない。Q2-1とQ2-2は独立に判定する。
 
 ## D.11 証明範囲
 
