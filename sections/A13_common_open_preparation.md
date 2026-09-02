@@ -285,7 +285,8 @@ D_{\rm TV}(p^{\rm M51\to M50},p_c^{\rm id})
 |---|---|---|
 | Q1 | $m=2$、W型生成子、目標Bloch ray。R145はこの特殊化 | W型粒子位置、Born枝、測定後template交換、周期収支 |
 | Q2-1 | 固定有限program rayの担体準備 | 未知入力の自己分解、CNOT、二粒子位置 |
-| Q2-3 | 計算基底入力または固定有限回路用rayの担体準備 | ゲート列、最終Born型読出し、$L=2^n$ を避けるQ2-4の資源性 |
+| Q2-3 | 3部分系の初期rayを既存Q1 portから準備 | 2相互作用区間、非破壊な中間受渡し、最終Born型読出し |
+| Q2-4 | 一般回路用rayの受動担体準備 | ゲート列、最終Born型読出し、$L=2^n$ 受動モードの個別制御を避ける資源性 |
 | Q2-2 | setting-free局所seedまたは有限ray template | singlet交差モーメント、paired-Hopf強matching、Bell因果構造 |
 | Q3 | M37へ渡すrank-one初期標本集団とM42初期位置用の単一試行信号 | M37--M42との同一局所Hamiltonian統合、空間伝播、終位置記録 |
 
