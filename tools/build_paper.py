@@ -317,8 +317,9 @@ def validate_fixed_goal_language() -> None:
         "一出力標本",
         "全変動距離",
         "受動的自由度",
-        "一様な共通ハードウェア族",
         "互いに論理的に独立に判定",
+        "根拠モデルと根拠結果",
+        "固定目標の達成条件ではなく実装上の努力目標",
         "指数長の係数表",
         "事後選別",
         "指数時間",
@@ -329,6 +330,23 @@ def validate_fixed_goal_language() -> None:
     if missing_goal_fragments:
         raise ValueError(
             "Q2-3--Q2-4の達成判定が不足: " + "、".join(missing_goal_fragments)
+        )
+
+    required_status_evidence = (
+        "目標ID | 現在地 | 根拠モデル | 根拠となる結果",
+        "Q1-1 | 達成 | M47 | R135、R140",
+        "Q2-1 | 達成 | M49、M50 | R112、R159、R164",
+        "Q2-2 | 条件付き達成 | M48、M50 | R147、R153、R155、R164、R168、R170",
+        "Q2-3 | 部分達成 | 完結モデルなし。8モード正準担体が候補 | R112",
+        "Q2-4 | 未達 | 完結モデルなし。直接モード構成が候補 | R112、R164、R170",
+    )
+    missing_status_evidence = [
+        fragment for fragment in required_status_evidence if fragment not in status_text
+    ]
+    if missing_status_evidence:
+        raise ValueError(
+            "PROJECT_STATUS.mdの根拠モデル対応が不足: "
+            + "、".join(missing_status_evidence)
         )
 
     required_readme_goals = (
@@ -343,6 +361,20 @@ def validate_fixed_goal_language() -> None:
             "README.mdのQ2固定目標が不足: " + "、".join(missing_readme_goals)
         )
 
+    required_readme_evidence = (
+        "Q2-1 | M49、M50 | R112、R159、R164",
+        "Q2-2 | M48、M50 | R147、R153、R155、R164、R168、R170",
+        "この表は固定目標の定義ではなく、現行版の判定根拠",
+    )
+    missing_readme_evidence = [
+        fragment for fragment in required_readme_evidence if fragment not in readme_text
+    ]
+    if missing_readme_evidence:
+        raise ValueError(
+            "README.mdの根拠モデル対応が不足: "
+            + "、".join(missing_readme_evidence)
+        )
+
     body_text = "\n".join(
         path.read_text(encoding="utf-8")
         for path in (
@@ -353,7 +385,8 @@ def validate_fixed_goal_language() -> None:
         )
     )
     required_body_fragments = (
-        "Q2共通ハードウェアと資源分類",
+        "Q2の根拠モデル、共通ハードウェア努力目標、資源分類",
+        "固定目標の達成条件ではなく実装努力目標",
         "Q2-3の3量子ビット型二段ゲート合成",
         "Q2-3は部分達成",
         "永続状態浴",
@@ -369,6 +402,22 @@ def validate_fixed_goal_language() -> None:
     if missing_body_fragments:
         raise ValueError(
             "Q2-3--Q2-4の本文同期が不足: " + "、".join(missing_body_fragments)
+        )
+
+    stale_shared_hardware_requirement = re.compile(
+        r"Q2共通ハードウェアへの統合は未達"
+        r"|Q2共通ハードウェア統合"
+        r"|一様な共通ハードウェア族を使うことを横断条件"
+        r"|Q2固定目標は、規模ごとの一様な共通ハードウェア族を要求する"
+    )
+    stale_shared_hardware_hits = []
+    for path in (ROOT / "README.md", ROOT / "PROJECT_STATUS.md", *sorted(SECTIONS.glob("*.md"))):
+        if stale_shared_hardware_requirement.search(path.read_text(encoding="utf-8")):
+            stale_shared_hardware_hits.append(path.name)
+    if stale_shared_hardware_hits:
+        raise ValueError(
+            "共通ハードウェアを必須条件とする旧記述を検出: "
+            + "、".join(stale_shared_hardware_hits)
         )
 
     current_goal_paths = [
