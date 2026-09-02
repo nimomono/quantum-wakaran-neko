@@ -12,7 +12,7 @@
 - `sections/01_scope_and_cycle.md`
 - `sections/02_common_canonical_modules.md`
 - `sections/03_m47_controlled_w_instrument.md`
-- `sections/04_l4_two_qubit_gate.md`
+- `sections/04_q1xq1_common_bath_gate.md`
 - `sections/05_m48_bell_cycle_and_audit.md`
 - `sections/06_m37_spatial_envelope.md`
 - `sections/07_q3_finite_graph_phenomena.md`
@@ -20,14 +20,14 @@
 - `sections/09_conclusion.md`
 - `sections/A1_common_action_finite_basis.md`
 - `sections/A2_m47_controlled_w_instrument_proofs.md`
-- `sections/A3_l4_two_qubit_gate_proofs.md`
+- `sections/A3_q1xq1_common_bath_gate_proofs.md`
 - `sections/A4_m48_cycle_proofs.md`
 - `sections/A5_m37_envelope_proofs.md`
 - `sections/A6_common_signal_statistics.md`
 - `sections/A7_q3_completion_proofs.md`
 - `sections/A8_m47_hopf_preparation.md`
 - `sections/A9_m48_paired_hopf_bell_preparation.md`
-- `sections/A10_q2_joint_bath_contract.md`
+- `sections/A10_q2_common_bath_composition.md`
 - `sections/A11_common_collision_bath_thermodynamics.md`
 - `sections/A12_common_action_shell_state_count.md`
 - `sections/A13_common_open_preparation.md`
@@ -54,6 +54,7 @@
 - `notes/superseded_m41_cycle_proofs.md`
 - `notes/superseded_m39_m48_handoff_claim.md`
 - `notes/superseded_m39_m42_q2_1.md`
+- `notes/superseded_m49_joint_bath_cnot_provider.md`
 - `notes/superseded_m42_continuous_particle_position.md`
 - `notes/q1_2_zeno_integration.md`
 - `notes/superseded_position_coupling_fisher_closure.md`
@@ -84,8 +85,7 @@
 - `tools/verify_m48_paired_hopf.py`
 - `tools/verify_m48_full_cycle.py`
 - `tools/verify_phase_correlation.py`
-- `tools/verify_q2_1_gate.py`
-- `tools/verify_m49_joint_bath_provider.py`
+- `tools/verify_q1xq1_common_bath.py`
 - `tools/verify_common_signal_m50.py`
 - `tools/verify_m51_common_open_preparation.py`
 - `tools/verify_m42_spatial_token.py`
