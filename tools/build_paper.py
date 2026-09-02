@@ -90,7 +90,6 @@ REFERENCE_KEYS = {
     49: "ehrich_et_al2020",
     50: "esposito2012",
     51: "jarzynski2004",
-    52: "shiraishi_matsumoto2021",
 }
 
 
@@ -260,9 +259,8 @@ def validate_fixed_goal_language() -> None:
         "Q1-2": "部分達成",
         "Q2-1": "達成",
         "Q2-2": "条件付き達成",
-        "Q2-3": "条件付き達成",
+        "Q2-3": "部分達成",
         "Q2-4": "未達",
-        "Q2-5": "未達",
         "Q3-1": "達成",
         "Q3-2": "未達",
         "Q3-3": "達成",
@@ -283,6 +281,15 @@ def validate_fixed_goal_language() -> None:
         if retired_q1_rows.search(block):
             raise ValueError(f"{label}: 旧Q1-3または旧Q1-4の現行行が残っている")
 
+    retired_q2_rows = re.compile(r"^\| Q2-5 \|", flags=re.MULTILINE)
+    for label, block in (
+        ("PROJECT_STATUS.mdの固定目標", fixed_block),
+        ("PROJECT_STATUS.mdの現在地", current_block),
+        ("README.mdの長期目標", readme_block),
+    ):
+        if retired_q2_rows.search(block):
+            raise ValueError(f"{label}: 旧Q2-5の現行行が残っている")
+
     required_q1_fragments = (
         "Q1-2 | 射影測定統計とZeno効果",
         "2値Born分布",
@@ -302,32 +309,31 @@ def validate_fixed_goal_language() -> None:
         raise ValueError("README.mdのQ1-2名称が固定目標と一致しない")
 
     required_goal_fragments = (
-        "Q2-3 | 有限回路の機能的再現",
-        "中間の非分離状態",
+        "Q2-3 | 3量子ビット型二段ゲート合成",
+        "測定、経路選択、共同モーメントへの置換、再準備",
+        "正の有限余裕",
         "最終出力分布を事前計算",
-        "Q2-4 | 多項式資源による量子出力サンプリング",
+        "Q2-4 | 多項式外部制御による量子出力サンプリング",
         "一出力標本",
         "全変動距離",
-        "指数表",
+        "受動的自由度",
+        "一様な共通ハードウェア族",
+        "互いに論理的に独立に判定",
+        "指数長の係数表",
         "事後選別",
-        "Q2-5 | 自律非平衡計算と平衡化運命の決定不能性",
-        "停止時刻",
-        "長時間極限",
-        "熱力学極限",
-        "非計算可能な実数",
+        "指数時間",
     )
     missing_goal_fragments = [
         fragment for fragment in required_goal_fragments if fragment not in fixed_block
     ]
     if missing_goal_fragments:
         raise ValueError(
-            "Q2-3--Q2-5の達成判定が不足: " + "、".join(missing_goal_fragments)
+            "Q2-3--Q2-4の達成判定が不足: " + "、".join(missing_goal_fragments)
         )
 
     required_readme_goals = (
-        "Q2-3 | 有限回路の機能的再現",
-        "Q2-4 | 多項式資源による量子出力サンプリング",
-        "Q2-5 | 自律非平衡計算と平衡化運命の決定不能性",
+        "Q2-3 | 3量子ビット型二段ゲート合成",
+        "Q2-4 | 多項式外部制御による量子出力サンプリング",
     )
     missing_readme_goals = [
         fragment for fragment in required_readme_goals if fragment not in readme_block
@@ -347,21 +353,22 @@ def validate_fixed_goal_language() -> None:
         )
     )
     required_body_fragments = (
-        "Q2-3有限回路の機能的再現",
-        "Q2-3を条件付き達成",
+        "Q2共通ハードウェアと資源分類",
+        "Q2-3の3量子ビット型二段ゲート合成",
+        "Q2-3は部分達成",
+        "永続状態浴",
+        "非破壊",
         "L=2^n",
         "回路末尾",
-        "Q2-4多項式資源による量子出力サンプリング",
-        "Q2-5自律非平衡計算と平衡化運命の決定不能性",
-        "白石と松本",
-        "有限時間で非停止を判定",
+        "Q2-4多項式外部制御による量子出力サンプリング",
+        "指数的な受動自由度",
     )
     missing_body_fragments = [
         fragment for fragment in required_body_fragments if fragment not in body_text
     ]
     if missing_body_fragments:
         raise ValueError(
-            "Q2-3--Q2-5の本文同期が不足: " + "、".join(missing_body_fragments)
+            "Q2-3--Q2-4の本文同期が不足: " + "、".join(missing_body_fragments)
         )
 
     current_goal_paths = [

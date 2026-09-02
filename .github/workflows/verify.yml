@@ -97,28 +97,31 @@ jobs:
           fi
           grep -Fq '| Q2-1 | 達成 |' PROJECT_STATUS.md
           grep -Fq '| Q2-2 | 条件付き達成 |' PROJECT_STATUS.md
-          grep -Fq '| Q2-3 | 条件付き達成 |' PROJECT_STATUS.md
+          grep -Fq '| Q2-3 | 部分達成 |' PROJECT_STATUS.md
           grep -Fq '| Q2-4 | 未達 |' PROJECT_STATUS.md
-          grep -Fq '| Q2-5 | 未達 |' PROJECT_STATUS.md
           grep -Fq '| Q3-1 | 達成 |' PROJECT_STATUS.md
           grep -Fq '| Q3-2 | 未達 |' PROJECT_STATUS.md
           grep -Fq '| Q3-3 | 達成 |' PROJECT_STATUS.md
           grep -Fq '| Q3-4 | 条件付き達成 |' PROJECT_STATUS.md
           grep -Fq '| Q3-5 | 条件付き達成 |' PROJECT_STATUS.md
-          grep -Fq '| Q2-3 | 有限回路の機能的再現 |' PROJECT_STATUS.md
-          grep -Fq '| Q2-4 | 多項式資源による量子出力サンプリング |' PROJECT_STATUS.md
-          grep -Fq '| Q2-5 | 自律非平衡計算と平衡化運命の決定不能性 |' PROJECT_STATUS.md
+          grep -Fq '| Q2-3 | 3量子ビット型二段ゲート合成 |' PROJECT_STATUS.md
+          grep -Fq '| Q2-4 | 多項式外部制御による量子出力サンプリング |' PROJECT_STATUS.md
           grep -Fq '積入力を非分離な共同内部状態へ移し得る' PROJECT_STATUS.md
           grep -Fq '最終出力分布を事前計算' PROJECT_STATUS.md
           grep -Fq '一出力標本' PROJECT_STATUS.md
-          grep -Fq '長時間極限の後に熱力学極限' PROJECT_STATUS.md
+          grep -Fq '互いに論理的に独立に判定' PROJECT_STATUS.md
+          grep -Fq '一様な共通ハードウェア族' PROJECT_STATUS.md
+          grep -Fq '受動的な浴自由度' PROJECT_STATUS.md
+          grep -Fq '指数個の自由度を個別に初期化' PROJECT_STATUS.md
           grep -Fq '成功試行だけを再規格化しない' sections/08_errors_resources_open_targets.md
-          grep -Fq 'Q2-3有限回路の機能的再現' sections/08_errors_resources_open_targets.md
-          grep -Fq 'Q2-3を条件付き達成' sections/08_errors_resources_open_targets.md
-          grep -Fq 'Q2-4多項式資源による量子出力サンプリング' sections/08_errors_resources_open_targets.md
-          grep -Fq 'Q2-5自律非平衡計算と平衡化運命の決定不能性' sections/08_errors_resources_open_targets.md
-          grep -Fq '白石と松本' sections/08_errors_resources_open_targets.md
-          grep -Fq '有限時間で非停止を判定' sections/08_errors_resources_open_targets.md
+          grep -Fq 'Q2共通ハードウェアと資源分類' sections/08_errors_resources_open_targets.md
+          grep -Fq 'Q2-3の3量子ビット型二段ゲート合成' sections/08_errors_resources_open_targets.md
+          grep -Fq 'Q2-3は部分達成' sections/08_errors_resources_open_targets.md
+          grep -Fq 'Q2-4多項式外部制御による量子出力サンプリング' sections/08_errors_resources_open_targets.md
+          grep -Fq '指数的な受動自由度' sections/08_errors_resources_open_targets.md
+          if grep -En '^\| Q2-5 \|' README.md PROJECT_STATUS.md sections/*.md; then
+            exit 1
+          fi
           grep -Fq '積入力から非分離な共同内部状態への写像' PROJECT_STATUS.md
           if grep -REn '未達（凍結中）|未達・凍結|未達のまま凍結|凍結状態|凍結を維持' README.md PROJECT_STATUS.md sections/*.md; then
             exit 1
@@ -151,7 +154,7 @@ jobs:
 
       - name: 生成物の同期を検査
         run: |
-          git diff --exit-code -- paper.md main.tex paper.pdf
+          git diff --exit-code -- paper.md main.tex
           pdftotext -layout /tmp/paper-committed.pdf /tmp/paper-committed.txt
           pdftotext -layout paper.pdf /tmp/paper-regenerated.txt
           diff -u /tmp/paper-committed.txt /tmp/paper-regenerated.txt
