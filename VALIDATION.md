@@ -145,7 +145,7 @@ GitHub Actionsは次を確認する。
 - Q1-2 Zeno統合メモの存在と旧Zenoメモパスの不在
 - 現行原稿と検算コードにおける吸収済みモデルID・結果IDの不在
 - 生成対象MarkdownにおけるC0制御文字の不在
-- `paper.md`、`main.tex`、`paper.pdf` の再生成差分
+- `paper.md`、`main.tex` の再生成差分と、`paper.pdf` のテキスト層・ページ数・用紙寸法の一致。TeX Liveなどの環境差によるPDFバイナリ差は失敗条件にしない
 - 収録PDFと再生成PDFのテキスト層、ページ数、用紙寸法の一致
 - LaTeXログに重大警告がないこと
 - `git diff --check`

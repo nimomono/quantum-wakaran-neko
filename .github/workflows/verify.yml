@@ -154,7 +154,7 @@ jobs:
 
       - name: 生成物の同期を検査
         run: |
-          git diff --exit-code -- paper.md main.tex paper.pdf
+          git diff --exit-code -- paper.md main.tex
           pdftotext -layout /tmp/paper-committed.pdf /tmp/paper-committed.txt
           pdftotext -layout paper.pdf /tmp/paper-regenerated.txt
           diff -u /tmp/paper-committed.txt /tmp/paper-regenerated.txt
