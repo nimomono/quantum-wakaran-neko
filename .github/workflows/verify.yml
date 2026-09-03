@@ -88,10 +88,11 @@ jobs:
           grep -Fq 'M50 | 有限信号作用・作用殻・粒子位置熱化・有限枝instrument | 現行共通instrument仕様' PROJECT_STATUS.md
           grep -Fq 'M51 | 有限実正準担体の共通開放ray準備 | 現行基礎開放模型' PROJECT_STATUS.md
           grep -Fq 'M42 | M37空間担体上の局在1粒子トークン | 現行Q3粒子模型' PROJECT_STATUS.md
-          grep -Fq 'R175：1試行有限経路和の局所共変性、CNOT、参照系安定性、逆演算' sections/04_q1xq1_common_bath_gate.md
-          grep -Fq 'R176：Q1×Q1共同bath合成定理' sections/04_q1xq1_common_bath_gate.md
+          grep -Fq 'R176A：可逆tensor-lift定理' sections/04_q1xq1_common_bath_gate.md
+          grep -Fq 'R176B：永続状態bathゲート合成定理' sections/04_q1xq1_common_bath_gate.md
+          grep -Fq 'R176C：末端Born型instrument接続定理' sections/04_q1xq1_common_bath_gate.md
           grep -Fq 'R177：二段共同bath合成のGHZ--T--逆演算証人' sections/A10_q2_common_bath_composition.md
-          grep -Fq '1試行経路と集団交差モーメントの分離' sections/A10_q2_common_bath_composition.md
+          grep -Fq '1試行状態と集団momentの分離' sections/A10_q2_common_bath_composition.md
           grep -Fq '| Q1-1 | 達成 |' PROJECT_STATUS.md
           grep -Fq '| Q1-2 | 部分達成 |' PROJECT_STATUS.md
           grep -Fq '| Q1-2 | 射影測定統計とZeno効果 |' PROJECT_STATUS.md
@@ -101,9 +102,9 @@ jobs:
           if grep -En '^\| Q1-(3|4) \|' README.md PROJECT_STATUS.md sections/*.md; then
             exit 1
           fi
-          grep -Fq '| Q2-1 | 部分達成 |' PROJECT_STATUS.md
+          grep -Fq '| Q2-1 | 条件付き達成 |' PROJECT_STATUS.md
           grep -Fq '| Q2-2 | 条件付き達成 |' PROJECT_STATUS.md
-          grep -Fq '| Q2-3 | 部分達成 |' PROJECT_STATUS.md
+          grep -Fq '| Q2-3 | 条件付き達成 |' PROJECT_STATUS.md
           grep -Fq '| Q2-4 | 未達 |' PROJECT_STATUS.md
           grep -Fq '| Q3-1 | 達成 |' PROJECT_STATUS.md
           grep -Fq '| Q3-2 | 未達 |' PROJECT_STATUS.md
@@ -119,7 +120,7 @@ jobs:
           grep -Fq '根拠モデルと根拠結果' PROJECT_STATUS.md
           grep -Fq '固定目標の達成条件ではなく実装上の努力目標' PROJECT_STATUS.md
           grep -Fq '| 目標ID | 現在地 | 根拠モデル | 根拠となる結果 |' PROJECT_STATUS.md
-          grep -Fq '| Q2-1 | 部分達成 | M52候補、M50末端読出し | R112、R164、R170、R175。R176は未解決 |' PROJECT_STATUS.md
+          grep -Fq '| Q2-1 | 条件付き達成 | M52、M50末端読出し | R112、R164、R170、R176A--R176C |' PROJECT_STATUS.md
           grep -Fq '| Q2-2 | 条件付き達成 | M48、M50 | R147、R153、R155、R164、R168、R170 |' PROJECT_STATUS.md
           grep -Fq '受動的な浴自由度' PROJECT_STATUS.md
           grep -Fq '指数個の自由度を個別に初期化' PROJECT_STATUS.md
@@ -127,8 +128,8 @@ jobs:
           grep -Fq 'Q2の根拠モデル、共通ハードウェア努力目標、資源分類' sections/08_errors_resources_open_targets.md
           grep -Fq '固定目標の達成条件ではなく実装努力目標' sections/08_errors_resources_open_targets.md
           grep -Fq 'Q2-3の3量子ビット型二段ゲート合成' sections/08_errors_resources_open_targets.md
-          grep -Fq 'Q2-3は部分達成' sections/08_errors_resources_open_targets.md
-          grep -Fq 'Q1-1、Q3-1、Q3-3は個別機能として達成、Q1-2、Q2-1、Q2-3は部分達成' sections/08_errors_resources_open_targets.md
+          grep -Fq 'Q2-3は条件付き達成' sections/08_errors_resources_open_targets.md
+          grep -Fq 'Q1-1、Q3-1、Q3-3は個別機能として達成、Q1-2は部分達成、Q2-1、Q2-2、Q2-3、Q3-4、Q3-5は条件付き達成' sections/08_errors_resources_open_targets.md
           grep -Fq 'Q2-4多項式外部制御による量子出力サンプリング' sections/08_errors_resources_open_targets.md
           grep -Fq '指数的な受動自由度' sections/08_errors_resources_open_targets.md
           if grep -REn 'Q2共通ハードウェアへの統合は未達|Q2共通ハードウェア統合|一様な共通ハードウェア族を使うことを横断条件|Q2固定目標は、規模ごとの一様な共通ハードウェア族を要求する' README.md PROJECT_STATUS.md sections/*.md; then
@@ -154,7 +155,9 @@ jobs:
           test "$(grep -Rho '定理（R172：' sections/*.md | wc -l)" -eq 1
           test "$(grep -Rho '定理（R173：' sections/*.md | wc -l)" -eq 1
           test "$(grep -Rho '定理（R174：' sections/*.md | wc -l)" -eq 1
-          test "$(grep -Rho '定理（R175：' sections/*.md | wc -l)" -eq 1
+          test "$(grep -Rho '定理（R176A：' sections/*.md | wc -l)" -eq 1
+          test "$(grep -Rho '定理（R176B：' sections/*.md | wc -l)" -eq 1
+          test "$(grep -Rho '定理（R176C：' sections/*.md | wc -l)" -eq 1
           test "$(grep -Rho '定理（R162：' sections/*.md | wc -l)" -eq 1
           test "$(grep -Rho '定理（R164：' sections/*.md | wc -l)" -eq 1
           test "$(grep -Rho '定理（R123：' sections/*.md | wc -l)" -eq 1

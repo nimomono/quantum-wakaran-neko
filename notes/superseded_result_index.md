@@ -25,6 +25,7 @@
 | R165 | M49中央4枝とM35作用区間の同値性 | M35側を退役し、M49中央4枝をR164の直接特殊化としてR159入力準備節に保持 | R159、R164 |
 | R159 | M49の入力準備、同期CNOT、固定有限共同入力--出力統計 | 固定benchmarkの代数は撤回しないが、4モード共同担体を現行Q2-1に採用せず退役 | `superseded_m49_joint_bath_cnot_provider.md`、draft-62のGit履歴 |
 | R160 | M49固定singletからM48へのsetting-free同一register受渡し | M49の退役とともに現行模型間接続から外した。Q2-2はM48内部seedで独立に維持 | `superseded_m49_joint_bath_cnot_provider.md`、draft-62のGit履歴 |
+| R175 | draft-63 M52の有限coherent経路和代数 | R176Bのunitary診断展開へ吸収。経路限定設計と独立の物理分岐器を主結果鎖から外す | `superseded_m52_path_only_design.md`、draft-63のGit履歴 |
 | R169 | 固定全作用高階数読出し | 安全事象を含む一般ray平均定理R168へ吸収 | R168 |
 | R89 | 隣接2モード回路による有限unitary合成 | R112の有限合成節へ吸収 | R112、付録A |
 | R90、R97--R99 | 有限時計、比較・無反応、結果別SWAP、記録・逆計算 | R112の制御・比較・記録回路へ吸収 | R112、付録A |
@@ -50,6 +51,6 @@
 
 | モデル | 旧用途 | 現行の扱い | 参照先 |
 |---|---|---|---|
-| M49 | 4モードprogram担体、行分解bath、二粒子位置によるQ2-1 CNOT供給 | 固定benchmarkは撤回せず退役。Q2-1はM52候補とR175/R176へ再構築 | `superseded_m49_joint_bath_cnot_provider.md`、draft-62のGit履歴 |
+| M49 | 4モードprogram担体、行分解bath、二粒子位置によるQ2-1 CNOT供給 | 固定benchmarkは撤回せず退役。4mode自体でなく入力別template、外部routing、破壊的decode、閉じないinterfaceを不採用とし、Q2-1はM52/R176A--Cへ再構築 | `superseded_m49_joint_bath_cnot_provider.md`、draft-62のGit履歴 |
 
 結果番号は再利用しない。現行結果の番号を詰めず、履歴参照を安定させる。

@@ -257,9 +257,9 @@ def validate_fixed_goal_language() -> None:
     expected_status = {
         "Q1-1": "達成",
         "Q1-2": "部分達成",
-        "Q2-1": "部分達成",
+        "Q2-1": "条件付き達成",
         "Q2-2": "条件付き達成",
-        "Q2-3": "部分達成",
+        "Q2-3": "条件付き達成",
         "Q2-4": "未達",
         "Q3-1": "達成",
         "Q3-2": "未達",
@@ -335,9 +335,9 @@ def validate_fixed_goal_language() -> None:
     required_status_evidence = (
         "目標ID | 現在地 | 根拠モデル | 根拠となる結果",
         "Q1-1 | 達成 | M47 | R135、R140",
-        "Q2-1 | 部分達成 | M52候補、M50末端読出し | R112、R164、R170、R175。R176は未解決",
+        "Q2-1 | 条件付き達成 | M52、M50末端読出し | R112、R164、R170、R176A--R176C",
         "Q2-2 | 条件付き達成 | M48、M50 | R147、R153、R155、R164、R168、R170",
-        "Q2-3 | 部分達成 | M52永続状態bathの三部分系候補 | R112、R175、条件付きR177",
+        "Q2-3 | 条件付き達成 | M52永続状態bathの三部分系特殊化 | R112、R176A--R176C、R177",
         "Q2-4 | 未達 | 完結モデルなし。直接モード構成が候補 | R112、R164、R170",
     )
     missing_status_evidence = [
@@ -362,7 +362,7 @@ def validate_fixed_goal_language() -> None:
         )
 
     required_readme_evidence = (
-        "Q2-1 | M52候補、M50末端読出し | R112、R164、R170、R175。R176は未解決",
+        "Q2-1 | M52、M50末端読出し | R112、R164、R170、R176A--R176C",
         "Q2-2 | M48、M50 | R147、R153、R155、R164、R168、R170",
         "この表は固定目標の定義ではなく、現行版の判定根拠",
     )
@@ -388,11 +388,11 @@ def validate_fixed_goal_language() -> None:
         "Q2の根拠モデル、共通ハードウェア努力目標、資源分類",
         "固定目標の達成条件ではなく実装努力目標",
         "Q2-3の3量子ビット型二段ゲート合成",
-        "Q2-3は部分達成",
+        "Q2-3は条件付き達成",
         "M52永続状態bath",
         "GHZ--$T$--逆演算",
         "1/(2\\sqrt2)",
-        "非破壊",
+        "同じregister",
         "L=2^n",
         "回路末尾",
         "Q2-4多項式外部制御による量子出力サンプリング",
@@ -548,7 +548,7 @@ def validate_fixed_goal_language() -> None:
         path.read_text(encoding="utf-8") for path in sorted(SECTIONS.glob("*.md"))
     )
     for result_id in (
-        "R171", "R172", "R173", "R174", "R175", "R161", "R162", "R164", "R123", "R124", "R125"
+        "R171", "R172", "R173", "R174", "R176A", "R176B", "R176C", "R161", "R162", "R164", "R123", "R124", "R125"
     ):
         if all_section_text.count(f"定理（{result_id}：") != 1:
             raise ValueError(f"{result_id}の定理宣言は現行章全体で1回でなければならない")
@@ -594,13 +594,13 @@ def validate_fixed_goal_language() -> None:
 
     m52_text = (SECTIONS / "04_q1xq1_common_bath_gate.md").read_text(encoding="utf-8")
     for token in (
-        "M52の1試行状態と存在論",
-        "R175：1試行有限経路和の局所共変性、CNOT、参照系安定性、逆演算",
-        "R176：Q1×Q1共同bath合成定理",
-        "一枝選択と集団交差モーメントが代用にならない理由",
-        r"D_\Gamma",
-        r"\varepsilon_{176}",
-        "coherent末端decoder",
+        "改訂した設計原則",
+        "R176A：可逆tensor-lift定理",
+        "R176B：永続状態bathゲート合成定理",
+        "R176C：末端Born型instrument接続定理",
+        r"Z_S=a\otimes b",
+        r"\varepsilon_{170}^{\rm end}",
+        "個別に初期化、較正、同期、address、読出し、reset",
     ):
         if token not in m52_text:
             raise ValueError(f"M52本文の固定要素がない: {token}")
@@ -611,9 +611,9 @@ def validate_fixed_goal_language() -> None:
     for token in (
         "R177：二段共同bath合成のGHZ--T--逆演算証人",
         r"g_{\rm coh}",
-        r"\frac{1}{2\sqrt2}",
-        "成功試行だけを結果分布として再規格化しない",
-        "1試行経路と集団交差モーメントの分離",
+        r"\frac1{2\sqrt2}",
+        "成功試行だけを再規格化しない",
+        "1試行状態と集団momentの分離",
     ):
         if token not in q2_composition_text:
             raise ValueError(f"Q2共同bath合成の固定要素がない: {token}")

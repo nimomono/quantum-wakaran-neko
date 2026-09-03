@@ -1,6 +1,6 @@
 # 検算と品質確認
 
-この文書はdraft-63のQ1×Q1共同bathゲート再構築、再現計算、静的整合性、PDF生成、目視確認の記録である。検証日は2026-09-02。
+この文書はdraft-64のQ1×Q1可逆tensor-lift永続状態bath模型、再現計算、静的整合性、PDF生成、目視確認の記録である。検証日は2026-09-03。
 
 ## 実行方法
 
@@ -24,6 +24,28 @@ python tools/verify_q2_shell_and_locality.py
 python tools/verify_m48_full_cycle.py
 python tools/verify_common_signal_m50.py
 ```
+
+## draft-64方針監査
+
+- 内部4modeの存在自体を禁止せず、個別の外部初期化、較正、同期、address、読出し、resetを必要としない受動bath自由度なら許す設計原則へM52を改訂した。
+- R176Aの乗算pulseでは $F_{jk},G_{jk}$ に $\sqrt2s_C$ を用い、固定正準行列 $S_0$ の後に $Z_{jk}=a_jb_k$ が係数まで一致することを解析と数値の両方で確認した。
+- R176BのCNOTを差mode projectorの指数として実装し、同じ永続register上で局所gate、逆gate、3入力のA--B/B--C gateを合成した。参照因子を加えたoperator normは変わらない。
+- R176Cのcanonical SWAP、容量latch、正則化Born比、完全結果空間上の無反応massを検算した。作用殻、有限fiber混合、固定、記録までの一体化は条件として明記した。
+- Q2-1のcoherent/dephase逆演算gap $1/2$ と、Q2-3のR177 gap $1/(2\sqrt2)$ を同じ検算器で確認した。
+- Q2-1とQ2-3を条件付き達成へ更新し、Q2-2の条件付き達成とQ2-4の未達を維持した。固定目標の文言は変更していない。
+- R175と経路限定M52は現行主結果鎖から外し、退役索引と `notes/superseded_m52_path_only_design.md` へ履歴を保存した。
+
+## draft-64再現計算
+
+- `python -m py_compile tools/*.py` と15本の `tools/verify_*.py` を実行し、すべて正常終了した。
+- `verify_q1xq1_common_bath.py` の29項目はすべて通過した。最大tensor-lift正規化誤差は $1.40\times10^{-16}$ 未満、$S_0$ の正準誤差は $4.47\times10^{-16}$ 未満だった。
+- Q2-1のcoherent/dephase逆演算gapは $1/2$、Q2-3のGHZ--$T$--逆演算gapは $1/(2\sqrt2)$ と数値丸めの範囲で一致した。
+- CIの理論階層統合blockをローカルで実行し、R176A/B/Cの宣言一意性、現在地表、退役ID、資源語彙の全検査を通した。
+- `python tools/build_paper.py` を連続して再実行し、`paper.md`、`main.tex`、`paper.pdf` のSHA-256が一致することを確認した。`git diff --check` とLaTeX logの未定義参照、overfull、underfull、missing glyph検査も通過した。
+
+## draft-64 PDF目視確認
+
+完成PDFはA4、188ページ、1,203,145 byteである。物理PDFページ1、9、43--48、103--107、151--154、188を110 dpiでrenderし、表紙、目次、第4章R176A/B/C、付録C、付録J、参考文献を確認した。見出し、定理枠、数式、表、頁番号に切れ、重なり、欠落glyphは見つからなかった。
 
 ## draft-63方針監査
 
