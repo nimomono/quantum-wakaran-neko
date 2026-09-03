@@ -150,7 +150,7 @@
   \vspace{14mm}
   {\color{PaperRule}\rule{0.68\textwidth}{0.9pt}\par}
   \vfill
-  {\large draft-64 改訂稿\par}
+  {\large draft-65 改訂稿\par}
   \vspace{22mm}
 \end{titlepage}
 
@@ -175,11 +175,11 @@ Q2-1はM52の受動的な4mode信号、anti-register、work、clock履歴を同�
 
 Q2-3はR176Aをgate列の前に2回適用して8mode信号を作り、R176BのA--B、B--C二次生成子を同じ状態bathへ順に作用させる。R177はGHZ--\(T\)--逆演算のcoherent分布と完全dephasing分布が全変動距離 \(1/(2\sqrt2)\) で分かれることを示す。R176Cと同じ末端一体化条件の下で条件付き達成である。
 
-Q2-4は、\(n\) 量子ビットの一般回路を \(L=2^n\) 受動モードへ直接符号化する構成を候補として残す。指数的な受動浴自由度、静的結合、状態容量、受動並列度は許す一方、指数個の個別設定、較正、制御、読出しは許さない。コンパイル、外部制御、準備、操作、読出し、精度、反復回数、総時間を多項式へ抑える一様構成は未完成である。
+Q2-4には一様直接モード・逐次2枝標本化模型M53を置く。R178A--R178Cは局所gateのsector一括作用、可逆filter、希少枝切断付き逐次Born標本化を与え、R178D--R178Fは履歴逆掃除の限界、fixed-volume fresh tape、滑らかな二channel aperture散乱を与える。R179は一定精度partial SWAPの反復、回路非依存のfair-bit源、dyadic threshold tapeによりblank-bankとfresh cellを供給する。指数的な受動信号・work・history・cold・spent容量と総熱を許し、外部program、制御channel、精度、反復回数、総時間だけを多項式に抑える現行規則の下で、Q2-4を条件付き達成とする。条件はM53の静的sector配線、滑らかなaperture、cold/spent開放境界を単一の一様装置族へ統合することである。
 
 Q3はM51で初期rank-one集団を準備し得る契約を上流に置き、M37の局所振動子網からR86の有限時間Schrödinger型担体を導く。その上に1個の局在粒子位置、局所辺bath、clock、履歴を持つM42を置く。R172はM37有効辺流に沿う位置分布の等変性、R173は節一様正則化と有限衝突Hamiltonian近似、R174はM51準備から終位置記録までの誤差受渡しを与える。初期位置は準備済み信号から一度だけ作り、終時刻に別の位置を再標本化しない。空間Schrödinger型力学と束縛状態は達成、トンネル効果と最小2経路干渉は単一装置統合を条件に達成である。位相量子化は未達だが、巻数、節、位相すべり、細分化安定性を統合する研究課題として再開する。
 
-Q1、Q2、Q3は同じハードウェアではなく、Q2内部でもM52、M48、直接モード候補は別の構成である。各固定目標は明記した根拠モデルと根拠結果から独立に判定する。Q2共通ハードウェア族と、信号準備、作用容量結合、作用殻fiber、衝突bath、時計、記録、resetを1つの有限局所Hamiltonian周期へ統合するM0は、判定外の実装努力目標として未完成である。連続空間・多粒子への一様拡張も得ていない。
+Q1、Q2、Q3は同じハードウェアではなく、Q2内部でもM52、M48、M53は別の構成である。各固定目標は明記した根拠モデルと根拠結果から独立に判定する。Q2共通ハードウェア族と、信号準備、作用容量結合、作用殻fiber、衝突bath、時計、記録、resetを1つの有限局所Hamiltonian周期へ統合するM0は、判定外の実装努力目標として未完成である。連続空間・多粒子への一様拡張も得ていない。
 
 \part{問題設定と共通言語}
 
@@ -187,7 +187,7 @@ Q1、Q2、Q3は同じハードウェアではなく、Q2内部でもM52、M48、
 \chapter{問題設定、現行模型、達成範囲}\label{ux554fux984cux8a2dux5b9aux73feux884cux6a21ux578bux9054ux6210ux7bc4ux56f2}}
 
 \begin{statusbox}
-位置づけ：共通M51開放準備からQ1のM47、Q2-1候補M52と独立のQ2-2模型M48、Q3のM37--M42へ進む現行因果鎖と未統合境界を示す。
+位置づけ：共通M51開放準備からQ1のM47、Q2-1・Q2-3のM52、Q2-2のM48、Q2-4のM53、Q3のM37--M42へ進む現行因果鎖と未統合境界を示す。
 \end{statusbox}
 
 \hypertarget{ux7814ux7a76ux4e0aux306eux554fux3044}{%
@@ -276,7 +276,7 @@ Q1 & M51/R171、M47、R135、R140、R143--R145 & 単一試行のW型信号bath�
 Q2-1 & M52、R112、R176A--R176C & 1試行内の永続4mode信号とanti/work & 可逆tensor-lift、CNOT、逆演算、条件付き末端instrument \\
 Q2-2 & M48、R147、R153、R155 & 切断後の各翼の局所信号 & 2つのR170の条件付き局所合成とBell監査、帰還 \\
 Q2-3 & M52、R176A--R176C、R177 & 3部分系の永続8mode信号とanti/work & A--B、B--C、GHZ--\(T\)--逆演算、条件付き末端instrument \\
-Q2-4 & R112、M50、R164、R170 & \(L=2^n\) の受動直接モード候補 & 一般回路列と末尾読出し。多項式外部制御は未完成 \\
+Q2-4 & M53、R112、R161、R162、R164、R178A--R178F、R179 & \(L=2^n\) の受動直接モード、逐次2枝filter、fresh tape & 一般回路列と完全結果空間上の逐次出力。指数的な受動bankと総熱を許す \\
 Q3 & M51/R171、M37、R86、R135 & 準備終了面のM37標本と初期M42位置 & R172--R174の局在粒子輸送、R123--R125への接続 \\
 \end{longtable}
 
@@ -308,6 +308,7 @@ M42 & M37担体上の局在1粒子トークン輸送 & 現行Q3粒子模型 \\
 M47 & W型2モード信号bath・粒子位置の測定protocol & 現行Q1複合protocol \\
 M48 & 設定依存paired-Hopf Bell周期 & 現行Q2-2開放複合protocol \\
 M52 & Q1×Q1可逆tensor-lift永続状態bath模型 & 現行Q2-1・Q2-3模型。R176A/Bは厳密、R176Cは条件付き \\
+M53 & 一様直接モード・逐次2枝標本化模型 & 現行Q2-4模型。R178A--R178FとR179を単一装置族へ統合することを条件とする \\
 M50 & 有限信号作用、作用殻状態数、粒子位置再平衡化、R170 & Q1・Q2の共通instrument仕様。Q3では初期M42位置の1回選択だけに使用 \\
 \end{longtable}
 
@@ -345,7 +346,7 @@ Q1-2 & 部分達成 & M47、M50、M51 & R140、R143--R145、R161、R162、R164�
 Q2-1 & 条件付き達成 & M52、M50末端読出し & R112、R164、R170、R176A--R176C & 容量pointerから作用殻、混合、固定、記録までの末端一体化 \\
 Q2-2 & 条件付き達成 & M48、M50 & R147、R153、R155、R164、R168、R170 & 自由設定、空間分離、一般状態 \\
 Q2-3 & 条件付き達成 & M52永続状態bathの三部分系特殊化 & R112、R176A--R176C、R177 & Q2-1と同じ末端一体化条件。一般サイズの資源効率はQ2-4に残る \\
-Q2-4 & 未達 & 完結モデルなし。直接モード構成が候補 & R112、R164、R170 & 指数的な受動自由度を個別制御せず、外部制御、精度、反復回数、総時間を \(n,d,1/\epsilon\) の多項式で抑える一様構成 \\
+Q2-4 & 条件付き達成 & M53 & R112、R161、R162、R164、R178A--R178F、R179 & 静的sector配線、滑らかなaperture、cold/spent開放境界を一つの一様装置族へ統合する。受動bank容量と総熱は指数的でもよい \\
 Q3-1 & 達成 & M37 & R86 & 一般複素hoppingと時間依存一様極限は範囲外 \\
 Q3-2 & 未達 & 完結モデルなし & なし & 節、巻数、位相すべり、細分化安定性、非整数モノドロミー排除の統合 \\
 Q3-3 & 達成 & M37、R123有限環境 & R86、R123 & 一般連続空間・多粒子は範囲外 \\
@@ -358,7 +359,7 @@ Q3-5 & 条件付き達成 & M51、M37、M42、M50 & R86、R125、R171--R174 & �
 \hypertarget{ux6839ux62e0ux30e2ux30c7ux30ebux306eux72ecux7acbux6027ux3068ux6a21ux578bux9593ux53d7ux6e21ux3057}{%
 \section{根拠モデルの独立性と模型間受渡し}\label{ux6839ux62e0ux30e2ux30c7ux30ebux306eux72ecux7acbux6027ux3068ux6a21ux578bux9593ux53d7ux6e21ux3057}}
 
-Q2固定目標は、Q2-1のM52と末端M50、Q2-2のM48/M50、Q2-3のM52三部分系特殊化、Q2-4の直接モード候補をそれぞれの根拠として独立に判定する。これらが同じ物理装置でないことは個別判定を変更しない。規模ごとの一様な共通ハードウェア族へ統合することは、別の実装努力目標である。
+Q2固定目標は、Q2-1のM52と末端M50、Q2-2のM48/M50、Q2-3のM52三部分系特殊化、Q2-4のM53をそれぞれの根拠として独立に判定する。これらが同じ物理装置でないことは個別判定を変更しない。規模ごとの一様な共通ハードウェア族へ統合することは、別の実装努力目標である。
 
 M52は同じ試行の \(Z_S\)、anti-register、work/historyをそのまま次のgate窓へ保持し、mode選択、共同momentへの置換、fresh bathへの再準備を許さない。内部の有限modeは受動bath自由度であり、個別の外部初期化、較正、同期、address、読出し、resetを要求しない。Q2-3の完全な合成契約は付録Jを正本とする。M48は内部seedから独立に開始し、M52からの入力受渡しを現行結果として主張しない。
 
@@ -385,7 +386,7 @@ M52は同じ試行の \(Z_S\)、anti-register、work/historyをそのまま次�
 \item
   Q3の有限グラフトークンから連続空間の連続粒子軌道が一様に得られること。
 \item
-  Q2の一様な共通ハードウェア努力目標、R176Cの末端一体化、Q2-4の多項式外部制御を構成済みであること。
+  Q2の一様な共通ハードウェア努力目標、R176Cの末端一体化、M53の全構成部品を単一の一様装置族へ統合済みであること。
 \item
   指数的な受動自由度を許すことが、指数時間、指数個の個別制御、指数的に細かい精度を許すこと。
 \item
@@ -395,9 +396,9 @@ M52は同じ試行の \(Z_S\)、anti-register、work/historyをそのまま次�
 \hypertarget{ux8ad6ux6587ux306eux8aadux307fux65b9}{%
 \section{論文の読み方}\label{ux8ad6ux6587ux306eux8aadux307fux65b9}}
 
-第2章は有限モード担体、M51/R171の共通開放準備、M50/R170の共通読出しとQ2-4の直接モード候補、第3章はM47によるQ1、第4章はM52のQ1×Q1共同bath候補、第5章は独立のM48 Bell周期、第6章と第7章はM37--M42によるQ3を扱う。第8章は現行主線の誤差と資源に加え、固定目標ごとの根拠モデル、Q2共通ハードウェア努力目標、Q2-3、Q2-4の境界、反証条件、未完成目標をまとめ、第9章で結論を述べる。
+第2章は有限モード担体、M51/R171の共通開放準備、M50/R170の共通読出し、M53の一様直接モード・逐次2枝標本化、第3章はM47によるQ1、第4章はM52のQ1×Q1共同bath候補、第5章は独立のM48 Bell周期、第6章と第7章はM37--M42によるQ3を扱う。第8章は現行主線の誤差と資源に加え、固定目標ごとの根拠モデル、Q2共通ハードウェア努力目標、Q2-3、Q2-4の境界、反証条件、未完成目標をまとめ、第9章で結論を述べる。
 
-付録AはR112の制御・比較・記録証明、BはM47測定特殊化、CはM52の経路代数とR176の証明義務、DはM48、EはM37包絡、Fは共通R135/R168とR170の固定時刻診断、GはQ3現象の証明、HはR171のM47特殊化、IはM48 paired-Hopf準備、JはQ2永続共同bathの二段合成とM48条件付き因子化、KはR161、R162、粗視化経路熱力学、R170の証明、LはR164の証明、MはM51/R171の共通開放準備、NはM37--M42の局在トークン輸送を扱う。
+付録AはR112の制御・比較・記録証明、BはM47測定特殊化、CはM52の経路代数とR176の証明義務、DはM48、EはM37包絡、Fは共通R135/R168とR170の固定時刻診断、GはQ3現象の証明、HはR171のM47特殊化、IはM48 paired-Hopf準備、JはQ2永続共同bathの二段合成とM48条件付き因子化、KはR161、R162、粗視化経路熱力学、R170の証明、LはR164の証明、MはM51/R171の共通開放準備、NはM37--M42の局在トークン輸送、O--QはM53の一様gate、逐次Born標本化、history処理、滑らかなaperture、blank-bank供給を扱う。
 
 \hypertarget{ux6709ux9650ux30e2ux30fcux30c9ux62c5ux4f53ux3068ux5171ux901aux6b63ux6e96ux30e2ux30b8ux30e5ux30fcux30eb}{%
 \chapter{有限モード担体と共通正準モジュール}\label{ux6709ux9650ux30e2ux30fcux30c9ux62c5ux4f53ux3068ux5171ux901aux6b63ux6e96ux30e2ux30b8ux30e5ux30fcux30eb}}
@@ -1009,42 +1010,337 @@ D_{\rm TV}(p,p')-\varepsilon-\varepsilon'.
 
 従って理想分布間の分離が誤差和より大きければ、有限装置でも区別可能性が残る。この系をR124/R125の識別とR155のBell監査へ共通に用いる。
 
-\hypertarget{q2-4ux306eux76f4ux63a5ux30e2ux30fcux30c9ux5019ux88dc}{%
-\section{Q2-4の直接モード候補}\label{q2-4ux306eux76f4ux63a5ux30e2ux30fcux30c9ux5019ux88dc}}
+\hypertarget{m53ux4e00ux69d8ux76f4ux63a5ux30e2ux30fcux30c9ux9010ux6b212ux679dux6a19ux672cux5316ux6a21ux578b}{%
+\section{M53一様直接モード・逐次2枝標本化模型}\label{m53ux4e00ux69d8ux76f4ux63a5ux30e2ux30fcux30c9ux9010ux6b212ux679dux6a19ux672cux5316ux6a21ux578b}}
 
-\(n\) 量子ビット、有限長 \(d\)、固定有限普遍ゲート集合から与えられる回路を考え、\(L=2^n\) とする。計算基底文字列 \(x\) を共通担体の基底モードに対応させる。
+\(n\) 量子ビット、深さ \(d\)、固定有限普遍ゲート集合から与えられる回路を考え、\(L=2^n\) とする。M53では計算基底文字列 \(x\) を受動信号モードへ直接対応させる。
 
 \[
 |x\rangle
 \longleftrightarrow
-d_x,
+Z_x,
 \qquad
-d=(d_x)_{x\in\{0,1\}^n}\in\mathbb C^L.
+Z=(Z_x)_{x\in\{0,1\}^n}\in\mathbb C^L.
 \]
 
-計算基底入力を対応する1モードの有限作用初期状態として準備する。各1量子ビットまたは2量子ビットゲートを \(L\) 次元空間へ恒等拡張し、R112の有限正準回路と時計窓で入力順に作用させる。積入力が途中で非分離になっても、状態を積因子またはClifford枝へ分解せず、同じ \(L\) モード担体の係数として保持する。中間測定、枝選択、結果別再準備は行わない。
+M53はsignal、anti-register、filter work、rejected-history、repump、容量pointer、一様gate bus、cold bath layer、fresh tape、spent tape、出力記録、clockを持つ。内部の受動自由度、静的結合、状態容量、受動並列度は \(2^n\operatorname{poly}(n,d)\) まで許す。一方、外部programが指定するのはgate種、1個または2個の対象量子ビット、gate順序、現在読む出力bit、blanking round、tape index、clock窓だけである。\(2^n\) モードの列挙、モード別初期化・較正・読出し、指数長の係数表、回路別配線、出力確率の事前計算を許さない。
 
-回路末尾でだけM50を \(m=L\)、\(\Psi=I_L\)、枝集合を計算基底文字列として特殊化し、R164の作用殻状態数とR170の有限時間再平衡化・記録を適用する。理想出力状態を \(c_{\rm out}\) とすれば、正則化された枝分布は
+M53はR176Aの反復tensor-liftを一般 \(n\) へ延長しない。R179で全bankをblank化した後、定数次元sourceを \(0^n\) root modeへ接続して計算基底入力を作る。別の基底入力は回路先頭の \(X\) gateで作る。gate列はR178A、末端bit列はR178B--R178F、準備資源はR179が担う。
+
+\hypertarget{r178aux5c40ux6240gateux306eux4e00ux69d8sector-broadcastux5b9aux7406}{%
+\section{R178A：局所gateの一様sector-broadcast定理}\label{r178aux5c40ux6240gateux306eux4e00ux69d8sector-broadcastux5b9aux7406}}
+
+対象量子ビット集合 \(S\) の大きさを \(k\in\{1,2\}\) とし、\(g\) を固定有限gate集合の \(2^k\) 次元unitaryとする。spectator labelを \(r\in\{0,1\}^{n-k}\) と書き、同じ局所生成子 \(h_g\) を全sectorへ置く。
 
 \[
-p_x^\delta
+H_{g,S}
 =
-\frac{|(c_{\rm out})_x|^2+\delta q_x}{1+\delta}.
+\bigoplus_r h_g^{(r)},
+\qquad
+U_{g,S}=g_S\otimes I_{\bar S}.
 \]
 
-各ゲートの作用素誤差を \(\varepsilon_g\)、最終instrumentの正則化以外の全変動誤差を \(\varepsilon_{M50}\) とすれば、三角不等式から
+\begin{theorem}[R178A：局所gateの一様sector-broadcast定理]
+
+各sector blockが同じ局所規則から生成され、実装block $\widetilde g_r$ が一様に $\|\widetilde g_r-g\|\leq\eta_g$ を満たし、異なるsector間の漏れの作用素normが $\eta_{\rm leak}$ 以下とする。このとき1個の共有clock窓で全spectator sectorへgateを作用でき、
+
+$$
+\|\widetilde U_{g,S}-U_{g,S}\|
+\leq
+\eta_g+\eta_{\rm leak}
+$$
+
+である。block数による和は生じない。深さ $d$ のgate列では、全gateのglobal phaseを除いた誤差は各窓の作用素norm誤差の和以下である。固定gate集合なら、対象指定、制御channel、命令数は $n,d$ の多項式、静的sector結合は指数的でも一様有限規則から生成できる。
+\end{theorem}
+
+3次元Euclid空間への局所埋込み、指数個の静的結合の総製造費、全結合を個別に調整する方法は主張しない。外部制御仕事は空sector数ではなく占有信号の総作用と共有係数の変化で評価し、指数個の独立駆動器を隠さない。
+
+\hypertarget{r178bux76f4ux4ea4projectorux4f5cux7528latchux53efux9006filterux5b9aux7406}{%
+\section{R178B：直交projector作用latch・可逆filter定理}\label{r178bux76f4ux4ea4projectorux4f5cux7528latchux53efux9006filterux5b9aux7406}}
+
+出力bit \(k\) に対する計算基底射影を \(P_{k,0},P_{k,1}\) とし、
 
 \[
-D_{\rm TV}(p_{\rm phys},p_{\rm circuit})
-\leq
-\sum_{g=1}^{d}\varepsilon_g
-+\varepsilon_{M50}
-+\frac{\delta}{1+\delta}.
+P_{k,0}+P_{k,1}=I,
+\qquad
+P_{k,0}P_{k,1}=0
 \]
 
-任意の有限 \(n,d\) と任意の正の目標誤差について、有限個のゲート窓、有限正則化、有限混合時間を選べる。コンパイラが埋め込むのは入力回路の各ゲートと順序であり、最終出力分布またはその \(2^n\) 個の確率を事前計算して装置係数へ書き込まない。これは旧Q2-3の有限回路構成であり、現行Q2-4では候補技術として扱う。
+とする。容量pointerへ保持する作用を
 
-この構成の \(L=2^n\) 個の信号モードと最終枝は、受動自由度としては許される。問題は、一般の密なゲートに許した \(O(L^2)\) 個の校正窓、各モードの準備、末尾の全枝読出しが、指数個の個別設定または走査を必要とし得る点にある。受動モードと静的結合を一様な有限規則から生成し、外部制御channel数、命令数、制御列長、精度、反復回数、総時間を多項式に抑える証明はない。従ってQ2-4は未達である。未知量子入力、適応中間測定、誤り訂正、独立同分布型の反復標本もこの合成からは従わない。
+\[
+J_{k,b}(Z)=\mathcal J_0Z^\dagger P_{k,b}Z
+\]
+
+とする。signalとworkの2 bank上に
+
+\[
+F_{k,b}
+=
+\begin{pmatrix}
+P_{k,b}&P_{k,1-b}\\
+P_{k,1-b}&-P_{k,b}
+\end{pmatrix}
+\]
+
+を置く。
+
+\begin{theorem}[R178B：直交projector作用latch・可逆filter定理]
+
+上の $F_{k,b}$ は
+
+$$
+F_{k,b}^\dagger F_{k,b}=I,
+\qquad
+F_{k,b}^2=I
+$$
+
+を満たし、blank work bankに対して
+
+$$
+F_{k,b}(Z,0)
+=
+(P_{k,b}Z,P_{k,1-b}Z)
+$$
+
+と作用する。容量latchを信号に対する制御剪断として実装すれば、blank容量momentum上で $J_{k,0},J_{k,1}$ をpointerへ保持し、理想信号 $Z$ を変更しない。計算基底bit projectorとfilterはbit labelだけから一様に生成され、$2^n$ 成分の列挙を必要としない。
+\end{theorem}
+
+R178Bは確率的な枝選択を行わない。容量比を排他的結果へ変える工程はR178E/R178Fが担う。
+
+\hypertarget{r178cux5e0cux5c11ux679dux5207ux65adux4ed8ux304dux9010ux6b21born-samplerux5b9aux7406}{%
+\section{R178C：希少枝切断付き逐次Born sampler定理}\label{r178cux5e0cux5c11ux679dux5207ux65adux4ed8ux304dux9010ux6b21born-samplerux5b9aux7406}}
+
+第 \(k\) 段の入力を \(Z_{k-1}\neq0\) とし、条件付きBorn重みを
+
+\[
+p_{k,b}
+=
+\frac{\|P_{k,b}Z_{k-1}\|^2}{\|Z_{k-1}\|^2}
+\]
+
+とする。R178E/R178Fが \(b\) を選び、R178Bがselected componentを分離する。\(p_{k,b}\geq\tau\) の安全枝ではrepumpがselected rayを変えず標準作用へ戻し、radial情報をanti/historyへ移す。\(p_{k,b}<\tau\) の枝は失敗結果 \(\varnothing\) へ送る。
+
+\begin{theorem}[R178C：希少枝切断付き逐次Born sampler定理]
+
+理想2枝instrumentを $n$ 段合成すると、文字列 $y=(y_1,\ldots,y_n)$ の確率は
+
+$$
+\prod_{k=1}^n p_{k,y_k}
+=
+\frac{
+\|P_{n,y_n}\cdots P_{1,y_1}Z_0\|^2
+}{
+\|Z_0\|^2
+}
+$$
+
+となり、計算基底Born分布に一致する。各段で条件付き確率が $\tau$ 未満の枝を $\varnothing$ へ送る場合、除去される全確率質量は高々 $2n\tau$ である。selected枝の必要repump利得は $\tau^{-1/2}$ 以下、2-mode squeeze強度は $O(\log(1/\tau))$ である。成功試行だけを再規格化せず、無反応と切断枝を完全結果空間に残す。
+\end{theorem}
+
+最終分布を段ごとの条件付き状態へ逐次比較せず、実際の初期信号が持つBorn分布と理想回路分布を末端で一度だけ比較する。これにより小確率枝ごとの不必要な \(1/\tau\) 誤差増幅を避ける。
+
+\hypertarget{r178dux9010ux6b21historyux9006ux6383ux9664collective-resetux5b9aux7406}{%
+\section{R178D：逐次history逆掃除・collective reset定理}\label{r178dux9010ux6b21historyux9006ux6383ux9664collective-resetux5b9aux7406}}
+
+\(Y\in\{0,1\}^n\) をbit data記録、\(F\in\{0,1\}\) を無反応flagとし、完全結果は \((Y,F)\) として保持する。以下の情報容量下界は \(Y\) だけに対する弱い下界であり、flagと微視的履歴に必要な追加容量を除外しない。
+
+\begin{theorem}[R178D：逐次history逆掃除・collective reset定理]
+
+gate、latch、filter、repump、clockの完全な微視的履歴を保持する。出力 $Y$ を別の記録へ可逆copyした後なら、出力記録と相関しない内部workを逆順に掃除できる。
+
+一方、$(Y,F)$ を保持したまま装置、bath、履歴の全てを同じ初期点へ戻す1対1写像は存在しない。結果と相関するselector、使用済みpointer、collision履歴、clock履歴はspent tapeへ送る必要がある。spent状態から $Y$ を復号する誤り率を $p_{\rm e}$ とし、Fano補正を $\eta_{\rm F}=h_2(p_{\rm e})+p_{\rm e}\log(|\mathcal Y|-1)$ と置く。natsで測ったspent側の情報容量 $C_{\rm spent}$ は
+
+$$
+C_{\rm spent}\geq H(Y)-\eta_{\rm F},
+\qquad
+H(Y)\leq n\log2
+$$
+
+を満たす。熱的resetの仕事・熱下界は、bath温度と消去protocolを別に指定した場合だけ従う。
+\end{theorem}
+
+R170の粗視化Markov pathだけから微視的状態を逆算しない。逆転に使用できるのはR162の完全collision履歴またはR178E/Fの全cell履歴である。同じbath seedまたは同じ使用済みcellを再利用した試行列を独立同分布とは呼ばない。
+
+\hypertarget{r178eux4e8cux679dux4f5cux7528ux6bbbinterfacefresh-tapeux5468ux671fux5b9aux7406}{%
+\section{R178E：二枝作用殻interface・fresh-tape周期定理}\label{r178eux4e8cux679dux4f5cux7528ux6bbbinterfacefresh-tapeux5468ux671fux5b9aux7406}}
+
+各fresh cellはbranch label \(B\in\{0,1\}\) とLiouville座標 \(U\in[0,A_{\max}]\) を持つ。容量は \(0\leq A_b\leq A_{\max}\) とする。理想入口測度では \(B\) は等重み、\(U\) は平坦で相互に独立とする。\(B=b\) かつ \(U<A_b\) のcellだけをacceptし、物理的な最速到達ではなく最小tape indexのacceptを結果とする。
+
+\[
+q_b=\frac{A_b}{2A_{\max}},
+\qquad
+r=1-\frac{A_0+A_1}{2A_{\max}}.
+\]
+
+\begin{theorem}[R178E：二枝作用殻interface・fresh-tape周期定理]
+
+$N$ 個の独立cellをindex順に固定時間窓で試すと、
+
+$$
+P_N(b)
+=
+\frac{A_b}{A_0+A_1}(1-r^N),
+\qquad
+P_N(\varnothing)=r^N.
+$$
+
+理想容量比分布に無反応を加えた完全結果分布との全変動距離は $r^N$ である。各段の容量latch時に
+
+$$
+0<S_-\leq A_0+A_1\leq S_+
+$$
+
+が一様に成立し、$S_-/A_{\max}$ が正の定数以下へ落ちないなら、$n$ bit全体の無反応を目標誤差以下にするcell数は各bitで $N=O(\log(n/\epsilon))$ で足りる。
+\end{theorem}
+
+R164の作用殻状態数とR178Eの通過体積を同じ枝重みへ二重に掛けない。M53ではR164が与える線形capacityをR178Eのapertureが一度だけ物理化する。拒否cellもspent tapeへ残す。
+
+\hypertarget{r178fux6ed1ux3089ux304bux306aux4e8cchannel-apertureux6563ux4e71ux306eux4e00ux69d8canonicalux5b9fux88c5ux5b9aux7406}{%
+\section{R178F：滑らかな二channel aperture散乱の一様canonical実装定理}\label{r178fux6ed1ux3089ux304bux306aux4e8cchannel-apertureux6563ux4e71ux306eux4e00ux69d8canonicalux5b9fux88c5ux5b9aux7406}}
+
+反応座標 \((X,P_X)\)、cell座標 \(U\)、branch selector \(Q_B\)、滑らかなplateau \(\beta_b(Q_B)\) を置き、
+
+\[
+A(Q_B)=\beta_0(Q_B)A_0+\beta_1(Q_B)A_1
+\]
+
+とする。aperture Hamiltonianを
+
+\[
+H_{\rm ap}
+=
+\frac{P_X^2}{2m}
++V_0(X)
++g\{U-A(Q_B)\}\rho(X)
+\]
+
+とする。\(V_0(0)=E_0\)、\(V_0''(0)=-m\omega^2\)、\(\rho(0)=1\) とする。
+
+\begin{theorem}[R178F：滑らかな二channel aperture散乱の一様canonical実装定理]
+
+入口energyが $E_0$ で、selectorがbranch $b$ の安全plateauにあるとする。$U<A_b$ では頂上障壁が入射energyより低く、$U>A_b$ では高いので、それぞれ通過と反射になる。また
+
+$$
+gA_{\max}\|\rho'\|_\infty
+<
+\inf_{{\rm supp}\,\rho'}|V_0'|
+$$
+
+なら相互作用窓に余分な極値を作らない。energy幅 $\Delta_E$、較正幅 $\Delta_{\rm cal}$、判定時間 $T$ に対する未解決境界幅は
+
+$$
+\ell_{\rm eff}(T)
+=
+\frac{
+\Delta_E+\Delta_{\rm cal}
++C_0e^{-\omega(T-t_0)}
+}{g}
+$$
+
+で抑えられる。$A_b$ と $U$ は理想相互作用で保存されるが、その共役momentumはbackreactionを保持するため、capacity pointerとcellを逆散乱しない限りblankとして再利用しない。
+\end{theorem}
+
+cellを物理的到着順で競争させず、indexごとに長さ \(T\) の窓を順番に開く。従って散乱時間が \(|U-A_b|\) に依存しても容量比へarrival biasを入れない。
+
+\hypertarget{r179ux4e00ux69d8blank-bankfresh-cellux4f9bux7d66ux5b9aux7406}{%
+\section{R179：一様blank-bank・fresh-cell供給定理}\label{r179ux4e00ux69d8blank-bankfresh-cellux4f9bux7d66ux5b9aux7406}}
+
+全補助bankを \(W\in\mathbb C^{D_{n,d}}\)、\(D_{n,d}\leq2^np(n,d)\) とまとめる。各blanking roundでbank modeとincoming cold modeの対応pairへ同じ形式のpartial SWAPを並列に作用させる。couplerは一様有限規則から作る同一の静的二次Hamiltonianとし、受動clockがroundを進める。指数個のcouplerを外部から個別に開閉せず、外部quench workをbank次元へ比例させない。
+
+\[
+W_{r+1}=C_rW_r+S_rE_r,
+\qquad
+\|C_r\|\leq\rho<1,
+\qquad
+\|E_r\|\leq\eta_{\rm cold}.
+\]
+
+pairごとの全変換は2-mode回転で実正準かつ可逆であり、cold側出力はspent側へ保持する。active成分だけを捨てて非可逆化しない。
+
+fresh aperture cellはlabel bit \(B\) と \(k\) 個のdigit bit \(C_1,\ldots,C_k\) を持ち、
+
+\[
+J=\sum_{\ell=1}^k2^{k-\ell}C_\ell,
+\qquad
+U_k=A_{\max}\frac{J+1/2}{2^k}
+\]
+
+をR178Fへ直接結合する。
+
+\begin{theorem}[R179：一様blank-bank・fresh-cell供給定理]
+
+次の条件を仮定する。
+
+1. bank初期normは $R_{\rm in}\leq\exp p_1(n,d)$ である。
+2. cold layerのaggregate誤差は $\eta_{\rm cold}$ 以下である。
+3. partial SWAPの残留係数は一様に $\rho<1$ である。
+4. fresh cellの2状態自由度は、回路と容量から独立な対称collision bathで並列公平化される。
+
+このとき
+
+$$
+\|W_R\|
+\leq
+\rho^RR_{\rm in}
++\frac{\eta_{\rm cold}}{1-\rho},
+$$
+
+$$
+R
+=
+O\!\left(
+n+\log d+\log(1/\varepsilon_{\rm blank})
+\right)
+$$
+
+で全bankを一様にblank化できる。続いて定数次元sourceをroot modeへSWAPし、$M=nN$ 個のaperture cellを $R_{\rm bit}=M(k+1)$ 個の公平bitから作れる。dyadic tapeの全threshold誤差は $M2^{-k}$ 以下であり、$k=O(\log(M/\epsilon))$ で足りる。外部program長、準備時間、clock round、必要精度は $n,d,1/\epsilon$ の多項式である。静的couplerと受動clockが一括作用する限り、外部controllerの仕事をbank次元へ比例させない。cold bathとspent bathの受動自由度、状態容量、総作用移送、総熱は指数的でもよい。
+\end{theorem}
+
+R179は低作用bathを無から生成しない。供給測度は同じ局所lawを反復する回路非依存の積規則であり、出力確率表を含まない。外部精度を多項式に保つには、exact invariant blankを持つcold source、またはbank全体のaggregate誤差を一様contractで保証するcold sourceが必要である。有限温度の独立noiseが各modeに定数作用を残す場合、aggregate blank誤差は \(D_{n,d}\) とともに増大するためR179の仮定を満たさない。
+
+\hypertarget{m53ux306eux5408ux6210ux8aa4ux5deeux3068ux8cc7ux6e90}{%
+\section{M53の合成誤差と資源}\label{m53ux306eux5408ux6210ux8aa4ux5deeux3068ux8cc7ux6e90}}
+
+M53の完全結果分布を \(P_{\rm M53}\)、理想回路Born分布を \(P_{\rm circ}\) とする。誤差を重複計上しなければ、
+
+\[
+D_{\rm TV}(P_{\rm M53},P_{\rm circ})
+\leq
+\varepsilon_{179}
++d\eta_{\rm gate}
++\varepsilon_{\rm leak}
++2n\tau
++\frac{n\delta}{1+\delta}
++\sum_{j=1}^n\varepsilon_{{\rm stage},j}
++\sum_{j=1}^nr_j^N.
+\]
+
+ここで
+
+\[
+\varepsilon_{179}
+\leq
+C_{\rm root}
+(\varepsilon_{\rm blank}
++\varepsilon_{\rm src}
++\varepsilon_{\rm swap})
++\varepsilon_{\rm fair}
++M2^{-k}
++\varepsilon_{\rm guard}
++\varepsilon_{\rm coll}.
+\]
+
+\(\varepsilon_{{\rm stage},j}\) は第 \(j\) 段のlatch、filter、repump、aperture境界、label、clockだけを含む。R179へ入れたtape bias、fair-bit mixing、cold floorと、別に書いた \(r_j^N\) を再び含めない。
+
+\(\eta_{\rm gate}=O(\epsilon/d)\)、\(\tau,\delta,\varepsilon_{{\rm stage},j}=O(\epsilon/n)\)、\(N=O(\log(n/\epsilon))\)、\(k=O(\log(M/\epsilon))\) と選べる。保守的な逐次読出し時間は \(O(n\log^2(n/\epsilon))\) である。受動modeとcold bath容量は指数的だが、回路記述、外部命令、準備round、gate窓、読出し時間、必要精度は多項式である。
+
+\hypertarget{q2-4ux306eux5224ux5b9aux3068ux5883ux754c}{%
+\section{Q2-4の判定と境界}\label{q2-4ux306eux5224ux5b9aux3068ux5883ux754c}}
+
+R178Aは指数個の個別gate設定、R178B--R178Fは全 \(2^n\) 枝の読出し、R179は指数個の個別blank初期化を避ける。従ってM53はQ2-4を条件付き達成へ進める。条件は、R179のaggregate-cold port、回路非依存なfair-cell積測度、一様bank--bath結合、R178Fの滑らかなdyadic接続、およびgateからspent tapeまでの単一clock safe setである。
+
+本構成は通常の計算量理論における多項式資源の古典simulationではない。指数個の受動自由度、静的結合、bath容量、総熱を許した上で、外部制御と総時間を多項式に抑える結果である。未知量子入力、適応中間測定、誤り訂正、固定容量bathによる無期限独立同分布標本は主張しない。M53はM52、M48と別の模型であり、Q2-1--Q2-4の共通ハードウェアを達成条件にしない。
 
 \hypertarget{ux7269ux7406ux7684ux610fux5473ux3068ux9650ux754c}{%
 \section{物理的意味と限界}\label{ux7269ux7406ux7684ux610fux5473ux3068ux9650ux754c}}
@@ -2101,7 +2397,7 @@ $$
 
 積の非線形性は、式(4.9)がsourceとtargetを含む3次Hamiltonianであることに担わせる。blank manifold上ではtarget momentumが零のためsourceは理想的に動かず、targetだけが平行移動する。これは未知入力の係数をcontrollerが読み取って書き込む操作ではない。
 
-R176Aは固定 \(m,n\) に対する定理である。\(m=n=2\) および3入力への2段liftには有限の受動modeしか要らない。一方、一般の入力数 \(N\) に対するtensor反復でnormや安全域を一様に保つ問題はQ2-4の資源問題として残す。
+R176Aは固定 \(m,n\) に対する定理である。\(m=n=2\) および3入力への2段liftには有限の受動modeしか要らない。一般の入力数 \(N\) に対するtensor反復の一様性はR176Aから主張せず、Q2-4では別模型M53の直接モードsector-broadcastを使う。
 
 \hypertarget{r176bux6c38ux7d9aux72b6ux614bbathux30b2ux30fcux30c8ux5408ux6210ux5b9aux7406}{%
 \section{R176B：永続状態bathゲート合成定理}\label{r176bux6c38ux7d9aux72b6ux614bbathux30b2ux30fcux30c8ux5408ux6210ux5b9aux7406}}
@@ -2322,7 +2618,7 @@ Q2-3では \(Z_{ABC}\) に式(4.19)を順に作用させる。R177のGHZ--位相
 
 R176Aは明示的な有限Hamiltonian構成、R176Bは同一有限register上の作用素norm合成を与える。R176Cは既存の末端bath部品へ接続する条件付き評価を与える。このためQ2-1は「部分達成」から「条件付き達成」へ更新する。残る条件は主としてR176Cの物理境界と全末端工程の一体化である。
 
-Q2-3も同じ理由で条件付き達成とする。Q2-2はM48のsetting-pre等重みseedに基づく別経路であり条件付き達成のまま、Q2-4は一般サイズに一様な資源評価がないため未達のままである。
+Q2-3も同じ理由で条件付き達成とする。Q2-2はM48のsetting-pre等重みseedに基づく別経路であり条件付き達成のままである。Q2-4はM52の一般化ではなく、M53とR178A--R178F、R179を根拠に別途条件付き達成とする。
 
 \hypertarget{m48ux306e2ux7aefbellux6e2cux5b9aux5468ux671fux3068ux524dux63d0ux76e3ux67fb}{%
 \chapter{M48の2端Bell測定周期と前提監査}\label{m48ux306e2ux7aefbellux6e2cux5b9aux5468ux671fux3068ux524dux63d0ux76e3ux67fb}}
@@ -4712,7 +5008,7 @@ Q2-1からQ2-4は、次の根拠モデルと根拠結果から互いに独立に
 \item
   Q2-3：M52永続状態bathの三部分系特殊化を使う。R112、R176A--R176C、R177を根拠とする。
 \item
-  Q2-4：完結モデルなし。直接モード構成とR112、R164、R170が候補。
+  Q2-4：M53を使う。根拠結果はR112、R161、R162、R164、R178A--R178F、R179。
 \end{itemize}
 
 規模 \(N\) ごとの一様な共通ハードウェア族へ統合することは、固定目標の達成条件ではなく実装努力目標である。将来これを主張する場合は、同じ物理port、永続状態浴、相互作用区間族、clock・制御bus、準備interface、Born型読出し・記録interfaceを共有する具体的な装置族を示す。共通の正準代数またはinstrument契約だけでは同一装置とみなさない。
@@ -4732,7 +5028,7 @@ Q2-1からQ2-4は、次の根拠モデルと根拠結果から互いに独立に
   指数的に細かい精度、小さい成功率、長い準備・混合・実行時間。
 \end{enumerate}
 
-現行M52、M48、Q2-4直接モード候補は同じ共通ハードウェア族へ統合されていない。この未完成性は、各目標の根拠モデルによる個別達成判定を変更しない。一方、Q2-4自身の固定条件として、受動資源と外部制御資源を区別する上の台帳は維持する。
+現行M52、M48、M53は同じ共通ハードウェア族へ統合されていない。この未完成性は、各目標の根拠モデルによる個別達成判定を変更しない。一方、Q2-4自身の固定条件として、受動資源と外部制御資源を区別する上の台帳は維持する。
 
 \hypertarget{q2-3ux306e3ux91cfux5b50ux30d3ux30c3ux30c8ux578bux4e8cux6bb5ux30b2ux30fcux30c8ux5408ux6210}{%
 \section{Q2-3の3量子ビット型二段ゲート合成}\label{q2-3ux306e3ux91cfux5b50ux30d3ux30c3ux30c8ux578bux4e8cux6bb5ux30b2ux30fcux30c8ux5408ux6210}}
@@ -4762,7 +5058,7 @@ R176Aは3入力の有限tensor-lift、R176Bは同じ8mode register上の2つの�
 \hypertarget{q2-4ux591aux9805ux5f0fux5916ux90e8ux5236ux5fa1ux306bux3088ux308bux91cfux5b50ux51faux529bux30b5ux30f3ux30d7ux30eaux30f3ux30b0}{%
 \section{Q2-4多項式外部制御による量子出力サンプリング}\label{q2-4ux591aux9805ux5f0fux5916ux90e8ux5236ux5fa1ux306bux3088ux308bux91cfux5b50ux51faux529bux30b5ux30f3ux30d7ux30eaux30f3ux30b0}}
 
-Q2-4では、固定有限普遍ゲート集合から与えられる \(n\) 量子ビット・深さ \(d\) の回路について、1つの出力標本を生成する。古典装置の結果空間は
+Q2-4では、固定有限普遍ゲート集合から与えられる \(n\) 量子ビット・深さ \(d\) の回路について、全gateを終えた回路末尾から1つの出力標本を生成する。古典装置の結果空間は
 
 \[
 \{0,1\}^n\cup\{\varnothing\}
@@ -4786,12 +5082,20 @@ Q2-4では、固定有限普遍ゲート集合から与えられる \(n\) 量子
 \item
   制御、初期化、時刻、読出しの精度と、それを指定するbit数。
 \item
-  1標本で外部から供給・回収するcell、履歴、記録、仕事、排熱。
+  外部から個別にaddress、設定、較正、回収するcell、履歴、記録、仕事、排熱portの個数。受動bank内部のcell総数と総熱はここへ含めない。
 \item
   無反応・失敗確率と期待試行回数。
 \end{enumerate}
 
-第2章の直接モード候補は \(L=2^n\) 個の信号モードと最終枝を使う。これらが受動的に存在するだけなら許される。しかし、現行構成は一般の密なゲートに \(O(L^2)\) 個の校正窓を許し、モード別準備と全枝読出しも一括実装していない。これらを一様な静的構造と多項式個のglobal制御へ圧縮する証明はない。指数長の表、回路別配線、指数時間、指数精度、稀な成功、事後選別へ費用を移すことも認めないため、Q2-4は未達である。
+一方、signal、anti-register、work、history、cold、spentを含む指数的な受動自由度と受動状態容量を許す。装置体積、総bath容量、総熱は指数的でもよい。これは通常の意味の効率的古典simulationを主張する基準ではない。
+
+M53は \(L=2^n\) 個のsignal modeを使うが、R178Aにより固定有限局所gateをspectator sectorへ同じ係数でbroadcastし、作用素norm誤差をsector数の和ではなく最大値で抑える。R178B--R178Cは各bitを直交projectorで可逆にfilterし、条件付きBorn確率を逐次標本化する。確率 \(\tau\) 未満の枝を切断して \(\varnothing\) に残すため、切断誤差は \(2n\tau\) 以下であり、事後選別を使わない。
+
+R178Dは出力と相関しないworkだけを逆掃除でき、結果情報はspent側に残ることを示す。R178E--R178Fは容量に比例する可変体積を生成せず、固定体積cell、最小indexのaccept、滑らかな二channel apertureを使う。1 bit当たり \(N=O(\log(n/\epsilon))\) 個のcellと \(O(\log(n/\epsilon))\) の散乱時間で有限誤差を得る。R164の作用容量 \(A_b\) とaperture入口体積は同じ重みの二重計数ではない。
+
+R179は同一静的couplerと受動clockによる一定精度のpartial SWAPを反復し、active残差を幾何的にcold floorまで縮める。外部controllerのquench workをbank次元へ比例させない。回路非依存の対称2状態bathからfair digitを取り、\(k\) digitのdyadic中点 \(U_k\) を作る。離散lawと連続一様lawのtotal variation距離は用いず、threshold discrepancy \(2^{-k}\) を用いる。有限runではblank-bankを初期状態に積み、無期限runではcold inflowとspent outflowを仮定する。
+
+以上は各構成部品と合成誤差・資源の定理を与える。ただし、静的sector配線、projector latch、repump、history掃除、smooth aperture、blank-bank、clockを一つの具体的な一様装置族へ統合する物理境界が残る。この条件の下でQ2-4を条件付き達成とする。
 
 \hypertarget{ux53cdux8a3cux6761ux4ef6}{%
 \section{反証条件}\label{ux53cdux8a3cux6761ux4ef6}}
@@ -4815,13 +5119,14 @@ M51/R171 & 実変数driftと複素式が一致しない、安全seed上のray距
 M47/R143 & Hopf方向が有限時間で準備できない、R170特殊化後もBorn型枝と局所記録が一致しない、結果別状態更新が失敗する \\
 M52/R176A--R177 & tensor-liftの正規化または正準性が破れる、集団momentから再準備する、同じregisterを保持できない、参照系相関または逆演算fringeが壊れる、各modeの個別外部制御が必要、R176Cの完全結果誤差境界を満たさない \\
 M48/R155 & 条件付き積因子化が破れる、局所R170応答が反対翼設定を参照する、無反応込みでCHSH誤差上界を満たさない \\
+M53/R178A--R179 & sectorごとの誤差を指数個加算する、projector filterが正準でない、希少枝を事後除外する、first-index以外の到着競争を使う、aperture backreactionを消す、使用済みcellを履歴なしにblankへ戻す、回路依存のtape法則を入れる、または単一の一様装置族へ統合できない \\
 M37/R86・R135 & 有限時間包絡上界または第2モーメント持上げ上界を超える \\
 M42/R172--R174 & 局所master方程式がM37辺流を再現しない、正則化全変動上界を破る、有限衝突近似が安全領域で収束しない、終時刻に同じ粒子を記録できない \\
 R168 & 可変作用集団でray平均を第2モーメントへ補正なしに置換する、安全事象外を再規格化して消す \\
 R170 & 混合上界、局所記録の排他性、履歴単射性、正の処理時間のいずれかを満たさない \\
 Q2共通ハードウェア努力目標 & 同一装置を主張しながら目標ごとに担体、浴、準備・読出し原理を交換する、または装置族を一様な有限規則で生成できない \\
 Q2-3二段ゲート合成 & 第1ゲート後の単一試行状態を破壊せず第2区間へ渡せない、中間共同モーメントから再準備する、GHZ--\(T\)--逆演算の \(1/(2\sqrt2)\) 余裕が全装置誤差を上回らない \\
-Q2-4直接モード候補 & 受動モードごとの設定・較正・読出し、指数長の係数表、回路別配線、指数時間または指数精度が必要になる \\
+Q2-4 & 受動モードごとの設定・較正・読出し、指数長の係数表、回路別配線、指数時間または指数精度が必要になる。総bath容量と総熱が指数的であることだけでは反証にならない \\
 \end{longtable}
 
 数値的一致だけで厳密結果を宣言せず、解析上界と独立に回帰検査する。
@@ -4843,7 +5148,7 @@ Q2-4直接モード候補 & 受動モードごとの設定・較正・読出し�
 \item
   Q2-3について、同じR176C末端条件を8mode特殊化で閉じ、R177の識別余裕より小さい全装置誤差を選ぶ。
 \item
-  Q2-4について、指数的な受動自由度を許しつつ、個別設定、指数表、回路別配線、指数時間なしに、外部制御資源を \(n,d,1/\epsilon\) の多項式で抑える。
+  Q2-4について、M53の静的sector配線、projector latch、repump、history掃除、smooth aperture、blank-bank、clockを一つの具体的な一様装置族へ統合し、各局所誤差の独立な物理上界を与える。
 \end{enumerate}
 
 次は固定目標の達成判定と分けて管理する実装・熱力学的強化課題である。
@@ -4867,13 +5172,13 @@ Q2-4直接モード候補 & 受動モードごとの設定・較正・読出し�
   Q2共通ハードウェア努力目標として、同じ物理port、永続状態浴、相互作用区間族、制御bus、準備・読出しinterfaceをQ2-1からQ2-4で共有する一様な装置族を得る。
 \end{enumerate}
 
-Q1-1、Q3-1、Q3-3は個別機能として達成、Q1-2は部分達成、Q2-1、Q2-2、Q2-3、Q3-4、Q3-5は条件付き達成、Q2-4とQ3-2は未達である。Q2-1とQ2-3の条件はR176Cの末端物理接続へ集約される。Q2共通ハードウェア族は判定外の努力目標として未完成であり、その成否を個別判定へ遡及させない。
+Q1-1、Q3-1、Q3-3は個別機能として達成、Q1-2は部分達成、Q2-1、Q2-2、Q2-3、Q2-4、Q3-4、Q3-5は条件付き達成、Q3-2は未達である。Q2-1とQ2-3の条件はR176Cの末端物理接続、Q2-4の条件はM53部品の一様装置統合へ集約される。Q2共通ハードウェア族は判定外の努力目標として未完成であり、その成否を個別判定へ遡及させない。
 
 \hypertarget{ux7d50ux8ad6}{%
 \chapter{結論}\label{ux7d50ux8ad6}}
 
 \begin{statusbox}
-位置づけ：M51のrank-one開放準備、M50のBorn型instrument、Q1のM47、Q2-1・Q2-3のM52/R176A--C、独立のQ2-2模型M48、Q3のM37--M42二層模型を総括する。
+位置づけ：M51のrank-one開放準備、M50のBorn型instrument、Q1のM47、Q2-1・Q2-3のM52/R176A--C、Q2-2のM48、Q2-4のM53/R178A--R179、Q3のM37--M42二層模型を総括する。
 \end{statusbox}
 
 \hypertarget{ux78baux7acbux3057ux305fux3053ux3068}{%
@@ -4910,6 +5215,10 @@ M48単独周期は条件付き達成である。条件は、固定singlet型、�
 
 固定目標Q2-3は条件付き達成である。R176Aをgate列の前に2回使って8mode信号を作り、R176BのA--B、B--C二次生成子と逆演算を同じ永続registerへ作用させる。R177のGHZ--\(T\)--逆演算ではcoherent出力と完全dephasing出力の全変動距離が \(1/(2\sqrt2)\) になる。Q2-1と同じR176Cの末端接続条件が残る。
 
+固定目標Q2-4は条件付き達成である。M53は \(2^n\) 受動signal modeを許し、R178Aが局所gateをspectator sectorへ一様にbroadcastする。R178B--R178Cは可逆2枝filter、条件付き確率のtelescoping、希少枝切断、有限利得repumpを与える。R178D--R178Fは逆掃除可能なhistoryの範囲、fixed-volume fresh tape、最小index選択、滑らかなaperture散乱とbackreactionを与える。R179は一定精度partial SWAPの反復、fair-bit源、dyadic threshold tape、cold/spent bankを与える。残る条件はこれらを単一の一様装置族へ統合することである。
+
+Q2-4では総bath容量と総熱を多項式としない。signal、work、history、cold、spentの受動容量は指数的でもよい。その代わり、外部program、制御channel、精度、反復回数、総時間を多項式に抑え、指数個の個別address、確率表、回路別配線、稀な成功、事後選別を使わない。この限定は通常の効率的古典simulationではない。
+
 \hypertarget{ux78baux7acbux3057ux3066ux3044ux306aux3044ux3053ux3068}{%
 \section{確立していないこと}\label{ux78baux7acbux3057ux3066ux3044ux306aux3044ux3053ux3068}}
 
@@ -4923,11 +5232,11 @@ Q1-2のZeno部分は未達であり、同一の零傾斜Rabi対照と反復R143/
 
 Q3-4とQ3-5は条件付き達成である。有限グラフ現象の代数部分はR124、R125で確立し、R171はrank-one初期集団の開放準備、R172--R174は局在トークンの有限時間輸送と記録への接続を与える。一方、M51準備port、M37担体、初期作用殻、M42局所辺bath、clock、終位置記録を同じ有限局所装置へ統合していない。最小率の一意なミクロ選択、正則化零極限の一様資源、同一ハードウェアと統一母測度を持つM0、独立同分布型有限標本統計も未完成である。
 
-Q2-1はM52、M50末端読出しとR112/R164/R170/R176A--C、Q2-2はM48/M50とR147/R153/R155/R164/R168/R170を根拠として独立に判定する。Q2-3はM52三部分系特殊化とR112/R176A--C/R177、Q2-4はR112/R164/R170の直接モード構成を候補とする。目標ごとに異なる担体、bath、読出し原理を使うことは個別判定を変更しない。
+Q2-1はM52、M50末端読出しとR112/R164/R170/R176A--C、Q2-2はM48/M50とR147/R153/R155/R164/R168/R170を根拠として独立に判定する。Q2-3はM52三部分系特殊化とR112/R176A--C/R177、Q2-4はM53とR112/R161/R162/R164/R178A--R178F/R179を根拠とする。目標ごとに異なる担体、bath、読出し原理を使うことは個別判定を変更しない。
 
 Q2-1からQ2-4に共通する一様なハードウェア族は、判定外の実装努力目標として未完成である。同じ物理port、永続状態浴、相互作用区間族、制御bus、準備・読出しinterfaceを全目標で共有する構成をまだ得ていないが、この未完成性をQ2-1またはQ2-2の達成状態へ遡及させない。
 
-Q2-4は未達である。直接モード候補は \(2^n\) 個の信号モードと最終枝を使うが、これらが受動的に存在すること自体は失敗条件ではない。未解決なのは、一般の密な操作に許した \(O(4^n)\) 個の校正窓、モード別準備、全枝読出しを一様な静的構造と多項式個の外部制御へ圧縮し、精度、反復回数、総時間も多項式に抑えることである。
+Q2-4で確立していないのは、M53の静的sector配線、projector latch、repump、history掃除、smooth aperture、blank-bank、clockを一つの具体的な一様装置族へ統合し、局所誤差上界を同時に実現することである。cold bathを閉系から生成すること、有限bankで無期限運転すること、使用済みcellを履歴なしにblankへ戻すこと、指数受動容量または総熱を多項式へ削減することも主張しない。
 
 \hypertarget{ux6b21ux306eux6c7aux5b9aux7684ux691cux67fb}{%
 \section{次の決定的検査}\label{ux6b21ux306eux6c7aux5b9aux7684ux691cux67fb}}
@@ -4936,7 +5245,7 @@ Q1-2の次の決定的検査は、同じ総時間の零傾斜Rabi自由対照、
 
 これとは別に、M51のpump、transverse sink、template、clockを有限bathへ持ち上げ、R164の作用容量結合、fiber内平衡化、枝対称性と同じW型装置へ統合すること、R162の有限衝突bath、信号bath保持controller、任意軸分析器、傾斜切替、局所記録、枝別テンプレート交換、resetを同じ有限時間Hamiltonian台帳へまとめること、粗視化経路熱力学を周期全体の微視的ゆらぎ関係へ拡張することは、実装・熱力学的強化課題として残る。\(\delta\downarrow0\)、深いW型、長いfiber準備・混合時間の精度--時間--エネルギー交換もこの強化課題で監査する。
 
-Q2-1とQ2-3の次の検査は、R176Cのcanonical SWAP出口、容量pointer、R164作用殻、有限fiber混合、collection、lock、recordを共通safe setと単一clock scheduleで閉じ、完全結果誤差を逆演算gapより小さくすることである。Q2-2ではR162の有限衝突bathをR153の安全盆routing、paired-Hopf pump、2翼controllerへ統合し、熱・仕事・情報流を同じミクロ模型で閉じる。Q2-4では指数的な受動モードを許した上で、個別設定、指数表、回路別配線、指数時間を排し、外部制御、精度、反復回数、総時間を多項式に抑える。
+Q2-1とQ2-3の次の検査は、R176Cのcanonical SWAP出口、容量pointer、R164作用殻、有限fiber混合、collection、lock、recordを共通safe setと単一clock scheduleで閉じ、完全結果誤差を逆演算gapより小さくすることである。Q2-2ではR162の有限衝突bathをR153の安全盆routing、paired-Hopf pump、2翼controllerへ統合し、熱・仕事・情報流を同じミクロ模型で閉じる。Q2-4ではM53の全区間を一つのclockへ接続し、sector漏れ、latch、repump、aperture境界、tape bias、cold floorの誤差を同じ安全集合上で同時に抑える。
 
 Q3の次の検査は、M51切断面をM37初期面へ物理的に接続し、初期R164作用殻、M42の局所辺衝突bath、clock、履歴、終位置記録までを同じ有限局所装置へ統合して、誤差台帳と総収支を閉じることである。加えて、採用した最小率を選ぶ具体的装置理由と、節正則化を小さくしたときの資源発散を検査する。Q3-2では、頂点包絡から辺位相と閉路巻数を定義し、零点を避けるhomotopy不変性、エネルギー最小補間、R86細分化安定性、非整数seamの \(a^{-1}\) エネルギー発散、節を介した位相すべりを一つの鎖で検査する。M48の空間分離拡張、R123の連続環境極限、R124・R125の散乱・吸収拡張は、それぞれ固定目標と区別して監査する。
 
@@ -9709,7 +10018,7 @@ gate窓 & 固定二次Hamiltonianを開閉 & gate種、対象port、時間だけ
 末端bath & hold、容量、作用殻、固定、記録 & 回路末尾だけ接続 \\
 \end{longtable}
 
-内部に8つの複素modeがあることは、それ自体では指数長の外部registerを意味しない。Q2-3は入力数が固定された有限benchmarkである。ただし一般の \(N\) 入力ではmode数が \(2^N\) になり得るので、Q2-4の資源効率を主張しない。
+内部に8つの複素modeがあることは、それ自体では指数長の外部registerを意味しない。Q2-3は入力数が固定された有限benchmarkである。一般の \(N\) 入力でmode数が \(2^N\) になるM52反復の一様性はここでは主張しない。Q2-4は別模型M53で扱う。
 
 \hypertarget{ux4e8cux3064ux306egate-zone}{%
 \section{二つのgate zone}\label{ux4e8cux3064ux306egate-zone}}
@@ -9920,7 +10229,7 @@ R176A/Bにより3入力の有限tensor-liftと2つの有限Hamiltonian gate zone
   誤差上界が内部modeごとの粗い和にしかならない。
 \end{itemize}
 
-一般の \(N\) に一様なmode数、作用、精度を要求する問題はQ2-4に残す。
+一般の \(N\) に対するQ2-4はM53の直接モードsector-broadcastと逐次2枝標本化で扱う。これはR176A/Bのtensor-lift反復から自動的に従う結果ではない。
 
 \hypertarget{ux6709ux9650ux7c92ux5b50ux4f4dux7f6eux518dux5e73ux8861ux5316ux3068ux6709ux9650ux885dux7a81ux71b1ux6d74}{%
 \chapter{有限粒子位置再平衡化と有限衝突熱浴}\label{ux6709ux9650ux7c92ux5b50ux4f4dux7f6eux518dux5e73ux8861ux5316ux3068ux6709ux9650ux885dux7a81ux71b1ux6d74}}
@@ -10676,7 +10985,7 @@ M47の1段測定はM50のQ1特殊化として次の操作面へ分ける。
 
 Q2-1はR176Cにより末端4mode信号を同次元hold-registerへSWAPし、容量latch後にR164/R170へ接続する。別の中間標本器を確率源として挟まない。Q2-2の切断後局所殻は各翼でR170を特殊化し、完全共通原因 \(\Lambda\) に条件付けた積因子化誤差を別の \(\varepsilon_{\rm prod}\) として加える。Q3は準備終了面のM37標本へR164を一度だけ適用して初期M42位置を作り、その後は付録Nの局所辺衝突bathで同じ粒子を輸送する。M42の一般有向率は局所詳細釣合いを満たさないので、R162の平衡率公式をそのまま用いず、方向別controllerと仕事registerを持つ駆動衝突cellへ拡張する。任意の固定時刻を診断する代替経路だけが付録FのR170を使う。
 
-Q2-4の直接モード候補では、計算中に作用殻選択または粒子位置熱化を挟まない。全ゲート後に限って \(m=L=2^n\)、\(\Psi=I_L\)、枝 \(i=y\in\{0,1\}^n\) とし、M50/R161/R162/R170を最終計算基底読出しへ特殊化する。従ってbathは中間の基底成分または位相を記録せず、回路末尾の保持信号だけに結合する。この特殊化は有限であり、\(L\) の指数増大は受動自由度として許容され得るが、モード別準備・較正・読出しを多項式外部制御へ圧縮する結果ではない。
+Q2-4のM53では、計算中にR164の作用容量を作らず、全ゲート後に各bitの直交projector作用だけをlatchする。R161/R162の対称2状態collision bathはR179のfair-bit sourceへ特殊化して使うが、M50/R170の有限枝熱化を逐次段へ重ねない。従って同じ二乗重みを作用殻体積とaperture入口体積で二重計数しない。\(L=2^n\) のsignal、work、history、cold、spent容量は受動資源として指数的でもよいが、個別の外部準備・較正・読出しには使わない。
 
 \hypertarget{ux6709ux9650ux8cc7ux6e90ux3068ux6b63ux5247ux5316ux6975ux9650}{%
 \section{有限資源と正則化極限}\label{ux6709ux9650ux8cc7ux6e90ux3068ux6b63ux5247ux5316ux6975ux9650}}
@@ -11470,7 +11779,7 @@ R164をR143、R144へ接続すると、Q1-2のBorn分布、同軸反復分布、
 
 現行Q2-3ではR176Aの反復liftが作る8mode信号を同じ永続状態bathでR176Bの二段gateへ通す。末端だけでR176Cを \(m=L=8\)、\(\Psi=I_8\) へ特殊化する。規格化出力信号を \(Z_{\rm out}\) とすればR164の枝比は \((|(Z_{\rm out})_y|^2+\delta q_y)/(1+\delta)\) となり、正則化誤差は高々 \(\delta/(1+\delta)\) である。残る末端一体化条件はQ2-1と共通である。
 
-一般の \(n\) に対して \(m=L=2^n\) とする同じ式は、旧Q2-3の直接モード構成であり、現在はQ2-4の候補技術である。任意の正の誤差に有限の \(\delta\) を選べる一方、枝数 \(L=2^n\) とモード別操作はQ2-4の資源台帳へそのまま計上する。
+Q2-4のM53では、R164の線形容量則を各bitの二枝容量 \(A_0,A_1\) に使う。R178Eのfixed-volume cellはこの容量をthresholdとして読み、入口体積を新しいBorn因子として掛けない。\(L=2^n\) のsignal modeは受動資源として計上し、局所gateとprojectorをR178A/Bの一様規則で作用させる。
 
 \hypertarget{m51ux6709ux9650ux5b9fux6b63ux6e96ux62c5ux4f53ux306eux5171ux901aux958bux653erayux6e96ux5099-1}{%
 \chapter{M51有限実正準担体の共通開放ray準備}\label{m51ux6709ux9650ux5b9fux6b63ux6e96ux62c5ux4f53ux306eux5171ux901aux958bux653erayux6e96ux5099-1}}
@@ -11813,7 +12122,7 @@ M51から従わないもの
 Q1 & \(m=2\)、W型生成子、目標Bloch ray。R145はこの特殊化 & W型粒子位置、Born枝、測定後template交換、周期収支 \\
 Q2-1 & 指定した局所rayの試行集団準備 & R176Aの1試行tensor-lift、R176BのCNOT・逆演算、R176Cの末端接続 \\
 Q2-3 & 指定した3部分系初期rayの試行集団準備 & R176A/Bの反復lift・二段gate、R177、R176Cの末端接続 \\
-Q2-4 & 一般回路用rayの受動担体準備 & ゲート列、最終Born型読出し、\(L=2^n\) 受動モードの個別制御を避ける資源性 \\
+Q2-4 & 指定した一般回路入力rayの試行集団準備候補 & M53の1試行signal準備、R178のgate・逐次標本化、R179のblank-bank供給。M51を標準M53入力とはしない \\
 Q2-2 & setting-free局所seedまたは有限ray template & singlet交差モーメント、paired-Hopf強matching、Bell因果構造 \\
 Q3 & M37へ渡すrank-one初期標本集団とM42初期位置用の単一試行信号 & M37--M42との同一局所Hamiltonian統合、空間伝播、終位置記録 \\
 \end{longtable}
@@ -11828,7 +12137,7 @@ M51/R171は状態準備の共通開放模型を与えるが、次を主張しな
 \item
   雑音付き定常測度、揺らぎ散逸関係、有限bathによる誤差上界。
 \item
-  M51とM37、M42、M47、M48、M50、M52が同じ物理装置であること。
+  M51とM37、M42、M47、M48、M50、M52、M53が同じ物理装置であること。
 \item
   M51単独で粒子位置、Born型排他的結果、測定後状態を生成すること。
 \item
@@ -12232,6 +12541,652 @@ Q3-1の固定基準は、局所位置結合振動子網から空間格子上のS
 \end{enumerate}
 
 M42の採用により、Q3では「粒子が実在せず、終時刻にだけ位置が作られる」という読みに依存しない。一方、採用した局所率と有限衝突bathの物理的選択理由、全周期収支、連続極限は未完成課題として残る。
+
+\hypertarget{m53ux306eux4e00ux69d8sectorux64cdux4f5cux3068ux9010ux6b21bornux6a19ux672cux5316}{%
+\chapter{M53の一様sector操作と逐次Born標本化}\label{m53ux306eux4e00ux69d8sectorux64cdux4f5cux3068ux9010ux6b21bornux6a19ux672cux5316}}
+
+\begin{statusbox}
+位置づけ：R178A--R178Cの一様gate作用、可逆2枝filter、希少枝切断付き逐次Born標本化、repump、有限誤差と資源を証明する。
+\end{statusbox}
+
+\hypertarget{ux76eeux7684ux3068ux8a18ux53f7}{%
+\section{目的と記号}\label{ux76eeux7684ux3068ux8a18ux53f7}}
+
+\(n\) bit文字列の集合を \(\Omega_n=\{0,1\}^n\)、信号空間を \(\mathcal H_n=\mathbb C^{\Omega_n}\) とする。複素信号 \(Z\) は実正準対の派生表示であり、量子状態を別の実体として追加しない。M53は \(\dim\mathcal H_n=2^n\) を受動状態容量として許すが、外部controllerに \(2^n\) 個の係数またはaddressを渡さない。
+
+固定有限gate集合を \(\mathcal G\) とする。programは \((g,S,t)\) の有限列で、\(g\in\mathcal G\)、\(|S|\leq2\)、\(t\) はclock窓である。最終確率表はprogramに含めない。
+
+\hypertarget{ux4e00ux69d8sectorux751fux6210ux5b50}{%
+\section{一様sector生成子}\label{ux4e00ux69d8sectorux751fux6210ux5b50}}
+
+\(S\) に属さないbit列を \(r\) とする。基底を \((s,r)\) の順へ並べれば、局所gateの理想作用は
+
+\[
+U_{g,S}
+=
+\bigoplus_{r\in\{0,1\}^{n-|S|}}g.
+\]
+
+対応する実正準Hamiltonianは第2.2節と同じく
+
+\[
+H_{g,S}(t)=Z^\dagger h_{g,S}(t)Z,
+\qquad
+h_{g,S}(t)=\bigoplus_r h_g(t)
+\]
+
+である。blockごとの項は異なる正準pairへ作用するため、同じclock係数を共有できる。静的辺は、対象bitだけが異なりspectator bitが一致する文字列pair、という有限規則で生成される。
+
+\hypertarget{r178aux306eux8a3cux660e}{%
+\section{R178Aの証明}\label{r178aux306eux8a3cux660e}}
+
+\begin{proof}[R178A]
+
+sector間漏れがない場合、
+
+$$
+\widetilde U_{g,S}-U_{g,S}
+=
+\bigoplus_r(\widetilde g_r-g)
+$$
+
+だから、直和の作用素normにより
+
+$$
+\|\widetilde U_{g,S}-U_{g,S}\|
+=
+\max_r\|\widetilde g_r-g\|
+\leq\eta_g.
+$$
+
+漏れ作用を $E_{\rm leak}$ とすれば三角不等式で $\eta_g+\eta_{\rm leak}$ を得る。gate列 $U_d\cdots U_1$ と $\widetilde U_d\cdots\widetilde U_1$ の差はtelescopingし、各因子のnormが1なら各窓誤差の和以下である。
+
+1 bit gateはbit indexを指定する $O(n)$ 本以下、2 bit gateは素朴にはpairを指定する $O(n^2)$ 本以下の共有busで足りる。外部命令はgate数 $d$ に比例する。静的block数は指数的でも、blockを列挙する外部表は不要である。証明終。
+\end{proof}
+
+共有係数 \(\chi(t)\) で \(H(t)=\chi(t)H_{g,S}\) を開閉する場合、固定作用殻上の制御仕事は
+
+\[
+|W_{\rm ctrl}|
+\leq
+\int|\dot\chi(t)|\,\|h_g\|\,\|Z(t)\|^2\,dt
+\]
+
+で抑えられる。この評価はoccupied signal作用を数え、空sector数を足し上げない。ただし結合器の製造費と受動体積は指数的でもよい資源として別に記録する。
+
+\hypertarget{ux679dux5bb9ux91cflatch}{%
+\section{2枝容量latch}\label{ux679dux5bb9ux91cflatch}}
+
+計算基底bit \(k\) の射影は
+
+\[
+P_{k,b}
+=
+\sum_{x:x_k=b}|x\rangle\langle x|.
+\]
+
+容量pointer \((Q^A_{k,b},P^A_{k,b})\) と滑らかなclock窓 \(\lambda_k\) に対し、理想latch生成子を
+
+\[
+H_{{\rm lat},k}
+=
+\lambda_k(t)
+\sum_{b=0}^1
+\mathcal J_0Z^\dagger P_{k,b}Z\,P^A_{k,b}
+\]
+
+とする。\(P^A_{k,b}=0\) のblank面ではsignal方程式への反作用が消え、pointer位置だけが容量に比例して移る。有限pointer幅、clock overlap、blank momentum誤差は \(\varepsilon_{{\rm lat},k}\) へ入れる。
+
+\hypertarget{ux53efux9006filterux4ee3ux6570}{%
+\section{可逆filter代数}\label{ux53efux9006filterux4ee3ux6570}}
+
+\(P=P_{k,b}\)、\(Q=I-P=P_{k,1-b}\) と略記する。\(PQ=QP=0\)、\(P^2=P\)、\(Q^2=Q\) だから、
+
+\[
+F^2
+=
+\begin{pmatrix}
+P^2+Q^2&PQ-QP\\
+QP-PQ&Q^2+P^2
+\end{pmatrix}
+=I.
+\]
+
+\(F=F^\dagger\) なので \(F^\dagger F=I\) でもある。複素unitaryは実正準座標上のsymplectic直交変換を与える。
+
+\hypertarget{r178bux306eux8a3cux660e}{%
+\section{R178Bの証明}\label{r178bux306eux8a3cux660e}}
+
+\begin{proof}[R178B]
+
+O.5より $F_{k,b}$ はunitaryかつinvolutionである。blank workを代入すると第1出力は $P_{k,b}Z$、第2出力は $P_{k,1-b}Z$ になる。O.4のlatchはblank momentum面で信号を変えない。射影はbit labelだけで決まるため、signal成分の列挙を必要としない。証明終。
+\end{proof}
+
+\hypertarget{ux9010ux6b21bornux78baux7387}{%
+\section{逐次Born確率}\label{ux9010ux6b21bornux78baux7387}}
+
+履歴 \(y_{<k}\) のprojectorを
+
+\[
+P_{y_{<k}}
+=
+P_{k-1,y_{k-1}}\cdots P_{1,y_1}
+\]
+
+とする。非零履歴上の条件付き確率は
+
+\[
+p_{k,b|y_{<k}}
+=
+\frac{
+\|P_{k,b}P_{y_{<k}}Z_0\|^2
+}{
+\|P_{y_{<k}}Z_0\|^2
+}.
+\]
+
+分母と次段分子が相殺するので、全履歴確率は
+
+\[
+\prod_{k=1}^np_{k,y_k|y_{<k}}
+=
+\frac{\|P_yZ_0\|^2}{\|Z_0\|^2}.
+\]
+
+\hypertarget{ux5e0cux5c11ux679dux5207ux65ad}{%
+\section{希少枝切断}\label{ux5e0cux5c11ux679dux5207ux65ad}}
+
+第 \(k\) 段で条件付き確率が \(\tau\) 未満の子枝を全て数える。各親履歴の下には高々2個の子があるため、その親から切られる条件付き質量は \(2\tau\) 以下である。親履歴の確率を掛けて全親について和を取ると、第 \(k\) 段の切断質量は \(2\tau\) 以下。段の和により
+
+\[
+P_{\rm cut}\leq2n\tau.
+\]
+
+切断枝は \(\varnothing\) として残すので、これは事後選別ではない。
+
+\hypertarget{radial-repump}{%
+\section{Radial repump}\label{radial-repump}}
+
+selected signal \(W\) とblank anti-register \(R\) の各mode pairへ同じ2-mode squeezeを作用させる。複素表示の線形正準変換を
+
+\[
+\begin{pmatrix}
+W'\\
+\overline R'
+\end{pmatrix}
+=
+\begin{pmatrix}
+\cosh s&\sinh s\\
+\sinh s&\cosh s
+\end{pmatrix}
+\begin{pmatrix}
+W\\
+\overline R
+\end{pmatrix}
+\]
+
+とする。\(R=0\) なら \(W'=(\cosh s)W\) でありrayを変えない。選択前の作用を1へ規格化しておけば、条件付き確率が \(p\geq\tau\) の枝を標準作用へ戻す利得は \(p^{-1/2}\leq\tau^{-1/2}\)。従って \(s=O(\log(1/\tau))\) である。anti-registerはradial履歴を保持し、使用後にblankとみなさない。
+
+\hypertarget{r178cux306eux8a3cux660eux3068ux8aa4ux5dee}{%
+\section{R178Cの証明と誤差}\label{r178cux306eux8a3cux660eux3068ux8aa4ux5dee}}
+
+\begin{proof}[R178C]
+
+理想確率はO.7のtelescopingによりBorn分布へ一致する。O.8が切断質量、O.9が有限repump利得を与える。正則化を各段で最大 $\delta/(1+\delta)$、各段の実装channel誤差を $\varepsilon_{{\rm stage},k}$ とすればMarkov kernelのtelescopingにより
+
+$$
+D_{\rm TV}
+\leq
+2n\tau
++\frac{n\delta}{1+\delta}
++\sum_{k=1}^n\varepsilon_{{\rm stage},k}
+$$
+
+を得る。初期signalまたはgate列の誤差は、実際の末端signalのBorn分布と理想回路分布の距離として先頭に一度だけ加える。証明終。
+\end{proof}
+
+\hypertarget{ux8cc7ux6e90ux3068ux975eux4e3bux5f35}{%
+\section{資源と非主張}\label{ux8cc7ux6e90ux3068ux975eux4e3bux5f35}}
+
+各段のactive subspaceを物理的に圧縮しない保守的実装では、signal、anti、work、historyは \(O(n2^n)\) modeを使う。縮小subspaceを詰めれば \(O(2^n)\) まで減らせる可能性があるが、本結果に不要である。外部gate命令は \(O(d)\)、逐次出力段は \(n\)、各bitのtape cell数は付録Pの \(O(\log(n/\epsilon))\) である。
+
+本付録は未知量子入力、適応中間測定、誤り訂正、空間局所Hamiltonian、指数受動資源の削減を主張しない。
+
+\hypertarget{m53ux306ehistoryux51e6ux7406ux3068ux6ed1ux3089ux304bux306aapertureux6563ux4e71}{%
+\chapter{M53のhistory処理と滑らかなaperture散乱}\label{m53ux306ehistoryux51e6ux7406ux3068ux6ed1ux3089ux304bux306aapertureux6563ux4e71}}
+
+\begin{statusbox}
+位置づけ：R178D--R178Fの履歴逆掃除、reset境界、fixed-volume fresh tape、first-index選択、滑らかなaperture Hamiltonianと有限時間誤差を証明する。
+\end{statusbox}
+
+\hypertarget{ux76eeux7684}{%
+\section{目的}\label{ux76eeux7684}}
+
+本付録はR178Cが各出力bitで要求する2枝選択を物理化する。容量 \(A_0,A_1\) に比例する可変体積の殻をblankから生成せず、固定体積のfresh cellを容量依存apertureへ通す。全cell、拒否履歴、容量pointerを含む拡大流は1対1に保ち、無反応を正式な結果とする。
+
+\hypertarget{ux5c65ux6b74ux306eux5206ux985e}{%
+\section{履歴の分類}\label{ux5c65ux6b74ux306eux5206ux985e}}
+
+\(Y\in\{0,1\}^n\) をbit data記録、\(F\in\{0,1\}\) を無反応flagとし、完全結果は \((Y,F)\) として保持する。\(H(Y)\leq n\log2\) はdata記録だけの上界であり、flagと微視的履歴に必要な容量を除外しない。
+
+1段の状態を
+
+\[
+\Gamma_k
+=
+(Z_k,W_k,R_k,A_k,C_k,D_k,H_k)
+\]
+
+と書く。\(W_k\) はfilter work、\(R_k\) はrepump anti-register、\(A_k\) は容量pointer、\(C_k\) は使用したaperture cell、\(D_k\) は出力記録、\(H_k\) はclockとselector履歴である。
+
+出力copy後に逆演算できるのは、出力値を条件として選ばずに完全な微視的入力が残る部分だけである。粗視化した結果、Markov遷移回数、平均容量だけから逆写像を作らない。
+
+\hypertarget{r178dux306eux8a3cux660e}{%
+\section{R178Dの証明}\label{r178dux306eux8a3cux660e}}
+
+\begin{proof}[R178D]
+
+R112のclock、SWAP、比較、記録とR178Bのfilterは拡大正準空間上の1対1写像である。repumpもanti-registerを保持すればsymplecticである。従って出力を空recordへcopyした後、記録剪断を逆実行せず、出力と相関しないworkを逆順に戻せる。
+
+一方、異なる完全結果 $(y,f)\neq(y',f')$ を持つ2入力が、同じ保持出力を残しながら装置とbathの同一点へ戻ると仮定すると、全写像の2入力が同じ全出力へ写り単射性に反する。従って結果と相関する自由度はspent側へ残る。spent状態から $Y$ を復号する誤り率を $p_{\rm e}$ とし、Fano補正を $\eta_{\rm F}=h_2(p_{\rm e})+p_{\rm e}\log(|\mathcal Y|-1)$ と置けば、nats単位で $C_{\rm spent}\geq H(Y)-\eta_{\rm F}$ である。$n$ bit dataでは別に $H(Y)\leq n\log2$ である。証明終。
+\end{proof}
+
+熱量への変換にはbath温度、準静的消去、仕事源を別に指定する必要がある。本定理は情報容量だけから総熱を同定しない。
+
+\hypertarget{fixed-volume-cell}{%
+\section{Fixed-volume cell}\label{fixed-volume-cell}}
+
+各cellの容量を \(0\leq A_b\leq A_{\max}\) とし、入口位相領域を
+
+\[
+\Gamma_{\rm cell}
+=
+\{0,1\}\times[0,A_{\max}]\times\Gamma_{\rm aux}
+\]
+
+と表示する。離散labelは実装ではP.8の連続selector井戸に持ち上げる。理想入口測度はlabelが等重み、\(U\) が平坦、auxiliary測度が全branchで同じとする。
+
+branch \(b\) のaccept領域は
+
+\[
+\mathcal A_b
+=
+\{B=b,\ 0\leq U<A_b\}.
+\]
+
+その入口測度は共通因子を除いて \(A_b/(2A_{\max})\) である。R164の作用殻体積をさらに掛けない。
+
+\hypertarget{first-indexux6cd5}{%
+\section{First-index法}\label{first-indexux6cd5}}
+
+各cellをindex \(j=1,\ldots,N\) の順に、同じ長さのclock窓で試す。最小indexのacceptを出力し、それ以前が全てrejectなら次cellへ進む。物理的な出口到着時刻で競争させない。
+
+1 cellでbranch \(b\) がacceptされる確率を \(q_b\)、rejectを \(r\) とする。最初のacceptがbranch \(b\) である確率は
+
+\[
+\sum_{j=1}^Nr^{j-1}q_b
+=
+q_b\frac{1-r^N}{1-r}
+=
+\frac{A_b}{A_0+A_1}(1-r^N).
+\]
+
+全rejectは \(r^N\) である。
+
+\hypertarget{r178eux306eux8a3cux660e}{%
+\section{R178Eの証明}\label{r178eux306eux8a3cux660e}}
+
+\begin{proof}[R178E]
+
+P.4で $q_b=A_b/(2A_{\max})$、$1-r=q_0+q_1$。P.5の幾何和から定理の分布を得る。理想branch分布へ同じ総質量 $1-r^N$ を割り当て、残りを $\varnothing$ とすれば、理想Born出力だけを持つ分布との差は失敗質量 $r^N$ である。
+
+$A_0+A_1\geq S_->0$ なら $r\leq1-S_-/(2A_{\max})<1$ なので、$nr^N\leq\epsilon$ を満たす $N$ は $O(\log(n/\epsilon))$ である。証明終。
+\end{proof}
+
+同じcell列を別試行で再利用すると、出力とcell microstateが相関しているため独立同分布性は従わない。有限試行数なら別のfresh列を用意し、無期限運転なら開放cell流を必要とする。
+
+\hypertarget{aperture-hamiltonian}{%
+\section{Aperture Hamiltonian}\label{aperture-hamiltonian}}
+
+反応座標 \((X,P_X)\) と基準barrier \(V_0\) を置く。branch selectorの連続座標を \(Q_B\)、2つの安全井戸上で一定になる滑らかな関数を \(\beta_b(Q_B)\) とし、\(\beta_0+\beta_1=1\) とする。
+
+\[
+A(Q_B)
+=
+\beta_0(Q_B)A_0+\beta_1(Q_B)A_1.
+\]
+
+相互作用は
+
+\[
+H_{\rm ap}
+=
+\frac{P_X^2}{2m}
++V_0(X)
++g\{U-A(Q_B)\}\rho(X)
++H_{\rm hold}.
+\]
+
+\(H_{\rm hold}\) はselector、容量pointer、\(U\) の安全領域を保持する。\(V_0(0)=E_0\)、\(\rho(0)=1\) なら頂上energyは \(E_0+g(U-A_b)\)。入口energy \(E_0\) に対し \(U<A_b\) で通過、\(U>A_b\) で反射する。
+
+\hypertarget{ux6ed1ux3089ux304bux306alabelux3068ux5883ux754cux5931ux6557}{%
+\section{滑らかなlabelと境界失敗}\label{ux6ed1ux3089ux304bux306alabelux3068ux5883ux754cux5931ux6557}}
+
+抽象離散変数を滑らかなHamiltonianへ直接代入しない。selectorの左右安全井戸 \(\mathcal W_0,\mathcal W_1\) では
+
+\[
+\beta_b=1,
+\qquad
+\beta_{1-b}=0.
+\]
+
+井戸間の遷移帯はlabel failureへ送る。その入口質量を \(\varepsilon_{\rm label}\) とする。R179のdyadic digitも同じplateau方式で \(U_k(Q)\) として結合し、controllerがbit列を読み取らない。
+
+\hypertarget{ux4f59ux5206ux306aux6975ux5024ux306eux6392ux9664}{%
+\section{余分な極値の排除}\label{ux4f59ux5206ux306aux6975ux5024ux306eux6392ux9664}}
+
+相互作用窓の外縁では
+
+\[
+\partial_XH_{\rm ap}
+=
+V_0'(X)+g\{U-A(Q_B)\}\rho'(X).
+\]
+
+\(|U-A(Q_B)|\leq A_{\max}\) とし、
+
+\[
+gA_{\max}\|\rho'\|_\infty
+<
+\inf_{{\rm supp}\,\rho'}|V_0'|
+\]
+
+なら、\(\rho'\) のsupport上で摂動項は基準傾斜を反転できない。従って予定外の停留点を作らない。
+
+\hypertarget{ux6709ux9650ux6642ux9593ux5883ux754cux5e45}{%
+\section{有限時間境界幅}\label{ux6709ux9650ux6642ux9593ux5883ux754cux5e45}}
+
+barrier頂上近傍を逆調和近似すると、separatrixからenergy差 \(|\Delta|\) の軌道が判定領域を出る時間は \(\omega^{-1}\log(C/|\Delta|)\) で増える。energy幅、較正幅を加えると、時間 \(T\) で未判定となる容量境界幅は
+
+\[
+\ell_{\rm eff}(T)
+=
+\frac{
+\Delta_E+\Delta_{\rm cal}
++C_0e^{-\omega(T-t_0)}
+}{g}.
+\]
+
+従って \(\ell_{\rm eff}=O(\epsilon/n)\) には \(T=O(\log(n/\epsilon))\) で足りる。有限時間の滑らかな流でhard thresholdを正確に実装するとは主張しない。
+
+\hypertarget{backreaction}{%
+\section{Backreaction}\label{backreaction}}
+
+Hamilton方程式から
+
+\[
+\dot P_{A_b}
+=
+g\beta_b(Q_B)\rho(X),
+\qquad
+\dot P_U=-g\rho(X).
+\]
+
+容量座標 \(A_b\) と \(U\) が変化しなくても共役momentumは散乱履歴を持つ。逆散乱しない運転ではpointerとcellをspent側へ送る。1標本で必要な容量pointerは \(O(n)\) である。
+
+\hypertarget{r178fux306eux8a3cux660e}{%
+\section{R178Fの証明}\label{r178fux306eux8a3cux660e}}
+
+\begin{proof}[R178F]
+
+P.7の頂上energy差が理想threshold、P.9が余分な極値の排除、P.10が有限時間境界幅を与える。容量を $\widetilde A_b$ として読み出した実効判定は $|\widetilde A_b-A_b|\leq\ell_{\rm eff}$ を満たす。$A_0+A_1\geq S_->2\ell_{\rm eff}$ なら、有限 $N$ tapeとの合成誤差は
+
+$$
+D_{\rm TV}
+\leq
+\left(
+1-\frac{S_--2\ell_{\rm eff}}{2A_{\max}}
+\right)^N
++\frac{2\ell_{\rm eff}}{S_--2\ell_{\rm eff}}
++\varepsilon_{\rm tape}
++\varepsilon_{\rm label}
++\varepsilon_{\rm clock}.
+$$
+
+P.11よりpointerを無履歴で再利用しない。以上で定理を得る。証明終。
+\end{proof}
+
+\hypertarget{ux9000ux5f79ux4f5cux7528ux533aux9593samplerux304aux3088ux3073r170ux3068ux306eux5883ux754c}{%
+\section{退役作用区間samplerおよびR170との境界}\label{ux9000ux5f79ux4f5cux7528ux533aux9593samplerux304aux3088ux3073r170ux3068ux306eux5883ux754c}}
+
+R178Eは正規化済み確率表または累積確率区間を装置へ入力しない。入力は局所的な非規格化容量 \(A_0,A_1\) と、回路非依存のfixed-volume cellである。拒否と無反応を除外しないので、退役した作用区間samplerの事後規格化経路ではない。
+
+M53は二枝apertureを使い、R170の有限混合を同じ段に加えない。R170はQ1、M48、一般M50 instrumentの別実装として残る。
+
+\hypertarget{m53ux306eux4e00ux69d8blank-bankux3068fresh-cellux4f9bux7d66}{%
+\chapter{M53の一様blank-bankとfresh-cell供給}\label{m53ux306eux4e00ux69d8blank-bankux3068fresh-cellux4f9bux7d66}}
+
+\begin{statusbox}
+位置づけ：R179の反復partial SWAP、有限温度誤差、root入力、fair-bit源、dyadic座標化、独立供給則と資源境界を証明する。
+\end{statusbox}
+
+\hypertarget{ux76eeux7684ux3068ux8cc7ux6e90ux5883ux754c}{%
+\section{目的と資源境界}\label{ux76eeux7684ux3068ux8cc7ux6e90ux5883ux754c}}
+
+R178C--R178Fは、各出力bitに新しいwork、anti-register、容量pointer、aperture cell、selector digitを要求する。本付録では、それらを回路出力に応じて外部から逐次生成せず、初期時刻に用意した一様bankからclock順に供給する。
+
+許すものは、回路と精度から計算できる多項式長の外部program、指数個でもよい受動cell、cold sourceとspent sinkを含む開放bathである。総bath容量、総熱、装置体積を多項式とする主張は置かない。
+
+\hypertarget{ux9589hamiltonianux7cfbux3060ux3051ux3067ux306fblankux3092ux5897ux3084ux305bux306aux3044}{%
+\section{閉Hamiltonian系だけではblankを増やせない}\label{ux9589hamiltonianux7cfbux3060ux3051ux3067ux306fblankux3092ux5897ux3084ux305bux306aux3044}}
+
+同じ有限次元位相空間上のHamiltonian流は体積を保存する。異なる使用済みmicrostateを同じblank領域へ写し、他の自由度にも区別を残さない写像は単射でない。従ってblank供給は、使用済み状態をspent側へ移すか、より大きいbankの未使用領域と交換しなければならない。
+
+この障害を隠さないため、M53のbankを
+
+\[
+\mathcal B
+=
+\mathcal B_{\rm cold}
+\times
+\mathcal B_{\rm active}
+\times
+\mathcal B_{\rm spent}
+\]
+
+と分ける。collective resetはactive状態を消去せず、cold cellと交換して履歴をspent側へ移す。
+
+\hypertarget{ux4e00ux69d8bank-index}{%
+\section{一様bank index}\label{ux4e00ux69d8bank-index}}
+
+cellは種類 \(a\)、出力段 \(k\)、試行index \(j\)、標本index \(s\) で静的に並べる。clockは同じ有限状態遷移規則で次のcellを選ぶ。外部controllerはcellのmicrostate、Born重み、accept結果を読まない。
+
+必要数が事前に
+
+\[
+N_{\rm cell}
+=
+O(SnN)
+\]
+
+と決まる有限runでは、bank全体を初期状態の一部として用意する。ここで \(S\) は標本数、\(N\) は1 bit当たりのaperture試行数である。無期限運転には同じ局所規則を持つ開放cell流を仮定する。
+
+\hypertarget{ux53cdux5fa9partial-swap}{%
+\section{反復partial SWAP}\label{ux53cdux5fa9partial-swap}}
+
+bank全体のactive vector \(W_r\) と第 \(r\) cold layer \(E_r\) の対応mode間に、一定精度のpartial SWAPとして同じ2-mode回転を並列に作用させる。couplerは一様有限規則から作る同一の静的二次Hamiltonianとし、受動clockがroundを進める。指数個のcouplerを外部から個別に開閉しない。適切な位相規約でactive出力を
+
+\[
+W_{r+1}
+=
+C_rW_r+S_rE_r,
+\qquad
+\|C_r\|\leq\rho<1
+\]
+
+と書く。pairごとの全変換は \((w',e')=(cw+se,-sw+ce)\)、\(c^2+s^2=1\) という回転であり、実正準かつ可逆である。cold側出力 \(e'\) はspent側へ残す。\(C_r,S_r\) は固定精度で実装され、各回に同じ上界 \(\rho\) が使える。full SWAPを指数精度で1回実装する必要はない。
+
+cold layerのaggregate blankずれを \(\|E_r\|\leq\eta_{\rm cold}\) とし、\(\|S_r\|\leq1\) を使えば
+
+\[
+\|W_R\|
+\leq
+\rho^R\|W_0\|
++\frac{\eta_{\rm cold}}{1-\rho}.
+\]
+
+従って \(\|W_0\|\leq R_{\rm in}\) に対し
+
+\[
+R
+=
+O\!\left(
+\log R_{\rm in}
++\log\frac{1}{\varepsilon_{\rm blank}}
+\right)
+\]
+
+回の反復で、cold floorを除く残差を \(\varepsilon_{\rm blank}\) 以下にできる。\(R_{\rm in}\) が \(2^{O(n)}d^{O(1)}\) 以下なら \(R=O(n+\log d+\log(1/\varepsilon_{\rm blank}))\) である。
+
+\hypertarget{cold-floorux3068passiveux5bb9ux91cf}{%
+\section{Cold floorとpassive容量}\label{cold-floorux3068passiveux5bb9ux91cf}}
+
+有限温度bathでは \(\eta_{\rm cold}=0\) を仮定しない。実効blank誤差は
+
+\[
+\varepsilon_{\rm reset}
+=
+\rho^RR_{\rm in}
++\frac{\eta_{\rm cold}}{1-\rho}
++\varepsilon_{\rm swap}
+\]
+
+と評価する。\(\varepsilon_{\rm swap}\) は反復実装誤差の合計である。要求精度を下げるにはcold sourceの品質または反復gate精度を上げる必要がある。外部精度を多項式に保つには、exact invariant blankを持つcold source、またはbank全体のaggregate誤差を一様contractで保証するsourceを仮定する。各modeに独立な定数thermal noiseが残るsourceは、bank次元とともにaggregate誤差が増えるためこの仮定を満たさない。
+
+各反復で用いたcold cellはactive履歴と相関し得るため、再びcold cellとして数えない。有限runでは必要数を初期bankに積み、無期限runではcold流とspent sinkを仮定する。この容量は指数的でもよい受動資源であり、外部制御programの長さとは区別する。
+
+\hypertarget{rootux5165ux529bux306eux4f9bux7d66}{%
+\section{Root入力の供給}\label{rootux5165ux529bux306eux4f9bux7d66}}
+
+R112のclockを開始するroot packetは、固定した1個のsource modeと最初のactive clock modeの間の定数次元SWAPで注入できる。sourceの絶対位相は、以後の判定が作用と相対位相だけに依存する限りglobal phaseとして消える。
+
+標本ごとにroot packetを再利用するなら、source側の使用済み状態を保持するか、新しいsource cellへ進む。rootを閉系から無履歴で複製するとは主張しない。
+
+\hypertarget{ux4e00ux69d8fair-bitux6e90}{%
+\section{一様fair-bit源}\label{ux4e00ux69d8fair-bitux6e90}}
+
+R161--R162の対称2状態collision bathを、selector digitのsourceとして使う。遷移核を
+
+\[
+K
+=
+\begin{pmatrix}
+1-a&a\\
+a&1-a
+\end{pmatrix},
+\qquad
+0<a<1
+\]
+
+とすれば定常分布は \((1/2,1/2)\) である。mixing後の1-bit lawのずれを \(\varepsilon_{\rm bit}\)、cell間相関の総寄与を \(\varepsilon_{\rm corr}\) として追跡する。独立性を近似だけで済ませる場合、その誤差を \(\varepsilon_{\rm tape}\) へ含める。
+
+初期bath法則は、回路、入力signal、途中の出力から独立でなければならない。回路のBorn重みを初期digit分布へ埋め込まない。
+
+\hypertarget{dyadicux5ea7ux6a19ux3068threshold-discrepancy}{%
+\section{Dyadic座標とthreshold discrepancy}\label{dyadicux5ea7ux6a19ux3068threshold-discrepancy}}
+
+\(k\) 個のfair digit \(C_1,\ldots,C_k\in\{0,1\}\) から
+
+\[
+J_k
+=
+\sum_{\ell=1}^k2^{k-\ell}C_\ell,
+\qquad
+U_k
+=
+A_{\max}\frac{J_k+1/2}{2^k}
+\]
+
+を作る。\(U_k\) は各dyadic区間の中点に一様に分布する。連続一様変数とのtotal variation距離は比較しない。両者は測度として互いに特異だからである。
+
+代わりにthreshold classに対する累積分布差を使う。任意の \(0\leq A\leq A_{\max}\) について
+
+\[
+\left|
+\Pr[U_k<A]
+-\frac{A}{A_{\max}}
+\right|
+\leq2^{-k}.
+\]
+
+従って \(nN\) 回のthreshold判定に対する合計discrepancyを \(\epsilon\) 以下にするには \(k=O(\log(nN/\epsilon))\) で足りる。
+
+\hypertarget{data-processingux3068ux4f9bux7d66ux72ecux7acbux6027}{%
+\section{Data processingと供給独立性}\label{data-processingux3068ux4f9bux7d66ux72ecux7acbux6027}}
+
+理想product lawを \(\mu^{\otimes L}\)、実際のtape lawを \(\widetilde\mu_L\) とする。回路とapertureの決定的な拡大正準流を \(\Phi\) と書けば、任意の可測粗視化に対し
+
+\[
+D_{\rm TV}
+\left(
+\Phi_*\widetilde\mu_L,
+\Phi_*\mu^{\otimes L}
+\right)
+\leq
+D_{\rm TV}
+\left(
+\widetilde\mu_L,
+\mu^{\otimes L}
+\right).
+\]
+
+従ってbit bias、有限mixing、cell間相関の誤差は、最終出力で増幅されず \(\varepsilon_{\rm tape}\) として一度だけ加えられる。ただし回路依存の初期相関がある場合、この議論は使えない。
+
+\hypertarget{r179ux306eux8a3cux660e}{%
+\section{R179の証明}\label{r179ux306eux8a3cux660e}}
+
+\begin{proof}[R179]
+
+Q.3の静的indexとR112のclockにより、必要なcellを出力に依存しない順序で供給できる。Q.4--Q.5の反復partial SWAPはactive modeを所望のblank近傍へ移し、使用済みmicrostateをcold cellからspent側へ送る。同一静的couplerと受動clockを使うため、外部controllerのquench workをbank次元へ比例させない。Q.6がroot packet、Q.7--Q.8が回路非依存のdyadic selector tapeを与える。Q.9により供給法則のずれは最終出力誤差へ加法的に伝わる。
+
+有限runでは初期bank容量を必要数だけ取ればよい。無期限runではcold inflowとspent outflowを仮定する。以上により、総bath容量を多項式と仮定せず、外部program、反復段数、1判定当たりdigit数を多項式に保つ一様供給が成立する。証明終。
+\end{proof}
+
+\hypertarget{ux8cc7ux6e90ux8a55ux4fa1}{%
+\section{資源評価}\label{ux8cc7ux6e90ux8a55ux4fa1}}
+
+1回のblank化に必要なpartial SWAP数は
+
+\[
+O\!\left(
+n+\log d+\log\frac{1}{\varepsilon_{\rm blank}}
+\right).
+\]
+
+1 threshold当たりのdigit数は \(O(\log(nN/\epsilon))\)、R178Eのcell試行数は \(N=O(\log(n/\epsilon))\) である。固定標本数 \(S\) の外部clock長はこれらと \(d,n,S\) の多項式である。
+
+一方、signal、work、history、cold、spentを含む受動bank容量と総散逸は指数的でよい。この分離がQ2-4の現在の規則であり、通常の意味の効率的古典simulationや多項式総熱を意味しない。
+
+\hypertarget{ux53cdux8a3cux6761ux4ef6ux3068ux975eux4e3bux5f35}{%
+\section{反証条件と非主張}\label{ux53cdux8a3cux6761ux4ef6ux3068ux975eux4e3bux5f35}}
+
+次のいずれかが必要ならR179は成立しない。
+
+\begin{itemize}
+\tightlist
+\item
+  cold cellが回路出力に応じて準備される。
+\item
+  使用済みcellを履歴なしにcold cellへ戻す。
+\item
+  1回のSWAPに指数小の較正誤差を要求する。
+\item
+  dyadic tapeの離散lawと連続一様lawのtotal variation一致を要求する。
+\item
+  bath容量または総熱を多項式に制限する。
+\end{itemize}
+
+R179は、cold bathを閉Hamiltonian dynamicsから生成すること、指数受動資源を削減すること、無期限運転を有限bankで行うことを主張しない。
 
 \begingroup
 

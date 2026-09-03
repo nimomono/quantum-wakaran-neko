@@ -46,6 +46,9 @@ jobs:
           test -f sections/A12_common_action_shell_state_count.md
           test -f sections/A13_common_open_preparation.md
           test -f sections/A14_m37_m42_spatial_token.md
+          test -f sections/A15_q2_uniform_sequential_sampler.md
+          test -f sections/A16_q2_fresh_tape_aperture.md
+          test -f sections/A17_q2_uniform_supply.md
           test -f notes/q1_2_zeno_integration.md
           test ! -e notes/q1_zeno_revival.md
           test ! -e notes/frozen_q1_zeno.md
@@ -62,6 +65,9 @@ jobs:
           test -f tools/verify_common_signal_m50.py
           test -f tools/verify_m51_common_open_preparation.py
           test -f tools/verify_m42_spatial_token.py
+          test -f tools/verify_r178_uniform_sampler.py
+          test -f tools/verify_r179_uniform_supply.py
+          test -f tools/verify_q2_m53_composition.py
           test -f tools/verify_q2_shell_and_locality.py
           test -f tools/verify_q1xq1_common_bath.py
           test ! -e tools/verify_q2_1_gate.py
@@ -92,6 +98,14 @@ jobs:
           grep -Fq 'R176B：永続状態bathゲート合成定理' sections/04_q1xq1_common_bath_gate.md
           grep -Fq 'R176C：末端Born型instrument接続定理' sections/04_q1xq1_common_bath_gate.md
           grep -Fq 'R177：二段共同bath合成のGHZ--T--逆演算証人' sections/A10_q2_common_bath_composition.md
+          grep -Fq 'M53一様直接モード・逐次2枝標本化模型' sections/02_common_canonical_modules.md
+          grep -Fq 'R178A：局所gateの一様sector-broadcast定理' sections/02_common_canonical_modules.md
+          grep -Fq 'R178B：直交projector作用latch・可逆filter定理' sections/02_common_canonical_modules.md
+          grep -Fq 'R178C：希少枝切断付き逐次Born sampler定理' sections/02_common_canonical_modules.md
+          grep -Fq 'R178D：逐次history逆掃除・collective reset定理' sections/02_common_canonical_modules.md
+          grep -Fq 'R178E：二枝作用殻interface・fresh-tape周期定理' sections/02_common_canonical_modules.md
+          grep -Fq 'R178F：滑らかな二channel aperture散乱の一様canonical実装定理' sections/02_common_canonical_modules.md
+          grep -Fq 'R179：一様blank-bank・fresh-cell供給定理' sections/02_common_canonical_modules.md
           grep -Fq '1試行状態と集団momentの分離' sections/A10_q2_common_bath_composition.md
           grep -Fq '| Q1-1 | 達成 |' PROJECT_STATUS.md
           grep -Fq '| Q1-2 | 部分達成 |' PROJECT_STATUS.md
@@ -105,7 +119,7 @@ jobs:
           grep -Fq '| Q2-1 | 条件付き達成 |' PROJECT_STATUS.md
           grep -Fq '| Q2-2 | 条件付き達成 |' PROJECT_STATUS.md
           grep -Fq '| Q2-3 | 条件付き達成 |' PROJECT_STATUS.md
-          grep -Fq '| Q2-4 | 未達 |' PROJECT_STATUS.md
+          grep -Fq '| Q2-4 | 条件付き達成 |' PROJECT_STATUS.md
           grep -Fq '| Q3-1 | 達成 |' PROJECT_STATUS.md
           grep -Fq '| Q3-2 | 未達 |' PROJECT_STATUS.md
           grep -Fq '| Q3-3 | 達成 |' PROJECT_STATUS.md
@@ -122,6 +136,7 @@ jobs:
           grep -Fq '| 目標ID | 現在地 | 根拠モデル | 根拠となる結果 |' PROJECT_STATUS.md
           grep -Fq '| Q2-1 | 条件付き達成 | M52、M50末端読出し | R112、R164、R170、R176A--R176C |' PROJECT_STATUS.md
           grep -Fq '| Q2-2 | 条件付き達成 | M48、M50 | R147、R153、R155、R164、R168、R170 |' PROJECT_STATUS.md
+          grep -Fq '| Q2-4 | 条件付き達成 | M53 | R112、R161、R162、R164、R178A--R178F、R179 |' PROJECT_STATUS.md
           grep -Fq '受動的な浴自由度' PROJECT_STATUS.md
           grep -Fq '指数個の自由度を個別に初期化' PROJECT_STATUS.md
           grep -Fq '成功試行だけを再規格化しない' sections/08_errors_resources_open_targets.md
@@ -129,9 +144,16 @@ jobs:
           grep -Fq '固定目標の達成条件ではなく実装努力目標' sections/08_errors_resources_open_targets.md
           grep -Fq 'Q2-3の3量子ビット型二段ゲート合成' sections/08_errors_resources_open_targets.md
           grep -Fq 'Q2-3は条件付き達成' sections/08_errors_resources_open_targets.md
-          grep -Fq 'Q1-1、Q3-1、Q3-3は個別機能として達成、Q1-2は部分達成、Q2-1、Q2-2、Q2-3、Q3-4、Q3-5は条件付き達成' sections/08_errors_resources_open_targets.md
+          grep -Fq 'Q1-1、Q3-1、Q3-3は個別機能として達成、Q1-2は部分達成、Q2-1、Q2-2、Q2-3、Q2-4、Q3-4、Q3-5は条件付き達成' sections/08_errors_resources_open_targets.md
           grep -Fq 'Q2-4多項式外部制御による量子出力サンプリング' sections/08_errors_resources_open_targets.md
           grep -Fq '指数的な受動自由度' sections/08_errors_resources_open_targets.md
+          grep -Fq '総bath容量、総熱は指数的でもよい' sections/08_errors_resources_open_targets.md
+          grep -Fq 'threshold discrepancy' sections/A17_q2_uniform_supply.md
+          grep -Fq '互いに特異' sections/A17_q2_uniform_supply.md
+          grep -Fq '一定精度のpartial SWAP' sections/A17_q2_uniform_supply.md
+          grep -Fq '同一の静的二次Hamiltonian' sections/A17_q2_uniform_supply.md
+          grep -Fq 'Fano補正' sections/A16_q2_fresh_tape_aperture.md
+          grep -Fq '通常の意味の効率的古典simulationを主張しない' PROJECT_STATUS.md
           if grep -REn 'Q2共通ハードウェアへの統合は未達|Q2共通ハードウェア統合|一様な共通ハードウェア族を使うことを横断条件|Q2固定目標は、規模ごとの一様な共通ハードウェア族を要求する' README.md PROJECT_STATUS.md sections/*.md; then
             exit 1
           fi
@@ -158,6 +180,13 @@ jobs:
           test "$(grep -Rho '定理（R176A：' sections/*.md | wc -l)" -eq 1
           test "$(grep -Rho '定理（R176B：' sections/*.md | wc -l)" -eq 1
           test "$(grep -Rho '定理（R176C：' sections/*.md | wc -l)" -eq 1
+          test "$(grep -Rho '定理（R178A：' sections/*.md | wc -l)" -eq 1
+          test "$(grep -Rho '定理（R178B：' sections/*.md | wc -l)" -eq 1
+          test "$(grep -Rho '定理（R178C：' sections/*.md | wc -l)" -eq 1
+          test "$(grep -Rho '定理（R178D：' sections/*.md | wc -l)" -eq 1
+          test "$(grep -Rho '定理（R178E：' sections/*.md | wc -l)" -eq 1
+          test "$(grep -Rho '定理（R178F：' sections/*.md | wc -l)" -eq 1
+          test "$(grep -Rho '定理（R179：' sections/*.md | wc -l)" -eq 1
           test "$(grep -Rho '定理（R162：' sections/*.md | wc -l)" -eq 1
           test "$(grep -Rho '定理（R164：' sections/*.md | wc -l)" -eq 1
           test "$(grep -Rho '定理（R123：' sections/*.md | wc -l)" -eq 1
