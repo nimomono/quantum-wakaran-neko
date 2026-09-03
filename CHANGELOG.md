@@ -2,6 +2,19 @@
 
 この文書には、理論上の変更と、現行稿に対する置換関係を記録する。誤字修正や構成だけの変更は、理論的内容を変えないことを明記する。
 
+## draft-64
+
+### M52設計原則とR176系列の再構築
+
+- M52の「4mode registerを使わず経路だけで共同状態を担う」という制約を撤回した。内部mode、anti-register、work、clock履歴を受動bath自由度として許し、外部controllerが個別に初期化、設定、較正、同期、address、読出し、resetする必要がないことを判定基準とした。
+- R176A「可逆tensor-lift定理」を追加した。入力係数を外部で読み取らず、3次Hamiltonianの乗算pulseと固定正準行列 $S_0$ により、一般積入力から $Z_S=a\otimes b$ とanti-registerを有限時間で生成する。$Z=a\otimes b$ の係数を厳密に合わせるため、target shiftの正規化を $\sqrt2s_C$ とした。
+- R176B「永続状態bathゲート合成定理」を追加した。同じ物理的 $Z_S$ を全gate間で保持し、差mode二次生成子によるCNOT、局所unitary、逆演算、3入力のA--B/B--C二段gateをoperator norm誤差で合成した。中間handoff、枝選択、集団moment、再準備は用いない。
+- R176C「末端Born型instrument接続定理」を追加した。実際の末端信号を同次元blank registerへcanonical SWAPし、容量latchからM50/R164/R170へ接続する。無反応を含む完全結果空間上で、ray、正則化、末端工程の誤差を各1回だけ数える条件付き境界を与えた。
+- draft-63のR175はR176Bの診断的経路展開へ吸収し、現行主結果鎖から退役した。経路限定設計の理由と保存する逆演算診断を新しい退役メモへ記録した。
+- Q2-1とQ2-3を部分達成から条件付き達成へ更新した。共通条件はR176Cの容量pointer--作用殻境界、有限fiber混合の枝対称性、SWAPから記録までの単一clock統合である。Q2-2は条件付き達成、Q2-4は未達のままである。
+- Q1×Q1検算器を29項目へ更新し、$S_0$ の正準性、tensor-lift正規化、anti-register、CNOT projector、参照系安定性、Q2-1逆演算gap、3入力二段gate、R177 gap、容量latch、ray不変性、無反応massを検算する。
+- README、状態表、本文、付録、研究メモ、CI、生成器、manifest、引用情報、統合原稿、TeX、PDF、検証記録をdraft-64へ同期した。
+
 ## draft-63
 
 ### Q2-1の共同bath経路への再構築

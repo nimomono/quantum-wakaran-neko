@@ -28,7 +28,8 @@ draft-51以後の現行文書では、各試行で局在する物理変数を「
 | `superseded_m41_cycle_proofs.md` | draft-45A以前の付録D | M41周期の旧証明記録 | R107--R111、R121を撤回せず保存する一方、現行Q2-2の証明依存から外すため |
 | `superseded_m39_m48_handoff_claim.md` | draft-45BのR151、旧第4.9節・第5.3節・付録D.2・付録J.14 | 旧M39--M48 state handoff主張の置換記録 | 反対称filterが非零入力を同じsinglet射影へ潰し、等重み枝も内部fair seedで代替できるため、物理的なstate-carrying受渡しと分類できない |
 | `superseded_m39_m42_q2_1.md` | draft-46以前の第4章、付録C、M39、R118・R120・R122のQ2-1適用 | 旧Q2-1模型の置換記録。4モードCNOT代数はR112特殊化として再利用 | Q2-2へ必要な2端bath・配置registerを供給せず、付録Kの同一試行受渡し契約を満たさないため |
-| `superseded_m49_joint_bath_cnot_provider.md` | draft-47--draft-62の第4章、付録C、M49、R159、R160 | 4モード共同担体による固定有限benchmarkの退役記録。有限CNOT代数はR112へ維持 | Q1出力と次段入力の形式が閉じず、中間decodeと入力別templateに依存するためM52共同bath経路へ再構築 |
+| `superseded_m49_joint_bath_cnot_provider.md` | draft-47--draft-62の第4章、付録C、M49、R159、R160 | 固定有限benchmarkの退役記録。4mode自体は許容し、有限CNOT代数はR112へ維持 | 入力別template、外部routing、破壊的decode、閉じないinterfaceのためR176A/Bへ再構築 |
+| `superseded_m52_path_only_design.md` | draft-63の第4章、付録C、M52、R175、旧R176 | 経路だけで共同状態を担う旧設計の退役記録 | 受動内部modeを浴へ任せられる場合まで禁止していたため、外部interface基準へ改訂 |
 
 完全な旧原稿は版タグと公開版で保存し、ここには置かない。
 

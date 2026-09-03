@@ -284,8 +284,8 @@ D_{\rm TV}(p^{\rm M51\to M50},p_c^{\rm id})
 | 系列 | M51から供給できるもの | M51から従わないもの |
 |---|---|---|
 | Q1 | $m=2$、W型生成子、目標Bloch ray。R145はこの特殊化 | W型粒子位置、Born枝、測定後template交換、周期収支 |
-| Q2-1 | 指定した局所rayの試行集団準備 | 一般Q1入力のM52経路lift、CNOT、逆演算、coherent末端decoder |
-| Q2-3 | 指定した3部分系初期rayの試行集団準備 | M52の2相互作用区間、非破壊な中間受渡し、GHZ--$T$--逆演算、最終Born型読出し |
+| Q2-1 | 指定した局所rayの試行集団準備 | R176Aの1試行tensor-lift、R176BのCNOT・逆演算、R176Cの末端接続 |
+| Q2-3 | 指定した3部分系初期rayの試行集団準備 | R176A/Bの反復lift・二段gate、R177、R176Cの末端接続 |
 | Q2-4 | 一般回路用rayの受動担体準備 | ゲート列、最終Born型読出し、$L=2^n$ 受動モードの個別制御を避ける資源性 |
 | Q2-2 | setting-free局所seedまたは有限ray template | singlet交差モーメント、paired-Hopf強matching、Bell因果構造 |
 | Q3 | M37へ渡すrank-one初期標本集団とM42初期位置用の単一試行信号 | M37--M42との同一局所Hamiltonian統合、空間伝播、終位置記録 |

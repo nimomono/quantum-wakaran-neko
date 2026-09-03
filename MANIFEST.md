@@ -55,6 +55,7 @@
 - `notes/superseded_m39_m48_handoff_claim.md`
 - `notes/superseded_m39_m42_q2_1.md`
 - `notes/superseded_m49_joint_bath_cnot_provider.md`
+- `notes/superseded_m52_path_only_design.md`
 - `notes/superseded_m42_continuous_particle_position.md`
 - `notes/q1_2_zeno_integration.md`
 - `notes/superseded_position_coupling_fisher_closure.md`
