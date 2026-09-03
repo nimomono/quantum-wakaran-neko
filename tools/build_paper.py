@@ -260,7 +260,7 @@ def validate_fixed_goal_language() -> None:
         "Q2-1": "条件付き達成",
         "Q2-2": "条件付き達成",
         "Q2-3": "条件付き達成",
-        "Q2-4": "未達",
+        "Q2-4": "条件付き達成",
         "Q3-1": "達成",
         "Q3-2": "未達",
         "Q3-3": "達成",
@@ -338,7 +338,7 @@ def validate_fixed_goal_language() -> None:
         "Q2-1 | 条件付き達成 | M52、M50末端読出し | R112、R164、R170、R176A--R176C",
         "Q2-2 | 条件付き達成 | M48、M50 | R147、R153、R155、R164、R168、R170",
         "Q2-3 | 条件付き達成 | M52永続状態bathの三部分系特殊化 | R112、R176A--R176C、R177",
-        "Q2-4 | 未達 | 完結モデルなし。直接モード構成が候補 | R112、R164、R170",
+        "Q2-4 | 条件付き達成 | M53 | R112、R161、R162、R164、R178A--R178F、R179",
     )
     missing_status_evidence = [
         fragment for fragment in required_status_evidence if fragment not in status_text
@@ -364,6 +364,7 @@ def validate_fixed_goal_language() -> None:
     required_readme_evidence = (
         "Q2-1 | M52、M50末端読出し | R112、R164、R170、R176A--R176C",
         "Q2-2 | M48、M50 | R147、R153、R155、R164、R168、R170",
+        "Q2-4 | M53 | R112、R161、R162、R164、R178A--R178F、R179",
         "この表は固定目標の定義ではなく、現行版の判定根拠",
     )
     missing_readme_evidence = [
@@ -397,6 +398,10 @@ def validate_fixed_goal_language() -> None:
         "回路末尾",
         "Q2-4多項式外部制御による量子出力サンプリング",
         "指数的な受動自由度",
+        "M53",
+        "R178A--R178F",
+        "R179",
+        "総bath容量と総熱",
     )
     missing_body_fragments = [
         fragment for fragment in required_body_fragments if fragment not in body_text
@@ -463,6 +468,9 @@ def validate_fixed_goal_language() -> None:
         SECTIONS / "A12_common_action_shell_state_count.md",
         SECTIONS / "A13_common_open_preparation.md",
         SECTIONS / "A14_m37_m42_spatial_token.md",
+        SECTIONS / "A15_q2_uniform_sequential_sampler.md",
+        SECTIONS / "A16_q2_fresh_tape_aperture.md",
+        SECTIONS / "A17_q2_uniform_supply.md",
     )
     obsolete_paths = (
         SECTIONS / "03_l2_operation_measurement_zeno.md",
@@ -548,7 +556,9 @@ def validate_fixed_goal_language() -> None:
         path.read_text(encoding="utf-8") for path in sorted(SECTIONS.glob("*.md"))
     )
     for result_id in (
-        "R171", "R172", "R173", "R174", "R176A", "R176B", "R176C", "R161", "R162", "R164", "R123", "R124", "R125"
+        "R171", "R172", "R173", "R174", "R176A", "R176B", "R176C",
+        "R178A", "R178B", "R178C", "R178D", "R178E", "R178F", "R179",
+        "R161", "R162", "R164", "R123", "R124", "R125"
     ):
         if all_section_text.count(f"定理（{result_id}：") != 1:
             raise ValueError(f"{result_id}の定理宣言は現行章全体で1回でなければならない")
@@ -617,6 +627,32 @@ def validate_fixed_goal_language() -> None:
     ):
         if token not in q2_composition_text:
             raise ValueError(f"Q2共同bath合成の固定要素がない: {token}")
+
+    m53_text = common_text
+    for token in (
+        "M53一様直接モード・逐次2枝標本化模型",
+        "R178A：局所gateの一様sector-broadcast定理",
+        "R178B：直交projector作用latch・可逆filter定理",
+        "R178C：希少枝切断付き逐次Born sampler定理",
+        "R178D：逐次history逆掃除・collective reset定理",
+        "R178E：二枝作用殻interface・fresh-tape周期定理",
+        "R178F：滑らかな二channel aperture散乱の一様canonical実装定理",
+        "R179：一様blank-bank・fresh-cell供給定理",
+        "通常の計算量理論における多項式資源の古典simulationではない",
+    ):
+        if token not in m53_text:
+            raise ValueError(f"M53/R178/R179の固定要素がない: {token}")
+
+    r179_text = (SECTIONS / "A17_q2_uniform_supply.md").read_text(encoding="utf-8")
+    for token in (
+        "threshold discrepancy",
+        "互いに特異",
+        "exact invariant blank",
+        "同一の静的二次Hamiltonian",
+        "総bath容量、総熱、装置体積を多項式とする主張は置かない",
+    ):
+        if token not in r179_text:
+            raise ValueError(f"R179供給境界の固定要素がない: {token}")
 
 
 def preprocess(lines: list[str]) -> list[str]:

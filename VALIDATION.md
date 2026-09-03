@@ -1,6 +1,6 @@
 # 検算と品質確認
 
-この文書はdraft-64のQ1×Q1可逆tensor-lift永続状態bath模型、再現計算、静的整合性、PDF生成、目視確認の記録である。検証日は2026-09-03。
+この文書はdraft-65のM53一様直接モード・逐次2枝標本化模型、R178A--R178F、R179、再現計算、静的整合性、PDF生成、目視確認の記録である。検証日は2026-09-03。
 
 ## 実行方法
 
@@ -23,7 +23,33 @@ python tools/verify_q1xq1_common_bath.py
 python tools/verify_q2_shell_and_locality.py
 python tools/verify_m48_full_cycle.py
 python tools/verify_common_signal_m50.py
+python tools/verify_r178_uniform_sampler.py
+python tools/verify_r179_uniform_supply.py
+python tools/verify_q2_m53_composition.py
 ```
+
+## draft-65方針監査
+
+- M53をQ2-4の現行模型として追加した。R178A--R178FとR179を根拠に、Q2-4を未達から条件付き達成へ更新した。Q2-1、Q2-2、Q2-3の条件付き達成と他の固定目標判定は変更していない。
+- 総bath容量、装置体積、cold/spent cell総数、総熱は指数的でもよい。一方、外部program、制御channel、精度、反復回数、総時間は多項式に抑え、個別mode設定、指数長の係数表、回路別配線、稀な成功、事後選別を禁止する。通常の意味の効率的古典simulationは主張しない。
+- R178Aのsector-broadcastは直和のoperator normを最大block誤差で評価し、sector数を加算しない。R178B/Cはinvolution型filter、条件付きBorn積、希少枝切断、有限利得repumpを使う。
+- R178Dはdata記録と無反応flagを分け、Fano補正付きspent情報容量下界を置いた。情報容量だけから総熱を同定しない。
+- R178E/Fはfixed-volume cell、最小index規則、滑らかな二channel aperture、有限時間境界幅、backreactionを明示する。R164の容量とaperture入口体積を二重計数しない。
+- R179は同一静的couplerと受動clockで一定精度partial SWAPを反復し、使用済み状態をspent側へ残す。回路非依存fair-bit源のdyadic tapeは連続一様lawとのtotal variationでなくthreshold discrepancyで評価する。exact invariant blankまたはaggregate cold誤差の一様contractを条件とし、独立な定数thermal noiseではこの条件が破れることを明記した。
+- M53ではR170をQ2-4の根拠に使わない。R161/R162はfair-bit source、R164は各逐次段の二枝容量だけに使う。
+
+## draft-65再現計算
+
+- Python構文検査と18本の tools/verify_*.py を実行し、すべて正常終了した。
+- R178検算でsector直和誤差 $1.0\times10^{-7}$ が最大block誤差と一致し、filter involution誤差は0、逐次Born誤差は $2.78\times10^{-17}$、希少枝切断質量は上界内だった。
+- R179検算で31回partial SWAP後の残差 $2.64\times10^{-5}$ が上界 $5.69\times10^{-5}$ 以下、12 digit threshold discrepancyが $2^{-12}$ 以下、粗視化後の全変動距離が入力tape距離以下だった。
+- M53合成検算でfinite-tape正規化誤差は $2.22\times10^{-16}$、aperture傾斜安全量は $8.40\times10^{-2}<8.05\times10^{-1}$、完全結果誤差予算は $4.30\times10^{-4}<10^{-3}$ だった。
+- CIの理論階層統合blockをローカルで実行し、M53/R178A--R179の存在、定理宣言の一意性、Q2-4条件付き達成、資源境界、退役ID、用語を含む全検査を通した。
+- paper.md、main.tex、paper.pdfを連続生成し、3ファイルのSHA-256が再生成前後で一致した。git diff --checkとLaTeX logの未定義参照、overfull、underfull、missing glyph検査も通過した。
+
+## draft-65 PDF目視確認
+
+完成PDFはA4、207ページ、1,289,585 byteである。全207物理ページを72 dpiでrenderし、16ページずつの13枚のcontact sheetで全体を確認した。さらにM53本文と付録O--Qを144 dpiで確認した。見出し、定理、数式、表、頁番号に切れ、重なり、空白崩れ、欠落glyphは見つからなかった。
 
 ## draft-64方針監査
 

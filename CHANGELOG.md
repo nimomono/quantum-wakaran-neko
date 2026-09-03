@@ -2,6 +2,20 @@
 
 この文書には、理論上の変更と、現行稿に対する置換関係を記録する。誤字修正や構成だけの変更は、理論的内容を変えないことを明記する。
 
+## draft-65
+
+### M53、R178系列、R179によるQ2-4の条件付き達成
+
+- M53「一様直接モード・逐次2枝標本化模型」を追加した。$2^n$ signal mode、work、history、cold、spentを受動bankとして許し、外部controllerは局所gate名、対象bit、clock窓だけを指定する。最終確率表、指数長の係数表、回路別配線を入力しない。
+- R178A「局所gateの一様sector-broadcast定理」を追加した。固定有限局所gateを全spectator sectorへ同じ係数で作用させ、直和のoperator-norm誤差をsector数の和ではなく最大block誤差で抑える。
+- R178B「直交projector作用latch・可逆filter定理」とR178C「希少枝切断付き逐次Born sampler定理」を追加した。involution型filter、条件付き確率のtelescoping、希少枝切断 $2n\tau$、有限利得repumpを使い、無反応を含む完全結果空間で評価する。
+- R178D「逐次history逆掃除・collective reset定理」を追加した。出力と非相関なworkだけを逆掃除し、結果相関情報をspent側へ残す。情報容量だけから総熱を同定しない。
+- R178E「二枝作用殻interface・fresh-tape周期定理」とR178F「滑らかな二channel aperture散乱の一様canonical実装定理」を追加した。fixed-volume cell、最小indexのaccept、滑らかなthreshold、有限時間境界幅、backreactionを明示した。R164の容量とaperture体積を二重計数しない。
+- R179「一様blank-bank・fresh-cell供給定理」を追加した。同一静的couplerと受動clockで一定精度partial SWAPを反復してactive残差をcold floorまで縮め、対称2状態bathから回路非依存のfair digitを供給する。dyadic tapeは連続一様lawとのtotal variationでなくthreshold discrepancyで評価する。
+- Q2-4の資源規則を明記した。外部program、制御channel、精度、反復回数、総時間は多項式に抑えるが、受動状態容量、総bath容量、装置体積、cold/spent cell総数、総熱は指数的でもよい。通常の意味の効率的古典simulationは主張しない。
+- Q2-4を未達から条件付き達成へ更新した。条件は、M53の静的sector配線、projector latch、repump、history掃除、smooth aperture、blank-bank、clockを一つの具体的な一様装置族へ統合することである。Q2-1、Q2-2、Q2-3の判定は変更していない。
+- 付録O--Qと3本の回帰検算器を追加し、README、状態表、本文、退役M35境界、CI、manifest、引用情報、統合原稿、TeX、PDF、検証記録をdraft-65へ同期した。
+
 ## draft-64
 
 ### M52設計原則とR176系列の再構築
