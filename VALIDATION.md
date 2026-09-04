@@ -1,6 +1,6 @@
 # 検算と品質確認
 
-この文書はdraft-65のM53一様直接モード・逐次2枝標本化模型、R178A--R178F、R179、再現計算、静的整合性、PDF生成、目視確認の記録である。検証日は2026-09-03。
+この文書はdraft-66のM52駆動R180 setting-pre paired-Hopf receiver、再現計算、静的整合性、PDF生成、目視確認の記録である。検証日は2026-09-04。過去版の検証記録は後半に保存する。
 
 ## 実行方法
 
@@ -21,12 +21,36 @@ python tools/verify_m51_common_open_preparation.py
 python tools/verify_m42_spatial_token.py
 python tools/verify_q1xq1_common_bath.py
 python tools/verify_q2_shell_and_locality.py
-python tools/verify_m48_full_cycle.py
+python tools/verify_r180_m52_receiver.py
+python tools/verify_r180_bell_cycle.py
 python tools/verify_common_signal_m50.py
 python tools/verify_r178_uniform_sampler.py
 python tools/verify_r179_uniform_supply.py
 python tools/verify_q2_m53_composition.py
 ```
+
+## draft-66方針監査
+
+- Q2-2の根拠模型を独立M48からM52、M50、R180 receiverへ置換した。固定目標の文言と条件付き達成判定は維持し、R180Cのreceiver内部単一装置統合を条件として明記した。
+- M52の固定singlet gate列を設定生成前に完了し、R176B後の実際の1試行末端信号 $V$ をR180へ渡す。試行集団交差momentまたは $G_S$ を終端共役信号へ再利用しないことを本文、付録、CIで固定した。
+- R180Aの行優先block $w_{s,x}=D^{\mathsf T}\overline{u_{s,x}}$ がprojector作用、枝重み、B縮約状態、共同Born則を同時に与えることを検査した。一般状態の小作用blockは無反応に残し、固定singletでは枝作用 $1/2$ によりnode切断がない。
+- R180Bの標準source loadを $z_A(0)=a$、$z_B(0)=w_{s,x}$ とし、安全枝では $m_0\geq(1+\sqrt\tau)/2>0$ が従うようにした。paired-Hopf吸引の非零bright seedを独立仮定にしない。
+- R180Cの誤差台帳では中央branch形成、block保持、paired-Hopf整列、局所正則化・混合、R170残差、記録、clockを1回ずつ数える。CHSH閾値と非信号周辺差を無反応込みの完全結果空間で評価する。
+- 旧M48、R147、R153、R155は現行結果鎖から退役し、paired-Hopf機構とBell監査だけをR180へ継承した。旧ファイル、旧検算器、現行表への旧根拠列が残らないことをCIで検査した。
+
+## draft-66再現計算
+
+- Python構文検査と18本の `tools/verify_*.py` を実行し、すべて正常終了した。
+- `verify_r180_m52_receiver.py` の12項目で、M52 singlet gate列、行優先block、projector作用、枝完全性、B縮約状態、共同Born則、node上界、規格化感度、singlet spin-flip特殊化を検算した。
+- `verify_r180_bell_cycle.py` の15項目で、R180Bの厳密流と作用収支、singlet余弦共同分布、非信号性、Tsirelson値、有限全変動誤差下の周辺差・CHSH差、無反応保持を検算した。
+- `verify_q2_shell_and_locality.py` の17項目をR180C表記へ同期し、切断後条件付き積、局所詳細釣合い、経路entropy加法性、共通原因平均後の非加法性を再検算した。
+- CIの理論階層統合blockをローカルで実行し、R180A--R180Cの定理宣言一意性、R180Cの条件付き表記、現行根拠表、新旧ファイル境界、用語を含む全検査を通した。
+
+## draft-66 PDF生成・目視確認
+
+- 出力はA4、201ページ、1,247,201 byte、SHA-256 `0f544ed27b8318a69a636b00abe773cf54f1c246cd4743f327dd45bd20851927` である。`SOURCE_DATE_EPOCH` は2026-09-04 00:00:00 UTCとした。
+- `paper.md`、`main.tex`、`paper.pdf` を連続生成し、再生成差分がないことを確認した。LaTeX logに未定義citation/reference、overfull、underfull、fatal error、欠落文字はない。
+- 物理PDFページ1、58--66、90--91、98--99、119--122、147--150を120--144 dpiでrenderした。draft-66表紙、第5章R180A--R180C、第8章の誤差・Bell前提監査、第9章の判定、付録Dのblock・誤差証明、付録Iのsource-driven paired-Hopf流を確認し、数式、表、見出し、頁番号に切れ、重なり、欠落glyph、意図しない空白は見つからなかった。
 
 ## draft-65方針監査
 

@@ -1,7 +1,7 @@
 @number: 4
 @chapter: 本文
 @title: M52のQ1×Q1可逆tensor-lift永続状態bath模型
-@status: R176A/B/Cを条件付き定理として分離する。一般積入力の可逆tensor-lift、同一永続状態上の有限ゲート列、末端Born型instrument接続を明示し、Q2-1を条件付き達成とする。
+@status: R176A/B/Cを分離し、一般積入力の可逆tensor-lift、同一永続状態上の有限gate列、末端Born型instrument接続を明示する。Q2-2には同じ実際の1試行末端信号を第5章R180へ渡す別interfaceを追加する。Q2-1の条件付き達成は維持する。
 
 ## 4.1　改訂した設計原則
 
@@ -355,7 +355,38 @@ Q2-3では $Z_{ABC}$ に式(4.19)を順に作用させる。R177のGHZ--位相--
 
 の識別gapを与える。同じtensor-lift、同じ永続register、同じ二次gate、同じ末端instrumentを使うため、Q2-1、Q2-3は同一機構の有限次元特殊化である。
 
-## 4.7　誤差台帳と現在地
+## 4.7　R180 setting-pre receiverへの末端interface
+
+Q2-2の固定singlet sourceは、$|00\rangle$ のR176A tensor-lift後にR176Bの
+
+```math
+H_A,
+\qquad
+\operatorname{CX}_{A\to B},
+\qquad
+X_B,
+\qquad
+Z_A
+```
+
+を順に作用させて作る。理想末端信号は
+
+```math
+V_{\rm s}
+=
+\frac{|01\rangle-|10\rangle}{\sqrt2}.
+\tag{4.31}
+```
+
+このgate列は設定生成前に終える。実際の末端信号 $v=Z_{\rm out}(\omega)$ をR112のcanonical SWAPでholdし、第5章R180へ渡す。R180ではA設定 $x$ が $V$ の直交projector blockを選び、source-driven paired-Hopf receiverを通して2翼の局所M50/R170へ接続する。
+
+このinterfaceはR176Cと役割が異なる。R176Cは末端計算基底分布を直接記録する。R180は同じ試行の4mode信号を記録前に2翼receiverへ渡す。1周期では選んだ一方だけを作動させる。
+
+R180は $G_S$ を末端共役信号として使わない。R176A直後の $G_S=\overline{a\otimes b}$ はR176B後の $\overline{Z_{\rm out}}$ を意味しないからである。入力係数の外部読出し、試行集団momentへの縮約、fresh carrierへの再準備も行わない。
+
+Q2-2がM52を根拠模型として共有しても、Q2-1の達成状態からQ2-2を推論しない。Q2-2はR180A--R180C固有のbranch作用、paired-Hopf、切断後局所性、完全結果誤差から独立に判定する。
+
+## 4.8　誤差台帳と現在地
 
 長さ $L$ の回路全体には
 
@@ -371,11 +402,11 @@ Q2-3では $Z_{ABC}$ に式(4.19)を順に作用させる。R177のGHZ--位相--
  +\frac{\delta}{1+\delta}
  +\varepsilon_{170}^{\rm end}
  +f_\varnothing
- \tag{4.31}
+ \tag{4.32}
 ```
 
 と整理する。中間handoff、枝pairing、coherent decoderを独立項として二重計上しない。
 
 R176Aは明示的な有限Hamiltonian構成、R176Bは同一有限register上の作用素norm合成を与える。R176Cは既存の末端bath部品へ接続する条件付き評価を与える。このためQ2-1は「部分達成」から「条件付き達成」へ更新する。残る条件は主としてR176Cの物理境界と全末端工程の一体化である。
 
-Q2-3も同じ理由で条件付き達成とする。Q2-2はM48のsetting-pre等重みseedに基づく別経路であり条件付き達成のままである。Q2-4はM52の一般化ではなく、M53とR178A--R178F、R179を根拠に別途条件付き達成とする。
+Q2-3も同じ理由で条件付き達成とする。Q2-2は本章の実際の1試行末端信号を第5章のsetting-pre paired-Hopf receiverへ渡す別interfaceを使い、R180Cの単一装置統合を条件として条件付き達成を維持する。Q2-4はM52の一般化ではなく、M53とR178A--R178F、R179を根拠に別途条件付き達成とする。

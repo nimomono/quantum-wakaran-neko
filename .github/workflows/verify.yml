@@ -40,7 +40,9 @@ jobs:
           trap 'rc=$?; echo "::error::理論階層統合の失敗 (exit ${rc}): ${BASH_COMMAND}"' ERR
           test -f sections/A6_common_signal_statistics.md
           test -f sections/A8_m47_hopf_preparation.md
-          test -f sections/A9_m48_paired_hopf_bell_preparation.md
+          test -f sections/05_m52_setting_pre_receiver.md
+          test -f sections/A4_m52_receiver_cycle_proofs.md
+          test -f sections/A9_m52_setting_pre_paired_hopf_receiver.md
           test -f sections/A10_q2_common_bath_composition.md
           test -f sections/A11_common_collision_bath_thermodynamics.md
           test -f sections/A12_common_action_shell_state_count.md
@@ -57,6 +59,9 @@ jobs:
           test ! -e sections/A13_q2_action_shell_statistics.md
           test ! -e sections/A8_open_quasicritical_preparation.md
           test ! -e sections/A14_q2_action_shell_statistics.md
+          test ! -e sections/05_m48_bell_cycle_and_audit.md
+          test ! -e sections/A4_m48_cycle_proofs.md
+          test ! -e sections/A9_m48_paired_hopf_bell_preparation.md
           test ! -d simulations/m45_open_quasicritical
           test ! -e figures/m45_open_trap_diagnostics.png
           test ! -e figures/m45_conditional_ground_comparison.png
@@ -70,6 +75,8 @@ jobs:
           test -f tools/verify_q2_m53_composition.py
           test -f tools/verify_q2_shell_and_locality.py
           test -f tools/verify_q1xq1_common_bath.py
+          test -f tools/verify_r180_m52_receiver.py
+          test -f tools/verify_r180_bell_cycle.py
           test ! -e tools/verify_q2_1_gate.py
           test ! -e tools/verify_m49_joint_bath_provider.py
           test ! -e tools/verify_action_distribution.py
@@ -77,12 +84,18 @@ jobs:
           test ! -e tools/verify_m50_instrument_and_q3_handoff.py
           test ! -e tools/verify_q2_action_shell_integration.py
           test ! -e tools/verify_m39_m48_ablation.py
+          test ! -e tools/verify_m48_paired_hopf.py
+          test ! -e tools/verify_m48_full_cycle.py
           grep -Fq 'R135：有限信号集団の規格化第2モーメント輸送' sections/02_common_canonical_modules.md
           grep -Fq 'R171：M51共通開放ray準備の有限時間率と切断後輸送' sections/02_common_canonical_modules.md
           grep -Fq 'R168：一般ray平均からM50枝統計への受渡し' sections/02_common_canonical_modules.md
           grep -Fq 'R170：M50固定入力時刻有限枝instrument' sections/02_common_canonical_modules.md
           grep -Fq 'R143：M47有限コントラスト読出しと結果別状態更新' sections/03_m47_controlled_w_instrument.md
-          grep -Fq 'R155：M48完全Bell周期、有限誤差、局所性監査、帰還' sections/05_m48_bell_cycle_and_audit.md
+          grep -Fq 'R180A：M52末端信号のsetting-pre条件付きblock抽出定理' sections/05_m52_setting_pre_receiver.md
+          grep -Fq 'R180B：M52 source-driven paired-Hopf receiver吸引定理' sections/05_m52_setting_pre_receiver.md
+          grep -Fq 'R180C：M52駆動2端receiver合成、有限誤差、局所性監査、帰還' sections/05_m52_setting_pre_receiver.md
+          grep -Fq 'R180Cは条件付き定理である' sections/05_m52_setting_pre_receiver.md
+          grep -Fq '実際の末端信号 $v=Z_{\rm out}(\omega)$' sections/04_q1xq1_common_bath_gate.md
           grep -Fq 'R86：M37有限時間包絡線縮約' sections/06_m37_spatial_envelope.md
           grep -Fq 'R172：M37有効辺流に沿うM42局在トークンの等変輸送' sections/06_m37_spatial_envelope.md
           grep -Fq 'R173：M42の節一様正則化と有限衝突Hamiltonian近似' sections/06_m37_spatial_envelope.md
@@ -135,7 +148,7 @@ jobs:
           grep -Fq '固定目標の達成条件ではなく実装上の努力目標' PROJECT_STATUS.md
           grep -Fq '| 目標ID | 現在地 | 根拠モデル | 根拠となる結果 |' PROJECT_STATUS.md
           grep -Fq '| Q2-1 | 条件付き達成 | M52、M50末端読出し | R112、R164、R170、R176A--R176C |' PROJECT_STATUS.md
-          grep -Fq '| Q2-2 | 条件付き達成 | M48、M50 | R147、R153、R155、R164、R168、R170 |' PROJECT_STATUS.md
+          grep -Fq '| Q2-2 | 条件付き達成 | M52、M50、R180 receiver | R112、R161、R162、R164、R170、R176A--R176B、R178B、R180A--R180C |' PROJECT_STATUS.md
           grep -Fq '| Q2-4 | 条件付き達成 | M53 | R112、R161、R162、R164、R178A--R178F、R179 |' PROJECT_STATUS.md
           grep -Fq '受動的な浴自由度' PROJECT_STATUS.md
           grep -Fq '指数個の自由度を個別に初期化' PROJECT_STATUS.md
@@ -187,6 +200,10 @@ jobs:
           test "$(grep -Rho '定理（R178E：' sections/*.md | wc -l)" -eq 1
           test "$(grep -Rho '定理（R178F：' sections/*.md | wc -l)" -eq 1
           test "$(grep -Rho '定理（R179：' sections/*.md | wc -l)" -eq 1
+          test "$(grep -Rho '定理（R180A：' sections/*.md | wc -l)" -eq 1
+          test "$(grep -Rho '定理（R180B：' sections/*.md | wc -l)" -eq 1
+          test "$(grep -Rho '定理（R180C：' sections/*.md | wc -l)" -eq 1
+          ! grep -REq '定理（R(147|153|155)：' sections/*.md
           test "$(grep -Rho '定理（R162：' sections/*.md | wc -l)" -eq 1
           test "$(grep -Rho '定理（R164：' sections/*.md | wc -l)" -eq 1
           test "$(grep -Rho '定理（R123：' sections/*.md | wc -l)" -eq 1

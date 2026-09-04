@@ -27,6 +27,7 @@ draft-51以後の現行文書では、各試行で局在する物理変数を「
 | `superseded_m41_bell_cycle.md` | draft-45A以前の第5章、M41、R107--R111、R121 | 旧初期共通原因型2端Bell周期の置換記録 | M48のpaired-Hopf receiver、2翼strong matching、切断後局所instrument、resetへ主線を移し、因果律の異なる旧周期を現行根拠から外した |
 | `superseded_m41_cycle_proofs.md` | draft-45A以前の付録D | M41周期の旧証明記録 | R107--R111、R121を撤回せず保存する一方、現行Q2-2の証明依存から外すため |
 | `superseded_m39_m48_handoff_claim.md` | draft-45BのR151、旧第4.9節・第5.3節・付録D.2・付録J.14 | 旧M39--M48 state handoff主張の置換記録 | 反対称filterが非零入力を同じsinglet射影へ潰し、等重み枝も内部fair seedで代替できるため、物理的なstate-carrying受渡しと分類できない |
+| `superseded_independent_m48_bell_protocol.md` | draft-45A--draft-65の第5章、付録D・I、M48、R147・R153・R155 | 独立M48 Bell protocolの置換記録 | Q2-2のsourceをM52の実際の1試行末端信号へ接続し、R180A--R180Cのsetting-pre paired-Hopf receiverへ主線を移した |
 | `superseded_m39_m42_q2_1.md` | draft-46以前の第4章、付録C、M39、R118・R120・R122のQ2-1適用 | 旧Q2-1模型の置換記録。4モードCNOT代数はR112特殊化として再利用 | Q2-2へ必要な2端bath・配置registerを供給せず、付録Kの同一試行受渡し契約を満たさないため |
 | `superseded_m49_joint_bath_cnot_provider.md` | draft-47--draft-62の第4章、付録C、M49、R159、R160 | 固定有限benchmarkの退役記録。4mode自体は許容し、有限CNOT代数はR112へ維持 | 入力別template、外部routing、破壊的decode、閉じないinterfaceのためR176A/Bへ再構築 |
 | `superseded_m52_path_only_design.md` | draft-63の第4章、付録C、M52、R175、旧R176 | 経路だけで共同状態を担う旧設計の退役記録 | 受動内部modeを浴へ任せられる場合まで禁止していたため、外部interface基準へ改訂 |

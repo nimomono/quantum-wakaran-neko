@@ -1,7 +1,7 @@
 @number: J
 @chapter: 付録
 @title: Q2永続共同bathの合成契約
-@status: R176Aの反復tensor-lift、R176Bの同一8mode状態bath、R176Cの末端instrument、およびR177のGHZ--T--逆演算証人を統合する。
+@status: R176Aの反復tensor-lift、R176Bの同一8mode状態bath、R176Cの末端instrument、R177のGHZ--T--逆演算証人を統合し、2入力M52信号をR180 receiverへ渡す境界を区別する。
 
 ## J.1　目的と適用範囲
 
@@ -18,7 +18,9 @@
 
 ## J.2　1試行状態と集団momentの分離
 
-$Z_{ABC}$ は同じ試行の実正準座標から得る8成分信号である。一方、M48で使う
+$Z_{ABC}$ は同じ試行の実正準座標から得る8成分信号である。2入力の $Z_{AB}$ と、第5章R180がholdする $V=Z_{\rm out}/\|Z_{\rm out}\|$ も同じ種類の1試行信号である。Q2-2では $V$ をA設定basisで物理的にblock分解し、選択blockを同じ試行のreceiver sourceとして渡す。
+
+一方、試行集団の交差moment
 
 ```math
  M_{AB}^{G}
@@ -26,7 +28,7 @@ $Z_{ABC}$ は同じ試行の実正準座標から得る8成分信号である。
  \tag{J.2}
 ```
 
-は試行集団の交差momentである。式(J.2)を推定して $Z_{ABC}$ へ戻す操作は再準備であり、Q2-1またはQ2-3の状態受渡しには使わない。M48のBell周期は独立な固定目標Q2-2に属し、setting-pre等重みseedから始まる。
+を推定して $Z_{AB}$、$Z_{ABC}$ またはR180のtemplateへ戻す操作は再準備である。Q2-1、Q2-2、Q2-3の状態受渡しには使わない。旧M48のBell周期は式(J.2)からsinglet型射影を作ったが、現行Q2-2の根拠から退役し、R180は実際のM52信号を直接受ける。
 
 3入力liftの拡大状態は概念上
 
@@ -208,9 +210,9 @@ R176Cを $L=8$ に特殊化する。実際の末端信号 $v=Z_{\rm out}(\omega)
 
 末端のunresolved条件は、容量pointerとR164作用殻の境界、有限fiber混合の枝対称性、およびR170までの一体化である。これらはR176Cの条件へ集約する。
 
-## J.9　M48の条件付き局所因子化との境界
+## J.9　R180の条件付き局所因子化との境界
 
-M48の固定singlet型Bell周期はM52を入力providerとして要求しない。M48内部の設定前等重みseed、paired-Hopf準備、2翼strong matching、切断後局所instrumentから始まる。
+2入力M52の末端には二つの異なるinterfaceがある。R176Cは末端計算基底分布を直接記録する。R180は実際の4mode信号をholdし、A設定で2つの直交blockへ分け、source-driven paired-Hopf流を通して2翼局所instrumentへ渡す。どちらも1試行信号を集団momentへ置換しない。
 
 切断面で完全共通原因を $\Lambda$ とし、切断後の状態と生成子が
 
@@ -228,7 +230,9 @@ M48の固定singlet型Bell周期はM52を入力providerとして要求しない�
  \tag{J.16}
 ```
 
-と因子化すれば有限時間核も因子化する。これはM48/R155の局所性監査に使う。M52の1試行信号を式(J.2)へ置換したり、式(J.2)をM52へ再注入したりしない。
+と因子化すれば有限時間核も因子化する。これはR180Cの局所性監査に使う。$\Lambda$ にはM52信号、A設定、内部枝、paired位相、切断面の2翼状態、使用済みsource履歴を含めてよいが、切断後のA核へ $y$、B核へ反対翼の結果形成変数を入れない。
+
+M52の1試行信号を式(J.2)へ置換したり、式(J.2)をM52またはR180へ再注入したりしない。R180Cで未解決なのは、hold、projector latch、選択block port、paired-Hopf pump・sink、中央切断、fresh局所作用殻、2翼R170を共通safe setと単一clockで統合する物理境界である。
 
 ## J.10　Q2-3の現在地と反証条件
 

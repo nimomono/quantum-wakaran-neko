@@ -15,6 +15,7 @@
 |---|---|---|---|
 | R70--R72、R77、R78、R91 | M35作用区間によるBorn型長期頻度 | 確率源として退役。M50/R164へ一本化 | `superseded_m35_born_sampler.md` |
 | R107--R111、R121 | M41 Bell周期 | M48/R151--R156、R166、R170へ置換 | `superseded_m41_bell_cycle.md` |
+| R147、R153、R155 | 独立M48 setting-pre paired-Hopf Bell周期 | M52の実際の1試行末端信号を受けるR180A--R180Cへ置換 | `superseded_independent_m48_bell_protocol.md`、draft-65のGit履歴 |
 | R113--R118 | 旧M42連続粒子位置閉包 | 旧結果は退役。現行Q3は再定義M42/R172--R174へ再編 | `superseded_m42_continuous_particle_position.md`、付録N |
 | R127--R129 | M45開放準臨界準備 | Q1--Q3と独立の研究線 | `independent_m45_open_quasicritical_preparation.md` |
 | R130--R132 | M46のcapacity・半減衰・主モード計算 | 現行本文から退役。再検討用の有限次元計算 | `rejected_m46_current_transducer.md` |
@@ -52,5 +53,6 @@
 | モデル | 旧用途 | 現行の扱い | 参照先 |
 |---|---|---|---|
 | M49 | 4モードprogram担体、行分解bath、二粒子位置によるQ2-1 CNOT供給 | 固定benchmarkは撤回せず退役。4mode自体でなく入力別template、外部routing、破壊的decode、閉じないinterfaceを不採用とし、Q2-1はM52/R176A--Cへ再構築 | `superseded_m49_joint_bath_cnot_provider.md`、draft-62のGit履歴 |
+| M48 | 独立setting-pre paired-Hopf Bell protocol | paired-Hopf機構とBell監査はR180へ継承し、独立fair seedと集団交差momentを現行sourceから外す。Q2-2はM52/R180 receiverへ置換 | `superseded_independent_m48_bell_protocol.md`、draft-65のGit履歴 |
 
 結果番号は再利用しない。現行結果の番号を詰めず、履歴参照を安定させる。
