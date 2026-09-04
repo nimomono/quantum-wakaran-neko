@@ -37,6 +37,20 @@ def normalize(vector: np.ndarray) -> np.ndarray:
     return vector / np.linalg.norm(vector)
 
 
+def joint_distribution(
+    signal: np.ndarray,
+    basis_a: np.ndarray,
+    basis_b: np.ndarray,
+) -> np.ndarray:
+    return np.array([
+        [
+            abs(np.vdot(np.kron(basis_a[:, a], basis_b[:, b]), signal)) ** 2
+            for b in range(2)
+        ]
+        for a in range(2)
+    ])
+
+
 def main() -> None:
     seed = 20260904
     rng = np.random.default_rng(seed)
@@ -69,6 +83,7 @@ def main() -> None:
     maximum_b_marginal_error = 0.0
     maximum_joint_born_error = 0.0
     maximum_normalization_lipschitz_excess = 0.0
+    maximum_radial_ratio_error = 0.0
     tau = 0.08
     maximum_cutoff_excess = 0.0
 
@@ -138,6 +153,23 @@ def main() -> None:
         )
         discarded = sum(weight for weight in branch_weights if weight < tau)
         maximum_cutoff_excess = max(maximum_cutoff_excess, discarded - 2.0 * tau)
+        radial = float(np.exp(rng.uniform(-1.2, 1.2)))
+        physical_signal = radial * signal
+        physical_capacities = np.array([
+            float(np.vdot(
+                physical_signal,
+                np.kron(
+                    np.outer(basis_a[:, branch], basis_a[:, branch].conj()),
+                    identity_2,
+                ) @ physical_signal,
+            ).real)
+            for branch in range(2)
+        ])
+        physical_ratios = physical_capacities / np.sum(physical_capacities)
+        maximum_radial_ratio_error = max(
+            maximum_radial_ratio_error,
+            float(np.max(np.abs(physical_ratios - np.asarray(branch_weights)))),
+        )
 
     checks.extend([
         record_max("r180a_row_major_block_error", maximum_block_error, 8.0e-14),
@@ -146,6 +178,11 @@ def main() -> None:
         record_max("r180a_b_marginal_error", maximum_b_marginal_error, 8.0e-14),
         record_max("r180a_joint_born_error", maximum_joint_born_error, 8.0e-14),
         record_max("r180a_node_cutoff_excess", maximum_cutoff_excess, 2.0e-15),
+        record_max(
+            "r180a_physical_capacity_radial_ratio_error",
+            maximum_radial_ratio_error,
+            8.0e-14,
+        ),
         record_max(
             "r180a_normalization_lipschitz_excess",
             maximum_normalization_lipschitz_excess,
@@ -181,8 +218,80 @@ def main() -> None:
         maximum_spin_flip_error,
         5.0e-14,
     ))
-    checks.append(record_min("r180_uses_actual_m52_terminal_signal", 1.0, 1.0))
-    checks.append(record_min("r180_does_not_reuse_generator_as_terminal_conjugate", 1.0, 1.0))
+    input_a = normalize(np.array([1.0 + 0.2j, -0.31 + 0.77j]))
+    input_b = normalize(np.array([0.44 - 0.12j, 0.19 + 0.88j]))
+    initial_signal = np.kron(input_a, input_b)
+    anti_register = initial_signal.conj()
+    phase_a = np.diag([1.0, np.exp(0.61j)])
+    phase_b = np.diag([1.0, np.exp(0.37j)])
+    controlled_phase = np.diag([1.0, 1.0, 1.0, np.exp(0.83j)])
+    general_gate = (
+        np.kron(hadamard, phase_b)
+        @ controlled_phase
+        @ controlled_x
+        @ np.kron(phase_a, hadamard)
+    )
+    terminal_signal = general_gate @ initial_signal
+
+    receiver_basis_a = np.array(
+        [[1.0, 1.0], [1.0j, -1.0j]],
+        dtype=complex,
+    ) / sqrt(2.0)
+    receiver_basis_b = random_unitary(rng, 2)
+    direct_terminal = joint_distribution(
+        terminal_signal,
+        receiver_basis_a,
+        receiver_basis_b,
+    )
+    terminal_coefficient = terminal_signal.reshape(2, 2, order="C")
+    receiver_terminal = np.array([
+        [
+            abs(np.vdot(
+                receiver_basis_b[:, b],
+                terminal_coefficient.T @ receiver_basis_a[:, a].conj(),
+            )) ** 2
+            for b in range(2)
+        ]
+        for a in range(2)
+    ])
+    stale_terminal = anti_register.conj()
+    stale_distribution = joint_distribution(
+        stale_terminal,
+        receiver_basis_a,
+        receiver_basis_b,
+    )
+    stale_total_variation = 0.5 * float(
+        np.sum(np.abs(stale_distribution - direct_terminal))
+    )
+
+    checks.extend([
+        record_max(
+            "m52_general_gate_unitarity_error",
+            np.linalg.norm(general_gate.conj().T @ general_gate - np.eye(4)),
+            3.0e-14,
+        ),
+        record_min("m52_general_gate_nonreal_norm", np.linalg.norm(general_gate.imag), 0.5),
+        record_min(
+            "m52_general_gate_nonsymmetry_norm",
+            np.linalg.norm(general_gate - general_gate.T),
+            0.5,
+        ),
+        record_min(
+            "m52_terminal_anti_mismatch",
+            np.linalg.norm(anti_register - terminal_signal.conj()),
+            0.5,
+        ),
+        record_max(
+            "r180_actual_terminal_receiver_error",
+            np.max(np.abs(receiver_terminal - direct_terminal)),
+            8.0e-14,
+        ),
+        record_min(
+            "r180_stale_anti_receiver_tv_gap",
+            stale_total_variation,
+            0.1,
+        ),
+    ])
 
     payload = {
         "seed": seed,

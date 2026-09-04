@@ -5,7 +5,7 @@
 
 ## I.1 目的と旧M48からの変更
 
-旧M48は設定前の内部等重みseedをA設定に応じた2枝へroutingし、固定spin-flip tensorからsinglet型2翼rayを作った。現行receiverではこの独立sourceを使わない。M52の実際の1試行末端信号 $V$ をA設定basisでblock分解し、R180Aが選んだblockを物理sourceとしてpaired-Hopf流へ渡す。
+旧M48は設定前の内部等重みseedをA設定に応じた2枝へroutingし、固定spin-flip tensorからsinglet型2翼rayを作った。現行receiverではこの独立sourceを使わない。M52の実際の1試行末端信号を物理hold信号 $\widetilde V$ としてA設定basisでblock分解し、R180Aが選んだblockを物理sourceとしてpaired-Hopf流へ渡す。$V=\widetilde V/\|\widetilde V\|$ は解析上のrayであり、canonical SWAPに状態依存除算を含めない。
 
 従って本付録では、試行集団の交差moment
 

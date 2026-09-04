@@ -230,6 +230,137 @@ def validate_github_markdown(path: Path, text: str) -> None:
         raise ValueError(f"{path}: " + "、".join(errors))
 
 
+Q2_RESULT_DEPENDENCIES: dict[str, set[str]] = {
+    "R176B": {"R176A"},
+    "R176C": {"R112", "R164", "R170", "R176B"},
+    "R177": {"R176A", "R176B", "R176C"},
+    "R178C": {"R178B", "R178E", "R178F"},
+    "R178D": {"R112"},
+    "R178E": {"R164"},
+    "R178F": {"R112"},
+    "R179": {"R112", "R161", "R162"},
+    "R180A": {"R112", "R161", "R162", "R164", "R176B", "R178B"},
+    "R180C": {"R170", "R180A", "R180B"},
+}
+
+Q2_LEDGER_ROOTS: dict[str, set[str]] = {
+    "Q2-1": {"R176C"},
+    "Q2-2": {"R180C"},
+    "Q2-3": {"R177"},
+    "Q2-4": {"R178A", "R178C", "R178D", "R179"},
+}
+
+Q2_LEDGER_MODELS: dict[str, set[str]] = {
+    "Q2-1": {"M52", "M50"},
+    "Q2-2": {"M52", "M50", "receiver"},
+    "Q2-3": {"M52", "M50"},
+    "Q2-4": {"M53"},
+}
+
+
+def dependency_closure(roots: set[str]) -> set[str]:
+    closure = set(roots)
+    pending = list(roots)
+    while pending:
+        result = pending.pop()
+        for dependency in Q2_RESULT_DEPENDENCIES.get(result, set()):
+            if dependency not in closure:
+                closure.add(dependency)
+                pending.append(dependency)
+    return closure
+
+
+def result_ids(cell: str) -> set[str]:
+    results: set[str] = set()
+    occupied: list[tuple[int, int]] = []
+    range_pattern = re.compile(r"R(\d+)([A-Z]?)--R(\d+)([A-Z]?)")
+    for match in range_pattern.finditer(cell):
+        start_number, start_suffix, end_number, end_suffix = match.groups()
+        occupied.append(match.span())
+        if start_number == end_number and start_suffix and end_suffix:
+            for codepoint in range(ord(start_suffix), ord(end_suffix) + 1):
+                results.add(f"R{start_number}{chr(codepoint)}")
+        elif not start_suffix and not end_suffix:
+            for number in range(int(start_number), int(end_number) + 1):
+                results.add(f"R{number}")
+        else:
+            raise ValueError(f"展開できない結果範囲: {match.group(0)}")
+    for match in re.finditer(r"R\d+[A-Z]?", cell):
+        if not any(start <= match.start() < end for start, end in occupied):
+            results.add(match.group(0))
+    return results
+
+
+def table_evidence(
+    text: str,
+    goal_id: str,
+    model_index: int,
+    result_index: int,
+    required_status: str | None = None,
+) -> tuple[str, str]:
+    for line in text.splitlines():
+        if not line.startswith(f"| {goal_id} |"):
+            continue
+        cells = [cell.strip() for cell in line.strip().strip("|").split("|")]
+        if required_status is not None and (
+            len(cells) < 2 or cells[1] != required_status
+        ):
+            continue
+        if len(cells) > result_index and "R" in cells[result_index]:
+            return cells[model_index], cells[result_index]
+    raise ValueError(f"{goal_id}: 根拠台帳行がない")
+
+
+def validate_q2_dependency_ledgers() -> None:
+    ledgers = (
+        (
+            "PROJECT_STATUS.md",
+            (ROOT / "PROJECT_STATUS.md").read_text(encoding="utf-8"),
+            2,
+            3,
+            "条件付き達成",
+        ),
+        ("README.md", (ROOT / "README.md").read_text(encoding="utf-8"), 1, 2, None),
+        (
+            "sections/01_scope_and_cycle.md",
+            (SECTIONS / "01_scope_and_cycle.md").read_text(encoding="utf-8"),
+            2,
+            3,
+            "条件付き達成",
+        ),
+    )
+    expected_results = {
+        goal_id: dependency_closure(roots)
+        for goal_id, roots in Q2_LEDGER_ROOTS.items()
+    }
+    for label, text, model_index, result_index, required_status in ledgers:
+        for goal_id in Q2_LEDGER_ROOTS:
+            model_cell, result_cell = table_evidence(
+                text,
+                goal_id,
+                model_index,
+                result_index,
+                required_status,
+            )
+            missing_models = sorted(
+                model
+                for model in Q2_LEDGER_MODELS[goal_id]
+                if model not in model_cell
+            )
+            actual_results = result_ids(result_cell)
+            missing_results = sorted(expected_results[goal_id] - actual_results)
+            unexpected_results = sorted(actual_results - expected_results[goal_id])
+            if missing_models or missing_results or unexpected_results:
+                details = []
+                if missing_models:
+                    details.append("不足模型=" + ",".join(missing_models))
+                if missing_results:
+                    details.append("不足結果=" + ",".join(missing_results))
+                if unexpected_results:
+                    details.append("依存グラフ外結果=" + ",".join(unexpected_results))
+                raise ValueError(f"{label}の{goal_id}依存台帳が不整合: " + "、".join(details))
+
+
 def validate_fixed_goal_language() -> None:
     status_text = (ROOT / "PROJECT_STATUS.md").read_text(encoding="utf-8")
     readme_text = (ROOT / "README.md").read_text(encoding="utf-8")
@@ -337,7 +468,7 @@ def validate_fixed_goal_language() -> None:
         "Q1-1 | 達成 | M47 | R135、R140",
         "Q2-1 | 条件付き達成 | M52、M50末端読出し | R112、R164、R170、R176A--R176C",
         "Q2-2 | 条件付き達成 | M52、M50、R180 receiver | R112、R161、R162、R164、R170、R176A--R176B、R178B、R180A--R180C",
-        "Q2-3 | 条件付き達成 | M52永続状態bathの三部分系特殊化 | R112、R176A--R176C、R177",
+        "Q2-3 | 条件付き達成 | M52永続状態bathの三部分系特殊化、M50末端読出し | R112、R164、R170、R176A--R176C、R177",
         "Q2-4 | 条件付き達成 | M53 | R112、R161、R162、R164、R178A--R178F、R179",
     )
     missing_status_evidence = [
@@ -364,6 +495,7 @@ def validate_fixed_goal_language() -> None:
     required_readme_evidence = (
         "Q2-1 | M52、M50末端読出し | R112、R164、R170、R176A--R176C",
         "Q2-2 | M52、M50、R180 receiver | R112、R161、R162、R164、R170、R176A--R176B、R178B、R180A--R180C",
+        "Q2-3 | M52永続状態bathの三部分系特殊化、M50末端読出し | R112、R164、R170、R176A--R176C、R177",
         "Q2-4 | M53 | R112、R161、R162、R164、R178A--R178F、R179",
         "この表は固定目標の定義ではなく、現行版の判定根拠",
     )
@@ -375,6 +507,8 @@ def validate_fixed_goal_language() -> None:
             "README.mdの根拠モデル対応が不足: "
             + "、".join(missing_readme_evidence)
         )
+
+    validate_q2_dependency_ledgers()
 
     body_text = "\n".join(
         path.read_text(encoding="utf-8")
@@ -391,6 +525,7 @@ def validate_fixed_goal_language() -> None:
         "Q2-3の3量子ビット型二段ゲート合成",
         "Q2-3は条件付き達成",
         "M52永続状態bath",
+        "M50末端読出し",
         "GHZ--$T$--逆演算",
         "1/(2\\sqrt2)",
         "同じregister",
@@ -639,15 +774,21 @@ def validate_fixed_goal_language() -> None:
         "R180A：M52末端信号のsetting-pre条件付きblock抽出定理",
         "R180B：M52 source-driven paired-Hopf receiver吸引定理",
         "R180C：M52駆動2端receiver合成、有限誤差、局所性監査、帰還",
+        r"\widetilde V=v",
+        "canonical SWAPは同次元正準座標の交換だけを行い、状態依存除算を行わない",
+        r"J_s(\widetilde V,x)",
         r"V=\operatorname{vec}_{\rm row}(D)",
         r"w_{s,x}(V)",
         r"D^{\mathsf T}\overline{u_{s,x}}",
+        r"\varepsilon_{\rm ray}^{52}",
         r"\varepsilon_{180}^{\rm cyc}",
         "測定設定独立性",
         "単一装置統合",
     ):
         if token not in r180_text:
             raise ValueError(f"M52/R180 receiverの固定要素がない: {token}")
+    if r"V=\frac{v}{\|v\|}" in r180_text:
+        raise ValueError("R180の物理hold信号をcanonical SWAPで規格化している")
 
     m53_text = common_text
     for token in (

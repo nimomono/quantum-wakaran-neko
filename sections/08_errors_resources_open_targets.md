@@ -259,11 +259,11 @@ R124の理想トンネル型増分を $\alpha>0$、R125の理想干渉分布距�
 
 ## 8.9 Q2の根拠モデル、共通ハードウェア努力目標、資源分類
 
-Q2-1からQ2-4は、次の根拠モデルと根拠結果から互いに独立に判定する。目標ごとに担体、浴、clock、準備・読出し原理が異なっても、それだけでは不達としない。
+Q2-1からQ2-4は、次の根拠モデルと根拠結果から互いに独立に判定する。独立とは他のQ2目標の達成ラベルを前提にしないという意味であり、同じ模型または部品定理を複数の目標で使うことは禁止しない。目標ごとに担体、浴、clock、準備・読出し原理が異なっても、それだけでは不達としない。
 
 - Q2-1：M52とM50末端読出しを使う。根拠結果はR112、R164、R170、R176A--R176C。
 - Q2-2：M52、M50、R180 receiverを使う。根拠結果はR112、R161、R162、R164、R170、R176A--R176B、R178B、R180A--R180C。
-- Q2-3：M52永続状態bathの三部分系特殊化を使う。R112、R176A--R176C、R177を根拠とする。
+- Q2-3：M52永続状態bathの三部分系特殊化とM50末端読出しを使う。R112、R164、R170、R176A--R176C、R177を根拠とする。
 - Q2-4：M53を使う。根拠結果はR112、R161、R162、R164、R178A--R178F、R179。
 
 規模 $N$ ごとの一様な共通ハードウェア族へ統合することは、固定目標の達成条件ではなく実装努力目標である。将来これを主張する場合は、同じ物理port、永続状態浴、相互作用区間族、clock・制御bus、準備interface、Born型読出し・記録interfaceを共有する具体的な装置族を示す。共通の正準代数またはinstrument契約だけでは同一装置とみなさない。
@@ -325,7 +325,7 @@ Q2-4では、固定有限普遍ゲート集合から与えられる $n$ 量子�
 
 M53は $L=2^n$ 個のsignal modeを使うが、R178Aにより固定有限局所gateをspectator sectorへ同じ係数でbroadcastし、作用素norm誤差をsector数の和ではなく最大値で抑える。R178B--R178Cは各bitを直交projectorで可逆にfilterし、条件付きBorn確率を逐次標本化する。確率 $\tau$ 未満の枝を切断して $\varnothing$ に残すため、切断誤差は $2n\tau$ 以下であり、事後選別を使わない。
 
-R178Dは出力と相関しないworkだけを逆掃除でき、結果情報はspent側に残ることを示す。R178E--R178Fは容量に比例する可変体積を生成せず、固定体積cell、最小indexのaccept、滑らかな二channel apertureを使う。1 bit当たり $N=O(\log(n/\epsilon))$ 個のcellと $O(\log(n/\epsilon))$ の散乱時間で有限誤差を得る。R164の作用容量 $A_b$ とaperture入口体積は同じ重みの二重計数ではない。
+R178Dは出力と相関しないworkだけを逆掃除でき、結果情報はspent側に残ることを示す。R178Bが信号作用を二枝の非規格化容量 $A_b$ へlatchし、R164はその容量比を排他的Born型状態数へ解釈する作用殻interfaceを与える。R178E--R178Fは容量に比例する可変体積を生成せず、固定体積cell、最小indexのaccept、同じ $A_b$ を読む滑らかな二channel apertureを使い、R164の状態数因子を重ねて掛けない。1 bit当たり $N=O(\log(n/\epsilon))$ 個のcellと $O(\log(n/\epsilon))$ の散乱時間で有限誤差を得る。
 
 R179は同一静的couplerと受動clockによる一定精度のpartial SWAPを反復し、active残差を幾何的にcold floorまで縮める。外部controllerのquench workをbank次元へ比例させない。回路非依存の対称2状態bathからfair digitを取り、$k$ digitのdyadic中点 $U_k$ を作る。離散lawと連続一様lawのtotal variation距離は用いず、threshold discrepancy $2^{-k}$ を用いる。有限runではblank-bankを初期状態に積み、無期限runではcold inflowとspent outflowを仮定する。
 

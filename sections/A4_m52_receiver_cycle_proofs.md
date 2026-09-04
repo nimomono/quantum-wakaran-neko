@@ -5,12 +5,20 @@
 
 ## D.1 行優先block分解
 
-行優先で
+canonical SWAP後の物理hold信号と解析上の規格化rayを、行優先で
 
 ```math
+\widetilde V
+=
+\operatorname{vec}_{\rm row}(\widetilde D),
+\qquad
+r=\|\widetilde V\|>0,
+\qquad
 V
 =
 \operatorname{vec}_{\rm row}(D),
+\qquad
+D=\frac{\widetilde D}{r},
 \qquad
 D
 =
@@ -20,7 +28,7 @@ D_{10}&D_{11}
 \end{pmatrix}
 ```
 
-とする。A basis変換後の成分は
+とする。$\widetilde V=v$ は同次元正準SWAPがそのまま移した物理信号であり、$V=\widetilde V/r$ は解析上だけ用いる。A basis変換後の規格化成分は
 
 ```math
 \left[
@@ -43,7 +51,18 @@ D^{\mathsf T}
 \overline{u_{s,x}}
 ```
 
-である。従って
+である。物理blockは
+
+```math
+\widetilde w_{s,x}
+=
+\widetilde D^{\mathsf T}
+\overline{u_{s,x}}
+=
+r w_{s,x}
+```
+
+であり、規格化blockについて
 
 ```math
 \begin{aligned}
@@ -65,15 +84,17 @@ $u_{+,x},u_{-,x}$ の完全性から2つのprojectorの和は $I_4$ であり、
 
 ## D.2 R180Aの作用殻選択
 
-R178Bを2つの直交projector $\Pi_s^x$ へ適用し、blank pointerへ
+R178Bを物理hold信号 $\widetilde V$ と2つの直交projector $\Pi_s^x$ へ適用し、blank pointerへ
 
 ```math
 A_s
 =
-\mathcal J_0V^\dagger\Pi_s^xV
+\mathcal J_0\widetilde V^\dagger\Pi_s^x\widetilde V
+=
+\mathcal J_0r^2p_{s|x}(V)
 ```
 
-をlatchする。理想blank momentumが零なら信号への反作用は零である。有限blank、aperture、clock、cutoffによる偏差は $\varepsilon_{\rm latch}$ へ入れる。
+をlatchする。理想blank momentumが零なら信号への反作用は零である。有限blank、aperture、clock、cutoffによる偏差は $\varepsilon_{\rm latch}$ へ入れる。容量の生成はR178Bの役割であり、R164は次に同じ容量を排他的な作用殻状態数へ写す。
 
 R164の作用殻状態数を
 
@@ -83,7 +104,7 @@ R164の作用殻状態数を
 C_{\rm sh}A_s
 ```
 
-とし、枝対称な同じ比例定数 $C_{\rm sh}$ を使う。従って理想平衡枝比は
+とし、枝対称な同じ比例定数 $C_{\rm sh}$ を使う。従って理想平衡枝比では共通radial因子 $\mathcal J_0r^2$ が消え、
 
 ```math
 \frac{\Omega_s}{\Omega_++\Omega_-}
@@ -93,7 +114,7 @@ C_{\rm sh}A_s
 p_{s|x}(V).
 ```
 
-R161の平方根型率はこの比を一意定常分布とし、R162が固定有限時間上の有限衝突近似を与える。有限mixing、collision、overflowを無反応込みの $\varepsilon_{\rm latch}$ へ加える。枝選択後に信号と作用殻をdecoupleし、選択pointerだけで対応blockをsource portへroutingする。入力係数を外部controllerへ公開しない。
+R161の平方根型率はこの比を一意定常分布とし、R162が固定有限時間上の有限衝突近似を与える。有限mixing、collision、overflowを無反応込みの $\varepsilon_{\rm latch}$ へ加える。枝選択後に信号と作用殻をdecoupleし、選択pointerだけで対応する物理block $\widetilde w_{s,x}$ をsource portへroutingする。入力係数または $r$ を外部controllerへ公開しない。
 
 選択枝 $s$ について、局所B応答を
 
@@ -295,7 +316,7 @@ D_{\rm TV}
 \sum_j\epsilon_j.
 ```
 
-連続方向誤差は局所応答核の一様Lipschitz定数で結果分布距離へ変換してから加える。M52 source、hold、splitter、branch作用、node、block保持、paired-Hopf、位置matching、切断、条件付き積偏差、局所R170、記録、clockを各1回だけ数えると本文の $\varepsilon_{180}^{\rm cyc}$ になる。
+連続方向誤差は局所応答核の一様Lipschitz定数で結果分布距離へ変換してから加える。$\|\widetilde V\|\geq r_{\min}$ のsafe setでは規格化写像がLipschitzであるため、M52 source、gate、canonical SWAP、holdがrayへ与える偏差を $\varepsilon_{\rm ray}^{52}$ にまとめられる。canonical SWAP自体に除算は含めない。splitter、branch作用、node、block保持、paired-Hopf、位置matching、切断、条件付き積偏差、局所R170、記録、clockを各1回だけ数えると本文の $\varepsilon_{180}^{\rm cyc}$ になる。
 
 周辺化は全変動距離を増やさない。同じ理想周辺から各設定で $\varepsilon_{180}^{\rm cyc}$ 以内なら、反対設定間の周辺差は三角不等式により $2\varepsilon_{180}^{\rm cyc}$ 以下である。
 

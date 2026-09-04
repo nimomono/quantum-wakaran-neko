@@ -149,7 +149,11 @@ jobs:
           grep -Fq '| 目標ID | 現在地 | 根拠モデル | 根拠となる結果 |' PROJECT_STATUS.md
           grep -Fq '| Q2-1 | 条件付き達成 | M52、M50末端読出し | R112、R164、R170、R176A--R176C |' PROJECT_STATUS.md
           grep -Fq '| Q2-2 | 条件付き達成 | M52、M50、R180 receiver | R112、R161、R162、R164、R170、R176A--R176B、R178B、R180A--R180C |' PROJECT_STATUS.md
+          grep -Fq '| Q2-3 | 条件付き達成 | M52永続状態bathの三部分系特殊化、M50末端読出し | R112、R164、R170、R176A--R176C、R177 |' PROJECT_STATUS.md
           grep -Fq '| Q2-4 | 条件付き達成 | M53 | R112、R161、R162、R164、R178A--R178F、R179 |' PROJECT_STATUS.md
+          grep -Fq '| Q2-3 | M52永続状態bathの三部分系特殊化、M50末端読出し | R112、R164、R170、R176A--R176C、R177 |' README.md
+          grep -Fq 'canonical SWAPは同次元正準座標の交換だけを行い、状態依存除算を行わない' sections/05_m52_setting_pre_receiver.md
+          grep -Fq 'R178Bが信号作用を二枝の非規格化容量 $A_b$ へlatchする' sections/02_common_canonical_modules.md
           grep -Fq '受動的な浴自由度' PROJECT_STATUS.md
           grep -Fq '指数個の自由度を個別に初期化' PROJECT_STATUS.md
           grep -Fq '成功試行だけを再規格化しない' sections/08_errors_resources_open_targets.md
