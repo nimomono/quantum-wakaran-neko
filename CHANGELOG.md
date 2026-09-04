@@ -2,6 +2,18 @@
 
 この文書には、理論上の変更と、現行稿に対する置換関係を記録する。誤字修正や構成だけの変更は、理論的内容を変えないことを明記する。
 
+## draft-68
+
+### M54によるQ1・Q2親模型とreceiverの統一
+
+- Q1の2モード系、Q2-1--Q2-3の固定入力register、Q2-4の一般直接mode系を、一様有限正準register・作用殻receiver模型族M54の特殊化へ統合した。完全状態 $\Gamma_{54}^{(n)}$ にsource/template port、anti/work、raw・regularized容量、selector、collision cell、cold/spent bank、記録、clockを明記した。
+- R181Aを非規格化物理templateによる共通ray準備、R181Bを固定2・3入力の可逆tensor-lift、R181Cを永続register上の一様局所gate合成、R181DをR170駆動projector-tree Born instrumentの正本とした。Q1はR181Dの深さ1、Q2-1は深さ2、Q2-3は深さ3、Q2-4は深さ $n$ を使う。
+- R181Dでraw容量 $J_{u,b}$ とregularized作用殻容量 $A_{u,b}^{\delta}$ を分離した。cutoffはraw比較だけで行い、R164/R170のselectorをlockしてからinvolution filterを開き、選択rayをR181Aのradial-only portで固定時間repumpする。完全結果誤差、filter ray誤差、読出し時間、殻剛性、collision flux、barrier rangeを明示した。
+- 旧M51--M53、R171、R176A--R176C、R178A--R178CをM54/R181A--R181Dへ吸収した。旧R178E/R178Fのfixed-volume aperture、first-index、dyadic threshold tapeは現行因果鎖から外し、退役理由と再検討条件を研究メモへ保存した。R178Dは開放radial履歴を無履歴で逆掃除しない境界へ改訂し、R179はblank、collision、selector/filter、spent供給へ整理した。
+- PROJECT_STATUS、README、第1章、第8章、第9章のQ2依存台帳を推移閉包へ同期した。固定目標の文言と達成ラベルは変更していない。Q1-1は達成、Q1-2は部分達成、Q2-1--Q2-4は条件付き達成のままである。
+- 章・付録・検算器をM54責務に沿って改名し、R181Aの物理template、R181Dのprojector tree、M54特殊化、R179 bank供給を直接検査する回帰へ更新した。生成器は新旧パス、定理宣言一意性、退役ID、Q2依存閉包を検査する。
+- 引用情報、統合原稿、TeX、PDF、manifest、検証記録をdraft-68へ同期した。
+
 ## draft-67
 
 ### Q2再編後の依存・末端受渡し整合性

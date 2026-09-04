@@ -1,11 +1,11 @@
 @number: I
 @chapter: 付録
-@title: M52 source-driven setting-pre paired-Hopf receiver
-@status: M52の選択blockを単一試行sourceとして使う決定論的開放receiverを定義し、R180Bのpaired位相、template方向、有限時間吸引率、作用収支を証明する。有限閉鎖Hamiltonian liftとR180Cの装置統合は主張しない。
+@title: M54 source-driven setting-pre paired-Hopf receiver
+@status: M54の選択blockを単一試行sourceとして使う決定論的開放receiverを定義し、R180Bのpaired位相、template方向、有限時間吸引率、作用収支を証明する。有限閉鎖Hamiltonian liftとR180Cの装置統合は主張しない。
 
 ## I.1 目的と旧M48からの変更
 
-旧M48は設定前の内部等重みseedをA設定に応じた2枝へroutingし、固定spin-flip tensorからsinglet型2翼rayを作った。現行receiverではこの独立sourceを使わない。M52の実際の1試行末端信号を物理hold信号 $\widetilde V$ としてA設定basisでblock分解し、R180Aが選んだblockを物理sourceとしてpaired-Hopf流へ渡す。$V=\widetilde V/\|\widetilde V\|$ は解析上のrayであり、canonical SWAPに状態依存除算を含めない。
+旧M48は設定前の内部等重みseedをA設定に応じた2枝へroutingし、固定spin-flip tensorからsinglet型2翼rayを作った。現行receiverではこの独立sourceを使わない。M54の実際の1試行末端信号を物理hold信号 $\widetilde V$ としてA設定basisでblock分解し、R180Aが選んだblockを物理sourceとしてpaired-Hopf流へ渡す。$V=\widetilde V/\|\widetilde V\|$ は解析上のrayであり、canonical SWAPに状態依存除算を含めない。
 
 従って本付録では、試行集団の交差moment
 
@@ -16,9 +16,9 @@ z_Az_B^{\mathsf T}
 \right]
 ```
 
-を計算して単一試行templateへ書き戻さない。旧M48で必要だったHaar seed、等重みcell、安全盆 $h_x=0$、設定別seed tableも現行主線から外れる。branch重みはM52信号のprojector作用 $p_{s|x}(V)$ から生じる。
+を計算して単一試行templateへ書き戻さない。旧M48で必要だったHaar seed、等重みcell、安全盆 $h_x=0$、設定別seed tableも現行主線から外れる。branch重みはM54信号のprojector作用 $p_{s|x}(V)$ から生じる。
 
-M52のhold signal、branch pointer、選択block port、receiver carrier、pump、sink、clockは別の物理自由度として数える。解析上の方向 $b=w/\|w\|$ は、controllerが未知係数を測って書き込む命令ではない。選択された未規格化block $w$ を固定portから注入し、Hopf飽和が動径を標準化する。
+M54のhold signal、branch pointer、選択block port、receiver carrier、pump、sink、clockは別の物理自由度として数える。解析上の方向 $b=w/\|w\|$ は、controllerが未知係数を測って書き込む命令ではない。選択された未規格化block $w$ を固定portから注入し、Hopf飽和が動径を標準化する。
 
 ## I.2 template分解
 
@@ -84,7 +84,7 @@ z_B=\overline m b.
 
 $|m|=1$ では2翼が同じ位相を反対符号で持つpaired fiberになる。
 
-標準source loadでは、branch pointerが既知の $a=u_{s,x}$ をA carrierへ送り、M52の選択blockを係数読出しなしにB carrierへ注入する。
+標準source loadでは、branch pointerが既知の $a=u_{s,x}$ をA carrierへ送り、M54の選択blockを係数読出しなしにB carrierへ注入する。
 
 ```math
 z_A(0)=a,
@@ -328,7 +328,7 @@ N_{\rm rec}
 \right)
 ```
 
-を得る。$|m|<1$ ではpumpからbright作用が入り、$|m|>1$ ではlimiter側へ戻る。paired差と直交成分はsinkへ流れる。この式はreceiver内部の局所作用収支であり、M52 source、branch latch、template hold、clock、切断器、局所測定、記録、fresh交換を含む総エネルギー保存式ではない。
+を得る。$|m|<1$ ではpumpからbright作用が入り、$|m|>1$ ではlimiter側へ戻る。paired差と直交成分はsinkへ流れる。この式はreceiver内部の局所作用収支であり、M54 source、branch latch、template hold、clock、切断器、局所測定、記録、fresh交換を含む総エネルギー保存式ではない。
 
 位相体積の収縮、sink entropy、設定情報流、切替仕事を零とはしない。温度、熱流、微視的環境Hamiltonianを指定していないため、熱力学量の総和を閉じない。
 
@@ -359,7 +359,7 @@ z_B
 
 B側のglobal signを位相 $\alpha\mapsto\alpha+\pi$ またはtemplate位相へ吸収すれば、旧M48のspin-flip paired fiberと同じ局所ray、作用、Born応答になる。
 
-ただし生成機構は異なる。旧M48は内部fair seedと設定別安全盆routingから枝を作った。R180ではM52信号のprojector作用が枝重みを作り、選択block自体がB templateを運ぶ。従って旧交差momentを現行M52信号と同一視しない。
+ただし生成機構は異なる。旧M48は内部fair seedと設定別安全盆routingから枝を作った。R180ではM54信号のprojector作用が枝重みを作り、選択block自体がB templateを運ぶ。従って旧交差momentを現行M54信号と同一視しない。
 
 ## I.7 開放模型監査
 
@@ -369,7 +369,7 @@ B側のglobal signを位相 $\alpha\mapsto\alpha+\pi$ またはtemplate位相へ
 | 初期条件 | $m_0$ は零から離れ、全成分を有限compact集合に制限する |
 | 雑音 | paired-Hopf流自体は決定論的。白色雑音、Itô規約、定常確率測度を使わない |
 | 駆動と散逸 | bright pump、paired差sink、2つのtransverse sink、準備窓を分ける |
-| source | M52の選択された未規格化blockを物理portから受ける。係数表を外部入力しない |
+| source | M54の選択された未規格化blockを物理portから受ける。係数表を外部入力しない |
 | 有限時間 | $K_{180}e^{-\gamma_{180}T_{\rm PH}}$ で評価する |
 | 切断 | template hold、pump、sinkを切り、2翼局所holdへ渡す。反作用評価はR180Cの条件 |
 | 熱力学 | $N_{\rm rec}$ の局所収支だけを計算し、総仕事・総熱・総entropyは未閉鎖 |
@@ -379,11 +379,11 @@ B側のglobal signを位相 $\alpha\mapsto\alpha+\pi$ またはtemplate位相へ
 
 次のいずれかが必要ならR180Bの物理的receiver解釈は成立しない。
 
-- M52の未知block係数を外部で測定してからtemplateを書き込む。
+- M54の未知block係数を外部で測定してからtemplateを書き込む。
 - 選択blockを集団momentへ縮約し、別試行のcarrierを再準備する。
 - template holdの反作用が有限時間誤差内に抑えられない。
 - $m_0=0$ を有限時間で自発的に非零へすることを上の方程式だけから要求する。
 - node枝を捨てて成功試行だけを再規格化する。
 - R180B単独から切断後局所性、Born branch状態数、記録、reset、総熱力学を結論する。
 
-R180Bはsource-driven paired-Hopf吸引だけを閉じる。M52 hold、projector latch、source port、pump、sink、2翼R170を同じ装置へ統合する条件はR180Cに残す。
+R180Bはsource-driven paired-Hopf吸引だけを閉じる。M54 hold、projector latch、source port、pump、sink、2翼R170を同じ装置へ統合する条件はR180Cに残す。

@@ -1,7 +1,7 @@
 @number: 8
 @chapter: 本文
 @title: 誤差、資源、反証条件、未完成目標
-@status: 現行のM51、M47、M52/R180 receiver、M53、M37、M42、M50を横断比較し、共通R171、R135、R168、R170、Q2のR176A--R180C、Q3固有R172--R174の台帳、有限資源、反証条件、未完成目標を整理する。
+@status: M54から派生するQ1・Q2、R180 receiver、M37--M42、M50を横断比較し、R181A--R181D、有限資源、反証条件、未完成目標を整理する。
 
 ## 8.1 誤差を1回だけ数える規約
 
@@ -12,16 +12,16 @@
 3. R180Aの同じblock保持偏差を $\varepsilon_{\rm split}$、$\varepsilon_{\rm latch}$、$C_\tau\varepsilon_{\rm block}$ へ重ねて入れる。
 4. R180Cの積因子化誤差を各翼の局所R170誤差へ吸収した上で再び加える。
 5. 無反応質量を理想分布差と実装失敗へ2回加える。
-6. M51の同じtransverse偏差をR171のray誤差、R135の初期共分散誤差、系列固有準備誤差へ重ねて入れる。
+6. M54の同じtransverse偏差をR181Aのray誤差、R135の初期共分散誤差、系列固有準備誤差へ重ねて入れる。
 
 全ての理想分布と実分布は同じ完全結果集合へ埋め込む。成功試行だけで再規格化しない。
 
-## 8.2 M51/R171共通開放準備の誤差と資源
+## 8.2 M54/R181A共通開放準備の誤差と資源
 
-M51の安全事象を $G_*$、$q_*=(R_*^2-a_*^2)/a_*^2$ とする。準備切断面の上流誤差を
+M54の安全事象を $G_*$、$q_*=(R_*^2-a_*^2)/a_*^2$ とする。準備切断面の上流誤差を
 
 ```math
-\varepsilon_{51}
+\varepsilon_{54}
 \leq
 \varepsilon_{\rm seed}
 +\varepsilon_{\rm ray}
@@ -36,7 +36,7 @@ M51の安全事象を $G_*$、$q_*=(R_*^2-a_*^2)/a_*^2$ とする。準備切断
 \sqrt{q_*}e^{-\kappa\tau_{\rm prep}}
 ```
 
-と分ける。$\varepsilon_{\rm seed}$ は完全結果集合の無反応質量、$\varepsilon_{\rm ray}$ は安全試行の方向誤差、$\varepsilon_{\rm cut}$ はport切断とM51から下流registerへの受渡し誤差である。M51の最小方程式は雑音零なので、有限bath雑音を仮定した誤差項をここへ暗黙に入れない。
+と分ける。$\varepsilon_{\rm seed}$ は完全結果集合の無反応質量、$\varepsilon_{\rm ray}$ は安全試行の方向誤差、$\varepsilon_{\rm cut}$ はport切断とM54から下流registerへの受渡し誤差である。M54の最小方程式は雑音零なので、有限bath雑音を仮定した誤差項をここへ暗黙に入れない。
 
 目標ray誤差 $\epsilon_{\rm p}>0$ に対し、
 
@@ -49,7 +49,7 @@ M51の安全事象を $G_*$、$q_*=(R_*^2-a_*^2)/a_*^2$ とする。準備切断
 
 を選べる。$a_*\downarrow0$ ではseed無反応質量を減らせる場合があるが $q_*$ が増え、準備時間、動的範囲、pump作用が増える。$\kappa\to\infty$ で時間だけを縮める場合も、sink結合強度と排熱率の資源を別に数える。
 
-R171が定量化するのは縮約drift後の有限時間収束である。pump仕事、sink熱、template保持、clock切替、port履歴、有限bath交換の総収支は未導出であり、$\varepsilon_{51}$ が小さいことから熱力学的コストが小さいとは結論しない。M51のray誤差をR135で伝播した後、同じ偏差をR168または系列固有誤差へ再加算しない。
+R181Aが定量化するのは縮約drift後の有限時間収束である。pump仕事、sink熱、template保持、clock切替、port履歴、有限bath交換の総収支は未導出であり、$\varepsilon_{54}$ が小さいことから熱力学的コストが小さいとは結論しない。M54のray誤差をR135で伝播した後、同じ偏差をR168または系列固有誤差へ再加算しない。
 
 ## 8.3 共通R170誤差
 
@@ -120,13 +120,13 @@ R143は共通R170を初期操作面と分析器後操作面へ適用し、M47固
 \end{aligned}
 ```
 
-$\varepsilon_{\rm Hopf}$ はR145の有限準備、$\varepsilon_{\rm ctrl}$ は傾斜制御、$\varepsilon_{2m}$ は高モード漏れ、$\eta_W$ は左右有限コントラスト、$\varepsilon_{\rm br}$ は結果別template交換、$\varepsilon_{\rm post}$ は条件付き状態更新である。
+$\varepsilon_{\rm Hopf}$ はR181AのW型2モード系の有限準備、$\varepsilon_{\rm ctrl}$ は傾斜制御、$\varepsilon_{2m}$ は高モード漏れ、$\eta_W$ は左右有限コントラスト、$\varepsilon_{\rm br}$ は結果別template交換、$\varepsilon_{\rm post}$ は条件付き状態更新である。
 
 固定有限段の逐次測定では、各段の全変動距離誤差を和で抑えられる。永久記録と使用済みcellは段数に比例して増える。作用容量、fiber、Hopf pump、controller、記録、resetを同じ有限局所Hamiltonian周期へ統合し、仕事・熱・エントロピー収支を閉じることは、M47を強める実装・熱力学的課題として残るが、Q1-2の達成条件には含めない。Q1-2の固定目標上の残件は、同じ明示的ミクロモデルで零傾斜Rabi対照と有限回反復測定を接続し、全履歴と対照を保ったZeno抑制を有限誤差で示すことである。
 
 ## 8.5 Q2-1の誤差と資源
 
-M52ではtensor-lift、同じ永続registerのhold、clock、各gate、外部bathへの漏れ、末端ray、Born型instrumentを分ける。長さ $L$ の回路誤差は
+M54ではtensor-lift、同じ永続registerのhold、clock、各gate、外部bathへの漏れ、末端ray、Born型instrumentを分ける。長さ $L$ の回路誤差は
 
 ```math
 \varepsilon_{\rm circ}
@@ -142,17 +142,17 @@ M52ではtensor-lift、同じ永続registerのhold、clock、各gate、外部bat
 +f_\varnothing
 ```
 
-とする。中間handoff、経路pairing、coherent decoderを独立項として加えない。$Z_S$ は同じregisterに留まり、R176Cは末端で同次元canonical SWAPと容量latchを使うためである。$f_\varnothing$ は最初の失敗段階ごとに排他的に数え、成功試行だけを再規格化しない。各gateはmode別誤差の粗い和でなく、状態bath全体のglobal phaseを除くoperator normで抑える。R176Cの未統合境界は $\varepsilon_{170}^{\rm end}$ の構成条件として残す。
+とする。中間handoff、経路pairing、coherent decoderを独立項として加えない。$Z_S$ は同じregisterに留まり、R181Dは末端で同次元canonical SWAPと容量latchを使うためである。$f_\varnothing$ は最初の失敗段階ごとに排他的に数え、成功試行だけを再規格化しない。各gateはmode別誤差の粗い和でなく、状態bath全体のglobal phaseを除くoperator normで抑える。R181Dの未統合境界は $\varepsilon_{170}^{\rm end}$ の構成条件として残す。
 
 ## 8.6 Q2-2の誤差とBell監査
 
-R180CはM52の実際の末端信号、R180Aのsetting-pre block receiver、R180Bのpaired-Hopf流、2つの局所R170を条件付き積因子化の下で合成する。設定対ごとの完全周期誤差を
+R180CはM54の実際の末端信号、R180Aのsetting-pre block receiver、R180Bのpaired-Hopf流、2つの局所R170を条件付き積因子化の下で合成する。設定対ごとの完全周期誤差を
 
 ```math
 \begin{aligned}
 \varepsilon_{180}^{\rm cyc}
 \leq{}&
-\varepsilon_{52}^{\rm src}
+\varepsilon_{54}^{\rm src}
 +\varepsilon_{\rm hold}
 +\varepsilon_{\rm set}
 +\varepsilon_{\rm split}
@@ -218,7 +218,7 @@ Q3ではR135をM37担体集団の統計診断に使い、単一試行の粒子�
 \end{aligned}
 ```
 
-とする。M51の同じtransverse偏差を $\varepsilon_{\rm prep}$ と $\varepsilon_{37\to42}$ へ重ねず、R86の同じ包絡偏差をR135診断とM42生成子誤差へ二重加算しない。安全事象外とcell overflowは無反応として残す。
+とする。M54の同じtransverse偏差を $\varepsilon_{\rm prep}$ と $\varepsilon_{37\to42}$ へ重ねず、R86の同じ包絡偏差をR135診断とM42生成子誤差へ二重加算しない。安全事象外とcell overflowは無反応として残す。
 
 正則化誤差を小さくすると最大率は概ね $\rho^{-1/2}+\sigma/\rho$ で増え、有限衝突cell数、clock分解能、障壁精度も増える。任意の固定 $T$ と目標誤差に有限構成を選べるが、同じ固定装置でnode正則化を零にする一様資源上界はない。
 
@@ -230,7 +230,7 @@ R124の理想トンネル型増分を $\alpha>0$、R125の理想干渉分布距�
 \Delta-2\varepsilon_{174}
 ```
 
-以上である。M51、M37、初期作用殻、M42局所辺bath、clock、終位置記録の単一Hamiltonian統合が残るため、Q3-4とQ3-5は条件付き達成である。
+以上である。M54、M37、初期作用殻、M42局所辺bath、clock、終位置記録の単一Hamiltonian統合が残るため、Q3-4とQ3-5は条件付き達成である。
 
 ## 8.8 M50の資源発散
 
@@ -261,10 +261,10 @@ R124の理想トンネル型増分を $\alpha>0$、R125の理想干渉分布距�
 
 Q2-1からQ2-4は、次の根拠モデルと根拠結果から互いに独立に判定する。独立とは他のQ2目標の達成ラベルを前提にしないという意味であり、同じ模型または部品定理を複数の目標で使うことは禁止しない。目標ごとに担体、浴、clock、準備・読出し原理が異なっても、それだけでは不達としない。
 
-- Q2-1：M52とM50末端読出しを使う。根拠結果はR112、R164、R170、R176A--R176C。
-- Q2-2：M52、M50、R180 receiverを使う。根拠結果はR112、R161、R162、R164、R170、R176A--R176B、R178B、R180A--R180C。
-- Q2-3：M52永続状態bathの三部分系特殊化とM50末端読出しを使う。R112、R164、R170、R176A--R176C、R177を根拠とする。
-- Q2-4：M53を使う。根拠結果はR112、R161、R162、R164、R178A--R178F、R179。
+- Q2-1：M54とM50末端読出しを使う。根拠結果はR112、R161、R162、R164、R170、R181A--R181D。
+- Q2-2：M54、M50、R180 receiverを使う。根拠結果はR112、R161、R162、R164、R170、R181A--R181D、R180A--R180C。
+- Q2-3：M54永続状態bathの三部分系特殊化とM50末端読出しを使う。R112、R161、R162、R164、R170、R177、R181A--R181Dを根拠とする。
+- Q2-4：M54を使う。根拠結果はR112、R161、R162、R164、R170、R181A--R181D、R178D、R179。
 
 規模 $N$ ごとの一様な共通ハードウェア族へ統合することは、固定目標の達成条件ではなく実装努力目標である。将来これを主張する場合は、同じ物理port、永続状態浴、相互作用区間族、clock・制御bus、準備interface、Born型読出し・記録interfaceを共有する具体的な装置族を示す。共通の正準代数またはinstrument契約だけでは同一装置とみなさない。
 
@@ -275,7 +275,7 @@ Q2-1からQ2-4は、次の根拠モデルと根拠結果から互いに独立に
 3. 回路ごとの物理的な配線変更、全モード走査、全枝読出し。
 4. 指数的に細かい精度、小さい成功率、長い準備・混合・実行時間。
 
-現行M52/R180 receiverとM53は同じ共通ハードウェア族へ統合されていない。この未完成性は、各目標の根拠モデルによる個別達成判定を変更しない。一方、R180CはQ2全体の共通化とは別に、M52末端から2翼記録までのreceiver内部統合をQ2-2自身の条件とする。Q2-4自身についても、受動資源と外部制御資源を区別する上の台帳を維持する。
+Q1とQ2はM54の同じ完全状態型と外部interfaceから派生する。ただし全規模で同じ製造済みハードウェアを共有するところまでは統合していない。この未完成性は個別達成判定を変更しない。R180CはM54末端から2翼記録までのreceiver内部統合をQ2-2自身の条件とする。
 
 ## 8.10 Q2-3の3量子ビット型二段ゲート合成
 
@@ -289,7 +289,7 @@ Q2-1からQ2-4は、次の根拠モデルと根拠結果から互いに独立に
 \frac{|000\rangle+|111\rangle}{\sqrt2}.
 ```
 
-R176Aをgate列の前に2回作用させて $a\otimes b\otimes c$ を作り、第1ゲート後も同じM52永続状態bathを保持する。枝を測定せず、共同momentから新しい入力を再準備しない。さらにAへ $T=\operatorname{diag}(1,e^{i\pi/4})$ を作用させ、2つのゲートと最初のHadamardを逆順に戻す。R177の理想coherent出力は
+R181Bをgate列の前に2回作用させて $a\otimes b\otimes c$ を作り、第1ゲート後も同じM54永続状態bathを保持する。枝を測定せず、共同momentから新しい入力を再準備しない。さらにAへ $T=\operatorname{diag}(1,e^{i\pi/4})$ を作用させ、2つのゲートと最初のHadamardを逆順に戻す。R177の理想coherent出力は
 
 ```math
 P(000)=\cos^2\frac{\pi}{8},
@@ -299,7 +299,7 @@ P(100)=\sin^2\frac{\pi}{8},
 
 完全dephasing出力は両者が $1/2$ であり、全変動距離は $1/(2\sqrt2)$ である。coherent側と混合側の装置誤差の和がこの値未満なら正の識別余裕が残る。
 
-R176Aは3入力の有限tensor-lift、R176Bは同じ8mode register上の2つの二次gate zoneと逆演算、R177は上の識別余裕を与える。R176Cが末端Born型instrumentへの条件付き接続を与えるため、Q2-3は条件付き達成である。残る条件は容量pointer--作用殻境界、有限fiber混合の枝対称性、SWAPから記録までの単一clock統合である。8modeが受動的に存在すること自体は失敗条件ではない。失敗条件は中間で統計量へ縮約して再準備すること、または各modeを外部から個別に初期化、較正、同期、address、読出し、resetすることである。
+R181Bは3入力の有限tensor-lift、R181Cは同じ8mode register上の2つの二次gate zoneと逆演算、R177は上の識別余裕を与える。R181Dが末端Born型instrumentへの条件付き接続を与えるため、Q2-3は条件付き達成である。残る条件は容量pointer--作用殻境界、有限fiber混合の枝対称性、SWAPから記録までの単一clock統合である。8modeが受動的に存在すること自体は失敗条件ではない。失敗条件は中間で統計量へ縮約して再準備すること、または各modeを外部から個別に初期化、較正、同期、address、読出し、resetすることである。
 
 ## 8.11 Q2-4多項式外部制御による量子出力サンプリング
 
@@ -323,13 +323,13 @@ Q2-4では、固定有限普遍ゲート集合から与えられる $n$ 量子�
 
 一方、signal、anti-register、work、history、cold、spentを含む指数的な受動自由度と受動状態容量を許す。装置体積、総bath容量、総熱は指数的でもよい。これは通常の意味の効率的古典simulationを主張する基準ではない。
 
-M53は $L=2^n$ 個のsignal modeを使うが、R178Aにより固定有限局所gateをspectator sectorへ同じ係数でbroadcastし、作用素norm誤差をsector数の和ではなく最大値で抑える。R178B--R178Cは各bitを直交projectorで可逆にfilterし、条件付きBorn確率を逐次標本化する。確率 $\tau$ 未満の枝を切断して $\varnothing$ に残すため、切断誤差は $2n\tau$ 以下であり、事後選別を使わない。
+M54は $L=2^n$ 個のsignal modeを使うが、R181Cにより固定有限局所gateをspectator sectorへ同じ係数でbroadcastし、作用素norm誤差をsector数の和ではなく最大値で抑える。R181Dは各bitでraw容量 $J_{u,b}$ とregularized容量 $A_{u,b}^\delta$ を分け、R164/R170でselectorを形成してから可逆filterを開く。確率 $\tau$ 未満の枝とguardを $\varnothing$ に残すため、切断誤差は $2n(\tau+\gamma)$ 以下であり、事後選別を使わない。
 
-R178Dは出力と相関しないworkだけを逆掃除でき、結果情報はspent側に残ることを示す。R178Bが信号作用を二枝の非規格化容量 $A_b$ へlatchし、R164はその容量比を排他的Born型状態数へ解釈する作用殻interfaceを与える。R178E--R178Fは容量に比例する可変体積を生成せず、固定体積cell、最小indexのaccept、同じ $A_b$ を読む滑らかな二channel apertureを使い、R164の状態数因子を重ねて掛けない。1 bit当たり $N=O(\log(n/\epsilon))$ 個のcellと $O(\log(n/\epsilon))$ の散乱時間で有限誤差を得る。
+選択成分はR181Aのradial-only portで標準作用へ戻す。未知の条件付き確率を読み出すsqueezeではなく、$\tau$ の下限から固定repump時間を選ぶ。深さ $n$ の完全結果誤差は入力誤差、$n\delta/(1+\delta)$、$2n(\tau+\gamma)$、各node実装誤差の和で抑える。R178DはHamiltonian workだけの逆掃除と、結果・開放散逸履歴をspent側へ残す境界を与える。
 
-R179は同一静的couplerと受動clockによる一定精度のpartial SWAPを反復し、active残差を幾何的にcold floorまで縮める。外部controllerのquench workをbank次元へ比例させない。回路非依存の対称2状態bathからfair digitを取り、$k$ digitのdyadic中点 $U_k$ を作る。離散lawと連続一様lawのtotal variation距離は用いず、threshold discrepancy $2^{-k}$ を用いる。有限runではblank-bankを初期状態に積み、無期限runではcold inflowとspent outflowを仮定する。
+R179は同一静的couplerと受動clockによるpartial SWAPを反復し、active残差を幾何的にaggregate cold floorまで縮める。root source、R162 collision cell、selector、filter workをbankから供給し、使用済み状態をspentへ送る。旧fair-bit、dyadic threshold、aperture tapeは現行因果鎖に使わない。
 
-以上は各構成部品と合成誤差・資源の定理を与える。ただし、静的sector配線、projector latch、repump、history掃除、smooth aperture、blank-bank、clockを一つの具体的な一様装置族へ統合する物理境界が残る。この条件の下でQ2-4を条件付き達成とする。
+以上は各構成部品と合成誤差・資源の定理を与える。ただし、静的sector配線、projector latch、R170 collision、selector lock、controlled filter、radial repump、blank/spent bank、clockを一つの具体的な一様装置族へ統合する物理境界が残る。この条件の下でQ2-4を条件付き達成とする。
 
 ## 8.12 反証条件
 
@@ -337,11 +337,11 @@ R179は同一静的couplerと受動clockによる一定精度のpartial SWAPを�
 
 | 対象 | 反証条件 |
 |---|---|
-| M51/R171 | 実変数driftと複素式が一致しない、安全seed上のray距離が指数上界を破る、無反応質量を落とさずM50分布へ接続できない |
+| M54/R181A | 実変数driftと複素式が一致しない、安全seed上のray距離が指数上界を破る、無反応質量を落とさずM50分布へ接続できない |
 | M47/R143 | Hopf方向が有限時間で準備できない、R170特殊化後もBorn型枝と局所記録が一致しない、結果別状態更新が失敗する |
-| M52/R176A--R177 | tensor-liftの正規化または正準性が破れる、集団momentから再準備する、同じregisterを保持できない、参照系相関または逆演算fringeが壊れる、各modeの個別外部制御が必要、R176Cの完全結果誤差境界を満たさない |
-| M52/R180A--R180C | 実際の末端信号でなく集団momentを再注入する、block作用と枝重みが一致しない、paired-Hopf流が選択templateへ吸引しない、R180Cの単一装置境界を満たさない、切断後因子化が破れる、局所R170応答が反対翼設定を参照する、無反応込みでCHSH誤差上界を満たさない |
-| M53/R178A--R179 | sectorごとの誤差を指数個加算する、projector filterが正準でない、希少枝を事後除外する、first-index以外の到着競争を使う、aperture backreactionを消す、使用済みcellを履歴なしにblankへ戻す、回路依存のtape法則を入れる、または単一の一様装置族へ統合できない |
+| M54/R181B--R177 | tensor-liftの正規化または正準性が破れる、集団momentから再準備する、同じregisterを保持できない、参照系相関または逆演算fringeが壊れる、各modeの個別外部制御が必要、R181Dの完全結果誤差境界を満たさない |
+| M54/R180A--R180C | 実際の末端信号でなく集団momentを再注入する、block作用と枝重みが一致しない、paired-Hopf流が選択templateへ吸引しない、R180Cの単一装置境界を満たさない、切断後因子化が破れる、局所R170応答が反対翼設定を参照する、無反応込みでCHSH誤差上界を満たさない |
+| M54/R181A--R181D・R178D・R179 | sectorごとの誤差を指数個加算する、selector lock前にfilterを開く、projector filterが正準でない、希少枝を事後除外する、状態依存除算または確率依存squeezeを使う、使用済みcellを履歴なしにblankへ戻す、または単一の一様装置族へ統合できない |
 | M37/R86・R135 | 有限時間包絡上界または第2モーメント持上げ上界を超える |
 | M42/R172--R174 | 局所master方程式がM37辺流を再現しない、正則化全変動上界を破る、有限衝突近似が安全領域で収束しない、終時刻に同じ粒子を記録できない |
 | R168 | 可変作用集団でray平均を第2モーメントへ補正なしに置換する、安全事象外を再規格化して消す |
@@ -358,18 +358,18 @@ R179は同一静的couplerと受動clockによる一定精度のpartial SWAPを�
 
 1. Q1-2について、同じ零傾斜Rabi対照と反復R143/R170測定を接続し、全履歴、tilt対照、有限誤差、資源を含む正のZeno抑制余裕を示す。
 2. Q3-2について、閉路巻数、homotopy不変性、節を介した位相すべり、R86細分化安定性、非整数seamのエネルギー発散を統合する。
-3. Q2-1について、R176Cの容量pointer--作用殻境界、有限fiber混合、固定、記録を単一clock scheduleで閉じる。
-4. Q2-3について、同じR176C末端条件を8mode特殊化で閉じ、R177の識別余裕より小さい全装置誤差を選ぶ。
-5. Q2-4について、M53の静的sector配線、projector latch、repump、history掃除、smooth aperture、blank-bank、clockを一つの具体的な一様装置族へ統合し、各局所誤差の独立な物理上界を与える。
+3. Q2-1について、R181Dの容量pointer--作用殻境界、有限fiber混合、固定、記録を単一clock scheduleで閉じる。
+4. Q2-3について、同じR181D末端条件を8mode特殊化で閉じ、R177の識別余裕より小さい全装置誤差を選ぶ。
+5. Q2-4について、M54の静的sector配線、projector latch、R170 collision、selector lock、controlled filter、radial repump、blank/spent bank、clockを一つの具体的な一様装置族へ統合し、各局所誤差の独立な物理上界を与える。
 
 次は固定目標の達成判定と分けて管理する実装・熱力学的強化課題である。
 
-1. M51のpump、transverse sink、template、clockを有限bath、仕事源、排熱先へ持ち上げ、雑音と準備誤差と総収支を同じ模型で閉じる。
+1. M54のpump、transverse sink、template、clockを有限bath、仕事源、排熱先へ持ち上げ、雑音と準備誤差と総収支を同じ模型で閉じる。
 2. R170の作用容量結合、作用殻fiber内平衡化、信号保持、衝突bath、枝固定、記録をQ1・Q2の1つの有限局所Hamiltonianへ統合する。
-3. M47のM51準備から結果別状態更新、永久記録、resetまでの周期総収支を閉じる。
-4. R180CのM52末端SWAP、setting-pre block latch、paired-Hopf pump・sink、中央切断、2翼局所R170、controller、fresh cell流を同じ具体装置とclockへ統合する。
-5. Q3でM51切断面、M37担体、初期作用殻、M42局所辺bath、clock、終位置記録までを同じ有限局所装置へ統合する。
+3. M47のM54準備から結果別状態更新、永久記録、resetまでの周期総収支を閉じる。
+4. R180CのM54末端SWAP、setting-pre block latch、paired-Hopf pump・sink、中央切断、2翼局所R170、controller、fresh cell流を同じ具体装置とclockへ統合する。
+5. Q3でM54切断面、M37担体、初期作用殻、M42局所辺bath、clock、終位置記録までを同じ有限局所装置へ統合する。
 6. 連続空間、多粒子を扱う。
 7. Q2共通ハードウェア努力目標として、同じ物理port、永続状態浴、相互作用区間族、制御bus、準備・読出しinterfaceをQ2-1からQ2-4で共有する一様な装置族を得る。
 
-Q1-1、Q3-1、Q3-3は個別機能として達成、Q1-2は部分達成、Q2-1、Q2-2、Q2-3、Q2-4、Q3-4、Q3-5は条件付き達成、Q3-2は未達である。Q2-1とQ2-3の条件はR176Cの末端物理接続、Q2-2の条件はR180Cのreceiver内部単一装置統合、Q2-4の条件はM53部品の一様装置統合へ集約される。Q2共通ハードウェア族は判定外の努力目標として未完成であり、その成否を個別判定へ遡及させない。
+Q1-1、Q3-1、Q3-3は個別機能として達成、Q1-2は部分達成、Q2-1、Q2-2、Q2-3、Q2-4、Q3-4、Q3-5は条件付き達成、Q3-2は未達である。Q2-1とQ2-3の条件はR181Dの末端物理接続、Q2-2の条件はR180Cのreceiver内部単一装置統合、Q2-4の条件はM54部品の一様装置統合へ集約される。Q2共通ハードウェア族は判定外の努力目標として未完成であり、その成否を個別判定へ遡及させない。

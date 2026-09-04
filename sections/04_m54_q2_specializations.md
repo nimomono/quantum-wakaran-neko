@@ -1,11 +1,11 @@
 @number: 4
 @chapter: 本文
-@title: M52のQ1×Q1可逆tensor-lift永続状態bath模型
-@status: R176A/B/Cを分離し、一般積入力の可逆tensor-lift、同一永続状態上の有限gate列、末端Born型instrument接続を明示する。Q2-2には同じ実際の1試行末端信号を第5章R180へ渡す別interfaceを追加する。Q2-1の条件付き達成は維持する。
+@title: M54のQ2有限次元特殊化
+@status: 第2章のR181B--R181Dを2入力・3入力へ特殊化し、同一register上のCNOT、二段gate、末端projector-tree、およびR180 receiverへの分岐を明示する。Q2-1--Q2-3の達成ラベルは変更しない。
 
 ## 4.1　改訂した設計原則
 
-Q2-1の固定目標は、2量子ビット型結合ゲートと同一の共同入力--出力統計を生成し、積入力を非分離な共同内部状態へ移し得る有限古典Hamiltonian過程を構成することである。M52は、この共同状態を経路だけに担わせる必要はない。4つまたはそれ以上の内部自由度が実在しても、それらが受動的なbath自由度であり、controllerが個別に扱う必要がなければ固定目標と両立する。
+Q2-1の固定目標は、2量子ビット型結合ゲートと同一の共同入力--出力統計を生成し、積入力を非分離な共同内部状態へ移し得る有限古典Hamiltonian過程を構成することである。M54は、この共同状態を経路だけに担わせる必要はない。4つまたはそれ以上の内部自由度が実在しても、それらが受動的なbath自由度であり、controllerが個別に扱う必要がなければ固定目標と両立する。
 
 改訂後の設計原則は次のとおりである。
 
@@ -15,9 +15,9 @@ Q2-1の固定目標は、2量子ビット型結合ゲートと同一の共同入
 4. 可逆性に必要なanti-register、入力source、work、clock履歴を捨てない。
 5. 排他的なBorn型結果は回路末尾だけでM50/R164/R170へ接続する。無反応も完全結果空間へ含める。
 
-従って問題になるのは内部自由度の個数そのものではなく、外部interfaceが閉じているか、同一試行の状態が永続するか、余計な自由度をbathへ受動的に任せられるかである。旧M52の「4モードregisterを使わず経路だけで担う」という制約は撤回する。
+従って問題になるのは内部自由度の個数そのものではなく、外部interfaceが閉じているか、同一試行の状態が永続するか、余計な自由度をbathへ受動的に任せられるかである。旧path-only設計の「4モードregisterを使わず経路だけで担う」という制約は撤回する。
 
-## 4.2　M52の状態とinterface
+## 4.2　M54の状態とinterface
 
 2つのQ1入力を
 
@@ -36,16 +36,17 @@ Q2-1の固定目標は、2量子ビット型結合ゲートと同一の共同入
  \tag{4.2}
 ```
 
-を置く。これは1試行の実正準座標から得る物理的な派生信号であって、M51の集団統計量
+を置く。これは1試行の実正準座標から得る物理的な派生信号であって、M54の解析上の統計量であるray因子 $c$ と規格化第2モーメント
 
 ```math
- c=\mathbb E[z],
+ C_Z=\frac{\mathbb E[zz^\dagger]}{\mathbb E[z^\dagger z]},
  \qquad
- C_Z=\mathbb E[zz^\dagger]
+ C_Z=cc^\dagger
+ \quad(\operatorname{rank}C_Z=1)
  \tag{4.3}
 ```
 
-ではない。記号も用途も分ける。
+ではない。$Z_S$ と $c,C_Z$ は記号も用途も分ける。
 
 可逆liftは同時にanti-register
 
@@ -57,24 +58,24 @@ Q2-1の固定目標は、2量子ビット型結合ゲートと同一の共同入
 を生成する。全状態を概念上
 
 ```math
- \Gamma_{52}
+ \Gamma_{54}^{(2)}
  =(\Gamma_{Q1,A},\Gamma_{Q1,B},Z_S,G_S,W_S,\tau,E_R,H,R)
  \tag{4.5}
 ```
 
-と書く。$W_S$ はsource、work、lift clock、gate clockの可逆履歴を含む。$G_S,W_S$ は出力結果として読まず、逆写像を可能にするbath自由度として保持する。
+と書く。これは第2章の完全状態型の $n=2$ 特殊化を用途別に束ねた略記であり、別模型ではない。$W_S$ はsource、work、lift clock、gate clockの可逆履歴を含む。$G_S,W_S$ は出力結果として読まず、逆写像を可能にするbath自由度として保持する。
 
 外部interfaceは
 
 ```math
- \mathfrak I_{52}
+ \mathfrak I_{54}^{(2)}
  =(A,B;\,L_{AB};\,\{(g_r,S_r,t_r)\}_{r=1}^{L};\,M_{\rm end})
  \tag{4.6}
 ```
 
 だけである。$L_{AB}$ はlift窓、$g_r$ は有限個のゲート種、$S_r$ は対象port集合、$t_r$ は作用窓、$M_{\rm end}$ は末端instrumentである。内部index $00,01,10,11$ をcontrollerの4本の独立命令として公開しない。
 
-## 4.3　R176A：可逆tensor-lift定理
+## 4.3　R181B：可逆tensor-lift定理
 
 各組 $(j,k)$ にblankな正準対
 
@@ -142,8 +143,8 @@ Q2-1の固定目標は、2量子ビット型結合ゲートと同一の共同入
 
 となる。
 
-<!-- theorem-start:theorem -->
-**定理（R176A：可逆tensor-lift定理）**
+<!-- theorem-start:corollary -->
+**系（R181Bの2入力特殊化）**
 
 正規化された有限次元Q1入力 $a\in\mathbb C^m$、$b\in\mathbb C^n$ とblank targetを考える。式(4.9)--式(4.11)は安全compact領域上の有限時間Hamiltonian流として
 
@@ -154,13 +155,13 @@ Q2-1の固定目標は、2量子ビット型結合ゲートと同一の共同入
 ```
 
 を実現する。source、anti-register、work、clock履歴を保持すれば、$S_0^{-1}$ と逆pulseにより写像全体を反転できる。近似pulse、cutoff、blank誤差に対しては安全compact領域上のLipschitz定数による有限誤差評価を持つ。
-<!-- theorem-end:theorem -->
+<!-- theorem-end:corollary -->
 
 積の非線形性は、式(4.9)がsourceとtargetを含む3次Hamiltonianであることに担わせる。blank manifold上ではtarget momentumが零のためsourceは理想的に動かず、targetだけが平行移動する。これは未知入力の係数をcontrollerが読み取って書き込む操作ではない。
 
-R176Aは固定 $m,n$ に対する定理である。$m=n=2$ および3入力への2段liftには有限の受動modeしか要らない。一般の入力数 $N$ に対するtensor反復の一様性はR176Aから主張せず、Q2-4では別模型M53の直接モードsector-broadcastを使う。
+R181Bは固定 $m,n$ に対する定理である。$m=n=2$ および3入力への2段liftには有限の受動modeしか要らない。一般の入力数 $N$ に対するtensor反復の一様性はR181Bから主張せず、Q2-4ではM54のroot-mode入力とR181Cのsector-broadcastを使う。
 
-## 4.4　R176B：永続状態bathゲート合成定理
+## 4.4　R181C：永続状態bathゲート合成定理
 
 lift後は同じ $Z_S$ を計算終了まで保持する。Hermitian行列 $h(t)$ に対して
 
@@ -204,7 +205,7 @@ Q2-1のCNOTはmode $10,11$ のswapである。差mode projectorを
 
 と取れる。
 
-3入力ではR176Aを2回使い、ゲート列の前に
+3入力ではR181Bを2回使い、ゲート列の前に
 
 ```math
  Z_{ABC}=a\otimes b\otimes c
@@ -245,10 +246,10 @@ gate clockを含む全Hamiltonianは
 とする。$g_r$ は互いに交わらないcompactな作用窓を持ち、出口では相互作用が零になる。clock momentumやworkは履歴を保持してよいが、$Z_S$ を交換または再準備しない。
 本文式(4.17)、式(4.19)のCNOT窓では $\int g_r(t)dt=\pi$ とする。一般gateではこのpulse面積を対応するHermitian対数に置き換える。
 
-<!-- theorem-start:theorem -->
-**定理（R176B：永続状態bathゲート合成定理）**
+<!-- theorem-start:corollary -->
+**系（R181Cの2入力・3入力gate特殊化）**
 
-R176Aで得た有限次元の同一状態bath $Z_S$ に、式(4.20)の有限個の非重複gate窓を作用させる。各理想gateを $U_r$、実装を $\widetilde U_r$ とし、
+R181Bで得た有限次元の同一状態bath $Z_S$ に、式(4.20)の有限個の非重複gate窓を作用させる。各理想gateを $U_r$、実装を $\widetilde U_r$ とし、
 
 ```math
  \inf_{\chi_r}
@@ -266,11 +267,11 @@ R176Aで得た有限次元の同一状態bath $Z_S$ に、式(4.20)の有限個�
 ```
 
 を得る。CNOT、局所unitary、逆演算、およびQ2-3の2段CNOTは、中間decodeや再準備なしに同じ $Z_S$ 上で合成できる。
-<!-- theorem-end:theorem -->
+<!-- theorem-end:corollary -->
 
 以前の「handoff map」は不要である。同じregisterを保持するため、有限誤差はlift、hold、clock、gate、leakageへ一度ずつ数える。経路展開は式(4.16)、式(4.19)の代数的な診断表示として残せるが、独立のR175や物理的経路分岐器を主結果鎖に置かない。
 
-## 4.5　R176C：末端Born型instrument接続定理
+## 4.5　R181Dの有限深さprojector-tree特殊化
 
 回路末尾の実際の1試行信号を
 
@@ -281,51 +282,51 @@ R176Aで得た有限次元の同一状態bath $Z_S$ に、式(4.20)の有限個�
 
 とする。これは理想係数の再構成値でも集団共分散でもない。R112の同次元blank hold-registerへのcanonical SWAPで $V$ へ保持し、信号bathを計算registerから切り離す。
 
-各結果 $y$ の容量を
+各node $u$ の2枝容量を
 
 ```math
- J_y(V)=J_0|V_y|^2,
+ J_{u,b}(V)=J_0V^\dagger P_{u,b}V,
  \qquad
- J_\Sigma(V)=\sum_yJ_y(V)
+ J_\Sigma(V)=J_{u,0}(V)+J_{u,1}(V)
  \tag{4.24}
 ```
 
-とし、正則化容量とlatchを
+とし、raw容量のlatchと、作用殻へ渡す正則化容量を
 
 ```math
- A_y^\delta(V)=J_y(V)+\delta q_yJ_\Sigma(V),
- \qquad
  H_{\rm latch}
- =\sum_yP_y^A A_y^\delta(V)
+ =\sum_bP_{u,b}^J J_{u,b}(V),
+ \qquad
+ A_{u,b}^\delta(V)=J_{u,b}(V)+\delta q_bJ_\Sigma(V)
  \tag{4.25}
 ```
 
-で定める。blank容量momentum $P_y^A=0$ ではpointerだけが移動し、理想的な $V$ は動かない。latch後に信号をdecoupleしてからR164の作用殻、R161/R162の有限混合、R170の衝突・固定・記録へ渡す。
+で定める。blank容量momentumではpointerだけが移動し、理想的な $V$ は動かない。R170がselectorを固定した後、第2章のinvolution filterを作用し、選択rayをradial-only portでrepumpする。2入力は深さ2、3入力は深さ3である。
 
-<!-- theorem-start:theorem -->
-**定理（R176C：末端Born型instrument接続定理）**
+<!-- theorem-start:corollary -->
+**系（R181Dの2入力・3入力計算基底読出し）**
 
-R176Bの末端信号 $v$ が零でなく、canonical SWAP、容量latch、作用殻、有限混合、収集、固定、記録がそれぞれ安全compact領域上で定義されるとする。完全結果空間を
+R181Cの末端信号 $v$ が零でなく、canonical SWAP、容量latch、作用殻、有限混合、収集、固定、記録がそれぞれ安全compact領域上で定義されるとする。完全結果空間を
 
 ```math
  \Omega_{\rm out}=I_L\sqcup\{\varnothing\}
 ```
 
-とする。正規化rayの実装誤差が $\varepsilon_{\rm ray}$、無反応率が $f_\varnothing$、末端各段を一度ずつ合計した誤差が $\varepsilon_{170}^{\rm end}$ なら、
+とする。正規化rayの実装誤差が $\varepsilon_{\rm ray}$、深さを $m\in\{2,3\}$、各node誤差を $\bar\varepsilon_k$ とすれば、
 
 ```math
  D_{\rm TV}(P_{\rm out},P_{\rm Born})
  \leq
- f_\varnothing
- +\varepsilon_{\rm ray}
- +\frac{\delta}{1+\delta}
- +\varepsilon_{170}^{\rm end}.
+ \varepsilon_{\rm ray}
+ +\frac{m\delta}{1+\delta}
+ +2m(\tau+\gamma)
+ +\sum_{k=1}^m\bar\varepsilon_k.
 ```
 
 理想的な共通radial因子とglobal phaseは式(4.24)の規格化で消える。
-<!-- theorem-end:theorem -->
+<!-- theorem-end:corollary -->
 
-R176Cは条件付き定理である。R164、R170の既存部品に加え、容量pointerから作用殻への境界、有限fiber混合の枝対称性、SWAPから記録までの一体化を同じ有限Hamiltonian実装で満たす必要がある。成功試行だけの再規格化は行わない。
+R181Dは条件付き定理である。R164、R170の既存部品に加え、容量pointer、selector lock、controlled filter、radial repump、記録を同じclockとsafe setで接続する必要がある。成功試行だけの再規格化は行わない。
 
 ## 4.6　Q2-1とQ2-3の識別力
 
@@ -344,7 +345,7 @@ $|+0\rangle$ からCNOTを作用させると
  \tag{4.29}
 ```
 
-である。従ってR176Bの逆演算試験は、単なる4結果確率表より強い。
+である。従ってR181Cの逆演算試験は、単なる4結果確率表より強い。
 
 Q2-3では $Z_{ABC}$ に式(4.19)を順に作用させる。R177のGHZ--位相--逆演算試験は、coherent模型と中間枝選択模型の間に
 
@@ -357,7 +358,7 @@ Q2-3では $Z_{ABC}$ に式(4.19)を順に作用させる。R177のGHZ--位相--
 
 ## 4.7　R180 setting-pre receiverへの末端interface
 
-Q2-2の固定singlet sourceは、$|00\rangle$ のR176A tensor-lift後にR176Bの
+Q2-2の固定singlet sourceは、$|00\rangle$ のR181B tensor-lift後にR181Cの
 
 ```math
 H_A,
@@ -380,11 +381,11 @@ V_{\rm s}
 
 このgate列は設定生成前に終える。実際の末端信号 $v=Z_{\rm out}(\omega)$ をR112のcanonical SWAPで物理hold信号 $\widetilde V=v$ としてそのまま移し、第5章R180へ渡す。canonical SWAPは状態依存除算を含まない。R180では解析上だけ $V=\widetilde V/\|\widetilde V\|$ とし、A設定 $x$ が $\widetilde V$ の直交projector blockを選び、source-driven paired-Hopf receiverを通して2翼の局所M50/R170へ接続する。
 
-このinterfaceはR176Cと役割が異なる。R176Cは末端計算基底分布を直接記録する。R180は同じ試行の4mode信号を記録前に2翼receiverへ渡す。1周期では選んだ一方だけを作動させる。
+このinterfaceはR181Dと役割が異なる。R181Dは末端計算基底分布を直接記録する。R180は同じ試行の4mode信号を記録前に2翼receiverへ渡す。1周期では選んだ一方だけを作動させる。
 
-R180は $G_S$ を末端共役信号として使わない。R176A直後の $G_S=\overline{a\otimes b}$ はR176B後の $\overline{Z_{\rm out}}$ を意味しないからである。入力係数の外部読出し、試行集団momentへの縮約、fresh carrierへの再準備も行わない。
+R180は $G_S$ を末端共役信号として使わない。R181B直後の $G_S=\overline{a\otimes b}$ はR181C後の $\overline{Z_{\rm out}}$ を意味しないからである。入力係数の外部読出し、試行集団momentへの縮約、fresh carrierへの再準備も行わない。
 
-Q2-2がM52を根拠模型として共有しても、Q2-1の達成状態からQ2-2を推論しない。Q2-2はR180A--R180C固有のbranch作用、paired-Hopf、切断後局所性、完全結果誤差から独立に判定する。
+Q2-2がM54を根拠模型として共有しても、Q2-1の達成状態からQ2-2を推論しない。Q2-2はR180A--R180C固有のbranch作用、paired-Hopf、切断後局所性、完全結果誤差から独立に判定する。
 
 ## 4.8　誤差台帳と現在地
 
@@ -399,14 +400,14 @@ Q2-2がM52を根拠模型として共有しても、Q2-1の達成状態からQ2-
  +\sum_{r=1}^{L}\varepsilon_r
  +\varepsilon_{\rm leak}
  +\varepsilon_{\rm ray}
- +\frac{\delta}{1+\delta}
- +\varepsilon_{170}^{\rm end}
- +f_\varnothing
+ +\frac{m\delta}{1+\delta}
+ +2m(\tau+\gamma)
+ +\sum_{k=1}^m\bar\varepsilon_k
  \tag{4.32}
 ```
 
 と整理する。中間handoff、枝pairing、coherent decoderを独立項として二重計上しない。
 
-R176Aは明示的な有限Hamiltonian構成、R176Bは同一有限register上の作用素norm合成を与える。R176Cは既存の末端bath部品へ接続する条件付き評価を与える。このためQ2-1は「部分達成」から「条件付き達成」へ更新する。残る条件は主としてR176Cの物理境界と全末端工程の一体化である。
+R181Bは明示的な有限Hamiltonian構成、R181Cは同一有限register上の作用素norm合成を与える。R181Dは既存の末端bath部品へ接続する条件付き評価を与える。Q2-1は条件付き達成を維持し、残る条件は主としてR181Dの物理境界と全末端工程の一体化である。
 
-Q2-3も同じ理由で条件付き達成とする。Q2-2は本章の実際の1試行末端信号を第5章のsetting-pre paired-Hopf receiverへ渡す別interfaceを使い、R180Cの単一装置統合を条件として条件付き達成を維持する。Q2-4はM52の一般化ではなく、M53とR178A--R178F、R179を根拠に別途条件付き達成とする。
+Q2-3も同じ理由で条件付き達成を維持する。Q2-2は本章の実際の1試行末端信号を第5章のsetting-pre paired-Hopf receiverへ渡す別interfaceを使い、R180Cの単一装置統合を条件として条件付き達成を維持する。Q2-4は同じM54親模型の一般 $n$ 特殊化として、R181A--R181D、R178D、R179を根拠に条件付き達成を維持する。

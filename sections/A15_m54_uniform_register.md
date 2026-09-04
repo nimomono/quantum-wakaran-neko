@@ -1,11 +1,11 @@
 @number: O
 @chapter: 付録
-@title: M53の一様sector操作と逐次Born標本化
-@status: R178A--R178Cの一様gate作用、可逆2枝filter、希少枝切断付き逐次Born標本化、repump、有限誤差と資源を証明する。
+@title: M54の一様registerとprojector-tree代数
+@status: R181Cの一様gate作用と、R181Dで使うlatch、可逆2枝filter、Born確率のtelescoping、raw cutoff、radial-only repumpを検算する。
 
 ## O.1 目的と記号
 
-$n$ bit文字列の集合を $\Omega_n=\{0,1\}^n$、信号空間を $\mathcal H_n=\mathbb C^{\Omega_n}$ とする。複素信号 $Z$ は実正準対の派生表示であり、量子状態を別の実体として追加しない。M53は $\dim\mathcal H_n=2^n$ を受動状態容量として許すが、外部controllerに $2^n$ 個の係数またはaddressを渡さない。
+$n$ bit文字列の集合を $\Omega_n=\{0,1\}^n$、信号空間を $\mathcal H_n=\mathbb C^{\Omega_n}$ とする。複素信号 $Z$ は実正準対の派生表示であり、量子状態を別の実体として追加しない。M54は $\dim\mathcal H_n=2^n$ を受動状態容量として許すが、外部controllerに $2^n$ 個の係数またはaddressを渡さない。
 
 固定有限gate集合を $\mathcal G$ とする。programは $(g,S,t)$ の有限列で、$g\in\mathcal G$、$|S|\leq2$、$t$ はclock窓である。最終確率表はprogramに含めない。
 
@@ -29,10 +29,10 @@ h_{g,S}(t)=\bigoplus_r h_g(t)
 
 である。blockごとの項は異なる正準pairへ作用するため、同じclock係数を共有できる。静的辺は、対象bitだけが異なりspectator bitが一致する文字列pair、という有限規則で生成される。
 
-## O.3 R178Aの証明
+## O.3 R181Cの証明
 
 <!-- theorem-start:proof -->
-**証明（R178A）**
+**証明（R181C）**
 
 sector間漏れがない場合、
 
@@ -104,10 +104,10 @@ QP-PQ&Q^2+P^2
 
 $F=F^\dagger$ なので $F^\dagger F=I$ でもある。複素unitaryは実正準座標上のsymplectic直交変換を与える。
 
-## O.6 R178Bの証明
+## O.6 R181Dの証明
 
 <!-- theorem-start:proof -->
-**証明（R178B）**
+**証明（R181D）**
 
 O.5より $F_{k,b}$ はunitaryかつinvolutionである。blank workを代入すると第1出力は $P_{k,b}Z$、第2出力は $P_{k,1-b}Z$ になる。O.4のlatchはblank momentum面で信号を変えない。射影はbit labelだけで決まるため、signal成分の列挙を必要としない。証明終。
 <!-- theorem-end:proof -->
@@ -147,46 +147,34 @@ p_{k,b|y_{<k}}
 第 $k$ 段で条件付き確率が $\tau$ 未満の子枝を全て数える。各親履歴の下には高々2個の子があるため、その親から切られる条件付き質量は $2\tau$ 以下である。親履歴の確率を掛けて全親について和を取ると、第 $k$ 段の切断質量は $2\tau$ 以下。段の和により
 
 ```math
-P_{\rm cut}\leq2n\tau.
+P_{\rm cut}\leq2n(\tau+\gamma).
 ```
 
 切断枝は $\varnothing$ として残すので、これは事後選別ではない。
 
 ## O.9 Radial repump
 
-selected signal $W$ とblank anti-register $R$ の各mode pairへ同じ2-mode squeezeを作用させる。複素表示の線形正準変換を
+selected signal $W$ にR181Aの $\kappa=0$ radial-only portを作用させる。
 
 ```math
-\begin{pmatrix}
-W'\\
-\overline R'
-\end{pmatrix}
-=
-\begin{pmatrix}
-\cosh s&\sinh s\\
-\sinh s&\cosh s
-\end{pmatrix}
-\begin{pmatrix}
-W\\
-\overline R
-\end{pmatrix}
+\dot W=g(J_*-W^\dagger W)W.
 ```
 
-とする。$R=0$ なら $W'=(\cosh s)W$ でありrayを変えない。選択前の作用を1へ規格化しておけば、条件付き確率が $p\geq\tau$ の枝を標準作用へ戻す利得は $p^{-1/2}\leq\tau^{-1/2}$。従って $s=O(\log(1/\tau))$ である。anti-registerはradial履歴を保持し、使用後にblankとみなさない。
+この流れはrayを変えない。accept plateauでは初期作用に $\tau$ から決まる正の下限があるので、目標作用への相対誤差を $\eta_R$ 以下にする時間は $O(\log(1/(\tau\eta_R)))$ である。時間は試行前に固定でき、未知の条件付き確率を読み取るsqueezeを使わない。開放環境はradial履歴を保持し、使用後にblankとみなさない。
 
-## O.10 R178Cの証明と誤差
+## O.10 R181Dの証明と誤差
 
 <!-- theorem-start:proof -->
-**証明（R178C）**
+**証明（R181D）**
 
-理想確率はO.7のtelescopingによりBorn分布へ一致する。O.8が切断質量、O.9が有限repump利得を与える。正則化を各段で最大 $\delta/(1+\delta)$、各段の実装channel誤差を $\varepsilon_{{\rm stage},k}$ とすればMarkov kernelのtelescopingにより
+理想確率はO.7のtelescopingによりBorn分布へ一致する。O.8が切断・guard質量、O.9が固定時間repumpを与える。正則化を各段で最大 $\delta/(1+\delta)$、各段の実装channel誤差を $\bar\varepsilon_k$ とすればMarkov kernelのtelescopingにより
 
 ```math
 D_{\rm TV}
 \leq
-2n\tau
+2n(\tau+\gamma)
 +\frac{n\delta}{1+\delta}
-+\sum_{k=1}^n\varepsilon_{{\rm stage},k}
++\sum_{k=1}^n\bar\varepsilon_k
 ```
 
 を得る。初期signalまたはgate列の誤差は、実際の末端signalのBorn分布と理想回路分布の距離として先頭に一度だけ加える。証明終。
@@ -194,6 +182,6 @@ D_{\rm TV}
 
 ## O.11 資源と非主張
 
-各段のactive subspaceを物理的に圧縮しない保守的実装では、signal、anti、work、historyは $O(n2^n)$ modeを使う。縮小subspaceを詰めれば $O(2^n)$ まで減らせる可能性があるが、本結果に不要である。外部gate命令は $O(d)$、逐次出力段は $n$、各bitのtape cell数は付録Pの $O(\log(n/\epsilon))$ である。
+各段のactive subspaceを物理的に圧縮しない保守的実装では、signal、anti、work、historyは $O(n2^n)$ modeを使う。縮小subspaceを詰めれば $O(2^n)$ まで減らせる可能性があるが、本結果に不要である。外部gate命令は $O(d)$、逐次出力段は $n$、nodeごとのcollision・repump資源は付録Pで評価する。
 
 本付録は未知量子入力、適応中間測定、誤り訂正、空間局所Hamiltonian、指数受動資源の削減を主張しない。

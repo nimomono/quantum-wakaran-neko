@@ -13,9 +13,14 @@
 
 | 結果 | 旧用途 | 現行の扱い | 参照先 |
 |---|---|---|---|
+| R171 | M51の共通開放ray準備 | M54の物理template-port準備R181Aへ吸収 | `superseded_separate_m51_m52_m53_models.md`、R181A、付録M |
+| R176A--R176C | M52のtensor-lift、永続gate、末端instrument | M54/R181B--R181Dへ吸収 | `superseded_separate_m51_m52_m53_models.md`、第2章・第4章 |
+| R178A--R178C | M53のsector gate、projector filter、逐次sampler | M54/R181C--R181Dへ吸収 | `superseded_separate_m51_m52_m53_models.md`、付録O・P |
+| R178E--R178F | fixed-volume tapeと滑らかなaperture | Q1/Q2共通のR170駆動R181Dを採用したため現行因果鎖から退役 | `superseded_r178_aperture_sampler.md`、draft-67のGit履歴 |
+| R145 | M51/R171のM47 W型2モード特殊化 | R181Aから従う無番号の系へ変更 | 付録H |
 | R70--R72、R77、R78、R91 | M35作用区間によるBorn型長期頻度 | 確率源として退役。M50/R164へ一本化 | `superseded_m35_born_sampler.md` |
 | R107--R111、R121 | M41 Bell周期 | M48/R151--R156、R166、R170へ置換 | `superseded_m41_bell_cycle.md` |
-| R147、R153、R155 | 独立M48 setting-pre paired-Hopf Bell周期 | M52の実際の1試行末端信号を受けるR180A--R180Cへ置換 | `superseded_independent_m48_bell_protocol.md`、draft-65のGit履歴 |
+| R147、R153、R155 | 独立M48 setting-pre paired-Hopf Bell周期 | M54の実際の1試行末端信号を受けるR180A--R180Cへ置換 | `superseded_independent_m48_bell_protocol.md`、draft-65のGit履歴 |
 | R113--R118 | 旧M42連続粒子位置閉包 | 旧結果は退役。現行Q3は再定義M42/R172--R174へ再編 | `superseded_m42_continuous_particle_position.md`、付録N |
 | R127--R129 | M45開放準臨界準備 | Q1--Q3と独立の研究線 | `independent_m45_open_quasicritical_preparation.md` |
 | R130--R132 | M46のcapacity・半減衰・主モード計算 | 現行本文から退役。再検討用の有限次元計算 | `rejected_m46_current_transducer.md` |
@@ -26,7 +31,7 @@
 | R165 | M49中央4枝とM35作用区間の同値性 | M35側を退役し、M49中央4枝をR164の直接特殊化としてR159入力準備節に保持 | R159、R164 |
 | R159 | M49の入力準備、同期CNOT、固定有限共同入力--出力統計 | 固定benchmarkの代数は撤回しないが、4モード共同担体を現行Q2-1に採用せず退役 | `superseded_m49_joint_bath_cnot_provider.md`、draft-62のGit履歴 |
 | R160 | M49固定singletからM48へのsetting-free同一register受渡し | M49の退役とともに現行模型間接続から外した。Q2-2はM48内部seedで独立に維持 | `superseded_m49_joint_bath_cnot_provider.md`、draft-62のGit履歴 |
-| R175 | draft-63 M52の有限coherent経路和代数 | R176Bのunitary診断展開へ吸収。経路限定設計と独立の物理分岐器を主結果鎖から外す | `superseded_m52_path_only_design.md`、draft-63のGit履歴 |
+| R175 | draft-63 M52の有限coherent経路和代数 | R181Cのunitary診断展開へ吸収。経路限定設計と独立の物理分岐器を主結果鎖から外す | `superseded_m52_path_only_design.md`、draft-63のGit履歴 |
 | R169 | 固定全作用高階数読出し | 安全事象を含む一般ray平均定理R168へ吸収 | R168 |
 | R89 | 隣接2モード回路による有限unitary合成 | R112の有限合成節へ吸収 | R112、付録A |
 | R90、R97--R99 | 有限時計、比較・無反応、結果別SWAP、記録・逆計算 | R112の制御・比較・記録回路へ吸収 | R112、付録A |
@@ -45,6 +50,9 @@
 
 | モデル | 旧用途 | 現行の扱い | 参照先 |
 |---|---|---|---|
+| M51 | 有限実正準担体の共通開放ray準備 | M54のtemplate portへ吸収 | `superseded_separate_m51_m52_m53_models.md`、R181A |
+| M52 | 固定2・3入力の可逆tensor-lift永続register | M54の有限次元特殊化へ吸収 | `superseded_separate_m51_m52_m53_models.md`、R181B--R181D |
+| M53 | 一般回路の直接mode・逐次sampler | M54の一般 $n$ 特殊化へ吸収。aperture経路は退役 | `superseded_separate_m51_m52_m53_models.md`、R181C--R181D、R178D、R179 |
 | M43 | 固有モード作用結合型有限環境 | 独立モデルから外し、R123の有限環境純位相緩和構成へ吸収 | R123、付録G |
 | M35 | 作用区間によるBorn型標本器と有限正準制御補助 | 確率生成部は退役し、非確率的な制御・比較・記録部はR112へ吸収 | `superseded_m35_born_sampler.md`、R112、付録A |
 
@@ -52,7 +60,7 @@
 
 | モデル | 旧用途 | 現行の扱い | 参照先 |
 |---|---|---|---|
-| M49 | 4モードprogram担体、行分解bath、二粒子位置によるQ2-1 CNOT供給 | 固定benchmarkは撤回せず退役。4mode自体でなく入力別template、外部routing、破壊的decode、閉じないinterfaceを不採用とし、Q2-1はM52/R176A--Cへ再構築 | `superseded_m49_joint_bath_cnot_provider.md`、draft-62のGit履歴 |
-| M48 | 独立setting-pre paired-Hopf Bell protocol | paired-Hopf機構とBell監査はR180へ継承し、独立fair seedと集団交差momentを現行sourceから外す。Q2-2はM52/R180 receiverへ置換 | `superseded_independent_m48_bell_protocol.md`、draft-65のGit履歴 |
+| M49 | 4モードprogram担体、行分解bath、二粒子位置によるQ2-1 CNOT供給 | 固定benchmarkは撤回せず退役。4mode自体でなく入力別template、外部routing、破壊的decode、閉じないinterfaceを不採用とし、Q2-1はM54/R181B--R181Dへ再構築 | `superseded_m49_joint_bath_cnot_provider.md`、draft-62のGit履歴 |
+| M48 | 独立setting-pre paired-Hopf Bell protocol | paired-Hopf機構とBell監査はR180へ継承し、独立fair seedと集団交差momentを現行sourceから外す。Q2-2はM54/R180 receiverへ置換 | `superseded_independent_m48_bell_protocol.md`、draft-65のGit履歴 |
 
 結果番号は再利用しない。現行結果の番号を詰めず、履歴参照を安定させる。

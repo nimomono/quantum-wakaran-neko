@@ -1,6 +1,6 @@
 @number: D
 @chapter: 付録
-@title: M52駆動setting-pre receiver周期の証明
+@title: M54駆動setting-pre receiver周期の証明
 @status: R180Aの条件付きblock代数、作用殻選択、node切断、2翼matching、R180Cの局所応答・Bell監査・有限誤差・弱開放帰還を証明する。
 
 ## D.1 行優先block分解
@@ -84,7 +84,7 @@ $u_{+,x},u_{-,x}$ の完全性から2つのprojectorの和は $I_4$ であり、
 
 ## D.2 R180Aの作用殻選択
 
-R178Bを物理hold信号 $\widetilde V$ と2つの直交projector $\Pi_s^x$ へ適用し、blank pointerへ
+R181Dを物理hold信号 $\widetilde V$ と2つの直交projector $\Pi_s^x$ へ適用し、blank pointerへ
 
 ```math
 A_s
@@ -94,7 +94,7 @@ A_s
 \mathcal J_0r^2p_{s|x}(V)
 ```
 
-をlatchする。理想blank momentumが零なら信号への反作用は零である。有限blank、aperture、clock、cutoffによる偏差は $\varepsilon_{\rm latch}$ へ入れる。容量の生成はR178Bの役割であり、R164は次に同じ容量を排他的な作用殻状態数へ写す。
+をlatchする。理想blank momentumが零なら信号への反作用は零である。有限blank、selector plateau、clock、cutoffによる偏差は $\varepsilon_{\rm latch}$ へ入れる。容量の生成はR181Dの役割であり、R164は次に同じ容量を排他的な作用殻状態数へ写す。
 
 R164の作用殻状態数を
 
@@ -156,7 +156,7 @@ u_{b,y}^\dagger
 <!-- theorem-start:proof -->
 **証明（R180A）**
 
-D.1がblockとprojector作用の等式を与える。R178BのlatchとR164の線形状態数により理想内部枝重みは $p_{s|x}$ となり、R161/R162が有限時間の物理的枝選択を与える。選択枝の条件付きB応答へ $p_{s|x}$ を掛けると上のテンソル積Born重みになる。有限装置では各Markov核と有限正準写像の誤差を完全結果集合上で加える。証明終。
+D.1がblockとprojector作用の等式を与える。R181DのlatchとR164の線形状態数により理想内部枝重みは $p_{s|x}$ となり、R161/R162が有限時間の物理的枝選択を与える。選択枝の条件付きB応答へ $p_{s|x}$ を掛けると上のテンソル積Born重みになる。有限装置では各Markov核と有限正準写像の誤差を完全結果集合上で加える。証明終。
 <!-- theorem-end:proof -->
 
 ## D.3 node切断と方向安定性
@@ -316,7 +316,7 @@ D_{\rm TV}
 \sum_j\epsilon_j.
 ```
 
-連続方向誤差は局所応答核の一様Lipschitz定数で結果分布距離へ変換してから加える。$\|\widetilde V\|\geq r_{\min}$ のsafe setでは規格化写像がLipschitzであるため、M52 source、gate、canonical SWAP、holdがrayへ与える偏差を $\varepsilon_{\rm ray}^{52}$ にまとめられる。canonical SWAP自体に除算は含めない。splitter、branch作用、node、block保持、paired-Hopf、位置matching、切断、条件付き積偏差、局所R170、記録、clockを各1回だけ数えると本文の $\varepsilon_{180}^{\rm cyc}$ になる。
+連続方向誤差は局所応答核の一様Lipschitz定数で結果分布距離へ変換してから加える。$\|\widetilde V\|\geq r_{\min}$ のsafe setでは規格化写像がLipschitzであるため、M54 source、gate、canonical SWAP、holdがrayへ与える偏差を $\varepsilon_{\rm ray}^{54}$ にまとめられる。canonical SWAP自体に除算は含めない。splitter、branch作用、node、block保持、paired-Hopf、位置matching、切断、条件付き積偏差、局所R170、記録、clockを各1回だけ数えると本文の $\varepsilon_{180}^{\rm cyc}$ になる。
 
 周辺化は全変動距離を増やさない。同じ理想周辺から各設定で $\varepsilon_{180}^{\rm cyc}$ 以内なら、反対設定間の周辺差は三角不等式により $2\varepsilon_{180}^{\rm cyc}$ 以下である。
 
@@ -330,7 +330,7 @@ R180Aがbranch重みと理想共同Born分布、R180Bが有限時間2翼template
 
 ## D.8 設定依存性の位置
 
-M52 sourceと設定生成角の設定前測度を積に取るため、$V$ の準備法則は実際に生成される $x,y$ に依存しない。一方、$x$ は $U_x^\dagger\otimes I_2$、$\Pi_s^x$、$a_{s,x}$、$b_{s,x}(V)$ を決める。異なる非可換設定では理想fiber $\nu_{V,x}^0$ の支持とbranch分解が異なるので
+M54 sourceと設定生成角の設定前測度を積に取るため、$V$ の準備法則は実際に生成される $x,y$ に依存しない。一方、$x$ は $U_x^\dagger\otimes I_2$、$\Pi_s^x$、$a_{s,x}$、$b_{s,x}(V)$ を決める。異なる非可換設定では理想fiber $\nu_{V,x}^0$ の支持とbranch分解が異なるので
 
 ```math
 \mu_{\rm cut}
@@ -374,4 +374,4 @@ d_{\rm ret}(Y_0,Y_*)
 \frac{\epsilon_{\rm fresh}}{1-r_{\rm ret}}.
 ```
 
-使用済みM52 hold、branch latch、pump、sink、局所作用殻、衝突cellはspent履歴として残す。閉系から無履歴でfresh状態へ戻すとは主張しない。
+使用済みM54 hold、branch latch、pump、sink、局所作用殻、衝突cellはspent履歴として残す。閉系から無履歴でfresh状態へ戻すとは主張しない。

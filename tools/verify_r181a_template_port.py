@@ -120,6 +120,32 @@ def main() -> None:
     samples_0 = amplitudes[:, None] * ray[None, :] + transverse_scale[:, None] * transverse
     samples_t = exact_preparation(samples_0, ray, pump, sink, tau)
 
+    template_scale = 1.9
+    physical_template = template_scale * ray
+    kappa = sink / template_scale**2
+    test_signal = samples_0[0]
+    test_action = float(np.vdot(test_signal, test_signal).real)
+    physical_template_drift = (
+        pump * (1.0 - test_action) * test_signal
+        - kappa
+        * (
+            np.vdot(physical_template, physical_template) * test_signal
+            - physical_template * np.vdot(physical_template, test_signal)
+        )
+    )
+    normalized_ray_drift = (
+        pump * (1.0 - test_action) * test_signal
+        - sink * (test_signal - ray * np.vdot(ray, test_signal))
+    )
+
+    radial_initial = 0.23
+    radial_duration = 2.1
+    radial_final = 1.0 / (
+        1.0 + (1.0 / radial_initial - 1.0) * np.exp(-2.0 * pump * radial_duration)
+    )
+    radial_seed = np.sqrt(radial_initial) * ray
+    radial_repumped = np.sqrt(radial_final / radial_initial) * radial_seed
+
     a0 = samples_0 @ ray.conj()
     p0 = samples_0 - a0[:, None] * ray[None, :]
     at = samples_t @ ray.conj()
@@ -174,6 +200,18 @@ def main() -> None:
         Check("projector_trace", abs(np.trace(projector) - 1.0)),
         Check("real_complex_drift_equivalence", np.linalg.norm(dz_real - dz_complex)),
         Check("hermitian_generator", np.linalg.norm(generator - generator.conj().T)),
+        Check(
+            "physical_nonnormalized_template_equivalence",
+            np.linalg.norm(physical_template_drift - normalized_ray_drift),
+        ),
+        Check(
+            "radial_only_repump_ray_preservation",
+            pure_distance(radial_repumped, ray),
+        ),
+        Check(
+            "radial_only_repump_action_formula",
+            abs(float(np.vdot(radial_repumped, radial_repumped).real) - radial_final),
+        ),
         Check("transverse_initial_orthogonality", np.max(np.abs(transverse @ ray.conj()))),
         Check("transverse_final_orthogonality", np.max(np.abs(pt @ ray.conj()))),
         Check(

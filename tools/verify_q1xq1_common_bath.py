@@ -64,7 +64,7 @@ def main() -> None:
     checks: list[CheckResult] = []
     tolerance = 4.0e-14
 
-    # R176A: real symplectic splitter and the corrected sqrt(2) lift normalization.
+    # R181B: real symplectic splitter and the corrected sqrt(2) lift normalization.
     s0 = np.array(
         [
             [1.0, 0.0, 0.0, -1.0],
@@ -110,7 +110,7 @@ def main() -> None:
     checks.append(record_max("tensor_lift_inverse_error", maximum_lift_inverse_error, tolerance))
     checks.append(record_max("tensor_lift_norm_product_error", maximum_norm_product_error, tolerance))
 
-    # R176B: difference-mode projector and persistent-register composition.
+    # R181C: difference-mode projector and persistent-register composition.
     cx = cnot_matrix()
     difference = np.array([0.0, 0.0, 1.0, -1.0], dtype=complex) / sqrt(2.0)
     projector = np.outer(difference, difference.conj())
@@ -154,7 +154,7 @@ def main() -> None:
     checks.append(record_max("q2_1_coherent_inverse_error", np.max(np.abs(coherent_probabilities_two - np.array([1.0, 0.0, 0.0, 0.0]))), tolerance))
     checks.append(record_max("q2_1_dephase_tv_gap_error", abs(total_variation(coherent_probabilities_two, dephased_probabilities_two) - 0.5), tolerance))
 
-    # R176A/B and R177 for the same mechanism at three inputs.
+    # R181B/R181C and R177 for the same mechanism at three inputs.
     maximum_associativity_error = 0.0
     for _ in range(1_000):
         a = random_unit_vector(rng, 2)
@@ -200,7 +200,7 @@ def main() -> None:
     checks.append(record_max("coherence_tv_gap_formula_error", abs(coherence_gap - 1.0 / (2.0 * sqrt(2.0))), tolerance))
     checks.append(record_min("coherence_positive_margin", coherence_gap - 0.12, 0.2))
 
-    # R176C: capacity latch, regularization, ray invariance, and no-response mass.
+    # R181D: capacity latch, regularization, ray invariance, and no-response mass.
     v = random_unit_vector(rng, 4)
     radial = 2.7
     phase = np.exp(0.83j)
@@ -215,7 +215,7 @@ def main() -> None:
     expected_regularized = (born_probabilities + delta * q_reference) / (1.0 + delta)
     checks.append(record_max("capacity_latch_formula_error", np.max(np.abs(regularized - expected_regularized)), tolerance))
     regularization_tv = total_variation(regularized, born_probabilities)
-    checks.append(record_max("r176c_regularization_tv_bound_excess", max(0.0, regularization_tv - delta / (1.0 + delta)), tolerance))
+    checks.append(record_max("r181d_regularization_tv_bound_excess", max(0.0, regularization_tv - delta / (1.0 + delta)), tolerance))
 
     no_response = 0.006
     complete_observed = np.concatenate(((1.0 - no_response) * born_probabilities, [no_response]))
