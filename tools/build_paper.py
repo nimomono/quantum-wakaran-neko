@@ -336,7 +336,7 @@ def validate_fixed_goal_language() -> None:
         "目標ID | 現在地 | 根拠モデル | 根拠となる結果",
         "Q1-1 | 達成 | M47 | R135、R140",
         "Q2-1 | 条件付き達成 | M52、M50末端読出し | R112、R164、R170、R176A--R176C",
-        "Q2-2 | 条件付き達成 | M48、M50 | R147、R153、R155、R164、R168、R170",
+        "Q2-2 | 条件付き達成 | M52、M50、R180 receiver | R112、R161、R162、R164、R170、R176A--R176B、R178B、R180A--R180C",
         "Q2-3 | 条件付き達成 | M52永続状態bathの三部分系特殊化 | R112、R176A--R176C、R177",
         "Q2-4 | 条件付き達成 | M53 | R112、R161、R162、R164、R178A--R178F、R179",
     )
@@ -363,7 +363,7 @@ def validate_fixed_goal_language() -> None:
 
     required_readme_evidence = (
         "Q2-1 | M52、M50末端読出し | R112、R164、R170、R176A--R176C",
-        "Q2-2 | M48、M50 | R147、R153、R155、R164、R168、R170",
+        "Q2-2 | M52、M50、R180 receiver | R112、R161、R162、R164、R170、R176A--R176B、R178B、R180A--R180C",
         "Q2-4 | M53 | R112、R161、R162、R164、R178A--R178F、R179",
         "この表は固定目標の定義ではなく、現行版の判定根拠",
     )
@@ -458,11 +458,11 @@ def validate_fixed_goal_language() -> None:
         SECTIONS / "A2_m47_controlled_w_instrument_proofs.md",
         SECTIONS / "04_q1xq1_common_bath_gate.md",
         SECTIONS / "A3_q1xq1_common_bath_gate_proofs.md",
-        SECTIONS / "05_m48_bell_cycle_and_audit.md",
-        SECTIONS / "A4_m48_cycle_proofs.md",
+        SECTIONS / "05_m52_setting_pre_receiver.md",
+        SECTIONS / "A4_m52_receiver_cycle_proofs.md",
         SECTIONS / "A6_common_signal_statistics.md",
         SECTIONS / "A8_m47_hopf_preparation.md",
-        SECTIONS / "A9_m48_paired_hopf_bell_preparation.md",
+        SECTIONS / "A9_m52_setting_pre_paired_hopf_receiver.md",
         SECTIONS / "A10_q2_common_bath_composition.md",
         SECTIONS / "A11_common_collision_bath_thermodynamics.md",
         SECTIONS / "A12_common_action_shell_state_count.md",
@@ -477,6 +477,9 @@ def validate_fixed_goal_language() -> None:
         SECTIONS / "A2_l2_cycle_and_zeno_proofs.md",
         SECTIONS / "05_m41_bell_cycle_and_audit.md",
         SECTIONS / "A4_m41_cycle_proofs.md",
+        SECTIONS / "05_m48_bell_cycle_and_audit.md",
+        SECTIONS / "A4_m48_cycle_proofs.md",
+        SECTIONS / "A9_m48_paired_hopf_bell_preparation.md",
         SECTIONS / "A6_realized_configuration_proofs.md",
         SECTIONS / "A6_particle_position_proofs.md",
         SECTIONS / "A6_m37_m50_position_instrument_proofs.md",
@@ -558,6 +561,7 @@ def validate_fixed_goal_language() -> None:
     for result_id in (
         "R171", "R172", "R173", "R174", "R176A", "R176B", "R176C",
         "R178A", "R178B", "R178C", "R178D", "R178E", "R178F", "R179",
+        "R180A", "R180B", "R180C",
         "R161", "R162", "R164", "R123", "R124", "R125"
     ):
         if all_section_text.count(f"定理（{result_id}：") != 1:
@@ -627,6 +631,23 @@ def validate_fixed_goal_language() -> None:
     ):
         if token not in q2_composition_text:
             raise ValueError(f"Q2共同bath合成の固定要素がない: {token}")
+
+    r180_text = (SECTIONS / "05_m52_setting_pre_receiver.md").read_text(
+        encoding="utf-8"
+    )
+    for token in (
+        "R180A：M52末端信号のsetting-pre条件付きblock抽出定理",
+        "R180B：M52 source-driven paired-Hopf receiver吸引定理",
+        "R180C：M52駆動2端receiver合成、有限誤差、局所性監査、帰還",
+        r"V=\operatorname{vec}_{\rm row}(D)",
+        r"w_{s,x}(V)",
+        r"D^{\mathsf T}\overline{u_{s,x}}",
+        r"\varepsilon_{180}^{\rm cyc}",
+        "測定設定独立性",
+        "単一装置統合",
+    ):
+        if token not in r180_text:
+            raise ValueError(f"M52/R180 receiverの固定要素がない: {token}")
 
     m53_text = common_text
     for token in (
@@ -852,7 +873,7 @@ def tex_environment() -> dict[str, str]:
     env.update({
         # Keep PDF metadata stable for the current cited draft.  Update this
         # epoch together with CITATION.cff when a new draft is released.
-        "SOURCE_DATE_EPOCH": "1788220800",
+        "SOURCE_DATE_EPOCH": "1788480000",
         "FORCE_SOURCE_DATE": "1",
         "TZ": "UTC",
         "TEXINPUTS": "/usr/share/texlive/texmf-dist/tex//:",

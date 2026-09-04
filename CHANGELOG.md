@@ -2,6 +2,19 @@
 
 この文書には、理論上の変更と、現行稿に対する置換関係を記録する。誤字修正や構成だけの変更は、理論的内容を変えないことを明記する。
 
+## draft-66
+
+### M52駆動R180 setting-pre paired-Hopf receiver
+
+- Q2-2の根拠模型を独立M48からM52駆動setting-pre paired-Hopf receiverへ置換した。固定目標Q2-2の文言と条件付き達成判定は変更しない。固定singlet、固定有限設定族、準備先行、非空間分離、採用開放法則という範囲も維持する。
+- 固定singlet sourceをM52上の $|00\rangle\to H_A\to\mathrm{CX}_{A\to B}\to X_B\to Z_A$ とした。R176B後の実際の1試行末端信号 $V$ をR112のcanonical SWAPでholdし、試行集団交差momentまたは生成子 $G_S$ を終端共役信号として再注入しない。
+- R180A「M52末端信号のsetting-pre条件付きblock抽出定理」を追加した。行優先係数行列 $D$ に対して $w_{s,x}=D^{\mathsf T}\overline{u_{s,x}}$ とし、projector作用、枝完全性、B側縮約状態、任意の局所basisに対する共同Born則を同じblock代数から導いた。小作用blockは無反応へ残し、固定singletでは各枝作用が $1/2$ となる。
+- R180B「M52 source-driven paired-Hopf receiver吸引定理」を追加した。選択blockから得た2翼templateをsourceとし、bright pump、paired差sink、直交sinkからなる採用開放流の厳密解、吸引率、作用収支を与えた。有限閉鎖Hamiltonianへの持ち上げと総熱力学収支は主張しない。
+- R180C「M52駆動2端receiver合成、有限誤差、局所性監査、帰還」を条件付き定理として追加した。条件はM52末端SWAP、projector latch、block source port、paired-Hopf pump・sink、中央切断、2翼局所M50/R170、記録、fresh-cell帰還を1つの具体的装置とclockへ統合することである。
+- 理想共同分布、任意純粋信号の非信号性、singletの余弦相関とTsirelson値、有限誤差下のCHSH閾値をR180へ移した。A設定を中央準備へ先行入力するため測定設定独立性は成立せず、Bellの定理または空間分離自由設定実験を否定しない。
+- 旧M48、R147、R153、R155を現行結果鎖から退役させ、独立seed、setting別safe-basin routing、集団交差momentを現行sourceから外した。paired-Hopf機構、spin-flip fiber、切断後局所性監査はR180へ継承し、退役理由と再検討条件を研究メモへ保存した。
+- 第5章、付録D・I、誤差・資源台帳、結論、README、状態表、CI、生成器、manifest、引用情報を更新した。R180A block代数とM52 singlet列、R180B開放流、R180C Bell周期を検査する2本の回帰検算器へ旧M48検算器を置換し、統合原稿、TeX、PDF、検証記録をdraft-66へ同期した。
+
 ## draft-65
 
 ### M53、R178系列、R179によるQ2-4の条件付き達成
