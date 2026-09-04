@@ -62,7 +62,7 @@ jobs:
           test "$(grep -Rho '定理（R181C：' sections/*.md | wc -l)" -eq 1
           test "$(grep -Rho '定理（R181D：' sections/*.md | wc -l)" -eq 1
           grep -Fq 'R170駆動projector-tree Born instrument' sections/02_common_canonical_modules.md
-          grep -Fq 'selectorをlock' sections/A16_m54_projector_tree_receiver.md
+          grep -Fq 'lock前にfilterを開かない' sections/A16_m54_projector_tree_receiver.md
           grep -Fq 'radial-only repump' sections/A16_m54_projector_tree_receiver.md
           grep -Fq 'aggregate cold誤差' sections/A17_m54_uniform_supply.md
           grep -Fq 'version: "draft-68"' CITATION.cff
