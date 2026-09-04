@@ -1,6 +1,6 @@
 # 検算と品質確認
 
-この文書はdraft-67のQ2再編後の依存・末端受渡し整合性、再現計算、静的整合性、PDF生成、目視確認の記録である。検証日は2026-09-04。過去版の検証記録は後半に保存する。
+この文書はdraft-68のM54親模型統一、R181A--R181D、再現計算、静的整合性、PDF生成、目視確認の記録である。検証日は2026-09-04。過去版の検証記録は後半に保存する。
 
 ## 実行方法
 
@@ -12,21 +12,44 @@ for script in tools/verify_*.py; do python "$script"; done
 python tools/build_paper.py
 ```
 
+## draft-68方針監査
+
+- M54の完全状態を $\Gamma_{54}^{(n)}=(Z,S_{\rm port},G,W,J,A^\delta,X,C,B_{\rm cold},B_{\rm spent},D,\tau)$ とし、Q1とQ2-1--Q2-4を同じ状態型、port規約、gate規約、receiver規約の特殊化として整理した。全規模で同一の製造済み装置または同一パラメータを使う主張は置いていない。
+- R181A--R181Dの定理宣言が現行章全体で各1回だけ現れることを検査した。R181Aは物理template準備、R181Bは固定入力lift、R181Cは永続register gate、R181DはR170駆動projector-treeに責務を限定した。
+- R181Dでraw容量とregularized作用殻容量を分け、raw cutoff、selector lock後の可逆filter、radial-only repump、無反応込みの完全結果誤差を因果順に検査した。旧fixed-volume apertureとdyadic threshold tapeは退役メモだけに残し、現行依存へ入れていない。
+- PROJECT_STATUS、README、第1章のQ2依存台帳を結果依存グラフの推移閉包と照合した。4行ともR112、R161、R162、R164、R170、R181A--R181Dを含み、Q2-3だけR177、Q2-4だけR178D/R179、Q2-2だけR180A--R180Cを追加する。
+- 固定目標の文言と達成ラベルを検査した。Q1-1は達成、Q1-2は部分達成、Q2-1--Q2-4は条件付き達成、Q3-1とQ3-3は達成、Q3-2は未達、Q3-4とQ3-5は条件付き達成のままである。
+
+## draft-68再現計算
+
+- `python -m py_compile tools/*.py` と18本の `tools/verify_*.py` を実行し、すべて正常終了した。
+- `verify_r181a_template_port.py` の28項目で、非規格化物理templateと解析ray表示の同値性、transverse収束、radial-only特殊化、切断後unitary輸送、無反応保持を検算した。
+- `verify_r181d_projector_tree.py` の15項目で、sector直和誤差、filterのunitarity・involution、raw/regularized容量分離、Born確率のtelescoping、非自明なcutoff質量、filter ray上界、radial repump、完全結果誤差予算を検算した。例のfilter ray誤差は `1.46e-2`、上界は `9.89e-2`、完全結果上界は `2.50e-4 < 1.00e-3` だった。
+- `verify_m54_q2_composition.py` の11項目で、2・3入力lift、$n=1,2,3$ の共通projector-tree、spectator sectorへの一括gate、Q2-4の時間・剛性・collision・barrier scalingを検算した。
+- `verify_r179_m54_supply.py` の12項目で、partial SWAPの正準性、spent側を含む作用保存、aggregate cold上界、対数round数、独立mode noiseの平方根増大、root load、供給誤差のdata processingを検算した。49 round後のbank残差は `1.91e-5`、上界は `5.69e-5` だった。
+- `verify_r180_m54_receiver.py` の17項目を含む既存回帰も通過し、M54の実際の末端信号だけがR180へ渡ること、古いanti-registerを末端共役として再利用しないことを維持した。
+
+## draft-68 PDF生成・目視確認
+
+- 出力はA4、199ページ、1,237,042 byte、SHA-256 `f1c6eff841cce94aa82f75f477f9a7934a8f810e34d73c99797bbe14fbdb6200` である。`SOURCE_DATE_EPOCH` は2026-09-04 00:00:00 UTCとした。
+- `paper.md`、`main.tex`、`paper.pdf` を連続再生成し、3ファイルのSHA-256が再実行前後で一致した。最終LaTeX logに未定義citation/reference、overfull、underfull、fatal error、欠落文字はない。既知のLatin Modern Math太字font fallbackだけが残る。
+- 物理PDFページ1、19、29、48--49、52、191--193を144 dpiでrenderし、draft-68表紙、M54完全状態と有限次元特殊化、R181D本文、付録Pのraw cutoff、selector/filter、radial-only repump、誤差・資源節を確認した。文字・数式・表・見出し・頁番号に切れ、重なり、欠落glyph、意図しない空白は見つからなかった。
+
 主要検算器を個別に実行するときは次を使う。
 
 ```bash
 python tools/verify_common_canonical_control.py
 python tools/verify_common_collision_thermodynamics.py
-python tools/verify_m51_common_open_preparation.py
+python tools/verify_r181a_template_port.py
 python tools/verify_m42_spatial_token.py
 python tools/verify_q1xq1_common_bath.py
 python tools/verify_q2_shell_and_locality.py
-python tools/verify_r180_m52_receiver.py
+python tools/verify_r180_m54_receiver.py
 python tools/verify_r180_bell_cycle.py
 python tools/verify_common_signal_m50.py
-python tools/verify_r178_uniform_sampler.py
-python tools/verify_r179_uniform_supply.py
-python tools/verify_q2_m53_composition.py
+python tools/verify_r181d_projector_tree.py
+python tools/verify_r179_m54_supply.py
+python tools/verify_m54_q2_composition.py
 ```
 
 ## draft-67方針監査

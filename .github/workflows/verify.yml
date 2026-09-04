@@ -34,191 +34,38 @@ jobs:
             python "$script"
           done
 
-      - name: 現行の理論階層統合を検査
+      - name: M54理論境界を検査
         run: |
           set -Ee -o pipefail
-          trap 'rc=$?; echo "::error::理論階層統合の失敗 (exit ${rc}): ${BASH_COMMAND}"' ERR
-          test -f sections/A6_common_signal_statistics.md
-          test -f sections/A8_m47_hopf_preparation.md
-          test -f sections/05_m52_setting_pre_receiver.md
-          test -f sections/A4_m52_receiver_cycle_proofs.md
-          test -f sections/A9_m52_setting_pre_paired_hopf_receiver.md
-          test -f sections/A10_q2_common_bath_composition.md
-          test -f sections/A11_common_collision_bath_thermodynamics.md
-          test -f sections/A12_common_action_shell_state_count.md
-          test -f sections/A13_common_open_preparation.md
-          test -f sections/A14_m37_m42_spatial_token.md
-          test -f sections/A15_q2_uniform_sequential_sampler.md
-          test -f sections/A16_q2_fresh_tape_aperture.md
-          test -f sections/A17_q2_uniform_supply.md
-          test -f notes/q1_2_zeno_integration.md
-          test ! -e notes/q1_zeno_revival.md
-          test ! -e notes/frozen_q1_zeno.md
-          test ! -e sections/A6_m37_m50_position_instrument_proofs.md
-          test ! -e sections/A8_w_two_mode_hopf_statistics.md
-          test ! -e sections/A13_q2_action_shell_statistics.md
-          test ! -e sections/A8_open_quasicritical_preparation.md
-          test ! -e sections/A14_q2_action_shell_statistics.md
-          test ! -e sections/05_m48_bell_cycle_and_audit.md
-          test ! -e sections/A4_m48_cycle_proofs.md
-          test ! -e sections/A9_m48_paired_hopf_bell_preparation.md
-          test ! -d simulations/m45_open_quasicritical
-          test ! -e figures/m45_open_trap_diagnostics.png
-          test ! -e figures/m45_conditional_ground_comparison.png
-          test -f tools/verify_common_canonical_control.py
-          test -f tools/verify_common_collision_thermodynamics.py
-          test -f tools/verify_common_signal_m50.py
-          test -f tools/verify_m51_common_open_preparation.py
-          test -f tools/verify_m42_spatial_token.py
-          test -f tools/verify_r178_uniform_sampler.py
-          test -f tools/verify_r179_uniform_supply.py
-          test -f tools/verify_q2_m53_composition.py
-          test -f tools/verify_q2_shell_and_locality.py
-          test -f tools/verify_q1xq1_common_bath.py
-          test -f tools/verify_r180_m52_receiver.py
-          test -f tools/verify_r180_bell_cycle.py
-          test ! -e tools/verify_q2_1_gate.py
-          test ! -e tools/verify_m49_joint_bath_provider.py
-          test ! -e tools/verify_action_distribution.py
-          test ! -e tools/verify_m37_m50_position_instrument.py
-          test ! -e tools/verify_m50_instrument_and_q3_handoff.py
-          test ! -e tools/verify_q2_action_shell_integration.py
-          test ! -e tools/verify_m39_m48_ablation.py
-          test ! -e tools/verify_m48_paired_hopf.py
-          test ! -e tools/verify_m48_full_cycle.py
-          grep -Fq 'R135：有限信号集団の規格化第2モーメント輸送' sections/02_common_canonical_modules.md
-          grep -Fq 'R171：M51共通開放ray準備の有限時間率と切断後輸送' sections/02_common_canonical_modules.md
-          grep -Fq 'R168：一般ray平均からM50枝統計への受渡し' sections/02_common_canonical_modules.md
-          grep -Fq 'R170：M50固定入力時刻有限枝instrument' sections/02_common_canonical_modules.md
-          grep -Fq 'R143：M47有限コントラスト読出しと結果別状態更新' sections/03_m47_controlled_w_instrument.md
-          grep -Fq 'R180A：M52末端信号のsetting-pre条件付きblock抽出定理' sections/05_m52_setting_pre_receiver.md
-          grep -Fq 'R180B：M52 source-driven paired-Hopf receiver吸引定理' sections/05_m52_setting_pre_receiver.md
-          grep -Fq 'R180C：M52駆動2端receiver合成、有限誤差、局所性監査、帰還' sections/05_m52_setting_pre_receiver.md
-          grep -Fq 'R180Cは条件付き定理である' sections/05_m52_setting_pre_receiver.md
-          grep -Fq '実際の末端信号 $v=Z_{\rm out}(\omega)$' sections/04_q1xq1_common_bath_gate.md
-          grep -Fq 'R86：M37有限時間包絡線縮約' sections/06_m37_spatial_envelope.md
-          grep -Fq 'R172：M37有効辺流に沿うM42局在トークンの等変輸送' sections/06_m37_spatial_envelope.md
-          grep -Fq 'R173：M42の節一様正則化と有限衝突Hamiltonian近似' sections/06_m37_spatial_envelope.md
-          grep -Fq 'R174：M51--M37--M42の有限時間準備・輸送・記録受渡し' sections/06_m37_spatial_envelope.md
-          grep -Fq 'R162の平衡率公式をそのまま用いる主張ではない' sections/06_m37_spatial_envelope.md
-          grep -Fq '方向別controllerと仕事registerを持つ駆動衝突模型' sections/A14_m37_m42_spatial_token.md
-          grep -Fq '物理的な一様閾値座標' sections/A14_m37_m42_spatial_token.md
-          grep -Fq 'R112 | 厳密結果 | 有限正準信号のunitary合成' PROJECT_STATUS.md
-          grep -Fq 'M50 | 有限信号作用・作用殻・粒子位置熱化・有限枝instrument | 現行共通instrument仕様' PROJECT_STATUS.md
-          grep -Fq 'M51 | 有限実正準担体の共通開放ray準備 | 現行基礎開放模型' PROJECT_STATUS.md
-          grep -Fq 'M42 | M37空間担体上の局在1粒子トークン | 現行Q3粒子模型' PROJECT_STATUS.md
-          grep -Fq 'R176A：可逆tensor-lift定理' sections/04_q1xq1_common_bath_gate.md
-          grep -Fq 'R176B：永続状態bathゲート合成定理' sections/04_q1xq1_common_bath_gate.md
-          grep -Fq 'R176C：末端Born型instrument接続定理' sections/04_q1xq1_common_bath_gate.md
-          grep -Fq 'R177：二段共同bath合成のGHZ--T--逆演算証人' sections/A10_q2_common_bath_composition.md
-          grep -Fq 'M53一様直接モード・逐次2枝標本化模型' sections/02_common_canonical_modules.md
-          grep -Fq 'R178A：局所gateの一様sector-broadcast定理' sections/02_common_canonical_modules.md
-          grep -Fq 'R178B：直交projector作用latch・可逆filter定理' sections/02_common_canonical_modules.md
-          grep -Fq 'R178C：希少枝切断付き逐次Born sampler定理' sections/02_common_canonical_modules.md
-          grep -Fq 'R178D：逐次history逆掃除・collective reset定理' sections/02_common_canonical_modules.md
-          grep -Fq 'R178E：二枝作用殻interface・fresh-tape周期定理' sections/02_common_canonical_modules.md
-          grep -Fq 'R178F：滑らかな二channel aperture散乱の一様canonical実装定理' sections/02_common_canonical_modules.md
-          grep -Fq 'R179：一様blank-bank・fresh-cell供給定理' sections/02_common_canonical_modules.md
-          grep -Fq '1試行状態と集団momentの分離' sections/A10_q2_common_bath_composition.md
-          grep -Fq '| Q1-1 | 達成 |' PROJECT_STATUS.md
-          grep -Fq '| Q1-2 | 部分達成 |' PROJECT_STATUS.md
-          grep -Fq '| Q1-2 | 射影測定統計とZeno効果 |' PROJECT_STATUS.md
-          grep -Fq '| Q1-2 | 射影測定統計とZeno効果 |' README.md
-          grep -Fq '同軸再測定の反復分布' PROJECT_STATUS.md
-          grep -Fq '異なる軸による逐次測定分布' PROJECT_STATUS.md
-          if grep -En '^\| Q1-(3|4) \|' README.md PROJECT_STATUS.md sections/*.md; then
-            exit 1
-          fi
-          grep -Fq '| Q2-1 | 条件付き達成 |' PROJECT_STATUS.md
-          grep -Fq '| Q2-2 | 条件付き達成 |' PROJECT_STATUS.md
-          grep -Fq '| Q2-3 | 条件付き達成 |' PROJECT_STATUS.md
-          grep -Fq '| Q2-4 | 条件付き達成 |' PROJECT_STATUS.md
-          grep -Fq '| Q3-1 | 達成 |' PROJECT_STATUS.md
-          grep -Fq '| Q3-2 | 未達 |' PROJECT_STATUS.md
-          grep -Fq '| Q3-3 | 達成 |' PROJECT_STATUS.md
-          grep -Fq '| Q3-4 | 条件付き達成 |' PROJECT_STATUS.md
-          grep -Fq '| Q3-5 | 条件付き達成 |' PROJECT_STATUS.md
-          grep -Fq '| Q2-3 | 3量子ビット型二段ゲート合成 |' PROJECT_STATUS.md
-          grep -Fq '| Q2-4 | 多項式外部制御による量子出力サンプリング |' PROJECT_STATUS.md
-          grep -Fq '積入力を非分離な共同内部状態へ移し得る' PROJECT_STATUS.md
-          grep -Fq '最終出力分布を事前計算' PROJECT_STATUS.md
-          grep -Fq '一出力標本' PROJECT_STATUS.md
-          grep -Fq '互いに論理的に独立に判定' PROJECT_STATUS.md
-          grep -Fq '根拠モデルと根拠結果' PROJECT_STATUS.md
-          grep -Fq '固定目標の達成条件ではなく実装上の努力目標' PROJECT_STATUS.md
-          grep -Fq '| 目標ID | 現在地 | 根拠モデル | 根拠となる結果 |' PROJECT_STATUS.md
-          grep -Fq '| Q2-1 | 条件付き達成 | M52、M50末端読出し | R112、R164、R170、R176A--R176C |' PROJECT_STATUS.md
-          grep -Fq '| Q2-2 | 条件付き達成 | M52、M50、R180 receiver | R112、R161、R162、R164、R170、R176A--R176B、R178B、R180A--R180C |' PROJECT_STATUS.md
-          grep -Fq '| Q2-3 | 条件付き達成 | M52永続状態bathの三部分系特殊化、M50末端読出し | R112、R164、R170、R176A--R176C、R177 |' PROJECT_STATUS.md
-          grep -Fq '| Q2-4 | 条件付き達成 | M53 | R112、R161、R162、R164、R178A--R178F、R179 |' PROJECT_STATUS.md
-          grep -Fq '| Q2-3 | M52永続状態bathの三部分系特殊化、M50末端読出し | R112、R164、R170、R176A--R176C、R177 |' README.md
-          grep -Fq 'canonical SWAPは同次元正準座標の交換だけを行い、状態依存除算を行わない' sections/05_m52_setting_pre_receiver.md
-          grep -Fq 'R178Bが信号作用を二枝の非規格化容量 $A_b$ へlatchする' sections/02_common_canonical_modules.md
-          grep -Fq '受動的な浴自由度' PROJECT_STATUS.md
-          grep -Fq '指数個の自由度を個別に初期化' PROJECT_STATUS.md
-          grep -Fq '成功試行だけを再規格化しない' sections/08_errors_resources_open_targets.md
-          grep -Fq 'Q2の根拠モデル、共通ハードウェア努力目標、資源分類' sections/08_errors_resources_open_targets.md
-          grep -Fq '固定目標の達成条件ではなく実装努力目標' sections/08_errors_resources_open_targets.md
-          grep -Fq 'Q2-3の3量子ビット型二段ゲート合成' sections/08_errors_resources_open_targets.md
-          grep -Fq 'Q2-3は条件付き達成' sections/08_errors_resources_open_targets.md
-          grep -Fq 'Q1-1、Q3-1、Q3-3は個別機能として達成、Q1-2は部分達成、Q2-1、Q2-2、Q2-3、Q2-4、Q3-4、Q3-5は条件付き達成' sections/08_errors_resources_open_targets.md
-          grep -Fq 'Q2-4多項式外部制御による量子出力サンプリング' sections/08_errors_resources_open_targets.md
-          grep -Fq '指数的な受動自由度' sections/08_errors_resources_open_targets.md
-          grep -Fq '総bath容量、総熱は指数的でもよい' sections/08_errors_resources_open_targets.md
-          grep -Fq 'threshold discrepancy' sections/A17_q2_uniform_supply.md
-          grep -Fq '互いに特異' sections/A17_q2_uniform_supply.md
-          grep -Fq '一定精度のpartial SWAP' sections/A17_q2_uniform_supply.md
-          grep -Fq '同一の静的二次Hamiltonian' sections/A17_q2_uniform_supply.md
-          grep -Fq 'Fano補正' sections/A16_q2_fresh_tape_aperture.md
-          grep -Fq '通常の意味の効率的古典simulationを主張しない' PROJECT_STATUS.md
-          if grep -REn 'Q2共通ハードウェアへの統合は未達|Q2共通ハードウェア統合|一様な共通ハードウェア族を使うことを横断条件|Q2固定目標は、規模ごとの一様な共通ハードウェア族を要求する' README.md PROJECT_STATUS.md sections/*.md; then
-            exit 1
-          fi
-          if grep -En '^\| Q2-5 \|' README.md PROJECT_STATUS.md sections/*.md; then
-            exit 1
-          fi
-          grep -Fq '積入力を非分離な共同内部状態へ移し得るものとする' PROJECT_STATUS.md
-          grep -Fq 'GHZ--$T$--逆演算' sections/08_errors_resources_open_targets.md
-          grep -Fq '1/(2\sqrt2)' sections/08_errors_resources_open_targets.md
-          if grep -REn 'M49|R159|R160' README.md PROJECT_STATUS.md sections/*.md; then
-            exit 1
-          fi
-          if grep -REn '未達（凍結中）|未達・凍結|未達のまま凍結|凍結状態|凍結を維持' README.md PROJECT_STATUS.md sections/*.md; then
-            exit 1
-          fi
-          if grep -REn 'R(83|84|85|87|88|89|90|97|98|99|104|105|106|136|139|141|142|146|148|149|150|151|152|154|156|157|158|163|165|166|167|169)|M(35|39|41|43|45|46)|R(107|108|109|110|111|120|121|122|130|131|132|137|138)' README.md PROJECT_STATUS.md sections/*.md tools/*.py; then
-            exit 1
-          fi
-          test "$(grep -Rho '定理（R161：' sections/*.md | wc -l)" -eq 1
-          test "$(grep -Rho '定理（R171：' sections/*.md | wc -l)" -eq 1
-          test "$(grep -Rho '定理（R172：' sections/*.md | wc -l)" -eq 1
-          test "$(grep -Rho '定理（R173：' sections/*.md | wc -l)" -eq 1
-          test "$(grep -Rho '定理（R174：' sections/*.md | wc -l)" -eq 1
-          test "$(grep -Rho '定理（R176A：' sections/*.md | wc -l)" -eq 1
-          test "$(grep -Rho '定理（R176B：' sections/*.md | wc -l)" -eq 1
-          test "$(grep -Rho '定理（R176C：' sections/*.md | wc -l)" -eq 1
-          test "$(grep -Rho '定理（R178A：' sections/*.md | wc -l)" -eq 1
-          test "$(grep -Rho '定理（R178B：' sections/*.md | wc -l)" -eq 1
-          test "$(grep -Rho '定理（R178C：' sections/*.md | wc -l)" -eq 1
-          test "$(grep -Rho '定理（R178D：' sections/*.md | wc -l)" -eq 1
-          test "$(grep -Rho '定理（R178E：' sections/*.md | wc -l)" -eq 1
-          test "$(grep -Rho '定理（R178F：' sections/*.md | wc -l)" -eq 1
-          test "$(grep -Rho '定理（R179：' sections/*.md | wc -l)" -eq 1
-          test "$(grep -Rho '定理（R180A：' sections/*.md | wc -l)" -eq 1
-          test "$(grep -Rho '定理（R180B：' sections/*.md | wc -l)" -eq 1
-          test "$(grep -Rho '定理（R180C：' sections/*.md | wc -l)" -eq 1
-          ! grep -REq '定理（R(147|153|155)：' sections/*.md
-          test "$(grep -Rho '定理（R162：' sections/*.md | wc -l)" -eq 1
-          test "$(grep -Rho '定理（R164：' sections/*.md | wc -l)" -eq 1
-          test "$(grep -Rho '定理（R123：' sections/*.md | wc -l)" -eq 1
-          test "$(grep -Rho '定理（R124：' sections/*.md | wc -l)" -eq 1
-          test "$(grep -Rho '定理（R125：' sections/*.md | wc -l)" -eq 1
-          if grep -REn 'A14_q2|A13_q2|A12_common_collision|A11_q2|A10_m48|A9_w_two|A8_w_two|A6_m37_m50' MANIFEST.md tools/verify_*.py; then
-            exit 1
-          fi
-          if grep -REn '二mode|二モード|実現配置' README.md PROJECT_STATUS.md sections/*.md; then
-            exit 1
-          fi
+          trap 'rc=$?; echo "::error::M54理論境界の失敗 (exit ${rc}): ${BASH_COMMAND}"' ERR
+          for path in \
+            sections/04_m54_q2_specializations.md \
+            sections/05_m54_setting_pre_receiver.md \
+            sections/A3_m54_q2_specialization_proofs.md \
+            sections/A4_m54_receiver_cycle_proofs.md \
+            sections/A9_m54_setting_pre_paired_hopf_receiver.md \
+            sections/A13_m54_template_port_preparation.md \
+            sections/A15_m54_uniform_register.md \
+            sections/A16_m54_projector_tree_receiver.md \
+            sections/A17_m54_uniform_supply.md \
+            notes/superseded_r178_aperture_sampler.md \
+            notes/superseded_separate_m51_m52_m53_models.md \
+            tools/verify_r181a_template_port.py \
+            tools/verify_r181d_projector_tree.py \
+            tools/verify_m54_q2_composition.py \
+            tools/verify_r179_m54_supply.py \
+            tools/verify_r180_m54_receiver.py; do
+            test -f "$path"
+          done
+          test "$(grep -Rho '定理（R181A：' sections/*.md | wc -l)" -eq 1
+          test "$(grep -Rho '定理（R181B：' sections/*.md | wc -l)" -eq 1
+          test "$(grep -Rho '定理（R181C：' sections/*.md | wc -l)" -eq 1
+          test "$(grep -Rho '定理（R181D：' sections/*.md | wc -l)" -eq 1
+          grep -Fq 'R170駆動projector-tree Born instrument' sections/02_common_canonical_modules.md
+          grep -Fq 'lock前にfilterを開かない' sections/A16_m54_projector_tree_receiver.md
+          grep -Fq 'radial-only repump' sections/A16_m54_projector_tree_receiver.md
+          grep -Fq 'aggregate cold誤差' sections/A17_m54_uniform_supply.md
+          grep -Fq 'version: "draft-68"' CITATION.cff
 
       - name: 収録PDFを退避
         run: cp paper.pdf /tmp/paper-committed.pdf

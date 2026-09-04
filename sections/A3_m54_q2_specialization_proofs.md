@@ -1,7 +1,7 @@
 @number: C
 @chapter: 付録
 @title: 可逆tensor-lift、永続gate、末端instrumentの証明
-@status: R176A/Bを有限正準Hamiltonian構成として証明し、R176Cの条件と誤差境界を分離する。
+@status: R181B/R181Cを有限正準Hamiltonian構成として証明し、R181Dの条件と誤差境界を分離する。
 
 ## C.1　実正準表示
 
@@ -108,7 +108,7 @@ $w^x=(x+i\pi^x)/s_C$、$w^y=(y+i\pi^y)/s_C$ とすると
 
 ## C.3　可逆性と有限性
 
-Hamiltonian流は拡大位相空間上で1対1である。出力 $Z_S$ だけを残してsource、$G_S$、work、clock履歴を捨てれば見かけ上の非可逆写像になるが、M52はそれらをbath内に保持する。逆順に $S_0^{-1}$ を作用させ、$\chi$ の符号を反転したpulseを通せば式(C.5)へ戻る。
+Hamiltonian流は拡大位相空間上で1対1である。出力 $Z_S$ だけを残してsource、$G_S$、work、clock履歴を捨てれば見かけ上の非可逆写像になるが、M54はそれらをbath内に保持する。逆順に $S_0^{-1}$ を作用させ、$\chi$ の符号を反転したpulseを通せば式(C.5)へ戻る。
 
 多項式Hamiltonianが大振幅で発散しないよう、安全compact集合 $K$ の近傍で1となる滑らかなcutoff $\eta_K$ を式(C.4)へ掛ける。有限入力次元、有限target数、有限pulse時間では $K$ を通る理想軌道を覆う有限supportを選べる。よって作用、時間、mode数は有限である。
 
@@ -125,14 +125,14 @@ Hamiltonian流は拡大位相空間上で1対1である。出力 $Z_S$ だけを
 $L_K=0$ の場合は第1項を $T\epsilon_X$ と読む。
 
 <!-- theorem-start:proof -->
-**証明（R176A）**
+**証明（R181B）**
 
 式(C.4)--式(C.7)が各targetへの積の書込みを与え、式(C.8)、式(C.9)がそれを $Z_{jk}=a_jb_k$ とanti-modeへ正準的に分ける。全 $(j,k)$ に同じ規則を並列適用すれば $Z_S=a\otimes b$ となる。Hamiltonian流、$S_0$、pulseはすべて可逆であり、保持したsource、anti-register、work、clock履歴と逆順操作から逆写像を得る。有限性と誤差はcutoff構成および式(C.11)から従う。証明終。
 <!-- theorem-end:proof -->
 
 ## C.4　参照因子と反復lift
 
-R176Aは未知の係数を外部で読み出すのでなく、入力modeとblank targetの局所Hamiltonian couplingで積を生成する。従ってcontrollerのprogramは入力値に依存しない。
+R181Bは未知の係数を外部で読み出すのでなく、入力modeとblank targetの局所Hamiltonian couplingで積を生成する。従ってcontrollerのprogramは入力値に依存しない。
 
 第三因子 $c$ に対しては、最初の出力をsourceとして同じ乗算器へ入れ、
 
@@ -142,9 +142,9 @@ R176Aは未知の係数を外部で読み出すのでなく、入力modeとblank
  \tag{C.12}
 ```
 
-を得る。最初のliftに属するanti/workも捨てない。有限次元の参照因子 $R$ が存在しても、M52が $R$ に作用しなければ全写像は実正準流の恒等拡張となる。
+を得る。最初のliftに属するanti/workも捨てない。有限次元の参照因子 $R$ が存在しても、M54が $R$ に作用しなければ全写像は実正準流の恒等拡張となる。
 
-ただし未知の一般状態を複製するとは主張しない。R176Aの入口契約は独立なQ1 portに与えられた積入力である。すでに非分離な入力は、前段と同じ永続register内でゲートを継続し、再liftしない。
+ただし未知の一般状態を複製するとは主張しない。R181Bの入口契約は独立なQ1 portに与えられた積入力である。すでに非分離な入力は、前段と同じ永続register内でゲートを継続し、再liftしない。
 
 ## C.5　CNOT生成子
 
@@ -206,7 +206,7 @@ R176Aは未知の係数を外部で読み出すのでなく、入力modeとblank
 式(4.20)の作用窓が交わらず、出口で $g_r=0$ なら、各窓の時間発展を順序積として分けられる。窓間は $H_{\rm hold}$ だけが作用する。状態を別bathへ渡さないので独立のhandoff誤差はなく、hold、clock、leakageとして一度だけ数える。
 
 <!-- theorem-start:proof -->
-**証明（R176B）**
+**証明（R181C）**
 
 式(C.3)により各有限Hermitian生成子は同じ $Z_S$ 上の実正準Hamiltonian流である。CNOTと3入力の二つのCNOTは式(C.13)、式(C.14)およびslice和から従う。非重複clock窓は有限gate列の順序積を与え、式(C.16)が合成誤差、式(C.17)が参照系安定性を与える。全期間にわたり $Z_S$ を保持するため、中間decode、選択、再準備はない。証明終。
 <!-- theorem-end:proof -->
@@ -278,17 +278,17 @@ $V\mapsto re^{i\phi}V$ は式(C.21)を変えない。
  \tag{C.23}
 ```
 
-とする。純粋rayの計算基底分布に対するdata-processing評価から、その全変動距離は $\varepsilon_{\rm ray}$ 以下で抑えられる。正則化は式(C.22)、SWAP、latch、shell、mixing、collection、lock、record、clockの有限誤差は合計 $\varepsilon_{170}^{\rm end}$ へ一度ずつ数える。無反応を $\varnothing$ として捨てずに含めれば本文R176Cの境界を得る。
+とする。純粋rayの計算基底分布に対するdata-processing評価から、その全変動距離は $\varepsilon_{\rm ray}$ 以下で抑えられる。正則化は式(C.22)、SWAP、latch、shell、mixing、collection、lock、record、clockの有限誤差は合計 $\varepsilon_{170}^{\rm end}$ へ一度ずつ数える。無反応を $\varnothing$ として捨てずに含めれば本文R181Dの境界を得る。
 
 <!-- theorem-start:proof -->
-**証明（R176C）**
+**証明（R181D）**
 
-式(C.19)、式(C.20)が信号を壊さない容量latchを与え、式(C.21)、式(C.22)が正則化Born比とその誤差を与える。ray誤差、末端工程の合成誤差、無反応massに三角不等式を適用すると本文R176Cの境界を得る。R164、R170の有限作用殻と排他的固定を接続できるという仮定の下で成立する条件付き証明である。証明終。
+式(C.19)、式(C.20)が信号を壊さない容量latchを与え、式(C.21)、式(C.22)が正則化Born比とその誤差を与える。ray誤差、末端工程の合成誤差、無反応massに三角不等式を適用すると本文R181Dの境界を得る。R164、R170の有限作用殻と排他的固定を接続できるという仮定の下で成立する条件付き証明である。証明終。
 <!-- theorem-end:proof -->
 
 ## C.10　残る接続義務
 
-R176Cを無条件の一体定理へ上げるには次を閉じる必要がある。
+R181Dを無条件の一体定理へ上げるには次を閉じる必要がある。
 
 - canonical SWAP出口と容量pointer入口の共通safe set
 - pointer容量からR164作用殻への有限Hamiltonian境界
@@ -296,4 +296,4 @@ R176Cを無条件の一体定理へ上げるには次を閉じる必要がある
 - collection、lock、recordまでを含む単一clock schedule
 - すべてのfailure cellと無反応を含む完全結果空間
 
-これらは一般入力liftや中間coherent decoderの欠落ではない。R176AとR176Bにより、その二つはそれぞれ明示的liftと同じ永続register上のgate列へ置き換わった。
+これらは一般入力liftや中間coherent decoderの欠落ではない。R181BとR181Cにより、その二つはそれぞれ明示的liftと同じ永続register上のgate列へ置き換わった。

@@ -127,7 +127,7 @@ Q1ではM50の仮引数を $v=z$ と特殊化する。厳密支持上では $z=\
 
 となるが、物理制御器が入力するのは $c$ または $C_Z$ でなく単一試行の $z$ である。$c$ は集団を表示する統計的rayに留まる。
 
-この補題は正半定値自己共分散 $\mathbb E[ZZ^\dagger]$ に対する結果である。Q2の交差モーメント $\mathbb E[z_Az_B^{\mathsf T}]$、そのベクトル化、またはそこから作る階数1射影へ適用して、積標本 $z_A\otimes z_B$ がsinglet ray上にあるとは結論しない。付録Iの否定命題はそのような直接singlet支持が不可能であることを示す。M52ではR176Aが1試行の積入力から実際の $Z_S=a\otimes b$ をHamiltonian liftで作るので、集団共分散を準備機構として流用しない。
+この補題は正半定値自己共分散 $\mathbb E[ZZ^\dagger]$ に対する結果である。Q2の交差モーメント $\mathbb E[z_Az_B^{\mathsf T}]$、そのベクトル化、またはそこから作る階数1射影へ適用して、積標本 $z_A\otimes z_B$ がsinglet ray上にあるとは結論しない。付録Iの否定命題はそのような直接singlet支持が不可能であることを示す。M54ではR181Bが1試行の積入力から実際の $Z_S=a\otimes b$ をHamiltonian liftで作るので、集団共分散を準備機構として流用しない。
 
 Q3のR168は、この階数1支持に加えて一般の安全事象上のray平均を扱う。高階数の固定作用節では、各試行の全作用が一定のときだけ、試行ごとのray規格化と集団第2モーメントの規格化が可換になる。可変全作用集団ではradial補正が必要であり、Q2の交差モーメントへこの節を流用しない。
 
@@ -659,7 +659,7 @@ M50をQ1、Q2、Q3の1回の作用殻準備と粒子位置再平衡化へ使う�
 \end{aligned}
 ```
 
-と定める。$\varepsilon_{\rm cap}$ は有限容量結合、$\varepsilon_{\rm width}$ は有限剛性、$\varepsilon_{\rm sym}$ は枝非対称、$\varepsilon_{\rm ad}$ は殻内条件付き平衡化と有効地形切替、$\varepsilon_\delta$ は正則化、$\varepsilon_{\rm mix}$ は有限時間粒子位置混合、$\varepsilon_{\rm coll}$ は有限衝突近似、$\varepsilon_{\rm hold}$ は信号保持反作用である。$\varepsilon_{\rm supp}$ はM50内部誤差でなく、統計的rayから単一試行入力への上流受渡し誤差として別に記帳する。有限時間Hopf誤差から評価した同じ偏差を両方へ加えない。R176CではSWAP、容量latch、shell、mixing、collection、lock、record、clockを $\varepsilon_{170}^{\rm end}$ へ各1回だけ数える。
+と定める。$\varepsilon_{\rm cap}$ は有限容量結合、$\varepsilon_{\rm width}$ は有限剛性、$\varepsilon_{\rm sym}$ は枝非対称、$\varepsilon_{\rm ad}$ は殻内条件付き平衡化と有効地形切替、$\varepsilon_\delta$ は正則化、$\varepsilon_{\rm mix}$ は有限時間粒子位置混合、$\varepsilon_{\rm coll}$ は有限衝突近似、$\varepsilon_{\rm hold}$ は信号保持反作用である。$\varepsilon_{\rm supp}$ はM50内部誤差でなく、統計的rayから単一試行入力への上流受渡し誤差として別に記帳する。有限時間Hopf誤差から評価した同じ偏差を両方へ加えない。R181DではSWAP、容量latch、shell、mixing、collection、lock、record、clockを $\varepsilon_{170}^{\rm end}$ へ各1回だけ数える。
 
 R164の達成範囲は「条件付き厳密結果＋滑らかな有限幅近似」である。本付録は次を主張しない。
 
@@ -672,8 +672,8 @@ R164の達成範囲は「条件付き厳密結果＋滑らかな有限幅近似�
 7. 有限信号次元を越える任意POVM、連続スペクトルの一般Born則。
 8. 旧M15の入口標本化、殻等方混合、標本化後再埋込み、全測定周期が再び現行結果になること。
 
-R164をR143、R144へ接続すると、Q1-2のBorn分布、同軸反復分布、異軸逐次分布を支える。Q1-2全体はZeno部分が未達であるため部分達成のままであり、R164の有限局所Hamiltonian統合や完全周期は達成条件に含めない。Q2-1ではR176CがM52の実際の末端4mode信号をcanonical SWAPと容量latchでR164へ接続する。R176A/Bはlift、CNOT、逆演算を与えるが、容量pointer--作用殻境界と全末端工程の一体化は条件として残るためQ2-1は条件付き達成である。Q2-2ではR180Aが同じ実信号から枝作用と2翼templateを作り、R180Cが切断後局所因子化を追加するが、単一装置統合を条件とするため条件付き達成のままである。Q3ではR164を準備終了面で一度だけ使って初期M42位置を作り、R172--R174が同じ粒子を輸送する。作用容量結合、M42 bath、clock、記録の統合を自動的に与えないため、Q3-4、Q3-5は条件付き達成のままである。
+R164をR143、R144へ接続すると、Q1-2のBorn分布、同軸反復分布、異軸逐次分布を支える。Q1-2全体はZeno部分が未達であるため部分達成のままであり、R164の有限局所Hamiltonian統合や完全周期は達成条件に含めない。Q2-1ではR181DがM54の実際の末端4mode信号をcanonical SWAPと容量latchでR164へ接続する。R181B/R181Cはlift、CNOT、逆演算を与えるが、容量pointer--作用殻境界と全末端工程の一体化は条件として残るためQ2-1は条件付き達成である。Q2-2ではR180Aが同じ実信号から枝作用と2翼templateを作り、R180Cが切断後局所因子化を追加するが、単一装置統合を条件とするため条件付き達成のままである。Q3ではR164を準備終了面で一度だけ使って初期M42位置を作り、R172--R174が同じ粒子を輸送する。作用容量結合、M42 bath、clock、記録の統合を自動的に与えないため、Q3-4、Q3-5は条件付き達成のままである。
 
-現行Q2-3ではR176Aの反復liftが作る8mode信号を同じ永続状態bathでR176Bの二段gateへ通す。末端だけでR176Cを $m=L=8$、$\Psi=I_8$ へ特殊化する。規格化出力信号を $Z_{\rm out}$ とすればR164の枝比は $(|(Z_{\rm out})_y|^2+\delta q_y)/(1+\delta)$ となり、正則化誤差は高々 $\delta/(1+\delta)$ である。残る末端一体化条件はQ2-1と共通である。
+現行Q2-3ではR181Bの反復liftが作る8mode信号を同じ永続状態bathでR181Cの二段gateへ通す。末端だけでR181Dを $m=L=8$、$\Psi=I_8$ へ特殊化する。規格化出力信号を $Z_{\rm out}$ とすればR164の枝比は $(|(Z_{\rm out})_y|^2+\delta q_y)/(1+\delta)$ となり、正則化誤差は高々 $\delta/(1+\delta)$ である。残る末端一体化条件はQ2-1と共通である。
 
-Q2-4のM53では、R178Bが各bitの信号作用を二枝の非規格化容量 $A_0,A_1$ へlatchし、R164はその容量比を排他的Born型状態数へ解釈する作用殻interfaceを与える。R178Eのfixed-volume cellは同じ容量をthresholdとして読み、R164の状態数因子を入口体積へ重ねて掛けない。$L=2^n$ のsignal modeは受動資源として計上し、局所gateとprojectorをR178A/Bの一様規則で作用させる。
+Q2-4のM54では、R181Dが各bitの信号作用をraw容量 $J_{u,0},J_{u,1}$ へlatchし、regularized容量 $A_{u,b}^\delta$ だけをR164/R170作用殻へ渡す。raw容量はcutoff比較に残し、selectorをlockした後に可逆filterを作用する。$L=2^n$ のsignal modeは受動資源として計上し、局所gateとprojectorをR181C/R181Dの一様規則で作用させる。

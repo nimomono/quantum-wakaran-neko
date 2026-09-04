@@ -72,7 +72,7 @@ def main() -> None:
     source = np.kron(pauli_z, identity_2) @ source
     singlet = np.array([0.0, 1.0, -1.0, 0.0], dtype=complex) / sqrt(2.0)
     checks.append(record_max(
-        "m52_singlet_gate_sequence_error",
+        "m54_singlet_gate_sequence_error",
         np.linalg.norm(source - singlet),
         3.0e-14,
     ))
@@ -266,18 +266,18 @@ def main() -> None:
 
     checks.extend([
         record_max(
-            "m52_general_gate_unitarity_error",
+            "m54_general_gate_unitarity_error",
             np.linalg.norm(general_gate.conj().T @ general_gate - np.eye(4)),
             3.0e-14,
         ),
-        record_min("m52_general_gate_nonreal_norm", np.linalg.norm(general_gate.imag), 0.5),
+        record_min("m54_general_gate_nonreal_norm", np.linalg.norm(general_gate.imag), 0.5),
         record_min(
-            "m52_general_gate_nonsymmetry_norm",
+            "m54_general_gate_nonsymmetry_norm",
             np.linalg.norm(general_gate - general_gate.T),
             0.5,
         ),
         record_min(
-            "m52_terminal_anti_mismatch",
+            "m54_terminal_anti_mismatch",
             np.linalg.norm(anti_register - terminal_signal.conj()),
             0.5,
         ),

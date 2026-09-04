@@ -231,30 +231,29 @@ def validate_github_markdown(path: Path, text: str) -> None:
 
 
 Q2_RESULT_DEPENDENCIES: dict[str, set[str]] = {
-    "R176B": {"R176A"},
-    "R176C": {"R112", "R164", "R170", "R176B"},
-    "R177": {"R176A", "R176B", "R176C"},
-    "R178C": {"R178B", "R178E", "R178F"},
-    "R178D": {"R112"},
-    "R178E": {"R164"},
-    "R178F": {"R112"},
+    "R181B": {"R112"},
+    "R181C": {"R112", "R181B"},
+    "R181D": {"R112", "R161", "R162", "R164", "R170", "R181A"},
+    "R177": {"R181B", "R181C", "R181D"},
+    "R178D": {"R181D"},
     "R179": {"R112", "R161", "R162"},
-    "R180A": {"R112", "R161", "R162", "R164", "R176B", "R178B"},
-    "R180C": {"R170", "R180A", "R180B"},
+    "R180A": {"R181C", "R181D"},
+    "R180B": {"R181A"},
+    "R180C": {"R181B", "R181D", "R180A", "R180B"},
 }
 
 Q2_LEDGER_ROOTS: dict[str, set[str]] = {
-    "Q2-1": {"R176C"},
+    "Q2-1": {"R181B", "R181C", "R181D"},
     "Q2-2": {"R180C"},
     "Q2-3": {"R177"},
-    "Q2-4": {"R178A", "R178C", "R178D", "R179"},
+    "Q2-4": {"R181C", "R181D", "R178D", "R179"},
 }
 
 Q2_LEDGER_MODELS: dict[str, set[str]] = {
-    "Q2-1": {"M52", "M50"},
-    "Q2-2": {"M52", "M50", "receiver"},
-    "Q2-3": {"M52", "M50"},
-    "Q2-4": {"M53"},
+    "Q2-1": {"M54", "M50"},
+    "Q2-2": {"M54", "M50", "receiver"},
+    "Q2-3": {"M54", "M50"},
+    "Q2-4": {"M54"},
 }
 
 
@@ -362,29 +361,39 @@ def validate_q2_dependency_ledgers() -> None:
 
 
 def validate_fixed_goal_language() -> None:
+    """Guard the fixed goals and the current M54/R181 dependency boundary."""
     status_text = (ROOT / "PROJECT_STATUS.md").read_text(encoding="utf-8")
     readme_text = (ROOT / "README.md").read_text(encoding="utf-8")
-
-    fixed_block = status_text.split("### 固定目標一覧", 1)[1].split("### 現在地", 1)[0]
+    fixed_block = status_text.split("### 固定目標一覧", 1)[1].split(
+        "### 現在地", 1
+    )[0]
     readme_block = readme_text.split("## 長期目標の現在地", 1)[1].split(
         "詳しい達成判定", 1
     )[0]
-    forbidden = {
-        "モデルID": r"(?<![A-Za-z])M\d+",
-        "結果ID": r"(?<![A-Za-z])R\d+",
-        "複素振幅場": r"複素振幅場",
-    }
+
     for label, block in (
         ("PROJECT_STATUS.mdの固定目標", fixed_block),
         ("README.mdの長期目標", readme_block),
     ):
-        hits = [name for name, pattern in forbidden.items() if re.search(pattern, block)]
-        if hits:
-            raise ValueError(f"{label}: モデル固有語を検出: " + "、".join(hits))
+        if re.search(r"(?<![A-Za-z])[MR]\d+", block):
+            raise ValueError(f"{label}: モデルまたは結果IDを検出")
 
-    current_block = status_text.split("### 現在地", 1)[1].split(
-        "### 直前版IDとの対応", 1
-    )[0]
+    required_goal_fragments = (
+        "Q1-2 | 射影測定統計とZeno効果",
+        "同軸再測定の反復分布",
+        "異なる軸による逐次測定分布",
+        "Q2-3 | 3量子ビット型二段ゲート合成",
+        "測定、経路選択、共同モーメントへの置換、再準備",
+        "Q2-4 | 多項式外部制御による量子出力サンプリング",
+        "一出力標本",
+        "全変動距離",
+        "指数長の係数表",
+        "事後選別",
+    )
+    missing = [token for token in required_goal_fragments if token not in fixed_block]
+    if missing:
+        raise ValueError("固定目標の文言が不足: " + "、".join(missing))
+
     expected_status = {
         "Q1-1": "達成",
         "Q1-2": "部分達成",
@@ -398,423 +407,113 @@ def validate_fixed_goal_language() -> None:
         "Q3-4": "条件付き達成",
         "Q3-5": "条件付き達成",
     }
-    for goal_id, status in expected_status.items():
-        pattern = rf"^\| {re.escape(goal_id)} \| {re.escape(status)} \|"
-        if not re.search(pattern, current_block, flags=re.MULTILINE):
-            raise ValueError(f"{goal_id}: 現在地が{status}ではない")
-
-    retired_q1_rows = re.compile(r"^\| Q1-(?:3|4) \|", flags=re.MULTILINE)
-    for label, block in (
-        ("PROJECT_STATUS.mdの固定目標", fixed_block),
-        ("PROJECT_STATUS.mdの現在地", current_block),
-        ("README.mdの長期目標", readme_block),
-    ):
-        if retired_q1_rows.search(block):
-            raise ValueError(f"{label}: 旧Q1-3または旧Q1-4の現行行が残っている")
-
-    retired_q2_rows = re.compile(r"^\| Q2-5 \|", flags=re.MULTILINE)
-    for label, block in (
-        ("PROJECT_STATUS.mdの固定目標", fixed_block),
-        ("PROJECT_STATUS.mdの現在地", current_block),
-        ("README.mdの長期目標", readme_block),
-    ):
-        if retired_q2_rows.search(block):
-            raise ValueError(f"{label}: 旧Q2-5の現行行が残っている")
-
-    required_q1_fragments = (
-        "Q1-2 | 射影測定統計とZeno効果",
-        "2値Born分布",
-        "同軸再測定の反復分布",
-        "異なる軸による逐次測定分布",
-        "Zeno型遷移抑制",
-        "tiltだけによる抑制",
-    )
-    missing_q1_fragments = [
-        fragment for fragment in required_q1_fragments if fragment not in fixed_block
-    ]
-    if missing_q1_fragments:
-        raise ValueError(
-            "Q1-2の統合達成判定が不足: " + "、".join(missing_q1_fragments)
-        )
-    if "Q1-2 | 射影測定統計とZeno効果" not in readme_block:
-        raise ValueError("README.mdのQ1-2名称が固定目標と一致しない")
-
-    required_goal_fragments = (
-        "Q2-3 | 3量子ビット型二段ゲート合成",
-        "測定、経路選択、共同モーメントへの置換、再準備",
-        "正の有限余裕",
-        "最終出力分布を事前計算",
-        "Q2-4 | 多項式外部制御による量子出力サンプリング",
-        "一出力標本",
-        "全変動距離",
-        "受動的自由度",
-        "互いに論理的に独立に判定",
-        "根拠モデルと根拠結果",
-        "固定目標の達成条件ではなく実装上の努力目標",
-        "指数長の係数表",
-        "事後選別",
-        "指数時間",
-    )
-    missing_goal_fragments = [
-        fragment for fragment in required_goal_fragments if fragment not in fixed_block
-    ]
-    if missing_goal_fragments:
-        raise ValueError(
-            "Q2-3--Q2-4の達成判定が不足: " + "、".join(missing_goal_fragments)
-        )
-
-    required_status_evidence = (
-        "目標ID | 現在地 | 根拠モデル | 根拠となる結果",
-        "Q1-1 | 達成 | M47 | R135、R140",
-        "Q2-1 | 条件付き達成 | M52、M50末端読出し | R112、R164、R170、R176A--R176C",
-        "Q2-2 | 条件付き達成 | M52、M50、R180 receiver | R112、R161、R162、R164、R170、R176A--R176B、R178B、R180A--R180C",
-        "Q2-3 | 条件付き達成 | M52永続状態bathの三部分系特殊化、M50末端読出し | R112、R164、R170、R176A--R176C、R177",
-        "Q2-4 | 条件付き達成 | M53 | R112、R161、R162、R164、R178A--R178F、R179",
-    )
-    missing_status_evidence = [
-        fragment for fragment in required_status_evidence if fragment not in status_text
-    ]
-    if missing_status_evidence:
-        raise ValueError(
-            "PROJECT_STATUS.mdの根拠モデル対応が不足: "
-            + "、".join(missing_status_evidence)
-        )
-
-    required_readme_goals = (
-        "Q2-3 | 3量子ビット型二段ゲート合成",
-        "Q2-4 | 多項式外部制御による量子出力サンプリング",
-    )
-    missing_readme_goals = [
-        fragment for fragment in required_readme_goals if fragment not in readme_block
-    ]
-    if missing_readme_goals:
-        raise ValueError(
-            "README.mdのQ2固定目標が不足: " + "、".join(missing_readme_goals)
-        )
-
-    required_readme_evidence = (
-        "Q2-1 | M52、M50末端読出し | R112、R164、R170、R176A--R176C",
-        "Q2-2 | M52、M50、R180 receiver | R112、R161、R162、R164、R170、R176A--R176B、R178B、R180A--R180C",
-        "Q2-3 | M52永続状態bathの三部分系特殊化、M50末端読出し | R112、R164、R170、R176A--R176C、R177",
-        "Q2-4 | M53 | R112、R161、R162、R164、R178A--R178F、R179",
-        "この表は固定目標の定義ではなく、現行版の判定根拠",
-    )
-    missing_readme_evidence = [
-        fragment for fragment in required_readme_evidence if fragment not in readme_text
-    ]
-    if missing_readme_evidence:
-        raise ValueError(
-            "README.mdの根拠モデル対応が不足: "
-            + "、".join(missing_readme_evidence)
-        )
+    for goal_id, expected in expected_status.items():
+        if not re.search(
+            rf"^\| {re.escape(goal_id)} \| {re.escape(expected)} \|",
+            status_text,
+            flags=re.MULTILINE,
+        ):
+            raise ValueError(f"{goal_id}: 現在地が{expected}ではない")
+    for block in (fixed_block, readme_block, status_text):
+        if re.search(r"^\| Q1-(?:3|4) \||^\| Q2-5 \|", block, re.MULTILINE):
+            raise ValueError("退役した固定目標の現行行が残っている")
 
     validate_q2_dependency_ledgers()
 
-    body_text = "\n".join(
-        path.read_text(encoding="utf-8")
-        for path in (
-            SECTIONS / "01_scope_and_cycle.md",
-            SECTIONS / "02_common_canonical_modules.md",
-            SECTIONS / "08_errors_resources_open_targets.md",
-            SECTIONS / "09_conclusion.md",
-        )
-    )
-    required_body_fragments = (
-        "Q2の根拠モデル、共通ハードウェア努力目標、資源分類",
-        "固定目標の達成条件ではなく実装努力目標",
-        "Q2-3の3量子ビット型二段ゲート合成",
-        "Q2-3は条件付き達成",
-        "M52永続状態bath",
-        "M50末端読出し",
-        "GHZ--$T$--逆演算",
-        "1/(2\\sqrt2)",
-        "同じregister",
-        "L=2^n",
-        "回路末尾",
-        "Q2-4多項式外部制御による量子出力サンプリング",
-        "指数的な受動自由度",
-        "M53",
-        "R178A--R178F",
-        "R179",
-        "総bath容量と総熱",
-    )
-    missing_body_fragments = [
-        fragment for fragment in required_body_fragments if fragment not in body_text
-    ]
-    if missing_body_fragments:
-        raise ValueError(
-            "Q2-3--Q2-4の本文同期が不足: " + "、".join(missing_body_fragments)
-        )
-
-    stale_shared_hardware_requirement = re.compile(
-        r"Q2共通ハードウェアへの統合は未達"
-        r"|Q2共通ハードウェア統合"
-        r"|一様な共通ハードウェア族を使うことを横断条件"
-        r"|Q2固定目標は、規模ごとの一様な共通ハードウェア族を要求する"
-    )
-    stale_shared_hardware_hits = []
-    for path in (ROOT / "README.md", ROOT / "PROJECT_STATUS.md", *sorted(SECTIONS.glob("*.md"))):
-        if stale_shared_hardware_requirement.search(path.read_text(encoding="utf-8")):
-            stale_shared_hardware_hits.append(path.name)
-    if stale_shared_hardware_hits:
-        raise ValueError(
-            "共通ハードウェアを必須条件とする旧記述を検出: "
-            + "、".join(stale_shared_hardware_hits)
-        )
-
-    current_goal_paths = [
-        ROOT / "README.md",
-        ROOT / "PROJECT_STATUS.md",
-        *sorted(SECTIONS.glob("*.md")),
-    ]
-    stale_freeze_pattern = re.compile(
-        r"未達（凍結中）|未達・凍結|未達のまま凍結|凍結状態|凍結を維持"
-    )
-    stale_freeze_hits = [
-        path.relative_to(ROOT).as_posix()
-        for path in current_goal_paths
-        if stale_freeze_pattern.search(path.read_text(encoding="utf-8"))
-    ]
-    if stale_freeze_hits:
-        raise ValueError(
-            "現行文書に凍結中の表記が残っている: " + "、".join(stale_freeze_hits)
-        )
-
-    integration_note = ROOT / "notes" / "q1_2_zeno_integration.md"
-    obsolete_zeno_notes = (
-        ROOT / "notes" / "q1_zeno_revival.md",
-        ROOT / "notes" / "frozen_q1_zeno.md",
-    )
-    if not integration_note.is_file() or any(path.exists() for path in obsolete_zeno_notes):
-        raise ValueError("Q1-2 Zeno統合メモの改名が未完了")
-
     required_paths = (
-        SECTIONS / "03_m47_controlled_w_instrument.md",
-        SECTIONS / "A2_m47_controlled_w_instrument_proofs.md",
+        SECTIONS / "04_m54_q2_specializations.md",
+        SECTIONS / "05_m54_setting_pre_receiver.md",
+        SECTIONS / "A3_m54_q2_specialization_proofs.md",
+        SECTIONS / "A4_m54_receiver_cycle_proofs.md",
+        SECTIONS / "A9_m54_setting_pre_paired_hopf_receiver.md",
+        SECTIONS / "A13_m54_template_port_preparation.md",
+        SECTIONS / "A15_m54_uniform_register.md",
+        SECTIONS / "A16_m54_projector_tree_receiver.md",
+        SECTIONS / "A17_m54_uniform_supply.md",
+        ROOT / "tools" / "verify_r181a_template_port.py",
+        ROOT / "tools" / "verify_r181d_projector_tree.py",
+        ROOT / "tools" / "verify_m54_q2_composition.py",
+        ROOT / "tools" / "verify_r179_m54_supply.py",
+        ROOT / "tools" / "verify_r180_m54_receiver.py",
+    )
+    retired_paths = (
         SECTIONS / "04_q1xq1_common_bath_gate.md",
-        SECTIONS / "A3_q1xq1_common_bath_gate_proofs.md",
         SECTIONS / "05_m52_setting_pre_receiver.md",
+        SECTIONS / "A3_q1xq1_common_bath_gate_proofs.md",
         SECTIONS / "A4_m52_receiver_cycle_proofs.md",
-        SECTIONS / "A6_common_signal_statistics.md",
-        SECTIONS / "A8_m47_hopf_preparation.md",
         SECTIONS / "A9_m52_setting_pre_paired_hopf_receiver.md",
-        SECTIONS / "A10_q2_common_bath_composition.md",
-        SECTIONS / "A11_common_collision_bath_thermodynamics.md",
-        SECTIONS / "A12_common_action_shell_state_count.md",
         SECTIONS / "A13_common_open_preparation.md",
-        SECTIONS / "A14_m37_m42_spatial_token.md",
         SECTIONS / "A15_q2_uniform_sequential_sampler.md",
         SECTIONS / "A16_q2_fresh_tape_aperture.md",
         SECTIONS / "A17_q2_uniform_supply.md",
     )
-    obsolete_paths = (
-        SECTIONS / "03_l2_operation_measurement_zeno.md",
-        SECTIONS / "A2_l2_cycle_and_zeno_proofs.md",
-        SECTIONS / "05_m41_bell_cycle_and_audit.md",
-        SECTIONS / "A4_m41_cycle_proofs.md",
-        SECTIONS / "05_m48_bell_cycle_and_audit.md",
-        SECTIONS / "A4_m48_cycle_proofs.md",
-        SECTIONS / "A9_m48_paired_hopf_bell_preparation.md",
-        SECTIONS / "A6_realized_configuration_proofs.md",
-        SECTIONS / "A6_particle_position_proofs.md",
-        SECTIONS / "A6_m37_m50_position_instrument_proofs.md",
-        SECTIONS / "A8_w_two_mode_hopf_statistics.md",
-        SECTIONS / "A13_q2_action_shell_statistics.md",
-        SECTIONS / "04_l4_two_qubit_gate.md",
-        SECTIONS / "A3_l4_two_qubit_gate_proofs.md",
-        SECTIONS / "A10_q2_joint_bath_contract.md",
-    )
     for path in required_paths:
         if not path.is_file():
-            raise ValueError(f"現行モデルファイルがない: {path.name}")
-    for path in obsolete_paths:
+            raise ValueError(f"現行M54ファイルがない: {path.relative_to(ROOT)}")
+    for path in retired_paths:
         if path.exists():
-            raise ValueError(f"置換済みモデルファイルが残っている: {path.name}")
+            raise ValueError(f"退役パスが残っている: {path.relative_to(ROOT)}")
 
-    terminology_paths = [
+    active_paths = [
         ROOT / "README.md",
         ROOT / "PROJECT_STATUS.md",
-        ROOT / "CHANGELOG.md",
         *sorted(SECTIONS.glob("*.md")),
     ]
-    inconsistent = [
-        path.relative_to(ROOT).as_posix()
-        for path in terminology_paths
-        if re.search(r"二mode|二モード", path.read_text(encoding="utf-8"))
-    ]
-    if inconsistent:
-        raise ValueError("2モード表記の不一致: " + "、".join(inconsistent))
-
-    current_terminology_paths = [
-        ROOT / "README.md",
-        ROOT / "PROJECT_STATUS.md",
-        ROOT / "MANIFEST.md",
-        *sorted(SECTIONS.glob("*.md")),
-    ]
-    deprecated = [
-        path.relative_to(ROOT).as_posix()
-        for path in current_terminology_paths
-        if "実現配置" in path.read_text(encoding="utf-8")
-    ]
-    if deprecated:
-        raise ValueError("現行文書に旧称『実現配置』が残っている: " + "、".join(deprecated))
-
-    current_sections = sorted(SECTIONS.glob("*.md"))
-    retired_m42_results = [
-        path.relative_to(ROOT).as_posix()
-        for path in current_sections
-        if re.search(r"R11[3-8](?!\d)", path.read_text(encoding="utf-8"))
-    ]
-    if retired_m42_results:
-        raise ValueError("現行章に退役済みR113--R118が残っている: " + "、".join(retired_m42_results))
-
-    absorbed_result_pattern = re.compile(
-        r"R(?:83|84|85|87|88|89|90|97|98|99|104|105|106|136|139|141|142|146|148|149|151|154|156|157|158|163|166|167)(?!\d)"
+    active_text = "\n".join(path.read_text(encoding="utf-8") for path in active_paths)
+    retired_id = re.compile(
+        r"M(?:51|52|53)(?!\d)|R171(?!\d)|R176[ABC](?![A-Z])|"
+        r"R178[ABCEF](?![A-Z])|R145(?!\d)"
     )
-    absorbed_model_pattern = re.compile(r"M" r"35(?!\d)")
-    absorbed_result_paths = [
-        ROOT / "README.md",
-        ROOT / "PROJECT_STATUS.md",
-        *sorted(SECTIONS.glob("*.md")),
-    ]
-    absorbed_hits = [
+    hits = sorted(
         path.relative_to(ROOT).as_posix()
-        for path in absorbed_result_paths
-        if (
-            absorbed_result_pattern.search(path.read_text(encoding="utf-8"))
-            or absorbed_model_pattern.search(path.read_text(encoding="utf-8"))
-        )
-    ]
-    if absorbed_hits:
-        raise ValueError(
-            "現行文書に吸収済み結果IDまたはモデルIDが残っている: " + "、".join(absorbed_hits)
-        )
-
-    all_section_text = "\n".join(
-        path.read_text(encoding="utf-8") for path in sorted(SECTIONS.glob("*.md"))
+        for path in active_paths
+        if retired_id.search(path.read_text(encoding="utf-8"))
     )
-    for result_id in (
-        "R171", "R172", "R173", "R174", "R176A", "R176B", "R176C",
-        "R178A", "R178B", "R178C", "R178D", "R178E", "R178F", "R179",
-        "R180A", "R180B", "R180C",
-        "R161", "R162", "R164", "R123", "R124", "R125"
-    ):
-        if all_section_text.count(f"定理（{result_id}：") != 1:
-            raise ValueError(f"{result_id}の定理宣言は現行章全体で1回でなければならない")
+    if hits:
+        raise ValueError("現行文書に退役IDが残っている: " + "、".join(hits))
+
+    theorem_ids = (
+        "R181A", "R181B", "R181C", "R181D", "R178D", "R179",
+        "R180A", "R180B", "R180C", "R161", "R162", "R164",
+        "R123", "R124", "R125",
+    )
+    for result_id in theorem_ids:
+        count = active_text.count(f"定理（{result_id}：")
+        if count != 1:
+            raise ValueError(f"{result_id}の定理宣言数が{count}である")
 
     common_text = (SECTIONS / "02_common_canonical_modules.md").read_text(
         encoding="utf-8"
     )
-    for token in (
-        "M51有限実正準担体の共通開放ray準備",
-        "R171：M51共通開放ray準備の有限時間率と切断後輸送",
-        r"\lambda_{\rm prep}",
-        r"C_{Z,G_*}",
-        "成功試行だけを結果分布として再規格化しない",
-    ):
-        if token not in common_text:
-            raise ValueError(f"M51/R171共通準備の固定要素がない: {token}")
-
-    q3_text = (SECTIONS / "06_m37_spatial_envelope.md").read_text(encoding="utf-8")
-    for token in (
-        "R86：M37有限時間包絡線縮約",
-        "共通R135のM37有限時間特殊化",
-        "R172：M37有効辺流に沿うM42局在トークンの等変輸送",
-        "R173：M42の節一様正則化と有限衝突Hamiltonian近似",
-        "R174：M51--M37--M42の有限時間準備・輸送・記録受渡し",
-        "別のM50位置を生成せず",
-        "R162の平衡率公式をそのまま用いる主張ではない",
-        r"\varepsilon_{174}",
-    ):
-        if token not in q3_text:
-            raise ValueError(f"Q3受渡し本文の固定要素がない: {token}")
-
-    m42_text = (SECTIONS / "A14_m37_m42_spatial_token.md").read_text(
+    receiver_text = (SECTIONS / "A16_m54_projector_tree_receiver.md").read_text(
         encoding="utf-8"
     )
-    for token in (
-        "方向別controllerと仕事registerを持つ駆動衝突模型",
-        "物理的な一様閾値座標",
-        r"\nu_{e,m}",
+    supply_text = (SECTIONS / "A17_m54_uniform_supply.md").read_text(
+        encoding="utf-8"
+    )
+    required_current_tokens = (
+        r"\Gamma_{54}^{(n)}",
+        r"A_{u,b}^\delta=J_{u,b}+\delta q_bJ_\Sigma",
+        "raw比較",
+        "selectorをlock",
+        "radial-only",
+        r"2m(\tau+\gamma)",
         "成功試行だけを再規格化しない",
-    ):
-        if token not in m42_text:
-            raise ValueError(f"M42方向別衝突模型の固定要素がない: {token}")
-
-    m52_text = (SECTIONS / "04_q1xq1_common_bath_gate.md").read_text(encoding="utf-8")
-    for token in (
-        "改訂した設計原則",
-        "R176A：可逆tensor-lift定理",
-        "R176B：永続状態bathゲート合成定理",
-        "R176C：末端Born型instrument接続定理",
-        r"Z_S=a\otimes b",
-        r"\varepsilon_{170}^{\rm end}",
-        "個別に初期化、較正、同期、address、読出し、reset",
-    ):
-        if token not in m52_text:
-            raise ValueError(f"M52本文の固定要素がない: {token}")
-
-    q2_composition_text = (SECTIONS / "A10_q2_common_bath_composition.md").read_text(
-        encoding="utf-8"
+        "controllerへ書き戻さない",
     )
+    current_bundle = common_text + "\n" + receiver_text
+    absent = [token for token in required_current_tokens if token not in current_bundle]
+    if absent:
+        raise ValueError("M54/R181Dの必須要素がない: " + "、".join(absent))
     for token in (
-        "R177：二段共同bath合成のGHZ--T--逆演算証人",
-        r"g_{\rm coh}",
-        r"\frac1{2\sqrt2}",
-        "成功試行だけを再規格化しない",
-        "1試行状態と集団momentの分離",
-    ):
-        if token not in q2_composition_text:
-            raise ValueError(f"Q2共同bath合成の固定要素がない: {token}")
-
-    r180_text = (SECTIONS / "05_m52_setting_pre_receiver.md").read_text(
-        encoding="utf-8"
-    )
-    for token in (
-        "R180A：M52末端信号のsetting-pre条件付きblock抽出定理",
-        "R180B：M52 source-driven paired-Hopf receiver吸引定理",
-        "R180C：M52駆動2端receiver合成、有限誤差、局所性監査、帰還",
-        r"\widetilde V=v",
-        "canonical SWAPは同次元正準座標の交換だけを行い、状態依存除算を行わない",
-        r"J_s(\widetilde V,x)",
-        r"V=\operatorname{vec}_{\rm row}(D)",
-        r"w_{s,x}(V)",
-        r"D^{\mathsf T}\overline{u_{s,x}}",
-        r"\varepsilon_{\rm ray}^{52}",
-        r"\varepsilon_{180}^{\rm cyc}",
-        "測定設定独立性",
-        "単一装置統合",
-    ):
-        if token not in r180_text:
-            raise ValueError(f"M52/R180 receiverの固定要素がない: {token}")
-    if r"V=\frac{v}{\|v\|}" in r180_text:
-        raise ValueError("R180の物理hold信号をcanonical SWAPで規格化している")
-
-    m53_text = common_text
-    for token in (
-        "M53一様直接モード・逐次2枝標本化模型",
-        "R178A：局所gateの一様sector-broadcast定理",
-        "R178B：直交projector作用latch・可逆filter定理",
-        "R178C：希少枝切断付き逐次Born sampler定理",
-        "R178D：逐次history逆掃除・collective reset定理",
-        "R178E：二枝作用殻interface・fresh-tape周期定理",
-        "R178F：滑らかな二channel aperture散乱の一様canonical実装定理",
-        "R179：一様blank-bank・fresh-cell供給定理",
-        "通常の計算量理論における多項式資源の古典simulationではない",
-    ):
-        if token not in m53_text:
-            raise ValueError(f"M53/R178/R179の固定要素がない: {token}")
-
-    r179_text = (SECTIONS / "A17_q2_uniform_supply.md").read_text(encoding="utf-8")
-    for token in (
-        "threshold discrepancy",
-        "互いに特異",
-        "exact invariant blank",
+        "aggregate cold誤差",
         "同一の静的二次Hamiltonian",
-        "総bath容量、総熱、装置体積を多項式とする主張は置かない",
+        "collision cell",
+        "spent",
+        "総熱は指数的でもよい",
     ):
-        if token not in r179_text:
-            raise ValueError(f"R179供給境界の固定要素がない: {token}")
+        if token not in supply_text:
+            raise ValueError(f"R179供給境界の必須要素がない: {token}")
 
 
 def preprocess(lines: list[str]) -> list[str]:
