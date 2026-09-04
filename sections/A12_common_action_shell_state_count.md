@@ -676,4 +676,4 @@ R164をR143、R144へ接続すると、Q1-2のBorn分布、同軸反復分布、
 
 現行Q2-3ではR176Aの反復liftが作る8mode信号を同じ永続状態bathでR176Bの二段gateへ通す。末端だけでR176Cを $m=L=8$、$\Psi=I_8$ へ特殊化する。規格化出力信号を $Z_{\rm out}$ とすればR164の枝比は $(|(Z_{\rm out})_y|^2+\delta q_y)/(1+\delta)$ となり、正則化誤差は高々 $\delta/(1+\delta)$ である。残る末端一体化条件はQ2-1と共通である。
 
-Q2-4のM53では、R164の線形容量則を各bitの二枝容量 $A_0,A_1$ に使う。R178Eのfixed-volume cellはこの容量をthresholdとして読み、入口体積を新しいBorn因子として掛けない。$L=2^n$ のsignal modeは受動資源として計上し、局所gateとprojectorをR178A/Bの一様規則で作用させる。
+Q2-4のM53では、R178Bが各bitの信号作用を二枝の非規格化容量 $A_0,A_1$ へlatchし、R164はその容量比を排他的Born型状態数へ解釈する作用殻interfaceを与える。R178Eのfixed-volume cellは同じ容量をthresholdとして読み、R164の状態数因子を入口体積へ重ねて掛けない。$L=2^n$ のsignal modeは受動資源として計上し、局所gateとprojectorをR178A/Bの一様規則で作用させる。

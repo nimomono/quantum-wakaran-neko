@@ -378,7 +378,7 @@ V_{\rm s}
 \tag{4.31}
 ```
 
-このgate列は設定生成前に終える。実際の末端信号 $v=Z_{\rm out}(\omega)$ をR112のcanonical SWAPでholdし、第5章R180へ渡す。R180ではA設定 $x$ が $V$ の直交projector blockを選び、source-driven paired-Hopf receiverを通して2翼の局所M50/R170へ接続する。
+このgate列は設定生成前に終える。実際の末端信号 $v=Z_{\rm out}(\omega)$ をR112のcanonical SWAPで物理hold信号 $\widetilde V=v$ としてそのまま移し、第5章R180へ渡す。canonical SWAPは状態依存除算を含まない。R180では解析上だけ $V=\widetilde V/\|\widetilde V\|$ とし、A設定 $x$ が $\widetilde V$ の直交projector blockを選び、source-driven paired-Hopf receiverを通して2翼の局所M50/R170へ接続する。
 
 このinterfaceはR176Cと役割が異なる。R176Cは末端計算基底分布を直接記録する。R180は同じ試行の4mode信号を記録前に2翼receiverへ渡す。1周期では選んだ一方だけを作動させる。
 

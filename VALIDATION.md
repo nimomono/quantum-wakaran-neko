@@ -1,6 +1,6 @@
 # 検算と品質確認
 
-この文書はdraft-66のM52駆動R180 setting-pre paired-Hopf receiver、再現計算、静的整合性、PDF生成、目視確認の記録である。検証日は2026-09-04。過去版の検証記録は後半に保存する。
+この文書はdraft-67のQ2再編後の依存・末端受渡し整合性、再現計算、静的整合性、PDF生成、目視確認の記録である。検証日は2026-09-04。過去版の検証記録は後半に保存する。
 
 ## 実行方法
 
@@ -28,6 +28,29 @@ python tools/verify_r178_uniform_sampler.py
 python tools/verify_r179_uniform_supply.py
 python tools/verify_q2_m53_composition.py
 ```
+
+## draft-67方針監査
+
+- R180入口の物理hold信号を $\widetilde V=v$ とし、canonical SWAPは同次元正準座標の交換だけを行うと明記した。$V=\widetilde V/\|\widetilde V\|$ はsafe set上の解析rayであり、状態依存除算をcontrollerまたはSWAPへ要求しない。
+- R178Bが物理信号から $J_s=\mathcal J_0\widetilde V^\dagger\Pi_s^x\widetilde V$ をlatchする。R164の枝対称な状態数比では共通radial因子 $\mathcal J_0\|\widetilde V\|^2$ が消える。radial偏差は容量と混合時間へ影響するが、理想枝容量比へは入らない。
+- Q2-3の根拠模型をM52三部分系特殊化とM50末端読出し、根拠結果をR112、R164、R170、R176A--R176C、R177とする詳細方式へ統一した。README、PROJECT_STATUS、第1章、第8章、第9章の表記を同期した。
+- Q2-1--Q2-4の独立判定は、別目標の達成ラベルを前提にしない意味であり、同じ模型または部品定理の共有を禁じないと明記した。固定目標の文言と4目標の条件付き達成判定は変更していない。
+- M53ではR178Bが二枝容量をlatchし、R164が容量比をBorn型状態数へ解釈し、R178E/R178Fが同じ容量をthresholdとして読む。R164の状態数因子をaperture入口体積へ重ねず、R170をM53の逐次段へ追加しない。
+- `build_paper.py` へ結果依存グラフと推移閉包検査を追加した。PROJECT_STATUS、README、第1章のQ2台帳について、根拠模型の不足、推移依存の不足、依存グラフ外の結果列挙を失敗にする。
+
+## draft-67再現計算
+
+- Python構文検査と18本の `tools/verify_*.py` を実行し、すべて正常終了した。
+- `verify_r180_m52_receiver.py` を12項目から17項目へ拡張した。物理容量比の最大radial誤差は `9.99e-16`、一般unitary後の実末端receiver誤差は `8.33e-17` だった。
+- R176A直後のanti-registerとR176B後の末端共役の差は `1.72` であり、古いanti-registerを末端入力へ使う誤実装は正しい共同分布から全変動距離 `0.459` だけ離れた。従って定数flagでなく、実際の末端信号だけがBorn共同分布と一致することを回帰検査している。
+- Q2依存閉包は、Q2-1がR112/R164/R170/R176A--R176C、Q2-2がR112/R161/R162/R164/R170/R176A--R176B/R178B/R180A--R180C、Q2-3がR112/R164/R170/R176A--R176C/R177、Q2-4がR112/R161/R162/R164/R178A--R178F/R179となることを確認した。
+- CIの理論階層統合blockをローカルで実行し、詳細方式のQ2-3台帳、canonical SWAPと解析規格化の分離、R178B/R164/R178Eの役割分担、既存の定理宣言一意性と退役境界を含む全検査を通した。
+
+## draft-67 PDF生成・目視確認
+
+- 出力はA4、203ページ、1,254,046 byte、SHA-256 `584fb26631f1bc3c74e15cf9f5d1707250c7ce8b99cad81b535fbf1e95df1a0f` である。`SOURCE_DATE_EPOCH` は2026-09-04 00:00:00 UTCとした。
+- `paper.md`、`main.tex`、`paper.pdf` を連続生成し、再生成差分がないことを確認した。最終LaTeX logに未定義citation/reference、overfull、underfull、fatal error、欠落文字はない。既知のLatin Modern Math太字font fallbackだけが残る。
+- 全203物理ページを72 dpiでrenderし、16ページずつの13枚のcontact sheetで確認した。さらに物理PDFページ57--67、93--96、120--124、148--152、193--196を144 dpiで確認し、draft-67表紙、R180本文、Q2依存・資源台帳、付録D・I、M53 aperture境界を精査した。数式、表、見出し、頁番号に切れ、重なり、欠落glyph、意図しない空白は見つからなかった。
 
 ## draft-66方針監査
 
