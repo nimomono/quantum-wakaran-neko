@@ -32,7 +32,7 @@ PART_TITLES: dict[int, str] = {
     1: "問題設定と共通言語",
     3: "単一量子ビット型操作と測定",
     4: "2論理部分系とBell型統計",
-    6: "空間複素振幅場と粒子位置",
+    6: "空間担体と粒子位置",
     8: "総合評価",
 }
 
@@ -713,7 +713,7 @@ def tex_environment() -> dict[str, str]:
     env.update({
         # Keep PDF metadata stable for the current cited draft.  Update this
         # epoch together with CITATION.cff when a new draft is released.
-        "SOURCE_DATE_EPOCH": "1788480000",
+        "SOURCE_DATE_EPOCH": "1788566400",
         "FORCE_SOURCE_DATE": "1",
         "TZ": "UTC",
         "TEXINPUTS": "/usr/share/texlive/texmf-dist/tex//:",
