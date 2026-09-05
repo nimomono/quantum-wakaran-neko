@@ -1,5 +1,15 @@
 # 検算と品質確認
 
+## 2026-09-05：Q3固定目標の方針変更
+
+- `python -m py_compile tools/build_paper.py`：成功。
+- `python -c "from tools.build_paper import validate_fixed_goal_language; validate_fixed_goal_language()"`：成功。新Q3目標の文言・状態と既存Q2依存台帳を検査した。
+- `combined_markdown()` と収録 `paper.md` の全文一致を確認：成功。章別原稿・TeX・PDF・数値モデルは変更しておらず、数値計算とPDF再組版は再実行していない。
+- `git diff --check`：成功。Q3-6の両表への移動、Q3-3A/Bの根拠継承、Q3-3Cの部分達成境界、READMEの目標表・根拠表を差分確認した。
+- PROJECT_GUIDE第2.2.1節・第11節との整合を確認。本文参照の同期は後続論文改訂としてCHANGELOG・README・PROJECT_STATUSに明記した。
+
+以下は変更前の論文draft-69と過去版の検算記録である。
+
 この文書の先頭はdraft-69（2026-09-05）の記録である。M37のミクロ運動、W型低2モード、Q1制御の順を主線とし、既存の射影内結果と全W型実装の強化条件を区別した。過去版の記録は後半に保存する。
 
 ## draft-69 実行と理論境界

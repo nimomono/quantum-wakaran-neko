@@ -379,6 +379,11 @@ def validate_fixed_goal_language() -> None:
             raise ValueError(f"{label}: モデルまたは結果IDを検出")
 
     required_goal_fragments = (
+        "Q3-2 | Nelson流の作用変分または時間対称Newton則の導出",
+        "Q3-3A | 井戸型の束縛状態",
+        "Q3-3B | 調和型の束縛状態",
+        "Q3-3C | W型の束縛状態",
+        "Q3-6 | 位相量子化",
         "Q1-2 | 射影測定統計とZeno効果",
         "同軸再測定の反復分布",
         "異なる軸による逐次測定分布",
@@ -403,7 +408,10 @@ def validate_fixed_goal_language() -> None:
         "Q2-4": "条件付き達成",
         "Q3-1": "達成",
         "Q3-2": "未達",
-        "Q3-3": "達成",
+        "Q3-3A": "達成",
+        "Q3-3B": "達成",
+        "Q3-3C": "部分達成",
+        "Q3-6": "未達",
         "Q3-4": "条件付き達成",
         "Q3-5": "条件付き達成",
     }
