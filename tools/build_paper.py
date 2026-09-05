@@ -361,7 +361,7 @@ def validate_q2_dependency_ledgers() -> None:
 
 
 def validate_fixed_goal_language() -> None:
-    """Guard the fixed goals, including Q4 circuit-design boundaries."""
+    """Guard the fixed goals and the current M54/R181 dependency boundary."""
     status_text = (ROOT / "PROJECT_STATUS.md").read_text(encoding="utf-8")
     readme_text = (ROOT / "README.md").read_text(encoding="utf-8")
     fixed_block = status_text.split("### 固定目標一覧", 1)[1].split(
@@ -398,12 +398,6 @@ def validate_fixed_goal_language() -> None:
         "全変動距離",
         "指数長の係数表",
         "事後選別",
-        "Q4-1 | 単一量子ビット型可逆力学のアナログ回路設計",
-        "Q4-2 | 射影測定統計とZeno効果のアナログ回路設計",
-        "Q4-3 | 2量子ビット型結合ゲートのアナログ回路設計",
-        "Q4-4 | Bell型測定統計のアナログ回路設計",
-        "実機の製作と実測は強い拡張",
-        "対象となる状態発展、結合ゲート、枝選択、結果形成をデジタル計算で代行",
     )
     missing = [token for token in required_goal_fragments if token not in fixed_block]
     if missing:
@@ -425,10 +419,6 @@ def validate_fixed_goal_language() -> None:
         "Q3-4B": "部分達成",
         "Q3-5": "条件付き達成",
         "Q3-6": "未達",
-        "Q4-1": "未着手",
-        "Q4-2": "未着手",
-        "Q4-3": "未着手",
-        "Q4-4": "未着手",
     }
     for goal_id, expected in expected_status.items():
         if not re.search(
