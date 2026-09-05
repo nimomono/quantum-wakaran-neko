@@ -110,11 +110,11 @@ def main() -> None:
     expected_localized = mean_energy * identity_2 - tunnel * sigma_x
     checks.append(record_max("localized_w_generator_error", np.linalg.norm(localized_generator - expected_localized), 2.0e-14))
 
-    position_matrix_element = 0.63
+    position_matrix_element = -0.63
     parity_position = np.array([[0.0, position_matrix_element], [position_matrix_element, 0.0]])
     localized_position = parity_to_local.T @ parity_position @ parity_to_local
     checks.append(record_max("localized_tilt_offdiagonal_error", abs(localized_position[0, 1]), 2.0e-14))
-    checks.append(record_max("localized_tilt_energy_gap_error", abs(abs(localized_position[0, 0] - localized_position[1, 1]) - 2.0 * position_matrix_element), 2.0e-14))
+    checks.append(record_max("localized_tilt_energy_gap_error", abs(abs(localized_position[0, 0] - localized_position[1, 1]) - 2.0 * abs(position_matrix_element)), 2.0e-14))
 
     commutator_y = sigma_x @ sigma_z - sigma_z @ sigma_x
     checks.append(record_max("tilt_control_commutator_error", np.linalg.norm(commutator_y + 2j * sigma_y), 2.0e-14))
@@ -159,7 +159,7 @@ def main() -> None:
         (measurement_tilt / high_mode_gap) ** 2
         + (action_scale / (high_mode_gap * switching_time)) ** 2
     )
-    checks.append(record_max("two_mode_leakage_bound", leakage_bound, 4.0e-4))
+    checks.append(record_max("assumed_leakage_scaling_expression", leakage_bound, 4.0e-4))
 
     lock_bound = 4.0 * tunnel**2 / (measurement_tilt**2 + 4.0 * tunnel**2)
     sample_times = np.linspace(0.0, 50_000.0, 20_001)

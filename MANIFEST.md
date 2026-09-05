@@ -118,3 +118,8 @@
 - `fonts/NotoSerifJP-Regular.ttf`
 
 旧版セクション、旧数値コード、旧PDF、査読回答履歴は収録しない。置換・退役した理論の最小索引と再検討条件は `notes/` に残し、完全な原稿と実装はGit履歴から参照する。
+
+## draft-69の追加
+
+- `notes/m37_w_q1_unification_roadmap.md`
+- `tools/verify_m37_w_q1_bridge.py`
