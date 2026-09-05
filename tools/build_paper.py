@@ -435,6 +435,37 @@ def validate_fixed_goal_language() -> None:
         ):
             raise ValueError("退役または総称化した固定目標の現行行が残っている")
 
+    scope_text = (SECTIONS / "01_scope_and_cycle.md").read_text(encoding="utf-8")
+    q3_text = (SECTIONS / "07_q3_finite_graph_phenomena.md").read_text(
+        encoding="utf-8"
+    )
+    for goal_id, expected in {key: value for key, value in expected_status.items() if key.startswith("Q3-")}.items():
+        if not re.search(
+            rf"^\| {re.escape(goal_id)} \| {re.escape(expected)} \|",
+            scope_text,
+            flags=re.MULTILINE,
+        ):
+            raise ValueError(f"第1章の{goal_id}現在地が{expected}ではない")
+    required_q3_tokens = (
+        "Nelson流の作用変分または時間対称Newton則（Q3-2）",
+        "束縛状態（Q3-3A--Q3-3C）",
+        "有限障壁のトンネル効果（Q3-4A）",
+        "W型のトンネル振動（Q3-4B）",
+        "2重スリット干渉（Q3-5）",
+        "位相量子化（Q3-6）",
+        "低2モードの作用比だけを空間領域占有率へ読み替えない",
+    )
+    missing_q3 = [token for token in required_q3_tokens if token not in q3_text]
+    if missing_q3:
+        raise ValueError("第7章のQ3同期要素が不足: " + "、".join(missing_q3))
+    for obsolete in (
+        "位相量子化（Q3-2）",
+        "束縛状態（Q3-3）",
+        "トンネル効果（Q3-4）",
+    ):
+        if obsolete in q3_text:
+            raise ValueError(f"第7章に旧Q3見出しが残っている: {obsolete}")
+
     validate_q2_dependency_ledgers()
 
     required_paths = (

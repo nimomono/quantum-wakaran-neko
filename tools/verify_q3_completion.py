@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Numerical regression checks for R123--R125 and Q3-3--Q3-5."""
+"""Numerical regression checks for R123--R125 and Q3-3A/B, Q3-4A, Q3-5."""
 
 from __future__ import annotations
 

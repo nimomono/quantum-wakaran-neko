@@ -65,7 +65,7 @@ jobs:
           grep -Fq 'lock前にfilterを開かない' sections/A16_m54_projector_tree_receiver.md
           grep -Fq 'radial-only repump' sections/A16_m54_projector_tree_receiver.md
           grep -Fq 'aggregate cold誤差' sections/A17_m54_uniform_supply.md
-          grep -Fq 'version: "draft-69"' CITATION.cff
+          grep -Fq 'version: "draft-70"' CITATION.cff
 
       - name: 収録PDFを退避
         run: cp paper.pdf /tmp/paper-committed.pdf
