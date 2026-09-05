@@ -1,5 +1,25 @@
 # 検算と品質確認
 
+## draft-70：Q3固定目標再編の本文同期
+
+```bash
+python -m py_compile tools/*.py
+for script in tools/verify_*.py; do python "$script" || exit 1; done
+python tools/build_paper.py
+sha256sum paper.md main.tex paper.pdf > /tmp/draft70.sha256
+python tools/build_paper.py
+sha256sum -c /tmp/draft70.sha256
+git diff --check
+```
+
+全19本の検算器とPython構文検査が正常終了した。固定目標検査は、`PROJECT_STATUS.md`と`README.md`の確定済み定義に加え、第1章のQ3-1、Q3-2、Q3-3A--Q3-3C、Q3-4A--Q3-4B、Q3-5、Q3-6の達成状態、第7章の新見出し、Q3-4Bで低2モード作用比を空間領域占有率へ読み替えない境界、旧Q3見出しの不在を確認した。
+
+統合Markdown、TeX、PDFの2回生成でSHA-256が一致した。最終LaTeX logに未解決引用、未解決参照、overfull、underfull、fatal error、欠落文字はない。PDFはA4、206ページであり、Q3-2、Q3-4B、Q3-6の新見出しをテキスト抽出でも確認した。
+
+この改訂は第一段階で確定した固定目標を本文へ同期するものであり、固定目標の文言と達成状態、新しいモデルID、結果ID、定理、証明、数値結果を変更していない。draft-69以前の変更記録と検証記録にある旧IDは当時の意味で保存した。
+
+---
+
 ## 2026-09-05：Q3固定目標の再編方針
 
 ```bash
