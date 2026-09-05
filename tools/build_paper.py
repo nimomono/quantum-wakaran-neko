@@ -379,6 +379,15 @@ def validate_fixed_goal_language() -> None:
             raise ValueError(f"{label}: モデルまたは結果IDを検出")
 
     required_goal_fragments = (
+        "Q3-2 | Nelson流の作用変分または時間対称Newton則の導出",
+        "Q3-3A | 井戸型の束縛状態",
+        "Q3-3B | 調和型の束縛状態",
+        "Q3-3C | W型の束縛状態",
+        "Q3-4A | 有限障壁のトンネル効果",
+        "Q3-4B | W型のトンネル振動",
+        "Q3-6 | 位相量子化",
+        "外部駆動、傾斜切替または障壁低下",
+        "低2モードの作用比だけを空間領域占有率へ読み替えない",
         "Q1-2 | 射影測定統計とZeno効果",
         "同軸再測定の反復分布",
         "異なる軸による逐次測定分布",
@@ -403,9 +412,13 @@ def validate_fixed_goal_language() -> None:
         "Q2-4": "条件付き達成",
         "Q3-1": "達成",
         "Q3-2": "未達",
-        "Q3-3": "達成",
-        "Q3-4": "条件付き達成",
+        "Q3-3A": "達成",
+        "Q3-3B": "達成",
+        "Q3-3C": "部分達成",
+        "Q3-4A": "条件付き達成",
+        "Q3-4B": "部分達成",
         "Q3-5": "条件付き達成",
+        "Q3-6": "未達",
     }
     for goal_id, expected in expected_status.items():
         if not re.search(
@@ -415,8 +428,12 @@ def validate_fixed_goal_language() -> None:
         ):
             raise ValueError(f"{goal_id}: 現在地が{expected}ではない")
     for block in (fixed_block, readme_block, status_text):
-        if re.search(r"^\| Q1-(?:3|4) \||^\| Q2-5 \|", block, re.MULTILINE):
-            raise ValueError("退役した固定目標の現行行が残っている")
+        if re.search(
+            r"^\| Q1-(?:3|4) \||^\| Q2-5 \||^\| Q3-(?:3|4) \|",
+            block,
+            re.MULTILINE,
+        ):
+            raise ValueError("退役または総称化した固定目標の現行行が残っている")
 
     validate_q2_dependency_ledgers()
 

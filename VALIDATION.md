@@ -1,5 +1,20 @@
 # 検算と品質確認
 
+## 2026-09-05：Q3固定目標の再編方針
+
+```bash
+python -m py_compile tools/build_paper.py
+python -c "from tools.build_paper import validate_fixed_goal_language; validate_fixed_goal_language()"
+python -c "from pathlib import Path; from tools.build_paper import combined_markdown; assert combined_markdown() == Path('paper.md').read_text(encoding='utf-8')"
+git diff --check
+```
+
+全て成功した。固定目標検査はQ3-2、Q3-3A--Q3-3C、Q3-4A--Q3-4B、Q3-5、Q3-6の名称と判定語、Q3-4Bの対照条件、裸のQ3-3・Q3-4行の不在、および既存Q2依存台帳を確認する。章別原稿を変更しておらず、結合結果が収録`paper.md`と一致することも確認した。
+
+この変更は方針文書の先行改訂である。論文本文、付録、研究メモ、`paper.md`、`main.tex`、`paper.pdf`、数値検算器、引用情報はdraft-69のままとし、数値計算とPDF組版は再実行していない。旧Q3-2、旧Q3-3、旧Q3-4の本文参照は後続改訂で同期する。
+
+---
+
 この文書の先頭はdraft-69（2026-09-05）の記録である。M37のミクロ運動、W型低2モード、Q1制御の順を主線とし、既存の射影内結果と全W型実装の強化条件を区別した。過去版の記録は後半に保存する。
 
 ## draft-69 実行と理論境界
