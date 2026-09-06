@@ -13,17 +13,17 @@
 
 R183の条件付き分布を $p_i(t)$ とすると
 
-~~~math
+```math
 k^-_{i\to j}
 =
 \frac{p_jk^+_{j\to i}}{p_i}
 =
 \frac{T_{ij}^\delta-J_{i\to j}}{2R_i^\delta}.
-~~~
+```
 
 1次元格子では
 
-~~~math
+```math
 D_+X
 =
 v^{(a,\delta)}+u^{(a,\delta)},
@@ -31,21 +31,21 @@ v^{(a,\delta)}+u^{(a,\delta)},
 D_-X
 =
 v^{(a,\delta)}-u^{(a,\delta)}
-~~~
+```
 
 が有限格子上で厳密に成立する。一様背景 $q_i=1/N$ では
 
-~~~math
+```math
 v_\delta=Av,
 \qquad
 u_\delta=Au,
 \qquad
 A=\frac{\rho}{\rho+\delta q_0}.
-~~~
+```
 
 理想M55 signal sectorの実正準HamiltonianをMadelung表示するとR185は
 
-~~~math
+```math
 m
 \frac12
 \left(
@@ -57,7 +57,7 @@ D_+D_-+D_-D_+
 mR_\delta
 +
 O(ma^2)
-~~~
+```
 
 を与える。$R_\delta$ は付録Nで明示し、固定 $\rho\geq\rho_*>0$ では $O(\delta)$ である。
 

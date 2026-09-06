@@ -7,28 +7,28 @@
 
 有限グラフ $G=(V,E)$ 上で1試行の状態を
 
-~~~math
+```math
 \Gamma_t
 =
 (Q(t),P(t),X_t,C_t,H_t,\tau_t,S_{\rm ref})
-~~~
+```
 
 とする。$Q_i,P_i$ は実正準signal自由度、$X_t\in V$ は1個の実在粒子位置、$C_t$ はfinite collision cell、$H_t$ は履歴、$\tau_t$ はclockである。
 
-~~~math
+```math
 Z_i
 =
 \frac{Q_i+iP_i}{\sqrt{2\mathcal J_0}}
-~~~
+```
 
 は派生複素表示であり、独立した複素場ではない。試行集団は $\mu_t(dX\,dZ)$ で記述し、
 
-~~~math
+```math
 C_Z(t)
 =
 \frac{\mathbb E[Z_tZ_t^\dagger]}
 {\mathbb E[Z_t^\dagger Z_t]}
-~~~
+```
 
 は集団統計に留める。$C_Z=cc^\dagger$ ならR135により $Z=\alpha c$ がほとんど確実に成り立つが、controllerは $c$、$C_Z$、全位置分布を入力しない。
 
@@ -36,25 +36,25 @@ C_Z(t)
 
 Hermitian $h=A+iB$、$A^{\mathsf T}=A$、$B^{\mathsf T}=-B$ に対する
 
-~~~math
+```math
 H_{\rm sig}
 =
 \frac{Q^{\mathsf T}AQ+P^{\mathsf T}AP}{2\mathcal J_0}
 +
 \frac{P^{\mathsf T}BQ}{\mathcal J_0}
-~~~
+```
 
 は厳密に
 
-~~~math
+```math
 i\mathcal J_0\dot Z=hZ
-~~~
+```
 
 を与え、$S=Z^\dagger Z$ を保存する。
 
 $q_i>0$、$\sum_iq_i=1$、$\delta>0$ とし、
 
-~~~math
+```math
 R_i^\delta
 =
 |Z_i|^2+\delta q_iS,
@@ -62,11 +62,11 @@ R_i^\delta
 \pi_i^\delta
 =
 \frac{R_i^\delta}{(1+\delta)S}
-~~~
+```
 
 とする。これはR164の $A_i^\delta/\mathcal J_0$ と同じ条件付き容量である。局所辺流と対称trafficを
 
-~~~math
+```math
 J_{i\to j}
 =
 \frac{2}{\mathcal J_0}
@@ -74,22 +74,22 @@ J_{i\to j}
 \left(
 Z_j^*h_{ji}Z_i
 \right),
-~~~
+```
 
-~~~math
+```math
 T_{ij}^\delta
 =
 \frac{|h_{ij}|}{\mathcal J_0}
 (R_i^\delta+R_j^\delta)
-~~~
+```
 
 と定める。$2|Z_i||Z_j|\leq|Z_i|^2+|Z_j|^2$ から
 
-~~~math
+```math
 |J_{i\to j}|
 \leq
 T_{ij}^\delta
-~~~
+```
 
 である。
 
@@ -97,11 +97,11 @@ T_{ij}^\delta
 
 前向きrateを
 
-~~~math
+```math
 k^+_{i\to j}
 =
 \frac{T_{ij}^\delta+J_{i\to j}}{2R_i^\delta}
-~~~
+```
 
 とする。
 
@@ -110,32 +110,32 @@ k^+_{i\to j}
 
 有限グラフ、時間連続な有界Hermitian生成子、$\delta>0$、上のM55 rateを仮定する。初期共同測度が
 
-~~~math
+```math
 \mu_0(X=i\mid Z=z)=\pi_i^\delta(z)
-~~~
+```
 
 を満たせば、全有限時刻で
 
-~~~math
+```math
 \mu_t(X=i\mid Z=z)=\pi_i^\delta(z)
-~~~
+```
 
 が成り立つ。rank-one signal集団 $C_Z(t)=\psi_t\psi_t^\dagger$ では
 
-~~~math
+```math
 P(X_t=i)
 =
 \frac{|\psi_i(t)|^2+\delta q_i}{1+\delta},
-~~~
+```
 
-~~~math
+```math
 D_{\rm TV}
 \left(
 P(X_t\in\cdot),|\psi_t|^2
 \right)
 \leq
 \frac{\delta}{1+\delta}.
-~~~
+```
 
 matching不変性自体にはrank-one仮定を要しない。
 <!-- theorem-end:theorem -->
@@ -145,30 +145,30 @@ matching不変性自体にはrank-one仮定を要しない。
 
 $R_i^\delta\geq\delta q_{\min}S>0$ と $T_{ij}^\delta\geq|J_{i\to j}|$ からrateは有限かつ非負である。$S$ は保存され、
 
-~~~math
+```math
 \frac{d}{dt}|Z_i|^2
 =
 \sum_jJ_{j\to i}
-~~~
+```
 
 なので
 
-~~~math
+```math
 \dot\pi_i^\delta
 =
 \frac{1}{(1+\delta)S}
 \sum_jJ_{j\to i}.
-~~~
+```
 
 一方、
 
-~~~math
+```math
 \pi_i^\delta k^+_{i\to j}
 -
 \pi_j^\delta k^+_{j\to i}
 =
 \frac{J_{i\to j}}{(1+\delta)S}.
-~~~
+```
 
 従って $\pi^\delta$ は位置master方程式を満たし、有限状態方程式の一意性により全時刻matchingが従う。
 
@@ -179,11 +179,11 @@ rank oneならR135の支持節から $Z=\alpha\psi$ がほとんど確実であ�
 
 $\delta>0$ では固定有限グラフ上のrateは有界である。時間を有限窓へ分けてrateを凍結し、辺と窓ごとに正逆rate以上の試行率を選ぶ。方向タグを持つcellの物理閾値 $u_n\in(0,1)$ が
 
-~~~math
+```math
 u_n
 <
 \frac{k^+_{i\to j}}{\nu_{e,m}}
-~~~
+```
 
 なら通過、それ以外は反射させる。source、target、窓、cell番号、未消去の閾値を履歴へ保持し、エネルギー差はwork registerへ移す。有限有理分割と滑らかなHamiltonian shearで固定有限時間の駆動Hamiltonian散乱列へ任意精度近似できる。overflowと各有限近似失敗は無反応へ残す。
 
@@ -193,7 +193,7 @@ u_n
 
 M37局所包絡を $b(t)$、理想M55信号を $b_L(t)$ とし、開始面で $S_{\rm ref}=\|b(0)\|^2$ をlatchする。$\Delta=\delta_{\rm loc}(\eta)<1$ とする。規格化信号 $x=b/\sqrt{S_{\rm ref}}$、$y=b_L/\sqrt{S_{\rm ref}}$ は
 
-~~~math
+```math
 \|x-y\|
 \leq
 \frac{\varepsilon_{\rm car}(T)}{1-\Delta},
@@ -203,46 +203,46 @@ M37局所包絡を $b(t)$、理想M55信号を $b_L(t)$ とし、開始面で $S
 \frac{1+\Delta}{1-\Delta},
 \qquad
 \|y\|=1.
-~~~
+```
 
 $r_i(x)=|x_i|^2+\delta q_i$ と置けば
 
-~~~math
+```math
 |r_i(x)-r_i(y)|
 \leq
 (R_\eta+1)|x_i-y_i|,
 \qquad
 R_\eta=\frac{1+\Delta}{1-\Delta}.
-~~~
+```
 
 traffic差とcurrent差は
 
-~~~math
+```math
 |t_{ij}(x)-t_{ij}(y)|
 \leq
 \frac{|h_{ij}|}{\mathcal J_0}
 \sqrt2(R_\eta+1)\|x-y\|,
-~~~
+```
 
-~~~math
+```math
 |j_{ij}(x)-j_{ij}(y)|
 \leq
 \frac{2|h_{ij}|}{\mathcal J_0}
 \sqrt{R_\eta^2+1}\|x-y\|.
-~~~
+```
 
 $r_i\geq\delta q_{\min}$ を商へ使うと
 
-~~~math
+```math
 \max_i\sum_{j\ne i}
 |k^+_{i\to j}(x)-k^+_{i\to j}(y)|
 \leq
 L_\delta(\eta)\varepsilon_{\rm car}(T)
-~~~
+```
 
 で、
 
-~~~math
+```math
 L_\delta(\eta)
 =
 \frac{h_1}
@@ -252,14 +252,14 @@ L_\delta(\eta)
 +
 \frac{2(1+\delta)}{\delta^2q_{\min}^2}
 \right].
-~~~
+```
 
 <!-- theorem-start:theorem -->
 **定理（R184：M55 moving matchingのM37・finite collision実装）**
 
 R86の仮定に加えて $\Delta<1$、$\delta>0$ とする。同じ初期位置分布から開始した理想M55過程とM37 rate過程は
 
-~~~math
+```math
 \sup_{0\leq t\leq T}
 D_{\rm TV}
 \left(
@@ -268,11 +268,11 @@ P(X_t^L\in\cdot)
 \right)
 \leq
 T L_\delta(\eta)\varepsilon_{\rm car}(T)
-~~~
+```
 
 を満たす。finite collision、時間凍結、overflow、clock、記録を加えた完全結果誤差を
 
-~~~math
+```math
 \varepsilon_{184}
 =
 \varepsilon_{\rm init}
@@ -288,7 +288,7 @@ T L_\delta\varepsilon_{\rm car}
 \varepsilon_{\rm clk}
 +
 \varepsilon_{\rm rec}
-~~~
+```
 
 とできる。厳密な $|\psi|^2$ と比較するときだけ $\delta/(1+\delta)$ を別項として加える。
 <!-- theorem-end:theorem -->
@@ -303,31 +303,31 @@ T L_\delta\varepsilon_{\rm car}
 
 R183の共同path measureを固定する。$p_i(t)=P(X_t=i\mid Z_t)$ は $\delta>0$ で正である。同じpath measureのBayes反転から
 
-~~~math
+```math
 k^-_{i\to j}
 =
 \frac{p_jk^+_{j\to i}}{p_i}
 =
 \frac{T_{ij}^\delta-J_{i\to j}}{2R_i^\delta}
-~~~
+```
 
 を得る。別の未来bath、後向きcontroller、未来境界条件を物理入力として追加しない。
 
-~~~math
+```math
 D_+f_i
 =
 \partial_tf_i
 +
 \sum_jk^+_{i\to j}(f_j-f_i),
-~~~
+```
 
-~~~math
+```math
 D_-f_i
 =
 \partial_tf_i
 +
 \sum_jk^-_{i\to j}(f_i-f_j)
-~~~
+```
 
 と定める。
 
@@ -335,95 +335,95 @@ D_-f_i
 
 1次元最近接格子 $x_i=ia$ と
 
-~~~math
+```math
 h_{i,i+1}
 =
 -\frac{\mathcal J_0\nu}{a^2},
 \qquad
 \mathcal J_0=2m\nu
-~~~
+```
 
 を考える。規格化辺流 $j_{i+1/2}=J_{i\to i+1}/[(1+\delta)S]$ に対し
 
-~~~math
+```math
 v_i^{(a,\delta)}
 =
 \frac{a}{2p_i}
 (j_{i+1/2}+j_{i-1/2}),
-~~~
+```
 
-~~~math
+```math
 u_i^{(a,\delta)}
 =
 \frac{\nu}{2ap_i}
 (p_{i+1}-p_{i-1})
-~~~
+```
 
 と置くと有限格子上で厳密に
 
-~~~math
+```math
 D_+X=v^{(a,\delta)}+u^{(a,\delta)},
 \qquad
 D_-X=v^{(a,\delta)}-u^{(a,\delta)}
-~~~
+```
 
 である。
 
 Q3のR185では一様背景 $q_i=1/N$ を採用する。$\psi=\sqrt\rho e^{iS/\mathcal J_0}$、
 
-~~~math
+```math
 v=\frac{\partial_xS}{m},
 \qquad
 u=\nu\partial_x\log\rho
-~~~
+```
 
 とし、
 
-~~~math
+```math
 A=\frac{\rho}{\rho+\delta q_0},
 \qquad
 \epsilon=1-A
-~~~
+```
 
 と置くと
 
-~~~math
+```math
 v_\delta=Av,
 \qquad
 u_\delta=Au
-~~~
+```
 
 であり、十分滑らかなnode-free領域で $v^{(a,\delta)}=v_\delta+O(a^2)$、$u^{(a,\delta)}=u_\delta+O(a^2)$ である。
 
 ## N.8 R185の時間対称Newton則
 
-~~~math
+```math
 a_{N,\delta}
 =
 \frac12(D_+D_-+D_-D_+)X
-~~~
+```
 
 とする。理想M55の実正準signal Hamiltonianが
 
-~~~math
+```math
 i\mathcal J_0\partial_t\psi
 =
 \left[
 -\frac{\mathcal J_0^2}{2m}\partial_x^2+V
 \right]\psi
-~~~
+```
 
 の複素表示を持つとする。これは独立な量子公理ではなくN.2の実Hamiltonianの表示である。Madelung分解から
 
-~~~math
+```math
 \partial_tv+v\partial_xv-u\partial_xu-\nu\partial_x^2u
 =
 -\frac{\partial_xV}{m}
-~~~
+```
 
 が従う。従って
 
-~~~math
+```math
 a_{N,\delta}
 =
 -\frac{\partial_xV}{m}
@@ -431,9 +431,9 @@ a_{N,\delta}
 R_\delta
 +
 O(a^2),
-~~~
+```
 
-~~~math
+```math
 R_\delta
 =
 \epsilon
@@ -444,14 +444,14 @@ R_\delta
 -
 \frac{A\epsilon}{\nu}u(v^2+u^2)
 \right].
-~~~
+```
 
 <!-- theorem-start:theorem -->
 **定理（R185：moving matching過程の同一母測度時間反転と時間対称Newton則）**
 
 R183を1次元一様格子へ特殊化し、$q_i=1/N$、$\delta>0$、$\mathcal J_0=2m\nu$ とする。固定有限時間のnode-free smooth sectorで $\rho\geq\rho_*>0$ を仮定する。同じ共同path measureから定まる $D_\pm$ は上の有限格子速度分解を厳密に満たし、
 
-~~~math
+```math
 m a_{N,\delta}
 =
 -\partial_xV
@@ -459,19 +459,19 @@ m a_{N,\delta}
 mR_\delta
 +
 O(ma^2).
-~~~
+```
 
 $F_0=\|\partial_xV/m\|_\infty$、$V_0=\|v\|_\infty$、$V_1=\|\partial_xv\|_\infty$、$U_0=\|u\|_\infty$、$U_1=\|\partial_xu\|_\infty$、
 
-~~~math
+```math
 \epsilon_*
 =
 \frac{\delta q_0}{\rho_*+\delta q_0}
-~~~
+```
 
 とすれば
 
-~~~math
+```math
 \|R_\delta\|_\infty
 \leq
 \epsilon_*
@@ -482,7 +482,7 @@ F_0
 +
 \frac{\epsilon_*}{\nu}U_0(V_0^2+U_0^2)
 \right].
-~~~
+```
 
 従って正則化残差は $O(\delta)$、格子残差は $O(a^2)$ である。
 <!-- theorem-end:theorem -->

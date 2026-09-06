@@ -845,40 +845,40 @@ R181Cは指数個の個別gate設定、R181Dは全 $2^n$ 葉の一括読出し�
 
 M55は、Q1・Q2で使う「単一試行の実正準signalを物理入力とし、rank-one複素rayは集団統計としてだけ使う」という契約を、Q3の空間配置と全時刻輸送へ拡張する親模型である。1試行の最小状態を
 
-~~~math
+```math
 \Gamma_{55}
 =
 (Z,X,C,H,\tau,S_{\rm ref})
-~~~
+```
 
 とする。$Z=(Q+iP)/\sqrt{2\mathcal J_0}$ は実正準対の派生表示、$X$ は1個の実在粒子位置、$C$ はfinite collision cell、$H$ は履歴、$\tau$ はclockである。共同測度を $\mu_t(dX\,dZ)$ とし、
 
-~~~math
+```math
 C_Z
 =
 \frac{\mathbb E[ZZ^\dagger]}
 {\mathbb E[Z^\dagger Z]}
-~~~
+```
 
 は単一試行controllerへ入力しない。
 
 Hermitian $h=A+iB$、$A^{\mathsf T}=A$、$B^{\mathsf T}=-B$ に対する実Hamiltonian
 
-~~~math
+```math
 H_{55}^{\rm sig}
 =
 \frac{Q^{\mathsf T}AQ+P^{\mathsf T}AP}{2\mathcal J_0}
 +
 \frac{P^{\mathsf T}BQ}{\mathcal J_0}
-~~~
+```
 
 は厳密に $i\mathcal J_0\dot Z=hZ$ を与える。R164と同じ条件付き容量
 
-~~~math
+```math
 R_i^\delta(Z)
 =
 |Z_i|^2+\delta q_iZ^\dagger Z
-~~~
+```
 
 から得る $\pi_i^\delta(Z)$ を、Q1・Q2ではR161による固定signalへの操作面再平衡化として使い、Q3ではR183によりmoving matchingとして全時刻保存する。R135がrank oneなら $Z=\alpha\psi$ が各試行で成り立つため、統計的ray $\psi$ を位置controllerへ書き戻さずに正則化Born分布を得る。
 

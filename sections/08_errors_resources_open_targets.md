@@ -196,27 +196,27 @@ C_\tau\varepsilon_{\rm block}
 
 ## 8.7 Q3のM55--M37 moving-matching誤差
 
-Q3ではR164と同じ条件付き分布 $\pi^\delta(X\mid Z)$ を確率源として共有する。Q1・Q2は固定signalへのR161再平衡化、Q3はR183のmoving matchingを使う。M55/R183--R184は現行依存から退役する。
+Q3ではR164と同じ条件付き分布 $\pi^\delta(X\mid Z)$ を確率源として共有する。Q1・Q2は固定signalへのR161再平衡化、Q3はR183のmoving matchingを使う。M42/R172--R174は現行依存から退役する。
 
 M37を使わない理想M55 signal sectorではR183のmatchingは厳密であり、rank-one統計から厳密な $|\psi|^2$ と比較するときだけ
 
-~~~math
+```math
 \varepsilon_\delta
 =
 \frac{\delta}{1+\delta}
-~~~
+```
 
 を加える。M37局所ばね実装では
 
-~~~math
+```math
 \varepsilon_{\rm car\to rate}(T)
 =
 T L_\delta(\eta)\varepsilon_{\rm car}(T)
-~~~
+```
 
 とし、
 
-~~~math
+```math
 \begin{aligned}
 \varepsilon_{184}(T)
 \leq{}&
@@ -230,13 +230,13 @@ T L_\delta(\eta)\varepsilon_{\rm car}(T)
 +\varepsilon_{\rm clk}
 +\varepsilon_{\rm rec}
 \end{aligned}
-~~~
+```
 
 とする。同じR86偏差をR135統計診断とrate誤差へ二重加算しない。
 
 $\Delta=\delta_{\rm loc}(\eta)$ に対し
 
-~~~math
+```math
 L_\delta(\eta)
 =
 \frac{h_1}
@@ -254,29 +254,29 @@ L_\delta(\eta)
 \delta^2q_{\min}^2
 }
 \right].
-~~~
+```
 
 固定有限格子では有限だが、$\delta\downarrow0$ で概ね $O(\delta^{-2})$ のrate感度が現れる。
 
 Q3-2の理想M55層ではR185により
 
-~~~math
+```math
 \varepsilon_{185}^{\rm ideal}
 \leq
 mC_{\rm lat}a^2
 +
 mC_{\rm reg}(\delta)
-~~~
+```
 
 と分けられ、node-free compact sectorで $C_{\rm reg}(\delta)=O(\delta)$ である。finite collision近似から $D_+D_-X$ と $D_-D_+X$ までの追加誤差 $\varepsilon_{\rm bath}^{\rm acc}$ は未導出なのでQ3-2は部分達成に留める。R184の $L_\delta\varepsilon_{\rm car}$ だけをNewton加速度誤差へ流用しない。
 
 R124の理想トンネル型増分を $\alpha>0$、R125の理想干渉分布距離を $\Delta_{\rm int}>0$ とする。各運転の誤差が $\varepsilon_{184}$ 以下なら観測差は
 
-~~~math
+```math
 \alpha-2\varepsilon_{184},
 \qquad
 \Delta_{\rm int}-2\varepsilon_{184}
-~~~
+```
 
 以上である。Q3-4AとQ3-5の条件付き達成はこの正の余裕と単一装置統合条件の下で維持する。
 
