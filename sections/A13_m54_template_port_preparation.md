@@ -15,8 +15,8 @@ M54の記述階層は次の通りである。
 | 単一試行の派生座標 | $z=(Q+iP)/\sqrt{2\mathcal J_0}$、$w=(Q^w+iP^w)/\sqrt{2\mathcal J_0}$ | 実方程式を簡潔に表示する。追加の物理場ではない |
 | 外部制御 | $g$、$\kappa$、$\lambda_{\rm prep}$、template設定 | pump、sink、port開閉を指定する |
 | 集団統計 | $C_Z=\mathbb E[ZZ^\dagger]/\mathbb E[Z^\dagger Z]$、$c$、$\Pi_c$ | 準備結果を記述する。単一試行controllerへ書き戻さない |
-| 下流の物理入力 | 各試行の $z(\omega)$ またはその正準SWAP先 | M50が作用容量を作る |
-| 観測結果 | M54単独では存在しない | M50/R170が粒子位置と外部記録を作る |
+| 下流の物理入力 | 各試行の $z(\omega)$ またはその正準SWAP先 | M54条件付き作用profileが容量を作る |
+| 観測結果 | M54単独では存在しない | M54 static/R170が排他的configurationと外部記録を作る |
 
 templateの規格化方向 $c=w/\|w\|$ は解析記号である。物理装置は $w$ とその二次形式だけをcouplerへ入れ、$w/\|w\|$ を作る除算器を持たない。開放流の押出し後に解析上 $C_Z\simeq cc^\dagger$ と評価する。
 
@@ -235,9 +235,9 @@ D_{\rm tr}(C_{Z,G_*},\Pi_c)
 
 準備終了後に $\lambda_{\rm prep}=0$ とすれば、開放項は消えて $i\mathcal J_0\dot z=Gz$ だけが残る。各試行の実正準状態は可逆に発展し、R135により第2モーメントはunitary共役で輸送される。以上でR181Aを得る。
 
-## M.6 M50への受渡しと二乗則の位置
+## M.6 M54 matching profileへの受渡しと二乗則の位置
 
-M54切断面の各安全試行について、M50へ渡すのは $c$ または $C_Z$ ではなく、実正準担体から得た $z(\omega)$ である。等長埋込み $\Psi$ に対するM50の理想ray重みは
+M54切断面の各安全試行について、matching profileへ渡すのは $c$ または $C_Z$ ではなく、実正準担体から得た $z(\omega)$ である。等長埋込み $\Psi$ に対するstatic profileの理想ray重みは
 
 ```math
 w_i(z)
@@ -259,7 +259,7 @@ p_c^{\rm id}(\varnothing)=P(G_*^c)
 へ比較できる。M54由来のray誤差だけなら
 
 ```math
-D_{\rm TV}(p^{\rm M54\to M50},p_c^{\rm id})
+D_{\rm TV}(p^{\rm M54\to static},p_c^{\rm id})
 \leq
 \frac{P(G_*)\sqrt{q_*}e^{-\kappa\alpha\tau}}
 {1+\delta}
@@ -267,7 +267,7 @@ D_{\rm TV}(p^{\rm M54\to M50},p_c^{\rm id})
 
 である。実際のR170では、これに容量、作用殻、混合、衝突、保持、固定、記録の誤差を別に加える。
 
-ここで $|(\Psi c)_i|^2$ は、M54が作った階数1第2モーメントの対角である。同じ式をM50側では各試行の作用比として読む。従って二乗形の状態依存性は準備済み統計に由来し、排他的な単一結果はM50の作用殻状態数と粒子位置熱化に由来する。M54だけで結果頻度が生じるとも、M50が目標rayを無から準備するとも解釈しない。
+ここで $|(\Psi c)_i|^2$ は、M54が作った階数1第2モーメントの対角である。同じ式をM54 matching profileでは各試行の作用比として読む。従って二乗形の状態依存性は準備済み統計に由来し、排他的な単一結果はR164の作用殻状態数とR161 static matchingに由来する。ray準備だけで結果頻度が生じるとも、matching profileが目標rayを無から準備するとも解釈しない。
 
 ## M.7 現行系列への特殊化と非主張
 
@@ -278,13 +278,13 @@ D_{\rm TV}(p^{\rm M54\to M50},p_c^{\rm id})
 | Q2-3 | 指定した3部分系初期rayの試行集団準備 | R181B/R181Cの反復lift・二段gate、R177、R181Dの末端接続 |
 | Q2-4 | root sourceのradial整形と各nodeのradial-only repump | R181Cのgate合成、R170のselector形成、R181Dのfilter、R179のbank供給 |
 | Q2-2 | setting-free局所seedまたは有限ray template | singlet交差モーメント、paired-Hopf強matching、Bell因果構造 |
-| Q3 | M55へ渡すrank-one初期標本集団と開始matching用の単一試行signal | M55/M37との同一局所Hamiltonian統合、moving matching、終位置記録 |
+| Q3 | M54 spatial profileへ渡すrank-one初期標本集団と開始matching用の単一試行signal | M54 spatial/M37との同一局所Hamiltonian統合、moving matching、終位置記録 |
 
 M54のR181A portは状態準備の共通開放模型を与えるが、次を主張しない。
 
 1. pump、sink、template、clockを含む有限閉鎖Hamiltonian実現。
 2. 雑音付き定常測度、揺らぎ散逸関係、有限bathによる誤差上界。
-3. M54、M55、M37、M47、M50、R180 receiverが同じ物理装置であること。
+3. M54、M37、M47、R180 receiverが同じ物理装置であること。
 4. M54単独で粒子位置、Born型排他的結果、測定後状態を生成すること。
 5. template設定から独立に任意の未知入力状態を自己準備すること。
 6. 試行列の独立同分布性または二項型有限標本揺らぎ。
