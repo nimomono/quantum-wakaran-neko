@@ -438,7 +438,7 @@ GitHub Actionsは次を確認する。
 
 - 実行日: 2026-09-07
 - 対象branch: `draft-74-unified-matching-m54`
-- : 20本を全件実行し成功。
+- `tools/verify_*.py`: 20本を全件実行し成功。
 - `python -m py_compile tools/*.py`: 成功。
 - `python tools/build_paper.py`: 2回連続実行し、`paper.md` と `main.tex` は完全一致。
 - 2回生成したPDFは `pdftotext -layout` の本文、ページ数、ページ寸法が一致。
