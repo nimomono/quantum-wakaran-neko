@@ -278,13 +278,13 @@ D_{\rm TV}(p^{\rm M54\to M50},p_c^{\rm id})
 | Q2-3 | 指定した3部分系初期rayの試行集団準備 | R181B/R181Cの反復lift・二段gate、R177、R181Dの末端接続 |
 | Q2-4 | root sourceのradial整形と各nodeのradial-only repump | R181Cのgate合成、R170のselector形成、R181Dのfilter、R179のbank供給 |
 | Q2-2 | setting-free局所seedまたは有限ray template | singlet交差モーメント、paired-Hopf強matching、Bell因果構造 |
-| Q3 | M37へ渡すrank-one初期標本集団とM42初期位置用の単一試行信号 | M37--M42との同一局所Hamiltonian統合、空間伝播、終位置記録 |
+| Q3 | M55へ渡すrank-one初期標本集団と開始matching用の単一試行signal | M55/M37との同一局所Hamiltonian統合、moving matching、終位置記録 |
 
 M54のR181A portは状態準備の共通開放模型を与えるが、次を主張しない。
 
 1. pump、sink、template、clockを含む有限閉鎖Hamiltonian実現。
 2. 雑音付き定常測度、揺らぎ散逸関係、有限bathによる誤差上界。
-3. M54とM37、M42、M47、M50、R180 receiverが同じ物理装置であること。
+3. M54、M55、M37、M47、M50、R180 receiverが同じ物理装置であること。
 4. M54単独で粒子位置、Born型排他的結果、測定後状態を生成すること。
 5. template設定から独立に任意の未知入力状態を自己準備すること。
 6. 試行列の独立同分布性または二項型有限標本揺らぎ。
