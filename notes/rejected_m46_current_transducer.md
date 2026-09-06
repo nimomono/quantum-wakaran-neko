@@ -166,3 +166,7 @@ M46またはR133を現行模型へ戻すには、少なくとも次のいずれ�
 M55/R183/R185は旧M46の復活ではない。M55では各試行に実在する実正準signalの派生座標 $Z(\omega)$ からrateを作り、共同測度のrank-one因子 $\psi$ を単一試行へ書き戻さない。R183は旧メモの再検討条件であったmatching fiber不変性をこの因果規約で証明し、R185は同じpath measureのBayes時間反転から $D_\pm$ を定義する。
 
 旧R133/R134は引き続き不採用模型内の履歴結果であり、現行結果IDへ復活させない。
+
+## draft-74の一般R161との関係
+
+draft-74では、draft-72のM55/R183を独立模型・独立結果として残さず、M54 spatial profileと一般R161のmoving specializationへ吸収した。旧M46を復活させない理由は変わらない。現行R161 spatialでは各試行の実正準signal (Z(omega)) と有限configuration (X) だけがrateの物理入力であり、集団ray (psi)、(C_Z)、全位置密度をcontrollerへ書き戻さない。R185のbackward rateも同じpath measureのBayes反転として一般R161から得る。
