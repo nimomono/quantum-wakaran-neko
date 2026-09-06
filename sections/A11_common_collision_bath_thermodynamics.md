@@ -604,7 +604,7 @@ G_{\rm rec}
 
 ## K.7 Q1・Q2・Q3周期への接続
 
-M47の1段測定はM54 static profileのQ1特殊化として次の操作面へ分ける。
+Q1 W型2モードprotocolの1段測定はM54 static profileのQ1特殊化として次の操作面へ分ける。
 
 1. R181AのW型2モード系で信号bath方向を目標rayへ準備する。
 2. 方向を保持し、R164の作用枝容量と条件付き作用殻fiberを準備する。
