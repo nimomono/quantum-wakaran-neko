@@ -101,6 +101,7 @@
 - `tools/verify_r179_m54_supply.py`
 - `tools/verify_m54_q2_composition.py`
 - `tools/verify_m37_w_spectral_tunneling.py`
+- `tools/verify_r187_m37_w_q1_bridge.py`
 - `tools/verify_q3_completion.py`
 - `figures/README.md`
 - `.github/workflows/verify.yml`
@@ -120,6 +121,15 @@
 - `fonts/NotoSerifJP-Regular.ttf`
 
 旧版セクション、旧数値コード、旧PDF、査読回答履歴は収録しない。置換・退役した理論の最小索引と再検討条件は `notes/` に残し、完全な原稿と実装はGit履歴から参照する。
+
+## draft-77のM37--W--Q1物理bridge
+
+- R187を新設し、有限局所弱結合W型で $J_\kappa/G_\kappa\to0$ を構成。
+- 傾斜時のdressed低2cluster、静的M37正常mode $f_{\omega_0}(h)$ の分裂較正、有限quench/smooth switchを合成し、固定 $U\in SU(2)$ の任意精度carrier実装を証明。
+- 零傾斜全mode正常座標の最低2正準pairをM54 W2 static profileのsignal subsystemへcanonical同定し、高modeを捨てないhandoffを明示。
+- Q1-1「達成」、Q1-2「部分達成」、Q2/Q3の達成ラベルは変更しない。R187はcarrier-level bridgeであり、R181A pump、R164/R170 instrument、記録、resetの同一装置統合は未完。
+- `tools/verify_r187_m37_w_q1_bridge.py` でweak-link split、gap、lever arm、spectral projector、tilt hold、長時間static carrier、canonical mode変換を回帰。
+- draft-77へ再生成する `paper.md`、`main.tex`、`paper.pdf`。
 
 ## draft-76のQ1定理階層整理
 
