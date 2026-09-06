@@ -1,5 +1,23 @@
 # 検算と品質確認
 
+## draft-76：Q1定理階層整理
+
+```bash
+python -m py_compile tools/*.py
+for script in tools/verify_*.py; do python "$script"; done
+python tools/build_paper.py
+git diff --check
+```
+
+GitHub Actionsの一時生成run `34052774482` で、全Python構文検査、全 `verify_*.py`、`build_paper.py` の固定目標・依存台帳・Q1定理階層回帰、論文再生成、PDF品質検査が成功した。R143の定理宣言は1件、R144の定理宣言は1件であり、R144定理ブロックには永久記録、内部逆計算、fresh-cell、交換resetを含めないことを生成器で検査する。付録BのR144証明も永久記録・内部逆計算・fresh-cell交換を使わず閉じることを回帰条件にした。
+
+R144は固定有限段の逐次測定合成、完全履歴空間 $\{+1,-1,\varnothing\}^N$、段間条件付き状態受渡し、同軸反復・異軸逐次分布と有限誤差和を担う。既存の永久記録、補助逆計算、交換reset評価は削除せず無番号の実装強化系へ移した。Q1-2の固定目標、Born分布・同軸反復分布・異軸逐次分布の導出済み判定、Q1-2「部分達成」は変更していない。Zeno効果は引き続き未達で、零傾斜Rabi対照とR144有限段測定の接続が残る。
+
+最終生成PDFはA4、215ページ、1,293,651 bytes。生成commit `d19f03018ffd4db139663502a01084ec9ed43e2e` に `paper.md`、`main.tex`、`paper.pdf` を収録した。最終LaTeX logに未解決citation/reference、overfull、underfull、fatal error、欠落文字がないことをworkflowで確認した。TeXの途中passではbibliography解決前のcitation warningが出るが、最終passの禁止警告検査は成功している。一時生成workflowは生成後に削除した。
+
+---
+
+
 ## draft-75：模型階層・重複整理
 
 ```bash
