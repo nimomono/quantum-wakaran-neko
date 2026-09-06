@@ -836,13 +836,21 @@ P(X_{t_0}=i\mid Z_{t_0}=z)
 
 ## 6.14 R184のM37・有限collision受渡しとQ3-4A・Q3-5
 
-M37の実局所包絡を $b(t)$、同じ初期値から進む理想M55信号を $b_L(t)$ とする。開始面で $S_{\rm ref}=\|b(0)\|^2$ を単一試行registerへlatchする。$\Delta=\delta_{\rm loc}(\eta)<1$、$q_{\min}=\min_iq_i$、$h_1=\max_i\sum_{j\ne i}|h_{ij}|$ とすると、R184は
+M37の実局所包絡を $b(t)$、同じ初期値から進む理想M55信号を $b_L(t)$ とする。開始面で $S_{\rm ref}=\|b(0)\|^2$ を単一試行registerへlatchする。M37実装では背景容量を
+
+```math
+R_{i,37}^{\delta,\mathrm{lat}}(t)
+=
+|b_i(t)|^2+\delta q_iS_{\rm ref}
+```
+
+と固定し、輸送中の非保存局所作用 $\|b(t)\|^2$ を背景項へ書き戻さない。理想 $b_L$ は $\|b_L(t)\|^2=S_{\rm ref}$ を保存するため、このlatch規約は理想M55の $R_i^\delta$ と一致する。$\Delta=\delta_{\rm loc}(\eta)<1$、$q_{\min}=\min_iq_i$、$h_1=\max_i\sum_{j\ne i}|h_{ij}|$ とすると、R184は
 
 ```math
 \max_i
 \sum_{j\ne i}
 \left|
-k_{i\to j}^{37}
+k_{i\to j}^{37,\mathrm{lat}}
 -
 k_{i\to j}^{L}
 \right|
@@ -879,14 +887,14 @@ L_\delta(\eta)
 \sup_{0\leq t\leq T}
 D_{\rm TV}
 \left(
-P(X_t^{37}\in\cdot),
+P(X_t^{37,\mathrm{lat}}\in\cdot),
 P(X_t^L\in\cdot)
 \right)
 \leq
 T L_\delta(\eta)\varepsilon_{\rm car}(T).
 ```
 
-$\delta>0$ ではrateは固定有限グラフ上で有界なので、旧R184で用いた方向タグ、物理閾値、work register、historyを持つfinite collision-cell列を一般有向rateへ適用できる。旧 $(\rho,\sigma)$ node正則化は退役し、R164と共通の $\delta$ を使う。
+$\delta>0$ ではrateは固定有限グラフ上で有界なので、付録N.4の一般有界有向率補題により、有限threshold cell、clock、work register、historyを持つ有限駆動Hamiltonian散乱列へ任意精度で近似できる。旧R173または旧 $(\rho,\sigma)$ node正則化を現行証拠鎖へ戻さず、R164と共通の $\delta$ と開始作用latchだけを使う。
 
 Q3-4AとQ3-5ではR124/R125の理想分布差をR184の完全結果誤差 $\varepsilon_{184}$ と比較する。Q3-4BではR182の同じ静的W型過程を三時刻で読み、同じM55粒子の半周期移送と一周期回帰へ持ち上げる。M54準備、M37実装、初期作用殻、finite collision bath、clock、終位置記録の単一装置統合は引き続き条件として残す。
 
@@ -910,7 +918,7 @@ T
 
 全例で作用素上界、厳密包絡の状態上界、局所包絡の状態上界、局所作用変動上界を満たした。$\omega_0=40$ から80への倍増で作用素誤差は1.96分の1、局所状態誤差は1.79分の1になり、弱結合極限での $O(\eta)$ 収束と整合する。この表は `tools/verify_envelope_reduction.py` から再現できる。
 
-M55/R183--R185については `tools/verify_m55_moving_matching.py` を用いる。current反対称性、対称trafficの正値性、moving-matching master方程式、同一母測度の時間反転、有限格子の $D_\pm$ 分解、R184のrate感度上界、R185の $O(\delta)$ 正則化残差を検算する。R135とR168は `tools/verify_common_signal_m50.py` の固定時刻統計診断として残す。数値検算は解析証明の代わりではなく、単一試行状態と集団統計、初期matchingと終記録、同じ誤差の二重計数を監査する回帰検査である。
+M55/R183--R185については `tools/verify_m55_moving_matching.py` を用いる。current反対称性、対称trafficの正値性、moving-matching master方程式、同一母測度の時間反転、有限格子の $D_\pm$ 分解、R184の開始作用latchとrate感度上界、R185の $O(\delta)$ 正則化残差を検算する。R185については零current例だけでなく非零current速度を持つ滑らかな周期例でも残差恒等式を検査する。R135とR168は `tools/verify_common_signal_m50.py` の固定時刻統計診断として残す。数値検算は解析証明の代わりではなく、単一試行状態と集団統計、初期matchingと終記録、同じ誤差の二重計数を監査する回帰検査である。
 
 ## 6.16 Q3-1の達成判定と限界
 
