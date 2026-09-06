@@ -1,0 +1,51 @@
+name: draft-72 generated artifacts
+
+on:
+  push:
+    branches:
+      - draft-72-m55-moving-matching
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-commit:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: 原稿を取得
+        uses: actions/checkout@v4
+        with:
+          ref: draft-72-m55-moving-matching
+          fetch-depth: 0
+
+      - name: Pythonを準備
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: 依存関係を導入
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y pandoc poppler-utils texlive-latex-extra texlive-xetex
+          python -m pip install numpy
+
+      - name: 数式検算と論文生成
+        run: |
+          python -m py_compile tools/*.py
+          for script in tools/verify_*.py; do
+            python "$script"
+          done
+          python tools/build_paper.py
+          pdftotext -layout paper.pdf /tmp/paper.txt
+          pdfinfo paper.pdf
+
+      - name: 生成物をコミット
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add paper.md main.tex paper.pdf
+          if ! git diff --cached --quiet; then
+            git commit -m "draft-72: regenerate manuscript and PDF"
+            git push origin HEAD:draft-72-m55-moving-matching
+          fi
