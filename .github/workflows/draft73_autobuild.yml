@@ -1,0 +1,51 @@
+name: draft-73 one-shot rebuild
+
+on:
+  push:
+    branches:
+      - draft-73-r184-latched-background
+
+permissions:
+  contents: write
+
+jobs:
+  rebuild:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: draft-73-r184-latched-background
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y pandoc poppler-utils texlive-latex-extra texlive-xetex
+          python -m pip install numpy
+      - name: validate theory and rebuild
+        run: |
+          set -Ee -o pipefail
+          python -m py_compile tools/*.py
+          for script in tools/verify_*.py; do python "$script"; done
+          grep -Fq 'R_{i,37}^{\delta,\mathrm{lat}}' sections/A14_m55_spatial_moving_matching.md
+          grep -Fq '一般有界有向率の有限衝突cell持上げ' sections/A14_m55_spatial_moving_matching.md
+          grep -Fq '\frac1\ell' sections/A14_m55_spatial_moving_matching.md
+          ! grep -Fq '旧R173の一般有向rate用collision構成を再利用' sections/A14_m55_spatial_moving_matching.md
+          grep -Fq 'version: "draft-73"' CITATION.cff
+          grep -Fq 'draft-73 改訂稿' tools/template.tex
+          python tools/build_paper.py
+          ! grep -Eq "Citation .* undefined|Reference .* undefined|Overfull|Underfull|Fatal error|Missing character" build/latex/main.log
+          pdftotext -layout paper.pdf /tmp/paper.txt
+          pdfinfo paper.pdf
+          git diff --check
+      - name: commit generated artifacts and remove workflow
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add paper.md main.tex paper.pdf
+          git rm .github/workflows/draft73_autobuild.yml
+          git commit -m "draft-73: rebuild manuscript and PDF"
+          git push origin HEAD:draft-73-r184-latched-background
