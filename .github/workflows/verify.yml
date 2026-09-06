@@ -65,8 +65,8 @@ jobs:
           grep -Fq 'lock前にfilterを開かない' sections/A16_m54_projector_tree_receiver.md
           grep -Fq 'radial-only repump' sections/A16_m54_projector_tree_receiver.md
           grep -Fq 'aggregate cold誤差' sections/A17_m54_uniform_supply.md
-          grep -Fq 'version: "draft-76"' CITATION.cff
-          grep -Fq 'draft-76 改訂稿' tools/template.tex
+          grep -Fq 'version: "draft-77"' CITATION.cff
+          grep -Fq 'draft-77 改訂稿' tools/template.tex
 
 
       - name: M54 matching理論境界を検査
@@ -99,6 +99,13 @@ jobs:
           test "$(grep -Rho '定理（R144：' sections/*.md | wc -l)" -eq 1
           grep -Fq '実装強化：永久記録、補助逆計算、交換reset' sections/03_m47_controlled_w_instrument.md
           grep -Fq '永久記録、内部逆計算、fresh-cell交換はこの証明に使わない' sections/A2_m47_controlled_w_instrument_proofs.md
+          test -f tools/verify_r187_m37_w_q1_bridge.py
+          test "$(grep -Rho '定理（R187：' sections/*.md | wc -l)" -eq 1
+          grep -Fq '## 6.19 R187：M37弱結合W型からQ1 W2制御への物理bridge' sections/06_m37_spatial_envelope.md
+          grep -Fq '**証明（R187）**' sections/A5_m37_envelope_proofs.md
+          grep -Fq '| R187 | 厳密有限次元結果・明示誤差付き構成 |' PROJECT_STATUS.md
+          grep -Fq '| Q1-1 | 達成 | M54 W2 static profile | M37弱結合W型の最低2正常mode' PROJECT_STATUS.md
+          grep -Fq '| Q1-2 | 部分達成 | M54 W2 static profile | R187のM37 W2 control carrier' PROJECT_STATUS.md
           grep -Fq 'R_{i,37}^{\delta,\mathrm{lat}}' sections/A14_m54_spatial_moving_matching.md
           grep -Fq '\frac1\ell' sections/A14_m54_spatial_moving_matching.md
           grep -Fq '一般有界有向rateのfinite collision持上げ' sections/A11_common_collision_bath_thermodynamics.md
