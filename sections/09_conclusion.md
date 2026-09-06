@@ -7,7 +7,7 @@
 
 M54は、一様有限正準register、物理source/template port、anti/work、raw・regularized容量、selector、cold/spent bank、記録、clockを持つQ1・Q2の共通親模型族である。R181Aは物理template準備、R181Bは固定2・3入力の可逆tensor-lift、R181Cは永続register上の局所gate列、R181DはR170駆動projector-tree Born instrumentを与える。各試行の複素信号は実正準座標の派生表示であり、解析上のrayや確率表をcontrollerへ書き戻さない。
 
-Q1はM54の $n=1$ W型特殊化である。R181AのW型2モード系は独立結果IDを持たない。共通R135は階数1bath共分散のBloch球、R140は任意の $SU(2)$、零傾斜占有振動、離調Rabi式を与える。R181Dの深さ1とR143が有限コントラストの左右読出しと結果別状態更新を与える。R135、R140によりQ1-1を達成と判定した。
+Q1はM54の $n=1$ W型特殊化である。R181AのW型2モード系は独立結果IDを持たない。共通R135は階数1bath共分散のBloch球、R140は任意の $SU(2)$、零傾斜占有振動、離調Rabi式を与える。R187はM37の局所ばね弱結合W型族で $J_\kappa/G_\kappa\to0$ を構成し、傾斜時のdressed低2cluster、厳密正常mode分裂較正、finite switchを合成してR140制御を任意精度で物理carrierへ持ち上げる。R181Dの深さ1とR143が有限コントラストの左右読出しと結果別状態更新を与える。R135、R140により既にQ1-1を達成しており、R187はその物理backendを強化する。
 
 R164は一般有限signal作用を枝容量へ写し、各排他的枝の2作用殻を単一Liouville母測度で数えるとBorn型条件付き状態数が得られることを示す。二乗形の状態依存性はM54が準備するrank-one第2モーメントに現れ、R164は各試行の実担体signalから排他的結果の状態数を作る。この二段を二重の確率源として数えない。R161は共通current--traffic matchingを与え、static profileでは条件付きGibbs再平衡化、spatial profileではmoving matchingを与える。R162はgeneric finite collisionとthermal特殊化を与え、その系として条件付き中間状態の正逆経路確率比と相対有効仕事が従う。作用殻明示表示と消去表示を同じ分配関数で二重計数せず、殻自由エネルギー仕事 $W^{\rm sh}$ と相対有効仕事 $W^{\rm rel}$ を区別する。
 
@@ -19,7 +19,7 @@ Q2-2にはM54駆動setting-pre paired-Hopf receiverを採用した。固定singl
 
 R180Bは選択したA側・B側templateをsourceとしてpaired-Hopf pump、paired差sink、直交sinkを駆動し、共役位相を持つ2翼rayへ有限時間で整列する。R180Cは中央切断後のfresh局所作用殻と局所応答が完全共通原因に条件付けて積因子化すること、Born共同分布、非信号性、CHSH差、fresh-cell帰還をまとめる。共通原因を平均した大域Bell対数を物理的な切断後ポテンシャルへ戻さない。M54の1試行信号 $\widetilde V$ を使い、集団交差momentまたはR181Cの生成子 $G_S$ を終端共役として再注入しない。
 
-Q3ではM54 spatial profileを粒子--signal bath共同測度の親模型とし、M54/R181Aからrank-one初期集団を受け取り得る契約を上流に置く。R161 moving specializationはR164と同じ条件付き位置分布をmoving matchingとして全時刻保存し、rank-one集団では正則化Born位置分布へ接続する。R185は同じpath measureから後向きrateと前進・後退平均微分を定め、1次元node-free sectorで時間対称Newton則を $O(a^2)+O(\delta)$ まで導く。M37はM54 spatial profileの空間signal sectorを局所位置ばねで近似する実装であり、R86の包絡誤差をR184がrate・位置分布・finite collision実装へ受け渡す。R123とR182によりQ3-3A--Q3-3Cは達成、R124/R125/R182をR161/R184の同じ粒子へ接続してQ3-4A・Q3-4B・Q3-5は条件付き達成である。終時刻に別のM54 static profile位置を再標本化しない。
+Q3ではM54 spatial profileを粒子--signal bath共同測度の親模型とし、M54/R181Aからrank-one初期集団を受け取り得る契約を上流に置く。R161 moving specializationはR164と同じ条件付き位置分布をmoving matchingとして全時刻保存し、rank-one集団では正則化Born位置分布へ接続する。R185は同じpath measureから後向きrateと前進・後退平均微分を定め、1次元node-free sectorで時間対称Newton則を $O(a^2)+O(\delta)$ まで導く。M37はQ3ではM54 spatial profileの空間signal sectorを局所位置ばねで近似し、R86の包絡誤差をR184がrate・位置分布・finite collision実装へ受け渡す。Q1では別にR187が同じM37形式の弱結合W型最低2正常modeをM54 W2 signal subsystemへ接続する。R123とR182によりQ3-3A--Q3-3Cは達成、R124/R125/R182をR161/R184の同じ粒子へ接続してQ3-4A・Q3-4B・Q3-5は条件付き達成である。終時刻に別のM54 static profile位置を再標本化しない。
 
 ## 9.2 条件付きで確立したこと
 
@@ -41,11 +41,11 @@ Q2-4では総bath容量と総熱を多項式としない。signal、work、histo
 
 M54について未導出なのは、pump、transverse sink、template、clockを具体的な有限bath、仕事源、排熱先から導くこと、雑音付き有限時間誤差、揺らぎ散逸関係、準備portの総仕事・熱・エントロピー生成を閉じることである。R181Aは採用した縮約drift後の厳密結果であり、そのdriftの有限閉鎖Hamiltonian持上げではない。
 
-Q1 W型2モードprotocolについて未導出なのは、M54/R181AのW型2モード系の開放portをW型装置へ統合すること、R164の作用容量結合・fiber内平衡化・枝対称性を有限局所Hamiltonianとして構成すること、R162の衝突散乱と信号bath保持controllerを同じ最小有限Hamiltonianへ統合すること、粗視化された有効仕事・熱を全微視的台帳へ持ち上げてpumpからresetまでの全周期ゆらぎ関係へ拡張することである。時間依存傾斜をM37のミクロ位置ばね網から一様誤差付きで導くこと、連続空間極限、多粒子も未完成である。
+Q1 W型2モードprotocolについて、M37からW2 control carrierへの任意精度bridgeはR187で閉じた。未導出なのは、M54/R181Aのsource・pumpをR187のM37 W2 portへ同じ具体装置で接続すること、R164の作用容量結合・fiber内平衡化・枝対称性を有限局所Hamiltonianとして構成すること、R162の衝突散乱と信号bath保持controllerを同じ最小有限Hamiltonianへ統合すること、粗視化された有効仕事・熱を全微視的台帳へ持ち上げてpumpからresetまでの全周期ゆらぎ関係へ拡張することである。R187は任意の一般時間依存M37を導いたのではなく、弱結合W型の有限piecewise-static制御と有限smooth近似に限定する。連続空間極限、多粒子も未完成である。
 
 R180について未導出なのは、M54末端SWAP、projector作用latch、選択block source port、paired-Hopf pump・sink、R162の衝突粒子位置bath、中央切断、fresh cell流を同じ具体装置とclockへ統合することである。採用したR180B方程式を有限bathから導くこと、一般入力族でnode感度を一様に抑えること、総仕事、総熱、総エントロピー生成を閉じることも未完成である。A設定が中央準備へ入るため、空間的に分離した自由設定Bell実験を再現したとはいえない。
 
-Q1-2のZeno部分は未達であり、同一の零傾斜Rabi対照とR144の固定有限段逐次測定を接続する必要がある。傾斜による離調固定、障壁増大、駆動停止、摩擦、事後選別をZeno効果とは呼ばない。Q3-2は部分達成である。M54 spatial/R161の同じ共同測度からR185が前進・後退平均微分と時間対称Newton則を $O(a^2)+O(\delta)$ まで導く。残るのはfinite collision bath近似から合成加速度までの明示誤差であり、生のM37局所包絡からNewton加速度へ直接進むにはcarrier-period粗視化または時間微分付き縮約が必要である。Q3-6も未達であり、閉路巻数、節を介した位相すべり、細分化安定性、非整数モノドロミー排除を統合する課題として維持する。
+Q1-2のZeno部分は未達であり、R187が与える同一M37 W2 carrier上の零傾斜Rabi対照とR144の固定有限段逐次測定を、測定sectorとの反作用を含む同じ運転へ接続する必要がある。傾斜による離調固定、障壁増大、駆動停止、摩擦、事後選別をZeno効果とは呼ばない。Q3-2は部分達成である。M54 spatial/R161の同じ共同測度からR185が前進・後退平均微分と時間対称Newton則を $O(a^2)+O(\delta)$ まで導く。残るのはfinite collision bath近似から合成加速度までの明示誤差であり、生のM37局所包絡からNewton加速度へ直接進むにはcarrier-period粗視化または時間微分付き縮約が必要である。Q3-6も未達であり、閉路巻数、節を介した位相すべり、細分化安定性、非整数モノドロミー排除を統合する課題として維持する。
 
 Q3-3Cは達成である。R182が対称W型の固定有限低位固有値、密度、節の格子・領域収束を与え、R123のポテンシャル非依存な有限環境純位相緩和を同じW型固有基底へ接続した。Q3-4Bは条件付き達成である。R182は障壁値未満最低偶奇二重項、第3状態gap、中央障壁を含む完全位置密度、半周期鏡映、一周期回帰を固有関数から直接導き、R161--R184が開始時に一度だけ選んだ同じM54 spatial profile粒子へ持ち上げる。2モード作用比を空間領域占有率へ読み替えない。残るのはM54準備、M37、初期作用殻、M54 spatial profile bath、clock、記録の単一装置統合である。
 
@@ -81,6 +81,6 @@ Q3-3Cの固定範囲はR182とR123で閉じた。Q3-4A・Q3-4B・Q3-5では、M5
 
 Q3-6では、頂点包絡から辺位相と閉路巻数を定義し、零点を避けるhomotopy不変性、エネルギー最小補間、R86細分化安定性、非整数seamの $a^{-1}$ エネルギー発散、節を介した位相すべりを一つの鎖で検査する。R161 moving specializationの対称往復trafficの有限装置理由、$δ\downarrow0$ の資源発散、R180 receiverの空間分離拡張、R123の連続環境極限、R124・R125の散乱・吸収拡張は、それぞれ固定目標と区別して監査する。
 
-物理的な導出の主線を、M37の実振動子運動からW型の低2モードを経てQ1の制御運動へ進む経路とする。第6章の静的R86、第3章の射影内R140、両者を接続する条件付き系を区別する。Q1の既存正準実装の達成は維持し、制御された位置ばね実装の任意精度構成は追加の強化課題として管理する。準備・枝選択・記録とQ2の共同担体は、担体運動だけからは従わない。
+物理的な導出の主線を、M37の実振動子運動から弱結合W型の低2正常modeを経てQ1の制御運動へ進む経路とする。第6章R187でcarrier-levelの任意精度構成は閉じた。準備・枝選択・記録とQ2の共同担体は担体運動だけからは従わない。
 
-追加した区間合成と残差受渡しは厳密な誤差接続であるが、全制御族の任意精度構成は未完である。漏れ確率だけによる分布誤差評価を撤回し、全状態差と位相補正を分けた。M0の共通記述、同一装置、全外部流路の閉鎖系化を同じ達成として数えない。
+従来の区間合成と残差受渡しは一般道具として残し、R187ではdressed clusterと静的分裂較正により固定基底残差の長時間floorを避けた。漏れ確率だけによる分布誤差評価を撤回し、全状態差と位相補正を分けた。M0の共通記述、同一装置、全外部流路の閉鎖系化を同じ達成として数えない。
