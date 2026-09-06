@@ -1,5 +1,14 @@
 # 変更記録
 
+## draft-75：模型階層と特殊化重複の整理
+
+- M54をQ1/Q2/Q3の共通有効signal--configuration profile族、M37をspatial signal sectorの物理Hamiltonian backend、M0をsame-hardware統一目標として明確に分離した。旧M47はQ1 W型2モードprotocolの履歴追跡用IDとして残し、現行模型へ独立に二重計上しない。
+- `PROJECT_STATUS.md` の現在地台帳をprofile、物理担体/backend、系列固有protocol/receiver、根拠結果へ層別化し、READMEと第1章から完全R依存表の重複を外した。詳細依存台帳の正本は `PROJECT_STATUS.md` だけとした。
+- 付録HをM54/R181A、R135、R140のW型2モード対応表へ縮約し、一般定理のパラメータ特殊化に対する重複証明を削除した。第4章もR181B--R181Dの一般定理再宣言ではなくQ2特殊化・適用として整理した。
+- 現行本文、roadmap、検算器の退役M47/M50/R173語彙を現行profile/backend/protocol分類へ同期した。過去のCHANGELOG、VALIDATION、退役研究メモは当時の名称を保存する。
+- 固定長期目標、達成ラベル、既存定理の数学的内容、R144の責務、M37からQ1への新しい物理bridgeは変更していない。
+
+
 ## draft-74：M54共通親模型とmatching/collision原理への統一
 
 - M54を一般signal index集合とconfiguration集合を持つQ1--Q3共通親模型族へ拡張した。M50をM54 static-instrument profile、M55をM54 spatial-moving profileへ吸収し、旧モデルIDは再利用しない。
