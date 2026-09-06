@@ -433,3 +433,15 @@ GitHub Actionsは次を確認する。
 - 最終LaTeXログでは `Overfull` / `Underfull` / 未解決citation/reference / missing character / fatal errorを0件とした。
 - 固定長期目標と達成ラベルは変更していない。
 
+
+## draft-74 M54 matching統一
+
+- 実行日: 2026-09-07
+- 対象branch: `draft-74-unified-matching-m54`
+- : 20本を全件実行し成功。
+- `python -m py_compile tools/*.py`: 成功。
+- `python tools/build_paper.py`: 2回連続実行し、`paper.md` と `main.tex` は完全一致。
+- 2回生成したPDFは `pdftotext -layout` の本文、ページ数、ページ寸法が一致。
+- LaTeX logに未解決Citation/Reference、Overfull、Underfull、Fatal error、Missing characterはなし。
+- 生成PDF: 217ページ、595.28 x 841.89 pts (A4)。
+- draft-74ではR161のstatic/moving一般化、R162のgeneric/thermal一般化、M50/M55/R183のM54 profileへの吸収を検査対象へ追加した。固定長期目標と達成ラベルは変更していない。
