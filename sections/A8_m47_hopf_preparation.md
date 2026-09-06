@@ -1,19 +1,21 @@
 @number: H
 @chapter: 付録
-@title: M47単一Hopf準備
-@status: M47の単一Hopf準備をM54/R181AのW型2モード特殊化として示す。閉鎖信号集団の第2モーメント輸送と2次元幾何は共通R135、W型占有振動はR140の特殊化として付録Fと本文第3章へ集約する。
+@title: M54 W型2モード特殊化の対応表
+@status: Q1 W型2モードprotocolで使うM54/R181A、R135、R140のパラメータ対応だけを示す。一般定理の証明は第2章、本文第3章、付録Mを正本とし、本付録では特殊化を再証明しない。
 
 ## H.1 目的と主張範囲
 
-本付録は、対称なW型ポテンシャルの最低2モードsectorで、単一試行信号bath $Z\in\mathbb C^2$ を準備し、閉鎖正準流で回転させる部分だけを扱う。粒子位置のBorn型分布、有限熱化、局所記録はM54 static/R170が操作面ごとに構成する。信号bathの統計核から連続粒子位置rateを作る規則は使わない。
+本付録は、対称W型ポテンシャルの最低2モードsectorをM54 W2 static profileへ対応させる辞書である。旧版でM47単一Hopf準備と呼んだ内容のうち、独立の物理機構ではないR181A、R135、R140の単なるパラメータ特殊化を一か所にまとめる。
 
-| 段階 | 内容 | 結果 |
+粒子位置のBorn型分布、有限熱化、局所記録はR164、R161、R162、R170とR181Dの深さ1特殊化が操作面ごとに構成する。信号bathの統計核だけから単一試行粒子位置または連続位置rateを作る規則は使わない。
+
+| 段階 | W型2モードでの指定 | 正本 |
 |---|---|---|
-| 開放準備 | M54による目標rayの位相円への有限時間吸引 | R181AのW型2モード系 |
-| 閉鎖伝播 | 2作用角の共分散回転 | R135 |
-| W型診断 | 統計核対角の左右占有振動 | R140の零傾斜特殊化 |
-
-本筋から外した計算と旧連続matching線は、論文外の研究メモとGit履歴に保存する。いずれも現行R143またはR170の仮定に使わない。
+| 開放準備 | $m=2$、生成子 $D_W$、目標ray $c_*(t)$ | R181A、付録M |
+| 閉鎖伝播 | $G=D_W$ の2モード正準流 | R135、第2章 |
+| W型制御・診断 | 偶奇二重項と左右局在基底 | R140、第3章 |
+| 排他的読出し | 2枝static matchingと局所記録 | R164、R161、R162、R170、R181D |
+| 状態更新 | W型有限コントラストと結果別template | R143 |
 
 ## H.2 W型作用素と最低2モード
 
@@ -43,7 +45,32 @@ E_0<E_1
 c\in\mathbb C^2
 ```
 
-である。左井戸射影を $\Pi_L$ とし、対称分割で
+である。2モード対角生成子を
+
+```math
+D_W
+=
+\begin{pmatrix}
+E_0&0\\
+0&E_1
+\end{pmatrix}
+```
+
+と置く。
+
+左右局在基底は位相規約を固定して
+
+```math
+|L\rangle
+=
+\frac{\phi_0+\phi_1}{\sqrt2},
+\qquad
+|R\rangle
+=
+\frac{\phi_0-\phi_1}{\sqrt2}
+```
+
+とする。左井戸射影を $\Pi_L$ とし、
 
 ```math
 \langle\phi_0,\Pi_L\phi_0\rangle
@@ -55,22 +82,11 @@ c\in\mathbb C^2
 B_W=\langle\phi_0,\Pi_L\phi_1\rangle
 ```
 
-と置く。
+を使う。
 
-## H.3 R181AのW型2モード特殊化
+## H.3 R181Aへのパラメータ対応
 
-2モード対角行列を
-
-```math
-D_W
-=
-\begin{pmatrix}
-E_0&0\\
-0&E_1
-\end{pmatrix}
-```
-
-とする。目標規格化係数 $c_*$ の閉鎖回転軌道と射影を
+目標規格化係数 $c_*$ の閉鎖回転軌道と射影を
 
 ```math
 c_*(t)
@@ -83,7 +99,17 @@ c_*(t)
 \Pi_*(t)=c_*(t)c_*(t)^\dagger
 ```
 
-と置く。共通M54へ $m=2$、$G=D_W$、$c(t)=c_*(t)$ を代入すると、準備portが開いた区間の採用有効方程式は
+と置く。R181Aへ
+
+```math
+m=2,
+\qquad
+G=D_W,
+\qquad
+c(t)=c_*(t)
+```
+
+を代入する。準備portが開いた区間の採用有効方程式は
 
 ```math
 \dot z
@@ -98,148 +124,32 @@ g(1-z^\dagger z)z
 \right]
 ```
 
-である。$g>0$ は動径供給と飽和、$\kappa>0$ は目標rayから外れた成分の散逸である。各試行の実体は2個の実正準担体、template、pump、sink、clockである。$z$ は実担体の派生複素座標、$c_*$ と $c_*c_*^\dagger$ はtemplate設定および試行集団の統計記述であり、追加の物理場ではない。
+となる。これは別の準備模型ではなくR181Aそのものである。ray方向収束、radial飽和、有界seed集合での有限時間誤差、rank-one第2モーメントへの受渡しは、付録MのR181A証明を $m=2$ に適用する。
 
-有効準備時間を
+各試行の実体は2個の実正準担体、template、pump、sink、clockであり、$z$ は実担体の派生複素座標である。$c_*$ と $c_*c_*^\dagger$ はtemplate設定と試行集団の統計記述であって追加の物理場ではない。直交seed、雑音付き定常測度、位相拡散、作用殻準備はR181Aの一般定理で主張していない範囲をそのまま引き継ぐ。
 
-```math
-\tau(t)=\int_{t_*}^t\lambda_{\rm prep}(s)\,\mathrm ds
-```
+## H.4 R135とR140への対応
 
-とし、回転座標を $\widetilde z=ac_*+p$、$c_*^\dagger p=0$ と分解する。雑音零では
+準備portを切った後は
 
 ```math
-\frac{da}{d\tau}
+Z(t)
 =
-g(1-\|\widetilde z\|^2)a,
-\qquad
-\frac{dp}{d\tau}
-=
-\left[g(1-\|\widetilde z\|^2)-\kappa\right]p.
+\exp
+\left[
+-\frac{iD_W(t-t_0)}{\mathcal J_0}
+\right]Z(t_0)
 ```
 
-$a_0\neq0$、$q_0=\|p_0\|^2/|a_0|^2$、$y=|a|^{-2}$ と置くと
-
-```math
-\frac{\|p(\tau)\|}{|a(\tau)|}
-=
-\frac{\|p_0\|}{|a_0|}e^{-\kappa\tau}
-```
-
-であり、$\kappa\neq g$ では
-
-```math
-y(\tau)
-=
-1
-+(y_0-1)e^{-2g\tau}
-+\frac{gq_0}{g-\kappa}
-\left(e^{-2\kappa\tau}-e^{-2g\tau}\right).
-```
-
-$\kappa=g$ では最後の項を $2gq_0\tau e^{-2g\tau}$ に置き換える。
-
-<!-- theorem-start:corollary -->
-**系（R181AのM47 W型2モード特殊化）**
-
-$g,\kappa>0$、$a_0\neq0$ とする。上の雑音零の採用開放方程式では
-
-```math
-\widetilde z(\tau)
-\longrightarrow
-e^{i\arg a_0}c_*.
-```
-
-$|a_0|\geq a_*>0$、$\|\widetilde z_0\|\leq R_*<\infty$ の有界seed集合では有限定数 $K_{47}$ が存在し、
-
-```math
-\operatorname{dist}
-\left(
-\widetilde z(\tau),
-\{e^{i\alpha}c_*:\alpha\in[0,2\pi)\}
-\right)
-\leq
-K_{47}e^{-\gamma_{47}\tau},
-\qquad
-\gamma_{47}=\min\{2g,\kappa\}.
-```
-
-同じseed境界を持つ集団の規格化bath第2モーメント $C_z(\tau)$ についても、有限定数 $K_C$ を選び、
-
-```math
-\|C_z(\tau)-c_*c_*^\dagger\|_1
-\leq
-K_Ce^{-\gamma_{47}\tau}
-```
-
-とできる。
-<!-- theorem-end:corollary -->
-
-<!-- theorem-start:proof -->
-**証明**
-
-$a$ と $p$ の方程式を割ると $p/a=(p_0/a_0)e^{-\kappa\tau}$ を得る。$y$ の線形方程式を積分すると上の厳密解が従い、$y\to1$、$p/a\to0$ となる。有界seed集合では係数を一様に抑えられる。外積の収束を平均し、分母が十分大きい $\tau$ で零から離れることを使えば第2モーメント上界を得る。証明終。
-<!-- theorem-end:proof -->
-
-この証明は付録MのR181A証明を $m=2$ へ制限したものである。R181AのW型2モード系をM54とは別の準備機構として数えず、共通のpump、transverse sink、port切断のW型特殊化として扱う。
-
-$a_0=0$ の直交超平面は不変である。その質量はseed失敗または無反応として残す。R181AのW型2モード系は雑音付き定常測度、位相拡散、粒子位置周辺、作用殻準備を導かない。
-
-## H.4 共通R135のM47特殊化
-
-準備portを切った後の古典Hamiltonianを
-
-```math
-H_{\rm rot}
-=
-\sum_{n=0}^1\frac{E_n}{\mathcal J_0}I_n
-```
-
-とする。正準関係から $\dot I_n=0$、$\dot\theta_n=E_n/\mathcal J_0$ であり、各試行で
-
-```math
-Z_n(t)
-=
-e^{-iE_n(t-t_0)/\mathcal J_0}Z_n(t_0)
-```
-
-となる。
-
-**R135の2モード特殊化。**
-
-$\mathbb E[Z^\dagger Z]>0$ とし、非中心化された規格化第2モーメントを
-
-```math
-C_Z
-=
-\frac{\mathbb E[ZZ^\dagger]}{\mathbb E[Z^\dagger Z]}
-```
-
-とする。このとき
+である。従ってR135を $G=D_W$ へ特殊化すれば、
 
 ```math
 i\mathcal J_0\dot C_Z=[D_W,C_Z]
 ```
 
-であり、trace、正値性、rankは保存される。$C_Z(t_0)=c_0c_0^\dagger$ なら
+となり、trace、正値性、rankの保存とrank-one因子の回転はR135から直接従う。本付録ではその証明を再掲しない。
 
-```math
-C_Z(t)=c(t)c(t)^\dagger,
-\qquad
-c(t)
-=
-\exp
-\left[-\frac{iD_W(t-t_0)}{\mathcal J_0}\right]c_0.
-```
-<!-- theorem-start:proof -->
-**証明（R135の2モード特殊化）**
-
-各試行で $Z(t)=U(t)Z(t_0)$ であり、$U$ はユニタリである。従って分母は一定、$C_Z(t)=U(t)C_Z(t_0)U(t)^\dagger$ である。微分すればcommutator式を得る。証明終。
-<!-- theorem-end:proof -->
-
-## H.5 R140の零傾斜W型占有振動
-
-rank-one因子を
+R140の零傾斜W型診断では、rank-one因子を
 
 ```math
 c(t_0)
@@ -252,21 +162,7 @@ a_1e^{-i\theta_1(t_0)}
 a_0^2+a_1^2=1
 ```
 
-とし、$\delta(t)=\theta_1(t)-\theta_0(t)$ と置く。
-
-**R140の零傾斜特殊化。**
-
-R135のrank-one因子に対する統計核の対角は
-
-```math
-\rho_{\rm stat}(x,t)
-=
-a_0^2\phi_0(x)^2
-+a_1^2\phi_1(x)^2
-+2a_0a_1\phi_0(x)\phi_1(x)\cos\delta(t)
-```
-
-である。左井戸への積分は
+とし、$\delta(t)=\theta_1(t)-\theta_0(t)$ と置く。統計核の左井戸積分は
 
 ```math
 P_L^{\rm stat}(t)
@@ -278,31 +174,39 @@ P_L^{\rm stat}(t)
 \delta(t)
 =
 \delta(t_0)
-+\frac{E_1-E_0}{\mathcal J_0}(t-t_0)
++
+\frac{E_1-E_0}{\mathcal J_0}(t-t_0)
 ```
 
-となる。従って角周波数と周期は
+であり、
 
 ```math
-\Omega_W=\frac{E_1-E_0}{\mathcal J_0},
+\Omega_W
+=
+\frac{E_1-E_0}{\mathcal J_0},
 \qquad
-T_W=\frac{2\pi\mathcal J_0}{E_1-E_0}.
+T_W
+=
+\frac{2\pi\mathcal J_0}{E_1-E_0}
 ```
-<!-- theorem-start:proof -->
-**証明（R140の零傾斜特殊化）**
 
-$\Phi c(t)$ の絶対値2乗を展開し、対称井戸の対角積分と $B_W$ を代入すれば従う。証明終。
-<!-- theorem-end:proof -->
+を得る。任意軸制御、離調Rabi式、有限2モード誤差は本文第3章のR140を正本とする。
 
-この $\rho_{\rm stat}$ は信号bath第2モーメントの空間核であり、それだけから単一試行粒子位置 $X$ の分布または経路は従わない。R143は各操作面でM54 static/R170を適用し、実在する粒子位置を別に準備して記録する。Q3-4Bの位置分布にはこの統計核を使わず、R182がW型固有関数から完全位置密度を直接構成し、R161--R184が同じM54 spatial profile粒子へ持ち上げる。
-
-## H.6 現行Q1への接続と限界
+## H.5 Q1 W型2モードprotocolへの接続
 
 現行Q1は次の順序を使う。
 
-1. R181AのW型2モード系で単一試行信号bathの方向を準備する。
+1. R181AのW型2モード特殊化で単一試行信号bathの方向を準備する。
 2. R135とR140で有限正準操作を行う。
-3. 各操作面でR170を適用し、R164枝状態数から粒子位置を再平衡化して局所記録する。
-4. R143でW型有限コントラスト、傾斜固定、結果別テンプレート交換を合成する。
+3. 操作面でR164の2枝作用殻状態数を作り、R161 staticとR162 thermalを介してR170へ接続する。
+4. R181Dの深さ1 nodeでselectorをlockし、無反応を含む完全結果を局所記録する。
+5. R143でW型有限コントラストと結果別template交換を加える。
+6. 固定有限段の逐次合成はR144を使う。
 
-従って全時刻の粒子位置--信号bath matching保存は不要である。本付録からは、採用Hopf方程式の具体的回路導出、作用容量結合、作用殻fiber内平衡化、信号保持反作用、周期総収支、独立同分布型結果列は従わない。
+この因果鎖をQ1 W型2モードprotocolと呼ぶ。旧モデルID M47はGit履歴と旧版参照のため保持するが、M54とは別の現行親模型として数えない。
+
+## H.6 限界
+
+ここで得る $P_L^{\rm stat}$ は信号bath第2モーメントの空間核に対する診断量であり、それだけから単一試行粒子位置 $X$ の分布または経路は従わない。Q1の排他的位置結果はR164/R161/R162/R170で別に構成する。
+
+Q3-4Bでは低2モードの作用比を粒子位置確率へ読み替えず、R182がW型固有関数から完全位置密度を構成し、R161/R184がM54 spatial profileの同じ粒子へ受け渡す。M37から制御されたW型2モード担体をQ1全制御時間へ一様誤差付きで接続する問題は、別の物理backend強化課題である。
