@@ -78,7 +78,7 @@ def exact_preparation(
     return amplitudes_t[:, None] * ray[None, :] + transverse_t
 
 
-def m50_distribution(samples: np.ndarray, delta: float, reference: np.ndarray) -> np.ndarray:
+def m54_static_distribution(samples: np.ndarray, delta: float, reference: np.ndarray) -> np.ndarray:
     action = np.sum(np.abs(samples) ** 2, axis=1)
     weights = np.abs(samples) ** 2 / action[:, None]
     return (weights + delta * reference[None, :]) / (1.0 + delta)
@@ -164,7 +164,7 @@ def main() -> None:
 
     delta = 0.07
     reference = np.full(dimension, 1.0 / dimension)
-    observed = np.mean(m50_distribution(samples_t, delta, reference), axis=0)
+    observed = np.mean(m54_static_distribution(samples_t, delta, reference), axis=0)
     target = (np.abs(ray) ** 2 + delta * reference) / (1.0 + delta)
     tv_distance = 0.5 * float(np.sum(np.abs(observed - target)))
     mean_ray_bound = float(np.mean(sample_ray_distances)) / (1.0 + delta)
@@ -187,7 +187,7 @@ def main() -> None:
     complete_distribution = np.zeros(dimension + 1)
     if np.any(~unsafe_mask):
         complete_distribution[:dimension] = safe_probability * np.mean(
-            m50_distribution(samples_t[~unsafe_mask], delta, reference), axis=0
+            m54_static_distribution(samples_t[~unsafe_mask], delta, reference), axis=0
         )
     complete_distribution[-1] = 1.0 - safe_probability
 
@@ -223,20 +223,20 @@ def main() -> None:
         Check("covariance_trace", abs(np.trace(covariance_t) - 1.0)),
         Check("covariance_positive", max(0.0, -float(np.min(np.linalg.eigvalsh(covariance_t))))),
         Check("covariance_ray_bound", max(0.0, covariance_distance - ray_bound)),
-        Check("m50_probability_normalization", abs(float(np.sum(observed)) - 1.0)),
-        Check("m50_ray_average_bound", max(0.0, tv_distance - mean_ray_bound)),
+        Check("m54_static_probability_normalization", abs(float(np.sum(observed)) - 1.0)),
+        Check("m54_static_ray_average_bound", max(0.0, tv_distance - mean_ray_bound)),
         Check(
             "global_phase_invariance",
             np.linalg.norm(
-                m50_distribution(samples_t * phase, delta, reference)
-                - m50_distribution(samples_t, delta, reference)
+                m54_static_distribution(samples_t * phase, delta, reference)
+                - m54_static_distribution(samples_t, delta, reference)
             ),
         ),
         Check(
             "radial_scale_invariance",
             np.linalg.norm(
-                m50_distribution(samples_t * scale, delta, reference)
-                - m50_distribution(samples_t, delta, reference)
+                m54_static_distribution(samples_t * scale, delta, reference)
+                - m54_static_distribution(samples_t, delta, reference)
             ),
         ),
         Check("unitary", np.linalg.norm(unitary.conj().T @ unitary - np.eye(dimension))),

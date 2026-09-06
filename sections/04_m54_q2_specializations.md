@@ -1,7 +1,7 @@
 @number: 4
 @chapter: 本文
 @title: M54のQ2有限次元特殊化
-@status: 第2章のR181B--R181Dを2入力・3入力へ特殊化し、同一register上のCNOT、二段gate、末端projector-tree、およびR180 receiverへの分岐を明示する。Q2-1--Q2-3の達成ラベルは変更しない。
+@status: 第2章をR181B--R181Dの一般定理の正本とし、本章は2入力・3入力へのパラメータ特殊化、同一register上のCNOT、二段gate、末端projector-tree、およびR180 receiverへの適用だけを明示する。Q2-1--Q2-3の達成ラベルは変更しない。
 
 ## 4.1　改訂した設計原則
 
@@ -75,7 +75,7 @@ Q2-1の固定目標は、2量子ビット型結合ゲートと同一の共同入
 
 だけである。$L_{AB}$ はlift窓、$g_r$ は有限個のゲート種、$S_r$ は対象port集合、$t_r$ は作用窓、$M_{\rm end}$ は末端instrumentである。内部index $00,01,10,11$ をcontrollerの4本の独立命令として公開しない。
 
-## 4.3　R181B：可逆tensor-lift定理
+## 4.3　R181Bの2入力特殊化
 
 各組 $(j,k)$ にblankな正準対
 
@@ -161,7 +161,7 @@ Q2-1の固定目標は、2量子ビット型結合ゲートと同一の共同入
 
 R181Bは固定 $m,n$ に対する定理である。$m=n=2$ および3入力への2段liftには有限の受動modeしか要らない。一般の入力数 $N$ に対するtensor反復の一様性はR181Bから主張せず、Q2-4ではM54のroot-mode入力とR181Cのsector-broadcastを使う。
 
-## 4.4　R181C：永続状態bathゲート合成定理
+## 4.4　R181Cの2入力・3入力gate適用
 
 lift後は同じ $Z_S$ を計算終了まで保持する。Hermitian行列 $h(t)$ に対して
 
@@ -271,7 +271,7 @@ R181Bで得た有限次元の同一状態bath $Z_S$ に、式(4.20)の有限個�
 
 以前の「handoff map」は不要である。同じregisterを保持するため、有限誤差はlift、hold、clock、gate、leakageへ一度ずつ数える。経路展開は式(4.16)、式(4.19)の代数的な診断表示として残せるが、独立のR175や物理的経路分岐器を主結果鎖に置かない。
 
-## 4.5　R181Dの有限深さprojector-tree特殊化
+## 4.5　R181Dの有限深さprojector-tree適用
 
 回路末尾の実際の1試行信号を
 

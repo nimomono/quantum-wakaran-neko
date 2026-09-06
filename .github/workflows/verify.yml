@@ -65,8 +65,8 @@ jobs:
           grep -Fq 'lock前にfilterを開かない' sections/A16_m54_projector_tree_receiver.md
           grep -Fq 'radial-only repump' sections/A16_m54_projector_tree_receiver.md
           grep -Fq 'aggregate cold誤差' sections/A17_m54_uniform_supply.md
-          grep -Fq 'version: "draft-74"' CITATION.cff
-          grep -Fq 'draft-74 改訂稿' tools/template.tex
+          grep -Fq 'version: "draft-75"' CITATION.cff
+          grep -Fq 'draft-75 改訂稿' tools/template.tex
 
 
       - name: M54 matching理論境界を検査
@@ -86,8 +86,14 @@ jobs:
           ! grep -Rq '定理（R183：' sections/*.md
           test "$(grep -Rho '定理（R184：' sections/*.md | wc -l)" -eq 1
           test "$(grep -Rho '定理（R185：' sections/*.md | wc -l)" -eq 1
-          grep -Fq '| Q3-2 | 部分達成 | M54 spatial profile | R161、R185 |' PROJECT_STATUS.md
+          grep -Fq '| Q3-2 | 部分達成 | M54 spatial profile |' PROJECT_STATUS.md
           ! grep -Eq '^\| M50 \||^\| M55 \|' PROJECT_STATUS.md
+          ! grep -Eq '^\| M47 \|' PROJECT_STATUS.md sections/01_scope_and_cycle.md
+          grep -Fq 'Q1 W型2モードprotocol（旧M47）' PROJECT_STATUS.md
+          grep -Fq '## H.3 R181Aへのパラメータ対応' sections/A8_m47_hopf_preparation.md
+          ! grep -Fq '<!-- theorem-start:proof -->' sections/A8_m47_hopf_preparation.md
+          grep -Fq '## 4.3　R181Bの2入力特殊化' sections/04_m54_q2_specializations.md
+          grep -Fq '## 4.4　R181Cの2入力・3入力gate適用' sections/04_m54_q2_specializations.md
           grep -Fq 'R_{i,37}^{\delta,\mathrm{lat}}' sections/A14_m54_spatial_moving_matching.md
           grep -Fq '\frac1\ell' sections/A14_m54_spatial_moving_matching.md
           grep -Fq '一般有界有向rateのfinite collision持上げ' sections/A11_common_collision_bath_thermodynamics.md

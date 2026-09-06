@@ -293,7 +293,7 @@ def result_ids(cell: str) -> set[str]:
 def table_evidence(
     text: str,
     goal_id: str,
-    model_index: int,
+    model_indexes: tuple[int, ...],
     result_index: int,
     required_status: str | None = None,
 ) -> tuple[str, str]:
@@ -306,25 +306,22 @@ def table_evidence(
         ):
             continue
         if len(cells) > result_index and "R" in cells[result_index]:
-            return cells[model_index], cells[result_index]
+            model_cells = " ".join(
+                cells[index] for index in model_indexes if index < len(cells)
+            )
+            return model_cells, cells[result_index]
     raise ValueError(f"{goal_id}: 根拠台帳行がない")
 
 
 def validate_q2_dependency_ledgers() -> None:
+    # The complete dependency ledger has a single canonical source.
+    # README and section 1 intentionally keep only compact status summaries.
     ledgers = (
         (
             "PROJECT_STATUS.md",
             (ROOT / "PROJECT_STATUS.md").read_text(encoding="utf-8"),
-            2,
-            3,
-            "条件付き達成",
-        ),
-        ("README.md", (ROOT / "README.md").read_text(encoding="utf-8"), 1, 2, None),
-        (
-            "sections/01_scope_and_cycle.md",
-            (SECTIONS / "01_scope_and_cycle.md").read_text(encoding="utf-8"),
-            2,
-            3,
+            (2, 3, 4),
+            5,
             "条件付き達成",
         ),
     )
@@ -332,12 +329,12 @@ def validate_q2_dependency_ledgers() -> None:
         goal_id: dependency_closure(roots)
         for goal_id, roots in Q2_LEDGER_ROOTS.items()
     }
-    for label, text, model_index, result_index, required_status in ledgers:
+    for label, text, model_indexes, result_index, required_status in ledgers:
         for goal_id in Q2_LEDGER_ROOTS:
             model_cell, result_cell = table_evidence(
                 text,
                 goal_id,
-                model_index,
+                model_indexes,
                 result_index,
                 required_status,
             )
@@ -361,7 +358,7 @@ def validate_q2_dependency_ledgers() -> None:
 
 
 def validate_fixed_goal_language() -> None:
-    """Guard the fixed goals and the current M54/R181 dependency boundary."""
+    """Guard fixed goals and the canonical M54/R181 dependency boundary."""
     status_text = (ROOT / "PROJECT_STATUS.md").read_text(encoding="utf-8")
     readme_text = (ROOT / "README.md").read_text(encoding="utf-8")
     fixed_block = status_text.split("### 固定目標一覧", 1)[1].split(

@@ -1,11 +1,11 @@
 @number: 2
 @chapter: 本文
 @title: 有限モード担体と共通正準モジュール
-@status: M54をQ1・Q2・Q3の共通signal--configuration親模型族として定義する。R164の共通条件付き容量、一般化R161のstatic/moving matching、一般化R162のfinite collision実装を同じ状態型へ置き、R181A--R181Dを準備、tensor-lift、永続gate、projector-tree読出しの正本として置く。
+@status: M54をQ1・Q2・Q3の共通有効signal--configuration profile族として定義する。R164の共通条件付き容量、一般化R161のstatic/moving matching、一般化R162のfinite collision実装を同じ状態型へ置き、R181A--R181Dを準備、tensor-lift、永続gate、projector-tree読出しの正本として置く。
 
-## 2.1 M54をQ1--Q3共通親模型族とする範囲
+## 2.1 M54をQ1--Q3共通有効profile族とする範囲
 
-M54は、有限個の実正準対から得るsignalと有限configuration変数を、準備、可逆操作、matching、作用殻receiver、記録まで運ぶ共通模型族である。有限signal index集合 $\Lambda$ と有限configuration集合 $\mathcal I$ に対する完全状態を
+M54は、有限個の実正準対から得るsignalと有限configuration変数を、準備、可逆操作、matching、作用殻receiver、記録まで運ぶ共通有効profile族である。有限signal index集合 $\Lambda$ と有限configuration集合 $\mathcal I$ に対する完全状態を
 
 ```math
 \Gamma_{54}^{(\Lambda,\mathcal I)}
@@ -22,7 +22,7 @@ Z=\frac{Q+iP}{\sqrt{2\mathcal J_0}}
 
 であり、独立した複素実体ではない。$X\in\mathcal I$ はprofileに応じて測定枝selectorまたは空間セル上の実在粒子位置を表す。$S_{\rm port}$ はsource/template port、$G,W$ はanti-registerと可逆work、$J,A^\delta$ はraw・regularized作用容量、$C$ は有限衝突cellと履歴、$B_{\rm cold},B_{\rm spent}$ は未使用・使用済みbank、$D$ は外部記録、$\tau$ はclockである。$S_{\rm ref}$ はM37局所ばねbackendを使うspatial profileだけが開始面で使う作用latchであり、他profileでは空でよい。
 
-M54は共通の状態型、因果契約、port規約を定める模型族であって、全profileを同じ製造済み装置または同一パラメータで実装したという主張ではない。Q1--Q3を同じ反復周期と同じ物理部品へ統合するM0は、引き続きM54より強い未完成目標である。
+M54は共通の状態型、因果契約、port規約を定める有効profile族であって、全profileを同じ製造済み装置または同一パラメータで実装したという主張ではない。M54の統一は有効記述とinterfaceの統一であり、物理backendの同一性やsame-hardware統一とは別に判定する。Q1--Q3を同じ反復周期と同じ物理部品へ統合するM0は、引き続きM54より強い未完成目標である。
 
 外部interfaceは、sourceまたは物理templateのload、有限gate/profile名、対象index、読出しindex、誤差予算、試行回数、clock開始に限る。振幅表、確率表、mode別較正値、集団統計、試行中の状態依存制御を外部から与えない。unitary、SWAP、latch、filter、記録は有限正準写像、template整列とradial repumpは採用開放方程式、R161はconfiguration matching、R162はその有限衝突実装、R170はstatic profileの条件付きinstrumentとして扱う。
 

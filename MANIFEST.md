@@ -121,6 +121,17 @@
 
 旧版セクション、旧数値コード、旧PDF、査読回答履歴は収録しない。置換・退役した理論の最小索引と再検討条件は `notes/` に残し、完全な原稿と実装はGit履歴から参照する。
 
+## draft-75の模型階層・重複整理
+
+- 現行模型階層をM54共通有効profile族、M37物理backend、M0 same-hardware統一目標へ整理。
+- 旧M47をQ1 W型2モードprotocolの履歴IDへ降格し、現行模型表から分離。
+- `PROJECT_STATUS.md` をprofile/backend/protocol/resultの完全依存台帳の唯一の正本とし、READMEと本文第1章を要約化。
+- 付録HをW型2モードのパラメータ対応表へ縮約し、R181A/R135/R140の重複証明を削除。
+- 第4章をR181B--R181DのQ2特殊化・適用章として明示。
+- active verifierの旧M50ラベルと現行roadmapの旧R173参照を整理。
+- 固定長期目標、達成ラベル、定理の数学的内容は変更しない。
+- draft-75へ再生成する `paper.md`、`main.tex`、`paper.pdf`。
+
 ## draft-74の模型・matching統一
 
 - M54をQ1/Q2/Q3共通signal--configuration親模型へ拡張し、M50をstatic-instrument profile、M55をspatial-moving profileへ吸収。

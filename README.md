@@ -60,31 +60,23 @@ Q2-1からQ2-4は、他のQ2目標の達成ラベルを前提にせず独立に�
 | Q3-5 | 2重スリット干渉 | 有限グラフの2経路入力でコヒーレント分布の混合との差と相対位相依存性を示し、位置読出しへ接続 | 条件付き達成 |
 | Q3-6 | 位相量子化 | 巻数、節、単価性、位相すべりを統合し、Wallstrom 問題へ限定的に回答 | 未達 |
 
-draft-72では固定目標の文言を変えず、空間量子力学の親模型と全時刻位置輸送を再編した。Q3-2は同一母測度の前進・後退平均微分と時間対称Newton則まで進んだため部分達成とした。draft-73では達成ラベルを変えず、局所ばね実装の正則化背景を開始作用latch方式へ統一し、一般有界有向率の有限衝突実装を現行付録だけで自己完結させた。draft-74では達成ラベルを変えず、固定測定面の再平衡化と全時刻の空間輸送を同じmatching原理の特殊化として整理し、有限collision実装も共通層と熱的特殊化へ階層化した。これに伴い、別々だったinstrument模型と空間moving模型を共通親模型のprofileへ吸収した。draft-71で達成したQ3-3Cと条件付き達成のQ3-4Bは維持する。draft-69以前の旧Q3-2は新Q3-6、旧Q3-3は新Q3-3A・Q3-3B、旧Q3-4は新Q3-4Aに対応する。
+draft-72では固定目標の文言を変えず、空間量子力学の親模型と全時刻位置輸送を再編した。Q3-2は同一母測度の前進・後退平均微分と時間対称Newton則まで進んだため部分達成とした。draft-73では達成ラベルを変えず、局所ばね実装の正則化背景を開始作用latch方式へ統一し、一般有界有向率の有限衝突実装を現行付録だけで自己完結させた。draft-74では達成ラベルを変えず、固定測定面の再平衡化と全時刻の空間輸送を同じmatching原理の特殊化として整理し、有限collision実装も共通層と熱的特殊化へ階層化した。これに伴い、別々だったinstrument模型と空間moving模型を共通有効profile族へ吸収した。draft-71で達成したQ3-3Cと条件付き達成のQ3-4Bは維持する。draft-69以前の旧Q3-2は新Q3-6、旧Q3-3は新Q3-3A・Q3-3B、旧Q3-4は新Q3-4Aに対応する。
 
 詳しい達成判定、根拠、残る課題は [PROJECT_STATUS.md](PROJECT_STATUS.md) で管理する。
 
-### 現在地の根拠モデルと結果
+### 現行の模型・実装階層
 
-各目標の現在地を支える根拠は次のとおりである。Mはモデル、Rは本文中の結果番号を表す。この表は固定目標の定義ではなく、現行版の判定根拠である。
+詳細な依存関係は `PROJECT_STATUS.md` だけで管理し、READMEでは現在の役割分担だけを示す。
 
-| 目標 | 根拠モデル | 根拠結果 |
+| 識別 | 分類 | 役割 |
 |---|---|---|
-| Q1-1 | M47 | R135、R140 |
-| Q1-2 | M47、M54 static profile | R140、R143--R144、R161、R162、R164、R168、R170、R181A、R181D |
-| Q2-1 | M54 static profile | R112、R161、R162、R164、R170、R181A--R181D |
-| Q2-2 | M54 static profile、R180 receiver | R112、R161、R162、R164、R170、R181A--R181D、R180A--R180C |
-| Q2-3 | M54三部分系static profile | R112、R161、R162、R164、R170、R177、R181A--R181D |
-| Q2-4 | M54 | R112、R161、R162、R164、R170、R181A--R181D、R178D、R179 |
-| Q3-1 | M37 | R86 |
-| Q3-2 | M54 spatial profile | R161、R185 |
-| Q3-3A | M37とR123の有限環境 | R86、R123（井戸型） |
-| Q3-3B | M37とR123の有限環境 | R86、R123（調和型） |
-| Q3-3C | M37、R123有限環境 | R86、R123、R182 |
-| Q3-4A | M54 spatial profile、M37 | R86、R124、R161、R181A、R184 |
-| Q3-4B | M54 spatial profile、M37 | R86、R161、R184、R181A、R182 |
-| Q3-5 | M54 spatial profile、M37 | R86、R125、R161、R181A、R184 |
-| Q3-6 | 完結モデルなし | なし |
+| M54 | 共通有効signal--configuration profile族 | Q1/Q2のstatic profileとQ3のspatial-moving profileを共通状態型・interface・matching原理で記述する。単一の製造済み装置を意味しない |
+| M37 | 物理Hamiltonian backend | M54 spatial signal sectorを局所位置ばね振動子網から有限時間・有限誤差で実装する |
+| Q1 W型2モードprotocol（旧M47） | 系列固有protocol | M54 W2 static profile上でQ1の制御、測定、状態更新を合成する。M47は履歴追跡用の旧IDである |
+| R180 receiver | 系列固有receiver | M54 static profileの末端信号をsetting-pre Bell測定へ接続する |
+| M0 | same-hardware統一目標 | 上記を同じ物理port、bath、clock、反復周期へ統合する未完成の強い目標 |
+
+M54による統一は有効状態型とinterfaceの統一、M37による実装は物理backendの主張、M0はsame-hardware統一の主張であり、この3つを区別する。固定目標、達成判定、profile/backend/protocol別の完全な根拠結果と残件は [PROJECT_STATUS.md](PROJECT_STATUS.md) を正本とする。
 
 ## 運用文書
 
@@ -103,7 +95,7 @@ draft-72では固定目標の文言を変えず、空間量子力学の親模型
 
 現行論文では、研究課題を次の三段階に分けている。
 
-Q1、Q2、Q3は、有限正準signalと有限configurationを持つM54の異なるprofileとして扱う。M54は物理template準備、tensor-lift、永続register gate、R164の条件付き作用容量、R161のstatic/moving matching、R162のfinite collision、R170駆動projector-treeを同じ状態型へまとめる。M37はM54 spatial signal sectorを局所位置ばねで有限時間近似するbackendとして使う。
+Q1、Q2、Q3は、有限正準signalと有限configurationを持つM54の異なる有効profileとして扱う。M54は物理template準備、tensor-lift、永続register gate、R164の条件付き作用容量、R161のstatic/moving matching、R162のfinite collision、R170駆動projector-treeを同じ状態型へまとめる。M37はM54 spatial signal sectorを局所位置ばねで有限時間近似する物理backendとして使う。M54の共通profileを共有することと、同じ物理ハードウェアを共有することは区別する。
 
 M54のR181A準備portは、物理template、pump、不要方向を捨てるsink、clockを明示し、同じseed測度を目標rayへ押し出す。R181Aだけが作るのは統計状態であって排他的結果ではない。R164は同じ試行signalから条件付きconfiguration分布を作り、R161がそのmatchingを担う。Q1/Q2ではstatic specializationをR170でlock・記録し、Q3ではspatial-moving specializationが開始面で選んだ同じ粒子を輸送して終時刻に記録する。
 

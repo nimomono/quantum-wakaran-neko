@@ -12,7 +12,7 @@ TOL = 2.0e-11
 checks = 0
 R170_ERROR_TERMS = (
     0.002,  # no response
-    0.004,  # M37 to M50
+    0.004,  # M37 to M54 spatial profile
     0.003,  # regularization
     0.004,  # capacity
     0.003,  # shell width

@@ -284,7 +284,7 @@ M54のR181A portは状態準備の共通開放模型を与えるが、次を主�
 
 1. pump、sink、template、clockを含む有限閉鎖Hamiltonian実現。
 2. 雑音付き定常測度、揺らぎ散逸関係、有限bathによる誤差上界。
-3. M54、M37、M47、R180 receiverが同じ物理装置であること。
+3. M54各profile、M37 backend、Q1 W型2モードprotocol、R180 receiverが同じ物理装置であること。
 4. M54単独で粒子位置、Born型排他的結果、測定後状態を生成すること。
 5. template設定から独立に任意の未知入力状態を自己準備すること。
 6. 試行列の独立同分布性または二項型有限標本揺らぎ。
