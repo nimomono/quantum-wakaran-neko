@@ -269,7 +269,7 @@ def main() -> None:
         target_covariance = np.outer(template, template.conj())
         checks.append(record_max(f"{label}_branch_template_covariance_error", np.linalg.norm(output_covariance - target_covariance), 2.0e-14))
 
-    # Same-axis repeatability and distinct-axis sequential Born law.
+    # R144: same-axis repeatability and distinct-axis sequential Born law.
     second_axis = rng.normal(size=3)
     second_axis /= np.linalg.norm(second_axis)
     signs = (1.0, -1.0)
@@ -287,7 +287,7 @@ def main() -> None:
     same_axis_wrong = np.trace(projector(measurement_axis, -1.0, pauli) @ projector(measurement_axis, 1.0, pauli)).real
     checks.append(record_max("same_axis_repeat_wrong_weight", abs(same_axis_wrong), 3.0e-14))
 
-    # Error composition keeps no-response mass and obeys total-variation triangle bounds.
+    # R144: finite-sequence error composition keeps no-response mass and obeys total-variation triangle bounds.
     distribution_chain = [
         np.array([0.56, 0.44, 0.0]),
         np.array([0.55, 0.44, 0.01]),
@@ -302,13 +302,13 @@ def main() -> None:
     checks.append(record_max("instrument_tv_triangle_bound_excess", max(0.0, endpoint_distance - sum(step_distances)), 2.0e-14))
     checks.append(record_max("no_response_mass_preservation_error", abs(distribution_chain[-1][2] - 0.032), 2.0e-14))
 
-    # R144: weak-open exchange reset and its recurrence bound.
+    # Implementation-strengthening corollary: weak-open exchange reset and recurrence bound.
     reset_angle = 0.47
     reset_rotation = np.array([
         [np.cos(reset_angle), np.sin(reset_angle)],
         [-np.sin(reset_angle), np.cos(reset_angle)],
     ])
-    checks.append(record_max("reset_exchange_orthogonality_error", np.linalg.norm(reset_rotation.T @ reset_rotation - np.eye(2)), 2.0e-14))
+    checks.append(record_max("strengthening_reset_exchange_orthogonality_error", np.linalg.norm(reset_rotation.T @ reset_rotation - np.eye(2)), 2.0e-14))
     contraction = abs(np.cos(reset_angle))
     injection = 0.003 + abs(np.sin(reset_angle)) * 0.02
     residual = 0.8
@@ -317,7 +317,7 @@ def main() -> None:
         residual = contraction * residual + injection
     asymptotic_bound = injection / (1.0 - contraction)
     finite_bound = contraction**step_count * 0.8 + (1.0 - contraction**step_count) * asymptotic_bound
-    checks.append(record_max("reset_recurrence_bound_excess", max(0.0, residual - finite_bound), 2.0e-14))
+    checks.append(record_max("strengthening_reset_recurrence_bound_excess", max(0.0, residual - finite_bound), 2.0e-14))
 
     payload = {
         "seed": seed,

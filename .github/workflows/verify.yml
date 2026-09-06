@@ -65,8 +65,8 @@ jobs:
           grep -Fq 'lock前にfilterを開かない' sections/A16_m54_projector_tree_receiver.md
           grep -Fq 'radial-only repump' sections/A16_m54_projector_tree_receiver.md
           grep -Fq 'aggregate cold誤差' sections/A17_m54_uniform_supply.md
-          grep -Fq 'version: "draft-75"' CITATION.cff
-          grep -Fq 'draft-75 改訂稿' tools/template.tex
+          grep -Fq 'version: "draft-76"' CITATION.cff
+          grep -Fq 'draft-76 改訂稿' tools/template.tex
 
 
       - name: M54 matching理論境界を検査
@@ -94,6 +94,11 @@ jobs:
           ! grep -Fq '<!-- theorem-start:proof -->' sections/A8_m47_hopf_preparation.md
           grep -Fq '## 4.3　R181Bの2入力特殊化' sections/04_m54_q2_specializations.md
           grep -Fq '## 4.4　R181Cの2入力・3入力gate適用' sections/04_m54_q2_specializations.md
+          grep -Fq '## 3.15 R144：固定有限段逐次測定合成' sections/03_m47_controlled_w_instrument.md
+          test "$(grep -Rho '定理（R143：' sections/*.md | wc -l)" -eq 1
+          test "$(grep -Rho '定理（R144：' sections/*.md | wc -l)" -eq 1
+          grep -Fq '実装強化：永久記録、補助逆計算、交換reset' sections/03_m47_controlled_w_instrument.md
+          grep -Fq '永久記録、内部逆計算、fresh-cell交換はこの証明に使わない' sections/A2_m47_controlled_w_instrument_proofs.md
           grep -Fq 'R_{i,37}^{\delta,\mathrm{lat}}' sections/A14_m54_spatial_moving_matching.md
           grep -Fq '\frac1\ell' sections/A14_m54_spatial_moving_matching.md
           grep -Fq '一般有界有向rateのfinite collision持上げ' sections/A11_common_collision_bath_thermodynamics.md

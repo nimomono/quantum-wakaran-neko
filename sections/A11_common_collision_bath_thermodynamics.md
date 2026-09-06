@@ -630,7 +630,7 @@ Q1 W型2モードprotocolの1段測定はM54 static profileのQ1特殊化とし�
 \end{aligned}
 ```
 
-で記帳する。$\varepsilon_{\rm mix}=C_\delta e^{-\lambda_\delta T_X}$、$\varepsilon_\delta=\delta/(1+\delta)$ と選べる。Q1では2モード漏れと局所辺閉鎖誤差をそれぞれ $\varepsilon_{2m}$、$\varepsilon_{\rm res}$ として別に加える。この段階分離により、旧連続matching保存をR143、R144の仮定に使わない。
+で記帳する。$\varepsilon_{\rm mix}=C_\delta e^{-\lambda_\delta T_X}$、$\varepsilon_\delta=\delta/(1+\delta)$ と選べる。Q1では2モード漏れと局所辺閉鎖誤差をそれぞれ $\varepsilon_{2m}$、$\varepsilon_{\rm res}$ として別に加える。この段階分離により、旧連続matching保存をR143の単段instrumentにもR144の固定有限段合成にも仮定しない。
 
 Q2-1はR181Dにより末端4mode信号を同次元hold-registerへSWAPし、容量latch後にR164/R170へ接続する。別の中間標本器を確率源として挟まない。Q2-2の切断後局所殻は各翼でR170を特殊化し、完全共通原因 $\Lambda$ に条件付けた積因子化誤差を別の $\varepsilon_{\rm prod}$ として加える。Q3はR164が与える同じ条件付き分布 $\pi^\delta(X\mid Z)$ を開始面でR161 static/R162 thermalにより準備し、その後は付録NのR161 moving specializationで同じ粒子を輸送する。spatial profileの一般有向率は局所詳細釣合いを仮定せず、R162 generic collisionをR184へ接続する。任意の固定時刻を診断する代替経路だけが付録FのR170を使う。
 
