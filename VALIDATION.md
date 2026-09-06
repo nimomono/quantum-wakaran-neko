@@ -394,3 +394,19 @@ GitHub Actionsは次を確認する。
 - 収録PDFと再生成PDFのテキスト層、ページ数、用紙寸法の一致
 - LaTeXログに重大警告がないこと
 - `git diff --check`
+
+### draft-72 最終生成確認（2026-09-06）
+
+- 最終生成元コミット: `99278395c28321b11a2eb43ef0e554ef98902294`
+- 生成物コミット: `9242e123f228b27b6c2848b1f3f3d8bbaaae8b6d`
+- `tools/verify_m55_moving_matching.py`: 12 checks passed。
+  - moving-matching master residual: `2.776e-17`
+  - same-measure time-reversal residual: `2.220e-16`
+  - R184 row-rate perturbation: `7.463325e-05`、明示上界 `6.613728e-01`
+  - R185 regularization residual identity: `1.094e-12`
+  - delta残差: `3.958585e-04, 1.996207e-04, 1.002385e-04`（delta半減ごとにほぼ1/2）
+- 既存検算群も生成workflow内で完走し、代表的な共通検算は `all 28 checks passed`。
+- `paper.md`、`main.tex`、`paper.pdf` を章別正本から再生成した。
+- 最終PDF: 213 pages、A4 (`595.28 x 841.89 pt`)、1,290,241 bytes、PDF 1.5。
+- M42/R172--R174の現行参照は退役説明を除いて除去し、M55/R183--R185へ依存台帳を同期した。
+
