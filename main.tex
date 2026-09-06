@@ -150,7 +150,7 @@
   \vspace{14mm}
   {\color{PaperRule}\rule{0.68\textwidth}{0.9pt}\par}
   \vfill
-  {\large draft-77 改訂稿\par}
+  {\large draft-78 改訂稿\par}
   \vspace{22mm}
 \end{titlepage}
 
@@ -163,7 +163,9 @@
 
 \addcontentsline{toc}{chapter}{概要}
 
-本論文は、明示的な古典力学モデルから、量子力学に似た可逆操作、Born型測定統計、結合ゲート、空間伝播、Bell型統計を構成できる範囲を調べる。有限閉鎖Hamiltonianモデルと開放古典モデルを区別し、採用方程式後の厳密結果と、その方程式自体のミクロ導出を分ける。
+本論文の中心的な問いは、量子計算機をブラックボックスとして見たときと同種の回路入力を受け、量子回路の出力分布を再現し、そのための外部program、制御channel、時間、精度、試行回数を多項式に抑える古典装置を構成できるかである。内部の受動自由度数と外部から装置を使うための複雑度を区別し、内部の指数構造が外部interfaceへ指数costとして露出するかを判定する。
+
+その物理的な基礎として、明示的な古典力学モデルから量子力学に似た可逆操作、Born型測定統計、結合ゲート、空間伝播、Bell型統計を構成できる範囲も調べる。有限閉鎖Hamiltonianモデルと開放古典モデルを区別し、採用方程式後の厳密結果と、その方程式自体のミクロ導出を分ける。
 
 物理的な導出の主線を、M37の実振動子運動からW型の低2モードを経てQ1の制御運動へ進む経路とする。第6章の静的R86、第3章の射影内R140、両者を接続する条件付き系を区別する。Q1の既存正準実装の達成は維持し、制御された位置ばね実装の任意精度構成は追加の強化課題として管理する。準備・枝選択・記録とQ2の共同担体は、担体運動だけからは従わない。
 
@@ -177,7 +179,7 @@ Q2-1はM54の受動的な4mode信号、anti-register、work、clock履歴を同�
 
 Q2-3はR181Bをgate列の前に2回適用して8mode信号を作り、R181CのA--B、B--C二次生成子を同じ状態bathへ順に作用させる。R177はGHZ--\(T\)--逆演算のcoherent分布と完全dephasing分布が全変動距離 \(1/(2\sqrt2)\) で分かれることを示す。R181Dと同じ末端一体化条件の下で条件付き達成である。
 
-Q2-4はM54の一般 \(n\) 特殊化である。R181Cは局所gateのsector一括作用、R181DはR170駆動の逐次projector-treeを与える。各nodeはraw容量、正則化作用殻、selector lock、可逆filter、radial-only repumpを使い、無反応を完全結果へ残す。R178Dはhistory掃除の限界、R179はblank bank、collision cell、spent bankの一様供給を与える。指数的な受動信号・work・history・cold・spent容量と総熱を許し、外部program、制御channel、精度、反復回数、総時間だけを多項式に抑える現行規則の下で、Q2-4を条件付き達成とする。
+Q2-4はM54の一般 \(n\) 特殊化である。R181Cは局所gateのsector一括作用、R181DはR170駆動の逐次projector-treeを与える。各nodeはraw容量、正則化作用殻、selector lock、可逆filter、radial-only repumpを使い、無反応を完全結果へ残す。R178Dはhistory掃除の限界、R179はblank bank、collision cell、spent bankの一様供給を与える。R186は、疎な静的製造誤差、独立mode phase noise、projector latchの相対係数誤差が指数sector数を直接加算せず抑えられる条件と、各modeへ独立に作用を注入するadditive noiseが指数noise suppressionを要求する障害条件を分離する。指数的な受動信号・work・history・cold・spent容量と総熱を許し、外部program、制御channel、精度、反復回数、総時間を多項式に抑えるblack-box operational規則の下で、Q2-4を条件付き達成とする。総物理資源が量子計算機と同程度であることは主張しない。
 
 Q3はM54のspatial-moving profileである。共同測度 \(\mu_t(dX\,dZ)\) 上で、R164と同じ条件付き位置分布を一般R161のmoving specializationが全時刻保存し、rank-one集団ではR135から正則化Born分布を得る。M37はR86によりM54 spatial signal sectorを局所位置ばねで有限時間近似する。R184はM37開始面の作用をlatchして正則化背景を固定し、rate・位置分布・R162 generic collision実装の誤差を与える。R185はR161の同一path-measure backward rateから \(D_\pm\) を作り、1次元node-free sectorで時間対称Newton則を \(O(a^2)+O(\delta)\) まで導く。finite collisionから対称加速度への誤差が残るためQ3-2は部分達成、Q3-6は未達である。Q3-3A--Q3-3Cは達成、Q3-4A・Q3-4B・Q3-5は単一装置統合を条件に達成である。
 
@@ -195,7 +197,7 @@ Q1・Q2・Q3は同じM54模型族の異なるprofileから派生する。M37はQ
 \hypertarget{ux7814ux7a76ux4e0aux306eux554fux3044}{%
 \section{研究上の問い}\label{ux7814ux7a76ux4e0aux306eux554fux3044}}
 
-本論文の目的は、古典的な粒子、振動子、熱浴、制御器、記録器から、量子力学に特徴的な構造をどこまで明示的に再現できるかを調べることである。量子力学は結果の比較基準に使うが、古典モデルの運動方程式や初期確率へ答えを直接入力しない。
+本論文の中心目的は、古典的な粒子、振動子、熱浴、制御器、記録器からなる装置が、量子計算機をブラックボックスとして見たときと同種の回路入力を受け、量子出力分布を指定誤差内で返し、そのための外部制御複雑度を多項式に抑えられるかを調べることである。量子力学は結果の比較基準に使うが、古典モデルの運動方程式や初期確率へ答えを直接入力しない。Q1とQ3は、このblack-box機能を支える量子型有効構造の古典物理的起源を独立に検査する。
 
 有限次元Schrödinger方程式を実正準方程式へ書き換えるだけでは、1回の試行で生じる排他的結果、Born則、測定後状態、記録、resetは得られない。本稿は次を別々に要求する。
 
@@ -215,6 +217,33 @@ Q1・Q2・Q3は同じM54模型族の異なるprofileから派生する。M37はQ
 \item
   系列固有の状態更新、ゲート、Bell監査、空間現象を共通読出しへ接続する。
 \end{enumerate}
+
+\hypertarget{ux30d6ux30e9ux30c3ux30afux30dcux30c3ux30afux30b9ux3068ux3057ux3066ux306eux6bd4ux8f03ux57faux6e96}{%
+\subsection{ブラックボックスとしての比較基準}\label{ux30d6ux30e9ux30c3ux30afux30dcux30c3ux30afux30b9ux3068ux3057ux3066ux306eux6bd4ux8f03ux57faux6e96}}
+
+本稿は内部自由度の総数と、外部から装置を利用するための複雑度を区別する。量子ビットの有効2準位記述の背後にある微視的自由度数をblack-box interfaceから数え上げないのと同様に、M54内部の受動mode数だけをoperational complexityとは同一視しない。
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+分類
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Q2-4での扱い
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+例
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+operational resource & 多項式上界を要求 & 回路記述、compile、外部program、制御channel、address port、総時間、精度、制御energy/action、期待試行回数 \\
+reported internal resource & 総量を報告するが、それだけでは不達としない & 受動mode、静的coupler、state capacity、cold/spent bank、装置体積、総bath容量、総熱 \\
+\end{longtable}
+
+内部資源がmode別較正値、指数長の配線表、指数精度、指数時間、稀な成功として外部interfaceへ露出した場合はoperational resourceへ繰り上げて数える。したがって本稿がQ2-4で主張するのはblack-box operational equivalenceであり、通常の効率的古典simulationや量子計算機と同等の総物理資源効率ではない。
 
 \hypertarget{ux529bux5b66ux306eux5c0eux51faux3068ux88c5ux7f6eux306eux904bux8ee2ux9806ux5e8f}{%
 \subsection{力学の導出と装置の運転順序}\label{ux529bux5b66ux306eux5c0eux51faux3068ux88c5ux7f6eux306eux904bux8ee2ux9806ux5e8f}}
@@ -374,7 +403,7 @@ Q1-2 & 部分達成 & 同じW2 profile上のQ1測定protocol & 測定統計は�
 Q2-1 & 条件付き達成 & M54 static profileと永続register & 末端instrumentの単一装置統合 \\
 Q2-2 & 条件付き達成 & M54 static profileとR180 receiver & R180Cの単一装置統合、自由設定、空間分離、一般状態 \\
 Q2-3 & 条件付き達成 & M54三部分系static profile & 末端一体化。一般サイズ資源はQ2-4で判定 \\
-Q2-4 & 条件付き達成 & M54一般static profileと受動bank & 一様装置族としての静的sector、collision、filter、bank、clock統合 \\
+Q2-4 & 条件付き達成 & M54一般static profileと受動bank & 一様装置族としての静的sector、collision、filter、bank、clock統合とR186の製造誤差・noise条件 \\
 Q3-1 & 達成 & M37 & 固定目標上の残件なし \\
 Q3-2 & 部分達成 & M54 spatial profile & finite collisionから時間対称加速度への明示誤差 \\
 Q3-3A & 達成 & M37＋有限環境 & なし \\
@@ -421,6 +450,8 @@ M54は同じ試行の \(Z_S\)、anti-register、work/historyをそのまま次�
   Q2の一様な共通ハードウェア努力目標、R181Dの末端一体化、M54の全構成部品を単一の一様装置族へ統合済みであること。
 \item
   指数的な受動自由度を許すことが、指数時間、指数個の個別制御、指数的に細かい精度を許すこと。
+\item
+  Q2-4のblack-box operational equivalenceから、量子計算機と同等の装置体積、物質量、製造費、総bath容量、総熱が従うこと。
 \item
   連続空間、多粒子、一般有限POVMの一様構成。
 \end{enumerate}
@@ -1309,10 +1340,113 @@ $$
 で全bankを一様にblank化できる。続いて定数次元sourceをroot modeへSWAPし、R181Dの各nodeへ有限個のR162 collision cell、selector、filter workをclock順に供給できる。外部program長、準備時間、clock round、必要精度は $n,d,1/\epsilon$ の多項式である。静的couplerと受動clockが一括作用する限り、外部controllerの仕事をbank次元へ比例させない。cold bathとspent bathの受動自由度、状態容量、総作用移送、総熱は指数的でもよい。
 \end{theorem}
 
-R179は低作用bathを無から生成しない。供給測度は同じ局所lawを反復する回路非依存の規則であり、出力確率表を含まない。外部精度を多項式に保つには、exact invariant blankを持つcold source、またはbank全体のaggregate誤差を一様contractで保証するcold sourceが必要である。有限温度の独立noiseが各modeに定数作用を残す場合、aggregate blank誤差は \(D_{n,d}\) とともに増大するためR179の仮定を満たさない。
+R179は低作用bathを無から生成しない。供給測度は同じ局所lawを反復する回路非依存の規則であり、出力確率表を含まない。外部精度を多項式に保つには、exact invariant blankを持つcold source、またはbank全体のaggregate誤差を一様contractで保証するcold sourceが必要である。特に、blank modeへ信号振幅と無関係なadditive作用を独立に注入する定数noise floorがある場合、aggregate blank誤差は \(D_{n,d}\) とともに増大するためR179の仮定を満たさない。mode振幅に比例するphase/frequency型のmultiplicative noiseまで同じ理由で排除するものではない。
 
-\hypertarget{m54ux306eux5408ux6210ux8aa4ux5deeux3068ux8cc7ux6e90}{%
-\section{M54の合成誤差と資源}\label{m54ux306eux5408ux6210ux8aa4ux5deeux3068ux8cc7ux6e90}}
+\hypertarget{r186m54ux4e00ux69d8ux53d7ux52d5fabricux306eprojectiveux9811ux5065ux6027ux3068additive-noiseux969cux5bb3}{%
+\subsection{R186：M54一様受動fabricのprojective頑健性とadditive-noise障害}\label{r186m54ux4e00ux69d8ux53d7ux52d5fabricux306eprojectiveux9811ux5065ux6027ux3068additive-noiseux969cux5bb3}}
+
+一般 \(n\) のM54 signalを \(N=2^n\)、\(Z\in\mathbb C^N\)、\(S=Z^\dagger Z>0\) とし、
+
+\[
+P_Z=\frac{ZZ^\dagger}{S}
+\]
+
+をsignal rayのprojectorとする。global phaseを変える \(cI\) はBorn分布とprojective stateを変えないので、Hermitian摂動 \(V\) の有害成分を
+
+\[
+\|V\|_{\rm proj}
+=
+\inf_{c\in\mathbb R}\|V-cI\|
+\]
+
+で測る。additive noiseの共分散を \(Q_{\rm add}=BB^\dagger\) とし、現在のrayに垂直な作用注入率を
+
+\[
+q_\perp(Z)
+=
+\frac{\operatorname{tr}[(I-P_Z)Q_{\rm add}]}{S}
+\]
+
+とする。
+
+\begin{theorem}[R186：M54一様受動fabricのprojective頑健性とadditive-noise障害]
+
+固定有限gate窓またはhold窓について次が成り立つ。
+
+1. 理想Hamiltonian $H(t)$ にHermitian製造誤差 $V(t)$ を加えたunitary実装では、理想rayと実装rayの純粋状態trace distanceは
+
+$$
+D_{\rm tr}
+\leq
+\min\!\left\{
+1,
+\frac1{\mathcal J_0}
+\int\|V(t)\|_{\rm proj}\,dt
+\right\}.
+$$
+
+各rowに高々 $\Delta(n)$ 本のperturbed couplerが入り、各局所係数誤差の絶対値が $\mu$ 以下なら、ある数値定数 $C$ に対して $\|V\|_{\rm proj}\leq C\Delta(n)\mu$ と評価できる。従って $\Delta(n)$ と総gate時間が多項式なら、指数個のsectorが存在しても局所製造精度は逆多項式で足りる。
+
+2. 各modeに独立なStratonovich phase noise
+
+$$
+dZ_x=-i\sigma Z_x\circ dW_x
+$$
+
+だけが作用する時間 $T$ では、$p_x=|Z_x(0)|^2/S$ として
+
+$$
+\mathbb E F(T)
+=
+e^{-\sigma^2T}
++
+\left(1-e^{-\sigma^2T}\right)
+\sum_xp_x^2,
+$$
+
+従って
+
+$$
+1-\mathbb E F(T)
+\leq
+1-e^{-\sigma^2T}
+\leq
+\sigma^2T.
+$$
+
+noise channel数 $N$ はこの上界へ現れない。指数個の独立noise sourceが存在すること自体はQ2-4の失敗条件ではない。
+
+3. projector latchで理想容量 $J_b=\sum_{x\in b}|Z_x|^2$ の各係数が $1+\delta_x$ へずれ、$|\delta_x|\leq\mu$ なら、
+
+$$
+|\widetilde J_b-J_b|\leq\mu J_b.
+$$
+
+ここでもsector数の和は現れない。
+
+4. 一方、$N$ 次元signal空間上で
+
+$$
+Q_{\rm add}\succeq\sigma^2I_N
+$$
+
+なら任意の非零signalに対して
+
+$$
+q_\perp(Z)\geq\frac{(N-1)\sigma^2}{S}.
+$$
+
+さらに $H=0$、$B$ 一定のhold窓 $T$ では、横方向additive偏差 $\eta_\perp$ は
+
+$$
+\mathbb E\|\eta_\perp\|^2\geq(N-1)\sigma^2T.
+$$
+
+従って $S$、$T$ と許容RMS ray誤差の逆数を多項式に抑えるM54 direct-mode実装では、isotropic additive noise floorに対して $\sigma=O(2^{-n/2}\operatorname{poly}^{-1})$ 級の抑制が必要になる。これはQ2-4一般のno-goではなく、現在のM54 direct-amplitude registerに対する障害条件である。
+
+\end{theorem}
+
+R186の第1項から第3項は、指数mode数を局所誤差の粗い総和へ置き換えないための正の頑健性条件である。第4項は空modeへも有限作用を注入するadditive noiseを区別する。radial-only repumpはrayを保存するため、既に生じた横方向additive偏差だけを選択的に除去しない。証明、sub-Gaussian製造ばらつきの最大偏差系、compute--uncompute診断は付録Rに置く。 \#\# M54の合成誤差と資源
 
 M54の完全結果分布を \(P_{\rm M54}\)、理想回路Born分布を \(P_{\rm circ}\) とする。誤差を重複計上しなければ、
 
@@ -1326,6 +1460,8 @@ D_{\rm TV}(P_{\rm M54},P_{\rm circ})
 +2n(\tau+\gamma)
 +\sum_{j=1}^n\bar\varepsilon_j.
 \]
+
+R186の製造誤差、phase noise、latch誤差は、それぞれ \(\eta_{\rm gate}\)、\(\varepsilon_{\rm leak}\)、\(\bar\varepsilon_j\) を物理部品誤差から評価する十分条件として使い、別の独立誤差として二重加算しない。R186第4項のextensive additive noiseがある場合は、この誤差予算をpoly精度で閉じられない障害条件として扱う。
 
 ここで
 
@@ -1356,7 +1492,7 @@ O\!\left(
 \hypertarget{q2-4ux306eux5224ux5b9aux3068ux5883ux754c}{%
 \section{Q2-4の判定と境界}\label{q2-4ux306eux5224ux5b9aux3068ux5883ux754c}}
 
-R181Cは指数個の個別gate設定、R181Dは全 \(2^n\) 葉の一括読出し、R179は指数個の個別blank初期化を避ける。従ってM54はQ2-4を条件付き達成へ進める。条件は、R170作用殻、R162 collision cell、controlled filter、radial repump、一様bank--bath結合を同じsafe setとclockで接続することである。
+R181Cは指数個の個別gate設定、R181Dは全 \(2^n\) 葉の一括読出し、R179は指数個の個別blank初期化を避ける。R186は指数mode数だけを理由に指数精度を要求せず、局所製造誤差とphase noiseをprojectiveに評価する一方、extensive additive noiseが外部精度へ指数costとして露出する境界を与える。従ってM54はQ2-4を条件付き達成へ進める。条件は、R170作用殻、R162 collision cell、controlled filter、radial repump、一様bank--bath結合を同じsafe setとclockで接続することである。
 
 本構成は通常の計算量理論における多項式資源の古典simulationではない。指数個の受動自由度、静的結合、bath容量、総熱を許した上で、外部制御と総時間を多項式に抑える結果である。未知量子入力、適応中間測定、誤り訂正、固定容量bathによる無期限独立同分布標本は主張しない。M54はQ1・Q2・Q3の共通親模型族だが、全profileで同一の製造済み装置や同一パラメータを主張しない。
 
@@ -5952,8 +6088,8 @@ Q3-4BではR182の同じ静的W型過程を \(0\)、\(T_{1/2}\)、\(T_{\rm per}\
 
 有限資源を固定したまま厳密node、無期限熱化、永久記録、resetを同時に達成したとは扱わない。
 
-\hypertarget{q2ux306eux6839ux62e0ux30e2ux30c7ux30ebux5171ux901aux30cfux30fcux30c9ux30a6ux30a7ux30a2ux52aaux529bux76eeux6a19ux8cc7ux6e90ux5206ux985e}{%
-\section{Q2の根拠モデル、共通ハードウェア努力目標、資源分類}\label{q2ux306eux6839ux62e0ux30e2ux30c7ux30ebux5171ux901aux30cfux30fcux30c9ux30a6ux30a7ux30a2ux52aaux529bux76eeux6a19ux8cc7ux6e90ux5206ux985e}}
+\hypertarget{q2ux306eux6839ux62e0ux30e2ux30c7ux30ebux5171ux901aux30cfux30fcux30c9ux30a6ux30a7ux30a2ux52aaux529bux76eeux6a19ux30d6ux30e9ux30c3ux30afux30dcux30c3ux30afux30b9ux8cc7ux6e90ux5206ux985e}{%
+\section{Q2の根拠モデル、共通ハードウェア努力目標、ブラックボックス資源分類}\label{q2ux306eux6839ux62e0ux30e2ux30c7ux30ebux5171ux901aux30cfux30fcux30c9ux30a6ux30a7ux30a2ux52aaux529bux76eeux6a19ux30d6ux30e9ux30c3ux30afux30dcux30c3ux30afux30b9ux8cc7ux6e90ux5206ux985e}}
 
 Q2-1からQ2-4は、次の根拠モデルと根拠結果から互いに独立に判定する。独立とは他のQ2目標の達成ラベルを前提にしないという意味であり、同じ模型または部品定理を複数の目標で使うことは禁止しない。目標ごとに担体、浴、clock、準備・読出し原理が異なっても、それだけでは不達としない。
 
@@ -5966,12 +6102,12 @@ Q2-1からQ2-4は、次の根拠モデルと根拠結果から互いに独立に
 \item
   Q2-3：M54三部分系static profileを使う。R112、R161、R162、R164、R170、R177、R181A--R181Dを根拠とする。
 \item
-  Q2-4：M54を使う。根拠結果はR112、R161、R162、R164、R170、R181A--R181D、R178D、R179。
+  Q2-4：M54を使う。根拠結果はR112、R161、R162、R164、R170、R181A--R181D、R178D、R179、R186。
 \end{itemize}
 
 規模 \(N\) ごとの一様な共通ハードウェア族へ統合することは、固定目標の達成条件ではなく実装努力目標である。将来これを主張する場合は、同じ物理port、永続状態浴、相互作用区間族、clock・制御bus、準備interface、Born型読出し・記録interfaceを共有する具体的な装置族を示す。共通の正準代数またはinstrument契約だけでは同一装置とみなさない。
 
-受動資源と能動資源を分ける。受動的な浴自由度、正準対、coherent経路、静的結合、状態容量、受動並列度は指数的でもよい。ただし規模を報告し、一様な有限規則から生成する。次は受動資源とはみなさない。
+Q2-4ではblack-box operational resourceとreported internal resourceを分ける。外部から装置を利用するためのprogram、制御、時間、精度、試行回数は前者として多項式上界を要求する。受動的な浴自由度、正準対、coherent経路、静的結合、状態容量、受動並列度、装置体積、総bath容量、総熱は後者として規模を報告し、一様な有限規則から生成する限り指数的でもよい。ただし内部資源が外部interfaceへ露出した次の操作はreported internal resourceには残さない。
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -6047,13 +6183,17 @@ Q2-4では、固定有限普遍ゲート集合から与えられる \(n\) 量子
 
 一方、signal、anti-register、work、history、cold、spentを含む指数的な受動自由度と受動状態容量を許す。装置体積、総bath容量、総熱は指数的でもよい。これは通常の意味の効率的古典simulationを主張する基準ではない。
 
+この資源規約は内部costを無視するためではなく、比較対象をblack-box operational complexityへ固定するためのものである。内部mode数、静的coupler数、装置体積、総熱は別のreported internal resourceとして保持する。量子計算機と同等の総物理資源効率は主張しない一方、内部の指数構造がmode別較正、指数精度、指数時間、指数試行回数として外部へ露出する場合はQ2-4の失敗とする。
+
 M54は \(L=2^n\) 個のsignal modeを使うが、R181Cにより固定有限局所gateをspectator sectorへ同じ係数でbroadcastし、作用素norm誤差をsector数の和ではなく最大値で抑える。R181Dは各bitでraw容量 \(J_{u,b}\) とregularized容量 \(A_{u,b}^\delta\) を分け、R164/R170でselectorを形成してから可逆filterを開く。確率 \(\tau\) 未満の枝とguardを \(\varnothing\) に残すため、切断誤差は \(2n(\tau+\gamma)\) 以下であり、事後選別を使わない。
 
 選択成分はR181Aのradial-only portで標準作用へ戻す。未知の条件付き確率を読み出すsqueezeではなく、\(\tau\) の下限から固定repump時間を選ぶ。深さ \(n\) の完全結果誤差は入力誤差、\(n\delta/(1+\delta)\)、\(2n(\tau+\gamma)\)、各node実装誤差の和で抑える。R178DはHamiltonian workだけの逆掃除と、結果・開放散逸履歴をspent側へ残す境界を与える。
 
 R179は同一静的couplerと受動clockによるpartial SWAPを反復し、active残差を幾何的にaggregate cold floorまで縮める。root source、R162 collision cell、selector、filter workをbankから供給し、使用済み状態をspentへ送る。旧fair-bit、dyadic threshold、aperture tapeは現行因果鎖に使わない。
 
-以上は各構成部品と合成誤差・資源の定理を与える。ただし、静的sector配線、projector latch、R170 collision、selector lock、controlled filter、radial repump、blank/spent bank、clockを一つの具体的な一様装置族へ統合する物理境界が残る。この条件の下でQ2-4を条件付き達成とする。
+R186はこのblack-box規約に対する製造誤差とnoiseの境界を与える。疎な静的coupler誤差はprojective operator normで、独立mode phase noiseは平均fidelityで、projector latchの相対係数誤差は容量の相対誤差で評価でき、いずれもsector数の粗い和を取らない。一方、各modeへ信号振幅と無関係なadditive作用を注入し \(Q_{\rm add}\succeq\sigma^2I_{2^n}\) となる場合は、横方向noise作用が \((2^n-1)\sigma^2\) に比例する。poly signal作用とpoly時間のまま精度を保つには指数noise suppressionが必要となるため、現在のM54 direct-mode実装に対する障害条件である。
+
+以上は各構成部品と合成誤差・資源の定理を与える。ただし、静的sector配線、projector latch、R170 collision、selector lock、controlled filter、radial repump、blank/spent bank、clockを一つの具体的な一様装置族へ統合し、実際の製造ばらつきと運転中noiseがR186の正の頑健性条件を満たしてextensive additive-noise障害を回避することが残る。この条件の下でQ2-4を条件付き達成とする。
 
 \hypertarget{ux53cdux8a3cux6761ux4ef6}{%
 \section{反証条件}\label{ux53cdux8a3cux6761ux4ef6}}
@@ -6077,7 +6217,7 @@ M54/R181A & 実変数driftと複素式が一致しない、安全seed上のray�
 Q1 W型2モードprotocol/R143 & Hopf方向が有限時間で準備できない、R170特殊化後もBorn型枝と局所記録が一致しない、結果別状態更新が失敗する \\
 M54/R181B--R177 & tensor-liftの正規化または正準性が破れる、集団momentから再準備する、同じregisterを保持できない、参照系相関または逆演算fringeが壊れる、各modeの個別外部制御が必要、R181Dの完全結果誤差境界を満たさない \\
 M54/R180A--R180C & 実際の末端信号でなく集団momentを再注入する、block作用と枝重みが一致しない、paired-Hopf流が選択templateへ吸引しない、R180Cの単一装置境界を満たさない、切断後因子化が破れる、局所R170応答が反対翼設定を参照する、無反応込みでCHSH誤差上界を満たさない \\
-M54/R181A--R181D・R178D・R179 & sectorごとの誤差を指数個加算する、selector lock前にfilterを開く、projector filterが正準でない、希少枝を事後除外する、状態依存除算または確率依存squeezeを使う、使用済みcellを履歴なしにblankへ戻す、または単一の一様装置族へ統合できない \\
+M54/R181A--R181D・R178D・R179・R186 & sectorごとの誤差を指数個へ粗く加算する、selector lock前にfilterを開く、projector filterが正準でない、希少枝を事後除外する、状態依存除算または確率依存squeezeを使う、使用済みcellを履歴なしにblankへ戻す、単一の一様装置族へ統合できない、または実装noiseがR186のextensive additive-noise障害を回避せず指数精度を要求する \\
 M37/R86・R135 & 有限時間包絡上界または第2モーメント持上げ上界を超える \\
 R182 & W型固定低位スペクトル・密度・節が格子収束しない、Rayleigh十分条件から障壁下二重項が得られない、functional calculusの共有固有空間または分裂相対上界を破る、中央障壁込み半周期鏡映・一周期回帰が成立しない \\
 M54 spatial/R161--R184 & 局所master方程式がM37辺流を再現しない、正則化全変動上界を破る、有限衝突近似が安全領域で収束しない、終時刻に同じ粒子を記録できない \\
@@ -6178,6 +6318,8 @@ B.5の漏れ確率を全変動距離へ直接加える旧評価は採用しな�
 \hypertarget{ux78baux7acbux3057ux305fux3053ux3068}{%
 \section{確立したこと}\label{ux78baux7acbux3057ux305fux3053ux3068}}
 
+本稿の計算機としての中心的な比較基準はblack-box operational equivalenceである。内部の受動自由度数をそのまま外部制御複雑度とはみなさず、回路記述、外部program、制御channel、時間、精度、期待試行回数が入力規模と逆誤差の多項式に抑えられるかを判定する。内部mode、静的coupler、装置体積、総bath容量、総熱はreported internal resourceとして別に記録し、量子計算機と同等の総物理資源効率は主張しない。
+
 M54は、一様有限正準register、物理source/template port、anti/work、raw・regularized容量、selector、cold/spent bank、記録、clockを持つQ1・Q2の共通親模型族である。R181Aは物理template準備、R181Bは固定2・3入力の可逆tensor-lift、R181Cは永続register上の局所gate列、R181DはR170駆動projector-tree Born instrumentを与える。各試行の複素信号は実正準座標の派生表示であり、解析上のrayや確率表をcontrollerへ書き戻さない。
 
 Q1はM54の \(n=1\) W型特殊化である。R181AのW型2モード系は独立結果IDを持たない。共通R135は階数1bath共分散のBloch球、R140は任意の \(SU(2)\)、零傾斜占有振動、離調Rabi式を与える。R187はM37の局所ばね弱結合W型族で \(J_\kappa/G_\kappa\to0\) を構成し、傾斜時のdressed低2cluster、厳密正常mode分裂較正、finite switchを合成してR140制御を任意精度で物理carrierへ持ち上げる。R181Dの深さ1とR143が有限コントラストの左右読出しと結果別状態更新を与える。R135、R140により既にQ1-1を達成しており、R187はその物理backendを強化する。
@@ -6207,9 +6349,9 @@ R180Aはblock代数と理想共同Born則を厳密に与える。R180Bは採用�
 
 固定目標Q2-3は条件付き達成である。R181Bをgate列の前に2回使って8mode信号を作り、R181CのA--B、B--C二次生成子と逆演算を同じ永続registerへ作用させる。R177のGHZ--\(T\)--逆演算ではcoherent出力と完全dephasing出力の全変動距離が \(1/(2\sqrt2)\) になる。末端ではR164/R161/R162/R170を含むR181Dを8modeへ特殊化し、Q2-1と同じ末端接続条件が残る。
 
-固定目標Q2-4は条件付き達成である。M54は \(2^n\) 受動signal modeを許し、R181Cが局所gateをspectator sectorへ一様にbroadcastする。R181Dはraw容量、正則化作用殻、R170 selector、可逆filter、radial-only repumpを深さ \(n\) で合成する。完全結果誤差は入力誤差、\(n\delta/(1+\delta)\)、\(2n(\tau+\gamma)\)、node誤差の和で抑える。R178Dは結果相関履歴をspentへ残す境界、R179はblank bank、collision cell、selector/filter work、spent bankを供給する。旧apertureとdyadic tapeは現行因果鎖に使わない。
+固定目標Q2-4は条件付き達成である。M54は \(2^n\) 受動signal modeを許し、R181Cが局所gateをspectator sectorへ一様にbroadcastする。R181Dはraw容量、正則化作用殻、R170 selector、可逆filter、radial-only repumpを深さ \(n\) で合成する。完全結果誤差は入力誤差、\(n\delta/(1+\delta)\)、\(2n(\tau+\gamma)\)、node誤差の和で抑える。R178Dは結果相関履歴をspentへ残す境界、R179はblank bank、collision cell、selector/filter work、spent bankを供給する。R186は、疎な静的製造誤差、独立mode phase noise、projector latch係数誤差が指数sector数を直接加算せず抑えられる領域と、各modeへ独立additive作用を注入するnoise floorが指数noise suppressionを要求する領域を分ける。旧apertureとdyadic tapeは現行因果鎖に使わない。
 
-Q2-4では総bath容量と総熱を多項式としない。signal、work、history、cold、spentの受動容量は指数的でもよい。その代わり、外部program、制御channel、精度、反復回数、総時間を多項式に抑え、指数個の個別address、確率表、回路別配線、稀な成功、事後選別を使わない。この限定は通常の効率的古典simulationではない。
+Q2-4では総bath容量と総熱を多項式としない。signal、work、history、cold、spentの受動容量は指数的でもよい。その代わり、外部program、制御channel、精度、反復回数、総時間を多項式に抑え、指数個の個別address、確率表、回路別配線、稀な成功、事後選別を使わない。この限定は通常の効率的古典simulationではないが、本稿の中心的なblack-box比較ではそれ自体を失敗としない。内部指数構造が外部指数costへ露出するかをR186を含む資源台帳で判定する。
 
 \hypertarget{ux78baux7acbux3057ux3066ux3044ux306aux3044ux3053ux3068}{%
 \section{確立していないこと}\label{ux78baux7acbux3057ux3066ux3044ux306aux3044ux3053ux3068}}
@@ -6234,13 +6376,13 @@ Q2-2ではM54 static profileとR180 receiverを使い、R112、R161、R162、R16
 
 Q2-3ではM54 static profileを親模型とし、R112、R161、R162、R164、R170、R177、R181A--R181Dを根拠結果とする。
 
-Q2-4ではM54を親模型とし、R112、R161、R162、R164、R170、R181A--R181D、R178D、R179を根拠結果とする。
+Q2-4ではM54を親模型とし、R112、R161、R162、R164、R170、R181A--R181D、R178D、R179、R186を根拠結果とする。
 
 独立判定は他のQ2目標の達成ラベルを前提にしないという意味であり、同じ親模型と部品定理を共有できる。
 
 Q2-1からQ2-4に共通する一様なハードウェア族は、判定外の実装努力目標として未完成である。同じ物理port、永続状態浴、相互作用区間族、制御bus、準備・読出しinterfaceを全目標で共有する構成をまだ得ていないが、この未完成性をQ2-1またはQ2-2の達成状態へ遡及させない。
 
-Q2-4で確立していないのは、M54の静的sector配線、projector latch、R170 collision、selector lock、controlled filter、radial repump、blank/spent bank、clockを一つの具体的な一様装置族へ統合し、局所誤差上界を同時に実現することである。cold bathを閉系から生成すること、有限bankで無期限運転すること、使用済みcellを履歴なしにblankへ戻すこと、指数受動容量または総熱を多項式へ削減することも主張しない。
+Q2-4で確立していないのは、M54の静的sector配線、projector latch、R170 collision、selector lock、controlled filter、radial repump、blank/spent bank、clockを一つの具体的な一様装置族へ統合し、局所誤差上界を同時に実現し、実際の製造ばらつきと運転中noiseがR186の正の条件を満たすことを示すことである。cold bathを閉系から生成すること、有限bankで無期限運転すること、使用済みcellを履歴なしにblankへ戻すこと、指数受動容量または総熱を多項式へ削減することも主張しない。
 
 \hypertarget{ux6b21ux306eux6c7aux5b9aux7684ux691cux67fb}{%
 \section{次の決定的検査}\label{ux6b21ux306eux6c7aux5b9aux7684ux691cux67fb}}
@@ -6249,7 +6391,7 @@ Q1-2の次の決定的検査は、同じ総時間の零傾斜Rabi自由対照、
 
 これとは別に、M54のpump、transverse sink、template、clockを有限bathへ持ち上げ、R164の作用容量結合、fiber内平衡化、枝対称性と同じW型装置へ統合すること、R162の有限衝突bath、信号bath保持controller、任意軸分析器、傾斜切替、局所記録、枝別テンプレート交換、resetを同じ有限時間Hamiltonian台帳へまとめること、粗視化経路熱力学を周期全体の微視的ゆらぎ関係へ拡張することは、実装・熱力学的強化課題として残る。\(\delta\downarrow0\)、深いW型、長いfiber準備・混合時間の精度--時間--エネルギー交換もこの強化課題で監査する。
 
-Q2-1とQ2-3の次の検査は、R181Dのcanonical SWAP出口、容量pointer、R164/R170、selector lock、controlled filter、radial repump、recordを共通safe setと単一clock scheduleで閉じることである。Q2-2ではR180CのM54末端SWAP、setting-pre block latch、source port、paired-Hopf pump・sink、R162有限衝突bath、中央切断、2翼controllerを同じ装置とclockへ統合する。Q2-4ではsector漏れ、latch、R170 collision、filter、radial repump、cold floorを同じ安全集合上で同時に抑える。
+Q2-1とQ2-3の次の検査は、R181Dのcanonical SWAP出口、容量pointer、R164/R170、selector lock、controlled filter、radial repump、recordを共通safe setと単一clock scheduleで閉じることである。Q2-2ではR180CのM54末端SWAP、setting-pre block latch、source port、paired-Hopf pump・sink、R162有限衝突bath、中央切断、2翼controllerを同じ装置とclockへ統合する。Q2-4ではsector漏れ、latch、R170 collision、filter、radial repump、cold floorを同じ安全集合上で同時に抑え、局所製造ばらつきとnoise covarianceを明示してR186の正の頑健性条件を検査する。
 
 Q3-2の次の検査は、R184のfinite collision近似について前進・後退生成子の誤差を二階の合成平均加速度まで持ち上げ、R185の \(O(a^2)+O(\delta)\) 残差へ明示的に加えることである。M37局所包絡からNewton加速度まで直接導く強化では、carrier-period粗視化または時間微分付き縮約を別に検査する。
 
@@ -13325,6 +13467,8 @@ $$
 
 漏れ作用を $E_{\rm leak}$ とすれば三角不等式で $\eta_g+\eta_{\rm leak}$ を得る。gate列 $U_d\cdots U_1$ と $\widetilde U_d\cdots\widetilde U_1$ の差はtelescopingし、各因子のnormが1なら各窓誤差の和以下である。
 
+R186第1項は、このblock一様誤差を指数個の部品ごとの誤差和として仮定する代わりに、疎な局所coupler perturbationのprojective operator normから導く十分条件を与える。独立mode phase noiseについてはR186第2項の平均fidelity評価を使い、sector数だけを理由に指数精度を要求しない。
+
 1 bit gateはbit indexを指定する $O(n)$ 本以下、2 bit gateは素朴にはpairを指定する $O(n^2)$ 本以下の共有busで足りる。外部命令はgate数 $d$ に比例する。静的block数は指数的でも、blockを列挙する外部表は不要である。証明終。
 \end{proof}
 
@@ -13360,6 +13504,8 @@ H_{{\rm lat},k}
 \]
 
 とする。\(P^A_{k,b}=0\) のblank面ではsignal方程式への反作用が消え、pointer位置だけが容量に比例して移る。有限pointer幅、clock overlap、blank momentum誤差は \(\varepsilon_{{\rm lat},k}\) へ入れる。
+
+各sectorの容量係数に相対誤差 \(|\delta_x|\leq\mu\) があっても、R186第3項により容量誤差は \(\mu J_{k,b}\) 以下であり、sector数の粗い和を取らない。pointerへ信号振幅と無関係な独立additive forceを入れるnoiseは別であり、R186第4項の障害条件で評価する。
 
 \hypertarget{ux53efux9006filterux4ee3ux6570}{%
 \section{可逆filter代数}\label{ux53efux9006filterux4ee3ux6570}}
@@ -13743,7 +13889,7 @@ W_{r+1}=C_rW_r+S_rE_r,
 \hypertarget{aggregate-coldux6761ux4ef6}{%
 \section{Aggregate cold条件}\label{aggregate-coldux6761ux4ef6}}
 
-Q2-4で必要なのはmodeごとの温度上界ではなく、bank全体のaggregate norm上界である。独立な各modeが定数noise floorを持てば、\(2^n\) modeのaggregate誤差は一般に増大する。この場合R179の多項式精度条件を満たさない。
+Q2-4で必要なのはmodeごとの温度上界ではなく、bank全体のaggregate norm上界である。特に、blank modeが零でも有限作用を注入する独立additive noise floorが各modeに残れば、\(2^n\) modeのaggregate誤差は一般に増大する。この場合R179の多項式精度条件を満たさず、R186第4項のextensive additive-noise障害に対応する。各modeの振幅に比例して位相だけを揺らすmultiplicative noiseは同じ理由では排除しない。
 
 許される供給は、exact invariant blank、またはbank全体で \(\eta_{\rm cold}=O(\epsilon/\operatorname{poly}(n,d))\) を保証する一様contractである。cold sourceの受動容量、装置体積、総作用移送、総熱は指数的でもよいが、外部controllerがmodeごとに較正してはならない。
 
@@ -13818,6 +13964,175 @@ R179は次を主張しない。
 \item
   旧fair-bit、dyadic threshold、aperture tapeをR181Dに必要とすること。
 \end{enumerate}
+
+\hypertarget{m54ux4e00ux69d8ux53d7ux52d5fabricux306eprojectiveux9811ux5065ux6027ux3068additive-noiseux969cux5bb3}{%
+\chapter{M54一様受動fabricのprojective頑健性とadditive-noise障害}\label{m54ux4e00ux69d8ux53d7ux52d5fabricux306eprojectiveux9811ux5065ux6027ux3068additive-noiseux969cux5bb3}}
+
+\begin{statusbox}
+位置づけ：R186のprojective製造誤差、独立phase noise、projector latch相対誤差、extensive additive-noise障害を証明し、Q2-4のblack-box資源規約へ接続する。
+\end{statusbox}
+
+\hypertarget{ux8a2dux5b9a}{%
+\section{設定}\label{ux8a2dux5b9a}}
+
+\(N=2^n\)、\(Z\in\mathbb C^N\)、\(S=Z^\dagger Z>0\)、\(P_Z=ZZ^\dagger/S\) とする。global phaseはprojective stateとBorn分布を変えないため、Hermitian摂動 \(V\) のprojective seminormを
+
+\[
+\|V\|_{\rm proj}=\inf_{c\in\mathbb R}\|V-cI\|
+\]
+
+とする。
+
+\hypertarget{ux9759ux7684ux88fdux9020ux8aa4ux5dee}{%
+\section{静的製造誤差}\label{ux9759ux7684ux88fdux9020ux8aa4ux5dee}}
+
+\begin{proof}[R186]
+
+理想propagatorを $U(t)$、摂動propagatorを $\widetilde U(t)$ とする。任意の実関数 $c(t)$ について $c(t)I$ はglobal phaseだけを与えるので、interaction pictureとDuhamel公式から
+
+$$
+\|\widetilde U(T)-e^{-i\phi(T)}U(T)\|
+\leq
+\frac1{\mathcal J_0}
+\int_0^T\|V(t)-c(t)I\|\,dt
+$$
+
+を得る。$c(t)$ で下限を取れば本文R186第1項の評価となる。純粋状態trace distanceは位相を最適化したstate-vector距離以下なので同じ右辺で抑えられる。
+
+局所coupler摂動行列の各rowに高々 $\Delta$ 個の非零項があり、各絶対値が $\mu$ 以下なら、行和normと列和normから
+
+$$
+\|V\|
+\leq
+\sqrt{\|V\|_1\|V\|_\infty}
+\leq
+\Delta\mu
+$$
+
+である。対角の共通ずれを $cI$ へ吸収する場合も同様で、本文では規約差を吸収する定数 $C$ を許した。
+
+**独立phase noise。**
+
+各modeについて
+
+$$
+dZ_x=-i\sigma Z_x\circ dW_x
+$$
+
+ならStratonovich解は
+
+$$
+Z_x(T)=Z_x(0)e^{-i\sigma W_x(T)}.
+$$
+
+$p_x=|Z_x(0)|^2/S$ とすれば規格化overlapは
+
+$$
+\langle\psi(0)|\psi(T)\rangle
+=
+\sum_xp_xe^{-i\sigma W_x(T)}.
+$$
+
+独立Brownian運動について $x\ne y$ なら
+
+$$
+\mathbb E e^{-i\sigma(W_x-W_y)}=e^{-\sigma^2T}.
+$$
+
+従って
+
+$$
+\mathbb E F(T)
+=
+e^{-\sigma^2T}
++
+\left(1-e^{-\sigma^2T}\right)\sum_xp_x^2.
+$$
+
+よって $1-\mathbb EF(T)\leq1-e^{-\sigma^2T}\leq\sigma^2T$ であり、$N$ は現れない。
+
+**Projector latchの係数誤差。**
+
+枝集合 $B$ に対し $J_B=\sum_{x\in B}|Z_x|^2$、実装値を
+
+$$
+\widetilde J_B=\sum_{x\in B}(1+\delta_x)|Z_x|^2
+$$
+
+とする。$|\delta_x|\leq\mu$ なら三角不等式から
+
+$$
+|\widetilde J_B-J_B|\leq\mu J_B.
+$$
+
+従って指数個のsectorを含むprojectorでも相対係数誤差を加算しない。
+
+**Extensive additive noise。**
+
+additive incrementを $B\,dW$、$Q_{\rm add}=BB^\dagger$ とする。rayに平行な成分は一次の方向誤差を作らないので、有害な平均二乗作用注入率は
+
+$$
+\operatorname{tr}[(I-P_Z)Q_{\rm add}].
+$$
+
+$Q_{\rm add}\succeq\sigma^2I_N$ なら
+
+$$
+\operatorname{tr}[(I-P_Z)Q_{\rm add}]
+\geq
+\sigma^2\operatorname{tr}(I-P_Z)
+=
+(N-1)\sigma^2.
+$$
+
+$H=0$、$B$ 一定のhold窓ではItô isometryから
+
+$$
+\mathbb E\|\eta_\perp(T)\|^2
+=
+T\operatorname{tr}[(I-P_Z)Q_{\rm add}]
+\geq
+(N-1)\sigma^2T.
+$$
+
+signal作用 $S$ に対するRMS横方向比を $r$ 以下にする必要があれば
+
+$$
+\sigma\leq r\sqrt{\frac{S}{(N-1)T}}.
+$$
+
+$N=2^n$ で $S,T,r^{-1}$ が多項式なら、右辺は $2^{-n/2}$ と多項式因子の積になる。これは現在のdirect-amplitude M54が一定のisotropic additive noise floorを許せないことを示す障害条件であり、別の符号化またはfault-tolerant古典装置一般を排除しない。
+
+以上でR186を証明した。
+\end{proof}
+
+\hypertarget{sub-gaussianux88fdux9020ux3070ux3089ux3064ux304dux306eux7cfb}{%
+\section{Sub-Gaussian製造ばらつきの系}\label{sub-gaussianux88fdux9020ux3070ux3089ux3064ux304dux306eux7cfb}}
+
+独立な局所係数偏差 \(X_j\) が
+
+\[
+P(|X_j|>t)\leq2e^{-t^2/(2s^2)}
+\]
+
+を満たし、部品数 \(M\leq2^n p(n,d)\) ならunion boundにより、確率 \(1-\alpha\) 以上で
+
+\[
+\max_j|X_j|
+\leq
+s\sqrt{2\log\frac{2M}{\alpha}}
+=
+O\!\left(s\sqrt{n+\log p+\log\alpha^{-1}}\right).
+\]
+
+従って連続的な小さい製造ばらつきは、指数部品数だけを理由に指数精度を要求しない。一方、各部品が一定確率でhard defectになる模型では、全block正常を要求するだけならyieldが指数的に低下する。R186はそのfault toleranceを構成しない。
+
+\hypertarget{computeuncomputeux8a3aux65adux3068ux8cc7ux6e90ux5883ux754c}{%
+\section{Compute--uncompute診断と資源境界}\label{computeuncomputeux8a3aux65adux3068ux8cc7ux6e90ux5883ux754c}}
+
+additive noiseの診断には、\(|0^n\rangle\) を一様重ね合わせへ移し、hold窓の後に逆演算するcompute--uncompute列を使える。unitary逆演算は横方向noise normを消さないので、R.5の作用注入が末端ray誤差へ残る。radial-only repumpも \(Z\mapsto\alpha Z\) とray全体を保存するため、理想成分だけを選んで増幅しない。
+
+この付録は装置体積、部品総数、総熱を多項式へ削減しない。主張するのは、内部の指数自由度数と外部精度を自動的に同一視しないこと、および現在のM54 direct-modeでどの種類のnoiseが外部指数精度へ露出するかを区別することである。
 
 \begingroup
 
