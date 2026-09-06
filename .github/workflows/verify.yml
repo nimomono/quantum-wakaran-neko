@@ -83,7 +83,7 @@ jobs:
           test ! -e tools/verify_m55_moving_matching.py
           test "$(grep -Rho '定理（R161：' sections/*.md | wc -l)" -eq 1
           test "$(grep -Rho '定理（R162：' sections/*.md | wc -l)" -eq 1
-          test "$(grep -Rho '定理（R183：' sections/*.md | wc -l)" -eq 0
+          ! grep -Rq '定理（R183：' sections/*.md
           test "$(grep -Rho '定理（R184：' sections/*.md | wc -l)" -eq 1
           test "$(grep -Rho '定理（R185：' sections/*.md | wc -l)" -eq 1
           grep -Fq '| Q3-2 | 部分達成 | M54 spatial profile | R161、R185 |' PROJECT_STATUS.md
