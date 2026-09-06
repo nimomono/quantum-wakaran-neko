@@ -1,5 +1,14 @@
 # 変更記録
 
+## draft-73：R184開始作用latchの正式化とQ3整合性修復
+
+- R184のM37実装を開始作用latch方式へ正式統一した。各試行で $S_{\rm ref}=\|b(0)\|^2$ をlatchし、背景容量を $|b_i(t)|^2+\delta q_iS_{\rm ref}$ とする。M37局所包絡の非保存作用 $\|b(t)\|^2$ を輸送中の背景へ書き戻さない。
+- 理想M55では保存量 $S=Z^\dagger Z$ を使う従来のR183を維持し、理想 $b_L$ では $S=S_{\rm ref}$ なのでR184のlatch表示と完全に一致することを明示した。既存の $L_\delta(\eta)\varepsilon_{\rm car}$ 定数はこの規約に対する評価として確定した。
+- 退役R173への暗黙依存を除き、一般有界有向率を有限threshold cell、clock、履歴、work registerと有限駆動Hamiltonian散乱列へ近似する補題を付録Nへ自己完結に移植した。
+- R185の一様背景について、長さ $\ell=Na$ の連続密度では $q_i=1/N=a/\ell$、$q_0=1/\ell$ と明示した。非零current速度を持つ周期例を数値回帰へ追加した。
+- R183の非零signal条件と条件付き分布のほとんど至る所での意味、Q3主線におけるR170の固定時刻代替診断という役割を明確化した。
+- M42退役メモ、検算記録、README、PROJECT_STATUS、本文、付録、CI、引用情報、統合原稿、TeX、PDFを同期した。固定長期目標と達成ラベルは変更していない。
+
 ## draft-72：M42最終退役とM55 moving-matching統合
 
 - M42の再定義版とR172--R174を現行依存から退役し、Q3をM55「粒子--signal bath共同測度・moving-matching模型族」へ統一した。単一試行controllerは実正準signal $Z(\omega)$ だけを読み、rank-one因子 $\psi$、$C_Z$、全位置分布を入力しない。

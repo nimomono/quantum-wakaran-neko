@@ -18,6 +18,6 @@ Q2-3はR181Bをgate列の前に2回適用して8mode信号を作り、R181CのA-
 
 Q2-4はM54の一般 $n$ 特殊化である。R181Cは局所gateのsector一括作用、R181DはR170駆動の逐次projector-treeを与える。各nodeはraw容量、正則化作用殻、selector lock、可逆filter、radial-only repumpを使い、無反応を完全結果へ残す。R178Dはhistory掃除の限界、R179はblank bank、collision cell、spent bankの一様供給を与える。指数的な受動信号・work・history・cold・spent容量と総熱を許し、外部program、制御channel、精度、反復回数、総時間だけを多項式に抑える現行規則の下で、Q2-4を条件付き達成とする。
 
-Q3はQ1・Q2と同じsingle-trial signal / statistical-ray契約をM55へ拡張する。共同測度 $\mu_t(dX\,dZ)$ 上で、R164と同じ条件付き位置分布をR183がmoving matchingとして全時刻保存し、rank-one集団ではR135から正則化Born分布を得る。M37はR86によりM55の空間signal sectorを局所位置ばねで有限時間近似し、R184がrate・位置分布・finite collision実装の誤差を与える。R185は同じpath measureから後向きrateと $D_\pm$ を作り、1次元node-free sectorで時間対称Newton則を $O(a^2)+O(\delta)$ まで導く。finite collision bathから対称加速度への誤差が残るためQ3-2は部分達成、Q3-6は未達である。Q3-3A--Q3-3Cは達成、Q3-4A・Q3-4B・Q3-5は単一装置統合を条件に達成である。
+Q3はQ1・Q2と同じsingle-trial signal / statistical-ray契約をM55へ拡張する。共同測度 $\mu_t(dX\,dZ)$ 上で、R164と同じ条件付き位置分布をR183がmoving matchingとして全時刻保存し、rank-one集団ではR135から正則化Born分布を得る。M37はR86によりM55の空間signal sectorを局所位置ばねで有限時間近似する。R184はM37開始面の作用をlatchして正則化背景を固定し、rate・位置分布・finite collision実装の誤差を与える。R185は同じpath measureから後向きrateと $D_\pm$ を作り、1次元node-free sectorで時間対称Newton則を $O(a^2)+O(\delta)$ まで導く。finite collision bathから対称加速度への誤差が残るためQ3-2は部分達成、Q3-6は未達である。Q3-3A--Q3-3Cは達成、Q3-4A・Q3-4B・Q3-5は単一装置統合を条件に達成である。
 
 Q1とQ2は同じM54模型族から派生するが、全規模で同一の製造済みハードウェアまたは同一パラメータを使うところまでは主張しない。各固定目標は明記した根拠結果から独立に判定する。R180Cのreceiver内部統合、Q2共通ハードウェア族、Q1--Q3を1つの周期へ統合するM0はいずれも未完成である。

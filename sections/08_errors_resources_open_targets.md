@@ -198,7 +198,7 @@ C_\tau\varepsilon_{\rm block}
 
 Q3ではR164と同じ条件付き分布 $\pi^\delta(X\mid Z)$ を確率源として共有する。Q1・Q2は固定signalへのR161再平衡化、Q3はR183のmoving matchingを使う。M42/R172--R174は現行依存から退役する。
 
-M37を使わない理想M55 signal sectorではR183のmatchingは厳密であり、rank-one統計から厳密な $|\psi|^2$ と比較するときだけ
+M37を使わない理想M55 signal sectorではR183のmatchingは厳密であり、背景容量は保存量 $S=Z^\dagger Z$ を使う。M37局所ばね実装では開始作用 $S_{\rm ref}=\|b(0)\|^2$ を単一試行ごとにlatchし、背景容量を $|b_i(t)|^2+\delta q_iS_{\rm ref}$ とする。局所包絡の非保存作用 $\|b(t)\|^2$ を輸送中に背景へ書き戻さない。rank-one統計から厳密な $|\psi|^2$ と比較するときだけ
 
 ```math
 \varepsilon_\delta
@@ -256,7 +256,7 @@ L_\delta(\eta)
 \right].
 ```
 
-固定有限格子では有限だが、$\delta\downarrow0$ で概ね $O(\delta^{-2})$ のrate感度が現れる。
+固定有限格子では有限だが、$\delta\downarrow0$ で概ね $O(\delta^{-2})$ のrate感度が現れる。finite collision部分は付録N.4の一般有界有向率補題だけで閉じ、退役R173を現行依存に使わない。
 
 Q3-2の理想M55層ではR185により
 
