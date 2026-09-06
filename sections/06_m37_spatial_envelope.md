@@ -1,24 +1,24 @@
 @number: 6
 @chapter: 本文
-@title: M37空間担体とM54 spatial-moving実装
-@status: M37の正確局所方程式、生成子誤差、有限時間Schrödinger型近似をR86へ保ち、Q3の位置過程をM54 spatial profileのR161/R184/R185へ統一する。M37はM54 spatial signal sectorの局所ばねbackendとして扱う。
+@title: M37空間担体、W型低2モードbridgeとM54 spatial-moving実装
+@status: M37の正確局所方程式とR86を保ち、Q3 spatial signal sectorに加えて、R187で弱結合W型最低2モードをM54 W2 static profileのQ1制御担体へ有限誤差で接続する。測定・準備・M0統合は別課題とする。
 
 ## 6.1 Q3のM54 spatial profileとM37の範囲
 
 Q3の親模型は第2章のM54 spatial-moving profileである。その1試行には、実正準signal自由度、その派生表示 $Z$、1個の粒子位置 $X_t$、finite collision bath、clock、履歴が含まれる。複素rayと位置分布は試行集団の統計であり、$C_Z$ またはそのrank-one因子を単一試行controllerへ書き戻さない。
 
-M37はM54と並ぶ別の粒子親模型ではなく、M54 spatial signal sectorを局所位置ばねだけで有限時間近似する担体実現模型である。役割を次のように分ける。
+M37はM54と並ぶ別の粒子親模型ではない。Q3ではM54 spatial signal sectorを局所位置ばねだけで有限時間近似する担体実現模型であり、Q1ではR187の弱結合W型族に限って最低2正常modeをM54 W2 static profileの物理signal subsystemとして使う。役割を次のように分ける。
 
 | 対象 | 単一試行で物理的に存在するもの | 派生表示・集団記述 | 役割 |
 |---|---|---|---|
 | M54 spatial profile | 実正準signal、粒子位置 $X_t$、finite collision、clock、履歴 | $Z$、$C_Z$、rank-one ray、位置分布 | R161 moving matching、R185時間反転・Newton則 |
-| M37実装 | 有限個の実振動子座標 $(q_i,p_i)$ と局所ばね結合 | 局所複素包絡 $b_i$ | R86によるM54 spatial signal sectorの有限時間近似、R184の受渡し |
+| M37実装 | 有限個の実振動子座標 $(q_i,p_i)$ と局所ばね結合 | 局所複素包絡 $b_i$、零傾斜正常mode座標 | R86によるM54 spatial signal sectorの有限時間近似、R184の受渡し。R187条件下ではQ1 W2 control carrierも実装 |
 
 共通M54/R181Aでrank-one signal集団を準備する場合、安全な切断面から同じ試行のsignalをM54 spatial profileへ渡す。開始面ではR164とR161 static/R162 thermalを一度だけ用いて $X_0$ の条件付き分布を準備する。その後は再標本化せずR161 moving specializationが同じ粒子を輸送し、終時刻にはR112が既存の $X_T$ を記録する。
 
 Q3-1の固定達成基準はM37から有効空間包絡への縮約であり、R86が満たす。M54 spatial profileの粒子位置とmoving matchingはQ3-2、Q3-4A、Q3-4B、Q3-5の下流構造であって、Q3-1へ遡及的に要求しない。M54のportとspatial profile、M37局所ばね網、作用殻、finite collision bath、記録器を単一の有限局所装置へ統合したとは扱わない。
 
-Q1はQ1 W型2モードprotocolのW型2モード、Q2はM54の永続registerとreceiver、固定時刻の一般枝instrumentはM54 static/R170を使う。Q3の空間configurationはM54 spatial profileを使う。静的R86がQ1 W型2モードprotocolへ供給する対称W型生成子、最低2固有モード、スペクトル間隔と、M54 spatial profileの全時刻位置matchingを混同しない。
+Q1はQ1 W型2モードprotocol、Q2はM54の永続registerとreceiver、固定時刻の一般枝instrumentはM54 static/R170を使う。Q3の空間configurationはM54 spatial profileを使う。R187はM37の弱結合W型正常modeをQ1のcontrol carrierへ接続するが、M54 spatial profileの全時刻位置matchingをQ1へ流用しない。Q1の排他的粒子位置結果は引き続きR164/R161/R162/R170で作る。
 
 振動子の個数を $L<\infty$、共通質量を $M_{\rm osc}>0$、搬送周波数を $\omega_0>0$ とする。$M_{\rm osc}$ はミクロ振動子の質量であり、第6.6節に現れる有効質量 $m$ と区別する。固定作用尺度 $\mathcal J_0>0$ は正準座標の規格化に使う。
 
@@ -1047,3 +1047,241 @@ f_{\omega_0}(E_1)-f_{\omega_0}(E_0)
 同じ評価は $E_2-E_1$ にも成り立つ。この静的場合は、固有空間そのものの誤差を時間積分する必要がなく、厳密正常モードの半周期と一周期を $\Delta_{\rm ex}$ で較正すれば鏡映と回帰はその時刻で厳密である。局所包絡 $b$ と厳密正常モード包絡の差だけがR86の $\delta_{\rm loc}(\eta)$ で残る。
 
 この評価は第6.17節の時間依存傾斜制御を置き換えない。Q1の有限傾斜列では一般の区間合成誤差と高モード残差を監査し、Q3-4Bの静的零傾斜W型ではR182の共有固有空間と分裂相対誤差を使う。これにより、トンネル分裂が小さく周期が長いことだけを理由に一般Duhamel上界を一周期へ機械的に適用しない。
+
+## 6.19 R187：M37弱結合W型からQ1 W2制御への物理bridge
+
+第3章3.5.1の残差系は、与えられた全W型制御列から2モード解への誤差を接続する一般道具である。しかし固定した零傾斜低2モード埋込みに傾斜項を作用させると、残差ノルムは $O(|F|)$、傾斜hold時間は $O(|F|^{-1})$ になり得るため、粗い積分上界だけでは任意精度族の存在を示せない。本節では、零傾斜で低2モードが孤立する明示的な局所W型族を作り、傾斜時のdressed低2モードを使ってこの障害を避ける。
+
+### 6.19.1 弱結合W型族
+
+固定した有限左半井戸の実対称局所生成子を $h_{\rm H}$ とする。最低固有値 $e_*$ は単純、次の固有値とのgapを $g_*>0$ とし、規格化ground mode $u_*$ の中央端点成分を $a_*\neq0$ とする。右半井戸は鏡映コピーとする。中央端点を結ぶ1本の局所ばねだけを強度 $\kappa\geq0$ で開き、
+
+```math
+h_\kappa
+=
+h_{\rm H}^{L}\oplus h_{\rm H}^{R}
++
+\kappa
+\left|e_L-e_R\right\rangle
+\left\langle e_L-e_R\right|.
+```
+
+$\kappa=0$ では左右ground modeが2重縮退する。$\kappa>0$ の最低偶奇固有値を $E_0(\kappa)<E_1(\kappa)$、第3固有値を $E_2(\kappa)$ とし、
+
+```math
+J_\kappa
+=
+\frac{E_1-E_0}{2},
+\qquad
+G_\kappa
+=
+E_2-E_1,
+\qquad
+r_\kappa=\frac{J_\kappa}{G_\kappa}
+```
+
+と置く。付録E.14により
+
+```math
+J_\kappa
+=
+a_*^2\kappa+O(\kappa^2),
+\qquad
+G_\kappa
+=
+g_*+O(\kappa),
+\qquad
+r_\kappa\longrightarrow0.
+```
+
+零傾斜の最低偶奇modeを $\phi_{0,\kappa},\phi_{1,\kappa}$ とし、左右局在基底を第3章と同じ規約で作る。鏡映に対して奇な有限位置作用素 $X$ を固定し、半井戸ground modeの位置平均が零でないとする。このとき
+
+```math
+\zeta_\kappa
+=
+\left|
+\langle\phi_{0,\kappa}|X|\phi_{1,\kappa}\rangle
+\right|
+\longrightarrow
+\zeta_*>0.
+```
+
+従って低2モードの分裂を小さくしても、傾斜に対する左右lever armは消えない。
+
+### 6.19.2 傾斜時のdressed低2モード
+
+局所傾斜を
+
+```math
+h_\kappa(F)=h_\kappa-FX
+```
+
+とする。零傾斜低2モード射影を $P_\kappa$、$h_\kappa(F)$ の最低2状態cluster射影を $P_\kappa(F)$ とする。$|F|\|X\|/G_\kappa$ が十分小さいとき、有限次元spectral perturbationにより定数 $C_W$ を $\kappa$ に一様に選べて
+
+```math
+\|P_\kappa(F)-P_\kappa\|
+\leq
+C_W\frac{|F|\|X\|}{G_\kappa}.
+```
+
+さらに $P_\kappa(F)$ を $P_\kappa$ へ戻すnear-identity unitaryを選ぶと、共通エネルギーを除いたdressed 2モード生成子は
+
+```math
+g_{\kappa}^{\rm dr}(F)
+=
+-J_\kappa\sigma_x
++
+F\zeta_\kappa\sigma_z
++
+R_{\kappa}^{\rm dr}(F),
+```
+
+```math
+\|R_{\kappa}^{\rm dr}(F)\|
+\leq
+C_W
+\frac{F^2\|X\|^2}{G_\kappa}.
+```
+
+第3章の2モード傾斜は $\varepsilon=2F\zeta_\kappa$ なので、
+
+```math
+F_\kappa
+=
+\frac{\sqrt{J_\kappa G_\kappa}}{2\zeta_\kappa}
+```
+
+と選べば
+
+```math
+\frac{J_\kappa}{|\varepsilon_\kappa|},
+\quad
+\frac{|\varepsilon_\kappa|}{G_\kappa},
+\quad
+\frac{|F_\kappa|\|X\|}{G_\kappa}
+=
+O\!\left(\sqrt{r_\kappa}\right).
+```
+
+傾斜hold時間は $O(\mathcal J_0/\sqrt{J_\kappa G_\kappa})$ なので、dressed生成子の二次補正によるprojective角誤差も $O(\sqrt{r_\kappa})$ である。突然の有限傾斜切替では実ミクロ座標 $Q,P$ は連続で、切替前後の低2cluster不一致も $O(\sqrt{r_\kappa})$ に抑えられる。
+
+### 6.19.3 静的M37正常modeによる長時間較正
+
+各piecewise-constant区間ではM37の厳密正常mode生成子は
+
+```math
+h_{\rm ex}(F)
+=
+f_{\omega_0}\!\left(h_\kappa(F)\right),
+\qquad
+f_{\omega_0}(E)
+=
+\mathcal J_0\omega_0
+\left[
+\sqrt{1+\frac{2E}{\mathcal J_0\omega_0}}-1
+\right].
+```
+
+従って $h_{\rm ex}(F)$ と $h_\kappa(F)$ は各静的区間で固有ベクトルを厳密に共有する。低2固有値を $\lambda_0(F)<\lambda_1(F)$ とし、
+
+```math
+\Delta_{\rm ex}(F)
+=
+f_{\omega_0}(\lambda_1(F))
+-
+f_{\omega_0}(\lambda_0(F))
+```
+
+と置く。R140で指定した同じ回転角を実M37区間で作るときは、名目時間を機械的に流用せず $\Delta_{\rm ex}(F)$ でhold時間を較正する。これにより、長い零傾斜Rabi区間でも $\|h_{\rm ex}-h\|T$ という粗いDuhamel誤差を使わず、低2cluster内のprojective回転角を一致させられる。
+
+局所回転包絡 $b$ とこの厳密正常mode伝播との差は、$\delta_{\rm loc}(\eta)<1$ に対して付録E.15の一様な静的segment上界
+
+```math
+\varepsilon_{\rm stat}(\eta)
+=
+\frac{2\delta_{\rm loc}(\eta)}{1-\delta_{\rm loc}(\eta)}
+```
+
+以下であり、hold時間に比例しない。固定有限個 $m$ の区間では
+
+```math
+\varepsilon_{\rm car}^{(m)}
+\leq
+\left(1+\varepsilon_{\rm stat}(\eta)\right)^m-1.
+```
+
+### 6.19.4 R187物理bridge定理
+
+<!-- theorem-start:theorem -->
+**定理（R187：M37弱結合W型からQ1 W2制御への有限誤差物理bridge）**
+
+上の有限弱結合W型族を取り、$\zeta_*>0$ とする。任意に固定した目標 $U\in SU(2)$ と誤差 $\epsilon>0$ に対し、十分小さい $\kappa>0$、十分大きい有限搬送周波数 $\omega_0$、有限個の傾斜値 $F\in\{0,\pm F_\kappa\}$ とpiecewise-constant hold列を選べる。各区間の時間はM37厳密正常modeの低2分裂 $\Delta_{\rm ex}(F)$ で較正する。
+
+零傾斜最低2正常modeを全M37正準状態の中の2正準対として保持し、高modeを捨てない。初期の低2mode投入誤差を $d_0$、有限switchを滑らかに近似する場合の伝播誤差を $\varepsilon_{\rm sw}$、傾斜・時間較正のprojective角誤差を $\varepsilon_{\rm cal}$ とする。このとき固定目標 $U$ に依存する有限定数 $C_U$ と有限区間数 $m_U$ が存在し、全入力 $c\in\mathbb C^2$、$\|c\|=1$ について、適当な全体位相 $\alpha(c)$ を除けばM37局所包絡の終状態は
+
+```math
+\inf_{\alpha\in\mathbb R}
+\left\|
+b_{\rm out}
+-
+e^{i\alpha}V_\kappa Uc
+\right\|
+\leq
+\varepsilon_{187},
+```
+
+```math
+\varepsilon_{187}
+\leq
+d_0
++
+C_U\sqrt{r_\kappa}
++
+\left(1+\varepsilon_{\rm stat}(\eta)\right)^{m_U}-1
++
+\varepsilon_{\rm sw}
++
+\varepsilon_{\rm cal}.
+```
+
+ここで $V_\kappa$ は零傾斜の左右局在2モードを全mode空間へ埋め込む等長写像である。従って各固定 $U$ と $\epsilon$ に対して $\varepsilon_{187}<\epsilon$ を満たす有限M37装置を選べる。総hold時間は
+
+```math
+T_U
+\leq
+C_U
+\frac{\mathcal J_0}{J_\kappa}
+```
+
+の形で増大し得る。これは任意精度の有限構成の存在を示すが、精度に対する多項式時間、一定bandwidth、一定dynamic rangeを主張しない。
+<!-- theorem-end:theorem -->
+
+証明は付録E.14--E.18。R140の2軸compilationは、$F_\kappa$ の回転軸が $r_\kappa\to0$ で $z$ 軸へ近づき、零傾斜軸が $x$ 軸のままなので、固定した $U$ に対して有限Euler wordを $\kappa$ に一様な近傍で選べることを使う。一般の時間依存HamiltonianをR86へ無断で代入せず、static segment、spectral dressing、有限switchを別々に評価する。
+
+### 6.19.5 M54 W2 static profileへのcanonical handoff
+
+零傾斜 $h_\kappa$ を実直交行列 $O_\kappa$ で正常mode対角化する。全modeについて
+
+```math
+Q'=O_\kappa^{\mathsf T}Q,
+\qquad
+P'=O_\kappa^{\mathsf T}P
+```
+
+は正準変換である。先頭2正常modeの $(Q'_0,P'_0,Q'_1,P'_1)$ をM54 W2 static profileの物理signal subsystemと同定する。高modeは全状態に残し、2mode射影を物理的な消去操作として使わない。
+
+R181AのW2 source/template portまたはR112の固定canonical SWAPをこの2正準対へ接続する場合、その固定port誤差をR187の $d_0$ へ加える。portは設計時に固定したcollective couplingであり、単一試行の係数読出し、tomography、状態依存規格化を行わない。R187が閉じるのはM37 carrierからM54 W2 signalとR140制御への受渡しまでであり、R181A pump、R164作用殻、R161/R162 collision、R170/R143測定、記録、resetをM37の局所ばねHamiltonianだけから導出するものではない。
+
+### 6.19.6 有限switchと資源境界
+
+R187本体は有限個のstatic quenchで閉じる。各jumpは $Q,P$ を連続に保ち、有限仕事 $Q^{\mathsf T}\Delta h\,Q/\mathcal J_0$ を持つ。連続制御が必要なら、各jumpを幅 $\tau_{\rm sw}$ の $C^1$ rampへ置き換え、付録E.17でjump列との差を評価する。有限個のrampなので任意の $\varepsilon_{\rm sw}>0$ を有限幅で選べる。代表的に $H_\kappa=\sup_{|F|\leq F_\kappa}\|h_\kappa(F)\|$ が一様有界なら
+
+```math
+\tau_{\rm sw}
+=
+\frac{\mathcal J_0}{H_\kappa}r_\kappa^{1/4}
+```
+
+とすることで、ramp区間だけの比較誤差を $O(r_\kappa^{3/4})$ にできる。このsmooth化は高modeに対する断熱切替を仮定せず、小振幅quenchの連続近似である。
+
+精度を上げると $J_\kappa=O(\kappa)$ のため総時間は $O(\kappa^{-1})$ に増え、switch時刻分解能、weak-link設定、分裂較正の要求も厳しくなる。搬送周波数は $\delta_{\rm loc}(\eta)$ を小さくするため増やすが、各static区間を $\Delta_{\rm ex}(F)$ で較正するため、R86の粗い $T\|h\|^2/\omega_0$ 上界を長いRabi時間へそのまま掛けない。これらの資源発散をQ2-4の多項式資源主張へ流用しない。
