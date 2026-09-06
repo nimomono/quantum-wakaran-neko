@@ -550,12 +550,45 @@ def validate_fixed_goal_language() -> None:
     theorem_ids = (
         "R181A", "R181B", "R181C", "R181D", "R178D", "R179",
         "R180A", "R180B", "R180C", "R161", "R162", "R164",
-        "R123", "R124", "R125", "R182",
+        "R123", "R124", "R125", "R182", "R187",
     )
     for result_id in theorem_ids:
         count = active_text.count(f"定理（{result_id}：")
         if count != 1:
             raise ValueError(f"{result_id}の定理宣言数が{count}である")
+
+    r187_text = (SECTIONS / "06_m37_spatial_envelope.md").read_text(
+        encoding="utf-8"
+    )
+    r187_proof_text = (SECTIONS / "A5_m37_envelope_proofs.md").read_text(
+        encoding="utf-8"
+    )
+    for token in (
+        "## 6.19 R187：M37弱結合W型からQ1 W2制御への物理bridge",
+        r"J_\kappa",
+        r"G_\kappa",
+        "dressed低2モード",
+        "M54 W2 static profileへのcanonical handoff",
+    ):
+        if token not in r187_text:
+            raise ValueError("R187本文の必須要素がない: " + token)
+    for token in (
+        "## E.14 弱結合W型族の低位cluster",
+        "## E.15 静的M37 segmentの長時間一様較正",
+        "## E.16 傾斜cluster、dressed生成子と有限gate word",
+        "**証明（R187）**",
+        "## E.18 零傾斜正常modeとM54 W2 canonical port",
+    ):
+        if token not in r187_proof_text:
+            raise ValueError("R187証明の必須要素がない: " + token)
+    r187_block = r187_text.split("**定理（R187：", 1)[1].split(
+        "<!-- theorem-end:theorem -->", 1
+    )[0]
+    for forbidden_token in ("M0達成", "Born分布を導く", "R170をM37から導出"):
+        if forbidden_token in r187_block:
+            raise ValueError("R187へ過剰主張が混入: " + forbidden_token)
+    if not (ROOT / "tools" / "verify_r187_m37_w_q1_bridge.py").is_file():
+        raise ValueError("R187専用検算器がない")
 
     common_text = (SECTIONS / "02_common_canonical_modules.md").read_text(
         encoding="utf-8"
