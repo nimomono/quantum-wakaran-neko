@@ -1,47 +1,43 @@
 @number: 2
 @chapter: 本文
 @title: 有限モード担体と共通正準モジュール
-@status: M54をQ1・Q2の共通親模型族として定義し、R181A--R181Dを準備、tensor-lift、永続gate、projector-tree読出しの正本として置く。Q3はM54の準備portだけを上流契約として使う。
+@status: M54をQ1・Q2・Q3の共通signal--configuration親模型族として定義する。R164の共通条件付き容量、一般化R161のstatic/moving matching、一般化R162のfinite collision実装を同じ状態型へ置き、R181A--R181Dを準備、tensor-lift、永続gate、projector-tree読出しの正本として置く。
 
-## 2.1 M54を親模型族とする範囲
+## 2.1 M54をQ1--Q3共通親模型族とする範囲
 
-M54は、有限個の実正準対から得る複素registerを、準備port、可逆gate、作用殻receiver、記録まで運ぶ模型族である。規模 $n$ の完全状態を
+M54は、有限個の実正準対から得るsignalと有限configuration変数を、準備、可逆操作、matching、作用殻receiver、記録まで運ぶ共通模型族である。有限signal index集合 \(\Lambda\) と有限configuration集合 \(\mathcal I\) に対する完全状態を
 
-```math
-\Gamma_{54}^{(n)}
+\`\`\`math
+\Gamma_{54}^{(\Lambda,\mathcal I)}
 =
 (Z,S_{\rm port},G,W,J,A^\delta,X,C,
-B_{\rm cold},B_{\rm spent},D,\tau)
-```
+B_{\rm cold},B_{\rm spent},D,\tau,S_{\rm ref})
+\`\`\`
 
-と書く。$Z\in\mathbb C^{2^n}$ は物理的な実正準対の派生表示、$S_{\rm port}$ は有限次元source/template port、$G,W$ はanti-registerと可逆work、$J=(J_0,J_1)$ はraw作用容量、$A^\delta$ は作用殻容量、$X$ はselector、$C$ は有限衝突cellとその履歴、$B_{\rm cold},B_{\rm spent}$ は未使用・使用済みbank、$D$ は外部記録、$\tau$ は自律clockである。Q1では $n=1$、Q2-1・Q2-2では $n=2$、Q2-3では $n=3$、Q2-4では一般の $n$ を使う。
+と書く。\(Z\in\mathbb C^\Lambda\) は実正準対 \(Q,P\) の派生表示
 
-外部interfaceは、sourceまたは物理templateのload、固定有限gate名と対象bit、読出しbit、誤差予算、試行回数、clock開始だけに限る。振幅表、確率表、mode別較正値、試行中の状態依存制御を外部から与えない。lift、unitary gate、SWAP、latch、filter、記録は有限正準写像として扱う。template整列とradial repumpは採用開放方程式、R161/R162は有効率と有限衝突近似、R170を使う作用殻選択は条件付き構成、cold/spent供給は弱開放境界である。
+\`\`\`math
+Z=\frac{Q+iP}{\sqrt{2\mathcal J_0}}
+\`\`\`
 
-```math
-S_{\rm port}
-\xrightarrow{\mathrm{R181A/R181B}}
-Z
-\xrightarrow{\mathrm{R181C}}
-Z_{\rm out}
-\xrightarrow{\mathrm{R181D}}
-(D,B_{\rm spent}).
-```
+であり、独立した複素実体ではない。\(X\in\mathcal I\) はprofileに応じて測定枝selectorまたは空間セル上の実在粒子位置を表す。\(S_{\rm port}\) はsource/template port、\(G,W\) はanti-registerと可逆work、\(J,A^\delta\) はraw・regularized作用容量、\(C\) は有限衝突cellと履歴、\(B_{\rm cold},B_{\rm spent}\) は未使用・使用済みbank、\(D\) は外部記録、\(\tau\) はclockである。\(S_{\rm ref}\) はM37局所ばねbackendを使うspatial profileだけが開始面で使う作用latchであり、他profileでは空でよい。
 
-R181Aは物理templateに沿うray準備、R181Bは固定2・3入力の可逆tensor-lift、R181Cは同じregister上の局所gate列、R181DはR170で駆動する逐次projector-tree Born instrumentを与える。Q1とQ2はこの同じ状態型とport規約の特殊化であり、旧来の別模型を並置しない。ただし、全 $n$ を同じ製造済み装置で覆うことや、Q1とQ2の全パラメータを同一にすることは主張しない。Q1--Q3の単一反復装置M0は、M54より強い未完成の統合目標である。
+M54は共通の状態型、因果契約、port規約を定める模型族であって、全profileを同じ製造済み装置または同一パラメータで実装したという主張ではない。Q1--Q3を同じ反復周期と同じ物理部品へ統合するM0は、引き続きM54より強い未完成目標である。
 
-| 系列 | M54の特殊化 | 準備 | 操作 | 排他的出力 |
+外部interfaceは、sourceまたは物理templateのload、有限gate/profile名、対象index、読出しindex、誤差予算、試行回数、clock開始に限る。振幅表、確率表、mode別較正値、集団統計、試行中の状態依存制御を外部から与えない。unitary、SWAP、latch、filter、記録は有限正準写像、template整列とradial repumpは採用開放方程式、R161はconfiguration matching、R162はその有限衝突実装、R170はstatic profileの条件付きinstrumentとして扱う。
+
+| 系列 | M54 profile | signal / configuration | 準備・操作 | matching / 出力 |
 |---|---|---|---|---|
-| Q1 | $n=1$、W型2モード | R181A | R140 | R181Dの深さ1とR143 |
-| Q2-1 | $n=2$ | R181B | R181C | R181Dの深さ2 |
-| Q2-2 | $n=2$、固定singlet source | R181B/R181C | R180 setting-pre block | R181Dの局所nodeとR180C |
-| Q2-3 | $n=3$ | R181Bを2回 | R181CとR177 | R181Dの深さ3 |
-| Q2-4 | 一般 $n$、root input | R181Aのradial portとR179 | R181C | R181Dの深さ $n$ |
-| Q3 | 有限空間セル | R181Aだけを上流契約として使用 | M55/R183、必要時にM37/R184 | 初期R164 matching後は同じ粒子を記録 |
+| Q1 | W型2モード static profile | \(|\Lambda|=2\)、2枝 \(X\) | R181A、R140 | R161 static、R162 thermal、R170、R143 |
+| Q2-1 | 2-bit register static profile | \(|\Lambda|=4\)、projector-tree \(X\) | R181B、R181C | R161 static、R162 thermal、R181D |
+| Q2-2 | 2-bit register + setting-pre receiver | \(|\Lambda|=4\)、2翼局所 \(X\) | R181B/R181C、R180 | 局所R161 static、R162 thermal、R180C |
+| Q2-3 | 3-bit persistent register | \(|\Lambda|=8\) | R181Bを2回、R181C、R177 | R161 static、R162 thermal、R181D |
+| Q2-4 | 一般 \(n\)-bit register | \(|\Lambda|=2^n\) | R181A radial port、R179、R181C | R161 static、R162 thermal、R181D |
+| Q3 | spatial-moving profile | \(\Lambda=\mathcal I=V\)、\(\Psi=I\) | R181Aを準備portとして使用可、必要時M37/R184 | R161 moving、R162 generic、R185、同じ \(X_T\) を記録 |
 
-M54の $Z$ は各試行の物理的実状態から得る。解析上の $c$、$C_Z$、Born分布をcontrollerへ書き戻さない。Q3ではM54準備後の同じ試行signalをM55へ渡し、R164/R161/R162で開始面の位置matchingを一度だけ準備する。その後はR183が同じ粒子をmoving matchingとして輸送し、終時刻に別の位置を再標本化しない。
+Q1/Q2のstatic profileでは、各操作面または末端読出し面でR164の条件付き分布へ有限時間matchingし、必要な枝をlockして記録する。Q3のspatial profileでは、開始面で同じ条件付き分布を準備した後、信号currentに従うR161 moving specializationが同じ粒子を全時刻輸送する。したがってstatic測定と空間運動は別の確率原理ではなく、同じmatching定理の \(j=0\) と \(j\neq0\) の特殊化である。
 
-M54は現行Q1・Q2の共通構成であるが、その全部品がM37から導出されたとはしない。M37主線はまずQ1の制御運動の物理的起源を強化する。W型入力の追加接続をR181B〜R181DやQ2各目標の必須前提へ加えず、M50/R170の入力仕様も変更しない。
+M37はM54へ吸収しない。M37はM54 spatial signal sectorを局所位置ばねだけで有限時間近似する物理backendであり、R86からR184へ誤差を渡す。M54の全部品がM37から導出されたとはしない。W型入力をQ2各目標の必須前提へ追加せず、固定目標と達成ラベルもこの模型統合だけでは変更しない。
 
 ## 2.2 有限正準信号の辺代数
 
@@ -288,7 +284,7 @@ C_Z
 
 と書け、階数1条件は $|\boldsymbol r|=1$ と同値である。従ってBloch球はR135の2次元系であり、独立の結果を必要としない。正確輸送、有限時間誤差、階数1支持、2次元幾何を同じ第2モーメントの定理として使い、同じ上流偏差を複数の誤差項へ加算しない。証明は付録Fに置く。
 
-## 2.6 一般ray平均からM50枝統計への受渡し
+## 2.6 一般ray平均から共通枝統計への受渡し
 
 安全事象 $G$ 上の有限信号 $Z$ に対し、失敗質量を捨てない安全ray平均を
 
@@ -305,9 +301,9 @@ R_Z^G
 とする。等長埋込み $\Psi$ と $M_i=\Psi^\dagger|i\rangle\langle i|\Psi$ を固定する。
 
 <!-- theorem-start:theorem -->
-**定理（R168：一般ray平均からM50枝統計への受渡し）**
+**定理（R168：一般ray平均から共通枝統計への受渡し）**
 
-各安全試行にM50を適用し、安全事象外を無反応へ送ると、完全結果分布は
+各安全試行にM54の条件付き作用容量profileを適用し、安全事象外を無反応へ送ると、完全結果分布は
 
 ```math
 P(i)
@@ -342,9 +338,9 @@ D_{\rm tr}(R_Z^G,C_Z)
 \frac{\sqrt{\operatorname{Var}(Z^\dagger Z)}}{\overline S}
 ```
 
-で抑えられる。R168はM37を前提とせず、Q1・Q2が単一試行信号をM50へ渡すとき、およびQ3がM55の初期matchingまたは固定時刻代替診断へ信号を渡すときの共通統計写像である。証明と可変作用反例は付録Fに置く。
+で抑えられる。R168はM37を前提とせず、Q1・Q2のstatic profileとQ3 spatial profileが同じ単一試行signalから条件付き枝統計を読むときの共通統計写像である。証明と可変作用反例は付録Fに置く。
 
-## 2.7 M50の作用容量と枝状態数
+## 2.7 M54共通条件付き作用容量と枝状態数
 
 非零有限信号 $v\in\mathbb C^m$、等長埋込み $\Psi:\mathbb C^m\to\mathbb C^L$、排他的枝 $i\in\mathcal I$ を考える。正の基準分布 $q_i>0$、$\sum_iq_i=1$ と正則化 $\delta>0$ を固定し、
 
@@ -388,85 +384,137 @@ E_i^\delta(v)=-\Theta\log\pi_i^\delta(v)
 
 を条件付き中間状態有効自由エネルギーとして使う。状態数を残す表示と消去表示は同値であり、同じ縮約分配関数へ $\Omega_i^\delta e^{-E_i^\delta/\Theta}$ を入れて二重計数してはならない。
 
-## 2.8 R161/R162の有限再平衡化
+## 2.8 R161/R162の共通matchingと有限衝突実装
 
-有限連結枝グラフ $G_X=(\mathcal I,E_X)$ で
+有限configuration集合 \(\mathcal I\) 上の正の時間依存確率分布 \(\pi_i(t)>0\) を考える。辺ごとに反対称currentと対称traffic
 
-```math
-k_{i\to j}^\delta(v)
+\`\`\`math
+j_{ij}=-j_{ji},
+\qquad
+t_{ij}=t_{ji}\geq |j_{ij}|
+\`\`\`
+
+を取り、
+
+\`\`\`math
+\dot\pi_i
 =
-\kappa_Xa_{ij}
-\sqrt{\frac{\pi_j^\delta(v)}{\pi_i^\delta(v)}}
-```
+\sum_jj_{ji}
+\`\`\`
 
-を採用する。$q_{\min}=\min_iq_i$、$a_{\min}$ を正の最小辺重み、$\lambda_G$ を無重みグラフLaplacianの第1非零固有値とし、
+を仮定する。前向き・同一母測度の後向きrateを
 
-```math
-m_\delta=\frac{\delta q_{\min}}{1+\delta},
+\`\`\`math
+k^+_{i\to j}
+=
+\frac{t_{ij}+j_{ij}}{2\pi_i},
 \qquad
-\lambda_\delta=\kappa_Xa_{\min}m_\delta\lambda_G,
-\qquad
-C_\delta=\frac12\sqrt{m_\delta^{-1}-1}
-```
+k^-_{i\to j}
+=
+\frac{t_{ij}-j_{ij}}{2\pi_i}
+\`\`\`
 
 と置く。
 
 <!-- theorem-start:theorem -->
-**定理（R161：任意の有限信号方向に対する粒子位置再平衡化）**
+**定理（R161：有限configurationのcurrent--traffic matching）**
 
-任意の非零入力 $v$ に対して $\pi^\delta(v)$ は上の連続時間跳躍過程の唯一の定常分布であり、任意の初期枝分布 $p_0$ から
+上の仮定の下で \(k^\pm\) は非負であり、
 
-```math
-D_{\rm TV}(p_{\tau_X},\pi^\delta(v))
+\`\`\`math
+\pi_i k^+_{i\to j}
+-
+\pi_j k^+_{j\to i}
+=
+j_{ij}
+\`\`\`
+
+なので、\(\pi(t)\) は前向きmaster方程式の解である。初期分布が \(\pi(0)\) なら全有限時刻で \(P(X_t=i)=\pi_i(t)\) が成り立つ。同じpath measureのBayes反転は
+
+\`\`\`math
+\frac{\pi_jk^+_{j\to i}}{\pi_i}
+=
+k^-_{i\to j}
+\`\`\`
+
+を満たす。
+
+static profileでは \(j=0\) とし、
+
+\`\`\`math
+t_{ij}
+=
+2\kappa_Xa_{ij}\sqrt{\pi_i^\delta\pi_j^\delta}
+\`\`\`
+
+を選ぶと
+
+\`\`\`math
+k_{i\to j}
+=
+\kappa_Xa_{ij}
+\sqrt{\frac{\pi_j^\delta}{\pi_i^\delta}}
+\`\`\`
+
+となる。有限連結グラフ、\(\pi_i^\delta\geq m_\delta=\delta q_{\min}/(1+\delta)\) では、このstatic鎖の唯一の定常分布は \(\pi^\delta\) であり、
+
+\`\`\`math
+D_{\rm TV}(p_{\tau_X},\pi^\delta)
 \leq
-C_\delta e^{-\lambda_\delta\tau_X}
-```
+C_\delta e^{-\lambda_\delta\tau_X},
+\`\`\`
 
-である。また理想枝重み $w_i(v)=|(\Psi v)_i|^2/(v^\dagger v)$ との差は $D_{\rm TV}(\pi^\delta,w)\leq\delta/(1+\delta)$ である。
+\`\`\`math
+\lambda_\delta
+=
+\kappa_Xa_{\min}m_\delta\lambda_G,
+\qquad
+C_\delta
+=
+\frac12\sqrt{m_\delta^{-1}-1}.
+\`\`\`
+
+またR164の理想枝重みとの差は \(\delta/(1+\delta)\) 以下である。
+
+spatial profileでは \(\Lambda=\mathcal I=V\)、\(\Psi=I\) とし、signal continuity equationから得る \(j\) と正の対称traffic \(t\) を代入する。付録Nの選択では旧R183のmoving-matching rateがそのままR161の特殊化として得られる。
 <!-- theorem-end:theorem -->
 
 <!-- theorem-start:theorem -->
-**定理（R162：局所詳細釣合い率の有限衝突熱浴実現）**
+**定理（R162：一般有界有向rateの有限衝突実装と熱的特殊化）**
 
-各辺に対称障壁と有限個の入射cellを置き、入射位置、到着時計、運動方向、反射枝、出射エネルギー、履歴cellを完全状態へ含めれば、正逆衝突を1対1に対応させる有限Hamiltonian散乱でR161の率を任意精度で近似できる。固定観測時間での縮約経路測度誤差は、cell overflow、エネルギー尾部、閾値平滑化、時計、入力保持の誤差和で抑えられ、超過cellと比較境界は無反応へ送れる。
+固定有限グラフ、固定有限時間 \(T\)、区分連続で
+
+\`\`\`math
+M_*=
+\sup_{0\leq t\leq T}
+\max_i\sum_{j\ne i}k_{i\to j}(t)<\infty
+\`\`\`
+
+を満たす一般有向rateについて、有限個のthreshold cell、clock、履歴、work registerと有限駆動Hamiltonian散乱列を選び、指定した有限個の読出し時刻における位置分布を対象Markov過程へ任意精度で近似できる。時間凍結、collision境界、clock、有限bankの誤差を
+
+\`\`\`math
+\varepsilon_{162}^{\rm gen}
+=
+\varepsilon_{\rm step}
++
+\varepsilon_{\rm coll}
++
+\varepsilon_{\rm clk}
++
+\varepsilon_{\rm over}
+\`\`\`
+
+として分離でき、1-step-per-window構成では \(\varepsilon_{\rm over}=0\) と選べる。
+
+R161 static profileの平方根型rateについては、対称障壁と指数入射流束を用いるthermal specializationを選べる。この場合は局所詳細釣合い、正逆Hamiltonian散乱、有限energy tailとfinite-cell overflow評価が成り立ち、従来のR162有限衝突熱浴を回収する。
 <!-- theorem-end:theorem -->
 
-作用殻fiberは状態数を、衝突bathは粒子位置遷移を担い、同じ自由度ではない。
+static profileでは作用殻fiberは状態数を、thermal collision bathはconfiguration遷移を担い、同じ自由度ではない。spatial profileのgeneric collision実装は局所詳細釣合いを仮定せず、熱浴という語を要求しない。完全証明とthermal specializationの粗視化経路熱力学は付録Kに置く。
 
-**系（粗視化経路熱力学）**
-
-R161の局所詳細釣合い過程、またはR162の縮約過程の正逆protocolについて、粗視化経路エントロピー生成 $\Sigma$ は
-
-```math
-\frac{\mathcal P_F[\omega]}{\mathcal P_R[\omega^\dagger]}
-=e^{\Sigma[\omega]},
-\qquad
-\left\langle e^{-\Sigma}\right\rangle_F=1,
-\qquad
-\langle\Sigma\rangle_F\geq0
-```
-
-を満たす。瞬間quench $v^-\to v^+$ では
-
-```math
-W_i^{\rm rel}
-=\Theta\log\frac{\pi_i^\delta(v^-)}{\pi_i^\delta(v^+)},
-\qquad
-\left\langle e^{-\beta W^{\rm rel}}\right\rangle=1,
-```
-
-```math
-\langle W^{\rm rel}\rangle
-=\Theta D_{\rm KL}
-\left(\pi^\delta(v^-)\|\pi^\delta(v^+)\right).
-```
-
-これは作用殻を消去した粒子位置跳躍過程の厳密な関係であり、全装置周期の機械仕事・微視的熱収支ではない。証明と表示間の仕事の換算は付録Kに置く。
-
-## 2.9 R170：M50固定入力時刻有限枝instrument
+## 2.9 R170：M54 static profile固定入力時刻有限枝instrument
 
 <!-- theorem-start:theorem -->
-**定理（R170：M50固定入力時刻有限枝instrument）**
+**定理（R170：M54 static profile固定入力時刻有限枝instrument）**
 
 非零入力 $v\in\mathbb C^m$、有限枝グラフ $G_X$、等長埋込み $\Psi$、$\delta>0$、入力時刻 $t_\star$ を固定する。次を指定誤差内で実行できると仮定する。
 
@@ -512,7 +560,7 @@ D_{\rm TV}(p_v^{\rm out},p_v^{\rm id})
 であり、同じ物理偏差を複数項へ入れない。無反応を除いて再規格化しない。
 <!-- theorem-end:theorem -->
 
-R170は有限枝instrumentの共通定理であり、M37を前提にしない。Q1のR143、Q2-2のR180C、Q3の固定時刻読出しはこの定理の特殊化または合成である。完全な証明と誤差台帳は付録Kに置く。
+R170はM54 static profileの有限枝instrument定理であり、M37を前提にしない。Q1のR143、Q2-2のR180C、Q3の固定時刻読出しはこの定理の特殊化または合成である。完全な証明と誤差台帳は付録Kに置く。
 
 **系（共通instrumentの安定性）**
 
