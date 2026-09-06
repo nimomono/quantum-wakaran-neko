@@ -1,0 +1,109 @@
+name: draft-72 final PDF visual check
+
+on:
+  push:
+    branches:
+      - tmp-draft72-pdf-visual
+
+permissions:
+  contents: read
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: |
+          sudo apt-get update
+          sudo apt-get install -y poppler-utils
+          python -m pip install pillow
+      - name: Render and inspect
+        run: |
+          mkdir -p /tmp/pages /tmp/out
+          pdfinfo paper.pdf | tee /tmp/out/pdfinfo.txt
+          pdftotext -layout paper.pdf /tmp/out/paper.txt
+          pdftoppm -png -r 100 paper.pdf /tmp/pages/page >/dev/null 2>&1
+          python - <<'PY'
+          from PIL import Image, ImageDraw
+          from pathlib import Path
+          import math
+
+          pages=sorted(Path('/tmp/pages').glob('page-*.png'))
+          txt=Path('/tmp/out/paper.txt').read_text(errors='replace').split('\f')
+
+          def hits(term):
+              return [i+1 for i,p in enumerate(txt) if term in p]
+          q32=hits('Nelson流の作用変分または時間対称Newton則（Q3-2）')
+          r185=hits('R185')
+          mm=hits('moving matching不変性')
+          selected={1,len(pages)}
+          if q32: selected.add(q32[-1])
+          if mm: selected.add(mm[-1])
+          # choose late R185 occurrence in appendix N
+          late=[n for n in r185 if n>180]
+          if late: selected.add(late[-1])
+          selected=sorted(selected)
+
+          suspicious=[]
+          metrics=[]
+          for n,p in enumerate(pages,1):
+              im=Image.open(p).convert('L')
+              w,h=im.size
+              mx=max(5,int(w*0.012)); my=max(5,int(h*0.012))
+              hist=im.histogram()
+              black=sum(hist[:40])/(w*h)
+              # Count visible ink in a narrow boundary strip.
+              edge=0; dark=0
+              pix=im.load()
+              for y in range(h):
+                  for x in range(w):
+                      if pix[x,y] < 180:
+                          dark += 1
+                          if x<mx or x>=w-mx or y<my or y>=h-my:
+                              edge += 1
+              er=edge/max(dark,1)
+              metrics.append((n,black,er))
+              if black>0.12 or er>0.045:
+                  suspicious.append((n,black,er))
+
+          Path('/tmp/out/metrics.txt').write_text(
+              'page_count='+str(len(pages))+'\n'
+              +'q3_2_hits='+repr(q32)+'\n'
+              +'r185_hits='+repr(r185)+'\n'
+              +'moving_matching_hits='+repr(mm)+'\n'
+              +'selected='+repr(selected)+'\n'
+              +'suspicious='+repr(suspicious)+'\n'
+              +'max_black='+repr(max(metrics,key=lambda x:x[1]))+'\n'
+              +'max_edge='+repr(max(metrics,key=lambda x:x[2]))+'\n'
+          )
+          print(Path('/tmp/out/metrics.txt').read_text())
+
+          for n in selected:
+              Image.open(pages[n-1]).save(f'/tmp/out/page-{n:03d}.png')
+
+          nums=sorted(set(selected) | set(range(1,len(pages)+1,20)))
+          thumb_w=240
+          thumbs=[]
+          for n in nums:
+              im=Image.open(pages[n-1]).convert('RGB')
+              scale=thumb_w/im.width
+              im=im.resize((thumb_w,int(im.height*scale)))
+              canvas=Image.new('RGB',(thumb_w,im.height+26),'white')
+              canvas.paste(im,(0,26))
+              ImageDraw.Draw(canvas).text((5,6),f'p.{n}',fill='black')
+              thumbs.append(canvas)
+          cols=4
+          ch=max(x.height for x in thumbs)
+          sheet=Image.new('RGB',(cols*thumb_w,math.ceil(len(thumbs)/cols)*ch),'white')
+          for i,im in enumerate(thumbs):
+              sheet.paste(im,((i%cols)*thumb_w,(i//cols)*ch))
+          sheet.save('/tmp/out/contact.png')
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: draft72-final-pdf-visual
+          path: /tmp/out
+          retention-days: 1
