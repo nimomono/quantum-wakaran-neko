@@ -179,7 +179,7 @@ rank oneならR135の支持節から $Z=\alpha\psi$ がほとんど確実であ�
 
 R184で必要なのは、R183固有の率式ではなく、固定有限グラフ上の有界な一般有向率を有限時間だけ物理cell列へ近似する部品である。旧R173を現行証拠鎖へ戻さず、必要な構成をここで独立に示す。
 
-時刻依存率 \(k_{i\to j}(t)\geq0\) と生成子 \(L(t)\) を固定し、
+時刻依存率 $k_{i\to j}(t)\geq0$ と生成子 $L(t)$ を固定し、
 
 \`\`\`math
 M_*=
@@ -191,7 +191,7 @@ k_{i\to j}(t)
 \infty
 \`\`\`
 
-とする。有限分割 \(0=t_0<\cdots<t_M=T\)、最大幅 \(\Delta t\) を取り、各窓で \(L(t)\) を \(\overline L_m\) へ凍結する。\(M_*\Delta t<1\) とすれば
+とする。有限分割 $0=t_0<\cdots<t_M=T$、最大幅 $\Delta t$ を取り、各窓で $L(t)$ を $\overline L_m$ へ凍結する。$M_*\Delta t<1$ とすれば
 
 \`\`\`math
 P_m
@@ -199,7 +199,7 @@ P_m
 I+\Delta t\,\overline L_m
 \`\`\`
 
-は確率行列である。時間順序指数と \(\prod_mP_m\) の全変動距離は、生成子のDuhamel評価とEuler積の剰余から
+は確率行列である。時間順序指数と $\prod_mP_m$ の全変動距離は、生成子のDuhamel評価とEuler積の剰余から
 
 \`\`\`math
 \varepsilon_{\rm step}
@@ -212,14 +212,14 @@ T M_*^2\Delta t\,e^{2M_*\Delta t}
 
 で抑えられる。従って区分連続な率なら分割を細かくして任意に小さくできる。
 
-各stepに1個のbath cellを置き、方向選択座標 \(u_m\in(0,1)\) とその共役座標、到着clock、空の履歴sector、仕事registerを持たせる。現在位置が \(i\) なら、\((0,1)\) を長さ \(P_m(i,j)\) の有限区間へ分割し、\(u_m\) が属する区間の \(j\) へ移る。残り区間は \(j=i\) の待機枝である。開始面で一様Liouville座標として準備した \(u_m\) を平均すれば、縮約1-step kernelは \(P_m\) に一致する。
+各stepに1個のbath cellを置き、方向選択座標 $u_m\in(0,1)$ とその共役座標、到着clock、空の履歴sector、仕事registerを持たせる。現在位置が $i$ なら、$(0,1)$ を長さ $P_m(i,j)$ の有限区間へ分割し、$u_m$ が属する区間の $j$ へ移る。残り区間は $j=i$ の待機枝である。開始面で一様Liouville座標として準備した $u_m$ を平均すれば、縮約1-step kernelは $P_m$ に一致する。
 
-区間端点を有限有理分割で近似し、各部分cellをsource、target、step番号、未消去の \(u_m\) を持つ履歴sectorへ写す。区間幅の違いは共役座標の逆伸縮を伴う正準squeezeで補い、平行移動とshearを有限合成する。境界を滑らかなHamiltonian shearへ置換すれば、固定有限個のstepについて有限駆動Hamiltonian散乱列へ任意精度で近似できる。位置更新で生じるcontrollerエネルギー差はwork registerへ移し、履歴を消去しないので拡大写像は1対1に保てる。
+区間端点を有限有理分割で近似し、各部分cellをsource、target、step番号、未消去の $u_m$ を持つ履歴sectorへ写す。区間幅の違いは共役座標の逆伸縮を伴う正準squeezeで補い、平行移動とshearを有限合成する。境界を滑らかなHamiltonian shearへ置換すれば、固定有限個のstepについて有限駆動Hamiltonian散乱列へ任意精度で近似できる。位置更新で生じるcontrollerエネルギー差はwork registerへ移し、履歴を消去しないので拡大写像は1対1に保てる。
 
 <!-- theorem-start:lemma -->
 **補題（一般有界有向率の有限衝突cell持上げ）**
 
-固定有限グラフ、固定有限時間 \(T\)、区分連続で上の \(M_*<\infty\) を満たす一般有向率を取る。任意の正の \(\varepsilon_{\rm step}\)、\(\varepsilon_{\rm coll}\)、\(\varepsilon_{\rm clk}\) に対し、有限個のthreshold cell、clock、履歴、work registerと有限駆動Hamiltonian散乱列を選び、指定した有限個の読出し時刻における位置分布を対象Markov過程から
+固定有限グラフ、固定有限時間 $T$、区分連続で上の $M_*<\infty$ を満たす一般有向率を取る。任意の正の $\varepsilon_{\rm step}$、$\varepsilon_{\rm coll}$、$\varepsilon_{\rm clk}$ に対し、有限個のthreshold cell、clock、履歴、work registerと有限駆動Hamiltonian散乱列を選び、指定した有限個の読出し時刻における位置分布を対象Markov過程から
 
 \`\`\`math
 D_{\rm TV}
@@ -231,20 +231,20 @@ D_{\rm TV}
 \varepsilon_{\rm clk}
 \`\`\`
 
-以内にできる。上の1-step-per-window構成ではcell数は分割数 \(M\) で有限なのでoverflowを生じさせず \(\varepsilon_{\rm over}=0\) とできる。より一般の非同期cell流を使う場合だけ有限bank超過を \(\varepsilon_{\rm over}\) として別に残す。
+以内にできる。上の1-step-per-window構成ではcell数は分割数 $M$ で有限なのでoverflowを生じさせず $\varepsilon_{\rm over}=0$ とできる。より一般の非同期cell流を使う場合だけ有限bank超過を $\varepsilon_{\rm over}$ として別に残す。
 <!-- theorem-end:lemma -->
 
 <!-- theorem-start:proof -->
 **証明**
 
-凍結生成子とEuler積の誤差は上の表示で \(\varepsilon_{\rm step}\) 以下にできる。各 \(P_m\) は有限確率行列なので、単一の一様threshold座標を有限区間へ分ければ各rowの遷移確率を正確に表せる。有限有理端点への置換と境界平滑化による確率質量差を全stepで合計して \(\varepsilon_{\rm coll}\) 未満に選ぶ。source、target、step番号、thresholdを履歴へ保存し、部分cellごとの正準squeeze、平行移動、shearを未使用sectorへ1対1に延長することで有限正準写像を得る。滑らかな有限時間Hamiltonian shearでその有限合成を近似し、clock窓のずれを \(\varepsilon_{\rm clk}\) に含める。全変動距離の三角不等式で結論を得る。証明終。
+凍結生成子とEuler積の誤差は上の表示で $\varepsilon_{\rm step}$ 以下にできる。各 $P_m$ は有限確率行列なので、単一の一様threshold座標を有限区間へ分ければ各rowの遷移確率を正確に表せる。有限有理端点への置換と境界平滑化による確率質量差を全stepで合計して $\varepsilon_{\rm coll}$ 未満に選ぶ。source、target、step番号、thresholdを履歴へ保存し、部分cellごとの正準squeeze、平行移動、shearを未使用sectorへ1対1に延長することで有限正準写像を得る。滑らかな有限時間Hamiltonian shearでその有限合成を近似し、clock窓のずれを $\varepsilon_{\rm clk}$ に含める。全変動距離の三角不等式で結論を得る。証明終。
 <!-- theorem-end:proof -->
 
 この補題は詳細釣合いを仮定せず、R162の平方根率も使わない。必要なのは固定有限時間で対象有向率が有界なことだけである。
 
 ## N.5 R184の開始作用latch評価
 
-M37局所包絡を \(b(t)\)、同じ初期値から進む理想M55信号を \(b_L(t)\) とする。開始面で単一試行ごとに
+M37局所包絡を $b(t)$、同じ初期値から進む理想M55信号を $b_L(t)$ とする。開始面で単一試行ごとに
 
 \`\`\`math
 S_{\rm ref}
@@ -283,9 +283,9 @@ J_{i\to j}(b)
 }.
 \`\`\`
 
-理想 \(b_L\) は \(\|b_L(t)\|^2=S_{\rm ref}\) を厳密保存するので、同じlatch表示はN.2の理想M55率と完全に一致する。M37局所包絡では \(\|b(t)\|^2\) は厳密保存されないため、背景項を \(\delta q_i\|b(t)\|^2\) へ毎時刻置き換えない。後者を採用する場合は局所作用変動に由来する追加rate誤差が必要であり、R184の主張には含めない。
+理想 $b_L$ は $\|b_L(t)\|^2=S_{\rm ref}$ を厳密保存するので、同じlatch表示はN.2の理想M55率と完全に一致する。M37局所包絡では $\|b(t)\|^2$ は厳密保存されないため、背景項を $\delta q_i\|b(t)\|^2$ へ毎時刻置き換えない。後者を採用する場合は局所作用変動に由来する追加rate誤差が必要であり、R184の主張には含めない。
 
-\(\Delta=\delta_{\rm loc}(\eta)<1\) とする。規格化信号
+$\Delta=\delta_{\rm loc}(\eta)<1$ とする。規格化信号
 
 \`\`\`math
 x=\frac{b}{\sqrt{S_{\rm ref}}},
@@ -341,7 +341,7 @@ traffic差とcurrent差は
 \sqrt{R_\eta^2+1}\|x-y\|.
 \`\`\`
 
-\(r_i^{\rm lat}\geq\delta q_{\min}\) を商へ使うと
+$r_i^{\rm lat}\geq\delta q_{\min}$ を商へ使うと
 
 \`\`\`math
 \max_i\sum_{j\ne i}
@@ -367,7 +367,7 @@ L_\delta(\eta)
 <!-- theorem-start:theorem -->
 **定理（R184：M55 moving matchingのM37開始作用latch・有限衝突実装）**
 
-R86の仮定に加えて \(\Delta<1\)、\(\delta>0\) とする。M37実装では開始面の \(S_{\rm ref}=\|b(0)\|^2\) をlatchして上の \(k^{37,\mathrm{lat}}\) を使う。同じ初期位置分布から開始した理想M55過程とM37 latched-background過程は
+R86の仮定に加えて $\Delta<1$、$\delta>0$ とする。M37実装では開始面の $S_{\rm ref}=\|b(0)\|^2$ をlatchして上の $k^{37,\mathrm{lat}}$ を使う。同じ初期位置分布から開始した理想M55過程とM37 latched-background過程は
 
 \`\`\`math
 \sup_{0\leq t\leq T}
@@ -400,13 +400,13 @@ T L_\delta\varepsilon_{\rm car}
 \varepsilon_{\rm rec}
 \`\`\`
 
-とできる。N.4の1-step-per-window構成では \(\varepsilon_{\rm over}=0\) と選べる。厳密な \(|\psi|^2\) と比較するときだけ \(\delta/(1+\delta)\) を別項として加える。
+とできる。N.4の1-step-per-window構成では $\varepsilon_{\rm over}=0$ と選べる。厳密な $|\psi|^2$ と比較するときだけ $\delta/(1+\delta)$ を別項として加える。
 <!-- theorem-end:theorem -->
 
 <!-- theorem-start:proof -->
 **証明（R184）**
 
-理想 \(b_L\) ではlatch値が瞬間作用と一致するのでN.2のM55率そのものである。M37側では上の開始作用latch定義を使うため、規格化後の背景項は両過程で同じ \(\delta q_i\) となり、表示したrate差評価が各時刻に適用できる。有限Markov生成子のDuhamel公式と全変動距離の収縮性から、位置分布差はrate行差の時間積分以下である。N.4の一般有向率補題を適用し、有限衝突近似と記録の失敗を完全結果集合の無反応成分へ残して三角不等式で加える。証明終。
+理想 $b_L$ ではlatch値が瞬間作用と一致するのでN.2のM55率そのものである。M37側では上の開始作用latch定義を使うため、規格化後の背景項は両過程で同じ $\delta q_i$ となり、表示したrate差評価が各時刻に適用できる。有限Markov生成子のDuhamel公式と全変動距離の収縮性から、位置分布差はrate行差の時間積分以下である。N.4の一般有向率補題を適用し、有限衝突近似と記録の失敗を完全結果集合の無反応成分へ残して三角不等式で加える。証明終。
 <!-- theorem-end:proof -->
 
 ## N.6 同一母測度の時間反転
