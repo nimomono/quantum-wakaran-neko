@@ -99,6 +99,7 @@
 - `tools/verify_r181d_projector_tree.py`
 - `tools/verify_r179_m54_supply.py`
 - `tools/verify_m54_q2_composition.py`
+- `tools/verify_m37_w_spectral_tunneling.py`
 - `tools/verify_q3_completion.py`
 - `figures/README.md`
 - `.github/workflows/verify.yml`
@@ -118,6 +119,14 @@
 - `fonts/NotoSerifJP-Regular.ttf`
 
 旧版セクション、旧数値コード、旧PDF、査読回答履歴は収録しない。置換・退役した理論の最小索引と再検討条件は `notes/` に残し、完全な原稿と実装はGit履歴から参照する。
+
+## draft-71の追加
+
+- R182「M37静的W型スペクトル・空間トンネル縮約定理」と付録Gの完全証明。
+- R182からR123有限環境純位相緩和へのW型系、およびR172--R174へのM42周期輸送系。
+- \`tools/verify_m37_w_spectral_tunneling.py\`。
+- Q3-3Cを達成、Q3-4Bを条件付き達成へ更新した状態表、誤差台帳、反証条件。
+- draft-71へ同期した \`paper.md\`、\`main.tex\`、\`paper.pdf\`、引用情報、CI。
 
 ## draft-70の改訂
 
