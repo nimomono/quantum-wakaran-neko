@@ -181,7 +181,7 @@ R184で必要なのは、R183固有の率式ではなく、固定有限グラフ
 
 時刻依存率 $k_{i\to j}(t)\geq0$ と生成子 $L(t)$ を固定し、
 
-\`\`\`math
+```math
 M_*=
 \sup_{0\leq t\leq T}
 \max_i
@@ -189,26 +189,26 @@ M_*=
 k_{i\to j}(t)
 <
 \infty
-\`\`\`
+```
 
 とする。有限分割 $0=t_0<\cdots<t_M=T$、最大幅 $\Delta t$ を取り、各窓で $L(t)$ を $\overline L_m$ へ凍結する。$M_*\Delta t<1$ とすれば
 
-\`\`\`math
+```math
 P_m
 =
 I+\Delta t\,\overline L_m
-\`\`\`
+```
 
 は確率行列である。時間順序指数と $\prod_mP_m$ の全変動距離は、生成子のDuhamel評価とEuler積の剰余から
 
-\`\`\`math
+```math
 \varepsilon_{\rm step}
 \leq
 \int_0^T
 \|L(t)-L_{\rm fr}(t)\|_{\rm row}\,dt
 +
 T M_*^2\Delta t\,e^{2M_*\Delta t}
-\`\`\`
+```
 
 で抑えられる。従って区分連続な率なら分割を細かくして任意に小さくできる。
 
@@ -221,7 +221,7 @@ T M_*^2\Delta t\,e^{2M_*\Delta t}
 
 固定有限グラフ、固定有限時間 $T$、区分連続で上の $M_*<\infty$ を満たす一般有向率を取る。任意の正の $\varepsilon_{\rm step}$、$\varepsilon_{\rm coll}$、$\varepsilon_{\rm clk}$ に対し、有限個のthreshold cell、clock、履歴、work registerと有限駆動Hamiltonian散乱列を選び、指定した有限個の読出し時刻における位置分布を対象Markov過程から
 
-\`\`\`math
+```math
 D_{\rm TV}
 \leq
 \varepsilon_{\rm step}
@@ -229,7 +229,7 @@ D_{\rm TV}
 \varepsilon_{\rm coll}
 +
 \varepsilon_{\rm clk}
-\`\`\`
+```
 
 以内にできる。上の1-step-per-window構成ではcell数は分割数 $M$ で有限なのでoverflowを生じさせず $\varepsilon_{\rm over}=0$ とできる。より一般の非同期cell流を使う場合だけ有限bank超過を $\varepsilon_{\rm over}$ として別に残す。
 <!-- theorem-end:lemma -->
@@ -246,21 +246,21 @@ D_{\rm TV}
 
 M37局所包絡を $b(t)$、同じ初期値から進む理想M55信号を $b_L(t)$ とする。開始面で単一試行ごとに
 
-\`\`\`math
+```math
 S_{\rm ref}
 =
 \|b(0)\|^2
-\`\`\`
+```
 
 を物理registerへlatchし、M37実装の背景容量は輸送中もこの値を使う。すなわち
 
-\`\`\`math
+```math
 R_{i,37}^{\delta,\mathrm{lat}}(t)
 =
 |b_i(t)|^2+\delta q_iS_{\rm ref},
-\`\`\`
+```
 
-\`\`\`math
+```math
 T_{ij,37}^{\delta,\mathrm{lat}}(t)
 =
 \frac{|h_{ij}|}{\mathcal J_0}
@@ -269,9 +269,9 @@ R_{i,37}^{\delta,\mathrm{lat}}
 +
 R_{j,37}^{\delta,\mathrm{lat}}
 \right),
-\`\`\`
+```
 
-\`\`\`math
+```math
 k_{i\to j}^{37,\mathrm{lat}}
 =
 \frac{
@@ -281,21 +281,21 @@ J_{i\to j}(b)
 }{
 2R_{i,37}^{\delta,\mathrm{lat}}
 }.
-\`\`\`
+```
 
 理想 $b_L$ は $\|b_L(t)\|^2=S_{\rm ref}$ を厳密保存するので、同じlatch表示はN.2の理想M55率と完全に一致する。M37局所包絡では $\|b(t)\|^2$ は厳密保存されないため、背景項を $\delta q_i\|b(t)\|^2$ へ毎時刻置き換えない。後者を採用する場合は局所作用変動に由来する追加rate誤差が必要であり、R184の主張には含めない。
 
 $\Delta=\delta_{\rm loc}(\eta)<1$ とする。規格化信号
 
-\`\`\`math
+```math
 x=\frac{b}{\sqrt{S_{\rm ref}}},
 \qquad
 y=\frac{b_L}{\sqrt{S_{\rm ref}}}
-\`\`\`
+```
 
 は
 
-\`\`\`math
+```math
 \|x-y\|
 \leq
 \frac{\varepsilon_{\rm car}(T)}{1-\Delta},
@@ -305,54 +305,54 @@ y=\frac{b_L}{\sqrt{S_{\rm ref}}}
 \frac{1+\Delta}{1-\Delta},
 \qquad
 \|y\|=1.
-\`\`\`
+```
 
 latched-background容量を
 
-\`\`\`math
+```math
 r_i^{\rm lat}(x)
 =
 |x_i|^2+\delta q_i
-\`\`\`
+```
 
 と置けば
 
-\`\`\`math
+```math
 |r_i^{\rm lat}(x)-r_i^{\rm lat}(y)|
 \leq
 (R_\eta+1)|x_i-y_i|,
 \qquad
 R_\eta=\frac{1+\Delta}{1-\Delta}.
-\`\`\`
+```
 
 traffic差とcurrent差は
 
-\`\`\`math
+```math
 |t_{ij}^{\rm lat}(x)-t_{ij}^{\rm lat}(y)|
 \leq
 \frac{|h_{ij}|}{\mathcal J_0}
 \sqrt2(R_\eta+1)\|x-y\|,
-\`\`\`
+```
 
-\`\`\`math
+```math
 |j_{ij}(x)-j_{ij}(y)|
 \leq
 \frac{2|h_{ij}|}{\mathcal J_0}
 \sqrt{R_\eta^2+1}\|x-y\|.
-\`\`\`
+```
 
 $r_i^{\rm lat}\geq\delta q_{\min}$ を商へ使うと
 
-\`\`\`math
+```math
 \max_i\sum_{j\ne i}
 |k_{i\to j}^{37,\mathrm{lat}}-k_{i\to j}^{L}|
 \leq
 L_\delta(\eta)\varepsilon_{\rm car}(T)
-\`\`\`
+```
 
 で、
 
-\`\`\`math
+```math
 L_\delta(\eta)
 =
 \frac{h_1}
@@ -362,14 +362,14 @@ L_\delta(\eta)
 +
 \frac{2(1+\delta)}{\delta^2q_{\min}^2}
 \right].
-\`\`\`
+```
 
 <!-- theorem-start:theorem -->
 **定理（R184：M55 moving matchingのM37開始作用latch・有限衝突実装）**
 
 R86の仮定に加えて $\Delta<1$、$\delta>0$ とする。M37実装では開始面の $S_{\rm ref}=\|b(0)\|^2$ をlatchして上の $k^{37,\mathrm{lat}}$ を使う。同じ初期位置分布から開始した理想M55過程とM37 latched-background過程は
 
-\`\`\`math
+```math
 \sup_{0\leq t\leq T}
 D_{\rm TV}
 \left(
@@ -378,11 +378,11 @@ P(X_t^L\in\cdot)
 \right)
 \leq
 T L_\delta(\eta)\varepsilon_{\rm car}(T)
-\`\`\`
+```
 
 を満たす。N.4の有限衝突cell持上げ、時間凍結、clock、記録を加えた完全結果誤差を
 
-\`\`\`math
+```math
 \varepsilon_{184}
 =
 \varepsilon_{\rm init}
@@ -398,7 +398,7 @@ T L_\delta\varepsilon_{\rm car}
 \varepsilon_{\rm clk}
 +
 \varepsilon_{\rm rec}
-\`\`\`
+```
 
 とできる。N.4の1-step-per-window構成では $\varepsilon_{\rm over}=0$ と選べる。厳密な $|\psi|^2$ と比較するときだけ $\delta/(1+\delta)$ を別項として加える。
 <!-- theorem-end:theorem -->
