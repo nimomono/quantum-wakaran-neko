@@ -1,5 +1,23 @@
 # 検算と品質確認
 
+## draft-75：模型階層・重複整理
+
+```bash
+python -m py_compile tools/*.py
+for script in tools/verify_*.py; do python "$script"; done
+python tools/build_paper.py
+git diff --check
+```
+
+GitHub Actionsの一時生成run 34051670794で、全Python構文検査、全 `verify_*.py`、固定目標・依存台帳検査、論文再生成が成功した。今回からQ2の完全依存台帳は `PROJECT_STATUS.md` だけを正本とし、READMEと第1章に同じR番号表が存在することを生成器の要件から外した。固定目標と達成ラベルは変更していない。
+
+模型分類は、M54を共通有効signal--configuration profile族、M37を物理Hamiltonian backend、M0をsame-hardware統一目標として分離した。旧M47はQ1 W型2モードprotocolの履歴IDとして残し、現行模型表へ独立に二重計上しない。付録HはR181A、R135、R140のW型2モード特殊化の対応表へ縮約し、一般定理の重複証明を削除した。第4章はR181B--R181DのQ2特殊化・適用として整理した。R144の数学的内容とM37--W--Q1の未完成bridgeは変更していない。
+
+最終生成PDFはA4、215ページ、1,287,433 bytes。最終LaTeX logに未解決citation/reference、overfull、underfull、fatal error、欠落文字はない。初回生成で第1章の `profile/backend/protocol` という連結表記にunderfullが1件出たため、日本語の区切りへ修正して再生成し、禁止警告が消えたことを確認した。生成commit `5fb78df4bd89fa44eab70e7f8509bd6d92e8ab5a` に `paper.md`、`main.tex`、`paper.pdf` を収録した。
+
+---
+
+
 この文書は版ごとの検算結果を履歴として追記する。古い節にある「現行」「未達」「M42」などの語は、その節を記録したdraft時点の状態を表し、最新の導出状態は末尾の最新節、PROJECT_STATUS.md、README.mdを優先する。
 
 ## draft-71：R182 W型スペクトル・空間トンネル縮約
