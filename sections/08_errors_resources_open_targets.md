@@ -124,6 +124,57 @@ $\varepsilon_{\rm Hopf}$ はR181AのW型2モード系の有限準備、$\varepsi
 
 R144の固定 $N$ 段逐次測定では、各段の1段instrument誤差と段間条件付き状態誤差を有限和で抑え、無反応を含む完全履歴を $O(N)$ 個の有限record cellへ保持する。ここでは永久記録、内部逆計算、周期末resetを要求しない。これらを含む反復装置化では、使用済みcellと永久記録が周期数 $K$ に対してさらに $O(K)$ 以上増える。作用容量、fiber、Hopf pump、controller、記録、resetを同じ有限局所Hamiltonian周期へ統合し、仕事・熱・エントロピー収支を閉じることは実装・熱力学的強化課題として残るが、Q1-2の達成条件には含めない。Q1-2の固定目標上の残件は、同じ明示的ミクロモデルで零傾斜Rabi対照とR144有限段測定を接続し、全履歴と対照を保ったZeno抑制を有限誤差で示すことである。
 
+### 8.4.1 R187のM37--W2 carrier誤差と資源
+
+R187を使うQ1制御では、carrier側の誤差を
+
+```math
+\varepsilon_{187}
+\leq
+d_0
++
+C_U\sqrt{r_\kappa}
++
+\left(1+\varepsilon_{\rm stat}(\eta)\right)^{m_U}-1
++
+\varepsilon_{\rm sw}
++
+\varepsilon_{\rm cal}
+```
+
+と分ける。ここで $r_\kappa=J_\kappa/G_\kappa$、$d_0$ はR181A sourceまたは固定canonical portからM37最低2正常modeへの投入誤差、$C_U\sqrt{r_\kappa}$ は傾斜時のspectral dressing・cluster切替・dressed生成子補正、$\varepsilon_{\rm stat}$ は局所包絡と較正済み厳密正常modeの時間一様差、$\varepsilon_{\rm sw}$ はsmooth ramp近似、$\varepsilon_{\rm cal}$ は傾斜値とhold角の較正誤差である。
+
+```math
+\varepsilon_{\rm stat}(\eta)
+=
+\frac{2\delta_{\rm loc}(\eta)}
+{1-\delta_{\rm loc}(\eta)},
+\qquad
+\delta_{\rm loc}(\eta)
+=
+(1-\eta)^{-1/4}-1.
+```
+
+各static区間では厳密M37正常mode生成子 $f_{\omega_0}(h)$ と有効W型生成子が固有ベクトルを共有するため、実hold時間を厳密低2分裂で較正する。従って長いRabi時間へR86の $T\|h\|^2/\omega_0$ 型Duhamel上界をそのまま掛けず、carrier誤差は固定有限wordの $\varepsilon_{\rm stat}$ で監査する。同じ偏差を $\varepsilon_{\rm ctrl}$、$\varepsilon_{2m}$、R135 trace誤差へ重複加算しない。
+
+弱link $\kappa\downarrow0$ では
+
+```math
+J_\kappa=O(\kappa),
+\qquad
+G_\kappa\to g_*>0,
+\qquad
+T_U
+=
+O\!\left(
+\frac{\mathcal J_0}{J_\kappa}
+\right).
+```
+
+従って任意精度構成は有限だが、総時間は発散し得る。代表傾斜は $|F_\kappa|=O(\sqrt{J_\kappa G_\kappa})$、smooth化の一例では $\tau_{\rm sw}=O(r_\kappa^{1/4})$ の短いrampを使う。必要carrier周波数、weak-link設定精度、分裂・hold時間の相対較正精度、switch時刻分解能を別々に報告する。R187はQ1のcarrier-level実装結果であり、Q2-4の多項式外部制御条件を満たすという主張には使わない。
+
+R187のcanonical W2 portは全mode直交変換の先頭2正準対を使い、高modeを捨てない。R181A pump/source、R164作用殻、R161/R162 collision、R170/R143記録の物理資源はこの台帳へ吸収せず、Q1測定sectorの別項として残す。
+
 ## 8.5 Q2-1の誤差と資源
 
 M54ではtensor-lift、同じ永続registerのhold、clock、各gate、外部bathへの漏れ、末端ray、Born型instrumentを分ける。長さ $L$ の回路誤差は
