@@ -733,7 +733,7 @@ M47の1段測定はM50のQ1特殊化として次の操作面へ分ける。
 
 で記帳する。$\varepsilon_{\rm mix}=C_\delta e^{-\lambda_\delta T_X}$、$\varepsilon_\delta=\delta/(1+\delta)$ と選べる。Q1では2モード漏れと局所辺閉鎖誤差をそれぞれ $\varepsilon_{2m}$、$\varepsilon_{\rm res}$ として別に加える。この段階分離により、旧連続matching保存をR143、R144の仮定に使わない。
 
-Q2-1はR181Dにより末端4mode信号を同次元hold-registerへSWAPし、容量latch後にR164/R170へ接続する。別の中間標本器を確率源として挟まない。Q2-2の切断後局所殻は各翼でR170を特殊化し、完全共通原因 $\Lambda$ に条件付けた積因子化誤差を別の $\varepsilon_{\rm prod}$ として加える。Q3は準備終了面のM37標本へR164を一度だけ適用して初期M42位置を作り、その後は付録Nの局所辺衝突bathで同じ粒子を輸送する。M42の一般有向率は局所詳細釣合いを満たさないので、R162の平衡率公式をそのまま用いず、方向別controllerと仕事registerを持つ駆動衝突cellへ拡張する。任意の固定時刻を診断する代替経路だけが付録FのR170を使う。
+Q2-1はR181Dにより末端4mode信号を同次元hold-registerへSWAPし、容量latch後にR164/R170へ接続する。別の中間標本器を確率源として挟まない。Q2-2の切断後局所殻は各翼でR170を特殊化し、完全共通原因 $\Lambda$ に条件付けた積因子化誤差を別の $\varepsilon_{\rm prod}$ として加える。Q3はR164が与える同じ条件付き分布 $\pi^\delta(X\mid Z)$ を開始面でR161/R162により準備し、その後は付録NのM55/R183 moving matchingで同じ粒子を輸送する。M55の一般有向率は局所詳細釣合いを仮定せず、方向別controllerと仕事registerを持つ駆動衝突cellでR184へ実装する。任意の固定時刻を診断する代替経路だけが付録FのR170を使う。
 
 Q2-4のM54では、全gate後にR181Dが各bitの直交projector作用をraw容量へlatchする。R164はregularized容量比を排他的Born型状態数へ解釈し、R161/R162/R170がselectorを形成する。selector lock後に可逆filterとradial-only repumpを作用する。同じR170作用殻receiverを逐次nodeで使い、別のaperture標本器を重ねない。$L=2^n$ のsignal、work、history、cold、spent容量は受動資源として指数的でもよいが、個別の外部準備・較正・読出しには使わない。
 
