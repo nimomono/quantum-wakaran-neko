@@ -412,3 +412,24 @@ GitHub Actionsは次を確認する。
 - 最終PDF: 213 pages、A4 (`595.28 x 841.89 pt`)、1,290,275 bytes、PDF 1.5。
 - R185定理見出しを短縮し、最終LaTeXログでは `Overfull` / `Underfull` / 未解決citation/reference / missing characterを0件とした。
 - M42/R172--R174の現行参照は退役説明を除いて除去し、M55/R183--R185へ依存台帳を同期した。
+
+### draft-73 R184開始作用latch整合性修復（2026-09-06）
+
+- 最終生成元コミット: `8201f56dca23a6603fab1834375d12e59ee2d011`
+- 生成物コミット: `46cfb6f8feaa2c3f98d4b18cd948471704822f2a`
+- `tools/verify_m55_moving_matching.py`: 15 checks passed。
+  - moving-matching master residual: `2.776e-17`
+  - same-measure time-reversal residual: `2.220e-16`
+  - R184 latched-background row-rate perturbation: `7.271718e-05`
+  - R184明示上界: `6.613728e-01`
+  - R185 regularization residual identity: `1.190e-12`
+  - R185 nonzero-current residual identity: `1.794e-12`
+  - delta残差: `3.958585e-04, 1.996207e-04, 1.002385e-04`
+- R184検算では、理想signal上で開始作用latch率が通常M55率と一致すること、M37作用が変動した場合には瞬間作用背景率と区別されることを独立に確認した。
+- 付録N.4の一般有界有向率補題により、退役R173を現行証拠鎖へ戻さず、有限stepのthreshold cell、履歴、work register、clock、滑らかなHamiltonian shearで有限時間近似を閉じた。
+- R185の連続背景を長さ `ell` の一様密度 `q0=1/ell` として明示し、非零current速度を持つ周期例でも正則化残差恒等式を検算した。
+- 全既存 `verify_*.py`、Python構文検査、Markdown規約検査、論文生成を完走した。
+- 最終PDF: 215 pages、A4 (`595.28 x 841.89 pt`)、1,301,039 bytes、PDF 1.5。
+- 最終LaTeXログでは `Overfull` / `Underfull` / 未解決citation/reference / missing character / fatal errorを0件とした。
+- 固定長期目標と達成ラベルは変更していない。
+
