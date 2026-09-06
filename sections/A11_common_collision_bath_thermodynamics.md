@@ -1,13 +1,13 @@
 @number: K
 @chapter: 付録
-@title: 有限粒子位置再平衡化と有限衝突熱浴
-@status: M50、R161、R162について、R164の有限信号作用殻状態数から得た条件付き中間状態有効自由エネルギーに対する有限粒子位置再平衡化、有限衝突熱浴による局所詳細釣合い率、粗視化経路熱力学系を証明する。Q1・Q2・Q3に共通な熱化部品として扱い、粗視化された有効仕事・熱と全微視的収支を区別する。
+@title: 共通matching生成子と有限衝突実装
+@status: 一般化R161のcurrent--traffic matching、static詳細釣合い特殊化、一般化R162のbounded directed-rate finite collision実装とthermal特殊化を証明する。Q1・Q2のstatic instrumentとQ3のspatial moving processを同じmatching/collision原理から派生させる。
 
 ## K.1 目的、用語、主張範囲
 
-本付録は、M50を使うQ1、Q2、Q3の整合条件を全時刻で保存することを要求しない。有限信号座標をHamiltonian制御する仕事行程と、その座標を固定して粒子位置を再平衡化する熱化行程を分離する。各操作面または固定入力時刻で条件付きGibbs分布へ戻せば、制御中に粒子位置が瞬時の分布を追跡する必要はない。
+本付録は、M54の有限configuration変数 (X) を動かす共通matching原理を扱う。Q1・Q2のstatic profileでは有限signalを固定して条件付き分布へ再平衡化し、制御中に (X) が瞬時分布を追跡することを要求しない。Q3のspatial profileでは同じR164条件付き分布が時間依存signalとともに動き、R161 moving specializationが全時刻matchingを保存する。
 
-記号 $v\in\mathbb C^m$ は各試行に存在する有限信号座標、$X$ は有限連結配置グラフ上の粒子位置である。$X$ を動かす有限セル列を衝突熱浴と呼ぶ。信号担体、作用殻、衝突熱浴は互いに別の物理部分系である。
+記号 $v\in\mathbb C^m$ は各試行に存在する有限signal座標、$X$ は有限configurationグラフ上の実在変数である。一般R162の有限cell列をcollision implementationと呼び、static detailed-balance特殊化だけを衝突熱浴と呼ぶ。signal担体、作用殻、collision cellは互いに別の物理部分系である。
 
 本付録が導くのは、単一試行の $v$ に条件付けた局所再平衡化機構である。集団共分散 $C_Z$、統計振幅、全粒子位置密度、確率流を制御器へ入力しない。付録LのR164は、同じ試行の信号作用を枝容量へ写し、各排他的枝の2作用殻を単一Liouville母測度で数えるとBorn型条件付き状態数が得られることを示す。本付録はその作用殻を消去した条件付き中間状態有効自由エネルギーを使う。有限衝突熱浴の微視的可逆性と熱化は既存の衝突模型を参照する [49]。粗視化熱力学と強結合での有効自由エネルギーの語義は [50,51] に従って区別する。
 
@@ -129,183 +129,139 @@ p\|\pi^\delta(v)
 
 である。従って条件付き再平衡化は、固定した $v$ における相対エントロピーと非平衡自由エネルギーの緩和として解釈できる。
 
-## K.3 R161の証明：任意の有限信号方向への粒子位置再平衡化
+## K.3 R161の証明：current--traffic matchingとstatic特殊化
 
-各無向辺 $\{i,j\}\in E_X$ に対称活動度 $a_{ij}=a_{ji}>0$ を置く。固定した $v\neq0$ に対して
+有限configuration集合 $\mathcal I$ 上の正の分布 $\pi(t)$、反対称current $j_{ij}=-j_{ji}$、対称traffic $t_{ij}=t_{ji}\geq|j_{ij}|$ が
+
+```math
+\dot\pi_i
+=
+\sum_jj_{ji}
+```
+
+を満たすとする。第2章の定義
+
+```math
+k^+_{i\to j}
+=
+\frac{t_{ij}+j_{ij}}{2\pi_i},
+\qquad
+k^-_{i\to j}
+=
+\frac{t_{ij}-j_{ij}}{2\pi_i}
+```
+
+では非負性が直ちに従い、
+
+```math
+\pi_i k^+_{i\to j}
+-
+\pi_j k^+_{j\to i}
+=
+j_{ij}.
+```
+
+従って前向きmaster方程式は
+
+```math
+\dot p_i
+=
+\sum_j
+\left(
+p_jk^+_{j\to i}
+-
+p_ik^+_{i\to j}
+\right)
+```
+
+であり、$p=\pi$ を代入すると仮定したcontinuity equationに一致する。有限状態線形方程式の一意性から $p(0)=\pi(0)$ なら $p(t)=\pi(t)$ である。同じpath measureのBayes反転は
+
+```math
+\frac{\pi_jk^+_{j\to i}}{\pi_i}
+=
+\frac{t_{ij}-j_{ij}}{2\pi_i}
+=
+k^-_{i\to j}
+```
+
+となる。
+
+### K.3.1 static detailed-balance特殊化
+
+固定した非零signal $v$ に対するR164分布 $\pi^\delta(v)$ を取り、有限連結無向グラフの各辺に $a_{ij}=a_{ji}>0$ を置く。
+
+```math
+j_{ij}=0,
+\qquad
+t_{ij}
+=
+2\kappa_Xa_{ij}
+\sqrt{\pi_i^\delta\pi_j^\delta}
+```
+
+とすれば
 
 ```math
 k_{i\to j}^\delta(v)
 =
 \kappa_Xa_{ij}
-\sqrt{
-\frac{\pi_j^\delta(v)}{\pi_i^\delta(v)}
-}
+\sqrt{\frac{\pi_j^\delta(v)}{\pi_i^\delta(v)}}
 ```
 
-とし、非隣接頂点間の率は零とする。生成子を
+であり、従来のR161 static鎖を回収する。$q_{\min}$、$a_{\min}$、無重みgraph Laplacian gap $\lambda_G$ と
 
 ```math
-(\mathcal L_v^\delta f)(i)
+m_\delta
 =
-\sum_{j:j\sim i}
-k_{i\to j}^\delta(v)
-[f(j)-f(i)]
+\frac{\delta q_{\min}}{1+\delta}
 ```
 
-と書く。
-
-基準分布の最小値、辺活動度の最小値を
+を用いると、Dirichlet形式は
 
 ```math
-q_{\min}=\min_iq_i,
-\qquad
-a_{\min}=\min_{\{i,j\}\in E_X}a_{ij},
-\qquad
-m_\delta=\frac{\delta q_{\min}}{1+\delta}
+\mathcal E^\delta(f,f)
+=
+\kappa_X
+\sum_{\{i,j\}}
+a_{ij}
+\sqrt{\pi_i^\delta\pi_j^\delta}
+(f_i-f_j)^2
 ```
 
-とする。無重みグラフLaplacianの第1非零固有値を $\lambda_G>0$ とする。
-
-**第2章R161で用いる一様評価。**
-
-有限連結 $G_X$、$\delta>0$、任意の $v\neq0$ について、上の生成子は既約かつ可逆であり、唯一の定常分布は $\pi^\delta(v)$ である。$L^2(\pi^\delta)$ における第1非零固有値を $\lambda_\delta(v)$ とすれば
+である。従って
 
 ```math
-\lambda_\delta(v)
+\lambda_\delta
 \geq
 \kappa_Xa_{\min}m_\delta\lambda_G
-=:
-\lambda_\delta
 ```
 
-が全bath rayに一様に成り立つ。任意の初期粒子位置分布 $p_0$ に対して
+となり、
 
 ```math
 D_{\rm TV}
 \left(
-p_T,
-\pi^\delta(v)
+p_T,\pi^\delta(v)
 \right)
 \leq
 C_\delta e^{-\lambda_\delta T},
 \qquad
 C_\delta
 =
-\frac12
-\sqrt{m_\delta^{-1}-1}
+\frac12\sqrt{m_\delta^{-1}-1}.
 ```
 
-である。また
-
-```math
-D_{\rm TV}
-\left(
-\pi^\delta(v),
-w(v)
-\right)
-\leq
-\frac{\delta}{1+\delta}
-```
-
-であり、全有限時間誤差は混合誤差と正則化誤差に分かれる。
-
-詳細釣合いは各辺で
-
-```math
-\pi_i^\delta k_{i\to j}^\delta
-=
-\kappa_Xa_{ij}
-\sqrt{\pi_i^\delta\pi_j^\delta}
-=
-\pi_j^\delta k_{j\to i}^\delta
-```
-
-となることから従う。Dirichlet形式は
-
-```math
-\mathcal E_z^\delta(f,f)
-=
-\kappa_X
-\sum_{\{i,j\}\in E_X}
-a_{ij}
-\sqrt{\pi_i^\delta\pi_j^\delta}
-(f_i-f_j)^2
-```
-
-である。$\pi_i^\delta\geq m_\delta$ なので
-
-```math
-\mathcal E_z^\delta(f,f)
-\geq
-\kappa_Xa_{\min}m_\delta
-\sum_{\{i,j\}\in E_X}
-(f_i-f_j)^2.
-```
-
-一様平均を $\overline f=L^{-1}\sum_if_i$ とすれば、グラフPoincaré不等式と分散の最小化性から
-
-```math
-\sum_{\{i,j\}\in E_X}
-(f_i-f_j)^2
-\geq
-\lambda_G
-\sum_i(f_i-\overline f)^2
-\geq
-\lambda_G
-\operatorname{Var}_{\pi^\delta}(f).
-```
-
-これがスペクトルギャップ下界を与える。有限可逆鎖の $L^2$ 収縮とCauchy--Schwarz不等式から
-
-```math
-D_{\rm TV}(p_T,\pi^\delta)
-\leq
-\frac12e^{-\lambda_\delta T}
-\left\|
-\frac{p_0}{\pi^\delta}-1
-\right\|_{L^2(\pi^\delta)}.
-```
-
-任意の $p_0$ について
-
-```math
-\left\|
-\frac{p_0}{\pi^\delta}-1
-\right\|_{L^2(\pi^\delta)}^2
-=
-\sum_i\frac{p_{0,i}^2}{\pi_i^\delta}-1
-\leq
-m_\delta^{-1}-1
-```
-
-なので前因子も一様である。正則化誤差は
+R164の理想枝重み $w$ との差は
 
 ```math
 D_{\rm TV}(\pi^\delta,w)
-=
-\frac{\delta}{2(1+\delta)}
-\sum_i|q_i-w_i|
 \leq
-\frac{\delta}{1+\delta}
+\frac{\delta}{1+\delta}.
 ```
 
-から従う。
+### K.3.2 nodeにおけるstatic再平衡化の障害
 
-<!-- theorem-start:proof -->
-**証明（R161）**
-
-正値性と連結性が既約性を、辺ごとの恒等式が可逆性と定常性を与える。Dirichlet形式を無重みグラフの形式で下から抑えると一様スペクトルギャップが得られる。可逆半群の $L^2$ 収縮、初期密度の一様上界、正則化分布と理想対角の全変動距離を順に適用すれば表示式が従う。証明終。
-<!-- theorem-end:proof -->
-
-### K.3.1 nodeにおける一様局所再平衡化の障害
-
-<!-- theorem-start:proposition -->
-**命題（零占有切断点に対する局所詳細釣合いno-go）**
-
-$\delta=0$ とし、目標分布 $w$ の零頂点 $v$ が $G_X$ の切断点であるとする。隣接辺だけを使い、$w$ に関して詳細釣合いを満たす有限率生成子は、$G_X\setminus\{v\}$ の異なる連結成分間で確率質量を輸送できない。従って全初期分布から $w$ へ収束する既約な局所生成子は存在しない。
-<!-- theorem-end:proposition -->
-
-$w_v=0$ と $w_i>0$ に対し、詳細釣合いは
+$\delta=0$ とし、目標分布 $w$ の零頂点 $v$ がconfiguration graphの切断点であるとする。隣接辺だけを使い、$w$ に関して詳細釣合いを満たす有限率生成子は、$G_X\setminus\{v\}$ の異なる連結成分間で確率質量を輸送できない。詳細釣合いは
 
 ```math
 w_i k_{i\to v}
@@ -314,13 +270,83 @@ w_vk_{v\to i}
 =0
 ```
 
-を強制するので $k_{i\to v}=0$ である。切断点を通る全経路が閉じるため、各成分の確率質量は独立に保存される。
+を強制するためである。この障害を避けるには正の背景、非局所辺、補助bridge stateの少なくとも1つが必要である。static profileでは $\delta>0$ を採用し、spatial moving profileでも同じ正則化をnode回避に使う。
 
-この障害を避けるには、正の背景占有率、非局所辺、補助橋状態の少なくとも1つが必要である。粒子位置熱化を使うM50の特殊化では $\delta>0$ を採用し、有限資源誤差として台帳に残す。信号から容量pointerだけを作るR181Dのlatch段階は、このnode命題の対象外である。その後に有限混合を使う場合は本命題の条件を再び受ける。
+<!-- theorem-start:proof -->
+**証明（R161）**
 
-## K.4 R162の証明：有限衝突熱浴による率の実現
+一般matching部分はcurrent恒等式と有限状態master方程式の一意性、backward rateはBayes反転から従う。static特殊化では $j=0$ が詳細釣合いを与え、$\pi_i^\delta\geq m_\delta$ によりDirichlet形式を無重みgraph形式で下から抑える。graph Poincare不等式、可逆半群の $L^2$ 収縮、Cauchy--Schwarzを順に使うと一様mixing boundを得る。正則化誤差は $\pi^\delta=(w+\delta q)/(1+\delta)$ から直接従う。証明終。
+<!-- theorem-end:proof -->
 
-固定した $v$ と辺 $\{i,j\}$ に対し、対称な基準障壁 $B_{ij}^0=B_{ji}^0$ を置く。制御された障壁を
+## K.4 R162の証明：generic finite collisionとthermal特殊化
+
+### K.4.1 一般有界有向rateのfinite collision持上げ
+
+固定有限時間で区分連続な有向rate $k_{i\to j}(t)\geq0$ と生成子 $L(t)$ を取り、
+
+```math
+M_*=
+\sup_{0\leq t\leq T}
+\max_i\sum_{j\ne i}k_{i\to j}(t)<\infty
+```
+
+とする。有限分割 $0=t_0<\cdots<t_M=T$ で各窓の生成子を $\overline L_m$ へ凍結し、$M_*\Delta t<1$ とすれば
+
+```math
+P_m
+=
+I+\Delta t\,\overline L_m
+```
+
+は確率行列である。時間順序指数とEuler積の差は
+
+```math
+\varepsilon_{\rm step}
+\leq
+\int_0^T
+\|L(t)-L_{\rm fr}(t)\|_{\rm row}\,dt
++
+T M_*^2\Delta t\,e^{2M_*\Delta t}
+```
+
+で抑えられる。
+
+各stepへ一様Liouville threshold座標 $u_m\in(0,1)$ とその共役座標、clock、空history、work registerを置く。現在configurationが $i$ なら $(0,1)$ を長さ $P_m(i,j)$ の区間へ分け、$u_m$ が属する $j$ へ移す。source、target、step番号、thresholdをhistoryへ残し、区間幅差を共役座標の逆伸縮を伴うcanonical squeezeで補う。有限個の平行移動・shear・squeezeを滑らかな有限時間Hamiltonian散乱へ近似すれば、指定読出し時刻の位置分布を対象Markov過程から
+
+```math
+D_{\rm TV}
+\leq
+\varepsilon_{\rm step}
++
+\varepsilon_{\rm coll}
++
+\varepsilon_{\rm clk}
++
+\varepsilon_{\rm over}
+```
+
+以内にできる。1-step-per-windowでは有限個のcellを事前配置できるため $\varepsilon_{\rm over}=0$ と選べる。これは一般有向rateの実装であり、詳細釣合いまたは熱分布を仮定しない。
+
+### K.4.2 thermal detailed-balance特殊化
+
+R161 static profileの
+
+```math
+k_{i\to j}^\delta(v)
+=
+\kappa_Xa_{ij}
+\sqrt{\frac{\pi_j^\delta(v)}{\pi_i^\delta(v)}}
+```
+
+については、条件付き有効自由エネルギー
+
+```math
+E_i^\delta(v)
+=
+-\Theta\log\pi_i^\delta(v)
+```
+
+と対称基準障壁 $B_{ij}^0=B_{ji}^0$ を使う。制御障壁を
 
 ```math
 B_{ij}^\delta(v)
@@ -329,182 +355,55 @@ B_{ij}^0
 +
 \frac12
 \left[
-E_i^\delta(v)
-+
-E_j^\delta(v)
+E_i^\delta(v)+E_j^\delta(v)
 \right]
 ```
 
-とする。$B_{ij}^0\geq(\Theta/2)\log(m_\delta^{-1})$ なら、両方向の活性化エネルギーは非負である。
-
-入射セルは、到着断面を横切る流束について運動エネルギー分布
+とし、到着断面の入射流束energyを
 
 ```math
 f_{\rm in}(\epsilon)
 =
-\beta e^{-\beta\epsilon},
-\qquad
-\epsilon\geq0
+\beta e^{-\beta\epsilon}
 ```
 
-を持つとする。これは静止した熱粒子を無条件に標本化する分布ではなく、衝突面へ実際に到着した粒子を数える流束分布である。入射位置、到着時刻、運動方向とその共役変数も完全状態へ含める。各辺には反応座標 $r_{ij}$ と共役運動量を置き、2つの井戸の底を $E_i^\delta,E_j^\delta$、鞍点を $B_{ij}^\delta$ に持つ滑らかなポテンシャルで散乱させる。理想的な閾値反射・通過則は、その障壁を狭くする有限幅極限として扱う。
-
-$X=i$ のセルが辺 $i\to j$ へ到着したとき、
-
-```math
-\epsilon
-\geq
-B_{ij}^\delta(v)-E_i^\delta(v)
-```
-
-なら通過させ、通過後のセルエネルギーを
+とする。通過条件 $\epsilon\geq B_{ij}^\delta-E_i^\delta$ と通過後energy
 
 ```math
 \epsilon'
 =
-\epsilon
-+
-E_i^\delta(v)
--
-E_j^\delta(v)
+\epsilon+E_i^\delta-E_j^\delta
 ```
 
-とする。閾値未満なら反射させる。通過時には
+により正逆散乱は1対1に対応する。縮約rateは
 
 ```math
-\epsilon+E_i^\delta
-=
-\epsilon'+E_j^\delta
-```
-
-が成り立つ。ここで保存されるのは、作用殻fiberを消去した粒子位置有効自由エネルギーとセルエネルギーの粗視化和である。fiberを明示した全微視的Hamiltonianのエネルギー保存をこの式だけから主張しない。さらに前向き閾値を満たすことと、出射状態が逆向き閾値を満たすことは同値である。
-
-**第2章R162で用いる有限衝突評価。**
-
-各辺の衝突試行流束を $\nu_{ij}=\nu_{ji}>0$ とする。上の流束分布、対称障壁、粗視化有効自由エネルギー保存散乱を採用すると、縮約された配置遷移率は
-
-```math
-k_{i\to j}^{\rm coll}(v)
-=
-\nu_{ij}
-e^{-\beta B_{ij}^0}
-\sqrt{
-\frac{\pi_j^\delta(v)}{\pi_i^\delta(v)}
-}
-```
-
-である。従って
-
-```math
-\nu_{ij}e^{-\beta B_{ij}^0}
-=
-\kappa_Xa_{ij}
-```
-
-と校正すればR161の生成子に一致する。上の反応座標ポテンシャルに、入射位置、到着時計、運動方向、反射枝、出射エネルギー、履歴セルを含めれば、拡大散乱写像は一対一な時間反転対を持つ滑らかなHamiltonian散乱で任意精度に近似できる。
-
-固定観測時間 $T$、各辺の有限セル数 $K_{ij}$、有限エネルギー切断 $E_{\max}$ では、理想生成子の経路測度との差を
-
-```math
-\varepsilon_{\rm coll}
-\leq
-\varepsilon_{\rm overflow}
-+
-\varepsilon_{\rm energy}
-+
-\varepsilon_{\rm smooth}
-+
-\varepsilon_{\rm clock}
-```
-
-と評価できる。信号bath座標の有限保持誤差 $\varepsilon_{\rm hold}$ はこれと別に加える。超過衝突、閾値平滑化帯、controller保持失敗は正式な無反応結果へ含め、除外後の再規格化を行わない。
-
-有効自由エネルギーを全枝共通の $g(v)$ だけ移し、障壁も同じだけ移すgauge変換
-
-```math
-E_i^\delta
-\longmapsto
-E_i^\delta+g,
-\qquad
-B_{ij}^\delta
-\longmapsto
-B_{ij}^\delta+g
-```
-
-では、活性化差 $B_{ij}^\delta-E_i^\delta$ と全遷移率が不変である。従ってR162はR164の全枝状態数に含まれる共通因子へ依存しない。
-
-活性化エネルギーは
-
-```math
-B_{ij}^\delta-E_i^\delta
-=
-B_{ij}^0
-+
-\frac{\Theta}{2}
-\log
-\frac{\pi_i^\delta}{\pi_j^\delta}
-```
-
-なので、指数分布の尾確率から
-
-```math
-\begin{aligned}
 k_{i\to j}^{\rm coll}
-&=
-\nu_{ij}
-\exp
-\left[
--\beta(B_{ij}^\delta-E_i^\delta)
-\right]\\
-&=
+=
 \nu_{ij}e^{-\beta B_{ij}^0}
-\sqrt{\frac{\pi_j^\delta}{\pi_i^\delta}}
-\end{aligned}
+\sqrt{\frac{\pi_j^\delta}{\pi_i^\delta}},
 ```
 
-を得る。正逆率比は
+従って $\nu_{ij}e^{-\beta B_{ij}^0}=\kappa_Xa_{ij}$ と校正すればR161 static rateに一致する。有限cell overflow、finite energy tail、boundary smoothing、clock、signal hold誤差を完全結果集合へ残し、成功試行だけを再規格化しない。
+
+局所詳細釣合いは
 
 ```math
 \log
 \frac{k_{i\to j}^{\rm coll}}
 {k_{j\to i}^{\rm coll}}
 =
--\beta
-\left(
-E_j^\delta-E_i^\delta
-\right)
+-\beta(E_j^\delta-E_i^\delta)
 =
-\log
-\frac{\pi_j^\delta}{\pi_i^\delta}.
+\log\frac{\pi_j^\delta}{\pi_i^\delta}
 ```
 
-これは局所詳細釣合いである。
-
-有限セルについて、辺 $\{i,j\}$ の理想到着数を平均 $\nu_{ij}T$ のPoisson変数 $N_{ij}$ で表すなら
-
-```math
-\varepsilon_{\rm overflow}
-\leq
-\sum_{\{i,j\}\in E_X}
-P(N_{ij}>K_{ij}).
-```
-
-入射エネルギーを $E_{\max}$ で切る誤差は、衝突セル総数を $K_{\rm tot}$ として
-
-```math
-\varepsilon_{\rm energy}
-\leq
-K_{\rm tot}e^{-\beta E_{\max}}
-```
-
-で抑えられる。固定有限個のセルと時計を事前配置すれば、有限時間の離散衝突列は有限個の正準散乱窓からなる。無期限反復にはfresh cellの流入と使用済みセルの流出が必要である。
-
-記録前には新規入射セルを止め、辺チャネルの入口ゲートを閉じる。エネルギー切断された安全セルは閉じた辺を越えない。有限障壁裾、平滑化帯、時計ずれによる離脱だけを $\varepsilon_{\rm res}$ として残せる。これによりR143が仮定していた記録中の経路滞在を、衝突窓の停止と局所辺閉鎖から評価できる。
+である。このthermal特殊化だけについてK.5の粗視化仕事・熱・entropy productionを定義する。
 
 <!-- theorem-start:proof -->
 **証明（R162）**
 
-指数流束分布の尾確率へ活性化エネルギーを代入すると表示した遷移率が得られる。対称障壁は正逆率比を粒子位置有効自由エネルギー差だけにし、通過後エネルギー式は正逆散乱を一対一に対応させる。有限時間では到着数と最大エネルギーを切り、超過事象を完全結果集合へ残す。閾値比較、反射、通過、履歴保存を滑らかな有限幅散乱へ近似した誤差を加えれば有限セル上界が従う。証明終。
+generic部分では、凍結生成子とEuler積の誤差を上の $\varepsilon_{\rm step}$ で抑え、各有限確率行列を一様threshold座標の有限区間分割で実現する。historyを保存してcanonical squeeze、translation、shearを未使用sectorへ1対1に延長し、滑らかなHamiltonian散乱で近似すれば有限collision誤差が得られる。thermal特殊化では指数入射流束のtailへ活性化energyを代入して平方根型rateを得る。対称障壁と通過後energy式が正逆散乱と詳細釣合いを与える。証明終。
 <!-- theorem-end:proof -->
 
 ## K.5 粗視化経路熱力学系の証明
@@ -562,7 +461,7 @@ k_{i_\ell\to i_{\ell-1}}^\delta(v_{t_\ell})
 
 **第2章の粗視化経路熱力学系。**
 
-R161の生成子またはR162の衝突熱浴を、正逆protocolで同じ熱作用尺度 $\Theta$ により駆動する。このとき
+R161 static specializationまたはR162 thermal specializationを、正逆protocolで同じ熱作用尺度 $\Theta$ により駆動する。このとき
 
 ```math
 \frac{\mathcal P_F[\omega]}
@@ -641,7 +540,7 @@ D_{\rm KL}
 正逆経路の初期密度、jump率、待機因子を比べる。待機因子は反転protocolの対応区間と相殺し、残る率比と端点密度比が $e^\Sigma$ を与える。逆経路確率の総和は1なので積分ゆらぎ関係が従う。瞬間quench式は規格化されたGibbs分布へ直接代入して得る。証明終。
 <!-- theorem-end:proof -->
 
-## K.6 R170：M50固定入力時刻有限枝instrumentの証明
+## K.6 R170：M54 static profile固定入力時刻instrumentの証明
 
 入力時刻 $t_\star$ に非零信号 $v$ を空の保持registerへ正準SWAPする。SWAPは自己逆であり、交換前のregisterと時計面を履歴へ残せば拡大写像は1対1である。保持誤差または閾値失敗は無反応へ送る。
 
@@ -705,7 +604,7 @@ G_{\rm rec}
 
 ## K.7 Q1・Q2・Q3周期への接続
 
-M47の1段測定はM50のQ1特殊化として次の操作面へ分ける。
+M47の1段測定はM54 static profileのQ1特殊化として次の操作面へ分ける。
 
 1. R181AのW型2モード系で信号bath方向を目標rayへ準備する。
 2. 方向を保持し、R164の作用枝容量と条件付き作用殻fiberを準備する。
@@ -715,11 +614,11 @@ M47の1段測定はM50のQ1特殊化として次の操作面へ分ける。
 6. 入射セルを止めて辺ゲートを閉じ、R140の傾斜保持とR143の局所記録を行う。
 7. 結果別テンプレート交換後、そのテンプレート方向に対して作用殻準備と再平衡化を行い、次の逐次測定へ渡す。
 
-1回の再平衡化誤差をM50の共通台帳
+1回のstatic matching誤差を共通台帳
 
 ```math
 \begin{aligned}
-\varepsilon_{M50}
+\varepsilon_{\rm match}
 ={}&\varepsilon_{\rm cap}
 +\varepsilon_{\rm width}
 +\varepsilon_{\rm sym}
@@ -733,7 +632,7 @@ M47の1段測定はM50のQ1特殊化として次の操作面へ分ける。
 
 で記帳する。$\varepsilon_{\rm mix}=C_\delta e^{-\lambda_\delta T_X}$、$\varepsilon_\delta=\delta/(1+\delta)$ と選べる。Q1では2モード漏れと局所辺閉鎖誤差をそれぞれ $\varepsilon_{2m}$、$\varepsilon_{\rm res}$ として別に加える。この段階分離により、旧連続matching保存をR143、R144の仮定に使わない。
 
-Q2-1はR181Dにより末端4mode信号を同次元hold-registerへSWAPし、容量latch後にR164/R170へ接続する。別の中間標本器を確率源として挟まない。Q2-2の切断後局所殻は各翼でR170を特殊化し、完全共通原因 $\Lambda$ に条件付けた積因子化誤差を別の $\varepsilon_{\rm prod}$ として加える。Q3はR164が与える同じ条件付き分布 $\pi^\delta(X\mid Z)$ を開始面でR161/R162により準備し、その後は付録NのM55/R183 moving matchingで同じ粒子を輸送する。M55の一般有向率は局所詳細釣合いを仮定せず、方向別controllerと仕事registerを持つ駆動衝突cellでR184へ実装する。任意の固定時刻を診断する代替経路だけが付録FのR170を使う。
+Q2-1はR181Dにより末端4mode信号を同次元hold-registerへSWAPし、容量latch後にR164/R170へ接続する。別の中間標本器を確率源として挟まない。Q2-2の切断後局所殻は各翼でR170を特殊化し、完全共通原因 $\Lambda$ に条件付けた積因子化誤差を別の $\varepsilon_{\rm prod}$ として加える。Q3はR164が与える同じ条件付き分布 $\pi^\delta(X\mid Z)$ を開始面でR161 static/R162 thermalにより準備し、その後は付録NのR161 moving specializationで同じ粒子を輸送する。spatial profileの一般有向率は局所詳細釣合いを仮定せず、R162 generic collisionをR184へ接続する。任意の固定時刻を診断する代替経路だけが付録FのR170を使う。
 
 Q2-4のM54では、全gate後にR181Dが各bitの直交projector作用をraw容量へlatchする。R164はregularized容量比を排他的Born型状態数へ解釈し、R161/R162/R170がselectorを形成する。selector lock後に可逆filterとradial-only repumpを作用する。同じR170作用殻receiverを逐次nodeで使い、別のaperture標本器を重ねない。$L=2^n$ のsignal、work、history、cold、spent容量は受動資源として指数的でもよいが、個別の外部準備・較正・読出しには使わない。
 

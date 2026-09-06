@@ -13,7 +13,7 @@ Q2-1の固定目標は、2量子ビット型結合ゲートと同一の共同入
 2. 内部の4モードregister、8個の実正準座標、anti-register、work cell、clock履歴は許す。ただし各内部modeを外部から個別に初期化、較正、同期、address、読出し、resetしてはならない。
 3. 一般入力から生じた同じ物理的状態bathを全ゲート間で保持し、中間で枝選択、粒子位置decode、tomography、集団moment推定、再準備をしない。
 4. 可逆性に必要なanti-register、入力source、work、clock履歴を捨てない。
-5. 排他的なBorn型結果は回路末尾だけでM50/R164/R170へ接続する。無反応も完全結果空間へ含める。
+5. 排他的なBorn型結果は回路末尾だけでM54 static profileのR164/R161/R162/R170へ接続する。無反応も完全結果空間へ含める。
 
 従って問題になるのは内部自由度の個数そのものではなく、外部interfaceが閉じているか、同一試行の状態が永続するか、余計な自由度をbathへ受動的に任せられるかである。旧path-only設計の「4モードregisterを使わず経路だけで担う」という制約は撤回する。
 
@@ -379,7 +379,7 @@ V_{\rm s}
 \tag{4.31}
 ```
 
-このgate列は設定生成前に終える。実際の末端信号 $v=Z_{\rm out}(\omega)$ をR112のcanonical SWAPで物理hold信号 $\widetilde V=v$ としてそのまま移し、第5章R180へ渡す。canonical SWAPは状態依存除算を含まない。R180では解析上だけ $V=\widetilde V/\|\widetilde V\|$ とし、A設定 $x$ が $\widetilde V$ の直交projector blockを選び、source-driven paired-Hopf receiverを通して2翼の局所M50/R170へ接続する。
+このgate列は設定生成前に終える。実際の末端信号 $v=Z_{\rm out}(\omega)$ をR112のcanonical SWAPで物理hold信号 $\widetilde V=v$ としてそのまま移し、第5章R180へ渡す。canonical SWAPは状態依存除算を含まない。R180では解析上だけ $V=\widetilde V/\|\widetilde V\|$ とし、A設定 $x$ が $\widetilde V$ の直交projector blockを選び、source-driven paired-Hopf receiverを通して2翼の局所M54 static/R170へ接続する。
 
 このinterfaceはR181Dと役割が異なる。R181Dは末端計算基底分布を直接記録する。R180は同じ試行の4mode信号を記録前に2翼receiverへ渡す。1周期では選んだ一方だけを作動させる。
 

@@ -21,8 +21,9 @@
 | R70--R72、R77、R78、R91 | M35作用区間によるBorn型長期頻度 | 確率源として退役。M50/R164へ一本化 | `superseded_m35_born_sampler.md` |
 | R107--R111、R121 | M41 Bell周期 | M48/R151--R156、R166、R170へ置換 | `superseded_m41_bell_cycle.md` |
 | R147、R153、R155 | 独立M48 setting-pre paired-Hopf Bell周期 | M54の実際の1試行末端信号を受けるR180A--R180Cへ置換 | `superseded_independent_m48_bell_protocol.md`、draft-65のGit履歴 |
-| R113--R118 | 旧M42連続粒子位置閉包 | 退役。draft-58で一度M42/R172--R174へ再構成後、draft-72でM55/R183--R185へ最終統合 | `superseded_m42_continuous_particle_position.md`、Git履歴 |
-| R172--R174 | draft-58再定義M42のQ3局在トークン輸送 | M55/R183--R185へ置換して退役 | `superseded_m42_continuous_particle_position.md`、旧付録NのGit履歴 |
+| R113--R118 | 旧M42連続粒子位置閉包 | 退役。draft-58でM42/R172--R174、draft-72でM55/R183--R185を経て、draft-74でM54 spatial/R161/R184/R185へ統合 | `superseded_m42_continuous_particle_position.md`、Git履歴 |
+| R172--R174 | draft-58再定義M42のQ3局在トークン輸送 | draft-72でM55/R183--R185へ移行し、draft-74でM54 spatial/R161/R184/R185へ再統合 | `superseded_m42_continuous_particle_position.md`、旧付録NのGit履歴 |
+| R183 | M55 spatial moving-matching不変性 | 一般化R161のM54 spatial-moving特殊化へ吸収。定理内容は撤回せず、独立結果IDだけを退役 | `superseded_separate_m50_m55_models.md`、R161、付録K・N |
 | R127--R129 | M45開放準臨界準備 | Q1--Q3と独立の研究線 | `independent_m45_open_quasicritical_preparation.md` |
 | R130--R132 | M46のcapacity・半減衰・主モード計算 | 現行本文から退役。再検討用の有限次元計算 | `rejected_m46_current_transducer.md` |
 | R133、R134 | M46 current恒等式と条件付きNelson恒等式 | 現行因果鎖では不採用 | `rejected_m46_current_transducer.md` |
@@ -56,6 +57,8 @@
 | M53 | 一般回路の直接mode・逐次sampler | M54の一般 $n$ 特殊化へ吸収。aperture経路は退役 | `superseded_separate_m51_m52_m53_models.md`、R181C--R181D、R178D、R179 |
 | M43 | 固有モード作用結合型有限環境 | 独立モデルから外し、R123の有限環境純位相緩和構成へ吸収 | R123、付録G |
 | M35 | 作用区間によるBorn型標本器と有限正準制御補助 | 確率生成部は退役し、非確率的な制御・比較・記録部はR112へ吸収 | `superseded_m35_born_sampler.md`、R112、付録A |
+| M50 | 有限信号作用・作用殻・static粒子位置熱化・R170 instrument | M54 static-instrument profileへ吸収。R164/R161 static/R162 thermal/R170は現行結果として保持 | `superseded_separate_m50_m55_models.md`、第2章、付録K・L |
+| M55 | 粒子--signal共同測度・spatial moving matching | M54 spatial-moving profileへ吸収。R184/R185を保持し、旧R183は一般R161へ吸収 | `superseded_separate_m50_m55_models.md`、第2章、第6章、付録N |
 
 ## 退役したモデルID
 

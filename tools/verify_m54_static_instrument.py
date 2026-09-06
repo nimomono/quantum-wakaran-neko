@@ -52,7 +52,7 @@ def random_isometry(rng: np.random.Generator, rows: int, columns: int) -> np.nda
     return isometry[:, :columns]
 
 
-def m50_distribution(
+def static_distribution(
     isometry: np.ndarray,
     signal: np.ndarray,
     delta: float,
@@ -97,7 +97,7 @@ def main() -> None:
         epsilon_car + 2.0e-15,
     ))
 
-    # R168: exact rank-one support and regularized M50 contraction.
+    # R168: exact rank-one support and regularized M54 static profile contraction.
     ray = rng.normal(size=size) + 1j * rng.normal(size=size)
     ray /= np.linalg.norm(ray)
     amplitudes = rng.normal(size=trials) + 1j * rng.normal(size=trials)
@@ -121,10 +121,10 @@ def main() -> None:
     reference = np.arange(1, branches + 1, dtype=float)
     reference /= np.sum(reference)
     delta = 0.08
-    target_rank_one = m50_distribution(isometry, ray, delta, reference)
+    target_rank_one = static_distribution(isometry, ray, delta, reference)
     selected = np.flatnonzero(np.abs(amplitudes) > 0.15)[:512]
     sample_probabilities = np.array([
-        m50_distribution(isometry, rank_one_samples[index], delta, reference)
+        static_distribution(isometry, rank_one_samples[index], delta, reference)
         for index in selected
     ])
     checks.append(record_max(
@@ -143,7 +143,7 @@ def main() -> None:
         projector,
     )
     regularized_distance = total_variation(
-        m50_distribution(isometry, approximate_ray, delta, reference),
+        static_distribution(isometry, approximate_ray, delta, reference),
         target_rank_one,
     )
     checks.append(record_max(
@@ -158,7 +158,7 @@ def main() -> None:
     fixed_samples *= sqrt(fixed_action) / np.linalg.norm(fixed_samples, axis=1)[:, None]
     fixed_covariance = covariance(fixed_samples)
     empirical_probabilities = np.mean([
-        m50_distribution(isometry, sample, delta, reference)
+        static_distribution(isometry, sample, delta, reference)
         for sample in fixed_samples
     ], axis=0)
     operators = [

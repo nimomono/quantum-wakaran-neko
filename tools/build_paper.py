@@ -250,9 +250,9 @@ Q2_LEDGER_ROOTS: dict[str, set[str]] = {
 }
 
 Q2_LEDGER_MODELS: dict[str, set[str]] = {
-    "Q2-1": {"M54", "M50"},
-    "Q2-2": {"M54", "M50", "receiver"},
-    "Q2-3": {"M54", "M50"},
+    "Q2-1": {"M54"},
+    "Q2-2": {"M54", "receiver"},
+    "Q2-3": {"M54"},
     "Q2-4": {"M54"},
 }
 
@@ -541,14 +541,15 @@ def validate_fixed_goal_language() -> None:
         encoding="utf-8"
     )
     required_current_tokens = (
-        r"\Gamma_{54}^{(n)}",
+        r"\Gamma_{54}^{(\Lambda,\mathcal I)}",
         r"A_{u,b}^\delta=J_{u,b}+\delta q_bJ_\Sigma",
         "raw比較",
         "selectorをlock",
         "radial-only",
         r"2m(\tau+\gamma)",
         "成功試行だけを再規格化しない",
-        "controllerへ書き戻さない",
+        "集団統計、試行中の状態依存制御を外部から与えない",
+        "current--traffic matching",
     )
     current_bundle = common_text + "\n" + receiver_text
     absent = [token for token in required_current_tokens if token not in current_bundle]

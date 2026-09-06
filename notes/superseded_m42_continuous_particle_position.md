@@ -1,6 +1,6 @@
 # 旧M42連続粒子位置模型の退役記録
 
-このメモはM42の2段階の退役履歴を保存する。draft-33からdraft-51までの旧M42/R113--R118に加え、draft-58からdraft-71までQ3限定で再定義したM42/R172--R174もdraft-72で退役した。現行Q3の正本はM55/R183--R185を置く第6章と付録Nであり、以下の第1--6節にある「現行M42」という語はdraft-58時点の歴史的記述として読む。
+このメモはM42の2段階の退役履歴を保存する。draft-33からdraft-51までの旧M42/R113--R118に加え、draft-58からdraft-71までQ3限定で再定義したM42/R172--R174もdraft-72で退役した。draft-72時点の置換先はM55/R183--R185であったが、draft-74でM55をM54 spatial-moving profileへ、R183を一般R161へ吸収した。現行Q3の正本はM54 spatial/R161/R184/R185を置く第2章、第6章、付録K・Nである。以下の第1--7節にある「現行M42」「現行M55」は各draft時点の歴史的記述として読む。
 
 ## 1　最終採用位置
 
@@ -86,3 +86,22 @@ draft-58では、存在論を「各試行の粒子と浴が実体、複素rayは
 draft-72では、draft-58で再定義したM42とR172--R174も現行依存から退役した。Q1・Q2で採用済みのsingle-trial signal / statistical-ray契約をQ3へ拡張し、R164と同じ条件付き分布をM55/R183のmoving matchingとして全時刻保存できるためである。
 
 現行置換先はM55/R183--R185である。R183は共同測度 $\mu_t(dX\,dZ)$ のmatching fiber不変性、R184はM37局所ばねとfinite collision bathの有限時間実装、R185は同一母測度の時間反転と時間対称Newton則を担う。M42の退役は実在粒子位置 $X$ の退役ではなく、$X$ はM55の完全状態に残る。
+
+## 8　draft-74での共通M54への再統合
+
+draft-74では、draft-72で導入したM55を独立親模型として残さず、M54のspatial-moving profileへ吸収した。M55の実正準signal、粒子位置、collision cell、clock、historyという状態内容は失われず、M54の一般signal index集合とconfiguration集合の特殊化として保持する。
+
+同時に、R183のmoving-matching不変性は、正のtarget分布、反対称current、対称trafficから前後rateを作る一般化R161のspatial特殊化へ吸収した。R184のM37開始作用latch実装とR185の前後平均微分・時間対称Newton則は現行結果として維持する。
+
+従って現行のQ3主線は
+
+```text
+M37/R86
+→ M54 spatial signal
+→ R164 conditional capacity
+→ R161 moving matching
+→ R162 generic collision
+→ R184/R185
+```
+
+である。これはM42やM55の数学的内容を反証した退役ではなく、Q1/Q2のstatic matchingとQ3のmoving matchingが同じ一般原理の特殊化であることを明示する模型階層の統合である。
