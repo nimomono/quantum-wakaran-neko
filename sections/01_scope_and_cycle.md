@@ -84,10 +84,10 @@ D_{X_T}
 | 識別 | 分類 | 役割 | 状態 |
 |---|---|---|---|
 | M54 | 共通有効signal--configuration profile族 | Q1/Q2のstatic profileとQ3のspatial-moving profileを同じ状態型、R164、R161、R162から派生する。R181A--R181Dは準備、lift、gate、projector-treeを与える | 現行有効層 |
-| M37 | 物理Hamiltonian backend | M54 spatial signal sectorを局所位置ばね網からR86/R184で実装する | 現行物理backend |
+| M37 | 物理Hamiltonian backend | M54 spatial signal sectorをR86/R184で実装し、R187条件下では弱結合W型最低2正常modeをM54 W2 static profileのQ1 control carrierへ接続する | 現行物理backend |
 | M0 | same-hardware統一目標 | M54各profile、M37 backend、系列固有protocol、記録、外部流路を同じハードウェアと反復周期へ統合する | 未完成 |
 
-系列固有のQ1 W型2モード制御・測定は、M54 W2 static profile上のprotocolとして扱う。旧版のモデルID M47は参照互換のため「旧M47」として残すが、現行模型表へ独立模型として二重計上しない。Q2-2のR180もM54 static profileに接続する系列固有receiverであり、M54とは別の親模型ではない。
+系列固有のQ1 W型2モード制御・測定は、M54 W2 static profile上のprotocolとして扱う。R187はそのcontrol carrierをM37弱結合W型で物理実装するが、R181A準備やR170測定sectorまでM37へ吸収しない。旧版のモデルID M47は参照互換のため「旧M47」として残すが、現行模型表へ独立模型として二重計上しない。Q2-2のR180もM54 static profileに接続する系列固有receiverであり、M54とは別の親模型ではない。
 
 置換済み模型と独立研究線は本文の模型地図へ並べない。最小索引は `notes/superseded_result_index.md`、詳細は各研究メモとGit履歴に置く。
 
