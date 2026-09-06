@@ -237,6 +237,7 @@ Q2_RESULT_DEPENDENCIES: dict[str, set[str]] = {
     "R177": {"R181B", "R181C", "R181D"},
     "R178D": {"R181D"},
     "R179": {"R112", "R161", "R162"},
+    "R186": {"R181C", "R181D", "R179"},
     "R180A": {"R181C", "R181D"},
     "R180B": {"R181A"},
     "R180C": {"R181B", "R181D", "R180A", "R180B"},
@@ -246,7 +247,7 @@ Q2_LEDGER_ROOTS: dict[str, set[str]] = {
     "Q2-1": {"R181B", "R181C", "R181D"},
     "Q2-2": {"R180C"},
     "Q2-3": {"R177"},
-    "Q2-4": {"R181C", "R181D", "R178D", "R179"},
+    "Q2-4": {"R178D", "R186"},
 }
 
 Q2_LEDGER_MODELS: dict[str, set[str]] = {

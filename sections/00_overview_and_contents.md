@@ -2,7 +2,9 @@
 @chapter: 概要
 @title: 概要
 
-本論文は、明示的な古典力学モデルから、量子力学に似た可逆操作、Born型測定統計、結合ゲート、空間伝播、Bell型統計を構成できる範囲を調べる。有限閉鎖Hamiltonianモデルと開放古典モデルを区別し、採用方程式後の厳密結果と、その方程式自体のミクロ導出を分ける。
+本論文の中心的な問いは、量子計算機をブラックボックスとして見たときと同種の回路入力を受け、量子回路の出力分布を再現し、そのための外部program、制御channel、時間、精度、試行回数を多項式に抑える古典装置を構成できるかである。内部の受動自由度数と外部から装置を使うための複雑度を区別し、内部の指数構造が外部interfaceへ指数costとして露出するかを判定する。
+
+その物理的な基礎として、明示的な古典力学モデルから量子力学に似た可逆操作、Born型測定統計、結合ゲート、空間伝播、Bell型統計を構成できる範囲も調べる。有限閉鎖Hamiltonianモデルと開放古典モデルを区別し、採用方程式後の厳密結果と、その方程式自体のミクロ導出を分ける。
 
 物理的な導出の主線を、M37の実振動子運動からW型の低2モードを経てQ1の制御運動へ進む経路とする。第6章の静的R86、第3章の射影内R140、両者を接続する条件付き系を区別する。Q1の既存正準実装の達成は維持し、制御された位置ばね実装の任意精度構成は追加の強化課題として管理する。準備・枝選択・記録とQ2の共同担体は、担体運動だけからは従わない。
 
@@ -16,7 +18,7 @@ Q2-1はM54の受動的な4mode信号、anti-register、work、clock履歴を同�
 
 Q2-3はR181Bをgate列の前に2回適用して8mode信号を作り、R181CのA--B、B--C二次生成子を同じ状態bathへ順に作用させる。R177はGHZ--$T$--逆演算のcoherent分布と完全dephasing分布が全変動距離 $1/(2\sqrt2)$ で分かれることを示す。R181Dと同じ末端一体化条件の下で条件付き達成である。
 
-Q2-4はM54の一般 $n$ 特殊化である。R181Cは局所gateのsector一括作用、R181DはR170駆動の逐次projector-treeを与える。各nodeはraw容量、正則化作用殻、selector lock、可逆filter、radial-only repumpを使い、無反応を完全結果へ残す。R178Dはhistory掃除の限界、R179はblank bank、collision cell、spent bankの一様供給を与える。指数的な受動信号・work・history・cold・spent容量と総熱を許し、外部program、制御channel、精度、反復回数、総時間だけを多項式に抑える現行規則の下で、Q2-4を条件付き達成とする。
+Q2-4はM54の一般 $n$ 特殊化である。R181Cは局所gateのsector一括作用、R181DはR170駆動の逐次projector-treeを与える。各nodeはraw容量、正則化作用殻、selector lock、可逆filter、radial-only repumpを使い、無反応を完全結果へ残す。R178Dはhistory掃除の限界、R179はblank bank、collision cell、spent bankの一様供給を与える。R186は、疎な静的製造誤差、独立mode phase noise、projector latchの相対係数誤差が指数sector数を直接加算せず抑えられる条件と、各modeへ独立に作用を注入するadditive noiseが指数noise suppressionを要求する障害条件を分離する。指数的な受動信号・work・history・cold・spent容量と総熱を許し、外部program、制御channel、精度、反復回数、総時間を多項式に抑えるblack-box operational規則の下で、Q2-4を条件付き達成とする。総物理資源が量子計算機と同程度であることは主張しない。
 
 Q3はM54のspatial-moving profileである。共同測度 $\mu_t(dX\,dZ)$ 上で、R164と同じ条件付き位置分布を一般R161のmoving specializationが全時刻保存し、rank-one集団ではR135から正則化Born分布を得る。M37はR86によりM54 spatial signal sectorを局所位置ばねで有限時間近似する。R184はM37開始面の作用をlatchして正則化背景を固定し、rate・位置分布・R162 generic collision実装の誤差を与える。R185はR161の同一path-measure backward rateから $D_\pm$ を作り、1次元node-free sectorで時間対称Newton則を $O(a^2)+O(\delta)$ まで導く。finite collisionから対称加速度への誤差が残るためQ3-2は部分達成、Q3-6は未達である。Q3-3A--Q3-3Cは達成、Q3-4A・Q3-4B・Q3-5は単一装置統合を条件に達成である。
 

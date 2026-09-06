@@ -43,7 +43,7 @@ W_{r+1}=C_rW_r+S_rE_r,
 
 ## Q.4 Aggregate cold条件
 
-Q2-4で必要なのはmodeごとの温度上界ではなく、bank全体のaggregate norm上界である。独立な各modeが定数noise floorを持てば、$2^n$ modeのaggregate誤差は一般に増大する。この場合R179の多項式精度条件を満たさない。
+Q2-4で必要なのはmodeごとの温度上界ではなく、bank全体のaggregate norm上界である。特に、blank modeが零でも有限作用を注入する独立additive noise floorが各modeに残れば、$2^n$ modeのaggregate誤差は一般に増大する。この場合R179の多項式精度条件を満たさず、R186第4項のextensive additive-noise障害に対応する。各modeの振幅に比例して位相だけを揺らすmultiplicative noiseは同じ理由では排除しない。
 
 許される供給は、exact invariant blank、またはbank全体で $\eta_{\rm cold}=O(\epsilon/\operatorname{poly}(n,d))$ を保証する一様contractである。cold sourceの受動容量、装置体積、総作用移送、総熱は指数的でもよいが、外部controllerがmodeごとに較正してはならない。
 

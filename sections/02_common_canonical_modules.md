@@ -840,8 +840,114 @@ n+\log d+\log(1/\varepsilon_{\rm blank})
 で全bankを一様にblank化できる。続いて定数次元sourceをroot modeへSWAPし、R181Dの各nodeへ有限個のR162 collision cell、selector、filter workをclock順に供給できる。外部program長、準備時間、clock round、必要精度は $n,d,1/\epsilon$ の多項式である。静的couplerと受動clockが一括作用する限り、外部controllerの仕事をbank次元へ比例させない。cold bathとspent bathの受動自由度、状態容量、総作用移送、総熱は指数的でもよい。
 <!-- theorem-end:theorem -->
 
-R179は低作用bathを無から生成しない。供給測度は同じ局所lawを反復する回路非依存の規則であり、出力確率表を含まない。外部精度を多項式に保つには、exact invariant blankを持つcold source、またはbank全体のaggregate誤差を一様contractで保証するcold sourceが必要である。有限温度の独立noiseが各modeに定数作用を残す場合、aggregate blank誤差は $D_{n,d}$ とともに増大するためR179の仮定を満たさない。
+R179は低作用bathを無から生成しない。供給測度は同じ局所lawを反復する回路非依存の規則であり、出力確率表を含まない。外部精度を多項式に保つには、exact invariant blankを持つcold source、またはbank全体のaggregate誤差を一様contractで保証するcold sourceが必要である。特に、blank modeへ信号振幅と無関係なadditive作用を独立に注入する定数noise floorがある場合、aggregate blank誤差は $D_{n,d}$ とともに増大するためR179の仮定を満たさない。mode振幅に比例するphase/frequency型のmultiplicative noiseまで同じ理由で排除するものではない。
 
+
+### 2.16.1 R186：M54一様受動fabricのprojective頑健性とadditive-noise障害
+
+一般 $n$ のM54 signalを $N=2^n$、$Z\in\mathbb C^N$、$S=Z^\dagger Z>0$ とし、
+
+```math
+P_Z=\frac{ZZ^\dagger}{S}
+```
+
+をsignal rayのprojectorとする。global phaseを変える $cI$ はBorn分布とprojective stateを変えないので、Hermitian摂動 $V$ の有害成分を
+
+```math
+\|V\|_{\rm proj}
+=
+\inf_{c\in\mathbb R}\|V-cI\|
+```
+
+で測る。additive noiseの共分散を $Q_{\rm add}=BB^\dagger$ とし、現在のrayに垂直な作用注入率を
+
+```math
+q_\perp(Z)
+=
+\frac{\operatorname{tr}[(I-P_Z)Q_{\rm add}]}{S}
+```
+
+とする。
+
+<!-- theorem-start:theorem -->
+**定理（R186：M54一様受動fabricのprojective頑健性とadditive-noise障害）**
+
+固定有限gate窓またはhold窓について次が成り立つ。
+
+1. 理想Hamiltonian $H(t)$ にHermitian製造誤差 $V(t)$ を加えたunitary実装では、理想rayと実装rayの純粋状態trace distanceは
+
+```math
+D_{\rm tr}
+\leq
+\min\!\left\{
+1,
+\frac1{\mathcal J_0}
+\int\|V(t)\|_{\rm proj}\,dt
+\right\}.
+```
+
+各rowに高々 $\Delta(n)$ 本のperturbed couplerが入り、各局所係数誤差の絶対値が $\mu$ 以下なら、ある数値定数 $C$ に対して $\|V\|_{\rm proj}\leq C\Delta(n)\mu$ と評価できる。従って $\Delta(n)$ と総gate時間が多項式なら、指数個のsectorが存在しても局所製造精度は逆多項式で足りる。
+
+2. 各modeに独立なStratonovich phase noise
+
+```math
+dZ_x=-i\sigma Z_x\circ dW_x
+```
+
+だけが作用する時間 $T$ では、$p_x=|Z_x(0)|^2/S$ として
+
+```math
+\mathbb E F(T)
+=
+e^{-\sigma^2T}
++
+\left(1-e^{-\sigma^2T}\right)
+\sum_xp_x^2,
+```
+
+従って
+
+```math
+1-\mathbb E F(T)
+\leq
+1-e^{-\sigma^2T}
+\leq
+\sigma^2T.
+```
+
+noise channel数 $N$ はこの上界へ現れない。指数個の独立noise sourceが存在すること自体はQ2-4の失敗条件ではない。
+
+3. projector latchで理想容量 $J_b=\sum_{x\in b}|Z_x|^2$ の各係数が $1+\delta_x$ へずれ、$|\delta_x|\leq\mu$ なら、
+
+```math
+|\widetilde J_b-J_b|\leq\mu J_b.
+```
+
+ここでもsector数の和は現れない。
+
+4. 一方、$N$ 次元signal空間上で
+
+```math
+Q_{\rm add}\succeq\sigma^2I_N
+```
+
+なら任意の非零signalに対して
+
+```math
+q_\perp(Z)\geq\frac{(N-1)\sigma^2}{S}.
+```
+
+さらに $H=0$、$B$ 一定のhold窓 $T$ では、横方向additive偏差 $\eta_\perp$ は
+
+```math
+\mathbb E\|\eta_\perp\|^2\geq(N-1)\sigma^2T.
+```
+
+従って $S$、$T$ と許容RMS ray誤差の逆数を多項式に抑えるM54 direct-mode実装では、isotropic additive noise floorに対して $\sigma=O(2^{-n/2}\operatorname{poly}^{-1})$ 級の抑制が必要になる。これはQ2-4一般のno-goではなく、現在のM54 direct-amplitude registerに対する障害条件である。
+
+<!-- theorem-end:theorem -->
+
+R186の第1項から第3項は、指数mode数を局所誤差の粗い総和へ置き換えないための正の頑健性条件である。第4項は空modeへも有限作用を注入するadditive noiseを区別する。radial-only repumpはrayを保存するため、既に生じた横方向additive偏差だけを選択的に除去しない。証明、sub-Gaussian製造ばらつきの最大偏差系、compute--uncompute診断は付録Rに置く。
 ## 2.17 M54の合成誤差と資源
 
 M54の完全結果分布を $P_{\rm M54}$、理想回路Born分布を $P_{\rm circ}$ とする。誤差を重複計上しなければ、
@@ -856,6 +962,8 @@ D_{\rm TV}(P_{\rm M54},P_{\rm circ})
 +2n(\tau+\gamma)
 +\sum_{j=1}^n\bar\varepsilon_j.
 ```
+
+R186の製造誤差、phase noise、latch誤差は、それぞれ $\eta_{\rm gate}$、$\varepsilon_{\rm leak}$、$\bar\varepsilon_j$ を物理部品誤差から評価する十分条件として使い、別の独立誤差として二重加算しない。R186第4項のextensive additive noiseがある場合は、この誤差予算をpoly精度で閉じられない障害条件として扱う。
 
 ここで
 
@@ -885,7 +993,7 @@ O\!\left(
 
 ## 2.18 Q2-4の判定と境界
 
-R181Cは指数個の個別gate設定、R181Dは全 $2^n$ 葉の一括読出し、R179は指数個の個別blank初期化を避ける。従ってM54はQ2-4を条件付き達成へ進める。条件は、R170作用殻、R162 collision cell、controlled filter、radial repump、一様bank--bath結合を同じsafe setとclockで接続することである。
+R181Cは指数個の個別gate設定、R181Dは全 $2^n$ 葉の一括読出し、R179は指数個の個別blank初期化を避ける。R186は指数mode数だけを理由に指数精度を要求せず、局所製造誤差とphase noiseをprojectiveに評価する一方、extensive additive noiseが外部精度へ指数costとして露出する境界を与える。従ってM54はQ2-4を条件付き達成へ進める。条件は、R170作用殻、R162 collision cell、controlled filter、radial repump、一様bank--bath結合を同じsafe setとclockで接続することである。
 
 本構成は通常の計算量理論における多項式資源の古典simulationではない。指数個の受動自由度、静的結合、bath容量、総熱を許した上で、外部制御と総時間を多項式に抑える結果である。未知量子入力、適応中間測定、誤り訂正、固定容量bathによる無期限独立同分布標本は主張しない。M54はQ1・Q2・Q3の共通親模型族だが、全profileで同一の製造済み装置や同一パラメータを主張しない。
 

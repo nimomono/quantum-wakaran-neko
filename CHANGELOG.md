@@ -1,3 +1,14 @@
+## draft-78：black-box operational基準とR186頑健性境界
+
+- プロジェクトの中心目的を、量子回路と同種の入出力を持ち、外部program・制御channel・時間・精度・試行回数を多項式に抑える古典装置のblack-box operational equivalenceとして明文化した。Q1/Q3はその物理的基礎を検査する系列として維持した。
+- Q2-4の固定目標文言と達成ラベルは変更せず、operational resourceとreported internal resourceを分離した。指数mode、静的coupler、装置体積、総bath容量、総熱は報告するが、それだけでは不達とせず、mode別較正、指数精度、指数時間として外部へ露出した場合に失敗とする。
+- R186「M54一様受動fabricのprojective頑健性とadditive-noise障害」を新設した。疎な静的Hamiltonian製造誤差、独立mode phase noise、projector latch相対係数誤差はsector数を直接加算せず評価できる一方、$Q_{\rm add}\succeq\sigma^2I_{2^n}$ のadditive noiseでは横方向作用注入が $(2^n-1)\sigma^2$ に比例する。
+- R186のadditive-noise部分はQ2-4一般のno-goではなく、現行M54 direct-amplitude registerの障害条件とした。総物理資源が量子計算機と同程度であることは引き続き主張しない。
+- 付録Rと `tools/verify_r186_m54_projective_robustness.py` を追加し、R181C、R181D、R179、Q2-4の誤差・反証・残件台帳へ接続した。
+- README、PROJECT_STANCE、PROJECT_GUIDE、PROJECT_STATUS、概要、第1・2・8・9章、付録O/Q、生成器、CI、manifest、引用情報、統合原稿、TeX、PDFをdraft-78へ同期する。
+
+---
+
 # 変更記録
 
 ## draft-77：M37--W--Q1物理bridge

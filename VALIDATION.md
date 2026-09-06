@@ -1,5 +1,20 @@
 # 検算と品質確認
 
+## draft-78：black-box operational基準とR186頑健性境界
+
+```bash
+python -m py_compile tools/*.py
+for script in tools/verify_*.py; do python "$script"; done
+python tools/build_paper.py
+git diff --check
+```
+
+R186専用回帰では、直和operator normが最大block誤差に一致すること、疎coupler摂動が局所次数と係数誤差で抑えられること、独立phase noiseの平均fidelity損失がmode数に依存しないこと、projector latchの相対係数誤差、isotropic additive noiseの横方向traceが $(2^n-1)\sigma^2$ になることを決定論的に検査する。
+
+Q2-4の固定目標文言と「条件付き達成」ラベルは変更しない。black-box operational resourceとreported internal resourceを分離し、R186をQ2-4の根拠結果と残件・反証条件へ追加する。最終CI run、生成commit、PDFページ数と品質検査結果は生成後にこの節へ追記する。
+
+---
+
 ## draft-77：M37--W--Q1物理bridge
 
 ```bash

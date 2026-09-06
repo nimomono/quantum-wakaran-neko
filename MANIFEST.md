@@ -35,6 +35,7 @@
 - `sections/A15_m54_uniform_register.md`
 - `sections/A16_m54_projector_tree_receiver.md`
 - `sections/A17_m54_uniform_supply.md`
+- `sections/A18_m54_projective_robustness.md`
 - `sections/90_references.md`
 
 ## 論文外の研究メモ
@@ -99,6 +100,7 @@
 - `tools/verify_m54_spatial_matching.py`
 - `tools/verify_r181d_projector_tree.py`
 - `tools/verify_r179_m54_supply.py`
+- `tools/verify_r186_m54_projective_robustness.py`
 - `tools/verify_m54_q2_composition.py`
 - `tools/verify_m37_w_spectral_tunneling.py`
 - `tools/verify_r187_m37_w_q1_bridge.py`
@@ -121,6 +123,14 @@
 - `fonts/NotoSerifJP-Regular.ttf`
 
 旧版セクション、旧数値コード、旧PDF、査読回答履歴は収録しない。置換・退役した理論の最小索引と再検討条件は `notes/` に残し、完全な原稿と実装はGit履歴から参照する。
+
+## draft-78のblack-box operational基準とR186
+
+- 中心目的をblack-box operational equivalenceとして明文化し、内部自由度と外部制御複雑度を分離。
+- Q2-4固定目標と達成ラベルを維持し、operational resourceとreported internal resourceの境界を明示。
+- R186で疎な静的製造誤差、独立phase noise、projector latch係数誤差のdimension-free評価と、extensive additive noiseのM54 direct-mode障害条件を追加。
+- `sections/A18_m54_projective_robustness.md` と `tools/verify_r186_m54_projective_robustness.py` を追加。
+- draft-78へ再生成する `paper.md`、`main.tex`、`paper.pdf`。
 
 ## draft-77のM37--W--Q1物理bridge
 
