@@ -65,8 +65,24 @@ jobs:
           grep -Fq 'lock前にfilterを開かない' sections/A16_m54_projector_tree_receiver.md
           grep -Fq 'radial-only repump' sections/A16_m54_projector_tree_receiver.md
           grep -Fq 'aggregate cold誤差' sections/A17_m54_uniform_supply.md
-          grep -Fq 'version: "draft-71"' CITATION.cff
-          grep -Fq 'draft-71 改訂稿' tools/template.tex
+          grep -Fq 'version: "draft-72"' CITATION.cff
+          grep -Fq 'draft-72 改訂稿' tools/template.tex
+
+
+      - name: M55理論境界を検査
+        run: |
+          set -Ee -o pipefail
+          trap 'echo "::error::M55理論境界の失敗: $BASH_COMMAND"' ERR
+          test -f sections/A14_m55_spatial_moving_matching.md
+          test -f tools/verify_m55_moving_matching.py
+          test ! -e sections/A14_m37_m42_spatial_token.md
+          test ! -e tools/verify_m42_spatial_token.py
+          test "$(grep -Rho '定理（R183：' sections/*.md | wc -l)" -eq 1
+          test "$(grep -Rho '定理（R184：' sections/*.md | wc -l)" -eq 1
+          test "$(grep -Rho '定理（R185：' sections/*.md | wc -l)" -eq 1
+          grep -Fq '| M55 | 粒子--signal bath共同測度・moving-matching模型族 |' PROJECT_STATUS.md
+          grep -Fq '| Q3-2 | 部分達成 | M55 | R183、R185 |' PROJECT_STATUS.md
+          ! grep -R -E '現行Q3粒子模型.*M42|M42局在トークン|M37--M42' README.md PROJECT_STATUS.md sections/*.md
 
       - name: 収録PDFを退避
         run: cp paper.pdf /tmp/paper-committed.pdf
