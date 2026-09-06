@@ -31,7 +31,7 @@
 - `sections/A11_common_collision_bath_thermodynamics.md`
 - `sections/A12_common_action_shell_state_count.md`
 - `sections/A13_m54_template_port_preparation.md`
-- `sections/A14_m55_spatial_moving_matching.md`
+- `sections/A14_m54_spatial_moving_matching.md`
 - `sections/A15_m54_uniform_register.md`
 - `sections/A16_m54_projector_tree_receiver.md`
 - `sections/A17_m54_uniform_supply.md`
@@ -61,6 +61,7 @@
 - `notes/superseded_m49_joint_bath_cnot_provider.md`
 - `notes/superseded_m52_path_only_design.md`
 - `notes/superseded_separate_m51_m52_m53_models.md`
+- `notes/superseded_separate_m50_m55_models.md`
 - `notes/superseded_r178_aperture_sampler.md`
 - `notes/superseded_m42_continuous_particle_position.md`
 - `notes/q1_2_zeno_integration.md`
@@ -86,16 +87,16 @@
 - `tools/verify_envelope_reduction.py`
 - `tools/verify_m47_q1_instrument.py`
 - `tools/verify_m47_hopf_preparation.py`
-- `tools/verify_common_collision_thermodynamics.py`
+- `tools/verify_common_matching_collision.py`
 - `tools/verify_m47_action_shell_origin.py`
 - `tools/verify_q2_shell_and_locality.py`
 - `tools/verify_r180_m54_receiver.py`
 - `tools/verify_r180_bell_cycle.py`
 - `tools/verify_phase_correlation.py`
 - `tools/verify_q1xq1_common_bath.py`
-- `tools/verify_common_signal_m50.py`
+- `tools/verify_m54_static_instrument.py`
 - `tools/verify_r181a_template_port.py`
-- `tools/verify_m55_moving_matching.py`
+- `tools/verify_m54_spatial_matching.py`
 - `tools/verify_r181d_projector_tree.py`
 - `tools/verify_r179_m54_supply.py`
 - `tools/verify_m54_q2_composition.py`
@@ -119,6 +120,16 @@
 - `fonts/NotoSerifJP-Regular.ttf`
 
 旧版セクション、旧数値コード、旧PDF、査読回答履歴は収録しない。置換・退役した理論の最小索引と再検討条件は `notes/` に残し、完全な原稿と実装はGit履歴から参照する。
+
+## draft-74の模型・matching統一
+
+- M54をQ1/Q2/Q3共通signal--configuration親模型へ拡張し、M50をstatic-instrument profile、M55をspatial-moving profileへ吸収。
+- R161をcurrent--traffic matchingへ一般化し、旧R183のmoving matchingをspatial特殊化として吸収。
+- R162をgeneric directed-rate finite collisionとthermal detailed-balance特殊化へ一般化。
+- 付録NをM54 spatial profileへ改名し、generic collision証明を付録Kへ集約。
+- 検算器をM54 static/spatialとcommon matching/collisionへ再編。
+- 固定長期目標と達成ラベルは変更しない。
+- draft-74へ再生成する `paper.md`、`main.tex`、`paper.pdf`。
 
 ## draft-73の整合性修復
 

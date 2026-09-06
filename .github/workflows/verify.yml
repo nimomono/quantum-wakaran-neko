@@ -65,27 +65,32 @@ jobs:
           grep -Fq 'lock前にfilterを開かない' sections/A16_m54_projector_tree_receiver.md
           grep -Fq 'radial-only repump' sections/A16_m54_projector_tree_receiver.md
           grep -Fq 'aggregate cold誤差' sections/A17_m54_uniform_supply.md
-          grep -Fq 'version: "draft-73"' CITATION.cff
-          grep -Fq 'draft-73 改訂稿' tools/template.tex
+          grep -Fq 'version: "draft-74"' CITATION.cff
+          grep -Fq 'draft-74 改訂稿' tools/template.tex
 
 
-      - name: M55理論境界を検査
+      - name: M54 matching理論境界を検査
         run: |
           set -Ee -o pipefail
-          trap 'echo "::error::M55理論境界の失敗: $BASH_COMMAND"' ERR
-          test -f sections/A14_m55_spatial_moving_matching.md
-          test -f tools/verify_m55_moving_matching.py
-          test ! -e sections/A14_m37_m42_spatial_token.md
-          test ! -e tools/verify_m42_spatial_token.py
-          test "$(grep -Rho '定理（R183：' sections/*.md | wc -l)" -eq 1
+          trap 'echo "::error::M54 matching理論境界の失敗: $BASH_COMMAND"' ERR
+          test -f sections/A14_m54_spatial_moving_matching.md
+          test ! -e sections/A14_m55_spatial_moving_matching.md
+          test -f tools/verify_common_matching_collision.py
+          test -f tools/verify_m54_static_instrument.py
+          test -f tools/verify_m54_spatial_matching.py
+          test ! -e tools/verify_common_collision_thermodynamics.py
+          test ! -e tools/verify_common_signal_m50.py
+          test ! -e tools/verify_m55_moving_matching.py
+          test "$(grep -Rho '定理（R161：' sections/*.md | wc -l)" -eq 1
+          test "$(grep -Rho '定理（R162：' sections/*.md | wc -l)" -eq 1
+          test "$(grep -Rho '定理（R183：' sections/*.md | wc -l)" -eq 0
           test "$(grep -Rho '定理（R184：' sections/*.md | wc -l)" -eq 1
           test "$(grep -Rho '定理（R185：' sections/*.md | wc -l)" -eq 1
-          grep -Fq '| M55 | 粒子--signal bath共同測度・moving-matching模型族 |' PROJECT_STATUS.md
-          grep -Fq '| Q3-2 | 部分達成 | M55 | R183、R185 |' PROJECT_STATUS.md
-          grep -Fq 'R_{i,37}^{\delta,\mathrm{lat}}' sections/A14_m55_spatial_moving_matching.md
-          grep -Fq '一般有界有向率の有限衝突cell持上げ' sections/A14_m55_spatial_moving_matching.md
-          grep -Fq '\frac1\ell' sections/A14_m55_spatial_moving_matching.md
-          ! grep -Fq '旧R173の一般有向rate用collision構成を再利用' sections/A14_m55_spatial_moving_matching.md
+          grep -Fq '| Q3-2 | 部分達成 | M54 spatial profile | R161、R185 |' PROJECT_STATUS.md
+          ! grep -Eq '^\| M50 \||^\| M55 \|' PROJECT_STATUS.md
+          grep -Fq 'R_{i,37}^{\delta,\mathrm{lat}}' sections/A14_m54_spatial_moving_matching.md
+          grep -Fq '\frac1\ell' sections/A14_m54_spatial_moving_matching.md
+          grep -Fq '一般有界有向rateのfinite collision持上げ' sections/A11_common_collision_bath_thermodynamics.md
           ! grep -R -E '現行Q3粒子模型.*M42|M42局在トークン|M37--M42' README.md PROJECT_STATUS.md sections/*.md
 
       - name: 収録PDFを退避

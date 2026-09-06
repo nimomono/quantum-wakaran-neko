@@ -250,9 +250,9 @@ Q2_LEDGER_ROOTS: dict[str, set[str]] = {
 }
 
 Q2_LEDGER_MODELS: dict[str, set[str]] = {
-    "Q2-1": {"M54", "M50"},
-    "Q2-2": {"M54", "M50", "receiver"},
-    "Q2-3": {"M54", "M50"},
+    "Q2-1": {"M54"},
+    "Q2-2": {"M54", "receiver"},
+    "Q2-3": {"M54"},
     "Q2-4": {"M54"},
 }
 

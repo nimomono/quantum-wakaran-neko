@@ -1,5 +1,13 @@
 # 変更記録
 
+## draft-74：M54共通親模型とmatching/collision原理への統一
+
+- M54を一般signal index集合とconfiguration集合を持つQ1--Q3共通親模型族へ拡張した。M50をM54 static-instrument profile、M55をM54 spatial-moving profileへ吸収し、旧モデルIDは再利用しない。
+- R161を正のtarget分布、反対称current、対称trafficから前向きrateと同一母測度backward rateを作るcurrent--traffic matching定理へ一般化した。従来の平方根型詳細釣合いはstatic特殊化、旧R183 moving matchingはspatial特殊化として回収する。
+- R162を一般有界有向rateのfinite collision Hamiltonian近似とthermal detailed-balance特殊化へ一般化し、Q3付録に重複していたgeneric collision構成を共通付録Kへ集約した。
+- R184はM37 backendからM54 spatial profileへの開始作用latch誤差、R185はR161 backward rateからのNelson型縮約として整理した。M37はM54へ吸収せず局所ばねbackendとして残す。
+- PROJECT_STATUS、README、本文、付録、退役索引、検算器、CI、MANIFEST、引用情報を同期した。固定長期目標と達成ラベルは変更していない。
+
 ## draft-73：R184開始作用latchの正式化とQ3整合性修復
 
 - R184のM37実装を開始作用latch方式へ正式統一した。各試行で $S_{\rm ref}=\|b(0)\|^2$ をlatchし、背景容量を $|b_i(t)|^2+\delta q_iS_{\rm ref}$ とする。M37局所包絡の非保存作用 $\|b(t)\|^2$ を輸送中の背景へ書き戻さない。
