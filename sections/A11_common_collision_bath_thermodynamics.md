@@ -540,7 +540,7 @@ D_{\rm KL}
 正逆経路の初期密度、jump率、待機因子を比べる。待機因子は反転protocolの対応区間と相殺し、残る率比と端点密度比が $e^\Sigma$ を与える。逆経路確率の総和は1なので積分ゆらぎ関係が従う。瞬間quench式は規格化されたGibbs分布へ直接代入して得る。証明終。
 <!-- theorem-end:proof -->
 
-## K.6 R170：M50固定入力時刻有限枝instrumentの証明
+## K.6 R170：M54 static profile固定入力時刻instrumentの証明
 
 入力時刻 $t_\star$ に非零信号 $v$ を空の保持registerへ正準SWAPする。SWAPは自己逆であり、交換前のregisterと時計面を履歴へ残せば拡大写像は1対1である。保持誤差または閾値失敗は無反応へ送る。
 
@@ -604,7 +604,7 @@ G_{\rm rec}
 
 ## K.7 Q1・Q2・Q3周期への接続
 
-M47の1段測定はM50のQ1特殊化として次の操作面へ分ける。
+M47の1段測定はM54 static profileのQ1特殊化として次の操作面へ分ける。
 
 1. R181AのW型2モード系で信号bath方向を目標rayへ準備する。
 2. 方向を保持し、R164の作用枝容量と条件付き作用殻fiberを準備する。
@@ -614,11 +614,11 @@ M47の1段測定はM50のQ1特殊化として次の操作面へ分ける。
 6. 入射セルを止めて辺ゲートを閉じ、R140の傾斜保持とR143の局所記録を行う。
 7. 結果別テンプレート交換後、そのテンプレート方向に対して作用殻準備と再平衡化を行い、次の逐次測定へ渡す。
 
-1回の再平衡化誤差をM50の共通台帳
+1回のstatic matching誤差を共通台帳
 
 ```math
 \begin{aligned}
-\varepsilon_{M50}
+\varepsilon_{\rm match}
 ={}&\varepsilon_{\rm cap}
 +\varepsilon_{\rm width}
 +\varepsilon_{\rm sym}
@@ -632,7 +632,7 @@ M47の1段測定はM50のQ1特殊化として次の操作面へ分ける。
 
 で記帳する。$\varepsilon_{\rm mix}=C_\delta e^{-\lambda_\delta T_X}$、$\varepsilon_\delta=\delta/(1+\delta)$ と選べる。Q1では2モード漏れと局所辺閉鎖誤差をそれぞれ $\varepsilon_{2m}$、$\varepsilon_{\rm res}$ として別に加える。この段階分離により、旧連続matching保存をR143、R144の仮定に使わない。
 
-Q2-1はR181Dにより末端4mode信号を同次元hold-registerへSWAPし、容量latch後にR164/R170へ接続する。別の中間標本器を確率源として挟まない。Q2-2の切断後局所殻は各翼でR170を特殊化し、完全共通原因 $\Lambda$ に条件付けた積因子化誤差を別の $\varepsilon_{\rm prod}$ として加える。Q3はR164が与える同じ条件付き分布 $\pi^\delta(X\mid Z)$ を開始面でR161/R162により準備し、その後は付録NのM55/R183 moving matchingで同じ粒子を輸送する。M55の一般有向率は局所詳細釣合いを仮定せず、方向別controllerと仕事registerを持つ駆動衝突cellでR184へ実装する。任意の固定時刻を診断する代替経路だけが付録FのR170を使う。
+Q2-1はR181Dにより末端4mode信号を同次元hold-registerへSWAPし、容量latch後にR164/R170へ接続する。別の中間標本器を確率源として挟まない。Q2-2の切断後局所殻は各翼でR170を特殊化し、完全共通原因 $\Lambda$ に条件付けた積因子化誤差を別の $\varepsilon_{\rm prod}$ として加える。Q3はR164が与える同じ条件付き分布 $\pi^\delta(X\mid Z)$ を開始面でR161 static/R162 thermalにより準備し、その後は付録NのR161 moving specializationで同じ粒子を輸送する。spatial profileの一般有向率は局所詳細釣合いを仮定せず、R162 generic collisionをR184へ接続する。任意の固定時刻を診断する代替経路だけが付録FのR170を使う。
 
 Q2-4のM54では、全gate後にR181Dが各bitの直交projector作用をraw容量へlatchする。R164はregularized容量比を排他的Born型状態数へ解釈し、R161/R162/R170がselectorを形成する。selector lock後に可逆filterとradial-only repumpを作用する。同じR170作用殻receiverを逐次nodeで使い、別のaperture標本器を重ねない。$L=2^n$ のsignal、work、history、cold、spent容量は受動資源として指数的でもよいが、個別の外部準備・較正・読出しには使わない。
 
