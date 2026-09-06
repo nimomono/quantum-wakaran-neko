@@ -1,7 +1,7 @@
 @number: 1
 @chapter: 本文
 @title: 問題設定、現行模型、達成範囲
-@status: M54をQ1・Q2・Q3の共通有効profile族、M37をspatial signal sectorの物理backendとして区別し、系列固有protocolとsame-hardware統一目標を分離して現行因果鎖と未統合境界を示す。
+@status: M54をQ1・Q2・Q3の共通有効profile族、M37をQ3 spatial signalとR187条件下のQ1 W2 control carrierの物理backendとして区別し、系列固有protocolとsame-hardware統一目標を分離して現行因果鎖と未統合境界を示す。
 
 ## 1.1 研究上の問い
 
