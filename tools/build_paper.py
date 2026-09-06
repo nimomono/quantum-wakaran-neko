@@ -465,6 +465,35 @@ def validate_fixed_goal_language() -> None:
 
     validate_q2_dependency_ledgers()
 
+    # Guard the Q1 theorem hierarchy: R143 is one-stage, R144 is finite-sequence,
+    # while cycle reset remains an unnumbered implementation strengthening.
+    q1_text = (SECTIONS / "03_m47_controlled_w_instrument.md").read_text(
+        encoding="utf-8"
+    )
+    q1_proof_text = (
+        SECTIONS / "A2_m47_controlled_w_instrument_proofs.md"
+    ).read_text(encoding="utf-8")
+    if q1_text.count("定理（R143：") != 1:
+        raise ValueError("R143の定理宣言数が1ではない")
+    if q1_text.count("定理（R144：") != 1:
+        raise ValueError("R144の定理宣言数が1ではない")
+    r144_block = q1_text.split("**定理（R144：", 1)[1].split(
+        "<!-- theorem-end:theorem -->", 1
+    )[0]
+    for forbidden_token in ("永久記録", "内部逆計算", "fresh-cell", "交換reset"):
+        if forbidden_token in r144_block:
+            raise ValueError("R144へcycle強化が混入: " + forbidden_token)
+    for required_token in (
+        "固定有限段逐次測定合成",
+        r"\mathcal H_N",
+        "外部から量子状態を再準備しない",
+        "実装強化：永久記録、補助逆計算、交換reset",
+    ):
+        if required_token not in q1_text:
+            raise ValueError("Q1定理階層の必須要素がない: " + required_token)
+    if "永久記録、内部逆計算、fresh-cell交換はこの証明に使わない" not in q1_proof_text:
+        raise ValueError("R144証明のcycle非依存境界がない")
+
     required_paths = (
         SECTIONS / "04_m54_q2_specializations.md",
         SECTIONS / "05_m54_setting_pre_receiver.md",
