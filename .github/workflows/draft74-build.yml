@@ -1,0 +1,101 @@
+name: draft-74 build and validate
+
+on:
+  push:
+    branches:
+      - draft-74-unified-matching-m54
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-commit:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout draft branch
+        uses: actions/checkout@v4
+        with:
+          ref: draft-74-unified-matching-m54
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install build dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y pandoc poppler-utils texlive-latex-extra texlive-xetex
+          python -m pip install numpy
+
+      - name: Run all regressions
+        shell: bash
+        run: |
+          set -Eeuo pipefail
+          python -m py_compile tools/*.py
+          : > /tmp/draft74-verify.log
+          count=0
+          for script in tools/verify_*.py; do
+            echo "===== $script =====" | tee -a /tmp/draft74-verify.log
+            python "$script" 2>&1 | tee -a /tmp/draft74-verify.log
+            count=$((count + 1))
+          done
+          echo "VERIFY_SCRIPT_COUNT=$count" | tee -a /tmp/draft74-verify.log
+          cp /tmp/draft74-verify.log /tmp/draft74-verify-first.log
+
+      - name: Build manuscript twice and compare
+        shell: bash
+        run: |
+          set -Eeuo pipefail
+          python tools/build_paper.py
+          cp paper.md /tmp/paper-first.md
+          cp main.tex /tmp/main-first.tex
+          cp paper.pdf /tmp/paper-first.pdf
+          python tools/build_paper.py
+          diff -u /tmp/paper-first.md paper.md
+          diff -u /tmp/main-first.tex main.tex
+          pdftotext -layout /tmp/paper-first.pdf /tmp/paper-first.txt
+          pdftotext -layout paper.pdf /tmp/paper-second.txt
+          diff -u /tmp/paper-first.txt /tmp/paper-second.txt
+          test "$(pdfinfo /tmp/paper-first.pdf | awk '/^Pages:/ {print $2}')" = "$(pdfinfo paper.pdf | awk '/^Pages:/ {print $2}')"
+          test "$(pdfinfo /tmp/paper-first.pdf | awk -F: '/^Page size:/ {sub(/^ +/, "", $2); print $2}')" = "$(pdfinfo paper.pdf | awk -F: '/^Page size:/ {sub(/^ +/, "", $2); print $2}')"
+          ! grep -Eq "Citation .* undefined|Reference .* undefined|Overfull|Underfull|Fatal error|Missing character" build/latex/main.log
+          pdfinfo paper.pdf > /tmp/draft74-pdfinfo.txt
+
+      - name: Record draft-74 validation
+        shell: bash
+        run: |
+          set -Eeuo pipefail
+          count="$(grep '^VERIFY_SCRIPT_COUNT=' /tmp/draft74-verify-first.log | tail -1 | cut -d= -f2)"
+          pages="$(awk '/^Pages:/ {print $2}' /tmp/draft74-pdfinfo.txt)"
+          size="$(awk -F: '/^Page size:/ {sub(/^ +/, "", $2); print $2}' /tmp/draft74-pdfinfo.txt)"
+          cat >> VALIDATION.md <<EOF
+
+## draft-74 M54 matching統一
+
+- 実行日: 2026-09-07
+- 対象branch: `draft-74-unified-matching-m54`
+- `tools/verify_*.py`: ${count}本を全件実行し成功。
+- `python -m py_compile tools/*.py`: 成功。
+- `python tools/build_paper.py`: 2回連続実行し、`paper.md` と `main.tex` は完全一致。
+- 2回生成したPDFは `pdftotext -layout` の本文、ページ数、ページ寸法が一致。
+- LaTeX logに未解決Citation/Reference、Overfull、Underfull、Fatal error、Missing characterはなし。
+- 生成PDF: ${pages}ページ、${size}。
+- draft-74ではR161のstatic/moving一般化、R162のgeneric/thermal一般化、M50/M55/R183のM54 profileへの吸収を検査対象へ追加した。固定長期目標と達成ラベルは変更していない。
+EOF
+
+      - name: Commit generated manuscript
+        shell: bash
+        run: |
+          set -Eeuo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add paper.md main.tex paper.pdf VALIDATION.md
+          if git diff --cached --quiet; then
+            echo "No generated changes to commit"
+          else
+            git commit -m "draft-74: regenerate manuscript and validation"
+            git push origin HEAD:draft-74-unified-matching-m54
+          fi
