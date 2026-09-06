@@ -5,22 +5,22 @@
 
 ## 2.1 M54をQ1--Q3共通親模型族とする範囲
 
-M54は、有限個の実正準対から得るsignalと有限configuration変数を、準備、可逆操作、matching、作用殻receiver、記録まで運ぶ共通模型族である。有限signal index集合 \(\Lambda\) と有限configuration集合 \(\mathcal I\) に対する完全状態を
+M54は、有限個の実正準対から得るsignalと有限configuration変数を、準備、可逆操作、matching、作用殻receiver、記録まで運ぶ共通模型族である。有限signal index集合 $\Lambda$ と有限configuration集合 $\mathcal I$ に対する完全状態を
 
-\`\`\`math
+```math
 \Gamma_{54}^{(\Lambda,\mathcal I)}
 =
 (Z,S_{\rm port},G,W,J,A^\delta,X,C,
 B_{\rm cold},B_{\rm spent},D,\tau,S_{\rm ref})
-\`\`\`
+```
 
-と書く。\(Z\in\mathbb C^\Lambda\) は実正準対 \(Q,P\) の派生表示
+と書く。$Z\in\mathbb C^\Lambda$ は実正準対 $Q,P$ の派生表示
 
-\`\`\`math
+```math
 Z=\frac{Q+iP}{\sqrt{2\mathcal J_0}}
-\`\`\`
+```
 
-であり、独立した複素実体ではない。\(X\in\mathcal I\) はprofileに応じて測定枝selectorまたは空間セル上の実在粒子位置を表す。\(S_{\rm port}\) はsource/template port、\(G,W\) はanti-registerと可逆work、\(J,A^\delta\) はraw・regularized作用容量、\(C\) は有限衝突cellと履歴、\(B_{\rm cold},B_{\rm spent}\) は未使用・使用済みbank、\(D\) は外部記録、\(\tau\) はclockである。\(S_{\rm ref}\) はM37局所ばねbackendを使うspatial profileだけが開始面で使う作用latchであり、他profileでは空でよい。
+であり、独立した複素実体ではない。$X\in\mathcal I$ はprofileに応じて測定枝selectorまたは空間セル上の実在粒子位置を表す。$S_{\rm port}$ はsource/template port、$G,W$ はanti-registerと可逆work、$J,A^\delta$ はraw・regularized作用容量、$C$ は有限衝突cellと履歴、$B_{\rm cold},B_{\rm spent}$ は未使用・使用済みbank、$D$ は外部記録、$\tau$ はclockである。$S_{\rm ref}$ はM37局所ばねbackendを使うspatial profileだけが開始面で使う作用latchであり、他profileでは空でよい。
 
 M54は共通の状態型、因果契約、port規約を定める模型族であって、全profileを同じ製造済み装置または同一パラメータで実装したという主張ではない。Q1--Q3を同じ反復周期と同じ物理部品へ統合するM0は、引き続きM54より強い未完成目標である。
 
@@ -28,14 +28,14 @@ M54は共通の状態型、因果契約、port規約を定める模型族であ�
 
 | 系列 | M54 profile | signal / configuration | 準備・操作 | matching / 出力 |
 |---|---|---|---|---|
-| Q1 | W型2モード static profile | \(|\Lambda|=2\)、2枝 \(X\) | R181A、R140 | R161 static、R162 thermal、R170、R143 |
-| Q2-1 | 2-bit register static profile | \(|\Lambda|=4\)、projector-tree \(X\) | R181B、R181C | R161 static、R162 thermal、R181D |
-| Q2-2 | 2-bit register + setting-pre receiver | \(|\Lambda|=4\)、2翼局所 \(X\) | R181B/R181C、R180 | 局所R161 static、R162 thermal、R180C |
-| Q2-3 | 3-bit persistent register | \(|\Lambda|=8\) | R181Bを2回、R181C、R177 | R161 static、R162 thermal、R181D |
-| Q2-4 | 一般 \(n\)-bit register | \(|\Lambda|=2^n\) | R181A radial port、R179、R181C | R161 static、R162 thermal、R181D |
-| Q3 | spatial-moving profile | \(\Lambda=\mathcal I=V\)、\(\Psi=I\) | R181Aを準備portとして使用可、必要時M37/R184 | R161 moving、R162 generic、R185、同じ \(X_T\) を記録 |
+| Q1 | W型2モード static profile | $|\Lambda|=2$、2枝 $X$ | R181A、R140 | R161 static、R162 thermal、R170、R143 |
+| Q2-1 | 2-bit register static profile | $|\Lambda|=4$、projector-tree $X$ | R181B、R181C | R161 static、R162 thermal、R181D |
+| Q2-2 | 2-bit register + setting-pre receiver | $|\Lambda|=4$、2翼局所 $X$ | R181B/R181C、R180 | 局所R161 static、R162 thermal、R180C |
+| Q2-3 | 3-bit persistent register | $|\Lambda|=8$ | R181Bを2回、R181C、R177 | R161 static、R162 thermal、R181D |
+| Q2-4 | 一般 $n$-bit register | $|\Lambda|=2^n$ | R181A radial port、R179、R181C | R161 static、R162 thermal、R181D |
+| Q3 | spatial-moving profile | $\Lambda=\mathcal I=V$、$\Psi=I$ | R181Aを準備portとして使用可、必要時M37/R184 | R161 moving、R162 generic、R185、同じ $X_T$ を記録 |
 
-Q1/Q2のstatic profileでは、各操作面または末端読出し面でR164の条件付き分布へ有限時間matchingし、必要な枝をlockして記録する。Q3のspatial profileでは、開始面で同じ条件付き分布を準備した後、信号currentに従うR161 moving specializationが同じ粒子を全時刻輸送する。したがってstatic測定と空間運動は別の確率原理ではなく、同じmatching定理の \(j=0\) と \(j\neq0\) の特殊化である。
+Q1/Q2のstatic profileでは、各操作面または末端読出し面でR164の条件付き分布へ有限時間matchingし、必要な枝をlockして記録する。Q3のspatial profileでは、開始面で同じ条件付き分布を準備した後、信号currentに従うR161 moving specializationが同じ粒子を全時刻輸送する。したがってstatic測定と空間運動は別の確率原理ではなく、同じmatching定理の $j=0$ と $j\neq0$ の特殊化である。
 
 M37はM54へ吸収しない。M37はM54 spatial signal sectorを局所位置ばねだけで有限時間近似する物理backendであり、R86からR184へ誤差を渡す。M54の全部品がM37から導出されたとはしない。W型入力をQ2各目標の必須前提へ追加せず、固定目標と達成ラベルもこの模型統合だけでは変更しない。
 
@@ -386,25 +386,25 @@ E_i^\delta(v)=-\Theta\log\pi_i^\delta(v)
 
 ## 2.8 R161/R162の共通matchingと有限衝突実装
 
-有限configuration集合 \(\mathcal I\) 上の正の時間依存確率分布 \(\pi_i(t)>0\) を考える。辺ごとに反対称currentと対称traffic
+有限configuration集合 $\mathcal I$ 上の正の時間依存確率分布 $\pi_i(t)>0$ を考える。辺ごとに反対称currentと対称traffic
 
-\`\`\`math
+```math
 j_{ij}=-j_{ji},
 \qquad
 t_{ij}=t_{ji}\geq |j_{ij}|
-\`\`\`
+```
 
 を取り、
 
-\`\`\`math
+```math
 \dot\pi_i
 =
 \sum_jj_{ji}
-\`\`\`
+```
 
 を仮定する。前向き・同一母測度の後向きrateを
 
-\`\`\`math
+```math
 k^+_{i\to j}
 =
 \frac{t_{ij}+j_{ij}}{2\pi_i},
@@ -412,59 +412,59 @@ k^+_{i\to j}
 k^-_{i\to j}
 =
 \frac{t_{ij}-j_{ij}}{2\pi_i}
-\`\`\`
+```
 
 と置く。
 
 <!-- theorem-start:theorem -->
 **定理（R161：有限configurationのcurrent--traffic matching）**
 
-上の仮定の下で \(k^\pm\) は非負であり、
+上の仮定の下で $k^\pm$ は非負であり、
 
-\`\`\`math
+```math
 \pi_i k^+_{i\to j}
 -
 \pi_j k^+_{j\to i}
 =
 j_{ij}
-\`\`\`
+```
 
-なので、\(\pi(t)\) は前向きmaster方程式の解である。初期分布が \(\pi(0)\) なら全有限時刻で \(P(X_t=i)=\pi_i(t)\) が成り立つ。同じpath measureのBayes反転は
+なので、$\pi(t)$ は前向きmaster方程式の解である。初期分布が $\pi(0)$ なら全有限時刻で $P(X_t=i)=\pi_i(t)$ が成り立つ。同じpath measureのBayes反転は
 
-\`\`\`math
+```math
 \frac{\pi_jk^+_{j\to i}}{\pi_i}
 =
 k^-_{i\to j}
-\`\`\`
+```
 
 を満たす。
 
-static profileでは \(j=0\) とし、
+static profileでは $j=0$ とし、
 
-\`\`\`math
+```math
 t_{ij}
 =
 2\kappa_Xa_{ij}\sqrt{\pi_i^\delta\pi_j^\delta}
-\`\`\`
+```
 
 を選ぶと
 
-\`\`\`math
+```math
 k_{i\to j}
 =
 \kappa_Xa_{ij}
 \sqrt{\frac{\pi_j^\delta}{\pi_i^\delta}}
-\`\`\`
+```
 
-となる。有限連結グラフ、\(\pi_i^\delta\geq m_\delta=\delta q_{\min}/(1+\delta)\) では、このstatic鎖の唯一の定常分布は \(\pi^\delta\) であり、
+となる。有限連結グラフ、$\pi_i^\delta\geq m_\delta=\delta q_{\min}/(1+\delta)$ では、このstatic鎖の唯一の定常分布は $\pi^\delta$ であり、
 
-\`\`\`math
+```math
 D_{\rm TV}(p_{\tau_X},\pi^\delta)
 \leq
 C_\delta e^{-\lambda_\delta\tau_X},
-\`\`\`
+```
 
-\`\`\`math
+```math
 \lambda_\delta
 =
 \kappa_Xa_{\min}m_\delta\lambda_G,
@@ -472,27 +472,27 @@ C_\delta e^{-\lambda_\delta\tau_X},
 C_\delta
 =
 \frac12\sqrt{m_\delta^{-1}-1}.
-\`\`\`
+```
 
-またR164の理想枝重みとの差は \(\delta/(1+\delta)\) 以下である。
+またR164の理想枝重みとの差は $\delta/(1+\delta)$ 以下である。
 
-spatial profileでは \(\Lambda=\mathcal I=V\)、\(\Psi=I\) とし、signal continuity equationから得る \(j\) と正の対称traffic \(t\) を代入する。付録Nの選択では旧R183のmoving-matching rateがそのままR161の特殊化として得られる。
+spatial profileでは $\Lambda=\mathcal I=V$、$\Psi=I$ とし、signal continuity equationから得る $j$ と正の対称traffic $t$ を代入する。付録Nの選択では旧R183のmoving-matching rateがそのままR161の特殊化として得られる。
 <!-- theorem-end:theorem -->
 
 <!-- theorem-start:theorem -->
 **定理（R162：一般有界有向rateの有限衝突実装と熱的特殊化）**
 
-固定有限グラフ、固定有限時間 \(T\)、区分連続で
+固定有限グラフ、固定有限時間 $T$、区分連続で
 
-\`\`\`math
+```math
 M_*=
 \sup_{0\leq t\leq T}
 \max_i\sum_{j\ne i}k_{i\to j}(t)<\infty
-\`\`\`
+```
 
 を満たす一般有向rateについて、有限個のthreshold cell、clock、履歴、work registerと有限駆動Hamiltonian散乱列を選び、指定した有限個の読出し時刻における位置分布を対象Markov過程へ任意精度で近似できる。時間凍結、collision境界、clock、有限bankの誤差を
 
-\`\`\`math
+```math
 \varepsilon_{162}^{\rm gen}
 =
 \varepsilon_{\rm step}
@@ -502,9 +502,9 @@ M_*=
 \varepsilon_{\rm clk}
 +
 \varepsilon_{\rm over}
-\`\`\`
+```
 
-として分離でき、1-step-per-window構成では \(\varepsilon_{\rm over}=0\) と選べる。
+として分離でき、1-step-per-window構成では $\varepsilon_{\rm over}=0$ と選べる。
 
 R161 static profileの平方根型rateについては、対称障壁と指数入射流束を用いるthermal specializationを選べる。この場合は局所詳細釣合い、正逆Hamiltonian散乱、有限energy tailとfinite-cell overflow評価が成り立ち、従来のR162有限衝突熱浴を回収する。
 <!-- theorem-end:theorem -->
