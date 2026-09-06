@@ -1,7 +1,7 @@
 @number: 1
 @chapter: 本文
 @title: 問題設定、現行模型、達成範囲
-@status: M54をQ1・Q2の共通親模型族とし、R181A--R181Dから各系列を派生させる現行因果鎖、Q3への準備port受渡し、未統合境界を示す。
+@status: M54をQ1・Q2・Q3の共通有効profile族、M37をspatial signal sectorの物理backendとして区別し、系列固有protocolとsame-hardware統一目標を分離して現行因果鎖と未統合境界を示す。
 
 ## 1.1 研究上の問い
 
@@ -27,6 +27,8 @@
 | 複合系への拡張 | Q1入力、共同担体、結合操作、読出し | W型入力の抽出・転送の物理実装 |
 
 M54による初期実座標の準備は、M37の運動法則をQ1から導くことではない。力学命題は指定された初期実座標を条件として始め、準備の構成は別に接続する。Q3全体の達成をQ1導出の前提にはしない。
+
+本稿では「統一」を二層に分ける。M54は共通状態型、因果契約、port、matching/readout原理を共有する有効profile族であり、M37はそのspatial signal sectorを局所ばねHamiltonianから実装する物理backendである。共通profileを共有することは、同じ製造済みハードウェアを共有することを意味しない。全系列を同じ物理port、担体、bath、clock、反復周期へ統合する強い主張はM0に残す。
 
 ## 1.2 現行因果鎖
 
@@ -68,7 +70,7 @@ D_{X_T}
 
 | 系列 | 信号準備と操作 | 単一試行の下流入力 | 系列固有の下流結果 |
 |---|---|---|---|
-| Q1 | M54/R181A、M47、R135、R140、R143--R144 | 単一試行のW型信号bath座標 | R181Dの深さ1とR143のW型状態更新 |
+| Q1 | M54/R181A、Q1 W型2モードprotocol（旧M47）、R135、R140、R143--R144 | 単一試行のW型信号bath座標 | R181Dの深さ1とR143のW型状態更新 |
 | Q2-1 | M54、R112、R181B--R181D | 1試行内の永続4mode信号とanti/work | 可逆tensor-lift、CNOT、逆演算、条件付き末端instrument |
 | Q2-2 | M54、R180A--R180C | M54の1試行末端信号と切断後の各翼の局所信号 | setting-pre block抽出、paired-Hopf、2つのR170の条件付き局所合成、Bell監査、帰還 |
 | Q2-3 | M54、R181B--R181D、R177 | 3部分系の永続8mode信号とanti/work | A--B、B--C、GHZ--$T$--逆演算、条件付き末端instrument |
@@ -77,14 +79,15 @@ D_{X_T}
 
 集団の第2モーメント、交差モーメント、共同頻度を単一試行controllerへ書き戻さない。Q1・Q2は各試行の有限signalだけをM54 static profileへ渡す。Q3は各試行のM37実振動子、M54 spatial profileの現在位置、局所collision cellだけを進める。
 
-## 1.3 現行模型
+## 1.3 現行模型と実装階層
 
-| 模型 | 役割 | 状態 |
-|---|---|---|
-| M0 | Q1--Q3を同一ハードウェアと反復周期へ統合する目標 | 未完成 |
-| M54 | 共通signal--configuration模型族 | Q1/Q2のstatic profileとQ3のspatial-moving profileを同じ状態型、R164、R161、R162から派生する。R181A--R181Dは準備、lift、gate、projector-treeを与える |
-| M37 | M54 spatial signal sectorの局所ばねbackend | 現行基礎Hamiltonian模型。R86/R184でM54 spatial profileへ接続 |
-| M47 | W型2モードsignal・粒子位置の測定protocol | 現行Q1複合protocol。M54 static profileを使用 |
+| 識別 | 分類 | 役割 | 状態 |
+|---|---|---|---|
+| M54 | 共通有効signal--configuration profile族 | Q1/Q2のstatic profileとQ3のspatial-moving profileを同じ状態型、R164、R161、R162から派生する。R181A--R181Dは準備、lift、gate、projector-treeを与える | 現行有効層 |
+| M37 | 物理Hamiltonian backend | M54 spatial signal sectorを局所位置ばね網からR86/R184で実装する | 現行物理backend |
+| M0 | same-hardware統一目標 | M54各profile、M37 backend、系列固有protocol、記録、外部流路を同じハードウェアと反復周期へ統合する | 未完成 |
+
+系列固有のQ1 W型2モード制御・測定は、M54 W2 static profile上のprotocolとして扱う。旧版のモデルID M47は参照互換のため「旧M47」として残すが、現行模型表へ独立模型として二重計上しない。Q2-2のR180もM54 static profileに接続する系列固有receiverであり、M54とは別の親模型ではない。
 
 置換済み模型と独立研究線は本文の模型地図へ並べない。最小索引は `notes/superseded_result_index.md`、詳細は各研究メモとGit履歴に置く。
 
@@ -92,27 +95,27 @@ D_{X_T}
 
 「達成」は、固定した範囲で基準を厳密に満たすか、任意の $\epsilon>0$ に対して誤差を $\epsilon$ 未満にする有限構成を選べることを指す。形式極限、構成のない収束仮定、無反応試行の事後除外は含めない。
 
-| 目標 | 現在地 | 根拠モデル | 根拠結果 | 主な残件 |
-|---|---|---|---|---|
-| Q1-1 | 達成 | M47 | R135、R140 | なし |
-| Q1-2 | 部分達成 | M47、M54 | R140、R143--R144、R161、R162、R164、R168、R170、R181A、R181D | Born分布、同軸反復分布、異軸逐次分布は導出済み。零傾斜Rabi対照、反復測定、全履歴、tilt対照、有限誤差を含むZeno抑制余裕が残る |
-| Q2-1 | 条件付き達成 | M54 static profile | R112、R161、R162、R164、R170、R181A--R181D | 容量pointerから作用殻、混合、固定、記録までの末端一体化 |
-| Q2-2 | 条件付き達成 | M54 static profile＋setting-pre paired-Hopf receiver | R112、R161、R162、R164、R170、R181A--R181D、R180A--R180C | R180Cの単一装置統合、自由設定、空間分離、一般状態の完全装置化 |
-| Q2-3 | 条件付き達成 | M54三部分系static profile | R112、R161、R162、R164、R170、R177、R181A--R181D | Q2-1と同じ末端一体化条件。一般サイズの資源効率はQ2-4に残る |
-| Q2-4 | 条件付き達成 | M54 | R112、R161、R162、R164、R170、R181A--R181D、R178D、R179 | 静的sector配線、R170 collision、controlled filter、radial repump、cold/spent開放境界を一つの一様装置族へ統合する。受動bank容量と総熱は指数的でもよい |
-| Q3-1 | 達成 | M37 | R86 | 一般複素hoppingと時間依存一様極限は範囲外 |
-| Q3-2 | 部分達成 | M54 spatial profile | R161、R185 | 理想M54 spatial層では同一母測度の前後生成子と時間対称Newton則を導出。finite collisionから合成加速度への明示誤差が残る |
-| Q3-3A | 達成 | M37、R123有限環境 | R86、R123（井戸型） | なし |
-| Q3-3B | 達成 | M37、R123有限環境 | R86、R123（調和型） | なし |
-| Q3-3C | 達成 | M37、R123有限環境 | R86、R123、R182 | なし |
-| Q3-4A | 条件付き達成 | M54 spatial profile、M37 | R86、R124、R161、R181A、R184 | M54準備、M37担体、初期matching、spatial輸送、記録までの単一装置統合 |
-| Q3-4B | 条件付き達成 | M54 spatial profile、M37 | R86、R161、R184、R181A、R182 | M54準備、M37静的W型担体、初期matching、spatial輸送、半周期・一周期clock、終位置記録までの単一装置統合 |
-| Q3-5 | 条件付き達成 | M54 spatial profile、M37 | R86、R125、R161、R181A、R184 | 同上。幾何学的2開口と連続スクリーンは未構成 |
-| Q3-6 | 未達 | 完結モデルなし | なし | 節、巻数、位相すべり、細分化安定性、非整数モノドロミー排除の統合 |
+| 目標 | 現在地 | 中心的な実現層 | 主な残件 |
+|---|---|---|---|
+| Q1-1 | 達成 | M54 W2 static profile上のQ1 W型2モード制御protocol | 固定目標上の残件なし。M37--W物理backend接続は強化課題 |
+| Q1-2 | 部分達成 | 同じW2 profile上のQ1測定protocol | 測定統計は導出済み。Zeno抑制の有限誤差付き接続が残る |
+| Q2-1 | 条件付き達成 | M54 static profileと永続register | 末端instrumentの単一装置統合 |
+| Q2-2 | 条件付き達成 | M54 static profileとR180 receiver | R180Cの単一装置統合、自由設定、空間分離、一般状態 |
+| Q2-3 | 条件付き達成 | M54三部分系static profile | 末端一体化。一般サイズ資源はQ2-4で判定 |
+| Q2-4 | 条件付き達成 | M54一般static profileと受動bank | 一様装置族としての静的sector、collision、filter、bank、clock統合 |
+| Q3-1 | 達成 | M37 | 固定目標上の残件なし |
+| Q3-2 | 部分達成 | M54 spatial profile | finite collisionから時間対称加速度への明示誤差 |
+| Q3-3A | 達成 | M37＋有限環境 | なし |
+| Q3-3B | 達成 | M37＋有限環境 | なし |
+| Q3-3C | 達成 | M37＋有限環境 | なし |
+| Q3-4A | 条件付き達成 | M54 spatial profile＋M37 backend | 準備から終位置記録までの単一装置統合 |
+| Q3-4B | 条件付き達成 | M54 spatial profile＋M37 W型backend | 半周期・一周期を含む単一装置統合 |
+| Q3-5 | 条件付き達成 | M54 spatial profile＋M37 backend | 同上。幾何学的2開口と連続スクリーンは未構成 |
+| Q3-6 | 未達 | 完結層なし | 節、巻数、位相すべり、細分化安定性、非整数モノドロミー排除の統合 |
 
-固定目標の文言と達成判定の詳細は `PROJECT_STATUS.md` を正本とする。Q1-2はBorn分布、同軸反復分布、異軸逐次分布を導出済みとし、Zeno部分が未達であるため部分達成とする。Q2-1からQ2-4は、明記した根拠モデルと根拠結果から互いに独立に判定する。これは他のQ2目標の達成ラベルを前提にしないという意味であり、同じ模型または部品定理を複数の根拠行へ載せることは禁止しない。共通ハードウェア族への統合は固定目標とは別の実装努力目標である。Q2-3は3量子ビット型二段ゲート合成、Q2-4は指数的な受動自由度を許す多項式外部制御サンプリングである。置換または削除した旧固定目標は退役索引に保存する。
+固定目標の文言、達成判定、profile/backend/protocol別の完全な依存台帳は `PROJECT_STATUS.md` を正本とする。本文では完全なR番号表を複製しない。Q1-2はBorn分布、同軸反復分布、異軸逐次分布を導出済みとし、Zeno部分が未達であるため部分達成とする。Q2-1からQ2-4は、明記した根拠モデルと根拠結果から互いに独立に判定する。これは他のQ2目標の達成ラベルを前提にしないという意味であり、同じ模型または部品定理を複数の根拠行へ載せることは禁止しない。共通ハードウェア族への統合は固定目標とは別の実装努力目標である。Q2-3は3量子ビット型二段ゲート合成、Q2-4は指数的な受動自由度を許す多項式外部制御サンプリングである。置換または削除した旧固定目標は退役索引に保存する。
 
-## 1.5 根拠モデルの独立性と模型間受渡し
+## 1.5 達成判定の独立性と模型間受渡し
 
 Q2固定目標は、Q2-1のM54 static profile、Q2-2のM54/R180 receiver、Q2-3のM54三部分系static profile、Q2-4のM54一般profileをそれぞれの根拠として独立に判定する。Q2-1とQ2-2がM54を共有しても、一方の達成状態から他方を推論しない。規模ごとの一様な共通ハードウェア族へ統合することは、別の実装努力目標である。Q3-3A--Q3-3CとQ3-4A--Q3-4Bも接尾辞ごとに独立に判定し、系列名Q3-3、Q3-4へ独立した達成状態を置かない。
 
@@ -137,6 +140,6 @@ M54は同じ試行の $Z_S$、anti-register、work/historyをそのまま次のg
 
 第2章はM54の完全状態型とR181A--R181D、第3章はM54の $n=1$ W型Q1特殊化、第4章は $n=2,3$ のQ2特殊化、第5章はM54駆動R180 Bell receiver、第6章と第7章はM54 spatial-moving profileとM37による局所ばねbackendを扱う。第8章は誤差、資源、反証条件をまとめ、第9章で結論を述べる。
 
-付録AはR112、BはQ1 instrument、CはR181B/R181Cの有限次元特殊化、DはR180A/C、E--GはQ3、HはR181AのW型特殊化、IはR180B、JはQ2二段合成、K--LはR161/R162/R164/R170、MはR181A、NはM54 spatial moving matching、Oは一様register代数、PはR181D projector-tree、QはR179のbank供給を扱う。
+付録AはR112、BはQ1 instrument、CはR181B/R181Cの有限次元特殊化、DはR180A/C、E--GはQ3、HはM54/R181A/R135/R140のW型2モード対応、IはR180B、JはQ2二段合成、K--LはR161/R162/R164/R170、MはR181A、NはM54 spatial moving matching、Oは一様register代数、PはR181D projector-tree、QはR179のbank供給を扱う。
 
 導出主線を追う場合は、第6.2〜6.7節の実運動と静的縮約、第3.3〜3.5節のW型縮約、第3.5.1節の受渡し系を先に読む。その後に共通測定、第4章の共同担体、第7章の粒子位置現象へ進む。章番号と固定目標の段階番号は論理的な依存順を意味しない。
