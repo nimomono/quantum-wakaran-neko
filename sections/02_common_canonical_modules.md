@@ -342,7 +342,7 @@ D_{\rm tr}(R_Z^G,C_Z)
 \frac{\sqrt{\operatorname{Var}(Z^\dagger Z)}}{\overline S}
 ```
 
-で抑えられる。R168はM37を前提とせず、Q1・Q2が単一試行信号をM50へ渡すとき、およびQ3が初期M42位置または固定時刻代替診断へ信号を渡すときの共通統計写像である。証明と可変作用反例は付録Fに置く。
+で抑えられる。R168はM37を前提とせず、Q1・Q2が単一試行信号をM50へ渡すとき、およびQ3がM55の初期matchingまたは固定時刻代替診断へ信号を渡すときの共通統計写像である。証明と可変作用反例は付録Fに置く。
 
 ## 2.7 M50の作用容量と枝状態数
 
@@ -840,6 +840,49 @@ O\!\left(
 R181Cは指数個の個別gate設定、R181Dは全 $2^n$ 葉の一括読出し、R179は指数個の個別blank初期化を避ける。従ってM54はQ2-4を条件付き達成へ進める。条件は、R170作用殻、R162 collision cell、controlled filter、radial repump、一様bank--bath結合を同じsafe setとclockで接続することである。
 
 本構成は通常の計算量理論における多項式資源の古典simulationではない。指数個の受動自由度、静的結合、bath容量、総熱を許した上で、外部制御と総時間を多項式に抑える結果である。未知量子入力、適応中間測定、誤り訂正、固定容量bathによる無期限独立同分布標本は主張しない。M54はQ1・Q2の共通親模型族だが、同一の製造済み装置や同一パラメータを主張しない。
+
+## 2.20 M55：粒子--signal bath共同測度とmoving matching
+
+M55は、Q1・Q2で使う「単一試行の実正準signalを物理入力とし、rank-one複素rayは集団統計としてだけ使う」という契約を、Q3の空間配置と全時刻輸送へ拡張する親模型である。1試行の最小状態を
+
+~~~math
+\Gamma_{55}
+=
+(Z,X,C,H,\tau,S_{\rm ref})
+~~~
+
+とする。$Z=(Q+iP)/\sqrt{2\mathcal J_0}$ は実正準対の派生表示、$X$ は1個の実在粒子位置、$C$ はfinite collision cell、$H$ は履歴、$\tau$ はclockである。共同測度を $\mu_t(dX\,dZ)$ とし、
+
+~~~math
+C_Z
+=
+\frac{\mathbb E[ZZ^\dagger]}
+{\mathbb E[Z^\dagger Z]}
+~~~
+
+は単一試行controllerへ入力しない。
+
+Hermitian $h=A+iB$、$A^{\mathsf T}=A$、$B^{\mathsf T}=-B$ に対する実Hamiltonian
+
+~~~math
+H_{55}^{\rm sig}
+=
+\frac{Q^{\mathsf T}AQ+P^{\mathsf T}AP}{2\mathcal J_0}
++
+\frac{P^{\mathsf T}BQ}{\mathcal J_0}
+~~~
+
+は厳密に $i\mathcal J_0\dot Z=hZ$ を与える。R164と同じ条件付き容量
+
+~~~math
+R_i^\delta(Z)
+=
+|Z_i|^2+\delta q_iZ^\dagger Z
+~~~
+
+から得る $\pi_i^\delta(Z)$ を、Q1・Q2ではR161による固定signalへの操作面再平衡化として使い、Q3ではR183によりmoving matchingとして全時刻保存する。R135がrank oneなら $Z=\alpha\psi$ が各試行で成り立つため、統計的ray $\psi$ を位置controllerへ書き戻さずに正則化Born分布を得る。
+
+M55はM54を置換しない。M54はQ1・Q2の準備、永続register、gate、末端instrumentを担い、M55はQ3の位置確率過程を担う。M37はM55の空間signal sectorを局所位置ばねだけで有限時間近似する担体実現模型であり、そのrate・分布誤差はR184で評価する。R185の時間対称Newton則はまず厳密M55 signal sectorで導き、生のM37 micromotionから加速度まで直接導いたとはしない。
 
 ## 2.19 物理的意味と限界
 

@@ -1,7 +1,7 @@
 @number: 8
 @chapter: 本文
 @title: 誤差、資源、反証条件、未完成目標
-@status: M54から派生するQ1・Q2、R180 receiver、M37--M42、M50を横断比較し、R181A--R181D、有限資源、反証条件、未完成目標を整理する。
+@status: M54から派生するQ1・Q2、R180 receiver、M55--M37、M50を横断比較し、R181A--R181D、有限資源、反証条件、未完成目標を整理する。
 
 ## 8.1 誤差を1回だけ数える規約
 
@@ -194,90 +194,93 @@ C_\tau\varepsilon_{\rm block}
 
 従ってBellの定理を否定しない。自由設定、空間分離、一般状態receiverは達成範囲に含まない。
 
-## 8.7 Q3のM37--M42誤差
+## 8.7 Q3のM55--M37 moving-matching誤差
 
-Q3ではR135をM37担体集団の統計診断に使い、単一試行の粒子輸送はR172--R174へ分ける。完全結果分布の中心誤差を
+Q3ではR164と同じ条件付き分布 $\pi^\delta(X\mid Z)$ を確率源として共有する。Q1・Q2は固定signalへのR161再平衡化、Q3はR183のmoving matchingを使う。M55/R183--R184は現行依存から退役する。
 
-```math
+M37を使わない理想M55 signal sectorではR183のmatchingは厳密であり、rank-one統計から厳密な $|\psi|^2$ と比較するときだけ
+
+~~~math
+\varepsilon_\delta
+=
+\frac{\delta}{1+\delta}
+~~~
+
+を加える。M37局所ばね実装では
+
+~~~math
+\varepsilon_{\rm car\to rate}(T)
+=
+T L_\delta(\eta)\varepsilon_{\rm car}(T)
+~~~
+
+とし、
+
+~~~math
 \begin{aligned}
-\varepsilon_{174}(T)
+\varepsilon_{184}(T)
 \leq{}&
 \varepsilon_{\rm prep}
 +\varepsilon_{\rm init}
-+T
-\left[
-|E|\sigma
-+\frac{2H_E}{\mathcal J_0}\sqrt\rho
-\right]\\
-&+\varepsilon_{37\to42}
-+\varepsilon_{\rm step}
++\varepsilon_\delta
++T L_\delta(\eta)\varepsilon_{\rm car}(T)\\
+&+\varepsilon_{\rm step}
 +\varepsilon_{\rm coll}
 +\varepsilon_{\rm over}
 +\varepsilon_{\rm clk}
 +\varepsilon_{\rm rec}
 \end{aligned}
-```
+~~~
 
-とする。M54の同じtransverse偏差を $\varepsilon_{\rm prep}$ と $\varepsilon_{37\to42}$ へ重ねず、R86の同じ包絡偏差をR135診断とM42生成子誤差へ二重加算しない。安全事象外とcell overflowは無反応として残す。
+とする。同じR86偏差をR135統計診断とrate誤差へ二重加算しない。
 
-正則化誤差を小さくすると最大率は概ね $\rho^{-1/2}+\sigma/\rho$ で増え、有限衝突cell数、clock分解能、障壁精度も増える。任意の固定 $T$ と目標誤差に有限構成を選べるが、同じ固定装置でnode正則化を零にする一様資源上界はない。
+$\Delta=\delta_{\rm loc}(\eta)$ に対し
 
-R124の理想トンネル型増分を $\alpha>0$、R125の理想干渉分布距離を $\Delta>0$ とする。比較する各M42運転の誤差が $\varepsilon_{174}$ 以下なら観測差は
-
-```math
-\alpha-2\varepsilon_{174},
-\qquad
-\Delta-2\varepsilon_{174}
-```
-
-以上である。M54、M37、初期作用殻、M42局所辺bath、clock、終位置記録の単一Hamiltonian統合が残るため、Q3-4AとQ3-5は条件付き達成である。
-
-Q3-4BではR124/R125の二運転差を流用せず、R182の同じ静的W型過程を $0$、$T_{1/2}$、$T_{\rm per}$ の三時刻で評価する。R182の格子・M37担体誤差を $\varepsilon_{182}^{\rm car}(T)$ とし、
-
-```math
-\begin{aligned}
-\varepsilon_W(T)
-\leq{}&
-\varepsilon_{\rm prep}
-+\varepsilon_{\rm init}
-+\varepsilon_{182}^{\rm car}(T)
-+\varepsilon_{\rm node}(T)\\
-&+\varepsilon_{\rm step}(T)
-+\varepsilon_{\rm coll}(T)
-+\varepsilon_{\rm over}(T)
-+\varepsilon_{\rm clk}(T)
-+\varepsilon_{\rm rec}(T)
-\end{aligned}
-```
-
-とする。$\varepsilon_{182}^{\rm car}$ はW型低位スペクトルの格子・領域誤差、厳密正常モード分裂の較正、局所包絡との差を含む。同じR86偏差を $\varepsilon_{37\to42}$ として再度加えない。厳密正常モードでは $h_{\rm ex}=f(h_W)$ により固有ベクトルを共有するので、長い一周期に一般Duhamel誤差を機械的に積分せず、分裂相対誤差と $\delta_{\rm loc}(\eta)$ を分ける。
-
-R182の右領域半周期増分を $2B_c>0$ とすれば
-
-```math
-q_{T_{1/2}}(R)-q_0(R)
-\geq
-2B_c
--
-\varepsilon_W(T_{1/2})
--
-\varepsilon_W(0).
-```
-
-また
-
-```math
-D_{\rm TV}
-\left(
-q_{T_{\rm per}},q_0
-\right)
-\leq
-\varepsilon_W(T_{\rm per})
+~~~math
+L_\delta(\eta)
+=
+\frac{h_1}
+{\mathcal J_0(1-\Delta)^2}
+\left[
+\frac{
+\sqrt2(1+\sqrt{1+\Delta^2})
+}{
+\delta q_{\min}
+}
 +
-\varepsilon_W(0).
-```
+\frac{
+2(1+\delta)
+}{
+\delta^2q_{\min}^2
+}
+\right].
+~~~
 
-従って前者の誤差和を $2B_c$ 未満に選べば正の半周期移送が残り、一周期回帰も同じ誤差台帳で制御できる。初期R164選択は一度だけ行い、終時刻に再標本化しない。M54準備、M37静的W型、初期作用殻、M42局所辺bath、半周期・一周期clock、終位置記録の単一装置統合だけを条件として残すため、Q3-4Bは条件付き達成である。
+固定有限格子では有限だが、$\delta\downarrow0$ で概ね $O(\delta^{-2})$ のrate感度が現れる。
+
+Q3-2の理想M55層ではR185により
+
+~~~math
+\varepsilon_{185}^{\rm ideal}
+\leq
+mC_{\rm lat}a^2
++
+mC_{\rm reg}(\delta)
+~~~
+
+と分けられ、node-free compact sectorで $C_{\rm reg}(\delta)=O(\delta)$ である。finite collision近似から $D_+D_-X$ と $D_-D_+X$ までの追加誤差 $\varepsilon_{\rm bath}^{\rm acc}$ は未導出なのでQ3-2は部分達成に留める。R184の $L_\delta\varepsilon_{\rm car}$ だけをNewton加速度誤差へ流用しない。
+
+R124の理想トンネル型増分を $\alpha>0$、R125の理想干渉分布距離を $\Delta_{\rm int}>0$ とする。各運転の誤差が $\varepsilon_{184}$ 以下なら観測差は
+
+~~~math
+\alpha-2\varepsilon_{184},
+\qquad
+\Delta_{\rm int}-2\varepsilon_{184}
+~~~
+
+以上である。Q3-4AとQ3-5の条件付き達成はこの正の余裕と単一装置統合条件の下で維持する。
+
+Q3-4BではR182の同じ静的W型過程を $0$、$T_{1/2}$、$T_{\rm per}$ の三時刻で評価し、同じM55粒子をR183/R184で輸送する。初期R164 matchingは一度だけ行い、終時刻に再標本化しない。M54準備、M55/M37 signal、初期作用殻、finite collision bath、半周期・一周期clock、終位置記録の単一装置統合を条件として残す。
 
 ## 8.8 M50の資源発散
 
@@ -391,7 +394,7 @@ R179は同一静的couplerと受動clockによるpartial SWAPを反復し、acti
 | M54/R181A--R181D・R178D・R179 | sectorごとの誤差を指数個加算する、selector lock前にfilterを開く、projector filterが正準でない、希少枝を事後除外する、状態依存除算または確率依存squeezeを使う、使用済みcellを履歴なしにblankへ戻す、または単一の一様装置族へ統合できない |
 | M37/R86・R135 | 有限時間包絡上界または第2モーメント持上げ上界を超える |
 | R182 | W型固定低位スペクトル・密度・節が格子収束しない、Rayleigh十分条件から障壁下二重項が得られない、functional calculusの共有固有空間または分裂相対上界を破る、中央障壁込み半周期鏡映・一周期回帰が成立しない |
-| M42/R172--R174 | 局所master方程式がM37辺流を再現しない、正則化全変動上界を破る、有限衝突近似が安全領域で収束しない、終時刻に同じ粒子を記録できない |
+| M55/R183--R184 | 局所master方程式がM37辺流を再現しない、正則化全変動上界を破る、有限衝突近似が安全領域で収束しない、終時刻に同じ粒子を記録できない |
 | Q3-2 | 目標とする作用または時間対称Newton則を縮約前に仮定する、外部から仮定したSchrödinger方程式を書き換えるだけで済ませる、前進・後退平均微分と誤差を同じ確率過程上で定義できない |
 | Q3-3C | W型低位スペクトルの格子・領域収束を示せない、または同じ固有基底の有限環境純位相緩和と対角占有率保存を閉じられない |
 | Q3-4B | 2モード作用比を空間領域占有率へ同一視する、外部駆動・傾斜切替・障壁低下を使う、最低二重項の障壁値未満条件、第3状態との間隔、半周期移送、一周期回帰、位置読出しのいずれかを欠く |
@@ -409,7 +412,7 @@ R179は同一静的couplerと受動clockによるpartial SWAPを反復し、acti
 固定目標上の未完成事項は次である。
 
 1. Q1-2について、同じ零傾斜Rabi対照と反復R143/R170測定を接続し、全履歴、tilt対照、有限誤差、資源を含む正のZeno抑制余裕を示す。
-2. Q3-2について、M37--M42--有限衝突bathの縮約から、前進・後退平均微分を持つ同じ確率過程と、Nelson流の作用変分または時間対称Newton則を有限時間誤差付きで導く。
+2. Q3-2について、M55--M37--有限衝突bathの縮約から、前進・後退平均微分を持つ同じ確率過程と、Nelson流の作用変分または時間対称Newton則を有限時間誤差付きで導く。
 3. Q3-6について、閉路巻数、homotopy不変性、節を介した位相すべり、R86細分化安定性、非整数seamのエネルギー発散を統合する。
 4. Q2-1について、R181Dの容量pointer--作用殻境界、有限fiber混合、固定、記録を単一clock scheduleで閉じる。
 5. Q2-3について、同じR181D末端条件を8mode特殊化で閉じ、R177の識別余裕より小さい全装置誤差を選ぶ。
@@ -421,7 +424,7 @@ R179は同一静的couplerと受動clockによるpartial SWAPを反復し、acti
 2. R170の作用容量結合、作用殻fiber内平衡化、信号保持、衝突bath、枝固定、記録をQ1・Q2の1つの有限局所Hamiltonianへ統合する。
 3. M47のM54準備から結果別状態更新、永久記録、resetまでの周期総収支を閉じる。
 4. R180CのM54末端SWAP、setting-pre block latch、paired-Hopf pump・sink、中央切断、2翼局所R170、controller、fresh cell流を同じ具体装置とclockへ統合する。
-5. Q3-4A・Q3-4B・Q3-5でM54切断面、M37担体、初期作用殻、M42局所辺bath、clock、終位置記録までを同じ有限局所装置へ統合する。Q3-4Bでは半周期・一周期のclock精度も同じ装置台帳に含める。
+5. Q3-4A・Q3-4B・Q3-5でM54切断面、M37担体、初期作用殻、M55局所辺bath、clock、終位置記録までを同じ有限局所装置へ統合する。Q3-4Bでは半周期・一周期のclock精度も同じ装置台帳に含める。
 6. 連続空間、多粒子を扱う。
 7. Q2共通ハードウェア努力目標として、同じ物理port、永続状態浴、相互作用区間族、制御bus、準備・読出しinterfaceをQ2-1からQ2-4で共有する一様な装置族を得る。
 
