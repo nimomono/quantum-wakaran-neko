@@ -60,7 +60,7 @@ Q2-1からQ2-4は、他のQ2目標の達成ラベルを前提にせず独立に�
 | Q3-5 | 2重スリット干渉 | 有限グラフの2経路入力でコヒーレント分布の混合との差と相対位相依存性を示し、位置読出しへ接続 | 条件付き達成 |
 | Q3-6 | 位相量子化 | 巻数、節、単価性、位相すべりを統合し、Wallstrom 問題へ限定的に回答 | 未達 |
 
-draft-72では固定目標の文言を変えず、空間量子力学の親模型と全時刻位置輸送を再編した。Q3-2は同一母測度の前進・後退平均微分と時間対称Newton則まで進んだため部分達成とした。draft-73では達成ラベルを変えず、局所ばね実装の正則化背景を開始作用latch方式へ統一し、一般有界有向率の有限衝突実装を現行付録だけで自己完結させた。draft-71で達成したQ3-3Cと条件付き達成のQ3-4Bは維持する。draft-69以前の旧Q3-2は新Q3-6、旧Q3-3は新Q3-3A・Q3-3B、旧Q3-4は新Q3-4Aに対応する。
+draft-72では固定目標の文言を変えず、空間量子力学の親模型と全時刻位置輸送を再編した。Q3-2は同一母測度の前進・後退平均微分と時間対称Newton則まで進んだため部分達成とした。draft-73では達成ラベルを変えず、局所ばね実装の正則化背景を開始作用latch方式へ統一し、一般有界有向率の有限衝突実装を現行付録だけで自己完結させた。draft-74では達成ラベルを変えず、R161をstatic/moving共通matchingへ、R162をgeneric/thermal共通collisionへ一般化し、M50をM54 static profile、M55をM54 spatial profileへ吸収した。旧R183のmoving-matching内容は一般R161のspatial特殊化として保持する。draft-71で達成したQ3-3Cと条件付き達成のQ3-4Bは維持する。draft-69以前の旧Q3-2は新Q3-6、旧Q3-3は新Q3-3A・Q3-3B、旧Q3-4は新Q3-4Aに対応する。
 
 詳しい達成判定、根拠、残る課題は [PROJECT_STATUS.md](PROJECT_STATUS.md) で管理する。
 
@@ -71,19 +71,19 @@ draft-72では固定目標の文言を変えず、空間量子力学の親模型
 | 目標 | 根拠モデル | 根拠結果 |
 |---|---|---|
 | Q1-1 | M47 | R135、R140 |
-| Q1-2 | M47、M50、M54 | R140、R143--R144、R161、R162、R164、R168、R170、R181A、R181D |
-| Q2-1 | M54、M50末端読出し | R112、R161、R162、R164、R170、R181A--R181D |
-| Q2-2 | M54、M50、R180 receiver | R112、R161、R162、R164、R170、R181A--R181D、R180A--R180C |
-| Q2-3 | M54永続状態bathの三部分系特殊化、M50末端読出し | R112、R161、R162、R164、R170、R177、R181A--R181D |
+| Q1-2 | M47、M54 static profile | R140、R143--R144、R161、R162、R164、R168、R170、R181A、R181D |
+| Q2-1 | M54 static profile | R112、R161、R162、R164、R170、R181A--R181D |
+| Q2-2 | M54 static profile、R180 receiver | R112、R161、R162、R164、R170、R181A--R181D、R180A--R180C |
+| Q2-3 | M54三部分系static profile | R112、R161、R162、R164、R170、R177、R181A--R181D |
 | Q2-4 | M54 | R112、R161、R162、R164、R170、R181A--R181D、R178D、R179 |
 | Q3-1 | M37 | R86 |
-| Q3-2 | M55 | R183、R185 |
+| Q3-2 | M54 spatial profile | R161、R185 |
 | Q3-3A | M37とR123の有限環境 | R86、R123（井戸型） |
 | Q3-3B | M37とR123の有限環境 | R86、R123（調和型） |
 | Q3-3C | M37、R123有限環境 | R86、R123、R182 |
-| Q3-4A | M54、M55、M37、M50 | R86、R124、R181A、R183、R184 |
-| Q3-4B | M54、M55、M37、M50 | R86、R183、R184、R181A、R182 |
-| Q3-5 | M54、M55、M37、M50 | R86、R125、R181A、R183、R184 |
+| Q3-4A | M54 spatial profile、M37 | R86、R124、R161、R181A、R184 |
+| Q3-4B | M54 spatial profile、M37 | R86、R161、R184、R181A、R182 |
+| Q3-5 | M54 spatial profile、M37 | R86、R125、R161、R181A、R184 |
 | Q3-6 | 完結モデルなし | なし |
 
 ## 運用文書
@@ -103,9 +103,9 @@ draft-72では固定目標の文言を変えず、空間量子力学の親模型
 
 現行論文では、研究課題を次の三段階に分けている。
 
-Q1とQ2は、一様有限正準register・作用殻receiver模型族M54の異なる規模・port特殊化として扱う。M54は物理template準備、固定入力のtensor-lift、永続register上のgate列、R170駆動projector-tree読出しを同じ状態型へまとめる。Q3は粒子--signal bath共同測度を持つM55を親模型とし、M37はその空間signalを局所位置ばねで有限時間近似する実装として使う。
+Q1、Q2、Q3は、有限正準signalと有限configurationを持つM54の異なるprofileとして扱う。M54は物理template準備、tensor-lift、永続register gate、R164の条件付き作用容量、R161のstatic/moving matching、R162のfinite collision、R170駆動projector-treeを同じ状態型へまとめる。M37はM54 spatial signal sectorを局所位置ばねで有限時間近似するbackendとして使う。
 
-M54のR181A準備portは、物理template、pump、不要方向を捨てるsink、clockを明示し、同じseed測度を目標rayへ押し出す。R181Aだけが作るのは統計状態であって排他的結果ではない。排他的結果はM54のR181DがR164/R170作用殻を駆動して作る。Q3では準備portから同じ試行のsignalをM55へ渡し、開始面で1個の粒子位置を準備する。その後はR183がR164と同じ条件付き分布をmoving matchingとして保存し、終時刻に別の位置を再抽選しない。
+M54のR181A準備portは、物理template、pump、不要方向を捨てるsink、clockを明示し、同じseed測度を目標rayへ押し出す。R181Aだけが作るのは統計状態であって排他的結果ではない。R164は同じ試行signalから条件付きconfiguration分布を作り、R161がそのmatchingを担う。Q1/Q2ではstatic specializationをR170でlock・記録し、Q3ではspatial-moving specializationが開始面で選んだ同じ粒子を輸送して終時刻に記録する。
 
 確率を排他的結果へ変換する機構は有限作用殻へ一本化し、有限正準回路は信号の操作、比較、記録、逆計算にだけ使う。この共通部分は複数の装置が満たす入出力契約であり、それだけで一つの完成した物理装置を構成したという意味ではない。
 
@@ -133,7 +133,7 @@ M54のR181A準備portは、物理template、pump、不要方向を捨てるsink�
 
 R181B/R181Cにより、積入力を非分離な共同内部状態へ移す有限Hamiltonian liftとCNOT、参照系安定な合成、逆演算を同じ永続register上で構成した。R181DのR170選択、selector lock、controlled filter、radial repump、記録の一体化を条件として末端Born分布へ接続するため、Q2-1は条件付き達成である。内部4modeの存在自体は失敗条件ではなく、個別modeの外部初期化・較正・address・読出しを要しないことが条件である。
 
-3量子ビット型二段ゲート合成は、R181Bをgate列の前に2回使って8mode信号を作り、R181CのA--B、B--C二次生成子を同じregisterへ順に作用させる。R177はGHZ--$T$--逆演算のcoherent出力と完全dephasing出力の全変動距離が $1/(2\sqrt2)$ であることを示す。末端ではM50/R164/R170を含むR181Dを8modeへ特殊化する。同じ末端接続条件が残るため、Q2-3も条件付き達成である。
+3量子ビット型二段ゲート合成は、R181Bをgate列の前に2回使って8mode信号を作り、R181CのA--B、B--C二次生成子を同じregisterへ順に作用させる。R177はGHZ--$T$--逆演算のcoherent出力と完全dephasing出力の全変動距離が $1/(2\sqrt2)$ であることを示す。末端ではM54 static profileのR164/R161/R162/R170を含むR181Dを8modeへ特殊化する。同じ末端接続条件が残るため、Q2-3も条件付き達成である。
 
 一般回路では、$n$ 量子ビットを $L=2^n$ 受動signal modeへ直接符号化する。R181Cが固定有限局所gateを全spectator sectorへ一括作用させ、R181Dが各出力bitでraw projector容量を作る。R164/R170がselectorを形成してから可逆filterを開き、R181Aのradial-only portで選択rayを標準作用へ戻す。R178Dは結果相関履歴をspent側へ残す境界、R179はblank bank、collision cell、spent bankの供給を与える。旧fixed-volume apertureとdyadic threshold tapeは現行因果鎖から外した。
 
@@ -141,13 +141,13 @@ R181B/R181Cにより、積入力を非分離な共同内部状態へ移す有限
 
 ### 3. 空間量子力学
 
-Q3ではM55を親模型とする。1回の試行には、実数の位置・運動量からなるsignal自由度、1個の粒子位置、有限の衝突bath、clockと履歴がある。複素signalは実正準対をまとめた表示であり、多数試行から作る第2モーメントが階数1なら、その因子として量子力学の波動関数に対応する複素rayを読む。ray自体を単一試行の粒子へ書き戻さない。
+Q3ではM54 spatial-moving profileを使う。1回の試行には、実数の位置・運動量からなるsignal自由度、1個の粒子位置、有限のcollision sector、clockと履歴がある。複素signalは実正準対をまとめた表示であり、多数試行から作る第2モーメントが階数1なら、その因子として量子力学の波動関数に対応する複素rayを読む。ray自体を単一試行の粒子へ書き戻さない。
 
-R164が与える条件付き位置分布を、Q1・Q2では測定面での再平衡化に使うのに対し、Q3ではR183が同じ分布をmoving matchingとして全時刻保存する。正則化 $\delta>0$ により節でも有限rateを保ち、rank-one集団では位置分布が振幅二乗へ $\delta/(1+\delta)$ 以内で一致する。
+R164が与える条件付きconfiguration分布に対し、一般R161はcurrentとtrafficからmatching rateを作る。Q1・Q2では $j=0$ のstatic詳細釣合い特殊化として測定面へ再平衡化し、Q3ではsignal currentを持つmoving specializationとして同じ粒子分布を全時刻保存する。正則化 $\delta>0$ により節でも有限rateを保ち、rank-one集団では位置分布が振幅二乗へ $\delta/(1+\delta)$ 以内で一致する。
 
-空間signalの理想運動はM55の実正準Hamiltonianで厳密に書ける。M37はこれを局所的な古典振動子と位置ばねだけで実装する模型で、R86がSchrödinger型包絡への有限時間誤差を与える。R184ではM37開始面の作用 $S_{\rm ref}$ を各試行でlatchし、正則化背景を輸送中の非保存局所作用へ追随させない。この規約でmoving-matching rateと位置分布への誤差を評価し、有限collision cell、clock、記録を含む完全結果誤差までまとめる。
+空間signalの理想運動はM54 spatial profileの実正準Hamiltonianで厳密に書ける。M37はこれを局所的な古典振動子と位置ばねだけで実装する模型で、R86がSchrödinger型包絡への有限時間誤差を与える。R184ではM37開始面の作用 $S_{\rm ref}$ を各試行でlatchし、正則化背景を輸送中の非保存局所作用へ追随させない。この規約でmoving-matching rateと位置分布への誤差を評価し、有限collision cell、clock、記録を含む完全結果誤差までまとめる。
 
-R185ではR183と同じpath measureから時間反転rateを作り、前進・後退平均微分を定義する。1次元の一様背景・節を含まない滑らかな領域では、時間対称平均加速度が外力に一致し、残差は格子幅について $O(a^2)$、正則化について $O(\delta)$ になる。finite collision近似から二階の平均加速度までの明示誤差が残るため、Q3-2は部分達成である。
+R185ではR161が同じpath measureから与えるbackward rateを使い、前進・後退平均微分を定義する。1次元の一様背景・節を含まない滑らかな領域では、時間対称平均加速度が外力に一致し、残差は格子幅について $O(a^2)$、正則化について $O(\delta)$ になる。finite collision近似から二階の平均加速度までの明示誤差が残るため、Q3-2は部分達成である。
 
 空間Schrödinger型力学Q3-1、井戸型・調和型・W型の束縛状態Q3-3A--Q3-3Cは達成している。有限障壁のトンネル効果Q3-4A、W型のトンネル振動Q3-4B、2経路干渉Q3-5は、同じ粒子のmoving matchingへ接続した上で単一装置統合を条件に達成としている。位相量子化Q3-6、一般的な連続空間極限、多粒子系は未完成である。
 
