@@ -37,7 +37,7 @@ M54は共通の状態型、因果契約、port規約を定める有効profile族
 
 Q1/Q2のstatic profileでは、各操作面または末端読出し面でR164の条件付き分布へ有限時間matchingし、必要な枝をlockして記録する。Q3のspatial profileでは、開始面で同じ条件付き分布を準備した後、信号currentに従うR161 moving specializationが同じ粒子を全時刻輸送する。したがってstatic測定と空間運動は別の確率原理ではなく、同じmatching定理の $j=0$ と $j\neq0$ の特殊化である。
 
-M37はM54へ吸収しない。M37はM54 spatial signal sectorを局所位置ばねだけで有限時間近似する物理backendであり、R86からR184へ誤差を渡す。M54の全部品がM37から導出されたとはしない。W型入力をQ2各目標の必須前提へ追加せず、固定目標と達成ラベルもこの模型統合だけでは変更しない。
+M37はM54へ吸収しない。Q3ではM54 spatial signal sectorを局所位置ばねで有限時間近似し、R86からR184へ誤差を渡す。Q1ではR187の弱結合W型族に限り、零傾斜最低2正常modeをM54 W2 static profileのcontrol carrierへcanonical同定する。M54のpump、作用殻、collision、記録をM37から導出したとはしない。W型入力をQ2各目標の必須前提へ追加せず、固定目標と達成ラベルもこの物理bridgeだけでは変更しない。
 
 ## 2.2 有限正準信号の辺代数
 

@@ -1,5 +1,16 @@
 # 変更記録
 
+## draft-77：M37--W--Q1物理bridge
+
+- R187「M37弱結合W型からQ1 W2制御への有限誤差物理bridge」を新設した。左右同一半井戸を中央1本の弱い局所ばね $\kappa$ で接続し、$J_\kappa=a_*^2\kappa+O(\kappa^2)$、$G_\kappa\to g_*>0$、$J_\kappa/G_\kappa\to0$ を有限次元摂動論で導いた。
+- 傾斜 $F_\kappa=\sqrt{J_\kappa G_\kappa}/(2\zeta_\kappa)$ に対し、低2spectral projectorのdressing、二次block補正、有限switchを $O(\sqrt{J_\kappa/G_\kappa})$ で評価した。固定基底の長時間残差積分を主証明に使わない。
+- 各piecewise-static M37区間では厳密正常mode生成子 $f_{\omega_0}(h)$ が同じ固有ベクトルを共有することを使い、実低2分裂でhold時間を較正した。局所回転包絡との差は $2\delta_{\rm loc}/(1-\delta_{\rm loc})$ の時間一様segment誤差で合成する。
+- 零傾斜全mode正常座標の最低2正準pairをM54 W2 static profileのsignal subsystemへ同定し、R181A source/templateまたは固定canonical portの投入誤差を $d_0$ へ受け渡す。高modeを測定・廃棄しない。
+- R187の誤差・資源台帳を追加し、総時間 $T_U=O(\mathcal J_0/J_\kappa)$、weak-link、carrier周波数、switch、較正精度のtradeoffを明示した。任意精度の有限構成は示すが、多項式時間・一定bandwidthは主張しない。
+- Q1-1「達成」、Q1-2「部分達成」、Born分布・逐次測定統計、Q2/Q3の達成判定は変更していない。Zeno残件はR187の零傾斜M37 carrierとR144測定sectorの同一運転接続へ具体化した。
+- 新しいR187回帰とCI境界検査を追加し、旧固定Wでcarrier周波数だけを増やしても低2残差floorが残る例をnegative controlとして保存した。
+
+
 ## draft-76：Q1定理階層の整理
 
 - R143をQ1 W型2モードprotocolの1段measurement instrument、R144をR143の固定有限段逐次測定合成として責務分離した。R144は無反応を含む完全履歴、同軸反復・異軸逐次分布、段間条件付き状態の受渡しと有限誤差和を扱う。

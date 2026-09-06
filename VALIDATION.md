@@ -1,5 +1,33 @@
 # 検算と品質確認
 
+## draft-77：M37--W--Q1物理bridge
+
+```bash
+python -m py_compile tools/*.py
+for script in tools/verify_*.py; do python "$script"; done
+python tools/build_paper.py
+git diff --check
+```
+
+GitHub Actionsの一時生成run `34054878181` で、全Python構文検査、全 `verify_*.py`、`build_paper.py` の固定目標・依存台帳・R187理論境界、論文再生成、PDF品質検査が成功した。生成commitは `67f4359d0d6a02f9a94610869d7b4abbeb94b1ac` で、`paper.md`、`main.tex`、`paper.pdf` を収録する。一時生成workflowは生成後に削除した。
+
+R187専用回帰 `tools/verify_r187_m37_w_q1_bridge.py` は、10-site反射対称weak-link W chainで次を検査した。
+
+- 中央1本以外に非局所結合がないこと。
+- $J_\kappa/G_\kappa$ が $\kappa$ とともに減少し、$\kappa=3\times10^{-4}$ で $3.91\times10^{-4}$ 未満まで下がること。
+- $J_\kappa/\kappa$ が正の有限値へ収束し、$G_\kappa$ と位置lever arm $\zeta_\kappa$ が正に保たれること。
+- $F_\kappa=\sqrt{J_\kappa G_\kappa}/(2\zeta_\kappa)$ で低2spectral projectorの変化とfull-W tilted hold誤差が $O(\sqrt{J_\kappa/G_\kappa})$ の回帰閾値内にあること。
+- 長い $O(1/J_\kappa)$ static holdでも、局所回転包絡と厳密正常mode $f_{\omega_0}(h)$ の差が $\varepsilon_{\rm stat}=2\delta_{\rm loc}/(1-\delta_{\rm loc})$ 以下であること。
+- 全normal-mode直交変換が正準で、高modeを捨てる操作を必要としないこと。
+- draft-69の固定W例で、carrier周波数だけを増やしても実運動対2mode誤差が約 $0.0403$ に残る事実をnegative controlとして保持すること。
+
+R187は、弱結合W型族の低2cluster、傾斜時のdressed projector、静的M37正常mode分裂較正、有限switch、M54 W2 canonical handoffを合成する。Q1-1「達成」、Q1-2「部分達成」、Born分布・同軸反復・異軸逐次分布の既存判定、Q2/Q3の達成ラベルは変更していない。R187が閉じるのはcarrier-levelのM37--W2--Q1制御bridgeであり、R181A pump/source、R164/R161/R162/R170/R143、記録、resetの単一装置統合は未完成のままである。
+
+最終生成PDFはA4、223ページ、1,337,638 bytes。最終LaTeX logに未解決citation/reference、overfull、underfull、fatal error、欠落文字がないことをworkflowで確認した。multi-pass TeXの途中passではbibliography解決前のcitation warningが出るが、最終passの禁止警告検査は成功している。
+
+---
+
+
 ## draft-76：Q1定理階層整理
 
 ```bash
