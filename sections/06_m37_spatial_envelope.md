@@ -1217,14 +1217,13 @@ f_{\omega_0}(\lambda_0(F))
 
 上の有限弱結合W型族を取り、$\zeta_*>0$ とする。任意に固定した目標 $U\in SU(2)$ と誤差 $\epsilon>0$ に対し、十分小さい $\kappa>0$、十分大きい有限搬送周波数 $\omega_0$、有限個の傾斜値 $F\in\{0,\pm F_\kappa\}$ とpiecewise-constant hold列を選べる。各区間の時間はM37厳密正常modeの低2分裂 $\Delta_{\rm ex}(F)$ で較正する。
 
-零傾斜最低2正常modeを全M37正準状態の中の2正準対として保持し、高modeを捨てない。初期の低2mode投入誤差を $d_0$、有限switchを滑らかに近似する場合の伝播誤差を $\varepsilon_{\rm sw}$、傾斜・時間較正のprojective角誤差を $\varepsilon_{\rm cal}$ とする。このとき固定目標 $U$ に依存する有限定数 $C_U$ と有限区間数 $m_U$ が存在し、全入力 $c\in\mathbb C^2$、$\|c\|=1$ について、適当な全体位相 $\alpha(c)$ を除けばM37局所包絡の終状態は
+零傾斜最低2正常modeを全M37正準状態の中の2正準対として保持し、高modeを捨てない。初期の低2mode投入誤差を $d_0$、有限switchを滑らかに近似する場合の伝播誤差を $\varepsilon_{\rm sw}$、傾斜・時間較正のprojective角誤差を $\varepsilon_{\rm cal}$ とする。このとき固定目標 $U$ に依存する有限定数 $C_U$、有限区間数 $m_U$ と、入力に依存しない全体位相 $\alpha_U$ が存在し、全入力 $c\in\mathbb C^2$、$\|c\|=1$ についてM37局所包絡の終状態は
 
 ```math
-\inf_{\alpha\in\mathbb R}
 \left\|
 b_{\rm out}
 -
-e^{i\alpha}V_\kappa Uc
+e^{i\alpha_U}V_\kappa Uc
 \right\|
 \leq
 \varepsilon_{187},
