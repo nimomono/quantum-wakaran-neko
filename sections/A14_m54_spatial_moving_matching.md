@@ -107,15 +107,15 @@ k^+_{i\to j}
 
 前向きrateを
 
-\`\`\`math
+```math
 k^+_{i\to j}
 =
 \frac{T_{ij}^\delta+J_{i\to j}}{2R_i^\delta}
-\`\`\`
+```
 
 とする。R161へ
 
-\`\`\`math
+```math
 \pi_i=\pi_i^\delta,
 \qquad
 j_{ij}
@@ -125,54 +125,54 @@ j_{ij}
 t_{ij}
 =
 \frac{T_{ij}^\delta}{(1+\delta)S}
-\`\`\`
+```
 
 を代入するとこのrateが得られる。signal continuity equationから
 
-\`\`\`math
+```math
 \dot\pi_i^\delta
 =
 \frac{1}{(1+\delta)S}
 \sum_jJ_{j\to i}
-\`\`\`
+```
 
-なので、R161により初期共同測度が \(\mu_0^Z\)-ほとんど全ての \(z\) で
+なので、R161により初期共同測度が $\mu_0^Z$-ほとんど全ての $z$ で
 
-\`\`\`math
+```math
 \mu_0(X=i\mid Z=z)
 =
 \pi_i^\delta(z)
-\`\`\`
+```
 
-を満たせば、全有限時刻で \(\mu_t^Z\)-ほとんど全ての \(z\) について
+を満たせば、全有限時刻で $\mu_t^Z$-ほとんど全ての $z$ について
 
-\`\`\`math
+```math
 \mu_t(X=i\mid Z=z)
 =
 \pi_i^\delta(z)
-\`\`\`
+```
 
 が成り立つ。
 
 <!-- theorem-start:corollary -->
 **系（R161のM54 spatial-moving特殊化）**
 
-rank-one signal集団 \(C_Z(t)=\psi_t\psi_t^\dagger\) ではR135の支持節から \(Z=\alpha\psi\) がほとんど確実であり、
+rank-one signal集団 $C_Z(t)=\psi_t\psi_t^\dagger$ ではR135の支持節から $Z=\alpha\psi$ がほとんど確実であり、
 
-\`\`\`math
+```math
 P(X_t=i)
 =
 \frac{|\psi_i(t)|^2+\delta q_i}{1+\delta},
-\`\`\`
+```
 
-\`\`\`math
+```math
 D_{\rm TV}
 \left(
 P(X_t\in\cdot),|\psi_t|^2
 \right)
 \leq
 \frac{\delta}{1+\delta}.
-\`\`\`
+```
 
 matching不変性自体にはrank-one仮定を要しない。これは旧R183の内容を一般R161へ吸収したものである。
 <!-- theorem-end:corollary -->

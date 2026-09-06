@@ -131,17 +131,17 @@ p\|\pi^\delta(v)
 
 ## K.3 R161の証明：current--traffic matchingとstatic特殊化
 
-有限configuration集合 \(\mathcal I\) 上の正の分布 \(\pi(t)\)、反対称current \(j_{ij}=-j_{ji}\)、対称traffic \(t_{ij}=t_{ji}\geq|j_{ij}|\) が
+有限configuration集合 $\mathcal I$ 上の正の分布 $\pi(t)$、反対称current $j_{ij}=-j_{ji}$、対称traffic $t_{ij}=t_{ji}\geq|j_{ij}|$ が
 
-\`\`\`math
+```math
 \dot\pi_i
 =
 \sum_jj_{ji}
-\`\`\`
+```
 
 を満たすとする。第2章の定義
 
-\`\`\`math
+```math
 k^+_{i\to j}
 =
 \frac{t_{ij}+j_{ij}}{2\pi_i},
@@ -149,21 +149,21 @@ k^+_{i\to j}
 k^-_{i\to j}
 =
 \frac{t_{ij}-j_{ij}}{2\pi_i}
-\`\`\`
+```
 
 では非負性が直ちに従い、
 
-\`\`\`math
+```math
 \pi_i k^+_{i\to j}
 -
 \pi_j k^+_{j\to i}
 =
 j_{ij}.
-\`\`\`
+```
 
 従って前向きmaster方程式は
 
-\`\`\`math
+```math
 \dot p_i
 =
 \sum_j
@@ -172,53 +172,53 @@ p_jk^+_{j\to i}
 -
 p_ik^+_{i\to j}
 \right)
-\`\`\`
+```
 
-であり、\(p=\pi\) を代入すると仮定したcontinuity equationに一致する。有限状態線形方程式の一意性から \(p(0)=\pi(0)\) なら \(p(t)=\pi(t)\) である。同じpath measureのBayes反転は
+であり、$p=\pi$ を代入すると仮定したcontinuity equationに一致する。有限状態線形方程式の一意性から $p(0)=\pi(0)$ なら $p(t)=\pi(t)$ である。同じpath measureのBayes反転は
 
-\`\`\`math
+```math
 \frac{\pi_jk^+_{j\to i}}{\pi_i}
 =
 \frac{t_{ij}-j_{ij}}{2\pi_i}
 =
 k^-_{i\to j}
-\`\`\`
+```
 
 となる。
 
 ### K.3.1 static detailed-balance特殊化
 
-固定した非零signal \(v\) に対するR164分布 \(\pi^\delta(v)\) を取り、有限連結無向グラフの各辺に \(a_{ij}=a_{ji}>0\) を置く。
+固定した非零signal $v$ に対するR164分布 $\pi^\delta(v)$ を取り、有限連結無向グラフの各辺に $a_{ij}=a_{ji}>0$ を置く。
 
-\`\`\`math
+```math
 j_{ij}=0,
 \qquad
 t_{ij}
 =
 2\kappa_Xa_{ij}
 \sqrt{\pi_i^\delta\pi_j^\delta}
-\`\`\`
+```
 
 とすれば
 
-\`\`\`math
+```math
 k_{i\to j}^\delta(v)
 =
 \kappa_Xa_{ij}
 \sqrt{\frac{\pi_j^\delta(v)}{\pi_i^\delta(v)}}
-\`\`\`
+```
 
-であり、従来のR161 static鎖を回収する。\(q_{\min}\)、\(a_{\min}\)、無重みgraph Laplacian gap \(\lambda_G\) と
+であり、従来のR161 static鎖を回収する。$q_{\min}$、$a_{\min}$、無重みgraph Laplacian gap $\lambda_G$ と
 
-\`\`\`math
+```math
 m_\delta
 =
 \frac{\delta q_{\min}}{1+\delta}
-\`\`\`
+```
 
 を用いると、Dirichlet形式は
 
-\`\`\`math
+```math
 \mathcal E^\delta(f,f)
 =
 \kappa_X
@@ -226,19 +226,19 @@ m_\delta
 a_{ij}
 \sqrt{\pi_i^\delta\pi_j^\delta}
 (f_i-f_j)^2
-\`\`\`
+```
 
 である。従って
 
-\`\`\`math
+```math
 \lambda_\delta
 \geq
 \kappa_Xa_{\min}m_\delta\lambda_G
-\`\`\`
+```
 
 となり、
 
-\`\`\`math
+```math
 D_{\rm TV}
 \left(
 p_T,\pi^\delta(v)
@@ -249,71 +249,71 @@ C_\delta e^{-\lambda_\delta T},
 C_\delta
 =
 \frac12\sqrt{m_\delta^{-1}-1}.
-\`\`\`
+```
 
-R164の理想枝重み \(w\) との差は
+R164の理想枝重み $w$ との差は
 
-\`\`\`math
+```math
 D_{\rm TV}(\pi^\delta,w)
 \leq
 \frac{\delta}{1+\delta}.
-\`\`\`
+```
 
 ### K.3.2 nodeにおけるstatic再平衡化の障害
 
-\(\delta=0\) とし、目標分布 \(w\) の零頂点 \(v\) がconfiguration graphの切断点であるとする。隣接辺だけを使い、\(w\) に関して詳細釣合いを満たす有限率生成子は、\(G_X\setminus\{v\}\) の異なる連結成分間で確率質量を輸送できない。詳細釣合いは
+$\delta=0$ とし、目標分布 $w$ の零頂点 $v$ がconfiguration graphの切断点であるとする。隣接辺だけを使い、$w$ に関して詳細釣合いを満たす有限率生成子は、$G_X\setminus\{v\}$ の異なる連結成分間で確率質量を輸送できない。詳細釣合いは
 
-\`\`\`math
+```math
 w_i k_{i\to v}
 =
 w_vk_{v\to i}
 =0
-\`\`\`
+```
 
-を強制するためである。この障害を避けるには正の背景、非局所辺、補助bridge stateの少なくとも1つが必要である。static profileでは \(\delta>0\) を採用し、spatial moving profileでも同じ正則化をnode回避に使う。
+を強制するためである。この障害を避けるには正の背景、非局所辺、補助bridge stateの少なくとも1つが必要である。static profileでは $\delta>0$ を採用し、spatial moving profileでも同じ正則化をnode回避に使う。
 
 <!-- theorem-start:proof -->
 **証明（R161）**
 
-一般matching部分はcurrent恒等式と有限状態master方程式の一意性、backward rateはBayes反転から従う。static特殊化では \(j=0\) が詳細釣合いを与え、\(\pi_i^\delta\geq m_\delta\) によりDirichlet形式を無重みgraph形式で下から抑える。graph Poincare不等式、可逆半群の \(L^2\) 収縮、Cauchy--Schwarzを順に使うと一様mixing boundを得る。正則化誤差は \(\pi^\delta=(w+\delta q)/(1+\delta)\) から直接従う。証明終。
+一般matching部分はcurrent恒等式と有限状態master方程式の一意性、backward rateはBayes反転から従う。static特殊化では $j=0$ が詳細釣合いを与え、$\pi_i^\delta\geq m_\delta$ によりDirichlet形式を無重みgraph形式で下から抑える。graph Poincare不等式、可逆半群の $L^2$ 収縮、Cauchy--Schwarzを順に使うと一様mixing boundを得る。正則化誤差は $\pi^\delta=(w+\delta q)/(1+\delta)$ から直接従う。証明終。
 <!-- theorem-end:proof -->
 
 ## K.4 R162の証明：generic finite collisionとthermal特殊化
 
 ### K.4.1 一般有界有向rateのfinite collision持上げ
 
-固定有限時間で区分連続な有向rate \(k_{i\to j}(t)\geq0\) と生成子 \(L(t)\) を取り、
+固定有限時間で区分連続な有向rate $k_{i\to j}(t)\geq0$ と生成子 $L(t)$ を取り、
 
-\`\`\`math
+```math
 M_*=
 \sup_{0\leq t\leq T}
 \max_i\sum_{j\ne i}k_{i\to j}(t)<\infty
-\`\`\`
+```
 
-とする。有限分割 \(0=t_0<\cdots<t_M=T\) で各窓の生成子を \(\overline L_m\) へ凍結し、\(M_*\Delta t<1\) とすれば
+とする。有限分割 $0=t_0<\cdots<t_M=T$ で各窓の生成子を $\overline L_m$ へ凍結し、$M_*\Delta t<1$ とすれば
 
-\`\`\`math
+```math
 P_m
 =
 I+\Delta t\,\overline L_m
-\`\`\`
+```
 
 は確率行列である。時間順序指数とEuler積の差は
 
-\`\`\`math
+```math
 \varepsilon_{\rm step}
 \leq
 \int_0^T
 \|L(t)-L_{\rm fr}(t)\|_{\rm row}\,dt
 +
 T M_*^2\Delta t\,e^{2M_*\Delta t}
-\`\`\`
+```
 
 で抑えられる。
 
-各stepへ一様Liouville threshold座標 \(u_m\in(0,1)\) とその共役座標、clock、空history、work registerを置く。現在configurationが \(i\) なら \((0,1)\) を長さ \(P_m(i,j)\) の区間へ分け、\(u_m\) が属する \(j\) へ移す。source、target、step番号、thresholdをhistoryへ残し、区間幅差を共役座標の逆伸縮を伴うcanonical squeezeで補う。有限個の平行移動・shear・squeezeを滑らかな有限時間Hamiltonian散乱へ近似すれば、指定読出し時刻の位置分布を対象Markov過程から
+各stepへ一様Liouville threshold座標 $u_m\in(0,1)$ とその共役座標、clock、空history、work registerを置く。現在configurationが $i$ なら $(0,1)$ を長さ $P_m(i,j)$ の区間へ分け、$u_m$ が属する $j$ へ移す。source、target、step番号、thresholdをhistoryへ残し、区間幅差を共役座標の逆伸縮を伴うcanonical squeezeで補う。有限個の平行移動・shear・squeezeを滑らかな有限時間Hamiltonian散乱へ近似すれば、指定読出し時刻の位置分布を対象Markov過程から
 
-\`\`\`math
+```math
 D_{\rm TV}
 \leq
 \varepsilon_{\rm step}
@@ -323,32 +323,32 @@ D_{\rm TV}
 \varepsilon_{\rm clk}
 +
 \varepsilon_{\rm over}
-\`\`\`
+```
 
-以内にできる。1-step-per-windowでは有限個のcellを事前配置できるため \(\varepsilon_{\rm over}=0\) と選べる。これは一般有向rateの実装であり、詳細釣合いまたは熱分布を仮定しない。
+以内にできる。1-step-per-windowでは有限個のcellを事前配置できるため $\varepsilon_{\rm over}=0$ と選べる。これは一般有向rateの実装であり、詳細釣合いまたは熱分布を仮定しない。
 
 ### K.4.2 thermal detailed-balance特殊化
 
 R161 static profileの
 
-\`\`\`math
+```math
 k_{i\to j}^\delta(v)
 =
 \kappa_Xa_{ij}
 \sqrt{\frac{\pi_j^\delta(v)}{\pi_i^\delta(v)}}
-\`\`\`
+```
 
 については、条件付き有効自由エネルギー
 
-\`\`\`math
+```math
 E_i^\delta(v)
 =
 -\Theta\log\pi_i^\delta(v)
-\`\`\`
+```
 
-と対称基準障壁 \(B_{ij}^0=B_{ji}^0\) を使う。制御障壁を
+と対称基準障壁 $B_{ij}^0=B_{ji}^0$ を使う。制御障壁を
 
-\`\`\`math
+```math
 B_{ij}^\delta(v)
 =
 B_{ij}^0
@@ -357,38 +357,38 @@ B_{ij}^0
 \left[
 E_i^\delta(v)+E_j^\delta(v)
 \right]
-\`\`\`
+```
 
 とし、到着断面の入射流束energyを
 
-\`\`\`math
+```math
 f_{\rm in}(\epsilon)
 =
 \beta e^{-\beta\epsilon}
-\`\`\`
+```
 
-とする。通過条件 \(\epsilon\geq B_{ij}^\delta-E_i^\delta\) と通過後energy
+とする。通過条件 $\epsilon\geq B_{ij}^\delta-E_i^\delta$ と通過後energy
 
-\`\`\`math
+```math
 \epsilon'
 =
 \epsilon+E_i^\delta-E_j^\delta
-\`\`\`
+```
 
 により正逆散乱は1対1に対応する。縮約rateは
 
-\`\`\`math
+```math
 k_{i\to j}^{\rm coll}
 =
 \nu_{ij}e^{-\beta B_{ij}^0}
 \sqrt{\frac{\pi_j^\delta}{\pi_i^\delta}},
-\`\`\`
+```
 
-従って \(\nu_{ij}e^{-\beta B_{ij}^0}=\kappa_Xa_{ij}\) と校正すればR161 static rateに一致する。有限cell overflow、finite energy tail、boundary smoothing、clock、signal hold誤差を完全結果集合へ残し、成功試行だけを再規格化しない。
+従って $\nu_{ij}e^{-\beta B_{ij}^0}=\kappa_Xa_{ij}$ と校正すればR161 static rateに一致する。有限cell overflow、finite energy tail、boundary smoothing、clock、signal hold誤差を完全結果集合へ残し、成功試行だけを再規格化しない。
 
 局所詳細釣合いは
 
-\`\`\`math
+```math
 \log
 \frac{k_{i\to j}^{\rm coll}}
 {k_{j\to i}^{\rm coll}}
@@ -396,14 +396,14 @@ k_{i\to j}^{\rm coll}
 -\beta(E_j^\delta-E_i^\delta)
 =
 \log\frac{\pi_j^\delta}{\pi_i^\delta}
-\`\`\`
+```
 
 である。このthermal特殊化だけについてK.5の粗視化仕事・熱・entropy productionを定義する。
 
 <!-- theorem-start:proof -->
 **証明（R162）**
 
-generic部分では、凍結生成子とEuler積の誤差を上の \(\varepsilon_{\rm step}\) で抑え、各有限確率行列を一様threshold座標の有限区間分割で実現する。historyを保存してcanonical squeeze、translation、shearを未使用sectorへ1対1に延長し、滑らかなHamiltonian散乱で近似すれば有限collision誤差が得られる。thermal特殊化では指数入射流束のtailへ活性化energyを代入して平方根型rateを得る。対称障壁と通過後energy式が正逆散乱と詳細釣合いを与える。証明終。
+generic部分では、凍結生成子とEuler積の誤差を上の $\varepsilon_{\rm step}$ で抑え、各有限確率行列を一様threshold座標の有限区間分割で実現する。historyを保存してcanonical squeeze、translation、shearを未使用sectorへ1対1に延長し、滑らかなHamiltonian散乱で近似すれば有限collision誤差が得られる。thermal特殊化では指数入射流束のtailへ活性化energyを代入して平方根型rateを得る。対称障壁と通過後energy式が正逆散乱と詳細釣合いを与える。証明終。
 <!-- theorem-end:proof -->
 
 ## K.5 粗視化経路熱力学系の証明

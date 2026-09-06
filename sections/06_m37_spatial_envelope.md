@@ -820,7 +820,7 @@ P(X_t=i)
 
 固定時刻に任意基底を読むR170とM54 spatial profileの連続位置過程を同じ終端標本器として重ねない。R170はQ1・Q2のinstrumentとQ3の代替固定時刻診断に残り、Q3-4A・Q3-4B・Q3-5では準備面で得た同じ $X_t$ をR161/R184で運ぶ。
 
-## 6.13 M54--M54 spatial profile--M37の開始面と終位置記録
+## 6.13 M54 spatial profile--M37の開始面と終位置記録
 
 M54/R181Aでrank-one signal集団を準備する場合、安全な切断面から同じ試行のsignalをM54 spatial profileへ渡す。開始面ではR164の作用殻状態数とR161/R162の有限再平衡化を1回だけ使い、
 
@@ -894,7 +894,7 @@ P(X_t^L\in\cdot)
 T L_\delta(\eta)\varepsilon_{\rm car}(T).
 ```
 
-$\delta>0$ ではrateは固定有限グラフ上で有界なので、付録N.4の一般有界有向率補題により、有限threshold cell、clock、work register、historyを持つ有限駆動Hamiltonian散乱列へ任意精度で近似できる。旧R173または旧 $(\rho,\sigma)$ node正則化を現行証拠鎖へ戻さず、R164と共通の $\delta$ と開始作用latchだけを使う。
+$\delta>0$ ではrateは固定有限グラフ上で有界なので、共通R162のgeneric finite collision構成（付録K.4）により、有限threshold cell、clock、work register、historyを持つ有限駆動Hamiltonian散乱列へ任意精度で近似できる。旧R173または旧 $(\rho,\sigma)$ node正則化を現行証拠鎖へ戻さず、R164と共通の $\delta$ と開始作用latchだけを使う。
 
 Q3-4AとQ3-5ではR124/R125の理想分布差をR184の完全結果誤差 $\varepsilon_{184}$ と比較する。Q3-4BではR182の同じ静的W型過程を三時刻で読み、同じM54 spatial profile粒子の半周期移送と一周期回帰へ持ち上げる。M54準備、M37実装、初期作用殻、finite collision bath、clock、終位置記録の単一装置統合は引き続き条件として残す。
 
