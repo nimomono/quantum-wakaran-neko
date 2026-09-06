@@ -48,6 +48,7 @@ jobs:
             sections/A15_m54_uniform_register.md \
             sections/A16_m54_projector_tree_receiver.md \
             sections/A17_m54_uniform_supply.md \
+            sections/A18_m54_projective_robustness.md \
             notes/superseded_r178_aperture_sampler.md \
             notes/superseded_separate_m51_m52_m53_models.md \
             tools/verify_r181a_template_port.py \
@@ -61,12 +62,17 @@ jobs:
           test "$(grep -Rho '定理（R181B：' sections/*.md | wc -l)" -eq 1
           test "$(grep -Rho '定理（R181C：' sections/*.md | wc -l)" -eq 1
           test "$(grep -Rho '定理（R181D：' sections/*.md | wc -l)" -eq 1
+          test "$(grep -Rho '定理（R186：' sections/*.md | wc -l)" -eq 1
+          grep -Fq '**証明（R186）**' sections/A18_m54_projective_robustness.md
+          grep -Fq 'black-box operational' sections/01_scope_and_cycle.md
+          grep -Fq 'extensive additive-noise' sections/08_errors_resources_open_targets.md
+          test -f tools/verify_r186_m54_projective_robustness.py
           grep -Fq 'R170駆動projector-tree Born instrument' sections/02_common_canonical_modules.md
           grep -Fq 'lock前にfilterを開かない' sections/A16_m54_projector_tree_receiver.md
           grep -Fq 'radial-only repump' sections/A16_m54_projector_tree_receiver.md
           grep -Fq 'aggregate cold誤差' sections/A17_m54_uniform_supply.md
-          grep -Fq 'version: "draft-77"' CITATION.cff
-          grep -Fq 'draft-77 改訂稿' tools/template.tex
+          grep -Fq 'version: "draft-78"' CITATION.cff
+          grep -Fq 'draft-78 改訂稿' tools/template.tex
 
 
       - name: M54 matching理論境界を検査

@@ -53,6 +53,8 @@ sector間漏れがない場合、
 
 漏れ作用を $E_{\rm leak}$ とすれば三角不等式で $\eta_g+\eta_{\rm leak}$ を得る。gate列 $U_d\cdots U_1$ と $\widetilde U_d\cdots\widetilde U_1$ の差はtelescopingし、各因子のnormが1なら各窓誤差の和以下である。
 
+R186第1項は、このblock一様誤差を指数個の部品ごとの誤差和として仮定する代わりに、疎な局所coupler perturbationのprojective operator normから導く十分条件を与える。独立mode phase noiseについてはR186第2項の平均fidelity評価を使い、sector数だけを理由に指数精度を要求しない。
+
 1 bit gateはbit indexを指定する $O(n)$ 本以下、2 bit gateは素朴にはpairを指定する $O(n^2)$ 本以下の共有busで足りる。外部命令はgate数 $d$ に比例する。静的block数は指数的でも、blockを列挙する外部表は不要である。証明終。
 <!-- theorem-end:proof -->
 
@@ -87,6 +89,8 @@ H_{{\rm lat},k}
 ```
 
 とする。$P^A_{k,b}=0$ のblank面ではsignal方程式への反作用が消え、pointer位置だけが容量に比例して移る。有限pointer幅、clock overlap、blank momentum誤差は $\varepsilon_{{\rm lat},k}$ へ入れる。
+
+各sectorの容量係数に相対誤差 $|\delta_x|\leq\mu$ があっても、R186第3項により容量誤差は $\mu J_{k,b}$ 以下であり、sector数の粗い和を取らない。pointerへ信号振幅と無関係な独立additive forceを入れるnoiseは別であり、R186第4項の障害条件で評価する。
 
 ## O.5 可逆filter代数
 

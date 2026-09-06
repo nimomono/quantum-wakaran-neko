@@ -5,6 +5,8 @@
 
 ## 9.1 確立したこと
 
+本稿の計算機としての中心的な比較基準はblack-box operational equivalenceである。内部の受動自由度数をそのまま外部制御複雑度とはみなさず、回路記述、外部program、制御channel、時間、精度、期待試行回数が入力規模と逆誤差の多項式に抑えられるかを判定する。内部mode、静的coupler、装置体積、総bath容量、総熱はreported internal resourceとして別に記録し、量子計算機と同等の総物理資源効率は主張しない。
+
 M54は、一様有限正準register、物理source/template port、anti/work、raw・regularized容量、selector、cold/spent bank、記録、clockを持つQ1・Q2の共通親模型族である。R181Aは物理template準備、R181Bは固定2・3入力の可逆tensor-lift、R181Cは永続register上の局所gate列、R181DはR170駆動projector-tree Born instrumentを与える。各試行の複素信号は実正準座標の派生表示であり、解析上のrayや確率表をcontrollerへ書き戻さない。
 
 Q1はM54の $n=1$ W型特殊化である。R181AのW型2モード系は独立結果IDを持たない。共通R135は階数1bath共分散のBloch球、R140は任意の $SU(2)$、零傾斜占有振動、離調Rabi式を与える。R187はM37の局所ばね弱結合W型族で $J_\kappa/G_\kappa\to0$ を構成し、傾斜時のdressed低2cluster、厳密正常mode分裂較正、finite switchを合成してR140制御を任意精度で物理carrierへ持ち上げる。R181Dの深さ1とR143が有限コントラストの左右読出しと結果別状態更新を与える。R135、R140により既にQ1-1を達成しており、R187はその物理backendを強化する。
@@ -33,9 +35,9 @@ R180Aはblock代数と理想共同Born則を厳密に与える。R180Bは採用�
 
 固定目標Q2-3は条件付き達成である。R181Bをgate列の前に2回使って8mode信号を作り、R181CのA--B、B--C二次生成子と逆演算を同じ永続registerへ作用させる。R177のGHZ--$T$--逆演算ではcoherent出力と完全dephasing出力の全変動距離が $1/(2\sqrt2)$ になる。末端ではR164/R161/R162/R170を含むR181Dを8modeへ特殊化し、Q2-1と同じ末端接続条件が残る。
 
-固定目標Q2-4は条件付き達成である。M54は $2^n$ 受動signal modeを許し、R181Cが局所gateをspectator sectorへ一様にbroadcastする。R181Dはraw容量、正則化作用殻、R170 selector、可逆filter、radial-only repumpを深さ $n$ で合成する。完全結果誤差は入力誤差、$n\delta/(1+\delta)$、$2n(\tau+\gamma)$、node誤差の和で抑える。R178Dは結果相関履歴をspentへ残す境界、R179はblank bank、collision cell、selector/filter work、spent bankを供給する。旧apertureとdyadic tapeは現行因果鎖に使わない。
+固定目標Q2-4は条件付き達成である。M54は $2^n$ 受動signal modeを許し、R181Cが局所gateをspectator sectorへ一様にbroadcastする。R181Dはraw容量、正則化作用殻、R170 selector、可逆filter、radial-only repumpを深さ $n$ で合成する。完全結果誤差は入力誤差、$n\delta/(1+\delta)$、$2n(\tau+\gamma)$、node誤差の和で抑える。R178Dは結果相関履歴をspentへ残す境界、R179はblank bank、collision cell、selector/filter work、spent bankを供給する。R186は、疎な静的製造誤差、独立mode phase noise、projector latch係数誤差が指数sector数を直接加算せず抑えられる領域と、各modeへ独立additive作用を注入するnoise floorが指数noise suppressionを要求する領域を分ける。旧apertureとdyadic tapeは現行因果鎖に使わない。
 
-Q2-4では総bath容量と総熱を多項式としない。signal、work、history、cold、spentの受動容量は指数的でもよい。その代わり、外部program、制御channel、精度、反復回数、総時間を多項式に抑え、指数個の個別address、確率表、回路別配線、稀な成功、事後選別を使わない。この限定は通常の効率的古典simulationではない。
+Q2-4では総bath容量と総熱を多項式としない。signal、work、history、cold、spentの受動容量は指数的でもよい。その代わり、外部program、制御channel、精度、反復回数、総時間を多項式に抑え、指数個の個別address、確率表、回路別配線、稀な成功、事後選別を使わない。この限定は通常の効率的古典simulationではないが、本稿の中心的なblack-box比較ではそれ自体を失敗としない。内部指数構造が外部指数costへ露出するかをR186を含む資源台帳で判定する。
 
 ## 9.3 確立していないこと
 
@@ -59,13 +61,13 @@ Q2-2ではM54 static profileとR180 receiverを使い、R112、R161、R162、R16
 
 Q2-3ではM54 static profileを親模型とし、R112、R161、R162、R164、R170、R177、R181A--R181Dを根拠結果とする。
 
-Q2-4ではM54を親模型とし、R112、R161、R162、R164、R170、R181A--R181D、R178D、R179を根拠結果とする。
+Q2-4ではM54を親模型とし、R112、R161、R162、R164、R170、R181A--R181D、R178D、R179、R186を根拠結果とする。
 
 独立判定は他のQ2目標の達成ラベルを前提にしないという意味であり、同じ親模型と部品定理を共有できる。
 
 Q2-1からQ2-4に共通する一様なハードウェア族は、判定外の実装努力目標として未完成である。同じ物理port、永続状態浴、相互作用区間族、制御bus、準備・読出しinterfaceを全目標で共有する構成をまだ得ていないが、この未完成性をQ2-1またはQ2-2の達成状態へ遡及させない。
 
-Q2-4で確立していないのは、M54の静的sector配線、projector latch、R170 collision、selector lock、controlled filter、radial repump、blank/spent bank、clockを一つの具体的な一様装置族へ統合し、局所誤差上界を同時に実現することである。cold bathを閉系から生成すること、有限bankで無期限運転すること、使用済みcellを履歴なしにblankへ戻すこと、指数受動容量または総熱を多項式へ削減することも主張しない。
+Q2-4で確立していないのは、M54の静的sector配線、projector latch、R170 collision、selector lock、controlled filter、radial repump、blank/spent bank、clockを一つの具体的な一様装置族へ統合し、局所誤差上界を同時に実現し、実際の製造ばらつきと運転中noiseがR186の正の条件を満たすことを示すことである。cold bathを閉系から生成すること、有限bankで無期限運転すること、使用済みcellを履歴なしにblankへ戻すこと、指数受動容量または総熱を多項式へ削減することも主張しない。
 
 ## 9.4 次の決定的検査
 
@@ -73,7 +75,7 @@ Q1-2の次の決定的検査は、同じ総時間の零傾斜Rabi自由対照、
 
 これとは別に、M54のpump、transverse sink、template、clockを有限bathへ持ち上げ、R164の作用容量結合、fiber内平衡化、枝対称性と同じW型装置へ統合すること、R162の有限衝突bath、信号bath保持controller、任意軸分析器、傾斜切替、局所記録、枝別テンプレート交換、resetを同じ有限時間Hamiltonian台帳へまとめること、粗視化経路熱力学を周期全体の微視的ゆらぎ関係へ拡張することは、実装・熱力学的強化課題として残る。$\delta\downarrow0$、深いW型、長いfiber準備・混合時間の精度--時間--エネルギー交換もこの強化課題で監査する。
 
-Q2-1とQ2-3の次の検査は、R181Dのcanonical SWAP出口、容量pointer、R164/R170、selector lock、controlled filter、radial repump、recordを共通safe setと単一clock scheduleで閉じることである。Q2-2ではR180CのM54末端SWAP、setting-pre block latch、source port、paired-Hopf pump・sink、R162有限衝突bath、中央切断、2翼controllerを同じ装置とclockへ統合する。Q2-4ではsector漏れ、latch、R170 collision、filter、radial repump、cold floorを同じ安全集合上で同時に抑える。
+Q2-1とQ2-3の次の検査は、R181Dのcanonical SWAP出口、容量pointer、R164/R170、selector lock、controlled filter、radial repump、recordを共通safe setと単一clock scheduleで閉じることである。Q2-2ではR180CのM54末端SWAP、setting-pre block latch、source port、paired-Hopf pump・sink、R162有限衝突bath、中央切断、2翼controllerを同じ装置とclockへ統合する。Q2-4ではsector漏れ、latch、R170 collision、filter、radial repump、cold floorを同じ安全集合上で同時に抑え、局所製造ばらつきとnoise covarianceを明示してR186の正の頑健性条件を検査する。
 
 Q3-2の次の検査は、R184のfinite collision近似について前進・後退生成子の誤差を二階の合成平均加速度まで持ち上げ、R185の $O(a^2)+O(\delta)$ 残差へ明示的に加えることである。M37局所包絡からNewton加速度まで直接導く強化では、carrier-period粗視化または時間微分付き縮約を別に検査する。
 

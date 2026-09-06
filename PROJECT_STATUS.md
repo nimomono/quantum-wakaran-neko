@@ -35,7 +35,7 @@
 - 各目標の達成状態は、その行に明記した共通profile、物理担体またはbackend、系列固有protocolまたはreceiver、根拠結果だけで判定する。目標ごとに担体、浴、clock、準備・読出し原理が異なっても、それだけでは不達としない。共通の有効profileまたは入出力契約を使うことと、同じ物理装置を使うことは区別する。
 - 規模 $N$ ごとの一様な共通ハードウェア族へ統合することは、固定目標の達成条件ではなく実装上の努力目標とする。将来これを主張する場合は、同じ物理port、永続状態浴、相互作用区間族、clock・制御bus、準備interface、Born型読出し・記録interfaceを共有する具体的装置族を別途示す。
 - パラメータ値、使用するport、有限の外部制御列は目標と入力に応じて変えてよい。受動的な浴自由度、coherent経路、静的結合、状態容量、受動並列度が指数的に増えても、それだけでは不達としない。ただし規模と構造を報告し、一様な有限規則で生成できることを要求する。
-- Q2-4では、受動bankの総容量、装置体積、cold/spent cell総数、総熱が指数的でもよい。これらを外部controllerが個別にaddress、設定、較正、回収することは認めない。この基準は通常の意味の効率的古典simulationを主張しない。
+- Q2-4はblack-box operational criterionとして判定する。受動bankの総容量、装置体積、cold/spent cell総数、総熱が指数的でもよいが、規模と構造を報告し、外部controllerが個別にaddress、設定、較正、回収することは認めない。内部の指数構造が外部program、精度、時間、試行回数へ露出した場合はoperational resourceとして数える。この基準は通常の意味の効率的古典simulationや量子計算機と同等の総物理資源を主張しない。
 - 指数個の自由度を個別に初期化、設定、較正、同期、制御、リセット、読出しすること、指数長の係数表または配線表を与えること、全自由度を走査すること、指数的に細かい精度・小さい成功率・長い時間へ費用を移すことは認めない。
 
 #### 第3段階：空間量子力学
@@ -74,7 +74,7 @@
 | Q2-1 | 条件付き達成 | M54 static profile | 永続4mode registerとanti/work | tensor-lift、gate、末端projector-tree | R112、R161、R162、R164、R170、R181A--R181D | R181Dの容量pointer--作用殻境界、有限fiber混合の枝対称性、SWAPから記録までの単一clock統合を条件とする |
 | Q2-2 | 条件付き達成 | M54 static profile | 永続4mode registerと2翼局所instrument | R180 setting-pre paired-Hopf receiver | R112、R161、R162、R164、R170、R181A--R181D、R180A--R180C | 固定singlet、固定有限設定族、準備先行、非空間分離、採用開放法則に限定。R180Cの単一装置統合、自由設定、空間分離、一般状態は未達 |
 | Q2-3 | 条件付き達成 | M54三部分系static profile | 永続8mode registerとanti/work | 二段gate合成と末端projector-tree | R112、R161、R162、R164、R170、R177、R181A--R181D | R181Dと同じ末端物理接続条件、および固定3入力を越える一般サイズの資源効率は未達 |
-| Q2-4 | 条件付き達成 | M54一般static profile | $2^n$ 受動direct-mode register、collision/cold/spent bank | 一般gate列と逐次projector-tree | R112、R161、R162、R164、R170、R181A--R181D、R178D、R179 | 静的sector配線、projector latch、R170 collision、controlled filter、radial repump、blank/spent bank、clockを一つの一様装置族へ統合する。総bath容量と総熱は指数的でもよい |
+| Q2-4 | 条件付き達成 | M54一般static profile | $2^n$ 受動direct-mode register、collision/cold/spent bank | 一般gate列と逐次projector-tree | R112、R161、R162、R164、R170、R181A--R181D、R178D、R179、R186 | 静的sector配線、projector latch、R170 collision、controlled filter、radial repump、blank/spent bank、clockを一つの一様装置族へ統合し、製造誤差と運転中noiseがR186のpoly精度条件を満たすことを示す。総bath容量と総熱は指数的でもよい |
 | Q3-1 | 達成 | — | M37 | — | R86 | — |
 | Q3-2 | 部分達成 | M54 spatial profile | 理想縮約層。M37からの直接加速度縮約は強化課題 | moving matching / Nelson縮約 | R161、R185 | 同一母測度の前後生成子と時間対称Newton則は理想M54 spatial層で導出。finite collision近似から合成加速度までの明示誤差が残る |
 | Q3-3A | 達成 | — | M37＋R123有限環境 | 束縛状態・純位相緩和 | R86、R123（井戸型） | — |
@@ -166,6 +166,7 @@ R181AのW型2モード化は独立結果IDを持たない系として付録Hに�
 | R177 | 条件付き厳密結果 | R181B--R181Dを使うA--B、B--C二段合成とGHZ--$T$--逆演算証人。coherent分布と完全dephasing分布の全変動距離は $1/(2\sqrt2)$ |
 | R178D | 条件付き・資源下界 | Hamiltonian workだけの逆掃除、開放radial repumpの散逸履歴、結果相関情報のspent側保持、強いclosed resetの不可能性 |
 | R179 | 条件付き・明示誤差付き結果 | 反復partial SWAPによるblank近似、root source、R162 collision cell、selector/filter work、cold/spent bank供給 |
+| R186 | 厳密有限次元結果・明示誤差付き障害条件 | M54 direct-modeのprojective頑健性。疎な静的Hamiltonian製造誤差、独立mode phase noise、projector latchの相対係数誤差は指数sector数を直接加算せず評価できる。一方、各modeへ空状態でも作用を注入するisotropic additive noiseでは横方向noise作用が $(2^n-1)\sigma^2$ に比例し、poly signal作用の下で指数noise suppressionが必要になる |
 | R180A | 厳密結果・明示誤差付き結果 | M54の実際の1試行末端信号をそのままholdしてA設定basisでblock分解し、物理容量比とB側templateを得る。規格化rayは解析上だけ用いるsetting-pre receiver |
 | R180B | 採用開放方程式後の厳密結果・明示誤差付き結果 | 選択済み2翼templateへ有限時間で整列するpaired-Hopf流、吸引率、作用・熱・仕事の開放帳簿 |
 | R180C | 条件付き・明示誤差付き結果 | R180A/B、2翼局所R170、切断後因子化、Born共同分布、非信号性、CHSH差、Bell前提監査、fresh-cell帰還の単一装置合成 |
@@ -193,6 +194,7 @@ R181AのW型2モード化は独立結果IDを持たない系として付録Hに�
 - M54の $Z_S$ とR180が保持する $\widetilde V=Z_{\rm out}(\omega)$ は1試行の実正準状態から得る物理的な派生信号であり、M54の $c,C_Z$ または旧M48の集団交差momentではない。$V=\widetilde V/\|\widetilde V\|$ は解析上のrayであって、canonical SWAPが状態依存除算を行うわけではない。R181C後は実際の $\widetilde V$ をreceiverへ渡し、$G_S$ を終端共役として再利用しない。
 - M54の有限mode、anti-register、source、work、clock履歴はゲート間で永続させる。外部controllerは内部modeを個別に初期化、較正、同期、address、読出し、resetしない。
 - M54の指数的signal、work、history、cold、spent自由度は受動bankとして許す。外部controllerは局所gate名、bit index、clock窓だけを指定し、Born重みまたは最終確率表を入力しない。
+- Q2-4の比較対象はblack-box operational complexityである。内部mode、静的coupler、装置体積、総熱の総量は別のreported internal resourceとして保持し、指数的であるだけでQ2-4を否定しない。ただしそれらがmode別較正、指数精度、指数時間として外部interfaceへ露出すれば失敗とする。R186はこの露出のうち製造誤差とnoiseの境界を定量化する。
 - R181Dではraw容量 $J_{u,b}$ をcutoff比較に、regularized容量 $A_{u,b}^\delta$ をR164/R170作用殻に使う。selectorをlockしてから可逆filterを開き、R181Aのradial-only portで選択rayを戻す。旧apertureとdyadic tapeは現行因果鎖に使わない。
 - R180CのCHSH不等式の破れは、A設定が中央準備へ入るため測定設定独立性が成立しない構成である。Bellの定理を否定しない。
 - 有限熱化または外部scheduleから独立同分布型有限標本揺らぎは従わない。
@@ -210,7 +212,7 @@ R181AのW型2モード化は独立結果IDを持たない系として付録Hに�
 6. Q3-2ではR185の理想M54 spatial時間対称Newton則にfinite collision加速度誤差を接続する。M37からの直接加速度縮約はcarrier粗視化の強化課題とする。Q3-6の位相量子化、連続空間、多粒子は別途検討する。
 7. R181Dについて、canonical SWAP出口、容量pointer、R164作用殻、有限fiber混合、collection、lock、recordを共通safe setと単一clock scheduleで統合する。
 8. Q2-1・Q2-3について、R181Dの条件を具体的有限局所Hamiltonian装置で閉じ、末端誤差 $\varepsilon_{170}^{\rm end}$ の各項を独立に評価する。
-9. Q2-4について、M54のstatic sector配線、projector latch、R170 collision、selector lock、controlled filter、radial repump、blank/spent bank、clockを一つの具体的な一様装置族へ統合し、各局所誤差を独立に評価する。
+9. Q2-4について、M54のstatic sector配線、projector latch、R170 collision、selector lock、controlled filter、radial repump、blank/spent bank、clockを一つの具体的な一様装置族へ統合し、各局所誤差を独立に評価する。さらに製造ばらつきと運転中noiseを実装模型から導き、R186の正の頑健性条件を満たし、extensive additive-noise障害を回避することを示す。
 10. 実装努力目標として、同じ物理port、永続状態bath、相互作用区間族、制御bus、準備・読出しinterfaceをQ2-1からQ2-4で共有する一様な共通ハードウェア族を得る。この成否を各固定目標の達成判定へ遡及させない。
 11. Q1-2のZeno部分について、零傾斜Rabi対照と有限回反復測定を同じ明示的ミクロモデルで接続し、全履歴と対照を保った有限誤差の正の抑制余裕を示す。
 

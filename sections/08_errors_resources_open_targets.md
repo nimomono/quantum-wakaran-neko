@@ -358,18 +358,18 @@ Q3-4BではR182の同じ静的W型過程を $0$、$T_{1/2}$、$T_{\rm per}$ の�
 
 有限資源を固定したまま厳密node、無期限熱化、永久記録、resetを同時に達成したとは扱わない。
 
-## 8.9 Q2の根拠モデル、共通ハードウェア努力目標、資源分類
+## 8.9 Q2の根拠モデル、共通ハードウェア努力目標、ブラックボックス資源分類
 
 Q2-1からQ2-4は、次の根拠モデルと根拠結果から互いに独立に判定する。独立とは他のQ2目標の達成ラベルを前提にしないという意味であり、同じ模型または部品定理を複数の目標で使うことは禁止しない。目標ごとに担体、浴、clock、準備・読出し原理が異なっても、それだけでは不達としない。
 
 - Q2-1：M54 static profileを使う。根拠結果はR112、R161、R162、R164、R170、R181A--R181D。
 - Q2-2：M54 static profileとR180 receiverを使う。根拠結果はR112、R161、R162、R164、R170、R181A--R181D、R180A--R180C。
 - Q2-3：M54三部分系static profileを使う。R112、R161、R162、R164、R170、R177、R181A--R181Dを根拠とする。
-- Q2-4：M54を使う。根拠結果はR112、R161、R162、R164、R170、R181A--R181D、R178D、R179。
+- Q2-4：M54を使う。根拠結果はR112、R161、R162、R164、R170、R181A--R181D、R178D、R179、R186。
 
 規模 $N$ ごとの一様な共通ハードウェア族へ統合することは、固定目標の達成条件ではなく実装努力目標である。将来これを主張する場合は、同じ物理port、永続状態浴、相互作用区間族、clock・制御bus、準備interface、Born型読出し・記録interfaceを共有する具体的な装置族を示す。共通の正準代数またはinstrument契約だけでは同一装置とみなさない。
 
-受動資源と能動資源を分ける。受動的な浴自由度、正準対、coherent経路、静的結合、状態容量、受動並列度は指数的でもよい。ただし規模を報告し、一様な有限規則から生成する。次は受動資源とはみなさない。
+Q2-4ではblack-box operational resourceとreported internal resourceを分ける。外部から装置を利用するためのprogram、制御、時間、精度、試行回数は前者として多項式上界を要求する。受動的な浴自由度、正準対、coherent経路、静的結合、状態容量、受動並列度、装置体積、総bath容量、総熱は後者として規模を報告し、一様な有限規則から生成する限り指数的でもよい。ただし内部資源が外部interfaceへ露出した次の操作はreported internal resourceには残さない。
 
 1. 各モードを個別に初期化、設定、較正、同期、リセットする操作。
 2. 指数個の係数、配線、時刻窓、結果枝を外部から指定すること。
@@ -424,13 +424,17 @@ Q2-4では、固定有限普遍ゲート集合から与えられる $n$ 量子�
 
 一方、signal、anti-register、work、history、cold、spentを含む指数的な受動自由度と受動状態容量を許す。装置体積、総bath容量、総熱は指数的でもよい。これは通常の意味の効率的古典simulationを主張する基準ではない。
 
+この資源規約は内部costを無視するためではなく、比較対象をblack-box operational complexityへ固定するためのものである。内部mode数、静的coupler数、装置体積、総熱は別のreported internal resourceとして保持する。量子計算機と同等の総物理資源効率は主張しない一方、内部の指数構造がmode別較正、指数精度、指数時間、指数試行回数として外部へ露出する場合はQ2-4の失敗とする。
+
 M54は $L=2^n$ 個のsignal modeを使うが、R181Cにより固定有限局所gateをspectator sectorへ同じ係数でbroadcastし、作用素norm誤差をsector数の和ではなく最大値で抑える。R181Dは各bitでraw容量 $J_{u,b}$ とregularized容量 $A_{u,b}^\delta$ を分け、R164/R170でselectorを形成してから可逆filterを開く。確率 $\tau$ 未満の枝とguardを $\varnothing$ に残すため、切断誤差は $2n(\tau+\gamma)$ 以下であり、事後選別を使わない。
 
 選択成分はR181Aのradial-only portで標準作用へ戻す。未知の条件付き確率を読み出すsqueezeではなく、$\tau$ の下限から固定repump時間を選ぶ。深さ $n$ の完全結果誤差は入力誤差、$n\delta/(1+\delta)$、$2n(\tau+\gamma)$、各node実装誤差の和で抑える。R178DはHamiltonian workだけの逆掃除と、結果・開放散逸履歴をspent側へ残す境界を与える。
 
 R179は同一静的couplerと受動clockによるpartial SWAPを反復し、active残差を幾何的にaggregate cold floorまで縮める。root source、R162 collision cell、selector、filter workをbankから供給し、使用済み状態をspentへ送る。旧fair-bit、dyadic threshold、aperture tapeは現行因果鎖に使わない。
 
-以上は各構成部品と合成誤差・資源の定理を与える。ただし、静的sector配線、projector latch、R170 collision、selector lock、controlled filter、radial repump、blank/spent bank、clockを一つの具体的な一様装置族へ統合する物理境界が残る。この条件の下でQ2-4を条件付き達成とする。
+R186はこのblack-box規約に対する製造誤差とnoiseの境界を与える。疎な静的coupler誤差はprojective operator normで、独立mode phase noiseは平均fidelityで、projector latchの相対係数誤差は容量の相対誤差で評価でき、いずれもsector数の粗い和を取らない。一方、各modeへ信号振幅と無関係なadditive作用を注入し $Q_{\rm add}\succeq\sigma^2I_{2^n}$ となる場合は、横方向noise作用が $(2^n-1)\sigma^2$ に比例する。poly signal作用とpoly時間のまま精度を保つには指数noise suppressionが必要となるため、現在のM54 direct-mode実装に対する障害条件である。
+
+以上は各構成部品と合成誤差・資源の定理を与える。ただし、静的sector配線、projector latch、R170 collision、selector lock、controlled filter、radial repump、blank/spent bank、clockを一つの具体的な一様装置族へ統合し、実際の製造ばらつきと運転中noiseがR186の正の頑健性条件を満たしてextensive additive-noise障害を回避することが残る。この条件の下でQ2-4を条件付き達成とする。
 
 ## 8.12 反証条件
 
@@ -442,7 +446,7 @@ R179は同一静的couplerと受動clockによるpartial SWAPを反復し、acti
 | Q1 W型2モードprotocol/R143 | Hopf方向が有限時間で準備できない、R170特殊化後もBorn型枝と局所記録が一致しない、結果別状態更新が失敗する |
 | M54/R181B--R177 | tensor-liftの正規化または正準性が破れる、集団momentから再準備する、同じregisterを保持できない、参照系相関または逆演算fringeが壊れる、各modeの個別外部制御が必要、R181Dの完全結果誤差境界を満たさない |
 | M54/R180A--R180C | 実際の末端信号でなく集団momentを再注入する、block作用と枝重みが一致しない、paired-Hopf流が選択templateへ吸引しない、R180Cの単一装置境界を満たさない、切断後因子化が破れる、局所R170応答が反対翼設定を参照する、無反応込みでCHSH誤差上界を満たさない |
-| M54/R181A--R181D・R178D・R179 | sectorごとの誤差を指数個加算する、selector lock前にfilterを開く、projector filterが正準でない、希少枝を事後除外する、状態依存除算または確率依存squeezeを使う、使用済みcellを履歴なしにblankへ戻す、または単一の一様装置族へ統合できない |
+| M54/R181A--R181D・R178D・R179・R186 | sectorごとの誤差を指数個へ粗く加算する、selector lock前にfilterを開く、projector filterが正準でない、希少枝を事後除外する、状態依存除算または確率依存squeezeを使う、使用済みcellを履歴なしにblankへ戻す、単一の一様装置族へ統合できない、または実装noiseがR186のextensive additive-noise障害を回避せず指数精度を要求する |
 | M37/R86・R135 | 有限時間包絡上界または第2モーメント持上げ上界を超える |
 | R182 | W型固定低位スペクトル・密度・節が格子収束しない、Rayleigh十分条件から障壁下二重項が得られない、functional calculusの共有固有空間または分裂相対上界を破る、中央障壁込み半周期鏡映・一周期回帰が成立しない |
 | M54 spatial/R161--R184 | 局所master方程式がM37辺流を再現しない、正則化全変動上界を破る、有限衝突近似が安全領域で収束しない、終時刻に同じ粒子を記録できない |
