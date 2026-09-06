@@ -11,7 +11,9 @@ git diff --check
 
 R186専用回帰では、直和operator normが最大block誤差に一致すること、疎coupler摂動が局所次数と係数誤差で抑えられること、独立phase noiseの平均fidelity損失がmode数に依存しないこと、projector latchの相対係数誤差、isotropic additive noiseの横方向traceが $(2^n-1)\sigma^2$ になることを決定論的に検査する。
 
-Q2-4の固定目標文言と「条件付き達成」ラベルは変更しない。black-box operational resourceとreported internal resourceを分離し、R186をQ2-4の根拠結果と残件・反証条件へ追加する。最終CI run、生成commit、PDFページ数と品質検査結果は生成後にこの節へ追記する。
+Q2-4の固定目標文言と「条件付き達成」ラベルは変更しない。black-box operational resourceとreported internal resourceを分離し、R186をQ2-4の根拠結果と残件・反証条件へ追加した。
+
+GitHub Actionsの一時生成run `34066226836` で、全Python構文検査、全 `verify_*.py`、R186専用回帰、`build_paper.py`、`git diff --check`、最終LaTeX禁止警告検査が成功した。生成commitは `36be29acb3acdb1dc5029a2c9cb354384f9d71b1` で、`paper.md`、`main.tex`、`paper.pdf` を収録する。生成PDFはA4、231ページ、1,367,500 bytes。一時生成workflowは生成後に削除した。
 
 ---
 
