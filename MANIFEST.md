@@ -120,6 +120,14 @@
 
 旧版セクション、旧数値コード、旧PDF、査読回答履歴は収録しない。置換・退役した理論の最小索引と再検討条件は `notes/` に残し、完全な原稿と実装はGit履歴から参照する。
 
+## draft-73の整合性修復
+
+- R184のM37開始作用latch仕様と $L_\delta(\eta)\varepsilon_{\rm car}$ 評価。
+- 一般有界有向率の有限collision-cell持上げ補題を付録Nへ自己完結に追加。
+- R185の連続一様背景 $q_0=1/\ell$ と非零current数値回帰。
+- M42退役メモ、現行依存台帳、README、PROJECT_STATUS、VALIDATION、CI、引用情報の同期。
+- draft-73へ再生成した `paper.md`、`main.tex`、`paper.pdf`。
+
 ## draft-71の追加
 
 - R182「M37静的W型スペクトル・空間トンネル縮約定理」と付録Gの完全証明。

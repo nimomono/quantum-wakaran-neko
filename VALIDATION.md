@@ -1,5 +1,7 @@
 # 検算と品質確認
 
+この文書は版ごとの検算結果を履歴として追記する。古い節にある「現行」「未達」「M42」などの語は、その節を記録したdraft時点の状態を表し、最新の導出状態は末尾の最新節、PROJECT_STATUS.md、README.mdを優先する。
+
 ## draft-71：R182 W型スペクトル・空間トンネル縮約
 
 ```bash
@@ -407,5 +409,6 @@ GitHub Actionsは次を確認する。
   - delta残差: `3.958585e-04, 1.996207e-04, 1.002385e-04`（delta半減ごとにほぼ1/2）
 - 既存検算群も生成workflow内で完走し、代表的な共通検算は `all 28 checks passed`。
 - `paper.md`、`main.tex`、`paper.pdf` を章別正本から再生成した。
-- 最終PDF: 213 pages、A4 (`595.28 x 841.89 pt`)、1,290,275 bytes、PDF 1.5。\n- R185定理見出しを短縮し、最終LaTeXログでは `Overfull` / `Underfull` / 未解決citation/reference / missing characterを0件とした。
+- 最終PDF: 213 pages、A4 (`595.28 x 841.89 pt`)、1,290,275 bytes、PDF 1.5。
+- R185定理見出しを短縮し、最終LaTeXログでは `Overfull` / `Underfull` / 未解決citation/reference / missing characterを0件とした。
 - M42/R172--R174の現行参照は退役説明を除いて除去し、M55/R183--R185へ依存台帳を同期した。

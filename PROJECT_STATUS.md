@@ -174,7 +174,7 @@ R181AのW型2モード化は独立結果IDを持たない系として付録Hに�
 |---|---|---|
 | R86 | 厳密結果・明示誤差付き結果 | M37の正確局所包絡方程式、生成子誤差、有限時間Schrödinger型近似、作用変動、有限基底診断 |
 | R183 | 厳密結果 | R164型条件付き分布のmoving-matching不変性、rank-one支持から正則化Born位置分布への受渡し。集団統計を書き戻さない |
-| R184 | 条件付き・明示誤差付き結果 | M37包絡からM55 rateへの $L_\delta\varepsilon_{\rm car}$ 評価、finite collision実装、完全結果分布の有限時間受渡し |
+| R184 | 条件付き・明示誤差付き結果 | M37開始作用latchからM55 rateへの $L_\delta\varepsilon_{\rm car}$ 評価、一般有界有向率の有限collision-cell実装、完全結果分布の有限時間受渡し |
 | R185 | 厳密有限格子結果・明示誤差付き近似結果 | 同一母測度の時間反転rate、$D_\pm$、1次元node-free sectorの時間対称Newton則。正則化残差 $O(\delta)$、格子残差 $O(a^2)$ |
 | R123 | 厳密結果・数値検証付き | 井戸型・調和型低位束縛状態と有限環境純位相緩和 |
 | R124 | 厳密結果・数値検証付き | 障壁値未満スペクトル支持からの反対側確率増分 |
@@ -187,8 +187,8 @@ R181AのW型2モード化は独立結果IDを持たない系として付録Hに�
 - M54が準備する $C_Z\simeq cc^\dagger$ は試行集団の統計状態である。各試行の実体は実正準担体、template、開放portと履歴であり、$c$ または $C_Z$ を単一試行controllerへ再注入しない。
 - Q3の単一試行ではM55の実正準signal自由度と1個の粒子位置、finite collision bathが実体である。複素signalは実正準状態の派生表示、rayと位置分布は集団統計であり、M55 controllerへ集団統計を入力しない。M37はsignal sectorの局所位置ばね実装である。
 - Q3の二乗形はM54/R135のrank-one準備とR164の条件付き状態数に由来する。開始面で位置を一度だけ準備し、R183が同じ条件付き分布をmoving matchingとして保存する。終時刻には再標本化せず同じ粒子を記録する。
-- R183は最小率でなく、拡散を担う対称往復trafficと確率currentを同時に持つ。$\delta>0$ はR164と共通のnode正則化を与えるが、$\delta\downarrow0$ ではrate感度とfinite collision資源が発散し得る。
-- R170はQ1、Q2-1、Q2-3、Q2-4、R180Cの局所instrumentで共通に使う。Q3では初期位置選択だけに使い、終時刻に別の位置を標本化しない。
+- R183は最小率でなく、拡散を担う対称往復trafficと確率currentを同時に持つ。$\delta>0$ はR164と共通のnode正則化を与える。M37実装ではR184が開始作用 $S_{\rm ref}$ をlatchして背景容量を固定し、非保存な局所包絡作用をrateへ再注入しない。$\delta\downarrow0$ ではrate感度とfinite collision資源が発散し得る。
+- R170はQ1、Q2-1、Q2-3、Q2-4、R180Cの局所instrumentで共通に使う。Q3の主moving-matching経路では開始面をR164/R161/R162で準備し、R170は固定時刻の代替診断に限る。終時刻に別の位置を標本化しない。
 - M54の $Z_S$ とR180が保持する $\widetilde V=Z_{\rm out}(\omega)$ は1試行の実正準状態から得る物理的な派生信号であり、M54の $c,C_Z$ または旧M48の集団交差momentではない。$V=\widetilde V/\|\widetilde V\|$ は解析上のrayであって、canonical SWAPが状態依存除算を行うわけではない。R181C後は実際の $\widetilde V$ をreceiverへ渡し、$G_S$ を終端共役として再利用しない。
 - M54の有限mode、anti-register、source、work、clock履歴はゲート間で永続させる。外部controllerは内部modeを個別に初期化、較正、同期、address、読出し、resetしない。
 - M54の指数的signal、work、history、cold、spent自由度は受動bankとして許す。外部controllerは局所gate名、bit index、clock窓だけを指定し、Born重みまたは最終確率表を入力しない。
