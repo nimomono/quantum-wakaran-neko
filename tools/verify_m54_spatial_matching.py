@@ -29,7 +29,7 @@ def current(z: np.ndarray, h: np.ndarray) -> np.ndarray:
             out[i, j] = 2.0 / J0 * np.imag(np.conj(z[j]) * h[j, i] * z[i])
     return out
 
-def moving_rates(z: np.ndarray, h: np.ndarray, delta: float, q: np.ndarray):
+def spatial_rates(z: np.ndarray, h: np.ndarray, delta: float, q: np.ndarray):
     s = float(np.vdot(z, z).real)
     r = np.abs(z) ** 2 + delta * q * s
     j = current(z, h)
@@ -92,10 +92,10 @@ def main() -> None:
     zdot = -1j * h @ z / J0
     pdot = 2.0 * np.real(np.conj(z) * zdot) / (1.0 + delta)
     master = p @ generator(kp)
-    check(np.max(np.abs(j + j.T)) < TOL, "R183 current antisymmetry")
-    check(np.min(t - np.abs(j)) > -TOL, "R183 traffic positivity")
-    check(np.min(kp) > -TOL and np.min(km) > -TOL, "R183 rate positivity")
-    check(np.max(np.abs(master - pdot)) < TOL, "R183 moving matching")
+    check(np.max(np.abs(j + j.T)) < TOL, "R161 spatial current antisymmetry")
+    check(np.min(t - np.abs(j)) > -TOL, "R161 spatial traffic positivity")
+    check(np.min(kp) > -TOL and np.min(km) > -TOL, "R161 spatial rate positivity")
+    check(np.max(np.abs(master - pdot)) < TOL, "R161 spatial moving matching")
 
     bayes = np.zeros_like(km)
     for i in range(n):
@@ -123,7 +123,7 @@ def main() -> None:
     kx = latched_rates(x, h_real, delta, q, 1.0)[3]
     ky = moving_rates(y, h_real, delta, q)[4]
     kylat = latched_rates(y, h_real, delta, q, 1.0)[3]
-    check(np.max(np.abs(kylat - ky)) < TOL, "R184 ideal latch equals M55")
+    check(np.max(np.abs(kylat - ky)) < TOL, "R184 ideal latch equals M54 spatial")
     kinst = moving_rates(x, h_real, delta, q)[4]
     check(
         np.max(np.abs(kx - kinst)) > 1.0e-10,

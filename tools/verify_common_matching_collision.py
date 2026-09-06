@@ -102,6 +102,75 @@ def main() -> None:
     rng = np.random.default_rng(seed)
     checks: list[CheckResult] = []
 
+    # General R161: current--traffic matching and same-measure Bayes reversal.
+    general_size = 5
+    pi = rng.uniform(0.2, 1.0, size=general_size)
+    pi /= np.sum(pi)
+    raw = rng.normal(scale=0.05, size=(general_size, general_size))
+    current = raw - raw.T
+    np.fill_diagonal(current, 0.0)
+    traffic = np.abs(current) + 0.2
+    traffic = 0.5 * (traffic + traffic.T)
+    np.fill_diagonal(traffic, 0.0)
+    kplus = np.zeros_like(current)
+    kminus = np.zeros_like(current)
+    for i in range(general_size):
+        for j in range(general_size):
+            if i == j:
+                continue
+            kplus[i, j] = (traffic[i, j] + current[i, j]) / (2.0 * pi[i])
+            kminus[i, j] = (traffic[i, j] - current[i, j]) / (2.0 * pi[i])
+    lplus = kplus.copy()
+    np.fill_diagonal(lplus, -np.sum(kplus, axis=1))
+    target_derivative = np.sum(current, axis=0)
+    master_derivative = pi @ lplus
+    bayes = np.zeros_like(kminus)
+    for i in range(general_size):
+        for j in range(general_size):
+            if i != j:
+                bayes[i, j] = pi[j] * kplus[j, i] / pi[i]
+    checks.append(record_min("r161_general_rate_positivity", float(np.min(kplus)), -2.0e-15))
+    checks.append(record_max(
+        "r161_general_master_current_error",
+        float(np.max(np.abs(master_derivative - target_derivative))),
+        3.0e-14,
+    ))
+    checks.append(record_max(
+        "r161_general_bayes_reverse_error",
+        float(np.max(np.abs(bayes - kminus))),
+        3.0e-14,
+    ))
+
+    # General R162: Euler threshold kernels are stochastic and converge for a
+    # constant bounded directed generator as the time mesh is refined.
+    arbitrary_rates = rng.uniform(0.0, 0.8, size=(general_size, general_size))
+    np.fill_diagonal(arbitrary_rates, 0.0)
+    directed = arbitrary_rates.copy()
+    np.fill_diagonal(directed, -np.sum(arbitrary_rates, axis=1))
+    duration_generic = 0.4
+    eigvals, eigvecs = np.linalg.eig(directed)
+    exact_generic = (
+        eigvecs
+        @ np.diag(np.exp(eigvals * duration_generic))
+        @ np.linalg.inv(eigvecs)
+    ).real
+    euler_errors = []
+    minimum_kernel_entry = float("inf")
+    maximum_kernel_mass_error = 0.0
+    for steps in (20, 40, 80):
+        dt = duration_generic / steps
+        kernel = np.eye(general_size) + dt * directed
+        minimum_kernel_entry = min(minimum_kernel_entry, float(np.min(kernel)))
+        maximum_kernel_mass_error = max(
+            maximum_kernel_mass_error,
+            float(np.max(np.abs(np.sum(kernel, axis=1) - 1.0))),
+        )
+        approx = np.linalg.matrix_power(kernel, steps)
+        euler_errors.append(float(np.max(np.abs(approx - exact_generic))))
+    checks.append(record_min("r162_generic_kernel_nonnegative", minimum_kernel_entry, -2.0e-15))
+    checks.append(record_max("r162_generic_kernel_mass_error", maximum_kernel_mass_error, 3.0e-15))
+    checks.append(record_min("r162_generic_euler_refinement", euler_errors[0] - euler_errors[-1], 1.0e-6))
+
     size = 6
     edges = [(0, 1), (1, 2), (2, 3), (3, 4), (4, 5), (1, 4)]
     activities = {
@@ -285,6 +354,9 @@ def main() -> None:
     payload = {
         "seed": seed,
         "check_count": len(checks),
+        "r161_general_master_error": float(np.max(np.abs(master_derivative - target_derivative))),
+        "r161_general_bayes_error": float(np.max(np.abs(bayes - kminus))),
+        "r162_generic_euler_errors": euler_errors,
         "minimum_uniform_gap_bound": gap_bound,
         "poisson_overflow_example": overflow,
         "checks": [asdict(check) for check in checks],
