@@ -63,17 +63,17 @@ def main() -> None:
         scaled_actions = action_unit * np.abs(isometry @ (scale * state)) ** 2
         maximum_scale_error = max(maximum_scale_error, float(np.max(np.abs(scaled_actions - abs(scale) ** 2 * branch_actions))))
 
-    checks.append(record_max("m50_general_action_decomposition_error", maximum_action_error, 7.0e-13))
+    checks.append(record_max("m54_static_general_action_decomposition_error", maximum_action_error, 7.0e-13))
     checks.append(record_max("r164_shell_weight_error", maximum_weight_error, 5.0e-14))
-    checks.append(record_max("m50_common_phase_invariance_error", maximum_phase_error, 7.0e-13))
-    checks.append(record_max("m50_scale_covariance_error", maximum_scale_error, 2.0e-12))
+    checks.append(record_max("m54_static_common_phase_invariance_error", maximum_phase_error, 7.0e-13))
+    checks.append(record_max("m54_static_scale_covariance_error", maximum_scale_error, 2.0e-12))
 
     branch_actions = np.array([0.12, 0.18, 0.30, 0.40])
     reference = np.array([0.1, 0.2, 0.3, 0.4])
     delta = 0.031
     regularized = (branch_actions + delta * reference) / (1.0 + delta)
-    checks.append(record_max("m50_regularized_normalization_error", abs(float(np.sum(regularized)) - 1.0), 2.0e-15))
-    checks.append(record_max("m50_regularization_tv_bound_excess", max(0.0, total_variation(regularized, branch_actions) - delta / (1.0 + delta)), 2.0e-15))
+    checks.append(record_max("m54_static_regularized_normalization_error", abs(float(np.sum(regularized)) - 1.0), 2.0e-15))
+    checks.append(record_max("m54_static_regularization_tv_bound_excess", max(0.0, total_variation(regularized, branch_actions) - delta / (1.0 + delta)), 2.0e-15))
 
     local_a = np.array([0.63, 0.37])
     local_b = np.array([0.28, 0.72])
