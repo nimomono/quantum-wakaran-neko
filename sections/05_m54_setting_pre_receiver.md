@@ -1,7 +1,7 @@
 @number: 5
 @chapter: 本文
 @title: M54駆動setting-pre paired-Hopf receiverとBell前提監査
-@status: M54の実際の1試行末端信号をA設定で条件付きblockへ分け、source-driven paired-Hopf流、切断後fresh局所作用殻、2翼M50/R170へ接続する。R180A/Bは代数と採用開放流を閉じ、R180Cは単一装置統合を条件とする。Q2-2の条件付き達成を維持する。
+@status: M54の実際の1試行末端信号をA設定で条件付きblockへ分け、source-driven paired-Hopf流、切断後fresh局所作用殻、2翼M54 static/R170へ接続する。R180A/Bは代数と採用開放流を閉じ、R180Cは単一装置統合を条件とする。Q2-2の条件付き達成を維持する。
 
 ## 5.1 目的と模型の境界
 
@@ -53,7 +53,7 @@ R180を三つに分ける。
 
 1. R180AはM54信号のsetting-pre条件付きblock抽出、branch作用、Born共同代数を与える。
 2. R180Bは選択blockを物理templateとして2翼carrierへ移すsource-driven paired-Hopf吸引を与える。
-3. R180Cは中央切断、2翼M50/R170、局所記録、Bell監査、fresh-cell帰還を条件付きで合成する。
+3. R180Cは中央切断、2翼M54 static/R170、局所記録、Bell監査、fresh-cell帰還を条件付きで合成する。
 
 ## 5.2 M54の固定singlet sourceと試行順序
 
@@ -735,7 +735,7 @@ d_{\rm ret}(Y_n,Y_*),
 
 ## 5.14 Q2-2判定と非主張
 
-M54、setting-pre paired-Hopf receiver、M50と、R112、R161、R162、R164、R170、R181A--R181D、R180A--R180Cにより、固定singlet、固定有限設定族、準備先行、非空間分離、プロトコル面matching、無反応込み、採用開放法則、弱開放帰還という範囲で固定目標Q2-2を条件付き達成とする。
+M54 static profile、setting-pre paired-Hopf receiverと、R112、R161、R162、R164、R170、R181A--R181D、R180A--R180Cにより、固定singlet、固定有限設定族、準備先行、非空間分離、プロトコル面matching、無反応込み、採用開放法則、弱開放帰還という範囲で固定目標Q2-2を条件付き達成とする。
 
 Q2-2の固定目標文言と独立判定規則は変更しない。現行の根拠構成がM54を共有するのであって、「Q2-1が達成ならQ2-2も達成」と推論しない。Q2-2はR180固有の条件と完全結果誤差から判定する。
 
