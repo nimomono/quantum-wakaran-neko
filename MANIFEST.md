@@ -31,7 +31,7 @@
 - `sections/A11_common_collision_bath_thermodynamics.md`
 - `sections/A12_common_action_shell_state_count.md`
 - `sections/A13_m54_template_port_preparation.md`
-- `sections/A14_m37_m42_spatial_token.md`
+- `sections/A14_m55_spatial_moving_matching.md`
 - `sections/A15_m54_uniform_register.md`
 - `sections/A16_m54_projector_tree_receiver.md`
 - `sections/A17_m54_uniform_supply.md`
@@ -95,7 +95,7 @@
 - `tools/verify_q1xq1_common_bath.py`
 - `tools/verify_common_signal_m50.py`
 - `tools/verify_r181a_template_port.py`
-- `tools/verify_m42_spatial_token.py`
+- `tools/verify_m55_moving_matching.py`
 - `tools/verify_r181d_projector_tree.py`
 - `tools/verify_r179_m54_supply.py`
 - `tools/verify_m54_q2_composition.py`

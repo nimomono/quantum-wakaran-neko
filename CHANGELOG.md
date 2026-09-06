@@ -1,5 +1,14 @@
 # 変更記録
 
+## draft-72：M42最終退役とM55 moving-matching統合
+
+- M42の再定義版とR172--R174を現行依存から退役し、Q3をM55「粒子--signal bath共同測度・moving-matching模型族」へ統一した。単一試行controllerは実正準signal $Z(\omega)$ だけを読み、rank-one因子 $\psi$、$C_Z$、全位置分布を入力しない。
+- R183を追加し、R164と同じ $\pi^\delta(X\mid Z)$ がM55の共同測度で全時刻不変となること、rank-one集団では正則化Born位置分布になることを証明した。
+- R184を追加し、M37局所包絡からM55 rateへの明示Lipschitz定数 $L_\delta(\eta)$、$T L_\delta\varepsilon_{\rm car}$ の全変動誤差、一般有向collision-cell構成をR164共通の $\delta$ 正則化へ統合した。
+- R185を追加し、同じM55 path measureからBayes時間反転rate、前進・後退平均微分、有限格子のcurrent/osmotic速度分解を導いた。1次元一様背景のnode-free sectorでは時間対称Newton則を $O(a^2)+O(\delta)$ まで導いた。
+- Q3-2を未達から部分達成へ更新した。理想M55層のNewton経路は閉じたが、finite collision bath近似から合成加速度までの明示誤差は残す。固定長期目標の文言は変更していない。
+
+
 ## draft-71：R182によるW型束縛状態と空間トンネル振動の完成度引き上げ
 
 - R182「M37静的W型スペクトル・空間トンネル縮約定理」を追加した。対称W型の固定低位スペクトル、密度、節の格子収束、明示的な井戸内Rayleigh条件からの障壁値未満最低偶奇二重項、第3状態との正のgapを同じ結果で扱う。
