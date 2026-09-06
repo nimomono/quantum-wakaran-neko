@@ -11580,7 +11580,7 @@ R_\delta
 ```
 
 <!-- theorem-start:theorem -->
-**定理（R185：moving matching過程の同一母測度時間反転と時間対称Newton則）**
+**定理（R185：同一母測度時間反転と時間対称Newton則）**
 
 R183を1次元一様格子へ特殊化し、$q_i=1/N$、$\delta>0$、$\mathcal J_0=2m\nu$ とする。固定有限時間のnode-free smooth sectorで $\rho\geq\rho_*>0$ を仮定する。同じ共同path measureから定まる $D_\pm$ は上の有限格子速度分解を厳密に満たし、
 
