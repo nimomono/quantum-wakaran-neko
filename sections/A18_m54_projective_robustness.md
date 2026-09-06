@@ -41,7 +41,7 @@ $N=2^n$、$Z\in\mathbb C^N$、$S=Z^\dagger Z>0$、$P_Z=ZZ^\dagger/S$ とする�
 
 である。対角の共通ずれを $cI$ へ吸収する場合も同様で、本文では規約差を吸収する定数 $C$ を許した。
 
-## R.3 独立phase noise
+**独立phase noise。**
 
 各modeについて
 
@@ -81,7 +81,7 @@ e^{-\sigma^2T}
 
 よって $1-\mathbb EF(T)\leq1-e^{-\sigma^2T}\leq\sigma^2T$ であり、$N$ は現れない。
 
-## R.4 Projector latchの係数誤差
+**Projector latchの係数誤差。**
 
 枝集合 $B$ に対し $J_B=\sum_{x\in B}|Z_x|^2$、実装値を
 
@@ -97,7 +97,7 @@ e^{-\sigma^2T}
 
 従って指数個のsectorを含むprojectorでも相対係数誤差を加算しない。
 
-## R.5 Extensive additive noise
+**Extensive additive noise。**
 
 additive incrementを $B\,dW$、$Q_{\rm add}=BB^\dagger$ とする。rayに平行な成分は一次の方向誤差を作らないので、有害な平均二乗作用注入率は
 
