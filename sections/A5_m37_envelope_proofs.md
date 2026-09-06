@@ -1,7 +1,7 @@
 @number: E
 @chapter: 付録
 @title: M37正常モード変換と局所包絡誤差
-@status: R86の正常モード変換、反回転項、作用素誤差、有限時間誤差、作用比診断を証明する。
+@status: R86の正常モード変換と有限時間誤差に加え、R187の弱結合W型cluster、静的較正、有限switch、M54 W2 canonical handoffを証明する。
 
 ## E.1 正常モード分解
 
@@ -556,3 +556,339 @@ D_{\rm ramp}(T)
 これは実伝播のDuhamel公式と対数ノルム評価から従う。固定carrierの回転と正準規格化は同じなので、包絡相対誤差にも使える。滑らかな全W型の有効解を比較対象にする場合は、有効伝播間の差 $\mathcal J_0^{-1}\int\|h-\bar h\|dt$ も加える。
 
 この指数上界は長時間に非常に粗くなり得る。有限切替幅を選べるという形式的事実だけから、現実的な制御帯域や多項式資源を結論しない。より鋭い駆動縮約、同時の高mode抑制、区間の安定性を別に検証する。
+
+
+## E.14 弱結合W型族の低位cluster
+
+左半井戸のHilbert空間を $\mathcal H_L$、右半井戸をその鏡映コピー $\mathcal H_R$ とする。$h_{\rm H}$ の規格化ground modeを $u_*$、固有値を $e_*$ とし、次固有値とのgapを $g_*>0$ とする。中央端点ベクトルを $e_c$ とし
+
+```math
+a_*=\langle e_c,u_*\rangle\neq0
+```
+
+を仮定する。$\kappa=0$ の2重ground空間の基底を
+
+```math
+u_L=(u_*,0),
+\qquad
+u_R=(0,\mathcal Ru_*)
+```
+
+とする。中央link作用素
+
+```math
+B
+=
+|e_L-e_R\rangle\langle e_L-e_R|
+```
+
+のこの2次元空間への圧縮は
+
+```math
+P_*BP_*
+=
+a_*^2
+\begin{pmatrix}
+1&-1\\
+-1&1
+\end{pmatrix}.
+```
+
+その固有値は $0$ と $2a_*^2$ で、固有ベクトルは偶・奇結合である。有限次元Hermitian解析摂動論を孤立した2重固有値clusterへ適用すると、十分小さい $\kappa$ について最低2固有値は解析的に分岐し、
+
+```math
+E_0(\kappa)
+=
+e_*+O(\kappa^2),
+\qquad
+E_1(\kappa)
+=
+e_*+2a_*^2\kappa+O(\kappa^2).
+```
+
+従って
+
+```math
+J_\kappa
+=
+a_*^2\kappa+O(\kappa^2).
+```
+
+$\kappa=0$ の第3、第4固有値は半井戸の第1励起準位 $e_*+g_*$ にあるため、固有値の連続性から
+
+```math
+G_\kappa
+=
+E_2(\kappa)-E_1(\kappa)
+=
+g_*+O(\kappa).
+```
+
+特に $J_\kappa/G_\kappa\to0$ である。
+
+鏡映に対して $\mathcal RX\mathcal R=-X$ とする。$\kappa\to0$ で偶奇modeは
+
+```math
+\phi_{0,\kappa}
+\longrightarrow
+\frac{\nu_L+\nu_R}{\sqrt2},
+\qquad
+\phi_{1,\kappa}
+\longrightarrow
+\frac{\nu_L-\nu_R}{\sqrt2}
+```
+
+と選べる。従って
+
+```math
+\langle\phi_{0,\kappa},X\phi_{1,\kappa}\rangle
+\longrightarrow
+\langle u_*,X_Lu_*\rangle.
+```
+
+右辺の絶対値を $\zeta_*>0$ と仮定したので、十分小さい $\kappa$ で $\zeta_\kappa\geq\zeta_*/2$ とできる。以上は有限局所ばね行列の固有値問題だけを使い、連続WKB分裂則を仮定しない。
+
+## E.15 静的M37 segmentの長時間一様較正
+
+時間独立な実対称 $h$ と $\eta=2\|h\|/(\mathcal J_0\omega_0)<1$ を取る。E.4の正準Bogoliubov変換を時刻 $t$ の局所包絡 $b(t)$ と厳密正常mode包絡 $\widetilde b(t)$ の間に使う。E.5から
+
+```math
+\|b(t)-\widetilde b(t)\|
+\leq
+\delta_{\rm loc}(\eta)\|\widetilde b(0)\|.
+```
+
+$t=0$ にも同じ式を使うと、$\delta_{\rm loc}<1$ の下で
+
+```math
+\|\widetilde b(0)\|
+\leq
+\frac{\|b(0)\|}{1-\delta_{\rm loc}}.
+```
+
+厳密正常mode伝播を
+
+```math
+U_{\rm ex}(t)
+=
+\exp\left[-\frac{i}{\mathcal J_0}f_{\omega_0}(h)t\right]
+```
+
+とする。$\widetilde b(t)=U_{\rm ex}(t)\widetilde b(0)$ とunitarityから
+
+```math
+\begin{aligned}
+\|b(t)-U_{\rm ex}(t)b(0)\|
+&\leq
+\|b(t)-\widetilde b(t)\|
++
+\|\widetilde b(0)-b(0)\|\\
+&\leq
+\frac{2\delta_{\rm loc}}{1-\delta_{\rm loc}}
+\|b(0)\|.
+\end{aligned}
+```
+
+これが本文の $\varepsilon_{\rm stat}$ である。重要なのは右辺がhold時間に依存しないことである。
+
+$f_{\omega_0}$ は安定領域で単調増加し、$f_{\omega_0}(h)$ は $h$ のfunctional calculusなので両者は固有射影を共有する。$h$ の孤立した2状態clusterの固有値を $\lambda_0<\lambda_1$ とすると、cluster内の回転軸は $h$ と $f(h)$ で同一で、projective角速度だけが
+
+```math
+\frac{\lambda_1-\lambda_0}{\mathcal J_0}
+\quad\longrightarrow\quad
+\frac{f(\lambda_1)-f(\lambda_0)}{\mathcal J_0}
+```
+
+へ変わる。従って名目segmentのprojective回転角を $\theta$ とすると、M37実segmentを
+
+```math
+T_{\rm ex}
+=
+\frac{\mathcal J_0\theta}
+{f(\lambda_1)-f(\lambda_0)}
+```
+
+だけ保持すれば、厳密正常mode cluster内では全体位相を除いて同じ回転角を得る。長いRabi時間にR86の全スペクトルDuhamel上界を掛ける必要はない。
+
+## E.16 傾斜cluster、dressed生成子と有限gate word
+
+$P=P_\kappa$ を $h_\kappa$ の最低2状態射影、$Q=I-P$ とする。零傾斜clusterと残りのスペクトルの距離は $G_\kappa$ 以上である。摂動 $V_F=-FX$ に対して
+
+```math
+\rho_F
+=
+\frac{|F|\|X\|}{G_\kappa}
+```
+
+と置く。$\rho_F$ が十分小さければWeyl評価で最低2状態clusterは他のスペクトルから正距離を保ち、Riesz射影のresolvent積分またはDavis--Kahan評価から
+
+```math
+\|P_\kappa(F)-P\|
+\leq
+C_W\rho_F
+```
+
+を得る。$\kappa\to0$ で $G_\kappa\to g_*>0$、$\|X\|$ は固定なので、$C_W$ は十分小さい $\kappa$ に一様に取れる。
+
+$P_\kappa(F)$ と $P$ の距離が1未満なら、polar分解からnear-identity unitary $W_F$ を選び
+
+```math
+W_FP W_F^\dagger=P_\kappa(F),
+\qquad
+\|W_F-I\|
+\leq
+C_W\rho_F
+```
+
+とできる。$W_F^\dagger h_\kappa(F)W_F$ はP--Q block対角である。Feshbach展開の一次項は $Ph_\kappa(F)P$、Qを経由する項は2次以上なので
+
+```math
+\left\|
+P W_F^\dagger h_\kappa(F)W_FP
+-
+P h_\kappa(F)P
+\right\|
+\leq
+C_W
+\frac{F^2\|X\|^2}{G_\kappa}.
+```
+
+偶奇基底から左右局在基底へ移ると、対称性により
+
+```math
+P h_\kappa(F)P
+=
+\overline E_\kappa I
+-
+J_\kappa\sigma_x
++
+F\zeta_\kappa\sigma_z.
+```
+
+$F=F_\kappa=\sqrt{J_\kappa G_\kappa}/(2\zeta_\kappa)$ では $\rho_F=O(\sqrt{r_\kappa})$、dressed blockの補正ノルムは $O(J_\kappa)$ である。傾斜segmentのprojective角を固定するとhold時間は $O(\mathcal J_0/\sqrt{J_\kappa G_\kappa})$ なので、二次補正による角誤差は $O(\sqrt{r_\kappa})$ となる。切替時のcluster不一致も $\|P(F)-P\|=O(\sqrt{r_\kappa})$ である。
+
+零傾斜のprojective回転軸は $x$ 軸、$F_\kappa$ のprojective回転軸は
+
+```math
+n_\kappa
+\propto
+\left(-J_\kappa,0,F_\kappa\zeta_\kappa\right)
+```
+
+であり、$n_\kappa\to z$。固定した任意の $U\in SU(2)$ について、$x$--$z$ Euler分解を非特異な有限wordに選び、必要なら恒等的な追加回転を挿入して特異角を避ける。軸に関する連続性から、十分小さい $\kappa$ では $x$ と $n_\kappa$ の有限wordで同じUを実現でき、区間数 $m_U$ とdimensionless回転角の総和を $\kappa$ に依存しない $C_U$ で抑えられる。
+
+各傾斜segmentを実際のfull clusterで実行し、各切替で上の射影差を使う。有限個の三角不等式を合成すれば、厳密正常mode伝播とR140の理想2mode wordの全状態差は
+
+```math
+\varepsilon_{\rm dress}
+\leq
+C_U\sqrt{r_\kappa}
+```
+
+となる。これは固定基底の $\int\|(I-P)h(F)P\|dt$ を使わないため、傾斜結合 $O(F)$ とhold時間 $O(F^{-1})$ の積がorder 1になる粗い障害を回避する。
+
+## E.17 局所M37伝播、有限switchとR187誤差
+
+E.16の理想wordを $m_U$ 個のstatic M37 segmentとして実行する。各segmentではE.15から局所包絡伝播と較正済み厳密正常mode伝播の作用素差を $\varepsilon_{\rm stat}(\eta)$ 以下にできる。各厳密正常mode propagatorはunitaryなので、segmentごとの実線形誤差を反復すると
+
+```math
+\varepsilon_{\rm car}^{(m_U)}
+\leq
+\left(1+\varepsilon_{\rm stat}(\eta)\right)^{m_U}-1.
+```
+
+初期mode投入誤差 $d_0$ とE.16の $\varepsilon_{\rm dress}$ を加えればpiecewise-constant構成の主上界を得る。実際の傾斜値またはhold角の較正誤差をprojective operator normで $\varepsilon_{\rm cal}$ と定義して別に加える。
+
+jump時にはM37の $Q,P$ は連続であり、Hamiltonian仕事だけが有限量変化する。jump列を滑らかにする場合、各jump時刻の幅 $\tau_j$ の小区間だけでE.13を使う。step生成子 $\bar h$ とsmooth生成子 $h$ の差がその区間外で零なら、局所ramp誤差は
+
+```math
+D_j
+\leq
+\frac{2}{\mathcal J_0}
+\exp\left[
+\frac{\tau_j}{\mathcal J_0}
+\max_{\rm ramp}\{\|h\|,\|\bar h\|\}
+\right]
+\int_{I_j}\|h(t)-\bar h(t)\|dt.
+```
+
+static区間の安定な有限propagatorと有限個のrampを合成し、全ramp寄与を $\varepsilon_{\rm sw}$ とする。固定 $\kappa$、固定wordでは $\tau_j\downarrow0$ により任意に小さくできる。
+
+さらに $H_\kappa=\sup_{|F|\leq F_\kappa}\|h_\kappa(F)\|$ が一様有界で、各rampの振幅が $O(F_\kappa)$ のとき
+
+```math
+\tau_j
+=
+\frac{\mathcal J_0}{H_\kappa}r_\kappa^{1/4}
+```
+
+を選べば
+
+```math
+D_j
+=
+O\!\left(
+\frac{|F_\kappa|\|X\|}{H_\kappa}
+r_\kappa^{1/4}
+\right)
+=
+O(r_\kappa^{3/4}).
+```
+
+これは断熱追随ではなく、小振幅quenchを短い連続rampで近似する評価である。
+
+以上を合わせると
+
+```math
+\varepsilon_{187}
+\leq
+d_0
++C_U\sqrt{r_\kappa}
++\left(1+\varepsilon_{\rm stat}(\eta)\right)^{m_U}-1
++\varepsilon_{\rm sw}
++\varepsilon_{\rm cal}.
+```
+
+$\kappa\downarrow0$ で第2項を、$\omega_0\uparrow\infty$ で $\delta_{\rm loc}(\eta)$ と第3項を、ramp幅と較正精度で残りを順に小さくできるので、任意の $\epsilon>0$ に対する有限構成が存在する。
+
+零傾斜rotationの時間は $O(\mathcal J_0/J_\kappa)$、傾斜rotationは $O(\mathcal J_0/\sqrt{J_\kappa G_\kappa})$ なので有限word全体は
+
+```math
+T_U
+\leq
+C_U\frac{\mathcal J_0}{J_\kappa}
+```
+
+とできる。$J_\kappa=O(\kappa)$ なので精度を上げる族で時間は発散し得る。E.15の分裂較正を使うため、carrier frequencyへ長時間Duhamel誤差をそのまま移さないが、$\delta_{\rm loc}$ を目標精度へ下げる有限 $\omega_0$ と、長時間phaseを保つ相対較正精度は必要である。
+
+<!-- theorem-start:proof -->
+**証明（R187）**
+
+E.14で $r_\kappa\to0$ と $\zeta_\kappa\to\zeta_*>0$ を得る。E.16で $F_\kappa$ を選び、R140の任意の固定Uに対する有限wordをdressed full-W clusterへ $O(\sqrt{r_\kappa})$ で持ち上げる。各static区間ではfunctional calculus $f_{\omega_0}(h)$ が同じcluster固有ベクトルを保つため、E.15の分裂較正でprojective角を合わせる。局所M37包絡との差をE.15の時間一様上界で有限区間合成し、必要ならE.13を各短いrampだけへ適用する。初期port誤差と較正誤差を三角不等式で加えれば本文の上界を得る。各誤差項は順に有限パラメータで任意に小さくできる。証明終。
+<!-- theorem-end:proof -->
+
+## E.18 零傾斜正常modeとM54 W2 canonical port
+
+$h_\kappa$ を実直交行列 $O_\kappa$ で対角化する。M37の全正準座標に同じOを作用させる
+
+```math
+Q'=O_\kappa^{\mathsf T}Q,
+\qquad
+P'=O_\kappa^{\mathsf T}P
+```
+
+は
+
+```math
+\sum_i dQ_i\wedge dP_i
+=
+\sum_i dQ'_i\wedge dP'_i
+```
+
+を保つので正準変換である。最低偶奇2modeに対応する先頭2正準対は全mode相空間の正準subsystemをなす。左右局在座標はこの2pair内の固定Hadamard変換であり、同じく正準である。
+
+M54 W2 static profileのsignalをこの2pairと同定しても、高modeは残りの正準pairとして完全状態に保持される。従って「2modeを使う」ことは高modeを測定・廃棄・事後選別する操作ではない。
+
+R181A source/templateまたはR112のcanonical SWAPをこのpairへ接続するには、設計時に固定したlinear canonical portを用意すればよい。portが完全でない場合、その出力と所望low-mode初期状態の全状態差を $d_0$ に含める。portは入力係数、ray、共分散を実行時に読み取らず、normalizationも行わない。
+
+この同定はM37がR181Aのpump、sink、作用殻、collision bath、記録器を生成することを意味しない。R187の物理bridgeはcarrierとQ1制御までで閉じ、測定・準備の単一装置統合はM0より弱い未解決課題として残す。
