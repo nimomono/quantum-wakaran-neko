@@ -414,9 +414,9 @@ def validate_fixed_goal_language() -> None:
         "Q3-2": "未達",
         "Q3-3A": "達成",
         "Q3-3B": "達成",
-        "Q3-3C": "部分達成",
+        "Q3-3C": "達成",
         "Q3-4A": "条件付き達成",
-        "Q3-4B": "部分達成",
+        "Q3-4B": "条件付き達成",
         "Q3-5": "条件付き達成",
         "Q3-6": "未達",
     }
@@ -483,6 +483,7 @@ def validate_fixed_goal_language() -> None:
         ROOT / "tools" / "verify_m54_q2_composition.py",
         ROOT / "tools" / "verify_r179_m54_supply.py",
         ROOT / "tools" / "verify_r180_m54_receiver.py",
+        ROOT / "tools" / "verify_m37_w_spectral_tunneling.py",
     )
     retired_paths = (
         SECTIONS / "04_q1xq1_common_bath_gate.md",
@@ -523,7 +524,7 @@ def validate_fixed_goal_language() -> None:
     theorem_ids = (
         "R181A", "R181B", "R181C", "R181D", "R178D", "R179",
         "R180A", "R180B", "R180C", "R161", "R162", "R164",
-        "R123", "R124", "R125",
+        "R123", "R124", "R125", "R182",
     )
     for result_id in theorem_ids:
         count = active_text.count(f"定理（{result_id}：")
@@ -761,7 +762,7 @@ def tex_environment() -> dict[str, str]:
     env.update({
         # Keep PDF metadata stable for the current cited draft.  Update this
         # epoch together with CITATION.cff when a new draft is released.
-        "SOURCE_DATE_EPOCH": "1788566400",
+        "SOURCE_DATE_EPOCH": "1788652800",
         "FORCE_SOURCE_DATE": "1",
         "TZ": "UTC",
         "TEXINPUTS": "/usr/share/texlive/texmf-dist/tex//:",
