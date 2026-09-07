@@ -1,11 +1,11 @@
 @number: N
 @chapter: 付録
-@title: M54 spatial-moving profileとNelson型縮約
-@status: M54共通親模型のspatial-moving profileを定義し、R161 moving specializationとして旧R183の不変性を吸収する。R184のM37開始作用latch実装とR185のNelson型前後平均微分・時間対称Newton則を証明する。generic finite collisionは共通R162へ移す。
+@title: M54空間移動状態構成とNelson型縮約
+@status: M54共通親模型の空間移動状態構成を定義し、R161移動特殊化として旧R183の不変性を吸収する。R184のM37開始作用保持機構実装とR185のNelson型前後平均微分・時間対称Newton則を証明する。一般 有限衝突は共通R162へ移す。
 
-## N.1 M54 spatial-moving profileと因果規約
+## N.1 M54空間移動状態構成と因果規約
 
-有限グラフ $G=(V,E)$ 上でM54を $\Lambda=\mathcal I=V$、$\Psi=I$ へ特殊化する。Q3で直接使う1試行状態sliceを
+有限グラフ $G=(V,E)$ 上でM54を $\Lambda=\mathcal I=V$、$\Psi=I$ へ特殊化する。Q3で直接使う1試行状態断面を
 
 ```math
 \Gamma_t
@@ -13,7 +13,7 @@
 (Q(t),P(t),X_t,C_t,H_t,\tau_t,S_{\rm ref})
 ```
 
-とする。$Q_i,P_i$ は実正準signal自由度、$X_t\in V$ は1個の実在粒子位置、$C_t$ はfinite collision cell、$H_t$ は履歴、$\tau_t$ はclockである。
+とする。$Q_i,P_i$ は実正準信号自由度、$X_t\in V$ は1個の実在粒子位置、$C_t$ は有限衝突素子、$H_t$ は履歴、$\tau_t$ は時計自由度である。
 
 ```math
 Z_i
@@ -21,7 +21,7 @@ Z_i
 \frac{Q_i+iP_i}{\sqrt{2\mathcal J_0}}
 ```
 
-は派生複素表示であり、独立した複素場ではない。$S_{\rm ref}$ はM37局所ばね実装を使う場合だけ開始面でlatchする単一試行作用registerであり、理想M54 spatial signal sectorの発展則には入力しない。試行集団は $\mu_t(dX\,dZ)$ で記述し、
+は派生複素表示であり、独立した複素場ではない。$S_{\rm ref}$ はM37局所ばね実装を使う場合だけ開始面で固定する単一試行作用記憶部であり、理想M54空間信号部分系の発展則には入力しない。試行集団は $\mu_t(dX\,dZ)$ で記述し、
 
 ```math
 C_Z(t)
@@ -30,11 +30,11 @@ C_Z(t)
 {\mathbb E[Z_t^\dagger Z_t]}
 ```
 
-は集団統計に留める。$C_Z=cc^\dagger$ ならR135により $Z=\alpha c$ がほとんど確実に成り立つが、controllerは $c$、$C_Z$、全位置分布を入力しない。零signal $Z=0$ はR164と同様に正規化枝重みを定義せず、開始面の正式な無反応結果へ送る。
+は集団統計に留める。$C_Z=cc^\dagger$ ならR135により $Z=\alpha c$ がほとんど確実に成り立つが、制御器は $c$、$C_Z$、全位置分布を入力しない。零信号 $Z=0$ はR164と同様に正規化枝重みを定義せず、開始面の正式な無反応結果へ送る。
 
-## N.2 厳密signal sectorとR164型moving target
+## N.2 厳密信号部分系とR164型移動 対象
 
-Hermitian $h=A+iB$、$A^{\mathsf T}=A$、$B^{\mathsf T}=-B$ に対する
+エルミート $h=A+iB$、$A^{\mathsf T}=A$、$B^{\mathsf T}=-B$ に対する
 
 ```math
 H_{\rm sig}
@@ -52,7 +52,7 @@ i\mathcal J_0\dot Z=hZ
 
 を与え、$S=Z^\dagger Z$ を保存する。
 
-以下では非零signal $S=Z^\dagger Z>0$ を扱う。$q_i>0$、$\sum_iq_i=1$、$\delta>0$ とし、
+以下では非零信号 $S=Z^\dagger Z>0$ を扱う。$q_i>0$、$\sum_iq_i=1$、$\delta>0$ とし、
 
 ```math
 R_i^\delta
@@ -64,7 +64,7 @@ R_i^\delta
 \frac{R_i^\delta}{(1+\delta)S}
 ```
 
-とする。これはR164の $A_i^\delta/\mathcal J_0$ と同じ条件付き容量である。局所辺流と対称trafficを
+とする。これはR164の $A_i^\delta/\mathcal J_0$ と同じ条件付き容量である。局所辺流と対称活動量を
 
 ```math
 J_{i\to j}
@@ -93,9 +93,9 @@ T_{ij}^\delta
 
 である。
 
-## N.3 R161 moving specialization
+## N.3 R161移動特殊化
 
-前向きrateを
+前向き率を
 
 ```math
 k^+_{i\to j}
@@ -105,7 +105,7 @@ k^+_{i\to j}
 
 とする。
 
-前向きrateを
+前向き率を
 
 ```math
 k^+_{i\to j}
@@ -127,7 +127,7 @@ t_{ij}
 \frac{T_{ij}^\delta}{(1+\delta)S}
 ```
 
-を代入するとこのrateが得られる。signal continuity equationから
+を代入するとこの率が得られる。信号 連続方程式から
 
 ```math
 \dot\pi_i^\delta
@@ -136,7 +136,7 @@ t_{ij}
 \sum_jJ_{j\to i}
 ```
 
-なので、R161により初期共同測度が $\mu_0^Z$-ほとんど全ての $z$ で
+なので、R161により初期共同分布が $\mu_0^Z$-ほとんど全ての $z$ で
 
 ```math
 \mu_0(X=i\mid Z=z)
@@ -155,9 +155,9 @@ t_{ij}
 が成り立つ。
 
 <!-- theorem-start:corollary -->
-**系（R161のM54 spatial-moving特殊化）**
+**系（R161のM54空間-移動特殊化）**
 
-rank-one signal集団 $C_Z(t)=\psi_t\psi_t^\dagger$ ではR135の支持節から $Z=\alpha\psi$ がほとんど確実であり、
+階数1 信号集団 $C_Z(t)=\psi_t\psi_t^\dagger$ ではR135の支持節から $Z=\alpha\psi$ がほとんど確実であり、
 
 ```math
 P(X_t=i)
@@ -174,14 +174,14 @@ P(X_t\in\cdot),|\psi_t|^2
 \frac{\delta}{1+\delta}.
 ```
 
-matching不変性自体にはrank-one仮定を要しない。これは旧R183の内容を一般R161へ吸収したものである。
+整合不変性自体には階数1仮定を要しない。これは旧R183の内容を一般R161へ吸収したものである。
 <!-- theorem-end:corollary -->
 
 
 
-## N.4 R184の開始作用latch評価
+## N.4 R184の開始作用保持機構評価
 
-M37局所包絡を $b(t)$、同じ初期値から進む理想M54 spatial信号を $b_L(t)$ とする。開始面で単一試行ごとに
+M37局所包絡を $b(t)$、同じ初期値から進む理想M54空間信号を $b_L(t)$ とする。開始面で単一試行ごとに
 
 ```math
 S_{\rm ref}
@@ -189,7 +189,7 @@ S_{\rm ref}
 \|b(0)\|^2
 ```
 
-を物理registerへlatchし、M37実装の背景容量は輸送中もこの値を使う。すなわち
+を物理記憶部へ固定し、M37実装の背景容量は輸送中もこの値を使う。すなわち
 
 ```math
 R_{i,37}^{\delta,\mathrm{lat}}(t)
@@ -220,7 +220,7 @@ J_{i\to j}(b)
 }.
 ```
 
-理想 $b_L$ は $\|b_L(t)\|^2=S_{\rm ref}$ を厳密保存するので、同じlatch表示はN.2の理想M54 spatial rateと完全に一致する。M37局所包絡では $\|b(t)\|^2$ は厳密保存されないため、背景項を $\delta q_i\|b(t)\|^2$ へ毎時刻置き換えない。後者を採用する場合は局所作用変動に由来する追加rate誤差が必要であり、R184の主張には含めない。
+理想 $b_L$ は $\|b_L(t)\|^2=S_{\rm ref}$ を厳密保存するので、同じ固定機構表示はN.2の理想M54空間 率と完全に一致する。M37局所包絡では $\|b(t)\|^2$ は厳密保存されないため、背景項を $\delta q_i\|b(t)\|^2$ へ毎時刻置き換えない。後者を採用する場合は局所作用変動に由来する追加率誤差が必要であり、R184の主張には含めない。
 
 $\Delta=\delta_{\rm loc}(\eta)<1$ とする。規格化信号
 
@@ -244,7 +244,7 @@ y=\frac{b_L}{\sqrt{S_{\rm ref}}}
 \|y\|=1.
 ```
 
-latched-background容量を
+保持背景容量を
 
 ```math
 r_i^{\rm lat}(x)
@@ -262,7 +262,7 @@ r_i^{\rm lat}(x)
 R_\eta=\frac{1+\Delta}{1-\Delta}.
 ```
 
-traffic差とcurrent差は
+活動量差と確率流差は
 
 ```math
 |t_{ij}^{\rm lat}(x)-t_{ij}^{\rm lat}(y)|
@@ -302,9 +302,9 @@ L_\delta(\eta)
 ```
 
 <!-- theorem-start:theorem -->
-**定理（R184：M54 spatial matchingのM37開始作用latch実装）**
+**定理（R184：M54空間 整合のM37開始作用保持機構実装）**
 
-R86の仮定に加えて $\Delta<1$、$\delta>0$ とする。M37実装では開始面の $S_{\rm ref}=\|b(0)\|^2$ をlatchして上の $k^{37,\mathrm{lat}}$ を使う。同じ初期位置分布から開始した理想M54 spatial過程とM37 latched-background過程は
+R86の仮定に加えて $\Delta<1$、$\delta>0$ とする。M37実装では開始面の $S_{\rm ref}=\|b(0)\|^2$ を固定して上の $k^{37,\mathrm{lat}}$ を使う。同じ初期位置分布から開始した理想M54空間過程とM37 保持背景過程は
 
 ```math
 \sup_{0\leq t\leq T}
@@ -317,7 +317,7 @@ P(X_t^L\in\cdot)
 T L_\delta(\eta)\varepsilon_{\rm car}(T)
 ```
 
-を満たす。共通R162のgeneric finite collision、clock、記録を加えた完全結果誤差を
+を満たす。共通R162の一般 有限衝突、時計自由度、記録を加えた完全結果誤差を
 
 ```math
 \varepsilon_{184}
@@ -331,18 +331,18 @@ T L_\delta\varepsilon_{\rm car}
 \varepsilon_{\rm rec}
 ```
 
-とできる。R162の1-step-per-window構成では $\varepsilon_{\rm over}=0$ と選べる。厳密な $|\psi|^2$ と比較するときだけ $\delta/(1+\delta)$ を別項として加える。
+とできる。R162の各窓1段階構成では $\varepsilon_{\rm over}=0$ と選べる。厳密な $|\psi|^2$ と比較するときだけ $\delta/(1+\delta)$ を別項として加える。
 <!-- theorem-end:theorem -->
 
 <!-- theorem-start:proof -->
 **証明（R184）**
 
-理想 $b_L$ ではlatch値が瞬間作用と一致するのでN.2のM54 spatial rateそのものである。M37側では上の開始作用latch定義を使うため、規格化後の背景項は両過程で同じ $\delta q_i$ となり、表示したrate差評価が各時刻に適用できる。有限Markov生成子のDuhamel公式と全変動距離の収縮性から、位置分布差はrate行差の時間積分以下である。R162のgeneric directed-rate実装を適用し、R162のfinite collision近似と記録の失敗を完全結果集合の無反応成分へ残して三角不等式で加える。証明終。
+理想 $b_L$ では固定機構値が瞬間作用と一致するのでN.2のM54空間 率そのものである。M37側では上の開始作用保持機構定義を使うため、規格化後の背景項は両過程で同じ $\delta q_i$ となり、表示した率差評価が各時刻に適用できる。有限Markov生成子のDuhamel公式と全変動距離の収縮性から、位置分布差は率行差の時間積分以下である。R162の一般 有向-率実装を適用し、R162の有限衝突近似と記録の失敗を完全結果集合の無反応成分へ残して三角不等式で加える。証明終。
 <!-- theorem-end:proof -->
 
-## N.5 R161 backward rateと前後平均微分
+## N.5 R161 後退 率と前後平均微分
 
-R161 moving specializationの共同path measureを固定する。$p_i(t)=P(X_t=i\mid Z_t)$ は $\delta>0$ で正である。同じpath measureのBayes反転から
+R161移動特殊化の共同経路分布を固定する。$p_i(t)=P(X_t=i\mid Z_t)$ は $\delta>0$ で正である。同じ経路分布のBayes反転から
 
 ```math
 k^-_{i\to j}
@@ -352,7 +352,7 @@ k^-_{i\to j}
 \frac{T_{ij}^\delta-J_{i\to j}}{2R_i^\delta}
 ```
 
-を得る。別の未来bath、後向きcontroller、未来境界条件を物理入力として追加しない。
+を得る。別の未来浴、後向き制御器、未来境界条件を物理入力として追加しない。
 
 ```math
 D_+f_i
@@ -444,7 +444,7 @@ v_\delta=Av,
 u_\delta=Au
 ```
 
-であり、十分滑らかなnode-free領域で $v^{(a,\delta)}=v_\delta+O(a^2)$、$u^{(a,\delta)}=u_\delta+O(a^2)$ である。
+であり、十分滑らかな節のない領域で $v^{(a,\delta)}=v_\delta+O(a^2)$、$u^{(a,\delta)}=u_\delta+O(a^2)$ である。
 
 ## N.7 R185の時間対称Newton則
 
@@ -454,7 +454,7 @@ a_{N,\delta}
 \frac12(D_+D_-+D_-D_+)X
 ```
 
-とする。理想M54 spatial profileの実正準signal Hamiltonianが
+とする。理想M54空間状態構成の実正準信号 ハミルトニアンが
 
 ```math
 i\mathcal J_0\partial_t\psi
@@ -464,7 +464,7 @@ i\mathcal J_0\partial_t\psi
 \right]\psi
 ```
 
-の複素表示を持つとする。これは独立な量子公理ではなくN.2の実Hamiltonianの表示である。Madelung分解から
+の複素表示を持つとする。これは独立な量子公理ではなくN.2の実ハミルトニアンの表示である。Madelung分解から
 
 ```math
 \partial_tv+v\partial_xv-u\partial_xu-\nu\partial_x^2u
@@ -498,9 +498,9 @@ R_\delta
 ```
 
 <!-- theorem-start:theorem -->
-**定理（R185：同一母測度時間反転と時間対称Newton則）**
+**定理（R185：共通の確率分布時間反転と時間対称Newton則）**
 
-R161 moving specializationを長さ $\ell=Na$ の1次元一様格子へ特殊化し、$q_i=1/N$、連続背景密度 $q_0=1/\ell$、$\delta>0$、$\mathcal J_0=2m\nu$ とする。固定有限時間のnode-free smooth sectorで $\rho\geq\rho_*>0$ を仮定する。同じ共同path measureから定まる $D_\pm$ は上の有限格子速度分解を厳密に満たし、
+R161移動特殊化を長さ $\ell=Na$ の1次元一様格子へ特殊化し、$q_i=1/N$、連続背景密度 $q_0=1/\ell$、$\delta>0$、$\mathcal J_0=2m\nu$ とする。固定有限時間の節のない 滑らかな 部分系で $\rho\geq\rho_*>0$ を仮定する。同じ共同経路分布から定まる $D_\pm$ は上の有限格子速度分解を厳密に満たし、
 
 ```math
 m a_{N,\delta}
@@ -538,10 +538,10 @@ F_0
 従って正則化残差は $O(\delta)$、格子残差は $O(a^2)$ である。
 <!-- theorem-end:theorem -->
 
-R185は理想M54 spatial signal sectorの結果である。R184の $L_\delta\varepsilon_{\rm car}$ はrateと位置分布を制御するが、$D_+D_-X$ に現れるrateの時間微分までR86の状態ノルム誤差だけから制御しない。生M37の $2\omega_0$ micromotionからNewton加速度まで直接持ち上げるにはcarrier-period粗視化または時間微分付き縮約定理が別に必要である。
+R185は理想M54空間信号部分系の結果である。R184の $L_\delta\varepsilon_{\rm car}$ は率と位置分布を制御するが、$D_+D_-X$ に現れる率の時間微分までR86の状態ノルム誤差だけから制御しない。生M37の $2\omega_0$ マイクロモーションからNewton加速度まで直接持ち上げるには信号系周期粗視化または時間微分付き縮約定理が別に必要である。
 
 ## N.8 達成境界と反証条件
 
-R161/R185によりM54 spatial profileの同じ共同測度から前後生成子、current速度、osmotic速度、時間対称Newton則を導いた。一方、finite collision bath近似から合成加速度までの明示誤差を閉じていないためQ3-2は部分達成とする。
+R161/R185によりM54空間状態構成の同じ共同分布から前後生成子、確率流速度、浸透速度、時間対称Newton則を導いた。一方、有限衝突 浴近似から合成加速度までの明示誤差を閉じていないためQ3-2は部分達成とする。
 
-反証条件は、集団統計の書戻しが不可避になること、finite collision前後生成子が有限誤差で近似できないこと、node-free sectorで $a^2$ または $\delta$ 残差が表示次数で減らないこと、Q3-4A・Q3-4B・Q3-5の正の余裕をR184誤差が上回ることである。連続空間の一様極限、多粒子、Q3-6の位相量子化は本付録の主張に含めない。
+反証条件は、集団統計の書戻しが不可避になること、有限衝突前後生成子が有限誤差で近似できないこと、節のない領域で $a^2$ または $\delta$ 残差が表示次数で減らないこと、Q3-4A・Q3-4B・Q3-5の正の余裕をR184誤差が上回ることである。連続空間の一様極限、多粒子、Q3-6の位相量子化は本付録の主張に含めない。

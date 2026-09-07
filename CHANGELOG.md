@@ -1,3 +1,12 @@
+## draft-80：現行原稿の日本語表記統一と用語検査
+
+- `TERMINOLOGY.md` の標準表記を現行本文・付録・README・PROJECT_STATUSへ適用し、人名、略号、数式、コード識別子を除く英語説明語を日本語または定着したカタカナ語へ置き換えた。
+- `profile`、`carrier`、`register`、`cell`、`projector-tree`、`projective-node`、`radial-only repump` などのプロジェクト固有英語表記を、状態構成、信号系、記憶部、素子、段階的射影選別、共通射影選別機構、方向を変えない振幅再調整などへ統一した。
+- 用語置換は理論内容、定理の依存関係、固定目標、達成ラベルを変更しない。数式、定理ID、模型ID、Bell・Born・Rabi・Nelson等の人名由来語、CNOT・CHSH・SWAP・SU(2)等の略号は従来どおり保持する。
+- `tools/verify_terminology.py` を追加し、現行原稿・README・PROJECT_STATUS・PROJECT_STANCEへ旧英語説明語が再混入した場合に自動検算で失敗するようにした。
+- `tools/build_paper.py` と継続的検証の固定文字列を新しい日本語表記へ同期し、統合原稿、TeX、PDFをdraft-80へ再生成する。
+
+---
 ## draft-79：projective-node共通化とQ1 state-update縮約
 
 - R170、R181D、R180Aで重複していたstatic枝選択前半を、結果IDを増やさないM54 static selection--lock coreとして明文化し、raw容量、R164--R161--R162、selector lock、record、filter、radial repump、routeの責務をcommon projective nodeとして整理した。

@@ -30,6 +30,7 @@ jobs:
       - name: 数式と数値を検算
         run: |
           python -m py_compile tools/*.py
+          test -f tools/verify_terminology.py
           for script in tools/verify_*.py; do
             python "$script"
           done
@@ -64,25 +65,25 @@ jobs:
           test "$(grep -Rho '定理（R181D：' sections/*.md | wc -l)" -eq 1
           test "$(grep -Rho '定理（R186：' sections/*.md | wc -l)" -eq 1
           grep -Fq '**証明（R186）**' sections/A18_m54_projective_robustness.md
-          grep -Fq 'black-box operational' sections/01_scope_and_cycle.md
-          grep -Fq 'extensive additive-noise' sections/08_errors_resources_open_targets.md
+          grep -Fq 'ブラックボックスとして見たときと同種の回路入力' sections/01_scope_and_cycle.md
+          grep -Fq '全自由度に加わる加法ノイズ' sections/08_errors_resources_open_targets.md
           test -f tools/verify_r186_m54_projective_robustness.py
-          grep -Fq 'R170駆動projector-tree Born instrument' sections/02_common_canonical_modules.md
-          grep -Fq 'M54 static selection--lock core' sections/02_common_canonical_modules.md
-          grep -Fq 'common projective-node primitive' sections/02_common_canonical_modules.md
-          grep -Fq 'lock前にfilterを開かない' sections/A16_m54_projector_tree_receiver.md
-          grep -Fq '## P.5.1 Rank-one projectorのpost-state handoff' sections/A16_m54_projector_tree_receiver.md
-          grep -Fq 'radial-only repump' sections/A16_m54_projector_tree_receiver.md
+          grep -Fq 'R170駆動段階的射影選別 Born 測定機構' sections/02_common_canonical_modules.md
+          grep -Fq 'M54静的選択・固定共通部' sections/02_common_canonical_modules.md
+          grep -Fq '共通射影選別機構' sections/02_common_canonical_modules.md
+          grep -Fq '固定前に選別機構を開かない' sections/A16_m54_projector_tree_receiver.md
+          grep -Fq '## P.5.1 階数1 射影子の測定後状態の受け渡し' sections/A16_m54_projector_tree_receiver.md
+          grep -Fq '## P.6 大きさ方向のみの再調整' sections/A16_m54_projector_tree_receiver.md
           grep -Fq 'rank_one_post_state_error' tools/verify_r181d_projector_tree.py
-          grep -Fq 'aggregate cold誤差' sections/A17_m54_uniform_supply.md
-          grep -Fq 'version: "draft-79"' CITATION.cff
-          grep -Fq 'draft-79 改訂稿' tools/template.tex
+          grep -Fq '集約低温誤差' sections/A17_m54_uniform_supply.md
+          grep -Fq 'version: "draft-80"' CITATION.cff
+          grep -Fq 'draft-80 改訂稿' tools/template.tex
 
 
-      - name: M54 matching理論境界を検査
+      - name: M54整合理論境界を検査
         run: |
           set -Ee -o pipefail
-          trap 'echo "::error::M54 matching理論境界の失敗: $BASH_COMMAND"' ERR
+          trap 'echo "::error::M54整合理論境界の失敗: $BASH_COMMAND"' ERR
           test -f sections/A14_m54_spatial_moving_matching.md
           test ! -e sections/A14_m55_spatial_moving_matching.md
           test -f tools/verify_common_matching_collision.py
@@ -96,18 +97,18 @@ jobs:
           ! grep -Rq '定理（R183：' sections/*.md
           test "$(grep -Rho '定理（R184：' sections/*.md | wc -l)" -eq 1
           test "$(grep -Rho '定理（R185：' sections/*.md | wc -l)" -eq 1
-          grep -Fq '| Q3-2 | 部分達成 | M54 spatial profile |' PROJECT_STATUS.md
+          grep -Fq '| Q3-2 | 部分達成 | M54空間状態構成 |' PROJECT_STATUS.md
           ! grep -Eq '^\| M50 \||^\| M55 \|' PROJECT_STATUS.md
           ! grep -Eq '^\| M47 \|' PROJECT_STATUS.md sections/01_scope_and_cycle.md
-          grep -Fq 'Q1 W型2モードprotocol（旧M47）' PROJECT_STATUS.md
+          grep -Fq 'Q1 W型2モード制御手順（旧M47）' PROJECT_STATUS.md
           grep -Fq '## H.3 R181Aへのパラメータ対応' sections/A8_m47_hopf_preparation.md
           ! grep -Fq '<!-- theorem-start:proof -->' sections/A8_m47_hopf_preparation.md
           grep -Fq '## 4.3　R181Bの2入力特殊化' sections/04_m54_q2_specializations.md
-          grep -Fq '## 4.4　R181Cの2入力・3入力gate適用' sections/04_m54_q2_specializations.md
+          grep -Fq '## 4.4　R181Cの2入力・3入力ゲート適用' sections/04_m54_q2_specializations.md
           grep -Fq '## 3.15 R144：固定有限段逐次測定合成' sections/03_m47_controlled_w_instrument.md
           test "$(grep -Rho '定理（R143：' sections/*.md | wc -l)" -eq 1
           test "$(grep -Rho '定理（R144：' sections/*.md | wc -l)" -eq 1
-          grep -Fq 'R181Dのrank-one selected signal' sections/A2_m47_controlled_w_instrument_proofs.md
+          grep -Fq 'R181Dの階数1の選択後信号' sections/A2_m47_controlled_w_instrument_proofs.md
           grep -Fq '\delta_{{\rm state},j}' sections/03_m47_controlled_w_instrument.md sections/A2_m47_controlled_w_instrument_proofs.md
           ! grep -Fq '\delta_{{\rm post},j}' sections/03_m47_controlled_w_instrument.md sections/A2_m47_controlled_w_instrument_proofs.md
           ! grep -Fq '結果別テンプレート交換' sections/03_m47_controlled_w_instrument.md sections/A2_m47_controlled_w_instrument_proofs.md
@@ -115,18 +116,18 @@ jobs:
           ! grep -Fq '\varepsilon_{\rm br}' sections/03_m47_controlled_w_instrument.md sections/A2_m47_controlled_w_instrument_proofs.md sections/08_errors_resources_open_targets.md
           ! grep -Fq '\varepsilon_{\rm post}' sections/03_m47_controlled_w_instrument.md sections/A2_m47_controlled_w_instrument_proofs.md sections/08_errors_resources_open_targets.md
           grep -Fq 'old_half_trace_distance_factor_counterexample_margin' tools/verify_m47_q1_instrument.py
-          grep -Fq '実装強化：永久記録、補助逆計算、交換reset' sections/03_m47_controlled_w_instrument.md
-          grep -Fq '永久記録、内部逆計算、fresh-cell交換はこの証明に使わない' sections/A2_m47_controlled_w_instrument_proofs.md
+          grep -Fq '実装強化：永久記録、補助逆計算、交換リセット' sections/03_m47_controlled_w_instrument.md
+          grep -Fq '永久記録、内部逆計算、未使用素子交換はこの証明に使わない' sections/A2_m47_controlled_w_instrument_proofs.md
           test -f tools/verify_r187_m37_w_q1_bridge.py
           test "$(grep -Rho '定理（R187：' sections/*.md | wc -l)" -eq 1
-          grep -Fq '## 6.19 R187：M37弱結合W型からQ1 W2制御への物理bridge' sections/06_m37_spatial_envelope.md
+          grep -Fq '## 6.19 R187：M37弱結合W型からQ1 W2制御への物理接続' sections/06_m37_spatial_envelope.md
           grep -Fq '**証明（R187）**' sections/A5_m37_envelope_proofs.md
           grep -Fq '| R187 | 厳密有限次元結果・明示誤差付き構成 |' PROJECT_STATUS.md
-          grep -Fq '| Q1-1 | 達成 | M54 W2 static profile | M37弱結合W型の最低2正常mode' PROJECT_STATUS.md
-          grep -Fq '| Q1-2 | 部分達成 | M54 W2 static profile | R187のM37 W2 control carrier' PROJECT_STATUS.md
+          grep -Fq '| Q1-1 | 達成 | M54 W2 静的状態構成 | M37弱結合W型の最低2正常モード' PROJECT_STATUS.md
+          grep -Fq '| Q1-2 | 部分達成 | M54 W2 静的状態構成 | R187のM37 W2 制御用信号系' PROJECT_STATUS.md
           grep -Fq 'R_{i,37}^{\delta,\mathrm{lat}}' sections/A14_m54_spatial_moving_matching.md
           grep -Fq '\frac1\ell' sections/A14_m54_spatial_moving_matching.md
-          grep -Fq '一般有界有向rateのfinite collision持上げ' sections/A11_common_collision_bath_thermodynamics.md
+          grep -Fq '一般有界有向率の有限衝突持上げ' sections/A11_common_collision_bath_thermodynamics.md
           ! grep -R -E '現行Q3粒子模型.*M42|M42局在トークン|M37--M42' README.md PROJECT_STATUS.md sections/*.md
 
       - name: 収録PDFを退避

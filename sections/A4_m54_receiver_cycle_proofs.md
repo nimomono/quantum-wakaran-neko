@@ -1,11 +1,11 @@
 @number: D
 @chapter: 付録
-@title: M54駆動setting-pre receiver周期の証明
-@status: R180Aの条件付きblock代数、作用殻選択、node切断、2翼matching、R180Cの局所応答・Bell監査・有限誤差・弱開放帰還を証明する。
+@title: M54駆動設定先行受信機構周期の証明
+@status: R180Aの条件付きブロック代数、作用殻選択、節点切断、2翼整合、R180Cの局所応答・Bell監査・有限誤差・弱開放帰還を証明する。
 
-## D.1 行優先block分解
+## D.1 行優先ブロック分解
 
-canonical SWAP後の物理hold信号と解析上の規格化rayを、行優先で
+正準 SWAP後の物理保持信号と解析上の規格化状態方向を、行優先で
 
 ```math
 \widetilde V
@@ -28,7 +28,7 @@ D_{10}&D_{11}
 \end{pmatrix}
 ```
 
-とする。$\widetilde V=v$ は同次元正準SWAPがそのまま移した物理信号であり、$V=\widetilde V/r$ は解析上だけ用いる。A basis変換後の規格化成分は
+とする。$\widetilde V=v$ は同次元正準SWAPがそのまま移した物理信号であり、$V=\widetilde V/r$ は解析上だけ用いる。A 基底変換後の規格化成分は
 
 ```math
 \left[
@@ -51,7 +51,7 @@ D^{\mathsf T}
 \overline{u_{s,x}}
 ```
 
-である。物理blockは
+である。物理ブロックは
 
 ```math
 \widetilde w_{s,x}
@@ -62,7 +62,7 @@ D^{\mathsf T}
 r w_{s,x}
 ```
 
-であり、規格化blockについて
+であり、規格化ブロックについて
 
 ```math
 \begin{aligned}
@@ -80,11 +80,11 @@ V^\dagger
 \end{aligned}
 ```
 
-$u_{+,x},u_{-,x}$ の完全性から2つのprojectorの和は $I_4$ であり、$\|V\|=1$ なら $p_{+|x}+p_{-|x}=1$ となる。
+$u_{+,x},u_{-,x}$ の完全性から2つの射影子の和は $I_4$ であり、$\|V\|=1$ なら $p_{+|x}+p_{-|x}=1$ となる。
 
 ## D.2 R180Aの作用殻選択
 
-R181Dを物理hold信号 $\widetilde V$ と2つの直交projector $\Pi_s^x$ へ適用し、blank pointerへ
+R181Dを物理保持信号 $\widetilde V$ と2つの直交射影子 $\Pi_s^x$ へ適用し、未使用 指針変数へ
 
 ```math
 A_s
@@ -94,7 +94,7 @@ A_s
 \mathcal J_0r^2p_{s|x}(V)
 ```
 
-をlatchする。理想blank momentumが零なら信号への反作用は零である。有限blank、selector plateau、clock、cutoffによる偏差は $\varepsilon_{\rm latch}$ へ入れる。容量の生成はR181Dの役割であり、R164は次に同じ容量を排他的な作用殻状態数へ写す。
+を固定する。理想未使用 運動量が零なら信号への反作用は零である。有限未使用、選択機構 平坦域、時計自由度、カットオフによる偏差は $\varepsilon_{\rm latch}$ へ入れる。容量の生成はR181Dの役割であり、R164は次に同じ容量を排他的な作用殻状態数へ写す。
 
 R164の作用殻状態数を
 
@@ -104,7 +104,7 @@ R164の作用殻状態数を
 C_{\rm sh}A_s
 ```
 
-とし、枝対称な同じ比例定数 $C_{\rm sh}$ を使う。従って理想平衡枝比では共通radial因子 $\mathcal J_0r^2$ が消え、
+とし、枝対称な同じ比例定数 $C_{\rm sh}$ を使う。従って理想平衡枝比では共通大きさ方向因子 $\mathcal J_0r^2$ が消え、
 
 ```math
 \frac{\Omega_s}{\Omega_++\Omega_-}
@@ -114,7 +114,7 @@ C_{\rm sh}A_s
 p_{s|x}(V).
 ```
 
-R161の平方根型率はこの比を一意定常分布とし、R162が固定有限時間上の有限衝突近似を与える。有限mixing、collision、overflowを無反応込みの $\varepsilon_{\rm latch}$ へ加える。枝選択後に信号と作用殻をdecoupleし、選択pointerだけで対応する物理block $\widetilde w_{s,x}$ をsource portへroutingする。入力係数または $r$ を外部controllerへ公開しない。
+R161の平方根型率はこの比を一意定常分布とし、R162が固定有限時間上の有限衝突近似を与える。有限混合、衝突、あふれを無反応込みの $\varepsilon_{\rm latch}$ へ加える。結果選択後に信号と作用殻を切り離しし、選択指針変数だけで対応する物理ブロック $\widetilde w_{s,x}$ を供給接続端へ経路選択する。入力係数または $r$ を外部制御器へ公開しない。
 
 選択枝 $s$ について、局所B応答を
 
@@ -156,10 +156,10 @@ u_{b,y}^\dagger
 <!-- theorem-start:proof -->
 **証明（R180A）**
 
-D.1がblockとprojector作用の等式を与える。R181DのlatchとR164の線形状態数により理想内部枝重みは $p_{s|x}$ となり、R161/R162が有限時間の物理的枝選択を与える。選択枝の条件付きB応答へ $p_{s|x}$ を掛けると上のテンソル積Born重みになる。有限装置では各Markov核と有限正準写像の誤差を完全結果集合上で加える。証明終。
+D.1がブロックと射影子作用の等式を与える。R181Dの固定機構とR164の線形状態数により理想内部枝重みは $p_{s|x}$ となり、R161/R162が有限時間の物理的結果選択を与える。選択枝の条件付きB応答へ $p_{s|x}$ を掛けると上のテンソル積Born重みになる。有限装置では各Markov核と有限正準写像の誤差を完全結果集合上で加える。証明終。
 <!-- theorem-end:proof -->
 
-## D.3 node切断と方向安定性
+## D.3 節点切断と方向安定性
 
 $p_{s|x}<\tau$ の枝を無反応へ送ると、その総質量は
 
@@ -183,9 +183,9 @@ n(w)-n(w')
 \|w-w'\|.
 ```
 
-従ってhold、splitter、block routingの誤差は安全枝で $C_\tau\varepsilon_{\rm block}$ へ移せる。singletでは全枝で $p_s=1/2$ なので、$\tau<1/2$ に固定すればnode切断は生じず、規格化定数も一様である。
+従って保持、分離器、ブロック 経路選択の誤差は安全枝で $C_\tau\varepsilon_{\rm block}$ へ移せる。一重項では全枝で $p_s=1/2$ なので、$\tau<1/2$ に固定すれば節点切断は生じず、規格化定数も一様である。
 
-## D.4 singlet特殊化
+## D.4 一重項特殊化
 
 ```math
 D_{\rm s}
@@ -214,11 +214,11 @@ D_{\rm s}^{\mathsf T}
 \mathsf E\overline{u_{s,x}}.
 ```
 
-$\mathsf E$ はunitaryだから $\|w_{s,x}\|^2=1/2$ である。規格化B方向は $-\mathsf E\overline{u_{s,x}}$ となる。旧M48の $\mathsf E\overline{u_{s,x}}$ との差はglobal signだけであり、projector、W型作用、局所応答を変えない。
+$\mathsf E$ はユニタリだから $\|w_{s,x}\|^2=1/2$ である。規格化B方向は $-\mathsf E\overline{u_{s,x}}$ となる。旧M48の $\mathsf E\overline{u_{s,x}}$ との差は全体符号だけであり、射影子、W型作用、局所応答を変えない。
 
-## D.5 R180 strong fiber
+## D.5 R180 強整合ファイバー
 
-局所fiber $\mathcal F_W^\delta(c)$ では
+局所ファイバー $\mathcal F_W^\delta(c)$ では
 
 ```math
 z=e^{i\alpha}c,
@@ -226,11 +226,11 @@ z=e^{i\alpha}c,
 P(X=i\mid z)=\pi_i^\delta(z).
 ```
 
-$\pi^\delta(e^{i\alpha}z)=\pi^\delta(z)$ なので共通位相は粒子位置分布を変えない。R180B終了後の2翼方向誤差は $K_{180}e^{-\gamma_{180}T_{\rm PH}}$ 以下である。固定有限設定族と $p_s\geq\tau$ のcompact安全域では $z\mapsto\pi^\delta(z)$ と局所分析・記録核は射影距離に関して一様Lipschitzである。
+$\pi^\delta(e^{i\alpha}z)=\pi^\delta(z)$ なので共通位相は粒子位置分布を変えない。R180B終了後の2翼方向誤差は $K_{180}e^{-\gamma_{180}T_{\rm PH}}$ 以下である。固定有限設定族と $p_s\geq\tau$ のコンパクト安全域では $z\mapsto\pi^\delta(z)$ と局所分析・記録核は射影距離に関して一様Lipschitzである。
 
-paired-Hopf終了後に $z_A,z_B$ を保持し、A、Bの粒子位置bathを条件付き独立に時間 $T_X$ だけ走らせる。R161から各翼の条件付き位置分布は $\pi^\delta$ から $C_Xe^{-\lambda_X^\delta T_X}$ 以内にある。正則化誤差は各翼で $\delta/(1+\delta)$ 以下である。
+2端Hopf終了後に $z_A,z_B$ を保持し、A、Bの粒子位置浴を条件付き独立に時間 $T_X$ だけ走らせる。R161から各翼の条件付き位置分布は $\pi^\delta$ から $C_Xe^{-\lambda_X^\delta T_X}$ 以内にある。正則化誤差は各翼で $\delta/(1+\delta)$ 以下である。
 
-枝を最大couplingし、連続信号を同じtemplateとpaired位相でcoupleし、離散位置を条件付き最大couplingすれば、理想fiber $\nu_{V,x}^0$ からの結果前誤差は
+枝を最大結合し、連続信号を同じテンプレートと連動位相で結合し、離散位置を条件付き最大結合すれば、理想ファイバー $\nu_{V,x}^0$ からの結果前誤差は
 
 ```math
 \begin{aligned}
@@ -247,7 +247,7 @@ d_{\rm fib}
 \end{aligned}
 ```
 
-となる。連続信号測度を理想ray支持測度と全変動距離で比較しない。
+となる。連続信号測度を理想状態方向支持測度と全変動距離で比較しない。
 
 ## D.6 局所応答と非信号性
 
@@ -267,7 +267,7 @@ P(B=b\mid s,V,x,y)
 |u_{b,y}^\dagger b_{s,x}(V)|^2.
 ```
 
-各分析器終了後に局所信号を固定し、各翼のR170を走らせる。fresh作用殻、衝突cell、noise seed、記録cellが条件付き積なら、二つの局所instrumentも条件付き積になる。$\Lambda$ を切断面測度で平均すると相関は残るが、切断後の直接結合は生じない。
+各分析器終了後に局所信号を固定し、各翼のR170を走らせる。未使用作用殻、衝突素子、ノイズ 初期種、記録素子が条件付き積なら、二つの局所測定機構も条件付き積になる。$\Lambda$ を切断面測度で平均すると相関は残るが、切断後の直接結合は生じない。
 
 Bの未規格化周辺行列は
 
@@ -287,9 +287,9 @@ D^{\mathsf T}\overline D.
 \end{aligned}
 ```
 
-従ってB周辺は $x$ に依存しない。A周辺はprojector作用 $p_{a|x}$ であり $y$ に依存しない。
+従ってB周辺は $x$ に依存しない。A周辺は射影子作用 $p_{a|x}$ であり $y$ に依存しない。
 
-singletについて $b_{s,x}$ のBlochベクトルは $-s\boldsymbol n_x$ だから
+一重項について $b_{s,x}$ のBlochベクトルは $-s\boldsymbol n_x$ だから
 
 ```math
 P(B=b\mid s,x,y)
@@ -304,7 +304,7 @@ $P(s)=1/2$ と $A=s$ を使えば本文の余弦共同分布が従う。
 
 ## D.7 R180Cの有限誤差
 
-実際の1周期を有限個の核 $K_1,\ldots,K_N$、理想核を $K_1^0,\ldots,K_N^0$ とする。各段の一様全変動誤差が $\epsilon_j$ 以下なら逐次couplingとdata processingから
+実際の1周期を有限個の核 $K_1,\ldots,K_N$、理想核を $K_1^0,\ldots,K_N^0$ とする。各段の一様全変動誤差が $\epsilon_j$ 以下なら逐次結合とデータ処理から
 
 ```math
 D_{\rm TV}
@@ -316,7 +316,7 @@ D_{\rm TV}
 \sum_j\epsilon_j.
 ```
 
-連続方向誤差は局所応答核の一様Lipschitz定数で結果分布距離へ変換してから加える。$\|\widetilde V\|\geq r_{\min}$ のsafe setでは規格化写像がLipschitzであるため、M54 source、gate、canonical SWAP、holdがrayへ与える偏差を $\varepsilon_{\rm ray}^{54}$ にまとめられる。canonical SWAP自体に除算は含めない。splitter、branch作用、node、block保持、paired-Hopf、位置matching、切断、条件付き積偏差、局所R170、記録、clockを各1回だけ数えると本文の $\varepsilon_{180}^{\rm cyc}$ になる。
+連続方向誤差は局所応答核の一様Lipschitz定数で結果分布距離へ変換してから加える。$\|\widetilde V\|\geq r_{\min}$ の安全 集合では規格化写像がLipschitzであるため、M54 供給源、ゲート、正準 SWAP、保持が状態方向へ与える偏差を $\varepsilon_{\rm ray}^{54}$ にまとめられる。正準 SWAP自体に除算は含めない。分離器、結果成分作用、節点、ブロック保持、2端Hopf、位置整合、切断、条件付き積偏差、局所R170、記録、時計自由度を各1回だけ数えると本文の $\varepsilon_{180}^{\rm cyc}$ になる。
 
 周辺化は全変動距離を増やさない。同じ理想周辺から各設定で $\varepsilon_{180}^{\rm cyc}$ 以内なら、反対設定間の周辺差は三角不等式により $2\varepsilon_{180}^{\rm cyc}$ 以下である。
 
@@ -325,12 +325,12 @@ D_{\rm TV}
 <!-- theorem-start:proof -->
 **証明（R180C）**
 
-R180Aがbranch重みと理想共同Born分布、R180Bが有限時間2翼template matching、D.5が局所粒子位置fiber、D.6が切断後の条件付き積instrumentを与える。各有限段を上のtelescoping境界で合成し、無反応を完全結果集合に残せば本文の全変動距離上界を得る。周辺とCHSHの境界はdata processingと有界観測量評価から従う。fresh-cell帰還はD.9のcontractを別に適用し、観測済み周期へ遡って加えない。証明終。
+R180Aが結果成分重みと理想共同Born分布、R180Bが有限時間2翼テンプレート 整合、D.5が局所粒子位置ファイバー、D.6が切断後の条件付き積測定機構を与える。各有限段を上の望遠鏡和境界で合成し、無反応を完全結果集合に残せば本文の全変動距離上界を得る。周辺とCHSHの境界はデータ処理と有界観測量評価から従う。未使用素子帰還はD.9の収縮条件を別に適用し、観測済み周期へ遡って加えない。証明終。
 <!-- theorem-end:proof -->
 
 ## D.8 設定依存性の位置
 
-M54 sourceと設定生成角の設定前測度を積に取るため、$V$ の準備法則は実際に生成される $x,y$ に依存しない。一方、$x$ は $U_x^\dagger\otimes I_2$、$\Pi_s^x$、$a_{s,x}$、$b_{s,x}(V)$ を決める。異なる非可換設定では理想fiber $\nu_{V,x}^0$ の支持とbranch分解が異なるので
+M54 供給源と設定生成角の設定前測度を積に取るため、$V$ の準備法則は実際に生成される $x,y$ に依存しない。一方、$x$ は $U_x^\dagger\otimes I_2$、$\Pi_s^x$、$a_{s,x}$、$b_{s,x}(V)$ を決める。異なる非可換設定では理想ファイバー $\nu_{V,x}^0$ の支持と結果成分分解が異なるので
 
 ```math
 \mu_{\rm cut}
@@ -343,9 +343,9 @@ d\Lambda\mid V,x,y
 
 は一般に $x$ 依存である。従ってBellの測定設定独立性は成立しない。$y$ を中央準備核へ入れず、切断後にB局所核へだけ入れることと、理想B周辺が $x$ に依存しないことは両立する。
 
-## D.9 fresh-cell帰還
+## D.9 未使用素子帰還
 
-記録後の能動状態を $Y$、fresh基準状態を $Y_*$ とする。交換核が
+記録後の能動状態を $Y$、未使用基準状態を $Y_*$ とする。交換核が
 
 ```math
 E
@@ -374,4 +374,4 @@ d_{\rm ret}(Y_0,Y_*)
 \frac{\epsilon_{\rm fresh}}{1-r_{\rm ret}}.
 ```
 
-使用済みM54 hold、branch latch、pump、sink、局所作用殻、衝突cellはspent履歴として残す。閉系から無履歴でfresh状態へ戻すとは主張しない。
+使用済みM54 保持、結果成分の固定機構、ポンプ、排出先、局所作用殻、衝突素子は使用済み履歴として残す。閉系から無履歴で未使用状態へ戻すとは主張しない。
