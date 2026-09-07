@@ -75,7 +75,7 @@ jobs:
           grep -Fq '共通射影選別機構' sections/02_common_canonical_modules.md
           grep -Fq '固定前に選別機構を開かない' sections/A16_m54_projector_tree_receiver.md
           grep -Fq '## P.5.1 階数1 射影子の測定後状態の受け渡し' sections/A16_m54_projector_tree_receiver.md
-          grep -Fq '## P.6 大きさ方向のみの再調整' sections/A16_m54_projector_tree_receiver.md
+          grep -Fq '## P.6 方向を変えない振幅再調整' sections/A16_m54_projector_tree_receiver.md
           grep -Fq 'rank_one_post_state_error' tools/verify_r181d_projector_tree.py
           grep -Fq '集約低温誤差' sections/A17_m54_uniform_supply.md
           grep -Fq 'version: "draft-81"' CITATION.cff
@@ -125,8 +125,8 @@ jobs:
           grep -Fq '## 6.19 R187：M37弱結合W型からQ1 W2制御への物理接続' sections/06_m37_spatial_envelope.md
           grep -Fq '**証明（R187）**' sections/A5_m37_envelope_proofs.md
           grep -Fq '| R187 | 厳密有限次元結果・明示誤差付き構成 |' PROJECT_STATUS.md
-          grep -Fq '| Q1-1 | 達成 | M54 W2 静的状態構成 | M37弱結合W型の最低2正常モード' PROJECT_STATUS.md
-          grep -Fq '| Q1-2 | 部分達成 | M54 W2 静的状態構成 | R187のM37 W2 制御用信号系' PROJECT_STATUS.md
+          grep -Fq '| Q1-1 | 達成 | M54のW2静的状態構成 | M37弱結合W型の最低2正常モード' PROJECT_STATUS.md
+          grep -Fq '| Q1-2 | 部分達成 | M54のW2静的状態構成 | R187によるM37のW2制御用信号系' PROJECT_STATUS.md
           grep -Fq 'R_{i,37}^{\delta,\mathrm{lat}}' sections/A14_m54_spatial_moving_matching.md
           grep -Fq '\frac1\ell' sections/A14_m54_spatial_moving_matching.md
           grep -Fq '一般有界有向率の有限衝突持上げ' sections/A11_common_collision_bath_thermodynamics.md

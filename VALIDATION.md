@@ -1,3 +1,21 @@
+## draft-81 保守校正：用語置換後の日本語文法・連結修正
+
+```bash
+python -m py_compile tools/*.py
+for script in tools/verify_*.py; do python "$script"; done
+python tools/build_paper.py
+git diff --check
+```
+
+draft-80で用語を日本語へ一括適用した後、draft-81でも残っていた語中の半角空白、助詞脱落、ID直後の名詞連結、英語式ハイフン、直訳的な複合語を校正した。主な対象は `未使用 素子`、`時計自由度 回`、`R181D 選択後信号`、`単一時計自由度 時刻割当`、`大きさ方向-接続端環境`、`横方向 排出先` などで、用語規約そのもの、数式、模型・結果ID、定理依存、固定目標、達成ラベルは変更していない。PR #110の文献追加とPR #111の主目的再整理も保持した。
+
+`tools/verify_terminology.py` には今回確認した典型的な置換事故を日本語表記不整合として追加した。一時校正監査では既知事故を順次修正し、run `34093135193` で既存の用語検査を成功させた後、追加した回帰条件を通過させた。
+
+GitHub Actionsの一時生成run `34093262389` で、Python構文検査、全 `verify_*.py`、強化した用語検査、`tools/build_paper.py`、`git diff --check`、PDF情報検査、最終LaTeX禁止警告検査が成功した。生成commit `f83139a` で `paper.md`、`main.tex`、`paper.pdf` をdraft-81のまま再生成した。生成PDFはA4、232ページ、1,407,263 bytes。最終LaTeX logには未解決citation/reference、overfull、underfull、fatal error、欠落文字がない。途中TeX passでは参考文献解決前のcitation warningが出るが、最終passの禁止警告検査は成功している。
+
+PDFの目視確認はPopplerで全232ページを画像化して行った。一時確認run `34093637408` と `34094644562` で縮小コンタクトシート、全ページ文字密度サムネイル、ページ別インク比率・濃黒比率を生成し、全232ページを一覧確認した。章扉など意図的に疎なページを含め、文字切れ、異常な重なり、黒塗り、意図しない空白化は見当たらなかった。ページ別濃黒比率は最大でも約1.2%で、大規模な黒塗りや描画崩れの兆候はない。確認用workflowと素材は検査後に削除し、完成版PDFだけを収録する。
+
+---
 ## draft-81：主目的再整理、Q2-4/R186資源境界、用語衛生
 
 ```bash
