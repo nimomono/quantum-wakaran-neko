@@ -54,3 +54,7 @@
 - [49] J. Ehrich, M. Esposito, F. Barra, and J. M. R. Parrondo, ``Micro-Reversibility and Thermalization with Collisional Baths,'' Physica A: Statistical Mechanics and its Applications 552, 122108 (2020). <https://doi.org/10.1016/j.physa.2019.122108>
 - [50] M. Esposito, ``Stochastic Thermodynamics under Coarse Graining,'' Physical Review E 85, 041125 (2012). <https://doi.org/10.1103/PhysRevE.85.041125>
 - [51] C. Jarzynski, ``Nonequilibrium Work Theorem for a System Strongly Coupled to a Thermal Environment,'' Journal of Statistical Mechanics: Theory and Experiment 2004, P09005 (2004). <https://doi.org/10.1088/1742-5468/2004/09/P09005>
+- [52] Y. Sun, Q. Li, L.-J. Kong, J. Shang, and X. Zhang, ``Universal Classical Optical Computing Inspired by Quantum Information Process,'' Annalen der Physik 534, 2200360 (2022). <https://doi.org/10.1002/andp.202200360>
+- [53] H. Zhang, Y. Sun, and X. Zhang, ``Quantum-Inspired Fourier Transforms Based on Circuits,'' Advanced Science 12, e10261 (2025). <https://doi.org/10.1002/advs.202510261>
+- [54] H. Zhang, Y. Sun, and X. Zhang, ``Quantum Inspired Universal Analog Computation Based on Circuits,'' Advanced Quantum Technologies 9, e00752 (2026). <https://doi.org/10.1002/qute.202500752>
+- [55] S. Chen, H. Chen, X. Tang, Y. Sun, and X. Zhang, ``Optical Computing Implementation of Shor's Factorization Algorithm,'' Physical Review A 113, 063505 (2026). <https://doi.org/10.1103/4sc8-5gmk>
