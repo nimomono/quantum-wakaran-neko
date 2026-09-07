@@ -126,7 +126,7 @@
 
 ## draft-78のblack-box operational基準とR186
 
-- 中心目的をblack-box operational equivalenceとして明文化し、内部自由度と外部制御複雑度を分離。
+- プロジェクト全体の古典系から量子型有効構造を導く主目的は維持し、Q2-4に限ってblack-box operational資源基準を明確化。
 - Q2-4固定目標と達成ラベルを維持し、operational resourceとreported internal resourceの境界を明示。
 - R186で疎な静的製造誤差、独立phase noise、projector latch係数誤差のdimension-free評価と、extensive additive noiseのM54 direct-mode障害条件を追加。
 - `sections/A18_m54_projective_robustness.md` と `tools/verify_r186_m54_projective_robustness.py` を追加。
