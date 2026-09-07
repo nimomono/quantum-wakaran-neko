@@ -163,9 +163,9 @@
 
 \addcontentsline{toc}{chapter}{概要}
 
-本論文の中心的な問いは、量子計算機をブラックボックスとして見たときと同種の回路入力を受け、量子回路の出力分布を再現し、そのための外部program、制御channel、時間、精度、試行回数を多項式に抑える古典装置を構成できるかである。内部の受動自由度数と外部から装置を使うための複雑度を区別し、内部の指数構造が外部interfaceへ指数costとして露出するかを判定する。
+本論文は、明示的な古典力学モデルから、量子力学に似た可逆操作、Born型測定統計、結合ゲート、空間伝播、Bell型統計を構成できる範囲を調べる。有限閉鎖Hamiltonianモデルと開放古典モデルを区別し、採用方程式後の厳密結果と、その方程式自体のミクロ導出を分ける。
 
-その物理的な基礎として、明示的な古典力学モデルから量子力学に似た可逆操作、Born型測定統計、結合ゲート、空間伝播、Bell型統計を構成できる範囲も調べる。有限閉鎖Hamiltonianモデルと開放古典モデルを区別し、採用方程式後の厳密結果と、その方程式自体のミクロ導出を分ける。
+量子計算は、この古典系から得られた構造の応用可能性を検査するQ2系列で扱う。Q2-4では一般回路標本化について外部program、制御、時間、精度を監査するが、これは論文全体の主目的を量子計算機との資源比較へ置き換えるものではない。
 
 物理的な導出の主線を、M37の実振動子運動からW型の低2モードを経てQ1の制御運動へ進む経路とする。第6章の静的R86、第3章の射影内R140、両者を接続する条件付き系を区別する。Q1の既存正準実装の達成は維持し、制御された位置ばね実装の任意精度構成は追加の強化課題として管理する。準備・枝選択・記録とQ2の共同担体は、担体運動だけからは従わない。
 
@@ -197,7 +197,7 @@ Q1・Q2・Q3は同じM54模型族の異なるprofileから派生する。M37はQ
 \hypertarget{ux7814ux7a76ux4e0aux306eux554fux3044}{%
 \section{研究上の問い}\label{ux7814ux7a76ux4e0aux306eux554fux3044}}
 
-本論文の中心目的は、古典的な粒子、振動子、熱浴、制御器、記録器からなる装置が、量子計算機をブラックボックスとして見たときと同種の回路入力を受け、量子出力分布を指定誤差内で返し、そのための外部制御複雑度を多項式に抑えられるかを調べることである。量子力学は結果の比較基準に使うが、古典モデルの運動方程式や初期確率へ答えを直接入力しない。Q1とQ3は、このblack-box機能を支える量子型有効構造の古典物理的起源を独立に検査する。
+本論文の目的は、古典的な粒子、振動子、熱浴、制御器、記録器から、量子力学に特徴的な構造をどこまで明示的に再現できるかを調べることである。量子力学は結果の比較基準に使うが、古典モデルの運動方程式や初期確率へ答えを直接入力しない。
 
 有限次元Schrödinger方程式を実正準方程式へ書き換えるだけでは、1回の試行で生じる排他的結果、Born則、測定後状態、記録、resetは得られない。本稿は次を別々に要求する。
 
@@ -217,33 +217,6 @@ Q1・Q2・Q3は同じM54模型族の異なるprofileから派生する。M37はQ
 \item
   系列固有の状態更新、ゲート、Bell監査、空間現象を共通読出しへ接続する。
 \end{enumerate}
-
-\hypertarget{ux30d6ux30e9ux30c3ux30afux30dcux30c3ux30afux30b9ux3068ux3057ux3066ux306eux6bd4ux8f03ux57faux6e96}{%
-\subsection{ブラックボックスとしての比較基準}\label{ux30d6ux30e9ux30c3ux30afux30dcux30c3ux30afux30b9ux3068ux3057ux3066ux306eux6bd4ux8f03ux57faux6e96}}
-
-本稿は内部自由度の総数と、外部から装置を利用するための複雑度を区別する。量子ビットの有効2準位記述の背後にある微視的自由度数をblack-box interfaceから数え上げないのと同様に、M54内部の受動mode数だけをoperational complexityとは同一視しない。
-
-\begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}@{}}
-\toprule\noalign{}
-\begin{minipage}[b]{\linewidth}\raggedright
-分類
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-Q2-4での扱い
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-例
-\end{minipage} \\
-\midrule\noalign{}
-\endhead
-\bottomrule\noalign{}
-\endlastfoot
-operational resource & 多項式上界を要求 & 回路記述、compile、外部program、制御channel、address port、総時間、精度、制御energy/action、期待試行回数 \\
-reported internal resource & 総量を報告するが、それだけでは不達としない & 受動mode、静的coupler、state capacity、cold/spent bank、装置体積、総bath容量、総熱 \\
-\end{longtable}
-
-内部資源がmode別較正値、指数長の配線表、指数精度、指数時間、稀な成功として外部interfaceへ露出した場合はoperational resourceへ繰り上げて数える。したがって本稿がQ2-4で主張するのはblack-box operational equivalenceであり、通常の効率的古典simulationや量子計算機と同等の総物理資源効率ではない。
 
 \hypertarget{ux529bux5b66ux306eux5c0eux51faux3068ux88c5ux7f6eux306eux904bux8ee2ux9806ux5e8f}{%
 \subsection{力学の導出と装置の運転順序}\label{ux529bux5b66ux306eux5c0eux51faux3068ux88c5ux7f6eux306eux904bux8ee2ux9806ux5e8f}}
@@ -6373,8 +6346,6 @@ B.5の漏れ確率を全変動距離へ直接加える旧評価は採用しな�
 
 \hypertarget{ux78baux7acbux3057ux305fux3053ux3068}{%
 \section{確立したこと}\label{ux78baux7acbux3057ux305fux3053ux3068}}
-
-本稿の計算機としての中心的な比較基準はblack-box operational equivalenceである。内部の受動自由度数をそのまま外部制御複雑度とはみなさず、回路記述、外部program、制御channel、時間、精度、期待試行回数が入力規模と逆誤差の多項式に抑えられるかを判定する。内部mode、静的coupler、装置体積、総bath容量、総熱はreported internal resourceとして別に記録し、量子計算機と同等の総物理資源効率は主張しない。
 
 M54は、一様有限正準register、物理source/template port、anti/work、raw・regularized容量、selector、cold/spent bank、記録、clockを持つQ1・Q2の共通親模型族である。R181Aは物理template準備、R181Bは固定2・3入力の可逆tensor-lift、R181Cは永続register上の局所gate列、R181DはR170駆動projector-tree Born instrumentを与える。各試行の複素信号は実正準座標の派生表示であり、解析上のrayや確率表をcontrollerへ書き戻さない。
 
