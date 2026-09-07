@@ -1,11 +1,11 @@
 @number: P
 @chapter: 付録
-@title: M54のR170駆動projector-tree receiver
-@status: R181Dのraw容量、共通selection--lock、可逆filter、radial-only repump、rank-one post-state handoff、完全結果誤差、資源境界を証明する。旧aperture samplerは現行因果鎖に使わない。
+@title: M54のR170駆動段階的射影選別 受信機構
+@status: R181Dの未処理容量、共通選択・固定、可逆選別機構、方向を変えない振幅再調整、階数1 測定後状態の受け渡し、完全結果誤差、資源境界を証明する。旧開口 標本器は現行因果鎖に使わない。
 
-## P.1 目的とnode状態
+## P.1 目的と節点状態
 
-深さ $m$ の二分projector-treeを考える。node $u\in\{0,1\}^{k-1}$ の入力registerを $Z_u\neq0$、2子への直交射影を $P_{u,0},P_{u,1}$ とする。
+深さ $m$ の二分段階的射影選別を考える。節点 $u\in\{0,1\}^{k-1}$ の入力記憶部を $Z_u\neq0$、2子への直交射影を $P_{u,0},P_{u,1}$ とする。
 
 ```math
 P_{u,0}+P_{u,1}=I,
@@ -13,11 +13,11 @@ P_{u,0}+P_{u,1}=I,
 P_{u,0}P_{u,1}=0.
 ```
 
-nodeの完全物理状態には、信号 $Z_u$、raw容量pointer $J_{u,b}$、作用殻容量 $A_{u,b}^\delta$、selector位置とlock、filter work、radial-port環境、R162 collision履歴、外部recordを含める。解析上の条件付き確率をcontrollerへ書き込まない。
+節点の完全物理状態には、信号 $Z_u$、未処理容量指針変数 $J_{u,b}$、作用殻容量 $A_{u,b}^\delta$、選択機構位置と固定、選別機構用作業領域、大きさ方向の接続端環境、R162 衝突履歴、外部記録を含める。解析上の条件付き確率を制御器へ書き込まない。
 
-## P.2 Raw容量と正則化殻
+## P.2 未処理容量と正則化殻
 
-raw容量は
+未処理容量は
 
 ```math
 J_{u,b}=\mathcal J_0Z_u^\dagger P_{u,b}Z_u,
@@ -32,7 +32,7 @@ A_{u,b}^\delta
 =J_{u,b}+\delta q_bJ_\Sigma
 ```
 
-とする。従って理想R170 nodeの枝確率は
+とする。従って理想R170 節点の結果確率は
 
 ```math
 \pi_{u,b}^\delta
@@ -44,25 +44,25 @@ A_{u,b}^\delta
 p_{u,b}=\frac{J_{u,b}}{J_\Sigma}.
 ```
 
-raw容量と正則化容量の役割を分ける。$A^\delta$ は作用殻を非退化にするためだけに使い、希少枝判定は $J$ に対して行う。これにより正則化で人工的に生じた小枝を安全枝と誤認しない。
+未処理容量と正則化容量の役割を分ける。$A^\delta$ は作用殻を非退化にするためだけに使い、希少枝判定は $J$ に対して行う。これにより正則化で人工的に生じた小枝を安全枝と誤認しない。
 
-## P.3 除算を使わないcutoff
+## P.3 除算を使わないカットオフ
 
-安全閾値を $\tau>0$、guard幅を $\gamma>0$ とする。比較器は
+安全閾値を $\tau>0$、保護帯幅を $\gamma>0$ とする。比較器は
 
 ```math
 J_{u,b}-(\tau\pm\gamma)J_\Sigma
 ```
 
-の符号だけを読む。$J_{u,b}\geq(\tau+\gamma)J_\Sigma$ をaccept plateau、$J_{u,b}\leq(\tau-\gamma)J_\Sigma$ をreject plateau、中間を無反応guardとする。$p_{u,b}$ の除算、浮動小数点評価、状態依存clockは要らない。
+の符号だけを読む。$J_{u,b}\geq(\tau+\gamma)J_\Sigma$ を受理 平坦域、$J_{u,b}\leq(\tau-\gamma)J_\Sigma$ を拒否平坦域、中間を無反応保護帯とする。$p_{u,b}$ の除算、浮動小数点評価、状態依存時計自由度は要らない。
 
-深さ $m$ の理想Born treeで、$p_{u,b}<\tau+\gamma$ のedgeを通る葉の総確率は高々 $2m(\tau+\gamma)$ である。各nodeには子edgeが高々2本あり、prefix確率との積を同じlevelの全nodeで足すと、prefix確率の総和は1以下なのでlevelごとの寄与は高々 $2(\tau+\gamma)$ となる。
+深さ $m$ の理想Born型選別木で、$p_{u,b}<\tau+\gamma$ の辺を通る葉の総確率は高々 $2m(\tau+\gamma)$ である。各節点には子辺が高々2本あり、接頭辞確率との積を同じ段階の全節点で足すと、接頭辞確率の総和は1以下なので段階ごとの寄与は高々 $2(\tau+\gamma)$ となる。
 
-## P.4 Selector lockと可逆filter
+## P.4 選択機構の固定と可逆選別機構
 
-branch selectorは第2章のM54 static selection--lock core、すなわちR164の殻状態数とR161/R162の有限混合により形成し、R170と共通のcollection窓で $b$ のplateauへ固定する。lock前にfilterを開かない。異なる $b$ のplateauとguard領域を互いに素に取り、外部record、selector、guard flagを含む拡大状態で枝の和を1対1に保つ。
+結果成分の選択機構は第2章のM54静的選択・固定共通部、すなわちR164の殻状態数とR161/R162の有限混合により形成し、R170と共通の収集窓で $b$ の平坦域へ固定する。固定前に選別機構を開かない。異なる $b$ の平坦域と保護帯領域を互いに素に取り、外部記録、選択機構、保護帯フラグを含む拡大状態で枝の和を1対1に保つ。
 
-signalとblank work上のfilterを
+信号と未使用 作業領域上の選別機構を
 
 ```math
 F_{u,b}
@@ -88,9 +88,9 @@ F_{u,b}(Z_u,0)
 =(P_{u,b}Z_u,P_{u,1-b}Z_u)
 ```
 
-である。非選択成分を消去せずworkへ保持するので、filter自体はunitaryな実正準写像である。selector plateauを保持したままcontrolled-$F_{u,b}$ を作用すれば、異なる枝の像はselector座標で分離される。
+である。非選択成分を消去せず作業領域へ保持するので、選別機構自体はユニタリな実正準写像である。選択機構 平坦域を保持したまま制御付き-$F_{u,b}$ を作用すれば、異なる枝の像は選択機構座標で分離される。
 
-## P.5 Filter誤差と条件付きray
+## P.5 選別機構誤差と条件付き状態方向
 
 理想選択成分を $v=P_{u,b}Z_u$、実装後を $\widetilde v$ とし、
 
@@ -100,7 +100,7 @@ F_{u,b}(Z_u,0)
 \eta_F\|Z_u\|.
 ```
 
-accept plateauでは $\|v\|\geq\sqrt\tau\|Z_u\|$ である。$\eta_F<\sqrt\tau$ なら三角不等式と規格化写像のLipschitz評価から
+受理 平坦域では $\|v\|\geq\sqrt\tau\|Z_u\|$ である。$\eta_F<\sqrt\tau$ なら三角不等式と規格化写像のLipschitz評価から
 
 ```math
 \left\|
@@ -112,11 +112,11 @@ accept plateauでは $\|v\|\geq\sqrt\tau\|Z_u\|$ である。$\eta_F<\sqrt\tau$ 
 \frac{2\eta_F}{\sqrt\tau-\eta_F}.
 ```
 
-この $\tau^{-1/2}$ は安全枝を条件付けた解析誤差であり、controllerが $p_{u,b}$ を読み出す費用ではない。
+この $\tau^{-1/2}$ は安全枝を条件付けた解析誤差であり、制御器が $p_{u,b}$ を読み出す費用ではない。
 
-## P.5.1 Rank-one projectorのpost-state handoff
+## P.5.1 階数1 射影子の測定後状態の受け渡し
 
-rank-one node
+階数1 節点
 $P_{u,b}=|b_u\rangle\langle b_u|$
 を取る。安全枝では $v=P_{u,b}Z_u\neq0$ なので、ある複素数 $\alpha_b\neq0$ により
 
@@ -128,9 +128,9 @@ v=\alpha_b|b_u\rangle,
 P_{u,b}.
 ```
 
-従って枝を結果で条件付けるだけではなく、P.4のcontrolled filterそのものがselected signalをprojector imageへ物理的に移す。P.5の実装誤差を
+従って枝を結果で条件付けるだけではなく、P.4の制御付き 選別機構そのものが選択後信号を射影子 像へ物理的に移す。P.5の実装誤差を
 $\varepsilon_{\rm proj}=2\eta_F/(\sqrt\tau-\eta_F)$
-と置くと、規格化実装signal $\widehat{\widetilde v}$ に対する純粋状態trace距離は
+と置くと、規格化実装信号 $\widehat{\widetilde v}$ に対する純粋状態トレース距離は
 
 ```math
 D_{\rm tr}
@@ -148,14 +148,14 @@ P_{u,b}
 \varepsilon_{\rm proj}.
 ```
 
-安全枝の試行集団を条件付けて平均してもtrace距離の凸性により同じ上界が成り立つ。P.6のradial-only repumpはsignalの方向を変えないため、このstate boundを増やさない。したがってrank-one nodeのselected signalを同じ試行の次段入力へ直接渡せる。外部controllerがbranch振幅を読み、固有stateを別templateから再準備する必要はない。
+安全枝の試行集団を条件付けて平均してもトレース距離の凸性により同じ上界が成り立つ。P.6の方向を変えない振幅再調整は信号の方向を変えないため、この状態 上界を増やさない。したがって階数1 節点の選択後信号を同じ試行の次段入力へ直接渡せる。外部制御器が結果成分振幅を読み、固有状態を別テンプレートから再準備する必要はない。
 
-この結論はM54 signal interface上のpost-state handoffである。M37の全高modeを同じfilterで射影したこと、測定反作用をM37単一Hamiltonianへ統合したこと、またはZeno運転を閉じたことは意味しない。
+この結論はM54 信号 接続部上の測定後状態の受け渡しである。M37の全高モードを同じ選別機構で射影したこと、測定反作用をM37単一ハミルトニアンへ統合したこと、またはZeno運転を閉じたことは意味しない。
 
 
-## P.6 Radial-only repump
+## P.6 大きさ方向のみの再調整
 
-filter後のselected信号だけにR181Aの $\kappa=0$ portを開く。
+選別機構後の選択後信号だけにR181Aの $\kappa=0$ 接続端を開く。
 
 ```math
 \dot Z=g(J_*-Z^\dagger Z)Z.
@@ -167,7 +167,7 @@ filter後のselected信号だけにR181Aの $\kappa=0$ portを開く。
 \dot r=2gr(J_*-r)
 ```
 
-に従う。accept plateauでは $r(0)\geq\tau r_{\rm in}$ である。入力作用を固定compact区間 $r_{\rm in}\in[J_-,J_+]$ に保てば、目標相対動径誤差 $\eta_R$ に必要な時間は
+に従う。受理 平坦域では $r(0)\geq\tau r_{\rm in}$ である。入力作用を固定コンパクト区間 $r_{\rm in}\in[J_-,J_+]$ に保てば、目標相対動径誤差 $\eta_R$ に必要な時間は
 
 ```math
 T_R
@@ -178,11 +178,11 @@ O\!\left(
 \right).
 ```
 
-$T_R$ は $\tau$ と安全集合から試行前に固定できる。未知の $p_{u,b}^{-1/2}$ を実装する状態依存squeezeではない。これは採用開放法則であり、厳密なsymplectic resetまたは無履歴逆掃除とは呼ばない。環境へ移った動径情報はspent側に残す。
+$T_R$ は $\tau$ と安全集合から試行前に固定できる。未知の $p_{u,b}^{-1/2}$ を実装する状態依存スクイーズではない。これは採用開放法則であり、厳密なシンプレクティック リセットまたは無履歴逆掃除とは呼ばない。環境へ移った動径情報は使用済み側に残す。
 
-## P.7 Telescopingと完全結果誤差
+## P.7 望遠鏡和と完全結果誤差
 
-理想node kernelを $K_k$、実装kernelを $\widetilde K_k$ とする。過去の安全履歴 $h_{k-1}$ 上で
+理想節点 核を $K_k$、実装核を $\widetilde K_k$ とする。過去の安全履歴 $h_{k-1}$ 上で
 
 ```math
 \sup_{h_{k-1}}
@@ -194,9 +194,9 @@ K_k(h_{k-1},\cdot)
 \leq\bar\varepsilon_k
 ```
 
-と仮定する。$\bar\varepsilon_k$ はR170選択、lock、controlled filter、radial repump、routeを各1回だけ数える。Markov kernelの縮約性とtelescopingから、node実装誤差は $\sum_k\bar\varepsilon_k$ 以下である。
+と仮定する。$\bar\varepsilon_k$ はR170選択、固定、制御付き 選別機構、大きさ方向の再調整、転送を各1回だけ数える。Markov 核の縮約性と望遠鏡和から、節点実装誤差は $\sum_k\bar\varepsilon_k$ 以下である。
 
-正則化は各nodeで高々 $\delta/(1+\delta)$、raw cutoffとguardは全体で高々 $2m(\tau+\gamma)$ の質量を無反応へ送る。入力分布誤差を $\varepsilon_{\rm in}$ とすると
+正則化は各節点で高々 $\delta/(1+\delta)$、未処理 カットオフと保護帯は全体で高々 $2m(\tau+\gamma)$ の質量を無反応へ送る。入力分布誤差を $\varepsilon_{\rm in}$ とすると
 
 ```math
 D_{\rm TV}(P_{\rm out},P_{\rm Born})
@@ -212,7 +212,7 @@ D_{\rm TV}(P_{\rm out},P_{\rm Born})
 <!-- theorem-start:proof -->
 **証明（R181D）**
 
-P.2がselection--lock coreへ渡す正則化枝確率を与える。P.3が除去質量、P.4が枝別の1対1 filter、P.5がselected ray誤差、P.5.1がrank-one post-state handoff、P.6がそのrayを変えない固定時間repump、P.7のkernel telescopingが深さ $m$ の完全結果誤差を与える。理想kernelの積は
+P.2が選択・固定共通部へ渡す正則化結果確率を与える。P.3が除去質量、P.4が枝別の1対1 選別機構、P.5が選択後 状態方向誤差、P.5.1が階数1 測定後状態の受け渡し、P.6がその状態方向を変えない固定時間再調整、P.7の核 望遠鏡和が深さ $m$ の完全結果誤差を与える。理想核の積は
 
 ```math
 \prod_{k=1}^m p_{k,y_k}
@@ -225,7 +225,7 @@ P.2がselection--lock coreへ渡す正則化枝確率を与える。P.3が除去
 
 ## P.8 資源と反証条件
 
-$m=n$、$\delta,\tau,\gamma,\bar\varepsilon_k=O(\epsilon/n)$ と選ぶ。R170の保守的混合時間、collision精度、radial時間を合わせると、逐次読出し時間は
+$m=n$、$\delta,\tau,\gamma,\bar\varepsilon_k=O(\epsilon/n)$ と選ぶ。R170の保守的混合時間、衝突精度、大きさ方向時間を合わせると、逐次読出し時間は
 
 ```math
 O\!\left(
@@ -233,15 +233,15 @@ O\!\left(
 \right)
 ```
 
-で抑えられる。作用殻stiffnessは $O(n^2/\epsilon^2)$、collision fluxは $O(\sqrt{n/\epsilon})$、barrier rangeは $O(\log(n/\epsilon))$ で足りる。指数的なsignal、work、history、cold、spent容量と総熱はQ2-4の許容受動資源へ計上する。
+で抑えられる。作用殻剛性は $O(n^2/\epsilon^2)$、衝突 流束は $O(\sqrt{n/\epsilon})$、障壁範囲は $O(\log(n/\epsilon))$ で足りる。指数的な信号、作業領域、履歴、低温、使用済み容量と総熱はQ2-4の許容受動資源へ計上する。
 
 次のいずれかが避けられなければR181Dの主張は成立しない。
 
-1. Born確率表または振幅表を外部controllerへ入力する。
-2. selector lock前にfilterを開き、枝像が重なる。
-3. cutoffに状態依存除算または指数精度を要する。
-4. 非選択成分、collision履歴、radial環境を消去する。
+1. Born確率表または振幅表を外部制御器へ入力する。
+2. 選択結果の固定前に選別機構を開き、枝像が重なる。
+3. カットオフに状態依存除算または指数精度を要する。
+4. 非選択成分、衝突履歴、大きさ方向環境を消去する。
 5. 無反応を除外して成功試行だけを再規格化する。
-6. 深さ $n$ のnode誤差を多項式予算へ同時に収められない。
+6. 深さ $n$ の節点誤差を多項式予算へ同時に収められない。
 
-旧fixed-volume apertureおよびdyadic threshold tapeはこの証明に使わない。
+旧固定体積 開口および二進しきい値記録領域はこの証明に使わない。

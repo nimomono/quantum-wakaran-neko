@@ -252,7 +252,7 @@ Q2_LEDGER_ROOTS: dict[str, set[str]] = {
 
 Q2_LEDGER_MODELS: dict[str, set[str]] = {
     "Q2-1": {"M54"},
-    "Q2-2": {"M54", "receiver"},
+    "Q2-2": {"M54", "受信機構"},
     "Q2-3": {"M54"},
     "Q2-4": {"M54"},
 }
@@ -481,18 +481,18 @@ def validate_fixed_goal_language() -> None:
     r144_block = q1_text.split("**定理（R144：", 1)[1].split(
         "<!-- theorem-end:theorem -->", 1
     )[0]
-    for forbidden_token in ("永久記録", "内部逆計算", "fresh-cell", "交換reset"):
+    for forbidden_token in ("永久記録", "内部逆計算", "未使用素子", "交換リセット"):
         if forbidden_token in r144_block:
             raise ValueError("R144へcycle強化が混入: " + forbidden_token)
     for required_token in (
         "固定有限段逐次測定合成",
         r"\mathcal H_N",
         "外部から量子状態を再準備しない",
-        "実装強化：永久記録、補助逆計算、交換reset",
+        "実装強化：永久記録、補助逆計算、交換リセット",
     ):
         if required_token not in q1_text:
             raise ValueError("Q1定理階層の必須要素がない: " + required_token)
-    if "永久記録、内部逆計算、fresh-cell交換はこの証明に使わない" not in q1_proof_text:
+    if "永久記録、内部逆計算、未使用素子交換はこの証明に使わない" not in q1_proof_text:
         raise ValueError("R144証明のcycle非依存境界がない")
 
     required_paths = (
@@ -565,20 +565,20 @@ def validate_fixed_goal_language() -> None:
         encoding="utf-8"
     )
     for token in (
-        "## 6.19 R187：M37弱結合W型からQ1 W2制御への物理bridge",
+        "## 6.19 R187：M37弱結合W型からQ1 W2制御への物理接続",
         r"J_\kappa",
         r"G_\kappa",
-        "dressed低2モード",
-        "M54 W2 static profileへのcanonical handoff",
+        "結合後の低2モード",
+        "M54 W2 静的状態構成への正準状態の受け渡し",
     ):
         if token not in r187_text:
             raise ValueError("R187本文の必須要素がない: " + token)
     for token in (
-        "## E.14 弱結合W型族の低位cluster",
-        "## E.15 静的M37 segmentの長時間一様較正",
-        "## E.16 傾斜cluster、dressed生成子と有限gate word",
+        "## E.14 弱結合W型族の低位モード群",
+        "## E.15 静的M37区間の長時間一様較正",
+        "## E.16 傾斜モード群、結合後の生成子と有限ゲート列",
         "**証明（R187）**",
-        "## E.18 零傾斜正常modeとM54 W2 canonical port",
+        "## E.18 零傾斜正常モードとM54 W2 正準接続端",
     ):
         if token not in r187_proof_text:
             raise ValueError("R187証明の必須要素がない: " + token)
@@ -603,23 +603,23 @@ def validate_fixed_goal_language() -> None:
     required_current_tokens = (
         r"\Gamma_{54}^{(\Lambda,\mathcal I)}",
         r"A_{u,b}^\delta=J_{u,b}+\delta q_bJ_\Sigma",
-        "raw比較",
-        "selectorをlock",
-        "radial-only",
+        "未処理比較",
+        "選択機構を固定",
+        "大きさ方向のみ",
         r"2m(\tau+\gamma)",
         "成功試行だけを再規格化しない",
         "集団統計、試行中の状態依存制御を外部から与えない",
-        "current--traffic matching",
+        "確率流・活動量整合",
     )
     current_bundle = common_text + "\n" + receiver_text
     absent = [token for token in required_current_tokens if token not in current_bundle]
     if absent:
         raise ValueError("M54/R181Dの必須要素がない: " + "、".join(absent))
     for token in (
-        "aggregate cold誤差",
-        "同一の静的二次Hamiltonian",
-        "collision cell",
-        "spent",
+        "集約低温誤差",
+        "同一の静的二次ハミルトニアン",
+        "衝突素子",
+        "使用済み",
         "総熱は指数的でもよい",
     ):
         if token not in supply_text:

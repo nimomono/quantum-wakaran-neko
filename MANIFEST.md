@@ -84,6 +84,7 @@
 - `CITATION.cff`
 - `references.bib`
 - `tools/build_paper.py`
+- `tools/verify_terminology.py`
 - `tools/template.tex`
 - `tools/verify_common_canonical_control.py`
 - `tools/verify_envelope_reduction.py`

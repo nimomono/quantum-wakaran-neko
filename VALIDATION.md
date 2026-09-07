@@ -1,3 +1,21 @@
+## draft-80：現行原稿の日本語表記統一と用語検査
+
+```bash
+python -m py_compile tools/*.py
+for script in tools/verify_*.py; do python "$script"; done
+python tools/build_paper.py
+git diff --check
+```
+
+`TERMINOLOGY.md` の標準表記を現行本文・付録・README・PROJECT_STATUSへ適用した。人名由来語、略号、数式、コード識別子、文献原題を除く英語説明語を日本語または定着したカタカナ語へ統一し、理論内容、定理の依存関係、固定目標、達成ラベルは変更していない。`tools/verify_terminology.py` を追加し、標準表記が確定した旧英語説明語が現行原稿へ再混入した場合に失敗する回帰条件とした。
+
+GitHub Actionsの一時生成run `34080752547` で、全Python構文検査、全 `verify_*.py`、新しい用語検査、`tools/build_paper.py`、`git diff --check`、PDF情報検査、最終LaTeX禁止警告検査が成功した。生成commitは `eb6f81000f93f2ebd5b899d09f9c31ddb4fdc781` で、`paper.md`、`main.tex`、`paper.pdf` をdraft-80へ同期した。生成PDFはA4、231ページ、1,399,912 bytes。最終LaTeX logには未解決citation/reference、overfull、underfull、fatal error、欠落文字がない。
+
+初回組版では第2章の「殻stiffness／衝突 flux／barrier 範囲」を含む段落に2.62ptのoverfullが1件出たため、「殻剛性／衝突流束／障壁範囲」へ統一し、再生成後に消えた。途中TeX passでは参考文献解決前のcitation warningが出るが、最終passの禁止警告検査は成功している。
+
+PDFの目視確認はPopplerで全231ページを画像化して行った。一時確認run `34081117742` と `34081245001` で、40ページ単位の縮小一覧、全ページ文字密度サムネイル、各ページの描画範囲・インク比率・濃黒比率を生成した。全231ページを一覧で確認し、章扉など意図的に疎なページを含め、文字切れ、ページ端への衝突、異常な重なり、黒塗り、意図しない空白ページは見当たらなかった。描画範囲は通常ページで概ね左右11--90%、上下3--96%に収まり、ページ端へ接する描画はなく、濃黒比率は最大でも1%未満だった。確認用素材と一時workflowは検査後に削除し、完成版PDFだけを収録する。
+
+---
 ## draft-79：projective-node共通化とQ1 state-update縮約
 
 ```bash
