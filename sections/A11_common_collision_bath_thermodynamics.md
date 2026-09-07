@@ -285,47 +285,200 @@ w_vk_{v\to i}
 固定有限時間で区分連続な有向率 $k_{i\to j}(t)\geq0$ と生成子 $L(t)$ を取り、
 
 ```math
-M_*=
+M_0=
 \sup_{0\leq t\leq T}
-\max_i\sum_{j\ne i}k_{i\to j}(t)<\infty
+\max_i\sum_{j\ne i}k_{i\to j}(t)
+<\infty
 ```
 
-とする。有限分割 $0=t_0<\cdots<t_M=T$ で各窓の生成子を $\overline L_m$ へ凍結し、$M_*\Delta t<1$ とすれば
+とする。有限骨格
 
 ```math
-P_m
+0=t_0<t_1<\cdots<t_M=T,
+\qquad
+h_m=t_{m+1}-t_m
+```
+
+を取り、各窓で生成子を $\overline L_m$ へ凍結する。$h_mM_0<1$ なら
+
+```math
+P_m=I+h_m\overline L_m
+```
+
+は確率核である。対象の時間非一様Markov過程の $t_m$ から $t_{m+1}$ までの厳密遷移核を $U_m$ とし、
+
+```math
+\eta_{{\rm step},m}
 =
-I+\Delta t\,\overline L_m
-```
-
-は確率行列である。時間順序指数とEuler積の差は
-
-```math
-\varepsilon_{\rm step}
-\leq
-\int_0^T
-\|L(t)-L_{\rm fr}(t)\|_{\rm row}\,dt
-+
-T M_*^2\Delta t\,e^{2M_*\Delta t}
-```
-
-で抑えられる。
-
-各段階へ一様Liouville しきい値座標 $u_m\in(0,1)$ とその共役座標、時計自由度、空履歴、作業記憶部を置く。現在配置が $i$ なら $(0,1)$ を長さ $P_m(i,j)$ の区間へ分け、$u_m$ が属する $j$ へ移す。供給源、対象、段階番号、しきい値を履歴へ残し、区間幅差を共役座標の逆伸縮を伴う正準 スクイーズで補う。有限個の平行移動・せん断・スクイーズを滑らかな有限時間ハミルトニアン散乱へ近似すれば、指定読出し時刻の位置分布を対象Markov過程から
-
-```math
+\max_i
 D_{\rm TV}
-\leq
-\varepsilon_{\rm step}
-+
-\varepsilon_{\rm coll}
-+
-\varepsilon_{\rm clk}
-+
-\varepsilon_{\rm over}
+\left(
+U_m(i,\cdot),
+P_m(i,\cdot)
+\right)
 ```
 
-以内にできる。各窓1段階では有限個の素子を事前配置できるため $\varepsilon_{\rm over}=0$ と選べる。これは一般有向率の実装であり、詳細釣合いまたは熱分布を仮定しない。
+とする。
+
+各段階 $m$ へ、それ以前の窓で使わない一様Liouvilleしきい値座標 $u_m\in(0,1)$、その共役座標、時計自由度、空履歴、遷移ラッチと作業記憶部を置く。現在配置が $i$ なら $(0,1)$ を長さ $P_m(i,j)$ の有限区間へ分ける。各内部境界の周囲に有限幅の比較境界帯を置き、その和集合を $B_{mi}$、最大Liouville測度を
+
+```math
+\beta_m
+=
+\max_i |B_{mi}|
+```
+
+とする。
+
+比較境界帯を除く各遷移区間上で厳密に0または1となる滑らかな台地関数 $\chi_{mir}(u_m)$ を選ぶ。供給元配置 $i$ の安全領域上で1となる滑らかな関数を $d_i(x)$、遷移ラッチの正準対を $(C_{mir},P_{mir})$ とし、入口で $C_{mir}=P_{mir}=0$ とする。有限時計窓で
+
+```math
+H_{{\rm lat},m}
+=
+g_{{\rm lat},m}(\tau)
+\sum_{i,r}
+P_{mir}d_i(x)\chi_{mir}(u_m),
+\qquad
+\int g_{{\rm lat},m}(\tau)d\tau=1
+```
+
+を作用させる。$P_{mir}=0$ は保存されるため、安全領域ではしきい値自由度と供給元配置への理想反作用は零であり、ちょうど一つの遷移ラッチだけが1となる。
+
+供給元領域 $i$ から移動先領域 $j$ へ向かう滑らかなベクトル場を $v_{ij}(x)$ とする。その余接持上げ
+
+```math
+G_{ij}^X
+=
+p_x\mathbin{\cdot}v_{ij}(x)
+```
+
+は正準ハミルトニアンを生成する。続く時計窓で
+
+```math
+H_{{\rm hop},m}
+=
+g_{{\rm hop},m}(\tau)
+\sum_{i,r}
+C_{mir}G_{ij_r}^X
+```
+
+を作用させる。安全な選択器領域では一つのラッチだけが作動するため、配置は理想遷移と同じtargetへ有限時間で運ばれる。待機遷移では $G_{ii}^X=0$ とする。供給元、移動先、段階番号、しきい値、待機または無反応を履歴へ残し、異なる履歴を消去しないため全有限時計写像は1対1に保たれる。
+
+このHamiltonian段階が誘導する条件付き配置核を $\widehat P_m$ とする。同じ $u_m$ を理想区間分割とHamiltonian比較へ使って結合すれば、$u_m\notin B_{mi}$ では両出力が厳密に一致する。有限読出し窓、時計、あふれの追加誤差をそれぞれ $\eta_{{\rm read},m}$、$\eta_{{\rm clk},m}$、$\eta_{{\rm over},m}$ とすれば
+
+```math
+\sup_i
+D_{\rm TV}
+\left(
+\widehat P_m(i,\cdot),
+P_m(i,\cdot)
+\right)
+\leq
+\beta_m
++
+\eta_{{\rm read},m}
++
+\eta_{{\rm clk},m}
++
+\eta_{{\rm over},m}.
+```
+
+未使用の $u_m$ は過去のHamiltonian窓に現れないため、任意の過去履歴で条件付けても同じ一様分布を持つ。従って初期配置分布誤差を $\varepsilon_{\rm init}$ とし、最初の不一致段階について逐次結合を行うと
+
+```math
+\boxed{
+D_{\rm TV}
+\left(
+\widehat{\mathbb P}_{0:M},
+\mathbb P_{0:M}
+\right)
+\leq
+\varepsilon_{\rm init}
++
+\sum_{m=0}^{M-1}
+\left[
+\eta_{{\rm step},m}
++
+\beta_m
++
+\eta_{{\rm read},m}
++
+\eta_{{\rm clk},m}
++
+\eta_{{\rm over},m}
+\right].
+}
+```
+
+同じ評価は、配置列に供給元、移動先、段階番号、待機、無反応を含む保存履歴を加えた共同経路分布にも成立する。これをR162の有限骨格経路誤差 $\varepsilon_{162}^{\rm hist}$ と呼ぶ。各窓1段階の有限素子を事前配置すれば $\eta_{{\rm over},m}=0$ とできる。
+
+さらに率が $C^1$ で
+
+```math
+M_1
+=
+\sup_{0\leq t\leq T}
+\max_i
+\sum_{j\ne i}
+|\partial_t k_{i\to j}(t)|
+<\infty
+```
+
+とし、一様内部刻み $h$、左端凍結 $\overline L_m=L(t_m)$ を使う。row作用素ノルムを
+
+```math
+\|A\|_{\rm row}
+=
+\max_i\sum_j|A_{ij}|
+```
+
+とする。生成子について $\|L\|_{\rm row}\leq2M_0$、$\|\dot L\|_{\rm row}\leq2M_1$ である。Duhamel表示とMarkov核のrow縮小性から
+
+```math
+\max_i
+D_{\rm TV}
+\left(
+U_m(i,\cdot),
+[I+hL(t_m)](i,\cdot)
+\right)
+\leq
+h^2
+\left(
+\frac{M_1}{2}
++
+M_0^2
+\right).
+```
+
+従って $M=T/h$ のとき
+
+```math
+\boxed{
+\varepsilon_{162}^{\rm hist}
+\leq
+\varepsilon_{\rm init}
++
+Th
+\left(
+\frac{M_1}{2}
++
+M_0^2
+\right)
++
+\sum_m
+\left[
+\beta_m
++
+\eta_{{\rm read},m}
++
+\eta_{{\rm clk},m}
++
+\eta_{{\rm over},m}
+\right].
+}
+```
+
+固定有限時間と有限状態数について、まず $h$ を十分小さく取り、次に各比較境界帯、読出し窓、時計誤差を十分小さくすれば、任意の $\epsilon>0$ に対し有限構成のまま $\varepsilon_{162}^{\rm hist}<\epsilon$ とできる。指定読出し時刻の周辺分布誤差は経路分布からのデータ処理で従う。
 
 ### K.4.2 熱的詳細釣り合い特殊化
 
@@ -403,7 +556,7 @@ k_{i\to j}^{\rm coll}
 <!-- theorem-start:proof -->
 **証明（R162）**
 
-一般部分では、凍結生成子とEuler積の誤差を上の $\varepsilon_{\rm step}$ で抑え、各有限確率行列を一様しきい値座標の有限区間分割で実現する。履歴を保存して正準 スクイーズ、平行移動、せん断を未使用部分系へ1対1に延長し、滑らかなハミルトニアン散乱で近似すれば有限衝突誤差が得られる。熱的特殊化では指数入射流束の尾部へ活性化エネルギーを代入して平方根型率を得る。対称障壁と通過後エネルギー式が正逆散乱と詳細釣合いを与える。証明終。
+一般部分では、各段階の厳密Markov核 $U_m$、Euler核 $P_m$、Hamiltonian条件付き核 $\widehat P_m$ を分ける。一様Liouvilleしきい値と滑らかな台地比較を同じ選択器上で結合すると、比較境界帯外では $\widehat P_m$ と $P_m$ の遷移が厳密に一致する。未使用の選択器は過去履歴で条件付けても一様なので、最初の不一致段階に対する逐次結合とunion boundから有限骨格全履歴の全変動距離が段階誤差の和で抑えられる。$C^1$ 率ではDuhamel表示から $U_m-P_m$ のrowノルムを二次で評価し、有限骨格経路誤差の表示式を得る。履歴を保存した遷移ラッチと余接持上げ輸送は異なる履歴を消去せず、有限時計写像を1対1に保つ。熱的特殊化では指数入射流束の尾部へ活性化エネルギーを代入して平方根型率を得る。対称障壁と通過後エネルギー式が正逆散乱と詳細釣合いを与える。証明終。
 <!-- theorem-end:proof -->
 
 ## K.5 粗視化経路熱力学系の証明

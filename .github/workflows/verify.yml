@@ -86,8 +86,8 @@ jobs:
           [[ "$q2_2_deps" != *R181D* ]]
           grep -Fq 'rank_one_post_state_error' tools/verify_r181d_projector_tree.py
           grep -Fq '集約低温誤差' sections/A17_m54_uniform_supply.md
-          grep -Fq 'version: "draft-83"' CITATION.cff
-          grep -Fq 'draft-83 改訂稿' tools/template.tex
+          grep -Fq 'version: "draft-84"' CITATION.cff
+          grep -Fq 'draft-84 改訂稿' tools/template.tex
 
 
       - name: M54整合理論境界を検査
@@ -107,7 +107,8 @@ jobs:
           ! grep -Rq '定理（R183：' sections/*.md
           test "$(grep -Rho '定理（R184：' sections/*.md | wc -l)" -eq 1
           test "$(grep -Rho '定理（R185：' sections/*.md | wc -l)" -eq 1
-          grep -Fq '| Q3-2 | 部分達成 | M54空間状態構成 |' PROJECT_STATUS.md
+          test "$(grep -Rho '定理（R188：' sections/*.md | wc -l)" -eq 1
+          grep -Fq '| Q3-2 | 達成 | M54空間状態構成 |' PROJECT_STATUS.md
           ! grep -Eq '^\| M50 \||^\| M55 \|' PROJECT_STATUS.md
           ! grep -Eq '^\| M47 \|' PROJECT_STATUS.md sections/01_scope_and_cycle.md
           grep -Fq 'Q1 W型2モード制御手順（旧M47）' PROJECT_STATUS.md
@@ -127,9 +128,14 @@ jobs:
           grep -Fq '## 3.12 共通射影選別機構による測定後状態の受け渡し' sections/03_m47_controlled_w_instrument.md
           grep -Fq '測定後状態の受け渡し' sections/A8_m47_hopf_preparation.md
           ! grep -R -Fq 'R170衝突' README.md PROJECT_STATUS.md sections
-          grep -Fq 'R184/R162の有限衝突近似' sections/08_errors_resources_open_targets.md
-          grep -Fq 'D_+D_-X' sections/08_errors_resources_open_targets.md
-          grep -Fq 'D_-D_+X' sections/08_errors_resources_open_targets.md
+          grep -Fq '\varepsilon_{Q3-2}' sections/08_errors_resources_open_targets.md
+          grep -Fq 'C_{185,a}a^2' sections/08_errors_resources_open_targets.md
+          grep -Fq 'C_{\rm time}\tau' sections/08_errors_resources_open_targets.md
+          grep -Fq '\varepsilon_{162}^{\rm hist}' sections/08_errors_resources_open_targets.md
+          grep -Fq 'R162有限骨格経路TV' sections/08_errors_resources_open_targets.md
+          test -f tools/verify_q3_nelson_collision.py
+          ! grep -Fq 'Q3-2は部分達成' sections/07_q3_finite_graph_phenomena.md sections/09_conclusion.md
+          ! grep -Fq '有限衝突近似から $D_+D_-X$ と $D_-D_+X$ までの追加誤差' sections/08_errors_resources_open_targets.md
           ! grep -Fq 'Nelson流の作用変分または時間対称Newton則を有限時間誤差付きで導く' sections/08_errors_resources_open_targets.md
           ! grep -Fq '\varepsilon_{\rm br}' sections/03_m47_controlled_w_instrument.md sections/A2_m47_controlled_w_instrument_proofs.md sections/08_errors_resources_open_targets.md
           ! grep -Fq '\varepsilon_{\rm post}' sections/03_m47_controlled_w_instrument.md sections/A2_m47_controlled_w_instrument_proofs.md sections/08_errors_resources_open_targets.md
