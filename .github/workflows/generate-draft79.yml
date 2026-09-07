@@ -1,0 +1,95 @@
+name: draft-79 一時生成
+
+on:
+  push:
+    branches:
+      - draft-79-projective-node-q1-state-update
+    paths-ignore:
+      - paper.md
+      - main.tex
+      - paper.pdf
+      - VALIDATION.md
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 原稿を取得
+        uses: actions/checkout@v4
+        with:
+          ref: draft-79-projective-node-q1-state-update
+
+      - name: Pythonを準備
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: 依存関係を導入
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y pandoc poppler-utils texlive-latex-extra texlive-xetex
+          python -m pip install numpy
+
+      - name: 全Python回帰を実行
+        run: |
+          python -m py_compile tools/*.py
+          for script in tools/verify_*.py; do
+            echo "== $script =="
+            python "$script"
+          done
+
+      - name: draft-79理論境界を検査
+        run: |
+          set -Ee -o pipefail
+          grep -Fq 'M54 static selection--lock core' sections/02_common_canonical_modules.md
+          grep -Fq 'common projective-node primitive' sections/02_common_canonical_modules.md
+          grep -Fq '## P.5.1 Rank-one projectorのpost-state handoff' sections/A16_m54_projector_tree_receiver.md
+          ! grep -Fq '結果別テンプレート交換' sections/03_m47_controlled_w_instrument.md sections/A2_m47_controlled_w_instrument_proofs.md
+          ! grep -Fq '結果別template交換' sections/03_m47_controlled_w_instrument.md sections/A2_m47_controlled_w_instrument_proofs.md
+          ! grep -Fq '\varepsilon_{\rm br}' sections/03_m47_controlled_w_instrument.md sections/A2_m47_controlled_w_instrument_proofs.md sections/08_errors_resources_open_targets.md
+          ! grep -Fq '\varepsilon_{\rm post}' sections/03_m47_controlled_w_instrument.md sections/A2_m47_controlled_w_instrument_proofs.md sections/08_errors_resources_open_targets.md
+          grep -Fq '\delta_{{\rm state},j}' sections/03_m47_controlled_w_instrument.md sections/A2_m47_controlled_w_instrument_proofs.md
+          ! grep -Fq '\delta_{{\rm post},j}' sections/03_m47_controlled_w_instrument.md sections/A2_m47_controlled_w_instrument_proofs.md
+          grep -Fq 'version: "draft-79"' CITATION.cff
+          grep -Fq 'draft-79 改訂稿' tools/template.tex
+          git diff --check
+
+      - name: 論文を再生成
+        run: python tools/build_paper.py
+
+      - name: PDF品質を検査
+        run: |
+          set -Ee -o pipefail
+          test -s paper.pdf
+          pdfinfo paper.pdf | grep -Fq 'Page size:'
+          pdftotext -layout paper.pdf /tmp/paper.txt
+          grep -Fq 'common projective-node' /tmp/paper.txt
+          grep -Fq 'Rank-one projector' /tmp/paper.txt
+          if grep -En "Citation .* undefined|Reference .* undefined|Overfull|Underfull|Fatal error|Missing character" build/latex/main.log; then
+            echo "::error::最終LaTeXログに禁止警告が残っている"
+            exit 1
+          fi
+          git diff --check -- paper.md main.tex
+
+      - name: 生成物をcommit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add paper.md main.tex paper.pdf
+          if git diff --cached --quiet; then
+            echo "generated files already synchronized"
+          else
+            git commit -m "draft-79: 論文生成物を更新"
+            git push origin HEAD:draft-79-projective-node-q1-state-update
+          fi
+
+      - name: PDF artifactを保存
+        uses: actions/upload-artifact@v4
+        with:
+          name: draft-79-paper
+          path: paper.pdf
+          if-no-files-found: error
