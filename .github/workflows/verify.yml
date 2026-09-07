@@ -70,16 +70,24 @@ jobs:
           grep -Fq 'ブラックボックスとしての運用上の複雑度' sections/08_errors_resources_open_targets.md
           grep -Fq '信号作用 $S$ を指数的に増やせば' sections/08_errors_resources_open_targets.md
           test -f tools/verify_r186_m54_projective_robustness.py
-          grep -Fq 'R170駆動段階的射影選別 Born 測定機構' sections/02_common_canonical_modules.md
-          grep -Fq 'M54静的選択・固定共通部' sections/02_common_canonical_modules.md
+          test "$(grep -Rho '定理（R170：' sections/*.md | wc -l)" -eq 1
+          grep -Fq '定理（R170：M54静的選択・固定共通定理）' sections/02_common_canonical_modules.md
+          grep -Fq '**系（R170選択結果の局所記録）**' sections/02_common_canonical_modules.md
+          grep -Fq '定理（R181D：M54段階的射影選別・測定後状態受渡し定理）' sections/02_common_canonical_modules.md
           grep -Fq '共通射影選別機構' sections/02_common_canonical_modules.md
           grep -Fq '固定前に選別機構を開かない' sections/A16_m54_projector_tree_receiver.md
           grep -Fq '## P.5.1 階数1 射影子の測定後状態の受け渡し' sections/A16_m54_projector_tree_receiver.md
           grep -Fq '## P.6 方向を変えない振幅再調整' sections/A16_m54_projector_tree_receiver.md
+          grep -Fq 'R181Dの段階的射影選別定理そのものには依存しない' sections/05_m54_setting_pre_receiver.md
+          ! grep -R -Fq 'R170駆動' README.md PROJECT_STATUS.md sections
+          ! grep -R -Fq 'M54静的選択・固定共通部' README.md PROJECT_STATUS.md sections
+          ! grep -R -Fq '\varepsilon_{170}^{\rm end}' README.md PROJECT_STATUS.md sections
+          q2_2_deps="$(awk -F'|' '/^\| Q2-2 \| 条件付き達成 \|/ {gsub(/^ +| +$/, "", $7); print $7}' PROJECT_STATUS.md)"
+          [[ "$q2_2_deps" != *R181D* ]]
           grep -Fq 'rank_one_post_state_error' tools/verify_r181d_projector_tree.py
           grep -Fq '集約低温誤差' sections/A17_m54_uniform_supply.md
-          grep -Fq 'version: "draft-81"' CITATION.cff
-          grep -Fq 'draft-81 改訂稿' tools/template.tex
+          grep -Fq 'version: "draft-82"' CITATION.cff
+          grep -Fq 'draft-82 改訂稿' tools/template.tex
 
 
       - name: M54整合理論境界を検査

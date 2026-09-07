@@ -1,3 +1,21 @@
+## draft-82：R170静的選択・固定中核への再定義
+
+```bash
+python -m py_compile tools/*.py
+for script in tools/verify_*.py; do python "$script"; done
+python tools/build_paper.py
+git diff --check
+```
+
+R170を局所記録まで含む測定機構から、R164--R161--R162による排他的選択を物理的な安全平坦域へ固定する共通中核へ再定義した。旧R170の外部記録はR112局所記録との無番号系として回収し、R170本体の誤差台帳から $\varepsilon_{\rm rec}$ を除外する。R181DはR170下流の段階的射影選別・測定後状態受渡し、R180Aは共通射影容量固定補題とR170を使う兄弟特殊化として検査する。
+
+Q2-2の依存閉包からR181Dを外し、R180A/R180CがR170へ直接依存することを `tools/build_paper.py` の結果依存グラフで検査する。R181D末端全体の合成誤差は $\varepsilon_{181D}^{\rm end}$、記録付きR170読出しは $\varepsilon_{170}^{\rm obs}$、Bell両翼の選択・固定誤差は $\varepsilon_{170}^{A,B}$ として分離し、同じ物理偏差を二重計数しない。
+
+現行README、PROJECT_STATUS、本文・付録に `R170駆動`、`M54静的選択・固定共通部`、`\\varepsilon_{170}^{\\rm end}` が再混入しないこと、R170定理ブロックに `\\varepsilon_{\\rm rec}` または `G_{\\rm rec}` が入らないこと、R170記録系とR181D新定理名が存在することを生成器とCIで確認する。固定目標と達成ラベルは変更しない。
+
+最終生成run `34133129266`（run #300）で、全 `verify_*.py`、M54理論境界、M54整合理論境界、`tools/build_paper.py`、生成物同期、標準構成検査が成功した。初回生成で検出したR170定理冒頭の `Underfull \\hbox` は、固定データを表示式へ分離して解消した。生成commit `9b80b0f7f949e2faf835c64316897f7358fbf34d` に、正式名「R170：M54静的選択・固定共通定理」で `paper.md`、`main.tex`、`paper.pdf` を同期した。生成PDFはA4、234ページ、1,417,183 bytesであり、最終LaTeXログに未解決citation/reference、overfull、underfull、fatal error、欠落文字は残っていない。
+
+---
 ## draft-81 保守整合：Q1測定後状態責務・有限衝突責務・Q3-2残件境界
 
 ```bash
