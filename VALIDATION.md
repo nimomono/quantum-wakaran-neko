@@ -1,3 +1,21 @@
+## draft-79：projective-node共通化とQ1 state-update縮約
+
+```bash
+python -m py_compile tools/*.py
+for script in tools/verify_*.py; do python "$script"; done
+python tools/build_paper.py
+git diff --check
+```
+
+R170、R181D、R180Aに共有するM54 static selection--lock coreとcommon projective nodeを明文化し、R181Dのrank-one safe-branch post-state handoffを追加した。Q1では結果別state template交換と測定後再matchingを現行因果鎖から削除し、R143をW型読出し特殊化へ縮約、R144の段間interfaceをR181D selected signalの直接受渡しへ変更した。固定目標と達成ラベルは変更していない。
+
+`tools/verify_m47_q1_instrument.py` はrank-one projector後のpost-state、位相・radial factor不変性、分析器座標から論理座標への戻し、標準trace距離による2値確率差上界を回帰する。代表値は `rank_one_projective_post_state_error = 1.12e-16`、旧1/2係数が一般には強すぎることを固定するcounterexample marginは `0.1464466` である。`tools/verify_r181d_projector_tree.py` は `rank_one_post_state_error = 2.44e-17`、`rank_one_phase_radial_invariance_error = 1.11e-16`、`rank_one_conditional_moment_error = 5.71e-19` を得た。
+
+GitHub Actionsの一時生成run `34074375461` で、全Python構文検査、全 `verify_*.py`、draft-79理論境界、`build_paper.py`、`git diff --check`、最終LaTeX禁止警告検査、PDF text smoke testが成功した。生成commitは `3094abd7131b6590fedc008c7fd9642e5ea2f9f5` で、`paper.md`、`main.tex`、`paper.pdf` を収録する。生成PDFはA4、231ページ、1,671,809 bytes。
+
+PDFはPopplerで変更箇所を再renderし、共通projective node（PDF p.32）、Q1 R143（p.49）、付録Pのrank-one post-state handoff（p.221）を目視確認した。見出し、本文、数式に切れ、重なり、黒塗り、欠落文字は見当たらない。初回組版ではR143の長い見出しに16.96ptのoverfullが1件出たため見出しを短縮し、最終runでoverfull/underfull、未解決citation/reference、fatal error、欠落文字がないことを確認した。
+
+---
 # 検算と品質確認
 
 ## draft-78：black-box operational基準とR186頑健性境界

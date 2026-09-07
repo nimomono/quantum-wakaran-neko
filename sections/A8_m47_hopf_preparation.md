@@ -198,10 +198,10 @@ T_W
 
 1. R181AのW型2モード特殊化で単一試行signal方向を準備し、固定canonical portでR187のM37最低2正常modeへ渡す。
 2. R187がM37局所ばねcarrier上でR140の有限正準操作を任意精度で実装し、R135へ統計輸送誤差を渡す。
-3. 操作面でR164の2枝作用殻状態数を作り、R161 staticとR162 thermalを介してR170へ接続する。
-4. R181Dの深さ1 nodeでselectorをlockし、無反応を含む完全結果を局所記録する。
-5. R143でW型有限コントラストと結果別template交換を加える。
-6. 固定有限段の逐次合成はR144を使う。
+3. 操作面でR164の2枝作用殻状態数を作り、R161 staticとR162 thermalを介して共通selection--lock coreへ接続する。
+4. R181Dの深さ1 common projective nodeでselectorをlockし、無反応を含む完全結果を局所記録し、rank-one filterとradial-only repumpでsafe-branch post-stateを作る。
+5. R143でW型分析器、有限コントラスト、傾斜保持、safe-well局所recordとの接続を加える。別の結果別state templateは使わない。
+6. 固定有限段の逐次合成はR144を使い、R181D selected signalを同じ試行の次段へ直接渡す。
 
 この因果鎖をQ1 W型2モードprotocolと呼ぶ。旧モデルID M47はGit履歴と旧版参照のため保持するが、M54とは別の現行親模型として数えない。
 
@@ -209,4 +209,4 @@ T_W
 
 ここで得る $P_L^{\rm stat}$ は信号bath第2モーメントの空間核に対する診断量であり、それだけから単一試行粒子位置 $X$ の分布または経路は従わない。Q1の排他的位置結果はR164/R161/R162/R170で別に構成する。
 
-Q3-4Bでは低2モードの作用比を粒子位置確率へ読み替えず、R182がW型固有関数から完全位置密度を構成し、R161/R184がM54 spatial profileの同じ粒子へ受け渡す。R187によりM37から制御されたW型2モードcarrierをQ1全制御時間へ任意精度で接続する問題はcarrier levelでは閉じた。一方、R181A pump/source、R164作用殻、R161/R162 collision、R170/R143記録まで同じ有限局所Hamiltonianへ統合したわけではない。
+Q3-4Bでは低2モードの作用比を粒子位置確率へ読み替えず、R182がW型固有関数から完全位置密度を構成し、R161/R184がM54 spatial profileの同じ粒子へ受け渡す。R187によりM37から制御されたW型2モードcarrierをQ1全制御時間へ任意精度で接続する問題はcarrier levelでは閉じた。一方、R181A pump/source、R164作用殻、R161/R162 collision、selection--lock、R181D filter/radial repump、R143局所recordまで同じ有限局所Hamiltonianへ統合したわけではない。

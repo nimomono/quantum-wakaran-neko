@@ -1,3 +1,13 @@
+## draft-79：projective-node共通化とQ1 state-update縮約
+
+- R170、R181D、R180Aで重複していたstatic枝選択前半を、結果IDを増やさないM54 static selection--lock coreとして明文化し、raw容量、R164--R161--R162、selector lock、record、filter、radial repump、routeの責務をcommon projective nodeとして整理した。
+- R181Dのrank-one特殊化で、safe branchのselected signal $P_sZ$ が結果固有ray上にあり、radial-only repump後も方向を保つことをpost-state handoffとして正式化した。filter誤差から条件付きtrace-distance state誤差を評価し、同じ単一試行signalを次段へ直接渡す。
+- Q1の結果別state template交換と測定後再matchingを現行因果鎖から削除し、$\varepsilon_{\rm br}$ と $\varepsilon_{\rm post}$ を廃止した。R143はW型分析器、有限コントラスト、傾斜保持、局所recordの特殊化へ縮約し、有限コントラスト誤差は結果分布だけへ入れる。
+- R144は独立定理として維持し、段間interfaceをR181D selected signalの直接受渡しへ変更した。標準trace距離で定義した段間state誤差に対する旧 $1/2$ 係数を修正し、確率差の上界として係数1を用いる。
+- 固定目標と達成ラベルは変更しない。Q1-2は引き続き部分達成であり、残件は同じM37 W2零傾斜Rabi carrierと反復common projective-node測定を接続する有限誤差Zeno比較である。
+- Q1/R181D回帰、CI境界検査、README、PROJECT_STATUS、本文、付録、誤差・資源台帳、引用情報、統合原稿、TeX、PDFをdraft-79へ同期する。
+
+---
 ## draft-78：black-box operational基準とR186頑健性境界
 
 - プロジェクトの中心目的を、量子回路と同種の入出力を持ち、外部program・制御channel・時間・精度・試行回数を多項式に抑える古典装置のblack-box operational equivalenceとして明文化した。Q1/Q3はその物理的基礎を検査する系列として維持した。

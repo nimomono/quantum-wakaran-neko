@@ -99,30 +99,58 @@ C_\delta e^{-\lambda_\delta\tau_X},
 
 で抑えられる。$\delta\downarrow0$ では一様混合率下界が $O(\delta)$ まで低下し得る。
 
+
 ## 8.4 Q1の系列固有誤差
 
-R143は共通R170を初期操作面と分析器後操作面へ適用し、Q1 W型固有項を加える。
+R143は初期操作面のR170、W型分析器、分析器後のR181D depth-1 common projective nodeを合成する。結果分布誤差とsafe-branch post-state誤差を分ける。
 
 ```math
 \begin{aligned}
-\varepsilon_{143}
+\varepsilon_{143}^{\rm dist}
 \leq{}&
 \varepsilon_{170}^{\rm in}
-+\varepsilon_{170}^{\rm out}
 +\varepsilon_{\rm Hopf}
 +\varepsilon_{\rm ctrl}
 +\varepsilon_{2m}\\
 &+
 \eta_W
++\varepsilon_{\rm node}^{\rm dist}
 +\varepsilon_{\rm lock}^{W}
-+\varepsilon_{\rm br}
-+\varepsilon_{\rm post}.
++\varepsilon_{\rm res}.
 \end{aligned}
 ```
 
-$\varepsilon_{\rm Hopf}$ はR181AのW型2モード系の有限準備、$\varepsilon_{\rm ctrl}$ は傾斜制御、$\varepsilon_{2m}$ は高モード漏れ、$\eta_W$ は左右有限コントラスト、$\varepsilon_{\rm br}$ は結果別template交換、$\varepsilon_{\rm post}$ は条件付き状態更新である。
+$\varepsilon_{\rm node}^{\rm dist}$ は出力側common projective nodeのR164作用殻、R161混合、R162 collision、selector lock、局所record、guard、controlled filter、radial repump、routeの完全結果誤差を各1回だけ数える。$\eta_W$ は左右有限コントラストによる結果頻度の偏差である。
 
-R144の固定 $N$ 段逐次測定では、各段の1段instrument誤差と段間条件付き状態誤差を有限和で抑え、無反応を含む完全履歴を $O(N)$ 個の有限record cellへ保持する。ここでは永久記録、内部逆計算、周期末resetを要求しない。これらを含む反復装置化では、使用済みcellと永久記録が周期数 $K$ に対してさらに $O(K)$ 以上増える。作用容量、fiber、Hopf pump、controller、記録、resetを同じ有限局所Hamiltonian周期へ統合し、仕事・熱・エントロピー収支を閉じることは実装・熱力学的強化課題として残るが、Q1-2の達成条件には含めない。Q1-2の固定目標上の残件は、同じ明示的ミクロモデルで零傾斜Rabi対照とR144有限段測定を接続し、全履歴と対照を保ったZeno抑制を有限誤差で示すことである。
+安全枝のpost-stateは別に
+
+```math
+\varepsilon_{143}^{\rm state}
+=
+\varepsilon_{\rm node}^{\rm state}
+\leq
+\frac{2\eta_F}{\sqrt\tau-\eta_F}
+```
+
+で評価する。rank-one filter後の条件付きsignal方向に対する誤差であり、$\eta_W$ を重複加算しない。R144の固定 $N$ 段逐次測定では
+
+```math
+D_{\rm TV}
+\left(
+p_N^{\rm obs},
+p_N^{\rm id}
+\right)
+\leq
+\sum_{j=1}^{N}
+\varepsilon_{{\rm inst},j}
++
+\sum_{j=1}^{N-1}
+\delta_{{\rm state},j}
+```
+
+とし、標準trace距離で定義した段間state誤差の係数を1とする。任意の2値効果による確率差はtrace距離以下だからである。無反応を含む完全履歴を保持し、成功履歴だけを再規格化しない。
+
+固定有限列ではrecord、collision、selector/filter work、radial/spent cellを $O(N)$ で用意できる。結果別の固有state templateと測定後再matchingは不要である。永久record、補助逆計算、周期末resetはR144の外の実装強化であり、反復周期数 $K$ に応じてspent履歴とfresh cellがさらに増える。作用容量、fiber、Hopf pump、controller、projector filter、radial repump、record、resetを同じ有限局所Hamiltonian周期へ統合し、仕事・熱・エントロピー収支を閉じることは実装・熱力学的強化課題として残るが、Q1-2の達成条件には含めない。Q1-2の固定目標上の残件は、同じ明示的ミクロモデルで零傾斜Rabi対照とR144有限段測定を接続し、全履歴と対照を保ったZeno抑制を有限誤差で示すことである。
 
 ### 8.4.1 R187のM37--W2 carrier誤差と資源
 
@@ -466,7 +494,7 @@ R186はこのblack-box規約に対する製造誤差とnoiseの境界を与え�
 
 固定目標上の未完成事項は次である。
 
-1. Q1-2について、同じ零傾斜Rabi対照と反復R143/R170測定を接続し、全履歴、tilt対照、有限誤差、資源を含む正のZeno抑制余裕を示す。
+1. Q1-2について、同じ零傾斜Rabi対照と反復R143/R181D common projective-node測定を接続し、全履歴、tilt対照、有限誤差、資源を含む正のZeno抑制余裕を示す。
 2. Q3-2について、M54 spatial profile--M37--有限衝突bathの縮約から、前進・後退平均微分を持つ同じ確率過程と、Nelson流の作用変分または時間対称Newton則を有限時間誤差付きで導く。
 3. Q3-6について、閉路巻数、homotopy不変性、節を介した位相すべり、R86細分化安定性、非整数seamのエネルギー発散を統合する。
 4. Q2-1について、R181Dの容量pointer--作用殻境界、有限fiber混合、固定、記録を単一clock scheduleで閉じる。
@@ -477,7 +505,7 @@ R186はこのblack-box規約に対する製造誤差とnoiseの境界を与え�
 
 1. M54のpump、transverse sink、template、clockを有限bath、仕事源、排熱先へ持ち上げ、雑音と準備誤差と総収支を同じ模型で閉じる。
 2. R170の作用容量結合、作用殻fiber内平衡化、信号保持、衝突bath、枝固定、記録をQ1・Q2の1つの有限局所Hamiltonianへ統合する。
-3. Q1 W型2モードprotocolのM54準備から結果別状態更新、永久記録、resetまでの周期総収支を閉じる。
+3. Q1 W型2モードprotocolのM54準備からcommon projective-node post-state handoff、永久record、resetまでの周期総収支を閉じる。
 4. R180CのM54末端SWAP、setting-pre block latch、paired-Hopf pump・sink、中央切断、2翼局所R170、controller、fresh cell流を同じ具体装置とclockへ統合する。
 5. Q3-4A・Q3-4B・Q3-5でM54切断面、M37担体、初期作用殻、M54 spatial profile局所辺bath、clock、終位置記録までを同じ有限局所装置へ統合する。Q3-4Bでは半周期・一周期のclock精度も同じ装置台帳に含める。
 6. 連続空間、多粒子を扱う。

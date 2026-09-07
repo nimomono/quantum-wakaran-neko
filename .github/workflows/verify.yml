@@ -68,11 +68,15 @@ jobs:
           grep -Fq 'extensive additive-noise' sections/08_errors_resources_open_targets.md
           test -f tools/verify_r186_m54_projective_robustness.py
           grep -Fq 'R170駆動projector-tree Born instrument' sections/02_common_canonical_modules.md
+          grep -Fq 'M54 static selection--lock core' sections/02_common_canonical_modules.md
+          grep -Fq 'common projective-node primitive' sections/02_common_canonical_modules.md
           grep -Fq 'lock前にfilterを開かない' sections/A16_m54_projector_tree_receiver.md
+          grep -Fq '## P.5.1 Rank-one projectorのpost-state handoff' sections/A16_m54_projector_tree_receiver.md
           grep -Fq 'radial-only repump' sections/A16_m54_projector_tree_receiver.md
+          grep -Fq 'rank_one_post_state_error' tools/verify_r181d_projector_tree.py
           grep -Fq 'aggregate cold誤差' sections/A17_m54_uniform_supply.md
-          grep -Fq 'version: "draft-78"' CITATION.cff
-          grep -Fq 'draft-78 改訂稿' tools/template.tex
+          grep -Fq 'version: "draft-79"' CITATION.cff
+          grep -Fq 'draft-79 改訂稿' tools/template.tex
 
 
       - name: M54 matching理論境界を検査
@@ -103,6 +107,14 @@ jobs:
           grep -Fq '## 3.15 R144：固定有限段逐次測定合成' sections/03_m47_controlled_w_instrument.md
           test "$(grep -Rho '定理（R143：' sections/*.md | wc -l)" -eq 1
           test "$(grep -Rho '定理（R144：' sections/*.md | wc -l)" -eq 1
+          grep -Fq 'R181Dのrank-one selected signal' sections/A2_m47_controlled_w_instrument_proofs.md
+          grep -Fq '\delta_{{\rm state},j}' sections/03_m47_controlled_w_instrument.md sections/A2_m47_controlled_w_instrument_proofs.md
+          ! grep -Fq '\delta_{{\rm post},j}' sections/03_m47_controlled_w_instrument.md sections/A2_m47_controlled_w_instrument_proofs.md
+          ! grep -Fq '結果別テンプレート交換' sections/03_m47_controlled_w_instrument.md sections/A2_m47_controlled_w_instrument_proofs.md
+          ! grep -Fq '結果別template交換' sections/03_m47_controlled_w_instrument.md sections/A2_m47_controlled_w_instrument_proofs.md
+          ! grep -Fq '\varepsilon_{\rm br}' sections/03_m47_controlled_w_instrument.md sections/A2_m47_controlled_w_instrument_proofs.md sections/08_errors_resources_open_targets.md
+          ! grep -Fq '\varepsilon_{\rm post}' sections/03_m47_controlled_w_instrument.md sections/A2_m47_controlled_w_instrument_proofs.md sections/08_errors_resources_open_targets.md
+          grep -Fq 'old_half_trace_distance_factor_counterexample_margin' tools/verify_m47_q1_instrument.py
           grep -Fq '実装強化：永久記録、補助逆計算、交換reset' sections/03_m47_controlled_w_instrument.md
           grep -Fq '永久記録、内部逆計算、fresh-cell交換はこの証明に使わない' sections/A2_m47_controlled_w_instrument_proofs.md
           test -f tools/verify_r187_m37_w_q1_bridge.py

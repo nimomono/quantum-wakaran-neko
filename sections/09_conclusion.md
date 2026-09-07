@@ -9,11 +9,11 @@
 
 M54は、一様有限正準register、物理source/template port、anti/work、raw・regularized容量、selector、cold/spent bank、記録、clockを持つQ1・Q2の共通親模型族である。R181Aは物理template準備、R181Bは固定2・3入力の可逆tensor-lift、R181Cは永続register上の局所gate列、R181DはR170駆動projector-tree Born instrumentを与える。各試行の複素信号は実正準座標の派生表示であり、解析上のrayや確率表をcontrollerへ書き戻さない。
 
-Q1はM54の $n=1$ W型特殊化である。R181AのW型2モード系は独立結果IDを持たない。共通R135は階数1bath共分散のBloch球、R140は任意の $SU(2)$、零傾斜占有振動、離調Rabi式を与える。R187はM37の局所ばね弱結合W型族で $J_\kappa/G_\kappa\to0$ を構成し、傾斜時のdressed低2cluster、厳密正常mode分裂較正、finite switchを合成してR140制御を任意精度で物理carrierへ持ち上げる。R181Dの深さ1とR143が有限コントラストの左右読出しと結果別状態更新を与える。R135、R140により既にQ1-1を達成しており、R187はその物理backendを強化する。
+Q1はM54の $n=1$ W型特殊化である。R181AのW型2モード系は独立結果IDを持たない。共通R135は階数1bath共分散のBloch球、R140は任意の $SU(2)$、零傾斜占有振動、離調Rabi式を与える。R187はM37の局所ばね弱結合W型族で $J_\kappa/G_\kappa\to0$ を構成し、傾斜時のdressed低2cluster、厳密正常mode分裂較正、finite switchを合成してR140制御を任意精度で物理carrierへ持ち上げる。R143がW型分析器、有限コントラスト、傾斜保持、局所recordをcommon projective nodeへ接続し、R181Dの深さ1 rank-one filterとradial-only repumpがsafe-branch post-stateを同じsignal上に直接作る。R135、R140により既にQ1-1を達成しており、R187はその物理backendを強化する。
 
 R164は一般有限signal作用を枝容量へ写し、各排他的枝の2作用殻を単一Liouville母測度で数えるとBorn型条件付き状態数が得られることを示す。二乗形の状態依存性はM54が準備するrank-one第2モーメントに現れ、R164は各試行の実担体signalから排他的結果の状態数を作る。この二段を二重の確率源として数えない。R161は共通current--traffic matchingを与え、static profileでは条件付きGibbs再平衡化、spatial profileではmoving matchingを与える。R162はgeneric finite collisionとthermal特殊化を与え、その系として条件付き中間状態の正逆経路確率比と相対有効仕事が従う。作用殻明示表示と消去表示を同じ分配関数で二重計数せず、殻自由エネルギー仕事 $W^{\rm sh}$ と相対有効仕事 $W^{\rm rel}$ を区別する。
 
-R143はHopf方向準備、操作面ごとの再平衡化、解析器、傾斜固定、辺閉鎖、Q1 W型2モードprotocol粒子位置の局所記録、結果別テンプレート交換、測定後再平衡化を合成する1段有限誤差instrumentである。記録器は統計振幅、共分散、全密度、確率流、遷移率を入力にせず、各試行に存在する $X$ の局所位置だけを読む。R144はR143を固定有限回合成し、無反応を含む完全履歴、同軸反復分布、異軸逐次分布、段間状態受渡しの有限誤差を与える。永久記録、補助逆計算、外部空セル交換はR144とは別の無番号実装強化系である。解析器中または周期間に配置--信号bath matchingを連続保存することは仮定しない。
+R143はW型signal準備、分析器、有限コントラスト、傾斜固定、safe-well局所recordをcommon projective nodeへ接続する1段有限誤差instrumentである。記録器は統計振幅、共分散、全密度、確率流、遷移率を入力にせず、各試行に存在する $X$ の局所位置だけを読む。枝をlockした後はR181Dのrank-one projector filterがselected signalを結果固有rayへ移し、radial-only repumpが方向を保ったまま作用を戻すため、別の結果別state templateと測定後再平衡化は不要である。R144は同じsignalを固定有限回直接受け渡し、無反応を含む完全履歴、同軸反復分布、異軸逐次分布と有限誤差を与える。永久record、補助逆計算、外部空cell交換はR144とは別の無番号実装強化系である。解析器中または周期間に配置--signal matchingを連続保存することは仮定しない。
 
 Q2-1はM54の $n=2$ 特殊化である。受動的な4mode信号、anti-register、work、clock履歴をbathへ任せ、controllerはport、lift窓、gate種、対象、作用窓、末端読出しだけを指定する。R181Bは一般積入力の可逆tensor-lift、R181Cは同じ永続register上のCNOT、局所操作、逆演算を与える。R181Dは深さ2のprojector-treeを与える。末端の物理境界と一体化を条件としてQ2-1は条件付き達成である。
 
@@ -25,7 +25,7 @@ Q3ではM54 spatial profileを粒子--signal bath共同測度の親模型とし�
 
 ## 9.2 条件付きで確立したこと
 
-R143の結果分布と条件付き状態は、R181Aの信号bath方向準備、R164の作用殻準備、R161の有限時間再平衡化、R162の有限衝突近似と辺閉鎖、傾斜保持、局所記録、枝別テンプレート交換の誤差上界に条件付く。大域階数1共分散だけでは枝別測定後状態が生じないため、結果枝の非規格化共分散を独立に評価した。
+R143の結果分布は、R181Aのsignal方向準備、R164の作用殻準備、R161の有限時間再平衡化、R162の有限collisionと辺閉鎖、傾斜保持、局所record、R181D common projective nodeの完全結果誤差に条件付く。大域階数1共分散を結果で条件付けるだけでは枝別測定後stateは生じないが、R181Dのrank-one controlled filterがselected signalをprojector imageへ物理的に移し、safe branchのtrace-distance state誤差を独立に評価できる。
 
 Q1-2の測定統計部分は達成している。M54/R181Aがrank-one統計準備、R164がBorn型状態数と有効自由エネルギーの条件付き起源、R143とR144がBorn分布、同軸反復分布、異軸逐次分布を有限誤差で与える。Q1-2全体は、同一の零傾斜Rabi対照と有限回反復測定を接続するZeno部分が未達であるため部分達成とする。有限局所Hamiltonian統合または有限閉鎖Hamiltonianへの持ち上げ、完全周期、永久記録、reset、周期全体の仕事・熱・エントロピー収支は、Q1-2の達成条件ではなく実装・熱力学的強化課題である。連続matching保存または周期間matching帰還も現行測定統計の必要条件ではない。
 
@@ -73,7 +73,7 @@ Q2-4で確立していないのは、M54の静的sector配線、projector latch�
 
 Q1-2の次の決定的検査は、同じ総時間の零傾斜Rabi自由対照、測定中もRabi項を止めない有限回測定、flip・reflip・無反応の全履歴、tiltだけの対照を同じ明示的ミクロモデルで比較し、正のZeno抑制余裕が重なり・傾斜・自由発展・1段instrument誤差を上回るかを示すことである。反復回数に伴う時間、記録、fresh cell、エネルギーの増加も同じ台帳で評価する。
 
-これとは別に、M54のpump、transverse sink、template、clockを有限bathへ持ち上げ、R164の作用容量結合、fiber内平衡化、枝対称性と同じW型装置へ統合すること、R162の有限衝突bath、信号bath保持controller、任意軸分析器、傾斜切替、局所記録、枝別テンプレート交換、resetを同じ有限時間Hamiltonian台帳へまとめること、粗視化経路熱力学を周期全体の微視的ゆらぎ関係へ拡張することは、実装・熱力学的強化課題として残る。$\delta\downarrow0$、深いW型、長いfiber準備・混合時間の精度--時間--エネルギー交換もこの強化課題で監査する。
+これとは別に、M54のpump、transverse sink、template、clockを有限bathへ持ち上げ、R164の作用容量結合、fiber内平衡化、枝対称性と同じW型装置へ統合すること、R162の有限collision、signal保持controller、任意軸分析器、傾斜切替、局所record、selection--lock、R181D projector filter、radial repump、resetを同じ有限時間Hamiltonian台帳へまとめること、粗視化経路熱力学を周期全体の微視的ゆらぎ関係へ拡張することは、実装・熱力学的強化課題として残る。$\delta\downarrow0$、深いW型、長いfiber準備・混合時間の精度--時間--エネルギー交換もこの強化課題で監査する。
 
 Q2-1とQ2-3の次の検査は、R181Dのcanonical SWAP出口、容量pointer、R164/R170、selector lock、controlled filter、radial repump、recordを共通safe setと単一clock scheduleで閉じることである。Q2-2ではR180CのM54末端SWAP、setting-pre block latch、source port、paired-Hopf pump・sink、R162有限衝突bath、中央切断、2翼controllerを同じ装置とclockへ統合する。Q2-4ではsector漏れ、latch、R170 collision、filter、radial repump、cold floorを同じ安全集合上で同時に抑え、局所製造ばらつきとnoise covarianceを明示してR186の正の頑健性条件を検査する。
 
