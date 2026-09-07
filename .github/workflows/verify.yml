@@ -128,10 +128,10 @@ jobs:
           grep -Fq '## 3.12 共通射影選別機構による測定後状態の受け渡し' sections/03_m47_controlled_w_instrument.md
           grep -Fq '測定後状態の受け渡し' sections/A8_m47_hopf_preparation.md
           ! grep -R -Fq 'R170衝突' README.md PROJECT_STATUS.md sections
-          grep -Fq '\\varepsilon_{Q3-2}' sections/08_errors_resources_open_targets.md
+          grep -Fq '\varepsilon_{Q3-2}' sections/08_errors_resources_open_targets.md
           grep -Fq 'C_{185,a}a^2' sections/08_errors_resources_open_targets.md
-          grep -Fq 'C_{\\rm time}\\tau' sections/08_errors_resources_open_targets.md
-          grep -Fq '\\varepsilon_{162}^{\\rm hist}' sections/08_errors_resources_open_targets.md
+          grep -Fq 'C_{\rm time}\tau' sections/08_errors_resources_open_targets.md
+          grep -Fq '\varepsilon_{162}^{\rm hist}' sections/08_errors_resources_open_targets.md
           grep -Fq 'R162有限骨格経路TV' sections/08_errors_resources_open_targets.md
           test -f tools/verify_q3_nelson_collision.py
           ! grep -Fq 'Q3-2は部分達成' sections/07_q3_finite_graph_phenomena.md sections/09_conclusion.md

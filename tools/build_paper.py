@@ -600,11 +600,11 @@ def validate_fixed_goal_language() -> None:
     if old_q3_residual in errors_text:
         raise ValueError("Q3-2残件が導出済みNewton則まで巻き戻っている")
     for required_token in (
-        r"$\\varepsilon_{Q3-2}$",
+        r"$\varepsilon_{Q3-2}$",
         r"$C_{185,a}a^2$",
-        r"$C_{\\rm time}\\tau$",
-        r"$C_{\\rm hist}$",
-        r"$\\varepsilon_{162}^{\\rm hist}$",
+        r"$C_{\rm time}\tau$",
+        r"$C_{\rm hist}$",
+        r"$\varepsilon_{162}^{\rm hist}$",
         "R162有限骨格経路TV",
     ):
         if required_token not in errors_text:
