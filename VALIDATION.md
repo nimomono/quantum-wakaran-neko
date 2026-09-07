@@ -1,3 +1,18 @@
+## draft-84：R162有限骨格経路とQ3-2時間対称Newton則閉包
+
+```bash
+python -m py_compile tools/*.py
+for script in tools/verify_*.py; do python "$script"; done
+python tools/build_paper.py
+git diff --check
+```
+
+R162について、3状態有限Markov鎖の厳密1step核とEuler核を比較し、段階TVと有限骨格全履歴TVが逐次coupling上界内にあることを検査する。R188について、同じ経路分布から作る前向き・Bayes後向き条件付き核のTV安定性、有限刻み対称加速度の一次収束、経路TVから加速度への $8\operatorname{osc}(X)/(p_*\tau^2)$ 上界を専用回帰で検査する。R185について、代表周期関数で中心差分の二次収束を確認する。
+
+Q3-2の達成ラベル、R162有限骨格経路主張、R188定理宣言一意性、$C_{185,a}a^2$、$C_{\rm time}\tau$、$C_{\rm hist}\varepsilon_{162}^{\rm hist}/\tau^2$ の誤差台帳、M37直接加速度縮約を強化課題へ残す境界を生成器とCIで検査する。PDF生成・最終LaTeX警告・ページ寸法・生成物同期の最終結果は本変更のActions runへ追記する。
+
+---
+
 ## draft-83：Q1-2有限Rabi--Zeno比較
 
 ```bash

@@ -414,7 +414,7 @@ def validate_fixed_goal_language() -> None:
         "Q2-3": "条件付き達成",
         "Q2-4": "条件付き達成",
         "Q3-1": "達成",
-        "Q3-2": "部分達成",
+        "Q3-2": "達成",
         "Q3-3A": "達成",
         "Q3-3B": "達成",
         "Q3-3C": "達成",
@@ -600,13 +600,15 @@ def validate_fixed_goal_language() -> None:
     if old_q3_residual in errors_text:
         raise ValueError("Q3-2残件が導出済みNewton則まで巻き戻っている")
     for required_token in (
-        "R184/R162の有限衝突近似",
-        r"$D_+D_-X$",
-        r"$D_-D_+X$",
-        "前後生成子の合成",
+        r"$\\varepsilon_{Q3-2}$",
+        r"$C_{185,a}a^2$",
+        r"$C_{\\rm time}\\tau$",
+        r"$C_{\\rm hist}$",
+        r"$\\varepsilon_{162}^{\\rm hist}$",
+        "R162有限骨格経路TV",
     ):
         if required_token not in errors_text:
-            raise ValueError("Q3-2残件境界の必須要素がない: " + required_token)
+            raise ValueError("Q3-2達成誤差台帳の必須要素がない: " + required_token)
     retired_id = re.compile(
         r"M(?:51|52|53)(?!\d)|R171(?!\d)|R176[ABC](?![A-Z])|"
         r"R178[ABCEF](?![A-Z])|R145(?!\d)"
@@ -622,7 +624,7 @@ def validate_fixed_goal_language() -> None:
     theorem_ids = (
         "R181A", "R181B", "R181C", "R181D", "R178D", "R179",
         "R180A", "R180B", "R180C", "R161", "R162", "R164", "R170",
-        "R123", "R124", "R125", "R182", "R187", "R189B", "R189C",
+        "R123", "R124", "R125", "R182", "R187", "R188", "R189B", "R189C",
     )
     for result_id in theorem_ids:
         count = active_text.count(f"定理（{result_id}：")
