@@ -81,7 +81,7 @@ D_{X_T}
 
 | 系列 | 信号準備と操作 | 単一試行の下流入力 | 系列固有の下流結果 |
 |---|---|---|---|
-| Q1 | M54/R181A、Q1 W型2モードprotocol（旧M47）、R135、R140、R143--R144 | 単一試行のW型信号bath座標 | R181Dの深さ1とR143のW型状態更新 |
+| Q1 | M54/R181A、Q1 W型2モードprotocol（旧M47）、R135、R140、R143--R144 | 単一試行のW型signal座標 | R181D深さ1のrank-one post-state handoffとR143のW型読出し特殊化 |
 | Q2-1 | M54、R112、R181B--R181D | 1試行内の永続4mode信号とanti/work | 可逆tensor-lift、CNOT、逆演算、条件付き末端instrument |
 | Q2-2 | M54、R180A--R180C | M54の1試行末端信号と切断後の各翼の局所信号 | setting-pre block抽出、paired-Hopf、2つのR170の条件付き局所合成、Bell監査、帰還 |
 | Q2-3 | M54、R181B--R181D、R177 | 3部分系の永続8mode信号とanti/work | A--B、B--C、GHZ--$T$--逆演算、条件付き末端instrument |
