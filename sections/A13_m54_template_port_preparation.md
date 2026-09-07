@@ -273,7 +273,7 @@ D_{\rm TV}(p^{\rm M54\to static},p_c^{\rm id})
 
 | 系列 | M54から供給できるもの | M54から従わないもの |
 |---|---|---|
-| Q1 | $m=2$、W型生成子、目標Bloch ray | W型粒子位置、Born枝、測定後template交換、周期収支 |
+| Q1 | $m=2$、W型生成子、目標Bloch ray | W型粒子位置、Born枝、common projective-nodeの単一装置統合、周期収支 |
 | Q2-1 | 指定した局所rayの試行集団準備 | R181Bの1試行tensor-lift、R181CのCNOT・逆演算、R181Dの末端接続 |
 | Q2-3 | 指定した3部分系初期rayの試行集団準備 | R181B/R181Cの反復lift・二段gate、R177、R181Dの末端接続 |
 | Q2-4 | root sourceのradial整形と各nodeのradial-only repump | R181Cのgate合成、R170のselector形成、R181Dのfilter、R179のbank供給 |
