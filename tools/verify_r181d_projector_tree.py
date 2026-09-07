@@ -75,6 +75,68 @@ def main() -> None:
         np.linalg.norm(routed[2**bit_count :] - p1 @ state)
     )
 
+
+    # Rank-one Q1 specialization: selected signal is already the outcome eigenray.
+    rank_one_state = normalized(np.array([0.61 + 0.29j, -0.37 + 0.64j]))
+    q1_p0 = np.diag([1.0, 0.0]).astype(complex)
+    q1_p1 = np.diag([0.0, 1.0]).astype(complex)
+    rank_one_filter = np.block([[q1_p0, q1_p1], [q1_p1, -q1_p0]])
+    maximum_rank_one_state_error = 0.0
+    maximum_rank_one_scale_error = 0.0
+    maximum_rank_one_work_error = 0.0
+    for branch, selected_projector in enumerate((q1_p0, q1_p1)):
+        rejected_projector = (q1_p1, q1_p0)[branch]
+        if branch == 0:
+            branch_filter = rank_one_filter
+        else:
+            branch_filter = np.block([[q1_p1, q1_p0], [q1_p0, -q1_p1]])
+        routed_q1 = branch_filter @ np.concatenate(
+            (rank_one_state, np.zeros_like(rank_one_state))
+        )
+        selected_q1 = routed_q1[:2]
+        rejected_q1 = routed_q1[2:]
+        post_covariance = np.outer(selected_q1, selected_q1.conj())
+        post_covariance /= np.trace(post_covariance).real
+        maximum_rank_one_state_error = max(
+            maximum_rank_one_state_error,
+            float(np.linalg.norm(post_covariance - selected_projector)),
+        )
+        maximum_rank_one_work_error = max(
+            maximum_rank_one_work_error,
+            float(np.linalg.norm(rejected_q1 - rejected_projector @ rank_one_state)),
+        )
+
+        transformed_q1 = 3.4 * np.exp(-0.71j) * rank_one_state
+        transformed_route = branch_filter @ np.concatenate(
+            (transformed_q1, np.zeros_like(transformed_q1))
+        )
+        transformed_selected = transformed_route[:2]
+        transformed_covariance = np.outer(
+            transformed_selected, transformed_selected.conj()
+        )
+        transformed_covariance /= np.trace(transformed_covariance).real
+        maximum_rank_one_scale_error = max(
+            maximum_rank_one_scale_error,
+            float(np.linalg.norm(transformed_covariance - selected_projector)),
+        )
+
+    checks["rank_one_post_state_error"] = maximum_rank_one_state_error
+    checks["rank_one_phase_radial_invariance_error"] = maximum_rank_one_scale_error
+    checks["rank_one_rejected_work_error"] = maximum_rank_one_work_error
+
+    # Conditional ensemble averaging keeps the same rank-one projector.
+    samples = []
+    for _ in range(2000):
+        scale_q1 = 0.2 + 2.0 * rng.random()
+        phase_q1 = np.exp(1j * rng.uniform(-np.pi, np.pi))
+        sample = q1_p0 @ (scale_q1 * phase_q1 * rank_one_state)
+        samples.append(np.outer(sample, sample.conj()))
+    conditional_moment = np.mean(samples, axis=0)
+    conditional_moment /= np.trace(conditional_moment).real
+    checks["rank_one_conditional_moment_error"] = float(
+        np.linalg.norm(conditional_moment - q1_p0)
+    )
+
     # Raw capacities determine cutoff; regularized capacities only feed R164/R170.
     raw = np.array([
         float(np.vdot(p0 @ state, p0 @ state).real),
