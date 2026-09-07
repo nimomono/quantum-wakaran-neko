@@ -34,6 +34,13 @@ FORBIDDEN_PHRASES = (
     "interaction picture", "fault-tolerant", "hard defect",
 )
 
+FORBIDDEN_JAPANESE = (
+    "運用上な", "個別個別", "信号系信号", "確率確率流",
+    "ノイズ covariance", "有限 切替", "安全 集合",
+    "大きさ方向のみの 接続端", "受動信号 モード", "衝突 浴",
+    "低温 下限", "枝",
+)
+
 INLINE_CODE_RE = re.compile(r"`[^`\n]*`")
 INLINE_MATH_RE = re.compile(r"\$[^$\n]*\$")
 URL_RE = re.compile(r"https?://\S+")
@@ -89,6 +96,10 @@ def main() -> None:
         phrase: re.compile(re.escape(phrase), re.IGNORECASE)
         for phrase in FORBIDDEN_PHRASES
     }
+    japanese_patterns = {
+        phrase: re.compile(re.escape(phrase))
+        for phrase in FORBIDDEN_JAPANESE
+    }
 
     for path in TARGETS:
         text = strip_protected(path.read_text(encoding="utf-8"))
@@ -100,6 +111,9 @@ def main() -> None:
             for token, pattern in phrase_patterns.items():
                 if pattern.search(line):
                     errors.append(f"{rel}:{line_number}: 旧複合語 {token!r}: {line.strip()}")
+            for token, pattern in japanese_patterns.items():
+                if pattern.search(line):
+                    errors.append(f"{rel}:{line_number}: 日本語表記不整合 {token!r}: {line.strip()}")
 
     if errors:
         print("用語規約違反:")

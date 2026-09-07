@@ -65,8 +65,10 @@ jobs:
           test "$(grep -Rho '定理（R181D：' sections/*.md | wc -l)" -eq 1
           test "$(grep -Rho '定理（R186：' sections/*.md | wc -l)" -eq 1
           grep -Fq '**証明（R186）**' sections/A18_m54_projective_robustness.md
-          grep -Fq 'ブラックボックスとして見たときと同種の回路入力' sections/01_scope_and_cycle.md
+          grep -Fq '量子力学に特徴的な状態空間、可逆力学、Born型測定統計、測定後状態' sections/01_scope_and_cycle.md
           grep -Fq '全自由度に加わる加法ノイズ' sections/08_errors_resources_open_targets.md
+          grep -Fq 'ブラックボックスとしての運用上の複雑度' sections/08_errors_resources_open_targets.md
+          grep -Fq '信号作用 $S$ を指数的に増やせば' sections/08_errors_resources_open_targets.md
           test -f tools/verify_r186_m54_projective_robustness.py
           grep -Fq 'R170駆動段階的射影選別 Born 測定機構' sections/02_common_canonical_modules.md
           grep -Fq 'M54静的選択・固定共通部' sections/02_common_canonical_modules.md
@@ -76,8 +78,8 @@ jobs:
           grep -Fq '## P.6 大きさ方向のみの再調整' sections/A16_m54_projector_tree_receiver.md
           grep -Fq 'rank_one_post_state_error' tools/verify_r181d_projector_tree.py
           grep -Fq '集約低温誤差' sections/A17_m54_uniform_supply.md
-          grep -Fq 'version: "draft-80"' CITATION.cff
-          grep -Fq 'draft-80 改訂稿' tools/template.tex
+          grep -Fq 'version: "draft-81"' CITATION.cff
+          grep -Fq 'draft-81 改訂稿' tools/template.tex
 
 
       - name: M54整合理論境界を検査
