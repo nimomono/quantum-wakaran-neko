@@ -513,6 +513,9 @@ static profileでは作用殻fiberは状態数を、thermal collision bathはcon
 
 ## 2.9 R170：M54 static profile固定入力時刻有限枝instrument
 
+R170、R181D、R180Aで重複する前半を、結果IDを増やさない **M54 static selection--lock core** として共通化する。固定入力signalを保持し、raw/regularized容量を作り、R164の排他的作用殻、R161の有限matching、R162の有限collisionを通してselectorをcollection plateauへ入れ、入射停止と枝間gate閉鎖でlockするところまでをこのcoreと呼ぶ。core自体は外部結果recordを要求しない。R170はcoreに局所recordと完全履歴を加えたstatic instrument、R181Dはcoreにprojector filter、radial-only repump、routeを加えたprojective node、R180Aは中央selectorを外部結果にせずblock handoffへ使う特殊化である。selection、lock、filter、recordを同じ誤差として二重に数えない。
+
+
 <!-- theorem-start:theorem -->
 **定理（R170：M54 static profile固定入力時刻有限枝instrument）**
 
@@ -560,7 +563,7 @@ D_{\rm TV}(p_v^{\rm out},p_v^{\rm id})
 であり、同じ物理偏差を複数項へ入れない。無反応を除いて再規格化しない。
 <!-- theorem-end:theorem -->
 
-R170はM54 static profileの有限枝instrument定理であり、M37を前提にしない。Q1のR143、Q2-2のR180C、Q3の固定時刻読出しはこの定理の特殊化または合成である。完全な証明と誤差台帳は付録Kに置く。
+R170はM54 static profileの有限枝instrument定理であり、M37を前提にしない。Q1ではこのselection--lock coreをR181Dの深さ1 projective nodeとR143のW型固有部分へ渡す。Q2-2のR180C、Q3の固定時刻読出しはR170の特殊化または合成である。完全な証明と誤差台帳は付録Kに置く。
 
 **系（共通instrumentの安定性）**
 
@@ -664,7 +667,7 @@ U_{g,S}=g_S\otimes I_{\bar S}.
 
 固定 $n=2,3$ では同じ定理がCNOT、局所操作、逆演算の有限列を与える。一般 $n$ では上のsector-broadcastを使う。いずれも中間測定、共同momentへの置換、再準備を行わず、同じ $Z$ を全gate窓で保持する。3次元Euclid空間への局所埋込み、指数個の静的結合の総製造費、全結合を個別に調整する方法は主張しない。
 
-## 2.13 R181Dで使うprojector latch・可逆filter補題
+## 2.13 M54 common projective-node primitive：projector latch・selection--lock・可逆filter
 
 出力bit $k$ に対する計算基底射影を $P_{k,0},P_{k,1}$ とし、
 
@@ -715,7 +718,16 @@ F_{k,b}(Z,0)
 と作用する。容量latchを信号に対する制御剪断として実装すれば、blank容量momentum上で $J_{k,0},J_{k,1}$ をpointerへ保持し、理想信号 $Z$ を変更しない。計算基底bit projectorとfilterはbit labelだけから一様に生成され、$2^n$ 成分の列挙を必要としない。
 <!-- theorem-end:lemma -->
 
-この補題は確率的な枝選択を行わない。selectorの生成はR164/R170、選択後の信号更新はR181Dが担う。
+この補題は確率的な枝選択を行わない。枝選択は上のM54 static selection--lock coreが担う。以後、同じcoreの後に必要な段だけを接続する構成を **common projective-node primitive** と呼ぶ。段階は
+
+1. raw projector容量latch、
+2. R164--R161--R162によるselectionとselector lock、
+3. 必要なら局所record、
+4. lock後のcontrolled projector filter、
+5. selected signalだけへのradial-only repump、
+6. 次nodeまたは外部portへのroute
+
+である。R170は1--3のrecord付き特殊化、R181Dは1--6、R180Aの中央選択は1--2を内部latent branchとして使う。外部recordの有無は枝確率を変える操作として扱わない。
 
 ## 2.14 R181D：R170駆動projector-tree Born instrument
 
@@ -767,10 +779,29 @@ D_{\rm TV}(P_{\rm out},P_{\rm Born})
 +\sum_{k=1}^m\bar\varepsilon_k.
 ```
 
-$\bar\varepsilon_k$ にはR170選択、controlled filter、radial repump、routeを各1回だけ含める。filter作用素誤差が $\eta_F<\sqrt\tau$ なら、選択後の規格化ray誤差は $2\eta_F/(\sqrt\tau-\eta_F)$ 以下である。成功試行だけを再規格化しない。
+$\bar\varepsilon_k$ にはR170選択、controlled filter、radial repump、routeを各1回だけ含める。filter作用素誤差が $\eta_F<\sqrt\tau$ なら、選択後の規格化ray誤差は
+$2\eta_F/(\sqrt\tau-\eta_F)$ 以下である。さらにrank-one node
+$P_{u,b}=|b_u\rangle\langle b_u|$ では、安全枝の理想selected signalは
+$P_{u,b}Z_u=\alpha_b|b_u\rangle$ である。従ってradial-only repump後も同じrayを保ち、条件付き規格化第2モーメントは
+
+```math
+D_{\rm tr}
+\left(
+C_{u,b}^{\rm out},
+P_{u,b}
+\right)
+\leq
+\varepsilon_{u,b}^{\rm state},
+\qquad
+\varepsilon_{u,b}^{\rm state}
+\leq
+\frac{2\eta_F}{\sqrt\tau-\eta_F}
+```
+
+を満たす。同じ単一試行signalを次nodeへ直接渡せ、外部tomography、係数読出し、結果依存のstate再準備を必要としない。finite filter errorのない理想nodeではこの条件付きstate errorは零である。成功試行だけを再規格化しない。
 <!-- theorem-end:theorem -->
 
-R181DはQ1の深さ1、Q2-1の深さ2、Q2-3の深さ3、Q2-4の深さ $n$ に同じnode機構を使う。最終分布を段ごとの規格化成功分布へ比較せず、実際の初期信号が持つBorn分布と完全結果分布を末端で一度だけ比較する。
+R181DはQ1の深さ1、Q2-1の深さ2、Q2-3の深さ3、Q2-4の深さ $n$ に同じnode機構を使う。Q1のrank-one特殊化では、結果分布だけでなくsafe branchのpost-measurement signalもこのnodeのfilterとradial-only repumpから直接得る。最終分布を段ごとの規格化成功分布へ比較せず、実際の初期信号が持つBorn分布と完全結果分布を末端で一度だけ比較する。
 
 ## 2.15 R178D：逐次history逆掃除・collective reset定理
 
