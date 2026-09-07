@@ -505,6 +505,8 @@ def validate_fixed_goal_language() -> None:
         raise ValueError("R143の定理宣言数が1ではない")
     if q1_text.count("定理（R144：") != 1:
         raise ValueError("R144の定理宣言数が1ではない")
+    if q1_text.count("補題（R189A：") != 1:
+        raise ValueError("R189Aの補題宣言数が1ではない")
     r144_block = q1_text.split("**定理（R144：", 1)[1].split(
         "<!-- theorem-end:theorem -->", 1
     )[0]
@@ -620,7 +622,7 @@ def validate_fixed_goal_language() -> None:
     theorem_ids = (
         "R181A", "R181B", "R181C", "R181D", "R178D", "R179",
         "R180A", "R180B", "R180C", "R161", "R162", "R164", "R170",
-        "R123", "R124", "R125", "R182", "R187", "R189A", "R189B", "R189C",
+        "R123", "R124", "R125", "R182", "R187", "R189B", "R189C",
     )
     for result_id in theorem_ids:
         count = active_text.count(f"定理（{result_id}：")
