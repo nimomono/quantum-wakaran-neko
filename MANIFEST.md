@@ -124,6 +124,14 @@
 
 旧版セクション、旧数値コード、旧PDF、査読回答履歴は収録しない。置換・退役した理論の最小索引と再検討条件は `notes/` に残し、完全な原稿と実装はGit履歴から参照する。
 
+## draft-79のprojective-node共通化とQ1 state-update縮約
+
+- R170/R181D/R180Aに共有するM54 static selection--lock coreとcommon projective nodeの責務を明文化。
+- R181D rank-one safe-branch post-state handoffを追加し、Q1の結果別state template交換と測定後再matchingを削除。
+- R143をW型読出し特殊化へ縮約し、R144はR181D selected signalの直接受渡しと標準trace-distance誤差合成へ更新。
+- 固定目標と達成ラベルは維持し、Q1-2のZeno残件をM37 W2 carrierと反復common projective nodeの接続として保持。
+- `tools/verify_r181d_projector_tree.py` と `tools/verify_m47_q1_instrument.py`、CIを新しいstate-update責務へ同期。
+- draft-79へ再生成する `paper.md`、`main.tex`、`paper.pdf`。
 ## draft-78のblack-box operational基準とR186
 
 - 中心目的をblack-box operational equivalenceとして明文化し、内部自由度と外部制御複雑度を分離。
