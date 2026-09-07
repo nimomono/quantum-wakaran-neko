@@ -86,8 +86,8 @@ jobs:
           [[ "$q2_2_deps" != *R181D* ]]
           grep -Fq 'rank_one_post_state_error' tools/verify_r181d_projector_tree.py
           grep -Fq '集約低温誤差' sections/A17_m54_uniform_supply.md
-          grep -Fq 'version: "draft-82"' CITATION.cff
-          grep -Fq 'draft-82 改訂稿' tools/template.tex
+          grep -Fq 'version: "draft-83"' CITATION.cff
+          grep -Fq 'draft-83 改訂稿' tools/template.tex
 
 
       - name: M54整合理論境界を検査
@@ -142,7 +142,15 @@ jobs:
           grep -Fq '**証明（R187）**' sections/A5_m37_envelope_proofs.md
           grep -Fq '| R187 | 厳密有限次元結果・明示誤差付き構成 |' PROJECT_STATUS.md
           grep -Fq '| Q1-1 | 達成 | M54のW2静的状態構成 | M37弱結合W型の最低2正常モード' PROJECT_STATUS.md
-          grep -Fq '| Q1-2 | 部分達成 | M54のW2静的状態構成 | R187によるM37のW2制御用信号系' PROJECT_STATUS.md
+          grep -Fq '| Q1-2 | 達成 | M54のW2静的状態構成 | R187によるM37のW2制御用信号系' PROJECT_STATUS.md
+          test "$(grep -Rho '補題（R189A：' sections/*.md | wc -l)" -eq 1
+          test "$(grep -Rho '定理（R189B：' sections/*.md | wc -l)" -eq 1
+          test "$(grep -Rho '定理（R189C：' sections/*.md | wc -l)" -eq 1
+          grep -Fq '**系（固定済み作用容量入力の静的選択・固定）**' sections/02_common_canonical_modules.md
+          grep -Fq '## B.18 R189Aの走行中作用容量保持' sections/A2_m47_controlled_w_instrument_proofs.md
+          grep -Fq '## B.21 R189Cの有限誤差閉包と資源' sections/A2_m47_controlled_w_instrument_proofs.md
+          test -f tools/verify_q1_live_zeno.py
+          grep -Fq 'P_{\rm meas}^{\rm id}' sections/03_m47_controlled_w_instrument.md
           grep -Fq 'R_{i,37}^{\delta,\mathrm{lat}}' sections/A14_m54_spatial_moving_matching.md
           grep -Fq '\frac1\ell' sections/A14_m54_spatial_moving_matching.md
           grep -Fq '一般有界有向率の有限衝突持上げ' sections/A11_common_collision_bath_thermodynamics.md

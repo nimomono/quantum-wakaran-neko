@@ -1,3 +1,17 @@
+## draft-83：Q1-2有限Rabi--Zeno比較
+
+```bash
+python -m py_compile tools/*.py
+for script in tools/verify_*.py; do python "$script"; done
+python tools/build_paper.py
+git diff --check
+```
+
+R189A--R189Cについて、作用容量保持の理想無反作用、偶な有限窓の二次誤差、階数1対合選別機構の有限Hamiltonian実装、零傾斜Rabiとの有限時間重なり、$N=2$ の4履歴、再反転履歴、終端 $3/4$、自由・空操作 $1/2$、理想余裕 $1/4$ を専用回帰検算で確認する。
+
+Q1-2の達成ラベル、R189A--R189Cの定理一意性、固定済み作用容量入力R170系、Zeno証明B.18--B.21、draft-83版表示を生成器とCIで検査する。PDF生成、最終LaTeX禁止警告、ページ数・用紙寸法・テキスト層同期の結果は本PRの最終Actions runへ記録する。
+
+---
 ## draft-82：R170静的選択・固定中核への再定義
 
 ```bash
