@@ -83,6 +83,7 @@ M54による統一は有効状態型とinterfaceの統一、M37による実装�
 - [プロジェクトの長期的方針](PROJECT_STANCE.md)
 - [証明状態と理論の境界](PROJECT_STATUS.md)
 - [論文リポジトリの構成・執筆・更新規約](PROJECT_GUIDE.md)
+- [論文用語と標準表記](TERMINOLOGY.md)
 - [版ごとの変更記録](CHANGELOG.md)
 - [検算と品質確認](VALIDATION.md)
 - [現行版のファイル一覧](MANIFEST.md)
