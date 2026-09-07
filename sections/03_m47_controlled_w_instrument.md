@@ -752,7 +752,7 @@ p_N^{\rm obs},p_N^{\rm id}
 \right)
 ```
 
-となる。固定有限 $N$ に必要な能動部と履歴cell数は有限であり、外部から量子stateを再準備しない。
+となる。固定有限 $N$ に必要な能動部と履歴cell数は有限であり、外部から量子状態を再準備しない。
 <!-- theorem-end:theorem -->
 
 R144はR143のsingle-stage instrumentを固定有限回だけ合成する定理であり、R181Dのpost-state handoffを段間interfaceとする。永久記録、内部逆計算、周期末resetを結論に含めない。全時刻のmatching保存または周期間matching帰還も仮定せず、各測定面でR164--R161--R162を有限時間だけ走らせる。本定理はZeno効果そのものを示さず、測定中も零傾斜Rabi項を止めない対照との接続は別の未達課題である。
