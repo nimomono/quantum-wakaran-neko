@@ -90,6 +90,10 @@ REFERENCE_KEYS = {
     49: "ehrich_et_al2020",
     50: "esposito2012",
     51: "jarzynski2004",
+    52: "sun_et_al2022_classical_optical",
+    53: "zhang_sun_zhang2025_qift",
+    54: "zhang_sun_zhang2026_universal_analog",
+    55: "chen_et_al2026_shor_optical",
 }
 
 

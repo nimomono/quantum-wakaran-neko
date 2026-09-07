@@ -199,7 +199,11 @@ Q1・Q2・Q3は同じM54模型族の異なる状態構成から派生する。M3
 
 本論文の中心目的は、古典的な粒子、振動子、熱浴、制御器、記録器からなる装置が、量子計算機をブラックボックスとして見たときと同種の回路入力を受け、量子出力分布を指定誤差内で返し、そのための外部制御複雑度を多項式に抑えられるかを調べることである。量子力学は結果の比較基準に使うが、古典モデルの運動方程式や初期確率へ答えを直接入力しない。Q1とQ3は、このブラックボックス機能を支える量子型有効構造の古典物理的起源を独立に検査する。
 
-有限次元Schrödinger方程式を実正準方程式へ書き換えるだけでは、1回の試行で生じる排他的結果、Born則、測定後状態、記録、リセットは得られない。本稿は次を別々に要求する。
+有限次元Schrödinger方程式を実正準方程式へ書き換えるだけでは、1回の試行で生じる排他的結果、Born則、測定後状態、記録、リセットは得られない。
+
+古典光・古典回路に量子情報処理の状態・ゲート構造を写し、普遍ゲート、量子Fourier変換、Shor因数分解を古典装置で模擬する研究は既にある\cite{sun_et_al2022_classical_optical,zhang_sun_zhang2025_qift,zhang_sun_zhang2026_universal_analog,chen_et_al2026_shor_optical}。とくにSun--Zhang系列は、相関した古典光・電気信号を量子状態に対応づけ、基本計算部品数または光学素子数を量子回路のゲート数と同程度に抑える構成を示している。本稿は、古典波で量子ゲートや量子アルゴリズムを実行できること自体を新規性とはしない。これらが量子情報理論の状態・ゲート構造を設計仕様として古典信号へ符号化・模擬するのに対し、本稿は、一般の古典初期種からの状態方向準備、1試行信号からのBorn型排他的結果、同じ信号上の測定後状態更新までを物理過程として構成する点を別の課題とする。
+
+本稿は次を別々に要求する。
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -6240,6 +6244,8 @@ Q2-4では、固定有限普遍ゲート集合から与えられる \(n\) 量子
 一方、信号、逆演算用補助記憶部、作業領域、履歴、低温、使用済みを含む指数的な受動自由度と受動状態容量を許す。装置体積、総浴容量、総熱は指数的でもよい。これは通常の意味の効率的古典シミュレーションを主張する基準ではない。
 
 この資源規約は内部コストを無視するためではなく、比較対象をブラックボックスとしての運用上の 複雑度へ固定するためのものである。内部モード数、静的結合器数、装置体積、総熱は別の報告対象の内部資源として保持する。量子計算機と同等の総物理資源効率は主張しない一方、内部の指数構造がモード別較正、指数精度、指数時間、指数試行回数として外部へ露出する場合はQ2-4の失敗とする。
+
+高次元の古典状態空間を使いながら外部の基本計算部品数を量子回路のゲート数と同程度に抑える考え方自体にも先行例がある。Sun--Zhang系列は相関した古典信号による量子Fourier変換と普遍量子計算の模擬を構成し、ChenらはShor因数分解の古典光学実装について必要光学素子数が多項式であると報告している\cite{zhang_sun_zhang2025_qift,zhang_sun_zhang2026_universal_analog,chen_et_al2026_shor_optical}。したがって、この発想自体を本稿の新規性とはしない。本稿のQ2-4では、それに加えて外部プログラム、個別指定可能性、精度、総時間、期待試行回数、1試行ごとのBorn型出力標本、およびR186のノイズ露出を同じ外部運用資源台帳で判定する。
 
 M54は \(L=2^n\) 個の信号 モードを使うが、R181Cにより固定有限局所ゲートを非作用部分へ同じ係数で一括作用し、作用素ノルム誤差を部分系数の和ではなく最大値で抑える。R181Dは各ビットで未処理容量 \(J_{u,b}\) と正則化容量 \(A_{u,b}^\delta\) を分け、R164/R170で選択機構を形成してから可逆選別機構を開く。確率 \(\tau\) 未満の枝と保護帯を \(\varnothing\) に残すため、切断誤差は \(2n(\tau+\gamma)\) 以下であり、事後選別を使わない。
 
@@ -14346,6 +14352,14 @@ O\!\left(s\sqrt{n+\log p+\log\alpha^{-1}}\right).
 \bibitem{esposito2012} M. Esposito, ``Stochastic Thermodynamics under Coarse Graining,'' Physical Review E 85, 041125 (2012). \url{https://doi.org/10.1103/PhysRevE.85.041125}
 
 \bibitem{jarzynski2004} C. Jarzynski, ``Nonequilibrium Work Theorem for a System Strongly Coupled to a Thermal Environment,'' Journal of Statistical Mechanics: Theory and Experiment 2004, P09005 (2004). \url{https://doi.org/10.1088/1742-5468/2004/09/P09005}
+
+\bibitem{sun_et_al2022_classical_optical} Y. Sun, Q. Li, L.-J. Kong, J. Shang, and X. Zhang, ``Universal Classical Optical Computing Inspired by Quantum Information Process,'' Annalen der Physik 534, 2200360 (2022). \url{https://doi.org/10.1002/andp.202200360}
+
+\bibitem{zhang_sun_zhang2025_qift} H. Zhang, Y. Sun, and X. Zhang, ``Quantum-Inspired Fourier Transforms Based on Circuits,'' Advanced Science 12, e10261 (2025). \url{https://doi.org/10.1002/advs.202510261}
+
+\bibitem{zhang_sun_zhang2026_universal_analog} H. Zhang, Y. Sun, and X. Zhang, ``Quantum Inspired Universal Analog Computation Based on Circuits,'' Advanced Quantum Technologies 9, e00752 (2026). \url{https://doi.org/10.1002/qute.202500752}
+
+\bibitem{chen_et_al2026_shor_optical} S. Chen, H. Chen, X. Tang, Y. Sun, and X. Zhang, ``Optical Computing Implementation of Shor's Factorization Algorithm,'' Physical Review A 113, 063505 (2026). \url{https://doi.org/10.1103/4sc8-5gmk}
 
 \end{thebibliography}
 
