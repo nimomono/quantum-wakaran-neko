@@ -1,7 +1,7 @@
 @number: P
 @chapter: 付録
 @title: M54のR170駆動projector-tree receiver
-@status: R181Dのraw容量、正則化殻、selector lock、可逆filter、radial-only repump、完全結果誤差、資源境界を証明する。旧aperture samplerは現行因果鎖に使わない。
+@status: R181Dのraw容量、共通selection--lock、可逆filter、radial-only repump、rank-one post-state handoff、完全結果誤差、資源境界を証明する。旧aperture samplerは現行因果鎖に使わない。
 
 ## P.1 目的とnode状態
 
@@ -60,7 +60,7 @@ J_{u,b}-(\tau\pm\gamma)J_\Sigma
 
 ## P.4 Selector lockと可逆filter
 
-branch selectorはR164の殻状態数とR161/R162の有限混合により形成し、R170のcollection窓で $b$ のplateauへ固定する。lock前にfilterを開かない。異なる $b$ のplateauとguard領域を互いに素に取り、外部record、selector、guard flagを含む拡大状態で枝の和を1対1に保つ。
+branch selectorは第2章のM54 static selection--lock core、すなわちR164の殻状態数とR161/R162の有限混合により形成し、R170と共通のcollection窓で $b$ のplateauへ固定する。lock前にfilterを開かない。異なる $b$ のplateauとguard領域を互いに素に取り、外部record、selector、guard flagを含む拡大状態で枝の和を1対1に保つ。
 
 signalとblank work上のfilterを
 
@@ -113,6 +113,45 @@ accept plateauでは $\|v\|\geq\sqrt\tau\|Z_u\|$ である。$\eta_F<\sqrt\tau$ 
 ```
 
 この $\tau^{-1/2}$ は安全枝を条件付けた解析誤差であり、controllerが $p_{u,b}$ を読み出す費用ではない。
+
+## P.5.1 Rank-one projectorのpost-state handoff
+
+rank-one node
+$P_{u,b}=|b_u\rangle\langle b_u|$
+を取る。安全枝では $v=P_{u,b}Z_u\neq0$ なので、ある複素数 $\alpha_b\neq0$ により
+
+```math
+v=\alpha_b|b_u\rangle,
+\qquad
+\frac{vv^\dagger}{v^\dagger v}
+=
+P_{u,b}.
+```
+
+従って枝を結果で条件付けるだけではなく、P.4のcontrolled filterそのものがselected signalをprojector imageへ物理的に移す。P.5の実装誤差を
+$\varepsilon_{\rm proj}=2\eta_F/(\sqrt\tau-\eta_F)$
+と置くと、規格化実装signal $\widehat{\widetilde v}$ に対する純粋状態trace距離は
+
+```math
+D_{\rm tr}
+\left(
+\widehat{\widetilde v}\widehat{\widetilde v}^{\dagger},
+P_{u,b}
+\right)
+\leq
+\left\|
+\widehat{\widetilde v}
+-
+\widehat v
+\right\|
+\leq
+\varepsilon_{\rm proj}.
+```
+
+安全枝の試行集団を条件付けて平均してもtrace距離の凸性により同じ上界が成り立つ。P.6のradial-only repumpはsignalの方向を変えないため、このstate boundを増やさない。したがってrank-one nodeのselected signalを同じ試行の次段入力へ直接渡せる。外部controllerがbranch振幅を読み、固有stateを別templateから再準備する必要はない。
+
+この結論はM54 signal interface上のpost-state handoffである。M37の全高modeを同じfilterで射影したこと、測定反作用をM37単一Hamiltonianへ統合したこと、またはZeno運転を閉じたことは意味しない。
+
 
 ## P.6 Radial-only repump
 
@@ -173,7 +212,7 @@ D_{\rm TV}(P_{\rm out},P_{\rm Born})
 <!-- theorem-start:proof -->
 **証明（R181D）**
 
-P.2がR170 nodeの正則化枝確率を与える。P.3が除去質量、P.4が枝別の1対1 filter、P.5がselected ray誤差、P.6が固定時間repump、P.7のkernel telescopingが深さ $m$ の完全結果誤差を与える。理想kernelの積は
+P.2がselection--lock coreへ渡す正則化枝確率を与える。P.3が除去質量、P.4が枝別の1対1 filter、P.5がselected ray誤差、P.5.1がrank-one post-state handoff、P.6がそのrayを変えない固定時間repump、P.7のkernel telescopingが深さ $m$ の完全結果誤差を与える。理想kernelの積は
 
 ```math
 \prod_{k=1}^m p_{k,y_k}
