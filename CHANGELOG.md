@@ -10,7 +10,7 @@
 ---
 ## draft-78：black-box operational基準とR186頑健性境界
 
-- プロジェクトの中心目的を、量子回路と同種の入出力を持ち、外部program・制御channel・時間・精度・試行回数を多項式に抑える古典装置のblack-box operational equivalenceとして明文化した。Q1/Q3はその物理的基礎を検査する系列として維持した。
+- プロジェクト全体の主目的は「明示的な古典力学モデルから量子力学的構造がどこまで有効理論として現れるか」のまま維持する。今回明確化したblack-box operational資源基準は、その副次的な計算機応用であるQ2-4に限定して用いる。
 - Q2-4の固定目標文言と達成ラベルは変更せず、operational resourceとreported internal resourceを分離した。指数mode、静的coupler、装置体積、総bath容量、総熱は報告するが、それだけでは不達とせず、mode別較正、指数精度、指数時間として外部へ露出した場合に失敗とする。
 - R186「M54一様受動fabricのprojective頑健性とadditive-noise障害」を新設した。疎な静的Hamiltonian製造誤差、独立mode phase noise、projector latch相対係数誤差はsector数を直接加算せず評価できる一方、$Q_{\rm add}\succeq\sigma^2I_{2^n}$ のadditive noiseでは横方向作用注入が $(2^n-1)\sigma^2$ に比例する。
 - R186のadditive-noise部分はQ2-4一般のno-goではなく、現行M54 direct-amplitude registerの障害条件とした。総物理資源が量子計算機と同程度であることは引き続き主張しない。
