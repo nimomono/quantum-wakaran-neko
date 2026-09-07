@@ -5,8 +5,6 @@
 
 ## 9.1 確立したこと
 
-本稿の計算機としての中心的な比較基準はblack-box operational equivalenceである。内部の受動自由度数をそのまま外部制御複雑度とはみなさず、回路記述、外部program、制御channel、時間、精度、期待試行回数が入力規模と逆誤差の多項式に抑えられるかを判定する。内部mode、静的coupler、装置体積、総bath容量、総熱はreported internal resourceとして別に記録し、量子計算機と同等の総物理資源効率は主張しない。
-
 M54は、一様有限正準register、物理source/template port、anti/work、raw・regularized容量、selector、cold/spent bank、記録、clockを持つQ1・Q2の共通親模型族である。R181Aは物理template準備、R181Bは固定2・3入力の可逆tensor-lift、R181Cは永続register上の局所gate列、R181DはR170駆動projector-tree Born instrumentを与える。各試行の複素信号は実正準座標の派生表示であり、解析上のrayや確率表をcontrollerへ書き戻さない。
 
 Q1はM54の $n=1$ W型特殊化である。R181AのW型2モード系は独立結果IDを持たない。共通R135は階数1bath共分散のBloch球、R140は任意の $SU(2)$、零傾斜占有振動、離調Rabi式を与える。R187はM37の局所ばね弱結合W型族で $J_\kappa/G_\kappa\to0$ を構成し、傾斜時のdressed低2cluster、厳密正常mode分裂較正、finite switchを合成してR140制御を任意精度で物理carrierへ持ち上げる。R143がW型分析器、有限コントラスト、傾斜保持、局所recordをcommon projective nodeへ接続し、R181Dの深さ1 rank-one filterとradial-only repumpがsafe-branch post-stateを同じsignal上に直接作る。R135、R140により既にQ1-1を達成しており、R187はその物理backendを強化する。
