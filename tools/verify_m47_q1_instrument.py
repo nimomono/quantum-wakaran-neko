@@ -37,13 +37,6 @@ def unitary_from_hermitian(generator: np.ndarray) -> np.ndarray:
     return eigenvectors @ np.diag(np.exp(-1j * eigenvalues)) @ eigenvectors.conj().T
 
 
-def complex_to_real(unitary: np.ndarray) -> np.ndarray:
-    return np.block([
-        [unitary.real, -unitary.imag],
-        [unitary.imag, unitary.real],
-    ])
-
-
 def projector(axis: np.ndarray, sign: float, pauli: tuple[np.ndarray, ...]) -> np.ndarray:
     return 0.5 * (
         np.eye(2, dtype=complex)
@@ -231,13 +224,16 @@ def main() -> None:
     branch_separation = np.linalg.norm(conditional_covariances[0] - conditional_covariances[1])
     checks.append(record_max("conditioning_only_branch_separation", branch_separation, 4.0e-14))
 
-    # R143: local canonical record shear and branch-conditioned template SWAP.
+
+    # R143: local canonical record shear and R181D rank-one projective state handoff.
     canonical_form_2 = np.array([
         [0.0, 1.0, 0.0, 0.0],
-        [-1.0, 0.0, 0.0, 0.0],
+        [-1.0, 0.0, 0.0, -1.0],
         [0.0, 0.0, 0.0, 1.0],
         [0.0, 0.0, -1.0, 0.0],
     ])
+    # Use the exact shear convention from the existing regression.
+    canonical_form_2[1, 3] = 0.0
     record_shear = np.array([
         [1.0, 0.0, 0.0, 0.0],
         [0.0, 1.0, 0.0, -1.0],
@@ -250,24 +246,63 @@ def main() -> None:
     checks.append(record_max("empty_local_record_backreaction_error", np.linalg.norm(empty_record_output[:2] - empty_record_input[:2]), 2.0e-14))
     checks.append(record_max("local_record_pointer_copy_error", abs(empty_record_output[2] - empty_record_input[0]), 2.0e-14))
 
-    swap_unitary = np.block([
-        [np.zeros((2, 2)), np.eye(2)],
-        [-np.eye(2), np.zeros((2, 2))],
-    ]).astype(complex)
-    swap_real = complex_to_real(swap_unitary)
-    canonical_form_4 = np.block([
-        [np.zeros((4, 4)), np.eye(4)],
-        [-np.eye(4), np.zeros((4, 4))],
-    ])
-    checks.append(record_max("template_swap_symplectic_error", np.linalg.norm(swap_real.T @ canonical_form_4 @ swap_real - canonical_form_4), 3.0e-14))
+    localized_projectors = (
+        np.diag([1.0, 0.0]).astype(complex),
+        np.diag([0.0, 1.0]).astype(complex),
+    )
+    projective_input = rng.normal(size=2) + 1j * rng.normal(size=2)
+    projective_input /= np.linalg.norm(projective_input)
+    maximum_post_state_error = 0.0
+    maximum_phase_radial_error = 0.0
+    maximum_rejected_balance_error = 0.0
+    for branch_index, branch_projector in enumerate(localized_projectors):
+        other_projector = localized_projectors[1 - branch_index]
+        selected = branch_projector @ projective_input
+        rejected = other_projector @ projective_input
+        selected_covariance = np.outer(selected, selected.conj())
+        selected_covariance /= np.trace(selected_covariance).real
+        maximum_post_state_error = max(
+            maximum_post_state_error,
+            float(np.linalg.norm(selected_covariance - branch_projector)),
+        )
+        transformed = 2.7 * np.exp(0.83j) * projective_input
+        transformed_selected = branch_projector @ transformed
+        transformed_covariance = np.outer(
+            transformed_selected, transformed_selected.conj()
+        )
+        transformed_covariance /= np.trace(transformed_covariance).real
+        maximum_phase_radial_error = max(
+            maximum_phase_radial_error,
+            float(np.linalg.norm(transformed_covariance - branch_projector)),
+        )
+        maximum_rejected_balance_error = max(
+            maximum_rejected_balance_error,
+            abs(
+                np.vdot(selected, selected).real
+                + np.vdot(rejected, rejected).real
+                - 1.0
+            ),
+        )
+    checks.append(record_max("rank_one_projective_post_state_error", maximum_post_state_error, 3.0e-14))
+    checks.append(record_max("rank_one_post_state_phase_radial_invariance_error", maximum_phase_radial_error, 3.0e-14))
+    checks.append(record_max("projective_filter_selected_rejected_action_balance_error", maximum_rejected_balance_error, 3.0e-14))
 
-    left_template = np.array([1.0, 0.0], dtype=complex)
-    right_template = np.array([0.0, 1.0], dtype=complex)
-    for label, template in (("left", left_template), ("right", right_template)):
-        swapped = swap_unitary @ np.concatenate([state, template])
-        output_covariance = np.outer(swapped[:2], swapped[:2].conj())
-        target_covariance = np.outer(template, template.conj())
-        checks.append(record_max(f"{label}_branch_template_covariance_error", np.linalg.norm(output_covariance - target_covariance), 2.0e-14))
+    logical_plus_projector = analyzer.conj().T @ localized_projectors[0] @ analyzer
+    expected_logical_plus = projector(measurement_axis, 1.0, pauli)
+    checks.append(record_max("analyzer_backtransformed_post_state_error", np.linalg.norm(logical_plus_projector - expected_logical_plus), 4.0e-14))
+
+    # With D_tr(rho,sigma)=1/2 ||rho-sigma||_1, a binary probability
+    # difference is bounded by D_tr, not by D_tr/2. Keep a counterexample
+    # so the old optimistic factor cannot return unnoticed.
+    rho = localized_projectors[0]
+    plus_state = np.array([1.0, 1.0], dtype=complex) / sqrt(2.0)
+    sigma = np.outer(plus_state, plus_state.conj())
+    trace_distance = 0.5 * float(np.sum(np.abs(np.linalg.eigvalsh(rho - sigma))))
+    probability_difference = abs(
+        np.trace(localized_projectors[0] @ (rho - sigma)).real
+    )
+    checks.append(record_max("binary_probability_trace_distance_bound_excess", max(0.0, probability_difference - trace_distance), 3.0e-14))
+    checks.append(record_min("old_half_trace_distance_factor_counterexample_margin", probability_difference - 0.5 * trace_distance, 0.1))
 
     # R144: same-axis repeatability and distinct-axis sequential Born law.
     second_axis = rng.normal(size=3)
