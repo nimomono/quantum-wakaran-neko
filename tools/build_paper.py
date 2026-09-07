@@ -478,6 +478,25 @@ def validate_fixed_goal_language() -> None:
     q1_proof_text = (
         SECTIONS / "A2_m47_controlled_w_instrument_proofs.md"
     ).read_text(encoding="utf-8")
+    q1_hopf_text = (SECTIONS / "A8_m47_hopf_preparation.md").read_text(
+        encoding="utf-8"
+    )
+    for label, text_value in (
+        ("Q1本文", q1_text),
+        ("Q1証明", q1_proof_text),
+        ("Q1 W型対応表", q1_hopf_text),
+    ):
+        if "結果別テンプレート" in text_value:
+            raise ValueError(f"{label}へ旧結果別テンプレート依存が再混入")
+    for required_token in (
+        "R143のW型1段測定特殊化",
+        "R181Dの階数1測定後状態の受け渡し",
+        "共通射影選別機構による測定後状態の受け渡し",
+    ):
+        if required_token not in q1_text:
+            raise ValueError("Q1測定後状態責務の必須要素がない: " + required_token)
+    if "測定後状態の受け渡し" not in q1_hopf_text:
+        raise ValueError("付録HにR181D測定後状態受渡しがない")
     if q1_text.count("定理（R143：") != 1:
         raise ValueError("R143の定理宣言数が1ではない")
     if q1_text.count("定理（R144：") != 1:
@@ -540,6 +559,24 @@ def validate_fixed_goal_language() -> None:
         *sorted(SECTIONS.glob("*.md")),
     ]
     active_text = "\n".join(path.read_text(encoding="utf-8") for path in active_paths)
+    if "R170衝突" in active_text:
+        raise ValueError("現行文書へR170衝突という誤責務が再混入")
+    errors_text = (SECTIONS / "08_errors_resources_open_targets.md").read_text(
+        encoding="utf-8"
+    )
+    old_q3_residual = (
+        "Nelson流の作用変分または時間対称Newton則を有限時間誤差付きで導く"
+    )
+    if old_q3_residual in errors_text:
+        raise ValueError("Q3-2残件が導出済みNewton則まで巻き戻っている")
+    for required_token in (
+        "R184/R162の有限衝突近似",
+        r"$D_+D_-X$",
+        r"$D_-D_+X$",
+        "前後生成子の合成",
+    ):
+        if required_token not in errors_text:
+            raise ValueError("Q3-2残件境界の必須要素がない: " + required_token)
     retired_id = re.compile(
         r"M(?:51|52|53)(?!\d)|R171(?!\d)|R176[ABC](?![A-Z])|"
         r"R178[ABCEF](?![A-Z])|R145(?!\d)"
