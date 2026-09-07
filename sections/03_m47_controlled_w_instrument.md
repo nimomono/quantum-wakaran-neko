@@ -612,12 +612,12 @@ A_{\boldsymbol n}
 branchごとの固有state templateは使わない。測定前signalの非選択成分はfilter workへ、radial repumpで環境へ渡る情報はspent側へ残す。selected signalは同じ試行の次段へ直接渡し、次の測定面でのみ新しいR164--R161--R162 matchingを走らせる。
 
 
-## 3.13 R143：Q1 W型2モード有限コントラスト読出しと共通projective-node受渡し
+## 3.13 R143：Q1 W型2モード読出しとprojective-node受渡し
 
 Q1の1段測定では、結果分布を作るM54 static selection--lock coreと、測定後signalを作るR181D rank-one filterを同じprojective nodeとして使う。R143が独自に担うのはW型signalの準備・分析器・有限コントラスト・傾斜固定・safe-well局所記録との接続であり、branch固有stateの再準備機構を別に置かない。
 
 <!-- theorem-start:theorem -->
-**定理（R143：Q1 W型2モード有限コントラスト読出しと共通projective-node受渡し）**
+**定理（R143：Q1 W型2モード読出しとprojective-node受渡し）**
 
 固定した入力純粋共分散、測定軸 $\boldsymbol n$、有限観測時間について、次を仮定する。
 
