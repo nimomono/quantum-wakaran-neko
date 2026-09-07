@@ -408,7 +408,7 @@ def validate_fixed_goal_language() -> None:
 
     expected_status = {
         "Q1-1": "達成",
-        "Q1-2": "部分達成",
+        "Q1-2": "達成",
         "Q2-1": "条件付き達成",
         "Q2-2": "条件付き達成",
         "Q2-3": "条件付き達成",
@@ -493,6 +493,9 @@ def validate_fixed_goal_language() -> None:
         "R143のW型1段測定特殊化",
         "R181Dの階数1測定後状態の受け渡し",
         "共通射影選別機構による測定後状態の受け渡し",
+        "R189A：W2走行中作用容量有限正準保持",
+        "R189B：W2走行中階数1射影選別有限時間接続",
+        "R189C：M37 W2有限2回Rabi--Zeno比較",
     ):
         if required_token not in q1_text:
             raise ValueError("Q1測定後状態責務の必須要素がない: " + required_token)
@@ -518,6 +521,14 @@ def validate_fixed_goal_language() -> None:
             raise ValueError("Q1定理階層の必須要素がない: " + required_token)
     if "永久記録、内部逆計算、未使用素子交換はこの証明に使わない" not in q1_proof_text:
         raise ValueError("R144証明のcycle非依存境界がない")
+    for required_token in (
+        "## B.18 R189Aの走行中作用容量保持",
+        "## B.19 R189Bの固定済み容量選択と走行中射影選別",
+        "## B.20 R189Cの有限2回Zeno核と空操作対照",
+        "## B.21 R189Cの有限誤差閉包と資源",
+    ):
+        if required_token not in q1_proof_text:
+            raise ValueError("R189証明の必須要素がない: " + required_token)
 
     required_paths = (
         SECTIONS / "04_m54_q2_specializations.md",
@@ -609,7 +620,7 @@ def validate_fixed_goal_language() -> None:
     theorem_ids = (
         "R181A", "R181B", "R181C", "R181D", "R178D", "R179",
         "R180A", "R180B", "R180C", "R161", "R162", "R164", "R170",
-        "R123", "R124", "R125", "R182", "R187",
+        "R123", "R124", "R125", "R182", "R187", "R189A", "R189B", "R189C",
     )
     for result_id in theorem_ids:
         count = active_text.count(f"定理（{result_id}：")
@@ -668,6 +679,8 @@ def validate_fixed_goal_language() -> None:
             raise ValueError("R170定理へ外部記録責務が再混入: " + forbidden_token)
     if "**系（R170選択結果の局所記録）**" not in common_text:
         raise ValueError("R170後段の局所記録系がない")
+    if "**系（固定済み作用容量入力の静的選択・固定）**" not in common_text:
+        raise ValueError("R170固定済み容量入力系がない")
     if "定理（R181D：M54段階的射影選別・測定後状態受渡し定理）" not in common_text:
         raise ValueError("R181D新定理名がない")
     receiver_main_text = (SECTIONS / "05_m54_setting_pre_receiver.md").read_text(
@@ -904,7 +917,7 @@ def tex_environment() -> dict[str, str]:
     env.update({
         # Keep PDF metadata stable for the current cited draft.  Update this
         # epoch together with CITATION.cff when a new draft is released.
-        "SOURCE_DATE_EPOCH": "1788652800",
+        "SOURCE_DATE_EPOCH": "1788739200",
         "FORCE_SOURCE_DATE": "1",
         "TZ": "UTC",
         "TEXINPUTS": "/usr/share/texlive/texmf-dist/tex//:",
