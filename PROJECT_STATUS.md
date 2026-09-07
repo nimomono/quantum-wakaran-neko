@@ -210,7 +210,7 @@ R181AのW型2モード化は独立結果IDを持たない系として付録Hに�
 4. R180Cについて、M54末端SWAP、setting-pre block latch、paired-Hopf pump・sink、中央切断、2翼局所R170、fresh cell流を同じ具体装置とclockへ統合する。
 5. M54 spatial切断面、M37 signal、初期作用殻、finite collision bath、clock、Q3終位置記録を同じ有限局所装置へ統合する。
 6. Q3-2ではR185の理想M54 spatial時間対称Newton則にfinite collision加速度誤差を接続する。M37からの直接加速度縮約はcarrier粗視化の強化課題とする。Q3-6の位相量子化、連続空間、多粒子は別途検討する。
-7. R181Dについて、canonical SWAP出口、容量pointer、R164作用殻、有限fiber混合、collection、lock、recordを共通safe setと単一clock scheduleで統合する。
+7. R181Dについて、canonical SWAP出口、容量pointer、R164作用殻、有限fiber混合、selection--lock、record、controlled filter、radial repump、routeを共通safe setと単一clock scheduleで統合する。
 8. Q2-1・Q2-3について、R181Dの条件を具体的有限局所Hamiltonian装置で閉じ、末端誤差 $\varepsilon_{170}^{\rm end}$ の各項を独立に評価する。
 9. Q2-4について、M54のstatic sector配線、projector latch、R170 collision、selector lock、controlled filter、radial repump、blank/spent bank、clockを一つの具体的な一様装置族へ統合し、各局所誤差を独立に評価する。さらに製造ばらつきと運転中noiseを実装模型から導き、R186の正の頑健性条件を満たし、extensive additive-noise障害を回避することを示す。
 10. 実装努力目標として、同じ物理port、永続状態bath、相互作用区間族、制御bus、準備・読出しinterfaceをQ2-1からQ2-4で共有する一様な共通ハードウェア族を得る。この成否を各固定目標の達成判定へ遡及させない。
