@@ -745,7 +745,7 @@ J_\Sigma=J_{u,0}+J_{u,1}
 A_{u,b}^\delta=J_{u,b}+\delta q_bJ_\Sigma
 ```
 
-である。R164/R170は $b$ を確率 $(p_{u,b}+\delta q_b)/(1+\delta)$ で選ぶ。cutoffは除算せず、raw比較 $J_{u,b}\gtrless\tau J_\Sigma$ を用いる。幅 $\gamma J_\Sigma$ のguard帯、selector plateau外、collision overflowは正式な無反応 $\varnothing$ へ送る。selectorをlockした後にfilter $F_{u,b}$ を作用し、非選択成分をwork/spentへ保持する。選択成分はR181Aの $\kappa=0$ radial-only port
+である。R164とM54 static selection--lock coreは $b$ を確率 $(p_{u,b}+\delta q_b)/(1+\delta)$ で選ぶ。cutoffは除算せず、raw比較 $J_{u,b}\gtrless\tau J_\Sigma$ を用いる。幅 $\gamma J_\Sigma$ のguard帯、selector plateau外、collision overflowは正式な無反応 $\varnothing$ へ送る。selectorをlockした後にfilter $F_{u,b}$ を作用し、非選択成分をwork/spentへ保持する。選択成分はR181Aの $\kappa=0$ radial-only port
 
 ```math
 \dot Z=g(J_*-Z^\dagger Z)Z
@@ -779,7 +779,7 @@ D_{\rm TV}(P_{\rm out},P_{\rm Born})
 +\sum_{k=1}^m\bar\varepsilon_k.
 ```
 
-$\bar\varepsilon_k$ にはR170選択、controlled filter、radial repump、routeを各1回だけ含める。filter作用素誤差が $\eta_F<\sqrt\tau$ なら、選択後の規格化ray誤差は
+$\bar\varepsilon_k$ にはselection--lock core、必要な局所record、controlled filter、radial repump、routeを各1回だけ含める。filter作用素誤差が $\eta_F<\sqrt\tau$ なら、選択後の規格化ray誤差は
 $2\eta_F/(\sqrt\tau-\eta_F)$ 以下である。さらにrank-one node
 $P_{u,b}=|b_u\rangle\langle b_u|$ では、安全枝の理想selected signalは
 $P_{u,b}Z_u=\alpha_b|b_u\rangle$ である。従ってradial-only repump後も同じrayを保ち、条件付き規格化第2モーメントは
