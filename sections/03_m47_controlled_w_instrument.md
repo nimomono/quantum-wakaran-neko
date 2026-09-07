@@ -325,7 +325,7 @@ $v=z$、$\mathcal I=\{L,R\}$、$\Psi=\Phi$
 \frac{|(\Phi z)_i|^2/(z^\dagger z)+\delta q_i}{1+\delta}
 ```
 
-が2作用殻の規格化状態数として得られ、R161はこの分布への有限時間再平衡化、R162はその有限衝突実現を与える。R170では再平衡化後に入射cellを止め、左右ゲートを閉じ、局所記録を作る。従ってQ1章で独立に必要なのは、W型信号の準備と分析器、左右固定、結果別テンプレート交換であり、共通定理を再宣言しない。
+が2作用殻の規格化状態数として得られ、R161はこの分布への有限時間再平衡化、R162はその有限衝突実現を与える。R170では再平衡化後に入射cellを止め、左右ゲートを閉じ、局所記録を作る。従ってQ1章で独立に必要なのは、W型signalの準備と分析器、左右固定、局所位置recordとの接続である。枝選択とrank-one post-state更新は第2章のcommon projective nodeへ共通化し、別の結果別state templateを置かない。
 
 作用殻を消去した条件付き中間状態有効自由エネルギーは
 
@@ -502,46 +502,38 @@ p^{\rm obs},p^{\rm id}
 
 有限障壁で $\eta_W$ は一般に零でない。従って生の左右位置読出しを有限パラメータで厳密な射影測定とは呼ばない。深いW型族で $\eta_W\to0$ となる場合に、任意精度極限を持つ非鋭い測定として扱う。
 
-## 3.10 枝別条件付きGibbs整合
 
-測定記録を $R\in\{L,R,\varnothing\}$ とする。安全枝 $s\in\{L,R\}$ の非規格化共分散を
+## 3.10 条件付けとprojective state updateの分離
 
-```math
-\widetilde C_s
-=
-\frac{
-\mathbb E
-\left[
-\mathbf1_{R=s}ZZ^\dagger
-\right]
-}{
-\mathbb E[Z^\dagger Z]
-}
-```
+測定記録を $R\in\{L,R,\varnothing\}$ とする。入力の大域共分散が階数1で
+$C_Z=cc^\dagger$
+なら、結果事象だけで条件付けても、filter前の各安全枝のsignal方向は一般に同じ $c$ のままである。したがって、Born型branchを選ぶことと、測定後固有stateを物理的に作ることは別の操作である。
 
-とする。$p_s=\operatorname{tr}\widetilde C_s>0$ なら条件付き共分散は
+Q1では分析器座標のrank-one projectorを
 
 ```math
-C_s
-=
-\frac{\widetilde C_s}{p_s}
-```
-
-である。理想測定操作が必要とする枝別条件は
-
-```math
-\widetilde C_s^{\rm out}
-\simeq
-p_s|s\rangle\langle s|,
+P_s=|s\rangle\langle s|,
 \qquad
-C_s^{\rm out}
-\simeq
-|s\rangle\langle s|
+s\in\{L,R\}
 ```
 
-である。
+とする。R170と共通のselection--lock coreで安全枝 $s$ を固定した後、R181Dのcontrolled projector filterを作用させる。理想selected signalは
 
-入力の大域共分散が階数1であることは、この枝別条件を意味しない。結果で条件付けるだけでは、同じ $C_Z$ を2つの異なる射影へ変えられない。測定操作には、粒子位置と信号bathを結果依存に相関させる物理段階が必要である。本章では、井戸ごとに置いた局所記録、準備済みテンプレートの正準交換、交換後方向に対するR161の再平衡化をこの段階として使う。
+```math
+Z_s^{\rm sel}
+=
+P_sZ
+=
+\langle s|Z\rangle |s\rangle
+```
+
+なので、安全枝では規格化方向が必ず $|s\rangle$ である。R181Dのradial-only repumpはこの方向を変えない。filter誤差を含む条件付きstate誤差は第2章の
+$\varepsilon_{\rm node}^{\rm state}$
+で評価する。
+
+有限W型の左右コントラスト $\eta_W$ は「どの枝が記録されるか」という結果分布の偏差へ入るが、selector lock後にrank-one filterが作るsignal方向の誤差へ重ねて入れない。結果分布誤差とpost-state trace距離は別の量として管理する。
+
+測定終了時に粒子位置 $X$ を新しいsignal方向へ再平衡化する必要はない。$X$ は局所recordが完了するまで安全井戸へ保持し、selected signalは同じ単一試行のまま次の制御区間へ渡す。次の測定面に到達した時点で、改めてR164、R161、R162を有限時間だけ作用させる。これにより全時刻の配置--signal matchingも、結果依存の外部state再準備も仮定しない。
 
 ## 3.11 粒子位置の局所記録
 
@@ -567,87 +559,104 @@ Q_s^R+\chi_s(X).
 
 傾斜保持時間 $T_{\rm rec}$ は、局所ポインターが安全域を分離できる長さとする。R140により保持中の信号bath左右占有変化を $\varepsilon_{\rm lock}$ に抑える。R162により、再平衡化終了後の入射停止と辺ゲート閉鎖から、単一試行の経路滞在失敗を $\varepsilon_{\rm res}$ に抑える。分離面を通過中の試行、ゲート閉鎖失敗、有限閾値帯は無反応として記録し、除外後の2値再規格化を行わない。
 
-## 3.12 結果枝ごとの状態更新と再平衡化
 
-左右井戸に、規格化共分散がそれぞれ
+## 3.12 共通projective nodeによる結果枝状態更新
+
+分析器終了後、R164--R161--R162で形成したselectorをlockし、3.11の局所recordで安全枝 $s$ を記録する。signalとblank filter workに対し、第2章R181Dの
 
 ```math
-C_L^{\rm tpl}
+F_s
 =
-|L\rangle\langle L|,
-\qquad
-C_R^{\rm tpl}
-=
-|R\rangle\langle R|
+\begin{pmatrix}
+P_s&P_{1-s}\\
+P_{1-s}&-P_s
+\end{pmatrix}
 ```
 
-となる2モードテンプレートを準備する。安全枝 $s$ では、$\chi_s(X)$ が開く局所交換結合により、信号浴 $Z$ と対応テンプレート $Z_s^{\rm tpl}$ を角 $\pi/2$ だけ正準回転する。測定前の $Z$ は使用済みテンプレートへ移り、写像全体は1対1のままである。
+をselector制御で作用させる。すると
 
-交換後の装置座標では $C_s^{\rm out}=|s\rangle\langle s|$ である。測定前の論理座標へ戻して表すと
+```math
+F_s(Z,0)
+=
+(P_sZ,P_{1-s}Z)
+```
+
+となり、selected componentはsignal側、rejected componentはwork/spent側へ残る。異なる入力を同じ出力へ消去する写像ではなく、拡大状態上の1対1 filterである。
+
+rank-one $P_s=|s\rangle\langle s|$ では、安全枝のselected signalは位相とradial factorを除いて $|s\rangle$ そのものである。R181Aの $\kappa=0$ radial-only portをselected signalだけに開けば、作用を標準範囲へ戻してもrayは変わらない。R181Dのfilter実装誤差が $\eta_F<\sqrt\tau$ なら
+
+```math
+D_{\rm tr}
+\left(
+C_s^{\rm out},
+|s\rangle\langle s|
+\right)
+\leq
+\varepsilon_{\rm node}^{\rm state},
+\qquad
+\varepsilon_{\rm node}^{\rm state}
+\leq
+\frac{2\eta_F}{\sqrt\tau-\eta_F}.
+```
+
+測定前の論理座標へ戻すと
 
 ```math
 A_{\boldsymbol n}^\dagger
 C_s^{\rm out}
 A_{\boldsymbol n}
-=
-\Pi_{\boldsymbol n,s}
+\simeq
+\Pi_{\boldsymbol n,s}.
 ```
 
-となる。R162の辺閉鎖条件の下で、粒子位置 $X$ は記録終了まで同じ安全井戸へ保持される。記録後に辺を開き、交換後テンプレート方向を固定してR161を時間 $T_{X,\rm post}$ だけ作用させる。これにより条件付き出力配置は $\pi^\delta(s)$ へ戻り、枝別配置--信号bath整合誤差は有限混合誤差、正則化誤差、有限障壁の反対井戸裾 $\eta_W$ の和で評価できる。
+branchごとの固有state templateは使わない。測定前signalの非選択成分はfilter workへ、radial repumpで環境へ渡る情報はspent側へ残す。selected signalは同じ試行の次段へ直接渡し、次の測定面でのみ新しいR164--R161--R162 matchingを走らせる。
 
-## 3.13 R143：R170のQ1 W型2モード特殊化と状態更新
 
-1回の作用殻準備、有限熱化、辺閉鎖、局所記録に対する共通誤差は第2章R170の $\varepsilon_{170}$ を使う。Q1 W型2モードprotocol固有のW型コントラスト、2モード制御、傾斜固定、結果別テンプレート交換だけをR143へ追加する。同じ容量、混合、衝突、記録偏差をR143で展開し直さない。
+## 3.13 R143：Q1 W型2モード有限コントラスト読出しと共通projective-node受渡し
+
+Q1の1段測定では、結果分布を作るM54 static selection--lock coreと、測定後signalを作るR181D rank-one filterを同じprojective nodeとして使う。R143が独自に担うのはW型signalの準備・分析器・有限コントラスト・傾斜固定・safe-well局所記録との接続であり、branch固有stateの再準備機構を別に置かない。
 
 <!-- theorem-start:theorem -->
-**定理（R143：Q1 W型2モード有限コントラスト読出しと結果別状態更新）**
+**定理（R143：Q1 W型2モード有限コントラスト読出しと共通projective-node受渡し）**
 
 固定した入力純粋共分散、測定軸 $\boldsymbol n$、有限観測時間について、次を仮定する。
 
-1. R181AのW型2モード特殊化で信号bath方向を有限誤差 $\varepsilon_{\rm Hopf}$ 以内に準備し、初期操作面でR170を誤差 $\varepsilon_{170}^{\rm in}$ 以内に実行できる。
-2. 衝突熱浴を切った後、R140の傾斜列を2モード制御誤差 $\varepsilon_{\rm ctrl}$ 以下で実装し、終了方向に対してR170を誤差 $\varepsilon_{170}^{\rm out}$ 以内に実行できる。
-3. R140の尺度階層により信号bath左右占有の変化を $\varepsilon_{\rm lock}$ 以下にでき、R162の入射停止と辺ゲート閉鎖により、記録終了前に粒子位置 $X$ が安全井戸を離れる確率を $\varepsilon_{\rm res}$ 以下にできる。
-4. 安全枝で局所記録と結果別テンプレート交換を実行し、枝別交換誤差を $\varepsilon_{\rm br}$ 以下、交換後の条件付き再平衡化誤差を $\varepsilon_{\rm post}$ 以下にできる。
-5. 分離面、閾値平滑化帯、セルoverflowを正式な無反応結果とし、その全質量を $\varepsilon_{\rm guard}$ 以下にできる。
+1. R181AのW型2モード特殊化でsignal方向を有限誤差 $\varepsilon_{\rm Hopf}$ 以内に準備し、初期操作面でR170を誤差 $\varepsilon_{170}^{\rm in}$ 以内に実行できる。
+2. 衝突cell流を切った後、R140の傾斜列を2モード制御誤差 $\varepsilon_{\rm ctrl}$ 以下で実装し、分析器終了方向を保持できる。全W型高mode偏差を $\varepsilon_{2m}$ とする。
+3. R140の尺度階層によりsignalの左右占有変化を $\varepsilon_{\rm lock}$ 以下にし、R162の入射停止と辺gate閉鎖により、局所record終了前に粒子位置 $X$ が安全井戸を離れる確率を $\varepsilon_{\rm res}$ 以下にできる。
+4. 分析器後にR181Dの深さ1 common projective nodeを動かし、無反応を含む完全結果分布の実装誤差を $\varepsilon_{\rm node}^{\rm dist}$ 以下、各安全枝の条件付きpost-state trace距離を $\varepsilon_{\rm node}^{\rm state}$ 以下にできる。
 
-このとき結果集合 $\{+1,-1,\varnothing\}$ を持つ、有限正準制御と有限セル弱開放粒子位置bathからなる1段instrumentを構成でき、無反応質量を零とした理想Born分布との全変動距離は
+このとき結果集合 $\{+1,-1,\varnothing\}$ を持つ有限正準・弱開放1段instrumentを構成でき、無反応質量を零とした理想Born分布との全変動距離は
 
 ```math
 \varepsilon_{\rm inst}
 \leq
 \eta_W
 +
+\varepsilon_{\rm Hopf}
++
 \varepsilon_{\rm ctrl}
 +
 \varepsilon_{2m}
 +
-\varepsilon_{\rm Hopf}
-+
 \varepsilon_{170}^{\rm in}
 +
-\varepsilon_{170}^{\rm out}
+\varepsilon_{\rm node}^{\rm dist}
 +
 \varepsilon_{\rm lock}
 +
 \varepsilon_{\rm res}
-+
-\varepsilon_{\rm guard}
-+
-\varepsilon_{\rm rec}
-+
-\varepsilon_{\rm br}
-+
-\varepsilon_{\rm post}
 ```
 
-で抑えられる。安全結果 $s$ の条件付き出力共分散は、分析器座標で $|s\rangle\langle s|$ からtrace距離 $\varepsilon_{\rm br}+O(\eta_W)$ 以内であり、条件付き出力配置は $\pi^\delta(s)$ から $\varepsilon_{\rm post}$ 以内である。記録は粒子位置 $X$ の局所関数だけを入力にし、全密度、確率流、current transducerを使わない。
+で抑えられる。安全結果 $s$ の条件付き出力共分散は、分析器座標で $|s\rangle\langle s|$ からtrace距離 $\varepsilon_{\rm node}^{\rm state}$ 以内である。有限コントラスト $\eta_W$ は結果頻度の誤差であり、このpost-state boundへ重複加算しない。記録は粒子位置 $X$ の局所関数だけを入力にし、全密度、確率流、統計振幅をcontrollerへ与えない。
 <!-- theorem-end:theorem -->
 
-R143の利用単位は1回の測定である。共通instrument部分はR170に尽くされ、R143が追加するのはQ1 W型分析器、有限コントラスト、傾斜固定、結果別テンプレート交換、条件付き状態更新である。複数回測定のjoint historyと段間誤差合成はR144だけで扱う。旧連続matching保存は仮定しない。一方、作用容量結合とfiber内平衡化を含む最小Hamiltonian、信号bath保持controllerの完全な反作用、Hopf準備からresetまでの総収支はR143から従わない。
+R143の利用単位は1回の測定である。共通selection、lock、filter、radial repumpは第2章R181Dに置き、R143では再証明しない。複数回測定のjoint historyと段間state誤差合成はR144だけで扱う。旧連続matching保存は仮定しない。一方、作用容量結合とfiber内平衡化を含む最小Hamiltonian、signal保持controllerの完全な反作用、M37 carrierとprojective nodeの単一装置統合、Hopf準備からresetまでの総収支はR143から従わない。
+
 
 ## 3.14 同軸反復と異軸逐次測定
 
-第1測定軸を $\boldsymbol n$ とし、安全結果 $s$ を得た後、装置座標の出力共分散は $|s\rangle\langle s|$ に近い。同じ軸を再測定する場合は同じ左右基底を読むため、反対結果の確率は理想的には零で、有限装置では条件付き状態誤差と第2段誤差の和で抑えられる。
+第1測定軸を $\boldsymbol n$ とし、安全結果 $s$ を得た後、R181Dのrank-one filter後の同じsignalは、分析器座標で $|s\rangle\langle s|$ からtrace距離 $\delta_{\rm state}$ 以内にある。同じ軸を再測定する場合、理想反対結果の確率は零であり、有限装置では段間state誤差と第2段instrument誤差で抑えられる。
 
 第2軸を $\boldsymbol m$ とする。第1分析器の出力座標から第2分析器へ進む制御を
 
@@ -673,6 +682,8 @@ P(t\mid s)
 \right).
 ```
 
+段間ではselected signalをそのままR140制御へ渡す。分析器中に粒子位置がsignalへ追従することは要求せず、次の測定面でR164--R161--R162 matchingを新たに実行する。外部controllerがstate tomography、係数読出し、結果依存state再準備を行わない。
+
 固定有限段では結果履歴を
 
 ```math
@@ -681,7 +692,7 @@ h=(r_1,\ldots,r_N),
 r_j\in\{+1,-1,\varnothing\}
 ```
 
-とする。安全履歴 $s_1,\ldots,s_N\in\{+1,-1\}$ の理想分布は
+とする。安全履歴 $s_1,\ldots,s_N$ の理想分布は
 
 ```math
 P_{\rm id}(s_1,\ldots,s_N)
@@ -698,14 +709,15 @@ P_{\rm id}(s_1,\ldots,s_N)
 \right).
 ```
 
-無反応を含む履歴は捨てず、理想側に零質量の履歴を追加した同じ完全結果空間で比較する。各安全段のR143出力は同じ試行の次段入力へ直接渡し、外部controllerが状態tomography、係数読出し、結果依存の状態再準備を行わない。
+無反応を含む履歴は捨てず、理想側に零質量の履歴を追加した同じ完全結果空間で比較する。
+
 
 ## 3.15 R144：固定有限段逐次測定合成
 
 <!-- theorem-start:theorem -->
 **定理（R144：Q1 W型2モード固定有限段逐次測定合成）**
 
-固定純粋入力、固定有限段数 $N$、固定した測定軸列 $\boldsymbol n_1,\ldots,\boldsymbol n_N$ を取る。各段でR143の5条件が成立し、段 $j$ の安全出力共分散と条件付き配置を同じ試行の段 $j+1$ へ渡せるとする。段間にはR140で許された固定有限の正準制御列を挿入してよい。各段は有限個の独立な記録セル、テンプレート、衝突セルを使用し、無反応を含む履歴を列の終了まで保持する。
+固定純粋入力、固定有限段数 $N$、固定した測定軸列 $\boldsymbol n_1,\ldots,\boldsymbol n_N$ を取る。各段でR143の4条件が成立し、段 $j$ のR181D selected signalを同じ試行の段 $j+1$ へ直接渡せるとする。段間にはR140で許された固定有限の正準制御列を挿入してよい。各段は有限個の記録cell、collision cell、selector/filter work、radial-port環境を使用し、無反応を含む履歴を列の終了まで保持する。
 
 このとき完全履歴空間
 
@@ -715,7 +727,7 @@ P_{\rm id}(s_1,\ldots,s_N)
 \{+1,-1,\varnothing\}^N
 ```
 
-上の有限正準・弱開放逐次instrumentを構成できる。理想逐次分布を $p_N^{\rm id}$、実分布を $p_N^{\rm obs}$ とし、段 $j$ の1段instrument誤差を $\varepsilon_{{\rm inst},j}$、安全出力共分散の理想射影からのtrace距離を $\delta_{{\rm post},j}$ とすれば、
+上の有限正準・弱開放逐次instrumentを構成できる。理想逐次分布を $p_N^{\rm id}$、実分布を $p_N^{\rm obs}$ とし、段 $j$ の1段instrument誤差を $\varepsilon_{{\rm inst},j}$、安全出力共分散の理想射影からのtrace距離を $\delta_{{\rm state},j}$ とすれば、
 
 ```math
 D_{\rm TV}
@@ -726,12 +738,11 @@ p_N^{\rm obs},p_N^{\rm id}
 \sum_{j=1}^{N}
 \varepsilon_{{\rm inst},j}
 +
-\frac12
 \sum_{j=1}^{N-1}
-\delta_{{\rm post},j}.
+\delta_{{\rm state},j}.
 ```
 
-同軸列では理想反対結果の重みは零であり、異軸列では各安全条件付き核は
+ここでtrace距離は $D_{\rm tr}(\rho,\sigma)=\frac12\|\rho-\sigma\|_1$ とする。任意の2値効果による確率差は $D_{\rm tr}$ 以下なので、段間state誤差の係数は1である。同軸列では理想反対結果の重みは零、異軸列では各安全条件付き核は
 
 ```math
 \operatorname{tr}
@@ -741,18 +752,19 @@ p_N^{\rm obs},p_N^{\rm id}
 \right)
 ```
 
-となる。固定有限 $N$ に必要な能動部と履歴cell数は有限である。各段の安全出力を次段へ渡す際に、外部から量子状態を再準備しない。
+となる。固定有限 $N$ に必要な能動部と履歴cell数は有限であり、外部から量子stateを再準備しない。
 <!-- theorem-end:theorem -->
 
-R144はR143のsingle-stage instrumentを固定有限回だけ合成する定理であり、永久記録、内部逆計算、周期末resetを結論に含めない。全時刻のmatching保存または周期間matching帰還も仮定せず、各測定面でR164の作用殻準備とR161/R162の有限時間過程を明示的に走らせる。本定理はZeno効果そのものを示さず、測定中も零傾斜Rabi項を止めない対照との接続は別の未達課題である。
+R144はR143のsingle-stage instrumentを固定有限回だけ合成する定理であり、R181Dのpost-state handoffを段間interfaceとする。永久記録、内部逆計算、周期末resetを結論に含めない。全時刻のmatching保存または周期間matching帰還も仮定せず、各測定面でR164--R161--R162を有限時間だけ走らせる。本定理はZeno効果そのものを示さず、測定中も零傾斜Rabi項を止めない対照との接続は別の未達課題である。
+
 
 ## 3.16 実装強化：永久記録、補助逆計算、交換reset
 
-R144の固定有限履歴を列終了後も保持し、装置を次周期へ戻す場合の追加構成をここに分離する。この構成はQ1-2の達成条件ではなく、実装・熱力学的強化である。
+R144の固定有限履歴を列終了後も保持し、補助controllerを次周期へ戻す場合の追加構成をここに分離する。この構成はQ1-2の達成条件ではない。
 
-外部記録セルは局所剪断で結果を保持する。記録後、分析器時計、傾斜制御器、局所比較器の補助自由度を逆順に戻す。測定前bath情報は使用済みテンプレートにあり、外部記録は逆実行しないため、内部補助だけを戻しても正準可逆性は破れない。
+安全枝のselected signalはR181Dのpost-stateとして保持する。rejected componentはfilter work、radial情報はradial-port環境、selectorとcollisionの微視的履歴はspent側へ残す。局所recordを外部cellへ保持した後、結果とpost-stateを担わない時計、傾斜駆動器、比較補助だけを逆順に戻してよい。controlled projector filterをpost-state保持中に逆実行して測定前signalへ戻すこと、また採用開放radial repumpの環境履歴を消して逆転することは要求しない。
 
-周期末の装置偏差 $\delta a$ を、流入する空セル $\eta_n$ と交換角 $\phi$ で回転すると
+補助座標の周期末偏差 $\delta a$ を、流入する空cell $\eta_n$ と交換角 $\phi$ で回転すると
 
 ```math
 \delta a^+
@@ -762,7 +774,7 @@ R144の固定有限履歴を列終了後も保持し、装置を次周期へ戻�
 \sin\phi\,\eta_n.
 ```
 
-1周期の逆計算残差を $\varepsilon_{\rm cyc}$、空セル幅を $\|\eta_n\|\leq\sigma_E$ とすれば
+1周期の補助逆計算残差を $\varepsilon_{\rm cyc}$、空cell幅を $\|\eta_n\|\leq\sigma_E$ とすれば
 
 ```math
 \limsup_{n\to\infty}
@@ -779,45 +791,50 @@ R144の固定有限履歴を列終了後も保持し、装置を次周期へ戻�
 
 **系（固定有限周期の補助逆計算・交換reset）。**
 
-固定有限段のR144履歴を記録した後、測定前情報を使用済みセルへ保持し、記録剪断と結果別テンプレート交換を逆実行せず、時計・傾斜駆動器・比較補助だけを逆順に戻せるとする。さらに各周期でfresh cellとの上記交換を行う。このとき固定有限周期数 $K$ について拡大写像の1対1性を保ったまま補助偏差を上式で抑えられる。永久記録、衝突履歴、使用済み状態のcell数は $O(K)$ 以上であり、固定容量閉鎖系で $K\to\infty$ を実現するとは主張しない。
+固定有限段のR144履歴とspent情報を保持し、結果相関を担わない補助自由度だけを逆順に戻し、各周期でfresh cellとの上記交換を行えるとする。このとき固定有限周期数 $K$ について拡大写像の1対1性を保ったまま補助偏差を上式で抑えられる。永久record、rejected filter work、collision履歴、radial-port履歴、使用済みcellは $O(K)$ 以上であり、固定容量閉鎖系で $K\to\infty$ を実現するとは主張しない。
 
-この系はR144の根拠条件ではない。Hopf pump、作用殻fiber、信号bath保持controller、衝突セル準備、記録、template交換、resetを含む総仕事、総熱、総エントロピー生成を一つの恒等式へ閉じる問題も引き続き未解決である。
+この系はR144の根拠条件ではない。Hopf pump、作用殻、signal保持controller、collision cell、projective filter、radial repump、record、resetを含む総仕事、総熱、総エントロピー生成を一つの恒等式へ閉じる問題も引き続き未解決である。
+
 
 ## 3.17 誤差・熱力学・資源台帳
 
-Q1測定の中心誤差を
+Q1の1段結果分布誤差は、R143の責務に合わせて
 
 ```math
-\varepsilon_{Q1}
+\varepsilon_{Q1}^{\rm dist}
 =
 \varepsilon_{\rm prep}
 +
-2\varepsilon_{\rm eq}
-+
-\varepsilon_{2m}
+\varepsilon_{170}^{\rm in}
 +
 \varepsilon_{\rm ctrl}
 +
+\varepsilon_{2m}
++
 \eta_W
++
+\varepsilon_{\rm node}^{\rm dist}
 +
 \varepsilon_{\rm lock}
 +
 \varepsilon_{\rm res}
-+
-\varepsilon_{\rm guard}
-+
-\varepsilon_{\rm rec}
-+
-\varepsilon_{\rm br}
-+
-\varepsilon_{\rm post}
-+
-\varepsilon_{\rm ret}
 ```
 
-とする。$\varepsilon_{\rm eq}$ はR164の作用殻準備、有限時間混合、正則化、有限衝突セル、信号bath保持を含む。$\varepsilon_{\rm lock}$ は信号bath左右占有の変化、$\varepsilon_{\rm res}$ は辺ゲート閉鎖後の単一試行経路離脱であり、同じ量ではない。状態方向誤差、結果分布の全変動距離、記録ポインター誤差、周期末正準座標偏差は単位が異なるため、付録Bで対応するLipschitz定数を通してから合成する。
+と整理する。ここで $\varepsilon_{\rm node}^{\rm dist}$ は出力側common projective nodeのR164作用殻、R161混合、R162 collision、selector lock、局所record、guard、controlled filter、radial repump、routeの完全結果誤差を各1回だけ含む。同じ偏差をR170とR181Dへ重複加算しない。
 
-準備誤差はさらに
+安全枝のpost-stateは別量
+
+```math
+\varepsilon_{Q1}^{\rm state}
+=
+\varepsilon_{\rm node}^{\rm state}
+\leq
+\frac{2\eta_F}{\sqrt\tau-\eta_F}
+```
+
+で管理する。$\eta_W$ は結果頻度の有限コントラスト誤差なので、このstate boundへ加えない。R144では各段の結果分布誤差と、次段へ伝わるtrace-distance state誤差を別々に有限和へ入れる。
+
+準備誤差は
 
 ```math
 \varepsilon_{\rm prep}
@@ -829,30 +846,13 @@ Q1測定の中心誤差を
 \varepsilon_{\rm phase}
 ```
 
-と分ける。R181Aは $\varepsilon_{\rm Hopf}$ の信号bath方向部分を有限準備時間で抑える。条件付き作用殻状態数、粒子位置周辺、条件付き粒子位置分布はR164、R161、R162の後段準備・再平衡化へ移し、M54単独の誤差へ入れない。零seedと位相基準の失敗は独立に完全結果集合へ残す。
+と分ける。R181Aはsignal ray準備を有限時間で抑え、零seedと位相基準の失敗は無反応を含む完全結果へ残す。R187を採用する運転ではcarrier側の $\varepsilon_{\rm ctrl}+\varepsilon_{2m}$ を同じM37 full-state bridge誤差から評価し、重複加算しない。
 
-熱力学台帳では、信号bath方向を変える解析器仕事 $W_{\rm ctrl}$、作用枝容量と作用殻拘束を切り替える殻自由エネルギー仕事 $W_{\rm sh}$、作用殻消去表示の相対有効仕事 $W_{\rm q}^{\rm rel}$、相対有効熱 $Q_X^{\rm rel}$、Hopf pump仕事 $W_{\rm Hopf}$、記録・template交換・reset仕事を分ける。第2章の粗視化経路熱力学系は条件付き中間状態について
+熱力学台帳では、分析器仕事 $W_{\rm ctrl}$、作用殻自由エネルギー仕事 $W_{\rm sh}$、作用殻消去表示の相対有効仕事 $W_{\rm q}^{\rm rel}$ と熱 $Q_X^{\rm rel}$、Hopf pump仕事、局所record、controlled filter、radial repump、resetを分ける。projector filterはrejected componentをworkへ残す可逆正準操作であり、それ自体を情報消去と呼ばない。radial-only repumpは採用開放流なので、失われたradial情報と散逸履歴をspent側へ数える。第2章の粗視化経路熱力学だけで、これらを含む全周期の微視的仕事・熱を同定しない。
 
-```math
-\Delta E_X^{\rm rel}
-=
-W_{\rm q}^{\rm rel}
-+
-Q_X^{\rm rel}
-```
+1段の能動装置は、signal 2モード、条件付き作用殻fiber、容量controller、有限collision cell、辺gate、selector/lock、filter work、radial port、左右record cell、傾斜制御、clock、粒子位置の局所検出部からなる。結果別の左右state templateは不要である。R144の固定 $N$ 段では、record、collision、filter work、radial/spent cellとclock窓を粗く $O(N)$ で用意すれば列内資源は有限である。3.16の実装強化を $K$ 周期繰り返す場合だけ、永久recordとspent履歴がさらに $O(K)$ 以上増える。
 
-と経路エントロピー生成を与える。$W_i^{\rm rel}=W_i^{\rm sh}-\Delta F_{\rm eq}^{\rm sh}$ であり、全作用保存unitaryでは共通項が一定になり得るが、pumpとresetでは一定とは限らない。この式だけで $W_{\rm sh}$、殻内散逸、controller反作用を含む全微視的仕事・熱を同定しない。周期全体について
-
-```math
-\Delta E_{\rm total}
-=0
-```
-
-となる外部セル込みの収支と、記録情報、使用済みセル、Hopf散逸を含む総エントロピー生成は未閉鎖である。
-
-1段の能動装置は、信号2モード、条件付き作用殻fiber、容量controller、条件付き障壁controller、有限衝突セル、辺ゲート、左右テンプレート、左右記録セル、傾斜制御、時計、粒子位置の局所検出部からなる。R144の固定 $N$ 段では、各段の有限record、template、collision cellとclock窓を用意すれば全資源は有限であり、列終了までの履歴cell数は $O(N)$ でよい。正準対の最小数は評価しない。3.16の実装強化を $K$ 周期反復する場合だけ、永久記録、衝突履歴、使用済みテンプレート保存がさらに $O(K)$ 以上増える。固定有限段の制御時間は傾斜パルス数、fiber準備時間、再平衡化時間に比例する。
-
-$\delta\downarrow0$ では有効自由エネルギー幅が $O(\!\log\delta^{-1})$、必要衝突流束が少なくとも $\Omega(\!\delta^{-1/2})$、R161の一般混合率下界は $O(\!\delta)$ まで低下し得る。R164の滑らかな有限幅作用殻を一様精度で保つ剛性には $\Omega(\!\delta^{-2})$ が必要で、$\Theta(\!\delta^{-2})$ は代表的な選択である。有限資源のまま全bath方向の厳密nodeを追跡するとは主張しない。
+$\delta\downarrow0$ では有効自由エネルギー幅が $O(\!\log\delta^{-1})$、必要collision流束が少なくとも $\Omega(\!\delta^{-1/2})$、R161の一般混合率下界は $O(\!\delta)$ まで低下し得る。R164の滑らかな有限幅作用殻を一様精度で保つ剛性には $\Omega(\!\delta^{-2})$ が必要で、$\Theta(\!\delta^{-2})$ は代表的な選択である。有限資源のまま厳密nodeを追跡するとは主張しない。
 
 深いW型極限は測定コントラストと固定誤差を小さくする一方、トンネル分裂 $J$ を小さくする。零傾斜の $x$ 回転時間は $O(\mathcal J_0/J)$ なので、精度を高めるほど任意軸操作が遅くなる可能性がある。この精度--時間交換は資源台帳から除外しない。
 
@@ -883,7 +883,7 @@ P_N(T)
 \frac{1+\cos^N(\Omega T/N)}{2}
 ```
 
-と置く。ただし、これらは本版でQ1 W型2モードprotocolから導出したZeno結果ではなく、R144の有限段逐次instrumentへ零傾斜Rabi自由発展を接続するときの比較目標である。測定中も対象Rabi項を止めず、flip、reflip、無反応を含む全履歴を残す。測定と同じ傾斜操作だけを入れて記録しないtilt対照を必須とし、観測された差を離調固定から分離する。重なり、傾斜、自由発展、1段instrumentの誤差を別々に上界し、有限 $N$ で $P_N-P_{\rm free}$ の正の余裕が合成誤差を上回る場合だけ達成候補とする。反復回数に比例する記録、template、fresh cell、reset、時間、エネルギーも資源台帳へ含める。
+と置く。ただし、これらは本版でQ1 W型2モードprotocolから導出したZeno結果ではなく、R144の有限段逐次instrumentへ零傾斜Rabi自由発展を接続するときの比較目標である。測定中も対象Rabi項を止めず、flip、reflip、無反応を含む全履歴を残す。測定と同じ傾斜操作だけを入れて記録しないtilt対照を必須とし、観測された差を離調固定から分離する。重なり、傾斜、自由発展、1段instrumentの誤差を別々に上界し、有限 $N$ で $P_N-P_{\rm free}$ の正の余裕が合成誤差を上回る場合だけ達成候補とする。反復回数に比例するrecord、selector/filter work、radial/spent cell、fresh cell、reset、時間、エネルギーも資源台帳へ含める。
 
 ## 3.19 非主張
 
