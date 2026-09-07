@@ -97,6 +97,7 @@
 - `tools/verify_r180_bell_cycle.py`
 - `tools/verify_phase_correlation.py`
 - `tools/verify_q1xq1_common_bath.py`
+- `tools/verify_q1_live_zeno.py`
 - `tools/verify_m54_static_instrument.py`
 - `tools/verify_r181a_template_port.py`
 - `tools/verify_m54_spatial_matching.py`
@@ -125,6 +126,13 @@
 - `fonts/NotoSerifJP-Regular.ttf`
 
 旧版セクション、旧数値コード、旧PDF、査読回答履歴は収録しない。置換・退役した理論の最小索引と再検討条件は `notes/` に残し、完全な原稿と実装はGit履歴から参照する。
+
+## draft-83のQ1-2有限Zeno閉包
+
+- R170直後に固定済み作用容量入力の静的選択・固定系を追加し、走行中W2信号をSWAP・保持しないZeno入口を分離。
+- R189A--R189Cで走行中作用容量保持、零傾斜Rabi継続中の階数1射影選別、$N=2$ の有限Rabi--Zeno比較と空操作対照を追加。
+- Q1-2を達成へ更新し、単一有限局所Hamiltonian装置への全統合と全周期収支は強化課題として維持。
+- `tools/verify_q1_live_zeno.py`、生成器、CI、状態表、研究メモ、統合原稿、TeX、PDFをdraft-83へ同期。
 
 ## draft-82のR170選択・固定中核再編
 
