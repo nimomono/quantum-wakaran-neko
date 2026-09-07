@@ -9,7 +9,9 @@ git diff --check
 
 R162について、3状態有限Markov鎖の厳密1step核とEuler核を比較し、段階TVと有限骨格全履歴TVが逐次coupling上界内にあることを検査する。R188について、同じ経路分布から作る前向き・Bayes後向き条件付き核のTV安定性、有限刻み対称加速度の一次収束、経路TVから加速度への $8\operatorname{osc}(X)/(p_*\tau^2)$ 上界を専用回帰で検査する。R185について、代表周期関数で中心差分の二次収束を確認する。
 
-Q3-2の達成ラベル、R162有限骨格経路主張、R188定理宣言一意性、$C_{185,a}a^2$、$C_{\rm time}\tau$、$C_{\rm hist}\varepsilon_{162}^{\rm hist}/\tau^2$ の誤差台帳、M37直接加速度縮約を強化課題へ残す境界を生成器とCIで検査する。PDF生成・最終LaTeX警告・ページ寸法・生成物同期の最終結果は本変更のActions runへ追記する。
+Q3-2の達成ラベル、R162有限骨格経路主張、R188定理宣言一意性、$C_{185,a}a^2$、$C_{\rm time}\tau$、$C_{\rm hist}\varepsilon_{162}^{\rm hist}/\tau^2$ の誤差台帳、M37直接加速度縮約を強化課題へ残す境界を生成器とCIで検査する。
+
+最終生成run `34143454219`（draft-84生成 run #5）で、全 `verify_*.py`、用語規約検査、`tools/build_paper.py`、`git diff --check`、LaTeX禁止警告検査、PDF寸法検査が成功した。R188専用検算では有限骨格coupling、条件付き核TV、有限刻みNelson加速度の一次収束、経路TVから加速度への上界、中心差分の二次収束がすべて合格した。生成commit `ad6ed09f41df16e9c45ab84e337b8dbccb8f6275` に `paper.md`、`main.tex`、`paper.pdf` を同期した。生成PDFはA4、249ページ、1,479,203 bytesであり、生成runの禁止警告検査では未解決citation/reference、overfull、underfull、fatal error、欠落文字を検出していない。
 
 ---
 
