@@ -446,7 +446,7 @@ u_\delta=Au
 
 であり、十分滑らかな節のない領域で $v^{(a,\delta)}=v_\delta+O(a^2)$、$u^{(a,\delta)}=u_\delta+O(a^2)$ である。
 
-## N.7 R185の時間対称Newton則
+## N.7 R185の時間対称Newton則と明示格子誤差
 
 ```math
 a_{N,\delta}
@@ -454,25 +454,297 @@ a_{N,\delta}
 \frac12(D_+D_-+D_-D_+)X
 ```
 
-とする。理想M54空間状態構成の実正準信号 ハミルトニアンが
+とする。理想M54空間状態構成の有限格子実正準信号は、複素表示で
 
 ```math
-i\mathcal J_0\partial_t\psi
+i\mathcal J_0\dot\psi_i
 =
+-\frac{\mathcal J_0^2}{2m}
+\Delta_a\psi_i
++
+V_i\psi_i,
+\qquad
+\Delta_a f_i
+=
+\frac{f_{i+1}-2f_i+f_{i-1}}{a^2},
+```
+
+を満たす。これは独立な量子公理でなくN.2の実ハミルトニアンの表示である。滑らかな補間を $\psi=\sqrt\rho e^{iS/\mathcal J_0}$ とし、
+
+```math
+v=\frac{\partial_xS}{m},
+\qquad
+u=\nu\partial_x\log\rho,
+\qquad
+A=\frac{\rho}{\rho+\delta q_0},
+\qquad
+\epsilon=1-A
+```
+
+と置く。連続側の正則化速度は $v_\delta=Av$、$u_\delta=Au$ である。
+
+有限格子信号から連続補間への差を明示するため
+
+```math
+c_\delta=\delta q_0,
+\qquad
+r=\rho+c_\delta,
+\qquad
+r_*=\rho_*+c_\delta
+```
+
+とし、
+
+```math
+R_k=\|\partial_x^k\rho\|_\infty,
+\qquad
+\Phi_k=\|\partial_x^k\psi\|_\infty,
+\qquad
+\Phi_{t,k}=\|\partial_t\partial_x^k\psi\|_\infty.
+```
+
+さらに
+
+```math
+H_0=\frac1{r_*},
+\qquad
+H_1=\frac{R_1}{r_*^2},
+\qquad
+H_2=
+\frac{R_2}{r_*^2}
++
+\frac{2R_1^2}{r_*^3},
+\qquad
+H_t=\frac{\|\partial_t\rho\|_\infty}{r_*^2}.
+```
+
+中心差分 $D_0^a$ と格子Laplacianについて
+
+```math
+\|D_0^af-\partial_xf\|_\infty
+\leq
+\frac{a^2}{6}\|\partial_x^3f\|_\infty,
+```
+
+```math
+\|\Delta_af-\partial_x^2f\|_\infty
+\leq
+\frac{a^2}{12}\|\partial_x^4f\|_\infty.
+```
+
+格子速度と連続正則化速度の誤差係数を
+
+```math
+\beta_{u,0}
+=
+\frac{\nu}{6}H_0R_3,
+\quad
+\beta_{u,1}
+=
+\frac{\nu}{6}(H_1R_3+H_0R_4),
+```
+
+```math
+\beta_{u,2}
+=
+\frac{\nu}{6}(H_2R_3+2H_1R_4+H_0R_5),
+```
+
+```math
+\beta_{v,0}
+=
+\frac{\nu}{3}H_0\Phi_0\Phi_3,
+```
+
+```math
+\beta_{v,1}
+=
+\frac{\nu}{3}
+[
+H_1\Phi_0\Phi_3
++
+H_0\Phi_1\Phi_3
++
+H_0\Phi_0\Phi_4
+],
+```
+
+```math
+\begin{aligned}
+\beta_{v,2}
+=
+\frac{\nu}{3}
+[
+&
+H_2\Phi_0\Phi_3
++
+2H_1\Phi_1\Phi_3
++
+2H_1\Phi_0\Phi_4
+\\
+&
++
+H_0\Phi_2\Phi_3
++
+2H_0\Phi_1\Phi_4
++
+H_0\Phi_0\Phi_5
+],
+\end{aligned}
+```
+
+```math
+\beta_{v,t}
+=
+\frac{\nu}{3}
 \left[
--\frac{\mathcal J_0^2}{2m}\partial_x^2+V
-\right]\psi
+H_t\Phi_0\Phi_3
++
+H_0
+(
+\Phi_{t,0}\Phi_3
++
+\Phi_0\Phi_{t,3}
+)
+\right]
 ```
 
-の複素表示を持つとする。これは独立な量子公理ではなくN.2の実ハミルトニアンの表示である。Madelung分解から
+とする。また
 
 ```math
-\partial_tv+v\partial_xv-u\partial_xu-\nu\partial_x^2u
+\Gamma_{v,1}
 =
--\frac{\partial_xV}{m}
+\beta_{v,1}
++
+\frac16\|\partial_x^3v_\delta\|_\infty,
+\quad
+\Gamma_{u,1}
+=
+\beta_{u,1}
++
+\frac16\|\partial_x^3u_\delta\|_\infty,
 ```
 
-が従う。従って
+```math
+\Gamma_{u,2}
+=
+\beta_{u,2}
++
+\frac1{12}\|\partial_x^4u_\delta\|_\infty.
+```
+
+固定した $a_0>0$ に対し
+
+```math
+\overline V_1
+=
+\|\partial_xv_\delta\|_\infty
++
+a_0^2\Gamma_{v,1},
+\quad
+\overline U_1
+=
+\|\partial_xu_\delta\|_\infty
++
+a_0^2\Gamma_{u,1},
+```
+
+```math
+\overline V_2
+=
+\|\partial_x^2v_\delta\|_\infty
++
+a_0^2\beta_{v,2},
+\quad
+\overline U_2
+=
+\|\partial_x^2u_\delta\|_\infty
++
+a_0^2\beta_{u,2}.
+```
+
+有限格子の前後生成子を直接展開すると、滑らかなnode-free部分系での運動学的格子誤差は
+
+```math
+\|a_{N,\delta}^{(a)}-a_\delta\|_\infty
+\leq
+C_{\rm kin}a^2
+```
+
+で抑えられ、
+
+```math
+\begin{aligned}
+C_{\rm kin}
+={}&
+\beta_{v,t}
++
+\beta_{v,0}\overline V_1
++
+\|v_\delta\|_\infty\Gamma_{v,1}
+\\
+&+
+\beta_{u,0}\overline U_1
++
+\|u_\delta\|_\infty\Gamma_{u,1}
++
+\nu\Gamma_{u,2}
+\\
+&+
+\frac{\|\partial_t\rho\|_\infty}{4r_*}
+\overline V_2
++
+\frac{\nu R_2}{4r_*}
+\overline U_2 .
+\end{aligned}
+```
+
+一方、有限格子Schrödinger表示と連続補間の残差は
+
+```math
+\mathscr R_a
+=
+\mathcal J_0\nu
+(\partial_x^2-\Delta_a)\psi
+```
+
+であり、
+
+```math
+\|\mathscr R_a\|_\infty
+\leq
+\frac{\mathcal J_0\nu}{12}\Phi_4a^2,
+\qquad
+\|\partial_x\mathscr R_a\|_\infty
+\leq
+\frac{\mathcal J_0\nu}{12}\Phi_5a^2.
+```
+
+node-free条件 $|\psi|\geq\sqrt{\rho_*}$ と $\mathcal J_0=2m\nu$ から
+
+```math
+C_{\rm dyn}
+=
+\frac{\nu^2}{6}
+\left[
+\frac{\Phi_5}{\sqrt{\rho_*}}
++
+\frac{\Phi_4\Phi_1}{\rho_*}
+\right]
+```
+
+と取れ、
+
+```math
+C_{185,a}
+=
+C_{\rm kin}
++
+C_{\rm dyn}
+<\infty.
+```
+
+Madelung恒等式と正則化代数を合わせると
 
 ```math
 a_{N,\delta}
@@ -481,7 +753,11 @@ a_{N,\delta}
 +
 R_\delta
 +
-O(a^2),
+E_a,
+\qquad
+\|E_a\|_\infty
+\leq
+C_{185,a}a^2,
 ```
 
 ```math
@@ -500,16 +776,20 @@ R_\delta
 <!-- theorem-start:theorem -->
 **定理（R185：共通の確率分布時間反転と時間対称Newton則）**
 
-R161移動特殊化を長さ $\ell=Na$ の1次元一様格子へ特殊化し、$q_i=1/N$、連続背景密度 $q_0=1/\ell$、$\delta>0$、$\mathcal J_0=2m\nu$ とする。固定有限時間の節のない 滑らかな 部分系で $\rho\geq\rho_*>0$ を仮定する。同じ共同経路分布から定まる $D_\pm$ は上の有限格子速度分解を厳密に満たし、
+R161移動特殊化を長さ $\ell=Na$ の1次元一様格子へ特殊化し、$q_i=1/N$、連続背景密度 $q_0=1/\ell$、$\delta>0$、$\mathcal J_0=2m\nu$ とする。固定有限時間の節のない滑らかな部分系で $\rho\geq\rho_*>0$ を仮定し、上で用いた $\rho$、$\psi$、$v_\delta$、$u_\delta$ の有限個の空間・時間微分ノルムが有限とする。同じ共同経路分布から定まる $D_\pm$ は有限格子速度分解を厳密に満たし、
 
 ```math
+\boxed{
+\left\|
 m a_{N,\delta}
-=
--\partial_xV
 +
+\partial_xV
+-
 mR_\delta
-+
-O(ma^2).
+\right\|_\infty
+\leq
+mC_{185,a}a^2 .
+}
 ```
 
 $F_0=\|\partial_xV/m\|_\infty$、$V_0=\|v\|_\infty$、$V_1=\|\partial_xv\|_\infty$、$U_0=\|u\|_\infty$、$U_1=\|\partial_xu\|_\infty$、
@@ -535,12 +815,238 @@ F_0
 \right].
 ```
 
-従って正則化残差は $O(\delta)$、格子残差は $O(a^2)$ である。
+従って正則化残差は $O(\delta)$、格子残差は明示的に $C_{185,a}a^2$ である。
 <!-- theorem-end:theorem -->
 
-R185は理想M54空間信号部分系の結果である。R184の $L_\delta\varepsilon_{\rm car}$ は率と位置分布を制御するが、$D_+D_-X$ に現れる率の時間微分までR86の状態ノルム誤差だけから制御しない。生M37の $2\omega_0$ マイクロモーションからNewton加速度まで直接持ち上げるには信号系周期粗視化または時間微分付き縮約定理が別に必要である。
+R185は理想M54空間信号部分系の結果である。R184の $L_\delta\varepsilon_{\rm car}$ は率と位置分布を制御するが、生M37の $2\omega_0$ マイクロモーションからNewton加速度までを率の時間微分付きで直接縮約した結果ではない。この直接縮約は強化課題として分離する。
 
-## N.8 達成境界と反証条件
+## N.8 R188の有限衝突Nelson合成加速度安定性
+
+固定したNelson解析用刻み $\tau>0$ と内部時刻 $t_m=m\tau$ を取る。理想R161経路のサンプリング分布を $\mathbb P^\tau$、R162有限衝突経路の同じサンプリング時刻上の分布を $\widehat{\mathbb P}^\tau$ とする。R162内部衝突刻み $h$ は $\tau$ と独立に細分化し、必要なら $\tau=nh$ と取る。データ処理により
+
+```math
+D_{\rm TV}
+\left(
+\widehat{\mathbb P}^\tau,
+\mathbb P^\tau
+\right)
+\leq
+\varepsilon_{162}^{\rm hist}.
+```
+
+理想サンプリング経路の前向き・後向き条件付き核を
+
+```math
+F_m(i,j)
+=
+P(X_{t_{m+1}}=j\mid X_{t_m}=i),
+\qquad
+B_m(i,j)
+=
+P(X_{t_{m-1}}=j\mid X_{t_m}=i)
+```
+
+とし、有限衝突経路から $\widehat F_m$、$\widehat B_m$ を同様に定める。後向き核は同じ前向き経路分布のBayes条件付き確率であり、物理的な逆時間浴を導入しない。
+
+```math
+p_*
+=
+\inf_{0\leq t\leq T}\min_iP(X_t=i)
+\geq
+\frac{\delta q_{\min}}{1+\delta}
+>0
+```
+
+とし、$\varepsilon_{162}^{\rm hist}<p_*/2$ を仮定する。有限経路TVから2時刻周辺へデータ処理し、条件付き確率を比較すると
+
+```math
+\max_i
+D_{\rm TV}
+\left(
+\widehat F_m(i,\cdot),
+F_m(i,\cdot)
+\right)
+\leq
+\frac{2\varepsilon_{162}^{\rm hist}}{p_*},
+```
+
+```math
+\max_i
+D_{\rm TV}
+\left(
+\widehat B_m(i,\cdot),
+B_m(i,\cdot)
+\right)
+\leq
+\frac{2\varepsilon_{162}^{\rm hist}}{p_*}.
+```
+
+有限刻み平均微分を
+
+```math
+D_{+,\tau}f_m
+=
+\frac{F_mf_{m+1}-f_m}{\tau},
+\qquad
+D_{-,\tau}f_m
+=
+\frac{f_m-B_mf_{m-1}}{\tau}
+```
+
+とし、
+
+```math
+a_{\tau,m}
+=
+\frac12
+\left(
+D_{+,\tau}D_{-,\tau}
++
+D_{-,\tau}D_{+,\tau}
+\right)X
+```
+
+とする。時間に依存しない位置座標について厳密に
+
+```math
+a_{\tau,m}
+=
+\frac{
+2F_mX-2X+2B_mX
+-F_mB_{m+1}X
+-B_mF_{m-1}X
+}{
+2\tau^2
+}.
+```
+
+有限衝突経路から $\widehat a_{\tau,m}$ を同様に定める。任意のMarkov核 $K$ について $\operatorname{osc}(KX)\leq\operatorname{osc}(X)$ であるため、
+
+```math
+\boxed{
+\|
+\widehat a_{\tau,m}
+-
+a_{\tau,m}
+\|_\infty
+\leq
+C_{\rm hist}
+\frac{\varepsilon_{162}^{\rm hist}}{\tau^2},
+\qquad
+C_{\rm hist}
+=
+\frac{8\operatorname{osc}(X)}{p_*}.
+}
+```
+
+次に、時刻 $t$ から長さ $s$ の理想前向き核を $F_t^s$、同じ経路分布のBayes後向き核を $B_t^s$ とし、
+
+```math
+\mathcal N_t(s)
+=
+2F_t^sX
++
+2B_t^sX
+-
+F_t^sB_{t+s}^sX
+-
+B_t^sF_{t-s}^sX
+-
+2X
+```
+
+と置く。固定有限時間の滑らかなnode-free部分系で
+
+```math
+\mathcal K_3
+=
+\sup_{t,s}
+\|
+\partial_s^3\mathcal N_t(s)
+\|_\infty
+<\infty
+```
+
+を仮定する。R185の $D_\pm$ と同じ共同経路分布を用いて $s=0$ で微分すると
+
+```math
+\mathcal N_t(0)=0,
+\qquad
+\partial_s\mathcal N_t(0)=0,
+\qquad
+\partial_s^2\mathcal N_t(0)
+=
+4a_{N,\delta}(t).
+```
+
+Taylorの定理から
+
+```math
+\boxed{
+\|
+a_{\tau,m}
+-
+a_{N,\delta}(t_m)
+\|_\infty
+\leq
+C_{\rm time}\tau,
+\qquad
+C_{\rm time}
+=
+\frac{\mathcal K_3}{12}.
+}
+```
+
+<!-- theorem-start:theorem -->
+**定理（R188：有限衝突経路のNelson合成加速度安定性）**
+
+R185の1次元有限格子、固定有限時間、node-free滑らかな部分系を取り、上の $p_*>0$ と $\mathcal K_3<\infty$ を仮定する。R162有限骨格経路実装を内部刻み $h$ で選び、Nelson解析用刻み $\tau=nh$ 上のサンプリング経路誤差を $\varepsilon_{162}^{\rm hist}<p_*/2$ とする。このとき同じ前向き物理経路から作る前向き・Bayes後向き条件付き核に対して
+
+```math
+\boxed{
+\|
+\widehat a_{\tau,m}
+-
+a_{N,\delta}(t_m)
+\|_\infty
+\leq
+C_{\rm time}\tau
++
+C_{\rm hist}
+\frac{\varepsilon_{162}^{\rm hist}}{\tau^2}.
+}
+```
+
+従ってR185と合成して
+
+```math
+\boxed{
+\begin{aligned}
+\left\|
+m\widehat a_{\tau,m}
++
+\partial_xV
+\right\|_\infty
+\leq{}&
+m\|R_\delta\|_\infty
++
+mC_{185,a}a^2
+\\
+&+
+mC_{\rm time}\tau
++
+mC_{\rm hist}
+\frac{\varepsilon_{162}^{\rm hist}}{\tau^2}.
+\end{aligned}
+}
+```
+
+任意の要求誤差 $\epsilon>0$ に対して、まず有限の $\delta>0$、次に有限格子幅 $a>0$、次に有限の $\tau>0$ を選び、最後にR162内部刻み $h$、比較境界幅、読出し窓、時計誤差を選んで $\varepsilon_{162}^{\rm hist}$ を十分小さくすれば、右辺を $\epsilon$ 未満にできる。全ての選択は固定有限時間では有限構成のままである。
+
+本定理はM37生包絡からNewton加速度を直接微分縮約せず、M54実正準信号、R161移動整合、R162有限衝突経路、R185有限格子Newton則を接続する。連続空間一様極限、多粒子、Q3-6の位相量子化は主張しない。
+<!-- theorem-end:theorem -->
+
+## N.9 達成境界と反証条件
 
 R161/R185によりM54空間状態構成の同じ共同分布から前後生成子、確率流速度、浸透速度、時間対称Newton則を導いた。一方、有限衝突浴近似から合成加速度までの明示誤差を閉じていないためQ3-2は部分達成とする。
 
