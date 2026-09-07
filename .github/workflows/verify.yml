@@ -151,7 +151,7 @@ jobs:
           grep -Fq '## B.18 R189Aの走行中作用容量保持' sections/A2_m47_controlled_w_instrument_proofs.md
           grep -Fq '## B.21 R189Cの有限誤差閉包と資源' sections/A2_m47_controlled_w_instrument_proofs.md
           test -f tools/verify_q1_live_zeno.py
-          grep -Fq 'P_{\\rm meas}^{\\rm id}' sections/03_m47_controlled_w_instrument.md
+          grep -Fq 'P_{\rm meas}^{\rm id}' sections/03_m47_controlled_w_instrument.md
           grep -Fq 'R_{i,37}^{\delta,\mathrm{lat}}' sections/A14_m54_spatial_moving_matching.md
           grep -Fq '\frac1\ell' sections/A14_m54_spatial_moving_matching.md
           grep -Fq '一般有界有向率の有限衝突持上げ' sections/A11_common_collision_bath_thermodynamics.md
