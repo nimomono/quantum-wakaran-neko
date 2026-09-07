@@ -115,6 +115,14 @@ jobs:
           ! grep -Fq '\delta_{{\rm post},j}' sections/03_m47_controlled_w_instrument.md sections/A2_m47_controlled_w_instrument_proofs.md
           ! grep -Fq '結果別テンプレート交換' sections/03_m47_controlled_w_instrument.md sections/A2_m47_controlled_w_instrument_proofs.md
           ! grep -Fq '結果別template交換' sections/03_m47_controlled_w_instrument.md sections/A2_m47_controlled_w_instrument_proofs.md
+          ! grep -Fq '結果別テンプレート' sections/03_m47_controlled_w_instrument.md sections/A2_m47_controlled_w_instrument_proofs.md sections/A8_m47_hopf_preparation.md
+          grep -Fq '## 3.12 共通射影選別機構による測定後状態の受け渡し' sections/03_m47_controlled_w_instrument.md
+          grep -Fq '測定後状態の受け渡し' sections/A8_m47_hopf_preparation.md
+          ! grep -R -Fq 'R170衝突' README.md PROJECT_STATUS.md sections
+          grep -Fq 'R184/R162の有限衝突近似' sections/08_errors_resources_open_targets.md
+          grep -Fq 'D_+D_-X' sections/08_errors_resources_open_targets.md
+          grep -Fq 'D_-D_+X' sections/08_errors_resources_open_targets.md
+          ! grep -Fq 'Nelson流の作用変分または時間対称Newton則を有限時間誤差付きで導く' sections/08_errors_resources_open_targets.md
           ! grep -Fq '\varepsilon_{\rm br}' sections/03_m47_controlled_w_instrument.md sections/A2_m47_controlled_w_instrument_proofs.md sections/08_errors_resources_open_targets.md
           ! grep -Fq '\varepsilon_{\rm post}' sections/03_m47_controlled_w_instrument.md sections/A2_m47_controlled_w_instrument_proofs.md sections/08_errors_resources_open_targets.md
           grep -Fq 'old_half_trace_distance_factor_counterexample_margin' tools/verify_m47_q1_instrument.py
