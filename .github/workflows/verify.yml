@@ -144,7 +144,7 @@ jobs:
           grep -Fq '| R187 | 厳密有限次元結果・明示誤差付き構成 |' PROJECT_STATUS.md
           grep -Fq '| Q1-1 | 達成 | M54のW2静的状態構成 | M37弱結合W型の最低2正常モード' PROJECT_STATUS.md
           grep -Fq '| Q1-2 | 達成 | M54のW2静的状態構成 | R187によるM37のW2制御用信号系' PROJECT_STATUS.md
-          test "$(grep -Rho '定理（R189A：' sections/*.md | wc -l)" -eq 1
+          test "$(grep -Rho '補題（R189A：' sections/*.md | wc -l)" -eq 1
           test "$(grep -Rho '定理（R189B：' sections/*.md | wc -l)" -eq 1
           test "$(grep -Rho '定理（R189C：' sections/*.md | wc -l)" -eq 1
           grep -Fq '**系（固定済み作用容量入力の静的選択・固定）**' sections/02_common_canonical_modules.md
