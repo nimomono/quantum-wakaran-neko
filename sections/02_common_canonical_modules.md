@@ -607,6 +607,46 @@ p_v^{\rm id}
 
 である。記録は固定済み選択結果のデータ処理であり、Born型結果重みを新たに生成しない。記録中の有限時計誤差を別項で管理する場合は、その項を右辺へ1回だけ加える。
 
+**系（固定済み作用容量入力の静的選択・固定）**
+
+有限結果集合 $\mathcal I$ に対して、正の固定済み作用容量
+
+```math
+\widehat A_i>0,
+\qquad
+\widehat A_\Sigma=\sum_{j\in\mathcal I}\widehat A_j>0,
+\qquad
+\widehat\pi_i=\frac{\widehat A_i}{\widehat A_\Sigma}
+```
+
+が信号自由度から切り離した有限正準指針変数へ既に保持されているとする。これらをR164の排他的作用殻入口へ渡し、その後にR161の静的整合、R162の有限衝突、収集、入射停止、結果成分間ゲート閉鎖をR170と同じ指定誤差内で実行できると仮定する。
+
+このとき有限の固定時刻 $t_{\rm lock}$、有限後段窓 $T_{\rm post}>0$、潜在選択変数 $S_{\rm lock}\in\mathcal I\cup\{\varnothing\}$ を選べ、
+
+```math
+D_{\rm TV}
+\left(
+P(S_{\rm lock}\in\cdot),
+\widehat\pi
+\right)
+\leq
+\varepsilon_{170}^{\rm cap}
+```
+
+を満たす。ただし
+
+```math
+\varepsilon_{170}^{\rm cap}
+\leq
+\varepsilon_{\rm shell}
++\varepsilon_{\rm mix}
++\varepsilon_{\rm coll}
++\varepsilon_{\rm lock}
++\varepsilon_{\rm clk}
++\varepsilon_{\varnothing}
+```
+
+とし、上流の作用容量保持誤差をこの右辺へ重複加算しない。安全な結果成分ではR170と同じ後段窓で選択平坦域を保つ。無反応を除いて再規格化しない。本系は固定済み容量の生成源を主張せず、元の信号をSWAPまたは保持することも要求しない。
 **系（共通選択・記録安定性）**
 
 理想分布 $p,p'$ と実分布 $q,q'$ が
