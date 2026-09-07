@@ -235,16 +235,17 @@ def validate_github_markdown(path: Path, text: str) -> None:
 
 
 Q2_RESULT_DEPENDENCIES: dict[str, set[str]] = {
+    "R170": {"R112", "R161", "R162", "R164"},
     "R181B": {"R112"},
     "R181C": {"R112", "R181B"},
-    "R181D": {"R112", "R161", "R162", "R164", "R170", "R181A"},
+    "R181D": {"R112", "R170", "R181A"},
     "R177": {"R181B", "R181C", "R181D"},
     "R178D": {"R181D"},
     "R179": {"R112", "R161", "R162"},
     "R186": {"R181C", "R181D", "R179"},
-    "R180A": {"R181C", "R181D"},
+    "R180A": {"R181C", "R170"},
     "R180B": {"R181A"},
-    "R180C": {"R181B", "R181D", "R180A", "R180B"},
+    "R180C": {"R181B", "R170", "R180A", "R180B"},
 }
 
 Q2_LEDGER_ROOTS: dict[str, set[str]] = {
@@ -561,6 +562,22 @@ def validate_fixed_goal_language() -> None:
     active_text = "\n".join(path.read_text(encoding="utf-8") for path in active_paths)
     if "R170衝突" in active_text:
         raise ValueError("現行文書へR170衝突という誤責務が再混入")
+    for forbidden_token in (
+        "R170駆動",
+        "M54静的選択・固定共通部",
+        r"\varepsilon_{170}^{\rm end}",
+    ):
+        if forbidden_token in active_text:
+            raise ValueError("R170旧階層が現行文書へ再混入: " + forbidden_token)
+    status_lines = (ROOT / "PROJECT_STATUS.md").read_text(encoding="utf-8").splitlines()
+    q2_2_line = next(
+        (line for line in status_lines if line.startswith("| Q2-2 | 条件付き達成 |")),
+        "",
+    )
+    if not q2_2_line:
+        raise ValueError("PROJECT_STATUSにQ2-2行がない")
+    if "R181D" in q2_2_line:
+        raise ValueError("Q2-2へR181D依存が再混入")
     errors_text = (SECTIONS / "08_errors_resources_open_targets.md").read_text(
         encoding="utf-8"
     )
@@ -591,7 +608,7 @@ def validate_fixed_goal_language() -> None:
 
     theorem_ids = (
         "R181A", "R181B", "R181C", "R181D", "R178D", "R179",
-        "R180A", "R180B", "R180C", "R161", "R162", "R164",
+        "R180A", "R180B", "R180C", "R161", "R162", "R164", "R170",
         "R123", "R124", "R125", "R182", "R187",
     )
     for result_id in theorem_ids:
@@ -635,6 +652,29 @@ def validate_fixed_goal_language() -> None:
     common_text = (SECTIONS / "02_common_canonical_modules.md").read_text(
         encoding="utf-8"
     )
+    r170_block = common_text.split("**定理（R170：", 1)[1].split(
+        "<!-- theorem-end:theorem -->", 1
+    )[0]
+    for required_token in (
+        "M54静的選択・固定共通定理",
+        r"S_{\rm lock}",
+        r"T_{\rm post}",
+        r"\varepsilon_{170}",
+    ):
+        if required_token not in r170_block:
+            raise ValueError("R170定理の必須要素がない: " + required_token)
+    for forbidden_token in (r"\varepsilon_{\rm rec}", r"G_{\rm rec}"):
+        if forbidden_token in r170_block:
+            raise ValueError("R170定理へ外部記録責務が再混入: " + forbidden_token)
+    if "**系（R170選択結果の局所記録）**" not in common_text:
+        raise ValueError("R170後段の局所記録系がない")
+    if "定理（R181D：M54段階的射影選別・測定後状態受渡し定理）" not in common_text:
+        raise ValueError("R181D新定理名がない")
+    receiver_main_text = (SECTIONS / "05_m54_setting_pre_receiver.md").read_text(
+        encoding="utf-8"
+    )
+    if "R181Dの段階的射影選別定理そのものには依存しない" not in receiver_main_text:
+        raise ValueError("R180AのR181D非依存境界がない")
     receiver_text = (SECTIONS / "A16_m54_projector_tree_receiver.md").read_text(
         encoding="utf-8"
     )

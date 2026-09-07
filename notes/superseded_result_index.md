@@ -16,7 +16,7 @@
 | R171 | M51の共通開放ray準備 | M54の物理template-port準備R181Aへ吸収 | `superseded_separate_m51_m52_m53_models.md`、R181A、付録M |
 | R176A--R176C | M52のtensor-lift、永続gate、末端instrument | M54/R181B--R181Dへ吸収 | `superseded_separate_m51_m52_m53_models.md`、第2章・第4章 |
 | R178A--R178C | M53のsector gate、projector filter、逐次sampler | M54/R181C--R181Dへ吸収 | `superseded_separate_m51_m52_m53_models.md`、付録O・P |
-| R178E--R178F | fixed-volume tapeと滑らかなaperture | Q1/Q2共通のR170駆動R181Dを採用したため現行因果鎖から退役 | `superseded_r178_aperture_sampler.md`、draft-67のGit履歴 |
+| R178E--R178F | fixed-volume tapeと滑らかなaperture | Q1/Q2共通のR170選択・固定＋R181D段階的射影選別を採用したため現行因果鎖から退役 | `superseded_r178_aperture_sampler.md`、draft-67のGit履歴 |
 | R145 | M51/R171のM47 W型2モード特殊化 | R181Aから従う無番号の系へ変更 | 付録H |
 | R70--R72、R77、R78、R91 | M35作用区間によるBorn型長期頻度 | 確率源として退役。M50/R164へ一本化 | `superseded_m35_born_sampler.md` |
 | R107--R111、R121 | M41 Bell周期 | M48/R151--R156、R166、R170へ置換 | `superseded_m41_bell_cycle.md` |

@@ -177,7 +177,7 @@ R177周期の誤差は
  +\varepsilon_{\rm leak}
  +\varepsilon_{\rm ray}
  +\frac{\delta}{1+\delta}
- +\varepsilon_{170}^{\rm end}
+ +\varepsilon_{181D}^{\rm end}
  +f_\varnothing.
  \end{aligned}
  \tag{J.12}

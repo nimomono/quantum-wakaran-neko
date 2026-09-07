@@ -8,7 +8,7 @@ draft-51以後の現行文書では、各試行で局在する物理変数を「
 |---|---|---|---|
 | `superseded_separate_m51_m52_m53_models.md` | draft-67までのM51、M52、M53、R171、R176、R178 | M54/R181A--R181Dへの吸収記録 | Q1とQ2を同じ有限正準register・作用殻receiver模型族から派生させるため |
 | `superseded_separate_m50_m55_models.md` | draft-73までのM50、M55、R183 | M54 static/spatial profileへの吸収記録 | static測定とspatial運動を同じR161/R162 matching/collision原理へ統一するため |
-| `superseded_r178_aperture_sampler.md` | draft-67の付録P、旧R178E/R178F | fixed-volume aperture、first-index、dyadic tapeの退役記録 | Q1/Q2読出しをR170駆動R181Dへ一本化したため |
+| `superseded_r178_aperture_sampler.md` | draft-67の付録P、旧R178E/R178F | fixed-volume aperture、first-index、dyadic tapeの退役記録 | Q1/Q2読出しをR170選択・固定＋R181D段階的射影選別へ一本化したため |
 | `project_sources_key_results.md` | プロジェクト情報源からの統合前抽出 | 統合前メモ | 現行本文との整合性が未確認 |
 | `superseded_terminal_function_model.md` | draft-11 第5〜8章、付録C | M11の不採用記録 | Bell 固有の終端統計入力を必要とし、共通作用殻モデルで置き換えた |
 | `rejected_forward_weighting_models.md` | draft-10 第7.10節、第8.5節、第8.9節、付録C.11 | M12の不採用記録 | 順時間的共有浴と待ち時間は Bell 試行頻度を作らない |
