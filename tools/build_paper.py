@@ -32,7 +32,7 @@ PART_TITLES: dict[int, str] = {
     1: "問題設定と共通言語",
     3: "単一量子ビット型操作と測定",
     4: "2論理部分系とBell型統計",
-    6: "空間担体と粒子位置",
+    6: "空間信号と粒子位置",
     8: "総合評価",
 }
 
@@ -573,7 +573,7 @@ def validate_fixed_goal_language() -> None:
         r"J_\kappa",
         r"G_\kappa",
         "結合後の低2モード",
-        "M54 W2 静的状態構成への正準状態の受け渡し",
+        "M54のW2静的状態構成への正準状態の受け渡し",
     ):
         if token not in r187_text:
             raise ValueError("R187本文の必須要素がない: " + token)
@@ -582,7 +582,7 @@ def validate_fixed_goal_language() -> None:
         "## E.15 静的M37区間の長時間一様較正",
         "## E.16 傾斜モード群、結合後の生成子と有限ゲート列",
         "**証明（R187）**",
-        "## E.18 零傾斜正常モードとM54 W2 正準接続端",
+        "## E.18 零傾斜正常モードとM54のW2正準接続端",
     ):
         if token not in r187_proof_text:
             raise ValueError("R187証明の必須要素がない: " + token)
@@ -609,7 +609,7 @@ def validate_fixed_goal_language() -> None:
         r"A_{u,b}^\delta=J_{u,b}+\delta q_bJ_\Sigma",
         "未処理比較",
         "選択機構を固定",
-        "大きさ方向のみ",
+        "方向を変えない振幅再調整",
         r"2m(\tau+\gamma)",
         "成功試行だけを再規格化しない",
         "集団統計、試行中の状態依存制御を外部から与えない",
