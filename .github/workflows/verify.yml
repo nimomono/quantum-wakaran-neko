@@ -50,6 +50,7 @@ jobs:
             sections/A16_m54_projector_tree_receiver.md \
             sections/A17_m54_uniform_supply.md \
             sections/A18_m54_projective_robustness.md \
+            sections/A19_m54_drude_action_shell_bridge.md \
             notes/superseded_r178_aperture_sampler.md \
             notes/superseded_separate_m51_m52_m53_models.md \
             tools/verify_r181a_template_port.py \
@@ -64,7 +65,12 @@ jobs:
           test "$(grep -Rho '定理（R181C：' sections/*.md | wc -l)" -eq 1
           test "$(grep -Rho '定理（R181D：' sections/*.md | wc -l)" -eq 1
           test "$(grep -Rho '定理（R186：' sections/*.md | wc -l)" -eq 1
+          test "$(grep -Rho '定理（R190A：' sections/*.md | wc -l)" -eq 1
+          test "$(grep -Rho '補題（R190B：' sections/*.md | wc -l)" -eq 1
+          test "$(grep -Rho '定理（R190C：' sections/*.md | wc -l)" -eq 1
           grep -Fq '**証明（R186）**' sections/A18_m54_projective_robustness.md
+          grep -Fq '## S.13 反復衝突とrenewal条件' sections/A19_m54_drude_action_shell_bridge.md
+          test -f tools/verify_r190_drude_shell.py
           grep -Fq '量子力学に特徴的な状態空間、可逆力学、Born型測定統計、測定後状態' sections/01_scope_and_cycle.md
           grep -Fq '全自由度に加わる加法ノイズ' sections/08_errors_resources_open_targets.md
           grep -Fq 'ブラックボックスとしての運用上の複雑度' sections/08_errors_resources_open_targets.md
@@ -86,8 +92,8 @@ jobs:
           [[ "$q2_2_deps" != *R181D* ]]
           grep -Fq 'rank_one_post_state_error' tools/verify_r181d_projector_tree.py
           grep -Fq '集約低温誤差' sections/A17_m54_uniform_supply.md
-          grep -Fq 'version: "draft-84"' CITATION.cff
-          grep -Fq 'draft-84 改訂稿' tools/template.tex
+          grep -Fq 'version: "draft-85"' CITATION.cff
+          grep -Fq 'draft-85 改訂稿' tools/template.tex
 
 
       - name: M54整合理論境界を検査
