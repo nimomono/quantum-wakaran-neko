@@ -36,6 +36,7 @@
 - `sections/A16_m54_projector_tree_receiver.md`
 - `sections/A17_m54_uniform_supply.md`
 - `sections/A18_m54_projective_robustness.md`
+- `sections/A19_m54_drude_action_shell_bridge.md`
 - `sections/90_references.md`
 
 ## 論文外の研究メモ
@@ -126,6 +127,13 @@
 - `fonts/NotoSerifJP-Regular.ttf`
 
 旧版セクション、旧数値コード、旧PDF、査読回答履歴は収録しない。置換・退役した理論の最小索引と再検討条件は `notes/` に残し、完全な原稿と実装はGit履歴から参照する。
+
+## draft-85のR190 Drude作用殻平方根bridge
+
+- R190A--R190Cで、2作用LC殻の作用保存型Drude混合、$I/A$ の有限時間一様化、対称作用開口からR161静的平方根kernelへの接続を追加。
+- 反復collisionは履歴条件付きrenewalを別条件とし、R162の一般有向率と有限骨格履歴を置換しない。
+- `sections/A19_m54_drude_action_shell_bridge.md`、`tools/verify_r190_drude_shell.py`、Kubo--Hashitsume文献[56]を追加。
+- 生成器、CI、状態表、概要、誤差・資源、README、結論、用語、引用情報をdraft-85へ同期し、統合原稿、TeX、PDFを再生成。
 
 ## draft-83のQ1-2有限Zeno閉包
 
