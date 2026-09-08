@@ -10,10 +10,10 @@
 ```math
 \Gamma_t
 =
-(Q(t),P(t),X_t,C_t,H_t,\tau_t,S_{\rm ref})
+(Q(t),P(t),X_t,S_{\rm ref})
 ```
 
-とする。$Q_i,P_i$ は実正準信号自由度、$X_t\in V$ は1個の実在粒子位置、$C_t$ は有限衝突素子、$H_t$ は履歴、$\tau_t$ は時計自由度である。
+とする。$Q_i,P_i$ は実正準信号自由度、$X_t\in V$ は1個の実在粒子位置である。位置jumpはR162の開放Poisson reservoirが担い、有限衝突素子とその微視的履歴を能動状態へ持たない。
 
 ```math
 Z_i
@@ -317,7 +317,7 @@ P(X_t^L\in\cdot)
 T L_\delta(\eta)\varepsilon_{\rm car}(T)
 ```
 
-を満たす。共通R162の一般有限衝突、時計自由度、記録を加えた完全結果誤差を
+を満たす。新R162の開放jump過程と終時刻記録を加えた完全結果誤差を
 
 ```math
 \varepsilon_{184}
@@ -326,18 +326,16 @@ T L_\delta(\eta)\varepsilon_{\rm car}(T)
 +
 T L_\delta\varepsilon_{\rm car}
 +
-\varepsilon_{162}^{\rm gen}
-+
 \varepsilon_{\rm rec}
 ```
 
-とできる。R162の各窓1段階構成では $\varepsilon_{\rm over}=0$ と選べる。厳密な $|\psi|^2$ と比較するときだけ $\delta/(1+\delta)$ を別項として加える。
+とできる。厳密な $|\psi|^2$ と比較するときだけ $\delta/(1+\delta)$ を別項として加える。
 <!-- theorem-end:theorem -->
 
 <!-- theorem-start:proof -->
 **証明（R184）**
 
-理想 $b_L$ では固定機構値が瞬間作用と一致するのでN.2のM54空間率そのものである。M37側では上の開始作用保持機構定義を使うため、規格化後の背景項は両過程で同じ $\delta q_i$ となり、表示した率差評価が各時刻に適用できる。有限Markov生成子のDuhamel公式と全変動距離の収縮性から、位置分布差は率行差の時間積分以下である。R162の一般有向率実装を適用し、R162の有限衝突近似と記録の失敗を完全結果集合の無反応成分へ残して三角不等式で加える。証明終。
+理想 $b_L$ では固定機構値が瞬間作用と一致するのでN.2のM54空間率そのものである。M37側では上の開始作用保持機構定義を使うため、規格化後の背景項は両過程で同じ $\delta q_i$ となり、表示した率差評価が各時刻に適用できる。有限Markov生成子のDuhamel公式と全変動距離の収縮性から、位置分布差は率行差の時間積分以下である。R162の開放jump生成子を適用する。有限衝突近似誤差は存在せず、終時刻記録の失敗だけを完全結果集合の無反応成分へ残して三角不等式で加える。証明終。
 <!-- theorem-end:proof -->
 
 ## N.5 R161 後退率と前後平均微分
@@ -820,268 +818,26 @@ F_0
 
 R185は理想M54空間信号部分系の結果である。R184の $L_\delta\varepsilon_{\rm car}$ は率と位置分布を制御するが、生M37の $2\omega_0$ マイクロモーションからNewton加速度までを率の時間微分付きで直接縮約した結果ではない。この直接縮約は強化課題として分離する。
 
-## N.8 R188の有限衝突Nelson合成加速度安定性
+## N.8 Q3-2の達成境界
 
-Q3空間移動特殊化では、R162へ規格化済み確率表を外部入力しない。R161の
-
-```math
-k^+_{i\to j}
-=
-\frac{T_{ij}^\delta+J_{i\to j}}{2R_i^\delta}
-```
-
-に対し、R162内部刻み $h$ で
+R161/R162が定める同じ前向き開放経路法則からR185のBayes後退率を作るため、旧R188で必要だった有限衝突経路との比較は中心因果鎖に現れない。固定有限時間、1次元有限格子、node-free滑らかな部分系では
 
 ```math
-W_{ij}
-=
-h(T_{ij}^\delta+J_{i\to j}),
-\qquad
-W_{i0}
-=
-2R_i^\delta
--
-\sum_{j\ne i}W_{ij}
-```
-
-と置く。$hM_0<1$ なら全て非負である。一様しきい値 $u_m\in(0,1)$ に対して $2R_i^\delta u_m$ を累積遷移作用 $W_{ij}$ と比較すれば
-
-```math
-P(i\to j)
-=
-\frac{W_{ij}}{2R_i^\delta}
-=
-hk^+_{i\to j}.
-```
-
-従って物理比較器が使うのは同じ単一試行の $R_i^\delta$、$T_{ij}^\delta$、$J_{i\to j}$ だけであり、全位置分布、Born重み、規格化済み遷移確率表を制御器へ書き戻さない。
-
-固定したNelson解析用刻み $\tau>0$ と内部時刻 $t_m=m\tau$ を取る。理想R161経路のサンプリング分布を $\mathbb P^\tau$、R162有限衝突経路の同じサンプリング時刻上の分布を $\widehat{\mathbb P}^\tau$ とする。R162内部衝突刻み $h$ は $\tau$ と独立に細分化し、必要なら $\tau=nh$ と取る。データ処理により
-
-```math
-D_{\rm TV}
-\left(
-\widehat{\mathbb P}^\tau,
-\mathbb P^\tau
-\right)
-\leq
-\varepsilon_{162}^{\rm hist}.
-```
-
-理想サンプリング経路の前向き・後向き条件付き核を
-
-```math
-F_m(i,j)
-=
-P(X_{t_{m+1}}=j\mid X_{t_m}=i),
-\qquad
-B_m(i,j)
-=
-P(X_{t_{m-1}}=j\mid X_{t_m}=i)
-```
-
-とし、有限衝突経路から $\widehat F_m$、$\widehat B_m$ を同様に定める。後向き核は同じ前向き経路分布のBayes条件付き確率であり、物理的な逆時間浴を導入しない。
-
-```math
-p_*
-=
-\inf_{0\leq t\leq T}\min_iP(X_t=i)
-\geq
-\frac{\delta q_{\min}}{1+\delta}
->0
-```
-
-とし、$\varepsilon_{162}^{\rm hist}<p_*/2$ を仮定する。有限経路TVから2時刻周辺へデータ処理し、条件付き確率を比較すると
-
-```math
-\max_i
-D_{\rm TV}
-\left(
-\widehat F_m(i,\cdot),
-F_m(i,\cdot)
-\right)
-\leq
-\frac{2\varepsilon_{162}^{\rm hist}}{p_*},
-```
-
-```math
-\max_i
-D_{\rm TV}
-\left(
-\widehat B_m(i,\cdot),
-B_m(i,\cdot)
-\right)
-\leq
-\frac{2\varepsilon_{162}^{\rm hist}}{p_*}.
-```
-
-有限刻み平均微分を
-
-```math
-D_{+,\tau}f_m
-=
-\frac{F_mf_{m+1}-f_m}{\tau},
-\qquad
-D_{-,\tau}f_m
-=
-\frac{f_m-B_mf_{m-1}}{\tau}
-```
-
-とし、
-
-```math
-a_{\tau,m}
-=
+\left\|
+m
 \frac12
 \left(
-D_{+,\tau}D_{-,\tau}
-+
-D_{-,\tau}D_{+,\tau}
+D_+D_-+D_-D_+
 \right)X
-```
-
-とする。時間に依存しない位置座標について厳密に
-
-```math
-a_{\tau,m}
-=
-\frac{
-2F_mX-2X+2B_mX
--F_mB_{m+1}X
--B_mF_{m-1}X
-}{
-2\tau^2
-}.
-```
-
-有限衝突経路から $\widehat a_{\tau,m}$ を同様に定める。任意のMarkov核 $K$ について $\operatorname{osc}(KX)\leq\operatorname{osc}(X)$ であるため、
-
-```math
-\boxed{
-\|
-\widehat a_{\tau,m}
--
-a_{\tau,m}
-\|_\infty
-\leq
-C_{\rm hist}
-\frac{\varepsilon_{162}^{\rm hist}}{\tau^2},
-\qquad
-C_{\rm hist}
-=
-\frac{8\operatorname{osc}(X)}{p_*}.
-}
-```
-
-次に、時刻 $t$ から長さ $s$ の理想前向き核を $F_t^s$、同じ経路分布のBayes後向き核を $B_t^s$ とし、
-
-```math
-\mathcal N_t(s)
-=
-2F_t^sX
-+
-2B_t^sX
--
-F_t^sB_{t+s}^sX
--
-B_t^sF_{t-s}^sX
--
-2X
-```
-
-と置く。固定有限時間の滑らかなnode-free部分系で
-
-```math
-\mathcal K_3
-=
-\sup_{t,s}
-\|
-\partial_s^3\mathcal N_t(s)
-\|_\infty
-<\infty
-```
-
-を仮定する。R185の $D_\pm$ と同じ共同経路分布を用いて $s=0$ で微分すると
-
-```math
-\mathcal N_t(0)=0,
-\qquad
-\partial_s\mathcal N_t(0)=0,
-\qquad
-\partial_s^2\mathcal N_t(0)
-=
-4a_{N,\delta}(t).
-```
-
-Taylorの定理から
-
-```math
-\boxed{
-\|
-a_{\tau,m}
--
-a_{N,\delta}(t_m)
-\|_\infty
-\leq
-C_{\rm time}\tau,
-\qquad
-C_{\rm time}
-=
-\frac{\mathcal K_3}{12}.
-}
-```
-
-<!-- theorem-start:theorem -->
-**定理（R188：有限衝突経路のNelson合成加速度安定性）**
-
-R185の1次元有限格子、固定有限時間、node-free滑らかな部分系を取り、上の $p_*>0$ と $\mathcal K_3<\infty$ を仮定する。R162有限骨格経路実装を内部刻み $h$ で選び、Nelson解析用刻み $\tau=nh$ 上のサンプリング経路誤差を $\varepsilon_{162}^{\rm hist}<p_*/2$ とする。このとき同じ前向き物理経路から作る前向き・Bayes後向き条件付き核に対して
-
-```math
-\boxed{
-\|
-\widehat a_{\tau,m}
--
-a_{N,\delta}(t_m)
-\|_\infty
-\leq
-C_{\rm time}\tau
-+
-C_{\rm hist}
-\frac{\varepsilon_{162}^{\rm hist}}{\tau^2}.
-}
-```
-
-従ってR185と合成して
-
-```math
-\boxed{
-\begin{aligned}
-\left\|
-m\widehat a_{\tau,m}
 +
 \partial_xV
 \right\|_\infty
-\leq{}&
+\leq
 m\|R_\delta\|_\infty
 +
-mC_{185,a}a^2
-\\
-&+
-mC_{\rm time}\tau
-+
-mC_{\rm hist}
-\frac{\varepsilon_{162}^{\rm hist}}{\tau^2}.
-\end{aligned}
-}
+mC_{185,a}a^2.
 ```
 
-任意の要求誤差 $\epsilon>0$ に対して、まず有限の $\delta>0$、次に有限格子幅 $a>0$、次に有限の $\tau>0$ を選び、最後にR162内部刻み $h$、比較境界幅、読出し窓、時計誤差を選んで $\varepsilon_{162}^{\rm hist}$ を十分小さくすれば、右辺を $\epsilon$ 未満にできる。全ての選択は固定有限時間では有限構成のままである。
+従って $\delta$ と格子幅 $a$ を順に小さくすることで時間対称Newton則へ任意有限誤差で近づける。未来から物理作用する第2浴は導入せず、後向き率は同じ前向き経路分布の条件付き確率である。
 
-本定理はM37生包絡からNewton加速度を直接微分縮約せず、M54実正準信号、R161移動整合、R162有限衝突経路、R185有限格子Newton則を接続する。連続空間一様極限、多粒子、Q3-6の位相量子化は主張しない。
-<!-- theorem-end:theorem -->
-
-## N.9 達成境界と反証条件
-
-R161/R185によりM54空間状態構成の同じ共同分布から前後生成子、確率流速度、浸透速度、時間対称Newton則を導き、R162の有限骨格経路持上げとR188により有限衝突経路から合成加速度までの明示誤差を閉じた。固定有限時間、1次元有限格子、node-free滑らかな部分系という現行範囲でQ3-2は達成とする。
-
-反証条件は、集団統計の書戻しが不可避になること、R162の有限骨格経路誤差が任意精度で縮まらないこと、経路TVから前後条件付き核または合成加速度への安定性がR188の上界を破ること、節のない領域で $C_{185,a}a^2$ または $\delta$ 残差が表示次数で減らないこと、Q3-4A・Q3-4B・Q3-5の正の余裕をR184誤差が上回ることである。連続空間の一様極限、多粒子、Q3-6の位相量子化は本付録の主張に含めない。
+生M37局所包絡からNewton加速度までの直接時間微分付き縮約、連続空間の一様極限、多粒子配置空間、位相量子化は現行Q3-2の達成範囲に含めない。旧R162有限衝突経路および旧R188の安定性は有限閉鎖実装の強化結果として論文外メモへ保存する。

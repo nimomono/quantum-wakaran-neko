@@ -396,9 +396,9 @@ V_{\rm low}(x)
 
 とすれば、低障壁と高障壁の間のincoming energy窓で有限Hamiltonian scattererを作れる。有限幅と有限散乱時間の誤差を $\varepsilon_{\rm sc}$ とする。
 
-## S.13 反復衝突とrenewal条件
+## S.13 R179による反復renewal
 
-第 $m$ attempt直前の完全過去履歴を $\mathcal H_m$ とし、
+第 $m$ attempt直前の完全過去履歴を $\mathcal H_m$ とする。R179のstationary incoming bathを用い、incoming sectorの履歴条件付き非stationarityを $\varepsilon_{{\rm in},m}$ とする。R190Bの作用比混合は初期shell方向に一様なので、有限memory誤差を $\varepsilon_{{\rm mem},m}$、有限混合誤差を $\varepsilon_{{\rm mix},m}$ とすれば
 
 ```math
 \sup_x
@@ -406,10 +406,14 @@ V_{\rm low}(x)
 P(X_m\leq x\mid\mathcal H_m)-x
 \right|
 \leq
-\varepsilon_{{\rm ren},m}
+\varepsilon_{{\rm in},m}
++
+\varepsilon_{{\rm mem},m}
++
+\varepsilon_{{\rm mix},m}.
 ```
 
-を仮定する。すると
+従ってR190Cの作用開口scatterer誤差 $\varepsilon_{{\rm sc},m}$ を加えると
 
 ```math
 \left|
@@ -419,13 +423,18 @@ c_{ij}^{\rm ap}
 \sqrt{\frac{\widehat A_j}{\widehat A_i}}
 \right|
 \leq
-\varepsilon_{{\rm ren},m}
-+\varepsilon_{{\rm sc},m}.
+\varepsilon_{{\rm in},m}
++
+\varepsilon_{{\rm mem},m}
++
+\varepsilon_{{\rm mix},m}
++
+\varepsilon_{{\rm sc},m}.
 ```
 
-有限attempt列では条件付き核誤差を加算して完全履歴TV誤差を抑えられる。R190A--R190Cだけから衝突後fast 浴の条件付き再平衡化または独立同分布性を主張しない。
+理想stationary incoming bathでは $\varepsilon_{{\rm in},m}=0$ である。有限attempt列の完全履歴誤差は条件付きkernel誤差の望遠鏡和で抑えられる。fresh cellの有限bankや独立なthreshold tapeは必要としない。
 
-## S.14 R161への校正、正則化資源、非主張
+## S.14 ## S.14 R161への校正、正則化資源、非主張
 
 $\widehat\pi_i=\widehat A_i/\sum_k\widehat A_k$ とし、$\nu_{ij}c_{ij}^{\rm ap}=\kappa_Xa_{ij}$ と校正すれば、S.13のrenewal条件下でR161静的平方根率を条件付き核誤差内で回収する。
 
@@ -439,4 +448,4 @@ c_{ij}^{\rm ap}
 
 従ってattempt frequencyは最悪 $O(\delta^{-1/2})$ まで増大し得る。これはK.8のR162熱的特殊化と同じ次数である。
 
-R190A--R190Cは、容量 $\widehat A_i$ の生成機構、全2作用殻の完全microcanonical準備、反復衝突のrenewalを無条件に導くこと、R162の一般有向率を置き換えること、容量生成からlock、記録、選別、再調整までの単一ミクロ装置統合、周期総収支を主張しない。有限浴への持上げは本定理の欠落ではなく、有限環境そのものを検査する独立の強化課題である。
+R190A--R190C単独では、容量 $\widehat A_i$ の生成機構、全2作用殻の完全microcanonical準備、容量生成からpointer固定、記録、選別、再調整までの単一ミクロ装置統合、周期総収支を主張しない。反復renewalはR179との合成で与える。R162の一般有向率はQ3の開放jump実現として別責務に置く。有限浴への持上げは本定理の欠落ではなく、有限環境そのものを検査する独立の強化課題である。
