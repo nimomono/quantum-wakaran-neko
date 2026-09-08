@@ -88,6 +88,13 @@ jobs:
           ! grep -R -Fq 'R170駆動' README.md PROJECT_STATUS.md sections
           ! grep -R -Fq 'M54静的選択・固定共通部' README.md PROJECT_STATUS.md sections
           ! grep -R -Fq '\varepsilon_{170}^{\rm end}' README.md PROJECT_STATUS.md sections
+          grep -Fq '有限閉鎖Hamiltonian実装は固定目標ではない' PROJECT_STANCE.md
+          grep -Fq '有限な能動自由度と明示されたHamiltonian無限浴からなるミクロ模型' PROJECT_STANCE.md
+          grep -Fq '有限浴化のためだけに未使用素子列' PROJECT_GUIDE.md
+          grep -Fq '2量子ビット型結合ゲートと同一の共同入力--出力統計を生成する明示的な古典ミクロ過程を構成する' PROJECT_STATUS.md
+          grep -Fq '3つのQ1型有限能動部分系' PROJECT_STATUS.md
+          grep -Fq '| M0 | 単一ミクロ装置統一目標 |' PROJECT_STATUS.md
+          ! grep -Fq '有限環境との弱結合を縮約したエネルギー固有基底' PROJECT_STATUS.md
           q2_2_deps="$(awk -F'|' '/^\| Q2-2 \| 条件付き達成 \|/ {gsub(/^ +| +$/, "", $7); print $7}' PROJECT_STATUS.md)"
           [[ "$q2_2_deps" != *R181D* ]]
           grep -Fq 'rank_one_post_state_error' tools/verify_r181d_projector_tree.py

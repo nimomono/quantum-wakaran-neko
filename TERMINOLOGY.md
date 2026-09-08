@@ -106,6 +106,10 @@
 | bath | 浴 | 必要に応じて「環境自由度」と説明する |
 | thermal bath | 熱浴 | |
 | finite bath | 有限浴 | |
+| finite active subsystem | 有限能動部分系 | 信号、制御、指針など外部運用に直接関わる有限自由度 |
+| Hamiltonian infinite bath | Hamiltonian無限浴 | 連続または可算無限自由度を持つ明示的Hamiltonian環境 |
+| finite-bath lift | 有限浴への持上げ | 有限性自体に物理的意味がある場合を除き強化結果として扱う |
+| finite closed Hamiltonian implementation | 有限閉鎖Hamiltonian実装 | 固定目標が明記しない限り達成条件にしない |
 | Drude bath | Drude浴 | 指数memory kernelを持つ古典調和浴 |
 | memory time | 記憶時間 | Drude浴では $\tau_{\rm D}$ |
 | rotational diffusion | 回転拡散 | 作用方向の $S^2$ 上拡散 |
