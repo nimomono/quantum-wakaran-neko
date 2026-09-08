@@ -113,7 +113,7 @@ C_\delta e^{-\lambda_\delta\tau_X},
 
 R190A--R190Cは現行R170の必須根拠へ追加せず、R164からR161静的平方根率へ進む物理bridgeの代替特殊化として使う。R190経路を採用する場合だけ、
 
-\`\`\`math
+```math
 \varepsilon_{190}^{\rm mem},
 \qquad
 \varepsilon_{190}^{\rm mix},
@@ -121,7 +121,7 @@ R190A--R190Cは現行R170の必須根拠へ追加せず、R164からR161静的�
 \varepsilon_{190}^{\rm ren},
 \qquad
 \varepsilon_{190}^{\rm sc}
-\`\`\`
+```
 
 を記帳する。$\varepsilon_{190}^{\rm mem}$ は有限Drude記憶時間から理想回転拡散へのWasserstein誤差、$\varepsilon_{190}^{\rm mix}$ は有限混合時間、$\varepsilon_{190}^{\rm ren}$ は反復attempt前の履歴条件付き再混合、$\varepsilon_{190}^{\rm sc}$ は作用開口scattererの有限誤差である。
 
@@ -422,7 +422,7 @@ Q3-4BではR182の同じ静的W型過程を $0$、$T_{1/2}$、$T_{\rm per}$ の�
 
 R190Cを静的平方根接続に使う場合、R164の正則化容量
 
-\`\`\`math
+```math
 A_i^\delta
 \geq
 \delta q_{\min}J_*,
@@ -430,17 +430,17 @@ A_i^\delta
 A_i^\delta
 \leq
 (1+\delta)J_*
-\`\`\`
+```
 
 に対して全方向の作用開口閾値を1以下にする一様十分条件は
 
-\`\`\`math
+```math
 c_{\rm ap}
 \leq
 \sqrt{
 \frac{\delta q_{\min}}{1+\delta}
 }.
-\`\`\`
+```
 
 したがって $\nu c_{\rm ap}=\kappa_Xa_{ij}$ の校正では最悪attempt frequencyが $O(\delta^{-1/2})$ まで増大し得る。これはR162熱的特殊化の平方根型衝突流束発散と同じ次数であり、R190を使っても $\delta\downarrow0$ の資源発散は消えない。
 
