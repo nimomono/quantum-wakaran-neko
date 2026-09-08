@@ -521,13 +521,13 @@ R164だけからR161静的特殊化の平方根分割は一意に従わない。
 
 固定済み正作用容量 $\widehat A_i>0$ を取り、2つの同周波数LCモードの作用を $K_i,I_i\geq0$ として
 
-\`\`\`math
+```math
 K_i+I_i=\widehat A_i
-\`\`\`
+```
 
 とする。対応するSchwinger型作用方向を $\boldsymbol n_i\in S^2$ とし、各生成子成分へ同型な無限古典調和浴をcounterterm込みで結合する。浴のmemory kernelを
 
-\`\`\`math
+```math
 \Gamma_{\rm D}(t)
 =
 \frac{g_{\rm D}}{\tau_{\rm D}}
@@ -536,29 +536,29 @@ e^{-t/\tau_{\rm D}},
 g_{\rm D}>0,
 \quad
 \tau_{\rm D}>0
-\`\`\`
+```
 
 とし、初期浴を固定した作用方向に条件付けたFDT整合Gaussian平衡状態から取る。
 
 このとき全拡大Hamiltonian軌道で
 
-\`\`\`math
+```math
 K_i(t)+I_i(t)=\widehat A_i
-\`\`\`
+```
 
 が厳密に保存される。浴自由度を消去した縮約運動は指数memoryを持つ一般化Langevin方程式であり、reaction variableを加えると有限次元のDrude fast--slow系へ書き直せる。
 
 その短memory極限を回転拡散係数 $D_{\rm rot}>0$ の球面拡散 $\boldsymbol N_t$、
 
-\`\`\`math
+```math
 \operatorname{Gen}(\boldsymbol N)
 =
 D_{\rm rot}\Delta_{S^2}
-\`\`\`
+```
 
 とする。固定有限時間 $T$ では、同一Brownian運動上のcouplingを選んで
 
-\`\`\`math
+```math
 W_1
 \left(
 \mathcal L(\boldsymbol n_i^{\tau_{\rm D}}(T)),
@@ -573,7 +573,7 @@ D_{\rm rot}T
 \sqrt{
 D_{\rm rot}\tau_{\rm D}
 }
-\`\`\`
+```
 
 とできる。$C_{\rm str}$ の一つの保守的明示式は付録Sに置く。有限長・有限モード浴への持ち上げは本定理の主張に含めない。
 <!-- theorem-end:theorem -->
@@ -581,18 +581,18 @@ D_{\rm rot}\tau_{\rm D}
 <!-- theorem-start:lemma -->
 **補題（R190B：2作用分配の有限時間一様化）**
 
-\`\`\`math
+```math
 X_i
 =
 \frac{I_i}{\widehat A_i}
 =
 \frac{1-n_{i,z}}2
 \in[0,1]
-\`\`\`
+```
 
 とする。R190Aの理想回転拡散極限では
 
-\`\`\`math
+```math
 \mathcal L_X
 =
 D_{\rm rot}
@@ -601,11 +601,11 @@ x(1-x)\partial_x^2
 +
 (1-2x)\partial_x
 \right]
-\`\`\`
+```
 
 であり、唯一の定常分布は $U[0,1]$、スペクトルギャップは $2D_{\rm rot}$ である。$S=D_{\rm rot}T$、$q=e^{-4S}$ とすると任意の初期作用分配について
 
-\`\`\`math
+```math
 D_{\rm TV}
 \left(
 \mathcal L(X_i(T)),
@@ -619,11 +619,11 @@ U[0,1]
 1,
 \frac{\sqrt{q(3-q)}}{2(1-q)}
 \right\}.
-\`\`\`
+```
 
 有限memory Drude系では
 
-\`\`\`math
+```math
 W_1
 \left(
 \mathcal L(X_i^{\tau_{\rm D}}(T)),
@@ -631,9 +631,9 @@ U[0,1]
 \right)
 \leq
 \eta_{190}(T),
-\`\`\`
+```
 
-\`\`\`math
+```math
 \eta_{190}(T)
 =
 \frac12
@@ -650,11 +650,11 @@ D_{\rm rot}\tau_{\rm D}
 \left(
 D_{\rm rot}T
 \right).
-\`\`\`
+```
 
 従って
 
-\`\`\`math
+```math
 \sup_{0\leq x\leq1}
 \left|
 P
@@ -666,7 +666,7 @@ x
 \right|
 \leq
 \sqrt{2\eta_{190}(T)}.
-\`\`\`
+```
 <!-- theorem-end:lemma -->
 
 <!-- theorem-start:theorem -->
@@ -674,7 +674,7 @@ x
 
 正作用容量 $\widehat A_i,\widehat A_j>0$ と対称開口定数 $c_{ij}^{\rm ap}=c_{ji}^{\rm ap}>0$ を固定し、
 
-\`\`\`math
+```math
 0
 \leq
 \alpha_{ij}
@@ -684,22 +684,22 @@ c_{ij}^{\rm ap}
 \frac{\widehat A_j}{\widehat A_i}
 }
 \leq1
-\`\`\`
+```
 
 とする。結果成分 $i$ の混合作用 $I_i=\widehat A_iX_i$ に対し、理想通過条件を
 
-\`\`\`math
+```math
 I_i^2
 <
 \left(
 c_{ij}^{\rm ap}
 \right)^2
 \widehat A_i\widehat A_j
-\`\`\`
+```
 
 とする。R190Bの混合窓後に作用する有限Hamiltonian scattererの通過・反射誤差を $\varepsilon_{\rm sc}$ とすれば、
 
-\`\`\`math
+```math
 \left|
 P(i\to j)
 -
@@ -714,11 +714,11 @@ c_{ij}^{\rm ap}
 }
 +
 \varepsilon_{\rm sc}.
-\`\`\`
+```
 
 理想極限では
 
-\`\`\`math
+```math
 \widehat A_iP(i\to j)
 =
 \widehat A_jP(j\to i)
@@ -727,26 +727,26 @@ c_{ij}^{\rm ap}
 \sqrt{
 \widehat A_i\widehat A_j
 }.
-\`\`\`
+```
 
 特に $\widehat\pi_i=\widehat A_i/\sum_k\widehat A_k$ とし、attempt frequency $\nu_{ij}$ を
 
-\`\`\`math
+```math
 \nu_{ij}c_{ij}^{\rm ap}
 =
 \kappa_Xa_{ij}
-\`\`\`
+```
 
 と校正すれば、各attempt前の履歴条件付き作用比分布が同じ再混合誤差内にある場合に
 
-\`\`\`math
+```math
 k_{i\to j}
 =
 \kappa_Xa_{ij}
 \sqrt{
 \frac{\widehat\pi_j}{\widehat\pi_i}
 }
-\`\`\`
+```
 
 というR161静的平方根率を有限条件付き核誤差で回収する。反復衝突列のMarkov化にはこの履歴条件付き再混合を別条件として要求し、R190A--R190Cだけから独立同分布のfreshnessを主張しない。
 <!-- theorem-end:theorem -->
