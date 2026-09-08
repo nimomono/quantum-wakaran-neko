@@ -1,3 +1,11 @@
+## draft-87：open-bath simplification
+
+- R162を有限衝突Hamiltonian持上げから局所有向率の開放Poisson-jump実現へ再定義し、Q3-2をR161/R162の同一前向き経路法則からR185へ直接接続した。
+- R188を現行因果鎖から退役し、有限衝突経路の時間刻み・history TV誤差をQ3-2本体誤差から除去した。
+- Q1/Q2の静的選択をR164--R190--R179--R170へ一本化し、R170を吸収pointer固定、R179をstationary incoming/outgoing bathとopen resetへ再定義した。
+- R178DをQ2-4必須依存から外し、有限閉鎖resetの情報容量境界として論文外強化メモへ移す。
+- 有限cold/spent bank、partial-SWAP列、finite collision historyをM54能動状態とQ2-4中心因果鎖から除去した。固定目標と達成ラベルは変更しない。
+
 ## draft-86：PR #118後の整合性校正
 
 - PR #118で正本化した「有限能動部分系＋Hamiltonian無限浴を標準ミクロ基盤とし、有限浴化を原則として強化結果へ分離する」方針を、固定目標補足、現在地、未解決課題、本文・付録の非主張へ横断同期した。
