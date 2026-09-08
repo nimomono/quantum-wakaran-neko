@@ -1,0 +1,22 @@
+name: draft-87 terminology check
+
+on:
+  push:
+    branches:
+      - docs/open-bath-simplification
+
+permissions:
+  contents: read
+
+jobs:
+  terminology:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: docs/open-bath-simplification
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python tools/verify_terminology.py
