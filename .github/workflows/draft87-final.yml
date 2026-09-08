@@ -29,21 +29,36 @@ jobs:
         shell: bash
         run: |
           set +e
-          {
-            echo "== py_compile =="
-            python -m py_compile tools/*.py &&
-            echo "== verify scripts ==" &&
+          : > draft87-action.log
+          rc=0
+
+          echo "== py_compile ==" >> draft87-action.log
+          python -m py_compile tools/*.py >> draft87-action.log 2>&1 || rc=$?
+
+          if [ "$rc" -eq 0 ]; then
+            echo "== verify scripts ==" >> draft87-action.log
             for script in tools/verify_*.py; do
-              echo "-- $script"
-              python "$script" || exit $?
-            done &&
-            echo "== build_paper ==" &&
-            python tools/build_paper.py &&
-            echo "== git diff check ==" &&
-            git diff --check
-          } > draft87-action.log 2>&1
-          rc=$?
+              echo "-- $script" >> draft87-action.log
+              python "$script" >> draft87-action.log 2>&1
+              rc=$?
+              if [ "$rc" -ne 0 ]; then
+                break
+              fi
+            done
+          fi
+
+          if [ "$rc" -eq 0 ]; then
+            echo "== build_paper ==" >> draft87-action.log
+            python tools/build_paper.py >> draft87-action.log 2>&1 || rc=$?
+          fi
+
+          if [ "$rc" -eq 0 ]; then
+            echo "== git diff check ==" >> draft87-action.log
+            git diff --check >> draft87-action.log 2>&1 || rc=$?
+          fi
+
           cat draft87-action.log
+
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           if [ "$rc" -eq 0 ]; then
