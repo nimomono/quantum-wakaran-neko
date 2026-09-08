@@ -588,7 +588,7 @@ def validate_fixed_goal_language() -> None:
     ):
         if token not in stance_text:
             raise ValueError("Hamiltonian無限浴方針の正本語がない: " + token)
-    if "有限浴化のためだけにfresh素子列" not in guide_text:
+    if "有限浴化のためだけに未使用素子列" not in guide_text:
         raise ValueError("PROJECT_GUIDEに有限性監査規約がない")
     for token in (
         "2量子ビット型結合ゲートと同一の共同入力--出力統計を生成する明示的な古典ミクロ過程を構成する",
