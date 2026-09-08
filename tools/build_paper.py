@@ -590,7 +590,7 @@ def validate_fixed_goal_language() -> None:
     for required_token in (
         "## S.3 無限調和Drude浴と作用保存",
         "## S.8 同期couplingによる明示Wasserstein上界",
-        "## S.13 反復collisionとrenewal条件",
+        "## S.13 反復衝突とrenewal条件",
         "R162の一般有向率を置き換えること",
     ):
         if required_token not in r190_proof:
