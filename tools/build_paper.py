@@ -599,6 +599,15 @@ def validate_fixed_goal_language() -> None:
             raise ValueError("方針変更後の固定目標/M0語がない: " + token)
     if "有限環境との弱結合を縮約したエネルギー固有基底" in status_text:
         raise ValueError("Q3-3固定目標に有限環境条件が残っている")
+    for forbidden_token in (
+        "Q3-2は部分達成",
+        "Q3-2について、R161/R185により理想M54空間状態構成上の前進・後退平均微分と時間対称Newton則は導出済みである。残るのは",
+        "明示した有限環境を縮約した有限時間純位相緩和を要求する",
+        "同じ固有基底の有限環境純位相緩和と対角占有率保存を閉じられない",
+        "M54空間状態構成局所辺浴、時計自由度、終位置記録までを同じ有限局所装置へ統合する",
+    ):
+        if forbidden_token in active_text:
+            raise ValueError("方針変更後の旧達成状態・有限性要件が再混入: " + forbidden_token)
     if active_text.count("定理（R190A：") != 1:
         raise ValueError("R190Aの定理宣言数が1ではない")
     if active_text.count("補題（R190B：") != 1:
