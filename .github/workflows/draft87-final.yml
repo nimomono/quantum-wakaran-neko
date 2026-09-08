@@ -1,0 +1,46 @@
+name: draft-87 final validation
+
+on:
+  push:
+    branches:
+      - docs/open-bath-simplification
+
+permissions:
+  contents: write
+
+jobs:
+  validate:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: docs/open-bath-simplification
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y pandoc poppler-utils texlive-latex-extra texlive-xetex
+          python -m pip install numpy
+      - name: Run all verifiers
+        run: |
+          python -m py_compile tools/*.py
+          for script in tools/verify_*.py; do
+            echo "-- $script"
+            python "$script"
+          done
+      - name: Regenerate manuscript
+        run: |
+          python tools/build_paper.py
+          git diff --check
+      - name: Commit generated artifacts
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add paper.md main.tex paper.pdf
+          git rm .github/workflows/draft87-final.yml
+          git commit -m "draft-87: regenerate manuscript artifacts"
+          git push origin HEAD:docs/open-bath-simplification
