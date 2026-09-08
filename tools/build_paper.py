@@ -236,7 +236,8 @@ def validate_github_markdown(path: Path, text: str) -> None:
 
 
 Q2_RESULT_DEPENDENCIES: dict[str, set[str]] = {
-    "R170": {"R112", "R161", "R162", "R164"},
+    "R190A--R190C": {"R161", "R164", "R179"},
+    "R170": {"R190A--R190C"},
     "R181B": {"R112"},
     "R181C": {"R112", "R181B"},
     "R181D": {"R112", "R170", "R181A"},
