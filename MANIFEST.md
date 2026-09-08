@@ -1,5 +1,13 @@
 # 現行パッケージ一覧
 
+## draft-87のopen-bath簡略化
+
+- R162を開放Poisson-jump実現へ再定義し、R188を有限閉鎖実装の強化結果へ退役。
+- Q1/Q2静的選択をR164--R190--R179--R170へ一本化し、R170を吸収pointer、R179をopen reset / incoming-outgoing renewalへ再定義。
+- R178DをQ2-4必須依存から外し、有限closed bank、partial-SWAP、cold/spent履歴を中心因果鎖から除去。
+- 固定目標と達成ラベルは維持する。
+
+
 ## 統合原稿
 
 - `paper.md`
@@ -66,6 +74,8 @@
 - `notes/superseded_separate_m50_m55_models.md`
 - `notes/superseded_r178_aperture_sampler.md`
 - `notes/superseded_m42_continuous_particle_position.md`
+- `notes/superseded_r162_r188_finite_collision.md`
+- `notes/strengthening_closed_reset_information_bound.md`
 - `notes/q1_2_zeno_integration.md`
 - `notes/superseded_position_coupling_fisher_closure.md`
 - `notes/superseded_three_mode_bell_shell.md`
@@ -91,7 +101,7 @@
 - `tools/verify_envelope_reduction.py`
 - `tools/verify_m47_q1_instrument.py`
 - `tools/verify_m47_hopf_preparation.py`
-- `tools/verify_common_matching_collision.py`
+- `tools/verify_common_matching_open_jump.py`
 - `tools/verify_m47_action_shell_origin.py`
 - `tools/verify_q2_shell_and_locality.py`
 - `tools/verify_r180_m54_receiver.py`

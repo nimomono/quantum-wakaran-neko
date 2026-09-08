@@ -236,13 +236,15 @@ def validate_github_markdown(path: Path, text: str) -> None:
 
 
 Q2_RESULT_DEPENDENCIES: dict[str, set[str]] = {
-    "R170": {"R112", "R161", "R162", "R164"},
+    "R190A": {"R164"},
+    "R190B": {"R190A"},
+    "R190C": {"R161", "R190B"},
+    "R170": {"R190C", "R179"},
     "R181B": {"R112"},
     "R181C": {"R112", "R181B"},
     "R181D": {"R112", "R170", "R181A"},
     "R177": {"R181B", "R181C", "R181D"},
-    "R178D": {"R181D"},
-    "R179": {"R112", "R161", "R162"},
+    "R179": set(),
     "R186": {"R181C", "R181D", "R179"},
     "R180A": {"R181C", "R170"},
     "R180B": {"R181A"},
@@ -253,7 +255,7 @@ Q2_LEDGER_ROOTS: dict[str, set[str]] = {
     "Q2-1": {"R181B", "R181C", "R181D"},
     "Q2-2": {"R180C"},
     "Q2-3": {"R177"},
-    "Q2-4": {"R178D", "R186"},
+    "Q2-4": {"R179", "R186"},
 }
 
 Q2_LEDGER_MODELS: dict[str, set[str]] = {
@@ -620,8 +622,8 @@ def validate_fixed_goal_language() -> None:
     for required_token in (
         "## S.3 無限調和Drude浴と作用保存",
         "## S.8 同期couplingによる明示Wasserstein上界",
-        "## S.13 反復衝突とrenewal条件",
-        "R162の一般有向率を置き換えること",
+        "## S.13 R179による反復再混合",
+        "R162の一般有向率はQ3の開放jump実現",
     ):
         if required_token not in r190_proof:
             raise ValueError("R190証明の必須要素がない: " + required_token)
@@ -652,10 +654,7 @@ def validate_fixed_goal_language() -> None:
     for required_token in (
         r"\varepsilon_{Q3-2}",
         r"C_{185,a}a^2",
-        r"C_{\rm time}\tau",
-        r"C_{\rm hist}",
-        r"\varepsilon_{162}^{\rm hist}",
-        "R162有限骨格経路TV",
+        "開放Poisson-jump",
     ):
         if required_token not in errors_text:
             raise ValueError("Q3-2達成誤差台帳の必須要素がない: " + required_token)
@@ -672,9 +671,9 @@ def validate_fixed_goal_language() -> None:
         raise ValueError("現行文書に退役IDが残っている: " + "、".join(hits))
 
     theorem_ids = (
-        "R181A", "R181B", "R181C", "R181D", "R178D", "R179",
+        "R181A", "R181B", "R181C", "R181D", "R179",
         "R180A", "R180B", "R180C", "R161", "R162", "R164", "R170",
-        "R123", "R124", "R125", "R182", "R187", "R188", "R189B", "R189C",
+        "R123", "R124", "R125", "R182", "R187", "R189B", "R189C",
     )
     for result_id in theorem_ids:
         count = active_text.count(f"定理（{result_id}：")
@@ -721,10 +720,10 @@ def validate_fixed_goal_language() -> None:
         "<!-- theorem-end:theorem -->", 1
     )[0]
     for required_token in (
-        "M54静的選択・固定共通定理",
-        r"S_{\rm lock}",
-        r"T_{\rm post}",
-        r"\varepsilon_{170}",
+        "固定作用容量入力の静的選択・吸収指針変数固定",
+        r"\widehat\pi_i",
+        r"e^{-\gamma T_L}",
+        r"\varepsilon_{\rm ptr}",
     ):
         if required_token not in r170_block:
             raise ValueError("R170定理の必須要素がない: " + required_token)
@@ -733,8 +732,6 @@ def validate_fixed_goal_language() -> None:
             raise ValueError("R170定理へ外部記録責務が再混入: " + forbidden_token)
     if "**系（R170選択結果の局所記録）**" not in common_text:
         raise ValueError("R170後段の局所記録系がない")
-    if "**系（固定済み作用容量入力の静的選択・固定）**" not in common_text:
-        raise ValueError("R170固定済み容量入力系がない")
     if "定理（R181D：M54段階的射影選別・測定後状態受渡し定理）" not in common_text:
         raise ValueError("R181D新定理名がない")
     receiver_main_text = (SECTIONS / "05_m54_setting_pre_receiver.md").read_text(
@@ -752,7 +749,7 @@ def validate_fixed_goal_language() -> None:
         r"\Gamma_{54}^{(\Lambda,\mathcal I)}",
         r"A_{u,b}^\delta=J_{u,b}+\delta q_bJ_\Sigma",
         "未処理比較",
-        "選択機構を固定",
+        "吸収指針変数",
         "方向を変えない振幅再調整",
         r"2m(\tau+\gamma)",
         "成功試行だけを再規格化しない",
@@ -764,11 +761,11 @@ def validate_fixed_goal_language() -> None:
     if absent:
         raise ValueError("M54/R181Dの必須要素がない: " + "、".join(absent))
     for token in (
-        "集約低温誤差",
-        "同一の静的二次ハミルトニアン",
-        "衝突素子",
-        "使用済み",
-        "総熱は指数的でもよい",
+        "一様開放リセット",
+        "定常流入",
+        "流出",
+        "R190再混合",
+        "総浴容量",
     ):
         if token not in supply_text:
             raise ValueError(f"R179供給境界の必須要素がない: {token}")

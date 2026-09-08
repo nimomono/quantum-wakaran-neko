@@ -42,3 +42,5 @@ draft-51以後の現行文書では、各試行で局在する物理変数を「
 ## M37主線の現行研究記録
 
 `m37_w_q1_unification_roadmap.md` は、配布資料の採用範囲、補助経路、旧数値の扱い、制御受渡しの完了条件を管理する。
+- `superseded_r162_r188_finite_collision.md`：旧R162有限衝突経路とR188を有限閉鎖実装の強化結果として保存する。
+- `strengthening_closed_reset_information_bound.md`：旧R178Dの有限閉鎖reset情報容量境界を保存する。
