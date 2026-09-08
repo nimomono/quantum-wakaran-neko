@@ -104,7 +104,7 @@ jobs:
           ! grep -R -Fq '定理（R188：' sections
           ! grep -R -Fq '定理（R178D：' sections
           grep -Fq '定理（R162：局所有向率の開放Poisson-jump実現）' sections/02_common_canonical_modules.md
-          grep -Fq '定理（R179：一様開放供給・reset・renewal）' sections/02_common_canonical_modules.md
+          grep -Fq '定理（R179：一様開放供給・リセット・再混合）' sections/02_common_canonical_modules.md
           grep -Fq 'R161、R162、R185' PROJECT_STATUS.md
 
 
