@@ -1,7 +1,7 @@
 @number: S
 @chapter: 付録
 @title: 2作用LC殻Drude混合と静的平方根衝突接続
-@status: R190A--R190Cについて、無限古典Drude浴による作用保存型混合、有限時間作用分配一様化、対称作用開口からR161静的平方根核への単回接続と反復時のrenewal条件を証明する。
+@status: R190A--R190Cについて、無限古典Drude浴による作用保存型混合、有限時間作用分配一様化、対称作用開口からR161静的平方根核への単回接続と反復時の再混合条件を証明する。
 
 ## S.1 目的、記号、主張範囲
 
@@ -97,7 +97,7 @@ d\omega
 \right]
 ```
 
-となる。等方Drude kernelを
+となる。等方Drude 核を
 
 ```math
 \Gamma_{\rm D}(t)
@@ -115,7 +115,7 @@ E[\xi_\alpha(t)\xi_\beta(s)]
 
 とする。古典spin Brownian motionで摩擦と揺らぎを一体に扱うことはKubo--Hashitsume型の構造と整合する [56]。
 
-指数kernelはreaction variableを加えて有限次元Markov系へ持ち上げられる。規格化後、
+指数核はreaction variableを加えて有限次元Markov系へ持ち上げられる。規格化後、
 
 ```math
 \dot{\boldsymbol n}=C_{\boldsymbol n}\boldsymbol y,
@@ -396,9 +396,9 @@ V_{\rm low}(x)
 
 とすれば、低障壁と高障壁の間の流入 energy窓で有限Hamiltonian scattererを作れる。有限幅と有限散乱時間の誤差を $\varepsilon_{\rm sc}$ とする。
 
-## S.13 R179による反復renewal
+## S.13 R179による反復再混合
 
-第 $m$ 試行直前の完全過去履歴を $\mathcal H_m$ とする。R179の定常流入浴を用い、流入部分系の履歴条件付き非stationarityを $\varepsilon_{{\rm in},m}$ とする。R190Bの作用比混合は初期shell方向に一様なので、有限記憶誤差を $\varepsilon_{{\rm mem},m}$、有限混合誤差を $\varepsilon_{{\rm mix},m}$ とすれば
+第 $m$ 試行直前の完全過去履歴を $\mathcal H_m$ とする。R179の定常流入浴を用い、流入部分系の履歴条件付き非stationarityを $\varepsilon_{{\rm in},m}$ とする。R190Bの作用比混合は初期作用殻方向に一様なので、有限記憶誤差を $\varepsilon_{{\rm mem},m}$、有限混合誤差を $\varepsilon_{{\rm mix},m}$ とすれば
 
 ```math
 \sup_x
@@ -432,11 +432,11 @@ c_{ij}^{\rm ap}
 \varepsilon_{{\rm sc},m}.
 ```
 
-理想定常流入浴では $\varepsilon_{{\rm in},m}=0$ である。有限試行列の完全履歴誤差は条件付きkernel誤差の望遠鏡和で抑えられる。未使用素子の有限貯蔵部や独立なthreshold tapeは必要としない。
+理想定常流入浴では $\varepsilon_{{\rm in},m}=0$ である。有限試行列の完全履歴誤差は条件付き核誤差の望遠鏡和で抑えられる。未使用素子の有限貯蔵部や独立なthreshold tapeは必要としない。
 
 ## S.14 ## S.14 R161への校正、正則化資源、非主張
 
-$\widehat\pi_i=\widehat A_i/\sum_k\widehat A_k$ とし、$\nu_{ij}c_{ij}^{\rm ap}=\kappa_Xa_{ij}$ と校正すれば、S.13のrenewal条件下でR161静的平方根率を条件付き核誤差内で回収する。
+$\widehat\pi_i=\widehat A_i/\sum_k\widehat A_k$ とし、$\nu_{ij}c_{ij}^{\rm ap}=\kappa_Xa_{ij}$ と校正すれば、S.13の再混合条件下でR161静的平方根率を条件付き核誤差内で回収する。
 
 R164の正則化容量について一様な安全開口の十分条件は
 
@@ -448,4 +448,4 @@ c_{ij}^{\rm ap}
 
 従って試行 frequencyは最悪 $O(\delta^{-1/2})$ まで増大し得る。これは旧R162熱的有限衝突特殊化で得ていた正則化資源次数と同じであり、その旧結果は強化メモに保存する。
 
-R190A--R190C単独では、容量 $\widehat A_i$ の生成機構、全2作用殻の完全microcanonical準備、容量生成から指針変数固定、記録、選別、再調整までの単一ミクロ装置統合、周期総収支を主張しない。反復renewalはR179との合成で与える。R162の一般有向率はQ3の開放jump実現として別責務に置く。有限浴への持上げは本定理の欠落ではなく、有限環境そのものを検査する独立の強化課題である。
+R190A--R190C単独では、容量 $\widehat A_i$ の生成機構、全2作用殻の完全microcanonical準備、容量生成から指針変数固定、記録、選別、再調整までの単一ミクロ装置統合、周期総収支を主張しない。反復再混合はR179との合成で与える。R162の一般有向率はQ3の開放jump実現として別責務に置く。有限浴への持上げは本定理の欠落ではなく、有限環境そのものを検査する独立の強化課題である。

@@ -69,7 +69,7 @@ jobs:
           test "$(grep -Rho '補題（R190B：' sections/*.md | wc -l)" -eq 1
           test "$(grep -Rho '定理（R190C：' sections/*.md | wc -l)" -eq 1
           grep -Fq '**証明（R186）**' sections/A18_m54_projective_robustness.md
-          grep -Fq '## S.13 R179による反復renewal' sections/A19_m54_drude_action_shell_bridge.md
+          grep -Fq '## S.13 R179による反復再混合' sections/A19_m54_drude_action_shell_bridge.md
           test -f tools/verify_r190_drude_shell.py
           grep -Fq '量子力学に特徴的な状態空間、可逆力学、Born型測定統計、測定後状態' sections/01_scope_and_cycle.md
           grep -Fq '全自由度に加わる加法ノイズ' sections/08_errors_resources_open_targets.md
@@ -77,11 +77,11 @@ jobs:
           grep -Fq '信号作用 $S$ を指数的に増やせば' sections/08_errors_resources_open_targets.md
           test -f tools/verify_r186_m54_projective_robustness.py
           test "$(grep -Rho '定理（R170：' sections/*.md | wc -l)" -eq 1
-          grep -Fq '定理（R170：固定作用容量入力の静的選択・吸収pointer固定）' sections/02_common_canonical_modules.md
+          grep -Fq '定理（R170：固定作用容量入力の静的選択・吸収指針変数固定）' sections/02_common_canonical_modules.md
           grep -Fq '**系（R170選択結果の局所記録）**' sections/02_common_canonical_modules.md
           grep -Fq '定理（R181D：M54段階的射影選別・測定後状態受渡し定理）' sections/02_common_canonical_modules.md
           grep -Fq '共通射影選別機構' sections/02_common_canonical_modules.md
-          grep -Fq 'R170の吸収pointer' sections/A16_m54_projector_tree_receiver.md
+          grep -Fq 'R170の吸収指針変数' sections/A16_m54_projector_tree_receiver.md
           grep -Fq '## P.5.1 階数1 射影子の測定後状態の受け渡し' sections/A16_m54_projector_tree_receiver.md
           grep -Fq '## P.6 方向を変えない振幅再調整' sections/A16_m54_projector_tree_receiver.md
           grep -Fq 'R181Dの段階的射影選別定理そのものには依存しない' sections/05_m54_setting_pre_receiver.md
@@ -98,7 +98,7 @@ jobs:
           q2_2_deps="$(awk -F'|' '/^\| Q2-2 \| 条件付き達成 \|/ {gsub(/^ +| +$/, "", $7); print $7}' PROJECT_STATUS.md)"
           [[ "$q2_2_deps" != *R181D* ]]
           grep -Fq 'rank_one_post_state_error' tools/verify_r181d_projector_tree.py
-          grep -Fq 'stationary incoming / outgoing reservoir' sections/A17_m54_uniform_supply.md
+          grep -Fq '定常流入／流出浴' sections/A17_m54_uniform_supply.md
           grep -Fq 'version: "draft-87"' CITATION.cff
           grep -Fq 'draft-87 改訂稿' tools/template.tex
           ! grep -R -Fq '定理（R188：' sections

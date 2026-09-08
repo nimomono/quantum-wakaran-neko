@@ -622,7 +622,7 @@ def validate_fixed_goal_language() -> None:
     for required_token in (
         "## S.3 無限調和Drude浴と作用保存",
         "## S.8 同期couplingによる明示Wasserstein上界",
-        "## S.13 R179による反復renewal",
+        "## S.13 R179による反復再混合",
         "R162の一般有向率はQ3の開放jump実現",
     ):
         if required_token not in r190_proof:
@@ -720,7 +720,7 @@ def validate_fixed_goal_language() -> None:
         "<!-- theorem-end:theorem -->", 1
     )[0]
     for required_token in (
-        "固定作用容量入力の静的選択・吸収pointer固定",
+        "固定作用容量入力の静的選択・吸収指針変数固定",
         r"\widehat\pi_i",
         r"e^{-\gamma T_L}",
         r"\varepsilon_{\rm ptr}",
@@ -749,7 +749,7 @@ def validate_fixed_goal_language() -> None:
         r"\Gamma_{54}^{(\Lambda,\mathcal I)}",
         r"A_{u,b}^\delta=J_{u,b}+\delta q_bJ_\Sigma",
         "未処理比較",
-        "吸収pointer",
+        "吸収指針変数",
         "方向を変えない振幅再調整",
         r"2m(\tau+\gamma)",
         "成功試行だけを再規格化しない",
@@ -761,11 +761,11 @@ def validate_fixed_goal_language() -> None:
     if absent:
         raise ValueError("M54/R181Dの必須要素がない: " + "、".join(absent))
     for token in (
-        "一様open reset",
-        "stationary incoming",
-        "outgoing",
-        "R190 renewal",
-        "総bath容量",
+        "一様開放リセット",
+        "定常流入",
+        "流出",
+        "R190再混合",
+        "総浴容量",
     ):
         if token not in supply_text:
             raise ValueError(f"R179供給境界の必須要素がない: {token}")
