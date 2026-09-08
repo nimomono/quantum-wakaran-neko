@@ -394,11 +394,11 @@ V_{\rm low}(x)
 \Delta V(x)s_\epsilon(D_{ij}^{\rm ap})
 ```
 
-とすれば、低障壁と高障壁の間のincoming energy窓で有限Hamiltonian scattererを作れる。有限幅と有限散乱時間の誤差を $\varepsilon_{\rm sc}$ とする。
+とすれば、低障壁と高障壁の間の流入 energy窓で有限Hamiltonian scattererを作れる。有限幅と有限散乱時間の誤差を $\varepsilon_{\rm sc}$ とする。
 
 ## S.13 R179による反復renewal
 
-第 $m$ attempt直前の完全過去履歴を $\mathcal H_m$ とする。R179のstationary incoming bathを用い、incoming sectorの履歴条件付き非stationarityを $\varepsilon_{{\rm in},m}$ とする。R190Bの作用比混合は初期shell方向に一様なので、有限memory誤差を $\varepsilon_{{\rm mem},m}$、有限混合誤差を $\varepsilon_{{\rm mix},m}$ とすれば
+第 $m$ 試行直前の完全過去履歴を $\mathcal H_m$ とする。R179の定常流入浴を用い、流入部分系の履歴条件付き非stationarityを $\varepsilon_{{\rm in},m}$ とする。R190Bの作用比混合は初期shell方向に一様なので、有限記憶誤差を $\varepsilon_{{\rm mem},m}$、有限混合誤差を $\varepsilon_{{\rm mix},m}$ とすれば
 
 ```math
 \sup_x
@@ -432,7 +432,7 @@ c_{ij}^{\rm ap}
 \varepsilon_{{\rm sc},m}.
 ```
 
-理想stationary incoming bathでは $\varepsilon_{{\rm in},m}=0$ である。有限attempt列の完全履歴誤差は条件付きkernel誤差の望遠鏡和で抑えられる。fresh cellの有限bankや独立なthreshold tapeは必要としない。
+理想定常流入浴では $\varepsilon_{{\rm in},m}=0$ である。有限試行列の完全履歴誤差は条件付きkernel誤差の望遠鏡和で抑えられる。未使用素子の有限貯蔵部や独立なthreshold tapeは必要としない。
 
 ## S.14 ## S.14 R161への校正、正則化資源、非主張
 
@@ -446,6 +446,6 @@ c_{ij}^{\rm ap}
 \sqrt{\frac{\delta q_{\min}}{1+\delta}}.
 ```
 
-従ってattempt frequencyは最悪 $O(\delta^{-1/2})$ まで増大し得る。これは旧R162熱的有限衝突特殊化で得ていた正則化資源次数と同じであり、その旧結果は強化メモに保存する。
+従って試行 frequencyは最悪 $O(\delta^{-1/2})$ まで増大し得る。これは旧R162熱的有限衝突特殊化で得ていた正則化資源次数と同じであり、その旧結果は強化メモに保存する。
 
-R190A--R190C単独では、容量 $\widehat A_i$ の生成機構、全2作用殻の完全microcanonical準備、容量生成からpointer固定、記録、選別、再調整までの単一ミクロ装置統合、周期総収支を主張しない。反復renewalはR179との合成で与える。R162の一般有向率はQ3の開放jump実現として別責務に置く。有限浴への持上げは本定理の欠落ではなく、有限環境そのものを検査する独立の強化課題である。
+R190A--R190C単独では、容量 $\widehat A_i$ の生成機構、全2作用殻の完全microcanonical準備、容量生成から指針変数固定、記録、選別、再調整までの単一ミクロ装置統合、周期総収支を主張しない。反復renewalはR179との合成で与える。R162の一般有向率はQ3の開放jump実現として別責務に置く。有限浴への持上げは本定理の欠落ではなく、有限環境そのものを検査する独立の強化課題である。
