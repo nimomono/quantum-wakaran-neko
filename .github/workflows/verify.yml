@@ -99,8 +99,8 @@ jobs:
           [[ "$q2_2_deps" != *R181D* ]]
           grep -Fq 'rank_one_post_state_error' tools/verify_r181d_projector_tree.py
           grep -Fq '集約低温誤差' sections/A17_m54_uniform_supply.md
-          grep -Fq 'version: "draft-85"' CITATION.cff
-          grep -Fq 'draft-85 改訂稿' tools/template.tex
+          grep -Fq 'version: "draft-86"' CITATION.cff
+          grep -Fq 'draft-86 改訂稿' tools/template.tex
 
 
       - name: M54整合理論境界を検査
@@ -147,7 +147,10 @@ jobs:
           grep -Fq '\varepsilon_{162}^{\rm hist}' sections/08_errors_resources_open_targets.md
           grep -Fq 'R162有限骨格経路TV' sections/08_errors_resources_open_targets.md
           test -f tools/verify_q3_nelson_collision.py
-          ! grep -Fq 'Q3-2は部分達成' sections/07_q3_finite_graph_phenomena.md sections/09_conclusion.md
+          ! grep -Fq 'Q3-2は部分達成' README.md PROJECT_STATUS.md sections/07_q3_finite_graph_phenomena.md sections/08_errors_resources_open_targets.md sections/09_conclusion.md
+          ! grep -Fq '明示した有限環境を縮約した有限時間純位相緩和を要求する' PROJECT_STATUS.md
+          ! grep -Fq '同じ固有基底の有限環境純位相緩和と対角占有率保存を閉じられない' sections/08_errors_resources_open_targets.md
+          ! grep -Fq 'M54空間状態構成局所辺浴、時計自由度、終位置記録までを同じ有限局所装置へ統合する' sections/08_errors_resources_open_targets.md
           ! grep -Fq '有限衝突近似から $D_+D_-X$ と $D_-D_+X$ までの追加誤差' sections/08_errors_resources_open_targets.md
           ! grep -Fq 'Nelson流の作用変分または時間対称Newton則を有限時間誤差付きで導く' sections/08_errors_resources_open_targets.md
           ! grep -Fq '\varepsilon_{\rm br}' sections/03_m47_controlled_w_instrument.md sections/A2_m47_controlled_w_instrument_proofs.md sections/08_errors_resources_open_targets.md
