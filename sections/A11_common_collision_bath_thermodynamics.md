@@ -305,9 +305,9 @@ P(X_{t+dt}=i\mid X_t=i)
 k_{i\to j}(t)[f(j)-f(i)]
 ```
 
-であり、Kolmogorov前進方程式はR161のmaster equationに一致する。R161の整合条件から初期分布 $p(0)=\pi(0)$ なら $p(t)=\pi(t)$ である。同じ経路法則の2時刻条件付き確率にBayes則を適用すれば後向き率はR161の $k^-$ となる。物理的逆時間bathは追加しない。
+であり、Kolmogorov前進方程式はR161のmaster equationに一致する。R161の整合条件から初期分布 $p(0)=\pi(0)$ なら $p(t)=\pi(t)$ である。同じ経路法則の2時刻条件付き確率にBayes則を適用すれば後向き率はR161の $k^-$ となる。物理的逆時間浴は追加しない。
 
-旧有限衝突模型で必要だったEuler凍結、fresh threshold cell、比較境界帯、canonical latch、余接持上げ、時計誤差、有限骨格history TVは、この採用開放模型の中心証明には現れない。
+旧有限衝突模型で必要だったEuler凍結、未使用しきい値素子、比較境界帯、canonical 保持機構、余接持上げ、時計誤差、有限骨格history TVは、この採用開放模型の中心証明には現れない。
 
 <!-- theorem-start:proof -->
 **証明（R162）**
@@ -315,9 +315,9 @@ k_{i\to j}(t)[f(j)-f(i)]
 上のPoisson構成の標準的なcompensator計算から生成子式を得る。有限総hazard上界が非爆発性を与え、有限状態のKolmogorov方程式の一意性からR161の周辺分布が従う。後退率は同じ前向き経路法則のBayes反転であり、別の確率源を必要としない。証明終。
 <!-- theorem-end:proof -->
 
-## K.5 R170吸収pointer固定の証明
+## K.5 R170吸収指針変数固定の証明
 
-選択終了時刻 $t_s$ 以降は $X$ を固定し、pointerを $Y=\varnothing$ から開始する。条件付きでcapture時刻は率 $\gamma$ の指数分布だから
+選択終了時刻 $t_s$ 以降は $X$ を固定し、指針変数を $Y=\varnothing$ から開始する。条件付きで捕獲時刻は率 $\gamma$ の指数分布だから
 
 ```math
 P(Y=\varnothing\mid X=i)
@@ -331,10 +331,10 @@ P(Y=i\mid X=i)
 1-e^{-\gamma T_L}.
 ```
 
-従って理想capture kernelは入力分布を係数 $1-e^{-\gamma T_L}$ で通常結果へ写し、残りを正式な無反応へ送る。Markov kernelの全変動縮約性と三角不等式から、上流選択誤差 $\varepsilon_{\rm sel}$ とpointer実装誤差 $\varepsilon_{\rm ptr}$ を加えてR170の上界を得る。吸収後の記録はデータ処理であり、結果重みを変更しない。
+従って理想捕獲 kernelは入力分布を係数 $1-e^{-\gamma T_L}$ で通常結果へ写し、残りを正式な無反応へ送る。Markov kernelの全変動縮約性と三角不等式から、上流選択誤差 $\varepsilon_{\rm sel}$ と指針変数実装誤差 $\varepsilon_{\rm ptr}$ を加えてR170の上界を得る。吸収後の記録はデータ処理であり、結果重みを変更しない。
 
 ## K.6 境界と強化結果
 
-新R162はQ3の移動過程に対する採用開放ミクロ方程式であり、有限閉鎖Hamiltonian実装を主張しない。Q1/Q2の静的平方根率の物理実現はR190の作用保存Drude混合と対称作用開口を正本とし、反復renewalはR179のstationary incoming bathを使う。
+新R162はQ3の移動過程に対する採用開放ミクロ方程式であり、有限閉鎖Hamiltonian実装を主張しない。Q1/Q2の静的平方根率の物理実現はR190の作用保存Drude混合と対称作用開口を正本とし、反復renewalはR179の定常流入浴を使う。
 
 旧R162の有限衝突経路持上げ、局所詳細釣合いを持つ有限熱的scatterer、旧R188のpath-TVからNelson加速度への安定性は撤回せず、有限閉鎖実装を検査する強化結果として論文外メモへ保存する。有限浴化、完全周期の仕事・熱・エントロピー収支も中心定理の必要条件にしない。
