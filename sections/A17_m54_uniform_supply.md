@@ -5,13 +5,13 @@
 
 ## Q.1 目的
 
-M54の一般 $n$ 特殊化では、信号記憶部そのものはR181Cの可逆ゲート中に保持する一方、節点ごとのpointer、選別機構用workspace、振幅再調整用接続端は反復使用する。現行模型はこれらを有限closed bankから供給せず、一様なopen reset interfaceへ接続する。結果相関情報、散逸履歴、使用済み環境自由度はoutgoing channelへ流し、能動系だけを未使用状態へ戻す。
+M54の一般 $n$ 特殊化では、信号記憶部そのものはR181Cの可逆ゲート中に保持する一方、節点ごとの指針変数、選別機構用作業領域、振幅再調整用接続端は反復使用する。現行模型はこれらを有限閉鎖貯蔵部から供給せず、一様な開放リセット interfaceへ接続する。結果相関情報、散逸履歴、使用済み環境自由度は流出経路へ流し、能動系だけを未使用状態へ戻す。
 
-Q1/Q2の静的選択ではR190の2作用LC殻へstationary incoming bath sectorを供給する。各attemptで過去と相互作用していないincoming sectorを使うことで、R190Bの初期shell方向に一様な混合評価を履歴条件付きrenewalへ持ち上げる。
+Q1/Q2の静的選択ではR190の2作用LC殻へ定常流入浴部分系を供給する。各試行で過去と相互作用していない流入部分系を使うことで、R190Bの初期shell方向に一様な混合評価を履歴条件付きrenewalへ持ち上げる。
 
-## Q.2 一様open reset
+## Q.2 一様開放リセット
 
-補助能動状態の未使用分布を $\mu_{\rm blank}$ とする。reset半群 $P_t^{\rm reset}$ が安全集合上で
+補助能動状態の未使用分布を $\mu_{\rm blank}$ とする。リセット半群 $P_t^{\rm reset}$ が安全集合上で
 
 ```math
 D
@@ -32,11 +32,11 @@ T_{\rm reset}
 \log\frac{C_{\rm reset}}{\epsilon}
 ```
 
-で要求精度 $\epsilon$ の未使用状態へ戻せる。結果相関情報を同じ能動自由度へ無履歴で消去することは主張せず、outgoing bathへ移す。
+で要求精度 $\epsilon$ の未使用状態へ戻せる。結果相関情報を同じ能動自由度へ無履歴で消去することは主張せず、流出浴へ移す。
 
-## Q.3 stationary incoming / outgoing reservoir
+## Q.3 定常流入 / 流出 reservoir
 
-attempt $m$ の直前の完全過去履歴を $\mathcal H_m$ とする。incoming sector $B_m^{\rm in}$ は、過去に装置と相互作用していないstationary sectorから取り、
+試行 $m$ の直前の完全過去履歴を $\mathcal H_m$ とする。流入部分系 $B_m^{\rm in}$ は、過去に装置と相互作用していない定常 部分系から取り、
 
 ```math
 \mathcal L
@@ -49,11 +49,11 @@ B_m^{\rm in}
 \mu_{\rm in}
 ```
 
-を理想規約とする。有限相関または不完全なstationarityを許す場合、その条件付き距離を $\varepsilon_{{\rm in},m}$ とする。使用後のsectorは $B_m^{\rm out}$ としてoutgoing channelへ進み、同じattempt列へ再注入しない。
+を理想規約とする。有限相関または不完全なstationarityを許す場合、その条件付き距離を $\varepsilon_{{\rm in},m}$ とする。使用後の部分系は $B_m^{\rm out}$ として流出経路へ進み、同じ試行列へ再注入しない。
 
 ## Q.4 R190 renewal
 
-shellのattempt前状態を $x$ とし、R190Bの混合kernelを $K_m(x,\cdot)$ とする。理想一様分布 $U[0,1]$ に対して
+shellの試行前状態を $x$ とし、R190Bの混合kernelを $K_m(x,\cdot)$ とする。理想一様分布 $U[0,1]$ に対して
 
 ```math
 \sup_x
@@ -80,20 +80,20 @@ U[0,1]
 \varepsilon_{{\rm mix},m}.
 ```
 
-R190Aの有限memory誤差を分離する場合は右辺へ $\varepsilon_{{\rm mem},m}$ を1回だけ加える。これがR190Cの反復平方根kernelに必要な履歴条件付きrenewalを与える。
+R190Aの有限記憶誤差を分離する場合は右辺へ $\varepsilon_{{\rm mem},m}$ を1回だけ加える。これがR190Cの反復平方根kernelに必要な履歴条件付きrenewalを与える。
 
 ## Q.5 Q2-4の資源境界
 
-open bathを許しても外部運用資源を無制限にはしない。外部から個別に指定するbath port数、coupling family、reset時間、bandwidth、精度は $\operatorname{poly}(n,d,1/\epsilon)$ で抑える。内部の受動bath自由度、総bath容量、総熱は報告するが、それだけではQ2-4の失敗条件にしない。
+開放浴を許しても外部運用資源を無制限にはしない。外部から個別に指定する浴接続端数、coupling family、リセット時間、bandwidth、精度は $\operatorname{poly}(n,d,1/\epsilon)$ で抑える。内部の受動浴自由度、総浴容量、総熱は報告するが、それだけではQ2-4の失敗条件にしない。
 
-浴が回路出力確率、振幅表、$2^n$ 個のmode別係数を外部入力として必要とする場合は失敗である。R186の全自由度に加わる加法noise障害もそのまま残り、open resetは計算中のsignal noiseを自動的に解消しない。
+浴が回路出力確率、振幅表、$2^n$ 個のモード別係数を外部入力として必要とする場合は失敗である。R186の全自由度に加わる加法ノイズ障害もそのまま残り、開放リセットは計算中の信号 ノイズを自動的に解消しない。
 
 ## Q.6 R179の証明と非主張
 
 <!-- theorem-start:proof -->
 **証明（R179）**
 
-Q.2の指数収縮からreset時間上界が従う。Q.3のincoming sectorは過去履歴で条件付けても同じstationary法則を持ち、Q.4のkernel評価はshell初期状態に一様なので、条件付き法則の三角不等式からrenewal上界を得る。outgoing sectorを再利用しないため、結果相関情報を能動系へ戻す必要はない。証明終。
+Q.2の指数収縮からリセット時間上界が従う。Q.3の流入部分系は過去履歴で条件付けても同じ定常法則を持ち、Q.4のkernel評価はshell初期状態に一様なので、条件付き法則の三角不等式からrenewal上界を得る。流出部分系を再利用しないため、結果相関情報を能動系へ戻す必要はない。証明終。
 <!-- theorem-end:proof -->
 
-R179は有限closed bank、partial-SWAP列、有限cold/spent cell数、無期限運転可能な有限bathを主張しない。これらは有限閉鎖実装そのものを調べる場合の強化問題である。
+R179は有限閉鎖貯蔵部、部分SWAP列、有限低温／使用済み素子数、無期限運転可能な有限浴を主張しない。これらは有限閉鎖実装そのものを調べる場合の強化問題である。
