@@ -437,7 +437,7 @@ A_i^\delta(V)
 \right]
 ```
 
-である。2作用殻のLiouville状態数を1回だけ規格化して $\pi_i^\delta(V)$ を得る。R161/R162へ渡すときは殻を消去し、
+である。2作用殻のLiouville状態数を1回だけ規格化して $\pi_i^\delta(V)$ を得る。R190/R179の静的選択へ渡すときは殻を消去し、
 
 ```math
 E_i^\delta(V)=-\Theta\log\pi_i^\delta(V)
