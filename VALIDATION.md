@@ -1,3 +1,13 @@
+## draft-87：open-bath simplification
+
+- R162を開放Poisson-jump実現へ再定義し、Q3-2本線から旧有限衝突経路とR188を外した。
+- Q1/Q2の静的選択をR164--R190--R179--R170へ一本化し、R179をstationary incoming/outgoing bath＋open reset、R170を吸収pointer固定へ再定義した。
+- R178DをQ2-4必須依存から外し、旧R162/R188とともに有限閉鎖実装の強化結果として論文外メモへ保存した。
+- tools/verify_common_matching_open_jump.py と更新済み tools/verify_r179_m54_supply.py を追加し、生成器・CIの意味論検査を新責務へ同期した。
+- paper.md、main.tex、paper.pdf の最終同期とread-only検算結果は本PRのActions runで追記する。
+
+---
+
 ## draft-86：PR #118後の整合性校正
 
 - Q3-2の旧「部分達成」残骸、Q3-3A/B/Cへの有限環境必須条件の再混入、旧M0型の有限局所Hamiltonian統合表現を、README、PROJECT_STATUS、第1・2・3・5・6・8・9章と関連付録で横断監査した。
