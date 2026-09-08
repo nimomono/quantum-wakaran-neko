@@ -1,3 +1,19 @@
+## draft-85：R190 2作用LC殻Drude混合と静的平方根衝突接続
+
+```bash
+python -m py_compile tools/*.py
+for script in tools/verify_*.py; do python "$script"; done
+python tools/build_paper.py
+git diff --check
+```
+
+R190A--R190Cについて、2作用LC殻のSchwinger作用恒等式、作用保存型Drude混合の回転生成子恒等式、極限noise行列 $BB^{\mathsf T}=2P$、$I/A$ のJacobi縮約、有限時間混合上界、保守的 $C_{\rm str}$ の有限性と $\tau_{\rm D}\downarrow0$ 収束、対称作用開口の詳細釣合い、安全開口の正則化下界を専用検算器で回帰検査する。
+
+R190はR162を置き換えず、単回平方根kernelと反復collisionの履歴条件付きrenewalを分ける。Q1--Q3の固定目標ラベル、R170本体、Q2依存台帳は変更しない。無限Drude浴を採用し、有限長・有限mode浴への持ち上げは非主張として固定する。
+
+PDF生成、最終LaTeX禁止警告、用紙寸法、テキスト層同期の結果は本PRの最終Actions runへ記録する。
+
+---
 ## draft-84：R162有限骨格経路とQ3-2時間対称Newton則閉包
 
 ```bash
