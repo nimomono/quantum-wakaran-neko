@@ -7,7 +7,7 @@ on:
   pull_request:
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   numerical-checks:
@@ -15,6 +15,8 @@ jobs:
     steps:
       - name: 原稿を取得
         uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
 
       - name: Pythonを準備
         uses: actions/setup-python@v5
@@ -167,6 +169,17 @@ jobs:
           grep -Fq '\frac1\ell' sections/A14_m54_spatial_moving_matching.md
           grep -Fq '一般有界有向率の有限衝突持上げ' sections/A11_common_collision_bath_thermodynamics.md
           ! grep -R -E '現行Q3粒子模型.*M42|M42局在トークン|M37--M42' README.md PROJECT_STATUS.md sections/*.md
+
+      - name: draft-85生成物を同期
+        run: |
+          python tools/build_paper.py
+          if ! git diff --quiet -- paper.md main.tex paper.pdf; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add paper.md main.tex paper.pdf
+            git commit -m "draft-85: generated paper artifacts"
+            git push origin HEAD:${{ github.head_ref }}
+          fi
 
       - name: 収録PDFを退避
         run: cp paper.pdf /tmp/paper-committed.pdf
