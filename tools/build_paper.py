@@ -578,6 +578,27 @@ def validate_fixed_goal_language() -> None:
     active_text = "\n".join(path.read_text(encoding="utf-8") for path in active_paths)
     if "R170衝突" in active_text:
         raise ValueError("現行文書へR170衝突という誤責務が再混入")
+    stance_text = (ROOT / "PROJECT_STANCE.md").read_text(encoding="utf-8")
+    guide_text = (ROOT / "PROJECT_GUIDE.md").read_text(encoding="utf-8")
+    status_text = (ROOT / "PROJECT_STATUS.md").read_text(encoding="utf-8")
+    for token in (
+        "有限閉鎖Hamiltonian実装は固定目標ではない",
+        "有限な能動自由度と明示されたHamiltonian無限浴からなるミクロ模型",
+        "有限浴への持上げは、有限性自体に物理的意味がある場合を除き強化結果とする",
+    ):
+        if token not in stance_text:
+            raise ValueError("Hamiltonian無限浴方針の正本語がない: " + token)
+    if "有限浴化のためだけにfresh素子列" not in guide_text:
+        raise ValueError("PROJECT_GUIDEに有限性監査規約がない")
+    for token in (
+        "2量子ビット型結合ゲートと同一の共同入力--出力統計を生成する明示的な古典ミクロ過程を構成する",
+        "3つのQ1型有限能動部分系",
+        "| M0 | 単一ミクロ装置統一目標 |",
+    ):
+        if token not in status_text:
+            raise ValueError("方針変更後の固定目標/M0語がない: " + token)
+    if "有限環境との弱結合を縮約したエネルギー固有基底" in status_text:
+        raise ValueError("Q3-3固定目標に有限環境条件が残っている")
     if active_text.count("定理（R190A：") != 1:
         raise ValueError("R190Aの定理宣言数が1ではない")
     if active_text.count("補題（R190B：") != 1:
