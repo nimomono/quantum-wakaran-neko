@@ -58,3 +58,4 @@
 - [53] H. Zhang, Y. Sun, and X. Zhang, ``Quantum-Inspired Fourier Transforms Based on Circuits,'' Advanced Science 12, e10261 (2025). <https://doi.org/10.1002/advs.202510261>
 - [54] H. Zhang, Y. Sun, and X. Zhang, ``Quantum Inspired Universal Analog Computation Based on Circuits,'' Advanced Quantum Technologies 9, e00752 (2026). <https://doi.org/10.1002/qute.202500752>
 - [55] S. Chen, H. Chen, X. Tang, Y. Sun, and X. Zhang, ``Optical Computing Implementation of Shor's Factorization Algorithm,'' Physical Review A 113, 063505 (2026). <https://doi.org/10.1103/4sc8-5gmk>
+- [56] R. Kubo and N. Hashitsume, ``Brownian Motion of Spins,'' Progress of Theoretical Physics Supplement 46, 210--220 (1970). <https://doi.org/10.1143/PTPS.46.210>
