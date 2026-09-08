@@ -106,6 +106,12 @@
 | bath | 浴 | 必要に応じて「環境自由度」と説明する |
 | thermal bath | 熱浴 | |
 | finite bath | 有限浴 | |
+| Drude bath | Drude浴 | 指数memory kernelを持つ古典調和浴 |
+| memory time | 記憶時間 | Drude浴では $\tau_{\rm D}$ |
+| rotational diffusion | 回転拡散 | 作用方向の $S^2$ 上拡散 |
+| action-partition cell | 作用分配セル | 2作用LC殻を物理セルとして説明するとき |
+| action aperture | 作用開口 | collisionの作用しきい値領域 |
+| renewal | 再混合／再熱化 | 作用比だけなら「再混合」、浴を含む条件付き平衡なら「再熱化」 |
 | environment | 環境 | |
 | sector | 部分系／部分空間／領域 | 「セクター」は原則避ける |
 | signal sector | 信号部分系 | |
