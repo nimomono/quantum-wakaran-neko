@@ -71,7 +71,7 @@ jobs:
           test "$(grep -Rho '補題（R190B：' sections/*.md | wc -l)" -eq 1
           test "$(grep -Rho '定理（R190C：' sections/*.md | wc -l)" -eq 1
           grep -Fq '**証明（R186）**' sections/A18_m54_projective_robustness.md
-          grep -Fq '## S.13 反復collisionとrenewal条件' sections/A19_m54_drude_action_shell_bridge.md
+          grep -Fq '## S.13 反復衝突とrenewal条件' sections/A19_m54_drude_action_shell_bridge.md
           test -f tools/verify_r190_drude_shell.py
           grep -Fq '量子力学に特徴的な状態空間、可逆力学、Born型測定統計、測定後状態' sections/01_scope_and_cycle.md
           grep -Fq '全自由度に加わる加法ノイズ' sections/08_errors_resources_open_targets.md
