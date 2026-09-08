@@ -7,7 +7,7 @@ on:
   pull_request:
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   numerical-checks:
@@ -15,6 +15,8 @@ jobs:
     steps:
       - name: 原稿を取得
         uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
 
       - name: Pythonを準備
         uses: actions/setup-python@v5
@@ -183,6 +185,21 @@ jobs:
 
       - name: 論文を再生成
         run: python tools/build_paper.py
+
+      - name: 生成物をPR branchへコミット
+        if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository
+        env:
+          PR_BRANCH: ${{ github.head_ref }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add paper.md main.tex paper.pdf
+          if git diff --cached --quiet; then
+            echo "生成物は同期済み"
+            exit 0
+          fi
+          git commit -m "build: regenerate draft-86 artifacts"
+          git push origin HEAD:"$PR_BRANCH"
 
       - name: 生成物の同期を検査
         run: |
