@@ -9,7 +9,7 @@
 
 M54をQ1・Q2・Q3の共通信号・配置親模型族とする。完全状態は有限実正準記憶部、供給源／テンプレート接続端、逆演算用補助部／作業領域、未処理・正則化容量、選択機構、衝突素子、低温／使用済み貯蔵部、記録、時計自由度を含む。R181Aは物理テンプレート準備、R181Bは固定入力テンソル積状態の生成、R181Cは永続記憶部ゲート、R170は静的排他的選択・固定、R181Dはその下流の段階的射影選別と測定後状態受渡しを与える。複素信号は実信号系の派生表示、状態方向と分布は解析上の統計量である。
 
-各試行の有限正準信号からR164が共通条件付き分布 $\pi_i^\delta(v)$ を与え、R161が配置分布の整合を、R162が有限衝突実装を与える。Q1/Q2の静的状態構成では $j=0$ の再平衡化からR170が排他的選択を固定し、外部記録はR112または系列固有記録機構が後段で行い、Q3の空間状態構成では $j\neq0$ の移動分布の整合として同じ粒子を輸送する。二乗形の状態依存性はM54の第2モーメントに現れ、排他的結果または位置過程は同じ単一試行信号から作る。R112は有限正準制御、安全比較、SWAP、記録、逆計算を担うが、独立のBorn型結果生成には使わない。
+各試行の有限正準信号からR164が共通条件付き分布 $\pi_i^\delta(v)$ を与え、R161が配置分布の整合を、R162が有限衝突実装を与える。 静的平方根率には、従来のR162熱的障壁特殊化に加え、R190A--R190Cが固定済み正作用容量を2作用LC殻へ渡し、無限Drude浴で作用比を混合して対称作用開口から平方根kernelを得る別の物理bridgeを与える。R190はR162の一般有向率、有限骨格履歴、Q3移動特殊化を置き換えない。Q1/Q2の静的状態構成では $j=0$ の再平衡化からR170が排他的選択を固定し、外部記録はR112または系列固有記録機構が後段で行い、Q3の空間状態構成では $j\neq0$ の移動分布の整合として同じ粒子を輸送する。二乗形の状態依存性はM54の第2モーメントに現れ、排他的結果または位置過程は同じ単一試行信号から作る。R112は有限正準制御、安全比較、SWAP、記録、逆計算を担うが、独立のBorn型結果生成には使わない。
 
 Q1はM54のW2静的状態構成とQ1 W型2モード手順を使う。R187はM37の弱結合W型最低2正常モードをM54のW2信号部分系へ正準同定し、R140の有限 $SU(2)$ 制御を任意精度で物理信号系へ持ち上げる。M54/R181AのW型2モード特殊化が入力状態方向を準備し、共通R135がBloch球型統計状態空間と集団輸送を与える。R140は射影内の任意 $SU(2)$ 操作、Rabi型占有振動、傾斜保持を与える。R143はW型分析器、有限コントラスト、傾斜保持、局所記録を共通射影選別機構へ接続する1段測定機構、R181Dは階数1測定後状態の受け渡し、R144は無反応を含む固定有限段逐次測定を与える。R189Aは零傾斜Rabiを停止せず作用容量だけを有限正準指針変数へ保持し、固定済み容量入力R170系が信号から切り離して選択結果を固定する。R189Bは有限後段窓で走行中階数1射影選別を完了し、R189Cは $N=2$、$\Omega_\kappa T=\pi/2$ の同一M37 W2で測定運転 $3/4$、自由・空操作対照 $1/2$、理想余裕 $1/4$ の有限Rabi--Zeno比較を与える。これによりQ1-2を達成とする。永久記録、補助逆計算、交換リセット、全測定部分系の単一有限局所Hamiltonian統合、周期総収支は実装・熱力学的強化課題である。
 
@@ -703,6 +703,247 @@ R161静的状態構成の平方根型率については、対称障壁と指数�
 <!-- theorem-end:theorem -->
 
 静的状態構成では作用殻ファイバーは状態数を、熱的 衝突浴は配置遷移を担い、同じ自由度ではない。空間状態構成の一般衝突実装は局所詳細釣合いを仮定せず、熱浴という語を要求しない。完全証明と熱的特殊化の粗視化経路熱力学は付録Kに置く。
+
+### R190A--R190C：2作用LC殻Drude混合と静的平方根衝突接続
+
+R164だけからR161静的特殊化の平方根分割は一意に従わない。ここでは、固定済み正作用容量を2作用LC殻へ渡し、無限自由度の等方Drude浴で作用分配だけを混合した後、対称な作用開口を使う一つの具体的十分条件を与える。R190系列はR162を置き換えず、静的 $j=0$ の平方根率に対する作用殻明示表示の物理接続だけを担う。
+
+<!-- theorem-start:theorem -->
+**定理（R190A：2作用LC殻の作用保存型Drude混合）**
+
+固定済み正作用容量 $\widehat A_i>0$ を取り、2つの同周波数LCモードの作用を $K_i,I_i\geq0$ として
+
+```math
+K_i+I_i=\widehat A_i
+```
+
+とする。対応するSchwinger型作用方向を $\boldsymbol n_i\in S^2$ とし、各生成子成分へ同型な無限古典調和浴をcounterterm込みで結合する。浴のmemory kernelを
+
+```math
+\Gamma_{\rm D}(t)
+=
+\frac{g_{\rm D}}{\tau_{\rm D}}
+e^{-t/\tau_{\rm D}},
+\qquad
+g_{\rm D}>0,
+\quad
+\tau_{\rm D}>0
+```
+
+とし、初期浴を固定した作用方向に条件付けたFDT整合Gaussian平衡状態から取る。
+
+このとき全拡大Hamiltonian軌道で
+
+```math
+K_i(t)+I_i(t)=\widehat A_i
+```
+
+が厳密に保存される。浴自由度を消去した縮約運動は指数memoryを持つ一般化Langevin方程式であり、reaction variableを加えると有限次元のDrude fast--slow系へ書き直せる。
+
+その短memory極限を回転拡散係数 $D_{\rm rot}>0$ の球面拡散 $\boldsymbol N_t$、
+
+```math
+\operatorname{Gen}(\boldsymbol N)
+=
+D_{\rm rot}\Delta_{S^2}
+```
+
+とする。固定有限時間 $T$ では、同一Brownian運動上のcouplingを選んで
+
+```math
+W_1
+\left(
+\mathcal L(\boldsymbol n_i^{\tau_{\rm D}}(T)),
+\mathcal L(\boldsymbol N_T)
+\right)
+\leq
+C_{\rm str}
+\left(
+g_{\rm D},
+D_{\rm rot}T
+\right)
+\sqrt{
+D_{\rm rot}\tau_{\rm D}
+}
+```
+
+とできる。$C_{\rm str}$ の一つの保守的明示式は付録Sに置く。有限長・有限モード浴への持ち上げは本定理の主張に含めない。
+<!-- theorem-end:theorem -->
+
+<!-- theorem-start:lemma -->
+**補題（R190B：2作用分配の有限時間一様化）**
+
+```math
+X_i
+=
+\frac{I_i}{\widehat A_i}
+=
+\frac{1-n_{i,z}}2
+\in[0,1]
+```
+
+とする。R190Aの理想回転拡散極限では
+
+```math
+\mathcal L_X
+=
+D_{\rm rot}
+\left[
+x(1-x)\partial_x^2
++
+(1-2x)\partial_x
+\right]
+```
+
+であり、唯一の定常分布は $U[0,1]$、スペクトルギャップは $2D_{\rm rot}$ である。$S=D_{\rm rot}T$、$q=e^{-4S}$ とすると任意の初期作用分配について
+
+```math
+D_{\rm TV}
+\left(
+\mathcal L(X_i(T)),
+U[0,1]
+\right)
+\leq
+\varepsilon_{\rm mix}^{190}(S)
+:=
+\min
+\left\{
+1,
+\frac{\sqrt{q(3-q)}}{2(1-q)}
+\right\}.
+```
+
+有限memory Drude系では
+
+```math
+W_1
+\left(
+\mathcal L(X_i^{\tau_{\rm D}}(T)),
+U[0,1]
+\right)
+\leq
+\eta_{190}(T),
+```
+
+```math
+\eta_{190}(T)
+=
+\frac12
+C_{\rm str}
+\left(
+g_{\rm D},
+D_{\rm rot}T
+\right)
+\sqrt{
+D_{\rm rot}\tau_{\rm D}
+}
++
+\varepsilon_{\rm mix}^{190}
+\left(
+D_{\rm rot}T
+\right).
+```
+
+従って
+
+```math
+\sup_{0\leq x\leq1}
+\left|
+P
+\left(
+X_i^{\tau_{\rm D}}(T)\leq x
+\right)
+-
+x
+\right|
+\leq
+\sqrt{2\eta_{190}(T)}.
+```
+<!-- theorem-end:lemma -->
+
+<!-- theorem-start:theorem -->
+**定理（R190C：対称作用開口から静的平方根核への接続）**
+
+正作用容量 $\widehat A_i,\widehat A_j>0$ と対称開口定数 $c_{ij}^{\rm ap}=c_{ji}^{\rm ap}>0$ を固定し、
+
+```math
+0
+\leq
+\alpha_{ij}
+:=
+c_{ij}^{\rm ap}
+\sqrt{
+\frac{\widehat A_j}{\widehat A_i}
+}
+\leq1
+```
+
+とする。結果成分 $i$ の混合作用 $I_i=\widehat A_iX_i$ に対し、理想通過条件を
+
+```math
+I_i^2
+<
+\left(
+c_{ij}^{\rm ap}
+\right)^2
+\widehat A_i\widehat A_j
+```
+
+とする。R190Bの混合窓後に作用する有限Hamiltonian scattererの通過・反射誤差を $\varepsilon_{\rm sc}$ とすれば、
+
+```math
+\left|
+P(i\to j)
+-
+c_{ij}^{\rm ap}
+\sqrt{
+\frac{\widehat A_j}{\widehat A_i}
+}
+\right|
+\leq
+\sqrt{
+2\eta_{190}(T)
+}
++
+\varepsilon_{\rm sc}.
+```
+
+理想極限では
+
+```math
+\widehat A_iP(i\to j)
+=
+\widehat A_jP(j\to i)
+=
+c_{ij}^{\rm ap}
+\sqrt{
+\widehat A_i\widehat A_j
+}.
+```
+
+特に $\widehat\pi_i=\widehat A_i/\sum_k\widehat A_k$ とし、attempt frequency $\nu_{ij}$ を
+
+```math
+\nu_{ij}c_{ij}^{\rm ap}
+=
+\kappa_Xa_{ij}
+```
+
+と校正すれば、各attempt前の履歴条件付き作用比分布が同じ再混合誤差内にある場合に
+
+```math
+k_{i\to j}
+=
+\kappa_Xa_{ij}
+\sqrt{
+\frac{\widehat\pi_j}{\widehat\pi_i}
+}
+```
+
+というR161静的平方根率を有限条件付き核誤差で回収する。反復衝突列のMarkov化にはこの履歴条件付き再混合を別条件として要求し、R190A--R190Cだけから独立同分布のfreshnessを主張しない。
+<!-- theorem-end:theorem -->
+
+完全証明、$C_{\rm str}$、Jacobi縮約、CDF評価、作用開口scatterer、反復時のrenewal条件、正則化資源は付録Sに置く。R162の一般有向率、有限骨格全履歴、時間依存率、非零確率流、Q3移動特殊化は従来どおりR162が担う。
 
 ## R170：M54静的選択・固定共通定理
 
@@ -5685,6 +5926,24 @@ C_\delta e^{-\lambda_\delta\tau_X},
 で抑えられる。$\delta\downarrow0$ では一様混合率下界が $O(\delta)$ まで低下し得る。
 
 
+### R190静的平方根接続を使う場合の代替誤差台帳
+
+R190A--R190Cは現行R170の必須根拠へ追加せず、R164からR161静的平方根率へ進む物理bridgeの代替特殊化として使う。R190経路を採用する場合だけ、
+
+```math
+\varepsilon_{190}^{\rm mem},
+\qquad
+\varepsilon_{190}^{\rm mix},
+\qquad
+\varepsilon_{190}^{\rm ren},
+\qquad
+\varepsilon_{190}^{\rm sc}
+```
+
+を記帳する。$\varepsilon_{190}^{\rm mem}$ は有限Drude記憶時間から理想回転拡散へのWasserstein誤差、$\varepsilon_{190}^{\rm mix}$ は有限混合時間、$\varepsilon_{190}^{\rm ren}$ は反復attempt前の履歴条件付き再混合、$\varepsilon_{190}^{\rm sc}$ は作用開口scattererの有限誤差である。
+
+同じ静的選択工程について、R162熱的特殊化の $\varepsilon_{\rm mix}+\varepsilon_{\rm coll}$ とR190経路の上記4項を同時に加えない。R162経路またはR190経路のどちらを採るかを装置ごとに固定し、同じ物理偏差を1回だけ数える。R190はR162の一般有向率またはQ3移動率へ使わない。
+
 ## Q1の系列固有誤差
 
 R143は初期操作面のR170、W型分析器、分析器後のR181Dの深さ1 共通射影選別機構を合成する。結果分布誤差と安全な結果成分の測定後状態誤差を分ける。
@@ -5978,6 +6237,30 @@ Q3-4BではR182の同じ静的W型過程を $0$、$T_{1/2}$、$T_{\rm per}$ の�
 
 有限資源を固定したまま厳密節点、無期限熱化、永久記録、リセットを同時に達成したとは扱わない。
 
+R190Cを静的平方根接続に使う場合、R164の正則化容量
+
+```math
+A_i^\delta
+\geq
+\delta q_{\min}J_*,
+\qquad
+A_i^\delta
+\leq
+(1+\delta)J_*
+```
+
+に対して全方向の作用開口閾値を1以下にする一様十分条件は
+
+```math
+c_{\rm ap}
+\leq
+\sqrt{
+\frac{\delta q_{\min}}{1+\delta}
+}.
+```
+
+したがって $\nu c_{\rm ap}=\kappa_Xa_{ij}$ の校正では最悪attempt frequencyが $O(\delta^{-1/2})$ まで増大し得る。これはR162熱的特殊化の平方根型衝突流束発散と同じ次数であり、R190を使っても $\delta\downarrow0$ の資源発散は消えない。
+
 ## Q2の根拠モデル、共通ハードウェア努力目標、ブラックボックス資源分類
 
 Q2-1からQ2-4は、次の根拠モデルと根拠結果から互いに独立に判定する。独立とは他のQ2目標の達成ラベルを前提にしないという意味であり、同じ模型または部品定理を複数の目標で使うことは禁止しない。目標ごとに信号系、浴、時計自由度、準備・読出し原理が異なっても、それだけでは不達としない。
@@ -6136,9 +6419,9 @@ B.5の漏れ確率を全変動距離へ直接加える旧評価は採用しな�
 
 M54は、一様有限正準記憶部、物理供給源／テンプレート接続端、逆演算用補助部／作業領域、未処理・正則化容量、選択機構、低温／使用済み貯蔵部、記録、時計自由度を持つQ1・Q2の共通親模型族である。R181Aは物理テンプレート準備、R181Bは固定2・3入力の可逆テンソル積状態の生成、R181Cは永続記憶部上の局所ゲート列、R170は静的選択・固定、R181Dはその下流の段階的射影選別と測定後状態受渡しを与える。各試行の複素信号は実正準座標の派生表示であり、解析上の状態方向や確率表を制御器へ書き戻さない。
 
-Q1はM54の $n=1$ W型特殊化である。R181AのW型2モード系は独立結果IDを持たない。共通R135は階数1bath共分散のBloch球、R140は任意の $SU(2)$、零傾斜占有振動、離調Rabi式を与える。R187はM37の局所ばね弱結合W型族で $J_\kappa/G_\kappa\to0$ を構成し、傾斜時の結合後の低2モード部分空間、厳密正常モード分裂較正、有限切替を合成してR140制御を任意精度で物理信号系へ持ち上げる。R143がW型分析器、有限コントラスト、傾斜保持、局所記録をR170選択・固定と共通射影選別機構へ接続し、R181Dの深さ1 階数1の選別機構と方向を変えない振幅再調整が安全な結果成分の測定後状態を同じ信号上に直接作る。R135、R140により既にQ1-1を達成しており、R187はその物理実装層を強化する。
+Q1はM54の $n=1$ W型特殊化である。R181AのW型2モード系は独立結果IDを持たない。共通R135は階数1浴共分散のBloch球、R140は任意の $SU(2)$、零傾斜占有振動、離調Rabi式を与える。R187はM37の局所ばね弱結合W型族で $J_\kappa/G_\kappa\to0$ を構成し、傾斜時の結合後の低2モード部分空間、厳密正常モード分裂較正、有限切替を合成してR140制御を任意精度で物理信号系へ持ち上げる。R143がW型分析器、有限コントラスト、傾斜保持、局所記録をR170選択・固定と共通射影選別機構へ接続し、R181Dの深さ1 階数1の選別機構と方向を変えない振幅再調整が安全な結果成分の測定後状態を同じ信号上に直接作る。R135、R140により既にQ1-1を達成しており、R187はその物理実装層を強化する。
 
-R164は一般有限信号作用を結果成分容量へ写し、各排他的結果成分の2作用殻を単一Liouville基準分布で数えるとBorn型条件付き状態数が得られることを示す。二乗形の状態依存性はM54が準備する階数1第2モーメントに現れ、R164は各試行の実信号から排他的結果の状態数を作る。この二段を二重の確率源として数えない。R161は共通確率流・活動量整合を与え、静的状態構成では条件付きGibbs再平衡化、空間状態構成では移動分布の整合を与える。R162は一般有限衝突と熱的特殊化を与え、その系として条件付き中間状態の正逆経路確率比と相対有効仕事が従う。作用殻明示表示と消去表示を同じ分配関数で二重計数せず、殻自由エネルギー仕事 $W^{\rm sh}$ と相対有効仕事 $W^{\rm rel}$ を区別する。
+R164は一般有限信号作用を結果成分容量へ写し、各排他的結果成分の2作用殻を単一Liouville基準分布で数えるとBorn型条件付き状態数が得られることを示す。二乗形の状態依存性はM54が準備する階数1第2モーメントに現れ、R164は各試行の実信号から排他的結果の状態数を作る。この二段を二重の確率源として数えない。R161は共通確率流・活動量整合を与え、静的状態構成では平方根型再平衡化、空間状態構成では移動分布の整合を与える。R162は一般有限衝突と熱的特殊化を与え、その系として条件付き中間状態の正逆経路確率比と相対有効仕事が従う。R190A--R190Cは静的平方根率だけについて、固定済み正作用容量を2作用LC殻へ渡し、無限Drude浴による作用保存型混合と対称作用開口から同じ平方根kernelへ接続する別の物理bridgeを与える。反復衝突のrenewalと有限浴持上げは別条件として残し、R162の一般有向率とQ3移動特殊化を置き換えない。作用殻明示表示と消去表示を同じ分配関数で二重計数せず、殻自由エネルギー仕事 $W^{\rm sh}$ と相対有効仕事 $W^{\rm rel}$ を区別する。
 
 R143はW型信号準備、分析器、有限コントラスト、傾斜固定、安全井戸局所記録を共通射影選別機構へ接続する1段有限誤差測定機構である。記録器は統計振幅、共分散、全密度、確率流、遷移率を入力にせず、各試行に存在する $X$ の局所位置だけを読む。結果成分を固定した後はR181Dの階数1 射影選別機構が選択後信号を結果固有状態方向へ移し、方向を変えない振幅再調整が方向を保ったまま作用を戻すため、別の結果別状態テンプレートと測定後再平衡化は不要である。R144は同じ信号を固定有限回直接受け渡し、無反応を含む完全履歴、同軸反復分布、異軸逐次分布と有限誤差を与える。永久記録、補助逆計算、外部空素子交換はR144とは別の無番号実装強化系である。解析器中または周期間に配置--信号 整合を連続保存することは仮定しない。
 
@@ -11161,6 +11444,8 @@ D_{\rm TV}(\pi^\delta,w)
 \frac{\delta}{1+\delta}.
 ```
 
+R190A--R190Cは、この静的平方根率に対して作用殻明示表示の別の物理接続を与える。R190は固定済み正作用容量を2作用LC殻へ渡し、無限Drude浴で作用比を混合して対称作用開口で平方根kernelを得る十分条件であり、R161の一般整合定理そのものを変更しない。
+
 ### 節点における静的再平衡化の障害
 
 $\delta=0$ とし、目標分布 $w$ の零頂点 $v$ が配置 グラフの切断点であるとする。隣接辺だけを使い、$w$ に関して詳細釣合いを満たす有限率生成子は、$G_X\setminus\{v\}$ の異なる連結成分間で確率質量を輸送できない。詳細釣合いは
@@ -11453,7 +11738,7 @@ k_{i\to j}^{\rm coll}
 \log\frac{\pi_j^\delta}{\pi_i^\delta}
 ```
 
-である。この熱的特殊化だけについてK.5の粗視化仕事・熱・エントロピー生成を定義する。
+である。この熱的特殊化だけについてK.5の粗視化仕事・熱・エントロピー生成を定義する。R190Cの作用開口経路はこの対称自由エネルギー障壁を用いない別の静的特殊化であり、K.5の仕事・熱・エントロピー式を自動的には継承しない。
 
 <!-- theorem-start:proof -->
 **証明（R162）**
@@ -11788,7 +12073,7 @@ R164は単一試行信号作用から結果成分容量を作り、排他的2作
 8. 解析器、Hopf ポンプ、ファイバー、記録、射影選別機構、方向を変えない振幅再調整、リセットまで含む周期全体の微視的仕事・熱・エントロピー収支。
 9. 有限信号次元を越える任意POVM、連続スペクトルの一般Born則。
 
-残る最重要目標は、作用容量結合、殻内平衡化、結果成分間の対称性、信号保持反作用をQ1・Q2・Q3の各完全周期または固定入力測定機構の有限局所ハミルトニアンとして統合することである。R161、R162、R164を完全な有限装置による一般Born測度の第一原理導出とは分類しない。
+R190A--R190Cにより、無限Drude浴を許す静的平方根特殊化では衝突に必要な作用比分配混合と対称作用開口の一つの具体的候補が与えられる。一方、容量生成、完全作用殻平衡、衝突後fast浴の履歴条件付きrenewal、有限局所装置への統合、全周期収支は未解決である。残る最重要目標は、これらをQ1・Q2・Q3の各完全周期または固定入力測定機構へ統合することである。R161、R162、R164、R190を完全な有限装置による一般Born測度の第一原理導出とは分類しない。
 
 # 有限信号作用と作用殻状態数の共通起源
 
@@ -12196,7 +12481,7 @@ E_j^\delta-E_i^\delta
 \right]
 ```
 
-と書ける。R164は定常重みと有効自由エネルギーの起源を与えるが、対称活動度 $a_{ij}$ の大きさや平方根分割そのものを作用殻から一意に導かない。R161はその有効地形に整合する局所再平衡化定理として独立に必要である。
+と書ける。R164は定常重みと有効自由エネルギーの起源を与えるが、対称活動度 $a_{ij}$ の大きさや平方根分割そのものを作用殻から一意に導かない。R161はその有効地形に整合する局所再平衡化定理として独立に必要である。R190A--R190Cは、固定済み正作用容量を2作用LC殻へ渡し、無限Drude浴による作用保存型混合と対称作用開口を追加した場合に、R161静的平方根率を作用殻明示表示から得る一つの具体的十分条件を与える。従ってR164単独から平方根分割は従わず、追加のR190動力学条件を課した特殊化だけがその物理起源を与える。
 
 ## 直接作用分配次元の剛性
 
@@ -12456,9 +12741,9 @@ M54整合状態構成をQ1、Q2、Q3の1回の作用殻準備と粒子位置再�
 R164の達成範囲は「条件付き厳密結果＋滑らかな有限幅近似」である。本付録は次を主張しない。
 
 1. 結果成分容量 $A_i^\delta(v)$ を作る結合が任意のQ1、Q2、Q3信号状態から自動的に準備されること。
-2. 作用殻Liouville測度が有限時間の局所力学で一様またはGibbs的に準備されること。
-3. 結果成分対称な余面積因子と入口流束が信号系だけから自動的に従うこと。
-4. 作用殻とR162の衝突熱浴が同一の物理部分系であること。
+2. 完全な2作用殻Liouville測度全体が有限時間の有限局所Hamiltonian力学で一様またはGibbs的に準備されること。R190は無限Drude浴を採用した条件で衝突に必要な作用比 $I/A$ の一様化だけを扱う。
+3. 結果成分対称な余面積因子と入口流束が信号系だけから自動的に従うこと。R190Cは対称作用開口を追加条件として明示する。
+4. 作用殻とR162の衝突熱浴が同一の物理部分系であること。R190はR162熱的特殊化とは別の静的平方根経路である。
 5. 作用殻、信号保持制御器、衝突素子を含む全微視的仕事・熱収支が粗視化経路熱力学だけから従うこと。
 6. $\delta=0$ の節点を有限剛性、有限衝突流束、有限混合時間で一様に実現できること。
 7. 有限信号次元を越える任意POVM、連続スペクトルの一般Born則。
@@ -14564,6 +14849,449 @@ O\!\left(s\sqrt{n+\log p+\log\alpha^{-1}}\right).
 
 この付録は装置体積、部品総数、総熱を多項式へ削減しない。主張するのは、内部の指数自由度数と外部精度を自動的に同一視しないこと、および現在のM54 直接モードでどの種類のノイズが外部指数精度へ露出するかを区別することである。
 
+# 2作用LC殻Drude混合と静的平方根衝突接続
+
+> **位置づけ：** R190A--R190Cについて、無限古典Drude浴による作用保存型混合、有限時間作用分配一様化、対称作用開口からR161静的平方根核への単回接続と反復時のrenewal条件を証明する。
+
+
+## 目的、記号、主張範囲
+
+R164は固定済み正作用容量 $\widehat A_i$ に対する2作用殻のLiouville状態数を線形に数えるが、R161静的特殊化の平方根分割そのものを一意には決めない。本付録では、2作用殻を2つの同周波数LCモードとして表し、無限自由度の等方Drude浴で作用分配を混合し、対称作用開口を通じてR161静的平方根核へ接続する一つの十分条件を与える。
+
+本付録は無限古典調和浴を模型の一部として採用する。有限長・有限モード伝送線からの持ち上げ、容量生成から記録までの単一有限局所Hamiltonian装置、完全周期の仕事・熱・エントロピー収支は主張しない。R190が直接必要とするのは衝突に用いる作用比 $I/\widehat A$ の分布であり、2作用殻の全位相方向を有限時間で完全microcanonical化することではない。
+
+## 2作用LC殻と作用方向
+
+2つの同周波数LCモードの複素正準振幅を $\zeta_K,\zeta_I$ とし、
+
+```math
+K=\mathcal J_0|\zeta_K|^2,
+\qquad
+I=\mathcal J_0|\zeta_I|^2,
+\qquad
+K+I=\widehat A>0
+```
+
+とする。Schwinger型作用生成子を
+
+```math
+S_x=\frac{\mathcal J_0}{2}
+(\zeta_K^*\zeta_I+\zeta_I^*\zeta_K),
+```
+
+```math
+S_y=\frac{\mathcal J_0}{2i}
+(\zeta_K^*\zeta_I-\zeta_I^*\zeta_K),
+\qquad
+S_z=\frac{K-I}{2}
+```
+
+と置く。直接計算で
+
+```math
+S_x^2+S_y^2+S_z^2=\frac{\widehat A^2}{4}
+```
+
+である。従って
+
+```math
+\boldsymbol n=\frac{2\boldsymbol S}{\widehat A}\in S^2,
+\qquad
+X=\frac{I}{\widehat A}=\frac{1-n_z}{2}.
+```
+
+## 無限調和Drude浴と作用保存
+
+各 $\alpha=x,y,z$ に独立同型な調和浴を置き、counterterm込みの全Hamiltonianを
+
+```math
+H_{\rm tot}
+=
+H_{\rm LC}(\widehat A)
++
+\sum_{\alpha=x,y,z}
+\int_0^\infty
+\left[
+\frac{p_\alpha(\omega)^2}{2m(\omega)}
++
+\frac{m(\omega)\omega^2}{2}
+\left(
+q_\alpha(\omega)
+-
+\frac{c(\omega)}{m(\omega)\omega^2}S_\alpha
+\right)^2
+\right]
+d\omega
+```
+
+とする。$A=K+I$ は2モード全体の共通位相回転生成子であり、
+
+```math
+\{A,S_\alpha\}=0
+```
+
+だから $\{A,H_{\rm tot}\}=0$ である。従って全拡大Hamiltonian軌道で $A(t)=A(0)=\widehat A$ が厳密に成り立つ。
+
+## 調和浴の消去とDrude一般化Langevin方程式
+
+調和浴自由度は線形なので、Zwanzig型の消去 [14] を適用できる。初期浴を固定した $\boldsymbol S(0)$ に条件付けたGaussian平衡状態から取ると、縮約運動は
+
+```math
+\dot{\boldsymbol S}(t)
+=
+\boldsymbol S(t)\times
+\left[
+\boldsymbol\xi(t)
+-
+\int_0^t
+\Gamma_{\rm D}(t-s)\dot{\boldsymbol S}(s)\,ds
+\right]
+```
+
+となる。等方Drude kernelを
+
+```math
+\Gamma_{\rm D}(t)
+=
+\frac{g_{\rm D}}{\tau_{\rm D}}e^{-t/\tau_{\rm D}}
+```
+
+とし、
+
+```math
+E[\xi_\alpha(t)\xi_\beta(s)]
+=
+\Theta_{\rm D}\Gamma_{\rm D}(|t-s|)\delta_{\alpha\beta}
+```
+
+とする。古典spin Brownian motionで摩擦と揺らぎを一体に扱うことはKubo--Hashitsume型の構造と整合する [56]。
+
+指数kernelはreaction variableを加えて有限次元Markov系へ持ち上げられる。規格化後、
+
+```math
+\dot{\boldsymbol n}=C_{\boldsymbol n}\boldsymbol y,
+\qquad
+C_{\boldsymbol n}\boldsymbol u=\boldsymbol n\times\boldsymbol u,
+```
+
+```math
+\tau_{\rm D}d\boldsymbol y
+=
+-(I_3+g_{\rm D}C_{\boldsymbol n})\boldsymbol y\,dt
++
+\sigma_{\rm D}d\boldsymbol W_t.
+```
+
+回転拡散係数を
+
+```math
+D_{\rm rot}
+=
+\frac{\sigma_{\rm D}^2}{2(1+g_{\rm D}^2)}
+```
+
+と定める。
+
+## 固定作用上の平衡周辺分布
+
+固定した $\boldsymbol S$ に対して浴座標を平行移動するとJacobianは1であり、浴分配関数は $\boldsymbol S$ の向きに依存しない。従って固定 $|\boldsymbol S|=\widehat A/2$ 上の平衡周辺分布は球面一様であり、$X=(1-n_z)/2$ の平衡分布は $U[0,1]$ である。
+
+## 無次元fast--slow系
+
+$s=D_{\rm rot}t$、
+
+```math
+\delta_{\rm D}
+=
+\sqrt{D_{\rm rot}\tau_{\rm D}},
+\qquad
+a_{\rm D}=1+g_{\rm D}^2
+```
+
+とする。fast変数を平衡分散で規格化すると
+
+```math
+d\boldsymbol n_s^\delta
+=
+\frac{\sqrt{a_{\rm D}}}{\delta_{\rm D}}
+C_{\boldsymbol n_s^\delta}\boldsymbol v_s\,ds,
+```
+
+```math
+d\boldsymbol v_s
+=
+-\frac1{\delta_{\rm D}^2}
+(I_3+g_{\rm D}C_{\boldsymbol n_s^\delta})\boldsymbol v_s\,ds
++
+\frac{\sqrt2}{\delta_{\rm D}}d\boldsymbol W_s.
+```
+
+$C_{\boldsymbol n}^{\mathsf T}=-C_{\boldsymbol n}$ だからfast OU部分は $\boldsymbol n$ に一様な指数安定性を持つ。
+
+## 一次・二次corrector
+
+極限球面拡散を
+
+```math
+d\boldsymbol N_s
+=
+-2\boldsymbol N_s\,ds+B(\boldsymbol N_s)d\boldsymbol W_s
+```
+
+と書く。ただし
+
+```math
+P_{\boldsymbol n}=I_3-\boldsymbol n\boldsymbol n^{\mathsf T},
+```
+
+```math
+B(\boldsymbol n)
+=
+\sqrt{\frac2{1+g_{\rm D}^2}}
+(g_{\rm D}P_{\boldsymbol n}+C_{\boldsymbol n}).
+```
+
+このとき $B(\boldsymbol n)B(\boldsymbol n)^{\mathsf T}=2P_{\boldsymbol n}$ である。
+
+一次correctorを
+
+```math
+\boldsymbol\chi
+=
+\frac{g_{\rm D}P_{\boldsymbol n}+C_{\boldsymbol n}}
+{\sqrt{1+g_{\rm D}^2}}\boldsymbol v
+```
+
+とする。$r=\boldsymbol n\cdot\boldsymbol v$、$\boldsymbol w=P_{\boldsymbol n}\boldsymbol v$ とし、
+
+```math
+\boldsymbol\psi
+=
+\frac{r}{g_{\rm D}^2+4}
+[(2-g_{\rm D}^2)P_{\boldsymbol n}-3g_{\rm D}C_{\boldsymbol n}]
+\boldsymbol w
++
+\boldsymbol n
+\left(1-\frac{|\boldsymbol w|^2}{2}\right)
+```
+
+とする。対応するPoisson方程式により、corrected variableの主項は極限球面拡散と一致する。
+
+## 同期couplingによる明示Wasserstein上界
+
+```math
+\boldsymbol Y_s
+=
+\boldsymbol n_s^\delta
++
+\delta_{\rm D}\boldsymbol\chi_s
++
+\delta_{\rm D}^2\boldsymbol\psi_s
+```
+
+とする。同期couplingでは
+
+```math
+\|B(\boldsymbol n)-B(\boldsymbol m)\|_F^2
+\leq4|\boldsymbol n-\boldsymbol m|^2
+```
+
+であり、極限drift $-2\boldsymbol n$ と合わせた二乗距離の主項は非膨張である。
+
+平衡fast初期条件でのGaussian momentを使い、
+
+```math
+c_0=\sqrt3+\sqrt{\frac{13}{3}},
+\qquad
+c_G=\sqrt{18},
+```
+
+```math
+c_R(g)=16.43\sqrt{1+g^2},
+```
+
+```math
+A_{\rm str}(g)=4c_0+2c_R(g)+4c_G,
+```
+
+```math
+B_{\rm str}=4c_0^2+4c_0c_G+c_G^2
+```
+
+と置く。一つの保守的明示上界は
+
+```math
+C_{\rm str}(g,S)
+=
+c_0
++
+\frac{
+A_{\rm str}(g)S
++
+\sqrt{
+A_{\rm str}(g)^2S^2
++
+4(c_0^2+B_{\rm str}S)
+}
+}{2}.
+```
+
+従って
+
+```math
+W_1
+(
+\mathcal L(\boldsymbol n_T^{\tau_{\rm D}}),
+\mathcal L(\boldsymbol N_T)
+)
+\leq
+C_{\rm str}(g_{\rm D},D_{\rm rot}T)
+\sqrt{D_{\rm rot}\tau_{\rm D}}.
+```
+
+## 作用比のJacobi縮約
+
+$X=(1-N_z)/2$ とすると
+
+```math
+\mathcal L_X
+=
+D_{\rm rot}
+[
+x(1-x)\partial_x^2+(1-2x)\partial_x
+].
+```
+
+固有値は $\lambda_\ell=D_{\rm rot}\ell(\ell+1)$ であり、スペクトルギャップは $2D_{\rm rot}$ である。
+
+## 有限時間一様化
+
+Legendre展開から
+
+```math
+D_{\rm TV}
+(
+\mathcal L(X_T),
+U[0,1]
+)
+\leq
+\min
+\left\{
+1,
+\frac{\sqrt{q(3-q)}}{2(1-q)}
+\right\},
+\qquad
+q=e^{-4D_{\rm rot}T}.
+```
+
+R190AのWasserstein誤差と合わせてR190Bの $\eta_{190}$ を得る。
+
+## Wasserstein誤差からCDF誤差への変換
+
+1次元では
+
+```math
+W_1(\mu,U)
+=
+\int_0^1|F_\mu(x)-x|\,dx.
+```
+
+$F_\mu$ の単調性から
+
+```math
+\sup_x|F_\mu(x)-x|
+\leq
+\sqrt{2W_1(\mu,U)}.
+```
+
+## 単回対称作用開口
+
+$I_i=\widehat A_iX_i$ とし、
+
+```math
+I_i^2
+<
+(c_{ij}^{\rm ap})^2\widehat A_i\widehat A_j
+```
+
+を通過条件とする。これは
+
+```math
+X_i
+<
+c_{ij}^{\rm ap}
+\sqrt{\frac{\widehat A_j}{\widehat A_i}}
+```
+
+と同値である。完全一様作用比では通過確率は右辺の閾値に等しい。
+
+reaction coordinate $(x,p_x)$ と
+
+```math
+D_{ij}^{\rm ap}
+=
+I_i^2-(c_{ij}^{\rm ap})^2\widehat A_i\widehat A_j
+```
+
+を使い、
+
+```math
+H_{ij}^{\rm ap}
+=
+\frac{p_x^2}{2M}
++
+V_{\rm low}(x)
++
+\Delta V(x)s_\epsilon(D_{ij}^{\rm ap})
+```
+
+とすれば、低障壁と高障壁の間のincoming energy窓で有限Hamiltonian scattererを作れる。有限幅と有限散乱時間の誤差を $\varepsilon_{\rm sc}$ とする。
+
+## 反復衝突とrenewal条件
+
+第 $m$ attempt直前の完全過去履歴を $\mathcal H_m$ とし、
+
+```math
+\sup_x
+\left|
+P(X_m\leq x\mid\mathcal H_m)-x
+\right|
+\leq
+\varepsilon_{{\rm ren},m}
+```
+
+を仮定する。すると
+
+```math
+\left|
+P(i\to j\mid\mathcal H_m)
+-
+c_{ij}^{\rm ap}
+\sqrt{\frac{\widehat A_j}{\widehat A_i}}
+\right|
+\leq
+\varepsilon_{{\rm ren},m}
++\varepsilon_{{\rm sc},m}.
+```
+
+有限attempt列では条件付き核誤差を加算して完全履歴TV誤差を抑えられる。R190A--R190Cだけから衝突後fast 浴の条件付き再平衡化または独立同分布性を主張しない。
+
+## R161への校正、正則化資源、非主張
+
+$\widehat\pi_i=\widehat A_i/\sum_k\widehat A_k$ とし、$\nu_{ij}c_{ij}^{\rm ap}=\kappa_Xa_{ij}$ と校正すれば、S.13のrenewal条件下でR161静的平方根率を条件付き核誤差内で回収する。
+
+R164の正則化容量について一様な安全開口の十分条件は
+
+```math
+c_{ij}^{\rm ap}
+\leq
+\sqrt{\frac{\delta q_{\min}}{1+\delta}}.
+```
+
+従ってattempt frequencyは最悪 $O(\delta^{-1/2})$ まで増大し得る。これはK.8のR162熱的特殊化と同じ次数である。
+
+R190A--R190Cは、無限Drude浴から有限浴を導くこと、容量 $\widehat A_i$ の生成機構、全2作用殻の完全microcanonical準備、反復衝突のrenewalを無条件に導くこと、R162の一般有向率を置き換えること、容量生成からlock、記録、選別、再調整までの単一装置統合、周期総収支を主張しない。
+
 # 参考文献
 
 
@@ -14622,3 +15350,4 @@ O\!\left(s\sqrt{n+\log p+\log\alpha^{-1}}\right).
 - [53] H. Zhang, Y. Sun, and X. Zhang, ``Quantum-Inspired Fourier Transforms Based on Circuits,'' Advanced Science 12, e10261 (2025). <https://doi.org/10.1002/advs.202510261>
 - [54] H. Zhang, Y. Sun, and X. Zhang, ``Quantum Inspired Universal Analog Computation Based on Circuits,'' Advanced Quantum Technologies 9, e00752 (2026). <https://doi.org/10.1002/qute.202500752>
 - [55] S. Chen, H. Chen, X. Tang, Y. Sun, and X. Zhang, ``Optical Computing Implementation of Shor's Factorization Algorithm,'' Physical Review A 113, 063505 (2026). <https://doi.org/10.1103/4sc8-5gmk>
+- [56] R. Kubo and N. Hashitsume, ``Brownian Motion of Spins,'' Progress of Theoretical Physics Supplement 46, 210--220 (1970). <https://doi.org/10.1143/PTPS.46.210>
