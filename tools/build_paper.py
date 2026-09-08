@@ -94,6 +94,7 @@ REFERENCE_KEYS = {
     53: "zhang_sun_zhang2025_qift",
     54: "zhang_sun_zhang2026_universal_analog",
     55: "chen_et_al2026_shor_optical",
+    56: "kubo_hashitsume1970",
 }
 
 
@@ -542,7 +543,9 @@ def validate_fixed_goal_language() -> None:
         SECTIONS / "A15_m54_uniform_register.md",
         SECTIONS / "A16_m54_projector_tree_receiver.md",
         SECTIONS / "A17_m54_uniform_supply.md",
+        SECTIONS / "A19_m54_drude_action_shell_bridge.md",
         ROOT / "tools" / "verify_r181a_template_port.py",
+        ROOT / "tools" / "verify_r190_drude_shell.py",
         ROOT / "tools" / "verify_r181d_projector_tree.py",
         ROOT / "tools" / "verify_m54_q2_composition.py",
         ROOT / "tools" / "verify_r179_m54_supply.py",
@@ -575,6 +578,23 @@ def validate_fixed_goal_language() -> None:
     active_text = "\n".join(path.read_text(encoding="utf-8") for path in active_paths)
     if "R170衝突" in active_text:
         raise ValueError("現行文書へR170衝突という誤責務が再混入")
+    if active_text.count("定理（R190A：") != 1:
+        raise ValueError("R190Aの定理宣言数が1ではない")
+    if active_text.count("補題（R190B：") != 1:
+        raise ValueError("R190Bの補題宣言数が1ではない")
+    if active_text.count("定理（R190C：") != 1:
+        raise ValueError("R190Cの定理宣言数が1ではない")
+    r190_proof = (SECTIONS / "A19_m54_drude_action_shell_bridge.md").read_text(
+        encoding="utf-8"
+    )
+    for required_token in (
+        "## S.3 無限調和Drude浴と作用保存",
+        "## S.8 同期couplingによる明示Wasserstein上界",
+        "## S.13 反復collisionとrenewal条件",
+        "R162の一般有向率を置き換えること",
+    ):
+        if required_token not in r190_proof:
+            raise ValueError("R190証明の必須要素がない: " + required_token)
     for forbidden_token in (
         "R170駆動",
         "M54静的選択・固定共通部",
