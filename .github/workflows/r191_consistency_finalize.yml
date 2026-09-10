@@ -69,6 +69,56 @@ jobs:
           if start + before_middle + end not in restored:
               raise SystemExit('failed to restore canonical fixed-goal block')
           PY
+      - name: Migrate build contract to R191
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          p = Path('tools/build_paper.py')
+          s = p.read_text(encoding='utf-8')
+          start = '    required_current_tokens = (\n'
+          end = '    current_bundle = common_text + "\\n" + receiver_text\n'
+          if s.count(start) != 1 or s.count(end) != 1:
+              raise SystemExit('M54/R181D validator boundary is not unique')
+          prefix, rest = s.split(start, 1)
+          old_middle, suffix = rest.split(end, 1)
+          for token in (
+              r'A_{u,b}^\delta=J_{u,b}+\delta q_bJ_\Sigma',
+              '未処理比較',
+              r'2m(\tau+\gamma)',
+          ):
+              if token not in old_middle:
+                  raise SystemExit(f'legacy M54/R181D validator token not found: {token}')
+
+          new_block = '''    required_current_tokens = (
+              r"\\Gamma_{54}^{(\\Lambda,\\mathcal I)}",
+              "R191の2結果選択・吸収記録",
+              r"\\widehat u_*=-\\frac{\\widehat D}{\\widehat S}",
+              "決定論的端点経路",
+              r"\\tau_{\\rm state}",
+              "方向を変えない振幅再調整",
+              "成功結果だけを再規格化しない",
+              "集団統計、試行中の状態依存制御を外部から与えない",
+              "確率流・活動量整合",
+          )
+'''
+          s = prefix + new_block + end + suffix
+          forbidden_anchor = '''    if absent:
+              raise ValueError("M54/R181Dの必須要素がない: " + "、".join(absent))
+'''
+          if s.count(forbidden_anchor) != 1:
+              raise SystemExit('M54/R181D absent-check anchor is not unique')
+          forbidden_check = forbidden_anchor + '''    for forbidden_token in (
+              r"A_{u,b}^\\delta",
+              r"\\frac{m\\delta}{1+\\delta}",
+              "結果成分の排他的選択と固定は第2章R170が担う",
+          ):
+              if forbidden_token in receiver_text:
+                  raise ValueError("R181Dへ旧作用殻主線が再混入: " + forbidden_token)
+'''
+          s = s.replace(forbidden_anchor, forbidden_check, 1)
+          p.write_text(s, encoding='utf-8')
+          PY
       - name: Compile and numerical checks
         run: |
           python -m py_compile tools/*.py
