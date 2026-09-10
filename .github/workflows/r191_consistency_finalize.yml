@@ -41,7 +41,32 @@ jobs:
               s = s.replace(old, new, 1)
           p.write_text(s, encoding='utf-8')
           PY
+          cp PROJECT_STATUS.md /tmp/project-status-before-r191-fix.md
           python tools/apply_r191_consistency_fix.py
+          python - <<'PY'
+          from pathlib import Path
+
+          start = '### 固定目標一覧'
+          end = '### 現在地'
+          before = Path('/tmp/project-status-before-r191-fix.md').read_text(encoding='utf-8')
+          after_path = Path('PROJECT_STATUS.md')
+          after = after_path.read_text(encoding='utf-8')
+
+          def fixed_block(text: str) -> tuple[str, str, str]:
+              if text.count(start) != 1 or text.count(end) != 1:
+                  raise SystemExit('fixed-goal boundary markers are not unique')
+              prefix, rest = text.split(start, 1)
+              middle, suffix = rest.split(end, 1)
+              return prefix, middle, suffix
+
+          before_prefix, before_middle, _ = fixed_block(before)
+          after_prefix, _, after_suffix = fixed_block(after)
+          restored = after_prefix + start + before_middle + end + after_suffix
+          after_path.write_text(restored, encoding='utf-8')
+
+          if start + before_middle + end not in restored:
+              raise SystemExit('failed to restore canonical fixed-goal block')
+          PY
       - name: Compile and numerical checks
         run: |
           python -m py_compile tools/*.py
