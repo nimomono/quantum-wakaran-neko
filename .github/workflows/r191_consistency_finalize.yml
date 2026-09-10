@@ -90,38 +90,42 @@ jobs:
               if token not in old_middle:
                   raise SystemExit(f'legacy M54/R181D validator token not found: {token}')
 
-          new_block = '''    required_current_tokens = (
-              r"\\Gamma_{54}^{(\\Lambda,\\mathcal I)}",
-              "R191の2結果選択・吸収記録",
-              r"\\widehat u_*=-\\frac{\\widehat D}{\\widehat S}",
-              "決定論的端点経路",
-              r"\\tau_{\\rm state}",
-              "方向を変えない振幅再調整",
-              "成功結果だけを再規格化しない",
-              "集団統計、試行中の状態依存制御を外部から与えない",
-              "確率流・活動量整合",
+          new_block = (
+              '    required_current_tokens = (\n'
+              '        r"\\Gamma_{54}^{(\\Lambda,\\mathcal I)}",\n'
+              '        "R191の2結果選択・吸収記録",\n'
+              '        r"\\widehat u_*=-\\frac{\\widehat D}{\\widehat S}",\n'
+              '        "決定論的端点経路",\n'
+              '        r"\\tau_{\\rm state}",\n'
+              '        "方向を変えない振幅再調整",\n'
+              '        "成功結果だけを再規格化しない",\n'
+              '        "集団統計、試行中の状態依存制御を外部から与えない",\n'
+              '        "確率流・活動量整合",\n'
+              '    )\n'
           )
-          '''
           s = prefix + new_block + end + suffix
-          forbidden_anchor = '''    if absent:
-              raise ValueError("M54/R181Dの必須要素がない: " + "、".join(absent))
-              for token in (
-                  "一様開放リセット",
-          '''
+
+          forbidden_anchor = (
+              '    if absent:\n'
+              '        raise ValueError("M54/R181Dの必須要素がない: " + "、".join(absent))\n'
+              '    for token in (\n'
+              '        "一様開放リセット",\n'
+          )
           if s.count(forbidden_anchor) != 1:
               raise SystemExit('M54/R181D supply-boundary anchor is not unique')
-          forbidden_check = '''    if absent:
-              raise ValueError("M54/R181Dの必須要素がない: " + "、".join(absent))
-              for forbidden_token in (
-                  r"A_{u,b}^\\delta",
-                  r"\\frac{m\\delta}{1+\\delta}",
-                  "結果成分の排他的選択と固定は第2章R170が担う",
-              ):
-                  if forbidden_token in receiver_text:
-                      raise ValueError("R181Dへ旧作用殻主線が再混入: " + forbidden_token)
-              for token in (
-                  "一様開放リセット",
-          '''
+          forbidden_check = (
+              '    if absent:\n'
+              '        raise ValueError("M54/R181Dの必須要素がない: " + "、".join(absent))\n'
+              '    for forbidden_token in (\n'
+              '        r"A_{u,b}^\\delta",\n'
+              '        r"\\frac{m\\delta}{1+\\delta}",\n'
+              '        "結果成分の排他的選択と固定は第2章R170が担う",\n'
+              '    ):\n'
+              '        if forbidden_token in receiver_text:\n'
+              '            raise ValueError("R181Dへ旧作用殻主線が再混入: " + forbidden_token)\n'
+              '    for token in (\n'
+              '        "一様開放リセット",\n'
+          )
           s = s.replace(forbidden_anchor, forbidden_check, 1)
           p.write_text(s, encoding='utf-8')
           PY
