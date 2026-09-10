@@ -32,46 +32,19 @@ jobs:
       - name: R191改訂を適用
         run: python tools/apply_r191_revision.py
 
-      - name: Python構文と専用検算
+      - name: 通常CIと同順序で数式と数値を検算
         run: |
           python -m py_compile tools/*.py
-          python tools/verify_r191_macrospin.py
+          test -f tools/verify_terminology.py
+          for script in tools/verify_*.py; do
+            python "$script"
+          done
 
       - name: 論文を再生成
         run: python tools/build_paper.py
 
-      - name: 通常CI相当の検算
+      - name: 生成補助検算とPDF確認
         run: |
-          for script in \
-            tools/verify_experiment_bounds.py \
-            tools/verify_iti_density.py \
-            tools/verify_m47_controlled_w.py \
-            tools/verify_m54_q2_suite.py \
-            tools/verify_m54_uniform_register.py \
-            tools/verify_m54_source_receiver.py \
-            tools/verify_uniform_supply.py \
-            tools/verify_projector_tree_receiver.py \
-            tools/verify_resource_audit.py \
-            tools/verify_action_shell_state_count.py \
-            tools/verify_absorbing_pointer.py \
-            tools/verify_retry_renewal.py \
-            tools/verify_r190_drude_shell.py \
-            tools/verify_r191_macrospin.py \
-            tools/verify_m54_magnet.py \
-            tools/verify_open_bath.py \
-            tools/verify_pairing_scale_laws.py \
-            tools/verify_parser_overgeneralization.py \
-            tools/verify_classical_limit.py \
-            tools/verify_hopf_preparation.py \
-            tools/verify_q3_energy_response.py \
-            tools/verify_spherical_transport.py \
-            tools/verify_thermal_equilibrium.py \
-            tools/verify_no_signaling.py \
-            tools/verify_timing_contracts.py \
-            tools/verify_w_hamiltonian_reduction.py \
-            tools/verify_m47_w_bell.py; do
-            python "$script"
-          done
           for script in \
             bell_finite_time_checks.py \
             verify_d_min_scaling.py \
