@@ -154,14 +154,14 @@ def verify_source_contract() -> None:
     status = STATUS.read_text(encoding="utf-8")
     required = (
         "ブラウン巨視的スピン",
-        "\\widehat u_*",
-        "\\Delta_{\\min}",
-        "q_{\\rm ret}",
-        "q_{\\rm time}",
+        r"\widehat u_*",
+        r"\Delta_{\min}",
+        r"q_{\rm ret}",
+        r"q_{\rm time}",
         "端点dispatcher",
         "成功試行だけの再規格化ではなく",
         "Q2-2ではR191を中央集約4結果samplerとして使わない",
-        "一般深さで $\\|P_rZ\\|^2$ が読出し下限を下回り得る場合だけ",
+        r"一般深さで $\|P_rZ\|^2$ が読出し下限を下回り得る場合だけ",
     )
     for token in required:
         if token not in appendix:
