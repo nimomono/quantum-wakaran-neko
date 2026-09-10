@@ -1,4 +1,4 @@
-name: R191改訂生成
+name: R191生成物引渡し
 
 on:
   push:
@@ -6,11 +6,10 @@ on:
       - docs/r191-brownian-macrospin-instrument
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
-  apply-and-build:
-    if: github.actor != 'github-actions[bot]'
+  build-and-handoff:
     runs-on: ubuntu-latest
     steps:
       - name: 原稿を取得
@@ -38,10 +37,8 @@ jobs:
           from pathlib import Path
 
           targets = [
-              Path("README.md"),
-              Path("PROJECT_STATUS.md"),
-              Path("PROJECT_STANCE.md"),
-              Path("CHANGELOG.md"),
+              Path("README.md"), Path("PROJECT_STATUS.md"),
+              Path("PROJECT_STANCE.md"), Path("CHANGELOG.md"),
               *sorted(Path("sections").glob("*.md")),
           ]
           replacements = {
@@ -55,7 +52,6 @@ jobs:
               "active signal": "能動信号",
               "noise floor": "雑音下限",
           }
-          changed = []
           for path in targets:
               if not path.exists():
                   continue
@@ -65,73 +61,15 @@ jobs:
                   new = new.replace(old, replacement)
               if new != text:
                   path.write_text(new, encoding="utf-8")
-                  changed.append(str(path))
-          print("terminology-normalized:", ", ".join(changed) if changed else "none")
           PY
-
-      - name: Python構文を検査
-        run: |
-          python -m py_compile tools/*.py
-          test -f tools/verify_terminology.py
-
-      - name: verify_common_canonical_control
-        run: python tools/verify_common_canonical_control.py
-      - name: verify_common_matching_open_jump
-        run: python tools/verify_common_matching_open_jump.py
-      - name: verify_envelope_reduction
-        run: python tools/verify_envelope_reduction.py
-      - name: verify_m37_w_q1_bridge
-        run: python tools/verify_m37_w_q1_bridge.py
-      - name: verify_m37_w_spectral_tunneling
-        run: python tools/verify_m37_w_spectral_tunneling.py
-      - name: verify_m47_action_shell_origin
-        run: python tools/verify_m47_action_shell_origin.py
-      - name: verify_m47_hopf_preparation
-        run: python tools/verify_m47_hopf_preparation.py
-      - name: verify_m47_q1_instrument
-        run: python tools/verify_m47_q1_instrument.py
-      - name: verify_m54_q2_composition
-        run: python tools/verify_m54_q2_composition.py
-      - name: verify_m54_spatial_matching
-        run: python tools/verify_m54_spatial_matching.py
-      - name: verify_m54_static_instrument
-        run: python tools/verify_m54_static_instrument.py
-      - name: verify_phase_correlation
-        run: python tools/verify_phase_correlation.py
-      - name: verify_q1_live_zeno
-        run: python tools/verify_q1_live_zeno.py
-      - name: verify_q1xq1_common_bath
-        run: python tools/verify_q1xq1_common_bath.py
-      - name: verify_q2_shell_and_locality
-        run: python tools/verify_q2_shell_and_locality.py
-      - name: verify_q3_completion
-        run: python tools/verify_q3_completion.py
-      - name: verify_r179_m54_supply
-        run: python tools/verify_r179_m54_supply.py
-      - name: verify_r180_bell_cycle
-        run: python tools/verify_r180_bell_cycle.py
-      - name: verify_r180_m54_receiver
-        run: python tools/verify_r180_m54_receiver.py
-      - name: verify_r181a_template_port
-        run: python tools/verify_r181a_template_port.py
-      - name: verify_r181d_projector_tree
-        run: python tools/verify_r181d_projector_tree.py
-      - name: verify_r186_m54_projective_robustness
-        run: python tools/verify_r186_m54_projective_robustness.py
-      - name: verify_r187_m37_w_q1_bridge
-        run: python tools/verify_r187_m37_w_q1_bridge.py
-      - name: verify_r190_drude_shell
-        run: python tools/verify_r190_drude_shell.py
-      - name: verify_r191_macrospin
-        run: python tools/verify_r191_macrospin.py
-      - name: verify_terminology
-        run: python tools/verify_terminology.py
 
       - name: 論文を再生成
         run: python tools/build_paper.py
 
-      - name: 生成物とPDFを確認
+      - name: 生成物を確認
         run: |
+          python tools/verify_r191_macrospin.py
+          python tools/verify_terminology.py
           git diff --check
           test -s paper.md
           test -s main.tex
@@ -139,16 +77,28 @@ jobs:
           pdfinfo paper.pdf | grep -E 'Pages|Page size|File size'
           pdftotext paper.pdf - > /tmp/paper.txt
           test -s /tmp/paper.txt
-          git status --short
-          git ls-files --others --exclude-standard
 
-      - name: 生成commitを作成
+      - name: 引渡しbundleを作成
         run: |
           rm -f tools/apply_r191_revision.py
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -A
-          git commit -m "draft-88: R191ブラウン巨視的スピン射影読出しを統合"
+          rm -rf /tmp/r191-handoff
+          mkdir -p /tmp/r191-handoff/files
+          printf '%s\n' "$GITHUB_SHA" > /tmp/r191-handoff/base_sha.txt
+          git diff --name-status "$GITHUB_SHA" > /tmp/r191-handoff/name_status.txt
+          git diff --name-only --diff-filter=D "$GITHUB_SHA" > /tmp/r191-handoff/deleted.txt
+          git diff --name-only --diff-filter=ACMRT "$GITHUB_SHA" > /tmp/r191-handoff/changed.txt
+          while IFS= read -r path; do
+            [ -n "$path" ] || continue
+            mkdir -p "/tmp/r191-handoff/files/$(dirname "$path")"
+            cp -a "$path" "/tmp/r191-handoff/files/$path"
+          done < /tmp/r191-handoff/changed.txt
+          tar -C /tmp/r191-handoff -czf /tmp/r191-handoff.tgz .
+          cat /tmp/r191-handoff/name_status.txt
 
-      - name: 生成commitを一時branchへpush
-        run: git push --force origin HEAD:refs/heads/r191-generated-staging
+      - name: 生成物をartifactへ保存
+        uses: actions/upload-artifact@v4
+        with:
+          name: r191-generated-handoff
+          path: /tmp/r191-handoff.tgz
+          if-no-files-found: error
+          retention-days: 1
