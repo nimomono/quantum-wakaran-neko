@@ -32,6 +32,42 @@ jobs:
       - name: R191改訂を適用
         run: python tools/apply_r191_revision.py
 
+      - name: R191追加文の用語を正規化
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          targets = [
+              Path("README.md"),
+              Path("PROJECT_STATUS.md"),
+              Path("PROJECT_STANCE.md"),
+              *sorted(Path("sections").glob("*.md")),
+          ]
+          replacements = {
+              "可逆な枝分け": "可逆な経路分解",
+              "射影branch": "射影成分",
+              "branch作用": "成分作用",
+              "非規格化branch": "非規格化成分",
+              "補branch": "補成分",
+              "active branch": "能動成分",
+              "そのbranch自身": "その成分自身",
+              "active signal": "能動信号",
+              "noise floor": "雑音下限",
+          }
+          changed = []
+          for path in targets:
+              if not path.exists():
+                  continue
+              text = path.read_text(encoding="utf-8")
+              new = text
+              for old, replacement in replacements.items():
+                  new = new.replace(old, replacement)
+              if new != text:
+                  path.write_text(new, encoding="utf-8")
+                  changed.append(str(path))
+          print("terminology-normalized:", ", ".join(changed) if changed else "none")
+          PY
+
       - name: Python構文を検査
         run: |
           python -m py_compile tools/*.py
@@ -116,7 +152,6 @@ jobs:
           rm -f tools/apply_r191_revision.py .github/workflows/r191_apply.yml
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -A paper.md main.tex paper.pdf tools snippets generated figs
-          git add -u .github/workflows/r191_apply.yml
+          git add -A
           git commit -m "draft-88: R191ブラウン巨視的スピン射影読出しを統合"
           git push origin HEAD:docs/r191-brownian-macrospin-instrument
