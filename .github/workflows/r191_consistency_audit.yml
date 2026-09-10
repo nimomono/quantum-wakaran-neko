@@ -1,0 +1,21 @@
+name: R191 consistency audit
+
+on:
+  push:
+    branches:
+      - docs/r191-brownian-macrospin-final
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: R170/R190 references
+        run: |
+          echo '=== R170 references ==='
+          grep -RIn --exclude-dir=.git 'R170' README.md PROJECT_STATUS.md sections tools .github/workflows/verify.yml || true
+          echo '=== old error symbols ==='
+          grep -RIn --exclude-dir=.git -E 'varepsilon_\{170|m\\delta|tau\+\\gamma|R190/R179.*選択|R170.*選択' PROJECT_STATUS.md sections .github/workflows/verify.yml || true
