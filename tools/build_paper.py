@@ -754,12 +754,12 @@ def validate_fixed_goal_language() -> None:
     )
     required_current_tokens = (
         r"\Gamma_{54}^{(\Lambda,\mathcal I)}",
-        r"A_{u,b}^\delta=J_{u,b}+\delta q_bJ_\Sigma",
-        "未処理比較",
-        "吸収指針変数",
+        "R191の2結果選択・吸収記録",
+        r"\widehat u_*=-\frac{\widehat D}{\widehat S}",
+        "決定論的端点経路",
+        r"\tau_{\rm state}",
         "方向を変えない振幅再調整",
-        r"2m(\tau+\gamma)",
-        "成功試行だけを再規格化しない",
+        "成功結果だけを再規格化しない",
         "集団統計、試行中の状態依存制御を外部から与えない",
         "確率流・活動量整合",
     )
@@ -767,6 +767,13 @@ def validate_fixed_goal_language() -> None:
     absent = [token for token in required_current_tokens if token not in current_bundle]
     if absent:
         raise ValueError("M54/R181Dの必須要素がない: " + "、".join(absent))
+    for forbidden_token in (
+        r"A_{u,b}^\delta",
+        r"\frac{m\delta}{1+\delta}",
+        "結果成分の排他的選択と固定は第2章R170が担う",
+    ):
+        if forbidden_token in receiver_text:
+            raise ValueError("R181Dへ旧作用殻主線が再混入: " + forbidden_token)
     for token in (
         "一様開放リセット",
         "定常流入",
