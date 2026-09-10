@@ -144,7 +144,7 @@ jobs:
 
       - name: 一時生成器を除去してpush
         run: |
-          rm -f tools/apply_r191_revision.py .github/workflows/r191_apply.yml
+          rm -f tools/apply_r191_revision.py
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A
