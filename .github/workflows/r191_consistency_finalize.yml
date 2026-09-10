@@ -34,10 +34,12 @@ jobs:
                   'out, count = pattern.subn(lambda _m: new.rstrip() + "\\n\\n", text, count=1)',
               's,count=old_q1.subn(new_q1,s,count=1)':
                   's,count=old_q1.subn(lambda _m: new_q1,s,count=1)',
+              '## B.19 R189Bの固定済み容量R191選択と走行中射影選別':
+                  '## B.19 R189Bの固定済み容量選択と走行中射影選別',
           }
           for old, new in replacements.items():
               if old not in s:
-                  raise SystemExit(f'LaTeX-safe replacement target not found: {old}')
+                  raise SystemExit(f'R191 finalize replacement target not found: {old}')
               s = s.replace(old, new, 1)
           p.write_text(s, encoding='utf-8')
           PY
@@ -59,7 +61,7 @@ jobs:
               middle, suffix = rest.split(end, 1)
               return prefix, middle, suffix
 
-          before_prefix, before_middle, _ = fixed_block(before)
+          _, before_middle, _ = fixed_block(before)
           after_prefix, _, after_suffix = fixed_block(after)
           restored = after_prefix + start + before_middle + end + after_suffix
           after_path.write_text(restored, encoding='utf-8')
