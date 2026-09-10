@@ -101,11 +101,11 @@ jobs:
               "集団統計、試行中の状態依存制御を外部から与えない",
               "確率流・活動量整合",
           )
-'''
+          '''
           s = prefix + new_block + end + suffix
           forbidden_anchor = '''    if absent:
               raise ValueError("M54/R181Dの必須要素がない: " + "、".join(absent))
-'''
+          '''
           if s.count(forbidden_anchor) != 1:
               raise SystemExit('M54/R181D absent-check anchor is not unique')
           forbidden_check = forbidden_anchor + '''    for forbidden_token in (
@@ -115,7 +115,7 @@ jobs:
           ):
               if forbidden_token in receiver_text:
                   raise ValueError("R181Dへ旧作用殻主線が再混入: " + forbidden_token)
-'''
+          '''
           s = s.replace(forbidden_anchor, forbidden_check, 1)
           p.write_text(s, encoding='utf-8')
           PY
