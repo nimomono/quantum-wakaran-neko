@@ -150,7 +150,7 @@
   \vspace{14mm}
   {\color{PaperRule}\rule{0.68\textwidth}{0.9pt}\par}
   \vfill
-  {\large draft-87 改訂稿\par}
+  {\large draft-88 改訂稿\par}
   \vspace{22mm}
 \end{titlepage}
 
@@ -368,7 +368,7 @@ Q3 & M54空間状態構成、M37、R86、R135、R161、R162 & 準備終了面の
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-M54 & 共通有効信号--配置状態構成族 & 有限能動状態と環境interfaceを共通化し、Q1/Q2はR164/R190/R179/R170の静的選択、Q3はR161/R162の移動過程へ特殊化する。R181A--R181Cは準備・持ち上げ・ゲート、R181Dは段階的射影選別と測定後状態受渡しを与える & 現行有効層 \\
+M54 & 共通有効信号--配置状態構成族 & 有限能動状態と環境interfaceを共通化し、Q1/Q2の2結果射影読出しはR191を主線とし、R164/R190/R179/R170を一般有限結果集合・作用殻型の代替経路へ残す。Q3はR161/R162の移動過程へ特殊化する。R181A--R181Cは準備・持ち上げ・ゲート、R181Dは段階的射影選別と測定後状態受渡しを与える & 現行有効層 \\
 M37 & 物理ハミルトニアンによる実装層 & M54空間信号部分系をR86/R184で実装し、R187条件下では弱結合W型最低2正常モードをM54のW2静的状態構成のQ1 制御用信号系へ接続する & 現行物理実装層 \\
 M0 & 単一ミクロ装置統一目標 & M54各状態構成、M37の物理実装層、系列固有手順、記録を有限な能動部分系と明示的なHamiltonian無限浴、共通接続端、反復周期へ統合する。有限浴化は達成条件にしない & 未完成 \\
 \end{longtable}
@@ -1010,7 +1010,7 @@ Poisson reservoirは本稿で採用する明示的な古典開放ミクロ方程
 R161は静的・移動の率構成を共通に保つが、物理実現を一種類の有限衝突装置へ統一しない。Q3では新R162の開放jump過程を直接使う。Q1/Q2の静的状態構成では、作用殻状態数をR164、平方根核の具体的混合・開口をR190、反復時のfreshnessをR179が担う。旧R162の有限衝突・熱的特殊化は有限閉鎖実装の強化結果として退役メモに保存する。
 
 \hypertarget{r190ar190c2ux4f5cux7528lcux6bbbdrudeux6df7ux5408ux3068ux9759ux7684ux5e73ux65b9ux6839ux885dux7a81ux63a5ux7d9a}{%
-\subsection{2.8.1\#\#\# 2.8.1 R190A--R190C：2作用LC殻Drude混合と静的平方根衝突接続}\label{r190ar190c2ux4f5cux7528lcux6bbbdrudeux6df7ux5408ux3068ux9759ux7684ux5e73ux65b9ux6839ux885dux7a81ux63a5ux7d9a}}
+\subsection{R190A--R190C：2作用LC殻Drude混合と静的平方根衝突接続}\label{r190ar190c2ux4f5cux7528lcux6bbbdrudeux6df7ux5408ux3068ux9759ux7684ux5e73ux65b9ux6839ux885dux7a81ux63a5ux7d9a}}
 
 R164だけからR161静的特殊化の平方根分割は一意に従わない。ここでは、固定済み正作用容量を2作用LC殻へ渡し、無限自由度の等方Drude浴で作用分配だけを混合した後、対称な作用開口を使う一つの具体的十分条件を与える。R190系列はR162を置き換えず、静的 \(j=0\) の平方根率に対する作用殻明示表示の物理接続だけを担う。
 
@@ -1248,10 +1248,131 @@ $$
 
 完全証明、\(C_{\rm str}\)、Jacobi縮約、CDF評価、作用開口scatterer、反復時の再混合条件、正則化資源は付録Sに置く。R162の一般有向率、有限骨格全履歴、時間依存率、非零確率流、Q3移動特殊化は従来どおりR162が担う。
 
+\hypertarget{r191ux4f5cux7528ux5deeux99c6ux52d5ux30d6ux30e9ux30a6ux30f3ux5de8ux8996ux7684ux30b9ux30d4ux30f32ux7d50ux679cux5c04ux5f71ux8aadux51faux3057}{%
+\subsection{R191：作用差駆動ブラウン巨視的スピン2結果射影読出し}\label{r191ux4f5cux7528ux5deeux99c6ux52d5ux30d6ux30e9ux30a6ux30f3ux5de8ux8996ux7684ux30b9ux30d4ux30f32ux7d50ux679cux5c04ux5f71ux8aadux51faux3057}}
+
+Q1/Q2の2結果射影測定では、作用殻の多結果状態数を経由する経路とは別に、固定した2つの射影作用を既知のBrownian spin型開放磁化力学へ直接接続できる。非零信号 \(Z\) と \(P_++P_-=I\) に対して
+
+\[
+J_+
+=\mathcal J_0Z^\dagger P_+Z,
+\qquad
+J_-
+=\mathcal J_0Z^\dagger P_-Z,
+\]
+
+\[
+S=J_++J_->0,
+\qquad
+D=J_+-J_-
+\]
+
+を固定する。transducer出力 \(\widehat S,\widehat D\) は
+
+\[
+|\widehat S-S|\leq\varepsilon_\Sigma S,
+\qquad
+|\widehat D-D|\leq\varepsilon_\Delta S,
+\qquad
+0\leq\varepsilon_\Sigma<1
+\]
+
+を満たすとする。指針変数を単磁区巨視的スピンの軸成分 \(U=m_z\in[-1,1]\) とし、混合窓では等方回転拡散、decision窓では
+
+\[
+V_{\rm dec}(u)
+=-\frac\chi2
+\left(
+\widehat S u^2+2\widehat D u
+\right)
+\]
+
+を作用させる。実吸引域境界は
+
+\[
+\widehat u_*
+=-\frac{\widehat D}{\widehat S}
+\]
+
+であり、理想境界 \(u_*=-D/S\) との差は
+
+\[
+|\widehat u_*-u_*|
+\leq
+\varepsilon_u
+:=
+\frac{\varepsilon_\Delta+\varepsilon_\Sigma}
+{1-\varepsilon_\Sigma}.
+\]
+
+\begin{theorem}[R191：作用差駆動ブラウン巨視的スピン2結果射影読出し]
+
+混合終了時の $U$ の法則が $U[-1,1]$ から全変動距離 $\varepsilon_{\rm mix}$ 以内にあり、通常読出し経路では両実推定重みが $\tau_{\rm cut}>0$ 以上、保護帯幅 $g$ と捕獲幅 $\zeta$ が $g+\zeta<2\tau_{\rm cut}$ を満たすとする。$|U-\widehat u_*|<g$ は正式な無反応へ送り、保護帯外では付録Tの軸対称stochastic LLGをdecision時間 $T$ だけ走らせ、$[1-\zeta,1]$ または $[-1,-1+\zeta]$ への初到達結果を吸収記録へ写す。
+
+$S\geq S_{\min}>0$ とし、
+
+$$
+\Delta_{\min}
+=
+\frac{\chi(1-\varepsilon_\Sigma)S_{\min}}
+{2k_{\rm B}T_{\rm dec}},
+\qquad
+m_\zeta=\zeta(2-\zeta)
+$$
+
+と置く。付録Tで定める有限温度retreat上界 $q_{\rm ret}$ と有限時間未捕獲上界 $q_{\rm time}$ を使えば、通常経路の完全結果分布 $P_{191}$ と理想Born分布 $P_{\rm Born}=(J_+/S,J_-/S,0)$ は
+
+$$
+D_{\rm TV}(P_{191},P_{\rm Born})
+\leq
+\varepsilon_{\rm mix}
++g
++\frac{\varepsilon_u}{2}
++q_{\rm ret}
++q_{\rm time}
++\varepsilon_{\rm cap}
+=: \varepsilon_{191}^{\rm int}
+$$
+
+を満たす。$\min\{\widehat p_+,\widehat p_-\}<\tau_{\rm cut}$ では大きい側を決定論的経路へ送り、その偏差を
+
+$$
+\varepsilon_{191}^{\rm edge}
+\leq
+\tau_{\rm cut}
++\frac{\varepsilon_u}{2}
++\varepsilon_{\rm cap}
+$$
+
+で抑える。従って1ノード誤差は
+
+$$
+\varepsilon_{191}
+=
+\max
+\left\{
+\varepsilon_{191}^{\rm int},
+\varepsilon_{191}^{\rm edge}
+\right\}.
+$$
+
+理想混合・transducer・低温・長decision時間・完全捕獲極限では
+
+$$
+P(+)=\frac{J_+}{J_++J_-},
+\qquad
+P(-)=\frac{J_-}{J_++J_-}.
+$$
+
+成功試行だけを再規格化しない。結果固定後の射影成分生成と次段受渡しは既存の共通射影選別機構/R181Dが担い、一般深さで成分作用下限が必要な場合だけ方向を変えない振幅再調整を使う。R164/R190/R170は一般有限結果集合、作用殻型実現、独立な強化経路として残す。
+\end{theorem}
+
+混合評価、stochastic LLG、scale density、\(q_{\rm ret}\)、\(q_{\rm time}\)、端点dispatcher、熱力学、Q2-2で中央集約4結果samplerへ置換しない責務境界は付録Tに置く \cite{kubo_hashitsume1970,brown1963,grinstein_koch2005}。
+
 \hypertarget{r170ux56faux5b9aux4f5cux7528ux5bb9ux91cfux5165ux529bux306eux9759ux7684ux9078ux629eux5438ux53ceux6307ux91ddux5909ux6570ux56faux5b9a}{%
 \section{R170：固定作用容量入力の静的選択・吸収指針変数固定}\label{r170ux56faux5b9aux4f5cux7528ux5bb9ux91cfux5165ux529bux306eux9759ux7684ux9078ux629eux5438ux53ceux6307ux91ddux5909ux6570ux56faux5b9a}}
 
-R170を、Q1、Q2の段階的射影選別、R180Aの中央潜在選択、R180Cの局所読出し、Q3固定時刻診断で共有する静的選択・固定の正本とする。上流は正の固定済み作用容量 \(\widehat A_i\) を保持し、R164/R190/R179が与える静的選択過程を有限時間走らせる。選択分布が目標容量比へ近づいた後は選択浴を切り、結果を開放吸収指針変数へ写して固定する。有限閉鎖Hamiltonianで入射停止、辺閉鎖、平坦域保持、全微視的履歴の1対1保存まで構成することはR170の必要条件にしない。
+R170を、一般有限結果集合、作用殻型の代替経路、Q3固定時刻診断で共有する静的選択・固定の正本として残す。Q1/Q2の2結果射影ノードではR191を主読出しとし、R170と同じ誤差を二重計上しない。R170を用いる代替経路では、上流が正の固定済み作用容量 \(\widehat A_i\) を保持し、R164/R190/R179が与える静的選択過程を有限時間走らせる。選択分布が目標容量比へ近づいた後は選択浴を切り、結果を開放吸収指針変数へ写して固定する。有限閉鎖Hamiltonianで入射停止、辺閉鎖、平坦域保持、全微視的履歴の1対1保存まで構成することはR170の必要条件にしない。
 
 \begin{theorem}[R170：固定作用容量入力の静的選択・吸収指針変数固定]
 
@@ -1349,7 +1470,7 @@ Z_x,
 Z=(Z_x)_{x\in\{0,1\}^n}\in\mathbb C^L.
 \]
 
-M54の能動部は信号、逆演算用補助記憶部、選別機構用作業領域、方向を変えない振幅再調整接続端、未処理／正則化容量指針変数、一様ゲートバス、吸収指針変数、出力記録、時計自由度を持つ。作用殻混合、再混合、リセット、散逸履歴はR190/R179の環境接続部へ置く。内部の受動自由度、静的結合、状態容量、受動並列度は \(2^n\operatorname{poly}(n,d)\) まで許す。一方、外部プログラムが指定するのはゲート種、1個または2個の対象量子ビット、ゲート順序、現在読む出力ビット、未使用化の回、素子添字、時計自由度窓だけである。\(2^n\) モードの列挙、モード別初期化・較正・読出し、指数長の係数表、回路別配線、出力確率の事前計算を許さない。
+M54の能動部は信号、逆演算用補助記憶部、選別機構用作業領域、方向を変えない振幅再調整接続端、未処理／正則化容量指針変数、一様ゲートバス、吸収指針変数、出力記録、時計自由度を持つ。Q1/Q2の2結果読出しはR191のブラウン巨視的スピン接続部を主線とする。作用殻混合、再混合、リセット、散逸履歴を使うR190/R179は一般有限結果集合と代替実現へ残す。内部の受動自由度、静的結合、状態容量、受動並列度は \(2^n\operatorname{poly}(n,d)\) まで許す。一方、外部プログラムが指定するのはゲート種、1個または2個の対象量子ビット、ゲート順序、現在読む出力ビット、未使用化の回、素子添字、時計自由度窓だけである。\(2^n\) モードの列挙、モード別初期化・較正・読出し、指数長の係数表、回路別配線、出力確率の事前計算を許さない。
 
 M54はR181Bの反復テンソル積状態の生成を一般 \(n\) へ延長しない。R179の開放リセット後、定数次元供給源を \(0^n\) 根モードへ接続して計算基底入力を作る。別の基底入力は回路先頭の \(X\) ゲートで作る。ゲート列はR181C、末端ビット列はR181D、結果相関履歴の流出排出と補助部リセットはR179が担う。
 
@@ -1452,7 +1573,7 @@ $$
 と作用する。容量固定機構を信号に対する制御剪断として実装すれば、未使用容量運動量上で $J_{k,0},J_{k,1}$ を指針変数へ保持し、理想信号 $Z$ を変更しない。計算基底ビット射影子と選別機構はビットラベルだけから一様に生成され、$2^n$ 成分の列挙を必要としない。
 \end{lemma}
 
-この補題は確率的な結果選択を行わない。確率的な排他的選択と固定はR170が担う。以後、射影測定で共有する操作列を \textbf{共通射影選別機構} と呼ぶ。段階は
+この補題は確率的な結果選択を行わない。2結果射影測定の排他的選択と固定はR191を主線とし、一般有限結果集合または作用殻型の代替経路はR170が担う。以後、射影測定で共有する操作列を \textbf{共通射影選別機構} と呼ぶ。段階は
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -1740,16 +1861,16 @@ D_{\rm TV}(P_{\rm M54},P_{\rm circ})
 +\sum_{j=1}^n\bar\varepsilon_j.
 \]
 
-\(\bar\varepsilon_j\) には第 \(j\) 段のR170誤差、制御付き選別機構、方向を変えない振幅再調整、転送を各1回だけ含める。R170の \(\varepsilon_{\rm sel}\) にはR179の流入誤差とR190の記憶・混合・作用開口誤差を含めるため、R179またはR190の同じ偏差を別項として再加算しない。R179の開放リセット誤差が次試行入口へ残る場合は、その次試行の \(\varepsilon_{\rm in}\) へ含める。
+\(\bar\varepsilon_j\) には第 \(j\) 段のR191誤差、制御付き選別機構、必要な場合の方向を変えない振幅再調整、転送を各1回だけ含める。2結果主線ではR164/R190/R170の同じ選択偏差を重複加算しない。R179の開放リセット誤差が次試行入口へ残る場合は、その次試行の \(\varepsilon_{\rm in}\) へ含める。一般有限結果集合または作用殻代替経路を選ぶ場合だけ、R170の \(\varepsilon_{\rm sel}\) にR179/R190の選択偏差をまとめる。
 
 R186の製造誤差、位相ノイズ、固定機構誤差は、それぞれ \(\eta_{\rm gate}\)、\(\varepsilon_{\rm leak}\)、\(\bar\varepsilon_j\) を物理部品誤差から評価する十分条件として使い、別の独立誤差として二重加算しない。R186第4項の全自由度に加わる加法ノイズがある場合は、この誤差予算を多項式精度で閉じられない障害条件として扱う。
 
-\(\eta_{\rm gate}=O(\epsilon/d)\) とし、\(\tau,\gamma,\delta,\bar\varepsilon_j\) はそれぞれ \(O(\epsilon/n)\) と選ぶ。R190作用開口の正則化制約により、最悪試行頻度は \(O(\delta^{-1/2})\) まで増大し得る。有限閉鎖浴の素子数や使用済み貯蔵部容量は中心資源台帳から外し、R179の浴接続端数、リセット時間、帯域幅、精度と、R190の混合時間・作用開口制御範囲を外部運用資源として数える。
+\(\eta_{\rm gate}=O(\epsilon/d)\) とし、\(\tau,\gamma,\bar\varepsilon_j\) はそれぞれ \(O(\epsilon/n)\) と選ぶ。R191主線では \(g,\varepsilon_u,\varepsilon_{\rm cap}=O(\epsilon/n)\) とし、\(\Delta_{\min}g^2\gtrsim\log(n/\epsilon)\) を十分条件に取る。R190作用殻の代替経路を選ぶ場合だけ、正則化 \(\delta\) と最悪試行頻度 \(O(\delta^{-1/2})\) をその経路の資源として数える。有限閉鎖浴の素子数や使用済み貯蔵部容量は中心資源台帳から外し、R179の浴接続端数、リセット時間、帯域幅、精度と、R190の混合時間・作用開口制御範囲を外部運用資源として数える。
 
 \hypertarget{q2-4ux306eux5224ux5b9aux3068ux5883ux754c}{%
 \section{Q2-4の判定と境界}\label{q2-4ux306eux5224ux5b9aux3068ux5883ux754c}}
 
-R181Cは指数個の個別ゲート設定、R181Dは全 \(2^n\) 葉の一括読出し、R179は指数個の個別未使用初期化を避ける。R186は指数モード数だけを理由に指数精度を要求せず、局所製造誤差と位相ノイズを射影型に評価する一方、全自由度に加わる加法ノイズが外部精度へ指数コストとして露出する境界を与える。従ってM54はQ2-4を条件付き達成へ進める。条件は、射影容量保持機構、R190/R179静的選択機構、R170吸収指針変数、制御付き選別機構、方向を変えない振幅再調整、開放リセット/供給接続部を同じ安全集合と制御規約で接続することである。
+R181Cは指数個の個別ゲート設定、R181Dは全 \(2^n\) 葉の一括読出し、R179は指数個の個別未使用初期化を避ける。R186は指数モード数だけを理由に指数精度を要求せず、局所製造誤差と位相ノイズを射影型に評価する一方、全自由度に加わる加法ノイズが外部精度へ指数コストとして露出する境界を与える。従ってM54はQ2-4を条件付き達成へ進める。2結果主線の条件は、射影作用保持機構、R191ブラウン巨視的スピン読出し、制御付き選別機構、必要な方向を変えない振幅再調整、開放リセット/供給接続部を同じ安全集合と制御規約で接続することである。R164/R190/R170経路は一般有限結果集合と作用殻型の代替実現として残す。
 
 本構成は通常の計算量理論における多項式資源の古典シミュレーションではない。指数個の受動自由度、静的結合、浴容量、総熱を許した上で、外部制御と総時間を多項式に抑える結果である。未知量子入力、適応中間測定、誤り訂正、固定容量浴による無期限独立同分布標本は主張しない。M54はQ1・Q2・Q3の共通親模型族だが、全状態構成で同一の製造済み装置や同一パラメータを主張しない。
 
@@ -1764,7 +1885,7 @@ G_{\rm rec}=\sum_i d_i(x)P_{D_i}
 
 と書ける。これは記録時刻の排他的粒子位置を読む。入力時刻以前の粒子軌道、初回到達率、吸収率、時間積分流束を与えない。
 
-R170は、容量結合、作用殻、信号保持、混合・衝突、選択機構、固定機構を有限能動部分系＋明示的Hamiltonian無限浴の1つの具体的ミクロ装置へ統合済みだと主張しない。現行の条件付き達成は、この未統合部分を明示して判定する。有限浴化は別の強化課題である。一意エルゴードな外部時刻割当または有限熱化から、結果列の独立同分布性や二項型有限標本揺らぎも従わない。
+R191は、transducer、ブラウン巨視的スピン、射影成分生成、記録、resetを単一閉鎖Hamiltonianへ統合済みだと主張しない。R170についても、容量結合、作用殻、信号保持、混合・衝突、選択機構、固定機構を1つの具体的装置へ統合済みだと主張しない。現行の条件付き達成は、この未統合部分を明示して判定する。有限浴化は別の強化課題である。一意エルゴードな外部時刻割当または有限熱化から、結果列の独立同分布性や二項型有限標本揺らぎも従わない。
 
 \part{単一量子ビット型操作と測定}
 
@@ -2114,7 +2235,7 @@ Q1ではM54静的状態構成に \(v=z\)、\(\mathcal I=\{L,R\}\)、\(\Psi=\Phi\
 \frac{|(\Phi z)_i|^2/(z^\dagger z)+\delta q_i}{1+\delta}
 \]
 
-が2作用殻の規格化状態数として得られる。R161は対応する静的平方根kernelを与え、R190/R179がその有限時間選択を物理実現する。選択終了後はR170が吸収指針変数へ結果を固定し、その後に局所記録を作る。従ってQ1章で独立に必要なのは、W型信号の準備と分析器、左右固定、局所位置記録との接続である。結果選択と階数1 測定後状態更新は第2章の共通射影選別機構へ共通化し、別の結果別状態テンプレートを置かない。
+が2作用殻の規格化状態数として得られる。Q1の2結果主線ではR191がブラウン巨視的スピンの吸引域測度から有限時間Born読出しと吸収記録を与える。R164/R161/R190/R179/R170は一般有限結果集合と作用殻型の代替実現として残す。従ってQ1章で独立に必要なのは、W型信号の準備と分析器、左右固定、局所位置記録との接続である。結果選択と階数1 測定後状態更新は第2章の共通射影選別機構へ共通化し、別の結果別状態テンプレートを置かない。
 
 作用殻を消去した条件付き中間状態有効自由エネルギーは
 
@@ -2397,7 +2518,7 @@ A_{\boldsymbol n}
 \Pi_{\boldsymbol n,s}.
 \]
 
-結果成分ごとの固有状態テンプレートは使わない。測定前信号の非選択成分は選別機構用作業領域へ、方向を変えない振幅再調整で環境へ渡る情報はR179の流出浴へ残す。選択後信号は同じ試行の次段へ直接渡し、次の測定面でのみ新しいR164--R190--R179--R170の整合を走らせる。
+結果成分ごとの固有状態テンプレートは使わない。測定前信号の非選択成分は選別機構用作業領域へ、方向を変えない振幅再調整で環境へ渡る情報はR179の流出浴へ残す。選択後信号は同じ試行の次段へ直接渡し、次の測定面でのみ新しいR191読出しを走らせる。
 
 \hypertarget{r143q1-wux578b2ux30e2ux30fcux30c9ux8aadux51faux3057ux3068ux5c04ux5f71ux9078ux5225ux6a5fux69cbux53d7ux6e21ux3057}{%
 \section{R143：Q1 W型2モード読出しと射影選別機構受渡し}\label{r143q1-wux578b2ux30e2ux30fcux30c9ux8aadux51faux3057ux3068ux5c04ux5f71ux9078ux5225ux6a5fux69cbux53d7ux6e21ux3057}}
@@ -3446,7 +3567,7 @@ V_{\rm s}
 \tag{4.31}
 \]
 
-このゲート列は設定生成前に終える。実際の末端信号 \(v=Z_{\rm out}(\omega)\) をR112の正準SWAPで物理保持信号 \(\widetilde V=v\) としてそのまま移し、第5章R180へ渡す。正準SWAPは状態依存除算を含まない。R180では解析上だけ \(V=\widetilde V/\|\widetilde V\|\) とし、A設定 \(x\) が \(\widetilde V\) の直交射影子 ブロックを選び、供給源駆動 2端Hopf受信機構を通して2翼の局所M54静的/R170へ接続する。
+このゲート列は設定生成前に終える。実際の末端信号 \(v=Z_{\rm out}(\omega)\) をR112の正準SWAPで物理保持信号 \(\widetilde V=v\) としてそのまま移し、第5章R180へ渡す。正準SWAPは状態依存除算を含まない。R180では解析上だけ \(V=\widetilde V/\|\widetilde V\|\) とし、A設定 \(x\) が \(\widetilde V\) の直交射影子 ブロックを選び、供給源駆動 2端Hopf受信機構を通して2翼の局所R191へ接続する。
 
 この接続部はR181Dと役割が異なる。R181Dは末端計算基底分布を直接記録する。R180は同じ試行の4モード信号を記録前に2翼受信機構へ渡す。1周期では選んだ一方だけを作動させる。
 
@@ -3486,7 +3607,7 @@ M37由来のW型入力を接続する研究では、独立な2素子の並置と
 \chapter{M54駆動設定先行2端Hopf受信機構とBell前提監査}\label{m54ux99c6ux52d5ux8a2dux5b9aux5148ux884c2ux7aefhopfux53d7ux4fe1ux6a5fux69cbux3068bellux524dux63d0ux76e3ux67fb}}
 
 \begin{statusbox}
-位置づけ：M54の実際の1試行末端信号をA設定で条件付きブロックへ分け、供給源駆動 2端Hopf流、切断後未使用局所作用殻、2翼R170選択・固定と局所記録へ接続する。R180A/Bは代数と採用開放流を閉じ、R180Cは単一装置統合を条件とする。Q2-2の条件付き達成を維持する。
+位置づけ：M54の実際の1試行末端信号をA設定で条件付きブロックへ分け、供給源駆動 2端Hopf流、切断後未使用局所作用殻、2翼R191選択・固定と局所記録へ接続する。R180A/Bは代数と採用開放流を閉じ、R180Cは単一装置統合を条件とする。Q2-2の条件付き達成を維持する。
 \end{statusbox}
 
 \hypertarget{ux76eeux7684ux3068ux6a21ux578bux306eux5883ux754c}{%
@@ -3597,7 +3718,7 @@ Q2-2の固定ベンチマークでは、M54の2入力を \(|00\rangle\) とし�
 \item
   A、Bの局所分析器を作用させる。\(y\) はこの段階でB側だけへ入る。
 \item
-  2翼のR170を走らせて局所選択を固定し、その後R112局所記録で結果または無反応を外部記録する。
+  2翼のR191を走らせて局所選択を固定し、その後R112局所記録で結果または無反応を外部記録する。
 \item
   外部記録を残し、能動部を未使用素子へ交換する。
 \end{enumerate}
@@ -3677,7 +3798,7 @@ b_{s,x}(V)
 
 \begin{theorem}[R180A：M54末端信号の設定先行条件付きブロック抽出定理]
 
-零でないM54末端信号を正準SWAPで $\widetilde V=v$ と保持し、解析上だけ $V=\widetilde V/\|\widetilde V\|$ とする。A設定 $x$ に応じた $U_x^\dagger\otimes I_2$、第2.13節の直交射影子作用保持機構で2結果の物理容量を保持し、その容量をR164--R190--R179の静的選択とR170 指針変数固定へ渡す。共通補題が保持する物理結果成分容量を
+零でないM54末端信号を正準SWAPで $\widetilde V=v$ と保持し、解析上だけ $V=\widetilde V/\|\widetilde V\|$ とする。A設定 $x$ に応じた $U_x^\dagger\otimes I_2$、第2.13節の直交射影子作用保持機構で2結果の物理容量を保持し、その2容量をR191の作用和・作用差駆動ブラウン巨視的スピン読出しへ渡す。共通補題が保持する物理結果成分容量を
 
 $$
 J_s(\widetilde V,x)
@@ -4146,7 +4267,7 @@ e^{-\gamma_{180}T_{\rm PH}}
 
 \begin{theorem}[R180C：M54駆動2端受信機構合成、有限誤差、局所性監査、帰還]
 
-R180AのM54信号保持、共通射影容量固定機構、中央R170選択・固定、選択ブロックの接続端、R180Bのテンプレート保持、ポンプ、排出先、2翼信号系、中央切断、および2つの局所R170とR112局所記録が共通の安全集合と1つの有限時計自由度時刻割当上で上式の各誤差以内に実行できるとする。完全結果集合を
+R180AのM54信号保持、共通射影容量固定機構、中央R170選択・固定、選択ブロックの接続端、R180Bのテンプレート保持、ポンプ、排出先、2翼信号系、中央切断、および2つの局所R191とR112局所記録が共通の安全集合と1つの有限時計自由度時刻割当上で上式の各誤差以内に実行できるとする。完全結果集合を
 
 $$
 \Omega_{AB}
@@ -6255,6 +6376,18 @@ draft-71ではR182専用のW型数値回帰を追加したが、これは解析�
 位置づけ：M54から派生するQ1/Q2の静的open-bath選択とQ3の開放jump状態構成、R180受信機構、M37物理実装層を横断比較し、R162/R170/R179/R190の新責務、R181A--R181D、資源、反証条件、未完成目標を整理する。
 \end{statusbox}
 
+\hypertarget{r191ux306e2ux7d50ux679cux8aadux51faux3057ux8aa4ux5deeux3068ux8cc7ux6e90}{%
+\subsection{R191の2結果読出し誤差と資源}\label{r191ux306e2ux7d50ux679cux8aadux51faux3057ux8aa4ux5deeux3068ux8cc7ux6e90}}
+
+Q1/Q2の2結果主線では、1ノードの読出し誤差を
+
+\[
+\varepsilon_{191}
+=\max\{\varepsilon_{191}^{\rm int},\varepsilon_{191}^{\rm edge}\}
+\]
+
+として付録Tから受け取る。内部経路では混合誤差、保護帯、transducer境界誤差、有限温度retreat、有限時間未捕獲、捕獲記録を各1回だけ数え、R164/R190/R170代替経路の同じ選択偏差を重複加算しない。深さ \(m\) では各ノード誤差を \(O(\epsilon/m)\) とし、\(g=O(\epsilon/m)\)、\(\Delta_{\min}g^2\gtrsim\log(m/\epsilon)\) を十分条件に取れば、R191のdecision障壁は \(m,1/\epsilon\) の多項式で選べる。一般深さでは成分作用下限を保つ方向を変えない振幅再調整を残す。
+
 \hypertarget{ux8aa4ux5deeux30921ux56deux3060ux3051ux6570ux3048ux308bux898fux7d04}{%
 \section{誤差を1回だけ数える規約}\label{ux8aa4ux5deeux30921ux56deux3060ux3051ux6570ux3048ux308bux898fux7d04}}
 
@@ -6340,7 +6473,7 @@ e^{-\gamma T_L}
 \hypertarget{q1ux306eux7cfbux5217ux56faux6709ux8aa4ux5dee}{%
 \section{Q1の系列固有誤差}\label{q1ux306eux7cfbux5217ux56faux6709ux8aa4ux5dee}}
 
-R143は初期操作面のR170、W型分析器、分析器後のR181Dの深さ1 共通射影選別機構を合成する。結果分布誤差と安全な結果成分の測定後状態誤差を分ける。
+R143は初期操作面のR191、W型分析器、分析器後のR181Dの深さ1 共通射影選別機構を合成する。結果分布誤差と安全な結果成分の測定後状態誤差を分ける。
 
 \[
 \begin{aligned}
@@ -6784,7 +6917,7 @@ R164は一般有限信号作用を結果成分容量へ写し、各排他的結�
 
 R143はW型信号準備、分析器、有限コントラスト、傾斜固定、安全井戸局所記録を共通射影選別機構へ接続する1段有限誤差測定機構である。記録器は統計振幅、共分散、全密度、確率流、遷移率を入力にせず、各試行に存在する \(X\) の局所位置だけを読む。結果成分を固定した後はR181Dの階数1 射影選別機構が選択後信号を結果固有状態方向へ移し、方向を変えない振幅再調整が方向を保ったまま作用を戻すため、別の結果別状態テンプレートと測定後再平衡化は不要である。R144は同じ信号を固定有限回直接受け渡し、無反応を含む完全履歴、同軸反復分布、異軸逐次分布と有限誤差を与える。永久記録、補助逆計算、外部空素子交換はR144とは別の無番号実装強化系である。解析器中または周期間に配置--信号 整合を連続保存することは仮定しない。
 
-Q2-1はM54の \(n=2\) 特殊化である。受動的な4モード信号、逆演算用補助記憶部、作業領域、時計自由度履歴を浴へ任せ、制御器は接続端、持ち上げ窓、ゲート種、対象、作用窓、末端読出しだけを指定する。R181Bは一般積入力の可逆テンソル積状態の生成、R181Cは同じ永続記憶部上のCNOT、局所操作、逆演算を与える。R181Dは深さ2の段階的射影選別を与える。末端の物理境界と一体化を条件としてQ2-1は条件付き達成である。
+Q2-1はM54の \(n=2\) 特殊化である。受動的な4モード信号、逆演算用補助記憶部、作業領域、時計自由度履歴を浴へ任せ、制御器は接続端、持ち上げ窓、ゲート種、対象、作用窓、末端読出しだけを指定する。R181Bは一般積入力の可逆テンソル積状態の生成、R181Cは同じ永続記憶部上のCNOT、局所操作、逆演算を与える。R181DはR191の2結果読出しを使う深さ2の段階的射影選別を与える。末端の物理境界と一体化を条件としてQ2-1は条件付き達成である。
 
 Q2-2にはM54駆動設定先行2端Hopf受信機構を採用した。固定一重項源はM54の \(|00\rangle\to H_A\to\mathrm{CX}_{A\to B}\to X_B\to Z_A\) で作り、R181C後の実際の1試行末端信号を正準SWAPで物理保持信号 \(\widetilde V\) としてそのまま中央受信機構へ渡す。\(V=\widetilde V/\|\widetilde V\|\) は解析上の状態方向であり、SWAPが状態依存除算を行うわけではない。R180AはA設定基底で \(\widetilde V\) を2つのブロックへ分解し、共通射影容量固定補題とR170中央潜在選択から結果重み、同じブロック作用からB側テンプレートを得る。R181D定理そのものには依存しない。固定一重項では各結果重みが \(1/2\) となり、規格化テンプレートは旧スピン反転 ファイバーを大域位相まで回復する。
 
@@ -7520,7 +7653,7 @@ C_s^{\rm out},
 
 初期操作面ではR181AのW型2モード準備とR170を使い、有限偏差を \(\varepsilon_{\rm Hopf}+\varepsilon_{170}^{\rm in}\) へ入れる。浴接続部流を切ってR140の分析器を実行し、W型信号系偏差を \(\varepsilon_{\rm ctrl}+\varepsilon_{2m}\) で評価する。B.7が有限 コントラスト \(\eta_W\)、R140の保持節とR170の指針変数固定が \(\varepsilon_{\rm lock}+\varepsilon_{\rm res}\) を与える。
 
-分析器後は第2章の共通射影選別機構を深さ1で使う。R164--R190--R179--R170の選択、固定、局所記録、保護帯、制御付き 選別機構、方向を変えない振幅再調整、転送を完全結果核としてまとめ、その分布誤差を \(\varepsilon_{\rm node}^{\rm dist}\) とする。同じ容量、混合、衝突、記録偏差をR143で再展開しない。全変動距離の縮小性と三角不等式から
+分析器後は第2章の共通射影選別機構を深さ1で使う。R191の選択・固定・無反応、局所記録、制御付き選別機構、必要な方向を変えない振幅再調整、転送を完全結果核としてまとめ、その分布誤差を \(\varepsilon_{\rm node}^{\rm dist}\) とする。同じ容量、混合、衝突、記録偏差をR143で再展開しない。全変動距離の縮小性と三角不等式から
 
 \[
 D_{\rm TV}
@@ -7545,7 +7678,7 @@ p^{\rm obs},p^{\rm id}
 \varepsilon_{\rm res}.
 \]
 
-安全な結果成分の条件付き測定後状態はB.10から \(\varepsilon_{\rm node}^{\rm state}\) 以内である。\(\eta_W\) は結果頻度の誤差なのでこの状態 上界へ重複加算しない。測定終了直後に粒子位置を新しい信号へ再整合せず、選択後信号を次のR140区間へ直接渡し、次の測定面でR164--R190--R179--R170を改めて走らせる。
+安全な結果成分の条件付き測定後状態はB.10から \(\varepsilon_{\rm node}^{\rm state}\) 以内である。\(\eta_W\) は結果頻度の誤差なのでこの状態 上界へ重複加算しない。測定終了直後に粒子位置を新しい信号へ再整合せず、選択後信号を次のR140区間へ直接渡し、次の測定面でR191を改めて走らせる。
 
 \begin{proof}[R143]
 
@@ -8615,7 +8748,7 @@ D_{\rm TV}
 \sum_j\epsilon_j.
 \]
 
-連続方向誤差は局所応答核の一様Lipschitz定数で結果分布距離へ変換してから加える。\(\|\widetilde V\|\geq r_{\min}\) の安全集合では規格化写像がLipschitzであるため、M54の供給源、ゲート、正準SWAP、保持が状態方向へ与える偏差を \(\varepsilon_{\rm ray}^{54}\) にまとめられる。正準SWAP自体に除算は含めない。分離器、結果成分作用、中央R170、ブロック保持、2端Hopf、位置整合、切断、条件付き積偏差、局所R170、R112局所記録、時計自由度を各1回だけ数えると本文の \(\varepsilon_{180}^{\rm cyc}\) になる。
+連続方向誤差は局所応答核の一様Lipschitz定数で結果分布距離へ変換してから加える。\(\|\widetilde V\|\geq r_{\min}\) の安全集合では規格化写像がLipschitzであるため、M54の供給源、ゲート、正準SWAP、保持が状態方向へ与える偏差を \(\varepsilon_{\rm ray}^{54}\) にまとめられる。正準SWAP自体に除算は含めない。分離器、結果成分作用、中央R170、ブロック保持、2端Hopf、位置整合、切断、条件付き積偏差、局所R191、R112局所記録、時計自由度を各1回だけ数えると本文の \(\varepsilon_{180}^{\rm cyc}\) になる。
 
 周辺化は全変動距離を増やさない。同じ理想周辺から各設定で \(\varepsilon_{180}^{\rm cyc}\) 以内なら、反対設定間の周辺差は三角不等式により \(2\varepsilon_{180}^{\rm cyc}\) 以下である。
 
@@ -13145,7 +13278,7 @@ M54から従わないもの
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-Q1 & \(m=2\)、W型生成子、目標Bloch状態方向 & W型粒子位置、Born結果成分、共通射影選別機構の単一装置統合、周期収支 \\
+Q1 & \(m=2\)、W型生成子、目標Bloch状態方向 & W型粒子位置、Born結果成分、R191を含む共通射影選別機構の単一装置統合、周期収支 \\
 Q2-1 & 指定した局所状態方向の試行集団準備 & R181Bの1試行テンソル積状態の生成、R181CのCNOT・逆演算、R181Dの末端接続 \\
 Q2-3 & 指定した3部分系初期状態方向の試行集団準備 & R181B/R181Cの反復持ち上げ・二段ゲート、R177、R181Dの末端接続 \\
 Q2-4 & 根供給源の大きさ方向整形と各節点の方向を変えない振幅再調整 & R181Cのゲート合成、R170の選択機構形成、R181Dの選別機構、R179の貯蔵部供給 \\
@@ -14242,7 +14375,7 @@ P_{u,0}+P_{u,1}=I,
 P_{u,0}P_{u,1}=0.
 \]
 
-節点の完全能動状態には、信号 \(Z_u\)、未処理容量指針変数 \(J_{u,b}\)、作用殻容量 \(A_{u,b}^\delta\)、選択変数 \(X\)、R170の吸収指針変数 \(Y\)、選別機構用作業領域、外部記録を含める。R190の混合浴、R179の流入／流出浴、方向を変えない振幅再調整用接続端の環境は環境接続部として別に扱い、解析上の条件付き確率を制御器へ書き込まない。
+節点の完全能動状態には、信号 \(Z_u\)、未処理容量指針変数 \(J_{u,b}\)、作用殻容量 \(A_{u,b}^\delta\)、選択変数 \(X\)、R191の吸収記録 \(Y\)、選別機構用作業領域、外部記録を含める。R190の混合浴、R179の流入／流出浴、方向を変えない振幅再調整用接続端の環境は環境接続部として別に扱い、解析上の条件付き確率を制御器へ書き込まない。
 
 \hypertarget{ux672aux51e6ux7406ux5bb9ux91cfux3068ux6b63ux5247ux5316ux6bbb}{%
 \section{未処理容量と正則化殻}\label{ux672aux51e6ux7406ux5bb9ux91cfux3068ux6b63ux5247ux5316ux6bbb}}
@@ -14292,7 +14425,7 @@ J_{u,b}-(\tau\pm\gamma)J_\Sigma
 \hypertarget{ux9078ux629eux6a5fux69cbux306eux56faux5b9aux3068ux53efux9006ux9078ux5225ux6a5fux69cb}{%
 \section{選択機構の固定と可逆選別機構}\label{ux9078ux629eux6a5fux69cbux306eux56faux5b9aux3068ux53efux9006ux9078ux5225ux6a5fux69cb}}
 
-結果成分の排他的選択と固定は第2章R170が担う。R164の容量をR190の作用殻混合・作用開口へ渡し、R179の定常流入浴で反復再混合を保った静的選択を行う。選択浴を切った後、R170の吸収指針変数 \(Y=b\) を固定してから選別機構を開く。保護帯または指針変数未捕獲は正式な無反応に残し、成功試行だけを再規格化しない。
+結果成分の排他的選択と固定は第2章R170が担う。R164の容量をR190の作用殻混合・作用開口へ渡し、R179の定常流入浴で反復再混合を保った静的選択を行う。選択浴を切った後、R191の吸収記録 \(Y=b\) を固定してから選別機構を開く。保護帯または指針変数未捕獲は正式な無反応に残し、成功試行だけを再規格化しない。
 
 信号と未使用作業領域上の選別機構を
 
@@ -14486,6 +14619,18 @@ O\!\left(
 \end{enumerate}
 
 旧固定体積の開口および二進しきい値記録領域はこの証明に使わない。
+
+\hypertarget{r191ux4e3bux8aadux51faux3057ux3068ux975eux898fux683cux5316ux6210ux5206ux306eux53d7ux6e21ux3057}{%
+\subsection{R191主読出しと非規格化成分の受渡し}\label{r191ux4e3bux8aadux51faux3057ux3068ux975eux898fux683cux5316ux6210ux5206ux306eux53d7ux6e21ux3057}}
+
+2結果ノードではR191を主読出しとする。結果 \(b\) が固定された後の可逆写像 \(F_{k,b}\) は従来どおり \(P_{k,b}Z\) と補成分を分け、能動成分を物理的に規格化しない。次段R191はその成分自身の作用和を分母に持つ吸引域境界を作るため、理想条件付き確率は
+
+\[
+P(y_k=b\mid y_{<k})
+=\frac{\|P_{k,b}Z_{k-1}\|^2}{\|Z_{k-1}\|^2}
+\]
+
+となる。従って有限段の完全履歴は従来のLüders型telescopingを保つ。方向を変えない振幅再調整は固定小深度では省略できるが、Q2-4の一般深度では作用下限維持のため残す。
 
 \hypertarget{m54ux306eux4e00ux69d8ux958bux653eux4f9bux7d66ux30eaux30bbux30c3ux30c8ux518dux6df7ux5408}{%
 \chapter{M54の一様開放供給・リセット・再混合}\label{m54ux306eux4e00ux69d8ux958bux653eux4f9bux7d66ux30eaux30bbux30c3ux30c8ux518dux6df7ux5408}}
@@ -15231,6 +15376,498 @@ c_{ij}^{\rm ap}
 
 R190A--R190C単独では、容量 \(\widehat A_i\) の生成機構、全2作用殻の完全microcanonical準備、容量生成から指針変数固定、記録、選別、再調整までの単一ミクロ装置統合、周期総収支を主張しない。反復再混合はR179との合成で与える。R162の一般有向率はQ3の開放jump実現として別責務に置く。有限浴への持上げは本定理の欠落ではなく、有限環境そのものを検査する独立の強化課題である。
 
+\hypertarget{r191ux306eux30d6ux30e9ux30a6ux30f3ux5de8ux8996ux7684ux30b9ux30d4ux30f32ux7d50ux679cux5c04ux5f71ux8aadux51faux3057}{%
+\chapter{R191のブラウン巨視的スピン2結果射影読出し}\label{r191ux306eux30d6ux30e9ux30a6ux30f3ux5de8ux8996ux7684ux30b9ux30d4ux30f32ux7d50ux679cux5c04ux5f71ux8aadux51faux3057}}
+
+\begin{statusbox}
+位置づけ：Q1/Q2の2結果射影読出しを、既知のブラウン巨視的スピンと吸引域捕獲へ接続する採用開放模型。R164--R190--R170経路は一般有限結果集合・作用殻型の代替実現として残す。
+\end{statusbox}
+
+\hypertarget{ux76eeux7684ux3068ux8cacux52d9ux5883ux754c}{%
+\section{目的と責務境界}\label{ux76eeux7684ux3068ux8cacux52d9ux5883ux754c}}
+
+R191は、2結果直交射影で固定された作用を、有限混合時間・有限温度・有限decision時間・transducer誤差・正式な無反応を含む1試行1結果の古典読出しへ変換する。本付録で新しく使う確率自由度は固定長の単磁区巨視的スピンだけである。熱揺らぎを受ける固定長磁化のFokker--Planck記述、一軸異方性下の高障壁2状態近似はBrownの古典結果に基づく \cite{brown1963}。Brownian spinの確率力学との関係はKubo--Hashitsume \cite{kubo_hashitsume1970}、有限時間switching probabilityとの関係はGrinstein--Koch \cite{grinstein_koch2005}を参照する。
+
+本結果はBrownian spinや磁化反転そのものの新規性を主張しない。新しい責務は、同じ古典信号の射影作用和・作用差を吸引域境界へ直接結合し、外部でBorn確率を計算せずに結果頻度へ変えること、およびその有限誤差を共通instrument契約として切り出すことである。
+
+R191は射影後信号の生成を担わない。結果固定後の
+
+\[
+(z,0)
+\longmapsto
+(P_rz,(I-P_r)z)
+\]
+
+という可逆な経路分解と次段への受渡しは、第2章の既存共通射影選別機構とR181Dが担う。一般深さで作用下限を回復する方向を変えない振幅再調整もR181D/R179側に残す。
+
+\hypertarget{ux5c04ux5f71ux4f5cux7528ux3068transducerux5951ux7d04}{%
+\section{射影作用とtransducer契約}\label{ux5c04ux5f71ux4f5cux7528ux3068transducerux5951ux7d04}}
+
+非零信号 \(Z\) と2結果直交射影 \(P_++P_-=I\) に対して
+
+\[
+J_+
+=\mathcal J_0 Z^\dagger P_+Z,
+\qquad
+J_-
+=\mathcal J_0 Z^\dagger P_-Z,
+\]
+
+\[
+S=J_++J_->0,
+\qquad
+D=J_+-J_-.
+\]
+
+と置く。理想Born重みは
+
+\[
+p_+=\frac{J_+}{S},
+\qquad
+p_-=\frac{J_-}{S}.
+\]
+
+実装transducerは作用和・作用差の近似値 \(\widehat S,\widehat D\) を出力し、固定安全集合上で
+
+\[
+|\widehat S-S|
+\leq
+\varepsilon_\Sigma S,
+\qquad
+|\widehat D-D|
+\leq
+\varepsilon_\Delta S,
+\qquad
+0\leq\varepsilon_\Sigma<1
+\]
+
+を満たすとする。これは特定素子を定理へ固定しない抽象接続契約である。例えば同周波数RF/LC信号の対称弱pickupと二乗則検波を使えば作用に比例するDC出力を作れるが、R191本体はその実装を必要条件にしない。
+
+実吸引域境界を
+
+\[
+\widehat u_*
+=-\frac{\widehat D}{\widehat S},
+\]
+
+理想境界を
+
+\[
+u_*
+=-\frac DS
+\]
+
+とすれば、
+
+\[
+|\widehat u_*-u_*|
+\leq
+\frac{\varepsilon_\Delta+\varepsilon_\Sigma}
+{1-\varepsilon_\Sigma}
+=: \varepsilon_u.
+\]
+
+従って外部制御器が \(D/S\) を除算する必要はない。作用和と作用差を別々の物理係数へ線形結合した結果として、その比が吸引域境界の位置に現れる。
+
+\hypertarget{ux6df7ux5408ux7a93ux3068ux4e00ux69d8ux65b9ux5411}{%
+\section{混合窓と一様方向}\label{ux6df7ux5408ux7a93ux3068ux4e00ux69d8ux65b9ux5411}}
+
+指針変数を固定長単磁区巨視的スピン \(\boldsymbol m\in S^2\) とし、読出し軸成分を
+
+\[
+U=m_z\in[-1,1]
+\]
+
+とする。混合窓では一軸異方性と軸方向biasを切り、生成子
+
+\[
+\mathcal L_{\rm mix}
+=D_{\rm mix}\Delta_{S^2}
+\]
+
+の等方回転拡散へ接続する。球面一様分布が唯一の定常分布であり、その \(z\) 周辺は \(U[-1,1]\) である。
+
+R190Bと同じ球面スペクトル分解を使い、\(S_{\rm mix}=D_{\rm mix}T_{\rm mix}\)、\(q=e^{-4S_{\rm mix}}\) と置けば任意の初期方向について
+
+\[
+D_{\rm TV}
+\left(
+\mathcal L(U_{T_{\rm mix}}),
+U[-1,1]
+\right)
+\leq
+\varepsilon_{\rm mix}
+:=
+\min
+\left\{
+1,
+\frac{\sqrt{q(3-q)}}{2(1-q)}
+\right\}.
+\]
+
+R191ではこの混合評価だけを共通化し、R190Cの作用開口やR161の静的平方根率を使わない。
+
+\hypertarget{decision-potentialux3068bornux5438ux5f15ux57dfux6e2cux5ea6}{%
+\section{decision potentialとBorn吸引域測度}\label{decision-potentialux3068bornux5438ux5f15ux57dfux6e2cux5ea6}}
+
+混合終了後、実transducer出力を固定し、decision窓で
+
+\[
+V_{\rm dec}(u)
+=-\frac\chi2
+\left(
+\widehat S u^2
++2\widehat D u
+\right),
+\qquad
+\chi>0
+\]
+
+を与える。平方完成すると
+
+\[
+V_{\rm dec}(u)
+=-\frac{\chi\widehat S}{2}
+(u-\widehat u_*)^2
++\text{const.}
+\]
+
+である。零雑音の散逸運動を無次元時間で
+
+\[
+\dot u
+=(1-u^2)(u-\widehat u_*)
+\]
+
+と書けば、\(u>\widehat u_*\) は \(+1\)、\(u<\widehat u_*\) は \(-1\) へ流れる。
+
+理想transducerなら \(\widehat u_*=u_*\) であり、混合分布が球面一様なら
+
+\[
+P(+)
+=P(U>u_*)
+=\frac{1-u_*}{2}
+=\frac{J_+}{J_++J_-},
+\]
+
+\[
+P(-)
+=\frac{J_-}{J_++J_-}.
+\]
+
+従ってBorn型2値重みは、連続指針変数を直接二値へ量子崩壊させる仮定ではなく、古典的な2つの吸引域が混合分布中で占める測度として得られる。
+
+\hypertarget{ux6709ux9650ux6e29ux5ea6ux306eux8ef8ux5bfeux79f0stochastic-llgux7e2eux7d04}{%
+\section{有限温度の軸対称stochastic LLG縮約}\label{ux6709ux9650ux6e29ux5ea6ux306eux8ef8ux5bfeux79f0stochastic-llgux7e2eux7d04}}
+
+実装された無次元障壁強度を
+
+\[
+\widehat\Delta
+=
+\frac{\chi\widehat S}
+{2k_{\rm B}T_{\rm dec}}
+\]
+
+とする。\(S\geq S_{\min}>0\) なら
+
+\[
+\widehat\Delta
+\geq
+\Delta_{\min}
+:=
+\frac{\chi(1-\varepsilon_\Sigma)S_{\min}}
+{2k_{\rm B}T_{\rm dec}}.
+\]
+
+軸対称Brown Fokker--Planck方程式を無次元時間 \(\tau\) で
+
+\[
+\partial_\tau\rho
+=
+\partial_u
+\left[
+-(u-\widehat u_*)(1-u^2)\rho
++
+\frac{1-u^2}{2\widehat\Delta}
+\partial_u\rho
+\right]
+\]
+
+と採用し、\(u=\pm1\) には零流束境界条件を置く。対応するItô SDEは
+
+\[
+dU_\tau
+=
+\left[
+(1-U_\tau^2)(U_\tau-\widehat u_*)
+-
+\frac{U_\tau}{\widehat\Delta}
+\right]d\tau
++
+\sqrt{
+\frac{1-U_\tau^2}{\widehat\Delta}
+}
+dW_\tau.
+\]
+
+物理時間 \(t\) との対応は
+
+\[
+\tau
+=2D_{\rm dec}\widehat\Delta\,t
+\]
+
+とする。\(Y_\tau=\operatorname{artanh}U_\tau\) へ変換するとItô補正と幾何学的driftが相殺し、
+
+\[
+dY_\tau
+=
+(U_\tau-\widehat u_*)d\tau
++
+\frac{dW_\tau}
+{\sqrt{\widehat\Delta(1-U_\tau^2)}}.
+\]
+
+となる。
+
+\hypertarget{ux4fddux8b77ux5e2fux521dux5230ux9054ux6709ux9650ux6642ux9593ux4e0aux754c}{%
+\section{保護帯、初到達、有限時間上界}\label{ux4fddux8b77ux5e2fux521dux5230ux9054ux6709ux9650ux6642ux9593ux4e0aux754c}}
+
+通常読出し経路では推定重みが両方とも固定cutoff \(\tau_{\rm cut}>0\) 以上であることを要求する。保護帯幅 \(g>0\)、捕獲幅 \(\zeta>0\) を
+
+\[
+g+\zeta<2\tau_{\rm cut}
+\]
+
+と選ぶ。初期点が
+
+\[
+|U_0-\widehat u_*|<g
+\]
+
+なら正式な無反応へ送る。完全一様分布でこの質量は \(g\) であり、有限混合誤差を含めれば \(g+\varepsilon_{\rm mix}\) 以下である。
+
+捕獲領域を
+
+\[
+C_+
+=[1-\zeta,1],
+\qquad
+C_-
+=[-1,-1+\zeta]
+\]
+
+とし、最初に到達した側を吸収記録へ写す。\(m_\zeta=\zeta(2-\zeta)\) と置く。
+
+1次元拡散のscale densityは
+
+\[
+s'(u)
+=
+\frac{
+\exp[-\widehat\Delta(u-\widehat u_*)^2]
+}{1-u^2}.
+\]
+
+保護帯外から境界側へ \(g/2\) だけ熱的に戻る確率を、反対basinへ到達する前の保守的failureとして数えると、両側共通に
+
+\[
+q_{\rm ret}
+\leq
+\min
+\left\{
+1,
+\frac{2}
+{m_\zeta\Delta_{\min}g^2}
+\exp
+\left(
+-\frac7{16}\Delta_{\min}g^2
+\right)
+\right\}.
+\]
+
+さらに
+
+\[
+L_{\max}
+=
+\operatorname{artanh}(1-\zeta)
+-
+\operatorname{artanh}(-1+2\tau_{\rm cut}+g)
+\]
+
+とし、無次元decision時間 \(T\) が
+
+\[
+T>\frac{2L_{\max}}g
+\]
+
+を満たすなら、保護帯側へ戻らず時刻 \(T\) まで捕獲されない確率は指数martingale評価により
+
+\[
+q_{\rm time}
+\leq
+\exp
+\left[
+-\frac{
+\Delta_{\min}m_\zeta
+(gT/2-L_{\max})^2
+}{2T}
+\right].
+\]
+
+従って有限温度decision failureは
+
+\[
+\varepsilon_{\rm FP}
+\leq
+q_{\rm ret}+q_{\rm time}
+\]
+
+で抑えられる。これはKramers高障壁漸近を定理の仮定にせず、軸対称1次元拡散のscale functionとmartingale評価から得る保守的有限時間上界である。
+
+\hypertarget{ux7aefux70b9dispatcherux3068ux5b8cux5168ux7d50ux679cux7a7aux9593}{%
+\section{端点dispatcherと完全結果空間}\label{ux7aefux70b9dispatcherux3068ux5b8cux5168ux7d50ux679cux7a7aux9593}}
+
+有限温度で \(p=0,1\) を誤差零の吸引域捕獲として要求しない。実推定
+
+\[
+\widehat p_+
+=\frac{\widehat S+\widehat D}{2\widehat S},
+\qquad
+\widehat p_-
+=\frac{\widehat S-\widehat D}{2\widehat S}
+\]
+
+について
+
+\[
+\min\{\widehat p_+,\widehat p_-\}
+<\tau_{\rm cut}
+\]
+
+なら、大きい側を決定論的経路へ送る。これは成功試行だけの再規格化ではなく全試行を定義するdispatcherである。通常経路と端点経路のどちらも、捕獲されない有限時間事象は無反応 \(\varnothing\) として残す。
+
+吸収記録の有限誤差を \(\varepsilon_{\rm cap}\) とする。通常経路の完全結果分布 \(P_{191}\) と理想Born分布 \(P_{\rm Born}=(p_+,p_-,0)\) の全変動距離は
+
+\[
+D_{\rm TV}(P_{191},P_{\rm Born})
+\leq
+\varepsilon_{\rm mix}
++g
++\frac{\varepsilon_u}{2}
++q_{\rm ret}
++q_{\rm time}
++\varepsilon_{\rm cap}
+=: \varepsilon_{191}^{\rm int}.
+\]
+
+端点経路には
+
+\[
+\varepsilon_{191}^{\rm edge}
+\leq
+\tau_{\rm cut}
++\frac{\varepsilon_u}{2}
++\varepsilon_{\rm cap}
+\]
+
+という保守的上界を使い、
+
+\[
+\varepsilon_{191}
+=
+\max
+\left\{
+\varepsilon_{191}^{\rm int},
+\varepsilon_{191}^{\rm edge}
+\right\}
+\]
+
+を1ノード誤差とする。
+
+\hypertarget{ux9010ux6b21ux6e2cux5b9aux3078ux306eux53d7ux6e21ux3057}{%
+\section{逐次測定への受渡し}\label{ux9010ux6b21ux6e2cux5b9aux3078ux306eux53d7ux6e21ux3057}}
+
+結果 \(r\) が固定された後、既存の共通射影選別機構は非規格化成分
+
+\[
+Z_r=P_rZ
+\]
+
+を能動信号として次段へ渡す。次段の2結果射影 \(Q_s\) に対するR191入力は
+
+\[
+J_{s|r}
+=\mathcal J_0\|Q_sP_rZ\|^2,
+\qquad
+S_r
+=\mathcal J_0\|P_rZ\|^2.
+\]
+
+従って理想条件付き確率は
+
+\[
+P(s|r)
+=
+\frac{\|Q_sP_rZ\|^2}
+{\|P_rZ\|^2}.
+\]
+
+物理信号を \(P_rZ/\|P_rZ\|\) へ非線形に規格化する必要はない。有限段の射影列では条件付き確率の積がtelescopingし、R181DのLüders型完全履歴を回収する。一般深さで \(\|P_rZ\|^2\) が読出し下限を下回り得る場合だけ、既存の方向を変えない振幅再調整を使う。
+
+\hypertarget{q2-2ux3067ux306eux8cacux52d9}{%
+\section{Q2-2での責務}\label{q2-2ux3067ux306eux8cacux52d9}}
+
+Q2-2ではR191を中央集約4結果samplerとして使わない。R180の設定先行2端構造を維持し、中央の2結果潜在選択とA、Bの各局所2結果読出しに同じR191契約を特殊化する。従って二つの物理測定端、設定順序、非信号性監査、測定設定独立性の破れの監査対象は変更しない。
+
+\hypertarget{ux71b1ux529bux5b66ux8cc7ux6e90ux975eux4e3bux5f35}{%
+\section{熱力学、資源、非主張}\label{ux71b1ux529bux5b66ux8cc7ux6e90ux975eux4e3bux5f35}}
+
+mixing、decision、captureは開放過程であり、完全cycleのresetとは区別する。decision potentialを投入する有限外部仕事、熱浴への散逸、結果情報を吸収記録へ移す過程をR191の局所収支とし、結果相関履歴を外へ排出して能動部を次試行へ戻す責務はR179へ残す。
+
+深さ \(m\) の有限逐次測定で各ノード誤差を \(O(\epsilon/m)\) に取り、例えば \(g=O(\epsilon/m)\) とすると、熱的retreatを同次数にする十分条件は
+
+\[
+\Delta_{\min}g^2
+\gtrsim
+\log\frac m\epsilon.
+\]
+
+従って
+
+\[
+\Delta_{\min}
+=
+O
+\left(
+\frac{m^2}{\epsilon^2}
+\log\frac m\epsilon
+\right)
+\]
+
+で足りる。\(m\) が回路深さの多項式ならこの障壁要求も多項式である。ただし作用下限、transducerの一様較正、総熱、配線、resetを同じ装置族で多項式外部資源に閉じることはR191単独から従わない。
+
+R191は次を主張しない。
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Brownian spin、Néel--Brown反転、一軸異方性そのものの新規性。
+\item
+  R164/R190/R170の一般有限結果集合または作用殻実現の不要性。
+\item
+  任意に深い測定列で成分作用が自動的に雑音下限より上に保たれること。
+\item
+  transducer、巨視的スピン、router、記録、resetを単一閉鎖Hamiltonianへ統合したこと。
+\item
+  空間分離Bell実験またはBell局所隠れ変数模型を構成したこと。
+\end{enumerate}
+
+R191の役割は、Q1/Q2の2結果射影ノードについて既知の古典開放磁化力学を共通読出し部品として採用し、Born重み、二値化、有限温度、有限時間、無反応、逐次受渡しを一つの明示誤差契約にまとめることである。
+
 \begingroup
 
 \small
@@ -15350,6 +15987,10 @@ R190A--R190C単独では、容量 \(\widehat A_i\) の生成機構、全2作用�
 \bibitem{chen_et_al2026_shor_optical} S. Chen, H. Chen, X. Tang, Y. Sun, and X. Zhang, ``Optical Computing Implementation of Shor's Factorization Algorithm,'' Physical Review A 113, 063505 (2026). \url{https://doi.org/10.1103/4sc8-5gmk}
 
 \bibitem{kubo_hashitsume1970} R. Kubo and N. Hashitsume, ``Brownian Motion of Spins,'' Progress of Theoretical Physics Supplement 46, 210--220 (1970). \url{https://doi.org/10.1143/PTPS.46.210}
+
+\bibitem{brown1963} W. F. Brown, Jr., ``Thermal Fluctuations of a Single-Domain Particle,'' Physical Review 130, 1677--1686 (1963). \url{https://doi.org/10.1103/PhysRev.130.1677}
+
+\bibitem{grinstein_koch2005} G. Grinstein and R. H. Koch, ``Switching Probabilities for Single-Domain Magnetic Particles,'' Physical Review B 71, 184427 (2005). \url{https://doi.org/10.1103/PhysRevB.71.184427}
 
 \end{thebibliography}
 

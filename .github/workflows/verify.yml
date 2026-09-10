@@ -51,6 +51,7 @@ jobs:
             sections/A17_m54_uniform_supply.md \
             sections/A18_m54_projective_robustness.md \
             sections/A19_m54_drude_action_shell_bridge.md \
+            sections/A20_m54_brownian_macrospin_projective_instrument.md \
             notes/superseded_r178_aperture_sampler.md \
             notes/superseded_separate_m51_m52_m53_models.md \
             tools/verify_r181a_template_port.py \
@@ -71,6 +72,8 @@ jobs:
           grep -Fq '**証明（R186）**' sections/A18_m54_projective_robustness.md
           grep -Fq '## S.13 R179による反復再混合' sections/A19_m54_drude_action_shell_bridge.md
           test -f tools/verify_r190_drude_shell.py
+          test -f tools/verify_r191_macrospin.py
+          test "$(grep -Rho '定理（R191：' sections/*.md | wc -l)" -eq 1
           grep -Fq '量子力学に特徴的な状態空間、可逆力学、Born型測定統計、測定後状態' sections/01_scope_and_cycle.md
           grep -Fq '全自由度に加わる加法ノイズ' sections/08_errors_resources_open_targets.md
           grep -Fq 'ブラックボックスとしての運用上の複雑度' sections/08_errors_resources_open_targets.md
@@ -99,8 +102,8 @@ jobs:
           [[ "$q2_2_deps" != *R181D* ]]
           grep -Fq 'rank_one_post_state_error' tools/verify_r181d_projector_tree.py
           grep -Fq '定常流入／流出浴' sections/A17_m54_uniform_supply.md
-          grep -Fq 'version: "draft-87"' CITATION.cff
-          grep -Fq 'draft-87 改訂稿' tools/template.tex
+          grep -Fq 'version: "draft-88"' CITATION.cff
+          grep -Fq 'draft-88 改訂稿' tools/template.tex
           ! grep -R -Fq '定理（R188：' sections
           ! grep -R -Fq '定理（R178D：' sections
           grep -Fq '定理（R162：局所有向率の開放Poisson-jump実現）' sections/02_common_canonical_modules.md

@@ -95,6 +95,8 @@ REFERENCE_KEYS = {
     54: "zhang_sun_zhang2026_universal_analog",
     55: "chen_et_al2026_shor_optical",
     56: "kubo_hashitsume1970",
+    57: "brown1963",
+    58: "grinstein_koch2005",
 }
 
 
@@ -240,15 +242,16 @@ Q2_RESULT_DEPENDENCIES: dict[str, set[str]] = {
     "R190B": {"R190A"},
     "R190C": {"R161", "R190B"},
     "R170": {"R190C", "R179"},
+    "R191": set(),
     "R181B": {"R112"},
     "R181C": {"R112", "R181B"},
-    "R181D": {"R112", "R170", "R181A"},
+    "R181D": {"R112", "R191", "R181A"},
     "R177": {"R181B", "R181C", "R181D"},
     "R179": set(),
     "R186": {"R181C", "R181D", "R179"},
-    "R180A": {"R181C", "R170"},
+    "R180A": {"R181C", "R191"},
     "R180B": {"R181A"},
-    "R180C": {"R181B", "R170", "R180A", "R180B"},
+    "R180C": {"R181B", "R191", "R180A", "R180B"},
 }
 
 Q2_LEDGER_ROOTS: dict[str, set[str]] = {
@@ -734,6 +737,10 @@ def validate_fixed_goal_language() -> None:
         raise ValueError("R170後段の局所記録系がない")
     if "定理（R181D：M54段階的射影選別・測定後状態受渡し定理）" not in common_text:
         raise ValueError("R181D新定理名がない")
+    if "定理（R191：作用差駆動ブラウン巨視的スピン2結果射影読出し）" not in common_text:
+        raise ValueError("R191主読出し定理がない")
+    if "R164/R190/R170は一般有限結果集合" not in common_text:
+        raise ValueError("R191と旧作用殻経路の責務境界がない")
     receiver_main_text = (SECTIONS / "05_m54_setting_pre_receiver.md").read_text(
         encoding="utf-8"
     )
@@ -968,7 +975,7 @@ def tex_environment() -> dict[str, str]:
     env.update({
         # Keep PDF metadata stable for the current cited draft.  Update this
         # epoch together with CITATION.cff when a new draft is released.
-        "SOURCE_DATE_EPOCH": "1788739200",
+        "SOURCE_DATE_EPOCH": "1788998400",
         "FORCE_SOURCE_DATE": "1",
         "TZ": "UTC",
         "TEXINPUTS": "/usr/share/texlive/texmf-dist/tex//:",
