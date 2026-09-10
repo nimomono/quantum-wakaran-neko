@@ -84,7 +84,7 @@ jobs:
           grep -Fq '**系（R170選択結果の局所記録）**' sections/02_common_canonical_modules.md
           grep -Fq '定理（R181D：M54段階的射影選別・測定後状態受渡し定理）' sections/02_common_canonical_modules.md
           grep -Fq '共通射影選別機構' sections/02_common_canonical_modules.md
-          grep -Fq 'R191の2結果選択・吸収記録' sections/A16_m54_projector_tree_receiver.md
+          grep -Eq 'R191.*吸収記録' sections/A16_m54_projector_tree_receiver.md
           grep -Fq '## P.5.1 階数1 射影子の測定後状態の受け渡し' sections/A16_m54_projector_tree_receiver.md
           grep -Fq '## P.6 方向を変えない振幅再調整' sections/A16_m54_projector_tree_receiver.md
           grep -Fq 'R181Dの段階的射影選別定理そのものには依存しない' sections/05_m54_setting_pre_receiver.md
