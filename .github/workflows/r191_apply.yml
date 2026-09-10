@@ -1,0 +1,58 @@
+name: R191改訂生成
+
+on:
+  push:
+    branches:
+      - docs/r191-brownian-macrospin-instrument
+
+permissions:
+  contents: write
+
+jobs:
+  apply-and-build:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: 原稿を取得
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Pythonを準備
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: 依存関係を導入
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y pandoc poppler-utils texlive-latex-extra texlive-xetex
+          python -m pip install numpy
+
+      - name: R191改訂を適用
+        run: python tools/apply_r191_revision.py
+
+      - name: Python構文と専用検算
+        run: |
+          python -m py_compile tools/*.py
+          python tools/verify_r191_macrospin.py
+
+      - name: 論文を再生成
+        run: python tools/build_paper.py
+
+      - name: 全検算
+        run: |
+          for script in tools/verify_*.py; do
+            python "$script"
+          done
+          git diff --check
+          pdfinfo paper.pdf | grep -E 'Pages|Page size|File size'
+
+      - name: 一時生成器を除去してpush
+        run: |
+          rm -f tools/apply_r191_revision.py .github/workflows/r191_apply.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "draft-88: R191ブラウン巨視的スピン射影読出しを統合"
+          git push origin HEAD:docs/r191-brownian-macrospin-instrument
