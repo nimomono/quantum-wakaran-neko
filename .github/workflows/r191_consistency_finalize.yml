@@ -1,0 +1,96 @@
+name: R191 consistency finalize
+
+on:
+  push:
+    branches:
+      - docs/r191-brownian-macrospin-final
+
+permissions:
+  contents: read
+
+jobs:
+  finalize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y pandoc poppler-utils texlive-latex-extra texlive-xetex
+          python -m pip install numpy
+      - name: Apply R191 consistency repair
+        run: python tools/apply_r191_consistency_fix.py
+      - name: Compile and numerical checks
+        run: |
+          python -m py_compile tools/*.py
+          for script in tools/verify_*.py; do
+            echo "=== $script ==="
+            python "$script"
+          done
+      - name: R191 semantic boundaries
+        run: |
+          set -Ee -o pipefail
+          grep -Fq 'R191の2結果選択・吸収記録' sections/A16_m54_projector_tree_receiver.md
+          grep -Fq 'R191による2結果選択と吸収記録' sections/02_common_canonical_modules.md
+          ! grep -Fq '結果成分の排他的選択と固定は第2章R170が担う' sections/A16_m54_projector_tree_receiver.md
+          ! grep -Fq '\frac{m\delta}{1+\delta}' sections/A16_m54_projector_tree_receiver.md
+          ! grep -Fq '\frac{n\delta}{1+\delta}' sections/02_common_canonical_modules.md
+          grep -Fq '中央R191選択・吸収記録' sections/05_m54_setting_pre_receiver.md
+          grep -Fq '2個の局所R191' sections/A4_m54_receiver_cycle_proofs.md
+          grep -Fq 'R191ブラウン巨視的スピン読出し接続部' PROJECT_STATUS.md
+      - name: Regenerate paper
+        run: python tools/build_paper.py
+      - name: Validate generated PDF
+        run: |
+          test -s paper.pdf
+          pdfinfo paper.pdf | tee /tmp/pdfinfo.txt
+          pdftotext -layout paper.pdf /tmp/paper.txt
+          grep -Fq 'R191' /tmp/paper.txt
+          grep -Fq 'ブラウン巨視的スピン' /tmp/paper.txt
+          if grep -En "Citation .* undefined|Reference .* undefined|Overfull|Underfull|Fatal error|Missing character" build/latex/main.log; then
+            echo 'forbidden LaTeX warning'
+            exit 1
+          fi
+          git diff --check
+      - name: Prepare clean final commit
+        run: |
+          rm -f tools/apply_r191_consistency_fix.py
+          rm -f .github/workflows/r191_consistency_finalize.yml
+          rm -f .github/workflows/r191_consistency_audit.yml
+          git config user.name 'Dr. Pot-au-Feu'
+          git config user.email '146850541+nimomono@users.noreply.github.com'
+          git add -A
+          git commit -m 'docs: complete R191 primary readout integration'
+          echo "FINAL_COMMIT=$(git rev-parse HEAD)"
+          echo "FINAL_TREE=$(git rev-parse HEAD^{tree})"
+          echo "PDF_BLOB=$(git rev-parse HEAD:paper.pdf)"
+          echo "VERIFY_BLOB=$(git rev-parse HEAD:.github/workflows/verify.yml)"
+          echo "A16_BLOB=$(git rev-parse HEAD:sections/A16_m54_projector_tree_receiver.md)"
+          echo "COMMON_BLOB=$(git rev-parse HEAD:sections/02_common_canonical_modules.md)"
+          echo "STATUS_BLOB=$(git rev-parse HEAD:PROJECT_STATUS.md)"
+          git status --short
+          git push origin HEAD:refs/heads/r191-consistency-generated || true
+      - name: Upload diagnostics
+        uses: actions/upload-artifact@v4
+        with:
+          name: r191-consistency-final
+          path: |
+            paper.md
+            main.tex
+            paper.pdf
+            PROJECT_STATUS.md
+            README.md
+            VALIDATION.md
+            sections/02_common_canonical_modules.md
+            sections/03_m47_controlled_w_instrument.md
+            sections/05_m54_setting_pre_receiver.md
+            sections/08_errors_resources_open_targets.md
+            sections/A2_m47_controlled_w_instrument_proofs.md
+            sections/A4_m54_receiver_cycle_proofs.md
+            sections/A16_m54_projector_tree_receiver.md
+            .github/workflows/verify.yml
