@@ -6,7 +6,7 @@ on:
       - docs/r191-brownian-macrospin-final
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   finalize:
@@ -29,11 +29,17 @@ jobs:
           from pathlib import Path
           p = Path('tools/apply_r191_consistency_fix.py')
           s = p.read_text(encoding='utf-8')
-          old = 'out, count = pattern.subn(new.rstrip() + "\\n\\n", text, count=1)'
-          new = 'out, count = pattern.subn(lambda _m: new.rstrip() + "\\n\\n", text, count=1)'
-          if old not in s:
-              raise SystemExit('replace_section implementation not found')
-          p.write_text(s.replace(old, new, 1), encoding='utf-8')
+          replacements = {
+              'out, count = pattern.subn(new.rstrip() + "\\n\\n", text, count=1)':
+                  'out, count = pattern.subn(lambda _m: new.rstrip() + "\\n\\n", text, count=1)',
+              's,count=old_q1.subn(new_q1,s,count=1)':
+                  's,count=old_q1.subn(lambda _m: new_q1,s,count=1)',
+          }
+          for old, new in replacements.items():
+              if old not in s:
+                  raise SystemExit(f'LaTeX-safe replacement target not found: {old}')
+              s = s.replace(old, new, 1)
+          p.write_text(s, encoding='utf-8')
           PY
           python tools/apply_r191_consistency_fix.py
       - name: Compile and numerical checks
@@ -85,7 +91,7 @@ jobs:
           echo "COMMON_BLOB=$(git rev-parse HEAD:sections/02_common_canonical_modules.md)"
           echo "STATUS_BLOB=$(git rev-parse HEAD:PROJECT_STATUS.md)"
           git status --short
-          git push origin HEAD:refs/heads/r191-consistency-generated || true
+          git push -f origin HEAD:refs/heads/r191-consistency-generated
       - name: Upload diagnostics
         uses: actions/upload-artifact@v4
         with:
