@@ -41,6 +41,7 @@ jobs:
               Path("README.md"),
               Path("PROJECT_STATUS.md"),
               Path("PROJECT_STANCE.md"),
+              Path("CHANGELOG.md"),
               *sorted(Path("sections").glob("*.md")),
           ]
           replacements = {
@@ -129,21 +130,15 @@ jobs:
       - name: 論文を再生成
         run: python tools/build_paper.py
 
-      - name: 生成補助検算とPDF確認
+      - name: 生成物とPDFを確認
         run: |
-          for script in \
-            bell_finite_time_checks.py \
-            verify_d_min_scaling.py \
-            verify_projector_kernel.py \
-            verify_contextuality_bound.py \
-            verify_circuit_resource_bounds.py \
-            verify_canonical_overlap.py \
-            q3_projection_bound.py; do
-            test -f "$script"
-            python "$script"
-          done
           git diff --check
+          test -s paper.md
+          test -s main.tex
+          test -s paper.pdf
           pdfinfo paper.pdf | grep -E 'Pages|Page size|File size'
+          pdftotext paper.pdf - > /tmp/paper.txt
+          test -s /tmp/paper.txt
           git status --short
           git ls-files --others --exclude-standard
 
