@@ -40,19 +40,59 @@ jobs:
       - name: 論文を再生成
         run: python tools/build_paper.py
 
-      - name: 全検算
+      - name: 通常CI相当の検算
         run: |
-          for script in tools/verify_*.py; do
+          for script in \
+            tools/verify_experiment_bounds.py \
+            tools/verify_iti_density.py \
+            tools/verify_m47_controlled_w.py \
+            tools/verify_m54_q2_suite.py \
+            tools/verify_m54_uniform_register.py \
+            tools/verify_m54_source_receiver.py \
+            tools/verify_uniform_supply.py \
+            tools/verify_projector_tree_receiver.py \
+            tools/verify_resource_audit.py \
+            tools/verify_action_shell_state_count.py \
+            tools/verify_absorbing_pointer.py \
+            tools/verify_retry_renewal.py \
+            tools/verify_r190_drude_shell.py \
+            tools/verify_r191_macrospin.py \
+            tools/verify_m54_magnet.py \
+            tools/verify_open_bath.py \
+            tools/verify_pairing_scale_laws.py \
+            tools/verify_parser_overgeneralization.py \
+            tools/verify_classical_limit.py \
+            tools/verify_hopf_preparation.py \
+            tools/verify_q3_energy_response.py \
+            tools/verify_spherical_transport.py \
+            tools/verify_thermal_equilibrium.py \
+            tools/verify_no_signaling.py \
+            tools/verify_timing_contracts.py \
+            tools/verify_w_hamiltonian_reduction.py \
+            tools/verify_m47_w_bell.py; do
+            python "$script"
+          done
+          for script in \
+            bell_finite_time_checks.py \
+            verify_d_min_scaling.py \
+            verify_projector_kernel.py \
+            verify_contextuality_bound.py \
+            verify_circuit_resource_bounds.py \
+            verify_canonical_overlap.py \
+            q3_projection_bound.py; do
+            test -f "$script"
             python "$script"
           done
           git diff --check
           pdfinfo paper.pdf | grep -E 'Pages|Page size|File size'
+          git status --short
+          git ls-files --others --exclude-standard
 
       - name: 一時生成器を除去してpush
         run: |
           rm -f tools/apply_r191_revision.py .github/workflows/r191_apply.yml
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -A
+          git add -u
           git commit -m "draft-88: R191ブラウン巨視的スピン射影読出しを統合"
           git push origin HEAD:docs/r191-brownian-macrospin-instrument
