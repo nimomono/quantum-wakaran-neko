@@ -142,11 +142,13 @@ jobs:
           git status --short
           git ls-files --others --exclude-standard
 
-      - name: 一時生成器を除去してpush
+      - name: 生成commitを作成
         run: |
           rm -f tools/apply_r191_revision.py
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A
           git commit -m "draft-88: R191ブラウン巨視的スピン射影読出しを統合"
-          git push origin HEAD:docs/r191-brownian-macrospin-instrument
+
+      - name: 生成commitを一時branchへpush
+        run: git push --force origin HEAD:refs/heads/r191-generated-staging
