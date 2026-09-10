@@ -105,16 +105,22 @@ jobs:
           s = prefix + new_block + end + suffix
           forbidden_anchor = '''    if absent:
               raise ValueError("M54/R181Dの必須要素がない: " + "、".join(absent))
+              for token in (
+                  "一様開放リセット",
           '''
           if s.count(forbidden_anchor) != 1:
-              raise SystemExit('M54/R181D absent-check anchor is not unique')
-          forbidden_check = forbidden_anchor + '''    for forbidden_token in (
-              r"A_{u,b}^\\delta",
-              r"\\frac{m\\delta}{1+\\delta}",
-              "結果成分の排他的選択と固定は第2章R170が担う",
-          ):
-              if forbidden_token in receiver_text:
-                  raise ValueError("R181Dへ旧作用殻主線が再混入: " + forbidden_token)
+              raise SystemExit('M54/R181D supply-boundary anchor is not unique')
+          forbidden_check = '''    if absent:
+              raise ValueError("M54/R181Dの必須要素がない: " + "、".join(absent))
+              for forbidden_token in (
+                  r"A_{u,b}^\\delta",
+                  r"\\frac{m\\delta}{1+\\delta}",
+                  "結果成分の排他的選択と固定は第2章R170が担う",
+              ):
+                  if forbidden_token in receiver_text:
+                      raise ValueError("R181Dへ旧作用殻主線が再混入: " + forbidden_token)
+              for token in (
+                  "一様開放リセット",
           '''
           s = s.replace(forbidden_anchor, forbidden_check, 1)
           p.write_text(s, encoding='utf-8')
