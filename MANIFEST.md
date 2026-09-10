@@ -1,5 +1,13 @@
 # 現行パッケージ一覧
 
+## draft-88のR191読出し再編
+
+- 付録T `sections/A20_m54_brownian_macrospin_projective_instrument.md` を追加。
+- `tools/verify_r191_macrospin.py` を追加し、Born吸引域恒等式、transducer誤差、Itô変換、scale density、有限時間上界、端点dispatcher、Lüders telescopingを検算する。
+- Q1/Q2の2結果主線をR191へ接続し、R164/R190/R170を代替・強化経路として保持する。
+- draft-88の `paper.md`、`main.tex`、`paper.pdf` は `tools/build_paper.py` から再生成する。
+
+
 ## draft-87のopen-bath簡略化
 
 - R162を開放Poisson-jump実現へ再定義し、R188を有限閉鎖実装の強化結果へ退役。

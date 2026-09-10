@@ -59,3 +59,5 @@
 - [54] H. Zhang, Y. Sun, and X. Zhang, ``Quantum Inspired Universal Analog Computation Based on Circuits,'' Advanced Quantum Technologies 9, e00752 (2026). <https://doi.org/10.1002/qute.202500752>
 - [55] S. Chen, H. Chen, X. Tang, Y. Sun, and X. Zhang, ``Optical Computing Implementation of Shor's Factorization Algorithm,'' Physical Review A 113, 063505 (2026). <https://doi.org/10.1103/4sc8-5gmk>
 - [56] R. Kubo and N. Hashitsume, ``Brownian Motion of Spins,'' Progress of Theoretical Physics Supplement 46, 210--220 (1970). <https://doi.org/10.1143/PTPS.46.210>
+- [57] W. F. Brown, Jr., ``Thermal Fluctuations of a Single-Domain Particle,'' Physical Review 130, 1677--1686 (1963). <https://doi.org/10.1103/PhysRev.130.1677>
+- [58] G. Grinstein and R. H. Koch, ``Switching Probabilities for Single-Domain Magnetic Particles,'' Physical Review B 71, 184427 (2005). <https://doi.org/10.1103/PhysRevB.71.184427>

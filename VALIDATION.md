@@ -184,6 +184,14 @@ PDFはPopplerで変更箇所を再renderし、共通projective node（PDF p.32�
 ---
 # 検算と品質確認
 
+## draft-88：R191ブラウン巨視的スピン読出し検証
+
+- `tools/verify_r191_macrospin.py` でBorn吸引域恒等式、作用和・作用差transducer誤差、`artanh` Itô変換、scale density、retreat/finite-time上界、端点dispatcher、逐次Lüders telescopingを独立に検算する。
+- R191定理は本文で1回だけ定義し、R164/R190/R170を削除しない。Q2-2は二つの物理測定端を維持し、中央集約4結果samplerへ変更しない。
+- Q2-4一般深度では方向を変えない振幅再調整を維持する。
+- `tools/build_paper.py` で統合Markdown、TeX、PDFを再生成し、通常の全 `verify_*.py`、生成物同期、TeX警告、PDF情報をCIで再確認する。
+
+
 ## draft-78：black-box operational基準とR186頑健性境界
 
 ```bash
