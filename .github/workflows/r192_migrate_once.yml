@@ -26,6 +26,19 @@ jobs:
       - name: Apply R192 migration
         run: python tools/_migrate_r192_once.py
 
+      - name: Align source guard with renamed appendix
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          path = Path('tools/check_source.py')
+          text = path.read_text(encoding='utf-8')
+          old = '"sections/A8_m47_hopf_preparation.md":'
+          new = '"sections/A8_m47_w2_parameter_dictionary.md":'
+          if old not in text:
+              raise SystemExit('old A8 source-guard path not found')
+          path.write_text(text.replace(old, new), encoding='utf-8')
+          PY
+
       - name: Install verification dependencies
         run: python -m pip install numpy
 
@@ -44,6 +57,12 @@ jobs:
 
       - name: Rebuild paper including PDF
         run: python tools/build_paper.py
+
+      - name: Upload generated PDF for visual verification
+        uses: actions/upload-artifact@v4
+        with:
+          name: r192-paper
+          path: paper.pdf
 
       - name: Remove one-shot migration helpers
         run: |
