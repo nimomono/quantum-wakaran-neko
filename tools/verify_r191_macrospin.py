@@ -6,7 +6,11 @@ import random
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-APPENDIX = ROOT / "sections" / "A20_m54_brownian_macrospin_projective_instrument.md"
+APPENDIX_CANDIDATES = (
+    ROOT / "sections" / "A19_m54_brownian_macrospin_projective_instrument.md",
+    ROOT / "sections" / "A20_m54_brownian_macrospin_projective_instrument.md",
+)
+APPENDIX = next((path for path in APPENDIX_CANDIDATES if path.exists()), APPENDIX_CANDIDATES[0])
 COMMON = ROOT / "sections" / "02_common_canonical_modules.md"
 STATUS = ROOT / "PROJECT_STATUS.md"
 
@@ -165,7 +169,7 @@ def verify_source_contract() -> None:
     )
     for token in required:
         if token not in appendix:
-            raise AssertionError(f"A20 missing: {token}")
+            raise AssertionError(f"R191 appendix missing: {token}")
     if "定理（R191：" not in common:
         raise AssertionError("R191 theorem missing from common module")
     if "R191" not in status:
