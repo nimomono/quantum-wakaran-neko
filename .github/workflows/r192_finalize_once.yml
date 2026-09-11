@@ -23,6 +23,24 @@ jobs:
         with:
           python-version: '3.12'
 
+      - name: Fix duplicated R143 input-error replacement
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('tools/_finalize_r192_retirement_once.py')
+          s = p.read_text(encoding='utf-8')
+          old = '''text = replace_exact(text, "\\\\varepsilon_{\\\\rm prep}\\n+\\\\varepsilon_{\\\\rm ctrl}", "\\\\varepsilon_{\\\\rm in}\\n+\\\\varepsilon_{\\\\rm ctrl}", "R143 input error formula")'''
+          new = '''old = "\\\\varepsilon_{\\\\rm prep}\\n+\\\\varepsilon_{\\\\rm ctrl}"
+          new = "\\\\varepsilon_{\\\\rm in}\\n+\\\\varepsilon_{\\\\rm ctrl}"
+          count = text.count(old)
+          if count != 2:
+              raise SystemExit(f"R143 input error formula: expected exactly 2 matches, found {count}")
+          text = text.replace(old, new)'''
+          if old not in s:
+              raise SystemExit('R143 replacement guard line not found')
+          p.write_text(s.replace(old, new, 1), encoding='utf-8')
+          PY
+
       - name: Apply final consistency cleanup
         run: python tools/_finalize_r192_retirement_once.py
 
