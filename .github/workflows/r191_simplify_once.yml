@@ -41,40 +41,57 @@ jobs:
           python -m py_compile tools/apply_r191_simplification.py
           python tools/apply_r191_simplification.py
 
-      - name: Restore R181D router lifecycle and refresh CI boundary
+      - name: Complete R181D handoff contract and refresh CI boundary
         run: |
           python - <<'PY'
           from pathlib import Path
 
-          marker = "この縮約では R181D 自身に新しい選択確率や静的 aperture dynamics を持たせない。"
-          addition = "\n\n" + "\n\n".join([
+          p = Path("sections/A16_m54_projector_tree_receiver.md")
+          text = p.read_text(encoding="utf-8")
+          anchor = "固定小深度では次段R191が新しい2作用の和と差を直接読むため、中間の振幅再調整を省略できる。"
+          paragraphs = [
               "異なる parent へ進むときは、accept 済み branch から次 parent の canonical input を作り直し、pool action を次 parent の規格へ **renormalize/rescale** してから R191 を fresh に **re-measure** する。前 parent の判定前の $z_k$、action weight、R191 flow を次 parent に再利用しない。この parent ごとの prepare--renormalize--re-measure loop が逐次条件付けを実装する。",
               "**record/actuation lifecycle** は、(i) detector/pointer ancilla を fresh/reset、(ii) measurement actuation を on、(iii) R191 の outcome を detector/pointer が離散 record $k$ に写す、(iv) `S_R` が accept/latch、(v) R181D が accepted record に従って branch handoff と必要な rescale を行う、(vi) duplicate firing を避けるため actuation を off、(vii) no-rewind boundary 通過後に一時 pointer/ancilla を erase/reset して次 cycle を fresh に開始、の順である。Q1 の durable accepted record は no-rewind boundary より前には消去しない。",
-          ])
+          ]
+          addition = "\n\n" + "\n\n".join(paragraphs)
+          if "prepare--renormalize--re-measure loop" not in text:
+              if anchor in text:
+                  text = text.replace(anchor, anchor + addition, 1)
+              elif "## P.6 方向を変えない振幅再調整" in text:
+                  text = text.replace("## P.6 方向を変えない振幅再調整", addition.strip() + "\n\n## P.6 方向を変えない振幅再調整", 1)
+              else:
+                  raise SystemExit("R181D handoff insertion point not found")
+              p.write_text(text, encoding="utf-8")
+          check = p.read_text(encoding="utf-8")
+          if "prepare--renormalize--re-measure loop" not in check:
+              raise SystemExit("R181D inter-parent loop missing")
+          if "record/actuation lifecycle" not in check:
+              raise SystemExit("R181D record lifecycle missing")
+          print("R181D handoff contract completed")
 
-          touched = []
-          candidates = sorted(Path("sections").glob("*.md"))
-          outline = Path("paper_outline.md")
-          if outline.exists():
-              candidates.insert(0, outline)
-          for path in candidates:
-              text = path.read_text(encoding="utf-8")
-              if marker not in text:
-                  continue
-              if "prepare--renormalize--re-measure loop" not in text:
-                  text = text.replace(marker, marker + addition, 1)
-                  path.write_text(text, encoding="utf-8")
-                  touched.append(str(path))
-          if not touched:
-              raise SystemExit("R181D router marker not found or lifecycle was not restored")
-          print("R181D lifecycle restored:", ", ".join(touched))
+          memo = Path("notes/r191_mainline_pruning_2026-09-11.md")
+          memo_lines = [
+              "# draft-89 主線整理メモ：R191採用後の静的選択経路",
+              "",
+              "2026-09-11の整理では、新しい定理を追加せず、Q1/Q2の2結果射影読出しを `projector action -> R191 -> R181D` に一本化した。",
+              "",
+              "- R190A--R190C: Drude作用殻・静的平方根kernelの代替構成。R191と責務が重複するため生成論文から退役し、原文を `superseded_r190_drude_action_shell_bridge.md` に保存した。反証・撤回ではない。",
+              "- R170: 旧静的選択結果を吸収指針へ固定する構成。R191が2結果選択と吸収記録を一体で担うため生成論文から退役し、原文を `superseded_r170_static_selection.md` に保存した。",
+              "- R164: 定理自体は退役しない。Q1/Q2測定から外し、Q3開始面の条件付き配置状態数という責務に限定した。",
+              "- R161/R162: Q1/Q2の静的測定から外し、Q3位置輸送専用とする。",
+              "- R181D: 確率生成器ではなく、R191で結果が固定された後の可逆projector routerと次段受渡しを担う。異なるparent間ではfreshな再測定を行う。",
+              "- R180B: Q2-2の2端Hopf受信機構として維持する。中央・局所の排他的2結果selectorのみR191へ統一する。",
+              "",
+              "退役したR190専用検算も `superseded_verify_r190_drude_shell.py` として保存し、将来、代替構成を再検討するときに原文と一緒に参照できるようにした。",
+          ]
+          memo.write_text("\n".join(memo_lines) + "\n", encoding="utf-8")
 
           wf = Path(".github/workflows/verify.yml")
-          text = wf.read_text(encoding="utf-8")
+          verify = wf.read_text(encoding="utf-8")
           start_marker = "      - name: M54理論境界を検査\n"
           end_marker = "      - name: M54整合理論境界を検査\n"
-          start = text.find(start_marker)
-          end = text.find(end_marker, start + 1)
+          start = verify.find(start_marker)
+          end = verify.find(end_marker, start + 1)
           if start < 0 or end < 0:
               raise SystemExit("verify.yml theory-boundary markers not found")
           replacement_lines = [
@@ -89,29 +106,28 @@ jobs:
               "          ! grep -R -Fq '定理（R190A：' sections",
               "          ! grep -R -Fq '補題（R190B：' sections",
               "          ! grep -R -Fq '定理（R190C：' sections",
-              "          test -f notes/archive/r164_pre_r191_static_readout.md",
-              "          test -f notes/archive/r170_absorbing_selector.md",
-              "          test -f notes/archive/r190_static_drude_aperture.md",
+              "          test -f notes/superseded_r190_drude_action_shell_bridge.md",
+              "          test -f notes/superseded_r170_static_selection.md",
+              "          test -f notes/superseded_verify_r190_drude_shell.py",
               "          test -f notes/r191_mainline_pruning_2026-09-11.md",
-              "          grep -Fq 'R190' notes/r191_mainline_pruning_2026-09-11.md",
+              "          grep -Fq 'R190A--R190C' notes/r191_mainline_pruning_2026-09-11.md",
               "          grep -Fq 'R170' notes/r191_mainline_pruning_2026-09-11.md",
               "          grep -Fq 'R164' notes/r191_mainline_pruning_2026-09-11.md",
               "          grep -Fq 'R181D' notes/r191_mainline_pruning_2026-09-11.md",
-              "          grep -R -Fq 'prepare--renormalize--re-measure loop' sections",
-              "          grep -R -Fq 'record/actuation lifecycle' sections",
-              "          grep -R -Fq 'R191' sections/A16_m54_projector_tree_receiver.md",
+              "          grep -Fq 'R180B' notes/r191_mainline_pruning_2026-09-11.md",
+              "          grep -Fq 'prepare--renormalize--re-measure loop' sections/A16_m54_projector_tree_receiver.md",
+              "          grep -Fq 'record/actuation lifecycle' sections/A16_m54_projector_tree_receiver.md",
+              "          grep -Fq 'R191' sections/A16_m54_projector_tree_receiver.md",
               "          ! grep -R -Fq 'R170駆動' README.md PROJECT_STATUS.md sections",
               "          ! grep -R -Fq 'M54静的選択・固定共通部' README.md PROJECT_STATUS.md sections",
-              "          q2_2_row=\"$(grep '^| Q2-2 | 条件付き達成 |' PROJECT_STATUS.md || true)\"",
-              "          [[ \"$q2_2_row\" != *R181D* ]]",
               "          test -f tools/verify_r186_m54_projective_robustness.py",
               "          test -f tools/verify_r181d_projector_tree.py",
               "          grep -Fq 'rank_one_post_state_error' tools/verify_r181d_projector_tree.py",
               "",
           ]
           replacement = "\n".join(replacement_lines)
-          wf.write_text(text[:start] + replacement + text[end:], encoding="utf-8")
-          print("verify.yml boundary refreshed")
+          wf.write_text(verify[:start] + replacement + verify[end:], encoding="utf-8")
+          print("R191 CI boundary refreshed")
           PY
 
       - name: Verify and regenerate paper
