@@ -10,6 +10,7 @@ permissions:
 
 jobs:
   compress-build-commit:
+    if: github.actor != 'github-actions[bot]'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -20,7 +21,18 @@ jobs:
         with:
           python-version: "3.12"
       - name: Apply compression
-        run: python tools/apply_draft90_compression.py
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('tools/apply_draft90_compression.py')
+          s = p.read_text(encoding='utf-8')
+          old = 'out, n = re.subn(pattern, repl, text, count=1, flags=flags)'
+          new = 'out, n = re.subn(pattern, lambda _match: repl, text, count=1, flags=flags)'
+          if old not in s:
+              raise SystemExit('draft-90 literal replacement patch target not found')
+          p.write_text(s.replace(old, new, 1), encoding='utf-8')
+          PY
+          python tools/apply_draft90_compression.py
       - name: Install build dependencies
         run: |
           sudo apt-get update
