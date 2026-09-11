@@ -37,6 +37,19 @@ jobs:
           path.write_text(text.replace(old, new, 1), encoding='utf-8')
           PY
           python tools/apply_r191_simplification.py
+          python - <<'PY'
+          from pathlib import Path
+          targets = [Path('README.md'), Path('PROJECT_STATUS.md'), Path('PROJECT_STANCE.md')]
+          targets += sorted(Path('sections').glob('*.md'))
+          for path in targets:
+              if not path.exists() or path.name == '90_references.md':
+                  continue
+              text = path.read_text(encoding='utf-8')
+              text = text.replace('branch', '結果成分')
+              text = text.replace('repump', '振幅再調整')
+              text = text.replace('noise', '雑音')
+              path.write_text(text, encoding='utf-8')
+          PY
 
       - name: Python構文と原稿構造を検査
         run: |
