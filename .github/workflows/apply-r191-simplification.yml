@@ -25,7 +25,18 @@ jobs:
           python-version: '3.12'
 
       - name: 責務縮約を適用
-        run: python tools/apply_r191_simplification.py
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          path = Path('tools/apply_r191_simplification.py')
+          text = path.read_text(encoding='utf-8')
+          old = 'new, count = re.subn(pattern, replacement, text, count=1, flags=re.S)'
+          new = 'new, count = re.subn(pattern, lambda _match: replacement, text, count=1, flags=re.S)'
+          if old not in text:
+              raise SystemExit('replace_regex implementation not found')
+          path.write_text(text.replace(old, new, 1), encoding='utf-8')
+          PY
+          python tools/apply_r191_simplification.py
 
       - name: Python構文と原稿構造を検査
         run: |
