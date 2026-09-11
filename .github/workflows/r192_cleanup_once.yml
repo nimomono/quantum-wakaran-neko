@@ -23,6 +23,23 @@ jobs:
         with:
           python-version: '3.12'
 
+      - name: Fix TeX replacement in cleanup script
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          path = Path('tools/_cleanup_r192_once.py')
+          lines = path.read_text(encoding='utf-8').splitlines()
+          for i, line in enumerate(lines):
+              if 'varepsilon_' in line and 'rm circ' in line and line.lstrip().startswith('r"```math'):
+                  if i + 1 >= len(lines) or lines[i + 1].strip() != '"""```math':
+                      raise SystemExit('cleanup replacement start not found after equation pattern')
+                  lines[i + 1] = lines[i + 1].replace('"""```math', 'lambda _m: """```math', 1)
+                  break
+          else:
+              raise SystemExit('cleanup equation pattern not found')
+          path.write_text('\n'.join(lines) + '\n', encoding='utf-8')
+          PY
+
       - name: Apply consistency cleanup
         run: python tools/_cleanup_r192_once.py
 
