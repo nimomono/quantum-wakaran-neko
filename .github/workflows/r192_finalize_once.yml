@@ -43,6 +43,11 @@ jobs:
           if s.count(old_phrase) != 1:
               raise SystemExit(f'R170 replacement phrase count: {s.count(old_phrase)}')
           s = s.replace(old_phrase, 'R170は用いない。', 1)
+          marker = 'write(rel, text)\n\n\n# ---------------------------------------------------------------------------\n# Q1 proof:'
+          if marker not in s:
+              raise SystemExit('Q1 write marker not found')
+          extra = '''text = replace_exact(\n    text,\n    "12. Hopf ポンプからリセットまでの総仕事、総熱、総エントロピー収支。",\n    "12. 準備済み入力境界の具体的実装からR191/R181D、記録、リセットまでの総仕事、総熱、総エントロピー収支。",\n    "Q1 nonclaim Hopf residue",\n)\n'''
+          s = s.replace('write(rel, text)\n\n\n# ---------------------------------------------------------------------------\n# Q1 proof:', extra + 'write(rel, text)\n\n\n# ---------------------------------------------------------------------------\n# Q1 proof:', 1)
           p.write_text(s, encoding='utf-8')
           PY
 
