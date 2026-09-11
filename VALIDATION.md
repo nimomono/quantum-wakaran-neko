@@ -718,3 +718,9 @@ GitHub Actionsは次を確認する。
 - LaTeX logに未解決Citation/Reference、Overfull、Underfull、Fatal error、Missing characterはなし。
 - 生成PDF: 217ページ、595.28 x 841.89 pts (A4)。
 - draft-74ではR161のstatic/moving一般化、R162のgeneric/thermal一般化、M50/M55/R183のM54 profileへの吸収を検査対象へ追加した。固定長期目標と達成ラベルは変更していない。
+## draft-89：R191測定主線圧縮の検算
+
+- R191の既存 `tools/verify_r191_macrospin.py` をBorn吸引域、有限温度、端点dispatcher、Lüders telescopingの正本検算として維持する。
+- Q2-2の現行検算は `tools/verify_r180_m54_receiver.py` でA端Born重み、非規格化branch、B条件付き重み、共同分布、非信号性、CHSH値を確認する。
+- 旧R190 Drude殻、R170 static instrument、R180B paired-Hopfの専用検算器は `notes/retired_verifiers/` へ移し、現行 `run_physics_checks.py` の対象から外す。
+- 固定目標・達成ラベルは変更せず、全 `verify_*.py`、source check、terminology check、論文再生成、生成物同期を要求する。

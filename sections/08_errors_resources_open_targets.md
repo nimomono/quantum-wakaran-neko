@@ -1,7 +1,7 @@
 @number: 8
 @chapter: 本文
 @title: 誤差、資源、反証条件、未完成目標
-@status: M54から派生するQ1/Q2のR191 2結果読出し、R164/R190/R170作用殻型代替経路、Q3の開放jump状態構成、R180受信機構、M37物理実装層を横断比較し、誤差、資源、反証条件、未完成目標を整理する。
+@status: Q1/Q2のR191 2結果読出し、R181D projector router、Q2-2の2端逐次R191、Q3のR164--R161/R162経路、M37物理実装層を横断して誤差・資源・反証条件を整理する。
 
 
 ### R191の2結果読出し誤差と資源
@@ -13,7 +13,7 @@ Q1/Q2の2結果主線では、1ノードの読出し誤差を
 =\max\{\varepsilon_{191}^{\rm int},\varepsilon_{191}^{\rm edge}\}
 ```
 
-として付録Tから受け取る。内部経路では混合誤差、保護帯、transducer境界誤差、有限温度retreat、有限時間未捕獲、捕獲記録を各1回だけ数え、R164/R190/R170代替経路の同じ選択偏差を重複加算しない。深さ $m$ では各ノード誤差を $O(\epsilon/m)$ とし、$g=O(\epsilon/m)$、$\Delta_{\min}g^2\gtrsim\log(m/\epsilon)$ を十分条件に取れば、R191のdecision障壁は $m,1/\epsilon$ の多項式で選べる。一般深さでは成分作用下限を保つ方向を変えない振幅再調整を残す。
+として付録Tから受け取る。内部経路では混合誤差、保護帯、transducer境界誤差、有限温度retreat、有限時間未捕獲、捕獲記録を各1回だけ数え、旧作用殻経路の選択偏差を現行R191誤差へ重複加算しない。深さ $m$ では各ノード誤差を $O(\epsilon/m)$ とし、$g=O(\epsilon/m)$、$\Delta_{\min}g^2\gtrsim\log(m/\epsilon)$ を十分条件に取れば、R191のdecision障壁は $m,1/\epsilon$ の多項式で選べる。一般深さでは成分作用下限を保つ方向を変えない振幅再調整を残す。
 
 ## 8.1 誤差を1回だけ数える規約
 
@@ -67,21 +67,6 @@ M54の安全事象を $G_*$、$q_*=(R_*^2-a_*^2)/a_*^2$ とする。準備切断
 
 R181Aが定量化するのは採用縮約ドリフト後の有限時間収束である。ポンプ仕事、排出先熱、テンプレート保持、時計自由度切替、接続端履歴を共通Hamiltonian無限浴へ接続した総収支は未導出であり、$\varepsilon_{54}$ が小さいことから熱力学的コストが小さいとは結論しない。有限浴交換の評価は独立の有限環境強化課題である。M54の状態方向誤差をR135で伝播した後、同じ偏差をR168または系列固有誤差へ再加算しない。
 
-## 8.3 共通R170選択・吸収指針変数誤差
-
-R170は一般有限結果集合・作用殻型の代替経路で、上流の静的選択分布を吸収指針変数へ固定する。Q1/Q2の2結果R191主線ではこの誤差項を同時に使わない。選択終了時刻 $t_s$ で $D_{\rm TV}(\mathcal L(X_{t_s}),\widehat\pi)\leq\varepsilon_{\rm sel}$ とし、共通捕獲率 $\gamma$ の指針変数を時間 $T_L$ 開く。指針変数実装・有限漏れ誤差を $\varepsilon_{\rm ptr}$ とすれば
-
-```math
-\varepsilon_{170}
-\leq
-\varepsilon_{\rm sel}
-+
-e^{-\gamma T_L}
-+
-\varepsilon_{\rm ptr}.
-```
-
-容量保持機構誤差は上流で1回だけ数える。外部記録まで含む場合だけ $\varepsilon_{170}^{\rm obs}\leq\varepsilon_{170}+\varepsilon_{\rm rec}$ とする。Q1/Q2の静的選択にR190を使う場合、$\varepsilon_{\rm sel}$ はR179 流入誤差、R190 記憶・mixing・scatterer誤差の和で抑える。同じ偏差をR161の抽象mixing誤差として再加算しない。有限衝突Hamiltonian、有限gate閉鎖、平坦域保持は中心誤差台帳から外す。
 
 ## 8.4 Q1の系列固有誤差
 
@@ -117,7 +102,7 @@ D_{\rm TV}(p_N^{\rm obs},p_N^{\rm id})
 
 とする。固定有限列ではR191の指針変数と選別機構用作業領域をR179の開放リセットで再使用し、結果相関履歴を流出浴へ流す。
 
-R189CのQ1-2達成証人では中間R189Aで保持した2作用をR191へ渡し、局所記録と中間振幅再調整を使わない。固定 $N=2$ の正の履歴重みには $p_*=0.10$ の安全下限を取れるため、R191 decision時間を有限に固定した後に $\Omega_\kappa\to0$ として時間ずれを小さくできる。R164/R190/R170の作用殻型実現は代替経路として残し、R191主線の誤差へ重複加算しない。
+R189CのQ1-2達成証人では中間R189Aで保持した2作用をR191へ渡し、局所記録と中間振幅再調整を使わない。固定 $N=2$ の正の履歴重みには $p_*=0.10$ の安全下限を取れるため、R191 decision時間を有限に固定した後に $\Omega_\kappa\to0$ として時間ずれを小さくできる。旧作用殻型実現の偏差は現行R191主線へ重複加算しない。
 
 ### 8.4.1 R187のM37--W2 信号系誤差と資源
 
@@ -192,53 +177,23 @@ M54ではテンソル積状態の生成、同じ永続記憶部の保持、時�
 
 ## 8.6 Q2-2の誤差とBell監査
 
-R180CはM54の実際の末端信号、R180Aの設定先行ブロック受信機構、R180Bの2端Hopf流、2つの局所R170選択・固定とR112局所記録を条件付き積因子化の下で合成する。設定対ごとの完全周期誤差を
+現行Q2-2はA端R191、projector router、B端R191の深さ2逐次instrumentである。完全結果誤差を
 
 ```math
-\begin{aligned}
-\varepsilon_{180}^{\rm cyc}
-\leq{}&
-\varepsilon_{54}^{\rm src}
-+\varepsilon_{\rm hold}
-+\varepsilon_{\rm set}
-+\varepsilon_{\rm split}
-+\varepsilon_{\rm latch}
-+2\tau\\
-&+
-C_\tau\varepsilon_{\rm block}
-+L_{\rm fib}K_{180}e^{-\gamma_{180}T_{\rm PH}}
-+\frac{2\delta}{1+\delta}
-+2C_Xe^{-\lambda_X^\delta T_X}\\
-&+
-\varepsilon_{\rm cut}
-+\varepsilon_{\rm prod}\\
-&+
-\varepsilon_{170}^{A}
-+\varepsilon_{170}^{B}
+\varepsilon_{180}
+\leq
+\varepsilon_A^{\rm pre}
++\varepsilon_{191}^{A}
++\varepsilon_{\rm route}
++\varepsilon_B^{\rm basis}
++\varepsilon_{191}^{B}
 +\varepsilon_{\rm rec}
-+\varepsilon_{\rm clk}.
-\end{aligned}
 ```
 
-ここで $2\tau$ は一般状態の小作用ブロックを無反応へ送る切断質量、$C_\tau=O(\!\left(\tau^{-1/2}\right))$ は安全域の規格化感度である。$\varepsilon_{170}^{A,B}$ は各翼のR170選択・固定誤差であり、明示済みの正則化・有限混合と二重計数しない。記録は別項 $\varepsilon_{\rm rec}$、周期時計自由度は $\varepsilon_{\rm clk}$ として数える。固定一重項では各結果成分作用が $1/2$ なので、$\tau<1/2$ なら節点項は零にする。理想一重項分布からの全変動距離が $\varepsilon_{180}^{\rm cyc}$ 以下なら、一側周辺の反対設定による差は $2\varepsilon_{180}^{\rm cyc}$ 以下、CHSH値の理想値からのずれは $8\varepsilon_{180}^{\rm cyc}$ 以下である。
+とする。R191内部のmixing、transducer、guard、finite-temperature retreat、finite-time noncapture、captureは各 $\varepsilon_{191}^{A,B}$ に1回だけ含める。旧R180Bの方向吸引誤差、中央結果複製誤差、切断後A側再読出し誤差は現行台帳から除く。
 
-```math
-\varepsilon_{180}^{\rm cyc}
-<
-\frac{\sqrt2-1}{4}
-```
+理想一重項共同分布との全変動距離が $\varepsilon_{180}$ 以下なら、各周辺事象の確率差は $\varepsilon_{180}$ 以下、各二値相関の差は $2\varepsilon_{180}$ 以下、CHSH値の差は $8\varepsilon_{180}$ 以下である。A結果結果成分をB端へ物理的に渡すため、Bell局所factorizationまたは空間分離を誤差ゼロ極限の主張へ追加しない。
 
-ならCHSH不等式の破れが残る。
-
-| Bell前提 | R180受信機構での位置 |
-|---|---|
-| 切断後局所性 | R180Cの装置統合条件の下で完全共通原因へ条件付けて局所因子化 |
-| 測定設定独立性 | A設定が中央準備へ入るため成立しない |
-| 結果の一意性 | ノイズ 初期種を含む完全状態と記録時刻で決まる |
-| 事後選別 | 無反応を完全結果集合へ残す |
-| 非信号性 | 理想対称性で成立し、有限差を上の誤差で抑える |
-
-従ってBellの定理を否定しない。自由設定、空間分離、一般状態受信機構は達成範囲に含まない。
 
 ## 8.7 Q3のM54空間--M37移動整合誤差
 
