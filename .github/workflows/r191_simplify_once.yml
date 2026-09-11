@@ -1,0 +1,49 @@
+name: R191主線圧縮 one-shot
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: write
+
+jobs:
+  migrate:
+    if: github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout PR branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+          fetch-depth: 0
+
+      - name: Prepare toolchain
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y pandoc poppler-utils texlive-latex-extra texlive-xetex
+          python -m pip install numpy
+
+      - name: Apply simplification migration
+        run: |
+          # Correct the one-shot script source typo before execution; the script is removed from the final tree.
+          sed -i 's/t = p.read_text(encoding="utf-8")nt = t.replace/t = p.read_text(encoding="utf-8")\nt = t.replace/' tools/apply_r191_simplification.py
+          python -m py_compile tools/apply_r191_simplification.py
+          python tools/apply_r191_simplification.py
+
+      - name: Verify and regenerate paper
+        run: |
+          python -m py_compile tools/*.py
+          for script in tools/verify_*.py; do python "$script"; done
+          python tools/build_paper.py
+          git diff --check
+          pdfinfo paper.pdf | head -20
+
+      - name: Commit generated simplification
+        run: |
+          rm -f tools/apply_r191_simplification.py .github/workflows/r191_simplify_once.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "draft-89: R191主線へ圧縮し旧静的選択経路を退役"
+          git push origin HEAD:${{ github.head_ref }}
