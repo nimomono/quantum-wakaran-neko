@@ -26,24 +26,14 @@ jobs:
 
       - name: Apply simplification migration
         run: |
-          # Correct one-shot source issues before execution; the migration script is removed from the final tree.
           sed -i 's/t = p.read_text(encoding="utf-8")nt = t.replace/t = p.read_text(encoding="utf-8")\nt = t.replace/' tools/apply_r191_simplification.py
           sed -i 's/out, n = re.subn(pattern, row, text, count=1)/out, n = re.subn(pattern, lambda _m: row, text, count=1)/' tools/apply_r191_simplification.py
           python - <<'PY'
           from pathlib import Path
           p = Path("tools/apply_r191_simplification.py")
           s = p.read_text(encoding="utf-8")
-          old = '''t = sub_required(
-              t,
-              r"\\n### 2\\.8\\.1 R190A--R190C：.*?(?=\\n### 2\\.8\\.2 R191：)",
-              "\\n",
-              flags=re.S,
-          )'''
-          new = '''_r190_start = t.find("\\n### 2.8.1 R190")
-          _r191_start = t.find("\\n### 2.8.2 R191", _r190_start + 1)
-          if _r190_start < 0 or _r191_start < 0:
-              raise RuntimeError("R190/R191 section boundary not found")
-          t = t[:_r190_start] + "\\n" + t[_r191_start:]'''
+          old = 't = sub_required(\n    t,\n    r"\\n### 2\\.8\\.1 R190A--R190C：.*?(?=\\n### 2\\.8\\.2 R191：)",\n    "\\n",\n    flags=re.S,\n)'
+          new = '_r190_start = t.find("\\n### 2.8.1 R190")\n_r191_start = t.find("\\n### 2.8.2 R191", _r190_start + 1)\nif _r190_start < 0 or _r191_start < 0:\n    raise RuntimeError("R190/R191 section boundary not found")\nt = t[:_r190_start] + "\\n" + t[_r191_start:]'
           if old not in s:
               raise SystemExit("one-shot R190 replacement block not found")
           p.write_text(s.replace(old, new, 1), encoding="utf-8")
@@ -57,11 +47,10 @@ jobs:
           from pathlib import Path
 
           marker = "この縮約では R181D 自身に新しい選択確率や静的 aperture dynamics を持たせない。"
-          addition = r'''
-
-異なる parent へ進むときは、accept 済み branch から次 parent の canonical input を作り直し、pool action を次 parent の規格へ **renormalize/rescale** してから R191 を fresh に **re-measure** する。前 parent の判定前の $z_k$、action weight、R191 flow を次 parent に再利用しない。この parent ごとの prepare--renormalize--re-measure loop が逐次条件付けを実装する。
-
-**record/actuation lifecycle** は、(i) detector/pointer ancilla を fresh/reset、(ii) measurement actuation を on、(iii) R191 の outcome を detector/pointer が離散 record $k$ に写す、(iv) `S_R` が accept/latch、(v) R181D が accepted record に従って branch handoff と必要な rescale を行う、(vi) duplicate firing を避けるため actuation を off、(vii) no-rewind boundary 通過後に一時 pointer/ancilla を erase/reset して次 cycle を fresh に開始、の順である。Q1 の durable accepted record は no-rewind boundary より前には消去しない。'''
+          addition = "\n\n" + "\n\n".join([
+              "異なる parent へ進むときは、accept 済み branch から次 parent の canonical input を作り直し、pool action を次 parent の規格へ **renormalize/rescale** してから R191 を fresh に **re-measure** する。前 parent の判定前の $z_k$、action weight、R191 flow を次 parent に再利用しない。この parent ごとの prepare--renormalize--re-measure loop が逐次条件付けを実装する。",
+              "**record/actuation lifecycle** は、(i) detector/pointer ancilla を fresh/reset、(ii) measurement actuation を on、(iii) R191 の outcome を detector/pointer が離散 record $k$ に写す、(iv) `S_R` が accept/latch、(v) R181D が accepted record に従って branch handoff と必要な rescale を行う、(vi) duplicate firing を避けるため actuation を off、(vii) no-rewind boundary 通過後に一時 pointer/ancilla を erase/reset して次 cycle を fresh に開始、の順である。Q1 の durable accepted record は no-rewind boundary より前には消去しない。",
+          ])
 
           touched = []
           candidates = [Path("paper_outline.md"), *sorted(Path("sections").glob("*.md"))]
@@ -85,37 +74,39 @@ jobs:
           end = text.find(end_marker, start + 1)
           if start < 0 or end < 0:
               raise SystemExit("verify.yml theory-boundary markers not found")
-          replacement = r'''      - name: R191主線境界を検査
-        run: |
-          set -Ee -o pipefail
-          trap 'rc=$?; echo "::error::R191主線境界の失敗 (exit ${rc}): ${BASH_COMMAND}"' ERR
-          test -f tools/verify_r191_macrospin.py
-          test "$(grep -Rho '定理（R191：' sections/*.md | wc -l)" -eq 1
-          test "$(grep -Rho '定理（R181D：' sections/*.md | wc -l)" -eq 1
-          ! grep -R -Fq '定理（R170：' sections
-          ! grep -R -Fq '定理（R190A：' sections
-          ! grep -R -Fq '補題（R190B：' sections
-          ! grep -R -Fq '定理（R190C：' sections
-          test -f notes/archive/r164_pre_r191_static_readout.md
-          test -f notes/archive/r170_absorbing_selector.md
-          test -f notes/archive/r190_static_drude_aperture.md
-          test -f notes/r191_mainline_pruning_2026-09-11.md
-          grep -Fq 'R190' notes/r191_mainline_pruning_2026-09-11.md
-          grep -Fq 'R170' notes/r191_mainline_pruning_2026-09-11.md
-          grep -Fq 'R164' notes/r191_mainline_pruning_2026-09-11.md
-          grep -Fq 'R181D' notes/r191_mainline_pruning_2026-09-11.md
-          grep -R -Fq 'prepare--renormalize--re-measure loop' sections
-          grep -R -Fq 'record/actuation lifecycle' sections
-          grep -R -Fq 'R191' sections/A16_m54_projector_tree_receiver.md
-          ! grep -R -Fq 'R170駆動' README.md PROJECT_STATUS.md sections
-          ! grep -R -Fq 'M54静的選択・固定共通部' README.md PROJECT_STATUS.md sections
-          q2_2_deps="$(awk -F'|' '/^\| Q2-2 \| 条件付き達成 \|/ {gsub(/^ +| +$/, "", $7); print $7}' PROJECT_STATUS.md)"
-          [[ "$q2_2_deps" != *R181D* ]]
-          test -f tools/verify_r186_m54_projective_robustness.py
-          test -f tools/verify_r181d_projector_tree.py
-          grep -Fq 'rank_one_post_state_error' tools/verify_r181d_projector_tree.py
-
-'''
+          replacement_lines = [
+              "      - name: R191主線境界を検査",
+              "        run: |",
+              "          set -Ee -o pipefail",
+              "          trap 'rc=$?; echo \"::error::R191主線境界の失敗 (exit ${rc}): ${BASH_COMMAND}\"' ERR",
+              "          test -f tools/verify_r191_macrospin.py",
+              "          test \"$(grep -Rho '定理（R191：' sections/*.md | wc -l)\" -eq 1",
+              "          test \"$(grep -Rho '定理（R181D：' sections/*.md | wc -l)\" -eq 1",
+              "          ! grep -R -Fq '定理（R170：' sections",
+              "          ! grep -R -Fq '定理（R190A：' sections",
+              "          ! grep -R -Fq '補題（R190B：' sections",
+              "          ! grep -R -Fq '定理（R190C：' sections",
+              "          test -f notes/archive/r164_pre_r191_static_readout.md",
+              "          test -f notes/archive/r170_absorbing_selector.md",
+              "          test -f notes/archive/r190_static_drude_aperture.md",
+              "          test -f notes/r191_mainline_pruning_2026-09-11.md",
+              "          grep -Fq 'R190' notes/r191_mainline_pruning_2026-09-11.md",
+              "          grep -Fq 'R170' notes/r191_mainline_pruning_2026-09-11.md",
+              "          grep -Fq 'R164' notes/r191_mainline_pruning_2026-09-11.md",
+              "          grep -Fq 'R181D' notes/r191_mainline_pruning_2026-09-11.md",
+              "          grep -R -Fq 'prepare--renormalize--re-measure loop' sections",
+              "          grep -R -Fq 'record/actuation lifecycle' sections",
+              "          grep -R -Fq 'R191' sections/A16_m54_projector_tree_receiver.md",
+              "          ! grep -R -Fq 'R170駆動' README.md PROJECT_STATUS.md sections",
+              "          ! grep -R -Fq 'M54静的選択・固定共通部' README.md PROJECT_STATUS.md sections",
+              "          q2_2_deps=\"$(awk -F'|' '/^\\| Q2-2 \\| 条件付き達成 \\|/ {gsub(/^ +| +$/, \\\"\\\", $7); print $7}' PROJECT_STATUS.md)\"",
+              "          [[ \"$q2_2_deps\" != *R181D* ]]",
+              "          test -f tools/verify_r186_m54_projective_robustness.py",
+              "          test -f tools/verify_r181d_projector_tree.py",
+              "          grep -Fq 'rank_one_post_state_error' tools/verify_r181d_projector_tree.py",
+              "",
+          ]
+          replacement = "\n".join(replacement_lines)
           wf.write_text(text[:start] + replacement + text[end:], encoding="utf-8")
           print("verify.yml boundary refreshed")
           PY
