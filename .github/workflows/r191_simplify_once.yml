@@ -53,7 +53,10 @@ jobs:
           ])
 
           touched = []
-          candidates = [Path("paper_outline.md"), *sorted(Path("sections").glob("*.md"))]
+          candidates = sorted(Path("sections").glob("*.md"))
+          outline = Path("paper_outline.md")
+          if outline.exists():
+              candidates.insert(0, outline)
           for path in candidates:
               text = path.read_text(encoding="utf-8")
               if marker not in text:
@@ -99,8 +102,8 @@ jobs:
               "          grep -R -Fq 'R191' sections/A16_m54_projector_tree_receiver.md",
               "          ! grep -R -Fq 'R170駆動' README.md PROJECT_STATUS.md sections",
               "          ! grep -R -Fq 'M54静的選択・固定共通部' README.md PROJECT_STATUS.md sections",
-              "          q2_2_deps=\"$(awk -F'|' '/^\\| Q2-2 \\| 条件付き達成 \\|/ {gsub(/^ +| +$/, \\\"\\\", $7); print $7}' PROJECT_STATUS.md)\"",
-              "          [[ \"$q2_2_deps\" != *R181D* ]]",
+              "          q2_2_row=\"$(grep '^| Q2-2 | 条件付き達成 |' PROJECT_STATUS.md || true)\"",
+              "          [[ \"$q2_2_row\" != *R181D* ]]",
               "          test -f tools/verify_r186_m54_projective_robustness.py",
               "          test -f tools/verify_r181d_projector_tree.py",
               "          grep -Fq 'rank_one_post_state_error' tools/verify_r181d_projector_tree.py",
