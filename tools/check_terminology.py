@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
-"""現行原稿へ旧英語説明語が再混入していないか検査する。"""
+"""現行原稿へ旧英語説明語・既知の置換崩れが再混入していないか検査する。
+
+この検査は文章規約の検査であり、数学・数値検算の verify_* 名前空間には置かない。
+標準表記そのものの正本は TERMINOLOGY.md と PROJECT_GUIDE.md である。
+"""
 
 from __future__ import annotations
 
@@ -16,6 +20,9 @@ TARGETS = [
     *sorted(path for path in SECTIONS.glob("*.md") if path.name != "90_references.md"),
 ]
 
+# Compatibility lint rules.  They intentionally contain only expressions that the
+# project already treats as hard errors; additions should be justified by the
+# canonical terminology documents rather than by one-off CI failures.
 FORBIDDEN_WORDS = (
     "profile", "carrier", "register", "cell", "latch", "branch",
     "sector", "backend", "handoff", "protocol", "bank", "mode",
@@ -111,10 +118,7 @@ def main() -> None:
         phrase: re.compile(re.escape(phrase), re.IGNORECASE)
         for phrase in FORBIDDEN_PHRASES
     }
-    japanese_patterns = {
-        phrase: re.compile(re.escape(phrase))
-        for phrase in FORBIDDEN_JAPANESE
-    }
+    japanese_patterns = {phrase: re.compile(re.escape(phrase)) for phrase in FORBIDDEN_JAPANESE}
 
     for path in TARGETS:
         text = strip_protected(path.read_text(encoding="utf-8"))

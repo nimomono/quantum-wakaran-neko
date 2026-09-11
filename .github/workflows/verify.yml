@@ -10,7 +10,8 @@ permissions:
   contents: read
 
 jobs:
-  numerical-checks:
+  source-check:
+    name: 原稿構造
     runs-on: ubuntu-latest
     steps:
       - name: 原稿を取得
@@ -21,185 +22,60 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: 依存関係を導入
+      - name: Python構文を検査
+        run: python -m compileall -q tools
+
+      - name: 原稿構造を検査
+        run: python tools/check_source.py
+
+      - name: 用語を検査
+        run: python tools/check_terminology.py
+
+      - name: 差分形式を検査
+        run: git diff --check
+
+  physics-check:
+    name: 数式・数値
+    needs: source-check
+    runs-on: ubuntu-latest
+    steps:
+      - name: 原稿を取得
+        uses: actions/checkout@v4
+
+      - name: Pythonを準備
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: 数値依存を導入
+        run: python -m pip install numpy
+
+      - name: 数式と数値を検算
+        run: python tools/run_physics_checks.py
+
+  paper-check:
+    name: 論文生成
+    needs: physics-check
+    runs-on: ubuntu-latest
+    steps:
+      - name: 原稿を取得
+        uses: actions/checkout@v4
+
+      - name: Pythonを準備
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: 組版依存を導入
         run: |
           sudo apt-get update
           sudo apt-get install -y pandoc poppler-utils texlive-latex-extra texlive-xetex
-          python -m pip install numpy
 
-      - name: 数式と数値を検算
-        run: |
-          python -m py_compile tools/*.py
-          test -f tools/verify_terminology.py
-          for script in tools/verify_*.py; do
-            python "$script"
-          done
-
-      - name: M54理論境界を検査
-        run: |
-          set -Ee -o pipefail
-          trap 'rc=$?; echo "::error::M54理論境界の失敗 (exit ${rc}): ${BASH_COMMAND}"' ERR
-          for path in \
-            sections/04_m54_q2_specializations.md \
-            sections/05_m54_setting_pre_receiver.md \
-            sections/A3_m54_q2_specialization_proofs.md \
-            sections/A4_m54_receiver_cycle_proofs.md \
-            sections/A9_m54_setting_pre_paired_hopf_receiver.md \
-            sections/A13_m54_template_port_preparation.md \
-            sections/A15_m54_uniform_register.md \
-            sections/A16_m54_projector_tree_receiver.md \
-            sections/A17_m54_uniform_supply.md \
-            sections/A18_m54_projective_robustness.md \
-            sections/A19_m54_drude_action_shell_bridge.md \
-            sections/A20_m54_brownian_macrospin_projective_instrument.md \
-            notes/superseded_r178_aperture_sampler.md \
-            notes/superseded_separate_m51_m52_m53_models.md \
-            tools/verify_r181a_template_port.py \
-            tools/verify_r181d_projector_tree.py \
-            tools/verify_m54_q2_composition.py \
-            tools/verify_r179_m54_supply.py \
-            tools/verify_r180_m54_receiver.py; do
-            test -f "$path"
-          done
-          test "$(grep -Rho '定理（R181A：' sections/*.md | wc -l)" -eq 1
-          test "$(grep -Rho '定理（R181B：' sections/*.md | wc -l)" -eq 1
-          test "$(grep -Rho '定理（R181C：' sections/*.md | wc -l)" -eq 1
-          test "$(grep -Rho '定理（R181D：' sections/*.md | wc -l)" -eq 1
-          test "$(grep -Rho '定理（R186：' sections/*.md | wc -l)" -eq 1
-          test "$(grep -Rho '定理（R190A：' sections/*.md | wc -l)" -eq 1
-          test "$(grep -Rho '補題（R190B：' sections/*.md | wc -l)" -eq 1
-          test "$(grep -Rho '定理（R190C：' sections/*.md | wc -l)" -eq 1
-          grep -Fq '**証明（R186）**' sections/A18_m54_projective_robustness.md
-          grep -Fq '## S.13 R179による反復再混合' sections/A19_m54_drude_action_shell_bridge.md
-          test -f tools/verify_r190_drude_shell.py
-          test -f tools/verify_r191_macrospin.py
-          test "$(grep -Rho '定理（R191：' sections/*.md | wc -l)" -eq 1
-          grep -Fq '量子力学に特徴的な状態空間、可逆力学、Born型測定統計、測定後状態' sections/01_scope_and_cycle.md
-          grep -Fq '全自由度に加わる加法ノイズ' sections/08_errors_resources_open_targets.md
-          grep -Fq 'ブラックボックスとしての運用上の複雑度' sections/08_errors_resources_open_targets.md
-          grep -Fq '信号作用 $S$ を指数的に増やせば' sections/08_errors_resources_open_targets.md
-          test -f tools/verify_r186_m54_projective_robustness.py
-          test "$(grep -Rho '定理（R170：' sections/*.md | wc -l)" -eq 1
-          grep -Fq '定理（R170：固定作用容量入力の静的選択・吸収指針変数固定）' sections/02_common_canonical_modules.md
-          grep -Fq '**系（R170選択結果の局所記録）**' sections/02_common_canonical_modules.md
-          grep -Fq '定理（R181D：M54段階的射影選別・測定後状態受渡し定理）' sections/02_common_canonical_modules.md
-          grep -Fq '共通射影選別機構' sections/02_common_canonical_modules.md
-          grep -Eq 'R191.*吸収記録' sections/A16_m54_projector_tree_receiver.md
-          grep -Fq '## P.5.1 階数1 射影子の測定後状態の受け渡し' sections/A16_m54_projector_tree_receiver.md
-          grep -Fq '## P.6 方向を変えない振幅再調整' sections/A16_m54_projector_tree_receiver.md
-          grep -Fq 'R181Dの段階的射影選別定理そのものには依存しない' sections/05_m54_setting_pre_receiver.md
-          ! grep -R -Fq 'R170駆動' README.md PROJECT_STATUS.md sections
-          ! grep -R -Fq 'M54静的選択・固定共通部' README.md PROJECT_STATUS.md sections
-          ! grep -R -Fq '\varepsilon_{170}^{\rm end}' README.md PROJECT_STATUS.md sections
-          grep -Fq '有限閉鎖Hamiltonian実装は固定目標ではない' PROJECT_STANCE.md
-          grep -Fq '有限な能動自由度と明示されたHamiltonian無限浴からなるミクロ模型' PROJECT_STANCE.md
-          grep -Fq '有限浴化のためだけに未使用素子列' PROJECT_GUIDE.md
-          grep -Fq '2量子ビット型結合ゲートと同一の共同入力--出力統計を生成する明示的な古典ミクロ過程を構成する' PROJECT_STATUS.md
-          grep -Fq '3つのQ1型有限能動部分系' PROJECT_STATUS.md
-          grep -Fq '| M0 | 単一ミクロ装置統一目標 |' PROJECT_STATUS.md
-          ! grep -Fq '有限環境との弱結合を縮約したエネルギー固有基底' PROJECT_STATUS.md
-          q2_2_deps="$(awk -F'|' '/^\| Q2-2 \| 条件付き達成 \|/ {gsub(/^ +| +$/, "", $7); print $7}' PROJECT_STATUS.md)"
-          [[ "$q2_2_deps" != *R181D* ]]
-          grep -Fq 'rank_one_post_state_error' tools/verify_r181d_projector_tree.py
-          grep -Fq '定常流入／流出浴' sections/A17_m54_uniform_supply.md
-          grep -Fq 'version: "draft-88"' CITATION.cff
-          grep -Fq 'draft-88 改訂稿' tools/template.tex
-          ! grep -R -Fq '定理（R188：' sections
-          ! grep -R -Fq '定理（R178D：' sections
-          grep -Fq '定理（R162：局所有向率の開放Poisson-jump実現）' sections/02_common_canonical_modules.md
-          grep -Fq '定理（R179：一様開放供給・リセット・再混合）' sections/02_common_canonical_modules.md
-          grep -Fq 'R161、R162、R185' PROJECT_STATUS.md
-
-
-      - name: M54整合理論境界を検査
-        run: |
-          set -Ee -o pipefail
-          trap 'echo "::error::M54整合理論境界の失敗: $BASH_COMMAND"' ERR
-          test -f sections/A14_m54_spatial_moving_matching.md
-          test ! -e sections/A14_m55_spatial_moving_matching.md
-          test -f tools/verify_common_matching_open_jump.py
-          test -f tools/verify_m54_static_instrument.py
-          test -f tools/verify_m54_spatial_matching.py
-          test ! -e tools/verify_common_collision_thermodynamics.py
-          test ! -e tools/verify_common_signal_m50.py
-          test ! -e tools/verify_m55_moving_matching.py
-          test "$(grep -Rho '定理（R161：' sections/*.md | wc -l)" -eq 1
-          test "$(grep -Rho '定理（R162：' sections/*.md | wc -l)" -eq 1
-          ! grep -Rq '定理（R183：' sections/*.md
-          test "$(grep -Rho '定理（R184：' sections/*.md | wc -l)" -eq 1
-          test "$(grep -Rho '定理（R185：' sections/*.md | wc -l)" -eq 1
-          grep -Fq '| Q3-2 | 達成 | M54空間状態構成 |' PROJECT_STATUS.md
-          ! grep -Eq '^\| M50 \||^\| M55 \|' PROJECT_STATUS.md
-          ! grep -Eq '^\| M47 \|' PROJECT_STATUS.md sections/01_scope_and_cycle.md
-          grep -Fq 'Q1 W型2モード制御手順（旧M47）' PROJECT_STATUS.md
-          grep -Fq '## H.3 R181Aへのパラメータ対応' sections/A8_m47_hopf_preparation.md
-          ! grep -Fq '<!-- theorem-start:proof -->' sections/A8_m47_hopf_preparation.md
-          grep -Fq '## 4.3　R181Bの2入力特殊化' sections/04_m54_q2_specializations.md
-          grep -Fq '## 4.4　R181Cの2入力・3入力ゲート適用' sections/04_m54_q2_specializations.md
-          grep -Fq '## 3.15 R144：固定有限段逐次測定合成' sections/03_m47_controlled_w_instrument.md
-          test "$(grep -Rho '定理（R143：' sections/*.md | wc -l)" -eq 1
-          test "$(grep -Rho '定理（R144：' sections/*.md | wc -l)" -eq 1
-          grep -Fq 'R181Dの階数1の選択後信号' sections/A2_m47_controlled_w_instrument_proofs.md
-          grep -Fq '\delta_{{\rm state},j}' sections/03_m47_controlled_w_instrument.md sections/A2_m47_controlled_w_instrument_proofs.md
-          ! grep -Fq '\delta_{{\rm post},j}' sections/03_m47_controlled_w_instrument.md sections/A2_m47_controlled_w_instrument_proofs.md
-          ! grep -Fq '結果別テンプレート交換' sections/03_m47_controlled_w_instrument.md sections/A2_m47_controlled_w_instrument_proofs.md
-          ! grep -Fq '結果別template交換' sections/03_m47_controlled_w_instrument.md sections/A2_m47_controlled_w_instrument_proofs.md
-          ! grep -Fq '結果別テンプレート' sections/03_m47_controlled_w_instrument.md sections/A2_m47_controlled_w_instrument_proofs.md sections/A8_m47_hopf_preparation.md
-          grep -Fq '## 3.12 共通射影選別機構による測定後状態の受け渡し' sections/03_m47_controlled_w_instrument.md
-          grep -Fq '測定後状態の受け渡し' sections/A8_m47_hopf_preparation.md
-          ! grep -R -Fq 'R170衝突' README.md PROJECT_STATUS.md sections
-          grep -Fq '\varepsilon_{Q3-2}' sections/08_errors_resources_open_targets.md
-          grep -Fq 'C_{185,a}a^2' sections/08_errors_resources_open_targets.md
-          ! grep -Fq 'Q3-2は部分達成' README.md PROJECT_STATUS.md sections/07_q3_finite_graph_phenomena.md sections/08_errors_resources_open_targets.md sections/09_conclusion.md
-          ! grep -Fq '明示した有限環境を縮約した有限時間純位相緩和を要求する' PROJECT_STATUS.md
-          ! grep -Fq '同じ固有基底の有限環境純位相緩和と対角占有率保存を閉じられない' sections/08_errors_resources_open_targets.md
-          ! grep -Fq 'M54空間状態構成局所辺浴、時計自由度、終位置記録までを同じ有限局所装置へ統合する' sections/08_errors_resources_open_targets.md
-          ! grep -Fq '有限衝突近似から $D_+D_-X$ と $D_-D_+X$ までの追加誤差' sections/08_errors_resources_open_targets.md
-          ! grep -Fq 'Nelson流の作用変分または時間対称Newton則を有限時間誤差付きで導く' sections/08_errors_resources_open_targets.md
-          ! grep -Fq '\varepsilon_{\rm br}' sections/03_m47_controlled_w_instrument.md sections/A2_m47_controlled_w_instrument_proofs.md sections/08_errors_resources_open_targets.md
-          ! grep -Fq '\varepsilon_{\rm post}' sections/03_m47_controlled_w_instrument.md sections/A2_m47_controlled_w_instrument_proofs.md sections/08_errors_resources_open_targets.md
-          grep -Fq 'old_half_trace_distance_factor_counterexample_margin' tools/verify_m47_q1_instrument.py
-          grep -Fq '実装強化：永久記録、補助逆計算、交換リセット' sections/03_m47_controlled_w_instrument.md
-          grep -Fq '永久記録、内部逆計算、未使用素子交換はこの証明に使わない' sections/A2_m47_controlled_w_instrument_proofs.md
-          test -f tools/verify_r187_m37_w_q1_bridge.py
-          test "$(grep -Rho '定理（R187：' sections/*.md | wc -l)" -eq 1
-          grep -Fq '## 6.19 R187：M37弱結合W型からQ1 W2制御への物理接続' sections/06_m37_spatial_envelope.md
-          grep -Fq '**証明（R187）**' sections/A5_m37_envelope_proofs.md
-          grep -Fq '| R187 | 厳密有限次元結果・明示誤差付き構成 |' PROJECT_STATUS.md
-          grep -Fq '| Q1-1 | 達成 | M54のW2静的状態構成 | M37弱結合W型の最低2正常モード' PROJECT_STATUS.md
-          grep -Fq '| Q1-2 | 達成 | M54のW2静的状態構成 | R187によるM37のW2制御用信号系' PROJECT_STATUS.md
-          test "$(grep -Rho '補題（R189A：' sections/*.md | wc -l)" -eq 1
-          test "$(grep -Rho '定理（R189B：' sections/*.md | wc -l)" -eq 1
-          test "$(grep -Rho '定理（R189C：' sections/*.md | wc -l)" -eq 1
-          grep -Fq '## B.18 R189Aの走行中作用容量保持' sections/A2_m47_controlled_w_instrument_proofs.md
-          grep -Fq '## B.21 R189Cの有限誤差閉包と資源' sections/A2_m47_controlled_w_instrument_proofs.md
-          test -f tools/verify_q1_live_zeno.py
-          grep -Fq 'P_{\rm meas}^{\rm id}' sections/03_m47_controlled_w_instrument.md
-          grep -Fq 'R_{i,37}^{\delta,\mathrm{lat}}' sections/A14_m54_spatial_moving_matching.md
-          grep -Fq '\frac1\ell' sections/A14_m54_spatial_moving_matching.md
-          grep -Fq 'R162の証明：開放Poisson-jump実現' sections/A11_common_collision_bath_thermodynamics.md
-          ! grep -R -E '現行Q3粒子模型.*M42|M42局在トークン|M37--M42' README.md PROJECT_STATUS.md sections/*.md
-
-      - name: 収録PDFを退避
-        run: cp paper.pdf /tmp/paper-committed.pdf
-
-      - name: 論文を再生成
-        run: python tools/build_paper.py
+      - name: 隔離ディレクトリへ論文を再生成
+        run: python tools/build_paper.py --output-dir build/ci
 
       - name: 生成物の同期を検査
-        run: |
-          set -Ee -o pipefail
-          trap 'echo "::error::生成物同期検査の失敗: $BASH_COMMAND"' ERR
-          git diff --exit-code -- paper.md main.tex
-          pdftotext -layout /tmp/paper-committed.pdf /tmp/paper-committed.txt
-          pdftotext -layout paper.pdf /tmp/paper-regenerated.txt
-          diff -u /tmp/paper-committed.txt /tmp/paper-regenerated.txt
-          test "$(pdfinfo /tmp/paper-committed.pdf | awk '/^Pages:/ {print $2}')" = "$(pdfinfo paper.pdf | awk '/^Pages:/ {print $2}')"
-          test "$(pdfinfo /tmp/paper-committed.pdf | awk -F: '/^Page size:/ {sub(/^ +/, "", $2); print $2}')" = "$(pdfinfo paper.pdf | awk -F: '/^Page size:/ {sub(/^ +/, "", $2); print $2}')"
-          if grep -En "Citation .* undefined|Reference .* undefined|Overfull|Underfull|Fatal error|Missing character" build/latex/main.log; then
-            echo "::error::最終LaTeXログに禁止警告が残っている"
-            exit 1
-          fi
+        run: python tools/check_generated.py build/ci
 
       - name: 標準構成を検査
         run: |
