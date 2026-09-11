@@ -1,0 +1,67 @@
+name: R191主線圧縮を適用
+
+on:
+  push:
+    branches:
+      - draft-r191-measurement-spine-simplification
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    if: ${{ !contains(github.event.head_commit.message, '[generated]') }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: ブランチを取得
+        uses: actions/checkout@v4
+        with:
+          ref: draft-r191-measurement-spine-simplification
+          fetch-depth: 0
+
+      - name: Pythonを準備
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: 責務縮約を適用
+        run: python tools/apply_r191_simplification.py
+
+      - name: Python構文と原稿構造を検査
+        run: |
+          python -m compileall -q tools
+          python tools/check_source.py
+          python tools/check_terminology.py
+
+      - name: 数値依存を導入して検算
+        run: |
+          python -m pip install numpy
+          python tools/run_physics_checks.py
+
+      - name: 組版依存を導入
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y pandoc poppler-utils texlive-latex-extra texlive-xetex
+
+      - name: 統合原稿とPDFを再生成
+        run: |
+          python tools/build_paper.py
+          python tools/build_paper.py --output-dir build/ci
+          python tools/check_generated.py build/ci
+          pdftotext paper.pdf build/paper.txt
+          test -s build/paper.txt
+
+      - name: 一時ファイルを最終treeから除去
+        run: |
+          rm tools/apply_r191_simplification.py
+          rm .github/workflows/apply-r191-simplification.yml
+
+      - name: 差分を検査してcommit
+        run: |
+          git diff --check
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git status --short
+          git commit -m 'refactor: simplify measurement spine around R191 [generated]'
+          git push origin HEAD:draft-r191-measurement-spine-simplification
