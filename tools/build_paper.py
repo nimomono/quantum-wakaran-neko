@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 from __future__ import annotations
 
+import argparse
 import hashlib
 import os
 import re
@@ -9,25 +10,18 @@ import subprocess
 import tempfile
 from pathlib import Path
 
+from paper_source import (
+    ROOT,
+    SECTIONS,
+    ordered_appendix_paths,
+    parse_source,
+    restore_markdown_source,
+    validate_github_markdown,
+)
 
-ROOT = Path(__file__).resolve().parent.parent
-SECTIONS = ROOT / "sections"
-WORK = ROOT / "build" / "latex"
 TEMPLATE = ROOT / "tools" / "template.tex"
-PAPER_MD = ROOT / "paper.md"
-MAIN_TEX = ROOT / "main.tex"
-PDF = ROOT / "paper.pdf"
-
-THEOREM_LABELS = {
-    "theorem": "定理",
-    "proposition": "命題",
-    "lemma": "補題",
-    "corollary": "系",
-    "proof": "証明",
-}
 
 CHAPTER_NUMBERS = tuple(range(1, 10))
-
 PART_TITLES: dict[int, str] = {
     1: "問題設定と共通言語",
     3: "単一量子ビット型操作と測定",
@@ -35,7 +29,6 @@ PART_TITLES: dict[int, str] = {
     6: "空間信号と粒子位置",
     8: "総合評価",
 }
-
 PART_NUMERALS = {1: "I", 3: "II", 4: "III", 6: "IV", 8: "V"}
 
 REFERENCE_KEYS = {
@@ -100,43 +93,6 @@ REFERENCE_KEYS = {
 }
 
 
-APPENDIX_FILENAME = re.compile(r"A(\d+)_.*\.md")
-
-
-def parse_source(path: Path) -> tuple[dict[str, str], list[str]]:
-    lines = path.read_text(encoding="utf-8").splitlines()
-    meta: dict[str, str] = {}
-    while lines and lines[0].startswith("@"):
-        key, value = lines.pop(0)[1:].split(":", 1)
-        meta[key.strip()] = value.strip()
-    return meta, lines
-
-
-def ordered_appendix_paths() -> list[Path]:
-    numbered: list[tuple[int, Path]] = []
-    for path in SECTIONS.glob("A*_*.md"):
-        match = APPENDIX_FILENAME.fullmatch(path.name)
-        if match:
-            numbered.append((int(match.group(1)), path))
-
-    numbers = [number for number, _ in numbered]
-    if len(numbers) != len(set(numbers)):
-        raise ValueError("duplicate appendix number")
-
-    ordered = sorted(numbered)
-    for number, path in ordered:
-        meta, _ = parse_source(path)
-        if not 1 <= number <= 26:
-            raise ValueError(f"unsupported appendix number: {path.name}")
-        expected = chr(ord("A") + number - 1)
-        if meta.get("number") != expected or meta.get("chapter") != "付録":
-            raise ValueError(
-                f"{path.name}: appendix metadata must be "
-                f"@number: {expected} and @chapter: 付録"
-            )
-    return [path for _, path in ordered]
-
-
 def citation_keys(spec: str) -> list[str]:
     numbers: list[int] = []
     for item in spec.split(","):
@@ -159,630 +115,6 @@ def replace_citations(text: str) -> str:
         return r"\cite{" + ",".join(keys) + "}"
 
     return pattern.sub(replacement, text)
-
-
-
-def restore_markdown_source(lines: list[str]) -> list[str]:
-    output: list[str] = []
-    index = 0
-    while index < len(lines):
-        line = lines[index]
-        start = re.fullmatch(
-            r"<!-- theorem-start:(theorem|proposition|lemma|corollary|proof) -->",
-            line.strip(),
-        )
-        if start:
-            environment = start.group(1)
-            if index + 1 >= len(lines):
-                raise ValueError(f"missing theorem label after {line}")
-            visible = lines[index + 1].strip()
-            label = THEOREM_LABELS[environment]
-            plain = f"**{label}**"
-            titled_prefix = f"**{label}（"
-            if visible == plain:
-                title = ""
-            elif visible.startswith(titled_prefix) and visible.endswith("）**"):
-                title = visible[len(titled_prefix):-3]
-            else:
-                raise ValueError(f"invalid theorem label: {visible}")
-            begin = rf"\begin{{{environment}}}"
-            if title:
-                begin += f"[{title}]"
-            output.append(begin)
-            index += 2
-            continue
-
-        end = re.fullmatch(
-            r"<!-- theorem-end:(theorem|proposition|lemma|corollary|proof) -->",
-            line.strip(),
-        )
-        if end:
-            output.append(rf"\end{{{end.group(1)}}}")
-            index += 1
-            continue
-
-        output.append(line)
-        index += 1
-    return output
-
-
-def validate_github_markdown(path: Path, text: str) -> None:
-    if re.search(rb"[\x00-\x08\x0b\x0c\x0d\x0e-\x1f]", path.read_bytes()):
-        raise ValueError(f"{path}: 規約外の制御文字を検出")
-    forbidden = {
-        "独自数式マクロ": r"\\(?:dd|E|R|Tr|GM|Nel)(?![A-Za-z])",
-        "生の定理環境": (
-            r"\\(?:begin|end)\{"
-            r"(?:theorem|proposition|lemma|corollary|proof|statusbox|thebibliography)"
-            r"\}"
-        ),
-        "数式外のTeX命令": (
-            r"\\(?:chapter\*?|part|appendix|addcontentsline|cite|bibitem|url)\b"
-        ),
-        "規約外の数式区切り": r"\\\(|\\\[|\$\$",
-        "数式命令内の日本語": (
-            r"\\(?:text|mathrm|boxed)\{[^{}]*[ぁ-んァ-ヶ一-龠々〆ヵヶ][^{}]*\}"
-        ),
-    }
-    errors = [
-        name for name, pattern in forbidden.items()
-        if re.search(pattern, text)
-    ]
-    for environment in THEOREM_LABELS:
-        starts = text.count(f"<!-- theorem-start:{environment} -->")
-        ends = text.count(f"<!-- theorem-end:{environment} -->")
-        if starts != ends:
-            errors.append(f"{environment} 境界の不一致")
-    if errors:
-        raise ValueError(f"{path}: " + "、".join(errors))
-
-
-Q2_RESULT_DEPENDENCIES: dict[str, set[str]] = {
-    "R190A": {"R164"},
-    "R190B": {"R190A"},
-    "R190C": {"R161", "R190B"},
-    "R170": {"R190C", "R179"},
-    "R191": set(),
-    "R181B": {"R112"},
-    "R181C": {"R112", "R181B"},
-    "R181D": {"R112", "R191", "R181A"},
-    "R177": {"R181B", "R181C", "R181D"},
-    "R179": set(),
-    "R186": {"R181C", "R181D", "R179"},
-    "R180A": {"R181C", "R191"},
-    "R180B": {"R181A"},
-    "R180C": {"R181B", "R191", "R180A", "R180B"},
-}
-
-Q2_LEDGER_ROOTS: dict[str, set[str]] = {
-    "Q2-1": {"R181B", "R181C", "R181D"},
-    "Q2-2": {"R180C"},
-    "Q2-3": {"R177"},
-    "Q2-4": {"R179", "R186"},
-}
-
-Q2_LEDGER_MODELS: dict[str, set[str]] = {
-    "Q2-1": {"M54"},
-    "Q2-2": {"M54", "受信機構"},
-    "Q2-3": {"M54"},
-    "Q2-4": {"M54"},
-}
-
-
-def dependency_closure(roots: set[str]) -> set[str]:
-    closure = set(roots)
-    pending = list(roots)
-    while pending:
-        result = pending.pop()
-        for dependency in Q2_RESULT_DEPENDENCIES.get(result, set()):
-            if dependency not in closure:
-                closure.add(dependency)
-                pending.append(dependency)
-    return closure
-
-
-def result_ids(cell: str) -> set[str]:
-    results: set[str] = set()
-    occupied: list[tuple[int, int]] = []
-    range_pattern = re.compile(r"R(\d+)([A-Z]?)--R(\d+)([A-Z]?)")
-    for match in range_pattern.finditer(cell):
-        start_number, start_suffix, end_number, end_suffix = match.groups()
-        occupied.append(match.span())
-        if start_number == end_number and start_suffix and end_suffix:
-            for codepoint in range(ord(start_suffix), ord(end_suffix) + 1):
-                results.add(f"R{start_number}{chr(codepoint)}")
-        elif not start_suffix and not end_suffix:
-            for number in range(int(start_number), int(end_number) + 1):
-                results.add(f"R{number}")
-        else:
-            raise ValueError(f"展開できない結果範囲: {match.group(0)}")
-    for match in re.finditer(r"R\d+[A-Z]?", cell):
-        if not any(start <= match.start() < end for start, end in occupied):
-            results.add(match.group(0))
-    return results
-
-
-def table_evidence(
-    text: str,
-    goal_id: str,
-    model_indexes: tuple[int, ...],
-    result_index: int,
-    required_status: str | None = None,
-) -> tuple[str, str]:
-    for line in text.splitlines():
-        if not line.startswith(f"| {goal_id} |"):
-            continue
-        cells = [cell.strip() for cell in line.strip().strip("|").split("|")]
-        if required_status is not None and (
-            len(cells) < 2 or cells[1] != required_status
-        ):
-            continue
-        if len(cells) > result_index and "R" in cells[result_index]:
-            model_cells = " ".join(
-                cells[index] for index in model_indexes if index < len(cells)
-            )
-            return model_cells, cells[result_index]
-    raise ValueError(f"{goal_id}: 根拠台帳行がない")
-
-
-def validate_q2_dependency_ledgers() -> None:
-    # The complete dependency ledger has a single canonical source.
-    # README and section 1 intentionally keep only compact status summaries.
-    ledgers = (
-        (
-            "PROJECT_STATUS.md",
-            (ROOT / "PROJECT_STATUS.md").read_text(encoding="utf-8"),
-            (2, 3, 4),
-            5,
-            "条件付き達成",
-        ),
-    )
-    expected_results = {
-        goal_id: dependency_closure(roots)
-        for goal_id, roots in Q2_LEDGER_ROOTS.items()
-    }
-    for label, text, model_indexes, result_index, required_status in ledgers:
-        for goal_id in Q2_LEDGER_ROOTS:
-            model_cell, result_cell = table_evidence(
-                text,
-                goal_id,
-                model_indexes,
-                result_index,
-                required_status,
-            )
-            missing_models = sorted(
-                model
-                for model in Q2_LEDGER_MODELS[goal_id]
-                if model not in model_cell
-            )
-            actual_results = result_ids(result_cell)
-            missing_results = sorted(expected_results[goal_id] - actual_results)
-            unexpected_results = sorted(actual_results - expected_results[goal_id])
-            if missing_models or missing_results or unexpected_results:
-                details = []
-                if missing_models:
-                    details.append("不足模型=" + ",".join(missing_models))
-                if missing_results:
-                    details.append("不足結果=" + ",".join(missing_results))
-                if unexpected_results:
-                    details.append("依存グラフ外結果=" + ",".join(unexpected_results))
-                raise ValueError(f"{label}の{goal_id}依存台帳が不整合: " + "、".join(details))
-
-
-def validate_fixed_goal_language() -> None:
-    """Guard fixed goals and the canonical M54/R181 dependency boundary."""
-    status_text = (ROOT / "PROJECT_STATUS.md").read_text(encoding="utf-8")
-    readme_text = (ROOT / "README.md").read_text(encoding="utf-8")
-    fixed_block = status_text.split("### 固定目標一覧", 1)[1].split(
-        "### 現在地", 1
-    )[0]
-    readme_block = readme_text.split("## 長期目標の現在地", 1)[1].split(
-        "詳しい達成判定", 1
-    )[0]
-
-    for label, block in (
-        ("PROJECT_STATUS.mdの固定目標", fixed_block),
-        ("README.mdの長期目標", readme_block),
-    ):
-        if re.search(r"(?<![A-Za-z])[MR]\d+", block):
-            raise ValueError(f"{label}: モデルまたは結果IDを検出")
-
-    required_goal_fragments = (
-        "Q3-2 | Nelson流の作用変分または時間対称Newton則の導出",
-        "Q3-3A | 井戸型の束縛状態",
-        "Q3-3B | 調和型の束縛状態",
-        "Q3-3C | W型の束縛状態",
-        "Q3-4A | 有限障壁のトンネル効果",
-        "Q3-4B | W型のトンネル振動",
-        "Q3-6 | 位相量子化",
-        "外部駆動、傾斜切替または障壁低下",
-        "低2モードの作用比だけを空間領域占有率へ読み替えない",
-        "Q1-2 | 射影測定統計とZeno効果",
-        "同軸再測定の反復分布",
-        "異なる軸による逐次測定分布",
-        "Q2-3 | 3量子ビット型二段ゲート合成",
-        "測定、経路選択、共同モーメントへの置換、再準備",
-        "Q2-4 | 多項式外部制御による量子出力サンプリング",
-        "一出力標本",
-        "全変動距離",
-        "指数長の係数表",
-        "事後選別",
-    )
-    missing = [token for token in required_goal_fragments if token not in fixed_block]
-    if missing:
-        raise ValueError("固定目標の文言が不足: " + "、".join(missing))
-
-    expected_status = {
-        "Q1-1": "達成",
-        "Q1-2": "達成",
-        "Q2-1": "条件付き達成",
-        "Q2-2": "条件付き達成",
-        "Q2-3": "条件付き達成",
-        "Q2-4": "条件付き達成",
-        "Q3-1": "達成",
-        "Q3-2": "達成",
-        "Q3-3A": "達成",
-        "Q3-3B": "達成",
-        "Q3-3C": "達成",
-        "Q3-4A": "条件付き達成",
-        "Q3-4B": "条件付き達成",
-        "Q3-5": "条件付き達成",
-        "Q3-6": "未達",
-    }
-    for goal_id, expected in expected_status.items():
-        if not re.search(
-            rf"^\| {re.escape(goal_id)} \| {re.escape(expected)} \|",
-            status_text,
-            flags=re.MULTILINE,
-        ):
-            raise ValueError(f"{goal_id}: 現在地が{expected}ではない")
-    for block in (fixed_block, readme_block, status_text):
-        if re.search(
-            r"^\| Q1-(?:3|4) \||^\| Q2-5 \||^\| Q3-(?:3|4) \|",
-            block,
-            re.MULTILINE,
-        ):
-            raise ValueError("退役または総称化した固定目標の現行行が残っている")
-
-    scope_text = (SECTIONS / "01_scope_and_cycle.md").read_text(encoding="utf-8")
-    q3_text = (SECTIONS / "07_q3_finite_graph_phenomena.md").read_text(
-        encoding="utf-8"
-    )
-    for goal_id, expected in {key: value for key, value in expected_status.items() if key.startswith("Q3-")}.items():
-        if not re.search(
-            rf"^\| {re.escape(goal_id)} \| {re.escape(expected)} \|",
-            scope_text,
-            flags=re.MULTILINE,
-        ):
-            raise ValueError(f"第1章の{goal_id}現在地が{expected}ではない")
-    required_q3_tokens = (
-        "Nelson流の作用変分または時間対称Newton則（Q3-2）",
-        "束縛状態（Q3-3A--Q3-3C）",
-        "有限障壁のトンネル効果（Q3-4A）",
-        "W型のトンネル振動（Q3-4B）",
-        "2重スリット干渉（Q3-5）",
-        "位相量子化（Q3-6）",
-        "低2モードの作用比だけを空間領域占有率へ読み替えない",
-    )
-    missing_q3 = [token for token in required_q3_tokens if token not in q3_text]
-    if missing_q3:
-        raise ValueError("第7章のQ3同期要素が不足: " + "、".join(missing_q3))
-    for obsolete in (
-        "位相量子化（Q3-2）",
-        "束縛状態（Q3-3）",
-        "トンネル効果（Q3-4）",
-    ):
-        if obsolete in q3_text:
-            raise ValueError(f"第7章に旧Q3見出しが残っている: {obsolete}")
-
-    validate_q2_dependency_ledgers()
-
-    # Guard the Q1 theorem hierarchy: R143 is one-stage, R144 is finite-sequence,
-    # while cycle reset remains an unnumbered implementation strengthening.
-    q1_text = (SECTIONS / "03_m47_controlled_w_instrument.md").read_text(
-        encoding="utf-8"
-    )
-    q1_proof_text = (
-        SECTIONS / "A2_m47_controlled_w_instrument_proofs.md"
-    ).read_text(encoding="utf-8")
-    q1_hopf_text = (SECTIONS / "A8_m47_hopf_preparation.md").read_text(
-        encoding="utf-8"
-    )
-    for label, text_value in (
-        ("Q1本文", q1_text),
-        ("Q1証明", q1_proof_text),
-        ("Q1 W型対応表", q1_hopf_text),
-    ):
-        if "結果別テンプレート" in text_value:
-            raise ValueError(f"{label}へ旧結果別テンプレート依存が再混入")
-    for required_token in (
-        "R143のW型1段測定特殊化",
-        "R181Dの階数1測定後状態の受け渡し",
-        "共通射影選別機構による測定後状態の受け渡し",
-        "R189A：W2走行中作用容量有限正準保持",
-        "R189B：W2走行中階数1射影選別有限時間接続",
-        "R189C：M37 W2有限2回Rabi--Zeno比較",
-    ):
-        if required_token not in q1_text:
-            raise ValueError("Q1測定後状態責務の必須要素がない: " + required_token)
-    if "測定後状態の受け渡し" not in q1_hopf_text:
-        raise ValueError("付録HにR181D測定後状態受渡しがない")
-    if q1_text.count("定理（R143：") != 1:
-        raise ValueError("R143の定理宣言数が1ではない")
-    if q1_text.count("定理（R144：") != 1:
-        raise ValueError("R144の定理宣言数が1ではない")
-    if q1_text.count("補題（R189A：") != 1:
-        raise ValueError("R189Aの補題宣言数が1ではない")
-    r144_block = q1_text.split("**定理（R144：", 1)[1].split(
-        "<!-- theorem-end:theorem -->", 1
-    )[0]
-    for forbidden_token in ("永久記録", "内部逆計算", "未使用素子", "交換リセット"):
-        if forbidden_token in r144_block:
-            raise ValueError("R144へcycle強化が混入: " + forbidden_token)
-    for required_token in (
-        "固定有限段逐次測定合成",
-        r"\mathcal H_N",
-        "外部から量子状態を再準備しない",
-        "実装強化：永久記録、補助逆計算、交換リセット",
-    ):
-        if required_token not in q1_text:
-            raise ValueError("Q1定理階層の必須要素がない: " + required_token)
-    if "永久記録、内部逆計算、未使用素子交換はこの証明に使わない" not in q1_proof_text:
-        raise ValueError("R144証明のcycle非依存境界がない")
-    for required_token in (
-        "## B.18 R189Aの走行中作用容量保持",
-        "## B.19 R189Bの固定済み容量選択と走行中射影選別",
-        "## B.20 R189Cの有限2回Zeno核と空操作対照",
-        "## B.21 R189Cの有限誤差閉包と資源",
-    ):
-        if required_token not in q1_proof_text:
-            raise ValueError("R189証明の必須要素がない: " + required_token)
-
-    required_paths = (
-        SECTIONS / "04_m54_q2_specializations.md",
-        SECTIONS / "05_m54_setting_pre_receiver.md",
-        SECTIONS / "A3_m54_q2_specialization_proofs.md",
-        SECTIONS / "A4_m54_receiver_cycle_proofs.md",
-        SECTIONS / "A9_m54_setting_pre_paired_hopf_receiver.md",
-        SECTIONS / "A13_m54_template_port_preparation.md",
-        SECTIONS / "A15_m54_uniform_register.md",
-        SECTIONS / "A16_m54_projector_tree_receiver.md",
-        SECTIONS / "A17_m54_uniform_supply.md",
-        SECTIONS / "A19_m54_drude_action_shell_bridge.md",
-        ROOT / "tools" / "verify_r181a_template_port.py",
-        ROOT / "tools" / "verify_r190_drude_shell.py",
-        ROOT / "tools" / "verify_r181d_projector_tree.py",
-        ROOT / "tools" / "verify_m54_q2_composition.py",
-        ROOT / "tools" / "verify_r179_m54_supply.py",
-        ROOT / "tools" / "verify_r180_m54_receiver.py",
-        ROOT / "tools" / "verify_m37_w_spectral_tunneling.py",
-    )
-    retired_paths = (
-        SECTIONS / "04_q1xq1_common_bath_gate.md",
-        SECTIONS / "05_m52_setting_pre_receiver.md",
-        SECTIONS / "A3_q1xq1_common_bath_gate_proofs.md",
-        SECTIONS / "A4_m52_receiver_cycle_proofs.md",
-        SECTIONS / "A9_m52_setting_pre_paired_hopf_receiver.md",
-        SECTIONS / "A13_common_open_preparation.md",
-        SECTIONS / "A15_q2_uniform_sequential_sampler.md",
-        SECTIONS / "A16_q2_fresh_tape_aperture.md",
-        SECTIONS / "A17_q2_uniform_supply.md",
-    )
-    for path in required_paths:
-        if not path.is_file():
-            raise ValueError(f"現行M54ファイルがない: {path.relative_to(ROOT)}")
-    for path in retired_paths:
-        if path.exists():
-            raise ValueError(f"退役パスが残っている: {path.relative_to(ROOT)}")
-
-    active_paths = [
-        ROOT / "README.md",
-        ROOT / "PROJECT_STATUS.md",
-        *sorted(SECTIONS.glob("*.md")),
-    ]
-    active_text = "\n".join(path.read_text(encoding="utf-8") for path in active_paths)
-    if "R170衝突" in active_text:
-        raise ValueError("現行文書へR170衝突という誤責務が再混入")
-    stance_text = (ROOT / "PROJECT_STANCE.md").read_text(encoding="utf-8")
-    guide_text = (ROOT / "PROJECT_GUIDE.md").read_text(encoding="utf-8")
-    status_text = (ROOT / "PROJECT_STATUS.md").read_text(encoding="utf-8")
-    for token in (
-        "有限閉鎖Hamiltonian実装は固定目標ではない",
-        "有限な能動自由度と明示されたHamiltonian無限浴からなるミクロ模型",
-        "有限浴への持上げは、有限性自体に物理的意味がある場合を除き強化結果とする",
-    ):
-        if token not in stance_text:
-            raise ValueError("Hamiltonian無限浴方針の正本語がない: " + token)
-    if "有限浴化のためだけに未使用素子列" not in guide_text:
-        raise ValueError("PROJECT_GUIDEに有限性監査規約がない")
-    for token in (
-        "2量子ビット型結合ゲートと同一の共同入力--出力統計を生成する明示的な古典ミクロ過程を構成する",
-        "3つのQ1型有限能動部分系",
-        "| M0 | 単一ミクロ装置統一目標 |",
-    ):
-        if token not in status_text:
-            raise ValueError("方針変更後の固定目標/M0語がない: " + token)
-    if "有限環境との弱結合を縮約したエネルギー固有基底" in status_text:
-        raise ValueError("Q3-3固定目標に有限環境条件が残っている")
-    for forbidden_token in (
-        "Q3-2は部分達成",
-        "Q3-2について、R161/R185により理想M54空間状態構成上の前進・後退平均微分と時間対称Newton則は導出済みである。残るのは",
-        "明示した有限環境を縮約した有限時間純位相緩和を要求する",
-        "同じ固有基底の有限環境純位相緩和と対角占有率保存を閉じられない",
-        "M54空間状態構成局所辺浴、時計自由度、終位置記録までを同じ有限局所装置へ統合する",
-    ):
-        if forbidden_token in active_text:
-            raise ValueError("方針変更後の旧達成状態・有限性要件が再混入: " + forbidden_token)
-    if active_text.count("定理（R190A：") != 1:
-        raise ValueError("R190Aの定理宣言数が1ではない")
-    if active_text.count("補題（R190B：") != 1:
-        raise ValueError("R190Bの補題宣言数が1ではない")
-    if active_text.count("定理（R190C：") != 1:
-        raise ValueError("R190Cの定理宣言数が1ではない")
-    r190_proof = (SECTIONS / "A19_m54_drude_action_shell_bridge.md").read_text(
-        encoding="utf-8"
-    )
-    for required_token in (
-        "## S.3 無限調和Drude浴と作用保存",
-        "## S.8 同期couplingによる明示Wasserstein上界",
-        "## S.13 R179による反復再混合",
-        "R162の一般有向率はQ3の開放jump実現",
-    ):
-        if required_token not in r190_proof:
-            raise ValueError("R190証明の必須要素がない: " + required_token)
-    for forbidden_token in (
-        "R170駆動",
-        "M54静的選択・固定共通部",
-        r"\varepsilon_{170}^{\rm end}",
-    ):
-        if forbidden_token in active_text:
-            raise ValueError("R170旧階層が現行文書へ再混入: " + forbidden_token)
-    status_lines = (ROOT / "PROJECT_STATUS.md").read_text(encoding="utf-8").splitlines()
-    q2_2_line = next(
-        (line for line in status_lines if line.startswith("| Q2-2 | 条件付き達成 |")),
-        "",
-    )
-    if not q2_2_line:
-        raise ValueError("PROJECT_STATUSにQ2-2行がない")
-    if "R181D" in q2_2_line:
-        raise ValueError("Q2-2へR181D依存が再混入")
-    errors_text = (SECTIONS / "08_errors_resources_open_targets.md").read_text(
-        encoding="utf-8"
-    )
-    old_q3_residual = (
-        "Nelson流の作用変分または時間対称Newton則を有限時間誤差付きで導く"
-    )
-    if old_q3_residual in errors_text:
-        raise ValueError("Q3-2残件が導出済みNewton則まで巻き戻っている")
-    for required_token in (
-        r"\varepsilon_{Q3-2}",
-        r"C_{185,a}a^2",
-        "開放Poisson-jump",
-    ):
-        if required_token not in errors_text:
-            raise ValueError("Q3-2達成誤差台帳の必須要素がない: " + required_token)
-    retired_id = re.compile(
-        r"M(?:51|52|53)(?!\d)|R171(?!\d)|R176[ABC](?![A-Z])|"
-        r"R178[ABCEF](?![A-Z])|R145(?!\d)"
-    )
-    hits = sorted(
-        path.relative_to(ROOT).as_posix()
-        for path in active_paths
-        if retired_id.search(path.read_text(encoding="utf-8"))
-    )
-    if hits:
-        raise ValueError("現行文書に退役IDが残っている: " + "、".join(hits))
-
-    theorem_ids = (
-        "R181A", "R181B", "R181C", "R181D", "R179",
-        "R180A", "R180B", "R180C", "R161", "R162", "R164", "R170",
-        "R123", "R124", "R125", "R182", "R187", "R189B", "R189C",
-    )
-    for result_id in theorem_ids:
-        count = active_text.count(f"定理（{result_id}：")
-        if count != 1:
-            raise ValueError(f"{result_id}の定理宣言数が{count}である")
-
-    r187_text = (SECTIONS / "06_m37_spatial_envelope.md").read_text(
-        encoding="utf-8"
-    )
-    r187_proof_text = (SECTIONS / "A5_m37_envelope_proofs.md").read_text(
-        encoding="utf-8"
-    )
-    for token in (
-        "## 6.19 R187：M37弱結合W型からQ1 W2制御への物理接続",
-        r"J_\kappa",
-        r"G_\kappa",
-        "結合後の低2モード",
-        "M54のW2静的状態構成への正準状態の受け渡し",
-    ):
-        if token not in r187_text:
-            raise ValueError("R187本文の必須要素がない: " + token)
-    for token in (
-        "## E.14 弱結合W型族の低位モード群",
-        "## E.15 静的M37区間の長時間一様較正",
-        "## E.16 傾斜モード群、結合後の生成子と有限ゲート列",
-        "**証明（R187）**",
-        "## E.18 零傾斜正常モードとM54のW2正準接続端",
-    ):
-        if token not in r187_proof_text:
-            raise ValueError("R187証明の必須要素がない: " + token)
-    r187_block = r187_text.split("**定理（R187：", 1)[1].split(
-        "<!-- theorem-end:theorem -->", 1
-    )[0]
-    for forbidden_token in ("M0達成", "Born分布を導く", "R170をM37から導出"):
-        if forbidden_token in r187_block:
-            raise ValueError("R187へ過剰主張が混入: " + forbidden_token)
-    if not (ROOT / "tools" / "verify_r187_m37_w_q1_bridge.py").is_file():
-        raise ValueError("R187専用検算器がない")
-
-    common_text = (SECTIONS / "02_common_canonical_modules.md").read_text(
-        encoding="utf-8"
-    )
-    r170_block = common_text.split("**定理（R170：", 1)[1].split(
-        "<!-- theorem-end:theorem -->", 1
-    )[0]
-    for required_token in (
-        "固定作用容量入力の静的選択・吸収指針変数固定",
-        r"\widehat\pi_i",
-        r"e^{-\gamma T_L}",
-        r"\varepsilon_{\rm ptr}",
-    ):
-        if required_token not in r170_block:
-            raise ValueError("R170定理の必須要素がない: " + required_token)
-    for forbidden_token in (r"\varepsilon_{\rm rec}", r"G_{\rm rec}"):
-        if forbidden_token in r170_block:
-            raise ValueError("R170定理へ外部記録責務が再混入: " + forbidden_token)
-    if "**系（R170選択結果の局所記録）**" not in common_text:
-        raise ValueError("R170後段の局所記録系がない")
-    if "定理（R181D：M54段階的射影選別・測定後状態受渡し定理）" not in common_text:
-        raise ValueError("R181D新定理名がない")
-    if "定理（R191：作用差駆動ブラウン巨視的スピン2結果射影読出し）" not in common_text:
-        raise ValueError("R191主読出し定理がない")
-    if "R164/R190/R170は一般有限結果集合" not in common_text:
-        raise ValueError("R191と旧作用殻経路の責務境界がない")
-    receiver_main_text = (SECTIONS / "05_m54_setting_pre_receiver.md").read_text(
-        encoding="utf-8"
-    )
-    if "R181Dの段階的射影選別定理そのものには依存しない" not in receiver_main_text:
-        raise ValueError("R180AのR181D非依存境界がない")
-    receiver_text = (SECTIONS / "A16_m54_projector_tree_receiver.md").read_text(
-        encoding="utf-8"
-    )
-    supply_text = (SECTIONS / "A17_m54_uniform_supply.md").read_text(
-        encoding="utf-8"
-    )
-    required_current_tokens = (
-        r"\Gamma_{54}^{(\Lambda,\mathcal I)}",
-        "R191の2結果選択・吸収記録",
-        r"\widehat u_*=-\frac{\widehat D}{\widehat S}",
-        "決定論的端点経路",
-        r"\tau_{\rm state}",
-        "方向を変えない振幅再調整",
-        "成功結果だけを再規格化しない",
-        "集団統計、試行中の状態依存制御を外部から与えない",
-        "確率流・活動量整合",
-    )
-    current_bundle = common_text + "\n" + receiver_text
-    absent = [token for token in required_current_tokens if token not in current_bundle]
-    if absent:
-        raise ValueError("M54/R181Dの必須要素がない: " + "、".join(absent))
-    for forbidden_token in (
-        r"A_{u,b}^\delta",
-        r"\frac{m\delta}{1+\delta}",
-        "結果成分の排他的選択と固定は第2章R170が担う",
-    ):
-        if forbidden_token in receiver_text:
-            raise ValueError("R181Dへ旧作用殻主線が再混入: " + forbidden_token)
-    for token in (
-        "一様開放リセット",
-        "定常流入",
-        "流出",
-        "R190再混合",
-        "総浴容量",
-    ):
-        if token not in supply_text:
-            raise ValueError(f"R179供給境界の必須要素がない: {token}")
 
 
 def preprocess(lines: list[str]) -> list[str]:
@@ -933,19 +265,11 @@ def pandoc_markdown() -> str:
 def combined_markdown() -> str:
     chunks: list[str] = []
     _, overview = parse_source(SECTIONS / "00_overview_and_contents.md")
-    chunks.extend([
-        "# 概要",
-        "\n".join(preprocess_public(overview)),
-    ])
+    chunks.extend(["# 概要", "\n".join(preprocess_public(overview))])
 
     for number in CHAPTER_NUMBERS:
         if number in PART_TITLES:
-            chunks.append(
-                "# 第"
-                + PART_NUMERALS[number]
-                + "部　"
-                + PART_TITLES[number]
-            )
+            chunks.append("# 第" + PART_NUMERALS[number] + "部　" + PART_TITLES[number])
         path = next(SECTIONS.glob(f"{number:02d}_*.md"))
         meta, lines = parse_source(path)
         chunks.append("# " + meta["title"])
@@ -966,22 +290,13 @@ def combined_markdown() -> str:
         chunks.append("\n".join(preprocess_public(lines)))
 
     _, references = parse_source(SECTIONS / "90_references.md")
-    chunks.extend([
-        "# 参考文献",
-        "\n".join(preprocess_public(references)),
-    ])
+    chunks.extend(["# 参考文献", "\n".join(preprocess_public(references))])
     return "\n\n".join(chunks) + "\n"
-
-
-def run_command(command: list[str], cwd: Path | None = None) -> None:
-    subprocess.run(command, cwd=cwd, env=tex_environment(), check=True)
 
 
 def tex_environment() -> dict[str, str]:
     env = os.environ.copy()
     env.update({
-        # Keep PDF metadata stable for the current cited draft.  Update this
-        # epoch together with CITATION.cff when a new draft is released.
         "SOURCE_DATE_EPOCH": "1788998400",
         "FORCE_SOURCE_DATE": "1",
         "TZ": "UTC",
@@ -992,16 +307,17 @@ def tex_environment() -> dict[str, str]:
     return env
 
 
+def run_command(command: list[str], cwd: Path | None = None) -> None:
+    subprocess.run(command, cwd=cwd, env=tex_environment(), check=True)
+
+
 def normalize_pdf_id(path: Path) -> None:
-    """Normalize an xdvipdfmx trailer ID when the PDF contains one."""
     data = path.read_bytes()
     pdf_string = rb"(?:<[0-9A-Fa-f]+>|\((?:\\.|[^\\)])*\))"
     pattern = re.compile(rb"/ID\[\s*" + pdf_string + rb"\s*" + pdf_string + rb"\s*\]")
     placeholder = b"/ID[<" + b"0" * 32 + b"><" + b"0" * 32 + b">]"
     normalized, count = pattern.subn(placeholder, data)
     if count == 0:
-        # TeX Live 2023 may omit /ID entirely when reproducible-output
-        # variables are set.  There is then no random trailer field to fix.
         return
     if count != 1:
         raise RuntimeError(f"expected at most one PDF trailer ID in {path}, found {count}")
@@ -1010,22 +326,26 @@ def normalize_pdf_id(path: Path) -> None:
     path.write_bytes(normalized.replace(placeholder, stable, 1))
 
 
-def build() -> None:
-    WORK.mkdir(parents=True, exist_ok=True)
-    validate_fixed_goal_language()
+def build(output_dir: Path) -> tuple[Path, Path, Path]:
+    output_dir = output_dir.resolve()
+    output_dir.mkdir(parents=True, exist_ok=True)
+    work = (ROOT / "build" / "latex") if output_dir == ROOT else (output_dir / "latex")
+    work.mkdir(parents=True, exist_ok=True)
+
+    paper_md = output_dir / "paper.md"
+    main_tex = output_dir / "main.tex"
+    pdf = output_dir / "paper.pdf"
+
     for source in sorted(SECTIONS.glob("*.md")):
         validate_github_markdown(source, source.read_text(encoding="utf-8"))
 
     paper_text = combined_markdown()
-    validate_github_markdown(PAPER_MD, paper_text)
-    PAPER_MD.write_text(paper_text, encoding="utf-8")
+    validate_github_markdown(paper_md, paper_text)
+    paper_md.write_text(paper_text, encoding="utf-8")
 
-    pandoc_source = WORK / "paper.md"
-    pandoc_source.write_text(
-        markdown_for_pandoc(pandoc_markdown()),
-        encoding="utf-8",
-    )
-    body = WORK / "body.tex"
+    pandoc_source = work / "paper.md"
+    pandoc_source.write_text(markdown_for_pandoc(pandoc_markdown()), encoding="utf-8")
+    body = work / "body.tex"
     run_command([
         "pandoc",
         "--from=markdown+raw_tex",
@@ -1037,11 +357,8 @@ def build() -> None:
     ])
 
     template = TEMPLATE.read_text(encoding="utf-8")
-    MAIN_TEX.write_text(template.replace("$body$", body.read_text(encoding="utf-8")), encoding="utf-8")
+    main_tex.write_text(template.replace("$body$", body.read_text(encoding="utf-8")), encoding="utf-8")
 
-    # Keep the multi-pass TeX state on the local temporary filesystem.  Some
-    # synced workspaces expose newly rewritten .aux files before their final
-    # bytes are visible to the next XeLaTeX process.
     latex_run = Path(tempfile.mkdtemp(prefix="quantum-wakaran-neko-latex-"))
     try:
         command = [
@@ -1049,24 +366,36 @@ def build() -> None:
             "-interaction=nonstopmode",
             "-halt-on-error",
             f"-output-directory={latex_run}",
-            MAIN_TEX.name,
+            str(main_tex),
         ]
         for _ in range(3):
             run_command(command, cwd=ROOT)
-        shutil.copy2(latex_run / "main.pdf", WORK / "main.pdf")
-        normalize_pdf_id(WORK / "main.pdf")
+        shutil.copy2(latex_run / "main.pdf", work / "main.pdf")
+        normalize_pdf_id(work / "main.pdf")
     finally:
         log = latex_run / "main.log"
         if log.exists():
-            shutil.copy2(log, WORK / "main.log")
+            shutil.copy2(log, work / "main.log")
         shutil.rmtree(latex_run)
 
-    built = WORK / "main.pdf"
-    shutil.copy2(built, PDF)
-    print(PAPER_MD)
-    print(MAIN_TEX)
-    print(PDF)
+    shutil.copy2(work / "main.pdf", pdf)
+    print(paper_md)
+    print(main_tex)
+    print(pdf)
+    return paper_md, main_tex, pdf
+
+
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description="Generate paper.md, main.tex and paper.pdf")
+    parser.add_argument(
+        "--output-dir",
+        type=Path,
+        default=ROOT,
+        help="output directory (default: repository root)",
+    )
+    return parser.parse_args()
 
 
 if __name__ == "__main__":
-    build()
+    args = parse_args()
+    build(args.output_dir)
