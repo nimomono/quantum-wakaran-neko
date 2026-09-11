@@ -1,0 +1,77 @@
+name: Fix R191 PDF warning and regenerate
+
+on:
+  push:
+    branches:
+      - draft-r191-measurement-spine-simplification
+
+permissions:
+  contents: write
+
+jobs:
+  fix-build-commit:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v4
+        with:
+          ref: draft-r191-measurement-spine-simplification
+          fetch-depth: 0
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Fix long R191 error prose
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('sections/08_errors_resources_open_targets.md')
+          s = p.read_text(encoding='utf-8')
+          pairs = [
+              ('transducer境界誤差', '変換器境界誤差'),
+              ('有限温度retreat', '有限温度後退'),
+              ('R191内部の混合、transducer、保護帯、finite-temperature retreat、有限時間未捕獲、捕獲記録',
+               'R191内部の混合、変換器境界誤差、保護帯、有限温度後退、有限時間未捕獲、捕獲記録'),
+          ]
+          for old, new in pairs:
+              if old not in s:
+                  raise SystemExit(f'target not found: {old}')
+              s = s.replace(old, new)
+          p.write_text(s, encoding='utf-8')
+          PY
+
+      - name: Install numerical dependency
+        run: python -m pip install numpy
+
+      - name: Validate source and physics
+        run: |
+          python -m compileall -q tools
+          python tools/check_source.py
+          python tools/check_terminology.py
+          python tools/run_physics_checks.py
+
+      - name: Install paper build dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y pandoc poppler-utils texlive-latex-extra texlive-xetex
+
+      - name: Regenerate and verify paper
+        run: |
+          python tools/build_paper.py
+          python tools/build_paper.py --output-dir build/ci
+          python tools/check_generated.py build/ci
+          git diff --check
+
+      - name: Remove one-shot workflow
+        run: rm -f .github/workflows/r191-fix-pdf-warning.yml
+
+      - name: Commit generated artifacts
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git commit -m 'fix: remove R191 PDF underfull warning'
+          git push origin HEAD:draft-r191-measurement-spine-simplification
