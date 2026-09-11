@@ -13,7 +13,7 @@ Q1/Q2の2結果主線では、1ノードの読出し誤差を
 =\max\{\varepsilon_{191}^{\rm int},\varepsilon_{191}^{\rm edge}\}
 ```
 
-として付録Tから受け取る。内部経路では混合誤差、保護帯、transducer境界誤差、有限温度retreat、有限時間未捕獲、捕獲記録を各1回だけ数え、旧作用殻経路の選択偏差を現行R191誤差へ重複加算しない。深さ $m$ では各ノード誤差を $O(\epsilon/m)$ とし、$g=O(\epsilon/m)$、$\Delta_{\min}g^2\gtrsim\log(m/\epsilon)$ を十分条件に取れば、R191のdecision障壁は $m,1/\epsilon$ の多項式で選べる。一般深さでは成分作用下限を保つ方向を変えない振幅再調整を残す。
+として付録Tから受け取る。内部経路では混合誤差、保護帯、変換器境界誤差、有限温度後退、有限時間未捕獲、捕獲記録を各1回だけ数え、旧作用殻経路の選択偏差を現行R191誤差へ重複加算しない。深さ $m$ では各ノード誤差を $O(\epsilon/m)$ とし、$g=O(\epsilon/m)$、$\Delta_{\min}g^2\gtrsim\log(m/\epsilon)$ を十分条件に取れば、R191のdecision障壁は $m,1/\epsilon$ の多項式で選べる。一般深さでは成分作用下限を保つ方向を変えない振幅再調整を残す。
 
 ## 8.1 誤差を1回だけ数える規約
 
@@ -82,7 +82,7 @@ R143のR191主線では結果分布誤差と測定後状態誤差を分ける。
 +\varepsilon_{\rm node}^{\rm dist}.
 ```
 
-R191内部の混合、transducer、保護帯、finite-temperature retreat、有限時間未捕獲、捕獲記録をここへ再加算しない。安全結果の測定後状態は
+R191内部の混合、変換器境界誤差、保護帯、有限温度後退、有限時間未捕獲、捕獲記録をここへ再加算しない。安全結果の測定後状態は
 
 ```math
 \varepsilon_{143}^{\rm state}
@@ -190,7 +190,7 @@ M54ではテンソル積状態の生成、同じ永続記憶部の保持、時�
 +\varepsilon_{\rm rec}
 ```
 
-とする。R191内部のmixing、transducer、guard、finite-temperature retreat、finite-time noncapture、captureは各 $\varepsilon_{191}^{A,B}$ に1回だけ含める。旧R180Bの方向吸引誤差、中央結果複製誤差、切断後A側再読出し誤差は現行台帳から除く。
+とする。R191内部のmixing、変換器境界誤差、guard、有限温度後退、finite-time noncapture、captureは各 $\varepsilon_{191}^{A,B}$ に1回だけ含める。旧R180Bの方向吸引誤差、中央結果複製誤差、切断後A側再読出し誤差は現行台帳から除く。
 
 理想一重項共同分布との全変動距離が $\varepsilon_{180}$ 以下なら、各周辺事象の確率差は $\varepsilon_{180}$ 以下、各二値相関の差は $2\varepsilon_{180}$ 以下、CHSH値の差は $8\varepsilon_{180}$ 以下である。A結果結果成分をB端へ物理的に渡すため、Bell局所factorizationまたは空間分離を誤差ゼロ極限の主張へ追加しない。
 
