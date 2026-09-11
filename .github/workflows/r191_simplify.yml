@@ -27,6 +27,19 @@ jobs:
       - name: Install numerical dependency
         run: python -m pip install numpy
 
+      - name: Normalize regex replacement helper
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('tools/apply_r191_simplification.py')
+          s = p.read_text(encoding='utf-8')
+          old = 'new, count = re.subn(pattern, replacement, text, count=1, flags=re.S)'
+          new = 'new, count = re.subn(pattern, lambda _m: replacement, text, count=1, flags=re.S)'
+          if old not in s:
+              raise SystemExit('replace_regex helper target not found')
+          p.write_text(s.replace(old, new, 1), encoding='utf-8')
+          PY
+
       - name: Apply simplification
         run: python tools/apply_r191_simplification.py
 
