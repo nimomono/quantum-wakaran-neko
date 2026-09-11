@@ -23,7 +23,7 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Fix duplicated R143 input-error replacement
+      - name: Fix final cleanup guards
         run: |
           python - <<'PY'
           from pathlib import Path
@@ -38,7 +38,12 @@ jobs:
           text = text.replace(old, new)'''
           if old not in s:
               raise SystemExit('R143 replacement guard line not found')
-          p.write_text(s.replace(old, new, 1), encoding='utf-8')
+          s = s.replace(old, new, 1)
+          old_phrase = 'R170の吸収指針変数は用いない。'
+          if s.count(old_phrase) != 1:
+              raise SystemExit(f'R170 replacement phrase count: {s.count(old_phrase)}')
+          s = s.replace(old_phrase, 'R170は用いない。', 1)
+          p.write_text(s, encoding='utf-8')
           PY
 
       - name: Apply final consistency cleanup
