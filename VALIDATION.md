@@ -724,3 +724,9 @@ GitHub Actionsは次を確認する。
 - Q2-2の現行検算は `tools/verify_r180_m54_receiver.py` でA端Born重み、非規格化branch、B条件付き重み、共同分布、非信号性、CHSH値を確認する。
 - 旧R190 Drude殻、R170 static instrument、R180B paired-Hopfの専用検算器は `notes/retired_verifiers/` へ移し、現行 `run_physics_checks.py` の対象から外す。
 - 固定目標・達成ラベルは変更せず、全 `verify_*.py`、source check、terminology check、論文再生成、生成物同期を要求する。
+
+## draft-90：R191主線残骸除去の検算
+
+- A8/A11/第8章/第2章に旧Q1/Q2測定経路の固定文言が再混入しないことをsource checkで検査する。
+- R191/R181D/R180Cの既存数値検算を維持し、新しい物理仮定・新定理は追加しない。
+- paper.md / main.tex / paper.pdf を章別原稿から再生成し、生成物同期を検査する。

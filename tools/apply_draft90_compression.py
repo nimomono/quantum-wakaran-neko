@@ -12,7 +12,7 @@ def write(p, s):
 
 
 def sub_once(text, pattern, repl, label, flags=re.S):
-    out, n = re.subn(pattern, repl, text, count=1, flags=flags)
+    out, n = re.subn(pattern, lambda _match: repl, text, count=1, flags=flags)
     if n != 1:
         raise RuntimeError(f"{label}: expected 1 replacement, got {n}")
     return out
