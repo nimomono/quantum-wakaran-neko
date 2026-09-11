@@ -51,7 +51,7 @@ jobs:
           anchor = "固定小深度では次段R191が新しい2作用の和と差を直接読むため、中間の振幅再調整を省略できる。"
           paragraphs = [
               "異なる parent へ進むときは、accept 済み branch から次 parent の canonical input を作り直し、pool action を次 parent の規格へ **renormalize/rescale** してから R191 で **再測定**する。前 parent の判定前の $z_k$、action weight、R191 flow を次 parent に再利用しない。この parent ごとの prepare--renormalize--re-measure loop が逐次条件付けを実装する。",
-              "**record/actuation lifecycle** は、(i) detector/pointer ancilla を初期化／リセット、(ii) measurement actuation を on、(iii) R191 の outcome を detector/pointer が離散 record $k$ に写す、(iv) `S_R` が accept/latch、(v) R181D が accepted record に従って分枝受け渡しと必要な rescale を行う、(vi) duplicate firing を避けるため actuation を off、(vii) no-rewind boundary 通過後に一時 pointer/ancilla を erase/reset して次のサイクルを初期化済み状態から開始、の順である。Q1 の durable accepted record は no-rewind boundary より前には消去しない。",
+              "**record/actuation lifecycle** は、(i) detector/pointer ancilla を初期化／リセット、(ii) measurement actuation を on、(iii) R191 の outcome を detector/pointer が離散 record $k$ に写す、(iv) `S_R` が accept/latch、(v) R181D が accepted record に従って分岐受け渡しと必要な rescale を行う、(vi) duplicate firing を避けるため actuation を off、(vii) no-rewind boundary 通過後に一時 pointer/ancilla を erase/reset して次のサイクルを初期化済み状態から開始、の順である。Q1 の durable accepted record は no-rewind boundary より前には消去しない。",
           ]
           addition = "\n\n" + "\n\n".join(paragraphs)
           if "prepare--renormalize--re-measure loop" not in text:
