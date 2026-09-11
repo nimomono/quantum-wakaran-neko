@@ -26,9 +26,28 @@ jobs:
 
       - name: Apply simplification migration
         run: |
-          # Correct one-shot source typos before execution; the migration script is removed from the final tree.
+          # Correct one-shot source issues before execution; the migration script is removed from the final tree.
           sed -i 's/t = p.read_text(encoding="utf-8")nt = t.replace/t = p.read_text(encoding="utf-8")\nt = t.replace/' tools/apply_r191_simplification.py
           sed -i 's/out, n = re.subn(pattern, row, text, count=1)/out, n = re.subn(pattern, lambda _m: row, text, count=1)/' tools/apply_r191_simplification.py
+          python - <<'PY'
+          from pathlib import Path
+          p = Path("tools/apply_r191_simplification.py")
+          s = p.read_text(encoding="utf-8")
+          old = '''t = sub_required(
+              t,
+              r"\\n### 2\\.8\\.1 R190A--R190C：.*?(?=\\n### 2\\.8\\.2 R191：)",
+              "\\n",
+              flags=re.S,
+          )'''
+          new = '''_r190_start = t.find("\\n### 2.8.1 R190")
+          _r191_start = t.find("\\n### 2.8.2 R191", _r190_start + 1)
+          if _r190_start < 0 or _r191_start < 0:
+              raise RuntimeError("R190/R191 section boundary not found")
+          t = t[:_r190_start] + "\\n" + t[_r191_start:]'''
+          if old not in s:
+              raise SystemExit("one-shot R190 replacement block not found")
+          p.write_text(s.replace(old, new, 1), encoding="utf-8")
+          PY
           python -m py_compile tools/apply_r191_simplification.py
           python tools/apply_r191_simplification.py
 
