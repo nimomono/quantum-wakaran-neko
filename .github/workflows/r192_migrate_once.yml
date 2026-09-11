@@ -1,0 +1,60 @@
+name: R192 one-shot migration
+
+on:
+  push:
+    branches:
+      - draft-r192-r181a-retirement
+
+permissions:
+  contents: write
+
+jobs:
+  migrate:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Apply R192 migration
+        run: python tools/_migrate_r192_once.py
+
+      - name: Install verification dependencies
+        run: python -m pip install numpy
+
+      - name: Compile and verify sources
+        run: |
+          python -m compileall -q tools
+          python tools/check_source.py
+          python tools/check_terminology.py
+          python tools/run_physics_checks.py
+          git diff --check
+
+      - name: Install paper build dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y pandoc poppler-utils texlive-latex-extra texlive-xetex
+
+      - name: Rebuild paper including PDF
+        run: python tools/build_paper.py
+
+      - name: Remove one-shot migration helpers
+        run: |
+          rm -f tools/_migrate_r192_once.py
+          rm -f .github/workflows/r192_migrate_once.yml
+
+      - name: Commit migrated sources and generated paper
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git diff --cached --check
+          git commit -m 'refactor: retire R181A and add R192 action stabilizer'
+          git push origin HEAD:draft-r192-r181a-retirement
