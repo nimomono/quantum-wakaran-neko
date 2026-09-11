@@ -43,6 +43,24 @@ jobs:
       - name: Apply simplification
         run: python tools/apply_r191_simplification.py
 
+      - name: Normalize canonical prose terms
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          files = [Path('README.md'), Path('PROJECT_STATUS.md'), Path('PROJECT_STANCE.md')]
+          files += [p for p in Path('sections').glob('*.md') if p.name != '90_references.md']
+          replacements = {
+              'branch': '結果成分',
+              'repump': '再調整',
+              'noise': 'ノイズ',
+          }
+          for p in files:
+              s = p.read_text(encoding='utf-8')
+              for old, new in replacements.items():
+                  s = s.replace(old, new)
+              p.write_text(s, encoding='utf-8')
+          PY
+
       - name: Python syntax check
         run: python -m compileall -q tools
 
