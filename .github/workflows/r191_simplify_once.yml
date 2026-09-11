@@ -26,8 +26,9 @@ jobs:
 
       - name: Apply simplification migration
         run: |
-          # Correct the one-shot script source typo before execution; the script is removed from the final tree.
+          # Correct one-shot source typos before execution; the migration script is removed from the final tree.
           sed -i 's/t = p.read_text(encoding="utf-8")nt = t.replace/t = p.read_text(encoding="utf-8")\nt = t.replace/' tools/apply_r191_simplification.py
+          sed -i 's/out, n = re.subn(pattern, row, text, count=1)/out, n = re.subn(pattern, lambda _m: row, text, count=1)/' tools/apply_r191_simplification.py
           python -m py_compile tools/apply_r191_simplification.py
           python tools/apply_r191_simplification.py
 
