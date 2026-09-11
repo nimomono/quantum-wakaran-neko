@@ -10,7 +10,6 @@ permissions:
 
 jobs:
   compress-build-commit:
-    if: github.actor != 'github-actions[bot]'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -19,152 +18,15 @@ jobs:
           fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
-          python-version: '3.12'
-      - name: Apply responsibility compression
-        shell: bash
-        run: |
-          python - <<'PY'
-          from pathlib import Path
-          import re
-
-          def read(p): return Path(p).read_text(encoding='utf-8')
-          def write(p,s): Path(p).write_text(s,encoding='utf-8')
-          def sub_once(text, pattern, repl, label, flags=re.S):
-              out,n=re.subn(pattern,repl,text,count=1,flags=flags)
-              if n!=1: raise SystemExit(f'{label}: expected 1 replacement, got {n}')
-              return out
-
-          # A8: current Q1 route only; remove the obsolete R164/R190/R170 causal chain.
-          p='sections/A8_m47_hopf_preparation.md'; t=read(p)
-          t=t.replace('| 排他的選択・固定 | 2結果静的分布の整合と固定 | R164、R190、R179、R170 |',
-                      '| 排他的選択・固定 | 2結果射影作用の物理読出し | R191、付録T |')
-          t=sub_once(t,r'## H\.5 Q1 W型2モード手順への接続.*?## H\.6 限界', '''## H.5 Q1 W型2モード手順への接続
-
-現行Q1は次の最小因果鎖だけを用いる。
-
-1. R181AのW型2モード特殊化で単一試行信号方向を準備し、R187のM37最低2正常モードへ渡す。
-2. R187がM37局所ばね信号系上でR140の有限正準操作を実装し、測定基底の2射影作用を保持する。
-3. 2作用をR191へ渡し、結果を吸収記録へ固定する。
-4. 安全な結果ではR181Dのprojector routerが非規格化結果成分を次段へ渡す。固定有限深さでは中間の物理規格化や振幅再調整を必須にしない。
-5. W型局所記録、逐次測定、Zeno比較はR143--R144、R189A--R189Cを用いる。
-
-旧R164--R190--R170静的測定経路は現行Q1の因果鎖へ含めない。旧モデルID M47はGit履歴と旧版参照のため保持するが、M54とは別の現行親模型として数えない。
-
-## H.6 限界''','A8 H5/H6')
-          t=sub_once(t,r'ここで得る \$P_L\^\{\\rm stat\}\$.*?有限浴化は別の強化課題である。', '''ここで得る $P_L^{\\rm stat}$ は信号系第2モーメントの空間核に対する診断量であり、それだけから単一試行粒子位置 $X$ の分布または経路は従わない。Q1のBorn型2値結果はR191が担い、Q3の粒子位置はR164--R161/R162の独立経路で扱う。
-
-R187はM37から制御されたW型2モード信号系をQ1全制御時間へ任意精度で接続する信号系段階の結果である。R181Aの準備接続端、R191のtransducer・macrospin、R181Dのrouter、記録、resetまでを同一ミクロ装置へ統合したわけではない。有限浴化は別の強化課題である。''','A8 limits')
-          write(p,t)
-
-          # A11: make R161/R162 a Q3/general flow appendix, not an obsolete Q1/Q2 measurement route.
-          p='sections/A11_common_collision_bath_thermodynamics.md'; t=read(p)
-          t=t.replace('@status: R161の確率流・活動量整合と静的特殊化、新R162の有界有向率に対する開放Poisson-jump実現を証明する。Q1・Q2の静的平方根選択はR190/R179へ分離し、旧有限衝突Hamiltonian実装は強化結果として本論から退役する。',
-                      '@status: R161の確率流・活動量整合とR162の有界有向率に対する開放Poisson-jump実現を証明し、Q3位置輸送とR185の時間反転率へ接続する。静的詳細釣り合いは一般整合定理の特殊化としてのみ残す。')
-          t=sub_once(t,r'## K\.1 目的、用語、主張範囲.*?## K\.2 ', '''## K.1 目的、用語、主張範囲
-
-本付録はM54の有限配置変数 $X$ を動かす共通整合原理を扱う。R161は目標分布、確率流、活動量から前向き・Bayes後向き率を定め、R162はその有向率を明示的な古典開放Poisson reservoirで実現する。現行因果鎖での用途はQ3の開始配置後の位置輸送と、R185の前進・後退平均微分への受渡しである。
-
-静的詳細釣り合い特殊化は一般R161の検算・比較用に残すが、Q1/Q2のBorn型2値測定機構としては使わない。旧R190作用殻samplerとの接続は退役研究線としてnotes/Git履歴で管理する。旧有限衝突Hamiltonian列への持上げも固定目標の必要条件ではない。
-
-ここで「古典ミクロ模型」は有限閉鎖Hamiltonian系だけを意味しない。状態空間、局所率、確率入力、観測出力、適用時間を明示した開放jump方程式も採用ミクロ方程式として許す。
-
-## K.2 ''','A11 K1')
-          t=re.sub(r'\nR190A--R190Cは、この静的平方根率.*?R161の一般整合定理そのものを変更しない。\n','\n',t,flags=re.S)
-          write(p,t)
-
-          # A12: retain R164 mathematics, make the active responsibility Q3 initial configuration.
-          p='sections/A12_common_action_shell_state_count.md'; t=read(p)
-          t=re.sub(r'^@status:.*$', '@status: R164の作用殻状態数定理をQ3開始配置の統計力学的起源として整理する。一般有限信号に対する作用容量と状態数比例は維持し、旧Q1/Q2静的測定への接続は現行主線から外す。', t, count=1, flags=re.M)
-          t=sub_once(t,r'## L\.1 目的と主張範囲.*?## L\.2 ', '''## L.1 目的と主張範囲
-
-本付録は、単一試行の有限信号作用から排他的配置成分ごとの作用容量を作り、同一Liouville基準分布で数えた作用殻状態数がその容量に比例することを示す。現行因果鎖では、この結果をQ3開始面の条件付き粒子位置分布へ用い、その後の位置輸送をR161/R162へ渡す。
-
-R164の一般数学は有限結果集合にも適用できるが、Q1/Q2の2結果Born読出しはR191が直接担う。したがって旧R190/R170へつなぐ静的測定経路は本付録の現行責務に含めず、代替作用殻研究線としてnotes/Git履歴で管理する。
-
-本付録で区別する物理部分系は、有限信号系、配置成分容量を数える作用殻ファイバー、実在配置 $X=i$ である。作用殻表示と消去後の有効自由エネルギー表示を同じ分配関数で二重計数しない。
-
-## L.2 ''','A12 L1')
-          t=t.replace('Q1ではM54整合状態構成の仮引数を $v=z$ と特殊化する。', '一般有限信号の参考特殊化として $v=z$ と置く場合、')
-          t=re.sub(r'Q1/Q2では作用殻ファイバーの容量をR190のDrude混合・作用開口へ渡し、R179のrenewalとR170の吸収指針変数で静的結果を固定する。\s*','',t)
-          write(p,t)
-
-          # Chapter 2 / 8: remove stale R190 duties from active descriptions only.
-          p='sections/02_common_canonical_modules.md'; t=read(p)
-          t=t.replace('R179はR161/R162へ依存しない環境接続部結果である。Q1/Q2のR190反復再混合、Q2-4の作業領域再使用、指針変数初期化、散逸履歴の流出排出に共通に使う。',
-                      'R179はR161/R162へ依存しない環境接続部結果である。現行主線ではQ2-4の作業領域再使用、R191指針変数の初期化、散逸履歴の流出排出に使う。')
-          write(p,t)
-
-          p='sections/08_errors_resources_open_targets.md'; t=read(p)
-          t=t.replace('R181Aのポンプ／供給源、R164/R190/R179/R170の静的選択、R143局所記録の物理資源はこの台帳へ吸収せず、Q1測定部分系の別項として残す。',
-                      'R181Aのポンプ／供給源、R191読出し、R181D router、R143局所記録の物理資源はこの台帳へ吸収せず、Q1測定部分系の別項として残す。')
-          write(p,t)
-
-          # Q2-2: R180A becomes a corollary/specialization, R180C remains the named Bell composition result.
-          p='sections/05_m54_setting_pre_receiver.md'; t=read(p)
-          t=t.replace('## 5.3 R180A：設定先行A端結果成分抽出', '## 5.3 A端特殊化：R191とR181Dから従うR180A')
-          t=t.replace('<!-- theorem-start:theorem -->\n**定理（R180A：M54末端信号の設定先行条件付きブロック抽出定理）**',
-                      '<!-- theorem-start:corollary -->\n**系（R180A：R191--R181Dの設定先行A端特殊化）**')
-          t=t.replace('<!-- theorem-end:theorem -->\n\n## 5.4 B端条件付き読出し', '<!-- theorem-end:corollary -->\n\n## 5.4 B端条件付き読出し',1)
-          write(p,t)
-
-          p='sections/A4_m54_receiver_cycle_proofs.md'; t=read(p)
-          t=t.replace('@status: R180AのA端結果成分抽出、R191逐次受渡し、共同Born分布、非信号性、CHSH値、有限全変動誤差、Bell前提監査を証明する。旧R180B paired-Hopf再準備は退役メモへ保存する。',
-                      '@status: R180AをR191--R181DのA端特殊化として確認し、R180Cの共同Born分布、非信号性、CHSH値、有限全変動誤差、Bell前提監査を証明する。')
-          t=t.replace('## D.1 R180A', '## D.1 R180Aの特殊化確認')
-          write(p,t)
-
-          # R181D: keep theorem, remove duplicated P.5.1 prose and mark deep-resource material as Q2-4-only.
-          p='sections/A16_m54_projector_tree_receiver.md'; t=read(p)
-          t=re.sub(r'\n### P\.5\.1 階数1 射影子の測定後状態の受け渡し.*?(?=\n## P\.6 )','\n',t,flags=re.S)
-          t=t.replace('## P.6 方向を変えない振幅再調整', '## P.6 Q2-4専用補助：方向を変えない振幅再調整')
-          t=t.replace('## P.8 資源と反証条件', '## P.8 Q2-4一般深さの資源境界と反証条件')
-          t=t.replace('@status: R181Dが共通射影作用保持機構、R191の2結果選択・吸収記録、可逆選別機構、必要な方向を変えない振幅再調整、階数1の測定後状態受渡しを段階的に合成し、完全結果誤差と資源境界を証明する。R164/R190/R170の作用殻型経路は代替実現として別に扱う。',
-                      '@status: R181DをR191結果固定後の可逆projector routerと非規格化結果成分受渡しへ責務縮約する。一般深さの振幅再調整と資源評価はQ2-4専用補助として分離する。')
-          write(p,t)
-
-          # PROJECT_STATUS: current table should show current dependencies only.
-          p='PROJECT_STATUS.md'; t=read(p)
-          t=t.replace('Born分布、同軸反復分布、異軸逐次分布と有限2回Zeno証人を導出。2結果主線はR191、R164/R190/R170は作用殻型代替実現。全測定部分系の単一ミクロ装置統合は強化課題',
-                      'Born分布、同軸反復分布、異軸逐次分布と有限2回Zeno証人を導出。2結果主線はR191。全測定部分系の単一ミクロ装置統合は強化課題')
-          t=t.replace('| R112、R180A、R180C、R191 | 固定一重項・固定有限設定族・非空間分離の範囲。',
-                      '| R112、R180C、R181D、R191 | 固定一重項・固定有限設定族・非空間分離の範囲。')
-          write(p,t)
-
-          # README/status wording: distinguish active route from historical alternatives.
-          p='README.md'; t=read(p)
-          t=t.replace('R190/R170とQ2-2のpaired-Hopf再準備は現行主線から退役し、Q3位置経路はR164--R161/R162へ分離した。',
-                      'R190/R170とQ2-2のpaired-Hopf再準備は現行主線から退役し、Q1/Q2はR191--R181D、Q3位置経路はR164--R161/R162へ分離した。')
-          write(p,t)
-
-          # Source regression guards for the exact stale routes removed in draft-90.
-          p='tools/check_source.py'; t=read(p)
-          marker='''\n\ndef check_measurement_spine_residuals() -> None:\n    checks = {\n        "sections/A8_m47_hopf_preparation.md": ("R164/R190/R179/R170", "R170で選択機構"),\n        "sections/A11_common_collision_bath_thermodynamics.md": ("Q1・Q2の静的測定",),\n        "sections/08_errors_resources_open_targets.md": ("R164/R190/R179/R170の静的選択",),\n        "sections/02_common_canonical_modules.md": ("Q1/Q2のR190反復再混合",),\n    }\n    for rel, forbidden in checks.items():\n        text = (ROOT / rel).read_text(encoding="utf-8")\n        hits = [token for token in forbidden if token in text]\n        if hits:\n            raise AssertionError(f"stale measurement-spine wording in {rel}: {hits}")\n'''
-          if 'def check_measurement_spine_residuals()' not in t:
-              t=t.replace('\ndef main() -> None:\n', marker+'\n\ndef main() -> None:\n')
-              t=t.replace('    check_ci_read_only()\n', '    check_ci_read_only()\n    check_measurement_spine_residuals()\n')
-          write(p,t)
-
-          # Retired-role notes (history only, not active theory).
-          Path('notes/superseded_r164_q1q2_measurement_role.md').write_text('''# R164の旧Q1/Q2測定責務\n\nR164の作用殻状態数定理そのものは現行論文に残すが、draft-90以後の固定Q1/Q2ではBorn型2値読出しに使わない。現行Q1/Q2は射影作用をR191へ直接渡し、R181Dのprojector routerで非規格化結果成分を受け渡す。\n\n旧版ではR164の結果成分容量をR190/R179/R170へ渡す静的測定経路を採用していた。この経路は反証されたのではなく、作用殻型代替研究線としてGit履歴と退役資料に保存する。R164の現行因果的責務はQ3開始配置の統計力学的起源である。\n''',encoding='utf-8')
-          Path('notes/superseded_r180a_named_theorem.md').write_text('''# R180Aの独立定理責務の退役\n\ndraft-90ではR180Aの数式内容を変更せず、R191の2結果則とR181Dのprojector routerから直ちに従うA端特殊化の系へ降格した。Q2-2の主要合成結果はR180Cとし、共同分布・非信号性・CHSH・有限誤差の主張をそこへ集約する。\n''',encoding='utf-8')
-
-          # Documentation bookkeeping.
-          for pth, block in {
-            'CHANGELOG.md': '''\n## draft-90：R191主線の残骸除去と責務圧縮\n\n- 理論変更を行わず、Q1/Q2に残っていたR164/R190/R170旧測定経路の説明を除去した。\n- R164/R161/R162をQ3位置経路へ責務分離し、R180AをR191--R181DのA端特殊化の系へ降格した。\n- R181Dの重複説明を削り、一般深さの振幅再調整・資源評価をQ2-4専用補助として明示した。\n- A8/A11/A12/第2章/第8章/PROJECT_STATUSを現行因果鎖へ同期し、再混入防止検査を追加した。\n''',
-            'VALIDATION.md': '''\n## draft-90：R191主線残骸除去の検算\n\n- A8/A11/第8章/第2章に旧Q1/Q2測定経路の固定文言が再混入しないことをsource checkで検査する。\n- R191/R181D/R180Cの既存数値検算を維持し、新しい物理仮定・新定理は追加しない。\n- paper.md / main.tex / paper.pdf を章別原稿から再生成し、生成物同期を検査する。\n''',
-            'MANIFEST.md': '''\n## draft-90の責務圧縮\n\n- A8/A11/A12/A16とQ2-2証明をR191主線へ同期。\n- `notes/superseded_r164_q1q2_measurement_role.md` と `notes/superseded_r180a_named_theorem.md` を追加。\n- R181A/Hopf準備方程式は変更せず、理論変更を伴う準備模型再編は後続課題とする。\n'''
-          }.items():
-              q=read(pth)
-              if block.strip().splitlines()[0] not in q:
-                  write(pth,q.rstrip()+"\n"+block)
-          PY
-
+          python-version: "3.12"
+      - name: Apply compression
+        run: python tools/apply_draft90_compression.py
       - name: Install build dependencies
         run: |
           sudo apt-get update
           sudo apt-get install -y pandoc poppler-utils texlive-latex-extra texlive-xetex
           python -m pip install numpy
-      - name: Validate and regenerate paper
+      - name: Validate and regenerate
         run: |
           python -m compileall -q tools
           python tools/check_source.py
@@ -172,10 +34,13 @@ R164の一般数学は有限結果集合にも適用できるが、Q1/Q2の2結�
           python tools/run_physics_checks.py
           python tools/build_paper.py
           git diff --check
-      - name: Commit compressed sources and generated artifacts
+      - name: Commit sources and generated artifacts
         run: |
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add README.md PROJECT_STATUS.md CHANGELOG.md VALIDATION.md MANIFEST.md sections notes tools paper.md main.tex paper.pdf
-          git commit -m 'draft-90: compress residual R191 measurement responsibilities'
+          if git diff --cached --quiet; then
+            exit 0
+          fi
+          git commit -m "draft-90: compress residual R191 measurement responsibilities"
           git push origin HEAD:draft-r191-residual-compression
