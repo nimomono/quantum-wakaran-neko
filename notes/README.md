@@ -6,7 +6,7 @@ draft-51以後の現行文書では、各試行で局在する物理変数を「
 
 | メモ | 元の版・移動元 | 現在の位置づけ | 移動理由 |
 |---|---|---|---|
-| `superseded_separate_m51_m52_m53_models.md` | draft-67までのM51、M52、M53、R171、R176、R178 | M54/R181A--R181Dへの吸収記録 | Q1とQ2を同じ有限正準register・作用殻receiver模型族から派生させるため |
+| `superseded_separate_m51_m52_m53_models.md` | draft-67までのM51、M52、M53、R171、R176、R178 | M54/R181B--R181Dへの吸収と旧R181Aへの準備統合の履歴 | Q1とQ2を同じ有限正準register・作用殻receiver模型族から派生させるため |
 | `superseded_separate_m50_m55_models.md` | draft-73までのM50、M55、R183 | M54 static/spatial profileへの吸収記録 | static測定とspatial運動を同じR161/R162 matching/collision原理へ統一するため |
 | `superseded_r178_aperture_sampler.md` | draft-67の付録P、旧R178E/R178F | fixed-volume aperture、first-index、dyadic tapeの退役記録 | Q1/Q2読出しをR170選択・固定＋R181D段階的射影選別へ一本化したため |
 | `project_sources_key_results.md` | プロジェクト情報源からの統合前抽出 | 統合前メモ | 現行本文との整合性が未確認 |
@@ -23,6 +23,7 @@ draft-51以後の現行文書では、各試行で局在する物理変数を「
 | `rejected_m46_current_transducer.md` | draft-42 第8.14節、付録I、R130--R134 | M46の不採用記録。R130--R132は補助結果として一部保持 | 場からrateを作って実現配置を動かす因果律が、複素振幅を実現配置--浴共同統計として定義するM47と両立しない |
 | `independent_m45_open_quasicritical_preparation.md` | draft-52までの第8.13節、付録H、R127--R129 | Q1--Q3と独立の開放準臨界準備研究線 | 固定入力時刻の有限枝読出しを与えず、現行Born型主線の準備問題と確率生成機構を分離するため |
 | `superseded_m35_born_sampler.md` | draft-52までの付録A、R70--R72、R77、R78、R91、R165の一部 | M35旧Born型標本器の退役記録。非確率的な制御部はR112へ吸収 | 確率生成をM50/R164/R170へ一本化し、独立モデルとしてのM35を現行一覧から外すため |
+| `superseded_r181a_template_port_preparation.md` | draft-89までのR181A/旧付録M | 状態方向準備の退役記録。動径部分だけR192へ継承 | 固定目標から不要な方向吸引を外し、Q2-4に必要な作用安定化だけを独立させるため |
 | `superseded_result_index.md` | draft-53--draft-54で本文から外した結果ID | 旧結果IDと現行統合先の索引 | 統合後の本文と状態表へ旧IDを混在させず、追跡可能性を保つため |
 | `superseded_m38_m42_q1.md` | draft-43以前の第3章、付録B、M38、R92--R100、R119 | 旧Q1操作・測定模型の置換記録。比較・記録内容はR112へ統合 | Q1をW型2モード共同統計と傾斜測定を使うM47/R139--R144へ移行した |
 | `superseded_m42_continuous_particle_position.md` | draft-51までの旧M42/R113--R118とdraft-58--71の再定義M42/R172--R174 | M42の二段階退役記録 | draft-72でM55へ、draft-74でM54 spatial profileへ統合し、実在粒子位置を共通親模型へ保持した |

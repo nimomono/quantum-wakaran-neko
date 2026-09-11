@@ -1,3 +1,9 @@
+## draft-90：R181A退役とR192方向不変作用安定化
+
+- R181Aの状態方向準備を現行主線から退役し、旧付録Mと旧検算器をnotesへ移した。
+- R192の方向保存、ロジスティック作用解、安全作用下限からの固定時間回復、射影像保存を新しい検算器で検査する。
+- Q1/Q3は準備済み古典入力境界へ移し、Q2-4だけが一般深さの非終端安全結果でR192を使う。固定目標と達成ラベルは変更しない。
+
 ## draft-87：open-bath simplification
 
 - R162を開放Poisson-jump実現へ再定義し、Q3-2本線から旧有限衝突経路とR188を外した。
@@ -230,7 +236,7 @@ R187専用回帰 `tools/verify_r187_m37_w_q1_bridge.py` は、10-site反射対�
 - 全normal-mode直交変換が正準で、高modeを捨てる操作を必要としないこと。
 - draft-69の固定W例で、carrier周波数だけを増やしても実運動対2mode誤差が約 $0.0403$ に残る事実をnegative controlとして保持すること。
 
-R187は、弱結合W型族の低2cluster、傾斜時のdressed projector、静的M37正常mode分裂較正、有限switch、M54 W2 canonical handoffを合成する。Q1-1「達成」、Q1-2「部分達成」、Born分布・同軸反復・異軸逐次分布の既存判定、Q2/Q3の達成ラベルは変更していない。R187が閉じるのはcarrier-levelのM37--W2--Q1制御bridgeであり、R181A pump/source、R164/R161/R162/R170/R143、記録、resetの単一装置統合は未完成のままである。
+R187は、弱結合W型族の低2cluster、傾斜時のdressed projector、静的M37正常mode分裂較正、有限switch、M54 W2 canonical handoffを合成する。Q1-1「達成」、Q1-2「部分達成」、Born分布・同軸反復・異軸逐次分布の既存判定、Q2/Q3の達成ラベルは変更していない。R187が閉じるのはcarrier-levelのM37--W2--Q1制御bridgeであり、旧状態方向準備、R164/R161/R162/R170/R143、記録、resetの単一装置統合は未完成のままである。
 
 最終生成PDFはA4、223ページ、1,337,638 bytes。最終LaTeX logに未解決citation/reference、overfull、underfull、fatal error、欠落文字がないことをworkflowで確認した。multi-pass TeXの途中passではbibliography解決前のcitation warningが出るが、最終passの禁止警告検査は成功している。
 
@@ -266,7 +272,7 @@ git diff --check
 
 GitHub Actionsの一時生成run 34051670794で、全Python構文検査、全 `verify_*.py`、固定目標・依存台帳検査、論文再生成が成功した。今回からQ2の完全依存台帳は `PROJECT_STATUS.md` だけを正本とし、READMEと第1章に同じR番号表が存在することを生成器の要件から外した。固定目標と達成ラベルは変更していない。
 
-模型分類は、M54を共通有効signal--configuration profile族、M37を物理Hamiltonian backend、M0をsame-hardware統一目標として分離した。旧M47はQ1 W型2モードprotocolの履歴IDとして残し、現行模型表へ独立に二重計上しない。付録HはR181A、R135、R140のW型2モード特殊化の対応表へ縮約し、一般定理の重複証明を削除した。第4章はR181B--R181DのQ2特殊化・適用として整理した。R144の数学的内容とM37--W--Q1の未完成bridgeは変更していない。
+模型分類は、M54を共通有効signal--configuration profile族、M37を物理Hamiltonian backend、M0をsame-hardware統一目標として分離した。旧M47はQ1 W型2モードprotocolの履歴IDとして残し、現行模型表へ独立に二重計上しない。付録Hは退役R181A、R135、R140のW型2モード特殊化の対応表へ縮約し、一般定理の重複証明を削除した。第4章はR181B--R181DのQ2特殊化・適用として整理した。R144の数学的内容とM37--W--Q1の未完成bridgeは変更していない。
 
 最終生成PDFはA4、215ページ、1,287,433 bytes。最終LaTeX logに未解決citation/reference、overfull、underfull、fatal error、欠落文字はない。初回生成で第1章の `profile/backend/protocol` という連結表記にunderfullが1件出たため、日本語の区切りへ修正して再生成し、禁止警告が消えたことを確認した。生成commit `5fb78df4bd89fa44eab70e7f8509bd6d92e8ab5a` に `paper.md`、`main.tex`、`paper.pdf` を収録した。
 
@@ -345,7 +351,7 @@ sha256sum -c /tmp/draft69.sha256
 git diff --check
 ```
 
-全19本の検算器とPython構文検査が正常終了した。新しいverify_m37_w_q1_bridge.pyは183項目すべて成功した。既存のR181A--R181D、Q2依存台帳、固定目標ラベル、モデル・結果IDの整合性検査も生成器で成功した。固定目標と達成ラベルを変更していない。
+全19本の検算器とPython構文検査が正常終了した。新しいverify_m37_w_q1_bridge.pyは183項目すべて成功した。既存のR181B--R181DとR192、Q2依存台帳、固定目標ラベル、モデル・結果IDの整合性検査も生成器で成功した。固定目標と達成ラベルを変更していない。
 
 - R86は静的結果を保持し、付録E.12で実線形伝播の区間合成、E.13で滑らかな切替の比較を追加した。区間境界で再準備しない。
 - R140は射影内SU(2)の結果を保持し、全W型への受渡しは第3.5.1節の残差条件付き系とした。任意精度の装置族と資源評価は未完である。
@@ -379,7 +385,7 @@ NumPyだけで実行する。J0=Mosc=1、区間[-2,2]の内部25点、Dirichlet�
 ---
 
 
-この文書はdraft-68のM54親模型統一、R181A--R181D、再現計算、静的整合性、PDF生成、目視確認の記録である。検証日は2026-09-04。過去版の検証記録は後半に保存する。
+この文書はdraft-68のM54親模型統一、R181B--R181DとR192、再現計算、静的整合性、PDF生成、目視確認の記録である。検証日は2026-09-04。過去版の検証記録は後半に保存する。
 
 ## 実行方法
 
@@ -394,15 +400,15 @@ python tools/build_paper.py
 ## draft-68方針監査
 
 - M54の完全状態を $\Gamma_{54}^{(n)}=(Z,S_{\rm port},G,W,J,A^\delta,X,C,B_{\rm cold},B_{\rm spent},D,\tau)$ とし、Q1とQ2-1--Q2-4を同じ状態型、port規約、gate規約、receiver規約の特殊化として整理した。全規模で同一の製造済み装置または同一パラメータを使う主張は置いていない。
-- R181A--R181Dの定理宣言が現行章全体で各1回だけ現れることを検査した。R181Aは物理template準備、R181Bは固定入力lift、R181Cは永続register gate、R181DはR170駆動projector-treeに責務を限定した。
+- R181B--R181DとR192の定理宣言が現行章全体で各1回だけ現れることを検査した。退役R181Aは物理template準備、R181Bは固定入力lift、R181Cは永続register gate、R181DはR170駆動projector-treeに責務を限定した。
 - R181Dでraw容量とregularized作用殻容量を分け、raw cutoff、selector lock後の可逆filter、radial-only repump、無反応込みの完全結果誤差を因果順に検査した。旧fixed-volume apertureとdyadic threshold tapeは退役メモだけに残し、現行依存へ入れていない。
-- PROJECT_STATUS、README、第1章のQ2依存台帳を結果依存グラフの推移閉包と照合した。4行ともR112、R161、R162、R164、R170、R181A--R181Dを含み、Q2-3だけR177、Q2-4だけR178D/R179、Q2-2だけR180A--R180Cを追加する。
+- PROJECT_STATUS、README、第1章のQ2依存台帳を結果依存グラフの推移閉包と照合した。4行ともR112、R161、R162、R164、R170、R181B--R181DとR192を含み、Q2-3だけR177、Q2-4だけR178D/R179、Q2-2だけR180A--R180Cを追加する。
 - 固定目標の文言と達成ラベルを検査した。Q1-1は達成、Q1-2は部分達成、Q2-1--Q2-4は条件付き達成、Q3-1とQ3-3は達成、Q3-2は未達、Q3-4とQ3-5は条件付き達成のままである。
 
 ## draft-68再現計算
 
 - `python -m py_compile tools/*.py` と18本の `tools/verify_*.py` を実行し、すべて正常終了した。
-- `verify_r181a_template_port.py` の28項目で、非規格化物理templateと解析ray表示の同値性、transverse収束、radial-only特殊化、切断後unitary輸送、無反応保持を検算した。
+- `verify_r192_radial_stabilizer.py` の28項目で、非規格化物理templateと解析ray表示の同値性、transverse収束、radial-only特殊化、切断後unitary輸送、無反応保持を検算した。
 - `verify_r181d_projector_tree.py` の15項目で、sector直和誤差、filterのunitarity・involution、raw/regularized容量分離、Born確率のtelescoping、非自明なcutoff質量、filter ray上界、radial repump、完全結果誤差予算を検算した。例のfilter ray誤差は `1.46e-2`、上界は `9.89e-2`、完全結果上界は `2.50e-4 < 1.00e-3` だった。
 - `verify_m54_q2_composition.py` の11項目で、2・3入力lift、$n=1,2,3$ の共通projector-tree、spectator sectorへの一括gate、Q2-4の時間・剛性・collision・barrier scalingを検算した。
 - `verify_r179_m54_supply.py` の12項目で、partial SWAPの正準性、spent側を含む作用保存、aggregate cold上界、対数round数、独立mode noiseの平方根増大、root load、供給誤差のdata processingを検算した。49 round後のbank残差は `1.91e-5`、上界は `5.69e-5` だった。
@@ -419,7 +425,7 @@ python tools/build_paper.py
 ```bash
 python tools/verify_common_canonical_control.py
 python tools/verify_common_collision_thermodynamics.py
-python tools/verify_r181a_template_port.py
+python tools/verify_r192_radial_stabilizer.py
 python tools/verify_m42_spatial_token.py
 python tools/verify_q1xq1_common_bath.py
 python tools/verify_q2_shell_and_locality.py

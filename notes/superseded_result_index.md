@@ -13,7 +13,8 @@
 
 | 結果 | 旧用途 | 現行の扱い | 参照先 |
 |---|---|---|---|
-| R171 | M51の共通開放ray準備 | M54の物理template-port準備R181Aへ吸収 | `superseded_separate_m51_m52_m53_models.md`、R181A、付録M |
+| R171 | M51の共通開放ray準備 | 旧R181Aへ吸収後、draft-90で状態方向準備ごと退役 | `superseded_separate_m51_m52_m53_models.md`、`superseded_r181a_template_port_preparation.md` |
+| R181A | 共通初期種から指定状態方向への開放準備と作用安定化 | 状態方向準備は現行固定目標から退役。方向不変の作用安定化だけをR192へ切り出し | `superseded_r181a_template_port_preparation.md`、R192、付録M |
 | R176A--R176C | M52のtensor-lift、永続gate、末端instrument | M54/R181B--R181Dへ吸収 | `superseded_separate_m51_m52_m53_models.md`、第2章・第4章 |
 | R178A--R178C | M53のsector gate、projector filter、逐次sampler | M54/R181C--R181Dへ吸収 | `superseded_separate_m51_m52_m53_models.md`、付録O・P |
 | R178E--R178F | fixed-volume tapeと滑らかなaperture | Q1/Q2共通のR170選択・固定＋R181D段階的射影選別を採用したため現行因果鎖から退役 | `superseded_r178_aperture_sampler.md`、draft-67のGit履歴 |
@@ -52,7 +53,7 @@
 
 | モデル | 旧用途 | 現行の扱い | 参照先 |
 |---|---|---|---|
-| M51 | 有限実正準担体の共通開放ray準備 | M54のtemplate portへ吸収 | `superseded_separate_m51_m52_m53_models.md`、R181A |
+| M51 | 有限実正準担体の共通開放ray準備 | 旧R181Aへ吸収後、draft-90で状態方向準備ごと退役 | `superseded_separate_m51_m52_m53_models.md`、`superseded_r181a_template_port_preparation.md` |
 | M52 | 固定2・3入力の可逆tensor-lift永続register | M54の有限次元特殊化へ吸収 | `superseded_separate_m51_m52_m53_models.md`、R181B--R181D |
 | M53 | 一般回路の直接mode・逐次sampler | M54の一般 $n$ 特殊化へ吸収。aperture経路は退役 | `superseded_separate_m51_m52_m53_models.md`、R181C--R181D、R178D、R179 |
 | M43 | 固有モード作用結合型有限環境 | 独立モデルから外し、R123の有限環境純位相緩和構成へ吸収 | R123、付録G |
