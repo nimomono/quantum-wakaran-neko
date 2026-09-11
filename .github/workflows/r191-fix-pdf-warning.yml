@@ -30,16 +30,17 @@ jobs:
           from pathlib import Path
           p = Path('sections/08_errors_resources_open_targets.md')
           s = p.read_text(encoding='utf-8')
+          before = s
           pairs = [
               ('transducer境界誤差', '変換器境界誤差'),
               ('有限温度retreat', '有限温度後退'),
-              ('R191内部の混合、transducer、保護帯、finite-temperature retreat、有限時間未捕獲、捕獲記録',
-               'R191内部の混合、変換器境界誤差、保護帯、有限温度後退、有限時間未捕獲、捕獲記録'),
+              ('transducer、', '変換器境界誤差、'),
+              ('finite-temperature retreat', '有限温度後退'),
           ]
           for old, new in pairs:
-              if old not in s:
-                  raise SystemExit(f'target not found: {old}')
               s = s.replace(old, new)
+          if s == before:
+              raise SystemExit('R191 prose replacement made no change')
           p.write_text(s, encoding='utf-8')
           PY
 
@@ -73,5 +74,5 @@ jobs:
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add -A
-          git commit -m 'fix: remove R191 PDF underfull warning'
+          git commit -m 'fix: synchronize R191 paper artifacts'
           git push origin HEAD:draft-r191-measurement-spine-simplification
