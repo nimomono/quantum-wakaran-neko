@@ -40,7 +40,7 @@ Z\neq0
 
 A端とB端は別々のBrownian macrospin、mixing/decision浴、吸収記録を持つ。結果成分の物理転送があるため本装置は非空間分離である。
 
-## 5.3 R180A：設定先行A端結果成分抽出
+## 5.3 A端特殊化：R191とR181Dから従うR180A
 
 A設定 $x$ の固有基底を $u_{r,x}$、射影を
 
@@ -56,8 +56,8 @@ J_{A,r}
 =\mathcal J_0Z^\dagger P_{A,r}^{x}Z.
 ```
 
-<!-- theorem-start:theorem -->
-**定理（R180A：M54末端信号の設定先行条件付きブロック抽出定理）**
+<!-- theorem-start:corollary -->
+**系（R180A：R191--R181Dの設定先行A端特殊化）**
 
 M54末端信号 $Z$ にA設定basis gateを作用し、直交射影子作用保持機構で $J_{A,+},J_{A,-}$ を保持してR191へ渡す。R191の結果を $r$ とし、その吸収記録で共通projector routerを制御する。理想極限では
 
@@ -74,7 +74,7 @@ Z_r=P_{A,r}^{x}Z
 ```
 
 である。物理的な $Z_r/\|Z_r\|$ の生成を必要としない。作用保持、R191、routerの有限誤差は完全結果集合上で各1回だけ数える。
-<!-- theorem-end:theorem -->
+<!-- theorem-end:corollary -->
 
 ## 5.4 B端条件付き読出し
 

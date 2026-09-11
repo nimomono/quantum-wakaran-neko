@@ -1,9 +1,9 @@
 @number: D
 @chapter: 付録
 @title: M54駆動設定先行2端R191受信機構の証明
-@status: R180AのA端結果成分抽出、R191逐次受渡し、共同Born分布、非信号性、CHSH値、有限全変動誤差、Bell前提監査を証明する。旧R180B paired-Hopf再準備は退役メモへ保存する。
+@status: R180AをR191--R181DのA端特殊化として確認し、R180Cの共同Born分布、非信号性、CHSH値、有限全変動誤差、Bell前提監査を証明する。
 
-## D.1 R180A
+## D.1 R180Aの特殊化確認
 
 <!-- theorem-start:proof -->
 **証明（R180A）**

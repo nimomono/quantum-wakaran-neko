@@ -272,3 +272,9 @@
 - Q1/Q2本文をR191主線へ同期し、Q2-2をA端R191→router→B端R191へ縮約。
 - 退役検算器は `notes/retired_verifiers/` へ保存。
 - `paper.md`、`main.tex`、`paper.pdf` は章別原稿から再生成する。
+
+## draft-90の責務圧縮
+
+- A8/A11/A12/A16とQ2-2証明をR191主線へ同期。
+- `notes/superseded_r164_q1q2_measurement_role.md` と `notes/superseded_r180a_named_theorem.md` を追加。
+- R181A/Hopf準備方程式は変更せず、理論変更を伴う準備模型再編は後続課題とする。
