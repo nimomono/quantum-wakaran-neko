@@ -7,8 +7,8 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 APPENDIX_CANDIDATES = (
-    ROOT / "sections" / "A19_m54_brownian_macrospin_projective_instrument.md",
     ROOT / "sections" / "A20_m54_brownian_macrospin_projective_instrument.md",
+    ROOT / "sections" / "A19_m54_brownian_macrospin_projective_instrument.md",
 )
 APPENDIX = next((path for path in APPENDIX_CANDIDATES if path.exists()), APPENDIX_CANDIDATES[0])
 COMMON = ROOT / "sections" / "02_common_canonical_modules.md"
