@@ -70,3 +70,14 @@
 結果番号は再利用しない。現行結果の番号を詰めず、履歴参照を安定させる。
 | R162旧有限衝突実装・R188 | finite collision path liftとNelson安定性 | draft-87で開放R162へ簡略化。有限閉鎖実装の強化結果として保存 | `superseded_r162_r188_finite_collision.md` |
 | R178D | 有限閉鎖resetの情報容量境界 | draft-87でQ2-4必須依存から外し、強化結果へ降格 | `strengthening_closed_reset_information_bound.md` |
+
+
+## draft-89で退役した測定経路
+
+| 結果・模型 | 旧責務 | 現行置換 | 保存先 |
+|---|---|---|---|
+| R190A--R190C | 2作用LC殻Drude混合と静的平方根選択 | Q1/Q2の2結果はR191が直接読出し | `superseded_r190_r170_measurement_path.md`, `superseded_A19_drude_action_shell_bridge.md` |
+| R170 | 静的選択結果の吸収pointer固定 | R191のBrownian macrospin吸収記録 | `superseded_r190_r170_measurement_path.md` |
+| R180B | 選択branchから2翼テンプレートをpaired-Hopfで再準備 | A端R191の非規格化branchをrouterでB端へ直接受渡し | `superseded_q2_2_paired_hopf_receiver.md`, `superseded_A9_paired_hopf_receiver.md` |
+
+これらは反証ではなく責務縮約による退役である。固定Q1/Q2の誤差予算と必須依存には含めない。

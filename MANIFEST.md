@@ -266,3 +266,9 @@
 
 - `notes/m37_w_q1_unification_roadmap.md`
 - `tools/verify_m37_w_q1_bridge.py`
+## draft-89のR191測定主線圧縮
+
+- `sections/A9_m54_setting_pre_paired_hopf_receiver.md` と `sections/A19_m54_drude_action_shell_bridge.md` を現行論文から外し、notesへ退役保存。
+- Q1/Q2本文をR191主線へ同期し、Q2-2をA端R191→router→B端R191へ縮約。
+- 退役検算器は `notes/retired_verifiers/` へ保存。
+- `paper.md`、`main.tex`、`paper.pdf` は章別原稿から再生成する。
