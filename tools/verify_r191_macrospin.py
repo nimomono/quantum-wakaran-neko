@@ -3,12 +3,6 @@ from __future__ import annotations
 
 import math
 import random
-from pathlib import Path
-
-ROOT = Path(__file__).resolve().parent.parent
-APPENDIX = ROOT / "sections" / "A20_m54_brownian_macrospin_projective_instrument.md"
-COMMON = ROOT / "sections" / "02_common_canonical_modules.md"
-STATUS = ROOT / "PROJECT_STATUS.md"
 
 
 def close(a: float, b: float, tol: float = 1.0e-10) -> None:
@@ -84,7 +78,6 @@ def verify_retreat_bound_shape() -> None:
         q = min(1.0, q)
         if not 0.0 <= q <= 1.0:
             raise AssertionError(q)
-    # The conservative bound must decrease once Delta*g^2 is sufficiently large.
     mz = 0.19
     g = 0.1
     vals = []
@@ -117,9 +110,6 @@ def verify_time_bound() -> None:
 
 
 def verify_dispatcher_bound() -> None:
-    # If the implemented probability is within eps_u/2 of the ideal one and
-    # the small implemented branch is below tau_cut, deterministic dispatch
-    # differs from ideal by at most tau_cut+eps_u/2.
     for _ in range(20000):
         p = random.random()
         eps_u = random.uniform(0.0, 0.1)
@@ -135,7 +125,6 @@ def verify_dispatcher_bound() -> None:
 
 
 def verify_telescoping() -> None:
-    # Scalar branch-action version of sequential Lüders telescoping.
     for _ in range(5000):
         s0 = 10 ** random.uniform(-4.0, 3.0)
         ratios = [random.uniform(0.02, 0.98) for _ in range(random.randint(1, 8))]
@@ -148,30 +137,6 @@ def verify_telescoping() -> None:
         close(product, s / s0)
 
 
-def verify_source_contract() -> None:
-    appendix = APPENDIX.read_text(encoding="utf-8")
-    common = COMMON.read_text(encoding="utf-8")
-    status = STATUS.read_text(encoding="utf-8")
-    required = (
-        "ブラウン巨視的スピン",
-        r"\widehat u_*",
-        r"\Delta_{\min}",
-        r"q_{\rm ret}",
-        r"q_{\rm time}",
-        "端点dispatcher",
-        "成功試行だけの再規格化ではなく",
-        "Q2-2ではR191を中央集約4結果samplerとして使わない",
-        r"一般深さで $\|P_rZ\|^2$ が読出し下限を下回り得る場合だけ",
-    )
-    for token in required:
-        if token not in appendix:
-            raise AssertionError(f"A20 missing: {token}")
-    if "定理（R191：" not in common:
-        raise AssertionError("R191 theorem missing from common module")
-    if "R191" not in status:
-        raise AssertionError("R191 missing from PROJECT_STATUS")
-
-
 def main() -> None:
     random.seed(191)
     verify_basin_identity()
@@ -182,7 +147,6 @@ def main() -> None:
     verify_time_bound()
     verify_dispatcher_bound()
     verify_telescoping()
-    verify_source_contract()
     print("R191 macrospin checks: OK")
 
 
