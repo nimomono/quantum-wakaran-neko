@@ -46,7 +46,7 @@
 - `sections/A10_q2_common_bath_composition.md`
 - `sections/A11_common_collision_bath_thermodynamics.md`
 - `sections/A12_common_action_shell_state_count.md`
-- `sections/A13_m54_template_port_preparation.md`
+- `sections/A13_m54_radial_stabilizer.md`
 - `sections/A14_m54_spatial_moving_matching.md`
 - `sections/A15_m54_uniform_register.md`
 - `sections/A16_m54_projector_tree_receiver.md`
@@ -108,7 +108,6 @@
 - `tools/verify_common_canonical_control.py`
 - `tools/verify_envelope_reduction.py`
 - `tools/verify_m47_q1_instrument.py`
-- `tools/verify_m47_hopf_preparation.py`
 - `tools/verify_common_matching_open_jump.py`
 - `tools/verify_m47_action_shell_origin.py`
 - `tools/verify_q2_shell_and_locality.py`
@@ -118,7 +117,7 @@
 - `tools/verify_q1xq1_common_bath.py`
 - `tools/verify_q1_live_zeno.py`
 - `tools/verify_m54_static_instrument.py`
-- `tools/verify_r181a_template_port.py`
+- `tools/verify_r192_radial_stabilizer.py`
 - `tools/verify_m54_spatial_matching.py`
 - `tools/verify_r181d_projector_tree.py`
 - `tools/verify_r179_m54_supply.py`
