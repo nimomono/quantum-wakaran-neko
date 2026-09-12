@@ -10,22 +10,22 @@ M56の主線は、signal spin-waveから `rho,S` を得た後、位相と振幅�
 
 ```text
 spin signal
-  |-- phase S --> active fixed-amplitude phase normalizer --> wall current drift
+  |-- phase S --> weak pickup --> active LLGS regenerator --> wall current drift
   `-- density rho --> two-action entropy shell -----------> wall osmotic drift
 
 thermal wall bath ----------------------------------------> Brownian noise / mobility
 ```
 
-独立easy-plane phase busは「余計な量子状態sector」ではなく、signal phaseを固定振幅carrierへ写す古典的phase normalizerとして用いる。relative-velocity magnon-drag、Doppler entrainment、`u_fast = j/rho` はM56主線へ戻さない。
+phase側は、signalとeasy-plane busを直接強結合してsignal amplitudeをcurrentのenergy sourceにするのではなく、weak pickup、外部driveを持つactive feed-forward、floating global phase servoを介して固定振幅spin currentへ変換する。relative-velocity magnon-drag、Doppler entrainment、`u_fast = j/rho` はM56主線へ戻さない。
 
 ## 2. 最小構成
 
-基本実体は固定長古典spin、spin texture、熱浴、必要ならphase normalizerを維持する外部driveである。複素振幅は独立実体ではなく実spin自由度の派生表示とする。
+基本実体は固定長古典spin、spin texture、熱浴、active feed-forwardを維持する外部driveである。複素振幅は独立実体ではなく実spin自由度の派生表示とする。
 
 | sector | 物理自由度 | 役割 |
 |---|---|---|
 | signal | 偏極spinの小振幅横mode | Schrödinger型signal、密度 `rho`、位相 `S` |
-| phase normalizer | 固定振幅を保つeasy-plane / self-oscillating spin系 | signal phaseを有限振幅carrierへ写し、位相勾配をspin supercurrentへ変換 |
+| phase regenerator | weak pickup + active easy-plane LLGS系 + floating global phase | signal phase gradientを固定振幅spin currentへ再生 |
 | particle | biaxial easy-axis domain wall | 実在位置 `X`、必要なら内部角 `Phi` |
 | entropy shell | 2 Brownian spinの非負作用 | `rho` に比例する状態数からosmotic forceを作る |
 | thermal wall bath | stochastic LLGまたは同等の明示bath | mobility、Brownian noise、FDT |
@@ -55,7 +55,7 @@ S_i^z
 \{Q_i,P_j\}=\delta_{ij}
 ```
 
-を厳密に実現する。従って旧版の「小振幅で近似的に正準化する」という記述は不要である。
+を厳密に実現する。
 
 ```math
 \psi_i
@@ -85,7 +85,7 @@ h_L=\frac{\mathcal J_0^2}{2m}L_g+V
 =\frac{\mathcal A}{\Sigma}
 ```
 
-も有限時間で保存され、固定時間窓 `0 <= t <= T` で線形Schrödinger解 `psi_L` に対し
+も保存され、固定時間窓 `0 <= t <= T` で線形Schrödinger解 `psi_L` に対し
 
 ```math
 \sup_{0\le t\le T}
@@ -192,10 +192,8 @@ finite shell stiffnessも静的には閉形式で評価できる。`c=kappa_sh/(
 
 ```math
 Z_{\rm sh}(A)
-=
-\frac{e^{-cA^2}}{2c}
-+
-A\frac{\sqrt\pi}{2\sqrt c}
+=\frac{e^{-cA^2}}{2c}
++A\frac{\sqrt\pi}{2\sqrt c}
 \left[1+\operatorname{erf}(\sqrt cA)\right].
 ```
 
@@ -203,14 +201,12 @@ A\frac{\sqrt\pi}{2\sqrt c}
 
 ```math
 \partial_A\log Z_{\rm sh}(A)
-=
-\frac{1}{A+\delta_A},
+=\frac{1}{A+\delta_A},
 ```
 
 ```math
 \delta_A
-=
-\frac{e^{-cA^2}}
+=\frac{e^{-cA^2}}
 {\sqrt{\pi c}\,[1+\operatorname{erf}(\sqrt cA)]}.
 ```
 
@@ -224,79 +220,133 @@ p_0(X)\propto Z_{\rm sh}(A_*\rho_0(X))
 
 となり、strict-shell極では `p_0 propto rho_0`、finite stiffnessでも制御誤差付きで同じ初期位置準備を狙える。
 
-## 6. R194D：active phase normalizerからcurrent drift
+## 6. R194D'：active gradient regeneratorからmoving wallへの有限誤差bridge
 
-Nelsonのcurrent velocityは
-
-```math
-v=\frac{\partial_xS}{m}.
-```
-
-phase normalizerの局所複素座標を
+旧R194Dでは、複素場 `B` のphenomenological open equationから固定振幅phase busを仮定し、
 
 ```math
-B(x,t)=R(x,t)e^{i\phi(x,t)}
-```
-
-とし、候補open equationとして
-
-```math
-\partial_tB
-=
-\left[
-\Gamma_b\left(1-\frac{|B|^2}{B_0^2}\right)
-+i\omega_b
-\right]B
-+D_b\partial_x^2B
-+\kappa_b\psi
-+\xi_b
-```
-
-を置く。`Gamma_b>0` の外部自由エネルギー供給により `R approx B_0` を維持し、signalは主にphase referenceを与える。目的はnode-free有限時間領域で
-
-```math
-\phi
-=\frac{S}{\mathcal J_0}
-+O(\varepsilon_{\rm lock}),
+J_b=-A_b\partial_x\phi,
 \qquad
-\partial_x\phi
-=\frac{\partial_xS}{\mathcal J_0}
-+O(\varepsilon_{\rm lock}).
+\dot X=c_{\rm ph}J_b+r_{\rm ph}
 ```
 
-を得ることだけである。phase busに `rho` の複製や `j/rho` の演算を要求しない。
+と置いていた。この模型は導出目標の整理には有用だったが、wallが実際に吸収するのは局所currentそのものではなくwall前後のcurrent jumpであり、両側で同じ `C^1` phase lockを課すとそのjumpが消える。従って旧 `B` 方程式は正式bridgeの主模型から降ろし、以下の明示的なactive spintronic chainへ置き換える。
 
-fixed-amplitude easy-plane carrierのspin supercurrentを
+```text
+R194A signal spin
+  -> weak phase pickup
+  -> externally powered active feed-forward
+  -> easy-plane LLGS gradient regenerator
+  -> local spin current / finite healing layer
+  -> easy-axis moving domain wall
+```
+
+regenerator phaseを `phi`、signal phaseを
 
 ```math
-J_b=-A_b\partial_x\phi
+\theta=\frac{S}{\mathcal J_0}
 ```
 
-とし、その一部がdomain wallへ吸収されるcollective-coordinate係数を `c_{\rm ph}` と書く。
+とする。空間一様のfloating phase `chi(t)` を持たせ、
 
 ```math
-\dot X_{\rm ph}
-=c_{\rm ph}J_b+r_{\rm ph}.
+\delta=\phi-\theta-\chi
 ```
 
-符号規約を含めて
+を局所Adler lockする。`chi` は空間一様なのでspin current
 
 ```math
--c_{\rm ph}A_b
-=\frac{\mathcal J_0}{m}
+J_r=-\mathcal A_r\partial_x\phi
 ```
 
-とmatchingすれば
+を変えず、wall内部角 `Phi` とのcoherent lockingだけを調整できる。
+
+R194D'は次の4補題へ分解する。
+
+- **R194D-a weak pickup / active feed-forward**：signal loadingを小さくしつつ、外部driveから有限locking torqueを供給する。
+- **R194D-b floating-phase Adler locking**：`delta` に有限gapを持たせ、finite healing time `tau_h` とfinite healing length `ell_h` を得る。
+- **R194D-c moving Brownian wall healing**：wallによる局所current破壊へregeneratorが追随し、wall前後のcurrent jumpをfar-field currentへ有限誤差で結びつける。
+- **R194D-d collective coordinate / global phase servo**：easy-plane/easy-axis coupled LLGからwall current jumpを並進SDEへ写し、`chi(t)` で内部角のlocking条件を吸収する。
+
+healing layer gainを `G_h` と書き、一般形を
 
 ```math
-\dot X_{\rm ph}
-=\frac{\partial_xS}{m}
-+O(\varepsilon_{\rm lock}
-+\varepsilon_{\rm absorb}
-+\varepsilon_{\rm back}).
+J_\Phi
+=G_hJ_\infty+r_h,
+\qquad
+J_\infty
+=-\frac{\mathcal A_r}{\mathcal J_0}\partial_xS+r_\infty
 ```
 
-phase normalizerは受動Hamiltonian sectorである必要はない。採用open classical modelとして用いる場合は、外部drive、散逸、雑音、定常振幅、signalへの有限backreactionを明示する。完全受動phase busは上位の強化課題とする。
+とする。対称な線形reaction-diffusion近似では `G_h=2+O(epsilon)` が候補だが、factor 2を普遍値として仮定しない。matchingは
+
+```math
+\frac{\sigma_{\rm DW}G_h\mathcal A_r}
+{\Gamma_{\rm DW}\mathcal J_0}
+=\frac1m
+```
+
+とする。
+
+R194D'の目標は、node-free、subcriticalな停止時刻以前に
+
+```math
+dX_t
+=\left[
+\frac{\partial_xS(X_t,t)}{m}
++r_{194D'}(t)
+\right]dt
++\sqrt{2\nu}\,dW_t
+```
+
+かつ
+
+```math
+\mathbb E\int_0^{T\wedge\tau_U}
+|r_{194D'}(t)|^2dt
+\le C_T\varepsilon^2
+```
+
+を同一parameter familyで示すことである。
+
+候補scalingの一例は
+
+```math
+C_\varepsilon\sim\varepsilon^{-3},
+\qquad
+\Sigma_\varepsilon\sim\varepsilon^{-8},
+\qquad
+g_{p,\varepsilon}\sim\varepsilon,
+```
+
+```math
+D_\varepsilon\sim\varepsilon^{-2},
+\qquad
+K_\varepsilon\sim\varepsilon^{-4},
+```
+
+```math
+\ell_{h,\varepsilon}\sim\varepsilon,
+\qquad
+\tau_{h,\varepsilon}\sim\varepsilon^4,
+\qquad
+\lambda_\varepsilon\sim\varepsilon^2,
+```
+
+```math
+K_{\chi,\varepsilon}\sim\varepsilon^{-4}.
+```
+
+Brownian wall追随では、瞬間速度ではなくhealing時間中のBrownian displacementを評価する必要があり、
+
+```math
+\frac{\sqrt{\nu\tau_h}}{\ell_h}
+=\sqrt{\frac{\nu}{D_\varepsilon}}
+```
+
+が小さいことを要求する。従ってstrong lockingだけでは不十分で、`D_epsilon/nu -> infinity` が必要になる。
+
+このscalingはmacroscopic carrier resourceを使う。従って「backreactionをゼロにしながら無料で有限currentを得る」とは主張せず、有限誤差装置族として扱う。詳細定理文と未証明点は `m56_phase_bus_completion_derivations.md` に置く。
 
 ## 7. R194H：temperature-independent diffusion plateau（強化候補）
 
@@ -339,24 +389,15 @@ k_BT\,\mathcal G\gg\Gamma_0
 
 となり、有限温度範囲でtemperature-independent plateauを狙える。全温度で厳密一定とは主張しない。
 
-同じ温度窓でphase-transfer coefficientが大きく崩れないことも必要なので
-
-```math
-c_{\rm ph}(T)
-=c_{\rm ph}^{(0)}
-[1+O(\varepsilon_{\rm ph,T})]
-```
-
-を別条件として管理する。
+同じ温度窓でcurrent-transfer coefficientが大きく崩れないことも別条件として管理する。
 
 ## 8. R194I：M56 collective-coordinate diffusion theorem候補
 
-R194IはR194A--R194Dの物理部品を合成する結果候補である。node-free有限時間領域、phase lock、fast shell、長時間wall Brownian縮約、small backreaction、smooth signalを仮定し、
+R194IはR194A--R194D'の物理部品を合成する結果候補である。node-free有限時間領域、R194D'、fast shell、長時間wall Brownian縮約、small backreaction、smooth signalを仮定し、
 
 ```math
 dX_t
-=
-\left[
+=\left[
 \frac{\partial_xS}{m}
 +\nu\partial_x\log\rho
 \right](X_t,t)\,dt
@@ -366,20 +407,36 @@ dX_t
 
 を目標とする。
 
-remainderは機構別に
+current branchのremainderは独立な `R_lock + R_absorb + R_back` とせず、
+
+```math
+R_{\rm current}=R_{194D'}
+```
+
+へまとめる。その内部台帳として
+
+```text
+pickup/readout,
+signal loading,
+Adler locking,
+healing-layer gain,
+Brownian wall tracking,
+finite wall width,
+wall leakage,
+global-phase servo
+```
+
+を管理する。全体では
 
 ```math
 R_I
 =R_{\rm sig}
-+R_{\rm lock}
-+R_{\rm absorb}
++R_{194D'}
 +R_{\rm shell}
 +R_{\rm mix}
 +R_{\rm wall}
-+R_{\rm back}
++R_{\rm mem}.
 ```
-
-と分離する。必要に応じ `R_mem`、finite wall width、内部角endpoint補正も加える。
 
 physical signalのexact continuityが使える場合はideal limitでFokker--Planck equivarianceを直接示す。Schrödinger型 `rho,S` との比較にはR194Aの `epsilon_amp` とlong-wave誤差を用いる。
 
@@ -455,31 +512,35 @@ m a_N=-\partial_xV.
 ```
 
 ```math
--c_{\rm ph}A_b
-=\frac{\mathcal J_0}{m}.
+\frac{\sigma_{\rm DW}G_h\mathcal A_r}
+{\Gamma_{\rm DW}\mathcal J_0}
+=\frac1m.
 ```
 
 `m=M_DW` は必須ではなく、追加のconsistency strengtheningとする。
 
-時間尺度は
+R194D'の時間・空間分離は
 
 ```text
-tau_bath, tau_shell, tau_lock << tau_particle, tau_signal
+tau_h << tau_signal,
+lambda << ell_h << L_signal,
+nu / D_reg << 1
 ```
 
 を基本とする。誤差台帳は
 
 ```text
 epsilon_sig,
+epsilon_pickup,
+epsilon_load,
 epsilon_lock,
-epsilon_absorb,
+epsilon_heal,
+epsilon_B,
+epsilon_wall,
+epsilon_servo,
 epsilon_shell,
 epsilon_mix,
-epsilon_wall,
-epsilon_od,
-epsilon_mem,
-epsilon_back,
-epsilon_ph,T
+epsilon_mem
 ```
 
 を分離する。
@@ -489,19 +550,13 @@ epsilon_ph,T
 | R194A | exact spin Darboux chart、有限時間Schrödinger縮約、spin current | signal-only候補は明示計算済み、M56全体への埋込みは未完 |
 | R194B | domain-wall粒子・Brownian縮約 | 既知collective-coordinate理論依存、finite-error縮約は未完 |
 | R194C | 2-action shellからosmotic driftと初期位置準備 | strict state countとfinite-static stiffnessは明示計算済み、finite mixingは未完 |
-| R194D | active phase normalizerからcurrent drift | open-model候補、finite lock/absorption/backreaction boundが未完 |
+| R194D' | active gradient regeneratorからmoving wallへのcurrent drift | 4補題＋合成定理と単一parameter familyを定式化、各finite-error証明は未完 |
 | R194E | 同一path lawからNelson Newton則 | R194I成立後の代数は厳密 |
 | R194H | wall diffusionのtemperature plateau | 強化候補、quadratic-bath Kubo縮約が未完 |
-| R194I | M56 collective-coordinate diffusion theorem | 合成候補、各finite-error boundの統合が未完 |
+| R194I | M56 collective-coordinate diffusion theorem | R194D'をcurrent branchへ一本化した合成候補、shell/wallを含む統合証明は未完 |
 
 R194F/Gはrelative-velocity検討で一時使用した履歴と衝突しないよう、現役候補番号として再利用しない。
 
-M56が正本へ昇格する最低条件は、R194A/C/D/Iの必要な有限誤差評価を同時に満たす非空なparameter regimeを示し、signalへのbackreactionを制御し、固定温度で `J0=2m nu` を満たすことである。R194Hのtemperature plateau、`m=M_DW`、完全受動phase bus、有限浴持上げは強化結果とする。
+M56が正本へ昇格する最低条件は、R194A/Cに加えてR194D-a--dを同一parameter familyで有限誤差証明し、R194Iでshell mixing、wall Brownian縮約、signal backreactionを統合し、固定温度で `J0=2m nu` を満たす非空なparameter regimeを示すことである。
 
-詳細計算と未解決条件は `m56_phase_bus_completion_derivations.md` に置く。
-
-## 11. 既知物理との接点
-
-M56自体の成立を既知研究が証明するわけではないが、部品としてBrown/Kubo--HashitsumeのBrownian spin、Shibata--Takagi型のdomain-wall collective coordinate、Duine--Nunez--MacDonald型のstochastic domain-wall dynamics、easy-plane spin superfluid、spin-superfluid/domain-wall角運動量移送、classical injection lockingを参照する。
-
-正式に論文本文へ昇格させる場合に限ってbibliography情報を `references.bib` と `sections/90_references.md` へ同期する。
+R194Hのtemperature plateau、`m=M_DW`、完全受動phase bus、有限浴持上げは強化結果とする。R194D'を本メモへ定式化したこと自体は、M56の正本昇格や現行Q3-2達成根拠の変更を意味しない。
