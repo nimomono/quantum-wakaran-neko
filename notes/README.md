@@ -6,7 +6,8 @@ draft-51以後の現行文書では、各試行で局在する物理変数を「
 
 | メモ | 元の版・移動元 | 現在の位置づけ | 移動理由 |
 |---|---|---|---|
-| `brownian_spin_q1_q3_unification.md` | draft-92で追加、現行候補をrelative-velocity magnon-drag経路へ更新 | M56/R194A--R194Hの現役統合候補。signal自身の `j/rho`、domain-wall relative-velocity friction、2-spin entropy shellからNelson diffusionを狙う。旧R194D phase-bus経路は代替案へ降格 | R194F/Gの同一spinミクロ縮約、有限Markov drag、signal/backreaction、同時parameter regimeが未証明なので、現行Q3-2のR161/R162/R185達成根拠を変更せず研究線を固定するため |
+| `brownian_spin_q1_q3_unification.md` | draft-92で追加、今回signal縮約・Doppler・entrainment残件まで再整理 | M56/R194A--R194Hの現役統合候補。signal-only有限時間spin縮約、Doppler係数、biaxial mass matching、classical-magnon温度scalingまで具体化。relative-velocity Brownian化はfast-sector entrainmentが主ネック | single parent Hamiltonian、fast-sector entrainment、positive Markov drag、shell finite mixing/backreaction、`nu=D_sig` の同時実現が未証明なので、現行Q3-2のR161/R162/R185達成根拠を変更せず研究線を固定するため |
+| `m56_signal_wall_bridge_derivations.md` | M56の今回検討から分離 | exact Darboux signal、有限時間Schrödinger縮約、spin current、wall/signal mass matching、Doppler係数、Kubo温度scalingの技術メモ | 正本へ昇格させる前に、計算済み部分とfast-sector entrainment等の未証明部分を分離して監査可能にするため |
 | `superseded_separate_m51_m52_m53_models.md` | draft-67までのM51、M52、M53、R171、R176、R178 | M54/R181B--R181Dへの吸収と旧R181Aへの準備統合の履歴 | Q1とQ2を同じ有限正準register・作用殻receiver模型族から派生させるため |
 | `superseded_separate_m50_m55_models.md` | draft-73までのM50、M55、R183 | M54 static/spatial profileへの吸収記録 | static測定とspatial運動を同じR161/R162 matching/collision原理へ統一するため |
 | `superseded_r178_aperture_sampler.md` | draft-67の付録P、旧R178E/R178F | fixed-volume aperture、first-index、dyadic tapeの退役記録 | Q1/Q2読出しをR170選択・固定＋R181D段階的射影選別へ一本化したため |
