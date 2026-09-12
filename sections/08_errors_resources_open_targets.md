@@ -60,6 +60,47 @@ R191 dispatcherとR181Dから $S_{\min}/S_*=\operatorname{poly}^{-1}(n,1/\epsilo
 
 ## 8.4 Q1の系列固有誤差
 
+### R193の直接decision接続誤差と未使用保持対資源
+
+Q1 W2主線ではR189Aの保持済み作用比をR193でR191 decision energyへ直接結合する。R189Aで既に計上した作用比誤差を一般R191 transducer誤差として重複計上しない。R193固有の有限gate、結合較正、時計偏差から生じる吸引域境界誤差を $\varepsilon_{193}^{u}$ とし、Q1特殊化したR191内部誤差を
+
+```math
+\varepsilon_{191|193}^{\rm int}
+=
+\varepsilon_{\rm mix}
++g
++\frac{\varepsilon_{193}^{u}}{2}
++q_{\rm ret}
++q_{\rm time}
++\varepsilon_{\rm cap}
+```
+
+とする。端点側は
+
+```math
+\varepsilon_{191|193}^{\rm edge}
+=
+\tau_{\rm cut}
++\frac{\varepsilon_{193}^{u}}{2}
++\varepsilon_{\rm cap}
+```
+
+でよい。従って走行中測定では
+
+```math
+\varepsilon_{189B}^{\rm dist}
+\leq
+\varepsilon_{189A}
++\varepsilon_{191|193}
++\varepsilon_{\rm lat}
+```
+
+とし、同じR189A偏差を2回加えない。
+
+R193 decision中は保持座標 $A_L,A_R$ が固定される一方、共役運動量 $P_b^J$ には履歴が残る。固定有限深さでは未使用保持対との正準SWAPを用意すればよい。反復装置では使用済み保持対をR179へ流して未使用保持対を供給する。この未使用保持対/reset時間と有限SWAP誤差は次回captureの入力誤差へ一度だけ含める。
+
+R191の等方mixingは保持作用を必要としないため、W2発展およびR189A captureと並行して実行してよい。R189Bのlatencyにはcapture中心時刻からR181D完了までの実時間差を入れ、事前mixing時間全体を機械的に加えない。
+
 R143のR191主線では結果分布誤差と測定後状態誤差を分ける。
 
 ```math
@@ -92,7 +133,7 @@ D_{\rm TV}(p_N^{\rm obs},p_N^{\rm id})
 
 とする。固定有限列ではR191の指針変数と選別機構用作業領域をR179の開放リセットで再使用し、結果相関履歴を流出浴へ流す。
 
-R189CのQ1-2達成証人では中間R189Aで保持した2作用をR191へ渡し、局所記録と中間R192を使わない。固定 $N=2$ の正の履歴重みには $p_*=0.10$ の安全下限を取れるため、R191 decision時間を有限に固定した後に $\Omega_\kappa\to0$ として時間ずれを小さくできる。旧作用殻型実現の偏差は現行R191主線へ重複加算しない。
+R189CのQ1-2達成証人では中間R189Aで保持した2作用をR193でR191 decision energyへ直接結合し、局所記録と中間R192を使わない。固定 $N=2$ の正の履歴重みには $p_*=0.10$ の安全下限を取れるため、R191 decision時間を有限に固定した後に $\Omega_\kappa\to0$ として時間ずれを小さくできる。旧作用殻型実現の偏差は現行R191主線へ重複加算しない。
 
 ### 8.4.1 R187のM37--W2 信号系誤差と資源
 

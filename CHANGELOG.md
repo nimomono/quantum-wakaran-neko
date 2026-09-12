@@ -1,3 +1,11 @@
+## draft-91：R193 Q1作用保持--macrospin直接decision接続
+
+- R193を追加し、R189Aが保持した左右作用座標をR191ブラウン巨視的スピンのdecision energyへ直接Hamiltonian結合した。
+- decision中の保持座標不変、W2への直接反作用零、吸引域境界誤差、endpoint線形dispatcher、decision後共役運動量の未使用保持対条件を明示した。
+- Q1の誤差台帳ではR189A作用比誤差をR191 transducer誤差へ二重計上せず、R193固有の接続偏差だけを追加する。
+- Q2の一般R191 transducer契約は変更せず、M0全体とQ1全周期統合は未完成の強化課題として維持する。
+- 付録U、R193専用検算器、状態表、概要、誤差・資源台帳、結論、manifest、validation、統合原稿、TeX、PDFを同期する。
+
 ## draft-87：open-bath simplification
 
 - R162を有限衝突Hamiltonian持上げから局所有向率の開放Poisson-jump実現へ再定義し、Q3-2をR161/R162の同一前向き経路法則からR185へ直接接続した。

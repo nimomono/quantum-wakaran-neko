@@ -736,3 +736,10 @@ GitHub Actionsは次を確認する。
 - A8/A11/第8章/第2章に旧Q1/Q2測定経路の固定文言が再混入しないことをsource checkで検査する。
 - R191/R181D/R180Cの既存数値検算を維持し、新しい物理仮定・新定理は追加しない。
 - paper.md / main.tex / paper.pdf を章別原稿から再生成し、生成物同期を検査する。
+
+## draft-91：R193直接decision接続の検算
+
+- `tools/verify_q1_r193_macrospin_bridge.py` で、保持座標からR191吸引域境界への恒等式、作用比誤差から境界誤差への係数2、共通gain不変性、endpoint dispatcherの線形比較同値性、decision後共役運動量の有限上界、R189A誤差の二重計数除去を独立に検算する。
+- R193の正式宣言は付録Uに1回だけ置き、R191一般定理は変更しない。Q2の一般transducerはR193へ依存させない。
+- Q1-1/Q1-2の達成ラベルと固定目標は変更しない。R193後もM0全体は未達とし、Q1全周期のmacrospin浴、記録、router、未使用保持対/reset統合を強化課題として残す。
+- `paper.md`、`main.tex`、`paper.pdf` を章別原稿から再生成し、通常のsource/terminology/physics/generated-artifact検査を全て通す。
