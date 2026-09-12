@@ -2,7 +2,7 @@
 
 ## 1. 目的と状態区分
 
-このメモは `brownian_spin_q1_q3_unification.md` の技術補助である。M56を正本へ昇格させる根拠にはまだ使わない。今回の議論で具体化したsignal縮約、domain-wall質量matching、Doppler係数、classical thermal-magnon scalingを式つきで保存し、未証明のfast-sector entrainmentを明確に分離する。
+このメモは `brownian_spin_q1_q3_unification.md` の技術補助である。M56を正本へ昇格させる根拠にはまだ使わない。今回具体化したsignal縮約、domain-wall質量matching、Doppler係数、classical thermal-magnon scalingを式つきで保存し、未証明のfast-sector entrainmentを分離する。
 
 結果は次の3種類に分ける。
 
@@ -32,45 +32,34 @@ H_{\rm sig}
 \frac{V_i}{\mathcal J_0}
 (\Sigma-S_i^z)
 ```
-とする。
-
-これは強磁性交換と局所縦磁場からなる `U(1)` 対称模型である。domain wallを同時に持つ最終M56親Hamiltonianではなく、R194Aのsignal-only検算用模型として使う。
+とする。これは強磁性交換と局所縦磁場からなる `U(1)` 対称模型であり、R194Aのsignal-only検算用模型として使う。
 
 ## 3. exact Darboux chart
 
 north-pole patchで
 ```math
 S_i^x
-=Q_i
-\sqrt{\Sigma-\frac{Q_i^2+P_i^2}{4}},
+=Q_i\sqrt{\Sigma-\frac{Q_i^2+P_i^2}{4}},
 ```
 ```math
 S_i^y
-=P_i
-\sqrt{\Sigma-\frac{Q_i^2+P_i^2}{4}},
+=P_i\sqrt{\Sigma-\frac{Q_i^2+P_i^2}{4}},
 ```
 ```math
 S_i^z
 =\Sigma-\frac{Q_i^2+P_i^2}{2}
 ```
-と置く。この表示は
-```math
-|\mathbf S_i|=\Sigma
-```
-を厳密に満たす。
+と置く。この表示は `|S_i|=Sigma` を厳密に満たす。
 
-`I_i=(Q_i^2+P_i^2)/2`、`Q_i=sqrt(2I_i) cos(theta_i)`、`P_i=sqrt(2I_i) sin(theta_i)` と書けば、標準正準構造 `\{I_i,theta_j\}=delta_ij` から
+`I_i=(Q_i^2+P_i^2)/2`、`Q_i=sqrt(2I_i) cos(theta_i)`、`P_i=sqrt(2I_i) sin(theta_i)` と書けば、標準正準構造から
 ```math
 \{Q_i,P_j\}=\delta_{ij}
 ```
-およびspin Poisson bracketを厳密に再現する。
-
-従って現行R194Aにあった
+およびspin Poisson bracketを厳密に再現する。従って近似正準化
 ```math
-\{Q_i,P_j\}
-=\delta_{ij}+O(\varepsilon_{\rm amp})
+\{Q_i,P_j\}=\delta_{ij}+O(\varepsilon_{\rm amp})
 ```
-という近似正準化は不要である。
+は不要である。
 
 複素signal座標を
 ```math
@@ -120,8 +109,7 @@ H_{ij}
 従って
 ```math
 H_{\rm sig}
-=\psi^\dagger h_L\psi
-+R_{\rm nl},
+=\psi^\dagger h_L\psi+R_{\rm nl},
 ```
 ```math
 h_L
@@ -164,46 +152,29 @@ N_i^{(ij)}
 
 ## 5. exact action conservation and finite-time bound
 
-総signal作用を
+総signal作用
 ```math
 \mathcal A
 =\sum_i(\Sigma-S_i^z)
 =\mathcal J_0\|\psi\|_2^2
 ```
-とする。Hamiltonianはglobal `z` rotationに不変なので
-```math
-\frac{d\mathcal A}{dt}=0.
-```
+はglobal `U(1)` 対称性から厳密保存される。
 
-無次元小振幅量を
+無次元小振幅量
 ```math
 \varepsilon_{\rm amp}
 =\frac{\mathcal A}{\Sigma}
 =\frac{\mathcal J_0\|\psi\|_2^2}{\Sigma}
 ```
-とする。この量も厳密保存される。
+も厳密保存される。
 
-`0<epsilon_amp<=epsilon_0<1` とし
+`0<epsilon_amp<=epsilon_0<1`、
 ```math
-a_*
-=\sqrt{1-\frac{\varepsilon_0}{2}}
+a_*=\sqrt{1-\frac{\varepsilon_0}{2}}
 ```
-と置く。辺ごとに
+とする。最大重み付き次数
 ```math
-1-A_{ij}
-\le\frac{\varepsilon_{\rm amp}}{2},
-```
-```math
-\beta\rho_i\le\varepsilon_{\rm amp},
-\qquad
-\beta|x_{ij}|
-\le\frac{\varepsilon_{\rm amp}}{2}.
-```
-
-最大重み付き次数
-```math
-d_g
-=\max_i\sum_jg_{ij}
+d_g=\max_i\sum_jg_{ij}
 ```
 を用いると
 ```math
@@ -246,22 +217,19 @@ T=c_T\frac{2m}{\mathcal J_0d_g}
 ```
 なら相対誤差は
 ```math
-\le
-C_N(\varepsilon_0)c_T\varepsilon_{\rm amp}.
+\le C_N(\varepsilon_0)c_T\varepsilon_{\rm amp}.
 ```
 
-これは固定有限時間における `O(epsilon_amp)` Schrödinger縮約である。小振幅量が厳密保存されるため、この評価にはGrönwall増幅を必要としない。
+小振幅量が厳密保存されるため、この評価にはGrönwall増幅を必要としない。
 
 ## 6. exact spin current
 
-局所density `rho_i=|psi_i|^2` は厳密な離散連続の式
+局所density `rho_i=|psi_i|^2` は
 ```math
-\dot\rho_i
-+\sum_jj_{ij}^{\rm spin}=0
+\dot\rho_i+
+\sum_jj_{ij}^{\rm spin}=0
 ```
-を満たす。
-
-exact edge currentは
+を厳密に満たす。edge currentは
 ```math
 j_{ij}^{\rm spin}
 =
@@ -293,26 +261,13 @@ j^{\rm spin}
 =
 \frac{\mathcal J_0}{m}
 \operatorname{Im}(\bar\phi\partial_x\phi)
-+O(\varepsilon_{\rm amp})
-+O(a^2).
++O(\varepsilon_{\rm amp})+O(a^2).
 ```
-
-Madelung表示
-```math
-\phi
-=\sqrt\rho\,e^{iS/\mathcal J_0}
-```
-では
+Madelung表示 `phi=sqrt(rho) exp(iS/J0)` では
 ```math
 j^{\rm spin}
 =\rho\frac{\partial_xS}{m}
 +O(\varepsilon_{\rm amp})+O(a^2).
-```
-node-free領域で
-```math
-v_s=\frac{j}{\rho}
-=\frac{\partial_xS}{m}
-+O\!\left(\frac{\varepsilon_{\rm amp}+a^2}{\rho_*}\right).
 ```
 
 ## 7. biaxial wall mass and signal mass matching
@@ -337,19 +292,11 @@ A|\partial_x\mathbf n|^2
 とする。低角度wall作用は
 ```math
 L_{\rm DW}
-=2s\Phi\dot X
--K_h\lambda\Phi^2
--V(X)
+=2s\Phi\dot X-K_h\lambda\Phi^2-V(X)
 ```
 なので
 ```math
-G=2s,
-\qquad
-\kappa_\Phi=2K_h\lambda,
-```
-```math
 M_{\rm DW}
-=\frac{G^2}{\kappa_\Phi}
 =\frac{2s^2}{K_h\lambda}.
 ```
 
@@ -361,15 +308,11 @@ M_{\rm DW}
 ```
 長波長では
 ```math
-\omega(k)
-=\omega_0+D_{\rm sig}k^2+O(k^4),
-```
-```math
 D_{\rm sig}
 =\frac{A(2+\kappa)}{2s\sqrt{1+\kappa}}.
 ```
 
-Schrödinger表示 `D_sig=J0/(2m_sig)` から
+`D_sig=J0/(2m_sig)` から
 ```math
 m_{\rm sig}
 =\frac{\mathcal J_0s\sqrt{1+\kappa}}
@@ -382,19 +325,13 @@ m_{\rm sig}
 =\frac{2(2+\kappa)}
 {\kappa\sqrt{1+\kappa}}
 ```
-と同値である。右辺
-```math
-f(\kappa)
-=\frac{2(2+\kappa)}
-{\kappa\sqrt{1+\kappa}}
-```
-は `kappa>0` で単調減少し、`kappa->0+` で `infinity`、`kappa->infinity` で `0` へ向かう。従って任意の正の `J0/(s lambda)` に対し正のmatching `kappa` が一意に存在する。
+と同値である。右辺は `kappa>0` で単調減少し、`kappa->0+` で `+infinity`、`kappa->infinity` で `0` へ向かう。従って任意の正の `J0/(s lambda)` に対し正のmatching `kappa` が一意に存在する。
 
 これはmass equalityの非空性を示すだけであり、biaxial模型を最終M56親模型に確定するものではない。
 
 ## 8. U(1) signal background上のDoppler coefficient
 
-`U(1)` 対称なcontinuum spinを
+`U(1)` 対称continuum spinを
 ```math
 \mathbf n
 =(\sqrt{1-n^2}\cos\phi,
@@ -417,35 +354,31 @@ n=n_0,
 \qquad
 \phi=qx
 ```
-を取る。north-pole action densityとNoether currentを
+に対し
 ```math
 \rho=s(1-n_0),
+\qquad
+j=A(1-n_0^2)q,
 ```
-```math
-j=A(1-n_0^2)q
-```
-とすれば
 ```math
 v_s=\frac{j}{\rho}
 =\frac A s(1+n_0)q.
 ```
 
-`n=n_0+delta n`、`phi=qx+delta phi` と展開する。gradient energyの二次項には
+`n=n_0+delta n`、`phi=qx+delta phi` と展開すると二次項に
 ```math
 H_2^{\rm cross}
 =-2An_0q\int dx\,
 \delta n\,\partial_x\delta\phi
 ```
-が現れる。これはfast fluctuationのmomentumに比例するDoppler項であり、dispersion tiltは
+が現れる。従ってdispersion tiltは
 ```math
-v_D
-=\frac{2A}{s}n_0q.
+v_D=\frac{2A}{s}n_0q.
 ```
 
-従って
+したがって
 ```math
-\chi
-=\frac{v_D}{v_s}
+\chi=\frac{v_D}{v_s}
 =\frac{2n_0}{1+n_0}.
 ```
 `epsilon=1-n_0` と書けば
@@ -453,11 +386,10 @@ v_D
 |\chi-1|
 =\frac{\varepsilon}{2-\varepsilon}.
 ```
-したがって小振幅極 `epsilon->0` で
+よって小振幅極で
 ```math
-v_D=v_s+O(\varepsilon v_s)
+v_D=v_s+O(\varepsilon v_s).
 ```
-が制御できる。
 
 この結果はDoppler generatorの係数を決めるものであり、thermal fast sectorの分布が速度 `v_s` のdrifting Gibbs stateになることを意味しない。
 
@@ -477,12 +409,17 @@ H_{\rm fast}^{(2)}
 ```math
 F_m=-\Gamma_m(\dot X-v_s)
 ```
-とは結論しない。必要なのはthermal fast sectorの実際のnormal drift `u_fast` が
+とは結論しない。必要なのはthermal fast sectorのnormal drift
 ```math
-u_{\rm fast}
-=v_s+O(\varepsilon_{\rm ent})
+u_{\rm fast}=v_s+O(\varepsilon_{\rm ent})
 ```
-となること、または条件付き分布が
+ではなく、速度変数を `u_fast` と明示して
+```math
+u_{\rm fast}\equiv u_{\rm fast},
+\qquad
+u_{\rm fast}=v_s+O(\varepsilon_{\rm ent})
+```
+が成立すること、または条件付き分布が
 ```math
 \mu_{\rm fast}(dY)
 \propto
@@ -519,10 +456,9 @@ H_f=\frac12Y^TKY
 ```math
 Y=\sqrt{k_BT}\,Z
 ```
-と書くと `Z` の分布とharmonic dynamicsは明示的な `T` を含まず
+と書くと
 ```math
-\delta F(Y)
-=k_BT\,\delta f(Z).
+\delta F(Y)=k_BT\,\delta f(Z).
 ```
 従って
 ```math
@@ -544,35 +480,25 @@ classical Green--Kubo kernelは
 ```
 が有限かつ正でMarkov縮約が許されるなら
 ```math
-\Gamma_m(T)
-=k_BT\,\mathcal G.
+\Gamma_m(T)=k_BT\,\mathcal G,
 ```
-Einstein relationから
 ```math
-\nu
-=\frac{k_BT}{\Gamma_m}
-=\frac1{\mathcal G}.
+\nu=\frac{k_BT}{\Gamma_m}=\frac1{\mathcal G}.
 ```
 
-従ってclassical harmonic windowではFDT由来の明示的な `k_BT` は相殺される。ただしHamiltonian係数のthermal renormalizationや追加drag `Gamma_0` は別である。
-
-追加dragがある場合
+追加drag `Gamma_0` がある場合は
 ```math
-\Gamma_{\rm tot}
-=\Gamma_0+k_BT\mathcal G,
+\Gamma_{\rm tot}=\Gamma_0+k_BT\mathcal G,
 ```
 ```math
-\nu(T)
-=\frac{k_BT}
-{\Gamma_0+k_BT\mathcal G}.
+\nu(T)=\frac{k_BT}{\Gamma_0+k_BT\mathcal G}.
 ```
 
 ## 12. diffusion--dispersion matching
 
 signal dispersion係数を
 ```math
-D_{\rm sig}
-=\frac{\mathcal J_0}{2m}
+D_{\rm sig}=\frac{\mathcal J_0}{2m}
 ```
 とする。Nelson matching
 ```math
@@ -588,13 +514,11 @@ harmonic bath result `nu=1/G` を用いると
 ```math
 \mathcal G D_{\rm sig}=1
 ```
-が必要十分なmatching equationになる。
-
-従って今後の具体模型計算では、単に `Gamma_m>0` を示すだけでなく、同じ模型から `G` と `D_sig` を計算し、この無次元積が1に達するparameter pointまたはcontrolled windowを探す。
+がmatching equationになる。今後は同じ具体模型から `G` と `D_sig` を計算し、この積が1に達するparameter pointまたはcontrolled windowを探す。
 
 ## 13. 今回閉じなかった項目
 
-次は本メモでは未証明のまま残す。
+次は未証明のまま残す。
 
 1. signal theoremをdomain wallとthermal sectorを同時に持つ単一親Hamiltonianへ埋め込むこと。
 2. coherent signal / fast thermal sectorの有限誤差分離。
