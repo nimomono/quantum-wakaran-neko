@@ -6,7 +6,7 @@ on:
       - draft-r193-q1-macrospin-bridge
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   finalize:
@@ -55,33 +55,13 @@ jobs:
           python tools/check_generated.py build/ci
           python tools/lint_typeset.py build/ci/latex/main.log
 
-      - name: 最終コミット候補を収集
+      - name: 一時生成資産を除去して最終コミット
         run: |
-          rm -rf build/r193-final
-          mkdir -p build/r193-final
-          git diff --name-only -z | while IFS= read -r -d '' f; do
-            mkdir -p "build/r193-final/$(dirname "$f")"
-            cp "$f" "build/r193-final/$f"
-          done
-          for f in \
-            sections/01_scope_and_cycle.md \
-            sections/A8_m47_w2_parameter_dictionary.md \
-            sections/A21_q1_r193_macrospin_bridge.md \
-            tools/verify_q1_r193_macrospin_bridge.py \
-            paper.md main.tex paper.pdf
-          do
-            mkdir -p "build/r193-final/$(dirname "$f")"
-            cp "$f" "build/r193-final/$f"
-          done
-          (
-            cd build/r193-final
-            find . -type f -print | sort > FINAL_MANIFEST.txt
-          )
-
-      - name: 最終候補をartifact化
-        uses: actions/upload-artifact@v4
-        with:
-          name: r193-final-tree
-          path: build/r193-final
-          if-no-files-found: error
-          retention-days: 3
+          rm -f .github/workflows/r193-finalize-artifact.yml
+          rm -f tools/apply_r193_repo_update.py tools/sanitize_r193_terms.py
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git diff --cached --check
+          git commit -m "theory: integrate R193 Q1 macrospin bridge"
+          git push origin HEAD:draft-r193-q1-macrospin-bridge
