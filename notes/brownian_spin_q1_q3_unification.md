@@ -240,11 +240,11 @@ Doppler項だけからthermal fast sectorの実際のdrift velocityが `v_s` に
 ```math
 u_{\rm fast}=v_s+O(\varepsilon_{\rm ent})
 ```
-ではなく、以下で用いる速度記号
+と書くことではなく、速度変数そのものを
 ```math
-u_{\rm fast}\equiv u_{\rm fast}
+u_{\rm fast}:=u_{\rm fast}
 ```
-に対して
+と明示して、物理的に
 ```math
 u_{\rm fast}=v_s+O(\varepsilon_{\rm ent})
 ```
