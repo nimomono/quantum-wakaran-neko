@@ -14,12 +14,68 @@ def assert_close(a, b, tol, label):
     print(f"{label}: {err:.3e}")
 
 
+def check_exact_darboux_chart() -> None:
+    sigma = 5.0
+    j0 = 0.73
+    samples = [
+        (0.3, -0.4),
+        (1.1, 0.7),
+        (-1.4, 0.2),
+    ]
+    for q, p in samples:
+        r2 = q*q + p*p
+        root = math.sqrt(sigma - r2/4.0)
+        sx = q * root
+        sy = p * root
+        sz = sigma - r2/2.0
+        assert_close(sx*sx + sy*sy + sz*sz, sigma*sigma, 1e-13,
+                     f"darboux_spin_length_q={q:g}_p={p:g}")
+        psi_abs2 = r2 / (2.0*j0)
+        assert_close(sigma - sz, j0*psi_abs2, 1e-14,
+                     f"darboux_action_identity_q={q:g}_p={p:g}")
+
+
 def check_two_spin_shell() -> None:
     # ∫ dK1 dK2 δ(A-K1-K2) = ∫_0^A dK1 = A.
     for A in (0.2, 0.7, 1.4):
         grid = np.linspace(0.0, A, 20001)
         omega = np.trapezoid(np.ones_like(grid), grid)
         assert_close(omega / A, 1.0, 1e-12, f"shell_linearity_A={A:g}")
+
+
+def shell_partition_closed(A: float, c: float) -> float:
+    z = math.sqrt(c) * A
+    return (
+        math.exp(-c*A*A)/(2.0*c)
+        + A*math.sqrt(math.pi)/(2.0*math.sqrt(c))*(1.0 + math.erf(z))
+    )
+
+
+def shell_partition_numeric(A: float, c: float) -> float:
+    # S exp[-c(S-A)^2] is already negligible at this cutoff for tested values.
+    upper = A + 12.0/math.sqrt(c)
+    s = np.linspace(0.0, upper, 400001)
+    return float(np.trapezoid(s*np.exp(-c*(s-A)**2), s))
+
+
+def check_finite_shell_closed_form() -> None:
+    for A, c in ((0.4, 2.0), (0.8, 5.0), (1.3, 7.0)):
+        z_num = shell_partition_numeric(A, c)
+        z_closed = shell_partition_closed(A, c)
+        assert_close(z_num, z_closed, 2e-10,
+                     f"finite_shell_partition_A={A:g}_c={c:g}")
+
+        delta = math.exp(-c*A*A) / (
+            math.sqrt(math.pi*c)*(1.0 + math.erf(math.sqrt(c)*A))
+        )
+        dlog_closed = 1.0/(A + delta)
+        h = 1e-6
+        dlog_num = (
+            math.log(shell_partition_closed(A+h, c))
+            - math.log(shell_partition_closed(A-h, c))
+        )/(2.0*h)
+        assert_close(dlog_num, dlog_closed, 2e-9,
+                     f"finite_shell_log_derivative_A={A:g}_c={c:g}")
 
 
 def check_osmotic_drift() -> None:
@@ -86,18 +142,35 @@ def check_nelson_harmonic_ground_state() -> None:
     assert_close(a_n, force_over_m, 1e-14, "nelson_harmonic_newton")
 
 
-def check_phase_matching() -> None:
-    # eta A_b = 4 s (1+alpha^2) nu と J0=2mnu から、
-    # eta A_b/[2s(1+alpha^2)J0] = 1/m.
-    eta = 0.73
-    s = 1.4
-    alpha = 0.08
-    nu = 0.22
+def check_phase_normalizer_matching() -> None:
+    # J_b=-A_b dphi, phi=S/J0, dot X=c_ph J_b.
+    # -c_ph A_b/J0=1/m is the current-drift matching.
+    A_b = 1.7
     m = 2.3
+    nu = 0.22
     j0 = 2*m*nu
-    A_b = 4*s*(1+alpha**2)*nu/eta
-    coeff = eta*A_b/(2*s*(1+alpha**2)*j0)
-    assert_close(coeff, 1/m, 1e-14, "phase_current_matching")
+    c_ph = -j0/(m*A_b)
+    coeff = -c_ph*A_b/j0
+    assert_close(coeff, 1/m, 1e-14, "phase_normalizer_current_matching")
+
+
+def check_temperature_plateau_algebra() -> None:
+    # Gamma(T)=Gamma0+kBT*G -> nu=kBT/Gamma.
+    # Rewrite exactly as (1/G)/(1+Gamma0/(kBT*G)).
+    gamma0 = 0.07
+    G = 1.9
+    for kbt in (0.5, 2.0, 8.0):
+        gamma = gamma0 + kbt*G
+        nu = kbt/gamma
+        rewritten = (1.0/G)/(1.0 + gamma0/(kbt*G))
+        assert_close(nu, rewritten, 1e-15,
+                     f"temperature_plateau_identity_kBT={kbt:g}")
+
+    kbt_hi = 20.0
+    nu_hi = kbt_hi/(gamma0 + kbt_hi*G)
+    rel = abs(nu_hi - 1.0/G)/(1.0/G)
+    expected = gamma0/(gamma0 + kbt_hi*G)
+    assert_close(rel, expected, 1e-15, "temperature_plateau_relative_error")
 
 
 def sech2(z):
@@ -127,12 +200,15 @@ def check_wall_width_order() -> None:
 
 
 def main() -> None:
+    check_exact_darboux_chart()
     check_two_spin_shell()
+    check_finite_shell_closed_form()
     check_osmotic_drift()
     check_fokker_planck_equivariance()
     check_backward_drift()
     check_nelson_harmonic_ground_state()
-    check_phase_matching()
+    check_phase_normalizer_matching()
+    check_temperature_plateau_algebra()
     check_wall_width_order()
     print("r194_brownian_spin_nelson_ok")
 
