@@ -40,13 +40,13 @@ def check_project_status() -> None:
     text = path.read_text(encoding="utf-8")
 
     try:
-        fixed = text.split("### 固定目標一覧", 1)[1].split("### 現在地", 1)[0]
+        fixed = text.split("### 固定目標一覧", 1)[1].split("#### Q3-1からQ3-6の達成判定の補足", 1)[0]
     except IndexError as exc:
-        raise AssertionError("PROJECT_STATUS fixed-goal/current-position boundary is missing") from exc
+        raise AssertionError("PROJECT_STATUS fixed-goal definition boundary is missing") from exc
 
     hit = re.search(r"(?<![A-Za-z])[MR]\d+", fixed)
     if hit:
-        raise AssertionError(f"fixed-goal block contains implementation/result ID: {hit.group(0)}")
+        raise AssertionError(f"fixed-goal definition contains implementation/result ID: {hit.group(0)}")
 
     rows: dict[str, list[str]] = defaultdict(list)
     for line in text.splitlines():
