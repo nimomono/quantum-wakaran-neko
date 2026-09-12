@@ -86,19 +86,7 @@ R185では同じ前向き経路法則のBayes反転から前進・後退平均�
 
 ### 4. Brownian-spinによるQ1/Q3統合候補
 
-現行Q3主線とは別に、Q1のBrownian spinとQ3の粒子運動を同じ古典spin物理へ統合するM56候補を研究しています。Q3粒子をbiaxial磁性体のdomain-wall中心 $X$ とし、signal spin-wave自身の局所流速
-
-```math
-v=\frac{j}{\rho}=\frac{\partial_xS}{m}
-```
-
-を、wallとfast thermal magnonsのrelative-velocity frictionへ渡す経路を主候補とします。2個のBrownian spinの作用殻状態数からは
-
-```math
-u=\nu\partial_x\log\rho
-```
-
-というosmotic driftを作り、理想的には
+現行Q3主線とは別に、Q1のBrownian spinとQ3の粒子運動を同じ古典spin物理へ統合するM56候補を研究しています。Q3粒子をbiaxial磁性体のdomain-wall中心 $X$ とし、easy-plane spin supercurrentからcurrent driftを、2個のBrownian spinの作用殻状態数からosmotic driftを作ることで、理想的には
 
 ```math
 dX_t
@@ -114,9 +102,7 @@ dX_t
 
 というNelson型拡散を直接得ることを狙います。
 
-この候補では、旧M56で置いていた独立easy-plane phase busは主経路から外します。現在の主要な未解決点は、同一stochastic spin fieldでcoherent signalとfast thermal magnonsを有限誤差付きで分離すること、signal phaseからrelative-velocity Kubo kernelを導くこと、reflectionless性を弱く壊した具体模型で有限Markov dragを得ること、signalへのbackreactionを抑えた同時parameter regimeを示すことです。古典高占有magnon領域では、thermal-magnon dragが $\Gamma_m\propto T$ ならFDTの $\nu=k_BT/\Gamma_m$ で明示的な温度因子が相殺される候補も調べています。
-
-M56は依然として研究候補であり、R161/R162/R185を置換しません。模型、導出済み部分、未解決条件は [Brownian-spin Q1/Q3統合候補](notes/brownian_spin_q1_q3_unification.md) に分けて記録しています。
+現段階ではphase lockからdomain-wall並進までの有限誤差bridgeが未証明なので、M56はR161/R162/R185を置換しません。模型、導出済み部分、未解決条件は [Brownian-spin Q1/Q3統合候補](notes/brownian_spin_q1_q3_unification.md) に分けて記録しています。
 
 ## 現在どこまでできているか
 
