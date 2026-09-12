@@ -476,3 +476,27 @@ R191は次を主張しない。
 5. 空間分離Bell実験またはBell局所隠れ変数模型を構成したこと。
 
 R191の役割は、Q1/Q2の2結果射影ノードについて既知の古典開放磁化力学を共通読出し部品として採用し、Born重み、二値化、有限温度、有限時間、無反応、逐次受渡しを一つの明示誤差契約にまとめることである。
+
+## T.11 Q1のR193直接decision接続
+
+R191本体はQ1/Q2で共有する一般instrumentなので、第T.2節のtransducer契約を維持する。Q1 W型2モード特殊化では、R189Aが保持した正準座標 $A_L,A_R$ を付録UのR193で直接decision energyへ結合し、
+
+```math
+\widehat S=A_L+A_R,
+\qquad
+\widehat D=A_L-A_R
+```
+
+を実現する。この特殊化ではR189Aで既に数えた作用比偏差をR191 transducer誤差へ重複加算せず、R193固有の接続偏差だけを $\varepsilon_{193}^{u}$ として数える。
+
+また端点条件 $A_L/(A_L+A_R)<\tau_{\rm cut}$ は
+
+```math
+(1-\tau_{\rm cut})A_L
+-\tau_{\rm cut}A_R
+<0
+```
+
+と同値なので、Q1では状態依存除算を実行せず固定線形比較器でdispatcherを構成できる。decision後の使用済み保持対は共役運動量にmacrospin履歴を持つため、次回capture前に未使用保持対へSWAPするかR179へ切り離す。
+
+R193はQ1専用特殊化であり、Q2-1--Q2-4の一般R191 transducer契約を変更しない。

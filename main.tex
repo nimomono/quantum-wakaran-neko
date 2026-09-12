@@ -188,7 +188,7 @@ P(r=\pm)
 
 結果後は物理信号を非線形に規格化せず、R181Dの可逆projector routerが \(P_rZ\) と補成分を分ける。次段R191は残った作用和で自動的に条件付き確率を読むため、固定有限深さでは振幅再調整を必須としない。一般深さQ2-4で結果成分作用が読出し下限へ落ちる場合だけ補助的な再調整を許す。
 
-Q1ではM37弱結合W型の最低2正常モードをR187でM54のW2信号へ接続し、R140が有限 \(SU(2)\) 操作とRabi運動を与える。R143--R144は分析器、有限コントラスト、局所記録、逐次測定の系列固有部分を担い、結果確率はR191、測定後結果成分はR181Dへ委ねる。R189A--R189Cは走行中作用保持と有限2回Rabi--Zeno比較を与える。
+Q1ではM37弱結合W型の最低2正常モードをR187でM54のW2信号へ接続し、R140が有限 \(SU(2)\) 操作とRabi運動を与える。R143--R144は分析器、有限コントラスト、局所記録、逐次測定の系列固有部分を担い、結果確率はR191、測定後結果成分はR181Dへ委ねる。R189A、R193、R189B--R189Cは走行中作用保持と有限2回Rabi--Zeno比較を与える。
 
 Q2-1とQ2-3ではR181Bが固定入力のテンソル積信号を作り、R181Cが同じ永続記憶部上で局所gateと結合gateを作用する。末端測定はR191とR181Dだけを使う。Q2-4では同じ2結果nodeを逐次使用し、R179は結果相関履歴の排出とopen resetだけを担う。
 
@@ -238,7 +238,7 @@ R161は確率流と活動量から前向き・後向き率を整合させ、R162
 \chapter{問題設定、現行模型、達成範囲}\label{ux554fux984cux8a2dux5b9aux73feux884cux6a21ux578bux9054ux6210ux7bc4ux56f2}}
 
 \begin{statusbox}
-位置づけ：M54をQ1・Q2・Q3の共通有効状態構成族、M37を物理実装層として区別し、Q1/Q2のR191射影読出しとQ3のR164--R161/R162位置輸送を二つの現行因果鎖として整理する。
+位置づけ：M54をQ1・Q2・Q3の共通有効状態構成族、M37を物理実装層として区別し、Q1/Q2のR191射影読出しとQ3のR164--R161/R162位置輸送を二つの現行因果鎖として整理する。Q1ではR189A保持座標からR193を通じてR191 decision energyへ直接接続する。
 \end{statusbox}
 
 \hypertarget{ux7814ux7a76ux4e0aux306eux554fux3044}{%
@@ -271,6 +271,28 @@ P_rZ.
 \]
 
 R191が結果形成と吸収記録までを担い、R181Dは結果を生成せずprojector routerと測定後結果成分受渡しだけを担う。固定有限深さでは非規格化結果成分をそのまま次段R191へ渡す。一般深さで作用下限が不足する場合だけR192の方向不変作用安定化を補助的に使う。
+
+Q1 W型2モード特殊化では、R189Aが保持した左右作用座標をR193の直接decision Hamiltonianへ渡し、R191のmacrospin energyを
+
+\[
+\widehat S=A_L+A_R,
+\qquad
+\widehat D=A_L-A_R
+\]
+
+として物理的に実現する。従ってQ1では
+
+\[
+\mathrm{M37\ W2}
+\xrightarrow{\mathrm{R189A}}
+(A_L,A_R)
+\xrightarrow{\mathrm{R193}}
+\mathrm{R191}
+\xrightarrow{\mathrm{R181D}}
+P_rZ
+\]
+
+が現行測定主線である。R193はQ1専用特殊化であり、Q2の一般R191 transducer契約は変更しない。
 
 Q3では実在粒子位置を別の因果鎖で扱う。
 
@@ -307,7 +329,7 @@ R164はQ3開始面の条件付き配置を作り、R161/R162は同じ粒子を�
 \endlastfoot
 M54 & 共通有効信号--配置状態構成族 & 有限実正準信号、準備済み入力境界、永続記憶部、作業領域、時計、記録の共通型。Q1/Q2はR191、Q3はR164--R161/R162へ接続する \\
 M37 & 物理Hamiltonian実装層 & Q3空間信号を局所ばね網で実装し、R187条件下ではW型最低2正常モードをQ1 W2制御信号へ接続する \\
-M0 & 単一ミクロ装置統一目標 & transducer、macrospin、router、record、reset、M37信号系を共通接続端とHamiltonian無限浴へ統合する未完成の強化目標 \\
+M0 & 単一ミクロ装置統一目標 & Q1ではR193によりW2作用保持からmacrospin decision energyまでを具体化済み。macrospin浴、router、record、reset、Q2一般transducer、M37信号系を共通接続端とHamiltonian無限浴へ統合する全周期目標は未完成 \\
 \end{longtable}
 
 M54の複素信号 \(Z\) は実正準対の派生表示であり、独立した複素実体ではない。状態方向、規格化共分散、位置分布は解析上の統計量であり、単一試行の制御器へ書き戻さない。
@@ -331,7 +353,7 @@ M54の複素信号 \(Z\) は実正準対の派生表示であり、独立した�
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-Q1 & 準備済みW2入力、R187、R135、R140 & R191、R181D、R143--R144、R189A--R189C \\
+Q1 & 準備済みW2入力、R187、R135、R140、R189A & R193、R191、R181D、R143--R144、R189B--R189C \\
 Q2-1 & R181B、R181C & R191を2段、R181D router \\
 Q2-2 & 固定一重項4モード、A/B設定gate & A端R191、R181D型router、B端R191、R180A/R180C監査 \\
 Q2-3 & R181Bを2回、R181C、R177 & R191逐次読出し、R181D router \\
@@ -349,7 +371,7 @@ Q3 & M54空間状態構成、M37、R184 & R164開始配置、R161/R162輸送、R
 \hypertarget{ux975eux4e3bux5f35}{%
 \section{非主張}\label{ux975eux4e3bux5f35}}
 
-本稿は、量子力学全体を古典力学へ還元したこと、空間分離Bell局所模型を得たこと、指数的な内部受動自由度を除去したこと、全系列を同一製造済み装置へ統合したことを主張しない。R191はQ1/Q2の2結果読出しを単純化するが、transducer、macrospin、router、record、resetを単一閉鎖Hamiltonianへ統合したことまでは意味しない。
+本稿は、量子力学全体を古典力学へ還元したこと、空間分離Bell局所模型を得たこと、指数的な内部受動自由度を除去したこと、全系列を同一製造済み装置へ統合したことを主張しない。R193によりQ1のR189A保持座標からR191 decision energyまでの直接接続は具体化するが、R191のmacrospin浴、吸収記録、R181D router、未使用保持対/resetを含む全周期を単一閉鎖Hamiltonianへ統合したことまでは意味しない。Q2の一般transducerもR193の対象外である。
 
 \hypertarget{ux6709ux9650ux30e2ux30fcux30c9ux4fe1ux53f7ux7cfbux3068ux5171ux901aux6b63ux6e96ux30e2ux30b8ux30e5ux30fcux30eb}{%
 \chapter{有限モード信号系と共通正準モジュール}\label{ux6709ux9650ux30e2ux30fcux30c9ux4fe1ux53f7ux7cfbux3068ux5171ux901aux6b63ux6e96ux30e2ux30b8ux30e5ux30fcux30eb}}
@@ -1390,7 +1412,7 @@ G_{\rm rec}=\sum_i d_i(x)P_{D_i}
 
 と書ける。これは記録時刻の排他的粒子位置を読む。入力時刻以前の粒子軌道、初回到達率、吸収率、時間積分流束を与えない。
 
-R191は、transducer、ブラウン巨視的スピン、射影成分生成、記録、resetを単一閉鎖Hamiltonianへ統合済みだと主張しない。R170についても、容量結合、作用殻、信号保持、混合・衝突、選択機構、固定機構を1つの具体的装置へ統合済みだと主張しない。現行の条件付き達成は、この未統合部分を明示して判定する。有限浴化は別の強化課題である。一意エルゴードな外部時刻割当または有限熱化から、結果列の独立同分布性や二項型有限標本揺らぎも従わない。
+R191は、ブラウン巨視的スピン、射影成分生成、記録、resetを単一閉鎖Hamiltonianへ統合済みだと主張しない。Q1 W2特殊化ではR189A保持座標からR193によりdecision energyまでを直接接続するが、Q2の一般transducerと全周期統合は未完成である。R170についても、容量結合、作用殻、信号保持、混合・衝突、選択機構、固定機構を1つの具体的装置へ統合済みだと主張しない。現行の条件付き達成は、この未統合部分を明示して判定する。有限浴化は別の強化課題である。一意エルゴードな外部時刻割当または有限熱化から、結果列の独立同分布性や二項型有限標本揺らぎも従わない。
 
 \part{単一量子ビット型操作と測定}
 
@@ -1398,7 +1420,7 @@ R191は、transducer、ブラウン巨視的スピン、射影成分生成、記
 \chapter{Q1 W型2モード制御・測定手順}\label{q1-wux578b2ux30e2ux30fcux30c9ux5236ux5fa1ux6e2cux5b9aux624bux9806}}
 
 \begin{statusbox}
-位置づけ：旧M47で扱ったQ1系列をM54のW2静的状態構成上の系列固有手順として整理し、R187のM37物理信号系準備、R140操作、R191読出し、R181D 結果成分受渡し、R143--R144、R189A--R189Cの有限Rabi--Zeno比較へ接続する。
+位置づけ：旧M47で扱ったQ1系列をM54のW2静的状態構成上の系列固有手順として整理し、R187のM37物理信号系準備、R140操作、R191読出し、R181D 結果成分受渡し、R143--R144、R189A、R193、R189B--R189Cの有限Rabi--Zeno比較へ接続する。
 \end{statusbox}
 
 \hypertarget{q1-wux578b2ux30e2ux30fcux30c9ux624bux9806ux306eux4e3bux5f35ux7bc4ux56f2}{%
@@ -2284,11 +2306,11 @@ R189Aは完全QND測定を主張しない。\(J_L,J_R\) は零傾斜Rabi自身�
 \hypertarget{w2ux8d70ux884cux4e2dux968eux65701ux5c04ux5f71ux9078ux5225ux306eux6709ux9650ux6642ux9593ux63a5ux7d9a}{%
 \section{W2走行中階数1射影選別の有限時間接続}\label{w2ux8d70ux884cux4e2dux968eux65701ux5c04ux5f71ux9078ux5225ux306eux6709ux9650ux6642ux9593ux63a5ux7d9a}}
 
-R189A終了後は固定済み左右作用 \(\bar J_L,\bar J_R\) を走行中W2信号から切り離してR191へ渡し、その吸収記録 \(S_{\rm lock}\in\{L,R,\varnothing\}\) が固定された後に制御付き選別機構を開く。中間測定では傾斜、局所外部記録、方向を変えない振幅再調整を使わない。
+R189A終了後は固定済み左右作用 \(\bar J_L,\bar J_R\) を走行中W2信号から切り離し、付録UのR193でR191のdecision energyへ直接結合し、その吸収記録 \(S_{\rm lock}\in\{L,R,\varnothing\}\) が固定された後に制御付き選別機構を開く。中間測定では傾斜、局所外部記録、方向を変えない振幅再調整を使わない。
 
 \begin{theorem}[R189B：W2走行中階数1射影選別有限時間接続]
 
-R189Aの保持中心時刻を $t_\ell$ とする。保持済み2作用をR191へ渡し、有限decision時間後に潜在結果 $S_{\rm lock}$ を固定する。安全結果 $b$ ではR181Dの階数1対合選別機構 $F_b$ を有限時間 $\tau_F$ だけ作用し、その完了時刻を実効測定時刻 $t_m$ と定める。全操作中で零傾斜Rabi項を停止しない。
+R189Aの保持中心時刻を $t_\ell$ とする。保持済み2作用をR193でR191 decision energyへ直接結合し、有限decision時間後に潜在結果 $S_{\rm lock}$ を固定する。安全結果 $b$ ではR181Dの階数1対合選別機構 $F_b$ を有限時間 $\tau_F$ だけ作用し、その完了時刻を実効測定時刻 $t_m$ と定める。全操作中で零傾斜Rabi項を停止しない。
 
 選別機構単独の理想作用を $F_b$、有限実装・接続端・時計偏差を含む誤差を $\eta_F^{\rm run}$ とすれば
 
@@ -2519,10 +2541,10 @@ q
 \bottomrule\noalign{}
 \endlastfoot
 Q1-1 & 達成 & R135、R140、R187 & 固定目標上の残件なし \\
-Q1-2 & 達成 & R140、R143--R144、R168、R181D、R187、R189A--R189C、R191 & Born分布、同軸反復分布、異軸逐次分布に加え、同一零傾斜M37 W2信号系で有限2回Zeno証人を構成。有限能動部分系＋Hamiltonian無限浴の単一ミクロ装置への全統合は強化課題。有限浴化は追加強化 \\
+Q1-2 & 達成 & R140、R143--R144、R168、R181D、R187、R189A、R193、R189B--R189C、R191 & Born分布、同軸反復分布、異軸逐次分布に加え、同一零傾斜M37 W2信号系で有限2回Zeno証人を構成。有限能動部分系＋Hamiltonian無限浴の単一ミクロ装置への全統合は強化課題。有限浴化は追加強化 \\
 \end{longtable}
 
-R189A--R189CはR144の通常測定をそのまま中間へ挿入した結果ではない。R144で使った有限履歴核の望遠鏡和とトレース距離による段間安定性を再利用しつつ、中間測定を零傾斜・走行中信号専用に構成した結果である。
+R189A、R193、R189B--R189CはR144の通常測定をそのまま中間へ挿入した結果ではない。R144で使った有限履歴核の望遠鏡和とトレース距離による段間安定性を再利用しつつ、中間測定を零傾斜・走行中信号専用に構成した結果である。
 
 \hypertarget{ux975eux4e3bux5f35-1}{%
 \section{非主張}\label{ux975eux4e3bux5f35-1}}
@@ -5155,6 +5177,48 @@ R191 dispatcherとR181Dから \(S_{\min}/S_*=\operatorname{poly}^{-1}(n,1/\epsil
 \hypertarget{q1ux306eux7cfbux5217ux56faux6709ux8aa4ux5dee}{%
 \section{Q1の系列固有誤差}\label{q1ux306eux7cfbux5217ux56faux6709ux8aa4ux5dee}}
 
+\hypertarget{r193ux306eux76f4ux63a5decisionux63a5ux7d9aux8aa4ux5deeux3068ux672aux4f7fux7528ux4fddux6301ux5bfeux8cc7ux6e90}{%
+\subsection{R193の直接decision接続誤差と未使用保持対資源}\label{r193ux306eux76f4ux63a5decisionux63a5ux7d9aux8aa4ux5deeux3068ux672aux4f7fux7528ux4fddux6301ux5bfeux8cc7ux6e90}}
+
+Q1 W2主線ではR189Aの保持済み作用比をR193でR191 decision energyへ直接結合する。R189Aで既に計上した作用比誤差を一般R191 transducer誤差として重複計上しない。R193固有の有限gate、結合較正、時計偏差から生じる吸引域境界誤差を \(\varepsilon_{193}^{u}\) とし、Q1特殊化したR191内部誤差を
+
+\[
+\varepsilon_{191|193}^{\rm int}
+=
+\varepsilon_{\rm mix}
++g
++\frac{\varepsilon_{193}^{u}}{2}
++q_{\rm ret}
++q_{\rm time}
++\varepsilon_{\rm cap}
+\]
+
+とする。端点側は
+
+\[
+\varepsilon_{191|193}^{\rm edge}
+=
+\tau_{\rm cut}
++\frac{\varepsilon_{193}^{u}}{2}
++\varepsilon_{\rm cap}
+\]
+
+でよい。従って走行中測定では
+
+\[
+\varepsilon_{189B}^{\rm dist}
+\leq
+\varepsilon_{189A}
++\varepsilon_{191|193}
++\varepsilon_{\rm lat}
+\]
+
+とし、同じR189A偏差を2回加えない。
+
+R193 decision中は保持座標 \(A_L,A_R\) が固定される一方、共役運動量 \(P_b^J\) には履歴が残る。固定有限深さでは未使用保持対との正準SWAPを用意すればよい。反復装置では使用済み保持対をR179へ流して未使用保持対を供給する。この未使用保持対/reset時間と有限SWAP誤差は次回captureの入力誤差へ一度だけ含める。
+
+R191の等方mixingは保持作用を必要としないため、W2発展およびR189A captureと並行して実行してよい。R189Bのlatencyにはcapture中心時刻からR181D完了までの実時間差を入れ、事前mixing時間全体を機械的に加えない。
+
 R143のR191主線では結果分布誤差と測定後状態誤差を分ける。
 
 \[
@@ -5187,7 +5251,7 @@ D_{\rm TV}(p_N^{\rm obs},p_N^{\rm id})
 
 とする。固定有限列ではR191の指針変数と選別機構用作業領域をR179の開放リセットで再使用し、結果相関履歴を流出浴へ流す。
 
-R189CのQ1-2達成証人では中間R189Aで保持した2作用をR191へ渡し、局所記録と中間R192を使わない。固定 \(N=2\) の正の履歴重みには \(p_*=0.10\) の安全下限を取れるため、R191 decision時間を有限に固定した後に \(\Omega_\kappa\to0\) として時間ずれを小さくできる。旧作用殻型実現の偏差は現行R191主線へ重複加算しない。
+R189CのQ1-2達成証人では中間R189Aで保持した2作用をR193でR191 decision energyへ直接結合し、局所記録と中間R192を使わない。固定 \(N=2\) の正の履歴重みには \(p_*=0.10\) の安全下限を取れるため、R191 decision時間を有限に固定した後に \(\Omega_\kappa\to0\) として時間ずれを小さくできる。旧作用殻型実現の偏差は現行R191主線へ重複加算しない。
 
 \hypertarget{r187ux306em37w2-ux4fe1ux53f7ux7cfbux8aa4ux5deeux3068ux8cc7ux6e90}{%
 \subsection{R187のM37--W2 信号系誤差と資源}\label{r187ux306em37w2-ux4fe1ux53f7ux7cfbux8aa4ux5deeux3068ux8cc7ux6e90}}
@@ -5551,7 +5615,7 @@ Z\longmapsto P_rZ
 
 を次段へ渡すだけで、次のR191が残った作用和を分母として条件付きBorn重みを読む。有限段では確率積がtelescopingしてLüders型共同分布を回収する。一般深さQ2-4で結果成分作用が読出し下限を下回る場合だけ振幅再調整を補助手段として残す。
 
-Q1ではR187がM37弱結合W型最低2正常モードをW2制御信号へ接続し、R140がBloch球型可逆操作とRabi運動を与える。R143--R144は分析器・記録・逐次測定、R189A--R189Cは走行中作用保持と有限Rabi--Zeno比較を担う。Born結果形成をW型粒子位置の再平衡化へ依存させない。
+Q1ではR187がM37弱結合W型最低2正常モードをW2制御信号へ接続し、R140がBloch球型可逆操作とRabi運動を与える。R143--R144は分析器・記録・逐次測定、R189A、R193、R189B--R189Cは走行中作用保持と有限Rabi--Zeno比較を担う。Born結果形成をW型粒子位置の再平衡化へ依存させない。 R193はR189Aの保持座標をR191 macrospinのdecision energyへ直接Hamiltonian結合し、Q1に残っていた抽象transducer接続を具体化する。
 
 Q2-1とQ2-3ではR181B/R181Cが永続多モード信号上のテンソル積状態とgate列を作り、末端R191/R181Dが出力を標本化する。Q2-4では同じ2結果nodeを一般回路出力へ逐次適用し、R179はopen resetと履歴排出、R186は外部運用資源とノイズ境界を監査する。
 
@@ -9066,7 +9130,7 @@ R123の純位相ハミルトニアンは、入力として有限非縮退エネ�
 \chapter{M54 W型2モード対応表}\label{m54-wux578b2ux30e2ux30fcux30c9ux5bfeux5fdcux8868}}
 
 \begin{statusbox}
-位置づけ：Q1 W型2モード手順で使うR135、R140、R187、R191、R181Dの対応だけを示す。状態方向準備は準備済み古典入力境界とし、本付録では独立な準備機構を導入しない。
+位置づけ：Q1 W型2モード手順で使うR135、R140、R187、R189A、R193、R191、R181Dの対応だけを示す。状態方向準備は準備済み古典入力境界とし、本付録では独立な準備機構を導入しない。
 \end{statusbox}
 
 \hypertarget{ux5bfeux5fdcux8868}{%
@@ -9074,9 +9138,18 @@ R123の純位相ハミルトニアンは、入力として有限非縮退エネ�
 
 W型最低2正常モードを局在基底へ移した実正準対をM54のW2信号部分系と同定する。初期状態方向は実正準座標の準備済み古典入力として与え、その後の可逆制御と測定だけを現行結果へ接続する。
 
-\begin{longtable}[]{@{}lll@{}}
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}@{}}
 \toprule\noalign{}
-段階 & W型2モードでの指定 & 正本 \\
+\begin{minipage}[b]{\linewidth}\raggedright
+段階
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+W型2モードでの指定
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+正本
+\end{minipage} \\
 \midrule\noalign{}
 \endhead
 \bottomrule\noalign{}
@@ -9084,14 +9157,32 @@ W型最低2正常モードを局在基底へ移した実正準対をM54のW2信�
 初期入力 & 非零の準備済み実正準2モード信号 & 第2.4節、R187 \\
 閉鎖伝播 & W型低2モード生成子の正準流 & R135、第2章 \\
 W型制御・診断 & 偶奇二重項と左右局在基底 & R140、第3章、第6章 \\
-2結果読出し & 射影作用和・差から結果形成 & R191、付録T \\
+作用保持 & 走行中W2の左右射影作用を正準保持座標へ写す & R189A、第3章 \\
+decision接続 & 保持座標からmacrospinの作用和・作用差decision energyを直接作る & R193、付録U \\
+2結果読出し & R193特殊化または一般transducerから結果形成 & R191、付録T \\
 測定後受渡し & 固定結果で \(Z\mapsto P_bZ\) & R181D、付録P \\
 \end{longtable}
+
+Q1の現行物理接続は
+
+\[
+\mathrm{M37\ W2}
+\xrightarrow{\mathrm{R189A}}
+(A_L,A_R)
+\xrightarrow{\mathrm{R193}}
+\mathrm{R191}
+\xrightarrow{\mathrm{R181D}}
+P_bZ
+\]
+
+である。R193はQ1 W2特殊化であり、Q2の一般R191 transducer契約を置き換えない。
 
 \hypertarget{ux5f79ux5272ux5883ux754c}{%
 \section{役割境界}\label{ux5f79ux5272ux5883ux754c}}
 
 本付録は初期状態方向の物理的生成を証明しない。Q1-2の固定有限深さではR192を用いず、R181Dの非規格化選択成分を同じ試行の次段へ直接渡す。一般深さQ2-4の作用下限回復はR192の別責務であり、W型2モード制御の一部ではない。
+
+R193 decision後には保持対の共役運動量へmacrospin履歴が残るため、同じ保持対を未処理のまま次回captureへ再接続しない。固定有限深さでは未使用保持対との正準SWAP、反復装置ではR179 open resetを使う。この未使用保持対条件はR193の責務であり、Born重みを外部から再準備する操作ではない。
 
 \hypertarget{q2ux6c38ux7d9aux5171ux540cux6d74ux306eux5408ux6210ux5951ux7d04}{%
 \chapter{Q2永続共同浴の合成契約}\label{q2ux6c38ux7d9aux5171ux540cux6d74ux306eux5408ux6210ux5951ux7d04}}
@@ -12647,6 +12738,441 @@ R191は次を主張しない。
 \end{enumerate}
 
 R191の役割は、Q1/Q2の2結果射影ノードについて既知の古典開放磁化力学を共通読出し部品として採用し、Born重み、二値化、有限温度、有限時間、無反応、逐次受渡しを一つの明示誤差契約にまとめることである。
+
+\hypertarget{q1ux306er193ux76f4ux63a5decisionux63a5ux7d9a}{%
+\section{Q1のR193直接decision接続}\label{q1ux306er193ux76f4ux63a5decisionux63a5ux7d9a}}
+
+R191本体はQ1/Q2で共有する一般instrumentなので、第T.2節のtransducer契約を維持する。Q1 W型2モード特殊化では、R189Aが保持した正準座標 \(A_L,A_R\) を付録UのR193で直接decision energyへ結合し、
+
+\[
+\widehat S=A_L+A_R,
+\qquad
+\widehat D=A_L-A_R
+\]
+
+を実現する。この特殊化ではR189Aで既に数えた作用比偏差をR191 transducer誤差へ重複加算せず、R193固有の接続偏差だけを \(\varepsilon_{193}^{u}\) として数える。
+
+また端点条件 \(A_L/(A_L+A_R)<\tau_{\rm cut}\) は
+
+\[
+(1-\tau_{\rm cut})A_L
+-\tau_{\rm cut}A_R
+<0
+\]
+
+と同値なので、Q1では状態依存除算を実行せず固定線形比較器でdispatcherを構成できる。decision後の使用済み保持対は共役運動量にmacrospin履歴を持つため、次回capture前に未使用保持対へSWAPするかR179へ切り離す。
+
+R193はQ1専用特殊化であり、Q2-1--Q2-4の一般R191 transducer契約を変更しない。
+
+\hypertarget{r193-q1ux4f5cux7528ux4fddux6301ux5ea7ux6a19ux304bux3089ux30d6ux30e9ux30a6ux30f3ux5de8ux8996ux7684ux30b9ux30d4ux30f3ux3078ux306eux76f4ux63a5decisionux63a5ux7d9a}{%
+\chapter{R193 Q1作用保持座標からブラウン巨視的スピンへの直接decision接続}\label{r193-q1ux4f5cux7528ux4fddux6301ux5ea7ux6a19ux304bux3089ux30d6ux30e9ux30a6ux30f3ux5de8ux8996ux7684ux30b9ux30d4ux30f3ux3078ux306eux76f4ux63a5decisionux63a5ux7d9a}}
+
+\begin{statusbox}
+位置づけ：R189Aが保持したQ1 W2の2作用を、R191の一般transducer契約を経由する抽象箱として残さず、ブラウン巨視的スピンのdecision energyへ直接Hamiltonian結合するQ1専用特殊化を与える。R191のQ1/Q2共通一般定理とQ2の一般transducer契約は変更しない。
+\end{statusbox}
+
+\hypertarget{ux76eeux7684ux3068ux8cacux52d9ux5883ux754c-1}{%
+\section{目的と責務境界}\label{ux76eeux7684ux3068ux8cacux52d9ux5883ux754c-1}}
+
+Q1 W型2モード手順では、R189Aが走行中W2の左右射影作用を2個の正準指針変数へ保持する。R191は一般の2結果信号について作用和・作用差の近似値を受け取り、ブラウン巨視的スピンの吸引域境界を作る。本付録では、この2つの間をQ1に限って直接接続する。
+
+R193が担うのは次の範囲だけである。
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  R189Aの保持座標をR191 decision energyの係数へ直接結合する。
+\item
+  decision中に保持座標が変化せず、R193自身からW2へ直接反作用しないことを示す。
+\item
+  R189Aの作用比誤差をR191の吸引域境界誤差へ一度だけ伝播する。
+\item
+  端点dispatcherを状態依存除算なしの固定線形比較へ書き換える。
+\item
+  decision後に保持対の共役運動量へ残る履歴を次回captureから隔離する条件を明示する。
+\end{enumerate}
+
+R193はブラウン巨視的スピンの混合、有限温度stochastic LLG、捕獲、無反応、吸収記録を新しく導出しない。それらはR191をそのまま使う。またR181Dの射影結果成分振り分けも変更しない。Q2系列はR193へ依存せず、R191の一般transducer契約を引き続き使う。
+
+\hypertarget{r189aux4fddux6301ux5ea7ux6a19}{%
+\section{R189A保持座標}\label{r189aux4fddux6301ux5ea7ux6a19}}
+
+R189Aのcapture終了直後を考える。左右結果を \(b\in\{L,R\}\) とし、保持用正準対を
+
+\[
+(A_b,P_b^J)
+\]
+
+とする。capture窓では
+
+\[
+H_{\rm cap}(t)
+=
+\chi_\ell(t-t_\ell)
+\sum_{b=L,R}
+P_b^J J_b(Z)
+\]
+
+を使い、理想未使用条件 \(P_L^J=P_R^J=0\) から開始する。capture終了時の保持増分を
+
+\[
+A_L=\bar J_L,
+\qquad
+A_R=\bar J_R
+\]
+
+と書く。初期オフセットを使う場合は既知の固定オフセットを差し引いた保持増分を以下の \(A_b\) とする。
+
+和と差を
+
+\[
+A_\Sigma=A_L+A_R,
+\qquad
+A_\Delta=A_L-A_R
+\]
+
+と定める。R189Aの理想窓では
+
+\[
+A_\Sigma=J_\Sigma
+\]
+
+が成り立ち、差だけが有限窓平均を受ける。中心時刻 \(t_\ell\) の理想作用比を
+
+\[
+p_L
+=
+\frac{J_L(t_\ell)}{J_\Sigma},
+\qquad
+p_R=1-p_L
+\]
+
+とし、保持作用比を
+
+\[
+q_L
+=
+\frac{A_L}{A_\Sigma},
+\qquad
+q_R=1-q_L
+\]
+
+とする。以下では \(A_\Sigma>0\) を仮定する。
+
+\hypertarget{ux76f4ux63a5decision-hamiltonian}{%
+\section{直接decision Hamiltonian}\label{ux76f4ux63a5decision-hamiltonian}}
+
+R191の固定長ブラウン巨視的スピンを \(\boldsymbol m\in S^2\) とし、読出し軸成分を
+
+\[
+U=m_z\in[-1,1]
+\]
+
+とする。R189Aのcaptureを閉じて \(H_{\rm cap}=0\) とした後、decision窓だけ滑らかな固定gate \(\lambda_{\rm dec}(t)\) を開き、
+
+\[
+H_{193}(t)
+=
+-\lambda_{\rm dec}(t)
+\frac{\chi}{2}
+\left[
+A_\Sigma U^2
++2A_\Delta U
+\right],
+\qquad
+\chi>0
+\]
+
+を作用させる。decision plateauでは \(\lambda_{\rm dec}=1\) とする。立上げ・立下げの有限誤差は後の \(\varepsilon_{193}^{u}\) または時計誤差へ含める。
+
+この結合はR191のdecision potential
+
+\[
+V_{\rm dec}(u)
+=-\frac{\chi}{2}
+\left(
+\widehat S u^2+2\widehat D u
+\right)
+\]
+
+を
+
+\[
+\widehat S=A_\Sigma,
+\qquad
+\widehat D=A_\Delta
+\]
+
+として直接実装する。従って理想接続での吸引域境界は
+
+\[
+u_A
+=-\frac{A_\Delta}{A_\Sigma}
+=1-2q_L.
+\]
+
+外部制御器が \(A_\Delta/A_\Sigma\) を計算してmacrospinへ書き戻す操作は使わない。比は二つの物理係数が同じenergyに入ることで吸引域境界として現れる。
+
+\begin{theorem}[R193：R189A作用保持座標からR191ブラウン巨視的スピンへの直接decision接続]
+
+R189Aのcapture終了後に $H_{\rm cap}=0$ とし、保持座標 $A_L,A_R$ と固定長macrospin $\boldsymbol m$ を上の $H_{193}$ で有限decision窓だけ結合する。decision plateau上では次が成り立つ。
+
+1. 保持座標は厳密に固定される。
+
+$$
+\dot A_L=\dot A_R=0.
+$$
+
+2. $H_{193}$ はW2信号座標 $Z$ を含まないため、R193自身から走行中W2への直接Hamiltonian反作用は零である。W2は同じ区間に存在するRabi Hamiltonianだけで発展する。
+
+3. macrospin側のdecision energyはR191の一般形と一致し、
+
+$$
+\widehat S=A_\Sigma,
+\qquad
+\widehat D=A_\Delta
+$$
+
+を与える。
+
+4. R189Aの保持済み二値作用比が中心時刻の理想比に対して
+
+$$
+|q_L-p_L|
+\leq
+\varepsilon_{189A}
+$$
+
+を満たすなら、理想R191境界
+
+$$
+u_*
+=-\frac{J_L-J_R}{J_L+J_R}
+=1-2p_L
+$$
+
+に対して
+
+$$
+|u_A-u_*|
+\leq
+2\varepsilon_{189A}
+$$
+
+である。直接結合、有限gate、較正、時計から生じる追加境界誤差を
+
+$$
+|\widetilde u_*-u_A|
+\leq
+\varepsilon_{193}^{u}
+$$
+
+とまとめれば、
+
+$$
+|\widetilde u_*-u_*|
+\leq
+2\varepsilon_{189A}
++
+\varepsilon_{193}^{u}.
+$$
+
+5. 安全集合上で
+
+$$
+A_\Sigma
+\geq
+S_{\min}^{A}>0
+$$
+
+なら、R191の有限温度評価は
+
+$$
+\Delta_{\min}^{193}
+=
+\frac{\chi S_{\min}^{A}}
+{2k_{\rm B}T_{\rm dec}}
+$$
+
+を下限としてそのまま適用できる。
+
+6. decision中、保持対の共役運動量は一般に固定されず、
+
+$$
+\dot P_L^J
+=
+\lambda_{\rm dec}(t)
+\frac{\chi}{2}
+\left(U^2+2U\right),
+$$
+
+$$
+\dot P_R^J
+=
+\lambda_{\rm dec}(t)
+\frac{\chi}{2}
+\left(U^2-2U\right)
+$$
+
+となる。従って $0\leq\lambda_{\rm dec}\leq1$ とdecision窓長 $T_{\rm dec}$ に対して
+
+$$
+|\Delta P_b^J|
+\leq
+\frac{3\chi}{2}T_{\rm dec},
+\qquad
+b=L,R.
+$$
+
+この使用済み保持対を、共役運動量を除去せず次回の $H_{\rm cap}$ へ再接続してはならない。次回capture前に未使用保持対との正準SWAPを行うか、R179のopen resetへ切り離して未使用保持対を供給する。
+\end{theorem}
+
+\begin{proof}[R193]
+
+$H_{193}$ は $P_L^J,P_R^J$ を含まないので、正準方程式から $\dot A_b=\partial H_{193}/\partial P_b^J=0$ である。またcapture終了後は $H_{\rm cap}=0$ であり、$H_{193}$ は $Z$ を含まないため、R193から $Z$ への追加Hamiltonianベクトル場は零である。
+
+$H_{193}$ のmacrospin依存部分はR191の $V_{\rm dec}$ に $\widehat S=A_\Sigma$、$\widehat D=A_\Delta$ を代入した式と一致する。さらに
+
+$$
+u_A=1-2q_L,
+\qquad
+u_*=1-2p_L
+$$
+
+なので
+
+$$
+|u_A-u_*|
+=2|q_L-p_L|
+\leq2\varepsilon_{189A}.
+$$
+
+追加接続誤差には三角不等式を使う。$A_\Sigma$ の正下限からR191の障壁下限が直ちに従う。
+
+最後に $\dot P_b^J=-\partial H_{193}/\partial A_b$ を計算すると表示式を得る。$|U|\leq1$ だから $|U^2\pm2U|\leq3$ であり、有限decision窓を積分して共役運動量の上界を得る。次回captureでは $H_{\rm cap}$ が $P_b^J J_b(Z)$ を含むため、使用済み $P_b^J$ を残した再接続は一般にW2へ反作用する。従って未使用保持対条件が必要である。証明終。
+\end{proof}
+
+\hypertarget{endpoint-dispatcherux306eux9664ux7b97ux9664ux53bb}{%
+\section{endpoint dispatcherの除算除去}\label{endpoint-dispatcherux306eux9664ux7b97ux9664ux53bb}}
+
+R191の解析上の推定重みをR193特殊化すると
+
+\[
+\widehat p_L
+=
+\frac{A_L}{A_L+A_R},
+\qquad
+\widehat p_R
+=
+\frac{A_R}{A_L+A_R}.
+\]
+
+固定 \(0<\tau_{\rm cut}<1/2\) に対して
+
+\[
+\widehat p_L<\tau_{\rm cut}
+\]
+
+は
+
+\[
+(1-\tau_{\rm cut})A_L
+-\tau_{\rm cut}A_R
+<0
+\]
+
+と同値である。右側も \(L,R\) を交換すればよい。従ってQ1/R193のendpoint dispatcherはR112型の固定線形比較器で実装でき、物理制御器が状態依存除算を実行する必要はない。比較器の有限保護帯はR191の正式な無反応または \(\varepsilon_{193}^{u}\) に含める。
+
+\hypertarget{ux8aa4ux5deeux3092ux4e00ux5ea6ux3060ux3051ux6570ux3048ux308bux898fux7d04}{%
+\section{誤差を一度だけ数える規約}\label{ux8aa4ux5deeux3092ux4e00ux5ea6ux3060ux3051ux6570ux3048ux308bux898fux7d04}}
+
+R193はR189Aの作用比誤差をR191へ伝播する特殊化であり、同じ偏差を二重に数えない。Q1ではR191内部誤差を、R189Aから既に計上した境界ずれを除いて
+
+\[
+\varepsilon_{191|193}^{\rm int}
+=
+\varepsilon_{\rm mix}
++g
++\frac{\varepsilon_{193}^{u}}{2}
++q_{\rm ret}
++q_{\rm time}
++\varepsilon_{\rm cap}
+\]
+
+と整理できる。端点側も
+
+\[
+\varepsilon_{191|193}^{\rm edge}
+=
+\tau_{\rm cut}
++\frac{\varepsilon_{193}^{u}}{2}
++\varepsilon_{\rm cap}
+\]
+
+とし、
+
+\[
+\varepsilon_{191|193}
+=
+\max
+\left\{
+\varepsilon_{191|193}^{\rm int},
+\varepsilon_{191|193}^{\rm edge}
+\right\}
+\]
+
+とする。従ってR189BのQ1特殊化は
+
+\[
+\varepsilon_{189B}^{\rm dist}
+\leq
+\varepsilon_{189A}
++\varepsilon_{191|193}
++\varepsilon_{\rm lat}
+\]
+
+と書ける。一般R191のtransducer誤差式はQ2とR193を使わない実装のために残す。
+
+\hypertarget{mixingdecisionux672aux4f7fux7528ux4fddux6301ux5bfeux306eux6642ux8a08ux9806ux5e8f}{%
+\section{mixing、decision、未使用保持対の時計順序}\label{mixingdecisionux672aux4f7fux7528ux4fddux6301ux5bfeux306eux6642ux8a08ux9806ux5e8f}}
+
+R191の等方mixingは \(A_L,A_R\) を必要としないので、Q1ではW2発展およびR189A capture以前から並行して実行できる。必要条件はdecision gateを開く時刻までに所定の \(\varepsilon_{\rm mix}\) を達成していることである。
+
+1回のQ1測定周期は例えば次の有限時計順序でよい。
+
+\begin{verbatim}
+macrospin mixing ----+------------------------------
+W2 Rabi -------------+-- R189A capture --+----------
+                                             |
+                                             +-- R193/R191 decision
+                                                  |
+                                                  +-- R181D router
+                                                       |
+                                                       +-- used pointer SWAP/reset
+\end{verbatim}
+
+R189Bのlatencyへmixing時間全体を必ず加える必要はない。capture中心時刻からR181D完了までの実際の時間差だけを \(\varepsilon_{\rm lat}\) へ入れる。
+
+\hypertarget{ux4e3bux5f35ux3057ux306aux3044ux3053ux3068}{%
+\section{主張しないこと}\label{ux4e3bux5f35ux3057ux306aux3044ux3053ux3068}}
+
+R193の追加後も次は未導出である。
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  R191のstochastic LLGを含むmacrospin浴、吸収記録、R181D router、R179 resetをM37の元の局所ばね座標だけから導くこと。
+\item
+  Q1の全周期について仕事、熱、エントロピー収支を一つの具体的装置で閉じること。
+\item
+  Q2の4、8、一般 \(2^n\) モード信号からR191へ入る一般transducerをR189A/R193で置き換えること。
+\item
+  Q1、Q2、Q3を同じ製造済み装置、同じパラメータ、単一周期へ統合するM0全体。
+\end{enumerate}
+
+従ってR193はQ1の「W2作用保持からmacrospin decision energyまで」の抽象接続を閉じる強化結果であり、M0達成を意味しない。
 
 \begingroup
 

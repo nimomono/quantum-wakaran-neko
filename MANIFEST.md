@@ -277,3 +277,10 @@
 - A8/A11/A12/A16とQ2-2証明をR191主線へ同期。
 - `notes/superseded_r164_q1q2_measurement_role.md` と `notes/superseded_r180a_named_theorem.md` を追加。
 - R181A/Hopf準備方程式は変更せず、理論変更を伴う準備模型再編は後続課題とする。
+
+## draft-91のR193 Q1直接decision接続
+
+- 付録U `sections/A21_q1_r193_macrospin_bridge.md` を追加し、R189A保持座標からR191 macrospin decision energyへのQ1専用直接Hamiltonian接続R193を正本化。
+- `tools/verify_q1_r193_macrospin_bridge.py` を追加し、吸引域境界、誤差係数、dispatcher、未使用保持対境界を検算。
+- Q1主線を `M37 W2 -> R189A -> R193 -> R191 -> R181D` へ同期し、Q2の一般R191 transducer契約は維持。
+- `paper.md`、`main.tex`、`paper.pdf` は章別原稿から再生成する。
