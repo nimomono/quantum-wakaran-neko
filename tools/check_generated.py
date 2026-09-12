@@ -2,15 +2,13 @@
 from __future__ import annotations
 
 import argparse
-import re
 import subprocess
 import tempfile
 from pathlib import Path
 
+from latex_log import classify_latex_log
+
 ROOT = Path(__file__).resolve().parent.parent
-FORBIDDEN_LOG = re.compile(
-    r"Citation .* undefined|Reference .* undefined|Overfull|Underfull|Fatal error|Missing character"
-)
 
 
 def command_output(args: list[str]) -> str:
@@ -60,9 +58,10 @@ def main() -> None:
     if not log.is_file():
         raise AssertionError(f"LaTeX log missing: {log}")
     log_text = log.read_text(encoding="utf-8", errors="replace")
-    match = FORBIDDEN_LOG.search(log_text)
-    if match:
-        raise AssertionError(f"forbidden LaTeX warning remains: {match.group(0)}")
+    hard, _ = classify_latex_log(log_text)
+    if hard:
+        first = hard[0]
+        raise AssertionError(f"forbidden LaTeX error remains: {first.kind}: {first.message}")
 
     print("generated_artifacts_check_ok")
 
