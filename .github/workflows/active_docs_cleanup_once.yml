@@ -24,7 +24,7 @@ jobs:
           python-version: "3.12"
 
       - name: Apply four-source cleanup
-        run: python tools/_cleanup_active_docs_v2_once.py
+        run: python tools/_cleanup_active_docs_v3_once.py
 
       - name: Check source and terminology
         run: |
@@ -70,12 +70,13 @@ jobs:
         run: |
           rm -f tools/_cleanup_active_docs_once.py
           rm -f tools/_cleanup_active_docs_v2_once.py
+          rm -f tools/_cleanup_active_docs_v3_once.py
           rm -f .github/workflows/active_docs_cleanup_once.yml
 
       - name: Commit and push final changes
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add README.md PROJECT_STATUS.md sections/03_m47_controlled_w_instrument.md sections/A3_m54_q2_specialization_proofs.md paper.md main.tex paper.pdf tools/_cleanup_active_docs_once.py tools/_cleanup_active_docs_v2_once.py .github/workflows/active_docs_cleanup_once.yml
+          git add README.md PROJECT_STATUS.md sections/03_m47_controlled_w_instrument.md sections/A3_m54_q2_specialization_proofs.md paper.md main.tex paper.pdf tools/_cleanup_active_docs_once.py tools/_cleanup_active_docs_v2_once.py tools/_cleanup_active_docs_v3_once.py .github/workflows/active_docs_cleanup_once.yml
           git commit -m "docs: simplify active narrative and remove stale dependencies"
           git push origin HEAD:draft-readme-status-cleanup
