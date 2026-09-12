@@ -240,11 +240,11 @@ Doppler項だけからthermal fast sectorの実際のdrift velocityが `v_s` に
 ```math
 u_{\rm fast}=v_s+O(\varepsilon_{\rm ent})
 ```
-と書くことではなく、速度変数そのものを
+ではなく、速度変数 `u_fast` を物理的に定義し、
 ```math
-u_{\rm fast}:=u_{\rm fast}
+u_{\rm fast}\equiv u_{\rm fast}
 ```
-と明示して、物理的に
+とした上で
 ```math
 u_{\rm fast}=v_s+O(\varepsilon_{\rm ent})
 ```
@@ -254,7 +254,7 @@ u_{\rm fast}=v_s+O(\varepsilon_{\rm ent})
 \propto
 \exp[-\beta(H_{\rm fast}-v_sP_m)]\,dY
 ```
-を導くことである。以後、本文ではこのnormal-component driftを `u_fast` と呼ぶ。
+を導くことである。
 
 これが成立して初めてKubo/Mori縮約から
 ```math
