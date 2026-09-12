@@ -409,15 +409,17 @@ H_{\rm fast}^{(2)}
 ```math
 F_m=-\Gamma_m(\dot X-v_s)
 ```
-とは結論しない。必要なのはthermal fast sectorのnormal drift
+とは結論しない。必要なのはthermal fast sectorのnormal driftが
 ```math
-u_{\rm fast}=v_s+O(\varepsilon_{\rm ent})
+u_{\mathrm{fast}}=v_s+O(\varepsilon_{\rm ent})
 ```
-ではなく、速度変数を `u_fast` と明示して
+ではなく、速度変数
 ```math
-u_{\rm fast}\equiv u_{\rm fast},
-\qquad
-u_{\rm fast}=v_s+O(\varepsilon_{\rm ent})
+u_{\mathrm{fast}}\equiv u_{\mathrm{fast}}
+```
+として定義される `u_fast` について
+```math
+u_{\mathrm{fast}}=v_s+O(\varepsilon_{\rm ent})
 ```
 が成立すること、または条件付き分布が
 ```math
