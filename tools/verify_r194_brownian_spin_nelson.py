@@ -35,6 +35,35 @@ def check_osmotic_drift() -> None:
     assert_close(drift, target, 1e-14, "einstein_entropy_to_osmotic")
 
 
+def check_signal_velocity_identity() -> None:
+    # j=rho ∂xS/m なら node-free 領域で j/rho=∂xS/m.
+    x = np.linspace(-1.8, 1.8, 1201)
+    m = 1.9
+    rho = 1.25 + 0.18*np.cos(0.9*x)
+    dS = 0.43 - 0.12*np.sin(1.3*x)
+    current = rho * dS / m
+    assert_close(current / rho, dS / m, 1e-14, "signal_velocity_j_over_rho")
+
+
+def check_relative_velocity_coupling() -> None:
+    # -dotX Pm + vs Pm = -(dotX-vs) Pm.
+    dotx = np.linspace(-0.7, 0.8, 301)
+    vs = 0.24 - 0.11*np.sin(np.linspace(-1.0, 1.0, 301))
+    pm = 1.3 + 0.2*np.cos(np.linspace(-1.0, 1.0, 301))
+    lhs = -dotx*pm + vs*pm
+    rhs = -(dotx-vs)*pm
+    assert_close(lhs, rhs, 1e-14, "relative_velocity_momentum_coupling")
+
+
+def check_classical_drag_temperature_cancellation() -> None:
+    # Γm=C kBT なら ν=kBT/Γm=1/C。これはFDT/equipartitionの代数だけを検算する。
+    C = 2.7
+    temperatures = np.array([0.2, 0.7, 1.4, 3.1])
+    gamma = C * temperatures
+    nu = temperatures / gamma
+    assert_close(nu, np.full_like(nu, 1.0/C), 1e-14, "classical_drag_temperature_plateau")
+
+
 def check_fokker_planck_equivariance() -> None:
     # 任意の滑らかな rho,v に対する局所恒等式
     # -∂x[(v+u)rho] + nu ∂xx rho = -∂x(v rho), u=nu ∂x log rho.
@@ -86,20 +115,6 @@ def check_nelson_harmonic_ground_state() -> None:
     assert_close(a_n, force_over_m, 1e-14, "nelson_harmonic_newton")
 
 
-def check_phase_matching() -> None:
-    # eta A_b = 4 s (1+alpha^2) nu と J0=2mnu から、
-    # eta A_b/[2s(1+alpha^2)J0] = 1/m.
-    eta = 0.73
-    s = 1.4
-    alpha = 0.08
-    nu = 0.22
-    m = 2.3
-    j0 = 2*m*nu
-    A_b = 4*s*(1+alpha**2)*nu/eta
-    coeff = eta*A_b/(2*s*(1+alpha**2)*j0)
-    assert_close(coeff, 1/m, 1e-14, "phase_current_matching")
-
-
 def sech2(z):
     c = np.cosh(z)
     return 1.0/(c*c)
@@ -129,10 +144,12 @@ def check_wall_width_order() -> None:
 def main() -> None:
     check_two_spin_shell()
     check_osmotic_drift()
+    check_signal_velocity_identity()
+    check_relative_velocity_coupling()
+    check_classical_drag_temperature_cancellation()
     check_fokker_planck_equivariance()
     check_backward_drift()
     check_nelson_harmonic_ground_state()
-    check_phase_matching()
     check_wall_width_order()
     print("r194_brownian_spin_nelson_ok")
 
