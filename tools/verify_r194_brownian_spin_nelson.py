@@ -142,16 +142,52 @@ def check_nelson_harmonic_ground_state() -> None:
     assert_close(a_n, force_over_m, 1e-14, "nelson_harmonic_newton")
 
 
-def check_phase_normalizer_matching() -> None:
-    # J_b=-A_b dphi, phi=S/J0, dot X=c_ph J_b.
-    # -c_ph A_b/J0=1/m is the current-drift matching.
-    A_b = 1.7
+def check_r194d_prime_scaling() -> None:
+    # 候補単一parameter familyの指数関係だけを確認する。
+    # これはLLGS->Adlerやwall absorptionそのものを検証するものではない。
+    nu = 0.37
+    D0 = 2.4
+    K0 = 1.6
+    lam0 = 0.7
+    for eps in (0.20, 0.10, 0.05):
+        carrier = eps**-3
+        sigma = eps**-8
+        pickup = eps
+        D = D0*eps**-2
+        K = K0*eps**-4
+        tau_h = 1.0/K
+        ell_h = math.sqrt(D/K)
+        lam = lam0*eps**2
+
+        assert_close(carrier**2/sigma, eps**2, 1e-13,
+                     f"r194d_amp_scaling_eps={eps:g}")
+        assert_close(pickup**2, eps**2, 1e-15,
+                     f"r194d_loading_scaling_eps={eps:g}")
+        assert_close(pickup*carrier, eps**-2, 1e-12,
+                     f"r194d_pickup_carrier_eps={eps:g}")
+        assert_close(tau_h, eps**4/K0, 1e-15,
+                     f"r194d_healing_time_eps={eps:g}")
+        assert_close(ell_h, math.sqrt(D0/K0)*eps, 1e-14,
+                     f"r194d_healing_length_eps={eps:g}")
+        assert_close(math.sqrt(nu*tau_h)/ell_h,
+                     math.sqrt(nu/D), 1e-15,
+                     f"r194d_brownian_tracking_identity_eps={eps:g}")
+        assert_close(lam/ell_h,
+                     (lam0/math.sqrt(D0/K0))*eps, 1e-14,
+                     f"r194d_wall_to_healing_eps={eps:g}")
+
+
+def check_r194d_prime_matching() -> None:
+    # J_Phi = G_h J_inf, J_inf = -A_r S_x/J0.
+    # sigma_DW G_h A_r/(Gamma_DW J0)=1/m がdrift matching。
     m = 2.3
-    nu = 0.22
-    j0 = 2*m*nu
-    c_ph = -j0/(m*A_b)
-    coeff = -c_ph*A_b/j0
-    assert_close(coeff, 1/m, 1e-14, "phase_normalizer_current_matching")
+    j0 = 1.1
+    gamma_dw = 1.7
+    gain_h = 2.0
+    sigma_dw = 1.0
+    A_r = gamma_dw*j0/(sigma_dw*gain_h*m)
+    coeff = sigma_dw*gain_h*A_r/(gamma_dw*j0)
+    assert_close(coeff, 1/m, 1e-14, "r194d_prime_gain_matching")
 
 
 def check_temperature_plateau_algebra() -> None:
@@ -207,7 +243,8 @@ def main() -> None:
     check_fokker_planck_equivariance()
     check_backward_drift()
     check_nelson_harmonic_ground_state()
-    check_phase_normalizer_matching()
+    check_r194d_prime_scaling()
+    check_r194d_prime_matching()
     check_temperature_plateau_algebra()
     check_wall_width_order()
     print("r194_brownian_spin_nelson_ok")
