@@ -56,7 +56,7 @@ P_rZ.
 
 固定有限回の逐次測定では、各段で信号を物理的に規格化し直す必要はありません。一般に深いQ2-4の回路で作用が小さくなりすぎる場合だけ、状態方向を変えず作用の大きさだけを戻すR192を補助的に使います。
 
-この経路で、Born型2結果分布、同じ軸の反復測定、異なる軸の逐次測定、有限回のRabi--Zeno比較まで構成しています。
+この経路で、Born型2結果分布、同軸反復、異軸逐次測定、有限回のRabi--Zeno比較まで構成しています。
 
 ### 2. 複合系とBell型統計
 
@@ -83,6 +83,26 @@ X_T.
 R185では同じ前向き経路法則のBayes反転から前進・後退平均微分を構成し、有限格子・有限時間の範囲で時間対称Newton則へ接続します。
 
 この位置過程は、Q1/Q2で測定結果を作るR191とは別の因果鎖です。
+
+### 4. Brownian-spinによるQ1/Q3統合候補
+
+現行Q3主線とは別に、Q1のBrownian spinとQ3の粒子運動を同じ古典spin物理へ統合するM56候補を研究しています。Q3粒子をbiaxial磁性体のdomain-wall中心 $X$ とし、easy-plane spin supercurrentからcurrent driftを、2個のBrownian spinの作用殻状態数からosmotic driftを作ることで、理想的には
+
+```math
+dX_t
+=
+\left[
+\frac{\partial_xS}{m}
++
+\nu\partial_x\log\rho
+\right]dt
++
+\sqrt{2\nu}\,dW_t
+```
+
+というNelson型拡散を直接得ることを狙います。
+
+現段階ではphase lockからdomain-wall並進までの有限誤差bridgeが未証明なので、M56はR161/R162/R185を置換しません。模型、導出済み部分、未解決条件は [Brownian-spin Q1/Q3統合候補](notes/brownian_spin_q1_q3_unification.md) に分けて記録しています。
 
 ## 現在どこまでできているか
 
