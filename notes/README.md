@@ -6,7 +6,7 @@ draft-51以後の現行文書では、各試行で局在する物理変数を「
 
 | メモ | 元の版・移動元 | 現在の位置づけ | 移動理由 |
 |---|---|---|---|
-| `brownian_spin_q1_q3_unification.md` | draft-92で追加 | M56/R194A--R194Eの現役統合候補。Q1のBrownian spinとQ3のdomain-wall Nelson力学を同じ古典spin物理へ接続する研究線 | R194Dのphase-current bridgeと同時parameter regimeが未証明なので、現行Q3-2のR161/R162/R185達成根拠を変更せず研究線を固定するため |
+| `brownian_spin_q1_q3_unification.md` | draft-92で追加、現行候補をrelative-velocity magnon-drag経路へ更新 | M56/R194A--R194Hの現役統合候補。signal自身の `j/rho`、domain-wall relative-velocity friction、2-spin entropy shellからNelson diffusionを狙う。旧R194D phase-bus経路は代替案へ降格 | R194F/Gの同一spinミクロ縮約、有限Markov drag、signal/backreaction、同時parameter regimeが未証明なので、現行Q3-2のR161/R162/R185達成根拠を変更せず研究線を固定するため |
 | `superseded_separate_m51_m52_m53_models.md` | draft-67までのM51、M52、M53、R171、R176、R178 | M54/R181B--R181Dへの吸収と旧R181Aへの準備統合の履歴 | Q1とQ2を同じ有限正準register・作用殻receiver模型族から派生させるため |
 | `superseded_separate_m50_m55_models.md` | draft-73までのM50、M55、R183 | M54 static/spatial profileへの吸収記録 | static測定とspatial運動を同じR161/R162 matching/collision原理へ統一するため |
 | `superseded_r178_aperture_sampler.md` | draft-67の付録P、旧R178E/R178F | fixed-volume aperture、first-index、dyadic tapeの退役記録 | Q1/Q2読出しをR170選択・固定＋R181D段階的射影選別へ一本化したため |
@@ -29,7 +29,7 @@ draft-51以後の現行文書では、各試行で局在する物理変数を「
 | `superseded_m38_m42_q1.md` | draft-43以前の第3章、付録B、M38、R92--R100、R119 | 旧Q1操作・測定模型の置換記録。比較・記録内容はR112へ統合 | Q1をW型2モード共同統計と傾斜測定を使うM47/R139--R144へ移行した |
 | `superseded_m42_continuous_particle_position.md` | draft-51までの旧M42/R113--R118とdraft-58--71の再定義M42/R172--R174 | M42の二段階退役記録 | draft-72でM55へ、draft-74でM54 spatial profileへ統合し、実在粒子位置を共通親模型へ保持した |
 | `q1_2_zeno_integration.md` | draft-43以前の第3章、付録B、R101--R103 | 旧Q1-4と旧有限Zeno構成の保存、draft-59以後のQ1-2統合条件 | 旧結果を現行根拠へ戻さず、零傾斜Rabi対照、反復測定、全履歴、tilt対照、誤差・資源監査からQ1-2のZeno部分を構成するため |
-| `superseded_m41_bell_cycle.md` | draft-45A以前の第5章、M41、R107--R111、R121 | 旧初期共通原因型2端Bell周期の置換記録 | M48のpaired-Hopf receiver、2翼strong matching、切断後局所instrument、resetへ主線を移し、因果律の異なる旧周期を現行根拠から外した |
+| `superseded_m41_bell_cycle.md` | draft-45A以前の第5章、M41、R107--R111、R121 | 旧初期共通原因型2端Bell周期の置換記録 | M48のpaired-Hopf receiver、2翼strong matching、切断後局所instrument、resetへ主線を移し、因果律の異なる旧周期を現行根拠から外すため |
 | `superseded_m41_cycle_proofs.md` | draft-45A以前の付録D | M41周期の旧証明記録 | R107--R111、R121を撤回せず保存する一方、現行Q2-2の証明依存から外すため |
 | `superseded_m39_m48_handoff_claim.md` | draft-45BのR151、旧第4.9節・第5.3節・付録D.2・付録J.14 | 旧M39--M48 state handoff主張の置換記録 | 反対称filterが非零入力を同じsinglet射影へ潰し、等重み枝も内部fair seedで代替できるため、物理的なstate-carrying受渡しと分類できない |
 | `superseded_independent_m48_bell_protocol.md` | draft-45A--draft-65の第5章、付録D・I、M48、R147・R153・R155 | 独立M48 Bell protocolの置換記録 | Q2-2のsourceをM54の実際の1試行末端信号へ接続し、R180A--R180Cのsetting-pre paired-Hopf receiverへ主線を移した |
