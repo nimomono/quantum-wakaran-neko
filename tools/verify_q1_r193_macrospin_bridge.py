@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+"""R193の代数恒等式・誤差上界だけを検算し、原稿文字列には依存しない。"""
+
 from __future__ import annotations
 
 import math
