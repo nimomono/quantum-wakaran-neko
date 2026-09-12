@@ -236,24 +236,25 @@ H_{\rm fast}^{(2)}
 
 ### 7.2 R194F-b：fast-sector entrainment problem
 
-Doppler項だけからthermal fast sectorの実際のdrift velocityが `v_s` になることは従わない。relative-velocity Brownian化に必要なのは
+Doppler項だけからthermal fast sectorの実際のdrift velocityが `v_s` になることは従わない。relative-velocity Brownian化に必要なのはnormal-component drift
 ```math
-u_{\rm fast}
-=v_s+O(\varepsilon_{\rm ent})
-```
-ではなく、速度変数として
-```math
-u_{\rm fast}\equiv u_{\rm fast},
-\qquad
 u_{\rm fast}=v_s+O(\varepsilon_{\rm ent})
 ```
-と書くようなnormal-component drift、または条件付きfast分布
+ではなく、以下で用いる速度記号
+```math
+u_{\rm fast}\equiv u_{\rm fast}
+```
+に対して
+```math
+u_{\rm fast}=v_s+O(\varepsilon_{\rm ent})
+```
+が成立すること、あるいは条件付きfast分布
 ```math
 \mu_{\rm fast}(dY)
 \propto
 \exp[-\beta(H_{\rm fast}-v_sP_m)]\,dY
 ```
-を導くことである。以後このdriftを本文では `u_fast` と呼ぶ。
+を導くことである。以後、本文ではこのnormal-component driftを `u_fast` と呼ぶ。
 
 これが成立して初めてKubo/Mori縮約から
 ```math
