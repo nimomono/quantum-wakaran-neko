@@ -26,17 +26,23 @@ jobs:
         run: python -m compileall -q tools
 
       - name: 原稿構造を検査
+        if: ${{ always() }}
         run: python tools/check_source.py
 
-      - name: 用語を検査
+      - name: 検算方針を自己検査
+        if: ${{ always() }}
+        run: python tools/test_validation_policy.py
+
+      - name: 用語をlint
+        if: ${{ always() }}
         run: python tools/check_terminology.py
 
       - name: 差分形式を検査
+        if: ${{ always() }}
         run: git diff --check
 
   physics-check:
     name: 数式・数値
-    needs: source-check
     runs-on: ubuntu-latest
     steps:
       - name: 原稿を取得
@@ -55,11 +61,15 @@ jobs:
 
   paper-check:
     name: 論文生成
-    needs: physics-check
     runs-on: ubuntu-latest
     steps:
       - name: 原稿を取得
         uses: actions/checkout@v4
+        with:
+          lfs: true
+
+      - name: LFS生成資産を取得
+        run: git lfs pull
 
       - name: Pythonを準備
         uses: actions/setup-python@v5
@@ -76,6 +86,9 @@ jobs:
 
       - name: 生成物の同期を検査
         run: python tools/check_generated.py build/ci
+
+      - name: 組版警告をlint
+        run: python tools/lint_typeset.py build/ci/latex/main.log
 
       - name: 標準構成を検査
         run: |

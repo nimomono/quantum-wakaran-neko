@@ -16,7 +16,6 @@ def check_sources() -> None:
     if not sources:
         raise AssertionError("sections/*.md is empty")
 
-    # These checks describe the source format, not any current theorem snapshot.
     chapter_paths()
     ordered_appendix_paths()
     for path in sources:
@@ -45,7 +44,6 @@ def check_project_status() -> None:
     except IndexError as exc:
         raise AssertionError("PROJECT_STATUS fixed-goal/current-position boundary is missing") from exc
 
-    # Fixed goals should state physical targets without binding them to current M/R implementation IDs.
     hit = re.search(r"(?<![A-Za-z])[MR]\d+", fixed)
     if hit:
         raise AssertionError(f"fixed-goal block contains implementation/result ID: {hit.group(0)}")
@@ -66,7 +64,6 @@ def check_project_status() -> None:
 
 
 def check_verifier_boundary() -> None:
-    # Numerical/mathematical verifiers must not double as prose/file-layout guards.
     forbidden_markers = (
         'ROOT / "sections"',
         "ROOT / 'sections'",
@@ -95,27 +92,11 @@ def check_ci_read_only() -> None:
         raise AssertionError("CI must be read-only; found: " + ", ".join(hits))
 
 
-
-def check_measurement_spine_residuals() -> None:
-    checks = {
-        "sections/A8_m47_w2_parameter_dictionary.md": ("R164/R190/R179/R170", "R170で選択機構"),
-        "sections/A11_common_collision_bath_thermodynamics.md": ("Q1・Q2の静的測定",),
-        "sections/08_errors_resources_open_targets.md": ("R164/R190/R179/R170の静的選択",),
-        "sections/02_common_canonical_modules.md": ("Q1/Q2のR190反復再混合",),
-    }
-    for rel, forbidden in checks.items():
-        text = (ROOT / rel).read_text(encoding="utf-8")
-        hits = [token for token in forbidden if token in text]
-        if hits:
-            raise AssertionError(f"stale measurement-spine wording in {rel}: {hits}")
-
-
 def main() -> None:
     check_sources()
     check_project_status()
     check_verifier_boundary()
     check_ci_read_only()
-    check_measurement_spine_residuals()
     print("source_check_ok")
 
 

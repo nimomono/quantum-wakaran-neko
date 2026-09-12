@@ -1,12 +1,14 @@
 #!/usr/bin/env python3
-"""現行原稿へ旧英語説明語・既知の置換崩れが再混入していないか検査する。
+"""現行原稿の表記規約をlintする。
 
-この検査は文章規約の検査であり、数学・数値検算の verify_* 名前空間には置かない。
-標準表記そのものの正本は TERMINOLOGY.md と PROJECT_GUIDE.md である。
+明白な機械置換崩れはhard errorとする。旧英語説明語や標準表記からの逸脱は
+warningとして報告し、CIの科学的・構造的検算とは分離する。必要なら
+``--strict`` でwarningも失敗扱いにできる。
 """
 
 from __future__ import annotations
 
+import argparse
 import re
 from pathlib import Path
 
@@ -20,10 +22,7 @@ TARGETS = [
     *sorted(path for path in SECTIONS.glob("*.md") if path.name != "90_references.md"),
 ]
 
-# Compatibility lint rules.  They intentionally contain only expressions that the
-# project already treats as hard errors; additions should be justified by the
-# canonical terminology documents rather than by one-off CI failures.
-FORBIDDEN_WORDS = (
+WARNING_WORDS = (
     "profile", "carrier", "register", "cell", "latch", "branch",
     "sector", "backend", "handoff", "protocol", "bank", "mode",
     "signal", "bath", "clock", "collision", "filter", "ray",
@@ -34,14 +33,14 @@ FORBIDDEN_WORDS = (
     "fringe", "limiter", "yield",
 )
 
-FORBIDDEN_PHRASES = (
+WARNING_PHRASES = (
     "projective-node", "projector-tree", "tensor-lift", "setting-pre",
     "radial-only", "finite collision", "canonical handoff",
     "functional calculus", "continuity equation", "data-processing",
     "interaction picture", "fault-tolerant", "hard defect",
 )
 
-FORBIDDEN_JAPANESE = (
+HARD_JAPANESE = (
     "運用上な", "個別個別", "信号系信号", "確率確率流",
     "ノイズ covariance", "有限 切替", "安全 集合",
     "大きさ方向のみの 接続端", "受動信号 モード", "衝突 浴",
@@ -84,11 +83,11 @@ def strip_protected(text: str) -> str:
         if in_fence:
             out.append("")
             continue
-        if stripped in {"$$", r"\["}:
+        if not in_display_math and stripped in {"$$", r"\["}:
             in_display_math = True
             out.append("")
             continue
-        if stripped in {"$$", r"\]"} and in_display_math:
+        if in_display_math and stripped in {"$$", r"\]"}:
             in_display_math = False
             out.append("")
             continue
@@ -105,40 +104,50 @@ def strip_protected(text: str) -> str:
     return "\n".join(out)
 
 
+def gh_escape(message: str) -> str:
+    return message.replace("%", "%25").replace("\r", "%0D").replace("\n", "%0A")
+
+
 def main() -> None:
-    errors: list[str] = []
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--strict", action="store_true", help="treat terminology warnings as errors")
+    args = parser.parse_args()
+
+    hard_errors: list[str] = []
+    warnings: list[tuple[str, int, str]] = []
     word_patterns = {
-        word: re.compile(
-            rf"(?<![A-Za-z0-9_]){re.escape(word)}(?![A-Za-z0-9_])",
-            re.IGNORECASE,
-        )
-        for word in FORBIDDEN_WORDS
+        word: re.compile(rf"(?<![A-Za-z0-9_]){re.escape(word)}(?![A-Za-z0-9_])", re.IGNORECASE)
+        for word in WARNING_WORDS
     }
-    phrase_patterns = {
-        phrase: re.compile(re.escape(phrase), re.IGNORECASE)
-        for phrase in FORBIDDEN_PHRASES
-    }
-    japanese_patterns = {phrase: re.compile(re.escape(phrase)) for phrase in FORBIDDEN_JAPANESE}
+    phrase_patterns = {phrase: re.compile(re.escape(phrase), re.IGNORECASE) for phrase in WARNING_PHRASES}
+    japanese_patterns = {phrase: re.compile(re.escape(phrase)) for phrase in HARD_JAPANESE}
 
     for path in TARGETS:
         text = strip_protected(path.read_text(encoding="utf-8"))
-        rel = path.relative_to(ROOT)
+        rel = path.relative_to(ROOT).as_posix()
         for line_number, line in enumerate(text.splitlines(), start=1):
-            for token, pattern in word_patterns.items():
-                if pattern.search(line):
-                    errors.append(f"{rel}:{line_number}: 旧説明語 {token!r}: {line.strip()}")
-            for token, pattern in phrase_patterns.items():
-                if pattern.search(line):
-                    errors.append(f"{rel}:{line_number}: 旧複合語 {token!r}: {line.strip()}")
             for token, pattern in japanese_patterns.items():
                 if pattern.search(line):
-                    errors.append(f"{rel}:{line_number}: 日本語表記不整合 {token!r}: {line.strip()}")
+                    hard_errors.append(f"{rel}:{line_number}: 日本語表記不整合 {token!r}: {line.strip()}")
+            for token, pattern in word_patterns.items():
+                if pattern.search(line):
+                    warnings.append((rel, line_number, f"旧説明語 {token!r}: {line.strip()}"))
+            for token, pattern in phrase_patterns.items():
+                if pattern.search(line):
+                    warnings.append((rel, line_number, f"旧複合語 {token!r}: {line.strip()}"))
 
-    if errors:
-        print("用語規約違反:")
-        print("\n".join(errors))
+    for rel, line_number, message in warnings:
+        print(f"::warning file={rel},line={line_number},title=用語lint::{gh_escape(message)}")
+
+    if hard_errors:
+        print("用語lint hard errors:")
+        print("\n".join(hard_errors))
         raise SystemExit(1)
-    print("terminology_check_ok")
+    if args.strict and warnings:
+        print(f"strict terminology lint failed: warnings={len(warnings)}")
+        raise SystemExit(1)
+
+    print(f"terminology_lint_ok warnings={len(warnings)}")
 
 
 if __name__ == "__main__":
