@@ -1,3 +1,11 @@
+## draft-95：M57 dual-TL tracerをQ3ミクロ正本へ採用
+
+- Q3のミクロ物理主線を、M37/M54空間信号＋R162 open-Poisson存在論から、M57 dual-TL tracer＋R195A--R195Dへ切り替えた。R161/R185の数学核とQ3-2達成ラベルは維持する。
+- R195Aでedge chiral作用と2作用Liouville状態数、R195Bでdual open TLのfinite slaving/mixing/correlation、R195CでGreen--Kubo/FDTとKramers/Lifson--Jackson matching、R195DでR161生成子への有限時間持上げを追加した。
+- R162はideal open-jump referenceへ責務縮約し、R184は旧M37--M54率latchの補助結果へ下げ、M56はspin-only代替研究線へ移した。
+- `tools/verify_m57_tl_tracer.py` でchiral恒等式、Lyapunov mixing、有限相関時間、`g_K c = 4 nu/a`、`D_hop=nu`、current-drift matching、R161形式とnative `O(a^2)` 補正を検査する。
+- README、PROJECT_STATUS、第0・1・2・6--9章、付録A22、研究メモ、参考文献、生成物をdraft-95へ同期する。
+
 ## draft-94：R161共通数学核とQ1--Q3空間構造整理
 
 - Q1型局所正準モードを空間配置し、Q2型2体系結合を辺へ反復すると、Q3のSchrödinger型空間信号とR161入力 $(\pi,j)$ が得られる構造を第1・2・6章、概要、結論へ明示した。

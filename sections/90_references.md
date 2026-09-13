@@ -61,3 +61,7 @@
 - [56] R. Kubo and N. Hashitsume, ``Brownian Motion of Spins,'' Progress of Theoretical Physics Supplement 46, 210--220 (1970). <https://doi.org/10.1143/PTPS.46.210>
 - [57] W. F. Brown, Jr., ``Thermal Fluctuations of a Single-Domain Particle,'' Physical Review 130, 1677--1686 (1963). <https://doi.org/10.1103/PhysRev.130.1677>
 - [58] G. Grinstein and R. H. Koch, ``Switching Probabilities for Single-Domain Magnetic Particles,'' Physical Review B 71, 184427 (2005). <https://doi.org/10.1103/PhysRevB.71.184427>
+- [59] A. Menegaki, ``Quantitative Rates of Convergence to Non-equilibrium Steady State for a Weakly Anharmonic Chain of Oscillators,'' Journal of Statistical Physics 181, 53--94 (2020). <https://doi.org/10.1007/s10955-020-02565-5>
+- [60] P. Carmona, ``Existence and Uniqueness of an Invariant Measure for a Chain of Oscillators in Contact with Two Heat Baths,'' Stochastic Processes and their Applications 117, 1076--1092 (2007). <https://doi.org/10.1016/j.spa.2006.12.003>
+- [61] P. Hänggi, P. Talkner, and M. Borkovec, ``Reaction-Rate Theory: Fifty Years after Kramers,'' Reviews of Modern Physics 62, 251--341 (1990). <https://doi.org/10.1103/RevModPhys.62.251>
+- [62] S. Lifson and J. L. Jackson, ``On the Self-Diffusion of Ions in a Polyelectrolyte Solution,'' Journal of Chemical Physics 36, 2410--2414 (1962). <https://doi.org/10.1063/1.1732899>
