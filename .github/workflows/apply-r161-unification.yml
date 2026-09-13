@@ -34,12 +34,17 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y pandoc poppler-utils texlive-latex-extra texlive-xetex
 
-      - name: 最新概要文面へ適応
+      - name: 最新正本文面とLaTeX置換へ適応
         run: |
           python - <<'PY'
           from pathlib import Path
           path = Path('tools/apply_r161_unification_pr.py')
           text = path.read_text(encoding='utf-8')
+          text = text.replace(
+              'new, count = re.subn(pattern, replacement, text, count=1, flags=flags)',
+              'new, count = re.subn(pattern, lambda _m: replacement, text, count=1, flags=flags)',
+              1,
+          )
           first = text.index('replace_once(\n    "sections/00_overview_and_contents.md",')
           second = text.index('replace_once(\n    "sections/00_overview_and_contents.md",', first + 1)
           replacement = '''replace_once(\n    "sections/00_overview_and_contents.md",\n    "M54をQ1--Q3の共通有効状態構成族、M37を空間信号とW型低2モードの物理実装層とする。状態準備・可逆操作と、排他的な測定結果形成を同一視しない。Q1/Q2の2結果射影読出しはR191ブラウン巨視的スピンinstrumentを正本とし、Q3の実在粒子位置はR164で開始面を準備した後にR161/R162で輸送する。",\n    "M54をQ1--Q3の共通有効状態構成族、M37を空間信号とW型低2モードの物理実装層とする。状態準備・可逆操作と、排他的な測定結果形成を同一視しない。Q1/Q2の2結果射影読出しはR191ブラウン巨視的スピンinstrumentを正本とし、Q3の実在粒子位置はR164で開始面を準備した後にR161/R162で輸送する。一方、Q3の信号部分系はQ1/Q2と別の代数ではなく、Q1型局所正準信号を空間配置しQ2型2体系結合を辺へ反復した特殊化として整理する。",\n)\n'''
