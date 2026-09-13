@@ -1,3 +1,12 @@
+## draft-98：M57をdual ballistic TL＋moving equilibrium bathへ置換
+
+- draft-95のpinned/weakly-anharmonic TL、TL mixing、force-correlation、drifting-Gibbs、TL自身へのFDTをQ3正本から退役し、M57をdual ballistic waveguide、moving bath-frame carrier $Y_e$、平衡oscillator bath、局在tracer $X$ の構造へ置換する。
+- R195Aはchiral作用和・差に加えて $J_{ij}^{\rm sig}=\nu(I_+-I_-)/a^2$ と $u_{ij}^{\rm sig}=2\nu r/a$ の厳密恒等式まで強化する。旧R195B--R195Dは結果IDを再利用せず退役し、新系列R196A--R196Cを採用する。
+- R196Aはmoving-reflectorのexact ballistic force、唯一安定fixed point $U_*=c\beta_*(r)$、有限時間tracking、weak-tap/backreaction scalingを与える。R196Bはmoving equilibrium oscillator bathからGLE/FDT、overdamped reduction、periodic homogenization、weak-loading scalingを与える。R196Cは $\mathcal A=4\beta_*(r)$ のmetastable well-index generatorをR161へ有限誤差で持ち上げる。
+- 中心matchingは $D_0=\nu/g_K$ と $g_Kc=4\nu/a$。TLをthermalizeせず、current drift、osmotic drift、diffusionをそれぞれballistic mechanics、state-count free energy、equilibrium bathへ責務分離する。
+- `tools/verify_m57_ballistic_tracer.py` でchiral恒等式、moving-reflector fixed point・安定性・tracking、weak-tap/loading scaling、Lifson--Jackson suppression、新R161 current correctionと時間尺度windowを検算する。
+- R161/R162/R185の数学核、Q1/Q2、固定目標の定義と既存達成ラベルは変更しない。Q3-2の達成根拠だけを新M57/R195A/R196A--R196Cへ差し替える。
+
 ## draft-97：強化目標同期、Q2-2 Bell前提一般化、採用開放雑音模型の明確化
 
 - Q2-2の固定目標から特定の「測定設定独立性の破れ」を必須条件として外し、Bell型共同統計を再現した古典構成についてBell不等式導出に用いられる前提の成立・不成立を物理的因果構造と確率因子化に対応させて監査する一般基準へ改める。Q2-2の条件付き達成ラベルは変更しない。
@@ -135,13 +144,13 @@
 | Q2-3 | 条件付き達成 | M54三部分系静的状態構成 | 永続8モード記憶部と逆演算用補助部／作業領域 | 二段ゲート合成と末端段階的射影選別 | R112、R177、R181B、R181C、R181D、R191 | R191とR181Dの末端開放接続、および固定3入力を越える一般サイズの資源効率は未達 |
 | Q2-4 | 条件付き達成 | M54一般静的状態構成 | $2^n$ 受動直接モード記憶部＋一様開放浴 interface | 一般gate列、R191逐次読出し、R181D router、非終端安全結果でR192作用安定化、R179 open reset | R112、R179、R181C、R181D、R186、R191、R192 | 静的配線、R191 transducer、router、R192による作用下限回復、open resetを一つの一様装置族へ接続し、R186の多項式精度条件を満たすこと |
 | Q3-1 | 達成 | — | M37 | — | R86 | — |
-| Q3-2 | 達成 | M54空間信号＋M57粒子輸送 | M37実正準空間信号＋M57 dual-TL tracer | M57 coarse-graining／R161 ideal matching／Nelson縮約 | R195A--R195D、R161、R162、R185 | 固定有限時間・1次元有限格子・node-free滑らかな部分系で、M57生成子誤差 $\varepsilon_{57}$ とR185の $O(\delta)+C_{185,a}a^2$ を分離して時間対称Newton則へ接続。M37からclock/recordまでの全周期統合、連続空間一様極限、多粒子は強化課題 |
+| Q3-2 | 達成 | M54空間信号＋M57粒子輸送 | M37実正準空間信号＋M57 dual-ballistic-TL moving-bath tracer | R195A exact current／R196A moving bath frame／R196B equilibrium GLE・homogenization／R196C R161 matching／Nelson縮約 | R195A、R196A--R196C、R161、R162、R185 | 固定有限時間・1次元有限格子・node-free滑らかな部分系で、M57生成子誤差 $\varepsilon_{57}$ とR185の $O(\delta)+C_{185,a}a^2$ を分離して時間対称Newton則へ接続。M37からclock/recordまでの全周期統合、連続空間一様極限、多粒子は強化課題 |
 | Q3-3A | 達成 | — | M37＋R123有限環境 | 束縛状態・純位相緩和 | R86、R123（井戸型） | — |
 | Q3-3B | 達成 | — | M37＋R123有限環境 | 束縛状態・純位相緩和 | R86、R123（調和型） | — |
 | Q3-3C | 達成 | — | M37＋R123有限環境 | W型束縛状態・純位相緩和 | R86、R123、R182 | — |
-| Q3-4A | 条件付き達成 | M54空間信号＋M57 tracer | M37＋M57 | 空間移動／終位置読出し | R86、R124、R195D、R161 | M37/M57 signal--particle接続、時計自由度、終位置記録までの単一装置統合 |
-| Q3-4B | 条件付き達成 | M54空間信号＋M57 tracer | M37静的W型＋M57 | 空間移動 / 半周期・一周期読出し | R86、R182、R195D、R161 | M37静的W型からM57粒子輸送、半周期・一周期時計自由度、終位置記録までの単一装置統合 |
-| Q3-5 | 条件付き達成 | M54空間信号＋M57 tracer | M37＋M57 | 空間移動／2経路位置読出し | R86、R125、R195D、R161 | M37/M57 signal--particle接続、2経路時計自由度、終位置記録までの単一装置統合 |
+| Q3-4A | 条件付き達成 | M54空間信号＋M57 tracer | M37＋M57 | 空間移動／終位置読出し | R86、R124、R196C、R161 | M37/M57 signal--particle接続、時計自由度、終位置記録までの単一装置統合 |
+| Q3-4B | 条件付き達成 | M54空間信号＋M57 tracer | M37静的W型＋M57 | 空間移動 / 半周期・一周期読出し | R86、R182、R196C、R161 | M37静的W型からM57粒子輸送、半周期・一周期時計自由度、終位置記録までの単一装置統合 |
+| Q3-5 | 条件付き達成 | M54空間信号＋M57 tracer | M37＋M57 | 空間移動／2経路位置読出し | R86、R125、R196C、R161 | M37/M57 signal--particle接続、2経路時計自由度、終位置記録までの単一装置統合 |
 | Q3-6 | 未達 | — | 完結物理実装層なし | 完結手順なし | — | 閉路巻数、節を介した位相すべり、細分化安定性、非整数モノドロミー排除を同じ明示的な古典ミクロ構成で示す |
 
 draft-71でR182、W型有限環境系、M42周期輸送系を本文・付録・検算・統合原稿・TeX原稿・PDFへ同期し、Q3-3Cを達成、Q3-4Bを条件付き達成へ更新した。固定目標の文言は変更していない。draft-69以前の履歴にある旧Q3-2は新Q3-6、旧Q3-3は新Q3-3A・Q3-3B、旧Q3-4は新Q3-4Aに対応する。旧稿の達成表現を新Q3-2、Q3-3C、Q3-4Bへ読み替えない。
@@ -240,10 +249,10 @@ M54は共通の状態型と因果契約を与えるが、同じ物理接続部�
 | 結果 | 導出状態 | 内容 |
 |---|---|---|
 | R86 | 厳密結果・明示誤差付き結果 | M37の正確局所包絡方程式、生成子誤差、有限時間Schrödinger型近似、作用変動、有限基底診断 |
-| R195A | 厳密恒等式・条件付き状態数結果 | M57 edge signalのchiral作用和・差を局所密度とsignal currentへ対応させ、2作用shellから $\Omega_i^\delta\propto R_i^\delta$ を得る |
-| R195B | 条件付き・明示誤差付き結果 | finite pinned dual open TLのport slaving、Lyapunov mixing rate、force-correlation time。closed momentum-conserving 1D FPUT鎖は対象外 |
-| R195C | 条件付き・明示誤差付き結果 | Green--Kubo/FDTとperiodic-tracer縮約。$g_Kc=4\nu/a$ で長時間diffusionとcurrent drift係数を同時matching |
-| R195D | 条件付き・明示誤差付き結果 | M57 coarse-grained well-index processをR161形式へ写し、signal-current理想生成子との差を $\varepsilon_{57}$ で有限時間制御。native current差はsmooth sectorで $O(a^2)$ |
+| R195A | 厳密恒等式・条件付き状態数結果 | M57 edge signalのchiral作用和・差を局所密度とsignal currentへ対応させ、$J_{ij}^{\rm sig}=\nu(I_+-I_-)/a^2$、$u_{ij}^{\rm sig}=2\nu r/a$ を厳密に得る。2作用shellから $\Omega_i^\delta\propto R_i^\delta$ を得る |
+| R196A | 厳密ballistic力学＋明示誤差付き結果 | passive dual ballistic port、moving-reflector force、唯一安定な $U_*=c\beta_*(r)$、有限時間tracking、weak-tap/backreaction scaling |
+| R196B | 条件付き・明示誤差付き結果 | moving equilibrium oscillator bathのGLE/FDT、overdamped reduction、periodic homogenization、$D_0=\nu/g_K$ と $g_Kc=4\nu/a$、weak-loading scaling |
+| R196C | 条件付き・明示誤差付き結果 | affinity $\mathcal A=4\beta_*(r)$ のmetastable well-index processをR161へ有限誤差で持ち上げ、native signal-current差をsmooth sectorでrelative $O(a^2)$ に制御 |
 | R184 | 保持する補助結果・現行主依存外 | 旧M37開始作用保持機構からM54空間率への $L_\delta\varepsilon_{\rm car}$ 評価。M57主線ではR86 carrier errorをR195Dへ直接渡す |
 | R185 | 厳密有限格子結果・明示誤差付き近似結果 | 共通の確率分布の時間反転率、$D_\pm$、1次元node-free領域の時間対称Newton則。正則化残差 $O(\delta)$、格子残差 $C_{185,a}a^2$ を有限微分ノルムで明示 | 
 | R123 | 厳密結果・数値検証付き | 井戸型・調和型低位束縛状態と有限環境純位相緩和 |

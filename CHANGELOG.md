@@ -1,3 +1,10 @@
+## draft-98：M57をballistic TL＋moving equilibrium bathへ置換
+
+- Q3のM57からpinned/anharmonic TL、TL mixing・force-correlation、drifting-Gibbs、TL自身へのFDTを退役し、dual ballistic waveguide＋moving bath-frame carrier＋平衡oscillator bathへ置換した。
+- R195Aをsignal current velocity恒等式まで強化し、旧R195B--R195Dを退役。新R196Aでmoving-reflector fixed pointと有限tracking、新R196Bでequilibrium GLE/FDT・periodic homogenization・weak loading、新R196Cでmetastable well-indexからR161への有限誤差持上げを追加した。
+- matchingを $D_0=\nu/g_K$ と $g_Kc=4\nu/a$ に整理し、current drift・osmotic drift・diffusionをballistic mechanics・state-count free energy・equilibrium bathへ分離した。
+- `tools/verify_m57_ballistic_tracer.py` へ検算器を置換し、旧thermalizing-M57 verifierを削除した。固定目標と既存達成ラベル、R161/R162/R185数学核は変更しない。
+
 ## draft-97：強化目標体系の全体同期とQ2-2 Bell前提一般化
 
 - Q2-2固定目標から「測定設定独立性の破れ」を特定必須条件として外し、Bell型共同統計を再現した古典構成についてBell不等式導出に用いられる前提の成立・不成立を因果構造と確率因子化に対応させて監査する一般基準へ変更した。現行R180CはA結果成分をBへ渡す非空間分離逐次証人として維持し、Q2-2の条件付き達成ラベルは変更しない。

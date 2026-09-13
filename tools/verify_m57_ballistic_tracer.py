@@ -71,7 +71,7 @@ def main() -> None:
     check(abs(gk * c - 4.0 * nu / a) < TOL, "M57 gK-c-nu matching")
     check(abs(d0 - nu / gk) < TOL, "M57 bare diffusion matching")
 
-    # R195B: exact moving-reflector fixed point and stability.
+    # R196A: exact moving-reflector fixed point and stability.
     for r in (-0.7, -0.25, -0.04, 0.0, 0.04, 0.25, 0.7):
         total = 1.7
         ep = 0.5 * total * (1.0 + r)
@@ -150,7 +150,7 @@ def main() -> None:
     gronwall_bound = math.exp(-lambda_y * t) * initial_error + bound_forcing
     check(actual_error <= gronwall_bound * 1.02, "M57 finite-time tracking bound witness")
 
-    # R195C weak-loading and overdamped scaling.
+    # R196B weak-loading and overdamped scaling.
     gamma_bar = 0.1
     mbar_x = 0.1
     gamma_x = eps**4 * gamma_bar
@@ -177,7 +177,7 @@ def main() -> None:
         target = 2.0 * nu * r / a
         check(abs(coarse_leading - target) < TOL, "M57 current drift leading matching")
 
-    # R195D ideal R161 traffic positivity with the new affinity A=4 beta_*(r).
+    # R196C ideal R161 traffic positivity with the new affinity A=4 beta_*(r).
     for r in (0.08, 0.04, 0.02, -0.04):
         affinity = 4.0 * beta_star(r)
         qplus = math.exp(0.5 * affinity)

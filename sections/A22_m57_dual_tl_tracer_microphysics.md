@@ -61,7 +61,7 @@ u_{ij}^{\rm sig}
 }
 ```
 
-と厳密に書ける。従ってR195B以後の責務は $J/\rho$ を外部で計算することではなく、すでに局所chiral作用比として露出しているvelocityを実在bath frameとtracerへ受動的に伝えることである。
+と厳密に書ける。従ってR196A以後の責務は $J/\rho$ を外部で計算することではなく、すでに局所chiral作用比として露出しているvelocityを実在bath frameとtracerへ受動的に伝えることである。
 
 tracer位置に付随する2作用sector $(K_1,\theta_1),(K_2,\theta_2)$ に
 
@@ -152,7 +152,7 @@ e_{e,\sigma}(t)
 
 このport補題はstate-dependent divisionやphase measurementを含まず、左右作用を対応する二本のwaveguideへ線形にtapするだけである。
 
-## V.4 R195B：dual ballistic TLからmoving bath velocityへの有限時間持上げ
+## V.4 R196A：dual ballistic TLからmoving bath velocityへの有限時間持上げ
 
 二本のwaveguideは、局所bath cellのcenter-of-mass座標
 
@@ -317,12 +317,12 @@ M_e=\epsilon^2\bar M_e
 は $\epsilon\to0$ でも有限のまま、signal backreactionは $O(\epsilon^2)$ へ下げられる。これは有限powerを保ったままbackreactionだけを消す主張ではなく、incident energyとcarrier inertiaを同じ比率で縮小してterminal velocityを保つ受動スケーリングである。
 
 <!-- theorem-start:theorem -->
-**定理（R195B：dual ballistic TLからmoving bath velocityへの有限時間持上げ）**
+**定理（R196A：dual ballistic TLからmoving bath velocityへの有限時間持上げ）**
 
 上のpassive ballistic-port条件、$E\ge E_{\min}>0$、$|r|\le r_*<1$ の下で、bath-frame carrierには唯一安定なinstantaneous terminal velocity $U_*=c\beta_*(r)$ が存在し、有限時間追従誤差は上式で制御される。weak tapとcarrier massを同時に $O(\epsilon^2)$ へ縮小すれば追従rateを有限に保ったままsignal backreactionを $O(\epsilon^2)$ へ下げられる。TL thermalization、mixing、drifting-Gibbs、Green--Kuboは本定理に用いない。
 <!-- theorem-end:theorem -->
 
-## V.5 R195C：moving equilibrium bathからtracer GLE・Nelson driftへ
+## V.5 R196B：moving equilibrium bathからtracer GLE・Nelson driftへ
 
 actual tracer $X$ はTLそのものには熱化させず、$Y_e$ と共に並進する通常のequilibrium oscillator bathへ結合する。bath内部座標を $q_n$ とし、相対座標 $X-Y_e$ へ
 
@@ -473,12 +473,12 @@ tracerから$Y_e$へ返るfriction/noise impulseによるvelocity perturbation�
 へ下げられる。
 
 <!-- theorem-start:theorem -->
-**定理（R195C：moving equilibrium bathからNelson driftへの有限誤差縮約）**
+**定理（R196B：moving equilibrium bathからNelson driftへの有限誤差縮約）**
 
-R195Bのmoving bath-frame追従、明示oscillator bathのFDT、有限cutoff Markov極、overdamped極、periodic homogenizationの仮定の下で、tracerのeffective diffusion、current drift、osmotic driftは同じ $D_0=\nu/g_K$ と $g_Kc=4\nu/a$ によりそれぞれ $\nu$、$j/\rho+O(a^2)$、$\nu\partial_x\log\rho$ へ一致する。weak-tap familyではsignal backreactionとtracer loadingを同時に $O(\epsilon^2)$ へ下げられる。
+R196Aのmoving bath-frame追従、明示oscillator bathのFDT、有限cutoff Markov極、overdamped極、periodic homogenizationの仮定の下で、tracerのeffective diffusion、current drift、osmotic driftは同じ $D_0=\nu/g_K$ と $g_Kc=4\nu/a$ によりそれぞれ $\nu$、$j/\rho+O(a^2)$、$\nu\partial_x\log\rho$ へ一致する。weak-tap familyではsignal backreactionとtracer loadingを同時に $O(\epsilon^2)$ へ下げられる。
 <!-- theorem-end:theorem -->
 
-## V.6 R195D：metastable well indexからR161生成子への持上げ
+## V.6 R196C：metastable well indexからR161生成子への持上げ
 
 periodic/double-well landscapeのwell indexを有限格子位置として読む。moving bath velocity $U_e$ はoverdamped equationではconstant tilt force $f_e=\gamma_XU_e$ と等価であり、edge affinityは
 
@@ -510,7 +510,13 @@ state-count free energyによってwell weightが $R_i^\delta$、symmetric saddl
 R_b=\frac{R_i^\delta+R_j^\delta}{2}
 ```
 
-となるsectorで、Eyring--Kramers/metastable reductionは
+となるsectorを用いる。zero-bias periodic homogenizationで $D_{\rm eff}=\nu$ に較正した同じlandscapeについて、対称well間のcoarse-grained基準fluxを
+
+```math
+c_K=\frac{\nu R_b}{a^2}
+```
+
+と定める。これは独立に挿入する率ではなく、R196Bの $D_{\rm eff}=\nu$ とsymmetric barrier weightをwell-index generatorへ書き直した基準activityである。その上でEyring--Kramers/metastable reductionは
 
 ```math
 q_{ij}^+
@@ -595,9 +601,9 @@ D_{\rm TV}(p_t^{57},p_t^{161})
 を得る。
 
 <!-- theorem-start:theorem -->
-**定理（R195D：ballistic M57からR161への有限誤差持上げ）**
+**定理（R196C：ballistic M57からR161への有限誤差持上げ）**
 
-R195A--R195Cの仮定とmetastable well-index縮約の下で、M57 tracerのcoarse-grained位置生成子はR161形式へ持ち上がり、signal-current理想生成子との差は上の $\varepsilon_{57}$ で有限時間制御される。smooth sectorではmoving-reflectorの非線形性によるnative current correctionはrelative $O(a^2)$ である。
+R195A、R196A--R196Bの仮定とmetastable well-index縮約の下で、M57 tracerのcoarse-grained位置生成子はR161形式へ持ち上がり、signal-current理想生成子との差は上の $\varepsilon_{57}$ で有限時間制御される。smooth sectorではmoving-reflectorの非線形性によるnative current correctionはrelative $O(a^2)$ である。
 <!-- theorem-end:theorem -->
 
 ## V.7 明示parameter witness

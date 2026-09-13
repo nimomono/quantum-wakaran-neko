@@ -6,13 +6,15 @@ R162「局所有向率の開放Poisson-jump実現」そのものは退役しな�
 
 ## 2. 現行置換
 
-draft-95以後、Q3の実在粒子輸送はM57 dual-TL tracer模型が担う。M37/M54実正準空間信号から、R195Aのchiral作用と2作用状態数、R195Bのdual open TL、R195CのFDT/Kramers縮約、R195DのR161生成子matchingを経て、局在tracerのcoarse-grained path lawを得る。
+draft-95でQ3の実在粒子輸送をopen-Poisson存在論からM57 dual-TL tracerへ移した。その最初のM57はpinned weakly-anharmonic open TLをthermalizeし、mixing、force correlation、drifting-Gibbs/FDTからtracer driftを作る構成だった。
+
+draft-98ではこのthermalizing-TL内部機構も退役し、M57をdual ballistic TL＋moving bath-frame carrier＋平衡oscillator bathへ置換する。R195Aがchiral作用から局所密度・signal current・edge velocityを厳密に与え、R196Aがwave pressureからmoving bath frame、R196Bが平衡bathのGLE/FDTとperiodic homogenizationからtracer diffusion・drift、R196Cがmetastable well-index processからR161 generatorを与える。
 
 R162は
 
 ```text
 M57 microscopic tracer
-        ↓ R195D finite-error matching
+        ↓ R196C finite-error matching
 R161 ideal generator
         ↓ R162
 ideal open-jump reference path
@@ -20,7 +22,7 @@ ideal open-jump reference path
 Nelson / time-symmetric Newton
 ```
 
-という比較用の数学的・確率過程的参照実現へ責務を下げる。
+という比較用の数学的・確率過程的参照実現へ責務を下げたまま維持する。
 
 ## 3. 保持する結果
 
@@ -31,7 +33,7 @@ Nelson / time-symmetric Newton
 
 ## 4. 退役理由
 
-旧open-Poisson模型は有効jump過程として数学的に明瞭だったが、粒子・bathのミクロ自由度、signal currentからdriftが生じる物理機構、diffusion係数の起源が抽象的だった。M57は局在tracer、2作用状態数、左右独立open TL、FDT/Kramers縮約を明示し、同じR161核へ有限誤差で接続するため、Q3固定目標が要求する「明示的な古典ミクロモデル」の物理層をこちらへ移す。
+旧open-Poisson模型は有効jump過程として数学的に明瞭だったが、粒子・bathのミクロ自由度、signal currentからdriftが生じる物理機構、diffusion係数の起源が抽象的だった。現行M57は局在tracer、2作用状態数、dual ballistic TL、moving bath-frame carrier、平衡oscillator bathを明示し、同じR161核へ有限誤差で接続するため、Q3固定目標が要求する『明示的な古典ミクロモデル』の物理層をこちらへ移す。
 
 ## 5. 非主張
 

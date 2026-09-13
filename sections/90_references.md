@@ -65,3 +65,7 @@
 - [60] P. Carmona, ``Existence and Uniqueness of an Invariant Measure for a Chain of Oscillators in Contact with Two Heat Baths,'' Stochastic Processes and their Applications 117, 1076--1092 (2007). <https://doi.org/10.1016/j.spa.2006.12.003>
 - [61] P. Hänggi, P. Talkner, and M. Borkovec, ``Reaction-Rate Theory: Fifty Years after Kramers,'' Reviews of Modern Physics 62, 251--341 (1990). <https://doi.org/10.1103/RevModPhys.62.251>
 - [62] S. Lifson and J. L. Jackson, ``On the Self-Diffusion of Ions in a Polyelectrolyte Solution,'' Journal of Chemical Physics 36, 2410--2414 (1962). <https://doi.org/10.1063/1.1732899>
+- [63] C. K. Law, ``Interaction between a Moving Mirror and Radiation Pressure: A Hamiltonian Formulation,'' Physical Review A 51, 2537--2541 (1995). <https://doi.org/10.1103/PhysRevA.51.2537>
+- [64] A. O. Caldeira and A. J. Leggett, ``Path Integral Approach to Quantum Brownian Motion,'' Physica A 121, 587--616 (1983). <https://doi.org/10.1016/0378-4371(83)90013-4>
+- [65] A. Bovier, M. Eckhoff, V. Gayrard, and M. Klein, ``Metastability in Reversible Diffusion Processes I: Sharp Asymptotics for Capacities and Exit Times,'' Journal of the European Mathematical Society 6, 399--424 (2004). <https://doi.org/10.4171/JEMS/14>
+- [66] P. Reimann, C. Van den Broeck, H. Linke, P. Hänggi, J. M. Rubí, and A. Pérez-Madrid, ``Diffusion in Tilted Periodic Potentials: Enhancement, Universality, and Scaling,'' Physical Review E 65, 031104 (2002). <https://doi.org/10.1103/PhysRevE.65.031104>

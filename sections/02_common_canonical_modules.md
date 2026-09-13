@@ -30,7 +30,7 @@ Z=\frac{Q+iP}{\sqrt{2\mathcal J_0}}
 | Q2-2 | 4モード＋2物理測定端 | R181B/R181C、設定gate | A端R191、router、B端R191、R180A/R180C |
 | Q2-3 | 8モード永続記憶部 | R181Bを2回、R181C、R177 | R191逐次読出し、R181D |
 | Q2-4 | $2^n$ 直接モード | 根モード初期化、R181C | R191、R181D、非終端安全結果のR192、R179 reset |
-| Q3 | 空間信号＋局在tracer | 準備済み古典空間入力、M37＋M57 dual-TL tracer | R195A--R195D、R161、R185（R162はideal reference） |
+| Q3 | 空間信号＋局在tracer | 準備済み古典空間入力、M37＋M57 dual-ballistic-TL moving-bath tracer | R195A、R196A--R196C、R161、R185（R162はideal reference） |
 
 M37はM54へ吸収しない。Q3では局所位置ばね網から空間信号を実装し、Q1ではR187の弱結合W型族に限って最低2正常モードをW2制御信号へ接続する。全系列を同一の製造済み装置・同一パラメータ・単一周期へ統合するM0は別の未完成目標である。
 

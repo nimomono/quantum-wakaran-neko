@@ -81,7 +81,7 @@ D_{\rm TV}(p_t^A,p_t^B)
 
 ## 5. 物理実現の比較規約
 
-- M57 dual-TL tracer：Q3で採用する現行ミクロ物理実現。2作用状態数が $\pi$、左右TLとKramers activityが $(j,t)$ を供給する。
+- M57 dual-ballistic-TL moving-bath tracer：Q3で採用する現行ミクロ物理実現。R195Aが局所密度とsignal currentをexactに与え、R196Aのballistic wave pressureがmoving bath velocity、R196Bの平衡bathとperiodic homogenizationがdiffusion・osmotic drift、R196Cのmetastable reductionがR161 activityを供給する。
 - R162 open Poisson jump：M57と比較するideal stochastic reference。基礎的なQ3存在論とは扱わない。
 - 空間化Q1＋Q2相互作用：Q1/Q2からR161へ到達できることを示す数学的参照実現。
 - M56：spin-only実現を狙う代替研究線。現行Q3達成根拠には使わない。

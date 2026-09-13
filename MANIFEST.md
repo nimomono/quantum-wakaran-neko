@@ -1,3 +1,10 @@
+## draft-98のM57 ballistic moving-bath正本化
+
+- draft-95のthermalizing dual-TL M57を置換し、dual ballistic TL、moving bath-frame carrier、平衡oscillator bath、局在tracerを現行Q3ミクロ物理層とする。
+- R195Aをchiral current恒等式まで強化し、新結果R196A--R196Cを追加する。旧R195B--R195DはGit履歴・退役索引へ保存する。
+- `sections/A22_m57_dual_tl_tracer_microphysics.md` を全面更新し、`tools/verify_m57_tl_tracer.py` を `tools/verify_m57_ballistic_tracer.py` へ置換する。
+- README、PROJECT_STATUS、第0・1・2・6--9章、研究メモ、参考文献、生成物を新M57へ同期する。
+
 ## draft-97の強化目標・Bell前提・開放雑音方針同期
 
 - `ENHANCEMENT_TARGETS.md` をA1/A2、Q1/Q2のB1/B2/B3、Q2-2-Sの正本として管理文書体系へ正式に追加する。
@@ -155,7 +162,7 @@
 - `tools/verify_m37_w_spectral_tunneling.py`
 - `tools/verify_r187_m37_w_q1_bridge.py`
 - `tools/verify_q3_completion.py`
-- `tools/verify_m57_tl_tracer.py`
+- `tools/verify_m57_ballistic_tracer.py`
 - `figures/README.md`
 - `.github/workflows/verify.yml`
 - `.gitignore`
