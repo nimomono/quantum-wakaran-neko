@@ -1,5 +1,12 @@
 # 現行パッケージ一覧
 
+## draft-95のM57 dual-TL tracer正本化
+
+- M57/R195A--R195DをQ3の現行ミクロ物理層へ採用し、R162をideal open-jump reference、R184を補助結果、M56を代替研究線へ整理する。
+- `sections/A22_m57_dual_tl_tracer_microphysics.md` と `tools/verify_m57_tl_tracer.py` を追加する。
+- `notes/superseded_q3_poisson_microphysics.md` に旧Poisson存在論の責務変更を記録する。
+- `paper.md`、`main.tex`、`paper.pdf` はdraft-95正本から再生成する。
+
 ## draft-94のR161共通数学核整理
 
 - Q1型局所正準信号＋Q2型辺結合からQ3の $(\pi,j)$ へ接続する構造を第1・2・6章、付録K・N、概要、結論へ明示する。
@@ -61,12 +68,17 @@
 - `sections/A17_m54_uniform_supply.md`
 - `sections/A18_m54_projective_robustness.md`
 - `sections/A19_m54_drude_action_shell_bridge.md`
+- `sections/A20_m54_brownian_macrospin_projective_instrument.md`
+- `sections/A21_m47_action_hold_macrospin_direct_bridge.md`
+- `sections/A22_m57_dual_tl_tracer_microphysics.md`
 - `sections/90_references.md`
 
 ## 論文外の研究メモ
 
 - `notes/README.md`
 - `notes/r161_q1_q2_q3_realization_equivalence.md`
+- `notes/brownian_spin_q1_q3_unification.md`
+- `notes/superseded_q3_poisson_microphysics.md`
 - `notes/project_sources_key_results.md`
 - `notes/superseded_terminal_function_model.md`
 - `notes/rejected_forward_weighting_models.md`
@@ -135,6 +147,7 @@
 - `tools/verify_m37_w_spectral_tunneling.py`
 - `tools/verify_r187_m37_w_q1_bridge.py`
 - `tools/verify_q3_completion.py`
+- `tools/verify_m57_tl_tracer.py`
 - `figures/README.md`
 - `.github/workflows/verify.yml`
 - `.gitignore`
