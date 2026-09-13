@@ -57,9 +57,9 @@ jobs:
           if t.count('R195B--R195D') != 1:
               raise SystemExit(f'sections/07: expected one stale R195B--R195D, got {t.count("R195B--R195D")}')
           t=t.replace('R195B--R195D','R196A--R196C')
-          if t.count('\\nu_{ij}^{\\rm sig}') != 1:
-              raise SystemExit(f'sections/07: expected one mistyped edge velocity, got {t.count(chr(92)+"nu_{ij}^{"+chr(92)+"rm sig}")}')
-          t=t.replace('\\nu_{ij}^{\\rm sig}','u_{ij}^{\\rm sig}')
+          if t.count(r'nu_{ij}^{\rm sig}') != 1:
+              raise SystemExit(f'sections/07: expected one mistyped edge velocity, got {t.count(r"nu_{ij}^{\rm sig}")}')
+          t=t.replace(r'nu_{ij}^{\rm sig}',r'u_{ij}^{\rm sig}')
           p.write_text(t,encoding='utf-8')
 
           replace_once('PROJECT_STATUS.md',
@@ -90,7 +90,7 @@ jobs:
           checks = {
               Path('sections/06_m37_spatial_envelope.md'): ('M57 dual-TL tracer','pinned open TL','R195A--R195D','R195B--R195D'),
               Path('sections/01_scope_and_cycle.md'): ('R195Dが比較するideal',),
-              Path('sections/07_q3_finite_graph_phenomena.md'): ('R195B--R195D','\\nu_{ij}^{\\rm sig}'),
+              Path('sections/07_q3_finite_graph_phenomena.md'): ('R195B--R195D',r'nu_{ij}^{\rm sig}'),
               Path('sections/09_conclusion.md'): ('R195Dが比較するideal',),
           }
           bad=[]
