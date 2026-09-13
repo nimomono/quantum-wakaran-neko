@@ -63,6 +63,88 @@ def check_project_status() -> None:
         raise AssertionError(f"unsupported status values: {sorted(invalid)}")
 
 
+
+def check_enhancement_targets() -> None:
+    status_path = ROOT / "PROJECT_STATUS.md"
+    status_text = status_path.read_text(encoding="utf-8")
+    fixed_ids = {
+        match.group(1)
+        for match in re.finditer(r"^\|\s*(Q[123]-\d+[A-Z]?)\s*\|\s*[^|]+\|", status_text, re.MULTILINE)
+    }
+    # Remove current-position duplicates by set semantics; only actual fixed IDs remain.
+    if not fixed_ids:
+        raise AssertionError("fixed-goal IDs were not found")
+
+    path = ROOT / "ENHANCEMENT_TARGETS.md"
+    text = path.read_text(encoding="utf-8")
+    try:
+        current = text.split("## 強化目標の現在地表", 1)[1].split("## 既存の実装強化課題との関係", 1)[0]
+    except IndexError as exc:
+        raise AssertionError("enhancement current-position boundary is missing") from exc
+
+    rows: dict[str, list[str]] = {}
+    allowed = {"未監査", "未達", "部分達成", "達成", "—"}
+    for line in current.splitlines():
+        if not re.match(r"^\|\s*Q[123]-", line):
+            continue
+        cells = [cell.strip() for cell in line.strip().strip("|").split("|")]
+        if len(cells) < 7:
+            raise AssertionError(f"malformed enhancement row: {line}")
+        qid = cells[0]
+        rows[qid] = cells[1:7]
+        invalid = set(cells[1:7]) - allowed
+        if invalid:
+            raise AssertionError(f"unsupported enhancement status for {qid}: {sorted(invalid)}")
+
+    if set(rows) != fixed_ids:
+        raise AssertionError(
+            f"enhancement target IDs differ from fixed goals: missing={sorted(fixed_ids-set(rows))}, extra={sorted(set(rows)-fixed_ids)}"
+        )
+
+    for qid, values in rows.items():
+        a1, a2, b1, b2, b3, special = values
+        if a1 == "—" or a2 == "—":
+            raise AssertionError(f"{qid}: A1/A2 must apply")
+        if qid.startswith(("Q1-", "Q2-")):
+            if "—" in (b1, b2, b3):
+                raise AssertionError(f"{qid}: B1/B2/B3 must apply")
+        else:
+            if any(value != "—" for value in (b1, b2, b3)):
+                raise AssertionError(f"{qid}: B1/B2/B3 must not apply")
+        if qid == "Q2-2":
+            if special == "—":
+                raise AssertionError("Q2-2-S must apply to Q2-2")
+        elif special != "—":
+            raise AssertionError(f"{qid}: unexpected goal-specific enhancement")
+
+    required = (
+        "採用開放ミクロ方程式",
+        "理想白色雑音",
+        "有限帯域雑音",
+        "Q2-2-S",
+        "Bell局所因子化",
+        "未監査",
+    )
+    missing = [token for token in required if token not in text]
+    if missing:
+        raise AssertionError(f"enhancement policy markers missing: {missing}")
+
+    fixed_section = status_text.split("### 固定目標一覧", 1)[1].split("#### Q3-1からQ3-6の達成判定の補足", 1)[0]
+    q22 = next((line for line in fixed_section.splitlines() if line.startswith("| Q2-2 |")), "")
+    if "測定設定独立性の破れ" in q22:
+        raise AssertionError("Q2-2 fixed goal still requires measurement-setting dependence")
+    if "Bell不等式の導出に用いられる前提" not in q22:
+        raise AssertionError("Q2-2 fixed goal does not require neutral Bell-premise audit")
+
+    stance = (ROOT / "PROJECT_STANCE.md").read_text(encoding="utf-8")
+    if "どの前提を破るかを固定目標の側で先に指定しない" not in stance:
+        raise AssertionError("Bell-neutral project stance is missing")
+
+    receiver = (ROOT / "sections" / "05_m54_setting_pre_receiver.md").read_text(encoding="utf-8")
+    for token in ("設定前の一重項源は $x,y$ に依存せず", "Bell局所因子化を仮定しない", "Q2-2-S"):
+        if token not in receiver:
+            raise AssertionError(f"Q2-2 receiver policy marker missing: {token}")
+
 def check_verifier_boundary() -> None:
     forbidden_markers = (
         'ROOT / "sections"',
@@ -95,6 +177,7 @@ def check_ci_read_only() -> None:
 def main() -> None:
     check_sources()
     check_project_status()
+    check_enhancement_targets()
     check_verifier_boundary()
     check_ci_read_only()
     print("source_check_ok")

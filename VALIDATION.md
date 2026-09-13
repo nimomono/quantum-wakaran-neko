@@ -1,3 +1,24 @@
+## draft-97：強化目標体系・Bell前提監査・開放雑音方針の同期検査
+
+```bash
+python -m compileall -q tools
+python tools/check_source.py
+python tools/test_validation_policy.py
+python tools/check_terminology.py
+python tools/run_physics_checks.py
+python tools/build_paper.py
+python tools/build_paper.py --output-dir build/ci
+python tools/check_generated.py build/ci
+python tools/lint_typeset.py build/ci/latex/main.log
+git diff --check
+```
+
+- PROJECT_STATUSのQ2-2固定目標が特定の測定設定独立性違反を要求せず、Bell前提の成立・不成立を中立的に監査する文言へ一般化されていることを確認する。既存のQ2-2条件付き達成ラベルは維持する。
+- `ENHANCEMENT_TARGETS.md` の適用表と現在地表が全固定目標を過不足なく含み、A1/A2は全目標、B1/B2/B3はQ1/Q2だけ、Q2-2-SはQ2-2だけへ適用され、全状態が未監査から始まることを構造検査する。
+- A1で採用開放SDEと理想白色雑音を許し、A2でそのミクロ方程式自体を直接標本化し、B2/B3で有限帯域雑音へ落とす責務境界を確認する。
+- 現行R180Cについて、設定前一重項源の設定非依存性、A結果成分のB端への物理転送、Bell局所因子化を仮定しないこと、非信号周辺を同時に記述し、特定のBell前提違反へ誤帰属しないことを確認する。
+- 過去版CHANGELOG、VALIDATION、退役notesにある旧Q2-2記述は当時の履歴として書き換えない。
+
 ## draft-95：M57 dual-TL tracerをQ3ミクロ正本へ採用
 
 - Q3のミクロ物理主線を、M37/M54空間信号＋R162 open-Poisson存在論から、M57 dual-TL tracer＋R195A--R195Dへ切り替えた。R161/R185の数学核とQ3-2達成ラベルは維持する。
