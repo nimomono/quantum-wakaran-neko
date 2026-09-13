@@ -36,3 +36,7 @@ Nelson / time-symmetric Newton
 ## 5. 非主張
 
 R162が誤っていた、または不要になったとは主張しない。M57の有限時間誤差評価とNelson数学核を分離するため、R162は今後もideal referenceとして使用する。
+
+## 6. draft-95最終化検算
+
+Actions run `34752813016` で、正本同期、全数式・数値検算、論文再生成、差分検査、`paper.md`・`main.tex`・`paper.pdf` の同期、最終化用一時workflow/scriptの削除まで成功した。通常のPR検算はこの最終生成コミットに対して別途read-onlyで確認する。
