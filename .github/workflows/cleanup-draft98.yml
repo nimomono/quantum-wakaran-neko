@@ -57,9 +57,12 @@ jobs:
           if t.count('R195B--R195D') != 1:
               raise SystemExit(f'sections/07: expected one stale R195B--R195D, got {t.count("R195B--R195D")}')
           t=t.replace('R195B--R195D','R196A--R196C')
-          if t.count('nu_{ij}^{') != 1:
-              raise SystemExit(f'sections/07: expected one mistyped edge velocity prefix, got {t.count("nu_{ij}^{")}')
-          t=t.replace('nu_{ij}^{','u_{ij}^{',1)
+          lines=t.splitlines()
+          hits=[i for i,line in enumerate(lines) if 'I_+-I_-' in line and 'I_++I_-' in line and 'ij' in line]
+          if len(hits) != 1:
+              raise SystemExit(f'sections/07: expected one edge-velocity formula line, got {len(hits)}')
+          lines[hits[0]] = r'u_{ij}^{\rm sig}=\frac{2\nu}{a}\frac{I_+-I_-}{I_++I_-}'
+          t='\n'.join(lines)+'\n'
           p.write_text(t,encoding='utf-8')
 
           replace_once('PROJECT_STATUS.md',
@@ -90,7 +93,7 @@ jobs:
           checks = {
               Path('sections/06_m37_spatial_envelope.md'): ('M57 dual-TL tracer','pinned open TL','R195A--R195D','R195B--R195D'),
               Path('sections/01_scope_and_cycle.md'): ('R195Dが比較するideal',),
-              Path('sections/07_q3_finite_graph_phenomena.md'): ('R195B--R195D','nu_{ij}^{'),
+              Path('sections/07_q3_finite_graph_phenomena.md'): ('R195B--R195D',),
               Path('sections/09_conclusion.md'): ('R195Dが比較するideal',),
           }
           bad=[]
@@ -99,6 +102,10 @@ jobs:
               for token in tokens:
                   if token in text:
                       bad.append(f'{p}:{token}')
+          q3=Path('sections/07_q3_finite_graph_phenomena.md').read_text(encoding='utf-8').splitlines()
+          good=[line for line in q3 if line.startswith('u_{ij}') and 'I_+-I_-' in line and 'I_++I_-' in line]
+          if len(good) != 1:
+              bad.append(f'sections/07:edge-velocity-definition-count={len(good)}')
           ps=Path('PROJECT_STATUS.md').read_text(encoding='utf-8')
           marker='## 固定長期目標'
           ps=ps[ps.find(marker):] if marker in ps else ps
