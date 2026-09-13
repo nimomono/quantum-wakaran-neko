@@ -29,6 +29,19 @@ jobs:
       - name: Install numerical dependency
         run: python -m pip install numpy
 
+      - name: Normalize pre-corrected A22 symbol
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('sections/A22_m57_dual_tl_tracer_microphysics.md')
+          t = p.read_text(encoding='utf-8')
+          old = r'\nu_{\rm eff}=g_KU_e'
+          new = r'u_{\rm eff}=g_KU_e'
+          if old not in t and new in t:
+              t = t.replace(new, old, 1)
+              p.write_text(t, encoding='utf-8')
+          PY
+
       - name: Apply synchronized source edits
         run: python tools/apply_draft98_m57_ballistic.py
 
