@@ -19,6 +19,7 @@ TARGETS = [
     ROOT / "README.md",
     ROOT / "PROJECT_STATUS.md",
     ROOT / "PROJECT_STANCE.md",
+    ROOT / "ENHANCEMENT_TARGETS.md",
     *sorted(path for path in SECTIONS.glob("*.md") if path.name != "90_references.md"),
 ]
 

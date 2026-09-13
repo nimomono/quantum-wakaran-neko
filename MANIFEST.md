@@ -1,3 +1,10 @@
+## draft-97の強化目標・Bell前提・開放雑音方針同期
+
+- `ENHANCEMENT_TARGETS.md` をA1/A2、Q1/Q2のB1/B2/B3、Q2-2-Sの正本として管理文書体系へ正式に追加する。
+- Q2-2固定目標を特定のBell前提違反に限定しない一般監査へ改め、現行R180Cを非空間分離逐次証人として維持する。
+- 採用開放SDEと理想白色雑音をA1/A2で許し、B2/B3では有限帯域雑音の実験可能領域を監査する。
+- README、PROJECT_STANCE、PROJECT_GUIDE、PROJECT_STATUS、第0・1・5・8・9章、simulation規約、構造検査、用語lint、生成物を同期する。
+
 # 現行パッケージ一覧
 
 ## draft-95のM57 dual-TL tracer正本化
@@ -117,6 +124,7 @@
 - `PROJECT_GUIDE.md`
 - `TERMINOLOGY.md`
 - `PROJECT_STATUS.md`
+- `ENHANCEMENT_TARGETS.md`
 - `CHANGELOG.md`
 - `VALIDATION.md`
 - `MANIFEST.md`
