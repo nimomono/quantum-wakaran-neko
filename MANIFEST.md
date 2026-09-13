@@ -1,5 +1,13 @@
 # 現行パッケージ一覧
 
+## draft-94のR161共通数学核整理
+
+- Q1型局所正準信号＋Q2型辺結合からQ3の $(\pi,j)$ へ接続する構造を第1・2・6章、付録K・N、概要、結論へ明示する。
+- R161の活動量--親和力等価表示、生成子同値、固定有限時間の全変動距離上界を追加する。
+- `notes/r161_q1_q2_q3_realization_equivalence.md` を追加し、空間化Q1模型、現行M54/R162、M56等を同じR161核の実現として比較する規約を保存する。
+- `tools/verify_m54_spatial_matching.py` に無結合局所モードの零辺流と活動量--親和力恒等式の検算を追加する。
+- `paper.md`、`main.tex`、`paper.pdf` は章別正本から再生成する。
+
 ## draft-88のR191読出し再編
 
 - 付録T `sections/A20_m54_brownian_macrospin_projective_instrument.md` を追加。
@@ -58,6 +66,7 @@
 ## 論文外の研究メモ
 
 - `notes/README.md`
+- `notes/r161_q1_q2_q3_realization_equivalence.md`
 - `notes/project_sources_key_results.md`
 - `notes/superseded_terminal_function_model.md`
 - `notes/rejected_forward_weighting_models.md`

@@ -97,6 +97,34 @@ def main() -> None:
     check(np.min(kp) > -TOL and np.min(km) > -TOL, "R161 spatial rate positivity")
     check(np.max(np.abs(master - pdot)) < TOL, "R161 spatial moving matching")
 
+    # Q1-type local modes without off-diagonal pair coupling have no edge current.
+    h_local = np.diag(np.linspace(-0.2, 0.2, n)).astype(complex)
+    j_local = current(z, h_local)
+    check(np.max(np.abs(j_local)) < TOL, "uncoupled Q1-type local modes carry no edge current")
+
+    # R161 activity--affinity representation is algebraically identical on live edges.
+    live = t > 1.0e-14
+    c = np.zeros_like(t)
+    affinity = np.zeros_like(t)
+    c[live] = 0.5 * np.sqrt(t[live] ** 2 - j[live] ** 2)
+    affinity[live] = np.log((t[live] + j[live]) / (t[live] - j[live]))
+    qplus = 0.5 * (t + j)
+    qminus = 0.5 * (t - j)
+    rec_plus = np.zeros_like(t)
+    rec_minus = np.zeros_like(t)
+    rec_plus[live] = c[live] * np.exp(0.5 * affinity[live])
+    rec_minus[live] = c[live] * np.exp(-0.5 * affinity[live])
+    check(np.max(np.abs(rec_plus[live] - qplus[live])) < TOL, "R161 activity-affinity forward flux")
+    check(np.max(np.abs(rec_minus[live] - qminus[live])) < TOL, "R161 activity-affinity reverse flux")
+    check(
+        np.max(np.abs(2.0 * c[live] * np.cosh(0.5 * affinity[live]) - t[live])) < TOL,
+        "R161 activity reconstruction",
+    )
+    check(
+        np.max(np.abs(2.0 * c[live] * np.sinh(0.5 * affinity[live]) - j[live])) < TOL,
+        "R161 current reconstruction",
+    )
+
     bayes = np.zeros_like(km)
     for i in range(n):
         for k in range(n):

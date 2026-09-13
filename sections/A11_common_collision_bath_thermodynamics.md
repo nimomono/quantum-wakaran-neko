@@ -1,7 +1,7 @@
 @number: K
 @chapter: 付録
 @title: 共通整合生成子と開放jump実現
-@status: R161の確率流・活動量整合とR162の有界有向率に対する開放Poisson-jump実現を証明し、Q3位置輸送とR185の時間反転率へ接続する。静的詳細釣り合いは一般整合定理の特殊化としてのみ残す。
+@status: R161の確率流・活動量整合、その活動量--親和力等価表示と生成子同値、R162の有界有向率に対する開放Poisson-jump実現を証明し、Q3位置輸送とR185の時間反転率へ接続する。静的詳細釣り合いは一般整合定理の特殊化としてのみ残す。
 
 ## K.1 目的、用語、主張範囲
 
@@ -186,7 +186,69 @@ k^-_{i\to j}
 
 となる。
 
-### K.3.1 静的 詳細釣り合い特殊化
+### K.3.1 活動量--親和力表示とR161実現同値
+
+$t_{ij}>|j_{ij}|$ の辺を固定する。第2章の
+
+```math
+c_{ij}
+=\frac12\sqrt{t_{ij}^2-j_{ij}^2},
+\qquad
+\mathcal A_{ij}
+=\log\frac{t_{ij}+j_{ij}}{t_{ij}-j_{ij}}
+```
+
+から
+
+```math
+e^{\mathcal A_{ij}/2}
+=\sqrt{\frac{t_{ij}+j_{ij}}{t_{ij}-j_{ij}}}
+```
+
+なので
+
+```math
+c_{ij}e^{\mathcal A_{ij}/2}
+=\frac{t_{ij}+j_{ij}}2,
+\qquad
+c_{ij}e^{-\mathcal A_{ij}/2}
+=\frac{t_{ij}-j_{ij}}2.
+```
+
+和と差を取れば
+
+```math
+t_{ij}
+=2c_{ij}\cosh\frac{\mathcal A_{ij}}2,
+\qquad
+j_{ij}
+=2c_{ij}\sinh\frac{\mathcal A_{ij}}2
+```
+
+を得る。従って $(t,j)$ と $(c,\mathcal A)$ は内部領域 $t>|j|$ で1対1であり、$t=|j|$ は一方向流の極限として回収される。
+
+次に2つの時間依存生成子 $L_t^A,L_t^B$ が同じ有限配置集合上で
+
+```math
+\sup_{0\leq t\leq T}
+\max_i\sum_{j\ne i}
+|k^A_{i\to j}(t)-k^B_{i\to j}(t)|
+\leq\varepsilon_{\rm gen}
+```
+
+を満たすとする。対角成分は各行の流出率の負なので、生成子差の各行の $\ell^1$ ノルムは $2\varepsilon_{\rm gen}$ 以下である。Duhamel公式とMarkov半群の全変動縮約性から、同じ初期分布に対して
+
+```math
+D_{\rm TV}(p_t^A,p_t^B)
+\leq
+\int_0^t\varepsilon_{\rm gen}\,ds
+\leq
+T\varepsilon_{\rm gen}.
+```
+
+特に有向率が一致すれば有限次元Markov経路法則も一致する。これはミクロ自由度の同一性ではなく、R161より下流で観測する位置過程の生成子同値である。
+
+### K.3.2 静的 詳細釣り合い特殊化
 
 固定した非零信号 $v$ に対するR164分布 $\pi^\delta(v)$ を取り、有限連結無向グラフの各辺に $a_{ij}=a_{ji}>0$ を置く。
 
@@ -260,7 +322,7 @@ D_{\rm TV}(\pi^\delta,w)
 ```
 
 
-### K.3.2 節点における静的再平衡化の障害
+### K.3.3 節点における静的再平衡化の障害
 
 $\delta=0$ とし、目標分布 $w$ の零頂点 $v$ が配置 グラフの切断点であるとする。隣接辺だけを使い、$w$ に関して詳細釣合いを満たす有限率生成子は、$G_X\setminus\{v\}$ の異なる連結成分間で確率質量を輸送できない。詳細釣合いは
 

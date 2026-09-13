@@ -6,7 +6,8 @@ draft-51以後の現行文書では、各試行で局在する物理変数を「
 
 | メモ | 元の版・移動元 | 現在の位置づけ | 移動理由 |
 |---|---|---|---|
-| `brownian_spin_q1_q3_unification.md` | draft-92で追加、phase-bus版へ復帰後にR194A/C/D/H/Iを再整理 | M56/R194A--R194E/R194H/R194Iの現役統合候補。active phase normalizer、2-action entropy shell、Brownian domain wallからNelson diffusionを狙う。relative-velocity magnon-dragは主線へ戻さない | phase lock、wall current absorption、finite shell mixing、wall Brownian finite-error縮約、backreactionの同時parameter regimeが未証明なので、現行Q3-2のR161/R162/R185達成根拠を変更せず研究線を固定するため |
+| `r161_q1_q2_q3_realization_equivalence.md` | draft-94のR161再整理 | Q1型局所信号＋Q2型辺結合からQ3の $(\pi,j)$ を作り、異なるミクロ模型を同じR161生成子で比較する参照メモ | 数学的同値と物理的存在論を分離し、ミクロ模型を変更するたびにR162/R185を再導出しないため |
+| `brownian_spin_q1_q3_unification.md` | draft-92で追加、phase-bus版へ復帰後にR194A/C/D/H/Iを再整理 | M56/R194A--R194E/R194H/R194IのR161ミクロ物理実現候補。spin signal、phase normalizer、2-action entropy shell、Brownian domain wallからNelson diffusionを狙う。relative-velocity magnon-dragは主線へ戻さない | phase lock、wall current absorption、finite shell mixing、wall Brownian finite-error縮約、backreactionの同時parameter regimeが未証明なので、現行Q3-2のR161/R162/R185達成根拠を変更せず研究線を固定するため |
 | `m56_phase_bus_completion_derivations.md` | phase-bus版M56の再検討から分離 | exact Darboux signal、finite-shell closed form、active phase normalizer、temperature-independent `nu` plateau、R194I合成定理候補の技術メモ | M56を正本へ昇格させず、明示計算済み部分と未証明bridgeを分離して監査可能にするため |
 | `superseded_separate_m51_m52_m53_models.md` | draft-67までのM51、M52、M53、R171、R176、R178 | M54/R181B--R181Dへの吸収と旧R181Aへの準備統合の履歴 | Q1とQ2を同じ有限正準register・作用殻receiver模型族から派生させるため |
 | `superseded_separate_m50_m55_models.md` | draft-73までのM50、M55、R183 | M54 static/spatial profileへの吸収記録 | static測定とspatial運動を同じR161/R162 matching/collision原理へ統一するため |
