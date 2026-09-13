@@ -32,7 +32,7 @@ jobs:
               p=Path(path); t=p.read_text(encoding='utf-8')
               n=t.count(old)
               if n != 1:
-                  raise SystemExit(f'{path}: expected 1 occurrence, got {n}: {old[:80]}')
+                  raise SystemExit(f'{path}: expected 1 occurrence, got {n}: {old[:100]}')
               p.write_text(t.replace(old,new,1), encoding='utf-8')
 
           replace_once('sections/06_m37_spatial_envelope.md',
@@ -52,6 +52,16 @@ jobs:
             'R162のopen Poisson-jump過程はM57の基礎的実体ではなく、R195Dが比較するideal stochastic referenceとして残す。',
             'R162のopen Poisson-jump過程はM57の基礎的実体ではなく、R196Cが比較するideal stochastic referenceとして残す。')
 
+          p=Path('sections/07_q3_finite_graph_phenomena.md')
+          t=p.read_text(encoding='utf-8')
+          if t.count('R195B--R195D') != 1:
+              raise SystemExit(f'sections/07: expected one stale R195B--R195D, got {t.count("R195B--R195D")}')
+          t=t.replace('R195B--R195D','R196A--R196C')
+          if t.count('\\nu_{ij}^{\\rm sig}') != 1:
+              raise SystemExit(f'sections/07: expected one mistyped edge velocity, got {t.count(chr(92)+"nu_{ij}^{"+chr(92)+"rm sig}")}')
+          t=t.replace('\\nu_{ij}^{\\rm sig}','u_{ij}^{\\rm sig}')
+          p.write_text(t,encoding='utf-8')
+
           replace_once('PROJECT_STATUS.md',
             'M57主線ではR86 carrier errorをR195Dへ直接渡す',
             'M57主線ではR86 carrier errorをR196Cへ直接渡す')
@@ -64,6 +74,9 @@ jobs:
           replace_once('PROJECT_STATUS.md',
             'その後は同じtracerが状態数free energyとTL bathの下で移動する。',
             'その後は同じtracerが状態数free energyとmoving equilibrium bathの下で移動する。')
+          replace_once('PROJECT_STATUS.md',
+            'Q3の強化として、M37空間signal source、M57 dual-TL tracer、時計自由度、終位置recordを同じ有限能動部分系＋Hamiltonian無限浴の単一装置周期へ統合する。',
+            'Q3の強化として、M37空間signal source、M57 dual-ballistic-TL moving-bath tracer、時計自由度、終位置recordを同じ有限能動部分系＋Hamiltonian無限浴の単一装置周期へ統合する。')
 
           p=Path('tools/verify_m57_ballistic_tracer.py')
           t=p.read_text(encoding='utf-8')
@@ -74,17 +87,24 @@ jobs:
         run: |
           python - <<'PY'
           from pathlib import Path
-          active=[Path('README.md'),Path('PROJECT_STATUS.md')]+list(Path('sections').glob('*.md'))
+          checks = {
+              Path('sections/06_m37_spatial_envelope.md'): ('M57 dual-TL tracer','pinned open TL','R195A--R195D','R195B--R195D'),
+              Path('sections/01_scope_and_cycle.md'): ('R195Dが比較するideal',),
+              Path('sections/07_q3_finite_graph_phenomena.md'): ('R195B--R195D','\\nu_{ij}^{\\rm sig}'),
+              Path('sections/09_conclusion.md'): ('R195Dが比較するideal',),
+          }
           bad=[]
-          for p in active:
-              t=p.read_text(encoding='utf-8')
-              # Historical draft blocks and superseded indexes are intentionally excluded from this simple scan.
-              if p.name=='PROJECT_STATUS.md':
-                  marker='## 固定長期目標'
-                  t=t[t.find(marker):] if marker in t else t
-              for token in ('R195B--R195D','R195Dが比較する','pinned open TL','drifting-Gibbs条件','M57 fast-bath・FDT/Kramers'):
-                  if token in t:
+          for p,tokens in checks.items():
+              text=p.read_text(encoding='utf-8')
+              for token in tokens:
+                  if token in text:
                       bad.append(f'{p}:{token}')
+          ps=Path('PROJECT_STATUS.md').read_text(encoding='utf-8')
+          marker='## 固定長期目標'
+          ps=ps[ps.find(marker):] if marker in ps else ps
+          for token in ('R86 carrier errorをR195D','別のdual-TL bath','左右独立open TL','状態数free energyとTL bath','M57 dual-TL tracer'):
+              if token in ps:
+                  bad.append(f'PROJECT_STATUS.md:{token}')
           if bad:
               raise SystemExit('stale active M57 refs: '+', '.join(bad))
           print('stale_active_m57_scan_ok')
