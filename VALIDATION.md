@@ -1,3 +1,23 @@
+## draft-94：R161共通数学核とQ1--Q3空間構造整理
+
+```bash
+python -m compileall -q tools
+python tools/check_source.py
+python tools/test_validation_policy.py
+python tools/check_terminology.py
+python tools/run_physics_checks.py
+python tools/build_paper.py
+python tools/build_paper.py --output-dir build/ci
+python tools/check_generated.py build/ci
+python tools/lint_typeset.py build/ci/latex/main.log
+git diff --check
+```
+
+- `tools/verify_m54_spatial_matching.py` で、Q1型局所モードだけでは辺流が零であること、R161の $(t,j)$ と $(c,\mathcal A)$ が同じ前後確率流を与えること、活動量と確率流の逆変換を検査した。
+- Q1型局所信号＋Q2型辺結合から $(\pi,j)$ を作る構造と、対称活動量 $t$ をミクロ実現側へ残す責務境界を本文・付録・README・研究メモで横断確認した。
+- 固定目標と達成ラベルは変更していない。M56はQ1--Q3の数学的統一そのものではなく、R161のミクロ物理実現候補へ位置づけ直した。
+- Actions run `34732644416` で上記検算と生成物同期を実行した。生成PDFはA4、216ページである。
+
 ## draft-90：R181A退役とR192方向不変作用安定化
 
 - R181Aの状態方向準備を現行主線から退役し、旧付録Mと旧検算器をnotesへ移した。
