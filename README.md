@@ -18,7 +18,7 @@
 
 また、状態方向、第2モーメント、位置分布などは、多数回の試行をまとめた統計量として扱います。これらの統計量を、1回の試行の制御器が読み取って次の状態を書き込むことはしません。
 
-論文では、こうした信号、配置、記録、時計自由度などをまとめた共通の有効状態構成をM54と呼びます。空間を伝わる信号については、局所的に結合した実振動子網M37からの物理的な実装も調べています。Q3の実在粒子輸送については、局在tracer、2作用状態数、左右独立open transmission lineを使うM57を現行ミクロ模型とします。
+論文では、こうした信号、配置、記録、時計自由度などをまとめた共通の有効状態構成をM54と呼びます。空間を伝わる信号については、局所的に結合した実振動子網M37からの物理的な実装も調べています。Q3の実在粒子輸送については、局在tracer、2作用状態数、左右独立のballistic transmission line、moving bath-frame carrier、平衡oscillator bathを使うM57を現行ミクロ模型とします。
 
 ## 現在の中心的な仕組み
 
@@ -70,17 +70,15 @@ Bell型統計では、固定一重項型の4モード信号にA側の設定を�
 
 ### 3. 空間を動く粒子
 
-Q3の信号部分系はQ1/Q2と無関係な別の数理を導入するものではありません。Q1で使うものと同じ局所実正準モードを空間の各点へ並べるだけでは点同士の作用移送がないため、まだQ3にはなりません。そこへQ2で用いるのと同型の2体系エルミート結合を隣接点の間へ入れると、グラフLaplacian型のSchrödinger伝播と局所確率流が生じます。
+Q3の信号部分系はQ1/Q2と無関係な別の数理を導入するものではありません。Q1で使うものと同じ局所実正準モードを空間の各点へ並べ、Q2で用いるのと同型の2体系エルミート結合を隣接点の間へ入れると、グラフLaplacian型のSchrödinger伝播と局所確率流が生じます。
 
-各edge $e=\{i,j\}$ では
+各edge $e=\{i,j\}$ で
 
 ```math
 C_{e,+}=\frac{Z_i-iZ_j}{\sqrt2},
 \qquad
 C_{e,-}=\frac{Z_i+iZ_j}{\sqrt2},
-```
-
-```math
+\qquad
 I_{e,\pm}=|C_{e,\pm}|^2
 ```
 
@@ -88,51 +86,65 @@ I_{e,\pm}=|C_{e,\pm}|^2
 
 ```math
 I_{e,+}+I_{e,-}=|Z_i|^2+|Z_j|^2,
-```
-
-```math
+\qquad
 I_{e,+}-I_{e,-}=2\operatorname{Im}(Z_i^*Z_j)
 ```
 
-が厳密に成り立ちます。和が局所密度、差が信号currentを担います。
-
-M57では、tracer位置に付随する2作用shellの状態数から
+が厳密に成り立ちます。Nelson関係 $\mathcal J_0=2m\nu$ の下では
 
 ```math
-\Omega_i\propto R_i^\delta
+J_{ij}^{\rm sig}=\frac{\nu}{a^2}(I_+-I_-),
+\qquad
+u_{ij}^{\rm sig}=\frac{2\nu}{a}\frac{I_+-I_-}{I_++I_-}
 ```
 
-を作り、位置重みとosmotic driftを得ます。同時に $I_+,I_-$ を左右独立のopen transmission lineへ局所注入し、TL energyの和と差からtracerのfrictionとwind driftを作ります。FDTとperiodic-tracerのKramers/Lifson--Jackson縮約を合わせると、一つのmatching
+となるため、signal currentを位相測定や外部除算で計算する必要はありません。
+
+M57では $I_+$ と $I_-$ を二本の受動ballistic waveguideへtapし、局所bath cellの可動COM $Y_e$ の左右から入射させます。wave pressureの釣合いは
 
 ```math
+\frac{U_e}{c}
+=\beta_*(r)
+=\frac{r}{1+\sqrt{1-r^2}},
+\qquad
+r=\frac{I_+-I_-}{I_++I_-}
+```
+
+という唯一安定なbath-frame速度を作ります。TL自体を熱化せず、drifting-Gibbsや非平衡FDTは使いません。
+
+実在tracer $X$ は、この $Y_e$ と共に並進する通常の平衡oscillator bathへ結合します。Brownian noiseとFDTはこの平衡bathだけが担い、2作用状態数の自由エネルギーがosmotic driftを与えます。periodic potentialのhomogenizationに
+
+```math
+D_0=\frac{\nu}{g_K},
+\qquad
 g_Kc=\frac{4\nu}{a}
 ```
 
-で長時間diffusion $D=\nu$ とcurrent drift係数が同時に一致します。
+を課すと、coarse-grained diffusionは $\nu$、current driftは $j/\rho+O(a^2)$、osmotic driftは $\nu\partial_x\log\rho$ となります。
 
 構造としては
 
 ```text
 M37/M54の空間信号 Z
-        ↓ R195A
-  2作用状態数 + chiral I±
-        ↓ M57 dual open TL + tracer
-       (π, j, t)
-        ↓ R195D / R161
-   Q3位置過程 X_t
+        ↓ R195A（currentはここで厳密）
+   R, chiral I±
+        ↓ R196A
+ dual ballistic TL → moving bath frame U
+        ↓ R196B
+ equilibrium Brownian bath → tracer X_t
+        ↓ R196C / R161
+ ideal Q3位置生成子
         ↓ R185
 Nelson / time-symmetric Newton
 ```
 
-となります。R161は $(\pi,j,t)$ から理想的な前向き・後向き遷移率を作る共通数学interfaceとして残します。R162のopen Poisson跳躍過程は、M57の基礎的な物理実体ではなく、M57のcoarse-grained path lawと比較するideal stochastic referenceとして使います。
-
-空間化Q1模型は、同じR161生成子をQ1型Born selectorとQ2型currentから組み立てられることを示す数学的参照実現として残します。自然な物理存在論として採用する必要はありません。
+となります。R161は共通数学interface、R162はideal stochastic referenceとして残し、M57の基礎的物理実体とは扱いません。
 
 ### 4. Q3のミクロ物理正本と代替研究線
 
-Q3の現行ミクロ物理正本はM57 dual-TL tracerです。実在粒子は一個の局在tracerであり、左右独立のopen TL、2作用状態数sector、periodic/double-well tracer potentialがR161へ入る $(\pi,j,t)$ を物理的に供給します。R195A--R195Dが、chiral作用、有限mixing・force correlation、FDT/Kramers matching、R161生成子への有限時間持上げをまとめます。
+Q3の現行ミクロ物理正本はM57 dual-ballistic-TL moving-bath tracerです。R195Aがchiral作用から局所密度・signal current・2作用状態数を与え、R196Aがballistic wave pressureからmoving bath-frame velocityを有限時間で作ります。R196Bは平衡oscillator bathのGLE、FDT、periodic homogenizationからdiffusion・current drift・osmotic driftを同時に整合させ、R196Cがmetastable well-index processをR161生成子へ有限誤差で接続します。
 
-M56 Brownian-spin模型は、spin-onlyの別実現を探る代替研究線へ位置づけます。M57と同じR161核へ接続できる可能性は残しますが、現行Q3-2の達成根拠には使いません。
+旧draft-95のpinned/anharmonic TL、TL mixing、force-correlation time、drifting-Gibbs、TL自身へのFDTは現行M57から退役しました。M56 Brownian-spin模型はspin-onlyの別実現を探る代替研究線としてnotesに残します。
 
 ## 現在どこまでできているか
 
@@ -140,7 +152,7 @@ Q1では、2モード可逆操作、Born型2結果測定、同軸反復、異軸
 
 Q2では、2量子ビット型結合操作、3部分系の二段ゲート合成、非空間分離Bell型統計、一般回路の出力標本化を条件付きで構成しています。主な残件は、読出し、射影成分の振り分け、作用安定化、リセットなどを一つの具体的な装置へ統合することと、一般回路での物理配線・較正・揺らぎ条件を閉じることです。
 
-Q3では、M37/M54空間信号からM57 dual-TL tracerへ接続し、R161/R162/R185の共通数学核を通してSchrödinger型有効力学、Nelson型の時間対称Newton則、井戸型・調和型・W型の束縛状態、トンネル効果、2経路干渉まで進んでいます。位相量子化は未達です。
+Q3では、M37/M54空間信号からM57 dual-ballistic-TL moving-bath tracerへ接続し、R161/R162/R185の共通数学核を通してSchrödinger型有効力学、Nelson型の時間対称Newton則、井戸型・調和型・W型の束縛状態、トンネル効果、2経路干渉まで進んでいます。位相量子化は未達です。
 
 正式な達成判定、根拠結果、残っている条件は [PROJECT_STATUS.md](PROJECT_STATUS.md) を正本とします。
 

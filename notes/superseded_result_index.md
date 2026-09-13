@@ -11,6 +11,17 @@
 
 退役は反証を意味しない。現在の固定目標と混同せず、必要な場合だけ独立研究線として再開する。
 
+
+### draft-95 M57 thermalizing-TL定式化
+
+| 結果 | 旧用途 | 現行の扱い | 参照先 |
+|---|---|---|---|
+| R195B | pinned weakly-anharmonic dual open TLのslaving・mixing・force correlation | draft-98で退役。ballistic moving-reflector定理R196Aへ置換 | draft-95 Git履歴、付録V |
+| R195C | drifting-Gibbs、TLへのGreen--Kubo/FDT、Kramers/Lifson--Jackson matching | draft-98で退役。moving equilibrium bath・GLE・homogenizationのR196Bへ置換 | draft-95 Git履歴、付録V |
+| R195D | $A=2r$ のKramers fluxからR161へ持上げ | draft-98で退役。$A=4\beta_*(r)$ のmetastable lift R196Cへ置換 | draft-95 Git履歴、付録V |
+
+R195Aのchiral作用・状態数恒等式は保持し、signal current velocityまで強化する。結果番号は再利用しない。
+
 | 結果 | 旧用途 | 現行の扱い | 参照先 |
 |---|---|---|---|
 | R171 | M51の共通開放ray準備 | 旧R181Aへ吸収後、draft-90で状態方向準備ごと退役 | `superseded_separate_m51_m52_m53_models.md`、`superseded_r181a_template_port_preparation.md` |

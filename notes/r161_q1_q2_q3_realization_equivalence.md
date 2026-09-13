@@ -2,7 +2,7 @@
 
 ## 1. 位置づけ
 
-このメモは、Q1型局所自由度を空間に並べQ2型2体系相互作用を加える参照模型と、Q3の具体的な粒子・浴模型を、どの意味で「同じ」とみなすかを整理する。draft-95以後、論文正本のQ3ミクロ物理実現はM57 dual-TL tracerとし、R161より後段の数学核は従来通り共通に保つ。
+このメモは、Q1型局所自由度を空間に並べQ2型2体系相互作用を加える参照模型と、Q3の具体的な粒子・浴模型を、どの意味で「同じ」とみなすかを整理する。draft-98以後、論文正本のQ3ミクロ物理実現はM57 dual-ballistic-TL moving-bath tracerとし、R161より後段の数学核は従来通り共通に保つ。
 
 現行Q3の数学的正本は
 
@@ -54,7 +54,7 @@ j_{ij}=\frac{J_{i\to j}}{S},
 
 Q1のBorn型選択機構を各辺へ置き、Q2型の反対称流を局所的に重ねる模型は、適切な $(\pi,j,t)$ を作ればR161と同じ位置生成子を与える。これはQ1/Q2からQ3数学へ接続できることを露出した **参照実現** として有用である。
 
-一方、この模型のpointer列やone-hot tokenを自然界の基礎的実体として採用する必要はない。現行の物理実装は、局在tracer、2作用状態数、左右独立open TLを用いるM57である。
+一方、この模型のpointer列やone-hot tokenを自然界の基礎的実体として採用する必要はない。現行の物理実装は、局在tracer、2作用状態数、dual ballistic TL、moving bath-frame carrier、平衡oscillator bathを用いるM57である。
 
 ## 4. R161実現同値
 
@@ -77,11 +77,11 @@ D_{\rm TV}(p_t^A,p_t^B)
 \leq T\varepsilon_{\rm gen}.
 ```
 
-従って近似ミクロ模型も、生成子誤差を制御すれば同じR161/R162/R185下流へ接続できる。M57/R195Dはこの規約を使い、TL-tracer粗視化生成子とideal R161生成子との差を有限時間で評価する。
+従って近似ミクロ模型も、生成子誤差を制御すれば同じR161/R162/R185下流へ接続できる。M57/R196Cはこの規約を使い、ballistic-TL/moving-bath/tracer粗視化生成子とideal R161生成子との差を有限時間で評価する。
 
 ## 5. 物理実現の比較規約
 
-- M57 dual-TL tracer：Q3で採用する現行ミクロ物理実現。2作用状態数が $\pi$、左右TLとKramers activityが $(j,t)$ を供給する。
+- M57 dual-ballistic-TL moving-bath tracer：Q3で採用する現行ミクロ物理実現。R195Aが局所密度とsignal currentをexactに与え、R196Aのballistic wave pressureがmoving bath velocity、R196Bの平衡bathとperiodic homogenizationがdiffusion・osmotic drift、R196Cのmetastable reductionがR161 activityを供給する。
 - R162 open Poisson jump：M57と比較するideal stochastic reference。基礎的なQ3存在論とは扱わない。
 - 空間化Q1＋Q2相互作用：Q1/Q2からR161へ到達できることを示す数学的参照実現。
 - M56：spin-only実現を狙う代替研究線。現行Q3達成根拠には使わない。

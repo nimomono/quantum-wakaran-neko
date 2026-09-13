@@ -1,3 +1,11 @@
+## draft-98：M57 ballistic moving-bath検算
+
+- R195Aのchiral作用和・差、signal current、edge velocity恒等式を検査する。
+- R196Aのmoving-reflector forceについて $\beta_*(r)$ fixed point、square-root表示、strict stability、force-slope下限、$\beta_*-r/2=O(r^3)$、時間依存chiralityへのGronwall追従を検査する。
+- weak tapで $\kappa_p,M_e\propto\epsilon^2$ としたときtracking rateが消えないこと、R196Bの $\gamma_X,k_BT\propto\epsilon^4$、$M_X\propto\epsilon^6$ でoverdamped timeとloadingが小さくなることを検査する。
+- $D_0=\nu/g_K$、$g_Kc=4\nu/a$、Lifson--Jackson barrier、$\tau_X\ll\tau_p\ll\tau_Y\ll T_{\rm sig}$、R196Cの $\mathcal A=4\beta_*(r)$、R161 traffic positivity、native current補正の $O(r^2)$ を `tools/verify_m57_ballistic_tracer.py` で再計算する。
+- 通常の `tools/run_physics_checks.py`、原稿構造検査、論文再生成・同期検査を最終PR headで通す。
+
 ## draft-97：強化目標体系・Bell前提監査・開放雑音方針の同期検査
 
 ```bash

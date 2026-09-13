@@ -41,27 +41,46 @@ P(r,s\mid x,y)
 
 であり、一重項型信号では余弦共同相関、非信号性、CHSH/Tsirelson値を再現する。この装置はA結果成分をB端へ渡す非空間分離装置であり、現行証人ではBell局所因子化を仮定しない。設定前の一重項源は設定非依存であり、現行証人のCHSH破れを測定設定独立性の破れへ限定して解釈しない。
 
-Q3の粒子位置はQ1/Q2の測定結果とは別の因果鎖を持つ一方、その信号数学は共通である。Q1型の局所正準モードを空間頂点へ配置し、Q2型の2体系結合を辺へ反復すると、局所作用から $\pi$、連続方程式から反対称流 $j$ が得られる。M57はこの信号を、一個の局在tracer、2作用状態数、左右独立のpinned open transmission lineへ接続する。R195Aがchiral作用と状態数、R195Bがfinite port slaving・mixing・force correlation、R195CがGreen--Kubo/FDTとperiodic-tracer縮約、R195DがR161生成子への有限時間matchingを与える。
+Q3の粒子位置はQ1/Q2の測定結果とは別の因果鎖を持つ一方、その信号数学は共通である。Q1型の局所正準モードを空間頂点へ配置し、Q2型の2体系結合を辺へ反復すると、局所作用から $\pi$、連続方程式から反対称流 $j$ が得られる。R195Aはさらにchiral作用の和・差からsignal currentとedge velocityを厳密に露出させる。
 
-M57では
+M57はこのsignalをdual ballistic TLへ弱くtapし、wave pressureで局所bath-cell COM $Y_e$ を受動的に動かす。R196Aの唯一安定fixed pointは
 
 ```math
-I_++I_-=R_i+R_j,
+\frac{U_*}{c}
+=\frac{r}{1+\sqrt{1-r^2}},
 \qquad
-I_+-I_-=2\operatorname{Im}(Z_i^*Z_j)
+r=\frac{I_+-I_-}{I_++I_-}.
 ```
 
-によりsignal densityとcurrentを同じedge actionへ分解する。2作用状態数は $\Omega_i^\delta\propto R_i^\delta$ を与え、dual TLのwind/friction比はcurrent driftを作る。FDTとKramers/Lifson--Jackson縮約に対して
+TL自体を熱化せず、drifting-Gibbsや非平衡FDTは仮定しない。actual tracer $X$ は $Y_e$ と共に並進する通常の平衡oscillator bathへ結合し、R196BでGLE/FDT、overdamped reduction、periodic homogenizationを行う。
 
 ```math
+D_0=\frac\nu{g_K},
+\qquad
 g_Kc=\frac{4\nu}{a}
 ```
 
-を課すと、長時間diffusion $D_{\rm hop}=\nu$ とcurrent drift係数が同じmatchingで一致する。R195Dはこのcoarse-grained tracer generatorをR161形式へ写し、signal-current理想生成子との差を有限誤差 $\varepsilon_{57}$ で制御する。
+によりcoarse-grained diffusionは $\nu$、current driftは $j/\rho+O(a^2)$、2作用状態数由来のosmotic driftは $\nu\partial_x\log\rho$ へ一致する。R196Cはaffinity $\mathcal A=4\beta_*(r)$ を持つmetastable well-index generatorをR161形式へ写し、signal-current理想生成子との差を有限誤差 $\varepsilon_{57}$ で制御する。
 
-従ってQ3の現行因果鎖は、M37/M54空間信号からR195Aで2作用状態数とchiral作用 $I_\pm$ を取り出し、M57/R195B--R195Cで $(\pi,j,t)$ を形成し、R195D/R161で位置過程 $X_t$ へ接続した後、R185でNelson型時間対称Newton則へ進む。
+従ってQ3の現行因果鎖は
 
-R162のopen Poisson-jump過程はM57の基礎的実体ではなく、R195Dが比較するideal stochastic referenceとして残す。R185は同じ前向き経路法則のBayes反転から前進・後退平均微分と時間対称Newton則へ接続する。Q1/Q2の測定pointerをQ3粒子へ同一視しない。
+```math
+Z
+\xrightarrow{\mathrm{R195A}}
+(R,I_+,I_-)
+\xrightarrow{\mathrm{R196A}}
+(R,U_{\rm bath})
+\xrightarrow{\mathrm{R196B}}
+X_t
+\xrightarrow{\mathrm{R196C/R161}}
+L_{\rm R161}
+\xrightarrow{\mathrm{R185}}
+\text{Nelson / time-symmetric Newton}
+```
+
+である。
+
+R162のopen Poisson-jump過程はM57の基礎的実体ではなく、R196Cが比較するideal stochastic referenceとして残す。R185は同じ前向き経路法則のBayes反転から前進・後退平均微分と時間対称Newton則へ接続する。Q1/Q2の測定pointerをQ3粒子へ同一視しない。
 
 今回の縮約により、R184の旧M37--M54空間率latchは補助結果へ下がり、M57主線の必須依存から外れた。M56 Brownian-spin Q3模型はspin-only代替研究線へ位置づける。R190A--R190C、R170、旧R180Bも現行Q1/Q2主線へ戻さない。これらは反証されたのではなく、別の物理実現・強化案として `notes/` とGit履歴へ保存する。
 

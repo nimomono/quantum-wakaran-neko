@@ -1,31 +1,49 @@
 @number: 7
 @chapter: 本文
 @title: Q3の確率力学、束縛状態、トンネル現象、2経路干渉、位相量子化
-@status: Q3-2・Q3-3A--Q3-3Cの達成、Q3-6の未達、Q3-4A・Q3-4B・Q3-5の条件付き達成を区別する。Q3粒子輸送の現行ミクロ物理層はM57/R195A--R195Dとする。
+@status: Q3-2・Q3-3A--Q3-3Cの達成、Q3-6の未達、Q3-4A・Q3-4B・Q3-5の条件付き達成を区別する。Q3粒子輸送の現行ミクロ物理層はM57/R195A・R196A--R196Cとする。
 
-本章は、M37/M54空間信号からM57 dual-TL tracerを縮約してNelson流または時間対称Newton則へ接続するQ3-2、R123とR182によるQ3-3A--Q3-3C、R124・R125・R182をM57 tracerの位置輸送へ接続するQ3-4A・Q3-4B・Q3-5、位相量子化のQ3-6を区別する。R123--R125とR182の完全証明は付録F、G、M57のミクロ物理とR161生成子matchingは付録V、R161/R185の有限格子数学は付録Nに置く。
+本章は、M37/M54空間信号からM57 dual-ballistic-TL moving-bath tracerを縮約してNelson流または時間対称Newton則へ接続するQ3-2、R123とR182によるQ3-3A--Q3-3C、R124・R125・R182をM57 tracerの位置輸送へ接続するQ3-4A・Q3-4B・Q3-5、位相量子化のQ3-6を区別する。R123--R125とR182の完全証明は付録F、G、M57のミクロ物理とR161生成子matchingは付録V、R161/R185の有限格子数学は付録Nに置く。
 
 ## 7.1 Nelson流の作用変分または時間対称Newton則（Q3-2）
 
 **固定目標と達成判定。** Q3-2は、明示的な古典ミクロモデルの縮約から、Nelson型確率力学における作用の停留原理、または前進・後退平均加速度を対称に組み合わせたNewton則を導く。対象となる確率過程、前進・後退平均微分、力とポテンシャル、適用時間、近似範囲、誤差を明示する。二経路の少なくとも一方を満たせばよい。
 
-**運用状態。** Q3-2は達成である。M37/R86が古典実振動子からM54空間信号 $Z$ を有限時間で与え、M57/R195A--R195Cがその局所密度とsignal currentを2作用状態数、左右独立open TL、局在tracerへ接続する。R195DはM57 tracerのcoarse-grained well-index generatorをideal R161 generatorへ有限誤差 $\varepsilon_{57}$ で持ち上げる。R162はそのideal R161率を実現する参照open-jump過程であり、Q3の基礎的ミクロ存在論とは扱わない。
+**運用状態。** Q3-2は達成である。M37/R86が古典実振動子からM54空間信号 $Z$ を有限時間で与える。R195Aはそのedge chiral作用から局所密度、signal current、signal edge velocityを厳密に取り出し、2作用状態数から位置重みとosmotic free energyを与える。R196Aは二本のballistic TLのwave pressureから局所bath-frame carrierの唯一安定な速度を有限時間で生成し、R196Bはそのmoving frameで平衡oscillator bathへ結合した同じtracerをGLE/FDTとperiodic homogenizationで縮約する。R196Cはcoarse-grained well-index generatorをideal R161 generatorへ有限誤差 $\varepsilon_{57}$ で持ち上げる。R162はideal R161率を実現する参照open-jump過程であり、Q3の基礎的ミクロ存在論とは扱わない。
 
-M57のedge chiral作用は
+R195Aのexact identityは
 
 ```math
 I_++I_-=R_i+R_j,
 \qquad
-I_+-I_-=2\operatorname{Im}(Z_i^*Z_j)
+I_+-I_-=2\operatorname{Im}(Z_i^*Z_j),
 ```
 
-を厳密に満たす。2作用状態数は $\Omega_i^\delta\propto R_i^\delta$ を与え、左右TLのwind/friction比はcurrent driftを与える。FDTとperiodic-tracer縮約に対して
+```math
+J_{ij}^{\rm sig}=\frac{\nu}{a^2}(I_+-I_-),
+\qquad
+u_{ij}^{\rm sig}=\frac{2\nu}{a}\frac{I_+-I_-}{I_++I_-}
+```
+
+である。R196Aのmoving-reflector fixed pointは
 
 ```math
+\frac{U_*}{c}
+=\beta_*(r)
+=\frac{r}{1+\sqrt{1-r^2}},
+\qquad
+r=\frac{I_+-I_-}{I_++I_-},
+```
+
+で唯一安定である。R196BではTL自体をthermalizeせず、別の平衡oscillator bathだけにFDTを適用する。periodic homogenizationに
+
+```math
+D_0=\frac\nu{g_K},
+\qquad
 g_Kc=\frac{4\nu}{a}
 ```
 
-を課すと、長時間diffusion $D_{\rm hop}=\nu$ とcurrent drift係数が同じmatchingで一致する。R195DのKramers fluxはR161形式を厳密に持ち、smooth sectorでsignal currentとの差は $O(a^2)$ である。
+を課すと、effective diffusionは $\nu$、current driftは $j/\rho+O(a^2)$、osmotic driftは $\nu\partial_x\log\rho$ となる。R196Cのaffinityは $\mathcal A_e=4\beta_*(r_e)$ で、metastable fluxからR161形式を得る。smooth sectorでsignal currentとの差はrelative $O(a^2)$ である。
 
 R161移動特殊化の条件付き分布を $p_i(t)$ とすると、同じ前向き経路法則のBayes反転は
 
@@ -79,7 +97,13 @@ m\|R_\delta\|_\infty
 mC_{185,a}a^2.
 ```
 
-従って固定有限時間、1次元有限格子、node-free滑らかな部分系で、M57のfast-bath・FDT/Kramers条件とR185の正則化・格子条件を順に満たす有限パラメータを選べば任意有限誤差へ閉じる。`tools/verify_m57_tl_tracer.py` はM57仮定集合が空でない明示parameter witnessを独立に検算する。
+従って固定有限時間、1次元有限格子、node-free滑らかな部分系で、ballistic propagation、bath-frame tracking、equilibrium GLE、overdamped reduction、periodic homogenization、metastable well-index縮約の各有限誤差とR185の正則化・格子条件を順に制御すれば任意有限誤差へ閉じる。必要な時間尺度は代表的に
+
+```math
+\tau_X,\tau_p,\lambda_Y^{-1}\ll T_{\rm sig},T_{\rm well}
+```
+
+である。`tools/verify_m57_ballistic_tracer.py` はchiral恒等式、moving-reflector fixed pointと安定性、有限時間追従、weak-tap/loading scaling、$D_0=\nu/g_K$、$g_Kc=4\nu/a$、Lifson--Jackson suppression、新R161 current correctionの同時parameter windowが非空であることを検算する。
 
 **非主張。** 後向き率は同じ前向き経路分布の条件付き確率であり、未来から物理作用する第2浴を導入しない。R162のPoisson reservoirをM57 tracerとは別の実在粒子へ読み替えない。生M37局所包絡からNewton加速度までの直接時間微分付き縮約、連続空間の一様極限、多粒子配置空間、位相量子化はQ3-2の現行達成範囲に含めない。旧R184の空間率latch、旧R162有限衝突経路、旧R188は補助・強化結果として保持するが、M57主線の必須依存ではない。
 
@@ -434,7 +458,7 @@ P_R(T_{1/2})-P_R(0)=2B_c>0.
 
 **M37の長時間誤差。** 静的格子ではR86の厳密正常モード生成子が $h_{\rm ex}=f_{\omega_0}(h_W)$ なので、R182の固有ベクトルはM37正常モードでも厳密に共通である。分裂だけが $\Delta_{\rm ex}=f(E_1)-f(E_0)$ へ変わり、その相対誤差は $\eta$ で抑えられる。従ってM37正常モードの半周期・一周期は $\Delta_{\rm ex}$ で較正し、局所包絡との差はR86の $\delta_{\rm loc}(\eta)$ と格子誤差へ分ける。小さい分裂に対して一般の時間比例Duhamel上界だけを一周期へ流用しない。
 
-**M57の同じtracerへの持上げ。** R195Aの2作用状態数で開始位置分布を一度だけ準備し、M57/R195B--R195Dが同じtracerを $0$ から $T_{\rm per}$ まで輸送する。終時刻に別の静的位置を再標本化しない。理想位置分布を $p_t$、M57 coarse-grainingと記録を含む観測分布を $q_t$ とし、
+**M57の同じtracerへの持上げ。** R195Aの2作用状態数で開始位置分布を一度だけ準備し、M57/R196A--R196Cが同じtracerを $0$ から $T_{\rm per}$ まで輸送する。終時刻に別の静的位置を再標本化しない。理想位置分布を $p_t$、M57 coarse-grainingと記録を含む観測分布を $q_t$ とし、
 
 ```math
 D_{\rm TV}(q_t,p_t)

@@ -61,24 +61,28 @@ M57は、この空間信号を一個の局在tracerへ接続する現行ミク�
 ```math
 C_{e,+}=\frac{Z_i-iZ_j}{\sqrt2},
 \qquad
-C_{e,-}=\frac{Z_i+iZ_j}{\sqrt2}
+C_{e,-}=\frac{Z_i+iZ_j}{\sqrt2},
+\qquad
+I_{e,\pm}=|C_{e,\pm}|^2
 ```
 
-を作り、$I_{e,\pm}=|C_{e,\pm}|^2$ とする。R195Aにより和は局所密度、差はsignal currentへ厳密に対応する。tracer位置の2作用状態数が $\pi$ とosmotic driftを供給し、左右独立open TLとFDT/Kramers縮約が対称活動量とcurrent driftを供給する。
+を作る。R195Aにより局所密度、signal current、edge velocityはこのchiral作用から厳密に決まる。R196Aは二本のballistic TLをbath-cell COMへ入射して唯一安定なmoving frame $U_{\rm bath}$ を作り、R196Bはそのframeで通常の平衡oscillator bathへ結合したtracerをGLE/FDTとperiodic homogenizationで縮約する。R196Cはmetastable well-index processをR161へ持ち上げる。
 
 ```math
 Z
 \xrightarrow{\mathrm{R195A}}
-(\pi,I_+,I_-)
-\xrightarrow{\mathrm{M57/R195B--R195C}}
-(\pi,j,t)
-\xrightarrow{\mathrm{R195D/R161}}
+(R,I_+,I_-)
+\xrightarrow{\mathrm{R196A}}
+(R,U_{\rm bath})
+\xrightarrow{\mathrm{R196B}}
 X_t
+\xrightarrow{\mathrm{R196C/R161}}
+L_{\rm R161}
 \xrightarrow{\mathrm{R185}}
 \text{Nelson / time-symmetric Newton}.
 ```
 
-R162のopen Poisson-jump過程はM57の基礎的実体ではなく、R195Dが比較するideal R161 jump lawの参照実現として残す。Q1/Q2の測定装置そのものをQ3粒子へ流用するとは主張しない。
+R162のopen Poisson-jump過程はM57の基礎的実体ではなく、R196Cが比較するideal R161 jump lawの参照実現として残す。Q1/Q2の測定装置そのものをQ3粒子へ流用するとは主張しない。
 
 ## 1.3 現行模型と実装階層
 
@@ -86,7 +90,7 @@ R162のopen Poisson-jump過程はM57の基礎的実体ではなく、R195Dが比
 |---|---|---|
 | M54 | 共通有効信号--配置状態構成族 | 有限実正準信号、準備済み入力境界、永続記憶部、作業領域、時計、記録の共通型。Q1型局所信号とQ2型2体系結合の空間特殊化がQ3 signalの $(\pi,j)$ を与える。M54中のQ3位置座標は有効interfaceであり、その現行ミクロ担体はM57 tracerである |
 | M37 | 物理Hamiltonian信号実装層 | Q3空間信号を局所ばね網で実装し、R187条件下ではW型最低2正常モードをQ1 W2制御信号へ接続する |
-| M57 | Q3粒子輸送ミクロ物理層 | 2作用状態数、左右独立のpinned open TL、局在tracer、periodic/double-well potentialからR195A--R195Dを介してR161生成子へ有限誤差で接続する |
+| M57 | Q3粒子輸送ミクロ物理層 | 2作用状態数、dual ballistic TL、moving bath-frame carrier、平衡oscillator bath、局在tracer、periodic/double-well potentialからR195A・R196A--R196Cを介してR161生成子へ有限誤差で接続する |
 | M0 | 単一ミクロ装置統一目標 | Q1ではR193によりW2作用保持からmacrospin decision energyまでを具体化済み。Q3ではM37/M54 signalからM57粒子輸送までを具体化する。macrospin浴、router、record、reset、Q2一般transducer、Q3 clock/recordを共通接続端とHamiltonian無限浴へ統合する全周期目標は未完成 |
 
 M54の複素信号 $Z$ は実正準対の派生表示であり、独立した複素実体ではない。状態方向、規格化共分散、位置分布は解析上の統計量であり、単一試行の制御器へ書き戻さない。
@@ -100,13 +104,13 @@ M54の複素信号 $Z$ は実正準対の派生表示であり、独立した複
 | Q2-2 | 固定一重項4モード、A/B設定gate | A端R191、R181D型router、B端R191、R180A/R180C監査 |
 | Q2-3 | R181Bを2回、R181C、R177 | R191逐次読出し、R181D router |
 | Q2-4 | M54一般 $2^n$ 直接モード、R181C | R191逐次読出し、R181D、非終端安全結果のR192、R179 open reset、R186資源監査 |
-| Q3 | M37/M54空間信号、M57 dual-TL tracer、R195A--R195D | R161/R162 ideal reference、R185時間対称Newton、R112終位置record |
+| Q3 | M37/M54空間信号、M57 dual-ballistic-TL moving-bath tracer、R195A・R196A--R196C | R161/R162 ideal reference、R185時間対称Newton、R112終位置record |
 
 旧R190A--R190C、R170、R180Bは固定Q1/Q2の必須依存から外す。R184は旧M37--M54空間率latchの補助結果として保持するがM57主線の必須依存から外す。旧構成の詳細は `notes/` とGit履歴に保存する。
 
 ## 1.5 達成範囲
 
-固定目標と達成ラベルは `PROJECT_STATUS.md` を正本とする。本改訂ではQ2-2だけを、特定の測定設定独立性違反を必須としない一般のBell前提監査へ広げる。Q2-2を含む既存達成ラベルは維持し、Q1-1、Q1-2、Q3-1--Q3-3Cは達成、Q2-1--Q2-4、Q3-4A、Q3-4B、Q3-5は各文書に明記した条件付き達成、Q3-6は未達のままとする。Q3-2の達成根拠はM57/R195A--R195Dの明示TL-tracer縮約である。
+固定目標と達成ラベルは `PROJECT_STATUS.md` を正本とする。本改訂ではQ2-2だけを、特定の測定設定独立性違反を必須としない一般のBell前提監査へ広げる。Q2-2を含む既存達成ラベルは維持し、Q1-1、Q1-2、Q3-1--Q3-3Cは達成、Q2-1--Q2-4、Q3-4A、Q3-4B、Q3-5は各文書に明記した条件付き達成、Q3-6は未達のままとする。Q3-2の達成根拠はM57/R195A・R196A--R196Cの明示ballistic-TL/moving-bath/tracer縮約である。
 
 固定目標に付随する強化目標は `ENHANCEMENT_TARGETS.md` を正本とする。全固定目標にA1/A2、Q1/Q2にB1/B2/B3、Q2-2にQ2-2-Sを置き、固定目標の達成状態とは独立に全項目を未監査から開始する。A1では採用開放SDEと理想白色雑音を許し、A2はそのミクロ方程式自体の直接数値再現を要求する。回路強化Bでは有限帯域雑音を含む実験可能領域へ落とす。
 

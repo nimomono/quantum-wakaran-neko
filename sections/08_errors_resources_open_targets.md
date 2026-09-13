@@ -25,7 +25,7 @@ Q1/Q2の2結果主線では、1ノードの読出し誤差を
 4. R180Cの積因子化誤差を各翼の局所R191誤差へ吸収した上で再び加える。
 5. 無反応質量を理想分布差と実装失敗へ2回加える。
 6. 同じ準備済み入力偏差を $\varepsilon_{\rm in}$、R135の初期共分散誤差、系列固有の入力誤差へ重ねて入れる。
-7. M57では同じM37/R86 carrier偏差を $\varepsilon_{86}$ とport誤差へ二重に入れず、同じTL mixing偏差を $\varepsilon_{\rm mix}$、$\varepsilon_{\rm corr}$、$\varepsilon_{\rm FDT}$ へ重複加算しない。
+7. M57では同じM37/R86 carrier偏差を $\varepsilon_{86}$ とballistic-port誤差へ二重に入れず、同じmoving-frame追従偏差を $\varepsilon_{\rm prop}$、$\varepsilon_{\rm track}$、$\varepsilon_{\rm load}$ へ重複加算しない。平衡bathのGLE/FDT誤差とperiodic homogenization誤差も導出箇所ごとに一度だけ数える。
 
 全ての理想分布と実分布は同じ完全結果集合へ埋め込む。成功試行だけで再規格化しない。
 
@@ -228,12 +228,11 @@ $\bar\varepsilon_k$ には第 $k$ nodeの射影作用保持、R191、R181D route
 
 ## 8.7 Q3のM57--R161--R185誤差
 
-Q3の現行ミクロ物理層はM57である。R195DがM57 tracerのcoarse-grained well-index generatorをideal R161 generatorへ比較する。固定有限時間 $0\le t\le T$ で
+Q3の現行ミクロ物理層はballistic版M57である。R195Aでsignal currentまでをexactに取り出し、R196Aがmoving bath frame、R196Bが平衡Brownian tracer、R196Cがwell-index generatorからideal R161への有限時間matchingを担う。固定有限時間 $0\le t\le T$ で
 
 ```math
 \varepsilon_{57}
-=
-\sup_{t\le T}
+=\sup_{t\le T}
 \max_i\sum_{j\ne i}
 |k_{i\to j}^{57}(t)-k_{i\to j}^{161}(t)|
 ```
@@ -241,23 +240,26 @@ Q3の現行ミクロ物理層はM57である。R195DがM57 tracerのcoarse-grain
 とし、node-free safe sectorで
 
 ```math
+\boxed{
 \varepsilon_{57}
-\le
-C_{57}
-\left[
+\le C_{57}\left[
 \varepsilon_{86}
 +\varepsilon_{\rm shell}
 +\varepsilon_{\rm port}
-+\varepsilon_{\rm mix}
-+\varepsilon_{\rm corr}
-+\varepsilon_{\rm FDT}
-+\varepsilon_K
++\varepsilon_{\rm prop}
++\varepsilon_{\rm track}
++\varepsilon_{\rm load}
++\varepsilon_{\rm GLE}
++\varepsilon_{\rm od}
++\varepsilon_{\rm hom}
++\varepsilon_{\rm EK}
 +\varepsilon_{\rm back}
 +a^2
 \right].
+}
 ```
 
-ここで $\varepsilon_{86}$ はM37/M54 signalからのcarrier誤差、$\varepsilon_{\rm shell}$ は有限2作用殻、$\varepsilon_{\rm port}$ はchiral actionからTL energyへの追従、$\varepsilon_{\rm mix}$ と $\varepsilon_{\rm corr}$ はfinite TL bath、$\varepsilon_{\rm FDT}$ と $\varepsilon_K$ はdrifting-Gibbs/FDTとperiodic-tracer縮約、$\varepsilon_{\rm back}$ はsignalへの有限反作用である。最後の $a^2$ は $\sinh r/r-1$ に由来するnative smooth-grid current correctionであり、finite-grid exact matchingを外部servoで作らない。
+ここで $\varepsilon_{86}$ はM37/M54 signal carrier、$\varepsilon_{\rm shell}$ は有限2作用殻、$\varepsilon_{\rm port}$ はchiral modeからballistic wave energyへの有限band coupling、$\varepsilon_{\rm prop}$ は伝播遅延・dispersion、$\varepsilon_{\rm track}$ はbath-frame carrierの有限追従、$\varepsilon_{\rm load}$ はtracerからcarrierへの反作用、$\varepsilon_{\rm GLE}$ は平衡oscillator bathからMarkov GLEへの縮約、$\varepsilon_{\rm od}$ は慣性消去、$\varepsilon_{\rm hom}$ はperiodic homogenization、$\varepsilon_{\rm EK}$ はmetastable well-index近似、$\varepsilon_{\rm back}$ はsignalへのpassive tap反作用である。最後の $a^2$ は $\mathcal A=4\beta_*(r)$ によるnative smooth-grid current correctionであり、finite-grid exact matchingを外部servoで作らない。
 
 R161実現同値から
 
@@ -267,7 +269,7 @@ D_{\rm TV}(p_t^{57},p_t^{161})
 \le T\varepsilon_{57}.
 ```
 
-R185のnode-free 1次元有限格子評価へ渡すと、分布・generator側の上流誤差とNelson/Newton側の正則化・格子誤差を分離して
+R185のnode-free 1次元有限格子評価へ渡すと
 
 ```math
 \varepsilon_{Q3-2}
@@ -276,34 +278,42 @@ T\varepsilon_{57}
 +
 m\|R_\delta\|_\infty
 +
-mC_{185,a}a^2
+mC_{185,a}a^2.
 ```
 
-と監査する。同じ $a^2$ が物理generator matchingとR185有限差分に別の起源で現れるため、係数を同一視せず、各導出箇所で一度だけ数える。R188の $C_{\rm time}\tau$ と $C_{\rm hist}\varepsilon^{\rm hist}/\tau^2$ は、M57 coarse-grained pathから有限サンプリングされた合成加速度までをさらに持ち上げる場合だけ追加する。
+同じ $a^2$ がR196Cの物理generator matchingとR185有限差分に別の起源で現れるため係数を同一視せず、各導出箇所で一度だけ数える。R188の有限サンプリング加速度誤差は必要な場合だけ追加する。
 
-M57のfast-bath条件は
+現行M57の代表的fast-sector条件は
 
 ```math
-2\|P_N\|\delta_{\rm anh}<1,
+\tau_p\ll T_{\rm sig},
 \qquad
-\lambda_{\rm mix}>0,
+\lambda_Y^{-1}\ll T_{\rm sig},
+\qquad
+\tau_X=\frac{M_X}{\gamma_X}\ll T_{\rm sig},T_{\rm well},
 ```
 
-```math
-\tau_{\rm prop},\tau_{\rm corr},\tau_{\rm mix}
-\ll
-T_{\rm K},T_{\rm sig}
-```
-
-とする。中心matchingは
+である。中心matchingは
 
 ```math
+D_0=\frac\nu{g_K},
+\qquad
 g_Kc=\frac{4\nu}{a}.
 ```
 
-これらは外部から $J/\rho$ を計算するservo条件ではなく、有限TLとperiodic tracerの物理パラメータ条件である。条件を満たすwitnessが `tools/verify_m57_tl_tracer.py` で非空であることを検査する。
+weak family
 
-旧R184の $\varepsilon_{184}$ は撤回しないが、M57主線では使わない。M37 carrier誤差はR195Dへ直接1回だけ渡す。R162はideal R161 jump referenceの厳密実現であり、M57の基礎的bath誤差として数えない。
+```math
+\kappa_p,M_e=O(\epsilon^2),
+\qquad
+\gamma_X,k_BT=O(\epsilon^4),
+\qquad
+M_X=O(\epsilon^6)
+```
+
+ではtracking rateと $D_0$、$g_K$ を固定したままsignal backreactionとtracer loadingを $O(\epsilon^2)$ へ下げられる。条件を満たすwitnessを `tools/verify_m57_ballistic_tracer.py` で検査する。
+
+旧draft-95の $\varepsilon_{\rm mix}$、$\varepsilon_{\rm corr}$、TLへの $\varepsilon_{\rm FDT}$ は現行M57の誤差台帳から削除する。旧R184の $\varepsilon_{184}$ は撤回しないがM57主線では使わない。R162はideal R161 jump referenceでありM57の基礎的bath誤差として数えない。
 
 ## 8.8 静的分布の整合の正則化資源発散
 
@@ -427,7 +437,7 @@ Q2-4は条件付き達成を維持する。残る条件は、静的部分系配�
 | M54/R181C・R181D・R179・R186・R191・R192 | R191結果固定前にrouterを開く、希少結果を事後除外する、R192で安全下限未満を救済する、状態依存除算を使う、開放浴へ回路出力確率やモード別係数を外部注入する、一様装置族へ統合できない、またはR186の加法ノイズ障害を回避できず指数精度を要求する |
 | M37/R86・R135 | 有限時間包絡上界または第2モーメント持上げ上界を超える |
 | R182 | W型固定低位スペクトル・密度・節が格子収束しない、Rayleigh十分条件から障壁下二重項が得られない、関数計算の共有固有空間または分裂相対上界を破る、中央障壁込み半周期鏡映・一周期回帰が成立しない |
-| M57/R195A--R195D | chiral作用和・差恒等式とsignal current対応を満たさない、2作用状態数が $R_i^\delta$ に比例しない、$2\|P_N\|\delta_{\rm anh}<1$ を満たすsafe sectorが存在しない、$\tau_{\rm corr}$ または $\tau_{\rm mix}$ がslow timeより短くならない、FDT/Kramers縮約と $g_Kc=4\nu/a$ を同じparameter windowで満たせない、またはR195Dの生成子差を有限時間制御できない。これらを外部servo、状態依存除算、毎時刻再標本化で補わない |
+| M57/R195A・R196A--R196C | chiral作用/current恒等式を満たさない、passive ballistic portの有限誤差境界が閉じない、moving-reflector fixed pointが一意安定でない、$\tau_p$ または $\lambda_Y^{-1}$ をsignal時間から分離できない、平衡bath GLE/overdamped/homogenizationが制御できない、weak-loading familyが空、またはR196Cのmetastable generatorがR161へ有限誤差で接続しない |
 | R161/R162 ideal reference | R161率の非負性またはmaster equation整合が破れる、あるいはR162 ideal open-jump生成子がR161率と一致しない |
 | Q3-2 | 時間対称Newton則を縮約前に仮定する、M57からR161前向き経路法則へ有限誤差で接続できない、同じ前向き経路法則からBayes後退率を構成できない、またはR185の $C_{185,a}a^2+O(\delta)$ 評価を破る |
 | Q3-3C | W型低位スペクトルの格子・領域収束を示せない、または同じ固有基底で環境との弱結合を縮約した有限時間純位相緩和と対角占有率保存を閉じられない |
