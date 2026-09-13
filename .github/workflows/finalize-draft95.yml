@@ -22,8 +22,9 @@ jobs:
           python-version: '3.12'
       - name: Sync source wording
         run: python tools/finalize_draft95.py
-      - name: Install typesetting dependencies
+      - name: Install numeric and typesetting dependencies
         run: |
+          python -m pip install numpy
           sudo apt-get update
           sudo apt-get install -y pandoc poppler-utils texlive-latex-extra texlive-xetex
       - name: Validate physics and source
