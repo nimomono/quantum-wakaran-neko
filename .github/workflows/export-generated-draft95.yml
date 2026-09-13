@@ -1,0 +1,41 @@
+name: export-generated-draft95
+
+on:
+  push:
+    branches:
+      - draft-m57-tl-tracer-q3-microphysics
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  export:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: 原稿を取得
+        uses: actions/checkout@v4
+        with:
+          lfs: true
+      - name: LFS生成資産を取得
+        run: git lfs pull
+      - name: Pythonを準備
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: 組版依存を導入
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y pandoc poppler-utils texlive-latex-extra texlive-xetex
+      - name: draft-95生成物を作成
+        run: python tools/build_paper.py --output-dir build/export
+      - name: 生成物を保存
+        uses: actions/upload-artifact@v4
+        with:
+          name: draft95-generated
+          path: |
+            build/export/paper.md
+            build/export/main.tex
+            build/export/paper.pdf
+          if-no-files-found: error
+          retention-days: 1
