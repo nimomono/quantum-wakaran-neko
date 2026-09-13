@@ -253,7 +253,7 @@ M54は共通の状態型と因果契約を与えるが、同じ物理接続部�
 | R196A | 厳密ballistic力学＋明示誤差付き結果 | passive dual ballistic port、moving-reflector force、唯一安定な $U_*=c\beta_*(r)$、有限時間tracking、weak-tap/backreaction scaling |
 | R196B | 条件付き・明示誤差付き結果 | moving equilibrium oscillator bathのGLE/FDT、overdamped reduction、periodic homogenization、$D_0=\nu/g_K$ と $g_Kc=4\nu/a$、weak-loading scaling |
 | R196C | 条件付き・明示誤差付き結果 | affinity $\mathcal A=4\beta_*(r)$ のmetastable well-index processをR161へ有限誤差で持ち上げ、native signal-current差をsmooth sectorでrelative $O(a^2)$ に制御 |
-| R184 | 保持する補助結果・現行主依存外 | 旧M37開始作用保持機構からM54空間率への $L_\delta\varepsilon_{\rm car}$ 評価。M57主線ではR86 carrier errorをR195Dへ直接渡す |
+| R184 | 保持する補助結果・現行主依存外 | 旧M37開始作用保持機構からM54空間率への $L_\delta\varepsilon_{\rm car}$ 評価。M57主線ではR86 carrier errorをR196Cへ直接渡す |
 | R185 | 厳密有限格子結果・明示誤差付き近似結果 | 共通の確率分布の時間反転率、$D_\pm$、1次元node-free領域の時間対称Newton則。正則化残差 $O(\delta)$、格子残差 $C_{185,a}a^2$ を有限微分ノルムで明示 | 
 | R123 | 厳密結果・数値検証付き | 井戸型・調和型低位束縛状態と有限環境純位相緩和 |
 | R124 | 厳密結果・数値検証付き | 障壁値未満スペクトル支持からの反対側確率増分 |
@@ -263,10 +263,10 @@ M54は共通の状態型と因果契約を与えるが、同じ物理接続部�
 ## 物理的解釈と境界
 
 - R164の作用殻結果別状態数は一般有限結果集合・作用殻型代替経路に残す。Q3ではM57/R195Aが2作用容量とtracer位置を具体的に接続し、同じ状態数原理を初期位置重みとosmotic free energyへ使う。現行Q1/Q2の2結果Born重みはR191が射影作用比から生成し、R164を必須依存にしない。
-- R190A--R190CはQ1/Q2の作用殻型代替経路として保持する。M57 Q3主線は別のdual-TL bathを用い、R190を必須依存にしない。
+- R190A--R190CはQ1/Q2の作用殻型代替経路として保持する。M57 Q3主線はdual ballistic TLと平衡oscillator bathを用い、R190を必須依存にしない。
 - M54が準備する $C_Z\simeq cc^\dagger$ は試行集団の統計状態である。各試行の実体は実正準信号、開放接続部、制御器、記録器と履歴であり、$c$ または $C_Z$ を単一試行制御器へ再注入しない。
-- Q3の単一試行ではM37/M54の実正準空間信号、1個のM57 tracer、2作用状態数、左右独立open TLが物理過程を担う。R162 Poisson reservoirはideal referenceであり基礎的存在論へ含めない。複素信号は実正準状態の派生表示、状態方向と位置分布は集団統計である。
-- Q3の二乗形はM54/R135の階数1準備とM57/R195Aの条件付き状態数に由来する。開始面で位置を一度だけ準備し、その後は同じtracerが状態数free energyとTL bathの下で移動する。毎時刻再標本化しない。
+- Q3の単一試行ではM37/M54の実正準空間信号、1個のM57 tracer、2作用状態数、dual ballistic TL、moving bath-frame carrier、平衡oscillator bathが物理過程を担う。R162 Poisson reservoirはideal referenceであり基礎的存在論へ含めない。複素信号は実正準状態の派生表示、状態方向と位置分布は集団統計である。
+- Q3の二乗形はM54/R135の階数1準備とM57/R195Aの条件付き状態数に由来する。開始面で位置を一度だけ準備し、その後は同じtracerが状態数free energyとmoving equilibrium bathの下で移動する。毎時刻再標本化しない。
 - R161はM57に固有でなく、拡散を担う対称活動量と確率流を受け取る共通数学interfaceである。$\delta>0$ は2作用shellの背景容量としてM57内にも物理化する。$\delta\downarrow0$ で率感度と実装資源が発散し得る。
 - R184は旧M37--M54空間率latchの補助結果として保持するが、M57ではlocal portが $Z_i,Z_j$ から直接chiral作用を受けるため現行必須依存ではない。
 - R170は一般有限結果集合・作用殻型の代替経路とQ3固定時刻の代替診断に残す。現行Q1/Q2の2結果主線ではR191を用いる。
@@ -287,7 +287,7 @@ M54は共通の状態型と因果契約を与えるが、同じ物理接続部�
 2. R187のM37 W2信号系、R189A作用保持、R193 decision接続、R191 macrospin浴・吸収記録、R181Dの射影成分振り分け、未使用保持対 SWAP／R179 open resetを同じ具体装置と時計自由度で接続し、Q1測定部分系の単一装置統合と周期収支を閉じる。
 3. Q2-2について、固定一重項4モード信号、A/B設定操作、二つのR191読出し端、R181D型の射影成分振り分け、記録、R179開放リセットを同じ非空間分離装置と時計割当へ統合する。
 4. Q2-4について、M54の静的部分系配線、R191逐次読出し、R181D、非終端安全結果のR192、R179開放リセットを一つの一様装置族へ統合する。さらに製造ばらつきと運転中の揺らぎを実装模型から導き、R186の多項式精度条件を満たし、全自由度への加法的な揺らぎが生む指数障害を回避できる範囲を示す。
-5. Q3の強化として、M37空間signal source、M57 dual-TL tracer、時計自由度、終位置recordを同じ有限能動部分系＋Hamiltonian無限浴の単一装置周期へ統合する。あわせて、生M37局所包絡から時間対称Newton則へより直接に進む縮約、continuous-space一様極限、多粒子拡張を検討する。
+5. Q3の強化として、M37空間signal source、M57 dual-ballistic-TL moving-bath tracer、時計自由度、終位置recordを同じ有限能動部分系＋Hamiltonian無限浴の単一装置周期へ統合する。あわせて、生M37局所包絡から時間対称Newton則へより直接に進む縮約、continuous-space一様極限、多粒子拡張を検討する。
 6. Q3-6の位相量子化について、閉路巻数、節を介した位相すべり、細分化安定性、非整数モノドロミー排除を同じ明示的な古典ミクロ構成で閉じる。
 
 ## 置換・退役結果

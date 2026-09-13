@@ -80,7 +80,7 @@ L_{\rm R161}
 
 である。
 
-R162のopen Poisson-jump過程はM57の基礎的実体ではなく、R195Dが比較するideal stochastic referenceとして残す。R185は同じ前向き経路法則のBayes反転から前進・後退平均微分と時間対称Newton則へ接続する。Q1/Q2の測定pointerをQ3粒子へ同一視しない。
+R162のopen Poisson-jump過程はM57の基礎的実体ではなく、R196Cが比較するideal stochastic referenceとして残す。R185は同じ前向き経路法則のBayes反転から前進・後退平均微分と時間対称Newton則へ接続する。Q1/Q2の測定pointerをQ3粒子へ同一視しない。
 
 今回の縮約により、R184の旧M37--M54空間率latchは補助結果へ下がり、M57主線の必須依存から外れた。M56 Brownian-spin Q3模型はspin-only代替研究線へ位置づける。R190A--R190C、R170、旧R180Bも現行Q1/Q2主線へ戻さない。これらは反証されたのではなく、別の物理実現・強化案として `notes/` とGit履歴へ保存する。
 

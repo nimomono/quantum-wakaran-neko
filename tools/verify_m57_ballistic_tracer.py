@@ -102,7 +102,7 @@ def main() -> None:
     check(current_errors[0] / current_errors[1] > 3.9 and current_errors[1] / current_errors[2] > 3.9,
           "M57 native current correction is quadratic")
 
-    # R195B finite-time tracking witness with time-dependent chirality.
+    # R196A finite-time tracking witness with time-dependent chirality.
     eps = 2.0e-2
     kappa_bar = 1.0
     smin = 1.0

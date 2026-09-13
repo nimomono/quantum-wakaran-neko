@@ -82,7 +82,7 @@ L_{\rm R161}
 \text{Nelson / time-symmetric Newton}.
 ```
 
-R162のopen Poisson-jump過程はM57の基礎的実体ではなく、R195Dが比較するideal R161 jump lawの参照実現として残す。Q1/Q2の測定装置そのものをQ3粒子へ流用するとは主張しない。
+R162のopen Poisson-jump過程はM57の基礎的実体ではなく、R196Cが比較するideal R161 jump lawの参照実現として残す。Q1/Q2の測定装置そのものをQ3粒子へ流用するとは主張しない。
 
 ## 1.3 現行模型と実装階層
 
