@@ -1,0 +1,168 @@
+name: finalize-draft95
+
+on:
+  push:
+    branches:
+      - draft-m57-tl-tracer-q3-microphysics
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  finalize:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: 原稿を取得
+        uses: actions/checkout@v4
+        with:
+          lfs: true
+          ref: draft-m57-tl-tracer-q3-microphysics
+          fetch-depth: 0
+      - name: Pythonを準備
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: 正本残件を同期
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          def rep(path, old, new, count=1):
+              p = Path(path)
+              s = p.read_text(encoding='utf-8')
+              n = s.count(old)
+              if n != count:
+                  raise SystemExit(f'{path}: expected {count} occurrence(s), found {n}: {old[:80]!r}')
+              p.write_text(s.replace(old, new), encoding='utf-8')
+
+          # Section 02: M57 is the Q3 physical realization; R162 remains the ideal stochastic reference.
+          rep('sections/02_common_canonical_modules.md',
+              'R164はQ3開始配置の状態数起源、R161をQ3位置輸送の共通数学核、R162をその開放jump実現とし、Q1型局所信号とQ2型辺結合からR161の $(\\pi,j)$ が得られる構造を明示する。',
+              'R161をQ3位置輸送の共通数学核とし、M57/R195A--R195Dを現行ミクロ物理実現、R162をideal open-jump referenceとして分離する。Q1型局所信号とQ2型辺結合からR161の $(\\pi,j)$ が得られる構造を明示する。')
+          rep('sections/02_common_canonical_modules.md',
+              'Q3ではR164が開始配置 $X$ を準備してR161/R162へ渡す。',
+              'Q3ではM57の2作用状態数が開始配置重みを与え、同じ局在tracerをR195D/R161へ渡す。R162は同じ生成子を持つideal stochastic referenceとして使う。')
+          rep('sections/02_common_canonical_modules.md',
+              '| Q3 | 空間信号＋配置 | 準備済み古典空間入力、M37/R184 | R164開始配置、R161/R162、R185 |',
+              '| Q3 | 空間信号＋局在tracer | 準備済み古典空間入力、M37＋M57 dual-TL tracer | R195A--R195D、R161、R185（R162はideal reference） |')
+          rep('sections/02_common_canonical_modules.md',
+              'Q3は準備済み空間信号からM37/R86およびR164--R162の経路へ入る。',
+              'Q3は準備済み空間信号からM37/R86とM57/R195A--R195Dの経路へ入り、R161/R185へ接続する。R162は比較用ideal open-jump referenceとして残す。')
+          rep('sections/02_common_canonical_modules.md',
+              '## 2.8 R161の共通整合とR162の開放jump実現',
+              '## 2.8 R161の共通整合とM57/R162の物理・参照実現')
+          rep('sections/02_common_canonical_modules.md',
+              'この生成子同値により、R161より前段のミクロ実現を交換しても、R162以降の位置過程とR185の縮約を共通に扱える。',
+              'この生成子同値により、R161より前段のミクロ実現を交換しても、同じ位置経路法則とR185の縮約を共通に扱える。現行主線ではM57を物理実現、R162をideal stochastic referenceとする。')
+          rep('sections/02_common_canonical_modules.md',
+              'Poisson reservoirは本稿で採用する明示的な古典開放ミクロ方程式である。これを有限衝突Hamiltonian列または特定のHamiltonian無限浴から導くことは固定目標の必要条件とせず、有限閉鎖系への持上げは強化結果として論文外メモへ分離する。R162はQ3の移動過程だけを担う。R161の静的 $j=0$ 特殊化は数学的比較用に残すが、Q1/Q2の2結果読出し主線ではR191を使う。',
+              'Poisson reservoirはR161生成子を厳密に実現するideal open-jump referenceである。現行Q3の基礎的ミクロ存在論はM57/R195A--R195Dが担い、R162は生成子・経路法則の比較とR185の数学的参照に用いる。有限衝突Hamiltonian列への持上げは強化結果として論文外メモへ分離する。R161の静的 $j=0$ 特殊化は数学的比較用に残すが、Q1/Q2の2結果読出し主線ではR191を使う。')
+          rep('sections/02_common_canonical_modules.md',
+              'R161は静的・移動の率構成を共通に保つが、現行の物理主線ではQ3がR162の開放jump過程を使う。Q1/Q2の2結果測定はR161静的鎖を経由せずR191へ直接接続する。旧有限衝突・静的作用殻実装は退役メモに保存する。',
+              'R161は静的・移動の率構成を共通に保つ。現行Q3の物理主線はM57/R195A--R195Dであり、R162は同じ率を持つideal referenceとして残す。Q1/Q2の2結果測定はR161静的鎖を経由せずR191へ直接接続する。旧有限衝突実装は退役メモに保存する。')
+
+          # Section 06: replace the old open-Poisson ontology by M57 while retaining R184 as an auxiliary legacy bridge.
+          rep('sections/06_m37_spatial_envelope.md',
+              'Q3の親模型は第2章のM54空間移動状態構成である。その1試行には、実正準信号自由度、その派生表示 $Z$、1個の粒子位置 $X_t$ が含まれる。位置jumpはR162の開放Poisson reservoirが担い、有限衝突浴、専用時計、微視的履歴を能動状態へ持たない。複素状態方向と位置分布は試行集団の統計であり、$C_Z$ またはその階数1因子を単一試行制御器へ書き戻さない。',
+              'Q3の親模型は第2章のM54空間信号構成とM57 dual-TL tracerである。その1試行には、実正準信号自由度、その派生表示 $Z$、1個の局在tracer位置 $X_t$、2作用状態数sector、左右独立のpinned open TLが含まれる。R195A--R195Dが状態数、bath mixing、FDT/Kramers縮約、R161生成子matchingを与える。R162は同じ生成子を持つideal stochastic referenceであり、基礎的ミクロ存在論ではない。複素状態方向と位置分布は試行集団の統計であり、$C_Z$ またはその階数1因子を単一試行制御器へ書き戻さない。')
+          rep('sections/06_m37_spatial_envelope.md',
+              '| M54空間状態構成 | 実正準信号、粒子位置 $X_t$、開放Poisson jump 浴 | $Z$、$C_Z$、階数1 状態方向、位置分布 | R161移動分布の整合、R185時間反転・Newton則 |',
+              '| M54＋M57空間状態構成 | 実正準信号、局在tracer $X_t$、2作用sector、dual open TL | $Z$、$C_Z$、階数1状態方向、位置分布 | R195A--R195DによるR161実現、R185時間反転・Newton則 |')
+          rep('sections/06_m37_spatial_envelope.md',
+              '第2.4節の準備済み入力境界から階数1信号集団を受け取る場合、安全な開始面から同じ試行の信号をM54空間状態構成へ渡す。開始面ではR164とR161静的率、新R162の開放jump過程を一度だけ用いて $X_0$ の条件付き分布へ緩和する。その後は再標本化せずR161移動特殊化が同じ粒子を輸送し、終時刻にはR112が既存の $X_T$ を記録する。',
+              '第2.4節の準備済み入力境界から階数1信号集団を受け取る場合、安全な開始面から同じ試行の信号をM57へ渡す。R195Aの2作用状態数が $X_0$ の条件付き重みを与え、以後は再標本化せずR195B--R195Dの同じtracer力学がR161移動生成子へ縮約する。終時刻にはR112が既存の $X_T$ を記録する。')
+          rep('sections/06_m37_spatial_envelope.md',
+              'M54の接続端と空間状態構成、M37局所ばね網、開放jump 浴、記録器を有限能動部分系＋Hamiltonian無限浴の単一装置へ統合したとは扱わない。',
+              'M54の接続端、M37局所ばね網、M57 dual-TL tracer、時計自由度、記録器を単一反復装置へ統合したとは扱わない。')
+          rep('sections/06_m37_spatial_envelope.md',
+              'R161移動特殊化は同じ条件付き分布をM54空間状態構成の実在粒子について全有限時刻へ運び、R184はM37信号誤差をR161率とR162開放jump過程の位置分布誤差へ受け渡す。',
+              'R195D/R161は同じ条件付き分布をM57の局在tracerについて全有限時刻へ運ぶ。R184は旧M37--M54率latchの補助誤差受渡しとして保持するが、現行M57主線の必須依存には置かない。')
+          rep('sections/06_m37_spatial_envelope.md',
+              'Q3-4A・Q3-4B・Q3-5では開始面で得た同じ $X_t$ をR161/R184で運ぶ。',
+              'Q3-4A・Q3-4B・Q3-5では開始面から同じM57 tracer $X_t$ をR195D/R161で運ぶ。')
+          rep('sections/06_m37_spatial_envelope.md',
+              'M54/準備済み入力境界で階数1 信号集団を準備する場合、安全な切断面から同じ試行の信号をM54空間状態構成へ渡す。開始面ではR164の条件付き容量とR161/R162の開放再平衡化を1回だけ使い、',
+              'M54/準備済み入力境界で階数1信号集団を準備する場合、安全な切断面から同じ試行の信号をM57へ渡す。開始面ではR195Aの2作用状態数を使い、')
+          rep('sections/06_m37_spatial_envelope.md',
+              '$\\delta>0$ では率は固定有限グラフ上で有界なので、共通R162の開放Poisson-jump構成（付録K.4）により、その局所有向率を生成子として持つ非爆発過程を直接実現できる。旧R173または旧 $(\\rho,\\sigma)$ 節点正則化を現行証拠鎖へ戻さず、R164と共通の $\\delta$ と開始作用保持機構だけを使う。',
+              '$\\delta>0$ のnode-free safe sectorでは、R195A--R195Dが有限TL mixing、FDT/Kramers縮約、生成子matchingを通じてR161率へ有限誤差で持ち上げる。R162の開放Poisson-jump構成（付録K.4）は同じ率を厳密に持つideal referenceとして比較に使う。旧R173または旧 $(\\rho,\\sigma)$ 節点正則化を現行証拠鎖へ戻さない。')
+          rep('sections/06_m37_spatial_envelope.md',
+              'Q3-4AとQ3-5ではR124/R125の理想分布差をR184の完全結果誤差 $\\varepsilon_{184}$ と比較する。Q3-4BではR182の同じ静的W型過程を三時刻で読み、同じM54空間状態構成粒子の半周期移送と一周期回帰へ持ち上げる。M54準備、M37実装、R162開放jump 浴、終位置記録の単一装置統合は引き続き条件として残す。',
+              'Q3-4AとQ3-5ではR124/R125の理想分布差をM57/R195Dの有限時間誤差 $\\varepsilon_{57}$ と比較する。Q3-4BではR182の同じ静的W型過程を三時刻で読み、同じM57 tracerの半周期移送と一周期回帰へ持ち上げる。M54準備、M37信号実装、M57 dual-TL tracer、時計自由度、終位置記録の単一装置統合は引き続き条件として残す。')
+          rep('sections/06_m37_spatial_envelope.md',
+              'R184はM37局所包絡からR161率とR162開放jump過程への誤差受渡し、R185は共通の確率分布の時間反転と時間対称Newton則を追加する強化結果である。',
+              'R195A--R195DはM37/M54空間信号から局在tracerのR161生成子への現行ミクロ物理接続、R185は同じ前向き経路法則の時間反転と時間対称Newton則を追加する。R184は旧率latchの補助結果として保持する。')
+          rep('sections/06_m37_spatial_envelope.md',
+              'Q3の二乗統計は準備済み入力境界から受け取る階数1集団と、R164による1回の初期位置選択に由来する。M54空間状態構成は同じ粒子を輸送し、終時刻には再標本化せず記録する。状態数だけで初期選択の全ミクロ過程を説明したとはせず、R162開放jump浴だけで上流入力準備や作用容量の起源を説明したとも扱わない。',
+              'Q3の二乗統計は準備済み入力境界から受け取る階数1集団と、M57/R195Aの2作用Liouville状態数に由来する。M57は同じ局在tracerを輸送し、終時刻には再標本化せず記録する。R162だけで上流入力準備や状態数sectorの起源を説明したとは扱わない。')
+
+          # M56 note is now explicitly an alternative line.
+          rep('notes/brownian_spin_q1_q3_unification.md',
+              '現行Q3-2の達成根拠はM54空間状態構成、R161、R162、R185のままとし、R162を退役しない。M37とR191の責務も変更しない。M56がR161実現同値まで閉じることは未証明であり、本メモの模型を現行Q3の存在論へ採用しない。',
+              'draft-95以後、現行Q3-2のミクロ物理主線はM37/M54信号、M57 dual-TL tracer、R195A--R195D、R161、R185である。R162はideal open-jump referenceとして保持する。M56がR161実現同値まで閉じることは未証明であり、本メモはspin-only代替研究線として保存する。M37とR191の責務は変更しない。')
+
+          # Notes index: M56 position and superseded Poisson note.
+          rep('notes/README.md',
+              '| `brownian_spin_q1_q3_unification.md` | draft-92で追加、phase-bus版へ復帰後にR194A/C/D/H/Iを再整理 | M56/R194A--R194E/R194H/R194IのR161ミクロ物理実現候補。spin signal、phase normalizer、2-action entropy shell、Brownian domain wallからNelson diffusionを狙う。relative-velocity magnon-dragは主線へ戻さない | phase lock、wall current absorption、finite shell mixing、wall Brownian finite-error縮約、backreactionの同時parameter regimeが未証明なので、現行Q3-2のR161/R162/R185達成根拠を変更せず研究線を固定するため |',
+              '| `brownian_spin_q1_q3_unification.md` | draft-92で追加、draft-95でM57採用後に代替線へ降格 | M56/R194A--R194E/R194H/R194Iのspin-only代替研究線。spin signal、phase normalizer、2-action entropy shell、Brownian domain wallからNelson diffusionを狙う | phase lock、wall current absorption、finite shell mixing、wall Brownian finite-error縮約、backreactionの同時parameter regimeが未証明で、現行Q3のM57/R195主線より仮定が重いため |')
+          p = Path('notes/README.md')
+          s = p.read_text(encoding='utf-8')
+          anchor = '| `r161_q1_q2_q3_realization_equivalence.md` | draft-94のR161再整理 | Q1型局所信号＋Q2型辺結合からQ3の $(\\pi,j)$ を作り、異なるミクロ模型を同じR161生成子で比較する参照メモ | 数学的同値と物理的存在論を分離し、ミクロ模型を変更するたびにR162/R185を再導出しないため |\n'
+          if s.count(anchor) != 1:
+              raise SystemExit('notes/README.md: r161 anchor mismatch')
+          addition = anchor + '| `superseded_q3_poisson_microphysics.md` | draft-95でM57採用時に分離 | R162 open-PoissonをQ3の基礎的存在論としていた旧責務の退役記録 | R162をideal stochastic referenceへ縮約し、M57/R195を現行ミクロ物理層へ採用したため |\n'
+          p.write_text(s.replace(anchor, addition), encoding='utf-8')
+
+          # Metadata documents.
+          draft95 = '''## draft-95：M57 dual-TL tracerをQ3ミクロ正本へ採用
+
+- Q3のミクロ物理主線を、M37/M54空間信号＋R162 open-Poisson存在論から、M57 dual-TL tracer＋R195A--R195Dへ切り替えた。R161/R185の数学核とQ3-2達成ラベルは維持する。
+- R195Aでedge chiral作用と2作用Liouville状態数、R195Bでdual open TLのfinite slaving/mixing/correlation、R195CでGreen--Kubo/FDTとKramers/Lifson--Jackson matching、R195DでR161生成子への有限時間持上げを追加した。
+- R162はideal open-jump referenceへ責務縮約し、R184は旧M37--M54率latchの補助結果へ下げ、M56はspin-only代替研究線へ移した。
+- `tools/verify_m57_tl_tracer.py` でchiral恒等式、Lyapunov mixing、有限相関時間、`g_K c = 4 nu/a`、`D_hop=nu`、current-drift matching、R161形式とnative `O(a^2)` 補正を検査する。
+- README、PROJECT_STATUS、第0・1・2・6--9章、付録A22、研究メモ、参考文献、生成物をdraft-95へ同期する。
+
+'''
+          for path in ['CHANGELOG.md', 'VALIDATION.md']:
+              p = Path(path); s = p.read_text(encoding='utf-8')
+              if not s.startswith('## draft-95：'):
+                  p.write_text(draft95 + s, encoding='utf-8')
+
+          p = Path('MANIFEST.md'); s = p.read_text(encoding='utf-8')
+          if '## draft-95のM57 dual-TL tracer正本化' not in s:
+              s = s.replace('# 現行パッケージ一覧\n\n', '# 現行パッケージ一覧\n\n## draft-95のM57 dual-TL tracer正本化\n\n- M57/R195A--R195DをQ3の現行ミクロ物理層へ採用し、R162をideal open-jump reference、R184を補助結果、M56を代替研究線へ整理する。\n- `sections/A22_m57_dual_tl_tracer_microphysics.md` と `tools/verify_m57_tl_tracer.py` を追加する。\n- `notes/superseded_q3_poisson_microphysics.md` に旧Poisson存在論の責務変更を記録する。\n- `paper.md`、`main.tex`、`paper.pdf` はdraft-95正本から再生成する。\n\n')
+          s = s.replace('- `sections/A19_m54_drude_action_shell_bridge.md`\n- `sections/90_references.md`', '- `sections/A19_m54_drude_action_shell_bridge.md`\n- `sections/A20_m54_brownian_macrospin_projective_instrument.md`\n- `sections/A21_m47_action_hold_macrospin_direct_bridge.md`\n- `sections/A22_m57_dual_tl_tracer_microphysics.md`\n- `sections/90_references.md`')
+          s = s.replace('- `notes/r161_q1_q2_q3_realization_equivalence.md`\n', '- `notes/r161_q1_q2_q3_realization_equivalence.md`\n- `notes/brownian_spin_q1_q3_unification.md`\n- `notes/superseded_q3_poisson_microphysics.md`\n')
+          s = s.replace('- `tools/verify_q3_completion.py`\n', '- `tools/verify_q3_completion.py`\n- `tools/verify_m57_tl_tracer.py`\n')
+          p.write_text(s, encoding='utf-8')
+
+          # Citation metadata tracks the current draft.
+          rep('CITATION.cff', 'version: "draft-88"', 'version: "draft-95"')
+          rep('CITATION.cff', 'date-released: 2026-09-10', 'date-released: 2026-09-13')
+          PY
+      - name: 組版依存を導入
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y pandoc poppler-utils texlive-latex-extra texlive-xetex
+      - name: 数式・数値検算
+        run: |
+          python -m compileall -q tools
+          python tools/check_source.py
+          python tools/test_validation_policy.py
+          python tools/check_terminology.py
+          python tools/run_physics_checks.py
+      - name: 統合原稿を再生成
+        run: python tools/build_paper.py
+      - name: 差分形式を検査
+        run: git diff --check
+      - name: 一時workflowを除去
+        run: rm -f .github/workflows/export-generated-draft95.yml .github/workflows/finalize-draft95.yml
+      - name: draft-95をcommitしてpush
+        run: |
+          git config user.name "Dr. Pot-au-Feu"
+          git config user.email "146850541+nimomono@users.noreply.github.com"
+          git add -A
+          git commit -m "draft-95: finalize M57 Q3 microphysics and generated paper"
+          git push origin HEAD:draft-m57-tl-tracer-q3-microphysics
