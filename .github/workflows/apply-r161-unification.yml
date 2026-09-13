@@ -1,0 +1,80 @@
+name: 一時R161整理適用
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize]
+
+permissions:
+  contents: write
+
+jobs:
+  apply-r161-reorganization:
+    if: ${{ github.event.pull_request.head.ref == 'draft-r161-q1-q2-q3-unification' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: 作業ブランチを取得
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+          lfs: true
+          fetch-depth: 0
+
+      - name: LFS生成資産を取得
+        run: git lfs pull
+
+      - name: Pythonを準備
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: 組版・数値依存を導入
+        run: |
+          python -m pip install numpy
+          sudo apt-get update
+          sudo apt-get install -y pandoc poppler-utils texlive-latex-extra texlive-xetex
+
+      - name: R161整理を正本へ適用
+        run: python tools/apply_r161_unification_pr.py
+
+      - name: 完成版を再生成
+        run: python tools/build_paper.py
+
+      - name: 検算記録へrun情報を反映
+        env:
+          RUN_ID: ${{ github.run_id }}
+        run: |
+          PAGES=$(pdfinfo paper.pdf | awk '/^Pages:/ {print $2}')
+          python - "$RUN_ID" "$PAGES" <<'PY'
+          from pathlib import Path
+          import sys
+          path = Path('VALIDATION.md')
+          text = path.read_text(encoding='utf-8')
+          text = text.replace('__RUN_ID__', sys.argv[1], 1)
+          text = text.replace('__PDF_PAGES__', sys.argv[2], 1)
+          path.write_text(text, encoding='utf-8')
+          PY
+
+      - name: 原稿・数式を検算
+        run: |
+          python -m compileall -q tools
+          python tools/check_source.py
+          python tools/test_validation_policy.py
+          python tools/check_terminology.py
+          python tools/run_physics_checks.py
+          git diff --check
+
+      - name: 隔離再生成と同期を検査
+        run: |
+          python tools/build_paper.py --output-dir build/ci
+          python tools/check_generated.py build/ci
+          python tools/lint_typeset.py build/ci/latex/main.log
+
+      - name: 差分を同じPRブランチへ記録
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git status --short
+          git commit -m "paper: clarify R161 as the Q1-Q3 spatial core"
+          git push origin HEAD:${{ github.event.pull_request.head.ref }}
