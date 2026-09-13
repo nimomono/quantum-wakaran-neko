@@ -29,17 +29,31 @@ jobs:
       - name: Install numerical dependency
         run: python -m pip install numpy
 
-      - name: Normalize pre-corrected A22 symbol
+      - name: Normalize migration script
         run: |
           python - <<'PY'
           from pathlib import Path
+          # Normalize one already-corrected symbol so the asserted migration stays deterministic.
           p = Path('sections/A22_m57_dual_tl_tracer_microphysics.md')
           t = p.read_text(encoding='utf-8')
           old = r'\nu_{\rm eff}=g_KU_e'
           new = r'u_{\rm eff}=g_KU_e'
           if old not in t and new in t:
-              t = t.replace(new, old, 1)
-              p.write_text(t, encoding='utf-8')
+              p.write_text(t.replace(new, old, 1), encoding='utf-8')
+
+          # Treat LaTeX replacement strings literally in regex substitutions.
+          p = Path('tools/apply_draft98_m57_ballistic.py')
+          t = p.read_text(encoding='utf-8')
+          old_line = '    new, count = re.subn(pattern, repl, text, count=1, flags=flags)'
+          new_line = '    new, count = re.subn(pattern, lambda _m: repl, text, count=1, flags=flags)'
+          if old_line not in t:
+              raise SystemExit('replace_regex_once implementation marker missing')
+          t = t.replace(old_line, new_line, 1)
+          old_line = '    text, n = re.subn(pattern, r"\\1R196C\\2", text, count=1, flags=re.MULTILINE)'
+          new_line = '    text, n = re.subn(pattern, lambda m: m.group(1) + "R196C" + m.group(2), text, count=1, flags=re.MULTILINE)'
+          if old_line not in t:
+              raise SystemExit('enhancement back-reference marker missing')
+          p.write_text(t.replace(old_line, new_line, 1), encoding='utf-8')
           PY
 
       - name: Apply synchronized source edits
