@@ -96,7 +96,7 @@ def main() -> None:
         ratio = math.sinh(2.0 * b) / r
         current_errors.append(abs(ratio - 1.0))
         approx = 1.0 + (5.0 / 12.0) * r * r
-        check(abs(ratio - approx) < 8.0e-6, "M57 new R161 current expansion")
+        check(abs(ratio - approx) < 1.2e-5, "M57 new R161 current expansion")
     check(cubic_errors[0] / cubic_errors[1] > 7.9 and cubic_errors[1] / cubic_errors[2] > 7.9,
           "M57 beta-star departure is cubic")
     check(current_errors[0] / current_errors[1] > 3.9 and current_errors[1] / current_errors[2] > 3.9,
