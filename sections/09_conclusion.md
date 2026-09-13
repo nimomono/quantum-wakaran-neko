@@ -36,7 +36,7 @@ Q2-2では、固定一重項4モード信号にA設定を作用し、A端R191で
 ```math
 P(r,s\mid x,y)
 =
-\frac{\|P_{B,s}^{y}P_{A,r}^{x}Z\|^2}{\|Z\|^2}
+\frac{\|P_{B,s}^{y}P_{A,r}^{x}Z\|^2}{\|Z_{AB}\|^2}
 ```
 
 であり、一重項型信号では余弦共同相関、非信号性、CHSH/Tsirelson値を再現する。この装置はA結果成分をB端へ渡す非空間分離装置であり、Bell局所性を主張しない。
@@ -59,21 +59,9 @@ g_Kc=\frac{4\nu}{a}
 
 を課すと、長時間diffusion $D_{\rm hop}=\nu$ とcurrent drift係数が同じmatchingで一致する。R195Dはこのcoarse-grained tracer generatorをR161形式へ写し、signal-current理想生成子との差を有限誤差 $\varepsilon_{57}$ で制御する。
 
-従ってQ3の現行因果鎖は
+従ってQ3の現行因果鎖は、M37/M54空間信号からR195Aで2作用状態数とchiral作用 $I_\pm$ を取り出し、M57/R195B--R195Cで $(\pi,j,t)$ を形成し、R195D/R161で位置過程 $X_t$ へ接続した後、R185でNelson型時間対称Newton則へ進む。
 
-```text
-M37/M54 spatial signal
-        ↓ R195A
-2-action state count + chiral I±
-        ↓ M57 / R195B--R195C
-      (π,j,t)
-        ↓ R195D / R161
-      X_t
-        ↓ R185
-Nelson / time-symmetric Newton
-```
-
-である。R162のopen Poisson-jump過程はM57の基礎的実体ではなく、R195Dが比較するideal stochastic referenceとして残す。R185は同じ前向き経路法則のBayes反転から前進・後退平均微分と時間対称Newton則へ接続する。Q1/Q2の測定pointerをQ3粒子へ同一視しない。
+R162のopen Poisson-jump過程はM57の基礎的実体ではなく、R195Dが比較するideal stochastic referenceとして残す。R185は同じ前向き経路法則のBayes反転から前進・後退平均微分と時間対称Newton則へ接続する。Q1/Q2の測定pointerをQ3粒子へ同一視しない。
 
 今回の縮約により、R184の旧M37--M54空間率latchは補助結果へ下がり、M57主線の必須依存から外れた。M56 Brownian-spin Q3模型はspin-only代替研究線へ位置づける。R190A--R190C、R170、旧R180Bも現行Q1/Q2主線へ戻さない。これらは反証されたのではなく、別の物理実現・強化案として `notes/` とGit履歴へ保存する。
 
