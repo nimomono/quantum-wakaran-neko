@@ -44,6 +44,12 @@ jobs:
           replace_once('sections/06_m37_spatial_envelope.md',
             'M57 dual-TL tracer、時計自由度、記録器を単一反復装置へ統合したとは扱わない。',
             'M57 dual-ballistic-TL moving-bath tracer、時計自由度、記録器を単一反復装置へ統合したとは扱わない。')
+          p=Path('sections/06_m37_spatial_envelope.md')
+          t=p.read_text(encoding='utf-8')
+          t=t.replace('M57 dual-TL tracer','M57 dual-ballistic-TL moving-bath tracer')
+          t=t.replace('R195A--R195D','R195A・R196A--R196C')
+          t=t.replace('R195B--R195D','R196A--R196C')
+          p.write_text(t,encoding='utf-8')
 
           replace_once('sections/01_scope_and_cycle.md',
             'R162のopen Poisson-jump過程はM57の基礎的実体ではなく、R195Dが比較するideal R161 jump lawの参照実現として残す。',
