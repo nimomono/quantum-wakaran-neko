@@ -800,3 +800,11 @@ GitHub Actionsは次を確認する。
 - R193の正式宣言は付録Uに1回だけ置き、R191一般定理は変更しない。Q2の一般transducerはR193へ依存させない。
 - Q1-1/Q1-2の達成ラベルと固定目標は変更しない。R193後もM0全体は未達とし、Q1全周期のmacrospin浴、記録、router、未使用保持対/reset統合を強化課題として残す。
 - `paper.md`、`main.tex`、`paper.pdf` を章別原稿から再生成し、通常のsource/terminology/physics/generated-artifact検査を全て通す。
+
+
+## draft-99：Q3 spine cleanup
+
+- 現行正本で旧R195B--R195Dを依存先として参照しないことを確認する。履歴節・notes・退役索引の旧IDは保存する。
+- 付録Nでは $X_t$ をR161/R185のideal参照位置座標として扱い、R162をM57とは別の実在粒子模型として解釈しない。
+- `tools/verify_q3_completion.py` はR170誤差marginを使用せず、トンネル・干渉の数学回帰だけを検査する。M57の物理実装誤差は `tools/verify_m57_ballistic_tracer.py` で別に検査する。
+- `tools/check_source.py`、`tools/check_terminology.py`、全physics checks、論文再生成・生成物同期を通す。

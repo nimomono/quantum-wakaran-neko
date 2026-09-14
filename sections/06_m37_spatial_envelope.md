@@ -682,7 +682,7 @@ p_i
 \Delta V
 ```
 
-となる。これは空間素子基底の目標位置分布である。R195D/R161は同じ条件付き分布をM57の局在tracerについて全有限時刻へ運ぶ。R184は旧M37--M54率latchの補助誤差受渡しとして保持するが、現行M57主線の必須依存には置かない。R86の作用比だけを粒子実体と同一視せず、M54空間状態構成の位置更新則と初期整合を必要とする。
+となる。これは空間素子基底の目標位置分布である。R196C/R161は同じ条件付き分布をM57の局在tracerについて全有限時刻へ運ぶ。R184は旧M37--M54率latchの補助誤差受渡しとして保持するが、現行M57主線の必須依存には置かない。R86の作用比だけを粒子実体と同一視せず、M54空間状態構成の位置更新則と初期整合を必要とする。
 
 ## 6.10 M37標本集団と統計共分散
 
@@ -886,9 +886,9 @@ P(X_t^L\in\cdot)
 T L_\delta(\eta)\varepsilon_{\rm car}(T).
 ```
 
-$\delta>0$ のnode-free safe sectorでは、R195A・R196A--R196Cが有限TL mixing、FDT/Kramers縮約、生成子matchingを通じてR161率へ有限誤差で持ち上げる。R162の開放Poisson-jump構成（付録K.4）は同じ率を厳密に持つideal referenceとして比較に使う。旧R173または旧 $(\rho,\sigma)$ 節点正則化を現行証拠鎖へ戻さない。
+$\delta>0$ のnode-free safe sectorでは、R195A・R196A--R196Cがchiral作用/current恒等式、ballistic portとbath-frame追従、平衡GLE・periodic homogenization、生成子matchingを通じてR161率へ有限誤差で持ち上げる。R162の開放Poisson-jump構成（付録K.4）は同じ率を厳密に持つideal referenceとして比較に使う。旧R173または旧 $(\rho,\sigma)$ 節点正則化を現行証拠鎖へ戻さない。
 
-Q3-4AとQ3-5ではR124/R125の理想分布差をM57/R195Dの有限時間誤差 $\varepsilon_{57}$ と比較する。Q3-4BではR182の同じ静的W型過程を三時刻で読み、同じM57 tracerの半周期移送と一周期回帰へ持ち上げる。M54準備、M37信号実装、M57 dual-ballistic-TL moving-bath tracer、時計自由度、終位置記録の単一装置統合は引き続き条件として残す。
+Q3-4AとQ3-5ではR124/R125の理想分布差をM57/R196Cの有限時間誤差 $\varepsilon_{57}$ と比較する。Q3-4BではR182の同じ静的W型過程を三時刻で読み、同じM57 tracerの半周期移送と一周期回帰へ持ち上げる。M54準備、M37信号実装、M57 dual-ballistic-TL moving-bath tracer、時計自由度、終位置記録の単一装置統合は引き続き条件として残す。
 
 ## 6.15 数値検算
 
