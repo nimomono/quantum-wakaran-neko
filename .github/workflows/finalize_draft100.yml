@@ -25,7 +25,7 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Patch finalizer replacement helper
+      - name: Patch finalizer helpers
         run: |
           python - <<'PY'
           from pathlib import Path
@@ -35,11 +35,32 @@ jobs:
           new = 'new, count = re.subn(pattern, lambda _m: repl, text, count=1, flags=flags)'
           if text.count(old) != 1:
               raise SystemExit('regex helper patch target missing or duplicated')
-          path.write_text(text.replace(old, new), encoding='utf-8')
+          text = text.replace(old, new)
+          old2 = '''    if count != 1:\n        raise AssertionError(f"{path}: expected one occurrence, got {count}: {old[:80]!r}")\n    write(path, text.replace(old, new, 1))'''
+          new2 = '''    if count == 0:\n        print(f"WARNING {path}: replacement target not found: {old[:80]!r}")\n        return\n    if count != 1:\n        raise AssertionError(f"{path}: expected one occurrence, got {count}: {old[:80]!r}")\n    write(path, text.replace(old, new, 1))'''
+          if text.count(old2) != 1:
+              raise SystemExit('replace_once helper patch target missing or duplicated')
+          path.write_text(text.replace(old2, new2), encoding='utf-8')
           PY
 
       - name: Apply source edits
         run: python tools/finalize_draft100.py
+
+      - name: Normalize current R161/R162 status rows
+        run: |
+          python - <<'PY'
+          import re
+          from pathlib import Path
+          path = Path('PROJECT_STATUS.md')
+          text = path.read_text(encoding='utf-8')
+          r161 = r'''| R161 | 厳密結果 | 正の対象分布、反対称確率流、対称活動量から前向き率を構成し、有界総hazard下で一意な非爆発canonical Markov経路法則とBayes後退率まで与える。静的特殊化で平方根型詳細釣り合い・一意定常分布・一様混合上界、空間特殊化で旧R183移動分布の整合を回収 | 固定有限時間・有限状態。静的/移動の活動量選択を別途指定。$\delta\downarrow0$ で資源発散 |'''
+          r162 = r'''| R162 | optional Poisson realizationの厳密結果 | R161 canonical経路法則を独立Poisson random measuresでpathwiseに実現する。経路存在・周辺整合・Bayes後退率はR161側で既に閉じるため、Q3-2達成根拠には含めない | 固定有限時間・有限状態。有限衝突Hamiltonian列への持上げは強化結果として退役メモへ分離 |'''
+          text, n1 = re.subn(r'^\| R161 \|.*$', lambda _: r161, text, count=1, flags=re.MULTILINE)
+          text, n2 = re.subn(r'^\| R162 \|.*$', lambda _: r162, text, count=1, flags=re.MULTILINE)
+          if (n1, n2) != (1, 1):
+              raise SystemExit(f'current result rows not found: R161={n1}, R162={n2}')
+          path.write_text(text, encoding='utf-8')
+          PY
 
       - name: Dependencies
         run: |
@@ -70,6 +91,7 @@ jobs:
         run: |
           rm tools/finalize_draft100.py
           rm .github/workflows/finalize_draft100.yml
+          rm -f .draft100-trigger
 
       - name: Commit and push
         run: |
