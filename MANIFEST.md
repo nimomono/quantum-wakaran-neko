@@ -321,3 +321,10 @@
 - `tools/verify_q1_r193_macrospin_bridge.py` を追加し、吸引域境界、誤差係数、dispatcher、未使用保持対境界を検算。
 - Q1主線を `M37 W2 -> R189A -> R193 -> R191 -> R181D` へ同期し、Q2の一般R191 transducer契約は維持。
 - `paper.md`、`main.tex`、`paper.pdf` は章別原稿から再生成する。
+
+
+## draft-99のQ3 spine cleanup
+
+- 現行Q3主線を `M37/M54 signal -> R195A -> R196A--R196C -> R161 -> R185` として表記同期し、R162はideal referenceへ限定する。
+- 付録Nの存在論をR161/R185参照過程へ縮約し、退役R195D/R170の現行依存残骸を除去する。
+- 歴史記録、notes、退役索引の旧模型記述は保存する。

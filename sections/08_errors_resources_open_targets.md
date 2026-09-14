@@ -1,7 +1,7 @@
 @number: 8
 @chapter: 本文
 @title: 誤差、資源、反証条件、未完成目標
-@status: Q1/Q2のR191 2結果読出し、R181D projector router、Q2-2の2端逐次R191、Q3のM57--R195--R161/R162--R185経路、M37信号物理実装層を横断して誤差・資源・反証条件を整理する。
+@status: Q1/Q2のR191 2結果読出し、R181D projector router、Q2-2の2端逐次R191、Q3のM57/R195A・R196A--R196C--R161--R185経路（R162はideal reference）、M37信号物理実装層を横断して誤差・資源・反証条件を整理する。
 
 
 ### R191の2結果読出し誤差と資源
