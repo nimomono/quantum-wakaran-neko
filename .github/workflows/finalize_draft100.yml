@@ -62,6 +62,19 @@ jobs:
           path.write_text(text, encoding='utf-8')
           PY
 
+      - name: Fix Q3-2 regression selector
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          path = Path('tools/check_source.py')
+          text = path.read_text(encoding='utf-8')
+          old = 'line.startswith("| Q3-2 |")'
+          new = 'line.startswith("| Q3-2 | 達成 |")'
+          if text.count(old) != 1:
+              raise SystemExit(f'Q3-2 selector target count={text.count(old)}')
+          path.write_text(text.replace(old, new), encoding='utf-8')
+          PY
+
       - name: Dependencies
         run: |
           python -m pip install numpy
