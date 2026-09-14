@@ -1,3 +1,9 @@
+## draft-100：R161 canonical Markov path law検算
+
+- R161の有界総hazard条件、前向きmaster equation、Bayes後退率、有限状態経路法則の責務境界を検算対象へ追加した。
+- `tools/verify_r161_path_law.py` で3状態時間依存例の非負率、有限総hazard、連続方程式、Bayes reverse identityを数値確認する。
+- `tools/check_source.py` でPROJECT_STATUSのQ3-2根拠行にR162が再混入しないこと、R161にpath-existence markerがあること、R162定理がoptional Poisson realizationとして残ることを回帰検査する。
+
 ## draft-98：M57 ballistic moving-bath検算
 
 - R195Aのchiral作用和・差、signal current、edge velocity恒等式を検査する。

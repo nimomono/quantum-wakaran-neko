@@ -1,7 +1,7 @@
 @number: 8
 @chapter: 本文
 @title: 誤差、資源、反証条件、未完成目標
-@status: Q1/Q2のR191 2結果読出し、R181D projector router、Q2-2の2端逐次R191、Q3のM57/R195A・R196A--R196C--R161--R185経路（R162はideal reference）、M37信号物理実装層を横断して誤差・資源・反証条件を整理する。
+@status: Q1/Q2のR191 2結果読出し、R181D projector router、Q2-2の2端逐次R191、Q3のM57/R195A・R196A--R196C--R161--R185経路、M37信号物理実装層を横断して誤差・資源・反証条件を整理する。R162はR161 lawのoptional Poisson realizationであり中心誤差台帳へ入れない。
 
 
 ### R191の2結果読出し誤差と資源
@@ -437,6 +437,7 @@ Q2-4は条件付き達成を維持する。残る条件は、静的部分系配�
 | M54/R181C・R181D・R179・R186・R191・R192 | R191結果固定前にrouterを開く、希少結果を事後除外する、R192で安全下限未満を救済する、状態依存除算を使う、開放浴へ回路出力確率やモード別係数を外部注入する、一様装置族へ統合できない、またはR186の加法ノイズ障害を回避できず指数精度を要求する |
 | M37/R86・R135 | 有限時間包絡上界または第2モーメント持上げ上界を超える |
 | R182 | W型固定低位スペクトル・密度・節が格子収束しない、Rayleigh十分条件から障壁下二重項が得られない、関数計算の共有固有空間または分裂相対上界を破る、中央障壁込み半周期鏡映・一周期回帰が成立しない |
+| R161 path law | 固定有限時間で $M_T=\sup_{t\leq T}\max_i\sum_{j\ne i}k^+_{i\to j}(t)<\infty$ を満たさず、finite-state canonical Markov経路法則の非爆発性を保証できない |
 | M57/R195A・R196A--R196C | chiral作用/current恒等式を満たさない、passive ballistic portの有限誤差境界が閉じない、moving-reflector fixed pointが一意安定でない、$\tau_p$ または $\lambda_Y^{-1}$ をsignal時間から分離できない、平衡bath GLE/overdamped/homogenizationが制御できない、weak-loading familyが空、またはR196Cのmetastable generatorがR161へ有限誤差で接続しない |
 | R161/R162 ideal reference | R161率の非負性またはmaster equation整合が破れる、あるいはR162 ideal open-jump生成子がR161率と一致しない |
 | Q3-2 | 時間対称Newton則を縮約前に仮定する、M57からR161前向き経路法則へ有限誤差で接続できない、同じ前向き経路法則からBayes後退率を構成できない、またはR185の $C_{185,a}a^2+O(\delta)$ 評価を破る |

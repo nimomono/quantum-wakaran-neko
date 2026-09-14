@@ -12,8 +12,10 @@ signal dynamics
    (π, j, t)
       ↓ R161
      k±
-      ↓ R162
-ideal jump reference
+      ↓ R161 canonical path law
+finite-state Markov path
+      ↘ R162
+optional Poisson realization
       ↓ R185
 Nelson / time-symmetric Newton
 ```

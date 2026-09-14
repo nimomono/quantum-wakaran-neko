@@ -246,7 +246,7 @@ R162のopen Poisson-jump過程はQ3の基礎的実体ではなく、その理想
 \chapter{問題設定、現行模型、達成範囲}\label{ux554fux984cux8a2dux5b9aux73feux884cux6a21ux578bux9054ux6210ux7bc4ux56f2}}
 
 \begin{statusbox}
-位置づけ：M54をQ1・Q2・Q3の共通有効信号構成族、M37を物理信号実装層、M57をQ3粒子輸送の現行ミクロ物理層として区別する。Q1/Q2のR191射影読出しとQ3のM57/R195A・R196A--R196C--R161位置輸送は結果形成として分離し、R162はideal referenceとして扱いつつ、Q1型局所正準信号とQ2型2体系結合からQ3空間信号の $(\pi,j)$ を作る共通構造を明示する。Q1ではR189A保持座標からR193を通じてR191 decision energyへ直接接続する。
+位置づけ：M54をQ1・Q2・Q3の共通有効信号構成族、M37を物理信号実装層、M57をQ3粒子輸送の現行ミクロ物理層として区別する。Q1/Q2のR191射影読出しとQ3のM57/R195A・R196A--R196C--R161位置輸送は結果形成として分離し、R161自身が有限状態canonical Markov経路法則まで与える。R162はそのoptional independent-Poisson realizationとしてのみ扱いつつ、Q1型局所正準信号とQ2型2体系結合からQ3空間信号の $(\pi,j)$ を作る共通構造を明示する。
 \end{statusbox}
 
 \hypertarget{ux7814ux7a76ux4e0aux306eux554fux3044}{%
@@ -404,7 +404,7 @@ Q3 & M37/M54空間信号、M57 dual-ballistic-TL moving-bath tracer、R195A・R1
 \chapter{有限モード信号系と共通正準モジュール}\label{ux6709ux9650ux30e2ux30fcux30c9ux4fe1ux53f7ux7cfbux3068ux5171ux901aux6b63ux6e96ux30e2ux30b8ux30e5ux30fcux30eb}}
 
 \begin{statusbox}
-位置づけ：M54をQ1・Q2・Q3の共通有効信号--配置状態構成族として定義する。初期状態方向は準備済み古典入力境界として扱い、R191をQ1/Q2の2結果射影読出し主線、R181B/R181Cを固定入力持上げ・永続ゲート、R181Dを射影結果成分受渡し、R192を一般深さQ2-4の方向不変作用安定化として分離する。R161をQ3位置輸送の共通数学核とし、M57/R195A・R196A--R196Cを現行ミクロ物理実現、R162をideal open-jump referenceとして分離する。Q1型局所信号とQ2型辺結合からR161の $(\pi,j)$ が得られる構造を明示する。
+位置づけ：M54をQ1・Q2・Q3の共通有効信号--配置状態構成族として定義する。初期状態方向は準備済み古典入力境界として扱い、R191をQ1/Q2の2結果射影読出し主線、R181B/R181Cを固定入力持上げ・永続ゲート、R181Dを射影結果成分受渡し、R192を一般深さQ2-4の方向不変作用安定化として分離する。R161をQ3位置輸送の共通数学核とし、有限状態のcanonical Markov経路法則とBayes後退率まで含める。M57/R195A・R196A--R196Cを現行ミクロ物理実現、R162をR161経路法則のoptional independent-Poisson realizationとして分離する。Q1型局所信号とQ2型辺結合からR161の $(\pi,j)$ が得られる構造を明示する。
 \end{statusbox}
 
 \hypertarget{m54ux3092q1q3ux5171ux901aux6709ux52b9ux72b6ux614bux69cbux6210ux65cfux3068ux3059ux308bux7bc4ux56f2}{%
@@ -416,7 +416,7 @@ M54は有限個の実正準対から得る信号、準備済み入力境界、�
 Z=\frac{Q+iP}{\sqrt{2\mathcal J_0}}
 \]
 
-とするが、\(Z\) は独立した複素実体ではない。Q1/Q2では2結果射影作用をR191読出しinterfaceへ渡し、Q3ではM57の2作用状態数が開始配置重みを与え、同じ局在tracerをR196C/R161へ渡す。R162は同じ生成子を持つideal stochastic referenceとして使う。測定結果用の静的配置変数やR170専用pointerをM54共通状態へ置かない。
+とするが、\(Z\) は独立した複素実体ではない。Q1/Q2では2結果射影作用をR191読出しinterfaceへ渡し、Q3ではM57の2作用状態数が開始配置重みを与え、同じ局在tracerをR196C/R161へ渡す。R161自身が有限状態のcanonical Markov経路法則まで定め、R162は同じ経路法則を独立Poisson random measuresで実現するoptional referenceとして使う。測定結果用の静的配置変数やR170専用pointerをM54共通状態へ置かない。
 
 概念上の共通状態を
 
@@ -452,7 +452,7 @@ Q2-1 & 4モード永続記憶部 & R181B、R181C & R191逐次読出し、R181D \
 Q2-2 & 4モード＋2物理測定端 & R181B/R181C、設定gate & A端R191、router、B端R191、R180A/R180C \\
 Q2-3 & 8モード永続記憶部 & R181Bを2回、R181C、R177 & R191逐次読出し、R181D \\
 Q2-4 & \(2^n\) 直接モード & 根モード初期化、R181C & R191、R181D、非終端安全結果のR192、R179 reset \\
-Q3 & 空間信号＋局在tracer & 準備済み古典空間入力、M37＋M57 dual-ballistic-TL moving-bath tracer & R195A、R196A--R196C、R161、R185（R162はideal reference） \\
+Q3 & 空間信号＋局在tracer & 準備済み古典空間入力、M37＋M57 dual-ballistic-TL moving-bath tracer & R195A、R196A--R196C、R161、R185 \\
 \end{longtable}
 
 M37はM54へ吸収しない。Q3では局所位置ばね網から空間信号を実装し、Q1ではR187の弱結合W型族に限って最低2正常モードをW2制御信号へ接続する。全系列を同一の製造済み装置・同一パラメータ・単一周期へ統合するM0は別の未完成目標である。
@@ -540,7 +540,7 @@ Z=\frac{Q+iP}{\sqrt{2\mathcal J_0}}
 
 入力境界は、結果確率表、Born重み、結果依存状態、規格化後の測定結果を外部から注入する許可ではない。境界以後の可逆発展、状態方向輸送、結果形成、射影結果成分受渡し、空間配置輸送は各現行結果から導く。入力誤差は、目標規格化第2モーメント \(C_{\rm in}\) または目標単一試行信号に対する一つの \(\varepsilon_{\rm in}\) として下流の誤差予算へ一度だけ入れる。
 
-Q1のM37--W2接続ではR187または固定線形正準接続端を用い、Q2-1--Q2-3の固定積入力はR181Bへ渡す。Q2-4はR181Bを一般 \(n\) へ反復せず、R179の開放初期化後に定数次元供給源を \(0^n\) 根モードへ接続する。Q3は準備済み空間信号からM37/R86とM57/R195A・R196A--R196Cの経路へ入り、R161/R185へ接続する。R162は比較用ideal open-jump referenceとして残す。
+Q1のM37--W2接続ではR187または固定線形正準接続端を用い、Q2-1--Q2-3の固定積入力はR181Bへ渡す。Q2-4はR181Bを一般 \(n\) へ反復せず、R179の開放初期化後に定数次元供給源を \(0^n\) 根モードへ接続する。Q3は準備済み空間信号からM37/R86とM57/R195A・R196A--R196Cの経路へ入り、R161のcanonical Markov経路法則を経てR185へ接続する。R162はこの経路法則のoptional independent-Poisson realizationとして比較用途にだけ残す。
 
 旧R181Aの物理テンプレート、横方向排出、共通初期種からの状態方向吸引は数学的結果として退役記録へ保存する。そこに含まれていた方向不変の作用回復だけは、一般深さQ2-4に必要な独立機能としてR192へ切り出す。
 
@@ -816,8 +816,8 @@ X_t
 
 を意味する。Q1/Q2のR191測定pointerを空間粒子へ同一視する主張ではない。
 
-\hypertarget{r161ux306eux5171ux901aux6574ux5408ux3068m57r162ux306eux7269ux7406ux53c2ux7167ux5b9fux73fe}{%
-\section{R161の共通整合とM57/R162の物理・参照実現}\label{r161ux306eux5171ux901aux6574ux5408ux3068m57r162ux306eux7269ux7406ux53c2ux7167ux5b9fux73fe}}
+\hypertarget{r161ux306eux5171ux901aux6574ux5408markovux7d4cux8defux6cd5ux5247ux3068m57r162ux306eux7269ux7406ux53c2ux7167ux5b9fux73fe}{%
+\section{R161の共通整合・Markov経路法則とM57/R162の物理・参照実現}\label{r161ux306eux5171ux901aux6574ux5408markovux7d4cux8defux6cd5ux5247ux3068m57r162ux306eux7269ux7406ux53c2ux7167ux5b9fux73fe}}
 
 有限配置集合 \(\mathcal I\) 上の正の時間依存確率分布 \(\pi_i(t)>0\) を考える。辺ごとに反対称確率流と対称活動量
 
@@ -849,7 +849,7 @@ k^-_{i\to j}
 
 と置く。
 
-\begin{theorem}[R161：有限配置の確率流・活動量整合]
+\begin{theorem}[R161：有限配置の確率流・活動量整合とMarkov経路存在]
 
 上の仮定の下で $k^\pm$ は非負であり、
 
@@ -870,6 +870,18 @@ k^-_{i\to j}
 $$
 
 を満たす。
+
+さらに固定有限時間 $0\leq t\leq T$ で $k^+_{i\to j}(t)$ がBorel可測かつ
+
+$$
+M_T
+=
+\sup_{0\leq t\leq T}
+\max_i\sum_{j\ne i}k^+_{i\to j}(t)
+<\infty
+$$
+
+を満たすなら、この時間依存生成子を持つ非爆発càdlàg有限状態Markov過程は法則の意味で一意に存在する。Q3では許容された古典signal履歴 $Z_{[0,T]}=z_{[0,T]}$ を固定してこの条件付き経路法則を構成し、その後signal履歴の法則で混合して共同法則を得る。従ってR185が必要とする前向き経路法則とBayes後退率はR161自身の結論である。
 
 静的状態構成では $j=0$ とし、
 
@@ -974,11 +986,11 @@ D_{\rm TV}
 T\varepsilon_{\rm gen}
 \]
 
-を満たす。この生成子同値により、R161より前段のミクロ実現を交換しても、同じ位置経路法則とR185の縮約を共通に扱える。現行主線ではM57を物理実現、R162をideal stochastic referenceとする。
+を満たす。この生成子同値により、R161より前段のミクロ実現を交換しても、同じcanonical位置経路法則とR185の縮約を共通に扱える。現行主線ではM57を物理実現とし、R162はR161経路法則を独立Poisson random measuresでpathwiseに実現するoptional stochastic referenceとする。
 
-\begin{theorem}[R162：局所有向率の開放Poisson-jump実現]
+\begin{theorem}[R162：R161経路法則の独立Poisson-jump実現]
 
-固定有限グラフ、固定有限時間 $T$ 上で、R161が与える有向率 $k_{i\to j}(t)\geq0$ が可測かつ
+固定有限グラフ、固定有限時間 $T$ 上で、R161の仮定を満たす有向率 $k_{i\to j}(t)\geq0$ を取る。R161によりcanonical Markov経路法則は既に一意に存在する。さらに
 
 $$
 M_*=
@@ -999,10 +1011,10 @@ $$
 
 である。従って周辺分布はR161の前向きmaster equationに厳密に従う。同じ前向き経路法則のBayes反転から得る後向き率はR161の $k^-$ と一致し、未来から作用する第2浴を必要としない。
 
-Poisson reservoirはR161生成子を厳密に実現するideal open-jump referenceである。現行Q3の基礎的ミクロ存在論はM57/R195A・R196A--R196Cが担い、R162は生成子・経路法則の比較とR185の数学的参照に用いる。有限衝突Hamiltonian列への持上げは強化結果として論文外メモへ分離する。R161の静的 $j=0$ 特殊化は数学的比較用に残すが、Q1/Q2の2結果読出し主線ではR191を使う。
+Poisson reservoirはR161 canonical経路法則の一つの明示的pathwise realizationである。現行Q3の基礎的ミクロ存在論はM57/R195A・R196A--R196Cが担い、Q3-2とR185の論理依存はR161だけで閉じる。R162は比較、シミュレーション、開放Poisson実装の参照に用いる。有限衝突Hamiltonian列への持上げは強化結果として論文外メモへ分離する。R161の静的 $j=0$ 特殊化は数学的比較用に残すが、Q1/Q2の2結果読出し主線ではR191を使う。
 \end{theorem}
 
-R161は静的・移動の率構成を共通に保つ。現行Q3の物理主線はM57/R195A・R196A--R196Cであり、R162は同じ率を持つideal referenceとして残す。Q1/Q2の2結果測定はR161静的鎖を経由せずR191へ直接接続する。旧有限衝突実装は退役メモに保存する。
+R161は静的・移動の率構成に加え、有限状態のcanonical Markov経路法則まで共通に保つ。現行Q3の物理主線はM57/R195A・R196A--R196Cであり、R162は同じ経路法則を持つoptional Poisson realizationとして残す。Q1/Q2の2結果測定はR161静的鎖を経由せずR191へ直接接続する。旧有限衝突実装は退役メモに保存する。
 
 \hypertarget{r191ux4f5cux7528ux5deeux99c6ux52d5ux30d6ux30e9ux30a6ux30f3ux5de8ux8996ux7684ux30b9ux30d4ux30f32ux7d50ux679cux5c04ux5f71ux8aadux51faux3057}{%
 \subsection{R191：作用差駆動ブラウン巨視的スピン2結果射影読出し}\label{r191ux4f5cux7528ux5deeux99c6ux52d5ux30d6ux30e9ux30a6ux30f3ux5de8ux8996ux7684ux30b9ux30d4ux30f32ux7d50ux679cux5c04ux5f71ux8aadux51faux3057}}
@@ -5322,7 +5334,7 @@ draft-71ではR182専用のW型数値回帰を追加したが、これは解析�
 \chapter{誤差、資源、反証条件、未完成目標}\label{ux8aa4ux5deeux8cc7ux6e90ux53cdux8a3cux6761ux4ef6ux672aux5b8cux6210ux76eeux6a19}}
 
 \begin{statusbox}
-位置づけ：Q1/Q2のR191 2結果読出し、R181D projector router、Q2-2の2端逐次R191、Q3のM57/R195A・R196A--R196C--R161--R185経路（R162はideal reference）、M37信号物理実装層を横断して誤差・資源・反証条件を整理する。
+位置づけ：Q1/Q2のR191 2結果読出し、R181D projector router、Q2-2の2端逐次R191、Q3のM57/R195A・R196A--R196C--R161--R185経路、M37信号物理実装層を横断して誤差・資源・反証条件を整理する。R162はR161 lawのoptional Poisson realizationであり中心誤差台帳へ入れない。
 \end{statusbox}
 
 \hypertarget{r191ux306e2ux7d50ux679cux8aadux51faux3057ux8aa4ux5deeux3068ux8cc7ux6e90}{%
@@ -5816,6 +5828,7 @@ M54/R180A--R180C & 実際の末端信号でなく集団モーメントを再注�
 M54/R181C・R181D・R179・R186・R191・R192 & R191結果固定前にrouterを開く、希少結果を事後除外する、R192で安全下限未満を救済する、状態依存除算を使う、開放浴へ回路出力確率やモード別係数を外部注入する、一様装置族へ統合できない、またはR186の加法ノイズ障害を回避できず指数精度を要求する \\
 M37/R86・R135 & 有限時間包絡上界または第2モーメント持上げ上界を超える \\
 R182 & W型固定低位スペクトル・密度・節が格子収束しない、Rayleigh十分条件から障壁下二重項が得られない、関数計算の共有固有空間または分裂相対上界を破る、中央障壁込み半周期鏡映・一周期回帰が成立しない \\
+R161 path law & 固定有限時間で \(M_T=\sup_{t\leq T}\max_i\sum_{j\ne i}k^+_{i\to j}(t)<\infty\) を満たさず、finite-state canonical Markov経路法則の非爆発性を保証できない \\
 M57/R195A・R196A--R196C & chiral作用/current恒等式を満たさない、passive ballistic portの有限誤差境界が閉じない、moving-reflector fixed pointが一意安定でない、\(\tau_p\) または \(\lambda_Y^{-1}\) をsignal時間から分離できない、平衡bath GLE/overdamped/homogenizationが制御できない、weak-loading familyが空、またはR196Cのmetastable generatorがR161へ有限誤差で接続しない \\
 R161/R162 ideal reference & R161率の非負性またはmaster equation整合が破れる、あるいはR162 ideal open-jump生成子がR161率と一致しない \\
 Q3-2 & 時間対称Newton則を縮約前に仮定する、M57からR161前向き経路法則へ有限誤差で接続できない、同じ前向き経路法則からBayes後退率を構成できない、またはR185の \(C_{185,a}a^2+O(\delta)\) 評価を破る \\
@@ -9798,17 +9811,17 @@ R181B/R181Cにより3入力の有限テンソル積状態の生成と2つの有�
 
 一般の \(N\) に対するQ2-4はM54の直接モード部分系一括作用と逐次2結果標本化で扱う。これはR181B/R181Cのテンソル積状態の生成反復から自動的に従う結果ではない。
 
-\hypertarget{ux5171ux901aux6574ux5408ux751fux6210ux5b50ux3068ux958bux653ejumpux5b9fux73fe}{%
-\chapter{共通整合生成子と開放jump実現}\label{ux5171ux901aux6574ux5408ux751fux6210ux5b50ux3068ux958bux653ejumpux5b9fux73fe}}
+\hypertarget{ux5171ux901aux6574ux5408markovux7d4cux8defux3068ux958bux653ejumpux53c2ux7167ux5b9fux73fe}{%
+\chapter{共通整合Markov経路と開放jump参照実現}\label{ux5171ux901aux6574ux5408markovux7d4cux8defux3068ux958bux653ejumpux53c2ux7167ux5b9fux73fe}}
 
 \begin{statusbox}
-位置づけ：R161の確率流・活動量整合、その活動量--親和力等価表示と生成子同値、R162の有界有向率に対する開放Poisson-jump実現を証明し、Q3位置輸送とR185の時間反転率へ接続する。静的詳細釣り合いは一般整合定理の特殊化としてのみ残す。
+位置づけ：R161の確率流・活動量整合、有限状態canonical Markov経路存在、Bayes後退率、その活動量--親和力等価表示と生成子同値を証明する。R162は同じR161経路法則の独立Poisson-random-measureによるoptional明示実現として保持し、Q3-2の達成根拠には用いない。静的詳細釣り合いは一般整合定理の特殊化としてのみ残す。
 \end{statusbox}
 
 \hypertarget{ux76eeux7684ux7528ux8a9eux4e3bux5f35ux7bc4ux56f2}{%
 \section{目的、用語、主張範囲}\label{ux76eeux7684ux7528ux8a9eux4e3bux5f35ux7bc4ux56f2}}
 
-本付録はM54の有限配置変数 \(X\) を動かす共通整合原理を扱う。R161は目標分布、確率流、活動量から前向き・Bayes後向き率を定め、R162はその有向率を明示的な古典開放Poisson reservoirで実現する。現行因果鎖での用途はQ3の開始配置後の位置輸送と、R185の前進・後退平均微分への受渡しである。
+本付録はM54の有限配置変数 \(X\) を動かす共通整合原理を扱う。R161は目標分布、確率流、活動量から前向き率を定め、有界総hazardの下で一意な非爆発canonical Markov経路法則とそのBayes後退率まで与える。現行因果鎖ではこのR161経路法則をQ3の開始配置後の位置輸送からR185の前進・後退平均微分へ直接渡す。R162は同じ法則を独立Poisson random measuresで実現するoptional参照構成である。
 
 静的詳細釣り合い特殊化は一般R161の検算・比較用に残すが、Q1/Q2のBorn型2値測定機構としては使わない。旧R190作用殻samplerとの接続は退役研究線としてnotes/Git履歴で管理する。旧有限衝突Hamiltonian列への持上げも固定目標の必要条件ではない。
 
@@ -9991,6 +10004,50 @@ k^-_{i\to j}
 
 となる。
 
+\hypertarget{ux6709ux9650ux72b6ux614bcanonical-markovux7d4cux8defux6cd5ux5247ux306eux5b58ux5728ux3068ux4e00ux610fux6027}{%
+\subsection{有限状態canonical Markov経路法則の存在と一意性}\label{ux6709ux9650ux72b6ux614bcanonical-markovux7d4cux8defux6cd5ux5247ux306eux5b58ux5728ux3068ux4e00ux610fux6027}}
+
+固定有限時間 \(0\leq t\leq T\) で各 \(k^+_{i\to j}(t)\) をBorel可測とし、
+
+\[
+M_T
+=
+\sup_{0\leq t\leq T}
+\max_i\sum_{j\ne i}k^+_{i\to j}(t)
+<\infty
+\]
+
+を仮定する。時刻 \(s\) に \(X_s=i\) であるとき、次jump時刻 \(\tau\) の生存関数を
+
+\[
+P(\tau>u\mid X_s=i)
+=
+\exp\!\left[
+-\int_s^u\lambda_i(r)\,dr
+\right],
+\qquad
+\lambda_i(t)=\sum_{j\ne i}k^+_{i\to j}(t)
+\]
+
+とし、\(\tau=u\) で \(\lambda_i(u)>0\) のとき遷移先を
+
+\[
+P(X_u=j\mid \tau=u,X_{u-}=i)
+=
+\frac{k^+_{i\to j}(u)}{\lambda_i(u)}
+\]
+
+で選ぶ。このhazard constructionを再帰すればcàdlàg純jump過程が得られる。固定有限時間内のjump数は率 \(M_T\) のPoisson過程で上から支配できるので非爆発である。有限状態の時間非一様Kolmogorov方程式の一意性と上のhazard指定により、この生成子を持つMarkov経路法則は法則の意味で一意である。
+
+Q3ではsignal履歴 \(z_{[0,T]}\) を固定するとR161率は時間の既知関数になるため、まず条件付き法則
+
+\[
+\mathbb P^{\rm R161}
+\left(dX_{[0,T]}\mid Z_{[0,T]}=z_{[0,T]}\right)
+\]
+
+を構成し、最後にsignal履歴の法則で混合して \((Z,X)\) の共同法則を得る。従って \(X\) 単独を自律Markov過程と仮定する必要はない。
+
 \hypertarget{ux6d3bux52d5ux91cfux89aaux548cux529bux8868ux793aux3068r161ux5b9fux73feux540cux5024}{%
 \subsection{活動量--親和力表示とR161実現同値}\label{ux6d3bux52d5ux91cfux89aaux548cux529bux8868ux793aux3068r161ux5b9fux73feux540cux5024}}
 
@@ -10144,13 +10201,13 @@ w_vk_{v\to i}
 
 \begin{proof}[R161]
 
-一般整合部分は確率流恒等式と有限状態マスター方程式の一意性、後退 率はBayes反転から従う。静的特殊化では $j=0$ が詳細釣合いを与え、$\pi_i^\delta\geq m_\delta$ によりDirichlet形式を無重みグラフ形式で下から抑える。グラフ Poincare不等式、可逆半群の $L^2$ 収縮、Cauchy--Schwarzを順に使うと一様混合上界を得る。正則化誤差は $\pi^\delta=(w+\delta q)/(1+\delta)$ から直接従う。証明終。
+一般整合部分は確率流恒等式と有限状態マスター方程式の一意性から従う。有界総hazardの下では上のhazard constructionが非爆発càdlàg Markov経路法則を与え、有限状態ではその法則は一意である。後退率は同じ経路法則のBayes反転から従う。静的特殊化では $j=0$ が詳細釣合いを与え、$\pi_i^\delta\geq m_\delta$ によりDirichlet形式を無重みグラフ形式で下から抑える。グラフ Poincare不等式、可逆半群の $L^2$ 収縮、Cauchy--Schwarzを順に使うと一様混合上界を得る。正則化誤差は $\pi^\delta=(w+\delta q)/(1+\delta)$ から直接従う。証明終。
 \end{proof}
 
-\hypertarget{r162ux306eux8a3cux660eux958bux653epoisson-jumpux5b9fux73fe}{%
-\section{R162の証明：開放Poisson-jump実現}\label{r162ux306eux8a3cux660eux958bux653epoisson-jumpux5b9fux73fe}}
+\hypertarget{r162ux306eux8a3cux660er161ux7d4cux8defux6cd5ux5247ux306eux72ecux7acbpoisson-jumpux5b9fux73fe}{%
+\section{R162の証明：R161経路法則の独立Poisson-jump実現}\label{r162ux306eux8a3cux660er161ux7d4cux8defux6cd5ux5247ux306eux72ecux7acbpoisson-jumpux5b9fux73fe}}
 
-有限状態集合上の各有向辺 \((i,j)\) に独立なPoisson random measure \(N_{ij}(dt\,du)\) を強度 \(dt\,du\) で置く。配置が \(i\) にある時刻 \(t\) に、点 \((t,u)\) が \(0<u<k_{i\to j}(t)\) を満たしたときだけ \(i\to j\) を実行する。有限状態数と一様な総流出率上界 \(M_*<\infty\) により、固定有限時間内のjump数は率 \(M_*\) のPoisson過程で上から支配されるので非爆発である。
+R161の有界総hazard条件を満たす固定有限時間の率を取る。R161によりcanonical Markov経路法則の存在・一意性・非爆発性は既に確立している。ここではその同じ法則をpathwiseに具体化するため、有限状態集合上の各有向辺 \((i,j)\) に独立なPoisson random measure \(N_{ij}(dt\,du)\) を強度 \(dt\,du\) で置く。配置が \(i\) にある時刻 \(t\) に、点 \((t,u)\) が \(0<u<k_{i\to j}(t)\) を満たしたときだけ \(i\to j\) を実行する。有限状態数と一様な総流出率上界 \(M_*<\infty\) により、固定有限時間内のjump数は率 \(M_*\) のPoisson過程で上から支配されるので非爆発である。
 
 小時間 \(dt\) では
 
@@ -10166,7 +10223,7 @@ P(X_{t+dt}=i\mid X_t=i)
 1-dt\sum_{j\ne i}k_{i\to j}(t)+o(dt).
 \]
 
-従って生成子は
+このPoisson構成の生成子は
 
 \[
 (L_tf)(i)
@@ -10175,13 +10232,13 @@ P(X_{t+dt}=i\mid X_t=i)
 k_{i\to j}(t)[f(j)-f(i)]
 \]
 
-であり、Kolmogorov前進方程式はR161のmaster equationに一致する。R161の整合条件から初期分布 \(p(0)=\pi(0)\) なら \(p(t)=\pi(t)\) である。同じ経路法則の2時刻条件付き確率にBayes則を適用すれば後向き率はR161の \(k^-\) となる。物理的逆時間浴は追加しない。
+であり、R161のcanonical生成子と一致する。経路法則の一意性から、このPoisson構成はR161 lawそのものを実現する。周辺分布整合とBayes後退率はR161から既に従い、物理的逆時間浴は追加しない。
 
 旧有限衝突模型で必要だったEuler凍結、未使用しきい値素子、比較境界帯、canonical 保持機構、余接持上げ、時計誤差、有限骨格history TVは、この採用開放模型の中心証明には現れない。
 
 \begin{proof}[R162]
 
-上のPoisson構成の標準的なcompensator計算から生成子式を得る。有限総hazard上界が非爆発性を与え、有限状態のKolmogorov方程式の一意性からR161の周辺分布が従う。後退率は同じ前向き経路法則のBayes反転であり、別の確率源を必要としない。証明終。
+上のPoisson構成の標準的なcompensator計算からR161と同一の生成子式を得る。R161で既に示した経路法則の一意性により、この構成の法則はcanonical R161 lawと一致する。証明終。
 \end{proof}
 
 \hypertarget{r170ux5438ux53ceux6307ux91ddux5909ux6570ux56faux5b9aux306eux8a3cux660e}{%
@@ -10206,7 +10263,7 @@ P(Y=i\mid X=i)
 \hypertarget{ux5883ux754cux3068ux5f37ux5316ux7d50ux679c}{%
 \section{境界と強化結果}\label{ux5883ux754cux3068ux5f37ux5316ux7d50ux679c}}
 
-新R162はQ3の移動過程に対する採用開放ミクロ方程式であり、有限閉鎖Hamiltonian実装を主張しない。Q1/Q2の静的平方根率の物理実現はR190の作用保存Drude混合と対称作用開口を正本とし、反復renewalはR179の定常流入浴を使う。
+R162はR161 canonical経路法則のoptional independent-Poisson realizationであり、Q3の現行ミクロ物理層でもQ3-2の達成根拠でもない。有限閉鎖Hamiltonian実装を主張しない。Q1/Q2の静的平方根率の物理実現はR190の作用保存Drude混合と対称作用開口を正本とし、反復renewalはR179の定常流入浴を使う。
 
 旧R162の有限衝突経路持上げ、局所詳細釣合いを持つ有限熱的scatterer、旧R188のpath-TVからNelson加速度への安定性は撤回せず、有限閉鎖実装を検査する強化結果として論文外メモへ保存する。有限浴化、完全周期の仕事・熱・エントロピー収支も中心定理の必要条件にしない。
 
@@ -11037,7 +11094,7 @@ R192は \(Z\mapsto aZ\) 型の方向不変流なので、既に生じた横方�
 \chapter{R161空間参照過程とNelson型縮約}\label{r161ux7a7aux9593ux53c2ux7167ux904eux7a0bux3068nelsonux578bux7e2eux7d04}}
 
 \begin{statusbox}
-位置づけ：R161が定める空間移動参照過程を定義し、Q1型局所正準信号とQ2型辺結合から得る $(\pi,j)$ をR161へ接続する。現行 $T_{ij}^\delta$ は許容される対称活動量の1選択として位置づけ、R184のM37開始作用保持機構実装とR185のNelson型前後平均微分・時間対称Newton則を証明する。R162は同じ局所有向率を実現するideal open-jump referenceであり、Q3の基礎的ミクロ存在論とは扱わない。
+位置づけ：R161が定める空間移動参照過程とcanonical Markov経路法則を定義し、Q1型局所正準信号とQ2型辺結合から得る $(\pi,j)$ をR161へ接続する。現行 $T_{ij}^\delta$ は許容される対称活動量の1選択として位置づけ、R184のM37開始作用保持機構実装とR185のNelson型前後平均微分・時間対称Newton則を証明する。R162は同じR161 lawのoptional Poisson realizationであり、本付録の論理依存には置かない。
 \end{statusbox}
 
 \hypertarget{r161ux7a7aux9593ux53c2ux7167ux904eux7a0bux3068ux56e0ux679cux898fux7d04}{%
@@ -11053,7 +11110,7 @@ R161/R185のideal参照過程で使う状態断面を
 (Q(t),P(t),X_t,S_{\rm ref})
 \]
 
-とする。\(Q_i,P_i\) は実正準信号自由度、\(X_t\in V\) はR161生成子に従う参照位置座標である。R162は同じ局所有向率を実現するideal open-jump referenceとして利用できるが、M57 tracerとは別の実在粒子やQ3の基礎的ミクロ存在論を追加するものではない。
+とする。\(Q_i,P_i\) は実正準信号自由度、\(X_t\in V\) はR161 canonical Markov経路法則に従う参照位置座標である。R162を用いなくてもこの経路法則はR161自身で存在・一意性・非爆発性まで定まる。
 
 \[
 Z_i
@@ -11356,7 +11413,7 @@ P(X_t^L\in\cdot)
 T L_\delta(\eta)\varepsilon_{\rm car}(T)
 $$
 
-を満たす。新R162の開放jump過程と終時刻記録を加えた完全結果誤差を
+を満たす。R161 canonical Markov経路法則と終時刻記録を加えた完全結果誤差を
 
 $$
 \varepsilon_{184}
@@ -11373,7 +11430,7 @@ $$
 
 \begin{proof}[R184]
 
-理想 $b_L$ では固定機構値が瞬間作用と一致するのでN.2のM54空間率そのものである。M37側では上の開始作用保持機構定義を使うため、規格化後の背景項は両過程で同じ $\delta q_i$ となり、表示した率差評価が各時刻に適用できる。有限Markov生成子のDuhamel公式と全変動距離の収縮性から、位置分布差は率行差の時間積分以下である。R162の開放jump生成子を適用する。有限衝突近似誤差は存在せず、終時刻記録の失敗だけを完全結果集合の無反応成分へ残して三角不等式で加える。証明終。
+理想 $b_L$ では固定機構値が瞬間作用と一致するのでN.2のM54空間率そのものである。M37側では上の開始作用保持機構定義を使うため、規格化後の背景項は両過程で同じ $\delta q_i$ となり、表示した率差評価が各時刻に適用できる。有限Markov生成子のDuhamel公式と全変動距離の収縮性から、位置分布差は率行差の時間積分以下である。対応するR161有限状態Markov生成子へDuhamel公式を適用する。有限衝突近似誤差は存在せず、終時刻記録の失敗だけを完全結果集合の無反応成分へ残して三角不等式で加える。証明終。
 \end{proof}
 
 \hypertarget{r161-ux5f8cux9000ux7387ux3068ux524dux5f8cux5e73ux5747ux5faeux5206}{%
@@ -11861,7 +11918,7 @@ R185は理想M54空間信号部分系の結果である。R184の \(L_\delta\var
 \hypertarget{q3-2ux306eux9054ux6210ux5883ux754c}{%
 \section{Q3-2の達成境界}\label{q3-2ux306eux9054ux6210ux5883ux754c}}
 
-R161が定める前向き経路法則（R162はそのideal open-jump reference）からR185のBayes後退率を作るため、旧R188で必要だった有限衝突経路との比較は中心因果鎖に現れない。固定有限時間、1次元有限格子、node-free滑らかな部分系では
+R161自身が定めるcanonical前向き経路法則からR185のBayes後退率を作るため、旧R188で必要だった有限衝突経路との比較は中心因果鎖に現れない。固定有限時間、1次元有限格子、node-free滑らかな部分系では
 
 \[
 \left\|
