@@ -2,7 +2,7 @@
 
 ## 1. 退役対象
 
-R162「局所有向率の開放Poisson-jump実現」そのものは退役しない。退役するのは、独立Poisson reservoirをQ3粒子輸送の基礎的ミクロ物理そのものと読む旧位置づけである。
+R162「局所有向率の開放Poisson-jump実現」そのものは退役しない。退役するのは、独立Poisson reservoirをQ3粒子輸送の基礎的ミクロ物理そのものと読む旧位置づけである。 draft-100以後、有限状態Markov経路法則の存在・一意性・非爆発性とBayes後退率はR161自身へ吸収し、R162はそのcanonical lawのoptional independent-Poisson realizationとしてのみ保持する。
 
 ## 2. 現行置換
 

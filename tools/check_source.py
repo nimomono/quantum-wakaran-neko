@@ -64,6 +64,37 @@ def check_project_status() -> None:
 
 
 
+def check_r161_path_boundary() -> None:
+    status = (ROOT / "PROJECT_STATUS.md").read_text(encoding="utf-8")
+    q32 = next((line for line in status.splitlines() if line.startswith("| Q3-2 | 達成 |")), "")
+    if not q32:
+        raise AssertionError("Q3-2 current-position row is missing")
+    cells = [cell.strip() for cell in q32.strip().strip("|").split("|")]
+    if len(cells) < 7:
+        raise AssertionError("Q3-2 current-position row is malformed")
+    evidence = cells[5]
+    if "R162" in evidence:
+        raise AssertionError("R162 must not be a Q3-2 evidence dependency")
+    for token in ("R195A", "R196A--R196C", "R161", "R185"):
+        if token not in evidence:
+            raise AssertionError(f"Q3-2 evidence is missing {token}")
+
+    common = (ROOT / "sections" / "02_common_canonical_modules.md").read_text(encoding="utf-8")
+    required = (
+        "R161：有限配置の確率流・活動量整合とMarkov経路存在",
+        "M_T",
+        "canonical Markov経路法則",
+        "R162：R161経路法則の独立Poisson-jump実現",
+    )
+    missing = [token for token in required if token not in common]
+    if missing:
+        raise AssertionError(f"R161 path-law markers missing: {missing}")
+
+    appendix = (ROOT / "sections" / "A14_m54_spatial_moving_matching.md").read_text(encoding="utf-8")
+    if "R161が定める前向き経路法則（R162" in appendix:
+        raise AssertionError("R185 still declares R162 as a path dependency")
+
+
 def check_enhancement_targets() -> None:
     status_path = ROOT / "PROJECT_STATUS.md"
     status_text = status_path.read_text(encoding="utf-8")
@@ -177,6 +208,7 @@ def check_ci_read_only() -> None:
 def main() -> None:
     check_sources()
     check_project_status()
+    check_r161_path_boundary()
     check_enhancement_targets()
     check_verifier_boundary()
     check_ci_read_only()

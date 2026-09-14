@@ -1,3 +1,10 @@
+## draft-100：R161 canonical Markov path law
+
+- R161へ、固定有限時間・有限状態・有界総hazard下の非爆発càdlàg Markov経路法則の存在・一意性を吸収した。
+- R185の前向き・Bayes後向き平均微分はR161 lawへ直接依存させ、Q3-2根拠一覧からR162を除外した。
+- R162は同じR161 lawの独立Poisson-random-measureによるoptional pathwise realizationへ責務を縮約した。結果IDは維持する。
+- 固定目標、達成ラベル、M57/R195A・R196A--R196C、R184、R185の数式内容は変更していない。
+
 ## draft-98：M57をballistic TL＋moving equilibrium bathへ置換
 
 - Q3のM57からpinned/anharmonic TL、TL mixing・force-correlation、drifting-Gibbs、TL自身へのFDTを退役し、dual ballistic waveguide＋moving bath-frame carrier＋平衡oscillator bathへ置換した。

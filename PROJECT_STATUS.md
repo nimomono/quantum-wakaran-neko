@@ -1,3 +1,10 @@
+## draft-100：R161へ有限状態Markov経路法則を吸収
+
+- R161の責務を、確率流・活動量からの有向率と周辺分布整合だけでなく、固定有限時間・有限状態・有界総hazard下の一意な非爆発canonical Markov経路法則とBayes後退率まで拡張する。
+- Q3-2の達成根拠からR162を外し、M57/R195A・R196A--R196C → R161 → R185を現行因果鎖とする。
+- R162は結果IDを維持するが、R161経路法則を独立Poisson random measuresでpathwiseに実現するoptional referenceへ責務を縮約する。現行Q3ミクロ物理層でもR185の必須依存でもない。
+- 固定目標、達成ラベル、M57/R195A・R196A--R196C、R184、R185の内容は変更しない。
+
 ## draft-98：M57をdual ballistic TL＋moving equilibrium bathへ置換
 
 - draft-95のpinned/weakly-anharmonic TL、TL mixing、force-correlation、drifting-Gibbs、TL自身へのFDTをQ3正本から退役し、M57をdual ballistic waveguide、moving bath-frame carrier $Y_e$、平衡oscillator bath、局在tracer $X$ の構造へ置換する。
@@ -144,7 +151,7 @@
 | Q2-3 | 条件付き達成 | M54三部分系静的状態構成 | 永続8モード記憶部と逆演算用補助部／作業領域 | 二段ゲート合成と末端段階的射影選別 | R112、R177、R181B、R181C、R181D、R191 | R191とR181Dの末端開放接続、および固定3入力を越える一般サイズの資源効率は未達 |
 | Q2-4 | 条件付き達成 | M54一般静的状態構成 | $2^n$ 受動直接モード記憶部＋一様開放浴 interface | 一般gate列、R191逐次読出し、R181D router、非終端安全結果でR192作用安定化、R179 open reset | R112、R179、R181C、R181D、R186、R191、R192 | 静的配線、R191 transducer、router、R192による作用下限回復、open resetを一つの一様装置族へ接続し、R186の多項式精度条件を満たすこと |
 | Q3-1 | 達成 | — | M37 | — | R86 | — |
-| Q3-2 | 達成 | M54空間信号＋M57粒子輸送 | M37実正準空間信号＋M57 dual-ballistic-TL moving-bath tracer | R195A exact current／R196A moving bath frame／R196B equilibrium GLE・homogenization／R196C R161 matching／Nelson縮約 | R195A、R196A--R196C、R161、R162、R185 | 固定有限時間・1次元有限格子・node-free滑らかな部分系で、M57生成子誤差 $\varepsilon_{57}$ とR185の $O(\delta)+C_{185,a}a^2$ を分離して時間対称Newton則へ接続。M37からclock/recordまでの全周期統合、連続空間一様極限、多粒子は強化課題 |
+| Q3-2 | 達成 | M54空間信号＋M57粒子輸送 | M37実正準空間信号＋M57 dual-ballistic-TL moving-bath tracer | R195A exact current／R196A moving bath frame／R196B equilibrium GLE・homogenization／R196C R161 matching／Nelson縮約 | R195A、R196A--R196C、R161、R185 | 固定有限時間・1次元有限格子・node-free滑らかな部分系で、M57生成子誤差 $\varepsilon_{57}$ とR185の $O(\delta)+C_{185,a}a^2$ を分離して時間対称Newton則へ接続。M37からclock/recordまでの全周期統合、連続空間一様極限、多粒子は強化課題 |
 | Q3-3A | 達成 | — | M37＋R123有限環境 | 束縛状態・純位相緩和 | R86、R123（井戸型） | — |
 | Q3-3B | 達成 | — | M37＋R123有限環境 | 束縛状態・純位相緩和 | R86、R123（調和型） | — |
 | Q3-3C | 達成 | — | M37＋R123有限環境 | W型束縛状態・純位相緩和 | R86、R123、R182 | — |
@@ -209,8 +216,8 @@ M54は共通の状態型と因果契約を与えるが、同じ物理接続部�
 |---|---|---|---|
 | R112 | 厳密結果 | 有限正準信号のユニタリ合成、有限時計、安全比較と無反応、正準SWAP、局所記録、テンプレート交換、逆計算 | 結果確率、Born型状態数、粒子位置分布、無期限リセットは従わない |
 | R135 | 厳密結果・明示誤差付き結果 | 有限信号集団の規格化第2モーメント輸送、有限時間摂動、階数1支持、2次元Bloch幾何 | 非中心化第2モーメント。単一試行信号との区別が必要 |
-| R161 | 厳密結果 | 正の対象分布、反対称確率流、対称活動量から前向き整合と共通の確率分布後退率を構成。静的特殊化で平方根型詳細釣合い・一意定常分布・一様混合上界、空間特殊化で旧R183移動分布の整合を回収 | 採用生成子後。静的/移動の活動量選択を別途指定。$\delta\downarrow0$ で資源発散 |
-| R162 | ideal open-jump referenceの厳密結果 | R161の任意の有界局所有向率を独立Poisson reservoirで直接実現し、生成子とmaster equationを一致させる。M57の基礎的実体ではなくR195Dの比較対象。Bayes後退率は同じ前向き経路法則から得る | 固定有限時間・有限状態。有限衝突Hamiltonian列への持上げは強化結果として退役メモへ分離 |
+| R161 | 厳密結果 | 正の対象分布、反対称確率流、対称活動量から前向き率を構成し、有界総hazard下で一意な非爆発canonical Markov経路法則とBayes後退率まで与える。静的特殊化で平方根型詳細釣り合い・一意定常分布・一様混合上界、空間特殊化で旧R183移動分布の整合を回収 | 固定有限時間・有限状態。静的/移動の活動量選択を別途指定。$\delta\downarrow0$ で資源発散 |
+| R162 | optional Poisson realizationの厳密結果 | R161 canonical経路法則を独立Poisson random measuresでpathwiseに実現する。経路存在・周辺整合・Bayes後退率はR161側で既に閉じるため、Q3-2達成根拠には含めない | 固定有限時間・有限状態。有限衝突Hamiltonian列への持上げは強化結果として退役メモへ分離 |
 | R164 | 条件付き厳密結果 | 単一試行信号作用と排他的2作用殻から線形Born型状態数 | Q3ではM57/R195Aが容量結合を具体化。Q1/Q2の2結果主線には使わない |
 | R190A--R190C | Hamiltonian無限浴ミクロ模型後の厳密結果・明示誤差付き近似結果／条件付き衝突結果 | 2作用LC殻の総作用を厳密保存するDrude混合、$I/A$ の有限時間一様化、対称作用開口からR161静的平方根kernelへの接続 | Q1/Q2作用殻型代替経路。M57 Q3主線には使わない |
 | R168 | 厳密結果・明示誤差付き結果 | 安全事象を含む一般状態方向平均からM54条件付き結果統計への受渡し | 階数1、固定作用、可変作用補正を区別。無反応を再規格化しない |
@@ -265,9 +272,9 @@ M54は共通の状態型と因果契約を与えるが、同じ物理接続部�
 - R164の作用殻結果別状態数は一般有限結果集合・作用殻型代替経路に残す。Q3ではM57/R195Aが2作用容量とtracer位置を具体的に接続し、同じ状態数原理を初期位置重みとosmotic free energyへ使う。現行Q1/Q2の2結果Born重みはR191が射影作用比から生成し、R164を必須依存にしない。
 - R190A--R190CはQ1/Q2の作用殻型代替経路として保持する。M57 Q3主線はdual ballistic TLと平衡oscillator bathを用い、R190を必須依存にしない。
 - M54が準備する $C_Z\simeq cc^\dagger$ は試行集団の統計状態である。各試行の実体は実正準信号、開放接続部、制御器、記録器と履歴であり、$c$ または $C_Z$ を単一試行制御器へ再注入しない。
-- Q3の単一試行ではM37/M54の実正準空間信号、1個のM57 tracer、2作用状態数、dual ballistic TL、moving bath-frame carrier、平衡oscillator bathが物理過程を担う。R162 Poisson reservoirはideal referenceであり基礎的存在論へ含めない。複素信号は実正準状態の派生表示、状態方向と位置分布は集団統計である。
+- Q3の単一試行ではM37/M54の実正準空間信号、1個のM57 tracer、2作用状態数、dual ballistic TL、moving bath-frame carrier、平衡oscillator bathが物理過程を担う。R162 Poisson realizationはR161 lawのoptional referenceであり、Q3-2の達成根拠にも基礎的存在論にも含めない。複素信号は実正準状態の派生表示、状態方向と位置分布は集団統計である。
 - Q3の二乗形はM54/R135の階数1準備とM57/R195Aの条件付き状態数に由来する。開始面で位置を一度だけ準備し、その後は同じtracerが状態数free energyとmoving equilibrium bathの下で移動する。毎時刻再標本化しない。
-- R161はM57に固有でなく、拡散を担う対称活動量と確率流を受け取る共通数学interfaceである。$\delta>0$ は2作用shellの背景容量としてM57内にも物理化する。$\delta\downarrow0$ で率感度と実装資源が発散し得る。
+- R161はM57に固有でなく、拡散を担う対称活動量と確率流を受け取り、有限状態canonical Markov経路法則まで定める共通数学interfaceである。$\delta>0$ は2作用shellの背景容量としてM57内にも物理化する。$\delta\downarrow0$ で率感度と実装資源が発散し得る。
 - R184は旧M37--M54空間率latchの補助結果として保持するが、M57ではlocal portが $Z_i,Z_j$ から直接chiral作用を受けるため現行必須依存ではない。
 - R170は一般有限結果集合・作用殻型の代替経路とQ3固定時刻の代替診断に残す。現行Q1/Q2の2結果主線ではR191を用いる。
 - M54の $Z_S$ とR180が保持する $\widetilde V=Z_{\rm out}(\omega)$ は1試行の実正準状態から得る物理的な派生信号であり、M54の $c,C_Z$ または旧M48の集団交差モーメントではない。$V=\widetilde V/\|\widetilde V\|$ は解析上の状態方向であって、正準SWAPが状態依存除算を行うわけではない。
