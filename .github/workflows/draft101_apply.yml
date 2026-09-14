@@ -43,6 +43,21 @@ jobs:
               'q32 = next((line for line in status.splitlines() if line.startswith("| Q3-2 | 達成 |") and "M58" in line), "")',
           )
           path.write_text(text, encoding='utf-8')
+
+          a23 = Path('sections/A23_q3_common_micro_model.md')
+          text = a23.read_text(encoding='utf-8').replace('k_BTT', r'k_BT\,T')
+          a23.write_text(text, encoding='utf-8')
+
+          for p in Path('.').rglob('*'):
+              if not p.is_file() or p.suffix not in {'.md', '.py', '.yml', '.yaml', '.tex'}:
+                  continue
+              try:
+                  t = p.read_text(encoding='utf-8')
+              except UnicodeDecodeError:
+                  continue
+              normalized = '\n'.join(line.rstrip() for line in t.splitlines()) + ('\n' if t.endswith('\n') else '')
+              if normalized != t:
+                  p.write_text(normalized, encoding='utf-8')
           PY
 
       - name: Install numerical dependencies
