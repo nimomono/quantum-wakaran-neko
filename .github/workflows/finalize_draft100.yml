@@ -25,22 +25,21 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Apply source edits
-        shell: bash
+      - name: Patch finalizer replacement helper
         run: |
-          set +e
-          python tools/finalize_draft100.py > draft100-finalizer.log 2>&1
-          code=$?
-          cat draft100-finalizer.log
-          if [ $code -ne 0 ]; then
-            git config user.name 'github-actions[bot]'
-            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-            git add draft100-finalizer.log
-            git commit -m 'draft-100: capture finalizer failure'
-            git push origin HEAD:draft-100-r161-path-law
-            exit $code
-          fi
-          rm draft100-finalizer.log
+          python - <<'PY'
+          from pathlib import Path
+          path = Path('tools/finalize_draft100.py')
+          text = path.read_text(encoding='utf-8')
+          old = 'new, count = re.subn(pattern, repl, text, count=1, flags=flags)'
+          new = 'new, count = re.subn(pattern, lambda _m: repl, text, count=1, flags=flags)'
+          if text.count(old) != 1:
+              raise SystemExit('regex helper patch target missing or duplicated')
+          path.write_text(text.replace(old, new), encoding='utf-8')
+          PY
+
+      - name: Apply source edits
+        run: python tools/finalize_draft100.py
 
       - name: Dependencies
         run: |
