@@ -152,7 +152,7 @@ Q1では、2モード可逆操作、Born型2結果測定、同軸反復、異軸
 
 Q2では、2量子ビット型結合操作、3部分系の二段ゲート合成、非空間分離Bell型統計、一般回路の出力標本化を条件付きで構成しています。主な残件は、読出し、射影成分の振り分け、作用安定化、リセットなどを一つの具体的な装置へ統合することと、一般回路での物理配線・較正・揺らぎ条件を閉じることです。
 
-Q3では、M37/M54空間信号からM57 dual-ballistic-TL moving-bath tracerへ接続し、R161が定めるcanonical Markov経路法則とR185を通してSchrödinger型有効力学、Nelson型の時間対称Newton則、井戸型・調和型・W型の束縛状態、トンネル効果、2経路干渉まで進んでいます。位相量子化は未達です。
+Q3では、M37局所古典振動子signal、thermostatted 2-action shell、M57 dual-ballistic-TL moving-bath tracerを同じM58古典開放模型へまとめています。signal marginalだけを見ればR86のSchrödinger型有効力学、同じ試行のtracerまで見ればR196A--R196C、R161、R185を通してNelson型の時間対称Newton則へ縮約します。井戸型・調和型・W型の束縛状態、トンネル効果、2経路干渉まで進んでおり、位相量子化は未達です。
 
 正式な達成判定、根拠結果、残っている条件は [PROJECT_STATUS.md](PROJECT_STATUS.md) を正本とします。
 

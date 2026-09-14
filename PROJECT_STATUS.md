@@ -1,3 +1,10 @@
+## draft-101：M58 Q3共通ミクロ模型とR197統合
+
+- M37 signal subsystem、thermostatted 2-action shell、M57 transport subsystemを同一試行上のM58へ統合し、R197A--R197CとR197を追加する。
+- Q3-1はM58のsignal marginalからR86へ、Q3-2は同じM58のfull tracer marginalからR196A--R196C、R161、R185へ進む。固定目標の定義と達成ラベルは変更しない。
+- A12の状態数自由エネルギーをR197A/Bの実際のGibbs周辺化へ接続し、A22で従来入力していた $-k_BT\log R^\delta$ を同じM58 shellの平均力として導出する。
+- Q3-1-A1とQ3-2-A1をM58/R197により達成へ上げる。A2はM58採用SDE/PDEの直接数値再現が未実施なので未監査のまま保持する。
+
 ## draft-100：R161へ有限状態Markov経路法則を吸収
 
 - R161の責務を、確率流・活動量からの有向率と周辺分布整合だけでなく、固定有限時間・有限状態・有界総hazard下の一意な非爆発canonical Markov経路法則とBayes後退率まで拡張する。
@@ -150,8 +157,8 @@
 | Q2-2 | 条件付き達成 | M54静的状態構成 | 永続4モード記憶部とA/B二つの物理R191読出し端 | A設定gate、A端R191、projector router、B設定gate、B端R191 | R112、R180C、R181D、R191 | 固定一重項・固定有限設定族・非空間分離の範囲。transducer、2つのmacrospin、router、記録、resetの単一装置統合が残る。自由設定・空間分離は未達 |
 | Q2-3 | 条件付き達成 | M54三部分系静的状態構成 | 永続8モード記憶部と逆演算用補助部／作業領域 | 二段ゲート合成と末端段階的射影選別 | R112、R177、R181B、R181C、R181D、R191 | R191とR181Dの末端開放接続、および固定3入力を越える一般サイズの資源効率は未達 |
 | Q2-4 | 条件付き達成 | M54一般静的状態構成 | $2^n$ 受動直接モード記憶部＋一様開放浴 interface | 一般gate列、R191逐次読出し、R181D router、非終端安全結果でR192作用安定化、R179 open reset | R112、R179、R181C、R181D、R186、R191、R192 | 静的配線、R191 transducer、router、R192による作用下限回復、open resetを一つの一様装置族へ接続し、R186の多項式精度条件を満たすこと |
-| Q3-1 | 達成 | — | M37 | — | R86 | — |
-| Q3-2 | 達成 | M54空間信号＋M57粒子輸送 | M37実正準空間信号＋M57 dual-ballistic-TL moving-bath tracer | R195A exact current／R196A moving bath frame／R196B equilibrium GLE・homogenization／R196C R161 matching／Nelson縮約 | R195A、R196A--R196C、R161、R185 | 固定有限時間・1次元有限格子・node-free滑らかな部分系で、M57生成子誤差 $\varepsilon_{57}$ とR185の $O(\delta)+C_{185,a}a^2$ を分離して時間対称Newton則へ接続。M37からclock/recordまでの全周期統合、連続空間一様極限、多粒子は強化課題 |
+| Q3-1 | 達成 | M58共通Q3ミクロ模型のsignal marginal | M37実正準空間信号＋thermostatted shell/TL弱負荷 | Schrödinger型空間包絡 | R86、R197C、R197 | clock・終位置record・resetを含む反復周期、A2直接数値再現は強化課題 |
+| Q3-2 | 達成 | M58共通Q3ミクロ模型 | 同一試行のM37信号＋thermostatted 2-action shell＋M57 dual-ballistic-TL moving-bath tracer | Nelson型位置過程・時間対称Newton則 | R197、R195A、R196A--R196C、R161、R185 | R185の正則化・格子残差を分離。clock・record・reset反復周期、連続空間一様極限、多粒子は強化課題 |
 | Q3-3A | 達成 | — | M37＋R123有限環境 | 束縛状態・純位相緩和 | R86、R123（井戸型） | — |
 | Q3-3B | 達成 | — | M37＋R123有限環境 | 束縛状態・純位相緩和 | R86、R123（調和型） | — |
 | Q3-3C | 達成 | — | M37＋R123有限環境 | W型束縛状態・純位相緩和 | R86、R123、R182 | — |

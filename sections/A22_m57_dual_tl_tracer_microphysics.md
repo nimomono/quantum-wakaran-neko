@@ -5,7 +5,7 @@
 
 ## V.1 M57の責務と実在自由度
 
-M57はQ3の粒子位置輸送に対する現行ミクロ模型である。単一試行で物理的に存在する自由度は、M37/M54の実正準空間信号、辺ごとの二本のballistic wave channel、局所bath cellのcenter-of-mass座標 $Y_e$、その内部の平衡oscillator bath、1個のtracer座標 $X$、2作用状態数sector、periodic/double-well potentialである。複素信号 $Z$ は実正準平面の派生表示であり独立実体ではない。
+M57はM58内のQ3粒子位置輸送subsystemである。単一試行で物理的に存在する自由度は、M37/M54の実正準空間信号、辺ごとの二本のballistic wave channel、局所bath cellのcenter-of-mass座標 $Y_e$、その内部の平衡oscillator bath、1個のtracer座標 $X$、2作用状態数sector、periodic/double-well potentialである。複素信号 $Z$ は実正準平面の派生表示であり独立実体ではない。
 
 旧M57で用いた weak pinning、quartic anharmonicity、Drude termination、TL mixing、force-correlation time、drifting-Gibbs近似は現行M57から退役する。dual ballistic TLはcurrent情報を機械的なbath-frame速度へ変換するだけであり、Brownian noiseとFDTは別の通常の平衡oscillator bathが担う。
 
@@ -96,7 +96,7 @@ R_i^\delta=R_i+\delta q_iS_{\rm ref},
 =\frac{R_i^\delta}{\sum_kR_k^\delta}.
 ```
 
-同じ状態数sectorのpotential of mean forceは $-k_BT\log R^\delta$ を与える。
+同じ状態数sectorの容量は $R^\delta$ に比例する。これを実際のpotential of mean forceとして動力学的に実現するthermostatted shellと有限時間averagingは付録WのR197A/Bで与える。
 
 <!-- theorem-start:theorem -->
 **定理（R195A：M57 chiral作用・状態数・signal current恒等式）**
@@ -354,14 +354,14 @@ M_X\ddot X
 
 を得る。ここでFDTを適用しているのはbath cell内部の平衡oscillator bathだけであり、ballistic TLには適用しない。
 
-slow potentialは
+R197A/Bで同じ試行のthermostatted shellを消去すると、tracerへ作用する平均shell力は
 
 ```math
-V_{\rm eff}(X,Z)
-=V_{\rm per}(X)-k_BT\log R^\delta(X,Z)
+F_{\rm sh}(X,Z)
+=k_BT[1-\Delta(x(A))]\partial_X\log R^\delta(X,Z)
 ```
 
-とする。Ohmic/Markov極とoverdamped極で
+となり、finite-width誤差 $\varepsilon_{\rm width}$ とfast--slow averaging誤差 $\varepsilon_{\rm sh,av}$ が明示的に付く。strict-shell/fast-shell極では従来の $-k_BT\log R^\delta$ 表示へ一致する。Ohmic/Markov極とoverdamped極で
 
 ```math
 dX_t

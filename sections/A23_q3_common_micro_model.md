@@ -406,7 +406,7 @@ C_c=\sup_Y\|c(Y)\|
 &\leq
 e^{L_{\rm av}T}
 \left[
-2C_c\sqrt{\frac{2k_BTT}{\mu_{\rm sh}}}
+2C_c\sqrt{\frac{2k_BT\,T}{\mu_{\rm sh}}}
 +\frac{2K_0+TK_L+2\sqrt T K_B}{\mu_{\rm sh}}
 \right].
 \end{aligned}
@@ -490,7 +490,7 @@ centered shell fluctuationは
 \varepsilon_{\rm sh,fluc}^{37}(T)
 \leq
 \frac{2\bar\alpha\epsilon^2}{\mathcal J_0}
-\sqrt{\frac{2k_BTT}{\mu_{\rm sh}}}
+\sqrt{\frac{2k_BT\,T}{\mu_{\rm sh}}}
 +O\left(\frac{\epsilon^2}{\mu_{\rm sh}}\right).
 ```
 
@@ -505,7 +505,7 @@ centered shell fluctuationは
 \\
 &+\frac{Tk_BT}{\mathcal J_0r_{\min}}\epsilon^2
 +\frac{2\bar\alpha\epsilon^2}{\mathcal J_0}
-\sqrt{\frac{2k_BTT}{\mu_{\rm sh}}}
+\sqrt{\frac{2k_BT\,T}{\mu_{\rm sh}}}
 +O\left(\frac{\epsilon^2}{\mu_{\rm sh}}\right).
 \end{aligned}
 ```
