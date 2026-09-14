@@ -28,13 +28,29 @@ jobs:
           python-version: "3.12"
 
       - name: Apply source reorganization
-        run: python tools/apply_draft101.py
+        run: |
+          python tools/apply_draft101.py
+          python - <<'PY'
+          from pathlib import Path
+          path = Path('tools/check_source.py')
+          text = path.read_text(encoding='utf-8')
+          text = text.replace(
+              'q31 = next((line for line in status.splitlines() if line.startswith("| Q3-1 | 達成 |")), "")',
+              'q31 = next((line for line in status.splitlines() if line.startswith("| Q3-1 | 達成 |") and "M58" in line), "")',
+          )
+          text = text.replace(
+              'q32 = next((line for line in status.splitlines() if line.startswith("| Q3-2 | 達成 |")), "")',
+              'q32 = next((line for line in status.splitlines() if line.startswith("| Q3-2 | 達成 |") and "M58" in line), "")',
+          )
+          path.write_text(text, encoding='utf-8')
+          PY
 
       - name: Install numerical dependencies
         run: python -m pip install numpy
 
       - name: Run source and physics checks
         run: |
+          grep '^| Q3-[12] | 達成 |' PROJECT_STATUS.md || true
           python -m compileall -q tools
           python tools/check_source.py
           python tools/test_validation_policy.py
