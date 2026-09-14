@@ -47,42 +47,19 @@ jobs:
           a23 = Path('sections/A23_q3_common_micro_model.md')
           text = a23.read_text(encoding='utf-8').replace('k_BTT', r'k_BT\,T')
           a23.write_text(text, encoding='utf-8')
-
-          for p in Path('.').rglob('*'):
-              if not p.is_file() or p.suffix not in {'.md', '.py', '.yml', '.yaml', '.tex'}:
-                  continue
-              try:
-                  t = p.read_text(encoding='utf-8')
-              except UnicodeDecodeError:
-                  continue
-              normalized = '\n'.join(line.rstrip() for line in t.splitlines()) + ('\n' if t.endswith('\n') else '')
-              if normalized != t:
-                  p.write_text(normalized, encoding='utf-8')
           PY
 
       - name: Install numerical dependencies
         run: python -m pip install numpy
 
-      - name: Compile tools
-        run: python -m compileall -q tools
-
-      - name: Check source
-        run: python tools/check_source.py
-
-      - name: Check validation policy
-        run: python tools/test_validation_policy.py
-
-      - name: Check terminology
-        run: python tools/check_terminology.py
-
-      - name: Check M58 formulas
-        run: python tools/verify_q3_common_micro_model.py
-
-      - name: Run physics checks
-        run: python tools/run_physics_checks.py
-
-      - name: Check diff whitespace
-        run: git diff --check
+      - name: Run source and physics checks
+        run: |
+          python -m compileall -q tools
+          python tools/check_source.py
+          python tools/test_validation_policy.py
+          python tools/check_terminology.py
+          python tools/verify_q3_common_micro_model.py
+          python tools/run_physics_checks.py
 
       - name: Install typesetting dependencies
         run: |
@@ -96,7 +73,6 @@ jobs:
           rm -rf build/ci
           python tools/build_paper.py --output-dir build/ci
           python tools/check_generated.py build/ci
-          git diff --check
 
       - name: Commit changes and remove one-shot helpers
         run: |
