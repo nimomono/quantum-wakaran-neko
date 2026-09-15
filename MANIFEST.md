@@ -1,3 +1,9 @@
+## draft-101：M58 Q3共通ミクロ模型とR197統合
+
+- `sections/A23_q3_common_micro_model.md` を追加し、R197A--R197CとR197でQ3-1/Q3-2を同一M58過程の異なる周辺縮約として統合する。
+- `tools/verify_q3_common_micro_model.py` を追加し、M37--M57辞書、shell分配関数・平均力・二乗平均、finite-width補正、共通weak scaling、時間尺度窓を検算する。
+- A12/A22、第0・1・6・8・9章、README、PROJECT_STATUS、ENHANCEMENT_TARGETS、VALIDATION、CHANGELOGと生成物を同期する。
+
 ## draft-100：R161 canonical Markov path law
 
 - R161へ、固定有限時間・有限状態・有界総hazard下の非爆発càdlàg Markov経路法則の存在・一意性を吸収した。
@@ -9,7 +15,8 @@
 
 - draft-95のthermalizing dual-TL M57を置換し、dual ballistic TL、moving bath-frame carrier、平衡oscillator bath、局在tracerを現行Q3ミクロ物理層とする。
 - R195Aをchiral current恒等式まで強化し、新結果R196A--R196Cを追加する。旧R195B--R195DはGit履歴・退役索引へ保存する。
-- `sections/A22_m57_dual_tl_tracer_microphysics.md` を全面更新し、`tools/verify_m57_tl_tracer.py` を `tools/verify_m57_ballistic_tracer.py` へ置換する。
+- `sections/A22_m57_dual_tl_tracer_microphysics.md`
+- `sections/A23_q3_common_micro_model.md` を全面更新し、`tools/verify_m57_tl_tracer.py` を `tools/verify_m57_ballistic_tracer.py` へ置換する。
 - README、PROJECT_STATUS、第0・1・2・6--9章、研究メモ、参考文献、生成物を新M57へ同期する。
 
 ## draft-97の強化目標・Bell前提・開放雑音方針同期
@@ -170,6 +177,7 @@
 - `tools/verify_r187_m37_w_q1_bridge.py`
 - `tools/verify_q3_completion.py`
 - `tools/verify_m57_ballistic_tracer.py`
+- `tools/verify_q3_common_micro_model.py`
 - `figures/README.md`
 - `.github/workflows/verify.yml`
 - `.gitignore`

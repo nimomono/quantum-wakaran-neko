@@ -1,3 +1,10 @@
+## draft-101：M58 Q3共通ミクロ模型とR197統合
+
+- M37 signal、thermostatted 2-action shell、M57 transportを同一試行M58へ統合し、R197A--R197Cと主定理R197を追加した。
+- Q3-1/Q3-2の固定目標と達成ラベルは変更せず、達成証人をM58へ一本化した。Q3-1はsignal marginal、Q3-2はfull tracer marginalとして同じ模型から得る。
+- A12の状態数自由エネルギーを実際のGibbs周辺化へ接続し、R196Bのosmotic forceへfinite-widthとfast--slow averaging誤差を追加した。
+- Q3-1-A1/Q3-2-A1を達成へ更新し、A2は未監査のまま保持した。
+
 ## draft-100：R161 canonical Markov path law
 
 - R161へ、固定有限時間・有限状態・有界総hazard下の非爆発càdlàg Markov経路法則の存在・一意性を吸収した。

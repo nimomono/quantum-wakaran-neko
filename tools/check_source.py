@@ -66,7 +66,7 @@ def check_project_status() -> None:
 
 def check_r161_path_boundary() -> None:
     status = (ROOT / "PROJECT_STATUS.md").read_text(encoding="utf-8")
-    q32 = next((line for line in status.splitlines() if line.startswith("| Q3-2 | 達成 |")), "")
+    q32 = next((line for line in status.splitlines() if line.startswith("| Q3-2 | 達成 |") and "M58" in line), "")
     if not q32:
         raise AssertionError("Q3-2 current-position row is missing")
     cells = [cell.strip() for cell in q32.strip().strip("|").split("|")]
@@ -75,7 +75,7 @@ def check_r161_path_boundary() -> None:
     evidence = cells[5]
     if "R162" in evidence:
         raise AssertionError("R162 must not be a Q3-2 evidence dependency")
-    for token in ("R195A", "R196A--R196C", "R161", "R185"):
+    for token in ("R197", "R195A", "R196A--R196C", "R161", "R185"):
         if token not in evidence:
             raise AssertionError(f"Q3-2 evidence is missing {token}")
 
@@ -94,6 +94,43 @@ def check_r161_path_boundary() -> None:
     if "R161が定める前向き経路法則（R162" in appendix:
         raise AssertionError("R185 still declares R162 as a path dependency")
 
+
+
+def check_q3_common_model() -> None:
+    status = (ROOT / "PROJECT_STATUS.md").read_text(encoding="utf-8")
+    q31 = next((line for line in status.splitlines() if line.startswith("| Q3-1 | 達成 |") and "M58" in line), "")
+    q32 = next((line for line in status.splitlines() if line.startswith("| Q3-2 | 達成 |") and "M58" in line), "")
+    for token in ("M58", "R86", "R197"):
+        if token not in q31:
+            raise AssertionError(f"Q3-1 common-model evidence is missing {token}")
+    for token in ("M58", "R197", "R196A--R196C", "R161", "R185"):
+        if token not in q32:
+            raise AssertionError(f"Q3-2 common-model evidence is missing {token}")
+
+    appendix = (ROOT / "sections" / "A23_q3_common_micro_model.md").read_text(encoding="utf-8")
+    for token in ("M58", "R197A", "R197B", "R197C", "R197：Q3-1/Q3-2共通ミクロ模型"):
+        if token not in appendix:
+            raise AssertionError(f"A23 common-model marker missing: {token}")
+
+    chapter6 = (ROOT / "sections" / "06_m37_spatial_envelope.md").read_text(encoding="utf-8")
+    for forbidden in (
+        "安全な開始面から同じ試行の信号をM57へ渡す",
+        "単一反復装置へ統合したとは扱わない",
+    ):
+        if forbidden in chapter6:
+            raise AssertionError(f"old M37--M57 handoff boundary remains: {forbidden}")
+
+    m57 = (ROOT / "sections" / "A22_m57_dual_tl_tracer_microphysics.md").read_text(encoding="utf-8")
+    if "同じ状態数sectorのpotential of mean forceは $-k_BT\\log R^\\delta$ を与える" in m57:
+        raise AssertionError("A22 still asserts the shell PMF without R197 thermodynamic realization")
+
+    enhancement = (ROOT / "ENHANCEMENT_TARGETS.md").read_text(encoding="utf-8")
+    current = enhancement.split("## 強化目標の現在地表", 1)[1].split("## 既存の実装強化課題との関係", 1)[0]
+    for qid in ("Q3-1", "Q3-2"):
+        line = next((line for line in current.splitlines() if line.startswith(f"| {qid} |")), "")
+        cells = [cell.strip() for cell in line.strip().strip("|").split("|")]
+        if len(cells) < 3 or cells[1] != "達成" or cells[2] != "未監査":
+            raise AssertionError(f"{qid}: expected A1=達成, A2=未監査")
 
 def check_enhancement_targets() -> None:
     status_path = ROOT / "PROJECT_STATUS.md"
@@ -209,6 +246,7 @@ def main() -> None:
     check_sources()
     check_project_status()
     check_r161_path_boundary()
+    check_q3_common_model()
     check_enhancement_targets()
     check_verifier_boundary()
     check_ci_read_only()
