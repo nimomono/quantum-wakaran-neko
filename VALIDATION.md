@@ -25,6 +25,13 @@ python tools/run_physics_checks.py --include-candidate
 
 を追加する。PR固有の旧語・旧依存・旧模型の除去確認は `tools/migrations/` の一時検査として扱い、通常CIへ登録しない。
 
+## draft-103：M60 Duffing shell＋統一二成分chiral媒体検算
+
+- `tools/verify_q3_common_micro_model.py` でR198AのDuffing平均係数、R198Bの有限core $1/N$ law、R198Cの独立位相平均、R198Dのweak-exchange windowを回帰検査する。
+- R199Aについて、M60 leadの $\omega_\pm(k)=\Omega_\pm\pm2J\sin k$ から反対向きgroup velocityが出ること、lead dispersion・interface・非線形位相・backreactionとcore driveを同時に小さくできる有限parameter例を検査する。
+- R199Bについて、交換対称local shellのchiral responseが奇関数、radial responseが偶関数となり、較正後 $\langle D/S\rangle=r+O(r^3)$、radial補正が $O(r^2)$ となることを検査する。R199Bは固定Q3-2の必須依存ではない。
+- `tools/check_source.py` でA23のM60/R199A正本化、Q3-1/Q3-2固定達成ラベルの維持、A1部分達成、A2未監査を回帰検査する。
+
 ## draft-102：M59 Duffing/action-reservoir shell検算
 
 - `tools/verify_q3_common_micro_model.py` でR198AのDuffing平均係数が $\kappa_{\rm sh}(S-A)^2/2$ に一致することを検査する。
