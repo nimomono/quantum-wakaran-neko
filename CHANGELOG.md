@@ -6,6 +6,13 @@
 - `tools/check_generated.py` を生成物同期専用とし、LaTeX hard errorは新設 `tools/check_latex_semantics.py` へ分離した。paper jobではartifact syncが失敗してもLaTeX semantic診断を隠さない。
 - `VALIDATION_POLICY.md` に検算作成12原則を明記し、`tools/test_validation_policy.py` で理論スナップショット依存の再流入、migrationのCI登録、physics runnerのearly break、生成同期とLaTeX検査の再結合を自己検査する。
 
+## draft-103：M60 Duffing shell＋統一二成分chiral媒体へ置換
+
+- M59で別実体だった二成分action reservoirとdual ballistic waveguideを、M60では一つの二成分非線形chiral Hamiltonian媒体のnonlinear core / ballistic leadとして統合した。
+- tracerに付随する実2-mode Duffing shellとR198Aは維持し、R198B--R198DをM60 nonlinear coreへ一般化した。
+- R199Aをcore--ballistic-lead有限時間分離として追加し、既存R196A--R196CへM60 leadを接続した。R199Bはlocal shellのchiral response統合強化として追加したが、固定Q3-2の必須依存には入れない。
+- Q3-1/Q3-2の固定達成ラベルは維持し、A1は具体的core mixingとcore--lead同時parameter witnessを残す部分達成、A2は未監査のままとした。
+
 ## draft-102：M59 Duffing shell＋二保存action reservoirへ置換
 
 - 旧M58のthermostatted 2-action shellを現行主線から退役し、実2-mode Duffing、二成分DNLS reservoir、Hamiltonian exchangeを持つM59へ置換した。

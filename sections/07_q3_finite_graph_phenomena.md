@@ -1,15 +1,15 @@
 @number: 7
 @chapter: 本文
 @title: Q3の確率力学、束縛状態、トンネル現象、2経路干渉、位相量子化
-@status: Q3-2・Q3-3A--Q3-3Cの達成、Q3-6の未達、Q3-4A・Q3-4B・Q3-5の条件付き達成を区別する。Q3粒子輸送の現行ミクロ物理層はM57/R195A・R196A--R196Cとする。
+@status: Q3-2・Q3-3A--Q3-3Cの達成、Q3-6の未達、Q3-4A・Q3-4B・Q3-5の条件付き達成を区別する。Q3粒子輸送の現行ミクロ物理層はM60/R199A・R195A・R196A--R196Cとする。
 
-本章は、M37/M54空間信号からM57 dual-ballistic-TL moving-bath tracerを縮約してNelson流または時間対称Newton則へ接続するQ3-2、R123とR182によるQ3-3A--Q3-3C、R124・R125・R182をM57 tracerの位置輸送へ接続するQ3-4A・Q3-4B・Q3-5、位相量子化のQ3-6を区別する。R123--R125とR182の完全証明は付録F、G、M57のミクロ物理とR161生成子matchingは付録V、R161/R185の有限格子数学は付録Nに置く。
+本章は、M37/M54空間信号からM60 chiral-medium moving-bath tracerを縮約してNelson流または時間対称Newton則へ接続するQ3-2、R123とR182によるQ3-3A--Q3-3C、R124・R125・R182をM60 tracerの位置輸送へ接続するQ3-4A・Q3-4B・Q3-5、位相量子化のQ3-6を区別する。R123--R125とR182の完全証明は付録F、G、M60のミクロ物理とR161生成子matchingは付録V、R161/R185の有限格子数学は付録Nに置く。
 
 ## 7.1 Nelson流の作用変分または時間対称Newton則（Q3-2）
 
 **固定目標と達成判定。** Q3-2は、明示的な古典ミクロモデルの縮約から、Nelson型確率力学における作用の停留原理、または前進・後退平均加速度を対称に組み合わせたNewton則を導く。対象となる確率過程、前進・後退平均微分、力とポテンシャル、適用時間、近似範囲、誤差を明示する。二経路の少なくとも一方を満たせばよい。
 
-**運用状態。** Q3-2は達成である。M37/R86が古典実振動子からM54空間信号 $Z$ を有限時間で与える。R195Aはそのedge chiral作用から局所密度、signal current、signal edge velocityを厳密に取り出し、2作用状態数から位置重みとosmotic free energyを与える。R196Aは二本のballistic TLのwave pressureから局所bath-frame carrierの唯一安定な速度を有限時間で生成し、R196Bはそのmoving frameで平衡oscillator bathへ結合した同じtracerをGLE/FDTとperiodic homogenizationで縮約する。R196Cはcoarse-grained well-index generatorをideal R161 generatorへ有限誤差 $\varepsilon_{57}$ で持ち上げる。R162はideal R161率を実現する参照open-jump過程であり、Q3の基礎的ミクロ存在論とは扱わない。
+**運用状態。** Q3-2は達成である。M37/R86が古典実振動子からM54空間信号 $Z$ を有限時間で与える。R195Aはそのedge chiral作用から局所密度、signal current、signal edge velocityを厳密に取り出す。R198A--R198D/R197Aが局所Duffing shellの2作用状態数から位置重みとosmotic free energyを与え、R199AのM60 ballistic leadを入力とするR196Aがwave pressureから局所bath-frame carrierの唯一安定な速度を有限時間で生成し、R196Bはそのmoving frameで平衡oscillator bathへ結合した同じtracerをGLE/FDTとperiodic homogenizationで縮約する。R196Cはcoarse-grained well-index generatorをideal R161 generatorへ有限誤差 $\varepsilon_{57}$ で持ち上げる。R162はideal R161率を実現する参照open-jump過程であり、Q3の基礎的ミクロ存在論とは扱わない。
 
 R195Aのexact identityは
 
@@ -35,7 +35,7 @@ u_{ij}^{\rm sig}=\frac{2\nu}{a}\frac{I_+-I_-}{I_++I_-}
 r=\frac{I_+-I_-}{I_++I_-},
 ```
 
-で唯一安定である。R196BではTL自体をthermalizeせず、別の平衡oscillator bathだけにFDTを適用する。periodic homogenizationに
+で唯一安定である。R196Bではballistic lead自体へFDTを課さず、別の平衡oscillator bathだけにFDTを適用する。periodic homogenizationに
 
 ```math
 D_0=\frac\nu{g_K},
@@ -85,7 +85,7 @@ mR_\delta
 mC_{185,a}a^2
 ```
 
-を導き、固定 $\rho\geq\rho_*>0$ では $\|R_\delta\|_\infty=O(\delta)$ である。M57からideal R161への有限時間generator誤差を含めると
+を導き、固定 $\rho\geq\rho_*>0$ では $\|R_\delta\|_\infty=O(\delta)$ である。M60 transport reductionからideal R161への有限時間generator誤差を含めると
 
 ```math
 \varepsilon_{Q3-2}
@@ -105,7 +105,7 @@ mC_{185,a}a^2.
 
 である。`tools/verify_m57_ballistic_tracer.py` はchiral恒等式、moving-reflector fixed pointと安定性、有限時間追従、weak-tap/loading scaling、$D_0=\nu/g_K$、$g_Kc=4\nu/a$、Lifson--Jackson suppression、新R161 current correctionの同時parameter windowが非空であることを検算する。
 
-**非主張。** 後向き率は同じ前向き経路分布の条件付き確率であり、未来から物理作用する第2浴を導入しない。R162のPoisson reservoirをM57 tracerとは別の実在粒子へ読み替えない。生M37局所包絡からNewton加速度までの直接時間微分付き縮約、連続空間の一様極限、多粒子配置空間、位相量子化はQ3-2の現行達成範囲に含めない。旧R184の空間率latch、旧R162有限衝突経路、旧R188は補助・強化結果として保持するが、M57主線の必須依存ではない。
+**非主張。** 後向き率は同じ前向き経路分布の条件付き確率であり、未来から物理作用する第2浴を導入しない。R162のPoisson reservoirをM60 tracerとは別の実在粒子へ読み替えない。生M37局所包絡からNewton加速度までの直接時間微分付き縮約、連続空間の一様極限、多粒子配置空間、位相量子化はQ3-2の現行達成範囲に含めない。旧R184の空間率latch、旧R162有限衝突経路、旧R188は補助・強化結果として保持するが、M60主線の必須依存ではない。
 
 ## 7.2 束縛状態（Q3-3A--Q3-3C）
 

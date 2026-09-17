@@ -25,21 +25,18 @@ def check_r198a() -> None:
 
 
 def check_r198b() -> None:
-    # Hessian remainder bound and the 1/N law.
     M2, Hs, Ss = 1.7, 2.2, 1.8
     Ns = np.array([50.0, 100.0, 200.0, 400.0])
     delta = M2 * (Hs**2 + Ss**2) / (2 * Ns)
     assert np.allclose(delta[:-1] / delta[1:], 2.0)
     tv = 0.5 * (np.exp(2 * delta) - 1)
     assert np.all(np.diff(tv) < 0)
-    # Target Liouville Jacobian gives the S factor.
     S, u = 1.7, 0.31
-    J = abs(np.linalg.det(np.array([[u, S], [1-u, -S]], dtype=float)))
-    assert math.isclose(J, S, rel_tol=1e-12)
+    jac = abs(np.linalg.det(np.array([[u, S], [1-u, -S]], dtype=float)))
+    assert math.isclose(jac, S, rel_tol=1e-12)
 
 
 def check_r198c() -> None:
-    # Phase averaging removes odd exchange terms and leaves <Y^2>=2 K m.
     K, m, lam, beta = 1.2, 0.8, 0.05, 3.0
     phases = np.linspace(0.0, 2*np.pi, 20000, endpoint=False)
     Y = 2 * math.sqrt(K*m) * np.cos(phases)
@@ -51,7 +48,6 @@ def check_r198c() -> None:
 
 
 def check_r198d_window() -> None:
-    # A nonempty weak-exchange window exists for sufficiently slow A.
     eps = 1e-2
     g = 1.0
     Adot = 1e-7
@@ -59,9 +55,38 @@ def check_r198d_window() -> None:
     upper = math.sqrt(eps)
     assert lower < upper
     lam2 = math.sqrt(lower * upper)
-    lam = math.sqrt(lam2)
-    assert Adot / (g * lam**2) < eps
-    assert lam**4 < eps
+    assert Adot / (g * lam2) < eps
+    assert lam2**2 < eps
+
+
+def check_r199a_dispersion() -> None:
+    J, a, Omega = 0.7, 0.05, 2.0
+    assert Omega > 2 * abs(J)
+    k = np.array([-1e-4, 0.0, 1e-4])
+    wp = Omega + 2 * J * np.sin(k)
+    wm = Omega - 2 * J * np.sin(k)
+    vg_p = (wp[2] - wp[0]) / (k[2] - k[0]) * a
+    vg_m = (wm[2] - wm[0]) / (k[2] - k[0]) * a
+    c = 2 * J * a
+    assert math.isclose(vg_p, c, rel_tol=1e-8)
+    assert math.isclose(vg_m, -c, rel_tol=1e-8)
+
+
+def check_r199a_window() -> None:
+    dk = 0.01
+    T = 20.0
+    eps_int = 2e-3
+    eps_nl = 2e-5
+    eps_port = 5e-3
+    N = 400.0
+    Istar = 1.0
+    lead_error = dk**2 * T + eps_int + eps_nl * T + eps_port**2 * T
+    core_drive = eps_port**2 * T * Istar / N
+    assert lead_error < 1e-2
+    assert core_drive < 1e-4
+    tau_R, tau_therm, tau_A, tau_p, T_sig = 0.2, 2.0, 50.0, 0.1, 20.0
+    assert tau_R < tau_therm < tau_A
+    assert tau_p < T_sig
 
 
 def check_mean_force() -> None:
@@ -77,8 +102,10 @@ def main() -> None:
     check_r198b()
     check_r198c()
     check_r198d_window()
+    check_r199a_dispersion()
+    check_r199a_window()
     check_mean_force()
-    print("q3_common_micro_model_m59_ok")
+    print("q3_common_micro_model_m60_required_ok")
 
 
 if __name__ == "__main__":
