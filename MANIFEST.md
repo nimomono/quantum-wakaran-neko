@@ -10,6 +10,13 @@
 - `tools/test_validation_policy.py` — 上記責務境界そのものの自己回帰検査。
 - `.github/workflows/verify.yml` — read-onlyの3ジョブ構成を維持し、論文生成後の同期・semantic・lintを独立報告。
 
+## draft-103：M60 Duffing shell＋統一二成分chiral媒体
+
+- `sections/A23_q3_common_micro_model.md` をM60正本へ更新し、実2-mode Duffing shellを維持したまま二保存action reservoirとdual ballistic waveguideを同一chiral媒体のcore/leadへ統合する。
+- `sections/A22_m57_dual_tl_tracer_microphysics.md` をM60 transport reductionへ更新し、R195A・R196A--R196Cの機械的縮約を維持しつつR196Aの入力をM60 ballistic leadへ差し替える。
+- R199A/R199Bと `tools/verify_q3_common_micro_model.py` の追加検算、README、PROJECT_STATUS、ENHANCEMENT_TARGETS、第1・6--9章、VALIDATION、CHANGELOG、source checksを同期する。
+- `paper.md`、`main.tex`、`paper.pdf` を再生成する。
+
 ## draft-102：M59 Duffing shell＋二保存action reservoir
 
 - `sections/A23_q3_common_micro_model.md` をM59正本として全面改訂し、旧M58の直接thermostatをR198A--R198DのDuffing/action-reservoir持上げへ置換する。
