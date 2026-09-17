@@ -32,5 +32,13 @@ replacement = '''def check_q3_common_model() -> None:
 text, n = pattern.subn(lambda _: replacement, text)
 if n != 1:
     raise SystemExit(f"expected one q3 check block, found {n}")
+text = text.replace(
+    'q32 = next((line for line in status.splitlines() if line.startswith("| Q3-2 | 達成 |") and "M58" in line), "")',
+    'q32 = next((line for line in status.splitlines() if line.startswith("| Q3-2 | 達成 |") and "M59" in line), "")',
+)
+text = text.replace(
+    'for token in ("R197", "R195A", "R196A--R196C", "R161", "R185"):',
+    'for token in ("R197", "R198A--R198D", "R195A", "R196A--R196C", "R161", "R185"):',
+)
 p.write_text(text, encoding="utf-8")
 print("draft102_source_contract_fix_ok")
