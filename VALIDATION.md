@@ -25,12 +25,20 @@ python tools/run_physics_checks.py --include-candidate
 
 を追加する。PR固有の旧語・旧依存・旧模型の除去確認は `tools/migrations/` の一時検査として扱い、通常CIへ登録しない。
 
+## draft-104：M60 post-merge consistency cleanup
+
+- 理論未達の再評価は行わず、第0・2・6--9章、管理文書、notesに残った「M57を現行模型とする」表現をM60へ同期する。
+- 第6章では2-action state-countの責務をR198A--R198D/R197Aへ戻し、R195Aはchiral作用・signal current恒等式に限定する。
+- 第7・8章の旧M57 transport誤差記号をM60 transport誤差へ改名し、数式内容そのものは変更しない。
+- PR固有の移行確認は `tools/migrations/` の一時検査として行い、恒久 `check_source.py` へM60固有文字列契約を追加しない。
+- 最終headではrequired physics、candidate physics、原稿構造、生成物同期、LaTeX semantic、組版lintを確認する。
+
 ## draft-103：M60 Duffing shell＋統一二成分chiral媒体検算
 
 - `tools/verify_q3_common_micro_model.py` でR198AのDuffing平均係数、R198Bの有限core $1/N$ law、R198Cの独立位相平均、R198Dのweak-exchange windowを回帰検査する。
 - R199Aについて、M60 leadの $\omega_\pm(k)=\Omega_\pm\pm2J\sin k$ から反対向きgroup velocityが出ること、lead dispersion・interface・非線形位相・backreactionとcore driveを同時に小さくできる有限parameter例を検査する。
-- R199Bについて、交換対称local shellのchiral responseが奇関数、radial responseが偶関数となり、較正後 $\langle D/S\rangle=r+O(r^3)$、radial補正が $O(r^2)$ となることを検査する。R199Bは固定Q3-2の必須依存ではない。
-- `tools/check_source.py` でA23のM60/R199A正本化、Q3-1/Q3-2固定達成ラベルの維持、A1部分達成、A2未監査を回帰検査する。
+- R199Bについては固定Q3-2の必須依存ではないため、`tools/candidate_checks/verify_chiral_shell_response.py` で交換対称local shellのchiral responseが奇関数、radial responseが偶関数となり、較正後 $\langle D/S\rangle=r+O(r^3)$、radial補正が $O(r^2)$ となることをcandidate検算する。
+- validation-architecture-v2以後、`tools/check_source.py` は理論スナップショットを固定せず構造不変条件だけを検査する。M60/R199Aへの移行完全性は当該PRの一時migration検査と文書監査で確認する。
 
 ## draft-102：M59 Duffing/action-reservoir shell検算
 
