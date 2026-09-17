@@ -226,23 +226,23 @@ $\bar\varepsilon_k$ には第 $k$ nodeの射影作用保持、R191、R181D route
 
 理想一重項共同分布との全変動距離が $\varepsilon_{180}$ 以下なら、各周辺事象の確率差は $\varepsilon_{180}$ 以下、各二値相関の差は $2\varepsilon_{180}$ 以下、CHSH値の差は $8\varepsilon_{180}$ 以下である。A結果成分をB端へ物理的に渡すため、Bell局所factorizationまたは空間分離を誤差ゼロ極限の主張へ追加しない。
 
-## 8.7 Q3のM57--R161--R185誤差
+## 8.7 Q3のM60 transport--R161--R185誤差
 
-Q3の現行ミクロ物理層はballistic版M57である。R195Aでsignal currentまでをexactに取り出し、R196Aがmoving bath frame、R196Bが平衡Brownian tracer、R196Cがwell-index generatorからideal R161への有限時間matchingを担う。固定有限時間 $0\le t\le T$ で
+Q3の現行ミクロ物理層はM60である。R198A--R198D/R197Aが2-action state countとosmotic free energy、R195Aがsignal current、R199Aが同一chiral媒体のballistic lead、R196Aがmoving bath frame、R196Bが平衡Brownian tracer、R196Cがwell-index generatorからideal R161への有限時間matchingを担う。固定有限時間 $0\le t\le T$ で
 
 ```math
-\varepsilon_{57}
+\varepsilon_{\rm tr}^{60}
 =\sup_{t\le T}
 \max_i\sum_{j\ne i}
-|k_{i\to j}^{57}(t)-k_{i\to j}^{161}(t)|
+|k_{i\to j}^{60}(t)-k_{i\to j}^{161}(t)|
 ```
 
 とし、node-free safe sectorで
 
 ```math
 \boxed{
-\varepsilon_{57}
-\le C_{57}\left[
+\varepsilon_{\rm tr}^{60}
+\le C_{\rm tr}^{60}\left[
 \varepsilon_{86}
 +\varepsilon_{\rm shell}
 +\varepsilon_{\rm port}
@@ -265,8 +265,8 @@ R161実現同値から
 
 ```math
 \sup_{t\le T}
-D_{\rm TV}(p_t^{57},p_t^{161})
-\le T\varepsilon_{57}.
+D_{\rm TV}(p_t^{60},p_t^{161})
+\le T\varepsilon_{\rm tr}^{60}.
 ```
 
 R185のnode-free 1次元有限格子評価へ渡すと
@@ -274,7 +274,7 @@ R185のnode-free 1次元有限格子評価へ渡すと
 ```math
 \varepsilon_{Q3-2}
 \leq
-T\varepsilon_{57}
+T\varepsilon_{\rm tr}^{60}
 +
 m\|R_\delta\|_\infty
 +
@@ -283,7 +283,7 @@ mC_{185,a}a^2.
 
 同じ $a^2$ がR196Cの物理generator matchingとR185有限差分に別の起源で現れるため係数を同一視せず、各導出箇所で一度だけ数える。R188の有限サンプリング加速度誤差は必要な場合だけ追加する。
 
-現行M57の代表的fast-sector条件は
+現行M60 transport sectorの代表的fast-sector条件は
 
 ```math
 \tau_p\ll T_{\rm sig},
@@ -313,7 +313,7 @@ M_X=O(\epsilon^6)
 
 ではtracking rateと $D_0$、$g_K$ を固定したままsignal backreactionとtracer loadingを $O(\epsilon^2)$ へ下げられる。条件を満たすwitnessを `tools/verify_m57_ballistic_tracer.py` で検査する。
 
-旧draft-95の $\varepsilon_{\rm mix}$、$\varepsilon_{\rm corr}$、TLへの $\varepsilon_{\rm FDT}$ は現行M57の誤差台帳から削除する。旧R184の $\varepsilon_{184}$ は撤回しないがM57主線では使わない。R162はideal R161 jump referenceでありM57の基礎的bath誤差として数えない。
+旧draft-95の $\varepsilon_{\rm mix}$、$\varepsilon_{\rm corr}$、TLへの $\varepsilon_{\rm FDT}$ は現行M60 transport誤差台帳から削除する。旧R184の $\varepsilon_{184}$ は撤回しないがM60主線では使わない。R162はideal R161 jump referenceでありM60の基礎的bath誤差として数えない。
 
 ## 8.8 静的分布の整合の正則化資源発散
 
@@ -362,7 +362,7 @@ c_{\rm ap}
 }.
 ```
 
-したがって $\nu c_{\rm ap}=\kappa_Xa_{ij}$ の校正では最悪試行frequencyが $O(\delta^{-1/2})$ まで増大し得る。この資源評価はR190作用殻型代替経路のものであり、M57 Q3主線のTL/Kramers資源と重複計上しない。
+したがって $\nu c_{\rm ap}=\kappa_Xa_{ij}$ の校正では最悪試行frequencyが $O(\delta^{-1/2})$ まで増大し得る。この資源評価はR190作用殻型代替経路のものであり、M60 Q3主線のchiral-medium transport資源と重複計上しない。
 
 ## 8.9 Q2の根拠モデル、共通ハードウェア努力目標、ブラックボックス資源分類
 
@@ -438,11 +438,11 @@ Q2-4は条件付き達成を維持する。残る条件は、静的部分系配�
 | M37/R86・R135 | 有限時間包絡上界または第2モーメント持上げ上界を超える |
 | R182 | W型固定低位スペクトル・密度・節が格子収束しない、Rayleigh十分条件から障壁下二重項が得られない、関数計算の共有固有空間または分裂相対上界を破る、中央障壁込み半周期鏡映・一周期回帰が成立しない |
 | R161 path law | 固定有限時間で $M_T=\sup_{t\leq T}\max_i\sum_{j\ne i}k^+_{i\to j}(t)<\infty$ を満たさず、finite-state canonical Markov経路法則の非爆発性を保証できない |
-| M57/R195A・R196A--R196C | chiral作用/current恒等式を満たさない、passive ballistic portの有限誤差境界が閉じない、moving-reflector fixed pointが一意安定でない、$\tau_p$ または $\lambda_Y^{-1}$ をsignal時間から分離できない、平衡bath GLE/overdamped/homogenizationが制御できない、weak-loading familyが空、またはR196Cのmetastable generatorがR161へ有限誤差で接続しない |
+| M60/R198A--R198D・R199A・R195A・R196A--R196C | chiral作用/current恒等式を満たさない、passive ballistic portの有限誤差境界が閉じない、moving-reflector fixed pointが一意安定でない、$\tau_p$ または $\lambda_Y^{-1}$ をsignal時間から分離できない、平衡bath GLE/overdamped/homogenizationが制御できない、weak-loading familyが空、またはR196Cのmetastable generatorがR161へ有限誤差で接続しない |
 | R161/R162 ideal reference | R161率の非負性またはmaster equation整合が破れる、あるいはR162 ideal open-jump生成子がR161率と一致しない |
-| Q3-2 | 時間対称Newton則を縮約前に仮定する、M57からR161前向き経路法則へ有限誤差で接続できない、同じ前向き経路法則からBayes後退率を構成できない、またはR185の $C_{185,a}a^2+O(\delta)$ 評価を破る |
+| Q3-2 | 時間対称Newton則を縮約前に仮定する、M60からR161前向き経路法則へ有限誤差で接続できない、同じ前向き経路法則からBayes後退率を構成できない、またはR185の $C_{185,a}a^2+O(\delta)$ 評価を破る |
 | Q3-3C | W型低位スペクトルの格子・領域収束を示せない、または同じ固有基底で環境との弱結合を縮約した有限時間純位相緩和と対角占有率保存を閉じられない |
-| Q3-4B | 2モード作用比を空間領域占有率へ同一視する、外部駆動・傾斜切替・障壁低下を使う、最低二重項の障壁値未満条件、第3状態との間隔、半周期移送、一周期回帰、M57位置読出しのいずれかを欠く |
+| Q3-4B | 2モード作用比を空間領域占有率へ同一視する、外部駆動・傾斜切替・障壁低下を使う、最低二重項の障壁値未満条件、第3状態との間隔、半周期移送、一周期回帰、M60位置読出しのいずれかを欠く |
 | Q3-6 | 単価性または整数巻数を外部条件として置く、非整数モノドロミーを丸めて除く、節を介した位相すりと細分化安定性を同じ構成で扱えない |
 | R168 | 可変作用集団で状態方向平均を第2モーメントへ補正なしに置換する、安全事象外を再規格化して消す |
 | R170 | 混合上界、選択平坦域への収集、固定後保持、履歴単射性、正の処理時間のいずれかを満たさない |
@@ -460,7 +460,7 @@ Q2-4は条件付き達成を維持する。残る条件は、静的部分系配�
 
 A1ではHamiltonian無限浴だけでなく、規約と共分散を明示したLangevin型SDEその他の採用開放ミクロ方程式を認め、理想白色雑音を許す。A2では採用したミクロODE/SDEそのものを直接計算する。理想白色雑音を使うQ1/Q2模型を回路へ移す場合、B2/B3では有限帯域雑音源と時間尺度分離を明示する。
 
-従来からのQ1/Q2完全周期収支、R180Cの共通浴統合、M60 common process--時計--終位置記録--resetの単一反復周期統合、M60の連続空間一様極限、多粒子拡張、有限閉鎖Hamiltonian化は、A/B/Sを横断する上位または系列固有の実装強化課題として保持する。R162を特定Hamiltonian浴から再導出することはM57主線の要件ではない。旧R162有限衝突経路、旧R188、旧R179部分SWAP貯蔵部、旧R178D有限閉鎖リセット境界は撤回せず、有限閉鎖実装を調べる強化結果として論文外メモへ保存する。
+従来からのQ1/Q2完全周期収支、R180Cの共通浴統合、M60 common process--時計--終位置記録--resetの単一反復周期統合、M60の連続空間一様極限、多粒子拡張、有限閉鎖Hamiltonian化は、A/B/Sを横断する上位または系列固有の実装強化課題として保持する。R162を特定Hamiltonian浴から再導出することはM60主線の要件ではない。旧R162有限衝突経路、旧R188、旧R179部分SWAP貯蔵部、旧R178D有限閉鎖リセット境界は撤回せず、有限閉鎖実装を調べる強化結果として論文外メモへ保存する。
 
 Q1-1、Q1-2、Q3-1、Q3-2、Q3-3A、Q3-3B、Q3-3Cは達成、Q2-1、Q2-2、Q2-3、Q2-4、Q3-4A、Q3-4B、Q3-5は条件付き達成、Q3-6は未達である。
 
