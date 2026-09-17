@@ -101,7 +101,7 @@ R_i^\delta=R_i+\delta q_iS_{\rm ref},
 <!-- theorem-start:theorem -->
 **定理（R195A：M57 chiral作用・状態数・signal current恒等式）**
 
-上の定義の下で、chiral作用の和・差、$J_{ij}^{\rm sig}=\nu(I_+-I_-)/a^2$、$u_{ij}^{\rm sig}=2\nu r_e/a$ は厳密恒等式である。strict 2-action shellでは条件付きLiouville状態数は $A_i^\delta$ に比例し、規格化位置重みは $\pi_i^\delta$ となる。有限shell stiffnessでは付録A12の有限殻補正を適用する。
+上の定義の下で、chiral作用の和・差、$J_{ij}^{\rm sig}=\nu(I_+-I_-)/a^2$、$u_{ij}^{\rm sig}=2\nu r_e/a$ は厳密恒等式である。strict 2-action shellでは条件付きLiouville状態数は $A_i^\delta$ に比例し、規格化位置重みは $\pi_i^\delta$ となる。M59ではR198A--R198Dがこの2-action Gibbs shellを実Duffing＋二保存action reservoirから持ち上げ、有限幅に加えてfinite-$N$、finite-exchange、finite-time mixing誤差を付録A23で管理する。
 <!-- theorem-end:theorem -->
 
 ## V.3 dual ballistic port

@@ -1,50 +1,33 @@
 @number: W
 @chapter: 付録
-@title: M58 Q3共通ミクロ模型とR197有限時間統合
-@status: Q3-1/Q3-2の共通ミクロ物理層。M37局所振動子信号、thermostatted 2-action shell、M57 dual-ballistic-TL moving-bath tracerを同一試行上で結合し、signal marginalではR86、full tracer marginalではR196A--R196CからR161/R185へ有限誤差で接続する。
+@title: M59 Duffing--二保存action reservoir Q3共通ミクロ模型
+@status: Q3-1/Q3-2の共通ミクロ物理層。旧M58のthermostatted 2-action shellを退役し、実2-mode Duffing内部自由度、二成分DNLS action reservoir、弱交換結合、有限時間mixingから同じGibbs shellを導く。R198Dの有限時間mixingは明示条件付き定理であり、Q3-1-A1/Q3-2-A1の残件とする。
 
-## W.1 M58の責務と実在自由度
+## W.1 M59の責務と実在自由度
 
-Q3-1とQ3-2の共通親模型をM58とする。M58はM37をsignal subsystem、M57をtransport subsystemとして同一試行上に含む古典開放模型であり、Q3-1はそのsignal marginal、Q3-2は同じ試行のsignalとtracerを含むfull marginalとして読む。
+Q3-1とQ3-2の共通親模型候補をM59とする。M59はM37をsignal subsystem、M57をtransport subsystemとして同一試行上に含み、旧M58で直接仮定していたshell Langevin SDEを、Hamiltonian内部自由度とaction reservoirから導く。
 
-単一試行で物理的に存在する自由度は、M37の有限実振動子座標 $(q_i,p_i)$、2-action shellの作用・角自由度 $(K_1,K_2,\theta_1,\theta_2)$、辺ごとの二本のballistic wave channel、moving bath-frame carrier $Y_e$、その内部の平衡oscillator bath、1個のtracer位置 $X$、periodic/double-well potentialである。複素信号 $Z$ はM37実正準平面の派生表示であり独立実体ではない。
+単一試行で物理的に存在する自由度は、M37の有限実振動子座標、shellの2つの実Duffing正準対 $(q_r,p_r)$、二成分reservoirの実正準対、辺ごとの二本のballistic wave channel、moving bath-frame carrier $Y_e$、その内部の平衡oscillator bath、1個のtracer位置 $X$、periodic/double-well potentialである。複素記号 $Z$、$a_r$、$b_{rj}$ は実正準平面をまとめる派生表示であり独立実体ではない。
 
-M58ではsignalをM37からM57へ後段で再標本化して受け渡さない。開始時から同じM37信号がthermostatted shellとballistic portへ弱く結合し、同じtracer $X_t$ が最後まで発展する。時計、終位置記録、resetまで含む反復周期統合は本付録の責務に含めない。
+M59ではsignalをM37からM57へ後段で再標本化しない。開始時から同じM37信号がDuffing shellとballistic portへ弱く結合し、同じtracer $X_t$ が最後まで発展する。時計、終位置record、resetまで含む反復周期統合は本付録の責務に含めない。
 
-## W.2 M37信号とM57 current辞書の一致
+旧M58で採用した $S$ への直接Langevin SDE、$u$ の反射Brownian motion、角の直接拡散、およびそれらに専用の旧R197Bは現行主線から退役する。旧M58のGibbs shellは、以下ではR198A--R198Dの有効周辺分布として再導出する。
+
+## W.2 M37信号、M57 current辞書、smooth capacity
 
 1次元最近接格子でM37の目標生成子を
 
 ```math
-h_L
-=
-\frac{\mathcal J_0^2}{2m}L_G+V_L
+h_L=\frac{\mathcal J_0^2}{2m}L_G+V_L
 ```
 
-とし、最近接重みを $g_{i,i+1}=a^{-2}$ とする。R195A/R196Cと同じ
+とし、最近接重みを $g_{i,i+1}=a^{-2}$ とする。Nelson matching
 
 ```math
 \mathcal J_0=2m\nu
 ```
 
-を採用すると、M37の辺成分は
-
-```math
-h_{i,i+1}
-=-\frac{\mathcal J_0^2}{2ma^2}
-=-\frac{\mathcal J_0\nu}{a^2}
-```
-
-となり、M57のsignal current辞書と厳密に一致する。従ってM37からR195Aへ移るための追加の結合再較正は不要である。
-
-M37局所実正準座標から
-
-```math
-Z_i
-=\frac{Q_i+iP_i}{\sqrt{2\mathcal J_0}}
-```
-
-と置けば、M57のchiral変数
+を採用すると、M37の辺成分はM57のsignal current辞書と一致する。M37局所実正準座標から得る $Z_i$ に対し、
 
 ```math
 C_{e,+}=\frac{Z_i-iZ_j}{\sqrt2},
@@ -52,628 +35,462 @@ C_{e,+}=\frac{Z_i-iZ_j}{\sqrt2},
 C_{e,-}=\frac{Z_i+iZ_j}{\sqrt2}
 ```
 
-は隣接する実quadratureの固定線形正準結合である。従ってstate-dependent divisionや位相測定を必要とせず、固定passive portで物理的に結合できる。
+は固定線形正準結合であり、state-dependent divisionや位相測定を必要としない。
 
-## W.3 大作用carrierとsmooth shell容量
-
-小パラメータ $0<\epsilon\leq\epsilon_0$ を取り、M37信号を
-
-```math
-Z^{(\epsilon)}
-=\epsilon^{-1}z,
-\qquad
-S_{\rm ref}^{(\epsilon)}
-=\epsilon^{-2}\bar S_{\rm ref}
-```
-
-とする。$z$ は規格化されたslow signalである。
-
-well中心 $x_i$ に対する周期的 $C^3$ partition of unity $\chi_i(x)$ を
-
-```math
-\chi_i\geq0,
-\qquad
-\sum_i\chi_i=1,
-\qquad
-\chi_i(x_j)=\delta_{ij}
-```
-
-となるよう取る。正則化密度を
+well中心 $x_i$ に対する周期的 $C^3$ partition of unity $\chi_i$ を取り、
 
 ```math
 r^\delta(x,z)
-=
-\sum_i\chi_i(x)
-\left(
-|z_i|^2+\delta q_i\bar S_{\rm ref}
-\right)
+=\sum_i\chi_i(x)
+\left(|z_i|^2+\delta q_i\bar S_{\rm ref}\right)
 ```
 
-とする。固定有限時間のsafe sectorで
+とする。safe sectorで
 
 ```math
-0<r_{\min}
-\leq r^\delta(x,z)
-\leq r_{\max}<\infty
+0<r_{\min}\le r^\delta(x,z)\le r_{\max}<\infty
 ```
 
-を仮定し、以下で使う $x,z$ 微分ノルムが有限とする。
-
-物理信号に対するshell容量係数を
+を仮定し、
 
 ```math
-\alpha_\epsilon
-=\epsilon^2\bar\alpha
+A(x,z)=\bar\alpha r^\delta(x,z)
 ```
 
-とし、
+と置く。従って $A_{\min}=\bar\alpha r_{\min}>0$、$A_{\max}=\bar\alpha r_{\max}$ である。
+
+## W.3 R198A：2-mode Duffingから2-action shell
+
+shellの実正準自由度を $(q_r,p_r)$、$r=1,2$ とし、
 
 ```math
-A(x,Z^{(\epsilon)})
-=
-\alpha_\epsilon
-\sum_i\chi_i(x)
-\left(
-|Z_i^{(\epsilon)}|^2
-+\delta q_iS_{\rm ref}^{(\epsilon)}
-\right)
-```
-
-と置く。このとき
-
-```math
-A(x,Z^{(\epsilon)})
-=\bar\alpha r^\delta(x,z)
-=:A(x,z)
-```
-
-であり、
-
-```math
-A_{\min}=\bar\alpha r_{\min}>0,
-\qquad
-A_{\max}=\bar\alpha r_{\max}
-```
-
-は $\epsilon$ に依存しない。
-
-## W.4 thermostatted 2-action shell
-
-2本の作用を $K_1,K_2\geq0$、総作用を
-
-```math
-S=K_1+K_2>0
-```
-
-とし、shell Hamiltonianを
-
-```math
-H_{\rm sh}
-=\frac{\kappa_{\rm sh}}2
-[S-A(X,z)]^2
-```
-
-とする。作用比 $u=K_1/S\in[0,1]$ と角 $\theta_1,\theta_2$ を加え、総作用には採用開放SDE
-
-```math
-dS_t
-=-\mu_{\rm sh}
-\left[
-\kappa_{\rm sh}(S_t-A_t)
--\frac{k_BT}{S_t}
-\right]dt
-+\sqrt{2\mu_{\rm sh}k_BT}\,dB_t,
+H_{\rm D}^{(\varepsilon)}=H_0+\varepsilon V
 ```
 
 ```math
-A_t=A(X_t,z_t)
+H_0=\sum_{r=1}^2\left[\frac{p_r^2}{2m_r}+\frac12m_r\omega_r^2q_r^2\right]
 ```
-
-を用いる。$u$ は $[0,1]$ 上の反射Brownian motion、角は円周上の拡散として熱化させる。$k_BT/S$ は2-action Liouville測度
 
 ```math
-dK_1dK_2=S\,dSdu
+V=\frac{\bar\alpha_1}{4}q_1^4+\frac{\bar\alpha_2}{4}q_2^4
++\frac{\bar\beta}{2}q_1^2q_2^2
+-A\left(\bar g_1q_1^2+\bar g_2q_2^2\right)
++\frac{\kappa_{\rm sh}}2A^2
 ```
 
-のJacobianに対応するentropic driftである。
-
-固定した $A>0$ に対する不変密度は
-
-```math
-\pi_A(S)
-=\frac1{\mathcal Z_A}
-S\exp\left[-\frac{\beta\kappa_{\rm sh}}2(S-A)^2\right],
-\qquad
-\beta=(k_BT)^{-1}.
-```
-
-有効potential
-
-```math
-\Phi_A(S)
-=\frac{\kappa_{\rm sh}}2(S-A)^2-k_BT\log S
-```
-
-は
-
-```math
-\Phi_A''(S)
-=\kappa_{\rm sh}+\frac{k_BT}{S^2}
-\geq\kappa_{\rm sh}
-```
-
-を満たす。従ってfrozen shellの収縮rateを
-
-```math
-\lambda_{\rm sh}
-=\mu_{\rm sh}\kappa_{\rm sh}
-```
-
-と取れる。
+とする。$A=A(\varepsilon t)$ はslow variableである。線形振動子のaction-angle変数を $(K_r,\theta_r)$ とし、$S=K_1+K_2$ と置く。
 
 <!-- theorem-start:theorem -->
-**定理（R197A：thermostatted 2-action shellの平均力と有限幅誤差）**
+**定理（R198A：非共鳴2-mode Duffingから2-action shellへの有限時間縮約）**
 
-上のshellについて
+safe sector $S\le S_*$、$A\in[A_{\min},A_{\max}]$ で必要な微分が有界とする。ある $\gamma>0$ に対し
 
 ```math
-x(A)
-=\sqrt{\frac{\beta\kappa_{\rm sh}}2}A,
+\omega_r\ge\gamma,
+\qquad
+|\omega_1-\omega_2|\ge\gamma
+```
+
+を仮定する。また
+
+```math
+\frac{3\bar\alpha_r}{8m_r^2\omega_r^2}=\frac{\kappa_{\rm sh}}2,
+\qquad
+\frac{\bar\beta}{2m_1m_2\omega_1\omega_2}=\kappa_{\rm sh},
 ```
 
 ```math
-\Delta(x)
-=\frac{e^{-x^2}}
-{e^{-x^2}+\sqrt\pi x[1+\operatorname{erf}(x)]}
+\frac{\bar g_r}{m_r\omega_r}=\kappa_{\rm sh}
 ```
 
-と置く。分配関数は
+を理想係数条件とする。このときnear-identity canonical transformationが存在し、$0\le t\le T/\varepsilon$ で
 
 ```math
-\mathcal Z_A
-=C
-\left[
-\frac{e^{-x(A)^2}}{\beta\kappa_{\rm sh}}
-+A\sqrt{\frac{\pi}{2\beta\kappa_{\rm sh}}}
-\left(1+\operatorname{erf}x(A)\right)
-\right]
-```
-
-である。generalized force
-
-```math
-G_A(S)=\kappa_{\rm sh}(S-A)
-```
-
-の条件付き平均は厳密に
-
-```math
-\bar G(A)
-=\frac{k_BT}{A}[1-\Delta(x(A))]
-```
-
-を満たす。従って任意のslow座標 $y$ に対して
-
-```math
-\bar F_y^{\rm sh}
-=\bar G(A)\partial_yA
-=k_BT[1-\Delta(x(A))]\partial_y\log r^\delta.
-```
-
-$x_{\min}=x(A_{\min})$、$\Delta_*=\Delta(x_{\min})$ とすれば
-
-```math
-\left|
-\bar F_y^{\rm sh}
--k_BT\partial_y\log r^\delta
-\right|
-\leq
-k_BT\Delta_*
-|\partial_y\log r^\delta|.
-```
-
-従ってshellを実際に周辺化した条件付き自由エネルギーは、共通加法定数を除き
-
-```math
-F_{\rm sh}
-=-k_BT\log r^\delta+E_{\rm width},
+\widetilde H_{\rm D}^{(\varepsilon)}
+=\omega_1K_1+\omega_2K_2
++\varepsilon\frac{\kappa_{\rm sh}}2[S-A]^2
++\varepsilon^2R_A,
 ```
 
 ```math
-|\partial_yE_{\rm width}|
-\leq
-k_BT\Delta_*|\partial_y\log r^\delta|
+\|R_A\|_{C^1}\le \frac{C_A}{\gamma}
 ```
 
-である。また二乗平均は
+と書ける。係数を理想値からずらした場合も、safe sector上の平均Hamiltonian誤差を $\varepsilon_{\rm coef}$ とすれば
 
 ```math
-\int G_A(S)^2\pi_A(dS)
-=\kappa_{\rm sh}k_BT[1+\Delta(x(A))]
+H_{\rm slow}
+=\frac{\kappa_{\rm sh}}2(S-A)^2
++O(\varepsilon/\gamma)+O(\varepsilon_{\rm coef})
 ```
 
-を満たす。
+である。完全縮退 $\omega_1=\omega_2$ は仮定せず、1:1 resonant angle termは非共鳴条件で平均除去する。
 <!-- theorem-end:theorem -->
 
 <!-- theorem-start:proof -->
-**証明（R197A）**
-
-$K_1=uS$、$K_2=(1-u)S$ と変数変換すると $dK_1dK_2=S\,dSdu$ である。角と $u$ を積分して上の不変密度を得る。$a=\beta\kappa_{\rm sh}/2$ とすると
+**証明（R198A）**
 
 ```math
-\int_0^\infty
-S e^{-a(S-A)^2}dS
-=
-\frac{e^{-aA^2}}{2a}
-+\frac{A\sqrt\pi}{2\sqrt a}
-[1+\operatorname{erf}(\sqrt a A)].
+q_r=\sqrt{\frac{2K_r}{m_r\omega_r}}\cos\theta_r
 ```
 
-これを $A$ で微分し、$k_BT\partial_A\log\mathcal Z_A=\langle G_A\rangle$ を用いれば平均力式を得る。二乗平均は同じGaussian積分を2階まで行えば表示式となる。証明終。
+を用いると、角平均は
+
+```math
+\langle q_r^4\rangle=\frac{3K_r^2}{2m_r^2\omega_r^2},
+\qquad
+\langle q_1^2q_2^2\rangle=\frac{K_1K_2}{m_1m_2\omega_1\omega_2},
+```
+
+```math
+\langle q_r^2\rangle=\frac{K_r}{m_r\omega_r}
+```
+
+である。理想係数条件を代入すれば一次平均は $\kappa_{\rm sh}(S-A)^2/2$ となる。非平均Fourier成分のsmall denominatorは非共鳴条件で $\gamma$ により下から抑えられるので、一次Lie transformと標準有限時間averagingで表示式を得る。証明終。
 <!-- theorem-end:proof -->
 
-## W.5 Brownian tracerと時間発展信号に対するfast--slow averaging
+## W.4 R198B：二保存action有限reservoir
 
-slow変数を
+reservoirを二成分DNLS型Hamiltonian
 
 ```math
-Y=(X,\operatorname{Re}z,\operatorname{Im}z)
+H_R^{(N)}
+=\sum_{r=1}^2\sum_{j=1}^N
+\left[\Omega_r|b_{rj}|^2+\frac{g_r}{2}|b_{rj}|^4\right]
+-\sum_{r=1}^2J_r\sum_j(b_{rj}^*b_{r,j+1}+{\rm c.c.})
++g_{12}\sum_j|b_{1j}|^2|b_{2j}|^2
 ```
 
-とまとめる。shell平均を除いたslow driftを $b_0(t,Y)$、shell generalized forceの結合係数を $c(Y)$、slow Brownian diffusion matrixを $\Sigma$ とし、$\Sigma$ は $S$ に依存しないとする。
+とする。ここで複素振幅は実正準対の略記である。独立位相対称性により
 
 ```math
-dY_t
-=\left[
-b_0(t,Y_t)+c(Y_t)G_{A(Y_t)}(S_t)
-\right]dt+\Sigma dW_t.
+Q_r=\sum_j|b_{rj}|^2
 ```
 
-frozen-shell generatorからmobilityを除いた作用素を
+が別々に保存される。成分間の線形mode-conversion項は置かない。
+
+状態密度を $\Omega_N(E,Q_1,Q_2)$、entropy densityを
 
 ```math
-L_A
-=k_BT\partial_S^2
--\left[
-\kappa_{\rm sh}(S-A)-\frac{k_BT}{S}
-\right]\partial_S
-```
-
-とし、centered forceを
-
-```math
-h_A(S)=G_A(S)-\bar G(A)
+\sigma_N(e,q_1,q_2)=\frac1N\log\Omega_N(Ne,Nq_1,Nq_2)
 ```
 
 とする。
 
 <!-- theorem-start:theorem -->
-**定理（R197B：M58 shellの有限時間fast--slow averaging）**
+**定理（R198B：二保存action有限reservoirからM59 Gibbs shellへの縮約）**
 
-$A\in[A_{\min},A_{\max}]$、$b_0,c,A$ がsafe compact sectorで必要な2階微分まで有界Lipschitz、slow diffusion $\Sigma$ がshell変数に依存せず、shellを条件付き平衡 $S_0\sim\pi_{A(Y_0)}$ から開始するとする。平均零Poisson方程式
+基準点で
 
 ```math
--L_A\phi_A=h_A,
+\beta_N=\partial_e\sigma_N>0,
 \qquad
-\int\phi_A\,d\pi_A=0
+-\beta_N\mu_{r,N}=\partial_{q_r}\sigma_N
 ```
 
-は一意解を持ち、
+と定義する。shellが取り得るsafe sectorを含む近傍で $\sigma_N\in C^2$、
 
 ```math
-\partial_S\phi_A(S)
-=-\frac{
-\int_0^S h_A(u)\pi_A(u)du
-}{k_BT\pi_A(S)},
+\|D^2\sigma_N\|_{\rm op}\le M_2
+```
+
+とする。$|H_{\rm sh}|\le H_*$、$S\le S_*$ とし、carrier matching
+
+```math
+\mu_{1,N}=\omega_1,
+\qquad
+\mu_{2,N}=\omega_2
+```
+
+を課す。このときzero-exchange microcanonical shell marginal $P_{N,A}^{\rm mc}$ と
+
+```math
+dP_A^{\rm G}
+\propto
+\exp\left[-\frac{\beta_N\kappa_{\rm sh}}2(S-A)^2\right]
+1_{S\le S_*}
+\,dK_1dK_2d\theta_1d\theta_2
+```
+
+の間に
+
+```math
+\|P_{N,A}^{\rm mc}-P_A^{\rm G}\|_{\rm TV}
+\le\frac12\left(e^{2\delta_N}-1\right),
 ```
 
 ```math
-|\partial_S\phi_A|\leq1
+\delta_N=\frac{M_2}{2N}(H_*^2+S_*^2)
 ```
 
-を満たす。
+が成り立つ。従って有限reservoir誤差は $O(N^{-1})$ である。target measureでは
 
 ```math
-K_0
-=\sup_Y\|c(Y)\phi_{A(Y)}\|_{L^2(\pi_A)},
+dK_1dK_2=S\,dSdu
 ```
+
+より
 
 ```math
-K_B
-=\sup_Y
-\|\Sigma^{\mathsf T}\nabla_Y[c(Y)\phi_{A(Y)}]\|_{L^2(\pi_A)},
+\pi_A(S)\propto S\exp\left[-\frac{\beta_N\kappa_{\rm sh}}2(S-A)^2\right].
 ```
 
-```math
-K_L
-=\sup_Y
-\|\mathcal L_{\rm slow}[c(Y)\phi_{A(Y)}]\|_{L^2(\pi_A)},
-```
-
-```math
-C_c=\sup_Y\|c(Y)\|
-```
-
-とする。これらはsafe compact sectorで有限である。shell forceを条件付き平均 $\bar G(A)$ へ置換したaveraged processを $\bar Y_t$ とし、そのdriftのLipschitz定数を $L_{\rm av}$ とすれば、同じslow Brownian motionによるcouplingで
-
-```math
-\begin{aligned}
-&\left[
-\mathbb E\sup_{0\leq t\leq T}
-|Y_t-\bar Y_t|^2
-\right]^{1/2}
-\\
-&\leq
-e^{L_{\rm av}T}
-\left[
-2C_c\sqrt{\frac{2k_BT\,T}{\mu_{\rm sh}}}
-+\frac{2K_0+TK_L+2\sqrt T K_B}{\mu_{\rm sh}}
-\right].
-\end{aligned}
-```
-
-従って固定有限時間でstrong averaging誤差は $O(\mu_{\rm sh}^{-1/2})$ である。
-
-さらにshell fluctuationのGreen--Kubo積分は
-
-```math
-\int_0^\infty
-|\operatorname{Cov}_{\pi_A}[h_A(S_t),h_A(S_0)]|dt
-\leq
-\frac{k_BT[1+\Delta_*]}{\mu_{\rm sh}}.
-```
-
-tracer mobilityを $\mu_X=1/\gamma_X$ とすると、shell fluctuationがtracerへ加える拡散は
-
-```math
-D_{\rm sh}^{\rm add}
-\leq
-\frac{
-\mu_X^2\|\partial_XA\|_\infty^2
-k_BT(1+\Delta_*)
-}{\mu_{\rm sh}},
-```
-
-従って $D_0=\mu_Xk_BT$ に対する相対誤差は
-
-```math
-\varepsilon_{\rm sh,av}
-:=\frac{D_{\rm sh}^{\rm add}}{D_0}
-\leq
-\frac{
-\mu_X\|\partial_XA\|_\infty^2(1+\Delta_*)
-}{\mu_{\rm sh}}.
-```
+有限 $N$ の真のmicrocanonical marginalでは $u$ の一様性は一般に $O(N^{-1})$ だけ歪む。
 <!-- theorem-end:theorem -->
 
 <!-- theorem-start:proof -->
-**証明（R197B）**
-
-$\Phi_A''\geq\kappa_{\rm sh}$ からfrozen shellはrate $\mu_{\rm sh}\kappa_{\rm sh}$ 以上で指数収縮する。1次元reversible diffusionの積分表示からPoisson解を得る。centered forceのLipschitz定数と強凸定数がともに $\kappa_{\rm sh}$ なので $|\partial_S\phi_A|\leq1$ である。$c(Y)\phi_{A(Y)}(S)$ にItô公式を適用し、Poisson方程式を代入するとcentered forceの時間積分はendpoint項、slow drift項、slow Brownian martingale、shell Brownian martingaleへ分解される。前3者をCauchy--Schwarz、最後をDoob--BDGで評価し、Gronwall不等式を適用して表示式を得る。covarianceにはspectral-gap収縮とR197Aの二乗平均を用いる。証明終。
-<!-- theorem-end:proof -->
-
-## W.6 loaded M37の安定性
-
-shell HamiltonianのM37信号への反作用は、格子点 $i$ では局所onsite perturbationとして
+**証明（R198B）**
 
 ```math
-i\mathcal J_0\dot z_i\big|_{\rm sh}
-=-\alpha_\epsilon
-G_A(S)\chi_i(X)z_i
+N\sigma_N\left(e_0-\frac hN,q_{10}-\frac{k_1}N,q_{20}-\frac{k_2}N\right)
 ```
 
-と書ける。ballistic portはA22のbilinear weak tapを同じM37 quadratureへ結合する。
+を基準点でTaylor展開すると、一次項は
+
+```math
+-\beta_Nh+\beta_N\mu_{1,N}k_1+\beta_N\mu_{2,N}k_2
+```
+
+である。R198Aのcarrier項とmatching条件が相殺し、残りは $-\beta_N\kappa_{\rm sh}(S-A)^2/2$ になる。二次剰余は $\delta_N$ 以下である。Radon--Nikodym比を上下から $e^{\pm2\delta_N}$ で挟めば表示式を得る。証明終。
+<!-- theorem-end:proof -->
+
+## W.5 R198C：有限交換結合とmean-force較正
+
+shellの複素正準略記を $a_r=\sqrt{K_r}e^{i\theta_r}$ とし、reservoir境界modeへ
+
+```math
+H_{\rm ex}
+=-\sum_{r=1}^2\lambda_r(a_r^*b_{r\ell_r}+a_rb_{r\ell_r}^*)
+```
+
+で接続する。この結合は独立位相対称性を保つため、全体系で
+
+```math
+\mathcal Q_r=K_r+Q_r
+```
+
+を厳密保存する。
 
 <!-- theorem-start:theorem -->
-**定理（R197C：shell・ballistic-port負荷下のM37有限時間安定性）**
+**定理（R198C：弱交換結合の偶数次mean-force補正）**
 
-R86の仮定に加え、W.3のsafe sectorとR197A/Bのshell条件を仮定する。ballistic-port couplingを $\epsilon_{\rm port}=\epsilon$ とし、physical signal作用を $O(\epsilon^{-2})$ とする。このときport incident energyは有限非零のscaleに保てる一方、M37へのrelative port backreactionは
-
-```math
-\varepsilon_{\rm port\to sig}(T)
-\leq C_{\rm back}(T)\epsilon^2
-```
-
-である。
-
-shell平均反作用は一般に
+R198Bのregular sectorで、境界modeの4次までのmicrocanonical cumulantと必要なenergy derivativeが一様有界であり、finite-coupling shell marginalが $\lambda_r=0$ の近傍で4次まで解析的とする。独立位相対称性により奇数次補正は消える。局所action
 
 ```math
-\varepsilon_{\rm sh,mean}^{37}(T)
-\leq
-\frac{Tk_BT}{\mathcal J_0r_{\min}}\epsilon^2,
+m_{r,N}=\langle|b_{r\ell_r}|^2\rangle_{\rm mc}
 ```
 
-centered shell fluctuationは
+を用いると、二次補正は
 
 ```math
-\varepsilon_{\rm sh,fluc}^{37}(T)
-\leq
-\frac{2\bar\alpha\epsilon^2}{\mathcal J_0}
-\sqrt{\frac{2k_BT\,T}{\mu_{\rm sh}}}
-+O\left(\frac{\epsilon^2}{\mu_{\rm sh}}\right).
+\log\frac{dP_{N,\lambda}}{dP_{N,0}}
+=\sum_r\beta_N^2\lambda_r^2m_{r,N}K_r
++R_C-\log Z_C,
 ```
-
-従ってM58 signal marginalとR86理想信号の有限時間誤差は
 
 ```math
-\begin{aligned}
-\varepsilon_{\rm sig}^{58}(T)
-\leq{}&
-\varepsilon_{\rm car}(T)
-+C_{\rm back}(T)\epsilon^2
-\\
-&+\frac{Tk_BT}{\mathcal J_0r_{\min}}\epsilon^2
-+\frac{2\bar\alpha\epsilon^2}{\mathcal J_0}
-\sqrt{\frac{2k_BT\,T}{\mu_{\rm sh}}}
-+O\left(\frac{\epsilon^2}{\mu_{\rm sh}}\right).
-\end{aligned}
+|R_C|\le
+C_C\left[\frac{\lambda_1^2+\lambda_2^2}{N}S_*
++(\lambda_1^2+\lambda_2^2)^2S_*^2\right]
 ```
 
-したがってM57を同時に接続した同一試行上でもQ3-1のR86縮約は保持される。
+と評価できる。従ってbare chemical potentialを
+
+```math
+\mu_{r,N}^{\rm bare}
+=\omega_r-\beta_N\lambda_r^2m_{r,N}
+```
+
+に再較正すれば、二次carrier shiftは吸収され、残るfinite-exchange誤差は $O(\lambda^4)+O(\lambda^2/N)$ である。
 <!-- theorem-end:theorem -->
 
 <!-- theorem-start:proof -->
-**証明（R197C）**
+**証明（R198C）**
 
-shell平均項とcentered項を分離する。平均項はR197Aと $r^\delta\geq r_{\min}$ を使い、centered項はR197BのPoisson-corrector評価をM37のDuhamel公式へ代入する。ballistic portはA22の有限時間backreaction評価を用いる。三角不等式でR86の裸carrier誤差へ加えれば表示式を得る。証明終。
+交換observable $Y_r=a_r^*b_{r\ell_r}+a_rb_{r\ell_r}^*$ を用いてmicrocanonical energy constraintを $\lambda_r$ で展開する。位相対称性から $\langle Y_r\rangle=0$、異成分の一次cross termも零である。また
+
+```math
+\langle Y_r^2\rangle=2K_rm_{r,N}.
+```
+
+従って最初の非零項は二次であり、entropyのenergy derivativeを用いるとleading termは $\beta_N^2\lambda_r^2m_{r,N}K_r$ となる。仮定した4次cumulant boundとfinite-$N$ derivative boundが剰余評価を与える。証明終。
 <!-- theorem-end:proof -->
 
-## W.7 共通weak familyと時間尺度窓
+## W.6 R198D：有限時間mixing
 
-R196A--R196Bと共通の小パラメータ $\epsilon$ を用い、
+R198DはM59系列で唯一、具体的DNLS reservoirのmixingを仮定として残す。有限孤立Hamiltonian系はPoincare recurrenceを持つため、$t\to\infty$ の不可逆収束は主張せず、有限観測窓だけを扱う。
+
+reservoir境界observableを $B_r(t)=b_{r\ell_r}(t)$、平衡相関を $C_{rs}(t)$ とする。
+
+<!-- theorem-start:theorem -->
+**定理（R198D：mixing二保存action reservoirによる有限時間thermalization）**
+
+R198A--R198Cを仮定する。さらに選んだ正温度・非凝縮reservoir sectorで、境界observableの相関と必要な高次cumulantが一様に可積分で、例えば
 
 ```math
-\kappa_p=\epsilon^2\bar\kappa_p,
-\qquad
-M_e=\epsilon^2\bar M_e,
+\int_0^\infty(1+t)|C_{rs}(t)|dt<\infty
 ```
 
+を満たすとする。$\lambda_r=\lambda\bar\lambda_r$、slow time $\tau=\lambda^2t$ を取る。有限kinetic interval $0\le\tau\le T$ で真のHamiltonian shell marginal $P_t^{\rm true}$ がreversible effective diffusion $P_\tau^{\rm eff}$ へ
+
 ```math
-\gamma_X=\epsilon^4\bar\gamma,
-\qquad
-k_BT=\epsilon^4\bar\gamma D_0,
+d_{\rm BL}(P_t^{\rm true},P_\tau^{\rm eff})
+\le\varepsilon_{\rm hom}(\lambda,N,T)
 ```
 
-```math
-M_X=\epsilon^6\bar M_X,
-\qquad
-V_{\rm per}=k_BT\bar V_{\rm per}
-```
-
-とする。さらに任意の $\zeta>0$ に対し
+で近づき、joint weak-coupling/large-reservoir limitで $\varepsilon_{\rm hom}\to0$ と仮定する。effective generatorのM59 Gibbs measureに対するspectral gapが $g_A\ge g_*>0$ なら、frozen $A$ について
 
 ```math
-\mu_{\rm sh}
-=\bar\mu_{\rm sh}\epsilon^{-4-\zeta}
-```
-
-とする。$\kappa_{\rm sh},A_{\min},D_0$ は固定する。
-
-このとき
-
-```math
-\lambda_{\rm sh}^{-1}
-=O(\epsilon^{4+\zeta}),
-\qquad
-\tau_X=\frac{M_X}{\gamma_X}=O(\epsilon^2),
-```
-
-かつ
-
-```math
-x_{\min}^2
-=\frac{\kappa_{\rm sh}A_{\min}^2}{2k_BT}
-=O(\epsilon^{-4}).
-```
-
-従ってfinite-width誤差は指数的に消え、
-
-```math
-\varepsilon_{\rm sh,av}=O(\epsilon^\zeta),
-```
-
-strong shell averagingは $O(\epsilon^{\zeta/2})$、M37への平均shell反作用は $O(\epsilon^6)$、port backreactionとmoving-frame loadingは $O(\epsilon^2)$ となる。特に $\zeta=2$ ならgenerator-level shell誤差を既存M57 weak familyと同じ $O(\epsilon^2)$ へ揃えられる。
-
-十分小さい有限 $\epsilon$ では
-
-```math
-\lambda_{\rm sh}^{-1}
-\ll\tau_X
-\ll\tau_p
-\ll\lambda_Y^{-1}
-\ll T_{\rm sig}
-```
-
-を満たす非空なparameter windowを取れる。
-
-## W.8 R196B/R196Cへの接続
-
-R197A/Bでshellを消去したoverdamped tracer driftは
-
-```math
-\begin{aligned}
-dX_t
-={}&U_e(t)dt
-+D_0[1-\Delta(x(A_t))]
-\partial_x\log r^\delta(X_t,z_t)dt
-\\
-&-\mu_XV_{\rm per}'(X_t)dt
-+\sqrt{2D_0}\,dW_t+dR_t.
-\end{aligned}
-```
-
-$R_t$ はR196B既存のGLE、overdamped、homogenization残差にR197のfinite-width・averaging残差を加えたものである。中心matching
-
-```math
-D_0=\frac\nu{g_K},
-\qquad
-g_Kc=\frac{4\nu}{a}
-```
-
-の下で、R196A--R196Cのcurrent drift、diffusion、well-index reductionはそのまま適用できる。
-
-M58からR161への生成子誤差を
-
-```math
-\begin{aligned}
-\varepsilon_{58}
-\leq C_{58}(&
-\varepsilon_{\rm sig}^{58}
-+\varepsilon_{\rm width}
-+\varepsilon_{\rm sh,av}
-+\varepsilon_{\rm port}
-+\varepsilon_{\rm prop}
-+\varepsilon_{\rm track}
-\\
-&+\varepsilon_{\rm load}
-+\varepsilon_{\rm GLE}
-+\varepsilon_{\rm od}
+d_{\rm BL}(P_t^{\rm true},P_A^{\rm G})
+\le C_0e^{-g_*\lambda^2t}
 +\varepsilon_{\rm hom}
-+\varepsilon_{\rm EK}
-+a^2)
-\end{aligned}
++\varepsilon_{B+C},
 ```
 
-とする。同じ上流誤差は一度だけ数える。
+時間依存 $A(t)$ ではさらに
+
+```math
+C_{\rm ad}\frac{\sup|\dot A|}{g_*\lambda^2}
+```
+
+を加える。ここで $\varepsilon_{B+C}=O(N^{-1})+O(\lambda^4)+O(\lambda^2/N)$ はR198B/Cの静的誤差である。
+<!-- theorem-end:theorem -->
+
+R198DはDNLSが全parameter領域でergodicであるとは主張しない。mixing相関条件とhomogenization boundはQ3-1-A1/Q3-2-A1の残件として明示し、A2では $C_{rr}(t)$、integrated autocorrelation time、shell relaxation、$u$ 分布、$\pi_A(S)$ を直接数値監査する。
+
+## W.7 R197A：Gibbs shellの平均力
+
+R198A--R198Dが到達するtarget Gibbs shell自体の積分恒等式は旧M58から独立なので維持する。
 
 <!-- theorem-start:theorem -->
-**定理（R197：Q3-1/Q3-2共通ミクロ模型の有限時間統合）**
-
-R86、R195A、R196A--R196C、R197A--R197Cの仮定を同時に満たし、固定有限時間 $[0,T]$ のsafe sectorで $r^\delta\geq r_{\min}>0$ とする。このとき単一のM58古典開放過程について次が同時に成り立つ。
-
-1. signal marginalだけを見ると、M37規格化包絡はR86のSchrödinger型空間信号へ誤差 $\varepsilon_{\rm sig}^{58}(T)$ で縮約する。従ってM58はQ3-1の明示ミクロ証人である。
-2. 同じ試行のsignal、shell、ballistic channels、moving bath frame、平衡bath、tracerを保持すると、そのwell-index過程の生成子はR161生成子へ誤差 $\varepsilon_{58}$ で一致する。同じ初期位置分布から開始した経路周辺分布は
+**定理（R197A：2-action Gibbs shellの平均力と有限幅誤差）**
 
 ```math
-\sup_{0\leq t\leq T}
-D_{\rm TV}(p_t^{58},p_t^{161})
-\leq T\varepsilon_{58}
+x(A)=\sqrt{\frac{\beta\kappa_{\rm sh}}2}A,
 ```
-
-を満たす。
-3. $-k_BT\log r^\delta$ は外部から挿入するポテンシャルではなく、同じM58内のthermostatted 2-action shellを条件付きGibbs分布で消去したpotential of mean forceとして得られる。
-4. R161極限過程にはR185をそのまま適用できる。従ってQ3-2の時間対称Newton則に残る独立残差はM58からR161への持上げ誤差、R185の正則化残差 $O(\delta)$、格子残差 $C_{185,a}a^2$ である。
-
-共通weak familyで $\zeta=2$ とし、R86の弱carrier極、$\epsilon\to0$、格子極・正則化極をsafe-sector条件を保つ順序で取れば
 
 ```math
-\varepsilon_{\rm sig}^{58}\to0,
-\qquad
-\varepsilon_{58}\to0.
+\Delta(x)=\frac{e^{-x^2}}{e^{-x^2}+\sqrt\pi x[1+\operatorname{erf}(x)]}
 ```
 
-従ってQ3-1とQ3-2は別々のミクロ模型ではなく、同一M58過程の異なる周辺縮約として同時に実現される。
+と置く。target shell
+
+```math
+\pi_A(S)=\frac1{\mathcal Z_A}S\exp\left[-\frac{\beta\kappa_{\rm sh}}2(S-A)^2\right]
+```
+
+に対する $G_A(S)=\kappa_{\rm sh}(S-A)$ の平均は
+
+```math
+\bar G(A)=\frac{k_BT}{A}[1-\Delta(x(A))].
+```
+
+従って任意のslow座標 $y$ について
+
+```math
+\bar F_y^{\rm sh}
+=k_BT[1-\Delta(x(A))]\partial_y\log r^\delta.
+```
+
+$x_{\min}=x(A_{\min})$、$\Delta_*=\Delta(x_{\min})$ とすると
+
+```math
+|\bar F_y^{\rm sh}-k_BT\partial_y\log r^\delta|
+\le k_BT\Delta_*|\partial_y\log r^\delta|.
+```
+
+従って条件付き自由エネルギーは共通加法定数を除き
+
+```math
+F_{\rm sh}=-k_BT\log r^\delta+E_{\rm width},
+```
+
+```math
+|\partial_yE_{\rm width}|
+\le k_BT\Delta_*|\partial_y\log r^\delta|.
+```
 <!-- theorem-end:theorem -->
 
 <!-- theorem-start:proof -->
-**証明（R197）**
+**証明（R197A）**
 
-signal sectorにはR86とR197Cを適用する。shell sectorにはR197A/Bを適用し、R196Bで従来入力していたosmotic forceを同じ試行のthermostatted shellの平均力で置き換える。current情報はR195AからR196Aのballistic moving frameへ伝わり、R196Bの平衡bathとperiodic homogenizationを経てR196Cのwell-index生成子へ縮約する。各近似の上流残差を一度だけ合成して $\varepsilon_{58}$ を得る。有限状態Markov生成子のDuhamel公式と全変動距離の収縮性から $D_{\rm TV}\leq T\varepsilon_{58}$ を得る。最後にR161のcanonical path lawへR185を適用する。証明終。
+$K_1=uS$、$K_2=(1-u)S$ により $dK_1dK_2=S\,dSdu$ である。Gaussian積分で $\mathcal Z_A$ を求め、$k_BT\partial_A\log\mathcal Z_A=\langle G_A\rangle$ を用いる。証明終。
 <!-- theorem-end:proof -->
 
-## W.9 責務境界
+## W.8 M37/M57への有限誤差接続
 
-R197はM37信号源とM57 tracerを同一試行の古典開放模型へ統合する結果である。有限閉鎖Hamiltonian全系への持上げは要求しない。Q3-1/Q3-2のA1では本M58を共通証人として使える。
+R198Dから得るcentered forceの有限相関積分を
 
-一方、A2はM58の採用SDE/PDEを直接数値発展して主要観測量を再現することを別途要求する。また、clock、終位置record、resetを含む反復周期、連続空間一様極限、多粒子拡張はR197の結論に含めない。
+```math
+C_G=\sup_A\int_0^\infty
+|\operatorname{Cov}[G_A(S_t),G_A(S_0)]|dt
+```
+
+とする。M37へのshell couplingはW.2のcapacity scalingを通じて弱くし、ballistic portはA22のweak tapを用いる。
+
+<!-- theorem-start:theorem -->
+**定理（R197C：M59 shell・ballistic-port負荷下のM37有限時間安定性）**
+
+R86、R196A--R196C、R198A--R198Dのsafe-sector仮定を同時に満たすとする。shellの平均力誤差、有限相関fluctuation、port backreactionをそれぞれ $\varepsilon_{\rm shell}$、$\varepsilon_{\rm fluc}$、$\varepsilon_{\rm port}$ で評価できるなら、固定有限時間 $T$ で
+
+```math
+\varepsilon_{\rm sig}^{59}(T)
+\le\varepsilon_{\rm car}(T)
++C_{\rm sig}(T)
+\left(\varepsilon_{\rm shell}+\varepsilon_{\rm fluc}+\varepsilon_{\rm port}\right).
+```
+
+特に
+
+```math
+\varepsilon_{\rm fluc}
+\le C_{\rm load}\sqrt{2TC_G}
+```
+
+と取れる。従ってR198Dのmixing windowとM37 weak-loading windowが同時に非空なら、M59 signal marginalはR86へ有限誤差で縮約する。
+<!-- theorem-end:theorem -->
+
+## W.9 共通誤差台帳とR161/R185への接続
+
+M59 shellの誤差を
+
+```math
+\varepsilon_{\rm shell}^{59}
+=\varepsilon_{\rm av}
++\varepsilon_{\rm coef}
++\frac{C_N}{N}
++C_\lambda\lambda^4
++\varepsilon_{\rm hom}
++C_{\rm th}e^{-g_*\lambda^2t}
++C_{\rm ad}\frac{\sup|\dot A|}{g_*\lambda^2}
++\varepsilon_\mu
+```
+
+とまとめる。ここで $\varepsilon_\mu$ はrenormalized chemical-potential matchingの残差である。
+
+旧M58の $\mu_{\rm sh}\to\infty$ scalingは用いない。M59で必要な時間尺度窓は
+
+```math
+\tau_R\ll\tau_{\rm therm}\sim(g_*\lambda^2)^{-1}\ll\tau_A
+```
+
+であり、さらにM57のtracer・moving-frame時間尺度窓と両立させる。$\lambda$ を小さくすると静的coupling誤差は減る一方thermalizationは遅くなるため、非空parameter windowはR198Dの具体的mixing witnessまたは数値監査で確認する。
+
+<!-- theorem-start:theorem -->
+**定理（R197：M59 Q3-1/Q3-2共通ミクロ模型の条件付き有限時間統合）**
+
+R86、R195A、R196A--R196C、R198A--R198D、R197A、R197Cの仮定を同時に満たし、固定有限時間のsafe sectorで $r^\delta\ge r_{\min}>0$ とする。このとき同一のM59古典Hamiltonian/open-tracer過程について次が成り立つ。
+
+1. signal marginalはR86のSchrodinger型空間信号へ誤差 $\varepsilon_{\rm sig}^{59}$ で縮約する。
+2. shellを周辺化した平均力は $k_BT\partial_x\log r^\delta$ にR197Aのfinite-width誤差と $\varepsilon_{\rm shell}^{59}$ を加えた範囲で一致する。
+3. 同じ試行のM57 transportを保持すると、R196A--R196Cを通じてwell-index生成子はR161へ有限誤差で一致する。
+4. R161のcanonical path lawにはR185を適用でき、時間対称Newton則に残る誤差はM59からR161への持上げ誤差、R185の正則化残差、格子残差である。
+
+従ってR198Dのmixing/homogenization仮定を満たすparameter witnessが与えられた範囲で、Q3-1とQ3-2は同一M59過程の異なる周辺縮約として実現される。
+<!-- theorem-end:theorem -->
+
+## W.10 責務境界
+
+R198Aは実Duffing自由度からaction shellを導き、R198Bは有限二保存action reservoirの平衡周辺化、R198Cは有限交換結合のmean-force補正、R198Dは有限時間thermalizationを担当する。R198Dだけは具体的reservoir sectorのmixing/homogenization条件を仮定として残す。
+
+従って固定目標Q3-1/Q3-2の既存達成ラベルは変更しないが、M59だけをA1の完全達成証人とはまだ扱わない。Q3-1-A1/Q3-2-A1は部分達成とし、R198Dのmixing条件を具体parameter witnessまたは直接数値計算で閉じることを残件とする。A2ではM59のDuffing＋DNLS＋exchange力学そのものを直接計算する。

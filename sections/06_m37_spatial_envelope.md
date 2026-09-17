@@ -5,18 +5,18 @@
 
 ## 6.1 Q3のM54空間状態構成とM37の範囲
 
-Q3の共通親模型は付録WのM58であり、M37をsignal subsystem、M57をtransport subsystemとして同一試行上に結合する。その1試行には、実正準信号自由度、その派生表示 $Z$、1個の局在tracer位置 $X_t$、2作用状態数sector、左右独立のballistic TL、moving bath-frame carrier、平衡oscillator bathが含まれる。R195Aが状態数とsignal currentを厳密に与え、R196Aがballistic wave pressureからmoving bath frame、R196Bが平衡GLE/FDTとperiodic homogenization、R196CがR161生成子matchingを与える。R162は同じ生成子を持つideal stochastic referenceであり、基礎的ミクロ存在論ではない。複素状態方向と位置分布は試行集団の統計であり、$C_Z$ またはその階数1因子を単一試行制御器へ書き戻さない。
+Q3の共通親模型は付録WのM59であり、M37をsignal subsystem、M57をtransport subsystemとして同一試行上に結合する。その1試行には、実正準信号自由度、その派生表示 $Z$、1個の局在tracer位置 $X_t$、2作用状態数sector、左右独立のballistic TL、moving bath-frame carrier、平衡oscillator bathが含まれる。R195Aが状態数とsignal currentを厳密に与え、R196Aがballistic wave pressureからmoving bath frame、R196Bが平衡GLE/FDTとperiodic homogenization、R196CがR161生成子matchingを与える。R162は同じ生成子を持つideal stochastic referenceであり、基礎的ミクロ存在論ではない。複素状態方向と位置分布は試行集団の統計であり、$C_Z$ またはその階数1因子を単一試行制御器へ書き戻さない。
 
 M37はM54と並ぶ別の粒子親模型ではない。Q3ではM54空間信号部分系を局所位置ばねだけで有限時間近似する信号系実現模型であり、Q1ではR187の弱結合W型族に限って最低2正常モードをM54のW2静的状態構成の物理信号部分系として使う。従ってM37は、Q1型局所信号＋Q2型辺結合からR161入力 $(\pi,j)$ へ進む共通構造の1つの空間担体実装であり、R161そのものの定義や活動量の一意性を担わない。役割を次のように分ける。
 
 | 対象 | 単一試行で物理的に存在するもの | 派生表示・集団記述 | 役割 |
 |---|---|---|---|
-| M54＋M57空間状態構成 | 実正準信号、局在tracer $X_t$、2作用sector、dual ballistic TL、moving bath-frame carrier、平衡oscillator bath | $Z$、$C_Z$、階数1状態方向、位置分布 | R195A・R196A--R196CによるR161実現、R185時間反転・Newton則 |
+| M54＋M57空間状態構成 | 実正準信号、局在tracer $X_t$、2-mode Duffing shell＋二保存action reservoir、dual ballistic TL、moving bath-frame carrier、平衡oscillator bath | $Z$、$C_Z$、階数1状態方向、位置分布 | R195A・R196A--R196CによるR161実現、R185時間反転・Newton則 |
 | M37実装 | 有限個の実振動子座標 $(q_i,p_i)$ と局所ばね結合 | 局所複素包絡 $b_i$、零傾斜正常モード座標 | R86によるM54空間信号部分系の有限時間近似、R184の受渡し。R187条件下ではQ1 W2制御用信号系も実装 |
 
-第2.4節の準備済み入力境界から階数1信号集団を受け取る場合、M58では開始時から同じ試行のM37信号、thermostatted shell、M57 transport、tracerが共存し、信号を後段へ再標本化して受け渡さない。R195Aの2作用状態数が $X_0$ の条件付き重みを与え、以後は再標本化せずR196A--R196Cの同じtracer力学がR161移動生成子へ縮約する。終時刻にはR112が既存の $X_T$ を記録する。
+第2.4節の準備済み入力境界から階数1信号集団を受け取る場合、M59では開始時から同じ試行のM37信号、Duffing/action-reservoir shell、M57 transport、tracerが共存し、信号を後段へ再標本化して受け渡さない。R195Aの2作用状態数が $X_0$ の条件付き重みを与え、以後は再標本化せずR196A--R196Cの同じtracer力学がR161移動生成子へ縮約する。終時刻にはR112が既存の $X_T$ を記録する。
 
-Q3-1の固定達成基準はM58のsignal marginalから有効空間包絡への縮約であり、裸のM37についてR86、M58のshell/TL負荷を含む安定性についてR197C/R197が満たす。M54空間状態構成の粒子位置と移動分布の整合はQ3-2、Q3-4A、Q3-4B、Q3-5の下流構造であって、Q3-1へ遡及的に要求しない。M37信号とM57 tracerの同一試行統合はR197で閉じる。時計、終位置記録、resetまで含む単一反復周期は別の強化課題として残す。
+Q3-1の固定達成基準はM59のsignal marginalから有効空間包絡への縮約であり、裸のM37についてR86、M59のshell/TL負荷を含む安定性についてR197C/R197が満たす。M54空間状態構成の粒子位置と移動分布の整合はQ3-2、Q3-4A、Q3-4B、Q3-5の下流構造であって、Q3-1へ遡及的に要求しない。M37信号とM57 tracerの同一試行統合はR197で閉じる。時計、終位置記録、resetまで含む単一反復周期は別の強化課題として残す。
 
 Q1はQ1 W型2モード手順、Q2はM54の永続記憶部と受信機構、固定時刻の一般結果成分測定機構はM54静的/R170を使う。Q3の空間配置はM54空間状態構成を使う。R187はM37の弱結合W型正常モードをQ1の制御用信号系へ接続するが、M54空間状態構成の全時刻位置整合をQ1へ流用しない。Q1の排他的結果はR191で形成し、R181Dで同じ試行の射影結果成分を受け渡す。R164/R190/R170はQ1主線へ使わない。
 

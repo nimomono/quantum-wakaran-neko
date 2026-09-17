@@ -1,3 +1,10 @@
+## draft-102：M59 Duffing shell＋二保存action reservoirへの置換
+
+- 旧M58のthermostatted 2-action shellを現行主線から退役し、M59をM37 signal＋実2-mode Duffing shell＋二成分DNLS action reservoir＋M57 transportからなる共通ミクロ模型として採用する。
+- R198Aで非共鳴2-mode Duffingから2-action shellを有限時間縮約し、R198Bで二保存action有限reservoirのmicrocanonical marginalをM59 Gibbs shellへ $O(N^{-1})$ で接続する。
+- R198Cで有限exchange couplingの奇数次補正消失、二次chemical-potential renormalization、残差 $O(\lambda^4)+O(\lambda^2/N)$ を整理する。R198Dは正温度・非凝縮sectorのmixing/homogenizationを明示仮定した有限時間thermalization定理とする。
+- 固定目標Q3-1/Q3-2の達成ラベルは維持する。一方、M59のA1完全証人性にはR198Dの具体的mixing witnessが残るためQ3-1-A1/Q3-2-A1は部分達成へ戻す。A2は未監査のまま保持する。
+
 ## draft-101：M58 Q3共通ミクロ模型とR197統合
 
 - M37 signal subsystem、thermostatted 2-action shell、M57 transport subsystemを同一試行上のM58へ統合し、R197A--R197CとR197を追加する。
@@ -157,8 +164,8 @@
 | Q2-2 | 条件付き達成 | M54静的状態構成 | 永続4モード記憶部とA/B二つの物理R191読出し端 | A設定gate、A端R191、projector router、B設定gate、B端R191 | R112、R180C、R181D、R191 | 固定一重項・固定有限設定族・非空間分離の範囲。transducer、2つのmacrospin、router、記録、resetの単一装置統合が残る。自由設定・空間分離は未達 |
 | Q2-3 | 条件付き達成 | M54三部分系静的状態構成 | 永続8モード記憶部と逆演算用補助部／作業領域 | 二段ゲート合成と末端段階的射影選別 | R112、R177、R181B、R181C、R181D、R191 | R191とR181Dの末端開放接続、および固定3入力を越える一般サイズの資源効率は未達 |
 | Q2-4 | 条件付き達成 | M54一般静的状態構成 | $2^n$ 受動直接モード記憶部＋一様開放浴 interface | 一般gate列、R191逐次読出し、R181D router、非終端安全結果でR192作用安定化、R179 open reset | R112、R179、R181C、R181D、R186、R191、R192 | 静的配線、R191 transducer、router、R192による作用下限回復、open resetを一つの一様装置族へ接続し、R186の多項式精度条件を満たすこと |
-| Q3-1 | 達成 | M58共通Q3ミクロ模型のsignal marginal | M37実正準空間信号＋thermostatted shell/TL弱負荷 | Schrödinger型空間包絡 | R86、R197C、R197 | clock・終位置record・resetを含む反復周期、A2直接数値再現は強化課題 |
-| Q3-2 | 達成 | M58共通Q3ミクロ模型 | 同一試行のM37信号＋thermostatted 2-action shell＋M57 dual-ballistic-TL moving-bath tracer | Nelson型位置過程・時間対称Newton則 | R197、R195A、R196A--R196C、R161、R185 | R185の正則化・格子残差を分離。clock・record・reset反復周期、連続空間一様極限、多粒子は強化課題 |
+| Q3-1 | 達成 | M59共通Q3ミクロ模型のsignal marginal | M37実正準空間信号＋thermostatted shell/TL弱負荷 | Schrödinger型空間包絡 | R86、R197C、R197、R198A--R198D | clock・終位置record・resetを含む反復周期、A2直接数値再現は強化課題 |
+| Q3-2 | 達成 | M59共通Q3ミクロ模型 | 同一試行のM37信号＋thermostatted 2-action shell＋M57 dual-ballistic-TL moving-bath tracer | Nelson型位置過程・時間対称Newton則 | R197、R195A、R196A--R196C、R161、R185、R198A--R198D | R185の正則化・格子残差を分離。clock・record・reset反復周期、連続空間一様極限、多粒子は強化課題 |
 | Q3-3A | 達成 | — | M37＋R123有限環境 | 束縛状態・純位相緩和 | R86、R123（井戸型） | — |
 | Q3-3B | 達成 | — | M37＋R123有限環境 | 束縛状態・純位相緩和 | R86、R123（調和型） | — |
 | Q3-3C | 達成 | — | M37＋R123有限環境 | W型束縛状態・純位相緩和 | R86、R123、R182 | — |

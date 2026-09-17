@@ -1,3 +1,10 @@
+## draft-102：M59 Duffing shell＋二保存action reservoirへ置換
+
+- 旧M58のthermostatted 2-action shellを現行主線から退役し、実2-mode Duffing、二成分DNLS reservoir、Hamiltonian exchangeを持つM59へ置換した。
+- R198A--R198Dを追加し、Duffing平均化、有限reservoirのmicrocanonical-to-Gibbs縮約、finite-exchange mean-force較正、条件付きfinite-time mixingを責務分離した。
+- 旧R197AのGibbs平均力恒等式をM59 target shellへ再接続し、R197C/R197をM59誤差台帳へ改訂した。旧R197Bの直接Langevin Poisson-corrector経路は現行主線から退役した。
+- 固定目標Q3-1/Q3-2の達成ラベルは維持し、Q3-1-A1/Q3-2-A1はR198Dの具体的mixing witnessを残件として部分達成へ戻した。
+
 ## draft-101：M58 Q3共通ミクロ模型とR197統合
 
 - M37 signal、thermostatted 2-action shell、M57 transportを同一試行M58へ統合し、R197A--R197Cと主定理R197を追加した。
