@@ -1,7 +1,7 @@
 @number: 8
 @chapter: 本文
 @title: 誤差、資源、反証条件、未完成目標
-@status: Q1/Q2のR191 2結果読出し、R181D projector router、Q2-2の2端逐次R191、Q3のM57/R195A・R196A--R196C--R161--R185経路、M37信号物理実装層を横断して誤差・資源・反証条件を整理する。R162はR161 lawのoptional Poisson realizationであり中心誤差台帳へ入れない。
+@status: Q1/Q2のR191 2結果読出し、R181D projector router、Q2-2の2端逐次R191、Q3のM60/R199A・R195A・R196A--R196C--R161--R185経路、M37信号物理実装層を横断して誤差・資源・反証条件を整理する。R162はR161 lawのoptional Poisson realizationであり中心誤差台帳へ入れない。
 
 
 ### R191の2結果読出し誤差と資源
@@ -25,7 +25,7 @@ Q1/Q2の2結果主線では、1ノードの読出し誤差を
 4. R180Cの積因子化誤差を各翼の局所R191誤差へ吸収した上で再び加える。
 5. 無反応質量を理想分布差と実装失敗へ2回加える。
 6. 同じ準備済み入力偏差を $\varepsilon_{\rm in}$、R135の初期共分散誤差、系列固有の入力誤差へ重ねて入れる。
-7. M57では同じM37/R86 carrier偏差を $\varepsilon_{86}$ とballistic-port誤差へ二重に入れず、同じmoving-frame追従偏差を $\varepsilon_{\rm prop}$、$\varepsilon_{\rm track}$、$\varepsilon_{\rm load}$ へ重複加算しない。平衡bathのGLE/FDT誤差とperiodic homogenization誤差も導出箇所ごとに一度だけ数える。
+7. M60では同じM37/R86 carrier偏差を $\varepsilon_{86}$ とballistic-port誤差へ二重に入れず、同じmoving-frame追従偏差を $\varepsilon_{\rm prop}$、$\varepsilon_{\rm track}$、$\varepsilon_{\rm load}$ へ重複加算しない。平衡bathのGLE/FDT誤差とperiodic homogenization誤差も導出箇所ごとに一度だけ数える。
 
 全ての理想分布と実分布は同じ完全結果集合へ埋め込む。成功試行だけで再規格化しない。
 
@@ -460,7 +460,7 @@ Q2-4は条件付き達成を維持する。残る条件は、静的部分系配�
 
 A1ではHamiltonian無限浴だけでなく、規約と共分散を明示したLangevin型SDEその他の採用開放ミクロ方程式を認め、理想白色雑音を許す。A2では採用したミクロODE/SDEそのものを直接計算する。理想白色雑音を使うQ1/Q2模型を回路へ移す場合、B2/B3では有限帯域雑音源と時間尺度分離を明示する。
 
-従来からのQ1/Q2完全周期収支、R180Cの共通浴統合、M59 common process--時計--終位置記録--resetの単一反復周期統合、M57の連続空間一様極限、多粒子拡張、有限閉鎖Hamiltonian化は、A/B/Sを横断する上位または系列固有の実装強化課題として保持する。R162を特定Hamiltonian浴から再導出することはM57主線の要件ではない。旧R162有限衝突経路、旧R188、旧R179部分SWAP貯蔵部、旧R178D有限閉鎖リセット境界は撤回せず、有限閉鎖実装を調べる強化結果として論文外メモへ保存する。
+従来からのQ1/Q2完全周期収支、R180Cの共通浴統合、M60 common process--時計--終位置記録--resetの単一反復周期統合、M60の連続空間一様極限、多粒子拡張、有限閉鎖Hamiltonian化は、A/B/Sを横断する上位または系列固有の実装強化課題として保持する。R162を特定Hamiltonian浴から再導出することはM57主線の要件ではない。旧R162有限衝突経路、旧R188、旧R179部分SWAP貯蔵部、旧R178D有限閉鎖リセット境界は撤回せず、有限閉鎖実装を調べる強化結果として論文外メモへ保存する。
 
 Q1-1、Q1-2、Q3-1、Q3-2、Q3-3A、Q3-3B、Q3-3Cは達成、Q2-1、Q2-2、Q2-3、Q2-4、Q3-4A、Q3-4B、Q3-5は条件付き達成、Q3-6は未達である。
 
