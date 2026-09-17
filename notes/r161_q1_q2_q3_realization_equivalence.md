@@ -2,7 +2,7 @@
 
 ## 1. 位置づけ
 
-このメモは、Q1型局所自由度を空間に並べQ2型2体系相互作用を加える参照模型と、Q3の具体的な粒子・浴模型を、どの意味で「同じ」とみなすかを整理する。draft-98以後、論文正本のQ3ミクロ物理実現はM57 dual-ballistic-TL moving-bath tracerとし、R161より後段の数学核は従来通り共通に保つ。
+このメモは、Q1型局所自由度を空間に並べQ2型2体系相互作用を加える参照模型と、Q3の具体的な粒子・浴模型を、どの意味で「同じ」とみなすかを整理する。draft-103以後、論文正本のQ3ミクロ物理実現はM60の統一二成分chiral媒体＋moving-bath tracerとし、R161より後段の数学核は従来通り共通に保つ。
 
 現行Q3の数学的正本は
 
@@ -20,7 +20,7 @@ optional Poisson realization
 Nelson / time-symmetric Newton
 ```
 
-である。R161より前段だけをミクロ実現依存とし、R162は基礎的実体でなくM57粗視化経路の比較対象として使う。
+である。R161より前段だけをミクロ実現依存とし、R162は基礎的実体でなくM60 transport粗視化経路の比較対象として使う。
 
 ## 2. Q1/Q2から得る空間入力
 
@@ -56,7 +56,7 @@ j_{ij}=\frac{J_{i\to j}}{S},
 
 Q1のBorn型選択機構を各辺へ置き、Q2型の反対称流を局所的に重ねる模型は、適切な $(\pi,j,t)$ を作ればR161と同じ位置生成子を与える。これはQ1/Q2からQ3数学へ接続できることを露出した **参照実現** として有用である。
 
-一方、この模型のpointer列やone-hot tokenを自然界の基礎的実体として採用する必要はない。現行の物理実装は、局在tracer、2作用状態数、dual ballistic TL、moving bath-frame carrier、平衡oscillator bathを用いるM57である。
+一方、この模型のpointer列やone-hot tokenを自然界の基礎的実体として採用する必要はない。現行の物理実装は、局在tracer、tracer付随2-mode Duffing shell、nonlinear coreとballistic leadを兼ねる二成分chiral媒体、moving bath-frame carrier、平衡oscillator bathを用いるM60である。
 
 ## 4. R161実現同値
 
@@ -79,12 +79,12 @@ D_{\rm TV}(p_t^A,p_t^B)
 \leq T\varepsilon_{\rm gen}.
 ```
 
-従って近似ミクロ模型も、生成子誤差を制御すれば同じR161/R162/R185下流へ接続できる。M57/R196Cはこの規約を使い、ballistic-TL/moving-bath/tracer粗視化生成子とideal R161生成子との差を有限時間で評価する。
+従って近似ミクロ模型も、生成子誤差を制御すれば同じR161/R162/R185下流へ接続できる。M60/R199A・R196A--R196Cはこの規約を使い、chiral-medium/moving-bath/tracer粗視化生成子とideal R161生成子との差を有限時間で評価する。
 
 ## 5. 物理実現の比較規約
 
-- M57 dual-ballistic-TL moving-bath tracer：Q3で採用する現行ミクロ物理実現。R195Aが局所密度とsignal currentをexactに与え、R196Aのballistic wave pressureがmoving bath velocity、R196Bの平衡bathとperiodic homogenizationがdiffusion・osmotic drift、R196Cのmetastable reductionがR161 activityを供給する。
-- R162 open Poisson jump：M57と比較するideal stochastic reference。基礎的なQ3存在論とは扱わない。
+- M60 unified-chiral-medium moving-bath tracer：Q3で採用する現行ミクロ物理実現。R198A--R198D/R197Aが2-action state countとosmotic free energy、R195Aがsignal current、R199Aが同一媒体のballistic lead、R196Aのwave pressureがmoving bath velocity、R196Bの平衡bathとperiodic homogenizationがdiffusion・osmotic drift、R196Cのmetastable reductionがR161 activityを供給する。
+- R162 open Poisson jump：M60 transportと比較するideal stochastic reference。基礎的なQ3存在論とは扱わない。
 - 空間化Q1＋Q2相互作用：Q1/Q2からR161へ到達できることを示す数学的参照実現。
 - M56：spin-only実現を狙う代替研究線。現行Q3達成根拠には使わない。
 - その他の粒子・浴模型：同じ $(\pi,j,t)$ または同じ有向率を導けるかで比較する。
@@ -103,4 +103,4 @@ micro model -> (π, j, t) -> R161
 - Q1/Q2のR191測定pointerをQ3粒子と同一視しない。
 - $(\pi,j)$ だけから対称活動量 $t$ が一意に決まるとは主張しない。
 - 異なるミクロ模型が同じ生成子を持つことから、それらの存在論や熱力学的資源まで同じとは結論しない。
-- M57のcontinuous-space一様極限、多粒子、全周期のsource--clock--record統合は別の強化課題である。
+- M60のcontinuous-space一様極限、多粒子、全周期のsource--clock--record統合は別の強化課題である。

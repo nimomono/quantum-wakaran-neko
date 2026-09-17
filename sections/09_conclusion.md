@@ -43,7 +43,7 @@ P(r,s\mid x,y)
 
 Q3の粒子位置はQ1/Q2の測定結果とは別の因果鎖を持つ一方、その信号数学は共通である。Q1型の局所正準モードを空間頂点へ配置し、Q2型の2体系結合を辺へ反復すると、局所作用から $\pi$、連続方程式から反対称流 $j$ が得られる。R195Aはさらにchiral作用の和・差からsignal currentとedge velocityを厳密に露出させる。
 
-M57はこのsignalをdual ballistic TLへ弱くtapし、wave pressureで局所bath-cell COM $Y_e$ を受動的に動かす。R196Aの唯一安定fixed pointは
+M60はこのsignalを同一二成分chiral媒体へ弱くtapし、R199Aで取り出したballistic leadのwave pressureにより局所bath-cell COM $Y_e$ を受動的に動かす。R196Aの唯一安定fixed pointは
 
 ```math
 \frac{U_*}{c}
@@ -52,7 +52,7 @@ M57はこのsignalをdual ballistic TLへ弱くtapし、wave pressureで局所ba
 r=\frac{I_+-I_-}{I_++I_-}.
 ```
 
-TL自体を熱化せず、drifting-Gibbsや非平衡FDTは仮定しない。actual tracer $X$ は $Y_e$ と共に並進する通常の平衡oscillator bathへ結合し、R196BでGLE/FDT、overdamped reduction、periodic homogenizationを行う。
+ballistic lead自体へthermalizationを課さず、drifting-Gibbsや非平衡FDTは仮定しない。actual tracer $X$ は $Y_e$ と共に並進する通常の平衡oscillator bathへ結合し、R196BでGLE/FDT、overdamped reduction、periodic homogenizationを行う。
 
 ```math
 D_0=\frac\nu{g_K},
@@ -80,8 +80,8 @@ L_{\rm R161}
 
 である。
 
-R162のopen Poisson-jump過程はM57の基礎的実体ではなく、R196Cが比較するideal stochastic referenceとして残す。R185は同じ前向き経路法則のBayes反転から前進・後退平均微分と時間対称Newton則へ接続する。Q1/Q2の測定pointerをQ3粒子へ同一視しない。
+R162のopen Poisson-jump過程はM60の基礎的実体ではなく、R196C/R161が比較するideal stochastic referenceとして残す。R185は同じ前向き経路法則のBayes反転から前進・後退平均微分と時間対称Newton則へ接続する。Q1/Q2の測定pointerをQ3粒子へ同一視しない。
 
-今回の縮約により、R184の旧M37--M54空間率latchは補助結果へ下がり、M57主線の必須依存から外れた。M56 Brownian-spin Q3模型はspin-only代替研究線へ位置づける。R190A--R190C、R170、旧R180Bも現行Q1/Q2主線へ戻さない。これらは反証されたのではなく、別の物理実現・強化案として `notes/` とGit履歴へ保存する。
+今回の縮約により、R184の旧M37--M54空間率latchは補助結果へ下がり、M60主線の必須依存から外れた。2-action state countはR198A--R198D/R197A、signal currentはR195A、ballistic transportはR199A・R196A--R196Cへ責務分離している。M56 Brownian-spin Q3模型はspin-only代替研究線へ位置づける。R190A--R190C、R170、旧R180Bも現行Q1/Q2主線へ戻さない。これらは反証されたのではなく、別の物理実現・強化案として `notes/` とGit履歴へ保存する。
 
-残る主要な物理課題は、各固定目標について具体的古典ミクロ模型A1とその直接数値再現A2を監査すること、Q1/Q2について具体的アナログ回路B1、実験可能パラメータ領域B2、回路直接数値再現B3へ進むこと、Q2-2で測定窓内の空間的・因果的隔離をどこまで強められるかQ2-2-Sで検査することにある。これと並行して、R191の作用和・作用差transducer、Brownian macrospin、projector router、外部記録、R179リセットを同じ具体装置へ統合すること、M37信号源とM57 tracer、時計、終位置記録を単一反復周期へ統合すること、Q2-4の外部多項式資源条件を物理配線・較正・雑音まで閉じること、Q3の連続空間一様極限・多粒子拡張、Q3-6の位相量子化を閉じることを上位または横断的強化課題として残す。A1では採用開放SDEと理想白色雑音を許すが、回路実装Bでは有限帯域雑音へ落とす。
+残る主要な物理課題は、各固定目標について具体的古典ミクロ模型A1とその直接数値再現A2を監査すること、Q1/Q2について具体的アナログ回路B1、実験可能パラメータ領域B2、回路直接数値再現B3へ進むこと、Q2-2で測定窓内の空間的・因果的隔離をどこまで強められるかQ2-2-Sで検査することにある。これと並行して、R191の作用和・作用差transducer、Brownian macrospin、projector router、外部記録、R179リセットを同じ具体装置へ統合すること、M37信号源とM60 tracer、時計、終位置記録を単一反復周期へ統合すること、Q2-4の外部多項式資源条件を物理配線・較正・雑音まで閉じること、Q3の連続空間一様極限・多粒子拡張、Q3-6の位相量子化を閉じることを上位または横断的強化課題として残す。A1では採用開放SDEと理想白色雑音を許すが、回路実装Bでは有限帯域雑音へ落とす。
