@@ -1,9 +1,20 @@
+## draft-102：M59 Duffing/action-reservoir shell検算
+
+- `tools/verify_q3_common_micro_model.py` でR198AのDuffing平均係数が $\kappa_{\rm sh}(S-A)^2/2$ に一致することを検査する。
+- R198Bのentropy Hessian剰余が $1/N$ で減少し、$dK_1dK_2=S\,dSdu$ のJacobianを与えることを検査する。
+- R198Cで独立位相平均によりexchange observableの一次項が消え、二次momentが $2K_rm_r$ となること、chemical-potential再較正がcarrier shiftを相殺することを検査する。
+- R198Dでは静的 $\lambda^4$ 誤差とtracking $|\dot A|/\lambda^2$ を同時に小さくできる非空weak-exchange windowの例を検査する。DNLSのmixingそのものはA1/A2残件であり、検算scriptは未証明のergodicityを仮定済み事実として検査しない。
+- `tools/check_source.py` でA23がM59/R198A--R198Dを正本化し、Q3-1-A1/Q3-2-A1が部分達成、A2が未監査であることを回帰検査する。
+
 ## draft-101：M58 Q3共通ミクロ模型の検算
 
 - `tools/verify_q3_common_micro_model.py` で $\mathcal J_0=2m
 u$ によるM37--M57辺結合一致、finite-width 2-action shellの分配関数、平均generalized force、二乗平均を数値積分と閉形式で照合する。
-- $\Delta(x)$ の単調減少、$x=3$ での有限幅誤差、$\mu_{m sh}\propto\epsilon^{-4-\zeta}$ によるgenerator-level $O(\epsilon^\zeta)$ とstrong $O(\epsilon^{\zeta/2})$、M37平均shell反作用 $O(\epsilon^6)$ を検査する。
-- witnessで $\lambda_{m sh}^{-1}\ll	au_X\ll	au_p\ll	au_Y\ll T_{m sig}$ の非空時間尺度窓を確認する。
+- $\Delta(x)$ の単調減少、$x=3$ での有限幅誤差、$\mu_{
+m sh}\propto\epsilon^{-4-\zeta}$ によるgenerator-level $O(\epsilon^\zeta)$ とstrong $O(\epsilon^{\zeta/2})$、M37平均shell反作用 $O(\epsilon^6)$ を検査する。
+- witnessで $\lambda_{
+m sh}^{-1}\ll	au_X\ll	au_p\ll	au_Y\ll T_{
+m sig}$ の非空時間尺度窓を確認する。
 - `tools/check_source.py` でQ3-1/Q3-2のM58/R197依存、A22の旧無条件PMF文、旧M37--M57未統合表現の再混入を回帰検査する。
 
 ## draft-100：R161 canonical Markov path law検算

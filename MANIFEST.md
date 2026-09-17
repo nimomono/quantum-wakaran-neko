@@ -1,3 +1,10 @@
+## draft-102：M59 Duffing shell＋二保存action reservoir
+
+- `sections/A23_q3_common_micro_model.md` をM59正本として全面改訂し、旧M58の直接thermostatをR198A--R198DのDuffing/action-reservoir持上げへ置換する。
+- `tools/verify_q3_common_micro_model.py` をR198A--R198Dの係数、finite-$N$、exchange symmetry、parameter-window検算へ置換する。
+- README、第1・6・8章、A22、PROJECT_STATUS、ENHANCEMENT_TARGETS、VALIDATION、CHANGELOG、source checksを同期する。
+- `paper.md`、`main.tex`、`paper.pdf` を再生成する。
+
 ## draft-101：M58 Q3共通ミクロ模型とR197統合
 
 - `sections/A23_q3_common_micro_model.md` を追加し、R197A--R197CとR197でQ3-1/Q3-2を同一M58過程の異なる周辺縮約として統合する。

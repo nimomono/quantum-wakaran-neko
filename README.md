@@ -112,7 +112,7 @@ r=\frac{I_+-I_-}{I_++I_-}
 
 という唯一安定なbath-frame速度を作ります。TL自体を熱化せず、drifting-Gibbsや非平衡FDTは使いません。
 
-実在tracer $X$ は、この $Y_e$ と共に並進する通常の平衡oscillator bathへ結合します。Brownian noiseとFDTはこの平衡bathだけが担い、2作用状態数の自由エネルギーがosmotic driftを与えます。periodic potentialのhomogenizationに
+実在tracer $X$ は、この $Y_e$ と共に並進する通常の平衡oscillator bathへ結合します。tracerのBrownian noiseとFDTはこの平衡bathが担います。osmotic driftを与える2作用Gibbs shellは、M59では実2-mode Duffing内部自由度を二保存action DNLS reservoirへ弱結合し、そのmicrocanonical周辺化とfinite-time mixingから導きます。periodic potentialのhomogenizationに
 
 ```math
 D_0=\frac{\nu}{g_K},
@@ -152,7 +152,7 @@ Q1では、2モード可逆操作、Born型2結果測定、同軸反復、異軸
 
 Q2では、2量子ビット型結合操作、3部分系の二段ゲート合成、非空間分離Bell型統計、一般回路の出力標本化を条件付きで構成しています。主な残件は、読出し、射影成分の振り分け、作用安定化、リセットなどを一つの具体的な装置へ統合することと、一般回路での物理配線・較正・揺らぎ条件を閉じることです。
 
-Q3では、M37局所古典振動子signal、thermostatted 2-action shell、M57 dual-ballistic-TL moving-bath tracerを同じM58古典開放模型へまとめています。signal marginalだけを見ればR86のSchrödinger型有効力学、同じ試行のtracerまで見ればR196A--R196C、R161、R185を通してNelson型の時間対称Newton則へ縮約します。井戸型・調和型・W型の束縛状態、トンネル効果、2経路干渉まで進んでおり、位相量子化は未達です。
+Q3では、M37局所古典振動子signal、実2-mode Duffing shell、二保存action DNLS reservoir、M57 dual-ballistic-TL moving-bath tracerをM59共通模型へまとめています。R198A--R198CでDuffingから2-action Gibbs shellまでの静的Hamiltonian持上げを構成し、R198Dでfinite-time mixing条件を明示します。signal marginalはR86のSchrödinger型有効力学、tracerまで含めるとR196A--R196C、R161、R185を通してNelson型の時間対称Newton則へ縮約します。R198Dの具体的mixing witnessは強化目標A1の残件です。
 
 正式な達成判定、根拠結果、残っている条件は [PROJECT_STATUS.md](PROJECT_STATUS.md) を正本とします。
 
