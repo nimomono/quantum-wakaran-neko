@@ -23,11 +23,25 @@ Q_STATUS_ROW = re.compile(
 )
 
 
-def section_between(text: str, start: str, end: str) -> str:
+def markdown_table_after_heading(text: str, heading: str) -> str:
     try:
-        return text.split(start, 1)[1].split(end, 1)[0]
+        tail = text.split(heading, 1)[1]
     except IndexError as exc:
-        raise AssertionError(f"document boundary is missing: {start!r} .. {end!r}") from exc
+        raise AssertionError(f"required heading is missing: {heading!r}") from exc
+
+    lines = tail.splitlines()
+    start = next((i for i, line in enumerate(lines) if line.lstrip().startswith("|")), None)
+    if start is None:
+        raise AssertionError(f"markdown table is missing after heading: {heading!r}")
+
+    table: list[str] = []
+    for line in lines[start:]:
+        if not line.lstrip().startswith("|"):
+            break
+        table.append(line)
+    if len(table) < 3:
+        raise AssertionError(f"markdown table is malformed after heading: {heading!r}")
+    return "\n".join(table)
 
 
 def table_qids(text: str) -> set[str]:
@@ -61,14 +75,8 @@ def check_sources() -> None:
 
 
 def check_project_status() -> set[str]:
-    path = ROOT / "PROJECT_STATUS.md"
-    text = path.read_text(encoding="utf-8")
-
-    fixed = section_between(
-        text,
-        "### 固定目標一覧",
-        "#### Q3-1からQ3-6の達成判定の補足",
-    )
+    text = (ROOT / "PROJECT_STATUS.md").read_text(encoding="utf-8")
+    fixed = markdown_table_after_heading(text, "### 固定目標一覧")
     fixed_ids = table_qids(fixed)
     if not fixed_ids:
         raise AssertionError("fixed-goal IDs were not found")
@@ -100,30 +108,26 @@ def check_project_status() -> set[str]:
 
 
 def check_enhancement_targets(fixed_ids: set[str]) -> None:
-    path = ROOT / "ENHANCEMENT_TARGETS.md"
-    text = path.read_text(encoding="utf-8")
-    current = section_between(
-        text,
-        "## 強化目標の現在地表",
-        "## 既存の実装強化課題との関係",
-    )
+    text = (ROOT / "ENHANCEMENT_TARGETS.md").read_text(encoding="utf-8")
+    current = markdown_table_after_heading(text, "## 強化目標の現在地表")
 
     rows: dict[str, list[str]] = {}
-    for line in current.splitlines():
+    for line in current.splitlines()[2:]:
         if not re.match(rf"^\|\s*{QID_PATTERN}\s*\|", line):
             continue
         cells = [cell.strip() for cell in line.strip().strip("|").split("|")]
-        if len(cells) < 2:
+        if len(cells) < 3:
             raise AssertionError(f"malformed enhancement row: {line}")
-        qid, values = cells[0], cells[1:]
+        qid = cells[0]
+        status_values = cells[1:-1]
         if qid in rows:
             raise AssertionError(f"duplicate enhancement row: {qid}")
-        invalid = set(values) - ENHANCEMENT_STATUS_VALUES
+        invalid = set(status_values) - ENHANCEMENT_STATUS_VALUES
         if invalid:
             raise AssertionError(
                 f"unsupported enhancement status for {qid}: {sorted(invalid)}"
             )
-        rows[qid] = values
+        rows[qid] = status_values
 
     if set(rows) != fixed_ids:
         raise AssertionError(
