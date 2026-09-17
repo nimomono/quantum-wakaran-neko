@@ -1,3 +1,11 @@
+## validation-architecture-v2：改訂に強い検算責務へ再編
+
+- 恒久検算を「構造」「required科学検算」「生成物同期」「LaTeX semantic」「品質lint」へ分離し、特定PRだけの旧模型・旧依存確認を `tools/migrations/` へ隔離した。
+- `tools/check_source.py` から特定M/R/Q番号、特定section、現在の証明経路・達成状態を固定する検査を撤去し、syntax/schema/ID一意性/状態表整合/read-only境界だけへ縮約した。
+- `tools/run_physics_checks.py` は最初の失敗で停止せず全required verifierを実行して一覧を返す。研究中の検算は `tools/candidate_checks/` に分離し、通常CIのhard checkから外す。
+- `tools/check_generated.py` を生成物同期専用とし、LaTeX hard errorは新設 `tools/check_latex_semantics.py` へ分離した。paper jobではartifact syncが失敗してもLaTeX semantic診断を隠さない。
+- `VALIDATION_POLICY.md` に検算作成12原則を明記し、`tools/test_validation_policy.py` で理論スナップショット依存の再流入、migrationのCI登録、physics runnerのearly break、生成同期とLaTeX検査の再結合を自己検査する。
+
 ## draft-102：M59 Duffing shell＋二保存action reservoirへ置換
 
 - 旧M58のthermostatted 2-action shellを現行主線から退役し、実2-mode Duffing、二成分DNLS reservoir、Hamiltonian exchangeを持つM59へ置換した。

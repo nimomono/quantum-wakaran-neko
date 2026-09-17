@@ -1,3 +1,15 @@
+## validation-architecture-v2：検算アーキテクチャ
+
+- `VALIDATION_POLICY.md` — 恒久検算・candidate・migration・quality lintの責務と検算作成ルールの正本。
+- `tools/check_source.py` — 理論番号に依存しない構造契約だけを検査。
+- `tools/run_physics_checks.py` — required科学検算を全件実行して集約報告。
+- `tools/candidate_checks/README.md` — 研究中の非blocking科学検算の配置規約。
+- `tools/migrations/README.md` — PR固有の一時移行検査の配置規約。
+- `tools/check_generated.py` — 生成物同期専用。
+- `tools/check_latex_semantics.py` — 未解決参照・欠落文字・fatal error等のLaTeX hard error専用。
+- `tools/test_validation_policy.py` — 上記責務境界そのものの自己回帰検査。
+- `.github/workflows/verify.yml` — read-onlyの3ジョブ構成を維持し、論文生成後の同期・semantic・lintを独立報告。
+
 ## draft-102：M59 Duffing shell＋二保存action reservoir
 
 - `sections/A23_q3_common_micro_model.md` をM59正本として全面改訂し、旧M58の直接thermostatをR198A--R198DのDuffing/action-reservoir持上げへ置換する。
