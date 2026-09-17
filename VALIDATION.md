@@ -1,3 +1,30 @@
+## validation-architecture-v2：検算責務の再編
+
+この節以降に残る過去draftの「特定M/R/Q番号や本文断片を `check_source.py` で固定する」記録は、そのdraft当時の移行検査履歴であり、新しい恒久検算の設計例ではない。今後の正本方針は `VALIDATION_POLICY.md` と `tools/README.md` に従う。
+
+通常CI相当の手動検算は次で行う。
+
+```bash
+python -m compileall -q tools
+python tools/check_source.py
+python tools/test_validation_policy.py
+python tools/check_terminology.py
+python tools/run_physics_checks.py
+python tools/build_paper.py --output-dir build/ci
+python tools/check_generated.py build/ci
+python tools/check_latex_semantics.py build/ci/latex/main.log
+python tools/lint_typeset.py build/ci/latex/main.log
+git diff --check
+```
+
+研究中のcandidate科学検算も確認するときだけ、
+
+```bash
+python tools/run_physics_checks.py --include-candidate
+```
+
+を追加する。PR固有の旧語・旧依存・旧模型の除去確認は `tools/migrations/` の一時検査として扱い、通常CIへ登録しない。
+
 ## draft-102：M59 Duffing/action-reservoir shell検算
 
 - `tools/verify_q3_common_micro_model.py` でR198AのDuffing平均係数が $\kappa_{\rm sh}(S-A)^2/2$ に一致することを検査する。
