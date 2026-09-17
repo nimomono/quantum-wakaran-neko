@@ -48,17 +48,18 @@ def string_literals(path: Path) -> list[str]:
 
 
 def test_source_checker_has_no_theory_snapshot_literals() -> None:
-    path = TOOLS / "check_source.py"
-    literals = string_literals(path)
+    literals = string_literals(TOOLS / "check_source.py")
     concrete_result = re.compile(r"(?<![A-Za-z0-9_\\])[MR]\d+[A-Z]?(?![A-Za-z0-9_])")
     concrete_goal = re.compile(r"(?<![A-Za-z0-9_\\])Q\d+-\d+[A-Z]?(?:-[A-Z])?(?![A-Za-z0-9_])")
-    concrete_section = re.compile(r"(?:sections/)?A?\d+_[A-Za-z0-9_\-]+\.md")
+    concrete_section_path = re.compile(r"sections/[A-Za-z0-9_.\-/]+\.md")
 
-    offenders: list[str] = []
-    for value in literals:
-        if concrete_result.search(value) or concrete_goal.search(value) or concrete_section.search(value):
-            offenders.append(value)
-
+    offenders = [
+        value
+        for value in literals
+        if concrete_result.search(value)
+        or concrete_goal.search(value)
+        or concrete_section_path.search(value)
+    ]
     assert offenders == [], (
         "check_source.py contains theory-snapshot literals; "
         "move PR-specific checks to tools/migrations/: " + repr(offenders)
