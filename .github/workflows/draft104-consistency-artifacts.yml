@@ -45,3 +45,17 @@ jobs:
             build/draft104/main.tex
             build/draft104/paper.pdf
             build/draft104/latex/main.log
+      - name: Transport generated blobs
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import base64
+          root = Path("build/draft104")
+          for name in ("paper.md", "main.tex", "paper.pdf"):
+              data = base64.b64encode((root / name).read_bytes()).decode("ascii")
+              print(f"@@BEGIN:{name}:{len(data)}")
+              width = 50000
+              for index in range(0, len(data), width):
+                  print(f"@@CHUNK:{name}:{index // width}:{data[index:index+width]}")
+              print(f"@@END:{name}")
+          PY
