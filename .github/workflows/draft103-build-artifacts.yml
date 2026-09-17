@@ -1,0 +1,45 @@
+name: draft103-build-artifacts
+
+on:
+  push:
+    branches:
+      - draft-103-m60-unified-chiral-medium
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: true
+      - run: git lfs pull
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: |
+          sudo apt-get update
+          sudo apt-get install -y pandoc poppler-utils texlive-latex-extra texlive-xetex
+      - name: build
+        run: python tools/build_paper.py --output-dir build/draft103
+      - name: source and physics checks
+        run: |
+          python -m pip install numpy
+          python tools/check_source.py
+          python tools/test_validation_policy.py
+          python tools/run_physics_checks.py
+          python tools/run_physics_checks.py --include-candidate
+      - name: LaTeX semantics
+        run: python tools/check_latex_semantics.py build/draft103/latex/main.log
+      - name: upload generated artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: draft103-generated
+          path: |
+            build/draft103/paper.md
+            build/draft103/main.tex
+            build/draft103/paper.pdf
+            build/draft103/latex/main.log
