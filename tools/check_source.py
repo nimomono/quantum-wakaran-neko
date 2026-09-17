@@ -76,17 +76,29 @@ def check_sources() -> None:
 
 def check_project_status() -> set[str]:
     text = (ROOT / "PROJECT_STATUS.md").read_text(encoding="utf-8")
-    fixed = markdown_table_after_heading(text, "### 固定目標一覧")
-    fixed_ids = table_qids(fixed)
+    try:
+        fixed_block = text.split("### 固定目標一覧", 1)[1].split("### 現在地", 1)[0]
+    except IndexError as exc:
+        raise AssertionError(
+            "PROJECT_STATUS fixed-goal/current-position boundary is missing"
+        ) from exc
+
+    fixed_rows = [
+        line
+        for line in fixed_block.splitlines()
+        if re.match(rf"^\\|\\s*{QID_PATTERN}\\s*\\|", line)
+    ]
+    fixed_ids = table_qids("\\n".join(fixed_rows))
     if not fixed_ids:
         raise AssertionError("fixed-goal IDs were not found")
 
-    implementation_id = re.search(r"(?<![A-Za-z])[MR]\d+", fixed)
-    if implementation_id:
-        raise AssertionError(
-            "fixed-goal definition contains implementation/result ID: "
-            + implementation_id.group(0)
-        )
+    for line in fixed_rows:
+        implementation_id = re.search(r"(?<![A-Za-z])[MR]\\d+", line)
+        if implementation_id:
+            raise AssertionError(
+                "fixed-goal definition contains implementation/result ID: "
+                + implementation_id.group(0)
+            )
 
     rows: dict[str, list[str]] = defaultdict(list)
     for line in text.splitlines():
