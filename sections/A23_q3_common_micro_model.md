@@ -14,7 +14,7 @@ M60では同じM37信号を開始時からDuffing shellとchiral媒体のsignal 
 全体系を概念的に
 
 ```math
-H_{60}=H_{37}+H_X+H_{\rm D}+H_\chi+H_{\rm D\chi}+H_{37\chi}+H_{\rm eq}
+H_{60}=H_{37}+H_X+H_{\rm D}+H_\chi+H_{\mathrm{D}\chi}+H_{37\chi}+H_{\rm eq}
 ```
 
 と書く。$H_X=P_X^2/(2M_X)+V_{\rm per}(X)$、$H_{\rm eq}$ は付録Vの平衡oscillator bathである。M60の新規部分は $H_\chi$ がreservoirとballistic transportを兼ねる点にある。
@@ -221,7 +221,7 @@ H_{37\chi}
 とする。shellとcoreの局所交換結合は、$a_\sigma=\sqrt{K_\sigma}e^{i\theta_\sigma}$ を用いて
 
 ```math
-H_{\rm D\chi}
+H_{\mathrm{D}\chi}
 =-\sum_{\sigma=\pm}\lambda_\sigma
 \left[a_\sigma^*B_\sigma(X)+a_\sigma B_\sigma(X)^*\right],
 ```
