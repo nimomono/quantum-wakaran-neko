@@ -6,6 +6,13 @@
 - `tools/check_generated.py` を生成物同期専用とし、LaTeX hard errorは新設 `tools/check_latex_semantics.py` へ分離した。paper jobではartifact syncが失敗してもLaTeX semantic診断を隠さない。
 - `VALIDATION_POLICY.md` に検算作成12原則を明記し、`tools/test_validation_policy.py` で理論スナップショット依存の再流入、migrationのCI登録、physics runnerのearly break、生成同期とLaTeX検査の再結合を自己検査する。
 
+## draft-104：M60 post-merge consistency cleanup
+
+- M60導入後に第0・2・6--9章へ残った現行M57表現をM60へ同期し、履歴上のM57/M59記録は保持した。
+- 2-action state-countの責務をR198A--R198D/R197A、signal currentをR195A、ballistic transportをR199A・R196A--R196Cへ再同期した。
+- 第7・8章の旧M57 transport誤差記号をM60 transport記号へ改名し、理論主張・達成判定・誤差上界の内容は変更していない。
+- VALIDATION/MANIFESTと研究メモをvalidation-architecture-v2およびM60の最終責務分離へ同期した。
+
 ## draft-103：M60 Duffing shell＋統一二成分chiral媒体へ置換
 
 - M59で別実体だった二成分action reservoirとdual ballistic waveguideを、M60では一つの二成分非線形chiral Hamiltonian媒体のnonlinear core / ballistic leadとして統合した。
