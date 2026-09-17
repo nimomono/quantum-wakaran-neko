@@ -86,14 +86,14 @@ def check_project_status() -> set[str]:
     fixed_rows = [
         line
         for line in fixed_block.splitlines()
-        if re.match(rf"^\\|\\s*{QID_PATTERN}\\s*\\|", line)
+        if re.match(rf"^\|\s*{QID_PATTERN}\s*\|", line)
     ]
-    fixed_ids = table_qids("\\n".join(fixed_rows))
+    fixed_ids = table_qids("\n".join(fixed_rows))
     if not fixed_ids:
         raise AssertionError("fixed-goal IDs were not found")
 
     for line in fixed_rows:
-        implementation_id = re.search(r"(?<![A-Za-z])[MR]\\d+", line)
+        implementation_id = re.search(r"(?<![A-Za-z])[MR]\d+", line)
         if implementation_id:
             raise AssertionError(
                 "fixed-goal definition contains implementation/result ID: "
