@@ -18,7 +18,7 @@
 
 また、状態方向、第2モーメント、位置分布などは、多数回の試行をまとめた統計量として扱います。これらの統計量を、1回の試行の制御器が読み取って次の状態を書き込むことはしません。
 
-論文では、こうした信号、配置、記録、時計自由度などをまとめた共通の有効状態構成をM54と呼びます。空間を伝わる信号については、局所的に結合した実振動子網M37からの物理的な実装も調べています。Q3の実在粒子輸送については、局在tracer、2作用状態数、左右独立のballistic transmission line、moving bath-frame carrier、平衡oscillator bathを使うM57を現行ミクロ模型とします。
+論文では、こうした信号、配置、記録、時計自由度などをまとめた共通の有効状態構成をM54と呼びます。空間を伝わる信号については、局所的に結合した実振動子網M37からの物理的な実装も調べています。Q3の現行ミクロ模型M60では、1個のtracer $X$ に2つの実Duffing内部振動を付随させ、それらを一つの二成分非線形chiral媒体へ局所結合します。同じ媒体のnonlinear coreがaction reservoir、弱非線形leadが左右ballistic carrierとして働き、Brownian noiseとFDTは別の通常の平衡oscillator bathが担います。
 
 ## 現在の中心的な仕組み
 
@@ -100,7 +100,9 @@ u_{ij}^{\rm sig}=\frac{2\nu}{a}\frac{I_+-I_-}{I_++I_-}
 
 となるため、signal currentを位相測定や外部除算で計算する必要はありません。
 
-M57では $I_+$ と $I_-$ を二本の受動ballistic waveguideへtapし、局所bath cellの可動COM $Y_e$ の左右から入射させます。wave pressureの釣合いは
+M60では、M37から得る $+$ と $-$ のchiral成分を一つの二成分Hamiltonian媒体へ受動的に結合します。この媒体は同じ $b_{\pm n}$ 自由度を持ち、tracer近傍のnonlinear coreではDuffing shellを熱化するaction reservoirとして、leadでは $+$ が右向き、$-$ が左向きのballistic carrierとして働きます。reservoirとwaveguideを別々の物理装置として置きません。
+
+leadから来る左右のenergy densityを局所bath cellの可動COM $Y_e$ の左右へ入射させると、wave pressureの釣合いは
 
 ```math
 \frac{U_e}{c}
@@ -110,9 +112,9 @@ M57では $I_+$ と $I_-$ を二本の受動ballistic waveguideへtapし、局�
 r=\frac{I_+-I_-}{I_++I_-}
 ```
 
-という唯一安定なbath-frame速度を作ります。TL自体を熱化せず、drifting-Gibbsや非平衡FDTは使いません。
+という唯一安定なbath-frame速度を作ります。chiral媒体そのものへ非平衡FDTを課すことはしません。
 
-実在tracer $X$ は、この $Y_e$ と共に並進する通常の平衡oscillator bathへ結合します。tracerのBrownian noiseとFDTはこの平衡bathが担います。osmotic driftを与える2作用Gibbs shellは、M59では実2-mode Duffing内部自由度を二保存action DNLS reservoirへ弱結合し、そのmicrocanonical周辺化とfinite-time mixingから導きます。periodic potentialのhomogenizationに
+実在tracer $X$ は、この $Y_e$ と共に並進する通常の平衡oscillator bathへ結合します。tracerのBrownian noiseとFDTはこの平衡bathが担います。一方、osmotic driftを与える2作用Gibbs shellは、tracerに付随する実2-mode Duffing内部自由度をM60のnonlinear coreへ弱結合し、そのmicrocanonical周辺化とfinite-time mixingから導きます。periodic potentialのhomogenizationに
 
 ```math
 D_0=\frac{\nu}{g_K},
@@ -126,25 +128,29 @@ g_Kc=\frac{4\nu}{a}
 
 ```text
 M37/M54の空間信号 Z
-        ↓ R195A（currentはここで厳密）
-   R, chiral I±
-        ↓ R196A
- dual ballistic TL → moving bath frame U
-        ↓ R196B
- equilibrium Brownian bath → tracer X_t
-        ↓ R196C / R161
- ideal Q3位置生成子
-        ↓ R185
-Nelson / time-symmetric Newton
+        ↓ R195A
+   chiral I±
+        ↓ M60 passive port
+統一chiral媒体 ─ nonlinear core → Duffing 2-action shell
+        │
+        └ ballistic lead → R196A → moving bath frame U
+                                      ↓ R196B
+                          equilibrium Brownian bath → tracer X_t
+                                      ↓ R196C / R161
+                              ideal Q3位置生成子
+                                      ↓ R185
+                         Nelson / time-symmetric Newton
 ```
 
-となります。R161は共通数学interfaceであり、有限状態のcanonical Markov経路法則まで自身で定めます。R162はその法則を独立Poisson random measuresで具体化したoptional stochastic referenceとして残し、Q3-2の達成根拠やM57の基礎的物理実体とは扱いません。
+となります。R161は共通数学interfaceであり、有限状態のcanonical Markov経路法則まで自身で定めます。R162はその法則を独立Poisson random measuresで具体化したoptional stochastic referenceとして残し、Q3-2の達成根拠やM60の基礎的物理実体とは扱いません。
 
 ### 4. Q3のミクロ物理正本と代替研究線
 
-Q3の現行ミクロ物理正本はM57 dual-ballistic-TL moving-bath tracerです。R195Aがchiral作用から局所密度・signal current・2作用状態数を与え、R196Aがballistic wave pressureからmoving bath-frame velocityを有限時間で作ります。R196Bは平衡oscillator bathのGLE、FDT、periodic homogenizationからdiffusion・current drift・osmotic driftを同時に整合させ、R196Cがmetastable well-index processをR161生成子へ有限誤差で接続します。
+Q3の現行ミクロ物理正本はM60です。R198Aがtracerに付随する実2-mode Duffingから2-action shellを導き、R198B--R198Dが同じ二成分chiral媒体のnonlinear coreを有限reservoirとして接続します。R199Aは、その同じ媒体をballistic leadとして同時に使える有限時間windowを管理します。R195A/R196A--R196CはM60のtransport reductionとして、signal currentからmoving bath-frame、平衡GLE/FDT、R161位置生成子までを接続します。
 
-旧draft-95のpinned/anharmonic TL、TL mixing、force-correlation time、drifting-Gibbs、TL自身へのFDTは現行M57から退役しました。M56 Brownian-spin模型はspin-onlyの別実現を探る代替研究線としてnotesに残します。
+R199Bでは、同じDuffing pairの作用和 $S=K_++K_-$ にstate count、作用差 $D=K_+-K_-$ にchiral current情報を持たせられることも調べます。ただし、これはM60の統合強化であり、Q3-2固定達成の必須依存にはしていません。
+
+M56 Brownian-spin模型はspin-onlyの別実現を探る代替研究線としてnotesに残します。
 
 ## 現在どこまでできているか
 
@@ -152,11 +158,11 @@ Q1では、2モード可逆操作、Born型2結果測定、同軸反復、異軸
 
 Q2では、2量子ビット型結合操作、3部分系の二段ゲート合成、非空間分離Bell型統計、一般回路の出力標本化を条件付きで構成しています。主な残件は、読出し、射影成分の振り分け、作用安定化、リセットなどを一つの具体的な装置へ統合することと、一般回路での物理配線・較正・揺らぎ条件を閉じることです。
 
-Q3では、M37局所古典振動子signal、実2-mode Duffing shell、二保存action DNLS reservoir、M57 dual-ballistic-TL moving-bath tracerをM59共通模型へまとめています。R198A--R198CでDuffingから2-action Gibbs shellまでの静的Hamiltonian持上げを構成し、R198Dでfinite-time mixing条件を明示します。signal marginalはR86のSchrödinger型有効力学、tracerまで含めるとR196A--R196C、R161、R185を通してNelson型の時間対称Newton則へ縮約します。R198Dの具体的mixing witnessは強化目標A1の残件です。
+Q3では、M37局所古典振動子signal、tracerに付随する実2-mode Duffing shell、nonlinear coreとballistic leadを兼ねる一つの二成分chiral媒体、moving bath-frame、平衡oscillator bathをM60共通模型へまとめています。R198A--R198CでDuffingから2-action Gibbs shellまでの静的Hamiltonian持上げを構成し、R198Dでfinite-time core mixing条件、R199Aでcore--lead同時使用条件を明示します。signal marginalはR86のSchrödinger型有効力学、tracerまで含めるとR196A--R196C、R161、R185を通してNelson型の時間対称Newton則へ縮約します。R198Dの具体的mixing witnessとR199Aの具体的同時parameter witnessは強化目標A1の残件です。
 
 正式な達成判定、根拠結果、残っている条件は [PROJECT_STATUS.md](PROJECT_STATUS.md) を正本とします。
 
-固定目標とは別に、全Q1--Q3について具体的古典ミクロ模型とその直接数値再現、Q1/Q2についてアナログ回路・実験可能パラメータ領域・回路直接シミュレーション、Q2-2について空間隔離を強める研究軸を [ENHANCEMENT_TARGETS.md](ENHANCEMENT_TARGETS.md) で管理しています。これらは固定目標の達成ラベルと独立で、現在は全項目を未監査から開始しています。理論側では規約を明示した採用開放SDEと理想白色雑音を認め、回路実装では有限帯域雑音へ落とします。
+固定目標とは別に、全Q1--Q3について具体的古典ミクロ模型とその直接数値再現、Q1/Q2についてアナログ回路・実験可能パラメータ領域・回路直接シミュレーション、Q2-2について空間隔離を強める研究軸を [ENHANCEMENT_TARGETS.md](ENHANCEMENT_TARGETS.md) で管理しています。これらは固定目標の達成ラベルと独立です。理論側では規約を明示した採用開放SDEと理想白色雑音を認め、回路実装では有限帯域雑音へ落とします。
 
 ## この研究が主張しないこと
 
@@ -164,7 +170,7 @@ Q3では、M37局所古典振動子signal、実2-mode Duffing shell、二保存a
 - 空間分離されたBell局所模型を構成したとは主張しません。
 - 指数的な内部自由度を除去した、または通常の意味で効率的な古典計算を得たとは主張しません。
 - Q1、Q2、Q3の全部品を一台の完成した物理装置へ統合したとは主張しません。
-- M57について連続空間の一様極限、多粒子、全周期のsource--clock--record統合まで閉じたとは主張しません。
+- M60について連続空間の一様極限、多粒子、全周期のsource--clock--record統合、具体的core mixing witnessまで閉じたとは主張しません。
 
 再現できた構造と、追加仮定が必要な構造、まだ未完成な構造を分けて記述することを重視しています。
 
