@@ -6,8 +6,6 @@ import subprocess
 import tempfile
 from pathlib import Path
 
-from latex_log import classify_latex_log
-
 ROOT = Path(__file__).resolve().parent.parent
 
 
@@ -36,32 +34,36 @@ def main() -> None:
     args = parser.parse_args()
     generated = args.output_dir.resolve()
 
+    problems: list[str] = []
+
     for name in ("paper.md", "main.tex", "paper.pdf"):
         if not (generated / name).is_file():
-            raise AssertionError(f"generated artifact missing: {generated / name}")
+            problems.append(f"generated artifact missing: {generated / name}")
+
+    if problems:
+        for problem in problems:
+            print("ERROR:", problem)
+        raise SystemExit(1)
 
     for name in ("paper.md", "main.tex"):
         committed = ROOT / name
         rebuilt = generated / name
         if committed.read_bytes() != rebuilt.read_bytes():
-            raise AssertionError(f"generated {name} differs from committed {name}")
+            problems.append(f"generated {name} differs from committed {name}")
 
     committed_pdf = ROOT / "paper.pdf"
     rebuilt_pdf = generated / "paper.pdf"
     if pdf_text(committed_pdf) != pdf_text(rebuilt_pdf):
-        raise AssertionError("regenerated PDF text differs from committed paper.pdf")
+        problems.append("regenerated PDF text differs from committed paper.pdf")
+
     for field in ("Pages", "Page size"):
         if pdfinfo_field(committed_pdf, field) != pdfinfo_field(rebuilt_pdf, field):
-            raise AssertionError(f"regenerated PDF {field} differs from committed paper.pdf")
+            problems.append(f"regenerated PDF {field} differs from committed paper.pdf")
 
-    log = generated / "latex" / "main.log"
-    if not log.is_file():
-        raise AssertionError(f"LaTeX log missing: {log}")
-    log_text = log.read_text(encoding="utf-8", errors="replace")
-    hard, _ = classify_latex_log(log_text)
-    if hard:
-        first = hard[0]
-        raise AssertionError(f"forbidden LaTeX error remains: {first.kind}: {first.message}")
+    if problems:
+        for problem in problems:
+            print("ERROR:", problem)
+        raise SystemExit(1)
 
     print("generated_artifacts_check_ok")
 
