@@ -30,7 +30,10 @@ jobs:
         run: python -m pip install numpy
 
       - name: M59改訂を適用
-        run: python tools/apply_draft102_m59.py
+        run: |
+          python tools/apply_draft102_m59.py
+          python tools/fix_draft102_escape.py
+          rm tools/fix_draft102_escape.py
 
       - name: Python構文と原稿構造を検査
         run: |
