@@ -2,7 +2,7 @@
 
 ## 1. 位置づけ
 
-このメモは、Q1型局所自由度を空間に並べQ2型2体系相互作用を加える参照模型と、Q3の具体的な粒子・浴模型を、どの意味で「同じ」とみなすかを整理する。draft-103以後、論文正本のQ3ミクロ物理実現はM60の統一二成分chiral媒体＋moving-bath tracerとし、R161より後段の数学核は従来通り共通に保つ。
+このメモは、Q1型局所自由度を空間に並べQ2型2体系相互作用を加える参照模型と、Q3の具体的な粒子・浴模型を、どの意味で「同じ」とみなすかを整理する。draft-105以後、論文正本のQ3最深ミクロ物理実現はM61の単一Hamiltonian親模型、M60はその共通縮約層とし、R161より後段の数学核は従来通り共通に保つ。
 
 現行Q3の数学的正本は
 
@@ -56,7 +56,7 @@ j_{ij}=\frac{J_{i\to j}}{S},
 
 Q1のBorn型選択機構を各辺へ置き、Q2型の反対称流を局所的に重ねる模型は、適切な $(\pi,j,t)$ を作ればR161と同じ位置生成子を与える。これはQ1/Q2からQ3数学へ接続できることを露出した **参照実現** として有用である。
 
-一方、この模型のpointer列やone-hot tokenを自然界の基礎的実体として採用する必要はない。現行の物理実装は、局在tracer、tracer付随2-mode Duffing shell、nonlinear coreとballistic leadを兼ねる二成分chiral媒体、moving bath-frame carrier、平衡oscillator bathを用いるM60である。
+一方、この模型のpointer列やone-hot tokenを自然界の基礎的実体として採用する必要はない。現行の最深物理実装は、multiband媒体と複合mobile subsystemを単一 $H_{61}$ へ統合するM61であり、M60はそのcarrier/envelope・core/lead・moving-bath縮約層である。
 
 ## 4. R161実現同値
 
@@ -83,7 +83,8 @@ D_{\rm TV}(p_t^A,p_t^B)
 
 ## 5. 物理実現の比較規約
 
-- M60 unified-chiral-medium moving-bath tracer：Q3で採用する現行ミクロ物理実現。R198A--R198D/R197Aが2-action state countとosmotic free energy、R195Aがsignal current、R199Aが同一媒体のballistic lead、R196Aのwave pressureがmoving bath velocity、R196Bの平衡bathとperiodic homogenizationがdiffusion・osmotic drift、R196Cのmetastable reductionがR161 activityを供給する。
+- M61 single-Hamiltonian parent：Q3で採用する最深ミクロ物理実現。R200A--R200C/R200がM60へ接続する。
+- M60 unified-chiral-medium moving-bath tracer：M61から得る現行共通縮約実現。R198A--R198D/R197Aが2-action state countとosmotic free energy、R195Aがsignal current、R199Aが同一媒体のballistic lead、R196Aのwave pressureがmoving bath velocity、R196Bの平衡bathとperiodic homogenizationがdiffusion・osmotic drift、R196Cのmetastable reductionがR161 activityを供給する。
 - R162 open Poisson jump：M60 transportと比較するideal stochastic reference。基礎的なQ3存在論とは扱わない。
 - 空間化Q1＋Q2相互作用：Q1/Q2からR161へ到達できることを示す数学的参照実現。
 - M56：spin-only実現を狙う代替研究線。現行Q3達成根拠には使わない。
