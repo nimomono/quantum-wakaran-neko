@@ -25,6 +25,13 @@ python tools/run_physics_checks.py --include-candidate
 
 を追加する。PR固有の旧語・旧依存・旧模型の除去確認は `tools/migrations/` の一時検査として扱い、通常CIへ登録しない。
 
+## draft-105：M61単一Hamiltonian Q3親模型検算
+
+- `tools/verify_m61_single_hamiltonian.py` をrequired検算として追加し、carrier位相回転によるM60 hopping、作用不変性、R200A fixed pointと安定性、R200B action--reactionとDrude kernelを検査する。
+- R198Dのmixing、R199Aの同時window、R200A/Bの全parameter windowをrequired scriptが証明済みとして扱わない。
+- `tools/candidate_checks/verify_m61_parameter_window.py` は時間尺度とtracking/noiseの例示的非空windowだけをcandidate検算し、A1達成判定の代替にしない。
+- 既存 `tools/verify_q3_common_micro_model.py` はM60/R198/R199の検算として維持し、M61→M60のbridge検算と責務を混ぜない。
+
 ## draft-104：M60 post-merge consistency cleanup
 
 - 理論未達の再評価は行わず、第0・2・6--9章、管理文書、notesに残った「M57を現行模型とする」表現をM60へ同期する。
