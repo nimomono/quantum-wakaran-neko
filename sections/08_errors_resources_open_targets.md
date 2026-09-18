@@ -1,7 +1,7 @@
 @number: 8
 @chapter: 本文
 @title: 誤差、資源、反証条件、未完成目標
-@status: Q1/Q2のR191 2結果読出し、R181D projector router、Q2-2の2端逐次R191、Q3のM60/R199A・R195A・R196A--R196C--R161--R185経路、M37信号物理実装層を横断して誤差・資源・反証条件を整理する。R162はR161 lawのoptional Poisson realizationであり中心誤差台帳へ入れない。
+@status: Q1/Q2のR191系と、Q3のM61→M60→R161→R185階層を横断して誤差・資源・反証条件を整理する。M61固有誤差はM60既存誤差へ重複加算しない。
 
 
 ### R191の2結果読出し誤差と資源
@@ -281,7 +281,31 @@ m\|R_\delta\|_\infty
 mC_{185,a}a^2.
 ```
 
-同じ $a^2$ がR196Cの物理generator matchingとR185有限差分に別の起源で現れるため係数を同一視せず、各導出箇所で一度だけ数える。R188の有限サンプリング加速度誤差は必要な場合だけ追加する。
+同じ $a^2$ がR196Cの物理generator matchingとR185有限差分に別の起源で現れるため係数を同一視せず、各導出箇所で一度だけ数える。
+
+M61からM60への追加持上げ誤差を
+
+```math
+\varepsilon_{61\to60}
+=
+\varepsilon_{\rm mb}
++\varepsilon_{\rm port}^{61}
++\varepsilon_{\rm sc}
++\varepsilon_{\rm ret}
++\varepsilon_{D\chi}
++\varepsilon_{\rm thload}
+```
+
+とし、
+
+```math
+\varepsilon_{\rm tr}^{61}
+\le
+\varepsilon_{\rm tr}^{60}
++C_{61}(T)\varepsilon_{61\to60}
+```
+
+とする。R200Bのexact GLEはR196Bの $\varepsilon_{\rm GLE}$ へ再加算せず、Markov/overdamped/homogenization誤差だけをR196B側で数える。返り波 $\varepsilon_{\rm ret}$ もR199A drive誤差と二重に数えない。R188の有限サンプリング加速度誤差は必要な場合だけ追加する。
 
 現行M60 transport sectorの代表的fast-sector条件は
 
@@ -438,7 +462,7 @@ Q2-4は条件付き達成を維持する。残る条件は、静的部分系配�
 | M37/R86・R135 | 有限時間包絡上界または第2モーメント持上げ上界を超える |
 | R182 | W型固定低位スペクトル・密度・節が格子収束しない、Rayleigh十分条件から障壁下二重項が得られない、関数計算の共有固有空間または分裂相対上界を破る、中央障壁込み半周期鏡映・一周期回帰が成立しない |
 | R161 path law | 固定有限時間で $M_T=\sup_{t\leq T}\max_i\sum_{j\ne i}k^+_{i\to j}(t)<\infty$ を満たさず、finite-state canonical Markov経路法則の非爆発性を保証できない |
-| M60/R198A--R198D・R199A・R195A・R196A--R196C | chiral作用/current恒等式を満たさない、passive ballistic portの有限誤差境界が閉じない、moving-reflector fixed pointが一意安定でない、$\tau_p$ または $\lambda_Y^{-1}$ をsignal時間から分離できない、平衡bath GLE/overdamped/homogenizationが制御できない、weak-loading familyが空、またはR196Cのmetastable generatorがR161へ有限誤差で接続しない |
+| M61/R200A--R200C/R200・M60/R198A--R198D・R199A・R195A・R196A--R196C | 単一HamiltonianからM60へ有限誤差で接続できない、またはchiral作用/current恒等式を満たさない、passive ballistic portの有限誤差境界が閉じない、moving-reflector fixed pointが一意安定でない、$\tau_p$ または $\lambda_Y^{-1}$ をsignal時間から分離できない、平衡bath GLE/overdamped/homogenizationが制御できない、weak-loading familyが空、またはR196Cのmetastable generatorがR161へ有限誤差で接続しない |
 | R161/R162 ideal reference | R161率の非負性またはmaster equation整合が破れる、あるいはR162 ideal open-jump生成子がR161率と一致しない |
 | Q3-2 | 時間対称Newton則を縮約前に仮定する、M60からR161前向き経路法則へ有限誤差で接続できない、同じ前向き経路法則からBayes後退率を構成できない、またはR185の $C_{185,a}a^2+O(\delta)$ 評価を破る |
 | Q3-3C | W型低位スペクトルの格子・領域収束を示せない、または同じ固有基底で環境との弱結合を縮約した有限時間純位相緩和と対角占有率保存を閉じられない |
@@ -460,7 +484,7 @@ Q2-4は条件付き達成を維持する。残る条件は、静的部分系配�
 
 A1ではHamiltonian無限浴だけでなく、規約と共分散を明示したLangevin型SDEその他の採用開放ミクロ方程式を認め、理想白色雑音を許す。A2では採用したミクロODE/SDEそのものを直接計算する。理想白色雑音を使うQ1/Q2模型を回路へ移す場合、B2/B3では有限帯域雑音源と時間尺度分離を明示する。
 
-従来からのQ1/Q2完全周期収支、R180Cの共通浴統合、M60 common process--時計--終位置記録--resetの単一反復周期統合、M60の連続空間一様極限、多粒子拡張、有限閉鎖Hamiltonian化は、A/B/Sを横断する上位または系列固有の実装強化課題として保持する。R162を特定Hamiltonian浴から再導出することはM60主線の要件ではない。旧R162有限衝突経路、旧R188、旧R179部分SWAP貯蔵部、旧R178D有限閉鎖リセット境界は撤回せず、有限閉鎖実装を調べる強化結果として論文外メモへ保存する。
+従来からのQ1/Q2完全周期収支、R180Cの共通浴統合、M61/M60 common process--時計--終位置記録--resetの単一反復周期統合、連続空間一様極限、多粒子拡張、全周期の有限閉鎖Hamiltonian化は、A/B/Sを横断する上位または系列固有の実装強化課題として保持する。R162を特定Hamiltonian浴から再導出することはM60主線の要件ではない。旧R162有限衝突経路、旧R188、旧R179部分SWAP貯蔵部、旧R178D有限閉鎖リセット境界は撤回せず、有限閉鎖実装を調べる強化結果として論文外メモへ保存する。
 
 Q1-1、Q1-2、Q3-1、Q3-2、Q3-3A、Q3-3B、Q3-3Cは達成、Q2-1、Q2-2、Q2-3、Q2-4、Q3-4A、Q3-4B、Q3-5は条件付き達成、Q3-6は未達である。
 
