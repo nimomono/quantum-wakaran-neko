@@ -4,7 +4,7 @@
 
 本論文の中心的な問いは、明示的な古典力学モデルから、量子力学に似た可逆操作、Born型測定統計、測定後状態、結合ゲート、Bell型共同統計、空間伝播がどこまで有効構造として現れるかである。複素振幅は独立した実体ではなく実正準信号の派生表示とし、単一試行の物理信号と試行集団の統計量を区別する。
 
-M54をQ1--Q3の共通有効信号構成族、M37を空間信号とW型低2モードの物理実装層とする。状態準備・可逆操作と、排他的な測定結果形成を同一視しない。Q1/Q2の2結果射影読出しはR191ブラウン巨視的スピンinstrumentを正本とし、Q3ではM60の統一二成分chiral媒体、moving bath-frame carrier、平衡oscillator bath、局在tracerを共通ミクロ物理層とする。Q3の信号部分系はQ1/Q2と別の代数ではなく、Q1型局所正準信号を空間配置しQ2型2体系結合を辺へ反復した特殊化として整理する。
+M54をQ1--Q3の共通有効信号構成族、M37を空間信号とW型低2モードの物理実装層とする。状態準備・可逆操作と、排他的な測定結果形成を同一視しない。Q1/Q2の2結果射影読出しはR191ブラウン巨視的スピンinstrumentを正本とし、Q3ではM61を単一時間非依存Hamiltonian親層、M60をそのcarrier/envelope・core/lead・moving-bath縮約層とする。Q3の信号部分系はQ1/Q2と別の代数ではなく、Q1型局所正準信号を空間配置しQ2型2体系結合を辺へ反復した特殊化として整理する。
 
 Q1/Q2の測定主線は
 
@@ -75,7 +75,7 @@ L_{\rm R161}
 \text{Nelson / time-symmetric Newton}.
 ```
 
-R199AはM60の同一chiral媒体からballistic leadを有限時間で分離してincident energyへ接続し、R196Aはそのwave pressureだけでmoving bath frameを作る。chiral媒体のthermalizationをleadへ課したり、drifting-Gibbsや非平衡FDTを仮定したりしない。R196Bでは別の平衡oscillator bathだけにFDTを適用し、periodic homogenizationを経て $D=\nu$、$j/\rho+O(a^2)$、$\nu\partial_x\log\rho$ を得る。R196Cはwell-index generatorをR161へ有限誤差で接続する。
+R200CはM37 signalとM60 chiral sectorを一つのmultiband媒体へ載せ、R200Aはmoving branch converterをHamiltonian化し、R200Bは内部harmonic continuumからrelative-coordinate GLE/FDTを導く。R199AはM60の同一chiral媒体からballistic leadを有限時間で分離してincident energyへ接続し、R196Aはそのwave pressureだけでmoving bath frameを作る。chiral媒体のthermalizationをleadへ課したり、drifting-Gibbsや非平衡FDTを仮定したりしない。R196Bでは別の平衡oscillator bathだけにFDTを適用し、periodic homogenizationを経て $D=\nu$、$j/\rho+O(a^2)$、$\nu\partial_x\log\rho$ を得る。R196Cはwell-index generatorをR161へ有限誤差で接続する。
 
 R162のopen Poisson-jump過程はQ3の基礎的実体ではなく、その理想jump lawを表す参照過程として残す。R185は同じ前向き経路法則のBayes反転からNelson型の前進・後退平均微分と時間対称Newton則へ接続する。
 
