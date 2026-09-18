@@ -6,6 +6,13 @@
 - `tools/check_generated.py` を生成物同期専用とし、LaTeX hard errorは新設 `tools/check_latex_semantics.py` へ分離した。paper jobではartifact syncが失敗してもLaTeX semantic診断を隠さない。
 - `VALIDATION_POLICY.md` に検算作成12原則を明記し、`tools/test_validation_policy.py` で理論スナップショット依存の再流入、migrationのCI登録、physics runnerのearly break、生成同期とLaTeX検査の再結合を自己検査する。
 
+## draft-105：M61 単一Hamiltonian Q3親模型
+
+- M60を共通縮約層として維持し、その下位に単一時間非依存Hamiltonian親模型M61を追加した。
+- R200CでM37 signalと二成分chiral sectorを一つのmultiband媒体へ統合し、固定carrier正準回転からM60 chiral hopping・保存作用を回収した。
+- R200Aでmoving branch converterをHamiltonian化し、R200Bで $X-Y$ に結合する内部harmonic continuumからGLE/FDTとaction--reactionを導いた。R200はM61からM60への条件付き有限時間統合を管理する。
+- Q3-1/Q3-2固定達成ラベルとA1部分達成は維持し、残件をcore mixing、core--lead同時window、tracking--thermal-load同時windowへ整理した。
+
 ## draft-104：M60 post-merge consistency cleanup
 
 - M60導入後に第0・2・6--9章へ残った現行M57表現をM60へ同期し、履歴上のM57/M59記録は保持した。

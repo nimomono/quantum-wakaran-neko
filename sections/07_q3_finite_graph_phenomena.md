@@ -1,9 +1,9 @@
 @number: 7
 @chapter: 本文
 @title: Q3の確率力学、束縛状態、トンネル現象、2経路干渉、位相量子化
-@status: Q3-2・Q3-3A--Q3-3Cの達成、Q3-6の未達、Q3-4A・Q3-4B・Q3-5の条件付き達成を区別する。Q3粒子輸送の現行ミクロ物理層はM60/R199A・R195A・R196A--R196Cとする。
+@status: Q3-2・Q3-3A--Q3-3Cの達成、Q3-6の未達、Q3-4A・Q3-4B・Q3-5の条件付き達成を区別する。Q3粒子輸送はM61--M60--R161階層を用いる。
 
-本章は、M37/M54空間信号からM60 chiral-medium moving-bath tracerを縮約してNelson流または時間対称Newton則へ接続するQ3-2、R123とR182によるQ3-3A--Q3-3C、R124・R125・R182をM60 tracerの位置輸送へ接続するQ3-4A・Q3-4B・Q3-5、位相量子化のQ3-6を区別する。R123--R125とR182の完全証明は付録F、G、M60のミクロ物理とR161生成子matchingは付録V、R161/R185の有限格子数学は付録Nに置く。
+本章は、M37/M54空間信号からM61単一Hamiltonian親模型をM60 chiral-medium moving-bath tracerへ縮約し、Nelson流または時間対称Newton則へ接続するQ3-2、R123とR182によるQ3-3A--Q3-3C、R124・R125・R182をM60 tracerの位置輸送へ接続するQ3-4A・Q3-4B・Q3-5、位相量子化のQ3-6を区別する。R123--R125とR182の完全証明は付録F、G、M61の単一Hamiltonian持上げは付録X、M60 transportとR161生成子matchingは付録V、R161/R185の有限格子数学は付録Nに置く。
 
 ## 7.1 Nelson流の作用変分または時間対称Newton則（Q3-2）
 

@@ -10,6 +10,14 @@
 - `tools/test_validation_policy.py` — 上記責務境界そのものの自己回帰検査。
 - `.github/workflows/verify.yml` — read-onlyの3ジョブ構成を維持し、論文生成後の同期・semantic・lintを独立報告。
 
+## draft-105：M61 単一Hamiltonian Q3親模型
+
+- `sections/A24_m61_single_hamiltonian_micro_model.md` を追加し、M61/R200A--R200C/R200をM60の下位Hamiltonian親層として正本化する。
+- `tools/verify_m61_single_hamiltonian.py` をrequired、`tools/candidate_checks/verify_m61_parameter_window.py` をcandidateとして追加する。
+- README、PROJECT_STATUS、ENHANCEMENT_TARGETS、第0・1・6・8・9章、A22/A23、VALIDATION、CHANGELOGをM61→M60階層へ同期する。
+- 既存MANIFESTの章一覧から抜けていたA23を復旧し、新規A24を追加する。
+- `paper.md`、`main.tex`、`paper.pdf` を再生成する。
+
 ## draft-104：M60 post-merge consistency cleanup
 
 - 第0・2・6--9章の現行M57表現をM60へ同期し、履歴節・退役メモのM57/M59は保持する。
@@ -133,6 +141,8 @@
 - `sections/A20_m54_brownian_macrospin_projective_instrument.md`
 - `sections/A21_m47_action_hold_macrospin_direct_bridge.md`
 - `sections/A22_m57_dual_tl_tracer_microphysics.md`
+- `sections/A23_q3_common_micro_model.md`
+- `sections/A24_m61_single_hamiltonian_micro_model.md`
 - `sections/90_references.md`
 
 ## 論文外の研究メモ
@@ -212,6 +222,8 @@
 - `tools/verify_q3_completion.py`
 - `tools/verify_m57_ballistic_tracer.py`
 - `tools/verify_q3_common_micro_model.py`
+- `tools/verify_m61_single_hamiltonian.py`
+- `tools/candidate_checks/verify_m61_parameter_window.py`
 - `figures/README.md`
 - `.github/workflows/verify.yml`
 - `.gitignore`

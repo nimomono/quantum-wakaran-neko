@@ -1,3 +1,9 @@
+## draft-105：M61 単一Hamiltonian Q3親模型
+
+- M60を退役させず、その下位にM61を追加する。M61は一つのmultiband媒体と一つの複合mobile subsystemを単一の時間非依存 $H_{61}$ へ統合し、R200A--R200C/R200を介してM60へ縮約する。
+- R200CはM37 signalとM60 chiral sectorの共通multiband媒体持上げ、R200Aはmoving branch-converter HamiltonianからR196A bath-frame則への縮約、R200Bは $X-Y$ に結合する内部harmonic continuumからGLE/FDTへの厳密縮約を担当する。
+- 固定目標Q3-1/Q3-2の達成ラベルは変更しない。Q3-1-A1/Q3-2-A1は、R198Dの具体的core mixing、R199Aのcore--lead同時parameter witness、R200A/Bのtracking--thermal-load同時parameter witnessが残るため部分達成のままとする。A2はM61直接数値再現が未実施なので未監査とする。
+
 ## draft-103：M60 Duffing shell＋統一二成分chiral媒体への置換
 
 - M59の実2-mode Duffing shellとその2-action Gibbs shell縮約は維持し、別実体だった二成分DNLS action reservoirとdual ballistic waveguideを、M60の一つの二成分非線形chiral Hamiltonian媒体へ統合する。同じ $b_{\pm n}$ 自由度がnonlinear coreではaction reservoir、弱非線形leadでは左右ballistic carrierとして働く。

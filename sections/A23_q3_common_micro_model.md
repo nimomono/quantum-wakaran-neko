@@ -1,23 +1,23 @@
 @number: W
 @chapter: 付録
 @title: M60 Duffing--統一二成分chiral媒体 Q3共通ミクロ模型
-@status: Q3-1/Q3-2の共通ミクロ物理層。M59の実2-mode Duffing shellは維持し、独立していた二成分DNLS action reservoirとdual ballistic waveguideを同一の二成分非線形Hamiltonian媒体のnonlinear coreとballistic leadへ統合する。R198Dのcore mixing/homogenizationとR199Aのcore--lead同時parameter witnessはQ3-1-A1/Q3-2-A1の残件とする。
+@status: Q3-1/Q3-2の共通縮約ミクロ層。M61の単一時間非依存Hamiltonianをcarrier/envelope・core/lead・moving-bath表現へ縮約した層として維持する。R198Dのcore mixing/homogenization、R199Aのcore--lead同時parameter witness、R200A/Bのtracking--thermal-load同時windowはQ3-1-A1/Q3-2-A1の残件とする。
 
 ## W.1 M60の責務と実在自由度
 
-Q3-1とQ3-2の共通親模型をM60とする。M60はM37をsignal subsystemとして同一試行上に含み、tracer $X$ に付随する2つの実Duffing内部自由度を、一つの二成分非線形chiral媒体へ局所結合する。M59で別の物理実体として置いていた二成分DNLS reservoirとdual ballistic waveguideは、M60では同じ媒体の異なる空間sector・時間尺度として扱う。
+Q3-1とQ3-2の共通縮約模型をM60とする。より下位の単一時間非依存Hamiltonian親模型は付録XのM61であり、R200A--R200C/R200を介してM60へ持ち上げる。M60はM37をsignal subsystemとして同一試行上に含み、tracer $X$ に付随する2つの実Duffing内部自由度を、一つの二成分非線形chiral媒体へ局所結合する。M59で別の物理実体として置いていた二成分DNLS reservoirとdual ballistic waveguideは、M60では同じ媒体の異なる空間sector・時間尺度として扱う。
 
 単一試行で物理的に存在する自由度は、M37の有限実振動子座標、tracerに付随する2つの実Duffing正準対 $(q_\sigma,p_\sigma)$、$\sigma=\pm$、二成分chiral媒体の実正準対、moving bath-frame carrier $Y_e$、その内部の平衡oscillator bath、1個のtracer位置 $X$、periodic/double-well potentialである。複素記号 $Z$、$a_\sigma$、$b_{\sigma n}$ は実正準平面をまとめる派生表示であり独立実体ではない。
 
 M60では同じM37信号を開始時からDuffing shellとchiral媒体のsignal portへ弱く結合し、同じtracer $X_t$ を最後まで発展させる。signalを後段で再標本化しない。Brownian noiseとFDTはchiral媒体ではなく、$Y_e$ と共に並進する通常の平衡oscillator bathが担う。時計、終位置record、resetまで含む反復周期統合は本付録の責務に含めない。
 
-全体系を概念的に
+M60のcarrier/envelope縮約Hamiltonianを概念的に
 
 ```math
 H_{60}=H_{37}+H_X+H_{\rm D}+H_\chi+H_{\mathrm{D}\chi}+H_{37\chi}+H_{\rm eq}
 ```
 
-と書く。$H_X=P_X^2/(2M_X)+V_{\rm per}(X)$、$H_{\rm eq}$ は付録Vの平衡oscillator bathである。M60の新規部分は $H_\chi$ がreservoirとballistic transportを兼ねる点にある。
+と書く。lab-frameでの単一時間非依存HamiltonianはM61を正本とする。$H_X=P_X^2/(2M_X)+V_{\rm per}(X)$、$H_{\rm eq}$ は付録Vの平衡oscillator bathである。M60の新規部分は $H_\chi$ がreservoirとballistic transportを兼ねる点にある。
 
 ## W.2 M37信号、current辞書、smooth capacity
 

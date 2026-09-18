@@ -146,7 +146,7 @@ M37/M54の空間信号 Z
 
 ### 4. Q3のミクロ物理正本と代替研究線
 
-Q3の現行ミクロ物理正本はM60です。R198Aがtracerに付随する実2-mode Duffingから2-action shellを導き、R198B--R198Dが同じ二成分chiral媒体のnonlinear coreを有限reservoirとして接続します。R199Aは、その同じ媒体をballistic leadとして同時に使える有限時間windowを管理します。R195A/R196A--R196CはM60のtransport reductionとして、signal currentからmoving bath-frame、平衡GLE/FDT、R161位置生成子までを接続します。
+Q3の最深ミクロ物理正本はM61です。M61は、一つのmultiband Hamiltonian媒体と一つの複合mobile subsystemを時間非依存な $H_{61}$ へまとめます。R200CがM37 signalと二成分chiral sectorを同一媒体へ載せ、R200Aがmoving branch converterをHamiltonian化し、R200Bが内部harmonic modesからmoving-frame GLE/FDTを導きます。M60はM61から得る共通縮約層として残し、R198Aがtracerに付随する実2-mode Duffingから2-action shellを導き、R198B--R198Dが同じ二成分chiral媒体のnonlinear coreを有限reservoirとして接続します。R199Aは、その同じ媒体をballistic leadとして同時に使える有限時間windowを管理します。R195A/R196A--R196CはM60のtransport reductionとして、signal currentからmoving bath-frame、平衡GLE/FDT、R161位置生成子までを接続します。
 
 R199Bでは、同じDuffing pairの作用和 $S=K_++K_-$ にstate count、作用差 $D=K_+-K_-$ にchiral current情報を持たせられることも調べます。ただし、これはM60の統合強化であり、Q3-2固定達成の必須依存にはしていません。
 
@@ -158,7 +158,7 @@ Q1では、2モード可逆操作、Born型2結果測定、同軸反復、異軸
 
 Q2では、2量子ビット型結合操作、3部分系の二段ゲート合成、非空間分離Bell型統計、一般回路の出力標本化を条件付きで構成しています。主な残件は、読出し、射影成分の振り分け、作用安定化、リセットなどを一つの具体的な装置へ統合することと、一般回路での物理配線・較正・揺らぎ条件を閉じることです。
 
-Q3では、M37局所古典振動子signal、tracerに付随する実2-mode Duffing shell、nonlinear coreとballistic leadを兼ねる一つの二成分chiral媒体、moving bath-frame、平衡oscillator bathをM60共通模型へまとめています。R198A--R198CでDuffingから2-action Gibbs shellまでの静的Hamiltonian持上げを構成し、R198Dでfinite-time core mixing条件、R199Aでcore--lead同時使用条件を明示します。signal marginalはR86のSchrödinger型有効力学、tracerまで含めるとR196A--R196C、R161、R185を通してNelson型の時間対称Newton則へ縮約します。R198Dの具体的mixing witnessとR199Aの具体的同時parameter witnessは強化目標A1の残件です。
+Q3では、M61がM37 signal、二成分chiral mode族、実2-mode Duffing、moving coordinate、tracer、内部harmonic bathを一つの時間非依存Hamiltonianへまとめ、M60をその共通縮約層として使います。R198A--R198CでDuffingから2-action Gibbs shellまでの静的Hamiltonian持上げを構成し、R198Dでfinite-time core mixing条件、R199Aでcore--lead同時使用条件を明示します。signal marginalはR86のSchrödinger型有効力学、tracerまで含めるとR196A--R196C、R161、R185を通してNelson型の時間対称Newton則へ縮約します。R198Dの具体的mixing witnessとR199Aの具体的同時parameter witnessは強化目標A1の残件です。
 
 正式な達成判定、根拠結果、残っている条件は [PROJECT_STATUS.md](PROJECT_STATUS.md) を正本とします。
 

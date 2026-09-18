@@ -1,7 +1,7 @@
 @number: V
 @chapter: 付録
 @title: M60 chiral-medium transport reduction とR161有限誤差持上げ
-@status: Q3のtransport縮約。M37/M54実正準空間信号から局所chiral作用を厳密に取り出し、M60二成分媒体のballistic lead、moving bath-frame carrier、平衡oscillator bath、局在tracerへ接続してR161生成子へ有限誤差で持ち上げる。独立dual ballistic TLはM60で退役し、R196A以降のmoving-reflector/GLE/FDT縮約は維持する。
+@status: Q3のtransport縮約。M61/R200Aがmoving branch converterを、R200Bが内部harmonic continuumをHamiltonian liftし、M60二成分媒体のballistic leadからR196A--R196Cを介してR161生成子へ有限誤差で持ち上げる。
 
 ## V.1 責務と実在自由度
 
@@ -102,7 +102,7 @@ U_e=\dot Y_e,
 M_e>0
 ```
 
-が作る可動完全反射境界の左右へ入射する。$Y_e$ はservoや測定器ではなく、後段の平衡oscillator bathが共有する物理的bath-frame carrierである。
+が作る可動完全反射境界の左右へ入射する。$Y_e$ はservoや測定器ではなく、後段の平衡oscillator bathが共有する物理的bath-frame carrierである。付録XのR200Aは、このwave pressure則をM61の時間非依存moving branch-converter Hamiltonianから持ち上げる。
 
 速度比
 
@@ -191,7 +191,7 @@ R199Aのballistic lead条件、$E\ge E_{\min}>0$、$|r|\le r_*<1$ の下で、ba
 
 ## V.5 R196B：moving equilibrium bathからtracer GLE・Nelson driftへ
 
-actual tracer $X$ はM60 chiral媒体そのものには熱化させず、$Y_e$ と共に並進する通常のequilibrium oscillator bathへ結合する。bath内部座標を $q_n$ とし、相対座標 $X-Y_e$ へ
+actual tracer $X$ はM60 chiral媒体そのものには熱化させず、$Y_e$ と共に並進するequilibrium harmonic modesへ結合する。M61ではこれらを複合mobile subsystemの内部normal modesとしてR200Bから厳密に持ち上げる。bath内部座標を $q_n$ とし、相対座標 $X-Y_e$ へ
 
 ```math
 H_{\rm eq}
