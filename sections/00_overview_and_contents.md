@@ -77,6 +77,8 @@ L_{\rm R161}
 
 R200CはM37 signalとM60 chiral sectorを一つのmultiband媒体へ載せ、R200Aはmoving branch converterをHamiltonian化し、R200Bは内部harmonic continuumからrelative-coordinate GLE/FDTを導く。R199AはM60の同一chiral媒体からballistic leadを有限時間で分離してincident energyへ接続し、R196Aはそのwave pressureだけでmoving bath frameを作る。chiral媒体のthermalizationをleadへ課したり、drifting-Gibbsや非平衡FDTを仮定したりしない。R196Bでは別の平衡oscillator bathだけにFDTを適用し、periodic homogenizationを経て $D=\nu$、$j/\rho+O(a^2)$、$\nu\partial_x\log\rho$ を得る。R196Cはwell-index generatorをR161へ有限誤差で接続する。
 
+さらに付録YのM62/R201A--R201Fでは、一成分Hamiltonian latticeの同じ $(\phi_n,\pi_n)$ からkink、2 shell mode、signal continuum、prethermal reservoir、reaction-coordinate frameを同時に得る単一場統合を調べる。M62は現時点でcandidate strengtheningであり、M61/M60固定達成主線を置換しない。
+
 R162のopen Poisson-jump過程はQ3の基礎的実体ではなく、その理想jump lawを表す参照過程として残す。R185は同じ前向き経路法則のBayes反転からNelson型の前進・後退平均微分と時間対称Newton則へ接続する。
 
 この再編で、旧R190A--R190Cの2作用LC殻Drude混合、R170静的吸収pointer、R180B paired-Hopf受信機構は固定Q1/Q2の必須主線から退役した。M56 Brownian-spin Q3模型はspin-only代替研究線へ下げ、Q3の現行ミクロ主線には使わない。内容は `notes/` とGit履歴へ保存し、反証されたものとして扱わない。論文本文では同じBorn結果を複数の物理経路で重複説明せず、現在の最小因果鎖だけを正本とする。

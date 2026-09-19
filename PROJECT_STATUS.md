@@ -1,3 +1,9 @@
+## draft-106：M62 一成分Hamiltonian lattice Q3統合候補
+
+- M62を、一組の実格子正準変数 $(\phi_n,\pi_n)$ からkink位置、2 shell mode、signal continuum、prethermal reservoir、reaction-coordinate frameを同時に得るQ3単一場統合候補として追加する。R201A--R201Fでspectrum、same-field signal、weighted-shell normal form、reservoir交換、GLE/FDT、共通parameter有限時間合成へ責務分離する。
+- M62/R201は現行M61/R200--M60/R198/R199/R196主線をまだ置換しない。R201Cのcontinuum-inclusive remainder、R201Dのvalidated exchange/prethermal lifetime、R201Eのfinite-memory Markov誤差、R201Fの十分な共通時間尺度分離を未閉鎖とする。
+- 固定目標Q3-1/Q3-2の達成ラベルは変更しない。Q3-1-A1/Q3-2-A1は部分達成、Q3-1-A2/Q3-2-A2は未監査のままとし、M62の数値結果はcandidate witnessとして管理する。
+
 ## draft-105：M61 単一Hamiltonian Q3親模型
 
 - M60を退役させず、その下位にM61を追加する。M61は一つのmultiband媒体と一つの複合mobile subsystemを単一の時間非依存 $H_{61}$ へ統合し、R200A--R200C/R200を介してM60へ縮約する。

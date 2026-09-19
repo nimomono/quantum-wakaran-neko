@@ -28,3 +28,8 @@ Q1/Q2のB3では、B1で定めた具体回路をSPICE、回路ODE/SDE、伝送�
 6. 数値的一致からは導けない主張の境界
 
 大容量の生軌道や全標本は収録せず、人が差分を読める集約結果を保存する。
+
+
+## M62 single-field candidate
+
+`simulations/m62/` には、付録YのM62/R201A--R201Fについて探索計算から得た集約witnessと再検証境界を置く。現段階ではspectrum、shell--reservoir交換、memory kernel、prethermal wave-action、normal-form lifetimeの全てを一つのcanonical simulation runnerから再生成できる状態ではないため、A2達成とは数えない。重いtrajectory/FGR計算を正本化するときは、有限箱・時間刻み・sampling・broadening・乱数種・収束検査を同じfolderへ追加する。

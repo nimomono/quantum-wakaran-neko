@@ -1,7 +1,7 @@
 @number: 8
 @chapter: 本文
 @title: 誤差、資源、反証条件、未完成目標
-@status: Q1/Q2のR191系と、Q3のM61--M60--R161--R185階層を横断して誤差・資源・反証条件を整理する。M61固有誤差はM60既存誤差へ重複加算しない。
+@status: Q1/Q2のR191系と、Q3のM61--M60--R161--R185階層を横断して誤差・資源・反証条件を整理する。M61固有誤差はM60既存誤差へ重複加算しない。M62/R201はcandidate strengtheningとして独立の誤差台帳と共通時間窓を管理する。
 
 
 ### R191の2結果読出し誤差と資源
@@ -339,6 +339,47 @@ M_X=O(\epsilon^6)
 
 旧draft-95の $\varepsilon_{\rm mix}$、$\varepsilon_{\rm corr}$、TLへの $\varepsilon_{\rm FDT}$ は現行M60 transport誤差台帳から削除する。旧R184の $\varepsilon_{184}$ は撤回しないがM60主線では使わない。R162はideal R161 jump referenceでありM60の基礎的bath誤差として数えない。
 
+### M62/R201候補の誤差台帳と共通時間窓
+
+M62は現行M61/M60主線の誤差へ加算しない独立strengtheningである。候補誤差を
+
+```math
+\varepsilon_{62}
+=
+\varepsilon_{\rm spec}
++
+\varepsilon_{\rm sig}
++
+\varepsilon_{\rm NF}
++
+\varepsilon_{\rm th}
++
+\varepsilon_{\rm GLE}
++
+\varepsilon_{\rm comp}
+```
+
+と整理する。順にR201Aの有限格子spectrum、R201Bのsignal envelope、R201Cのnormal-form remainder、R201Dのmixing/exchange/prethermal近似、R201Eのfinite-memory GLE、R201Fの合成誤差を表す。
+
+M62の中心的な時間条件は
+
+```math
+\max(
+\tau_{\rm mix},
+\tau_{\rm ex},
+\tau_{\rm mem}
+)
+\ll
+T_{\rm obs}
+\ll
+\min(
+T_{\rm NF},
+\tau_{\mathcal N}
+).
+```
+
+現在のcandidate numerical witnessは $\tau_{\rm mem}\sim10$--$50$、$\tau_{\rm ex}\sim150$--$200$、$\tau_{\mathcal N}>800$、$v\sim5\times10^5$ の一例で $T_{\rm NF}\sim2\times10^3$ である。$T_{\rm obs}\sim500$ のstrict inequalityは作れるが、十分強い $\ll$ separationをvalidated boundとして閉じていないためR201Fは未閉鎖のままとする。
+
 ## 8.8 静的分布の整合の正則化資源発散
 
 正則化により $\pi_i^\delta\geq\delta q_{\min}/(1+\delta)$ なので、有効自由エネルギー幅は
@@ -463,6 +504,7 @@ Q2-4は条件付き達成を維持する。残る条件は、静的部分系配�
 | R182 | W型固定低位スペクトル・密度・節が格子収束しない、Rayleigh十分条件から障壁下二重項が得られない、関数計算の共有固有空間または分裂相対上界を破る、中央障壁込み半周期鏡映・一周期回帰が成立しない |
 | R161 path law | 固定有限時間で $M_T=\sup_{t\leq T}\max_i\sum_{j\ne i}k^+_{i\to j}(t)<\infty$ を満たさず、finite-state canonical Markov経路法則の非爆発性を保証できない |
 | M61/R200A--R200C/R200・M60/R198A--R198D・R199A・R195A・R196A--R196C | 単一HamiltonianからM60へ有限誤差で接続できない、またはchiral作用/current恒等式を満たさない、passive ballistic portの有限誤差境界が閉じない、moving-reflector fixed pointが一意安定でない、$\tau_p$ または $\lambda_Y^{-1}$ をsignal時間から分離できない、平衡bath GLE/overdamped/homogenizationが制御できない、weak-loading familyが空、またはR196Cのmetastable generatorがR161へ有限誤差で接続しない |
+| M62/R201A--R201F candidate | PN＋2 shell＋continuum構造または $3\omega_2<\omega_{\min}^{\rm cont}$ を満たせない、非負 $B(\phi)$ でweighted-shell quartic momentsと非零exchangeを両立できない、shell--reservoir交換がnormal-form windowより遅い、prethermal $\mathcal N$ lifetimeが短い、memory tailを有限誤差Markov縮約できない、または同一parameter setで共通時間窓が空になる |
 | R161/R162 ideal reference | R161率の非負性またはmaster equation整合が破れる、あるいはR162 ideal open-jump生成子がR161率と一致しない |
 | Q3-2 | 時間対称Newton則を縮約前に仮定する、M60からR161前向き経路法則へ有限誤差で接続できない、同じ前向き経路法則からBayes後退率を構成できない、またはR185の $C_{185,a}a^2+O(\delta)$ 評価を破る |
 | Q3-3C | W型低位スペクトルの格子・領域収束を示せない、または同じ固有基底で環境との弱結合を縮約した有限時間純位相緩和と対角占有率保存を閉じられない |
@@ -484,7 +526,7 @@ Q2-4は条件付き達成を維持する。残る条件は、静的部分系配�
 
 A1ではHamiltonian無限浴だけでなく、規約と共分散を明示したLangevin型SDEその他の採用開放ミクロ方程式を認め、理想白色雑音を許す。A2では採用したミクロODE/SDEそのものを直接計算する。理想白色雑音を使うQ1/Q2模型を回路へ移す場合、B2/B3では有限帯域雑音源と時間尺度分離を明示する。
 
-従来からのQ1/Q2完全周期収支、R180Cの共通浴統合、M61/M60 common process--時計--終位置記録--resetの単一反復周期統合、連続空間一様極限、多粒子拡張、全周期の有限閉鎖Hamiltonian化は、A/B/Sを横断する上位または系列固有の実装強化課題として保持する。R162を特定Hamiltonian浴から再導出することはM60主線の要件ではない。旧R162有限衝突経路、旧R188、旧R179部分SWAP貯蔵部、旧R178D有限閉鎖リセット境界は撤回せず、有限閉鎖実装を調べる強化結果として論文外メモへ保存する。
+従来からのQ1/Q2完全周期収支、R180Cの共通浴統合、M61/M60 common process--時計--終位置記録--resetの単一反復周期統合、連続空間一様極限、多粒子拡張、全周期の有限閉鎖Hamiltonian化は、A/B/Sを横断する上位または系列固有の実装強化課題として保持する。M62についてはR201C full remainder、R201D validated exchange/prethermal lifetime、R201E finite-memory Markov error、R201F共通parameter windowを独立strengtheningとして残す。R162を特定Hamiltonian浴から再導出することはM60主線の要件ではない。旧R162有限衝突経路、旧R188、旧R179部分SWAP貯蔵部、旧R178D有限閉鎖リセット境界は撤回せず、有限閉鎖実装を調べる強化結果として論文外メモへ保存する。
 
 Q1-1、Q1-2、Q3-1、Q3-2、Q3-3A、Q3-3B、Q3-3Cは達成、Q2-1、Q2-2、Q2-3、Q2-4、Q3-4A、Q3-4B、Q3-5は条件付き達成、Q3-6は未達である。
 

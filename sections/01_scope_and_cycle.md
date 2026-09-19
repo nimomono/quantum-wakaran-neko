@@ -1,7 +1,7 @@
 @number: 1
 @chapter: 本文
 @title: 問題設定、現行模型、達成範囲
-@status: M54をQ1・Q2・Q3の共通有効信号構成族、M37を物理信号実装層、M61をQ3単一Hamiltonian親層、M60をその共通縮約ミクロ層として区別する。Q1/Q2のR191射影読出しとQ3のM61/R200A--R200C/R200--M60/R198A--R198D・R199A・R195A・R196A--R196C--R161位置輸送を分離する。
+@status: M54をQ1・Q2・Q3の共通有効信号構成族、M37を物理信号実装層、M61をQ3単一Hamiltonian親層、M60をその共通縮約ミクロ層として区別する。M62/R201は一成分Hamiltonian latticeによる単一場統合強化候補として並行管理し、現行固定達成主線を置換しない。
 
 ## 1.1 研究上の問い
 
@@ -91,6 +91,7 @@ R162のopen Poisson-jump過程はM60の基礎的実体ではなく、R161 lawの
 | M37 | 物理Hamiltonian信号実装層 | Q3空間信号を局所ばね網で実装し、R187条件下ではW型最低2正常モードをQ1 W2制御信号へ接続する |
 | M61 | Q3単一Hamiltonian親層 | 一つのmultiband媒体と一つの複合mobile subsystemを $H_{61}$ へ統合し、R200Cでsignal/chiral、R200Aでmoving branch converter、R200Bで内部harmonic bathをM60へ持ち上げる |
 | M60 | Q3共通縮約ミクロ層 | M61から得るM37 signal、実2-mode Duffing shell、二成分chiral媒体のnonlinear core/ballistic lead、moving bath-frame、平衡GLEをR198A--R198D・R199A・R195A・R196A--R196Cを介してR161へ接続する |
+| M62 | Q3単一場統合強化候補 | 一成分Hamiltonian latticeのkink、2 shell mode、signal continuum、prethermal reservoir、reaction-coordinate frameをR201A--R201Fで同一parameter setへ統合する。現行M61/M60主線はまだ置換しない |
 | M0 | 単一ミクロ装置統一目標 | Q1ではR193によりW2作用保持からmacrospin decision energyまでを具体化済み。Q3ではM37 signalからM60粒子輸送までを具体化する。macrospin浴、router、record、reset、Q2一般transducer、Q3 clock/recordを共通接続端とHamiltonian無限浴へ統合する全周期目標は未完成 |
 
 M54の複素信号 $Z$ は実正準対の派生表示であり、独立した複素実体ではない。状態方向、規格化共分散、位置分布は解析上の統計量であり、単一試行の制御器へ書き戻さない。
@@ -113,6 +114,8 @@ M54の複素信号 $Z$ は実正準対の派生表示であり、独立した複
 固定目標と達成ラベルは `PROJECT_STATUS.md` を正本とする。Q1-1、Q1-2、Q3-1--Q3-3Cは達成、Q2-1--Q2-4、Q3-4A、Q3-4B、Q3-5は各文書に明記した条件付き達成、Q3-6は未達のままとする。Q3-1/Q3-2の最深ミクロ親模型はM61/R200、共通縮約層はM60/R197である。Q3-1のsignal marginalはM37/R86、Q3-2のparticle pathはM60/R199A/R196A--R196C/R161/R185で接続し、R198A--R198Dが同一試行の2-action shellを供給する。R198Dの具体的core mixing witnessとR199Aのcore--lead同時parameter witnessは強化目標A1の残件とする。
 
 固定目標に付随する強化目標は `ENHANCEMENT_TARGETS.md` を正本とする。全固定目標にA1/A2、Q1/Q2にB1/B2/B3、Q2-2にQ2-2-Sを置き、固定目標の達成状態とは独立に管理する。A1では採用開放SDEと理想白色雑音を許し、A2はそのミクロ方程式自体の直接数値再現を要求する。回路強化Bでは有限帯域雑音を含む実験可能領域へ落とす。
+
+付録YのM62/R201はQ3-1/Q3-2のA1をさらに単純な一成分Hamiltonian latticeへ統合する候補である。R201Fまで閉じていないため、現行の達成判定・必須依存・required verifierはM61/M60から切り替えない。
 
 ## 1.6 非主張
 

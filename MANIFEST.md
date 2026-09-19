@@ -10,6 +10,15 @@
 - `tools/test_validation_policy.py` — 上記責務境界そのものの自己回帰検査。
 - `.github/workflows/verify.yml` — read-onlyの3ジョブ構成を維持し、論文生成後の同期・semantic・lintを独立報告。
 
+## draft-106：M62 一成分Hamiltonian lattice Q3統合候補
+
+- `sections/A25_m62_single_field_q3_micro_model.md` を追加し、M62/R201A--R201FをM61/M60を置換しないQ3 single-field strengtheningとして収録する。
+- `tools/candidate_checks/verify_m62_spectral_window.py`、`verify_m62_weighted_shell.py`、`verify_m62_time_window.py` をcandidate検算として追加する。
+- `simulations/m62/README.md` と `simulations/m62/witness_summary.json` に探索的spectrum、exchange、memory、prethermal、normal-form時間尺度を集約し、A2未監査境界を明示する。
+- README、PROJECT_STATUS、ENHANCEMENT_TARGETS、第0・1・2・6--9章、VALIDATION、CHANGELOGをM62 candidate責務へ同期する。
+- 固定Q3-1/Q3-2達成、A1部分達成、A2未監査、M61/M60 required主線は変更しない。
+- `paper.md`、`main.tex`、`paper.pdf` を再生成する。
+
 ## draft-105：M61 単一Hamiltonian Q3親模型
 
 - `sections/A24_m61_single_hamiltonian_micro_model.md` を追加し、M61/R200A--R200C/R200をM60の下位Hamiltonian親層として正本化する。
@@ -143,6 +152,7 @@
 - `sections/A22_m57_dual_tl_tracer_microphysics.md`
 - `sections/A23_q3_common_micro_model.md`
 - `sections/A24_m61_single_hamiltonian_micro_model.md`
+- `sections/A25_m62_single_field_q3_micro_model.md`
 - `sections/90_references.md`
 
 ## 論文外の研究メモ
@@ -224,6 +234,9 @@
 - `tools/verify_q3_common_micro_model.py`
 - `tools/verify_m61_single_hamiltonian.py`
 - `tools/candidate_checks/verify_m61_parameter_window.py`
+- `tools/candidate_checks/verify_m62_spectral_window.py`
+- `tools/candidate_checks/verify_m62_weighted_shell.py`
+- `tools/candidate_checks/verify_m62_time_window.py`
 - `figures/README.md`
 - `.github/workflows/verify.yml`
 - `.gitignore`

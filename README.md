@@ -150,6 +150,27 @@ Q3の最深ミクロ物理正本はM61です。M61は、一つのmultiband Hamil
 
 R199Bでは、同じDuffing pairの作用和 $S=K_++K_-$ にstate count、作用差 $D=K_+-K_-$ にchiral current情報を持たせられることも調べます。ただし、これはM60の統合強化であり、Q3-2固定達成の必須依存にはしていません。
 
+### M62：一成分Hamiltonian latticeへの統合候補
+
+M62では、M61/M60で複数の部品として現れる粒子、2作用殻、signal、reservoir、moving frameを、一種類の古典格子場の異なるcollective sectorとしてまとめられるかを調べます。基本自由度は各格子点の実正準対 $(\phi_n,\pi_n)$ だけで、
+
+```math
+H_{62}
+=
+\sum_n\left[
+\frac{\pi_n^2}{2}
++U_v(\phi_n)
++\frac14B_v(\phi_n)\pi_n^4
+\right]
++
+\frac12\sum_{n,r\ge1}
+\kappa_r(\phi_{n+r}-\phi_n)^2
+```
+
+とします。kink中心を粒子位置、kinkの2内部modeをweighted shell、狭帯域continuumをsignal、残りのcontinuumをprethermal reservoirとして用い、reaction-coordinate frame $Y$ も同じwave-action flowから派生させます。
+
+R201A--R201Eではspectrum、weighted-shell normal form、reservoir交換、memory kernelについて解析構造と数値witnessを整理します。最終合成R201Fとfull remainder/error boundは未閉鎖なので、M62は現時点でM61/M60の固定達成主線を置換しません。
+
 M56 Brownian-spin模型はspin-onlyの別実現を探る代替研究線としてnotesに残します。
 
 ## 現在どこまでできているか

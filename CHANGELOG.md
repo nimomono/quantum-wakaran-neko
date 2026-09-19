@@ -6,6 +6,13 @@
 - `tools/check_generated.py` を生成物同期専用とし、LaTeX hard errorは新設 `tools/check_latex_semantics.py` へ分離した。paper jobではartifact syncが失敗してもLaTeX semantic診断を隠さない。
 - `VALIDATION_POLICY.md` に検算作成12原則を明記し、`tools/test_validation_policy.py` で理論スナップショット依存の再流入、migrationのCI登録、physics runnerのearly break、生成同期とLaTeX検査の再結合を自己検査する。
 
+## draft-106：M62 一成分Hamiltonian lattice Q3統合候補
+
+- 一組の実格子正準変数 $(\phi_n,\pi_n)$ からkink、2 shell mode、signal continuum、prethermal reservoir、reaction-coordinate frameを同時に得るM62をQ3のsingle-field strengtheningとして追加した。
+- R201A--R201Fをspectrum、same-field signal、weighted-shell normal form、reservoir mixing/exchange、GLE/FDT、共通parameter有限時間合成へ責務分離した。
+- 最新の探索値としてPN＋2 shell＋continuumのspectrum、$O(10^2)$ のshell--reservoir exchange、短いmemory主成分、$t=800$ までのprethermal wave-action diagnostic、$v$ によるnormal-form lifetime伸長をcandidate witnessとして記録した。
+- M62はM61/M60をまだ置換せず、固定Q3-1/Q3-2達成、A1部分達成、A2未監査、required verifierを維持した。
+
 ## draft-105：M61 単一Hamiltonian Q3親模型
 
 - M60を共通縮約層として維持し、その下位に単一時間非依存Hamiltonian親模型M61を追加した。

@@ -25,6 +25,13 @@ python tools/run_physics_checks.py --include-candidate
 
 を追加する。PR固有の旧語・旧依存・旧模型の除去確認は `tools/migrations/` の一時検査として扱い、通常CIへ登録しない。
 
+## draft-106：M62単一場統合候補検算
+
+- `sections/A25_m62_single_field_q3_micro_model.md` にM62/R201A--R201Fをcandidate strengtheningとして追加する。現行M61/M60 required検算は変更しない。
+- `tools/candidate_checks/verify_m62_spectral_window.py`、`verify_m62_weighted_shell.py`、`verify_m62_time_window.py` は、spectrum witness、weighted-shell代数、candidate時間窓だけを検査し、R201C--R201Fの証明済み判定には使わない。
+- shell--reservoir FGR、memory kernel、prethermal lifetimeの探索値は `simulations/m62/` に集約値と未検証境界を記録する。完全な直接simulation再現が揃うまではQ3-1-A2/Q3-2-A2を未監査から変更しない。
+- M62/R201が現行固定達成主線へ昇格するまではcandidate verifierを通常CIのhard failureへ昇格させない。
+
 ## draft-105：M61単一Hamiltonian Q3親模型検算
 
 - `tools/verify_m61_single_hamiltonian.py` をrequired検算として追加し、carrier位相回転によるM60 hopping、作用不変性、R200A fixed pointと安定性、R200B action--reactionとDrude kernelを検査する。
