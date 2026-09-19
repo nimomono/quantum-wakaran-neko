@@ -1,0 +1,63 @@
+{
+  "status": "candidate_exploratory",
+  "lattice": {
+    "a": 0.1,
+    "kappa_r": "(200/9)*3^(1-r)",
+    "A0": 37.5782,
+    "A_side": 35.482,
+    "d": 1.45
+  },
+  "spectrum": {
+    "omega_pn": 0.28284,
+    "omega1": 1.19599,
+    "omega2": 1.217,
+    "omega3": 4.00659
+  },
+  "exchange": {
+    "bump_centers": [
+      -1.8,
+      1.8
+    ],
+    "sigma": 0.12,
+    "amplitudes": [
+      340,
+      445
+    ],
+    "gamma1": 0.0066,
+    "gamma1_sigma": 0.0008,
+    "gamma2": 0.0058,
+    "gamma2_sigma": 0.0007,
+    "tau_exchange_range": [
+      150,
+      180
+    ]
+  },
+  "memory": {
+    "dominant_decay_range": [
+      10,
+      20
+    ],
+    "safe_range": [
+      40,
+      50
+    ]
+  },
+  "prethermal": {
+    "tau_N_lower_bound": 800
+  },
+  "normal_form": {
+    "D5_safe_scaling": "1e3/v",
+    "v_example": 500000,
+    "S_w_example": 0.08,
+    "T_NF_10pct_example": 2200
+  },
+  "common_window": {
+    "tau_mix_candidate": 180,
+    "tau_mem_safe": 50,
+    "tau_exchange_safe": 180,
+    "T_obs_example": 500,
+    "tau_N_lower_bound": 800,
+    "T_NF_example": 2200
+  },
+  "caveat": "Exploratory values only; not validated theorem bounds or a complete A2 package."
+}
