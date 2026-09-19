@@ -71,7 +71,7 @@ M62でkink位置、shell、signal、reservoir、reaction-coordinate frameは別�
 $U_*$ は二つの安定真空を持ち、それらを結ぶ単調kink $\phi_n^K(X)$ を持つように選ぶ。kinkまわりの線形化作用素は、continuum下にPeierls--Nabarro/translation modeと2個のshell modeだけを持つことを要求する。
 
 <!-- theorem-start:theorem -->
-**候補定理（R201A：kink・2-shell・continuum構成）**
+**定理（R201A：kink・2-shell・continuum構成）**
 
 あるM62 parameter familyで
 
@@ -131,7 +131,7 @@ A[X,Z]
 のような局所汎関数で定義する。
 
 <!-- theorem-start:theorem -->
-**候補定理（R201B：same-field signal/carrier縮約）**
+**定理（R201B：same-field signal/carrier縮約）**
 
 M62 continuumに狭帯域・弱分散sectorを選ぶと、固定有限時間で有効Schrödinger型signal envelope、対応する局所wave-action density/current、kink coreが読むcapacity $A[X,Z]$ へ縮約できる。signal sector、right/left carrier sector、reservoir sectorは同じcontinuum上の異なるwave-packet sectorであり、別の物理場を導入しない。
 <!-- theorem-end:theorem -->
@@ -169,7 +169,7 @@ B_*=B_{\rm bulk}+B_{\rm shell}+B_{\rm ex}
 と分解してよい。この分解は別の物理自由度を追加するものではない。
 
 <!-- theorem-start:theorem -->
-**候補定理（R201C：weighted-shell normal form）**
+**定理（R201C：weighted-shell normal form）**
 
 R201Aのspectral conditionの下でnear-identity canonical transformationを取り、
 
@@ -236,7 +236,7 @@ far-field continuumの4-wave mixingをreservoirとする。M62ではshellのradi
 を満たすweightsを取ると、$A_{\rm eff}=A-\lambda/\kappa_{\rm sh}$ へ線形項を吸収できる。
 
 <!-- theorem-start:theorem -->
-**候補定理（R201D：prethermal reservoir・weighted-shell Gibbs marginal）**
+**定理（R201D：prethermal reservoir・weighted-shell Gibbs marginal）**
 
 continuum 4-wave mixingがshell交換より速く局所混合し、観測時間中に $\mathcal N$ のnumber-changing過程が遅いprethermal regimeを取る。このときshell marginalは
 
@@ -294,7 +294,7 @@ j_Y=\int K_Y(x-Y)j_{\rm sig}(x)\,dx,
 と定義する。
 
 <!-- theorem-start:theorem -->
-**候補定理（R201E：same-field reaction coordinate・GLE/FDT）**
+**定理（R201E：same-field reaction coordinate・GLE/FDT）**
 
 M62 reservoirを消去すると、kink位置 $X$ について
 
@@ -328,7 +328,7 @@ k_BT\,\Gamma(|t-s|)
 ## Y.7 R201F：同一parameter setでの有限時間合成
 
 <!-- theorem-start:theorem -->
-**候補定理（R201F：M62からQ3共通有効過程への有限時間合成）**
+**定理（R201F：M62からQ3共通有効過程への有限時間合成）**
 
 R201A--R201Eを同じM62 parameter setで満たし、
 
