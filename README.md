@@ -185,6 +185,54 @@ k_BT\partial_X\log\rho
 R202Cのpartition identity、R202E1のcurrent dictionary、R202E3のfrozen harmonic-bath GLE/FDTは解析核として整理済みです。一方、real-space scatteringからframe trackingへの有限誤差、slow coefficient補正、full-trajectory backreaction、R202FのPN hoppingからR161への接続は未閉鎖です。そのためM63は次期単一場候補であり、現行のM61/M60固定達成主線はまだ置換しません。
 
 
+### M64：3実体に絞った最小開放系候補
+
+M64では、Q3の物理的な実体を次の三つに絞ります。
+
+- M37型のclassical coherent signal
+- 実在tracer $X$
+- signal-driven moving thermal reservoir
+
+複素包絡 $Z$、密度 $\rho$、流れ $j$、reservoirのlocal mean flow $U$ はこれらから作る派生量です。density reservoir、current-frame transducer、thermal noise sourceを別々の物体として置かず、一つのmoving thermal reservoirの異なる役割としてまとめます。
+
+signal densityはreservoirのphase volumeを変えます。M64/R203Bでは、reservoir座標のscaleを $\rho$ に応じて変えると、条件付きinternal free energyが
+
+```math
+F_{\rm res}
+=
+-k_BT\log\rho
++
+\mathrm{const}
+```
+
+となります。一方、signal currentはreservoirのmean flow
+
+```math
+U
+\simeq
+\frac j\rho
+```
+
+を駆動します。mean flowは運動量分布の平行移動なので、上のfree-energy identityを壊しません。
+
+同じreservoir中のtracerに通常の摩擦と熱雑音を作用させ、overdamped極を取るとR203Cで
+
+```math
+dX_t
+=
+\left[
+\frac j\rho
++
+\nu\partial_x\log\rho
+\right]dt
++
+\sqrt{2\nu}\,dW_t
+```
+
+を得ます。R203Dではこのsmooth diffusionを一様cellへ直接有限体積化し、R161のMarkov chainへ $O(a^2)$ で接続します。そのためM64本体では、M60/M63で必要だったPN hoppingやEyring--Kramers縮約を必須にしません。
+
+M64はM60/M61/M63を整理して置換することを目指す次期候補です。ただし今回の追加では現行M61/M60主線、M63候補、固定目標や強化目標の判定は切り替えません。
+
 ## 現在どこまでできているか
 
 Q1では、2モード可逆操作、Born型2結果測定、同軸反復、異軸逐次測定、有限Rabi--Zeno証人まで構成しています。
