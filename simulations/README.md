@@ -34,3 +34,8 @@ Q1/Q2のB3では、B1で定めた具体回路をSPICE、回路ODE/SDE、伝送�
 ## M63 topological-reservoir candidate
 
 `simulations/m63/` は付録YのM63/R202A--R202Fに対する直接trajectory検証の入口とする。candidate checksではtopological partition identity、current dictionary、ideal weak-scattering tracker、frozen-coefficient relative harmonic-bath GLE/FDTまで扱う。full Hamiltonian trajectoryでのreal-space scattering、$N_0^{-1}$ signal backreaction、load付きframe tracking、slow-coefficient/Ohmic補正、PN hopping--R161 matchingは未監査であり、canonical runnerが揃うまではA2達成とは数えない。
+
+
+## M64 three-entity open-Q3 replacement candidate
+
+`simulations/m64/` はM64/R203A--R203DのA2 direct simulation入口とする。M64ではM37 signal equation、reservoir mean-flow relaxation、tracer Langevin SDEを採用ミクロ方程式として同一parameter setで直接積分する。candidate checksはR203Bのpartition identity、R203Cのoverdamped/Fokker--Planck整合、R203Dのfinite-volume $O(a^2)$ convergenceだけを扱い、direct trajectory再現の代替にしない。Q3-1-A2/Q3-2-A2は未監査のままとする。
