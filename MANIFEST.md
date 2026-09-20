@@ -1,3 +1,13 @@
+## draft-109：M64 三実体open-Q3置換候補
+
+- `sections/A26_m64_three_entity_open_q3_model.md` を追加し、M64/R203A--R203DをM60/M61/M63をまだ置換しないactive replacement candidateとして収録する。
+- M64の物理実体をM37型coherent signal、独立tracer、signal-driven moving thermal reservoirの三つへ限定し、density free energy、reservoir mean flow、friction/noiseを同じ環境の責務として整理する。
+- `verify_m64_reservoir_partition.py`、`verify_m64_overdamped_reduction.py`、`verify_m64_r161_finite_volume.py` をcandidate checksとして追加する。
+- `simulations/m64/README.md` にM37 signal、mean-flow relaxation、tracer Langevin SDEを同一parameter setで直接積分するA2計画を追加する。
+- README、第0・1・2・6--9章、PROJECT_STATUS、ENHANCEMENT_TARGETS、VALIDATION、simulations registry、R161実現同値メモをM64 candidateへ同期する。
+- M61/M60 fixed-goal主線、M63 active candidate、Q3達成ラベル、A1/A2判定、required/candidate verifierは変更しない。旧Q3模型の退役は次PRへ分離する。
+- `paper.md`、`main.tex`、`paper.pdf` を再生成する。
+
 ## draft-108：M62退役・M63 current-transport具体化
 
 - M63正本を `sections/A25_m63_topological_reservoir_q3_micro_model.md` へ移し、旧M62付録と旧A26を削除する。
