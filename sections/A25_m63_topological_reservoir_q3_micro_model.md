@@ -40,7 +40,7 @@ X
 ```math
 \frac j\rho
 \longrightarrow
-\text{T対称weak scattering}
+\mathrm{T\!\!\!-symmetric\ weak\ scattering}
 \longrightarrow
 \text{current frame}
 ```
