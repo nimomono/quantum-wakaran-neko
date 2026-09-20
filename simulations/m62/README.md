@@ -1,6 +1,6 @@
 # M62 numerical witness registry
 
-This folder records exploratory numerical witnesses for the candidate single-field model in appendix Y. These values are design evidence, not validated theorem bounds and not yet a complete A2 simulation package.
+This folder preserves exploratory numerical witnesses for the superseded M62/R201 single-field candidate in appendix Y. M63/R202 is now the active single-field candidate. These values remain design-history evidence, not validated theorem bounds and not a complete A2 simulation package.
 
 ## Aggregated witnesses
 

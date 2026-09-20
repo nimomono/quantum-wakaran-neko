@@ -7,7 +7,7 @@
 
 Q3の最深親模型は付録XのM61であり、付録WのM60はその共通縮約層である。M61/R200CはM37 signal mode族と二成分chiral mode族を同一multiband媒体へ載せる。その1試行には、実正準信号自由度、その派生表示 $Z$、1個の局在tracer位置 $X_t$、局所2-mode Duffing shell、統一二成分chiral媒体のnonlinear core/ballistic lead、moving bath-frame carrier、平衡oscillator bathが含まれる。R198A--R198D/R197Aが2-action state countと平均力を与え、R195Aがsignal currentを厳密に与え、R196Aがballistic wave pressureからmoving bath frame、R196Bが平衡GLE/FDTとperiodic homogenization、R196CがR161生成子matchingを与える。R162は同じ生成子を持つideal stochastic referenceであり、基礎的ミクロ存在論ではない。複素状態方向と位置分布は試行集団の統計であり、$C_Z$ またはその階数1因子を単一試行制御器へ書き戻さない。
 
-付録YのM62/R201Bは、M37とは別のsignal sourceを追加するのではなく、一成分Hamiltonian latticeのcontinuum sectorから同種の狭帯域signal envelopeを回収する強化候補である。R201Bの有限時間包絡誤差とparameter辞書が未閉鎖なので、Q3-1固定達成のM37/R86証人は維持する。
+付録ZのM63/R202Bは、M37とは別のsignal sourceを追加するのではなく、一成分Hamiltonian latticeのkink/signal branchから同種の狭帯域signal envelopeを回収するactive強化候補である。R202Bの有限時間包絡誤差とparameter辞書が未閉鎖なので、Q3-1固定達成のM37/R86証人は維持する。付録YのM62/R201Bは退役した旧single-field候補として保存する。
 
 M37はM54と並ぶ別の粒子親模型ではない。Q3ではM54空間信号部分系を局所位置ばねだけで有限時間近似する信号系実現模型であり、Q1ではR187の弱結合W型族に限って最低2正常モードをM54のW2静的状態構成の物理信号部分系として使う。従ってM37は、Q1型局所信号＋Q2型辺結合からR161入力 $(\pi,j)$ へ進む共通構造の1つの空間担体実装であり、R161そのものの定義や活動量の一意性を担わない。役割を次のように分ける。
 

@@ -1,3 +1,11 @@
+## draft-107：M63 topological-reservoir 一成分Hamiltonian Q3統合候補
+
+- M63/R202A--R202Fをactive single-field candidateとして追加し、2-action shellを用いずreservoir phase-space Jacobianからosmotic free energyを直接生成する経路へ再設計した。
+- 2-site local canonical filter bankで同じ $(\phi_n,\pi_n)$ からkink/signal branchとreservoir branchを定義し、topological weight $\gamma_m$ とsignal密度 $r_m$ から $F_R=-k_BT\sum_m\gamma_m\log r_m+\mathrm{const}$ を得るR202Cを解析核とした。
+- R202Dにfinite-width osmotic forceと $O(N_0^{-1})$ signal backreaction、R202Eに未閉鎖のcurrent port・GLE/FDT、R202FにPN hopping--R161/R185接続を分離した。
+- M62/R201はactive candidateから退役し、旧2-action-shell経路の探索・失敗条件・数値witnessをhistorical candidateとして保存した。
+- 固定Q3-1/Q3-2達成、A1部分達成、A2未監査、M61/M60 required主線は変更していない。
+
 ## validation-architecture-v2：改訂に強い検算責務へ再編
 
 - 恒久検算を「構造」「required科学検算」「生成物同期」「LaTeX semantic」「品質lint」へ分離し、特定PRだけの旧模型・旧依存確認を `tools/migrations/` へ隔離した。

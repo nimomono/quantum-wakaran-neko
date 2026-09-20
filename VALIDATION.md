@@ -1,3 +1,13 @@
+## draft-107：M63 topological-reservoir単一場候補検算
+
+- `sections/A26_m63_topological_reservoir_q3_micro_model.md` にM63/R202A--R202Fをactive candidate strengtheningとして追加する。M61/M60 required検算と固定達成判定は変更しない。
+- `tools/candidate_checks/verify_m63_canonical_filter_bank.py` は2-site正準変換、逆変換、kinetic-energy保存を検査する。
+- `tools/candidate_checks/verify_m63_topological_partition.py` はtopological telescoping、positive scaling、reservoir Jacobian identityを検査する。
+- `tools/candidate_checks/verify_m63_osmotic_width.py` はsmooth densityに対するfinite-width osmotic-force収束を検査する。
+- R202Cのpartition identityは解析恒等式として扱うが、R202Bのfull envelope、R202Dのmicroscopic backreaction定数、R202Eのcurrent port・GLE/FDT、R202FのPN hopping--R161 matchingをcandidate checkだけで達成扱いしない。
+- `simulations/m63/` はfull trajectory検証の入口だけを置き、canonical runnerが揃うまではQ3-1-A2/Q3-2-A2を未監査から変更しない。M62の旧candidate checksと `simulations/m62/` はhistorical regressionとして保存する。
+- M63/R202が現行固定達成主線へ昇格するまではcandidate verifierを通常CIのhard failureへ昇格させない。
+
 ## validation-architecture-v2：検算責務の再編
 
 この節以降に残る過去draftの「特定M/R/Q番号や本文断片を `check_source.py` で固定する」記録は、そのdraft当時の移行検査履歴であり、新しい恒久検算の設計例ではない。今後の正本方針は `VALIDATION_POLICY.md` と `tools/README.md` に従う。
