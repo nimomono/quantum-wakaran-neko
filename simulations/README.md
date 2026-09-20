@@ -30,11 +30,7 @@ Q1/Q2のB3では、B1で定めた具体回路をSPICE、回路ODE/SDE、伝送�
 大容量の生軌道や全標本は収録せず、人が差分を読める集約結果を保存する。
 
 
-## M62 single-field candidate
-
-`simulations/m62/` には、付録YのM62/R201A--R201Fについて探索計算から得た集約witnessと再検証境界を置く。現段階ではspectrum、shell--reservoir交換、memory kernel、prethermal wave-action、normal-form lifetimeの全てを一つのcanonical simulation runnerから再生成できる状態ではないため、A2達成とは数えない。重いtrajectory/FGR計算を正本化するときは、有限箱・時間刻み・sampling・broadening・乱数種・収束検査を同じfolderへ追加する。
-
 
 ## M63 topological-reservoir candidate
 
-`simulations/m63/` は付録ZのM63/R202A--R202Fに対する直接trajectory検証の入口とする。現段階ではanalytic partition identityと小規模candidate algebra checksだけを持ち、full Hamiltonian trajectoryでのosmotic mean force、$N_0^{-1}$ signal backreaction、GLE/FDT、same-field current port、PN hopping--R161 matchingは未監査である。canonical runnerが揃うまではA2達成とは数えない。
+`simulations/m63/` は付録YのM63/R202A--R202Fに対する直接trajectory検証の入口とする。candidate checksではtopological partition identity、current dictionary、ideal weak-scattering tracker、frozen-coefficient relative harmonic-bath GLE/FDTまで扱う。full Hamiltonian trajectoryでのreal-space scattering、$N_0^{-1}$ signal backreaction、load付きframe tracking、slow-coefficient/Ohmic補正、PN hopping--R161 matchingは未監査であり、canonical runnerが揃うまではA2達成とは数えない。

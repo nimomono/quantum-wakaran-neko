@@ -1,3 +1,12 @@
+## draft-108：M62退役・M63 current-transport具体化
+
+- M63正本を `sections/A25_m63_topological_reservoir_q3_micro_model.md` へ移し、旧M62付録と旧A26を削除する。
+- M62の3 candidate checksと `simulations/m62/` を削除し、過去の探索はGit履歴・過去draft記録へ委ねる。
+- M63 current transport用に `verify_m63_current_dictionary.py`、`verify_m63_scatterer_tracking.py`、`verify_m63_relative_gle.py` を追加し、既存canonical/partition/osmotic checksを新定義へ同期する。
+- README、第0・1・2・6--9章、ENHANCEMENT_TARGETS、PROJECT_STATUS、VALIDATION、simulations registry、R161実現同値メモを新R202E責務へ同期する。
+- M61/M60 fixed-goal主線、required検算、Q3達成ラベルは変更しない。
+- `paper.md`、`main.tex`、`paper.pdf` を再生成する。
+
 ## draft-107：M63 topological-reservoir 一成分Hamiltonian Q3統合候補
 
 - `sections/A26_m63_topological_reservoir_q3_micro_model.md` を追加し、M63/R202A--R202Fをactive single-field strengtheningとして収録する。
@@ -162,8 +171,7 @@
 - `sections/A22_m57_dual_tl_tracer_microphysics.md`
 - `sections/A23_q3_common_micro_model.md`
 - `sections/A24_m61_single_hamiltonian_micro_model.md`
-- `sections/A25_m62_single_field_q3_micro_model.md`
-- `sections/A26_m63_topological_reservoir_q3_micro_model.md`
+- `sections/A25_m63_topological_reservoir_q3_micro_model.md`
 - `sections/90_references.md`
 
 ## 論文外の研究メモ

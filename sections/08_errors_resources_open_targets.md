@@ -1,7 +1,7 @@
 @number: 8
 @chapter: 本文
 @title: 誤差、資源、反証条件、未完成目標
-@status: Q1/Q2のR191系と、Q3のM61--M60--R161--R185階層を横断して誤差・資源・反証条件を整理する。M61固有誤差はM60既存誤差へ重複加算しない。M63/R202はactive candidate strengtheningとして独立の誤差台帳を管理し、M62/R201は歴史的candidateとして保存する。
+@status: Q1/Q2のR191系と、Q3のM61--M60--R161--R185階層を横断して誤差・資源・反証条件を整理する。M61固有誤差はM60既存誤差へ重複加算しない。M63/R202はactive candidate strengtheningとして独立の誤差台帳を管理する。
 
 
 ### R191の2結果読出し誤差と資源
@@ -339,51 +339,9 @@ M_X=O(\epsilon^6)
 
 旧draft-95の $\varepsilon_{\rm mix}$、$\varepsilon_{\rm corr}$、TLへの $\varepsilon_{\rm FDT}$ は現行M60 transport誤差台帳から削除する。旧R184の $\varepsilon_{184}$ は撤回しないがM60主線では使わない。R162はideal R161 jump referenceでありM60の基礎的bath誤差として数えない。
 
-### M62/R201候補の誤差台帳と共通時間窓
-
-M62は現行M61/M60主線の誤差へ加算しない独立strengtheningである。候補誤差を
-
-```math
-\varepsilon_{62}
-=
-\varepsilon_{\rm spec}
-+
-\varepsilon_{\rm sig}
-+
-\varepsilon_{\rm NF}
-+
-\varepsilon_{\rm th}
-+
-\varepsilon_{\rm GLE}
-+
-\varepsilon_{\rm comp}
-```
-
-と整理する。順にR201Aの有限格子spectrum、R201Bのsignal envelope、R201Cのnormal-form remainder、R201Dのmixing/exchange/prethermal近似、R201Eのfinite-memory GLE、R201Fの合成誤差を表す。
-
-M62の中心的な時間条件は
-
-```math
-\max(
-\tau_{\rm mix},
-\tau_{\rm ex},
-\tau_{\rm mem}
-)
-\ll
-T_{\rm obs}
-\ll
-\min(
-T_{\rm NF},
-\tau_{\mathcal N}
-).
-```
-
-現在のcandidate numerical witnessは $\tau_{\rm mem}\sim10$--$50$、$\tau_{\rm ex}\sim150$--$200$、$\tau_{\mathcal N}>800$、$v\sim5\times10^5$ の一例で $T_{\rm NF}\sim2\times10^3$ である。$T_{\rm obs}\sim500$ のstrict inequalityは作れるが、十分強い $\ll$ separationをvalidated boundとして閉じていないためR201Fは未閉鎖のままとする。
-
-
 ### M63/R202候補の誤差台帳と共通時間窓
 
-M63は現行M61/M60主線の誤差へ加算しない独立strengtheningである。R202Cの条件付きpartition identityは代数恒等式として扱い、その前後の物理縮約だけを有限誤差として数える。候補transport誤差を
+M63は現行M61/M60主線の誤差へ加算しない独立strengtheningである。R202Cのpartition identity、R202E1のcurrent dictionary、frozen-coefficient R202E3のharmonic-bath GLE/FDTは解析核として扱い、それ以外の有限時間縮約だけを候補誤差へ数える。
 
 ```math
 \begin{aligned}
@@ -392,15 +350,19 @@ M63は現行M61/M60主線の誤差へ加算しない独立strengtheningである
 \varepsilon_{\rm env}
 +\varepsilon_{KS}
 +\varepsilon_{SR}
++\varepsilon_{YR}
 +\varepsilon_{\rm filt}
 +\varepsilon_N
 +\varepsilon_{\rm top}
++\varepsilon_{\rm width}
 \\
 &
-+\varepsilon_{\rm width}
 +\varepsilon_{\rm back}
-+\varepsilon_{\rm eq}
-+\varepsilon_{\rm cur}
++\varepsilon_{\rm ch}
++\varepsilon_{\rm sc}
++\varepsilon_{\rm track}
++\varepsilon_{\rm ad}
++\varepsilon_{\rm Ohm}
 +\varepsilon_{\rm mem}
 \\
 &
@@ -411,12 +373,12 @@ M63は現行M61/M60主線の誤差へ加算しない独立strengtheningである
 \end{aligned}
 ```
 
-と整理する。$\varepsilon_{\rm env}$ はR202Bのsignal envelope、$\varepsilon_{KS}$ はsignalのkink low-passへの漏れ、$\varepsilon_{SR}$ はsignal/reservoir branch混成、$\varepsilon_{\rm filt}$ は有限range filter近似、$\varepsilon_N$ はprepared signal action $N_0$ からのdrift、$\varepsilon_{\rm top}$ は有限境界・kink変形によるtopological weight、$\varepsilon_{\rm width}$ は有限kink幅、$\varepsilon_{\rm back}$ はreservoir/current portからsignalへの反作用、$\varepsilon_{\rm eq}$ は条件付きreservoir平衡への追従、$\varepsilon_{\rm cur}$ はcurrent port、$\varepsilon_{\rm mem}$ はfinite-memory GLE、$\varepsilon_{\rm od}$ はoverdamped縮約、$\varepsilon_{\rm PN}$ はkinkからPN collective coordinate、$\varepsilon_{\rm EK}$ はPN hoppingのEyring--Kramers近似を表す。同じ上流偏差を複数項へ重複計上しない。
+と整理する。$\varepsilon_{\rm env}$ はR202Bのsignal envelope、$\varepsilon_{KS}$ はsignalのkink low-passへの漏れ、$\varepsilon_{SR}$ はsignal/reservoir branch混成、$\varepsilon_{YR}$ はframe/reservoir正準分離、$\varepsilon_{\rm filt}$ は有限range filter近似、$\varepsilon_N$ はprepared signal action $N_0$ からのdrift、$\varepsilon_{\rm top}$ はtopological weight、$\varepsilon_{\rm width}$ は有限kink幅、$\varepsilon_{\rm back}$ はdensity/current portからsignalへの反作用、$\varepsilon_{\rm ch}$ はcurrent dictionary、$\varepsilon_{\rm sc}$ はreal-space scatteringからideal weak-reflection force lawへの誤差、$\varepsilon_{\rm track}$ はcurrent-frame追従、$\varepsilon_{\rm ad}$ はtime-dependent $\lambda_\alpha,\gamma_m$ のfrozen-coefficient補正、$\varepsilon_{\rm Ohm}$ はspectral densityのOhmic近似、$\varepsilon_{\rm mem}$ はMarkov memory、$\varepsilon_{\rm od}$ はoverdamped縮約、$\varepsilon_{\rm PN}$ はkinkからPN coordinate、$\varepsilon_{\rm EK}$ はPN hoppingのEyring--Kramers近似を表す。同じ上流偏差を複数項へ重複計上しない。
 
-M63の主要時間尺度を
+M63の主要時間尺度は
 
 ```math
-\tau_{\rm mix},
+\tau_Y,
 \qquad
 \tau_{\rm mem},
 \qquad
@@ -426,23 +388,27 @@ M63の主要時間尺度を
 \qquad
 \tau_r,
 \qquad
-T_{\rm env}
+T_{\rm env},
+\qquad
+T_{\rm return}.
 ```
 
-とする。必要な基本階層は
+必要な基本階層は
 
 ```math
-\tau_{\rm mix},
+\tau_Y,
 \tau_{\rm mem},
 \tau_{\rm well}
 \ll
-\tau_{\rm hop},
 \tau_r,
+\tau_{\rm hop},
 \qquad
-T_{\rm obs}<T_{\rm env}.
+T_{\rm obs}
+<
+\min(T_{\rm env},T_{\rm return}).
 ```
 
-旧M62で用いたnormal-form寿命、shell--reservoir交換時間、prethermal shell-action寿命はM63誤差台帳へ持ち込まない。R202Eのcurrent port・GLE/FDTとR202FのPN hopping--R161 matchingが閉じるまではM63をrequired主線へ昇格させない。
+$\tau_Y$ はweak-scattering frame tracking、$\tau_{\rm mem}$ はrelative harmonic bath memory、$T_{\rm return}$ は有限port/reservoirからの反射波が局所領域へ戻る時間である。R202E2のreal-space scattering--tracking有限誤差、R202E3のslow-coefficient/Ohmic finite-time closure、R202FのPN hopping--R161 matchingが閉じるまではM63をrequired主線へ昇格させない。
 
 ## 8.8 静的分布の整合の正則化資源発散
 
@@ -568,8 +534,7 @@ Q2-4は条件付き達成を維持する。残る条件は、静的部分系配�
 | R182 | W型固定低位スペクトル・密度・節が格子収束しない、Rayleigh十分条件から障壁下二重項が得られない、関数計算の共有固有空間または分裂相対上界を破る、中央障壁込み半周期鏡映・一周期回帰が成立しない |
 | R161 path law | 固定有限時間で $M_T=\sup_{t\leq T}\max_i\sum_{j\ne i}k^+_{i\to j}(t)<\infty$ を満たさず、finite-state canonical Markov経路法則の非爆発性を保証できない |
 | M61/R200A--R200C/R200・M60/R198A--R198D・R199A・R195A・R196A--R196C | 単一HamiltonianからM60へ有限誤差で接続できない、またはchiral作用/current恒等式を満たさない、passive ballistic portの有限誤差境界が閉じない、moving-reflector fixed pointが一意安定でない、$\tau_p$ または $\lambda_Y^{-1}$ をsignal時間から分離できない、平衡bath GLE/overdamped/homogenizationが制御できない、weak-loading familyが空、またはR196Cのmetastable generatorがR161へ有限誤差で接続しない |
-| M62/R201A--R201F historical candidate | 旧2-action-shell経路の探索・回帰記録として保存する。active単一場候補の反証条件には用いない |
-| M63/R202A--R202F candidate | kink/signal/reservoir branchを同一parameter familyで分離できない、$\sum_m\gamma_m=1$ をsafe kink sectorで保てない、R202Cのconditional phase-volume identityを実Hamiltonian定義へpull backできない、full trajectoryの平均力が $k_BT\partial_X\log r$ へ収束しない、signal backreactionが $N_0^{-1}$ で低下しない、current portが $j/\rho$ を同じ試行でkink driftへ渡せない、GLE/FDTまたはPN hopping--R161 matchingが閉じない、あるいは共通時間窓が空になる |
+| M63/R202A--R202F candidate | kink/signal/frame/reservoir sectorを同一parameter familyで分離できない、$\sum_m\gamma_m=1$ または$\sum_\alpha w_\alpha=1$をsafe sectorで保てない、R202Cのphase-volume identityを実Hamiltonianへpull backできない、osmotic mean forceまたはBorn型位置重みが収束しない、signal backreactionが $N_0^{-1}$ で低下しない、R202E2のT対称real-space scatteringが安定な $j/\rho$ frame trackingへ縮約しない、R202E3のrelative harmonic-bath GLE/FDTまたはslow-coefficient/Ohmic極が閉じない、R202FのPN hopping--R161 matchingが閉じない、あるいは共通時間窓が空になる |
 | R161/R162 ideal reference | R161率の非負性またはmaster equation整合が破れる、あるいはR162 ideal open-jump生成子がR161率と一致しない |
 | Q3-2 | 時間対称Newton則を縮約前に仮定する、M60からR161前向き経路法則へ有限誤差で接続できない、同じ前向き経路法則からBayes後退率を構成できない、またはR185の $C_{185,a}a^2+O(\delta)$ 評価を破る |
 | Q3-3C | W型低位スペクトルの格子・領域収束を示せない、または同じ固有基底で環境との弱結合を縮約した有限時間純位相緩和と対角占有率保存を閉じられない |
@@ -591,7 +556,7 @@ Q2-4は条件付き達成を維持する。残る条件は、静的部分系配�
 
 A1ではHamiltonian無限浴だけでなく、規約と共分散を明示したLangevin型SDEその他の採用開放ミクロ方程式を認め、理想白色雑音を許す。A2では採用したミクロODE/SDEそのものを直接計算する。理想白色雑音を使うQ1/Q2模型を回路へ移す場合、B2/B3では有限帯域雑音源と時間尺度分離を明示する。
 
-従来からのQ1/Q2完全周期収支、R180Cの共通浴統合、M61/M60 common process--時計--終位置記録--resetの単一反復周期統合、連続空間一様極限、多粒子拡張、全周期の有限閉鎖Hamiltonian化は、A/B/Sを横断する上位または系列固有の実装強化課題として保持する。M63についてはR202A/Bの同一parameter branch witness、R202Dのfull-dynamics backreaction bound、R202Eのcurrent port・GLE/FDT、R202FのPN hopping--R161共通parameter windowを独立strengtheningとして残す。M62/R201はsuperseded historical candidateとして保持する。R162を特定Hamiltonian浴から再導出することはM60主線の要件ではない。旧R162有限衝突経路、旧R188、旧R179部分SWAP貯蔵部、旧R178D有限閉鎖リセット境界は撤回せず、有限閉鎖実装を調べる強化結果として論文外メモへ保存する。
+従来からのQ1/Q2完全周期収支、R180Cの共通浴統合、M61/M60 common process--時計--終位置記録--resetの単一反復周期統合、連続空間一様極限、多粒子拡張、全周期の有限閉鎖Hamiltonian化は、A/B/Sを横断する上位または系列固有の実装強化課題として保持する。M63についてはR202A/Bの同一parameter branch witness、R202Dのfull-dynamics backreaction bound、R202E2のreal-space weak-scattering tracking、R202E3のslow-coefficient/Ohmic finite-time closure、R202FのPN hopping--R161共通parameter windowを独立strengtheningとして残す。R162を特定Hamiltonian浴から再導出することはM60主線の要件ではない。旧R162有限衝突経路、旧R188、旧R179部分SWAP貯蔵部、旧R178D有限閉鎖リセット境界は撤回せず、有限閉鎖実装を調べる強化結果として論文外メモへ保存する。
 
 Q1-1、Q1-2、Q3-1、Q3-2、Q3-3A、Q3-3B、Q3-3Cは達成、Q2-1、Q2-2、Q2-3、Q2-4、Q3-4A、Q3-4B、Q3-5は条件付き達成、Q3-6は未達である。
 

@@ -111,7 +111,7 @@ Q2-2-Sの主要な到達目標は、Bell型共同統計を維持したままS2�
 
 ここで「主な既存候補」は強化目標の達成を意味せず、新基準を監査するときの出発点だけを示す。
 
-Q3-1-A1とQ3-2-A1は、M61/R200A--R200C/R200によりM37 signal、二成分chiral sector、moving branch converter、tracer、内部harmonic bathを一つの時間非依存Hamiltonian親模型へ統合し、M60/R198A--R198Cへ接続した。R198Dの具体的core sectorに対するfinite-time mixing/homogenization witness、R199Aのcore--lead同時parameter witness、R200A/Bのtracking--thermal-load同時parameter witnessが未閉鎖なので部分達成とする。加えてM63/R202A--R202Fでは、kink・Schrödinger signal・topological reservoir scalingを一成分Hamiltonian latticeへ統合するactive candidateを構成する。R202Cのpartition identityは解析核として閉じるが、R202Bのfull envelope、R202Dのfull-dynamics backreaction bound、R202Eのcurrent port・GLE/FDT、R202FのPN hopping--R161共通時間窓が未閉鎖なのでA1判定は変更しない。Q3-1-A2/Q3-2-A2も未監査のままとし、M63のcandidate algebra checksだけからA2達成へ上げない。M62/R201は歴史的candidateとして保存する。
+Q3-1-A1とQ3-2-A1は、M61/R200A--R200C/R200によりM37 signal、二成分chiral sector、moving branch converter、tracer、内部harmonic bathを一つの時間非依存Hamiltonian親模型へ統合し、M60/R198A--R198Cへ接続した。R198Dの具体的core sectorに対するfinite-time mixing/homogenization witness、R199Aのcore--lead同時parameter witness、R200A/Bのtracking--thermal-load同時parameter witnessが未閉鎖なので部分達成とする。加えてM63/R202A--R202Fでは、kink・Schrödinger signal・topological reservoir scaling・T対称weak-scattering current frame・relative harmonic-bath GLE/FDTを一成分Hamiltonian latticeへ統合するactive candidateを構成する。R202C、R202E1、frozen-coefficient R202E3には解析核があるが、R202Bのfull envelope、R202Dのfull-dynamics backreaction、R202E2のreal-space scattering--tracking有限誤差、slow coefficient補正、R202FのPN hopping--R161共通時間窓が未閉鎖なのでA1判定は変更しない。Q3-1-A2/Q3-2-A2も未監査のままとし、candidate algebra checksだけからA2達成へ上げない。
 
 ## 既存の実装強化課題との関係
 

@@ -77,7 +77,7 @@ L_{\rm R161}
 
 R200CはM37 signalとM60 chiral sectorを一つのmultiband媒体へ載せ、R200Aはmoving branch converterをHamiltonian化し、R200Bは内部harmonic continuumからrelative-coordinate GLE/FDTを導く。R199AはM60の同一chiral媒体からballistic leadを有限時間で分離してincident energyへ接続し、R196Aはそのwave pressureだけでmoving bath frameを作る。chiral媒体のthermalizationをleadへ課したり、drifting-Gibbsや非平衡FDTを仮定したりしない。R196Bでは別の平衡oscillator bathだけにFDTを適用し、periodic homogenizationを経て $D=\nu$、$j/\rho+O(a^2)$、$\nu\partial_x\log\rho$ を得る。R196Cはwell-index generatorをR161へ有限誤差で接続する。
 
-さらに付録ZのM63/R202A--R202Fでは、一成分Hamiltonian latticeの同じ $(\phi_n,\pi_n)$ からkink、Schrödinger型signal、局所reservoirを作り、signal密度に応じたreservoir位相空間体積から $-k_BT\log\rho$ とosmotic forceを直接生成する単一場統合を調べる。2-action shellを介さず、R202Cのtopological partition identityを静的解析核とする。R202Eのcurrent port・GLE/FDTとR202FのR161接続は未閉鎖なので、M63は現時点でcandidate strengtheningでありM61/M60固定達成主線を置換しない。付録YのM62/R201は退役した旧single-field candidateとして保存する。
+さらに付録YのM63/R202A--R202Fでは、一成分Hamiltonian latticeの同じ $(\phi_n,\pi_n)$ からkink、Schrödinger型signal、soft current frame、harmonic reservoirを作る。R202Cはtopological phase-volume Jacobianから $-k_BT\log\rho$ を与え、R202E1は同じsignalから $j/\rho$ を読み、R202E2はT対称weak scatteringでframeを追跡し、R202E3はrelative harmonic bathをfrozen coefficientで厳密消去してGLE/FDTを与える。real-space scatteringの有限誤差、slow coefficient補正、R202FのR161接続は未閉鎖なので、M63は現時点でcandidate strengtheningでありM61/M60固定達成主線を置換しない。
 
 R162のopen Poisson-jump過程はQ3の基礎的実体ではなく、その理想jump lawを表す参照過程として残す。R185は同じ前向き経路法則のBayes反転からNelson型の前進・後退平均微分と時間対称Newton則へ接続する。
 

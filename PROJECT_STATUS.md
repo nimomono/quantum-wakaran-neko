@@ -1,3 +1,12 @@
+## draft-108：M62退役・M63 current-transport具体化
+
+- M62/R201を現行正本、candidate checks、simulation registryから退役し、旧付録・検算・集約witnessを削除する。過去draftの記録とGit履歴は保存する。
+- M63/R202を付録Yへ移し、$v$-branchからsoft current-frame coordinate $Y$ と残余harmonic reservoirを固定正準変換で取り出す構成へ更新する。
+- R202E1でsame-field signalの左右作用比から $j/\rho$ を読むcurrent dictionary、R202E2でT対称real-space weak scatteringによるframe tracking、R202E3で$X-\alpha_YY$に結合するharmonic reservoirのfrozen-coefficient GLE/FDTを追加する。
+- R202Cのtopological partition identityはrelative-coordinate completed squareを追加しても $F_R=-k_BT\log r_K+\mathrm{const}$ のまま保たれ、等価PN minima間のBorn型位置重みを系として得る。
+- R202E2のreal-space scattering有限誤差、loadを含むtracking window、slow coefficient/Ohmic補正、full trajectory、R202FのPN hopping--R161接続は未閉鎖とする。
+- M61/M60は現行固定達成主線として維持し、Q3-1/Q3-2達成、A1部分達成、A2未監査、required verifierは変更しない。
+
 ## draft-107：M63 topological-reservoir 一成分Hamiltonian Q3統合候補
 
 - M63/R202A--R202Fをactive single-field candidateとして新設する。一組の実格子正準変数 $(\phi_n,\pi_n)$ を2-site local canonical filter bankでkink/signal branchとreservoir branchへ分け、2-action shellを用いずreservoir phase-space Jacobianからosmotic free energyを直接生成する。
