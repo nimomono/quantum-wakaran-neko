@@ -1,7 +1,7 @@
 @number: 9
 @chapter: 本文
 @title: 結論
-@status: Q1/Q2のR191系と、Q3のM61/R200A--R200C/R200--M60/R198/R199/R196--R161--R185現行階層、およびM62/R201単一場統合候補を総括する。
+@status: Q1/Q2のR191系と、Q3のM61/R200A--R200C/R200--M60/R198/R199/R196--R161--R185現行階層、およびM63/R202 active単一場統合候補を総括する。M62/R201は歴史的候補として保存する。
 
 本稿は、古典実正準信号の線形力学と、1試行1結果を作る開放古典instrumentを分離して構成した。有限次元Hilbert空間とunitaryを古典振動子へ写すこと自体ではなく、その同じ単一試行信号からBorn型排他的結果と測定後結果成分を作る物理接続を中心課題とした。
 
@@ -84,6 +84,6 @@ R162のopen Poisson-jump過程はM60の基礎的実体ではなく、R196C/R161�
 
 今回の縮約により、R184の旧M37--M54空間率latchは補助結果へ下がり、M60主線の必須依存から外れた。2-action state countはR198A--R198D/R197A、signal currentはR195A、ballistic transportはR199A・R196A--R196Cへ責務分離している。M56 Brownian-spin Q3模型はspin-only代替研究線へ位置づける。R190A--R190C、R170、旧R180Bも現行Q1/Q2主線へ戻さない。これらは反証されたのではなく、別の物理実現・強化案として `notes/` とGit履歴へ保存する。
 
-付録Yではさらに、M61/M60で分離されているsignal、shell、reservoir、moving frameを一成分Hamiltonian latticeへまとめるM62/R201を候補として構成した。kinkの低位spectrum、weighted-shell normal form、shell--reservoir exchange、memory kernelには具体的parameter witnessがあるが、R201C--R201Fのvalidated error closureは残る。従ってM62を現行固定達成主線へ昇格させたとは扱わない。
+付録Zではさらに、同じ一成分Hamiltonian latticeのlocal canonical filter bankからkink、Schrödinger型signal、reservoir branchを作るM63/R202をactive candidateとして構成した。R202Cではkinkのtopological weightとsignal局所密度に依存するreservoir scalingから、条件付き自由エネルギー $F_R=-k_BT\sum_m\gamma_m\log r_m+\mathrm{const}$ をJacobian恒等式として直接得る。これにより2-action shellを介さずosmotic forceを作る。R202Eのsame-field current port・GLE/FDTとR202FのPN hopping--R161接続は未閉鎖なので、M63を現行固定達成主線へ昇格させたとは扱わない。付録YのM62/R201はM63へ至る旧候補として保存する。
 
 残る主要な物理課題は、各固定目標について具体的古典ミクロ模型A1とその直接数値再現A2を監査すること、Q1/Q2について具体的アナログ回路B1、実験可能パラメータ領域B2、回路直接数値再現B3へ進むこと、Q2-2で測定窓内の空間的・因果的隔離をどこまで強められるかQ2-2-Sで検査することにある。これと並行して、R191の作用和・作用差transducer、Brownian macrospin、projector router、外部記録、R179リセットを同じ具体装置へ統合すること、M61/M60信号源・tracerと時計、終位置記録を単一反復周期へ統合すること、Q2-4の外部多項式資源条件を物理配線・較正・雑音まで閉じること、Q3の連続空間一様極限・多粒子拡張、Q3-6の位相量子化を閉じることを上位または横断的強化課題として残す。A1では採用開放SDEと理想白色雑音を許すが、回路実装Bでは有限帯域雑音へ落とす。

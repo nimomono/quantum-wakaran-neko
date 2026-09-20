@@ -1,3 +1,11 @@
+## draft-107：M63 topological-reservoir 一成分Hamiltonian Q3統合候補
+
+- M63/R202A--R202Fをactive single-field candidateとして新設する。一組の実格子正準変数 $(\phi_n,\pi_n)$ を2-site local canonical filter bankでkink/signal branchとreservoir branchへ分け、2-action shellを用いずreservoir phase-space Jacobianからosmotic free energyを直接生成する。
+- R202Cでは $\gamma_m=s(\bar u_{m+1})-s(\bar u_m)$、$\sum_m\gamma_m=1$ と $\lambda_m=(r_m/r_*)^{-\gamma_m}$ から $F_R=-k_BT\sum_m\gamma_m\log r_m+\mathrm{const}$ を条件付きpartition identityとして得る。R202Dはsmooth-kink極の $k_BT\partial_X\log r$ と $O(N_0^{-1})$ signal backreactionを担う。
+- R202Eのsame-field current port・reservoir GLE/FDT、R202FのPeierls--Nabarro hoppingからR161/R185への有限時間接続は未閉鎖とする。M63はM61/M60 fixed-goal主線をまだ置換しない。
+- M62/R201はactive candidateから退役し、2-action shell型の歴史的candidateとして付録Y・candidate checks・simulation registryを保存する。
+- 固定Q3-1/Q3-2達成、Q3-1-A1/Q3-2-A1部分達成、Q3-1-A2/Q3-2-A2未監査、required verifierは変更しない。
+
 ## draft-106：M62 一成分Hamiltonian lattice Q3統合候補
 
 - M62を、一組の実格子正準変数 $(\phi_n,\pi_n)$ からkink位置、2 shell mode、signal continuum、prethermal reservoir、reaction-coordinate frameを同時に得るQ3単一場統合候補として追加する。R201A--R201Fでspectrum、same-field signal、weighted-shell normal form、reservoir交換、GLE/FDT、共通parameter有限時間合成へ責務分離する。
