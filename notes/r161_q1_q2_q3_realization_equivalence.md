@@ -85,7 +85,6 @@ D_{\rm TV}(p_t^A,p_t^B)
 
 - M61 single-Hamiltonian parent：Q3で採用する最深ミクロ物理実現。R200A--R200C/R200がM60へ接続する。
 - M60 unified-chiral-medium moving-bath tracer：M61から得る現行共通縮約実現。R198A--R198D/R197Aが2-action state countとosmotic free energy、R195Aがsignal current、R199Aが同一媒体のballistic lead、R196Aのwave pressureがmoving bath velocity、R196Bの平衡bathとperiodic homogenizationがdiffusion・osmotic drift、R196Cのmetastable reductionがR161 activityを供給する。
-- M63 topological-reservoir single-field candidate：同じ一成分格子のkink/signalから$\rho,j$を得て、R202Cのphase-volume Jacobianがosmotic free energy、R202E1--E2のT対称weak-scattering frameが$j/\rho$、R202E3のrelative harmonic reservoirがGLE/FDTを担う。R202Fまで閉じればM60/M61とは別のR161実現になるが、現時点では次期候補であり現行主線を置換しない。
 - M64 three-entity open candidate：M37 signalから $(\rho,j)$ を取り、signal-driven moving thermal reservoirのphase volumeとmean flowを介してsmooth tracer diffusionを作り、R203Dのfinite-volume活動量 $t_{i+1/2}=\nu(\pi_i+\pi_{i+1})/a^2$ でR161へ接続するreplacement candidate。PN/Eyring--Kramersを必須にせず、同じ $(\pi,j,t)$ / generator interfaceへの接続を実現同値の基準とする。現行M61/M60主線はまだ置換しない。
 - R162 open Poisson jump：M60 transportと比較するideal stochastic reference。基礎的なQ3存在論とは扱わない。
 - 空間化Q1＋Q2相互作用：Q1/Q2からR161へ到達できることを示す数学的参照実現。

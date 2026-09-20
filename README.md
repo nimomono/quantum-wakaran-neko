@@ -150,40 +150,6 @@ Q3の最深ミクロ物理正本はM61です。M61は、一つのmultiband Hamil
 
 R199Bでは、同じDuffing pairの作用和 $S=K_++K_-$ にstate count、作用差 $D=K_+-K_-$ にchiral current情報を持たせられることも調べます。ただし、これはM60の統合強化であり、Q3-2固定達成の必須依存にはしていません。
 
-### M63：topological reservoirとcurrent frameを使う一成分Hamiltonian lattice候補
-
-M63では、粒子、signal、current frame、reservoirを一種類の古典格子場の異なるcollective sectorとしてまとめます。基本自由度は各格子点の実正準対 $(\phi_n,\pi_n)$ だけです。隣接2サイトの固定正準変換でkink＋signal branchと補助branchを分け、補助branchからcurrent-frame座標 $Y$ とharmonic reservoirを固定正準変換で取り出します。
-
-signal density側では、kink自身から作るtopological weightによりkink-local density $r_K$ を定め、reservoir coordinate scaleを変えます。条件付きpartition functionは
-
-```math
-F_R=-k_BT\log r_K+\mathrm{const}
-```
-
-を厳密に与え、smooth sectorでは
-
-```math
-F_X^{\rm osm}
-\simeq
-k_BT\,\partial_X\log\rho
-```
-
-となります。
-
-signal current側では、左右成分の作用比から $j/\rho$ を読み、kink近傍に局在した時間反転対称なweak-scattering couplingでsoft frame $Y$ を駆動します。弱反射極ではframeの唯一安定な速度が $j/\rho$ に一致するよう較正できます。さらに同じ補助branchのharmonic reservoirを $X-\alpha_YY$ に結合すると、frozen-coefficient極でrelative-coordinate GLE/FDTを厳密に消去できます。
-
-```math
-M_X\ddot X
-\simeq
-k_BT\partial_X\log\rho
--
-\Gamma*\left(\dot X-\frac j\rho\right)
-+
-\xi.
-```
-
-R202Cのpartition identity、R202E1のcurrent dictionary、R202E3のfrozen harmonic-bath GLE/FDTは解析核として整理済みです。一方、real-space scatteringからframe trackingへの有限誤差、slow coefficient補正、full-trajectory backreaction、R202FのPN hoppingからR161への接続は未閉鎖です。そのためM63は次期単一場候補であり、現行のM61/M60固定達成主線はまだ置換しません。
-
 
 ### M64：3実体に絞った最小開放系候補
 
@@ -229,9 +195,9 @@ dX_t
 \sqrt{2\nu}\,dW_t
 ```
 
-を得ます。R203Dではこのsmooth diffusionを一様cellへ直接有限体積化し、R161のMarkov chainへ $O(a^2)$ で接続します。そのためM64本体では、M60/M63で必要だったPN hoppingやEyring--Kramers縮約を必須にしません。
+を得ます。R203Dではこのsmooth diffusionを一様cellへ直接有限体積化し、R161のMarkov chainへ $O(a^2)$ で接続します。そのためM64本体では、PN hoppingやEyring--Kramers縮約を必須にしません。
 
-M64はM60/M61/M63を整理して置換することを目指す次期候補です。ただし今回の追加では現行M61/M60主線、M63候補、固定目標や強化目標の判定は切り替えません。
+M64はM60/M61主線を整理して置換することを目指す次期候補です。ただしM64はまだreplacement candidateであり、現行M61/M60主線、固定目標や強化目標の判定は切り替えません。
 
 ## 現在どこまでできているか
 

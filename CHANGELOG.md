@@ -1,3 +1,9 @@
+## draft-110：M63退役
+
+- M63/R202A--R202Fを現行研究線から退役し、付録、6本のcandidate checks、simulation registryを削除した。解析的に得られた個別恒等式を反証したとは扱わず、過去の探索はdraft-107/108/109記録とGit履歴へ保存する。
+- M64付録をA26/ZからA25/Yへ繰り上げ、R203Aのcurrent identityをR202E1への参照なしで閉じる表記へ整理した。
+- 現行固定達成主線M61/M60--R161--R185、Q3固定達成、A1/A2判定、M61/M60 required verifierは変更しない。M64はactive replacement candidateのままとする。
+- `paper.md`、`main.tex`、`paper.pdf` を再生成する。
 ## draft-109：M64 三実体open-Q3置換候補
 
 - M64/R203A--R203Dを追加し、Q3の次期置換候補をM37型coherent signal、独立tracer、signal-driven moving thermal reservoirの三実体へ単純化した。

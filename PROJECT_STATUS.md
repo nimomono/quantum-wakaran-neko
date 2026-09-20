@@ -1,3 +1,9 @@
+## draft-110：M63退役
+
+- M63/R202A--R202Fをactive single-field candidateから退役し、現行付録、candidate checks、simulation registryから削除する。過去draft記録とGit履歴は保存し、反証された模型とは扱わない。
+- M64付録をA25/Yへ繰り上げるが、M64/R203A--R203Dはactive replacement candidateのままとし、M61/M60固定達成主線へ昇格させない。
+- Q3-1/Q3-2固定達成、Q3-1-A1/Q3-2-A1部分達成、Q3-1-A2/Q3-2-A2未監査、M61/M60 required verifierは変更しない。
+- M64昇格とM60/M61退役は、M64固有の残件を監査する後続PRへ分離する。
 ## draft-109：M64 三実体open-Q3置換候補
 
 - M64/R203A--R203DをQ3のactive replacement candidateとして追加する。単一試行の物理実体をM37型classical coherent signal、独立tracer、signal-driven moving thermal reservoirの三つへ限定する。
