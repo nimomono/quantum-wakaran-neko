@@ -1,9 +1,9 @@
-@number: Z
+@number: Y
 @chapter: 付録
 @title: M64 三実体・最小古典開放系Q3共通模型
-@status: M60/M61/M63をまだ置換しないactive replacement candidate。古典coherent signal、classical tracer、signal-driven moving thermal reservoirの三実体だけを正本候補とし、R203A--R203Dでsignal density/current、phase-volume free energy、moving Langevin縮約、R161 finite-volume接続を整理する。固定Q3-1/Q3-2達成判定、A1/A2判定、required主線は本付録追加だけでは変更しない。
+@status: M60/M61をまだ置換しないactive replacement candidate。古典coherent signal、classical tracer、signal-driven moving thermal reservoirの三実体だけを正本候補とし、R203A--R203Dでsignal density/current、phase-volume free energy、moving Langevin縮約、R161 finite-volume接続を整理する。固定Q3-1/Q3-2達成判定、A1/A2判定、required主線は本付録追加だけでは変更しない。
 
-## Z.1 責務と三実体
+## Y.1 責務と三実体
 
 M64はQ3-1/Q3-2に必要な位置過程を、次の三つの古典的実体から構成する最小共通模型候補である。
 
@@ -17,7 +17,7 @@ M64の因果鎖は、M37 signalから $(\rho,j)$ を得て、$\rho$ がreservoir
 
 M64は採用開放SDEを正本候補としてよい。single-field Hamiltonian化、finite-bath化、current transducerの完全Hamiltonian散乱導出はM64本体の成立条件に含めず、独立strengtheningとする。
 
-## Z.2 signal、tracer、局所読出し量
+## Y.2 signal、tracer、局所読出し量
 
 signal sectorはM37/R86を再利用する。実正準signalから得る派生複素包絡を $Z_i$ とし、
 
@@ -88,7 +88,7 @@ O(\varepsilon_{\rm width}+\delta)
 
 を要求する。
 
-## Z.3 R203A：signal density/current dictionary
+## Y.3 R203A：signal density/current dictionary
 
 <!-- theorem-start:theorem -->
 **定理（R203A：M64 signal density/current dictionary）**
@@ -141,12 +141,12 @@ a^2
 <!-- theorem-start:proof -->
 **証明（R203A）**
 
-和・差恒等式は $C_{e,\pm}$ の定義を直接展開すれば得られる。後半はR195A/R202E1で用いた同じ局所current identityをM64表記へ移したものであり、smooth narrow-band近似とdensity正則化の誤差だけを残す。証明終。
+和・差恒等式は $C_{e,\pm}$ の定義を直接展開すれば得られる。後半はR195Aで用いた同じ局所current identityをM64表記へ移したものであり、smooth narrow-band近似とdensity正則化の誤差だけを残す。証明終。
 <!-- theorem-end:proof -->
 
 R203Aは新しいcurrent機構を導入しない。M64ではcurrent情報をtracer位置で直接散乱して読むのでなく、reservoirのlocal collective flowへ渡す入力辞書として使う。
 
-## Z.4 R203B：signal-driven moving phase-volume reservoir
+## Y.4 R203B：signal-driven moving phase-volume reservoir
 
 reservoirの条件付き内部自由度を $(\zeta_\alpha,\Pi_\alpha)$ とし、固定signal、tracer位置、reservoir mean flowに対する内部Hamiltonianを
 
@@ -304,7 +304,7 @@ U_X(t)
 
 と補間する。
 
-## Z.5 R203C：moving reservoirからM64 position processへ
+## Y.5 R203C：moving reservoirからM64 position processへ
 
 M64正本では $T>0$ と低周波摩擦係数 $\gamma_X>0$ を定数とする。density scalingがphase volumeを変えても、採用open modelでは $\gamma_X$ をdensity依存にしない。これによりposition-dependent mobilityに伴う追加noise-induced driftを本体から除外する。
 
@@ -438,7 +438,7 @@ dV_t
 となり、signal continuity equationと一致する。証明終。
 <!-- theorem-end:proof -->
 
-## Z.6 R203D：smooth diffusionとR161 finite-volume chain
+## Y.6 R203D：smooth diffusionとR161 finite-volume chain
 
 R203Cの正則化densityとcurrentを
 
@@ -625,7 +625,7 @@ $D_+X_i$ へnearest-neighbor ratesを代入すると表示した $v^{(a)}+u^{(a)
 
 M64では、連続軌道をcell labelへ単純に丸めた過程が厳密Markovであるとは主張しない。R203DはM64 smooth diffusionとR161 chainを、同じcontinuum generatorへ収束する連続・離散実現として接続する。
 
-## Z.7 誤差責務と検証境界
+## Y.7 誤差責務と検証境界
 
 M64の代表的な総誤差を
 
@@ -658,14 +658,13 @@ M60のDuffing shell/core mixing、ballistic lead、moving-reflector tracking、p
 
 解析核としてR203Aのcurrent identity、R203Bのpartition identity、R203Cのoverdamped reduction、R203Dのfinite-volume generator connectionを固定する。A2ではM37 signal equation、$U_e$ relaxation law、tracer Langevin SDEを同一parameter setで直接積分・標本化し、$U-j/\rho$、osmotic mean force、tracer drift/diffusion、位置密度、R161 generatorへの収束を検査する。
 
-## Z.8 現行主線との責務境界
+## Y.8 現行主線との責務境界
 
-M64/R203A--R203Dは、M60/M61/M63を整理して置換することを狙うactive replacement candidateである。ただし本付録を追加する段階では、
+M64/R203A--R203Dは、M60/M61主線を整理して置換することを狙うactive replacement candidateである。M64自体はまだ昇格させず、
 
 - M61/R200--M60/R198/R199/R196を現行Q3固定達成主線として維持する。
-- M63/R202をactive single-field strengthening candidateとして維持する。
 - Q3-1/Q3-2の固定達成ラベルを変更しない。
 - Q3-1-A1/Q3-2-A1の部分達成、Q3-1-A2/Q3-2-A2の未監査を変更しない。
-- M61/M60 required verifierとM63 candidate verifierを削除・降格しない。
+- M61/M60 required verifierを削除・降格しない。
 
-M64昇格と旧Q3主線の退役は、M64のdirect simulation、同一parameter set、文書・検算の整合性を別PRで監査した後に行う。
+M64昇格とM60/M61主線の退役は、M64のdirect simulation、同一parameter set、文書・検算の整合性を別PRで監査した後に行う。

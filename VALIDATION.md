@@ -1,3 +1,9 @@
+## draft-110：M63 candidate退役
+
+- `sections/A25_m63_topological_reservoir_q3_micro_model.md` と6本の `verify_m63_*.py` candidate checks、`simulations/m63/` を現行treeから削除する。
+- M64付録を `sections/A25_m64_three_entity_open_q3_model.md` へ繰り上げる。M64の3本のcandidate checksはcandidateのまま維持し、requiredへ昇格させない。
+- M61/M60 required検算、Q3-1/Q3-2固定達成、Q3-1-A1/Q3-2-A1部分達成、Q3-1-A2/Q3-2-A2未監査を変更しない。
+- 過去draftのM63検算記録は履歴として保持する。
 ## draft-109：M64 三実体open-Q3 candidate検算
 
 - `sections/A26_m64_three_entity_open_q3_model.md` にM64/R203A--R203Dをactive replacement candidateとして追加する。M61/M60 required検算とM63 candidate検算は変更しない。

@@ -1,3 +1,10 @@
+## draft-110：M63退役
+
+- `sections/A25_m63_topological_reservoir_q3_micro_model.md`、6本のM63 candidate checks、`simulations/m63/` を現行treeから削除し、M63/R202A--R202Fをactive candidateから退役する。
+- M64付録を `sections/A26_m64_three_entity_open_q3_model.md` から `sections/A25_m64_three_entity_open_q3_model.md` へ繰り上げ、付録番号をZからYへ同期する。
+- README、第0・1・2・6--9章、ENHANCEMENT_TARGETS、PROJECT_STATUS、VALIDATION、simulations registry、R161実現同値メモからM63のactive参照を除去する。
+- M61/M60 fixed-goal主線、Q3達成ラベル、A1/A2判定、required verifier、M64 candidate判定は変更しない。
+- `paper.md`、`main.tex`、`paper.pdf` を再生成する。
 ## draft-109：M64 三実体open-Q3置換候補
 
 - `sections/A26_m64_three_entity_open_q3_model.md` を追加し、M64/R203A--R203DをM60/M61/M63をまだ置換しないactive replacement candidateとして収録する。
@@ -181,7 +188,7 @@
 - `sections/A22_m57_dual_tl_tracer_microphysics.md`
 - `sections/A23_q3_common_micro_model.md`
 - `sections/A24_m61_single_hamiltonian_micro_model.md`
-- `sections/A25_m63_topological_reservoir_q3_micro_model.md`
+- `sections/A25_m64_three_entity_open_q3_model.md`
 - `sections/90_references.md`
 
 ## 論文外の研究メモ

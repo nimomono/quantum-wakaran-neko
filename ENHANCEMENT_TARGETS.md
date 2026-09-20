@@ -99,8 +99,8 @@ Q2-2-Sの主要な到達目標は、Bell型共同統計を維持したままS2�
 | Q2-2 | 未監査 | 未監査 | 未監査 | 未監査 | 未監査 | 未監査 | R180A、R180C、R191 |
 | Q2-3 | 未監査 | 未監査 | 未監査 | 未監査 | 未監査 | — | M54、R177、R181B--R181D、R191 |
 | Q2-4 | 未監査 | 未監査 | 未監査 | 未監査 | 未監査 | — | M54、R179、R181C--R181D、R186、R191、R192 |
-| Q3-1 | 部分達成 | 未監査 | — | — | — | — | M37、R86、M61、R200A--R200C、R200、M60、R198A--R198D、R199A、M63、R202A--R202B、M64、R203A--R203B |
-| Q3-2 | 部分達成 | 未監査 | — | — | — | — | M61、R200A--R200C、R200、M60、R195A、R196A--R196C、R198A--R198D、R199A、R161、R185、M63、R202A--R202F、M64、R203A--R203D |
+| Q3-1 | 部分達成 | 未監査 | — | — | — | — | M37、R86、M61、R200A--R200C、R200、M60、R198A--R198D、R199A、M64、R203A--R203B |
+| Q3-2 | 部分達成 | 未監査 | — | — | — | — | M61、R200A--R200C、R200、M60、R195A、R196A--R196C、R198A--R198D、R199A、R161、R185、M64、R203A--R203D |
 | Q3-3A | 未監査 | 未監査 | — | — | — | — | M37、R123 |
 | Q3-3B | 未監査 | 未監査 | — | — | — | — | M37、R123 |
 | Q3-3C | 未監査 | 未監査 | — | — | — | — | M37、R123、R182 |
@@ -111,9 +111,9 @@ Q2-2-Sの主要な到達目標は、Bell型共同統計を維持したままS2�
 
 ここで「主な既存候補」は強化目標の達成を意味せず、新基準を監査するときの出発点だけを示す。
 
-Q3-1-A1とQ3-2-A1は、M61/R200A--R200C/R200によりM37 signal、二成分chiral sector、moving branch converter、tracer、内部harmonic bathを一つの時間非依存Hamiltonian親模型へ統合し、M60/R198A--R198Cへ接続した。R198Dの具体的core sectorに対するfinite-time mixing/homogenization witness、R199Aのcore--lead同時parameter witness、R200A/Bのtracking--thermal-load同時parameter witnessが未閉鎖なので部分達成とする。加えてM63/R202A--R202Fでは、kink・Schrödinger signal・topological reservoir scaling・T対称weak-scattering current frame・relative harmonic-bath GLE/FDTを一成分Hamiltonian latticeへ統合するactive candidateを構成する。R202C、R202E1、frozen-coefficient R202E3には解析核があるが、R202Bのfull envelope、R202Dのfull-dynamics backreaction、R202E2のreal-space scattering--tracking有限誤差、slow coefficient補正、R202FのPN hopping--R161共通時間窓が未閉鎖なのでA1判定は変更しない。Q3-1-A2/Q3-2-A2も未監査のままとし、candidate algebra checksだけからA2達成へ上げない。
+Q3-1-A1とQ3-2-A1は、M61/R200A--R200C/R200によりM37 signal、二成分chiral sector、moving branch converter、tracer、内部harmonic bathを一つの時間非依存Hamiltonian親模型へ統合し、M60/R198A--R198Cへ接続した。R198Dの具体的core sectorに対するfinite-time mixing/homogenization witness、R199Aのcore--lead同時parameter witness、R200A/Bのtracking--thermal-load同時parameter witnessが未閉鎖なので部分達成とする。Q3-1-A2/Q3-2-A2も未監査のままとし、candidate algebra checksだけからA2達成へ上げない。
 
-M64/R203A--R203DはQ3-1/Q3-2 A1のactive replacement candidateとして追加する。三実体open model自体はR203B--R203Dに解析核を持つが、同一parameter setでのmean-flow tracking、signal backreaction、direct SDE trajectory、R161 finite-volume収束を一体として監査するまではA1を部分達成から変更しない。A2は `simulations/m64/` のcanonical direct runnerが揃うまで未監査のままとする。M64追加だけを理由にM61/M60/M63の既存候補・主線を除外しない。
+M64/R203A--R203DはQ3-1/Q3-2 A1のactive replacement candidateとして追加する。三実体open model自体はR203B--R203Dに解析核を持つが、同一parameter setでのmean-flow tracking、signal backreaction、direct SDE trajectory、R161 finite-volume収束を一体として監査するまではA1を部分達成から変更しない。A2は `simulations/m64/` のcanonical direct runnerが揃うまで未監査のままとする。M64はまだreplacement candidateであり、M61/M60主線を維持する。
 
 ## 既存の実装強化課題との関係
 

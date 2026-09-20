@@ -1,7 +1,7 @@
 @number: 2
 @chapter: 本文
 @title: 有限モード信号系と共通正準モジュール
-@status: M54をQ1・Q2・Q3の共通有効信号--配置状態構成族、R161をQ3位置輸送の共通数学核とする。Q3の現行最深ミクロ物理実現はM61/R200A--R200C/R200、その共通縮約層はM60/R198A--R198D・R199A・R195A・R196A--R196Cとする。M63/R202Fは同じR161へ接続するactive単一場統合候補として扱う。
+@status: M54をQ1・Q2・Q3の共通有効信号--配置状態構成族、R161をQ3位置輸送の共通数学核とする。Q3の現行最深ミクロ物理実現はM61/R200A--R200C/R200、その共通縮約層はM60/R198A--R198D・R199A・R195A・R196A--R196Cとする。M64/R203Dを同じR161へ接続するactive replacement candidateとして扱う。
 
 ## 2.1 M54をQ1--Q3共通有効状態構成族とする範囲
 
@@ -551,7 +551,7 @@ D_{\rm TV}
 T\varepsilon_{\rm gen}
 ```
 
-を満たす。この生成子同値により、R161より前段のミクロ実現を交換しても、同じcanonical位置経路法則とR185の縮約を共通に扱える。現行主線ではM61を最深Hamiltonian物理実現、M60をその縮約層とし、R199A・R196A--R196CでR161へ接続する。付録YのM63/R202Fは同じR161 interfaceへ接続するactive単一場統合候補であり、R202Fが閉じるまでは現行必須依存へ入れない。 付録ZのM64/R203Dはsmooth diffusionをfinite-volume R161 chainへ直接離散化する別のreplacement candidateであり、内部実体の一致でなく同じ $(\pi,j,t)$ とgenerator interfaceへの接続を比較基準とする。本PRでは現行M61/M60実現を置換しない。R162はR161経路法則を独立Poisson random measuresでpathwiseに実現するoptional stochastic referenceとする。
+を満たす。この生成子同値により、R161より前段のミクロ実現を交換しても、同じcanonical位置経路法則とR185の縮約を共通に扱える。現行主線ではM61を最深Hamiltonian物理実現、M60をその縮約層とし、R199A・R196A--R196CでR161へ接続する。付録YのM64/R203Dはsmooth diffusionをfinite-volume R161 chainへ直接離散化するreplacement candidateであり、内部実体の一致でなく同じ $(\pi,j,t)$ とgenerator interfaceへの接続を比較基準とする。M64はまだ現行M61/M60実現を置換しない。R162はR161経路法則を独立Poisson random measuresでpathwiseに実現するoptional stochastic referenceとする。
 
 <!-- theorem-start:theorem -->
 **定理（R162：R161経路法則の独立Poisson-jump実現）**
