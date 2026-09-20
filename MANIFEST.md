@@ -1,3 +1,13 @@
+## draft-107：M63 topological-reservoir 一成分Hamiltonian Q3統合候補
+
+- `sections/A26_m63_topological_reservoir_q3_micro_model.md` を追加し、M63/R202A--R202Fをactive single-field strengtheningとして収録する。
+- M62/R201は `sections/A25_m62_single_field_q3_micro_model.md` にhistorical candidateとして保存し、既存candidate checks・simulation witnessも削除しない。
+- `tools/candidate_checks/verify_m63_canonical_filter_bank.py`、`verify_m63_topological_partition.py`、`verify_m63_osmotic_width.py` をcandidate検算として追加する。
+- `simulations/m63/README.md` にfull trajectoryで検査すべきosmotic force、signal backreaction、GLE/FDT、current port、PN hopping--R161を記録する。
+- README、PROJECT_STATUS、ENHANCEMENT_TARGETS、第0・1・2・6--9章、VALIDATION、CHANGELOGをM63 active candidate責務へ同期する。
+- 固定Q3-1/Q3-2達成、A1部分達成、A2未監査、M61/M60 required主線は変更しない。
+- `paper.md`、`main.tex`、`paper.pdf` を再生成する。
+
 ## validation-architecture-v2：検算アーキテクチャ
 
 - `VALIDATION_POLICY.md` — 恒久検算・candidate・migration・quality lintの責務と検算作成ルールの正本。
@@ -153,6 +163,7 @@
 - `sections/A23_q3_common_micro_model.md`
 - `sections/A24_m61_single_hamiltonian_micro_model.md`
 - `sections/A25_m62_single_field_q3_micro_model.md`
+- `sections/A26_m63_topological_reservoir_q3_micro_model.md`
 - `sections/90_references.md`
 
 ## 論文外の研究メモ
