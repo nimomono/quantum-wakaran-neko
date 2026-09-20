@@ -1,3 +1,14 @@
+## draft-108：M63 current-transport候補検算とM62退役
+
+- 現行M63正本を `sections/A25_m63_topological_reservoir_q3_micro_model.md` へ移し、旧M62付録と `verify_m62_*.py`、`simulations/m62/` を現行treeから削除する。過去draft節は履歴として残す。
+- `verify_m63_canonical_filter_bank.py` は2-site変換に加えてframe reaction coordinate＋reservoir直交補空間の正準分離を検査する。
+- `verify_m63_topological_partition.py` はtopological spatial weights、kink-local geometric density、reservoir mode weights、relative-coordinate shiftを含むJacobian identityを検査する。
+- `verify_m63_current_dictionary.py` は左右signal作用の和・差恒等式とsmall-angle current ratioを検査する。
+- `verify_m63_scatterer_tracking.py` はweak-scattering forceの固定点 $\beta_*(r)$、strict stability、$r/2+O(r^3)$、定常trackingを検査する。
+- `verify_m63_relative_gle.py` はdensity scaling後のeffective frequency/coupling、memory-kernel amplitude、conditional Gibbs FDT covarianceを検査する。
+- candidate checksはR202E2のreal-space scattering reduction、load付きtracking、slow coefficient/Ohmic finite-time bound、full trajectory、R202Fを達成扱いしない。Q3-1-A2/Q3-2-A2は未監査のまま。
+- M61/M60 required検算は維持し、M63が現行固定達成主線へ昇格するまではcandidate verifierを通常CIのhard failureへ昇格させない。
+
 ## draft-107：M63 topological-reservoir単一場候補検算
 
 - `sections/A26_m63_topological_reservoir_q3_micro_model.md` にM63/R202A--R202Fをactive candidate strengtheningとして追加する。M61/M60 required検算と固定達成判定は変更しない。

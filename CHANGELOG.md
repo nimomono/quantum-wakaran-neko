@@ -1,3 +1,11 @@
+## draft-108：M62退役・M63 current-transport具体化
+
+- M62/R201の付録、candidate checks、simulation registryを現行treeから削除し、過去の探索はGit履歴とdraft-106/107記録だけに残した。
+- M63を付録Yへ移し、topological density portに加えてsame-field current dictionary、T対称weak-scattering current-frame、relative harmonic-bath GLE/FDTを明示的な一成分Hamiltonian候補として追加した。
+- R202Cをkink-local geometric density $r_K$ とreservoir mode weights $w_\alpha$ に整理し、relative-coordinate shiftがpartition functionを変えないこととBorn型位置重みを明示した。
+- R202Eをcurrent dictionary、weak-scattering tracker、frozen-coefficient relative GLE/FDT、有限時間合成へ責務分解し、real-space scattering・slow coefficient・Ohmic/Markov・full trajectoryを未閉鎖として残した。
+- M61/M60の現行固定達成主線、Q3-1/Q3-2達成、A1部分達成、A2未監査、required verifierは変更していない。
+
 ## draft-107：M63 topological-reservoir 一成分Hamiltonian Q3統合候補
 
 - M63/R202A--R202Fをactive single-field candidateとして追加し、2-action shellを用いずreservoir phase-space Jacobianからosmotic free energyを直接生成する経路へ再設計した。
