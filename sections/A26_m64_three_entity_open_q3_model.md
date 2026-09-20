@@ -13,25 +13,7 @@ M64はQ3-1/Q3-2に必要な位置過程を、次の三つの古典的実体か�
 
 複素包絡 $Z$、density $\rho$、current $j$、reservoir mean flow $U$、density scaling $\lambda_\alpha$ は、三実体から作る派生量またはcollective variableであり、独立した実体とはしない。
 
-M64の因果鎖を
-
-```text
-M37 signal
-   ↓
-(ρ,j)
-   ├─ ρ → reservoir phase volume → osmotic mean force
-   └─ j/ρ → reservoir mean flow
-                         ↓
-                moving thermal reservoir
-                         ↓
-                     tracer X
-                         ↓
-                finite-volume R161
-                         ↓
-                      R185
-```
-
-とする。
+M64の因果鎖は、M37 signalから $(\rho,j)$ を得て、$\rho$ がreservoir phase volume、$j/\rho$ がreservoir mean flowを定め、その同じmoving thermal reservoir中のtracer $X$ をfinite-volume R161、R185へ接続する順序とする。
 
 M64は採用開放SDEを正本候補としてよい。single-field Hamiltonian化、finite-bath化、current transducerの完全Hamiltonian散乱導出はM64本体の成立条件に含めず、独立strengtheningとする。
 
