@@ -1,9 +1,9 @@
 @number: 7
 @chapter: 本文
 @title: Q3の確率力学、束縛状態、トンネル現象、2経路干渉、位相量子化
-@status: Q3-2・Q3-3A--Q3-3Cの達成、Q3-6の未達、Q3-4A・Q3-4B・Q3-5の条件付き達成を区別する。Q3粒子輸送はM61--M60--R161階層を用いる。
+@status: Q3-2・Q3-3A--Q3-3Cの達成、Q3-6の未達、Q3-4A・Q3-4B・Q3-5の条件付き達成を区別する。Q3粒子輸送は現行M61--M60--R161階層を用い、M64/R203A--R203Dを次期置換候補として併記する。
 
-本章は、M37/M54空間信号からM61単一Hamiltonian親模型をM60 chiral-medium moving-bath tracerへ縮約し、Nelson流または時間対称Newton則へ接続するQ3-2、R123とR182によるQ3-3A--Q3-3C、R124・R125・R182をM60 tracerの位置輸送へ接続するQ3-4A・Q3-4B・Q3-5、位相量子化のQ3-6を区別する。R123--R125とR182の完全証明は付録F、G、M61の単一Hamiltonian持上げは付録X、M60 transportとR161生成子matchingは付録V、R161/R185の有限格子数学は付録Nに置く。付録YのM63/R202Fが閉じればtopological reservoir、T対称weak-scattering current frame、relative harmonic-bath GLE/FDTから同じR161/R185下流数学へ接続できるが、現行達成判定はM61/M60主線から変更しない。
+本章は、M37/M54空間信号からM61単一Hamiltonian親模型をM60 chiral-medium moving-bath tracerへ縮約し、Nelson流または時間対称Newton則へ接続するQ3-2、R123とR182によるQ3-3A--Q3-3C、R124・R125・R182をM60 tracerの位置輸送へ接続するQ3-4A・Q3-4B・Q3-5、位相量子化のQ3-6を区別する。R123--R125とR182の完全証明は付録F、G、M61の単一Hamiltonian持上げは付録X、M60 transportとR161生成子matchingは付録V、R161/R185の有限格子数学は付録Nに置く。付録YのM63/R202Fが閉じればtopological reservoir、T対称weak-scattering current frame、relative harmonic-bath GLE/FDTから同じR161/R185下流数学へ接続できるが、現行達成判定はM61/M60主線から変更しない。 付録ZのM64/R203Dは別経路として、R203Cのsmooth diffusionをfinite-volume R161 chainへ直接離散化し、PN wellとEyring--Kramers hoppingを必須にしない。M64追加だけでは現行達成根拠を切り替えない。
 
 ## 7.1 Nelson流の作用変分または時間対称Newton則（Q3-2）
 
@@ -104,6 +104,24 @@ mC_{185,a}a^2.
 ```
 
 である。`tools/verify_m57_ballistic_tracer.py` はchiral恒等式、moving-reflector fixed pointと安定性、有限時間追従、weak-tap/loading scaling、$D_0=\nu/g_K$、$g_Kc=4\nu/a$、Lifson--Jackson suppression、新R161 current correctionの同時parameter windowが非空であることを検算する。
+
+M64 replacement candidateでは、R203Cのnode-free smooth diffusion
+
+```math
+dX_t
+=
+\left[
+\frac j\rho
++
+\nu\partial_x\log\rho
+\right]dt
++
+\sqrt{2\nu}\,dW_t
++
+O(\varepsilon_{64})dt
+```
+
+を直接一様cellへ積分し、R161の対称活動量を $t_{i+1/2}=\nu(\pi_i+\pi_{i+1})/a^2$ と選ぶ。R203Dによりcell continuityはR161 master equationと厳密に一致し、generatorと前後平均速度はsmooth sectorで $O(a^2+\delta)$ でR185入力へ一致する。この経路は現行R196Cをまだ置換しない。
 
 **非主張。** 後向き率は同じ前向き経路分布の条件付き確率であり、未来から物理作用する第2浴を導入しない。R162のPoisson reservoirをM60 tracerとは別の実在粒子へ読み替えない。生M37局所包絡からNewton加速度までの直接時間微分付き縮約、連続空間の一様極限、多粒子配置空間、位相量子化はQ3-2の現行達成範囲に含めない。旧R184の空間率latch、旧R162有限衝突経路、旧R188は補助・強化結果として保持するが、M60主線の必須依存ではない。
 

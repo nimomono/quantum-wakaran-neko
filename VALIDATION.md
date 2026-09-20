@@ -1,3 +1,11 @@
+## draft-109：M64 三実体open-Q3 candidate検算
+
+- `sections/A26_m64_three_entity_open_q3_model.md` にM64/R203A--R203Dをactive replacement candidateとして追加する。M61/M60 required検算とM63 candidate検算は変更しない。
+- `tools/candidate_checks/verify_m64_reservoir_partition.py` はR203Bのdensity-scaling Jacobian、mean-flow momentum shift、relative-coordinate translation、条件付きfree-energy差を検査する。
+- `tools/candidate_checks/verify_m64_overdamped_reduction.py` は $\nu=k_BT/\gamma_X$、高速velocity relaxation、Fokker--Planck flux $b\rho-\nu\partial_x\rho=j$ の整合を検査する。
+- `tools/candidate_checks/verify_m64_r161_finite_volume.py` はR203Dのtraffic positivity、R161 current reconstruction、forward driftとgeneratorの $O(a^2)$ refinementを検査する。
+- これらは解析恒等式とcandidate numerical diagnosticsであり、A2 direct simulationの代替にしない。Q3-1-A1/Q3-2-A1は部分達成、Q3-1-A2/Q3-2-A2は未監査のままとする。
+
 ## draft-108：M63 current-transport候補検算とM62退役
 
 - 現行M63正本を `sections/A25_m63_topological_reservoir_q3_micro_model.md` へ移し、旧M62付録と `verify_m62_*.py`、`simulations/m62/` を現行treeから削除する。過去draft節は履歴として残す。

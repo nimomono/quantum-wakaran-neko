@@ -9,12 +9,15 @@ Q3の最深親模型は付録XのM61であり、付録WのM60はその共通縮�
 
 付録YのM63/R202Bは、M37とは別のsignal sourceを追加するのではなく、一成分Hamiltonian latticeのkink/signal branchから同種の狭帯域signal envelopeを回収するactive強化候補である。R202Bの有限時間包絡誤差とparameter辞書が未閉鎖なので、Q3-1固定達成のM37/R86証人は維持する。
 
+付録ZのM64はsignal sectorを再発明せず、M37/R86を三実体の第1実体としてそのまま再利用する。従ってM64固有の追加責務はM37包絡の再導出ではなく、R203Aのdensity/current辞書からmoving thermal reservoirとtracerへ接続する部分に限る。本PRではQ3-1固定達成のM61/M60--M37/R86主線を変更しない。
+
 M37はM54と並ぶ別の粒子親模型ではない。Q3ではM54空間信号部分系を局所位置ばねだけで有限時間近似する信号系実現模型であり、Q1ではR187の弱結合W型族に限って最低2正常モードをM54のW2静的状態構成の物理信号部分系として使う。従ってM37は、Q1型局所信号＋Q2型辺結合からR161入力 $(\pi,j)$ へ進む共通構造の1つの空間担体実装であり、R161そのものの定義や活動量の一意性を担わない。役割を次のように分ける。
 
 | 対象 | 単一試行で物理的に存在するもの | 派生表示・集団記述 | 役割 |
 |---|---|---|---|
 | M54＋M61/M60空間状態構成 | 実正準信号、局在tracer $X_t$、局所2-mode Duffing shell＋統一二成分chiral媒体、moving bath-frame carrier、平衡oscillator bath | $Z$、$C_Z$、階数1状態方向、位置分布 | R195A・R196A--R196CによるR161実現、R185時間反転・Newton則 |
 | M37実装 | 有限個の実振動子座標 $(q_i,p_i)$ と局所ばね結合 | 局所複素包絡 $b_i$、零傾斜正常モード座標 | R86によるM54空間信号部分系の有限時間近似、R184の受渡し。R187条件下ではQ1 W2制御用信号系も実装 |
+| M64候補 | M37実正準signal、独立tracer $X$、一つのsignal-driven moving thermal reservoir | $Z$、$\rho$、$j$、reservoir mean flow $U$、位置分布 | R203A--R203DによりM37 signalからsmooth tracer diffusionとR161 finite-volume interfaceへ接続するreplacement candidate |
 
 第2.4節の準備済み入力境界から階数1信号集団を受け取る場合、M60では開始時から同じ試行のM37信号、Duffing shell、統一chiral媒体、tracerが共存し、信号を後段へ再標本化して受け渡さない。R198A--R198D/R197Aの2作用状態数が $X_0$ の条件付き重みを与え、以後は再標本化せずR196A--R196Cの同じtracer力学がR161移動生成子へ縮約する。終時刻にはR112が既存の $X_T$ を記録する。
 

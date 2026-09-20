@@ -1,3 +1,11 @@
+## draft-109：M64 三実体open-Q3置換候補
+
+- M64/R203A--R203Dを追加し、Q3の次期置換候補をM37型coherent signal、独立tracer、signal-driven moving thermal reservoirの三実体へ単純化した。
+- M63で得たphase-volume Jacobianを一般partition of unityへ移し、同じreservoir内のdensity scalingから $F_{\rm res}=-k_BT\log r_X^\delta+\mathrm{const}$、mean-flow momentum shiftからfree-energy不変性を得るR203Bを整理した。
+- moving thermal reservoirのconstant-$T$、constant-friction Langevin SDEから $j/\rho+\nu\partial_x\log\rho$ を得るR203Cを追加した。current mean-flow lawは採用open constitutive lawとし、完全Hamiltonian scattering liftを必須からstrengtheningへ移した。
+- R203Dでは旧M60/M63のPN well--Eyring--Kramers--R161経路をM64本体へ引き継がず、smooth diffusionをfinite-volume R161 chainへ直接接続する。cell continuity、R161 rate、前後平均速度、generatorの $O(a^2)$ 接続を解析核とした。
+- M61/M60の現行固定達成主線とrequired検算、M63/R202 active candidateとcandidate検算、Q3固定達成・A1/A2判定は変更しない。M60/M61/M63の退役とM64昇格は次PRへ分離する。
+
 ## draft-108：M62退役・M63 current-transport具体化
 
 - M62/R201の付録、candidate checks、simulation registryを現行treeから削除し、過去の探索はGit履歴とdraft-106/107記録だけに残した。

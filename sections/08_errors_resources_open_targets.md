@@ -410,6 +410,37 @@ T_{\rm obs}
 
 $\tau_Y$ はweak-scattering frame tracking、$\tau_{\rm mem}$ はrelative harmonic bath memory、$T_{\rm return}$ は有限port/reservoirからの反射波が局所領域へ戻る時間である。R202E2のreal-space scattering--tracking有限誤差、R202E3のslow-coefficient/Ohmic finite-time closure、R202FのPN hopping--R161 matchingが閉じるまではM63をrequired主線へ昇格させない。
 
+### M64 replacement candidateの誤差境界
+
+M64/R203A--R203Dは現行M60 transport誤差をまだ置換しない独立candidateとして、代表総誤差を
+
+```math
+\varepsilon_{64}
+\le
+C_{64}
+\left(
+\varepsilon_{\rm env}
++
+\varepsilon_{\rm ch}
++
+\varepsilon_{\rm width}
++
+\delta
++
+\varepsilon_U
++
+\varepsilon_{\rm bath}
++
+\varepsilon_{\rm od}
++
+\varepsilon_{\rm fv}
+\right)
+```
+
+と整理する。$\varepsilon_U$ はreservoir mean-flow constitutive law、$\varepsilon_{\rm od}$ はsmall-mass overdamped reduction、$\varepsilon_{\rm fv}$ はR203D finite-volume generatorの偏差である。同じM37/R86偏差をcurrent dictionaryとreservoir trackingへ重複加算しない。
+
+M64ではDuffing shell/core mixing、ballistic lead、moving-reflector tracking、periodic homogenization、Eyring--Kramers hoppingを採用しないため、それらに固有のM60誤差をM64台帳へ移さない。代わりにconstant $T$、constant $\gamma_X$、node-free smooth sector、$t_{i+1/2}\ge|j_{i+1/2}|$ を明示的な適用条件とする。single-field Hamiltonian lift、current transducerの完全散乱導出、finite-bath化はM64本体のrequired誤差ではなくstrengtheningへ分離する。
+
 ## 8.8 静的分布の整合の正則化資源発散
 
 正則化により $\pi_i^\delta\geq\delta q_{\min}/(1+\delta)$ なので、有効自由エネルギー幅は
