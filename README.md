@@ -150,39 +150,40 @@ Q3の最深ミクロ物理正本はM61です。M61は、一つのmultiband Hamil
 
 R199Bでは、同じDuffing pairの作用和 $S=K_++K_-$ にstate count、作用差 $D=K_+-K_-$ にchiral current情報を持たせられることも調べます。ただし、これはM60の統合強化であり、Q3-2固定達成の必須依存にはしていません。
 
-### M63：topological reservoirを使う一成分Hamiltonian lattice候補
+### M63：topological reservoirとcurrent frameを使う一成分Hamiltonian lattice候補
 
-M63では、粒子、signal、reservoirを一種類の古典格子場の異なるcollective sectorとしてまとめます。基本自由度は各格子点の実正準対 $(\phi_n,\pi_n)$ だけです。隣接2サイトの固定正準変換で、kinkとsignalを担うbranchとreservoirを担うbranchを分けます。
+M63では、粒子、signal、current frame、reservoirを一種類の古典格子場の異なるcollective sectorとしてまとめます。基本自由度は各格子点の実正準対 $(\phi_n,\pi_n)$ だけです。隣接2サイトの固定正準変換でkink＋signal branchと補助branchを分け、補助branchからcurrent-frame座標 $Y$ とharmonic reservoirを固定正準変換で取り出します。
 
-kink自身からtopological weight
-
-```math
-\gamma_m=s(\bar u_{m+1})-s(\bar u_m),
-\qquad
-\sum_m\gamma_m=1
-```
-
-を作り、signalの局所規格化密度 $r_m$ に応じてreservoir座標を弱くscaleします。するとreservoirの条件付き自由エネルギーは
+signal density側では、kink自身から作るtopological weightによりkink-local density $r_K$ を定め、reservoir coordinate scaleを変えます。条件付きpartition functionは
 
 ```math
-F_R
-=
--k_BT\sum_m\gamma_m\log r_m
-+
-\mathrm{const}
+F_R=-k_BT\log r_K+\mathrm{const}
 ```
 
-となり、signalがkink幅より滑らかな領域では
+を厳密に与え、smooth sectorでは
 
 ```math
 F_X^{\rm osm}
 \simeq
-k_BT\,\partial_X\log r
+k_BT\,\partial_X\log\rho
 ```
 
-を直接得ます。2-action shell、weighted-shell normal form、chemical-potential matchingはM63では使いません。
+となります。
 
-R202A--R202Dでlocal canonical filter bank、same-field signal、topological partition identity、osmotic forceとsmall-backreactionを整理します。R202Eのsame-field current port・GLE/FDTとR202FのPN hoppingからR161への有限時間接続は未閉鎖なので、M63は現時点でM61/M60の固定達成主線を置換しません。旧M62/R201は付録Yに歴史的candidateとして保存します。
+signal current側では、左右成分の作用比から $j/\rho$ を読み、kink近傍に局在した時間反転対称なweak-scattering couplingでsoft frame $Y$ を駆動します。弱反射極ではframeの唯一安定な速度が $j/\rho$ に一致するよう較正できます。さらに同じ補助branchのharmonic reservoirを $X-\alpha_YY$ に結合すると、frozen-coefficient極でrelative-coordinate GLE/FDTを厳密に消去できます。
+
+```math
+M_X\ddot X
+\simeq
+k_BT\partial_X\log\rho
+-
+\Gamma*\left(\dot X-\frac j\rho\right)
++
+\xi.
+```
+
+R202Cのpartition identity、R202E1のcurrent dictionary、R202E3のfrozen harmonic-bath GLE/FDTは解析核として整理済みです。一方、real-space scatteringからframe trackingへの有限誤差、slow coefficient補正、full-trajectory backreaction、R202FのPN hoppingからR161への接続は未閉鎖です。そのためM63は次期単一場候補であり、現行のM61/M60固定達成主線はまだ置換しません。
+
 
 ## 現在どこまでできているか
 
