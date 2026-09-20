@@ -76,7 +76,7 @@ L_{\rm R161}
 
 R200CはM37 signalとM60 chiral sectorを一つのmultiband媒体へ載せ、R200Aはmoving branch converterをHamiltonian化し、R200Bは内部harmonic continuumからrelative-coordinate GLE/FDTを導く。R199AはM60の同一chiral媒体からballistic leadを有限時間で分離してincident energyへ接続し、R196Aはそのwave pressureだけでmoving bath frameを作る。chiral媒体のthermalizationをleadへ課したり、drifting-Gibbsや非平衡FDTを仮定したりしない。R196Bでは別の平衡oscillator bathだけにFDTを適用し、periodic homogenizationを経て $D=\nu$、$j/\rho+O(a^2)$、$\nu\partial_x\log\rho$ を得る。R196Cはwell-index generatorをR161へ有限誤差で接続する。
 
-さらに付録YのM62/R201A--R201Fでは、一成分Hamiltonian latticeの同じ $(\phi_n,\pi_n)$ からkink、2 shell mode、signal continuum、prethermal reservoir、reaction-coordinate frameを同時に得る単一場統合を調べる。M62は現時点でcandidate strengtheningであり、M61/M60固定達成主線を置換しない。
+さらに付録ZのM63/R202A--R202Fでは、一成分Hamiltonian latticeの同じ $(\phi_n,\pi_n)$ からkink、Schrödinger型signal、局所reservoirを作り、signal密度に応じたreservoir位相空間体積から $-k_BT\log\rho$ とosmotic forceを直接生成する単一場統合を調べる。2-action shellを介さず、R202Cのtopological partition identityを静的解析核とする。R202Eのcurrent port・GLE/FDTとR202FのR161接続は未閉鎖なので、M63は現時点でcandidate strengtheningでありM61/M60固定達成主線を置換しない。付録YのM62/R201は退役した旧single-field candidateとして保存する。
 
 R162のopen Poisson-jump過程はQ3の基礎的実体ではなく、その理想jump lawを表す参照過程として残す。R185は同じ前向き経路法則のBayes反転からNelson型の前進・後退平均微分と時間対称Newton則へ接続する。
 
@@ -86,7 +86,7 @@ R162のopen Poisson-jump過程はQ3の基礎的実体ではなく、その理想
 
 # 問題設定、現行模型、達成範囲
 
-> **位置づけ：** M54をQ1・Q2・Q3の共通有効信号構成族、M37を物理信号実装層、M61をQ3単一Hamiltonian親層、M60をその共通縮約ミクロ層として区別する。M62/R201は一成分Hamiltonian latticeによる単一場統合強化候補として並行管理し、現行固定達成主線を置換しない。
+> **位置づけ：** M54をQ1・Q2・Q3の共通有効信号構成族、M37を物理信号実装層、M61をQ3単一Hamiltonian親層、M60をその共通縮約ミクロ層として区別する。M63/R202をtopological reservoirによるactive単一場統合強化候補とし、M62/R201は歴史的候補として保存する。現行固定達成主線は置換しない。
 
 
 ## 研究上の問い
@@ -177,7 +177,8 @@ R162のopen Poisson-jump過程はM60の基礎的実体ではなく、R161 lawの
 | M37 | 物理Hamiltonian信号実装層 | Q3空間信号を局所ばね網で実装し、R187条件下ではW型最低2正常モードをQ1 W2制御信号へ接続する |
 | M61 | Q3単一Hamiltonian親層 | 一つのmultiband媒体と一つの複合mobile subsystemを $H_{61}$ へ統合し、R200Cでsignal/chiral、R200Aでmoving branch converter、R200Bで内部harmonic bathをM60へ持ち上げる |
 | M60 | Q3共通縮約ミクロ層 | M61から得るM37 signal、実2-mode Duffing shell、二成分chiral媒体のnonlinear core/ballistic lead、moving bath-frame、平衡GLEをR198A--R198D・R199A・R195A・R196A--R196Cを介してR161へ接続する |
-| M62 | Q3単一場統合強化候補 | 一成分Hamiltonian latticeのkink、2 shell mode、signal continuum、prethermal reservoir、reaction-coordinate frameをR201A--R201Fで同一parameter setへ統合する。現行M61/M60主線はまだ置換しない |
+| M62 | 退役したQ3単一場候補 | 2-action shell、weighted-shell normal form、prethermal reservoirを用いたR201A--R201Fを研究履歴として保存する。active candidateはM63へ移行した |
+| M63 | Q3単一場統合強化候補 | 一成分Hamiltonian latticeのkink、Schrödinger signal、topological reservoir scaling、GLE/FDT、PN hoppingをR202A--R202Fで同一parameter familyへ統合する。現行M61/M60主線はまだ置換しない |
 | M0 | 単一ミクロ装置統一目標 | Q1ではR193によりW2作用保持からmacrospin decision energyまでを具体化済み。Q3ではM37 signalからM60粒子輸送までを具体化する。macrospin浴、router、record、reset、Q2一般transducer、Q3 clock/recordを共通接続端とHamiltonian無限浴へ統合する全周期目標は未完成 |
 
 M54の複素信号 $Z$ は実正準対の派生表示であり、独立した複素実体ではない。状態方向、規格化共分散、位置分布は解析上の統計量であり、単一試行の制御器へ書き戻さない。
@@ -201,7 +202,7 @@ M54の複素信号 $Z$ は実正準対の派生表示であり、独立した複
 
 固定目標に付随する強化目標は `ENHANCEMENT_TARGETS.md` を正本とする。全固定目標にA1/A2、Q1/Q2にB1/B2/B3、Q2-2にQ2-2-Sを置き、固定目標の達成状態とは独立に管理する。A1では採用開放SDEと理想白色雑音を許し、A2はそのミクロ方程式自体の直接数値再現を要求する。回路強化Bでは有限帯域雑音を含む実験可能領域へ落とす。
 
-付録YのM62/R201はQ3-1/Q3-2のA1をさらに単純な一成分Hamiltonian latticeへ統合する候補である。R201Fまで閉じていないため、現行の達成判定・必須依存・required verifierはM61/M60から切り替えない。
+付録ZのM63/R202はQ3-1/Q3-2のA1を一成分Hamiltonian latticeへ統合するactive candidateである。R202Cのtopological partition identityは解析的に閉じる一方、R202Eのcurrent port・GLE/FDTとR202FのPN hopping--R161接続は未閉鎖なので、現行の達成判定・必須依存・required verifierはM61/M60から切り替えない。付録YのM62/R201は退役した旧候補として保存する。
 
 ## 非主張
 
@@ -209,7 +210,7 @@ M54の複素信号 $Z$ は実正準対の派生表示であり、独立した複
 
 # 有限モード信号系と共通正準モジュール
 
-> **位置づけ：** M54をQ1・Q2・Q3の共通有効信号--配置状態構成族、R161をQ3位置輸送の共通数学核とする。Q3の現行最深ミクロ物理実現はM61/R200A--R200C/R200、その共通縮約層はM60/R198A--R198D・R199A・R195A・R196A--R196Cとする。M62/R201Fは同じR161へ接続する単一場統合候補として扱う。
+> **位置づけ：** M54をQ1・Q2・Q3の共通有効信号--配置状態構成族、R161をQ3位置輸送の共通数学核とする。Q3の現行最深ミクロ物理実現はM61/R200A--R200C/R200、その共通縮約層はM60/R198A--R198D・R199A・R195A・R196A--R196Cとする。M63/R202Fは同じR161へ接続するactive単一場統合候補として扱う。
 
 
 ## M54をQ1--Q3共通有効状態構成族とする範囲
@@ -760,7 +761,7 @@ D_{\rm TV}
 T\varepsilon_{\rm gen}
 ```
 
-を満たす。この生成子同値により、R161より前段のミクロ実現を交換しても、同じcanonical位置経路法則とR185の縮約を共通に扱える。現行主線ではM61を最深Hamiltonian物理実現、M60をその縮約層とし、R199A・R196A--R196CでR161へ接続する。付録YのM62/R201Fは同じR161 interfaceへ接続する単一場統合候補であり、R201Fが閉じるまでは現行必須依存へ入れない。R162はR161経路法則を独立Poisson random measuresでpathwiseに実現するoptional stochastic referenceとする。
+を満たす。この生成子同値により、R161より前段のミクロ実現を交換しても、同じcanonical位置経路法則とR185の縮約を共通に扱える。現行主線ではM61を最深Hamiltonian物理実現、M60をその縮約層とし、R199A・R196A--R196CでR161へ接続する。付録ZのM63/R202Fは同じR161 interfaceへ接続するactive単一場統合候補であり、R202Fが閉じるまでは現行必須依存へ入れない。付録YのM62/R201は歴史的候補として保持する。R162はR161経路法則を独立Poisson random measuresでpathwiseに実現するoptional stochastic referenceとする。
 
 <!-- theorem-start:theorem -->
 **定理（R162：R161経路法則の独立Poisson-jump実現）**
@@ -3037,7 +3038,7 @@ Q2-2で新たに使う確率源はない。A端・B端とも共通R191を用い�
 
 Q3の最深親模型は付録XのM61であり、付録WのM60はその共通縮約層である。M61/R200CはM37 signal mode族と二成分chiral mode族を同一multiband媒体へ載せる。その1試行には、実正準信号自由度、その派生表示 $Z$、1個の局在tracer位置 $X_t$、局所2-mode Duffing shell、統一二成分chiral媒体のnonlinear core/ballistic lead、moving bath-frame carrier、平衡oscillator bathが含まれる。R198A--R198D/R197Aが2-action state countと平均力を与え、R195Aがsignal currentを厳密に与え、R196Aがballistic wave pressureからmoving bath frame、R196Bが平衡GLE/FDTとperiodic homogenization、R196CがR161生成子matchingを与える。R162は同じ生成子を持つideal stochastic referenceであり、基礎的ミクロ存在論ではない。複素状態方向と位置分布は試行集団の統計であり、$C_Z$ またはその階数1因子を単一試行制御器へ書き戻さない。
 
-付録YのM62/R201Bは、M37とは別のsignal sourceを追加するのではなく、一成分Hamiltonian latticeのcontinuum sectorから同種の狭帯域signal envelopeを回収する強化候補である。R201Bの有限時間包絡誤差とparameter辞書が未閉鎖なので、Q3-1固定達成のM37/R86証人は維持する。
+付録ZのM63/R202Bは、M37とは別のsignal sourceを追加するのではなく、一成分Hamiltonian latticeのkink/signal branchから同種の狭帯域signal envelopeを回収するactive強化候補である。R202Bの有限時間包絡誤差とparameter辞書が未閉鎖なので、Q3-1固定達成のM37/R86証人は維持する。付録YのM62/R201Bは退役した旧single-field候補として保存する。
 
 M37はM54と並ぶ別の粒子親模型ではない。Q3ではM54空間信号部分系を局所位置ばねだけで有限時間近似する信号系実現模型であり、Q1ではR187の弱結合W型族に限って最低2正常モードをM54のW2静的状態構成の物理信号部分系として使う。従ってM37は、Q1型局所信号＋Q2型辺結合からR161入力 $(\pi,j)$ へ進む共通構造の1つの空間担体実装であり、R161そのものの定義や活動量の一意性を担わない。役割を次のように分ける。
 
@@ -4314,7 +4315,7 @@ R187本体は有限個の静的クエンチで閉じる。各跳躍は $Q,P$ を
 > **位置づけ：** Q3-2・Q3-3A--Q3-3Cの達成、Q3-6の未達、Q3-4A・Q3-4B・Q3-5の条件付き達成を区別する。Q3粒子輸送はM61--M60--R161階層を用いる。
 
 
-本章は、M37/M54空間信号からM61単一Hamiltonian親模型をM60 chiral-medium moving-bath tracerへ縮約し、Nelson流または時間対称Newton則へ接続するQ3-2、R123とR182によるQ3-3A--Q3-3C、R124・R125・R182をM60 tracerの位置輸送へ接続するQ3-4A・Q3-4B・Q3-5、位相量子化のQ3-6を区別する。R123--R125とR182の完全証明は付録F、G、M61の単一Hamiltonian持上げは付録X、M60 transportとR161生成子matchingは付録V、R161/R185の有限格子数学は付録Nに置く。付録YのM62/R201Fが閉じれば同じR161/R185下流数学へ接続できるが、現行達成判定はM61/M60主線から変更しない。
+本章は、M37/M54空間信号からM61単一Hamiltonian親模型をM60 chiral-medium moving-bath tracerへ縮約し、Nelson流または時間対称Newton則へ接続するQ3-2、R123とR182によるQ3-3A--Q3-3C、R124・R125・R182をM60 tracerの位置輸送へ接続するQ3-4A・Q3-4B・Q3-5、位相量子化のQ3-6を区別する。R123--R125とR182の完全証明は付録F、G、M61の単一Hamiltonian持上げは付録X、M60 transportとR161生成子matchingは付録V、R161/R185の有限格子数学は付録Nに置く。付録ZのM63/R202Fが閉じればtopological reservoirから同じR161/R185下流数学へ接続できるが、現行達成判定はM61/M60主線から変更しない。付録YのM62/R201Fは退役した旧候補として残す。
 
 ## Nelson流の作用変分または時間対称Newton則（Q3-2）
 
@@ -4911,7 +4912,7 @@ draft-71ではR182専用のW型数値回帰を追加したが、これは解析�
 
 # 誤差、資源、反証条件、未完成目標
 
-> **位置づけ：** Q1/Q2のR191系と、Q3のM61--M60--R161--R185階層を横断して誤差・資源・反証条件を整理する。M61固有誤差はM60既存誤差へ重複加算しない。M62/R201はcandidate strengtheningとして独立の誤差台帳と共通時間窓を管理する。
+> **位置づけ：** Q1/Q2のR191系と、Q3のM61--M60--R161--R185階層を横断して誤差・資源・反証条件を整理する。M61固有誤差はM60既存誤差へ重複加算しない。M63/R202はactive candidate strengtheningとして独立の誤差台帳を管理し、M62/R201は歴史的candidateとして保存する。
 
 
 
@@ -5291,6 +5292,70 @@ T_{\rm NF},
 
 現在のcandidate numerical witnessは $\tau_{\rm mem}\sim10$--$50$、$\tau_{\rm ex}\sim150$--$200$、$\tau_{\mathcal N}>800$、$v\sim5\times10^5$ の一例で $T_{\rm NF}\sim2\times10^3$ である。$T_{\rm obs}\sim500$ のstrict inequalityは作れるが、十分強い $\ll$ separationをvalidated boundとして閉じていないためR201Fは未閉鎖のままとする。
 
+
+### M63/R202候補の誤差台帳と共通時間窓
+
+M63は現行M61/M60主線の誤差へ加算しない独立strengtheningである。R202Cの条件付きpartition identityは代数恒等式として扱い、その前後の物理縮約だけを有限誤差として数える。候補transport誤差を
+
+```math
+\begin{aligned}
+\varepsilon_{\rm tr}^{63}
+\le C_{63}(&
+\varepsilon_{\rm env}
++\varepsilon_{KS}
++\varepsilon_{SR}
++\varepsilon_{\rm filt}
++\varepsilon_N
++\varepsilon_{\rm top}
+\\
+&
++\varepsilon_{\rm width}
++\varepsilon_{\rm back}
++\varepsilon_{\rm eq}
++\varepsilon_{\rm cur}
++\varepsilon_{\rm mem}
+\\
+&
++\varepsilon_{\rm od}
++\varepsilon_{\rm PN}
++\varepsilon_{\rm EK}
++a_X^2)
+\end{aligned}
+```
+
+と整理する。$\varepsilon_{\rm env}$ はR202Bのsignal envelope、$\varepsilon_{KS}$ はsignalのkink low-passへの漏れ、$\varepsilon_{SR}$ はsignal/reservoir branch混成、$\varepsilon_{\rm filt}$ は有限range filter近似、$\varepsilon_N$ はprepared signal action $N_0$ からのdrift、$\varepsilon_{\rm top}$ は有限境界・kink変形によるtopological weight、$\varepsilon_{\rm width}$ は有限kink幅、$\varepsilon_{\rm back}$ はreservoir/current portからsignalへの反作用、$\varepsilon_{\rm eq}$ は条件付きreservoir平衡への追従、$\varepsilon_{\rm cur}$ はcurrent port、$\varepsilon_{\rm mem}$ はfinite-memory GLE、$\varepsilon_{\rm od}$ はoverdamped縮約、$\varepsilon_{\rm PN}$ はkinkからPN collective coordinate、$\varepsilon_{\rm EK}$ はPN hoppingのEyring--Kramers近似を表す。同じ上流偏差を複数項へ重複計上しない。
+
+M63の主要時間尺度を
+
+```math
+\tau_{\rm mix},
+\qquad
+\tau_{\rm mem},
+\qquad
+\tau_{\rm well},
+\qquad
+\tau_{\rm hop},
+\qquad
+\tau_r,
+\qquad
+T_{\rm env}
+```
+
+とする。必要な基本階層は
+
+```math
+\tau_{\rm mix},
+\tau_{\rm mem},
+\tau_{\rm well}
+\ll
+\tau_{\rm hop},
+\tau_r,
+\qquad
+T_{\rm obs}<T_{\rm env}.
+```
+
+旧M62で用いたnormal-form寿命、shell--reservoir交換時間、prethermal shell-action寿命はM63誤差台帳へ持ち込まない。R202Eのcurrent port・GLE/FDTとR202FのPN hopping--R161 matchingが閉じるまではM63をrequired主線へ昇格させない。
+
 ## 静的分布の整合の正則化資源発散
 
 正則化により $\pi_i^\delta\geq\delta q_{\min}/(1+\delta)$ なので、有効自由エネルギー幅は
@@ -5415,7 +5480,8 @@ Q2-4は条件付き達成を維持する。残る条件は、静的部分系配�
 | R182 | W型固定低位スペクトル・密度・節が格子収束しない、Rayleigh十分条件から障壁下二重項が得られない、関数計算の共有固有空間または分裂相対上界を破る、中央障壁込み半周期鏡映・一周期回帰が成立しない |
 | R161 path law | 固定有限時間で $M_T=\sup_{t\leq T}\max_i\sum_{j\ne i}k^+_{i\to j}(t)<\infty$ を満たさず、finite-state canonical Markov経路法則の非爆発性を保証できない |
 | M61/R200A--R200C/R200・M60/R198A--R198D・R199A・R195A・R196A--R196C | 単一HamiltonianからM60へ有限誤差で接続できない、またはchiral作用/current恒等式を満たさない、passive ballistic portの有限誤差境界が閉じない、moving-reflector fixed pointが一意安定でない、$\tau_p$ または $\lambda_Y^{-1}$ をsignal時間から分離できない、平衡bath GLE/overdamped/homogenizationが制御できない、weak-loading familyが空、またはR196Cのmetastable generatorがR161へ有限誤差で接続しない |
-| M62/R201A--R201F candidate | PN＋2 shell＋continuum構造または $3\omega_2<\omega_{\min}^{\rm cont}$ を満たせない、非負 $B(\phi)$ でweighted-shell quartic momentsと非零exchangeを両立できない、shell--reservoir交換がnormal-form windowより遅い、prethermal $\mathcal N$ lifetimeが短い、memory tailを有限誤差Markov縮約できない、または同一parameter setで共通時間窓が空になる |
+| M62/R201A--R201F historical candidate | 旧2-action-shell経路の探索・回帰記録として保存する。active単一場候補の反証条件には用いない |
+| M63/R202A--R202F candidate | kink/signal/reservoir branchを同一parameter familyで分離できない、$\sum_m\gamma_m=1$ をsafe kink sectorで保てない、R202Cのconditional phase-volume identityを実Hamiltonian定義へpull backできない、full trajectoryの平均力が $k_BT\partial_X\log r$ へ収束しない、signal backreactionが $N_0^{-1}$ で低下しない、current portが $j/\rho$ を同じ試行でkink driftへ渡せない、GLE/FDTまたはPN hopping--R161 matchingが閉じない、あるいは共通時間窓が空になる |
 | R161/R162 ideal reference | R161率の非負性またはmaster equation整合が破れる、あるいはR162 ideal open-jump生成子がR161率と一致しない |
 | Q3-2 | 時間対称Newton則を縮約前に仮定する、M60からR161前向き経路法則へ有限誤差で接続できない、同じ前向き経路法則からBayes後退率を構成できない、またはR185の $C_{185,a}a^2+O(\delta)$ 評価を破る |
 | Q3-3C | W型低位スペクトルの格子・領域収束を示せない、または同じ固有基底で環境との弱結合を縮約した有限時間純位相緩和と対角占有率保存を閉じられない |
@@ -5437,7 +5503,7 @@ Q2-4は条件付き達成を維持する。残る条件は、静的部分系配�
 
 A1ではHamiltonian無限浴だけでなく、規約と共分散を明示したLangevin型SDEその他の採用開放ミクロ方程式を認め、理想白色雑音を許す。A2では採用したミクロODE/SDEそのものを直接計算する。理想白色雑音を使うQ1/Q2模型を回路へ移す場合、B2/B3では有限帯域雑音源と時間尺度分離を明示する。
 
-従来からのQ1/Q2完全周期収支、R180Cの共通浴統合、M61/M60 common process--時計--終位置記録--resetの単一反復周期統合、連続空間一様極限、多粒子拡張、全周期の有限閉鎖Hamiltonian化は、A/B/Sを横断する上位または系列固有の実装強化課題として保持する。M62についてはR201C full remainder、R201D validated exchange/prethermal lifetime、R201E finite-memory Markov error、R201F共通parameter windowを独立strengtheningとして残す。R162を特定Hamiltonian浴から再導出することはM60主線の要件ではない。旧R162有限衝突経路、旧R188、旧R179部分SWAP貯蔵部、旧R178D有限閉鎖リセット境界は撤回せず、有限閉鎖実装を調べる強化結果として論文外メモへ保存する。
+従来からのQ1/Q2完全周期収支、R180Cの共通浴統合、M61/M60 common process--時計--終位置記録--resetの単一反復周期統合、連続空間一様極限、多粒子拡張、全周期の有限閉鎖Hamiltonian化は、A/B/Sを横断する上位または系列固有の実装強化課題として保持する。M63についてはR202A/Bの同一parameter branch witness、R202Dのfull-dynamics backreaction bound、R202Eのcurrent port・GLE/FDT、R202FのPN hopping--R161共通parameter windowを独立strengtheningとして残す。M62/R201はsuperseded historical candidateとして保持する。R162を特定Hamiltonian浴から再導出することはM60主線の要件ではない。旧R162有限衝突経路、旧R188、旧R179部分SWAP貯蔵部、旧R178D有限閉鎖リセット境界は撤回せず、有限閉鎖実装を調べる強化結果として論文外メモへ保存する。
 
 Q1-1、Q1-2、Q3-1、Q3-2、Q3-3A、Q3-3B、Q3-3Cは達成、Q2-1、Q2-2、Q2-3、Q2-4、Q3-4A、Q3-4B、Q3-5は条件付き達成、Q3-6は未達である。
 
@@ -5494,7 +5560,7 @@ Q3-1側のsignal誤差を
 
 # 結論
 
-> **位置づけ：** Q1/Q2のR191系と、Q3のM61/R200A--R200C/R200--M60/R198/R199/R196--R161--R185現行階層、およびM62/R201単一場統合候補を総括する。
+> **位置づけ：** Q1/Q2のR191系と、Q3のM61/R200A--R200C/R200--M60/R198/R199/R196--R161--R185現行階層、およびM63/R202 active単一場統合候補を総括する。M62/R201は歴史的候補として保存する。
 
 
 本稿は、古典実正準信号の線形力学と、1試行1結果を作る開放古典instrumentを分離して構成した。有限次元Hilbert空間とunitaryを古典振動子へ写すこと自体ではなく、その同じ単一試行信号からBorn型排他的結果と測定後結果成分を作る物理接続を中心課題とした。
@@ -5578,7 +5644,7 @@ R162のopen Poisson-jump過程はM60の基礎的実体ではなく、R196C/R161�
 
 今回の縮約により、R184の旧M37--M54空間率latchは補助結果へ下がり、M60主線の必須依存から外れた。2-action state countはR198A--R198D/R197A、signal currentはR195A、ballistic transportはR199A・R196A--R196Cへ責務分離している。M56 Brownian-spin Q3模型はspin-only代替研究線へ位置づける。R190A--R190C、R170、旧R180Bも現行Q1/Q2主線へ戻さない。これらは反証されたのではなく、別の物理実現・強化案として `notes/` とGit履歴へ保存する。
 
-付録Yではさらに、M61/M60で分離されているsignal、shell、reservoir、moving frameを一成分Hamiltonian latticeへまとめるM62/R201を候補として構成した。kinkの低位spectrum、weighted-shell normal form、shell--reservoir exchange、memory kernelには具体的parameter witnessがあるが、R201C--R201Fのvalidated error closureは残る。従ってM62を現行固定達成主線へ昇格させたとは扱わない。
+付録Zではさらに、同じ一成分Hamiltonian latticeのlocal canonical filter bankからkink、Schrödinger型signal、reservoir branchを作るM63/R202をactive candidateとして構成した。R202Cではkinkのtopological weightとsignal局所密度に依存するreservoir scalingから、条件付き自由エネルギー $F_R=-k_BT\sum_m\gamma_m\log r_m+\mathrm{const}$ をJacobian恒等式として直接得る。これにより2-action shellを介さずosmotic forceを作る。R202Eのsame-field current port・GLE/FDTとR202FのPN hopping--R161接続は未閉鎖なので、M63を現行固定達成主線へ昇格させたとは扱わない。付録YのM62/R201はM63へ至る旧候補として保存する。
 
 残る主要な物理課題は、各固定目標について具体的古典ミクロ模型A1とその直接数値再現A2を監査すること、Q1/Q2について具体的アナログ回路B1、実験可能パラメータ領域B2、回路直接数値再現B3へ進むこと、Q2-2で測定窓内の空間的・因果的隔離をどこまで強められるかQ2-2-Sで検査することにある。これと並行して、R191の作用和・作用差transducer、Brownian macrospin、projector router、外部記録、R179リセットを同じ具体装置へ統合すること、M61/M60信号源・tracerと時計、終位置記録を単一反復周期へ統合すること、Q2-4の外部多項式資源条件を物理配線・較正・雑音まで閉じること、Q3の連続空間一様極限・多粒子拡張、Q3-6の位相量子化を閉じることを上位または横断的強化課題として残す。A1では採用開放SDEと理想白色雑音を許すが、回路実装Bでは有限帯域雑音へ落とす。
 
@@ -14383,8 +14449,10 @@ M60は退役させない。M61がlab-frame単一Hamiltonian、M60がcarrier/enve
 
 # M62 一成分Hamiltonian lattice Q3単一場統合候補
 
-> **位置づけ：** M61/M60の現行固定達成主線を置換しないQ3強化候補。一組の実格子正準変数からkink位置、2 shell mode、signal continuum、prethermal reservoir、reaction-coordinate frameを同時に得ることを狙う。R201A--R201Eには解析構造とcandidate numerical witnessがあるが、full normal-form remainder、validated shell--reservoir exchange、prethermal lifetime、finite-memory Markov誤差、同一parameter setでのR201F合成は未閉鎖とする。
+> **位置づけ：** M63/R202によりactive single-field candidateから退役した歴史的Q3強化候補。M61/M60の現行固定達成主線は置換しない。2-action shell、weighted-shell normal form、shell--reservoir交換を用いた旧経路と探索計算を研究履歴として保存する。
 
+
+M62/R201は、非負のquartic運動量項の下でsignal--shell交差係数の望ましい符号とR201Bの線形signal保持を同時に満たすことが難しく、自由エネルギー再解釈後もcentering用signal self-Kerrがsignal envelopeを強く非線形化することが分かった。このためactive single-field candidateは付録ZのM63/R202へ移す。以下は反証ではなく、M63へ至る旧候補の定義・探索結果として保存する。
 
 ## M62の責務と基本Hamiltonian
 
@@ -14759,6 +14827,591 @@ M62を現行Q3ミクロ主線へ昇格させる条件は、少なくとも次の
 4. R201Fの共通parameter setで十分なmarginを持つ時間窓を示す。
 
 それまではM62の数値結果をcandidate witnessとして管理し、現行required verifierへ昇格させない。
+
+# M63 topological reservoir一成分Hamiltonian lattice Q3統合候補
+
+> **位置づけ：** M62/R201を置き換えるactive single-field strengthening candidate。一組の実格子正準変数からkink、Schrödinger型signal、局所reservoirを構成し、2-action shellを介さずreservoir phase-space Jacobianからosmotic free energyを得る。R202Cのpartition identityは解析核として閉じる一方、R202Bのfull envelope、R202Dのmicroscopic backreaction bound、R202Eのcurrent port・GLE/FDT、R202FのPN hopping--R161有限時間合成は未閉鎖とする。M61/M60の現行固定達成主線は置換しない。
+
+
+## M63の責務と存在論
+
+M63は一格子点あたり一組の実正準変数
+
+```math
+(\phi_n,\pi_n),
+\qquad
+n\in\mathbb Z
+```
+
+だけを基本自由度とする時間非依存古典Hamiltonian latticeである。複素signal、kink中心、reservoir modeは独立した実体ではなく、同じ $(\phi_n,\pi_n)$ の固定線形またはcollective representationである。
+
+M63の目標は、同じ一成分場からkink位置、signal density/current、local reservoirを取り出し、signalの局所規格化密度 $r$ に対する条件付きreservoir自由エネルギーから
+
+```math
+F_X^{\rm osm}
+=
+k_BT\,\partial_X\log r
+```
+
+を得ることである。M63では2-action shell、weighted-shell normal form、shell chemical potential、shell--reservoir exchangeを用いない。
+
+## 2-site local canonical filter bank
+
+隣接2サイトを一つのcellとして
+
+```math
+u_m
+=
+\frac{\phi_{2m}+\phi_{2m+1}}{\sqrt2},
+\qquad
+v_m
+=
+\frac{\phi_{2m}-\phi_{2m+1}}{\sqrt2},
+```
+
+```math
+p_m
+=
+\frac{\pi_{2m}+\pi_{2m+1}}{\sqrt2},
+\qquad
+q_m
+=
+\frac{\pi_{2m}-\pi_{2m+1}}{\sqrt2}
+```
+
+と定める。これは固定線形正準変換であり、
+
+```math
+\{u_m,p_n\}=\delta_{mn},
+\qquad
+\{v_m,q_n\}=\delta_{mn}
+```
+
+を満たす。また
+
+```math
+\frac12(p_m^2+q_m^2)
+=
+\frac12(\pi_{2m}^2+\pi_{2m+1}^2)
+```
+
+である。$u$、$v$ は二つの物理場ではなく、一成分格子の局所canonical coordinatesである。$u$-branchをkinkとsignalに、$v$-branchをreservoirに用いる。
+
+## kink・signal branch
+
+最小候補として
+
+```math
+H_A
+=
+\sum_m
+\left[
+\frac{p_m^2}{2}
++
+U_K(u_m)
+\right]
++
+\frac{\kappa_A}{2}
+\sum_m
+(u_{m+1}-u_m)^2
+```
+
+とし、
+
+```math
+U_K(u)
+=
+\frac{\Omega_K^2}{8u_0^2}
+(u^2-u_0^2)^2
+```
+
+のようなdouble wellを取る。真空 $u=\pm u_0$ を結ぶ離散kink $u_m^K(X)$ のcollective centerを粒子位置 $X$ とする。
+
+真空まわりの線形branchは
+
+```math
+\omega_A^2(k)
+=
+\Omega_K^2
++
+4\kappa_A\sin^2\frac{k}{2}
+```
+
+を持つ。このcontinuumの狭帯域packetをsignalとして用いる。
+
+kink抽出用の固定low-passを $\bar u=F_Ku$、signal carrier抽出用の固定band-passを $Q^s=F_su$、$P^s=F_sp$ とする。存在証人では有限range FIR filterを許す。一サイト並進対称性を求める強化版では格子作用素の滑らかな関数または有限次数多項式近似を用いてよい。
+
+<!-- theorem-start:theorem -->
+**定理（R202A：一成分local filter-bankによるkink・signal・reservoir branch構成）**
+
+適切な正のparameterと固定filterを選び、同一の一成分実格子上にstable kink sector、$u$-branch continuum内の狭帯域signal sector、$v$-branch reservoir sectorを同時に構成する。signalのkink low-passへの漏れを $\varepsilon_{KS}$、signal/reservoir branch混成を $\varepsilon_{SR}$ とし、固定有限時間safe sectorで所定値以下にできるparameter familyをR202Aの目標とする。
+<!-- theorem-end:theorem -->
+
+R202Aでは旧M62の2 shell modeや $3\omega_2<\omega_{\min}^{\rm cont}$ を要求しない。余分なkink shape modeがある場合はsignal/reservoir時間窓との共鳴を誤差として管理する。
+
+## same-field signal envelopeと規格化密度
+
+carrier波数 $k_s$ の周囲で
+
+```math
+\omega_A(k)
+=
+\omega_s
++
+v_g(k-k_s)
++
+\frac12\omega_s''(k-k_s)^2
++
+\cdots
+```
+
+と展開する。carrier phaseとgroup translationを除いたslow envelopeを $Z$ とする。
+
+局所signal actionを
+
+```math
+\rho_m^s
+=
+\frac{
+(P_m^s)^2+\omega_s^2(Q_m^s)^2
+}{
+2\omega_s
+}
+```
+
+とする。準備境界から固定physical action scale $N_0>0$ を受け取り、Hamiltonian内部で現在の総作用を測って割らない。平滑kernel $K_r$ と正則化背景 $\delta\varpi_m>0$ を使い、
+
+```math
+r_m^\delta
+=
+\delta\varpi_m
++
+\frac1{N_0}
+\sum_\ell
+K_r(m-\ell)\rho_\ell^s
+```
+
+とする。safe sectorで $0<r_{\min}\le r_m^\delta\le r_{\max}<\infty$ を仮定する。
+
+<!-- theorem-start:theorem -->
+**定理（R202B：same-field Schrödinger signal envelope・density/current）**
+
+R202Aの狭帯域signal sectorについて、固定有限時間で
+
+```math
+i\mathcal J_0\partial_tZ
+=
+-\frac{\mathcal J_0^2}{2m_{\rm eff}}
+\partial_x^2Z
++
+V_{\rm eff}Z
++
+R_{\rm env}
+```
+
+へ縮約し、
+
+```math
+\|Z_{\rm micro}(t)-Z_{\rm Sch}(t)\|
+\le
+\varepsilon_{\rm env}(T)
+```
+
+を得る。同じsignalから密度 $\rho$ とcurrent $j$ を導き、$\partial_t\rho+\partial_xj=O(\varepsilon_{\rm env})$ を満たす。prepared actionについて
+
+```math
+\left|
+\frac{N_s(t)}{N_0}-1
+\right|
+\le
+\varepsilon_N
+```
+
+を有限時間で要求する。Nelson matchingは $\mathcal J_0=2m_{\rm eff}\nu$ とする。
+<!-- theorem-end:theorem -->
+
+## topological kink weight
+
+左真空で0、右真空で1となる滑らかな単調関数 $s$ を固定し、$s(-u_0)=0$、$s(u_0)=1$ とする。kink weightを
+
+```math
+\boxed{
+\gamma_m
+=
+s(\bar u_{m+1})
+-
+s(\bar u_m)
+}
+```
+
+と定める。異種境界条件 $\bar u_{-\infty}=-u_0$、$\bar u_{+\infty}=u_0$ のtopological sectorではtelescopingにより
+
+```math
+\boxed{
+\sum_m\gamma_m=1
+}
+```
+
+が成り立つ。理想単調kinkでは $\gamma_m\ge0$ であり、kink core近傍に局在する。外部からkink中心を測ってwindowを動かす必要はない。
+
+## reservoir Hamiltonianとtopological scaling
+
+基準reservoirを
+
+```math
+\mathcal H_R^0(c,q)
+=
+\sum_m
+\left[
+\frac{q_m^2}{2}
++
+\frac{\Omega_R^2}{2}c_m^2
++
+\frac{\beta_R}{4}c_m^4
+\right]
++
+\frac{\kappa_R}{2}
+\sum_m
+(c_{m+1}-c_m)^2
+```
+
+とする。$\Omega_R^2,\beta_R,\kappa_R>0$ とし、quartic termはreservoir内部mixingを得るための正の安定化非線形性として用いる。
+
+reference density $r_*>0$ を固定し、
+
+```math
+\boxed{
+\lambda_m
+=
+\left(
+\frac{r_m^\delta}{r_*}
+\right)^{-\gamma_m}
+}
+```
+
+と置く。実reservoir Hamiltonianを
+
+```math
+\boxed{
+H_R
+=
+\mathcal H_R^0(
+c_m=\lambda_mv_m,
+q_m
+)
+}
+```
+
+とする。具体的には
+
+```math
+\begin{aligned}
+H_R
+={}&
+\sum_m\frac{q_m^2}{2}
++
+\sum_m
+\left[
+\frac{\Omega_R^2}{2}(\lambda_mv_m)^2
++
+\frac{\beta_R}{4}(\lambda_mv_m)^4
+\right]
+\\
+&+
+\frac{\kappa_R}{2}
+\sum_m
+(
+\lambda_{m+1}v_{m+1}
+-
+\lambda_mv_m
+)^2 .
+\end{aligned}
+```
+
+$u,v,p,q,r^\delta,\gamma,\lambda$ はすべて固定式で $(\phi,\pi)$ から定まるので、$H_{63}^{\rm core}=H_A+H_R=H_{63}^{\rm core}(\phi,\pi)$ であり、独立自由度を追加しない。
+
+## R202C：topological reservoir-scaling partition identity
+
+固定signal/kink configurationに対するreservoir partition functionを
+
+```math
+Z_R[r,\gamma]
+=
+\int
+e^{-\beta H_R}
+\prod_mdv_m\,dq_m
+```
+
+とする。$c_m=\lambda_mv_m$ と変数変換すると $dv_m=\lambda_m^{-1}dc_m$ なので、$Z_R=Z_R^0\prod_m\lambda_m^{-1}$ となる。
+
+<!-- theorem-start:theorem -->
+**定理（R202C：topological reservoir phase-volume identity）**
+
+R202Aのsafe kink sectorで $\sum_m\gamma_m=1$ とする。このとき
+
+```math
+\boxed{
+Z_R[r,\gamma]
+=
+Z_R^0
+\exp
+\left[
+\sum_m\gamma_m
+\log\frac{r_m^\delta}{r_*}
+\right]
+}
+```
+
+が厳密に成立し、条件付きreservoir自由エネルギーは
+
+```math
+\boxed{
+F_R[r,\gamma]
+=
+-k_BT
+\sum_m\gamma_m\log r_m^\delta
++
+C_R
+}
+```
+
+となる。
+<!-- theorem-end:theorem -->
+
+この恒等式はweak quartic expansion、normal form、chemical potential、wave-action prethermal conservationを必要としない。基準reservoir内部に安定なmode couplingを追加しても $H_R=\mathcal H_R^0(\lambda v,q)$ の形を保つ限り同じJacobian identityが成立する。
+
+## R202D：osmotic forceとsignal backreaction
+
+kink weightの中心と二次幅を
+
+```math
+X_\gamma
+=
+\sum_mx_m\gamma_m,
+\qquad
+\sigma_K^2
+=
+\sum_m
+(x_m-X_\gamma)^2\gamma_m
+```
+
+とする。signalがkink幅より滑らかなら、
+
+```math
+\sum_m
+\gamma_m\log r_m^\delta
+=
+\log r^\delta(X_\gamma)
++
+\frac{\sigma_K^2}{2}
+\partial_x^2\log r^\delta(X_\gamma)
++
+\cdots .
+```
+
+<!-- theorem-start:theorem -->
+**定理（R202D：topological osmotic force・small-backreaction）**
+
+R202A--R202Cのsafe sectorで $r^\delta\ge r_{\min}>0$ とし、signal densityがkink幅より滑らかであるとする。このときconditional-equilibrium mean forceは
+
+```math
+\boxed{
+F_X^{\rm osm}
+=
+k_BT\partial_X\log r^\delta
++
+O(
+\varepsilon_{\rm width}
++
+\varepsilon_{\rm filt}
++
+\varepsilon_{\rm top}
+)
+}
+```
+
+となる。
+
+また $r^\delta$ がprepared physical action $N_0$ で規格化されるため、reservoir scalingからsignalへ返るshape-changing variationは固定有限時間で
+
+```math
+\varepsilon_{\rm back}
+\le
+C_{\rm back}
+\frac{k_BT T}{
+\mathcal J_0N_0r_{\min}
+}
++
+O(N_0^{-1}M^{-1/2})
+```
+
+型に抑えることを目標とする。
+<!-- theorem-end:theorem -->
+
+physical signal振幅を $O(\sqrt{N_0})$、bare lattice nonlinear scaleを $v_0$ とすると $\sqrt{N_0}/v_0\ll1$ を要求する。例えば $v_0=N_0^{3/4}$ とすれば $N_0^{-1}\to0$ と $\sqrt{N_0}/v_0\to0$ を同時に取れる。これは存在parameter familyのscale witnessであり、full trajectory boundではない。
+
+## signal current port
+
+R202C--R202Dはdensityからosmotic forceを生成する。Nelson current velocityには同じsignalから
+
+```math
+V^\delta
+=
+\frac{j}{
+\rho+\delta N_0q
+}
+```
+
+を得る必要がある。kinkが読む局所current velocityを $V_K=\sum_m\gamma_mV_m^\delta$ とする。smooth sectorでは $V_K=j/\rho+O(\varepsilon_{\rm width}+\varepsilon_{\rm env})$ となる。
+
+$V_K$ を実際のkink transportへ渡すbounded same-field Hamiltonian couplingをcurrent portと呼ぶ。$V_K$ またはLagrangian frameを解析上定義するだけではcurrent portを構成したことにしない。
+
+## R202E：reservoir dynamics・GLE/FDT
+
+R202Cはfixed conditional configurationのstatic partition identityである。実時間trajectoryがこの自由エネルギーを追従するにはreservoir mixingとslow-variable separationが必要である。
+
+<!-- theorem-start:theorem -->
+**定理（R202E：same-field current port・local reservoir GLE/FDT）**
+
+同じM63 reservoirが有限mixing時間 $\tau_{\rm mix}$ と有限memory時間 $\tau_{\rm mem}$ を持ち、current portが
+
+```math
+V_K
+=
+\frac j\rho
++
+O(\varepsilon_{\rm cur})
+```
+
+をkink transportへ渡すとする。このときkink collective coordinateを
+
+```math
+\begin{aligned}
+M_X\ddot X
+={}&
+-\partial_XU_{\rm PN}
++
+k_BT\partial_X\log r^\delta
+\\
+&-
+\int_0^t
+\Gamma(t-s)
+[
+\dot X(s)-V_K(s)
+]ds
++
+\xi(t)
++
+R_{202E}
+\end{aligned}
+```
+
+型のGLEへ有限時間縮約することをR202Eの目標とする。条件付き平衡下で
+
+```math
+\langle\xi(t)\rangle=0,
+\qquad
+\langle\xi(t)\xi(s)\rangle
+=
+k_BT\Gamma(|t-s|)
+```
+
+を要求する。
+<!-- theorem-end:theorem -->
+
+$\tau_{\rm mem}$ がslow時間より十分短ければlocal frictionへ縮約し、Einstein relation $\nu=k_BT/\gamma_X$ とoverdamped極から
+
+```math
+dX_t
+=
+\left[
+\frac j\rho
++
+\nu\partial_X\log r^\delta
+\right]dt
++
+\sqrt{2\nu}\,dW_t
++
+O(\varepsilon_{\rm od})
+```
+
+を得る。正則化極で $r^\delta\to\rho/N_0$ ならosmotic termは $\nu\partial_X\log\rho$ へ収束する。
+
+R202Eは現時点で未閉鎖であり、current portを具体Hamiltonianとして固定し、full reservoir trajectoryからmixing、memory、FDTを検証する必要がある。
+
+## R202F：PN hoppingからR161/R185への合成
+
+離散kink中心は自然なPeierls--Nabarro周期ポテンシャル $U_{\rm PN}(X)$ を持つ。そのminimaを $x_i$ とし、intra-well relaxationがescapeより速いregimeでwell index過程へ粗視化する。
+
+<!-- theorem-start:theorem -->
+**定理（R202F：M63からR161位置経路・R185への有限時間合成）**
+
+R202A--R202Eを同じparameter familyで満たし、
+
+```math
+\tau_{\rm mix},
+\tau_{\rm mem},
+\tau_{\rm well}
+\ll
+\tau_{\rm hop},
+\tau_r,
+\qquad
+T_{\rm obs}<T_{\rm env}
+```
+
+となる非空の観測時間窓を取れるとする。PN well-index過程のgenerator $k_{i\to j}^{63}$ について
+
+```math
+\sup_{t\le T}
+\max_i
+\sum_{j\ne i}
+\left|
+k_{i\to j}^{63}(t)
+-
+k_{i\to j}^{161}(t)
+\right|
+\le
+\varepsilon_{\rm tr}^{63}
+```
+
+を満たすparameter familyを構成することをR202Fの目標とする。この接続が閉じれば、同じ前向き経路法則のBayes反転から後退率、$D_\pm$、時間対称Newton則を得る既存R185を再利用する。
+<!-- theorem-end:theorem -->
+
+## 誤差責務と現行主線との境界
+
+M63候補の誤差は
+
+```math
+\begin{aligned}
+\varepsilon_{\rm tr}^{63}
+\le C_{63}(&
+\varepsilon_{\rm env}
++\varepsilon_{KS}
++\varepsilon_{SR}
++\varepsilon_{\rm filt}
++\varepsilon_N
++\varepsilon_{\rm top}
+\\
+&
++\varepsilon_{\rm width}
++\varepsilon_{\rm back}
++\varepsilon_{\rm eq}
++\varepsilon_{\rm cur}
++\varepsilon_{\rm mem}
+\\
+&
++\varepsilon_{\rm od}
++\varepsilon_{\rm PN}
++\varepsilon_{\rm EK}
++a_X^2)
+\end{aligned}
+```
+
+と整理する。同じ上流偏差を複数項へ重複加算しない。旧M62のnormal-form remainder、shell--reservoir exchange時間、prethermal shell-action lifetimeはM63へ持ち込まない。
+
+M63/R202はM62/R201をactive single-field candidateとして置き換えるが、M61/R200--M60/R198/R199/R196の現行固定達成主線はまだ置換しない。固定Q3-1/Q3-2の達成ラベル、Q3-1-A1/Q3-2-A1の部分達成、Q3-1-A2/Q3-2-A2の未監査は変更しない。
+
+M63を現行Q3ミクロ主線へ昇格させるには、少なくともR202A/R202Bの同一parameter branch witness、R202Dのfull trajectory osmotic forceと $N_0^{-1}$ backreaction scaling、R202Eのbounded current port・reservoir mixing・memory・FDT、R202FのPN hopping--R161有限誤差接続、およびそれらを同時に満たす共通時間窓を閉じる必要がある。R202Cのpartition identityはこの動的closureとは独立した解析核として保持する。
 
 # 参考文献
 
