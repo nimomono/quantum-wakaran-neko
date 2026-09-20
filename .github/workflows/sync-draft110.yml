@@ -4,13 +4,16 @@ on:
   push:
     branches:
       - draft-110-retire-m63
+    paths-ignore:
+      - paper.md
+      - main.tex
+      - paper.pdf
 
 permissions:
   contents: write
 
 jobs:
   sync-generated:
-    if: github.event.head_commit.message != 'draft-110: regenerate paper'
     runs-on: ubuntu-latest
     steps:
       - name: 原稿を取得
