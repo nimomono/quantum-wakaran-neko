@@ -1,3 +1,11 @@
+## draft-109：M64 三実体open-Q3置換候補
+
+- M64/R203A--R203DをQ3のactive replacement candidateとして追加する。単一試行の物理実体をM37型classical coherent signal、独立tracer、signal-driven moving thermal reservoirの三つへ限定する。
+- R203Aは既存current identityをM64へ再利用し、R203Bはdensity-dependent coordinate scalingとmean-flow momentum shiftを同じreservoirへ入れても $F_{\rm res}=-k_BT\log r_X^\delta+\mathrm{const}$ が保たれることをJacobian恒等式で示す。
+- R203Cはconstant $T$、constant $\gamma_X$ のmoving Langevin reservoirからoverdamped drift $j/\rho+\nu\partial_x\log\rho$ とdiffusion $\nu=k_BT/\gamma_X$ を得る。R203DはPN/Eyring--Kramersを介さずsmooth diffusionをfinite-volume R161 chainへ直接接続する。
+- M64ではcurrent mean-flow law $\tau_U\dot U=-U+c_Jr+R_U$ を採用open constitutive lawとし、その完全Hamiltonian scattering liftを本体達成条件へ入れない。single-field lift、finite-bath化、fresh-buffer等はstrengtheningへ分離する。
+- 本draftではM61/M60の現行固定達成主線、M63/R202のactive single-field candidate、Q3-1/Q3-2固定達成、Q3-1-A1/Q3-2-A1部分達成、Q3-1-A2/Q3-2-A2未監査、required/candidate verifierを変更しない。M64昇格とM60/M61/M63の退役は次の独立PRで監査する。
+
 ## draft-108：M62退役・M63 current-transport具体化
 
 - M62/R201を現行正本、candidate checks、simulation registryから退役し、旧付録・検算・集約witnessを削除する。過去draftの記録とGit履歴は保存する。
