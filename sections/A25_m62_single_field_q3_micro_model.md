@@ -1,7 +1,9 @@
 @number: Y
 @chapter: 付録
 @title: M62 一成分Hamiltonian lattice Q3単一場統合候補
-@status: M61/M60の現行固定達成主線を置換しないQ3強化候補。一組の実格子正準変数からkink位置、2 shell mode、signal continuum、prethermal reservoir、reaction-coordinate frameを同時に得ることを狙う。R201A--R201Eには解析構造とcandidate numerical witnessがあるが、full normal-form remainder、validated shell--reservoir exchange、prethermal lifetime、finite-memory Markov誤差、同一parameter setでのR201F合成は未閉鎖とする。
+@status: M63/R202によりactive single-field candidateから退役した歴史的Q3強化候補。M61/M60の現行固定達成主線は置換しない。2-action shell、weighted-shell normal form、shell--reservoir交換を用いた旧経路と探索計算を研究履歴として保存する。
+
+M62/R201は、非負のquartic運動量項の下でsignal--shell交差係数の望ましい符号とR201Bの線形signal保持を同時に満たすことが難しく、自由エネルギー再解釈後もcentering用signal self-Kerrがsignal envelopeを強く非線形化することが分かった。このためactive single-field candidateは付録ZのM63/R202へ移す。以下は反証ではなく、M63へ至る旧候補の定義・探索結果として保存する。
 
 ## Y.1 M62の責務と基本Hamiltonian
 

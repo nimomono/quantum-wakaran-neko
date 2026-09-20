@@ -150,28 +150,39 @@ Q3の最深ミクロ物理正本はM61です。M61は、一つのmultiband Hamil
 
 R199Bでは、同じDuffing pairの作用和 $S=K_++K_-$ にstate count、作用差 $D=K_+-K_-$ にchiral current情報を持たせられることも調べます。ただし、これはM60の統合強化であり、Q3-2固定達成の必須依存にはしていません。
 
-### M62：一成分Hamiltonian latticeへの統合候補
+### M63：topological reservoirを使う一成分Hamiltonian lattice候補
 
-M62では、M61/M60で複数の部品として現れる粒子、2作用殻、signal、reservoir、moving frameを、一種類の古典格子場の異なるcollective sectorとしてまとめられるかを調べます。基本自由度は各格子点の実正準対 $(\phi_n,\pi_n)$ だけで、
+M63では、粒子、signal、reservoirを一種類の古典格子場の異なるcollective sectorとしてまとめます。基本自由度は各格子点の実正準対 $(\phi_n,\pi_n)$ だけです。隣接2サイトの固定正準変換で、kinkとsignalを担うbranchとreservoirを担うbranchを分けます。
+
+kink自身からtopological weight
 
 ```math
-H_{62}
-=
-\sum_n\left[
-\frac{\pi_n^2}{2}
-+U_v(\phi_n)
-+\frac14B_v(\phi_n)\pi_n^4
-\right]
-+
-\frac12\sum_{n,r\ge1}
-\kappa_r(\phi_{n+r}-\phi_n)^2
+\gamma_m=s(\bar u_{m+1})-s(\bar u_m),
+\qquad
+\sum_m\gamma_m=1
 ```
 
-とします。kink中心を粒子位置、kinkの2内部modeをweighted shell、狭帯域continuumをsignal、残りのcontinuumをprethermal reservoirとして用い、reaction-coordinate frame $Y$ も同じwave-action flowから派生させます。
+を作り、signalの局所規格化密度 $r_m$ に応じてreservoir座標を弱くscaleします。するとreservoirの条件付き自由エネルギーは
 
-R201A--R201Eではspectrum、weighted-shell normal form、reservoir交換、memory kernelについて解析構造と数値witnessを整理します。最終合成R201Fとfull remainder/error boundは未閉鎖なので、M62は現時点でM61/M60の固定達成主線を置換しません。
+```math
+F_R
+=
+-k_BT\sum_m\gamma_m\log r_m
++
+\mathrm{const}
+```
 
-M56 Brownian-spin模型はspin-onlyの別実現を探る代替研究線としてnotesに残します。
+となり、signalがkink幅より滑らかな領域では
+
+```math
+F_X^{\rm osm}
+\simeq
+k_BT\,\partial_X\log r
+```
+
+を直接得ます。2-action shell、weighted-shell normal form、chemical-potential matchingはM63では使いません。
+
+R202A--R202Dでlocal canonical filter bank、same-field signal、topological partition identity、osmotic forceとsmall-backreactionを整理します。R202Eのsame-field current port・GLE/FDTとR202FのPN hoppingからR161への有限時間接続は未閉鎖なので、M63は現時点でM61/M60の固定達成主線を置換しません。旧M62/R201は付録Yに歴史的candidateとして保存します。
 
 ## 現在どこまでできているか
 
