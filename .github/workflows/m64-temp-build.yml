@@ -6,10 +6,11 @@ on:
       - draft-109-m64-three-entity-open-q3
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   build:
+    if: github.actor != 'github-actions[bot]'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -41,11 +42,15 @@ jobs:
         run: |
           python tools/check_latex_semantics.py build/m64-ci/latex/main.log
           python tools/lint_typeset.py build/m64-ci/latex/main.log
-      - uses: actions/upload-artifact@v4
-        with:
-          name: m64-generated-paper
-          path: |
-            build/m64-ci/paper.md
-            build/m64-ci/main.tex
-            build/m64-ci/paper.pdf
-            build/m64-ci/latex/main.log
+      - name: Commit generated outputs
+        run: |
+          cp build/m64-ci/paper.md paper.md
+          cp build/m64-ci/main.tex main.tex
+          cp build/m64-ci/paper.pdf paper.pdf
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add paper.md main.tex paper.pdf
+          if ! git diff --cached --quiet; then
+            git commit -m "draft-109: regenerate paper [skip ci]"
+            git push origin HEAD:${{ github.ref_name }}
+          fi
