@@ -1,3 +1,16 @@
+## draft-117：M65 canonical open selector正式昇格・R181D interface一般化
+
+- M65をreplacement candidateからQ1/Q2二結果射影用のcanonical open selector modelへ正式昇格する。正本発展則は保持済み二作用を線形rateへ入れる3状態連続時間Markov過程とし、Hamiltonian chamber/Brownian縮約は強化実現へ分離する。
+- R181DをR191固有の節点契約から共通binary selector contractへ一般化し、R192、R179、R180A/R180Cもselector内部物理から切り離す。
+- M65のexact open lawとfinite-time Born boundをrequired科学検算へ昇格し、phase-volume partition、matched conductance、Brownian reductionだけをcandidate検算に残す。
+- R191/R193は本draftでは退役させず、Q1/Q2 fixed-goalの現行証人、A20/A21、required verifier、達成ラベルを維持する。M65へのfixed-goal実装切替は後続変更へ分離する。
+- R186の指数mode additive-noise/precision障害、M0未達、A1/A2/B/S判定は変更しない。
+
+- `tools/verify_m65_open_selector.py` をrequiredへ追加し、R204A/R204Dの3状態generator、finite-time Born上界、division-free endpoint comparator、小Born重みでのrelaxation rate、Q2-4 polynomial-time witnessを検算する。
+- `tools/candidate_checks/` にはphase-volume partition、fixed-hub matched conductance、Brownian reductionの3本だけを残し、M65本体のrequired検算と分離する。
+- `verify_r181d_projector_tree.py` と `verify_r180_m54_receiver.py` はselector非依存のrouter/telescoping共同統計を検査する。R191 macrospin検算はfixed-goal現行証人なのでrequiredのまま維持する。
+- 本draftではR191/R193を退役させず、fixed-goal達成ラベルとR186判定を変更しない。
+
 ## draft-116：開放ミクロ方程式の表記検査
 
 - `TERMINOLOGY.md` に「直接定めた開放ミクロ方程式」を標準語として登録し、「採用開放方程式」「採用open model」を現行本文では使わない規約を追加する。
