@@ -1,3 +1,11 @@
+## draft-117：M65 canonical open selector正式昇格・R181D interface一般化
+
+- M65をreplacement candidateからQ1/Q2二結果射影用のcanonical open selector modelへ正式昇格する。正本発展則は保持済み二作用を線形rateへ入れる3状態連続時間Markov過程とし、Hamiltonian chamber/Brownian縮約は強化実現へ分離する。
+- R181DをR191固有の節点契約から共通binary selector contractへ一般化し、R192、R179、R180A/R180Cもselector内部物理から切り離す。
+- M65のexact open lawとfinite-time Born boundをrequired科学検算へ昇格し、phase-volume partition、matched conductance、Brownian reductionだけをcandidate検算に残す。
+- R191/R193は本draftでは退役させず、Q1/Q2 fixed-goalの現行証人、A20/A21、required verifier、達成ラベルを維持する。M65へのfixed-goal実装切替は後続変更へ分離する。
+- R186の指数mode additive-noise/precision障害、M0未達、A1/A2/B/S判定は変更しない。
+
 ## draft-116：開放ミクロ方程式の標準表記
 
 - 「採用開放方程式」「採用open model」のように「採用」を名詞修飾語として使う現行表記を廃止する。
