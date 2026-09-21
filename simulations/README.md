@@ -40,6 +40,8 @@ required checksはpartition identity、initial preparation、finite-time trackin
 
 
 
-## M65 phase-volume projective instrument candidate
+## M65 canonical open selector
 
-M65/R204A--R204Fはdraft-114ではreplacement candidateであり、direct simulationはまだA2/B3達成として登録しない。promotion前の次段では `simulations/m65/` を用意し、固定chamber--neck--hubのBrownian trajectory、hub residence、経験的 $(+,-,\varnothing)$ 分布、作用比scan、geometry refinement、lumped three-state lawへの収束を同一parameter setで検査する。
+M65の3状態open selectorはdraft-117で正本へ昇格する。正本lawの数値検算はrequired verifierで行い、direct simulationをpromotion条件にはしない。
+
+将来 `simulations/m65/` を追加する場合は、R204B/R204Cの強化実現としてfixed-hub chamberのBrownian trajectory、hub residence、経験的 $(+,-,\varnothing)$ 分布、作用比scan、geometry refinement、canonical 3-state lawへの収束を同一parameter setで検査する。これはA2/B3またはHamiltonian-lift strengtheningとして独立に監査する。
