@@ -78,7 +78,7 @@ L_{\rm R161}
 R200CはM37 signalとM60 chiral sectorを一つのmultiband媒体へ載せ、R200Aはmoving branch converterをHamiltonian化し、R200Bは内部harmonic continuumからrelative-coordinate GLE/FDTを導く。R199AはM60の同一chiral媒体からballistic leadを有限時間で分離してincident energyへ接続し、R196Aはそのwave pressureだけでmoving bath frameを作る。chiral媒体のthermalizationをleadへ課したり、drifting-Gibbsや非平衡FDTを仮定したりしない。R196Bでは別の平衡oscillator bathだけにFDTを適用し、periodic homogenizationを経て $D=\nu$、$j/\rho+O(a^2)$、$\nu\partial_x\log\rho$ を得る。R196Cはwell-index generatorをR161へ有限誤差で接続する。
 
 
-付録YのM64/R203A--R203Dは、Q3の次期置換候補として存在論をさらに単純化する。単一試行の実体をM37型classical coherent signal、独立tracer $X$、signal-driven moving thermal reservoirの三つに限定する。R203Bはsignal densityによるreservoir phase-volume scalingから $F_{\rm res}=-k_BT\log\rho+\mathrm{const}$ を与え、同じreservoirのmean flowは $j/\rho$ を追跡する採用開放constitutive lawで定める。R203Cはconstant-$T$、constant-frictionのmoving Langevin bathからNelson forward driftを得る。R203DはPN hoppingを介さずsmooth diffusionをfinite-volume R161 chainへ直接接続する。M64はまだreplacement candidateであり、現行M61/M60主線、固定達成・強化判定を変更しない。
+付録YのM64/R203A--R203Dは、Q3のpromotion-ready置換候補として存在論をさらに単純化する。単一試行の実体をM37型classical coherent signal、一つのclassical tracer、一つのsignal-driven thermal reservoirの三つに限定する。R203Bはsignal densityによるreservoir phase-volume scalingから $F_{\rm res}=-k_BT\log r_X^\delta+\mathrm{const}$ を与え、同じreservoirのmean flowをregularized current velocityへ有限時間で追跡させる。R203Bは同じphase volumeからinitial tracer分布も有限時間で準備する。R203Cはcanonical overdamped tracerをideal regularized diffusionへ有限時間で縮約し、R203Dは1次元でR185と同じR161 activityへ、一般finite graphでR125の2頂点再結合器へ接続する。四つのpromotion bridgeは解析的に閉じたが、本draftでは現行M61/M60主線、固定達成・強化判定を変更しない。
 
 R162のopen Poisson-jump過程はQ3の基礎的実体ではなく、その理想jump lawを表す参照過程として残す。R185は同じ前向き経路法則のBayes反転からNelson型の前進・後退平均微分と時間対称Newton則へ接続する。
 
