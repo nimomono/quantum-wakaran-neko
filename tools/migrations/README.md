@@ -26,3 +26,8 @@
 ## draft-117 M65 open selector昇格
 
 `check_draft117_m65_open_selector.py` は、M65がcandidate文言からcanonical open selectorへ同期され、R181Dがbinary selector contractへ一般化され、M65 core検算とHamiltonian/Brownian candidate検算の境界が正しく移行したことを確認する。PR固有の移行検査であり恒久CIへは入れない。
+
+
+## draft-119 M65 retirement-readiness
+
+`check_draft119_m65_retirement_readiness.py` は、M65のexact endpoint、finite record/latch、Q1 retirement-readiness合成、A12旧作用殻主線の整理を確認する。同時にA20/A21とR191/R193 required verifierがまだ存在することを検査し、本PRが退役そのものを先取りしていないことを固定する。

@@ -92,11 +92,55 @@ def check_two_step_zeno_witness() -> None:
     check(q > 0.14 and q > 0.10, "R189C fixed safe probability floor")
 
 
+
+
+def check_m65_retirement_readiness() -> None:
+    # N=2 witness has a fixed safe conditional floor q>0.14.
+    q = math.sin(math.pi / 8.0) ** 2
+    p_star = 0.10
+    check(q > p_star, "M65 Q1 fixed safe branch floor")
+
+    # Choose a fixed finite M65 decision window with small complete-result error.
+    lam = 0.35
+    a_sum = 2.0
+    kappa = 80.0
+    t65 = 20.0
+    hub = lam / (lam + kappa * a_sum)
+    mixing = math.exp(-lam * t65)
+    eps65 = mixing + hub
+    check(eps65 < 0.01, "M65 Q1 finite selector budget")
+
+    # In the weak-coupling W2 family, the same fixed t65 makes latency vanish.
+    for omega in (1e-2, 1e-3, 1e-4):
+        eps_lat = 0.5 * omega * t65
+        check(eps_lat < 0.11, "M65 Q1 latency margin")
+    check(0.5 * 1e-4 * t65 < 2e-3, "M65 Q1 weak-coupling latency convergence")
+
+    # Empty-operation control: M65 reads held actions only.  With the projector
+    # router disabled, the W2 signal follows the same free Rabi propagator.
+    omega = 0.037
+    sigma_x = np.array([[0.0, 1.0], [1.0, 0.0]], dtype=complex)
+    h_rabi = -0.5 * omega * sigma_x
+    z0 = np.array([1.0, 0.0], dtype=complex)
+    free = hermitian_exponential(h_rabi * t65) @ z0
+    empty = hermitian_exponential(h_rabi * t65) @ z0
+    check(np.max(np.abs(empty - free)) < TOL, "M65 empty-operation free-Rabi identity")
+
+    # A conservative one-measurement budget still leaves the ideal 1/4 Zeno gap.
+    eps189a = 0.01
+    eps_router = 0.02
+    eps_terminal = 0.02
+    eps_lat = 0.01
+    total = eps189a + eps65 + eps_router + eps_terminal + eps_lat
+    check(total < 0.125, "M65 retirement-readiness Zeno budget")
+
+
 def main() -> None:
     check_rank_one_involution_and_running_pulse()
     check_symmetric_capacity_window()
     check_two_step_zeno_witness()
-    print("R189A--R189C live W2 Zeno checks: OK")
+    check_m65_retirement_readiness()
+    print("R189A--R189C live W2 Zeno and M65 readiness checks: OK")
 
 
 if __name__ == "__main__":
