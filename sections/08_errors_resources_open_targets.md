@@ -37,7 +37,7 @@ Q1/Q2の2結果主線では、1ノードの読出し誤差を
 
 Q1とQ3の状態方向、Q2-1--Q2-3の固定入力は、第2.4節の準備済み古典入力境界から受け取る。入力状態と目標状態の差は一つの $\varepsilon_{\rm in}$ として最初の下流誤差へ一度だけ加え、同じ偏差をR135、R168、系列固有誤差へ重複計上しない。一般の指定状態方向を共通seedから生成する旧R181Aの時間、ポンプ、排熱を現行固定目標の資源には数えない。具体的な入力準備装置を追加する場合、その費用は境界の上流実装として別途報告する。
 
-R192は一般深さQ2-4だけで、R181Dが選別した非終端安全結果の絶対作用を次段R191の読出し下限へ戻す。理想流は
+R192は一般深さQ2-4だけで、R181Dが選別した非終端安全結果の絶対作用を次段binary selectorの感度下限へ戻す。理想流は
 
 ```math
 \dot Z
@@ -55,7 +55,7 @@ T_{192}
 \right].
 ```
 
-R191 dispatcherとR181Dから $S_{\min}/S_*=\operatorname{poly}^{-1}(n,1/\epsilon)$ を選び、$g_RS_*$ も逆多項式以上に保てば、各非終端段と全 $n-1$ 段のR192時間は多項式である。接続時間はこの事前下限から固定し、未知の条件付き確率や現在の振幅を読み取って適応変更しない。
+R181Dのbinary selector contractから $S_{\min}/S_*=\operatorname{poly}^{-1}(n,1/\epsilon)$ を選び、$g_RS_*$ も逆多項式以上に保てば、各非終端段と全 $n-1$ 段のR192時間は多項式である。接続時間はこの事前下限から固定し、未知の条件付き確率や現在の振幅を読み取って適応変更しない。
 
 有限実装の作用回復誤差を $\varepsilon_{192,k}$ とする場合、Q2-4では $\sum_{k=1}^{n-1}\varepsilon_{192,k}$ を一度だけ数える。R192は既存の横方向偏差を訂正しないので、静的結合誤差、位相雑音、全自由度への加法雑音はR186で監査する。$S_0=0$ または安全下限未満の希少結果をR192後に成功結果へ戻してはならない。
 
@@ -447,7 +447,7 @@ R181Bは3入力の有限テンソル積状態の生成、R181Cは同じ8モー�
 
 ## 8.11 Q2-4多項式外部制御による量子出力サンプリング
 
-Q2-4ではM54の $L=2^n$ 受動信号モードを使い、R179後の定数次元供給源から $0^n$ 根モードを作り、R181Cが局所ゲートを一括作用させる。各出力ビットでは射影作用をR191へ渡して結果を形成し、R181Dが非規格化射影成分を次段へ渡す。非終端の安全結果だけに事前固定時間のR192を作用させ、次段R191の絶対作用下限を回復する。最終ビット後に別の作用感度を持つ読出しが無ければ終端R192は置かない。
+Q2-4ではM54の $L=2^n$ 受動信号モードを使い、R179後の定数次元供給源から $0^n$ 根モードを作り、R181Cが局所ゲートを一括作用させる。各出力ビットでは射影作用をbinary selectorへ渡して結果を形成し、R181Dが非規格化射影成分を次段へ渡す。非終端の安全結果だけに事前固定時間のR192を作用させ、次段selectorの絶対作用下限を回復する。本draftのfixed-goal実装ではselectorにR191を使う。最終ビット後に別の作用感度を持つ読出しが無ければ終端R192は置かない。
 
 R178Dの有限閉鎖リセット境界と旧R179の有限低温／使用済み貯蔵部は必須因果鎖から外す。結果相関情報や散逸履歴は流出浴へ流し、能動作業領域と指針変数だけをR179の開放リセットで再使用する。
 
@@ -511,39 +511,70 @@ B.5の漏れ確率を全変動距離へ直接加える旧評価は採用しな�
 
 優先順は、物理係数の対応、静的Rabi、有限傾斜列、準備・読出し境界、共同信号系への接続、同一装置の統合である。ゲート列からの有効伝播は補助実装として研究メモで管理し、Q3全過程の独立導出とは呼ばない。
 
+## M65 canonical open selector の誤差・資源台帳
 
-
-## M65 candidate の誤差・資源台帳
-
-M65/R204A--R204Fは現行R191/R193とは別のreplacement candidateとして誤差を管理する。通常経路の候補上界は
+M65の正本はR204Aの3状態open generatorである。通常経路では、安全運用域で $a_\Sigma\geq a_{\min}>0$ として
 
 ```math
 \varepsilon_{65}^{\rm int}
-=
+\leq
 \varepsilon_A
-+
-\varepsilon_{204C}(T)
 +
 e^{-\Lambda T}
 +
-\frac{\chi}{1+\chi}
+\frac{\Lambda}{\Lambda+\kappa a_{\min}}
 +
-\varepsilon_{\rm rec},
+T\varepsilon_{\rm rate}
++
+\varepsilon_{\rm rec}.
 ```
 
-endpointは
+canonical open lawそのものでは $\varepsilon_{\rm rate}=0$ とする。具体的chamber、有限帯域bath、Brownian liftを選んだ場合だけ実装generator誤差を追加する。
+
+endpointは固定係数の線形比較器で判定でき、
 
 ```math
 \varepsilon_{65}^{\rm edge}
-\le
+\leq
 \tau_{\rm cut}
-+\varepsilon_A
-+\varepsilon_{\rm edge}.
++
+\varepsilon_A
++
+\varepsilon_{\rm cmp}
++
+\varepsilon_{\rm rec}.
 ```
 
-R204Cの縮約誤差はbath、overdamped、phase-volume tracking、tube、lumping、calibrationを分けて保持し、R191固有のmixing/guard/LLG-retreat誤差と同じ試行で重複加算しない。
+従って
 
-Q2-4で二結果node数 $m$ が多項式なら、
+```math
+\varepsilon_{65}
+=
+\max
+\{
+\varepsilon_{65}^{\rm int},
+\varepsilon_{65}^{\rm edge}
+\}.
+```
+
+二結果node数 $m$ について、
+
+```math
+T_{\rm node}
+\geq
+\frac1\Lambda
+\log\frac{Cm}{\epsilon}
+```
+
+とし、
+
+```math
+\frac{\Lambda}{\kappa a_{\min}}
+=
+O\left(\frac{\epsilon}{m}\right)
+```
+
+および各局所誤差を $O(\epsilon/m)$ に配分すれば、$\Lambda^{-1},\kappa^{-1},a_{\min}^{-1},m$ が多項式範囲にある限り、
 
 ```math
 T_{\rm read,total}
@@ -554,4 +585,8 @@ O\left(
 \right)
 ```
 
-がcandidate十分条件である。$\Lambda^{-1}$ とR204Cのtime-scale separationが多項式で、$\chi$ と各node誤差を $O(\epsilon/m)$ に選べればM65固有readoutから指数時間は生じない。ただしR186の指数個mode additive-noise障害、R192を含むabsolute-action range、総熱、reset、製造公差の一様統合は残る。
+は多項式である。小Born重み自体はM65のrelaxation rate $\Lambda$ を縮めない。
+
+R204Bのphase-volume chamberとR204CのHamiltonian--Brownian liftを採用する場合、そのbath、overdamped、tube、lumping、calibration誤差はその実装だけの強化台帳へ加える。現行fixed-goalのR191誤差とM65誤差を同一試行で重複加算しない。
+
+M65の正本化はR186の指数個signal modeへの加法noise/precision障害を解決しない。また本変更ではQ1/Q2 fixed-goal witnessをR191/R193からM65へ切り替えない。

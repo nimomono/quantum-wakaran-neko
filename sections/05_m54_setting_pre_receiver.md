@@ -1,7 +1,7 @@
 @number: 5
 @chapter: 本文
-@title: M54駆動逐次2端R191受信機構とBell前提監査
-@status: 固定一重項4モード信号をA設定で分解し、A端R191の結果結果成分をprojector routerでB端へ直接渡し、B設定後のB端R191と組み合わせる。R180A/R180Cの責務をこの最小2端構成へ縮約し、旧R180B paired-Hopf再準備は退役する。
+@title: M54駆動逐次2端binary-selector受信機構とBell前提監査
+@status: 固定一重項4モード信号をA設定で分解し、A端binary selectorの結果成分をprojector routerでB端へ直接渡し、B設定後のB端selectorと組み合わせる。R180A/R180Cをselector内部物理から独立化する。現行fixed-goal証人はA/B両端R191を維持する。
 
 ## 5.1 目的と模型の境界
 
@@ -32,15 +32,15 @@ Z\neq0
 1. M54で固定一重項型末端信号 $Z$ を作る。
 2. 設定生成器から $x,y$ を得る。
 3. A側basis gate $U_x^\dagger\otimes I$ を同じ4モード信号へ作用する。
-4. A結果射影作用 $J_{A,\pm}$ を保持し、A端R191を走らせて $r$ を固定・記録する。
+4. A結果射影作用 $J_{A,\pm}$ を保持し、A端binary selectorを走らせて $r$ を固定・記録する。現行証人ではR191を使う。
 5. R181Dと同じprojector routerで非規格化結果成分 $P_{A,r}^{x}Z$ をB端へ渡す。
 6. B端で $I\otimes U_y^\dagger$ を作用し、B結果射影作用を保持する。
-7. B端R191を走らせて $s$ を固定・記録する。
+7. B端binary selectorを走らせて $s$ を固定・記録する。現行証人ではR191を使う。
 8. 外部記録を残し、必要な能動部をR179のopen resetへ渡す。
 
-A端とB端は別々のBrownian macrospin、mixing/decision浴、吸収記録を持つ。結果成分の物理転送があるため本装置は非空間分離である。
+A端とB端は別々のbinary selectorと記録を持つ。現行証人では各selectorをR191のBrownian macrospinで実装する。結果成分の物理転送があるため本装置は非空間分離である。
 
-## 5.3 A端特殊化：R191とR181Dから従うR180A
+## 5.3 A端特殊化：binary selectorとR181Dから従うR180A
 
 A設定 $x$ の固有基底を $u_{r,x}$、射影を
 
@@ -57,9 +57,9 @@ J_{A,r}
 ```
 
 <!-- theorem-start:corollary -->
-**系（R180A：R191--R181Dの設定先行A端特殊化）**
+**系（R180A：binary selector--R181Dの設定先行A端特殊化）**
 
-M54末端信号 $Z$ にA設定basis gateを作用し、直交射影子作用保持機構で $J_{A,+},J_{A,-}$ を保持してR191へ渡す。R191の結果を $r$ とし、その吸収記録で共通projector routerを制御する。理想極限では
+M54末端信号 $Z$ にA設定basis gateを作用し、直交射影子作用保持機構で $J_{A,+},J_{A,-}$ を保持してbinary selectorへ渡す。selectorの結果を $r$ とし、その固定記録で共通projector routerを制御する。理想極限では
 
 ```math
 P(r\mid Z,x)
@@ -73,7 +73,7 @@ P(r\mid Z,x)
 Z_r=P_{A,r}^{x}Z
 ```
 
-である。物理的な $Z_r/\|Z_r\|$ の生成を必要としない。作用保持、R191、routerの有限誤差は完全結果集合上で各1回だけ数える。
+である。物理的な $Z_r/\|Z_r\|$ の生成を必要としない。作用保持、selector、routerの有限誤差は完全結果集合上で各1回だけ数える。
 <!-- theorem-end:corollary -->
 
 ## 5.4 B端条件付き読出し
@@ -85,7 +85,7 @@ P_{B,s}^{y}
 =I\otimes|u_{s,y}\rangle\langle u_{s,y}|
 ```
 
-とする。A結果 $r$ 後のB端R191入力は
+とする。A結果 $r$ 後のB端selector入力は
 
 ```math
 J_{B,s\mid r}
@@ -97,7 +97,7 @@ S_r
 =\mathcal J_0\|P_{A,r}^{x}Z\|^2.
 ```
 
-従ってR191の逐次受渡し則から
+従ってbinary selector contractとR181Dの逐次受渡し則から
 
 ```math
 P(s\mid r,x,y)
@@ -118,7 +118,7 @@ P(r,s\mid x,y)
 <!-- theorem-start:theorem -->
 **定理（R180C：M54駆動2端受信機構合成、有限誤差、局所性監査、帰還）**
 
-R180AのA端作用保持・R191・projector router、B設定gate、B端作用保持・R191、二つの局所記録、および反復時のR179 open resetが同じ有限時計割当と安全集合上で実行できるとする。理想極限の完全結果共同分布は
+R180AのA端作用保持・binary selector・projector router、B設定gate、B端作用保持・binary selector、二つの局所記録、および反復時のR179 open resetが同じ有限時計割当と安全集合上で実行できるとする。理想極限の完全結果共同分布は
 
 ```math
 P(r,s\mid x,y)
@@ -141,7 +141,7 @@ E(x,y)
 
 従って標準CHSH設定で $|S|=2\sqrt2$ を得る。各翼の周辺は $1/2$ であり、理想共同分布は非信号性を満たす。
 
-有限実装では、上流保持・basis gate、A端R191、router、B端basis gate、B端R191、記録の完全結果誤差を各1回加えた量を $\varepsilon_{180}$ とする。実共同分布は理想共同分布から全変動距離 $\varepsilon_{180}$ 以内にあり、周辺差とCHSH差はこの全変動誤差から従う標準安定性上界で抑えられる。
+有限実装では、上流保持・basis gate、A端selector、router、B端basis gate、B端selector、記録の完全結果誤差を各1回加えた量を $\varepsilon_{180}$ とする。実共同分布は理想共同分布から全変動距離 $\varepsilon_{180}$ 以内にあり、周辺差とCHSH差はこの全変動誤差から従う標準安定性上界で抑えられる。
 
 A端結果成分がB端へ物理的に渡るため、現行証人ではBell局所因子化を仮定しない。設定前の一重項源は $x,y$ に依存せず、現行証人のCHSH破れを測定設定独立性の破れへ帰属させない。一方、B端へ到達する内部状態はA設定とA結果に依存する。本結果は、この逐次因果伝播、完全結果集合、非信号周辺を同時に示すBell前提監査であり、空間分離局所模型を主張しない。
 <!-- theorem-end:theorem -->
@@ -150,4 +150,4 @@ A端結果成分がB端へ物理的に渡るため、現行証人ではBell局�
 
 R180Bのpaired-Hopf再準備、中央潜在結果を2翼へ複製する工程、切断後のA側再読出しは現行必須主線に使わない。これらは `notes/superseded_q2_2_paired_hopf_receiver.md` と退役付録へ保存する。
 
-Q2-2で新たに使う確率源はない。A端・B端とも共通R191を用い、共同確率はR191 T.8の逐次Lüders telescopingから得る。Q2-2の条件付き達成ラベルは維持する。現行R180C証人が非空間分離であることと、Q2-2固定目標自体が特定のBell前提違反を指定しないことを区別する。空間隔離をどこまで強められるかは `Q2-2-S` の独立強化課題とする。
+Q2-2で新たに使う確率源はない。共同確率はbinary selector contractとR181Dの逐次Lüders telescopingから得る。本draftのfixed-goal証人ではA端・B端ともR191を用い、M65への実装切替は行わない。Q2-2の条件付き達成ラベルは維持する。現行R180C証人が非空間分離であることと、Q2-2固定目標自体が特定のBell前提違反を指定しないことを区別する。空間隔離をどこまで強められるかは `Q2-2-S` の独立強化課題とする。

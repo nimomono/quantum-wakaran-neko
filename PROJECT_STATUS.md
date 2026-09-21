@@ -1,3 +1,11 @@
+## draft-117：M65 canonical open selector正式昇格・R181D interface一般化
+
+- M65をreplacement candidateからQ1/Q2二結果射影用のcanonical open selector modelへ正式昇格する。正本発展則は保持済み二作用を線形rateへ入れる3状態連続時間Markov過程とし、Hamiltonian chamber/Brownian縮約は強化実現へ分離する。
+- R181DをR191固有の節点契約から共通binary selector contractへ一般化し、R192、R179、R180A/R180Cもselector内部物理から切り離す。
+- M65のexact open lawとfinite-time Born boundをrequired科学検算へ昇格し、phase-volume partition、matched conductance、Brownian reductionだけをcandidate検算に残す。
+- R191/R193は本draftでは退役させず、Q1/Q2 fixed-goalの現行証人、A20/A21、required verifier、達成ラベルを維持する。M65へのfixed-goal実装切替は後続変更へ分離する。
+- R186の指数mode additive-noise/precision障害、M0未達、A1/A2/B/S判定は変更しない。
+
 ## draft-116：開放ミクロ方程式の標準表記
 
 - 「採用開放方程式」「採用open model」のように「採用」を名詞修飾語として使う表記を現行正本から廃止する。
@@ -244,7 +252,7 @@
 
 ### 現在地
 
-「達成」は、固定範囲で基準を厳密に満たすか、任意の $\epsilon>0$ に対して誤差を $\epsilon$ 未満にする有限時間・有限能動部分系の明示構成を選べる状態を指す。浴は明示的なHamiltonian無限浴を用いてもよく、規約を満たす開放ミクロ方程式を基本方程式として直接定めてもよい。形式極限、構成のない収束仮定、無反応試行の事後除外は含めない。各固定目標は下表の状態構成、物理実装層、系列固有手順または受信機構、根拠結果から独立に判定し、共通ハードウェアへの統合状態を判定へ混ぜない。M54はQ1、Q2、Q3に共通する有効信号--配置状態構成族である。M37はQ3の空間信号部分系の物理実装層であり、R187条件下ではQ1 W2制御用信号系も局所ばね力学から実装する。M64はQ3の現行粒子・Nelson共通open modelであり、initial preparation、finite-time mean-flow tracking、R161/R185、finite-graph R124/R182/R125接続を担う。R162はR161 lawのoptional open-jump referenceである。M54の全部品をM37/M64から導出したわけではなく、有効状態構成統一と物理実装層実装を同じ意味の「モデル統一」として数えない。初期状態方向は第2.4節の準備済み古典入力境界に置く。R181Bは固定入力テンソル積状態の生成、R181Cは永続記憶部ゲート、R191はQ1/Q2の2結果排他的選択・吸収記録、R181Dはその下流の可逆射影選別と非規格化測定後状態受渡し、R192は一般深さQ2-4の方向不変作用安定化を与える。R170は一般有限結果集合・作用殻型の代替経路へ残す。R180AはA端R191とR181D型の射影成分振り分けを組み合わせるQ2-2特殊化である。Q2-4の旧開口経路は現行依存から外し、R181Dへ一本化した。これは達成ラベルを変更しない。
+「達成」は、固定範囲で基準を厳密に満たすか、任意の $\epsilon>0$ に対して誤差を $\epsilon$ 未満にする有限時間・有限能動部分系の明示構成を選べる状態を指す。浴は明示的なHamiltonian無限浴を用いてもよく、規約を満たす開放ミクロ方程式を基本方程式として直接定めてもよい。形式極限、構成のない収束仮定、無反応試行の事後除外は含めない。各固定目標は下表の状態構成、物理実装層、系列固有手順または受信機構、根拠結果から独立に判定し、共通ハードウェアへの統合状態を判定へ混ぜない。M54はQ1、Q2、Q3に共通する有効信号--配置状態構成族である。M37はQ3の空間信号部分系の物理実装層であり、R187条件下ではQ1 W2制御用信号系も局所ばね力学から実装する。M64はQ3の現行粒子・Nelson共通open modelであり、initial preparation、finite-time mean-flow tracking、R161/R185、finite-graph R124/R182/R125接続を担う。R162はR161 lawのoptional open-jump referenceである。M54の全部品をM37/M64から導出したわけではなく、有効状態構成統一と物理実装層実装を同じ意味の「モデル統一」として数えない。初期状態方向は第2.4節の準備済み古典入力境界に置く。R181Bは固定入力テンソル積状態の生成、R181Cは永続記憶部ゲート、binary selectorはQ1/Q2の2結果排他的選択・完全結果記録、R181Dはその下流の可逆射影選別と非規格化測定後状態受渡し、R192は一般深さQ2-4の方向不変作用安定化を与える。fixed-goalの現行selector証人はR191であり、M65もcanonical open selector modelとして同じR181D interfaceを満たす。R170は一般有限結果集合・作用殻型の代替経路へ残す。R180AはA端binary selectorとR181D型の射影成分振り分けを組み合わせるQ2-2特殊化である。現行fixed-goal証人ではselectorにR191を使う。Q2-4の旧開口経路は現行依存から外し、R181Dへ一本化した。これは達成ラベルを変更しない。
 
 | 目標ID | 現在地 | 共通状態構成 | 物理信号系 / 物理実装層 | 系列固有手順 / 受信機構 | 根拠となる結果 | 残る課題 |
 |---|---|---|---|---|---|---|
@@ -290,10 +298,10 @@ M54の共通状態型による記述、M37/M64による物理実装層実装、M
 
 | 識別 | 分類 | 運用状態 | 役割と限界 |
 |---|---|---|---|
-| M54 | 共通有効信号--配置状態構成族 | 現行Q1・Q2・Q3の共通有効層 | 準備済み古典入力境界、有限実正準信号、永続記憶部、作業領域、記録、時計自由度の共通型を与える。Q1/Q2ではR191/R181D、Q3ではM37 signalとM64 particle interfaceへ接続する |
+| M54 | 共通有効信号--配置状態構成族 | 現行Q1・Q2・Q3の共通有効層 | 準備済み古典入力境界、有限実正準信号、永続記憶部、作業領域、記録、時計自由度の共通型を与える。Q1/Q2ではbinary selector/R181D、Q3ではM37 signalとM64 particle interfaceへ接続する。fixed-goal selector証人はR191 |
 | M37 | 物理Hamiltonian信号実装層 | Q3の空間信号部分系、およびR187条件下のQ1 W2制御用信号系 | 局所位置結合された有限実古典振動子網からR86の空間包絡を導く。R187の弱結合W型族では最低2正常モードをM54のW2信号へ正準同定し、R140制御を任意精度で実装する |
 | M64 | Q3共通open model | 現行Q3 particle/Nelson実装 | M37 signal、一つのclassical tracer、一つのsignal-driven thermal reservoirからなる三実体模型。R203A--R203Dでcontinuous profileとfinite-graph profileをR161/R185およびR124/R182/R125へ接続する。Hamiltonian lift、finite bath、underdamped lift、連続空間一様極限、多粒子、全周期clock/record統合は強化課題 |
-| M65 | Q1/Q2二結果読出しreplacement candidate | active candidate | R203Bと共通のphase-volume Jacobianを固定chamber--neck--hub Brownian pointerへ特殊化する。R204A--R204Fでcapacity/conductance matching、有限時間Born読出し、R181D受渡し、Q1/Q2-4接続を整理する。R204C縮約とdirect trajectory witnessがpromotion gate |
+| M65 | Q1/Q2二結果射影canonical open selector | 現行正本模型 | 保持済み二作用を線形rateへ入れる $+,H,-$ の3状態連続時間Markov pointer。R204Dでfinite-time Born、R204Eでbinary selector contract、R204FでQ1/Q2-4資源を与える。R204B/R204Cのphase-volume chamber/Hamiltonian liftは強化実現 |
 
 M50はM54の静的状態構成へ、M55はM54空間状態構成へ吸収した。M56はspin-only Q3代替研究線とし現行達成根拠へ使わない。M60/M61とそれ以前のM57/M59は旧Q3 Hamiltonian実装として現行主線から退役し、Git履歴へ保存する。旧R181Aの状態方向準備、旧R190/R170によるQ1/Q2二結果主線、旧R180Bの2端再準備は現行必須依存から外し、退役索引と研究メモへ保存する。
 
@@ -363,13 +371,13 @@ M0は、個別のA1模型を並べるだけでは達成としない。少なく�
 |---|---|---|
 | R181B | 厳密結果・明示誤差付き結果 | 一般積入力を係数読出しなしに $Z_S=a\otimes b$ と逆演算用補助記憶部へ写す有限時間可逆テンソル積状態の生成 |
 | R181C | 厳密結果・明示誤差付き結果 | 同じ永続状態浴上の有限ゲート列、CNOT、局所操作、逆演算、参照系安定な作用素-ノルム誤差合成 |
-| R181D | 条件付き・明示誤差付き結果 | R191で固定された2値結果に従う可逆projector routerと非規格化測定後状態受渡し。階数1の安全結果では $Z\mapsto P_bZ$ を同じ試行の次段へ直接渡し、結果形成や物理規格化を担わない |
+| R181D | 条件付き・明示誤差付き結果 | binary selector contractで固定された2値結果に従う可逆projector routerと非規格化測定後状態受渡し。R191/M65の内部物理に依存せず、階数1の安全結果では $Z\mapsto P_bZ$ を同じ試行の次段へ直接渡す |
 | R192 | 直接定めた開放方程式に対する厳密結果・明示誤差付き結果 | 非零信号の状態方向を厳密に保存したまま、作用を固定目標値へ有限時間で安定化する。安全作用下限が逆多項式ならQ2-4の各非終端段の固定接続時間は多項式に抑えられる。結果確率・結果選択・横方向誤差訂正は行わない |
 | R177 | 条件付き厳密結果 | R181B/R181CのA--B、B--C二段合成とR191/R181D末端読出しを使うGHZ--$T$--逆演算証人。コヒーレント分布と完全位相緩和分布の全変動距離は $1/(2\sqrt2)$ |
 | R179 | 直接定めた開放方程式に対する厳密結果・明示誤差付き結果 | 一様開放リセット、定常流入浴、流出履歴排出、R190反復時の履歴条件付きrenewal | 浴接続部は回路出力確率やモード別係数を入力しない一様有限記述。有限低温／使用済み貯蔵部と部分SWAP列は強化課題 |
 | R186 | 厳密有限次元結果・明示誤差付き障害条件 | M54直接モードの射影型頑健性。疎な静的ハミルトニアン製造誤差、独立モード位相ノイズ、射影結果の固定機構の相対係数誤差は指数部分系数を直接加算せず評価できる。一方、各モードへ空状態でも作用を注入する等方加法ノイズでは横方向ノイズ作用が $(2^n-1)\sigma^2$ に比例し、多項式信号作用の下で指数ノイズ抑制が必要になる |
-| R180A | 厳密結果・明示誤差付き結果 | M54の実際の1試行末端信号へA設定basis gateを作用し、A側射影作用をR191へ渡す。A結果でR181D型projector routerを制御し、非規格化結果成分をB端へ渡すQ2-2特殊化 |
-| R180C | 条件付き・明示誤差付き結果 | A端R191、R181D型projector router、B設定gate、B端R191、二つの記録とR179 resetを合成し、固定一重項でBorn共同分布、非信号性、CHSH値、Bell前提監査を与える。非空間分離であり旧paired-Hopf再準備は使わない |
+| R180A | 厳密結果・明示誤差付き結果 | M54の実際の1試行末端信号へA設定basis gateを作用し、A側射影作用をbinary selectorへ渡す。A結果でR181D型projector routerを制御し、非規格化結果成分をB端へ渡すQ2-2特殊化。現行証人はR191 |
+| R180C | 条件付き・明示誤差付き結果 | A端binary selector、R181D型projector router、B設定gate、B端binary selector、二つの記録とR179 resetを合成し、固定一重項でBorn共同分布、非信号性、CHSH値、Bell前提監査を与える。現行証人はA/B両端R191 |
 
 ### Q3結果
 
@@ -380,12 +388,12 @@ M0は、個別のA1模型を並べるだけでは達成としない。少なく�
 | R203B | 厳密partition結果・有限時間結果 | signal-dependent reservoir phase volumeから $F_{\rm res}=-k_BT\log r_X^\delta+C$ を導き、continuous tracer初期準備とfinite-time mean-flow trackingを与える |
 | R203C | 直接定めた開放SDEに対する厳密結果・明示誤差付き縮約 | canonical overdamped tracerをideal regularized diffusionへ有限時間 $W_1$ で縮約する |
 | R203D | 厳密有限graph結果・明示誤差付き近似結果 | local $R_i^\delta,J_{ij},T_{ij}^\delta$ からR161 rateを構成し、finite-graph初期準備、1次元R185 activity、R124/R182/R125位置読出しへ接続する |
-| R204A | candidate厳密結果 | 保持済み二作用から局所phase-volume Hamiltonianを作り、partition Jacobian、平均力、decision中の保持作用不変を与える |
-| R204B | candidate厳密結果／reduced-law結果 | 同じphase-volume factorからchamber capacityとneck conductanceを作用比例にし、escape scaleを作用比から分離する |
-| R204C | candidate条件付き・明示誤差付き結果 | Hamiltonian bath、overdamped、phase-volume tracking、tube、lumping、calibration誤差をthree-state matched-hub generatorへ縮約するpromotion gate |
-| R204D | candidate厳密three-state結果・明示誤差付き合成 | hub無反応を含む有限時間Born readoutと完全結果TV上界を与える |
-| R204E | candidate条件付き結果 | M65安全結果を既存R181D projector routerへ渡し、逐次Lüders型telescopingを維持する |
-| R204F | candidate条件付き・資源結果 | Q1 R189AからM65への直接接続と、Q2-4で小Born重みが指数readout時間を生まない多項式時間十分条件を与える。R186は未解決 |
+| R204A | 厳密結果 | M65の3状態canonical open generatorを定め、確率保存、保持作用への線形rate入力、Born確率表・状態依存除算を外部入力しないことを示す |
+| R204B | 強化候補・reduced-law結果 | fixed-hub phase-volume chamberで $V_r,G_r\propto a_r$、$V_H$固定とし、R204Aのrateをcapacity/conductance比から再現する |
+| R204C | 強化候補・明示誤差付き結果 | Hamiltonian bath、overdamped、phase-volume tracking、tube、lumping、calibrationからR204A open generatorへのfinite-time lift誤差を与える。M65正本の必須依存ではない |
+| R204D | 厳密結果・明示誤差付き合成 | M65の有限時間Born readout、正式な無反応、complete-result TV上界、小Born重みでrelaxation rateが縮まないことを与える |
+| R204E | 厳密系 | M65がR181Dのbinary selector contractを満たすことを示す |
+| R204F | 条件付き・資源結果 | Q1 R189Aとの互換性と、Q2-4でM65固有readout時間を多項式に抑える十分条件を与える。R186は未解決 |
 | R184 | 保持する補助結果・現行主依存外 | 旧M37開始作用保持機構からM54空間率への $L_\delta\varepsilon_{\rm car}$ 評価 |
 | R185 | 厳密有限格子結果・明示誤差付き近似結果 | 共通の確率分布の時間反転率、$D_\pm$、1次元node-free領域の時間対称Newton則。正則化残差 $O(\delta)$、格子残差 $C_{185,a}a^2$ を有限微分ノルムで明示 |
 | R123 | 厳密結果・数値検証付き | 井戸型・調和型低位束縛状態と有限環境純位相緩和 |
@@ -407,7 +415,7 @@ M0は、個別のA1模型を並べるだけでは達成としない。少なく�
 - M54の有限モード、逆演算用補助記憶部、供給源、作業領域、時計自由度履歴はゲート間で永続させる。外部制御器は内部モードを個別に初期化、較正、同期、個別指定、読出し、リセットしない。
 - M54の指数的信号、作業領域、履歴、低温、使用済み自由度は受動貯蔵部として許す。外部制御器は局所ゲート名、ビット添字、時計自由度窓だけを指定し、Born重みまたは最終確率表を入力しない。
 - Q2-4の比較対象はブラックボックスとしての運用上の複雑度である。内部モード、静的結合器、装置体積、総熱の総量は別の報告対象の内部資源として保持し、指数的であるだけでQ2-4を否定しない。ただしそれらがモード別較正、指数精度、指数時間として外部接続部へ露出すれば失敗とする。R186はこの露出のうち製造誤差とノイズの境界を定量化する。
-- R181DはR191で固定された安全結果 $r$ に従い、可逆な射影成分の振り分けによって $P_rZ$ と補成分を分け、非規格化 $P_rZ$ を同じ試行の次段へ渡す。固定有限深さでは物理的な再規格化を行わない。一般深さQ2-4の非終端安全結果で次段R191の作用下限が必要な場合だけR192を使う。
+- R181Dはbinary selector contractで固定された安全結果 $r$ に従い、可逆な射影成分の振り分けによって $P_rZ$ と補成分を分け、非規格化 $P_rZ$ を同じ試行の次段へ渡す。現行fixed-goal selectorはR191であり、M65も同じ契約を満たす。固定有限深さでは物理的な再規格化を行わない。一般深さQ2-4の非終端安全結果で次段binary selectorの作用下限が必要な場合だけR192を使う。fixed-goalの現行selectorはR191である。
 - 現行R180CのCHSH不等式の破れは、設定前の一重項源を設定非依存に保ったままA端結果成分をB端へ物理的に渡す非空間分離逐次構成で得る。従って現行証人はBell局所因子化を満たす空間分離模型ではない。Q2-2固定目標は特定のBell前提違反を先に指定せず、採用構成ごとに前提の成立・不成立を監査する。
 - 有限熱化または外部時刻割当から独立同分布型有限標本揺らぎは従わない。
 - Q1--Q3を同じ装置、同じ基準分布、同じ反復周期へ統合したとは主張しない。

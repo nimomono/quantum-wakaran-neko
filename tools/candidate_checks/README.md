@@ -18,16 +18,14 @@ candidateであっても本文や状態文書を文字列検査してはなら�
 
 M64/R203A--R203Dはdraft-112で現行正本へ昇格し、対応する科学検算は `tools/verify_m64_*.py` のrequired checksへ移した。
 
+## M65 strengthening checks
 
-## M65 phase-volume projective instrument
+M65本体の3状態open selectorはdraft-117で正本へ昇格し、required検算は `tools/verify_m65_open_selector.py` へ移す。
 
-draft-114ではR191/R193をまだ置換しないpromotion-ready candidateとして、M65/R204A--R204Fの6検算を置く。
+このディレクトリに残すM65検算は、正本に必須でない追加実現だけである。
 
-- `verify_m65_phase_volume_partition.py`
-- `verify_m65_matched_conductance.py`
-- `verify_m65_brownian_reduction.py`
-- `verify_m65_three_state_born.py`
-- `verify_m65_projector_handoff.py`
-- `verify_m65_resource_scaling.py`
+- `verify_m65_phase_volume_partition.py` — R203B型phase-volume Jacobian。
+- `verify_m65_matched_conductance.py` — fixed-hub capacity/conductanceからR204A rateを得る候補。
+- `verify_m65_brownian_reduction.py` — fast-mixing micro-networkからcanonical 3-state lawへの数値witness。
 
-R204Cのfull Hamiltonian--Brownian chamber縮約とdirect trajectory witnessがpromotion gateであり、candidate検算だけでR191/R193を退役させない。
+Hamiltonian--Brownian liftやdirect trajectory witnessは強化課題であり、M65正本性やR191/R193退役の必要条件にはしない。
