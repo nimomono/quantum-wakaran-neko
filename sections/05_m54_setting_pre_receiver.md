@@ -118,7 +118,7 @@ P(r,s\mid x,y)
 <!-- theorem-start:theorem -->
 **定理（R180C：M54駆動2端受信機構合成、有限誤差、局所性監査、帰還）**
 
-R180AのA端作用保持・binary selector・projector router、B設定gate、B端作用保持・binary selector、二つの局所記録、および反復時のR179 open resetが同じ有限時計割当と安全集合上で実行できるとする。理想極限の完全結果共同分布は
+R180AのA端作用保持・binary selector・projector router、B設定gate、B端作用保持・binary selector、二つの局所記録を、同じ一試行の有限な順序付き操作窓と安全集合上で実行できるとする。A端で固定した結果に対応する非規格化結果成分をprojector routerがB端へ物理的に渡した後にB端selectorを作用させる。反復試行で同じ能動補助部を再使用する場合のR179 open reset、永久記録、物理clock、次試行renewalは本定理の共同分布には用いずM0へ分離する。理想極限の完全結果共同分布は
 
 ```math
 P(r,s\mid x,y)
@@ -150,4 +150,4 @@ A端結果成分がB端へ物理的に渡るため、現行証人ではBell局�
 
 R180Bのpaired-Hopf再準備、中央潜在結果を2翼へ複製する工程、切断後のA側再読出しは現行必須主線に使わない。これらは `notes/superseded_q2_2_paired_hopf_receiver.md` と退役付録へ保存する。
 
-Q2-2で新たに使う確率源はない。共同確率はbinary selector contractとR181Dの逐次Lüders telescopingから得る。fixed-goalの現行証人ではA端・B端ともM65を用いる。Q2-2の条件付き達成ラベルは維持する。現行R180C証人が非空間分離であることと、Q2-2固定目標自体が特定のBell前提違反を指定しないことを区別する。空間隔離をどこまで強められるかは `Q2-2-S` の独立強化課題とする。
+Q2-2で新たに使う確率源はない。共同確率はbinary selector contractとR181Dの逐次Lüders telescopingから得る。fixed-goalの現行証人ではA端・B端ともM65を用い、A端結果成分をB端へ同じ試行のまま物理的に渡すため、固定一重項・固定有限設定族・非空間分離という固定範囲でQ2-2を達成する。現行R180C証人が非空間分離であることと、Q2-2固定目標自体が特定のBell前提違反を指定しないことを区別する。空間隔離をどこまで強められるかは `Q2-2-S`、全周期装置統合はM0の独立課題とする。

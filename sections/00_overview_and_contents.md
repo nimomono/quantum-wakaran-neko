@@ -61,7 +61,7 @@ Q3の粒子位置形成・輸送はM64/R203A--R203Dが担う。単一試行の�
 
 Q3-2の現行因果鎖は、M37/R86 signalからM64/R203A--R203Cへ進み、R203D/R161を介してR185のNelson型・時間対称Newton則へ接続する。
 
-M60/M61のDuffing shell、chiral-medium、ballistic lead、single-Hamiltonian parentはより複雑な旧Hamiltonian実装として現行主線から退役し、Git履歴に保存する。固定達成・条件付き達成ラベルはM64主線へ根拠を移して維持する。A1/A2は固定目標と独立に監査し、本昇格だけから自動的に状態を変更しない。
+M60/M61のDuffing shell、chiral-medium、ballistic lead、single-Hamiltonian parentはより複雑な旧Hamiltonian実装として現行主線から退役し、Git履歴に保存する。固定目標は一試行内の物理interfaceを共通最低条件として判定し、M64/R203DがR124/R182/R125を同じtracerの位置読出しへ接続するQ3-4A、Q3-4B、Q3-5は達成とする。A1/A2は固定目標と独立に監査し、本昇格だけから自動的に状態を変更しない。
 
 R162のopen Poisson-jump過程はQ3の基礎的実体ではなく、その理想jump lawを表す参照過程として残す。R185は同じ前向き経路法則のBayes反転からNelson型の前進・後退平均微分と時間対称Newton則へ接続する。
 
