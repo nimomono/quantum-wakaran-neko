@@ -1,7 +1,7 @@
 @number: Z
 @chapter: 付録
 @title: M65 phase-volume型3状態open射影読出し
-@status: Q1/Q2二結果射影用の現行canonical open selector model。正本発展則は保持済み二作用を線形rateへ入れる3状態連続時間Markov過程とし、R204Dで有限時間Born誤差、R204Eで共通binary selector contract、R204FでQ1/Q2-4互換性と資源条件を与える。R204A--R204Cのphase-volume chamber/Hamiltonian構成は追加実現・持上げであり、M65正本の成立条件にしない。R191/R193は本draftではfixed-goalの現行証人として維持する。
+@status: Q1/Q2二結果射影用の現行canonical open selector model。正本発展則は保持済み二作用を線形rateへ入れる3状態連続時間Markov過程とし、exact endpoint、有限decision後のR112型record/latch、R204Dの有限時間Born誤差、R204Eの共通binary selector contract、R204FのQ1/Q2-4互換性を備える。R204A--R204Cのphase-volume chamber/Hamiltonian構成は追加実現・持上げであり、M65正本の成立条件にしない。R191/R193はretirement-readiness監査のため現行fixed-goal証人として維持する。
 
 ## Z.1 目的と責務境界
 
@@ -29,11 +29,17 @@ S=J_++J_->0
 p_\pm=\frac{J_\pm}{S}
 ```
 
-とする。上流の作用保持終了後の値を $A_\pm>0$ とし、
+とする。上流の作用保持終了後の値は
 
 ```math
-A_\Sigma=A_++A_-,
+A_\pm\geq0,
 \qquad
+A_\Sigma=A_++A_->0
+```
+
+を許す。exact射影固有状態では一方の作用が零でもよい。
+
+```math
 a_\pm=\frac{A_\pm}{A_*},
 \qquad
 a_\Sigma=a_++a_-,
@@ -64,7 +70,7 @@ decision区間では
 \min\{\widehat p_+,\widehat p_-\}\geq\tau_{\rm cut}
 ```
 
-を通常経路とする。通常経路外はZ.7のendpoint comparatorへ送る。
+を通常経路とする。この条件の下では両作用は自動的に正である。$A_+=0$ または $A_-=0$ を含む通常経路外はZ.7のendpoint comparatorへ送り、3状態decision lawを通す必要はない。
 
 ## Z.3 R204A：canonical 3状態open selector
 
@@ -370,9 +376,34 @@ h(T)
 
 特に $\widehat p_-$ が極端に小さくても、結果比へ近づくモードのrateは $\Lambda$ のままである。小Born重みそれ自体は指数decision時間を生まない。
 
+
+### Z.6.1 decision終了時の有限record/latch
+
+decision窓 $[0,T]$ の終了時にM65 generatorを閉じ、それ以後のselector jump rateを零にする。時刻 $T$ のpointer状態を
+
+```math
+X_T=+
+\mapsto
+Y=+,
+\qquad
+X_T=-
+\mapsto
+Y=-,
+\qquad
+X_T=H
+\mapsto
+Y=\varnothing
+```
+
+とR112型の有限局所recordへ写す。理想recordではこの写像は結果分布を変えない。有限record、clock、gate-closureの完全結果誤差をまとめて $\varepsilon_{\rm rec}$ とする。
+
+record後の $Y$ はR181D routerを開く前に固定される。$Y=\varnothing$ ならどちらのrouterも開かない。selector pointer、record作業領域、使用済み保持対を反復使用する場合はR179のopen resetへ渡す。
+
+このlatchは新しいBorn確率源ではなく、R204Dが時刻 $T$ に持つ古典pointer状態を有限記録へコピーして以後のdecision dynamicsから切り離すだけである。
+
 ## Z.7 endpoint comparator、安全下限、使用済み保持対
 
-通常経路外では大きい側へ決定論的endpointを開く。例えば
+通常経路外では大きい側へ決定論的endpointを開く。exact endpoint $A_+=0<A_-$ では結果 $-$、$A_-=0<A_+$ では結果 $+$ を直接固定する。一般のcutoff領域では例えば
 
 ```math
 \widehat p_+<\tau_{\rm cut}
@@ -452,7 +483,7 @@ R181Dが上流selectorに要求する共通契約を、完全結果集合 $\{0,1
 1. 理想作用比は $p_b=A_b/(A_0+A_1)$。
 2. 実selector核と理想Born核の全変動距離が $\varepsilon_{\rm sel}$ 以下。
 3. 非空安全結果 $Y=b$ では $p_b\geq\tau_{\rm state}>0$。
-4. $Y$ はprojector routerを開く前に固定される。
+4. decision終了時にgeneratorを閉じ、$Y$ をR112型有限recordへ写してからprojector routerを開く。
 5. $\varnothing$ を捨てて再規格化しない。
 
 <!-- theorem-start:corollary -->
@@ -536,10 +567,51 @@ O\left(
 この結論はM65 readout自身から指数時間が生じないことを示すが、R186の指数個signal modeに対する加法noise/precision障害を解決しない。一般深さで $a_\Sigma$ の絶対下限が必要ならR192作用安定化を使える。
 <!-- theorem-end:theorem -->
 
+
+### Z.9.1 Q1 retirement-readiness合成
+
+R189Aのcapture終了後は $H_{\rm cap}=0$ であり、保持済み $A_L,A_R$ は走行中W2信号から切り離されている。M65はこの二作用だけを入力としてdecisionを行い、Z.6.1のrecordで $Y\in\{L,R,\varnothing\}$ を固定した後にR181Dへ渡せる。
+
+従ってQ1の中間測定候補を
+
+```math
+\mathrm{R189A}
+\longrightarrow
+\mathrm{M65/R204D}
+\longrightarrow
+\mathrm{R112\ record}
+\longrightarrow
+\mathrm{R181D}
+```
+
+と合成できる。保持中心時刻からrouter完了までの有限latencyを従来どおり $\varepsilon_{\rm lat}$ に入れれば、
+
+```math
+\varepsilon_{189B,65}^{\rm dist}
+\leq
+\varepsilon_{189A}
++
+\varepsilon_{65}^{\rm mid}
++
+\varepsilon_{\rm lat}
+```
+
+を使える。
+
+空操作対照ではR189A、M65 decision、record、clock、待ち時間を測定運転と同じにし、R181D routerだけを開かない。M65はcapture終了後のW2信号 $Z$ を状態変数として読まないので、理想保持条件ではこの空操作のW2信号は自由零傾斜Rabi信号を継続する。固定精度で $T_{65}$ を有限に選び、R187の弱結合極限で
+
+```math
+\Omega_\kappa T_{65}\to0
+```
+
+とすれば、従来R189Cの有限2回Zeno比較へ必要なlatencyを任意に小さくできる。
+
+これはR191/R193退役前の互換性確認であり、本draftではR143/R144/R189B/R189Cの現行fixed-goal証人を切り替えない。
+
 ## Z.10 正本と強化課題の境界
 
 M65の正本はR204Aのopen generator、R204Dの有限時間Born誤差、endpoint comparator、R204Eのbinary selector contractで閉じる。
 
 R204Bのphase-volume chamber、R204CのHamiltonian--Brownian lift、finite-bandwidth bath、direct Brownian trajectory、具体回路化は追加の物理実現・A2/B系強化課題である。これらをM65の正本性やfixed-goal達成判定の前提にしない。
 
-R191/R193は本draftでは退役しない。A20/A21とrequired verifierを維持し、Q1/Q2の現行fixed-goal witnessもR191/R193のままとする。
+R191/R193は本draftでは退役しない。A20/A21とrequired verifierを維持し、Q1/Q2の現行fixed-goal witnessもR191/R193のままとする。本付録でexact endpoint、有限record/latch、Q1空操作対照までを閉じ、退役そのものは後続変更へ分離する。
