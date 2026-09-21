@@ -45,16 +45,7 @@ Q3の粒子位置はQ1/Q2の測定結果とは別の因果鎖を持つ一方、�
 
 M64/R203A--R203Dは、このsignalへ一つのclassical tracerと一つのsignal-driven thermal reservoirを接続する現行Q3 open modelである。R203Aはregularized density/current dictionary、R203Bはphase-volume free energy、continuous/finite-graph initial preparationとfinite-time mean-flow tracking、R203Cはcanonical overdamped tracerのregularized diffusion縮約を与える。R203Dは1次元ではR161/R185へ、finite graphではR124、R182、R125の位置読出しへ接続する。
 
-```text
-M37 / R86 signal
-        ↓
-M64 / R203A--R203C
-        ↓
-R203D / R161
-        ↓
-R185
-Nelson / time-symmetric Newton
-```
+Q3-2の現行因果鎖は、M37/R86 signalからM64/R203A--R203Cへ進み、R203D/R161を介してR185のNelson型・時間対称Newton則へ接続する。
 
 R185の時間対称Newton残差とM64 micro-to-effective process reduction errorは別々の量として管理する。finite graphでは初期準備、generator実装、終位置recordを一度ずつ数え、有限障壁、W型トンネル振動、2経路干渉の正の位置分布差が有限誤差後にも残る条件を明示する。
 
