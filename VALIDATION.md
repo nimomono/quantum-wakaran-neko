@@ -1,3 +1,11 @@
+## draft-116：開放ミクロ方程式の表記検査
+
+- `TERMINOLOGY.md` に「直接定めた開放ミクロ方程式」を標準語として登録し、「採用開放方程式」「採用open model」を現行本文では使わない規約を追加する。
+- 固定目標の達成定義、M0、A1/A2、M64、R170/R179/R192/R203Cの現行説明が新表記へ同期していることを確認する。
+- Hamiltonian浴から縮約導出した場合と、開放ミクロ方程式を基本方程式として直接定めた場合の区別が維持されることを確認する。
+- PR固有検査 `tools/migrations/check_draft116_open_equation_terminology.py` で現行正本・active本文の旧複合語残存を検査する。過去CHANGELOG、過去draft記録、superseded notesは検査対象外とする。
+- 本変更は用語整理のみであり、物理式、数値結果、達成判定を変更しない。
+
 ## draft-115：M0 open microscopic device 方針同期
 
 - M0の正本を「Hamiltonian無限浴を必須とする単一装置」から、「規約を満たす採用openミクロ方程式を許すjoint microscopic device/processと共通反復周期」へ変更する。

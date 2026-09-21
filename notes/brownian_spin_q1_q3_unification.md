@@ -296,7 +296,7 @@ J_b=-A_b\partial_x\phi
 +\varepsilon_{\rm back}).
 ```
 
-phase normalizerは受動Hamiltonian sectorである必要はない。採用open classical modelとして用いる場合は、外部drive、散逸、雑音、定常振幅、signalへの有限backreactionを明示する。完全受動phase busは上位の強化課題とする。
+phase normalizerは受動Hamiltonian sectorである必要はない。open classical modelを基本方程式として直接定める場合は、外部drive、散逸、雑音、定常振幅、signalへの有限backreactionを明示する。完全受動phase busは上位の強化課題とする。
 
 ## 7. R194H：temperature-independent diffusion plateau（強化候補）
 

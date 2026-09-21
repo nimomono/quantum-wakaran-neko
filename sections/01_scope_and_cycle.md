@@ -78,7 +78,7 @@ R162のopen Poisson-jump過程はM64の基礎的実体ではなく、R161 lawの
 | M54 | 共通有効信号--配置状態構成族 | 有限実正準信号、準備済み入力境界、永続記憶部、作業領域、時計、記録の共通型。Q1型局所信号とQ2型2体系結合の空間特殊化がQ3 signalの $(\pi,j)$ を与え、Q3位置interfaceはM64 tracerへ接続する |
 | M37 | 物理Hamiltonian信号実装層 | Q3空間signalを局所ばね網で実装し、R187条件下ではW型最低2正常モードをQ1 W2制御信号へ接続する |
 | M64 | Q3三実体open model | M37型coherent signal、一つのclassical tracer、一つのsignal-driven thermal reservoirからなる。R203Aがregularized density/current、R203Bがphase-volume free energyと初期準備・flow tracking、R203Cがcanonical overdamped diffusion、R203DがR161/R185およびfinite-graph位置読出しを担う |
-| M0 | 単一ミクロ装置統一目標 | Q1/Q2/Q3の主要自由度、共通接続端、準備、操作、測定、record、reset、clockを一つのjoint microscopic device/processと共通反復周期へ統合する。規約を満たす採用openミクロ方程式を許し、Hamiltonian無限浴への持上げは上位強化とする。現行部品の全周期統合は未完成 |
+| M0 | 単一ミクロ装置統一目標 | Q1/Q2/Q3の主要自由度、共通接続端、準備、操作、測定、record、reset、clockを一つのjoint microscopic device/processと共通反復周期へ統合する。規約を満たす開放ミクロ方程式を基本方程式として直接定めることを許し、Hamiltonian無限浴への持上げは上位強化とする。現行部品の全周期統合は未完成 |
 
 M54の複素信号 $Z$ は実正準対の派生表示であり、独立した複素実体ではない。状態方向、規格化共分散、位置分布は解析上の統計量であり、単一試行の制御器へ書き戻さない。
 
@@ -99,7 +99,7 @@ M54の複素信号 $Z$ は実正準対の派生表示であり、独立した複
 
 固定目標と達成ラベルは `PROJECT_STATUS.md` を正本とする。Q1-1、Q1-2、Q3-1--Q3-3Cは達成、Q2-1--Q2-4、Q3-4A、Q3-4B、Q3-5は各文書に明記した条件付き達成、Q3-6は未達のままとする。Q3-1はM37/R86を達成証人とし、Q3-2はM37/R86からM64/R203A--R203D、R161、R185へ接続する。Q3-4A、Q3-4B、Q3-5はそれぞれR124、R182、R125をM64 finite-graph tracerへ接続する。
 
-固定目標に付随する強化目標は `ENHANCEMENT_TARGETS.md` を正本とする。全固定目標にA1/A2、Q1/Q2にB1/B2/B3、Q2-2にQ2-2-Sを置き、固定目標の達成状態とは独立に管理する。M64の正式昇格だけからQ3-1-A1/Q3-2-A1またはA2を自動的に上げない。A1では採用open SDEと理想白色雑音を許し、A2はそのミクロ方程式自体の直接数値再現を要求する。
+固定目標に付随する強化目標は `ENHANCEMENT_TARGETS.md` を正本とする。全固定目標にA1/A2、Q1/Q2にB1/B2/B3、Q2-2にQ2-2-Sを置き、固定目標の達成状態とは独立に管理する。M64の正式昇格だけからQ3-1-A1/Q3-2-A1またはA2を自動的に上げない。A1では開放SDEを基本方程式として直接定めることと理想白色雑音を許し、A2はそのミクロ方程式自体の直接数値再現を要求する。
 
 ## 1.6 非主張
 
