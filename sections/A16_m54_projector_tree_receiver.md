@@ -7,15 +7,15 @@
 
 深さ $m$ の二分段階的射影選別を考える。節点 $u\in\{0,1\}^{k-1}$ の入力記憶部を $Z_u\neq0$、2子への直交射影を $P_{u,0},P_{u,1}$ とする。
 
-\[
+```math
 P_{u,0}+P_{u,1}=I,
 \qquad
 P_{u,0}P_{u,1}=0.
-\]
+```
 
 未処理射影作用を
 
-\[
+```math
 J_{u,b}
 =
 \mathcal J_0 Z_u^\dagger P_{u,b}Z_u,
@@ -25,13 +25,13 @@ J_\Sigma
 J_{u,0}+J_{u,1}
 =
 \mathcal J_0Z_u^\dagger Z_u
-\]
+```
 
 とし、
 
-\[
+```math
 p_{u,b}=\frac{J_{u,b}}{J_\Sigma}
-\]
+```
 
 を理想条件付きBorn重みとする。
 
@@ -41,33 +41,33 @@ R181Dの責務は、上流binary selectorが固定した排他的結果を受け
 
 節点 $u$ のselectorは完全結果
 
-\[
+```math
 Y_u\in\{0,1,\varnothing\}
-\]
+```
 
 を返す。理想核を
 
-\[
+```math
 K_u(0)=p_{u,0},
 \qquad
 K_u(1)=p_{u,1},
 \qquad
 K_u(\varnothing)=0
-\]
+```
 
 とし、実装核を $\widetilde K_u$ とする。
 
 R181Dが要求する上流契約は次の5条件だけである。
 
 1. 完全結果誤差
-\[
+```math
 D_{\rm TV}(\widetilde K_u,K_u)\leq\varepsilon_{{\rm sel},u}.
-\]
+```
 
 2. 非空安全結果 $Y_u=b$ では
-\[
+```math
 p_{u,b}\geq\tau_{{\rm state},u}>0.
-\]
+```
 
 3. $Y_u$ はprojector routerを開く前に固定される。
 
@@ -81,17 +81,17 @@ p_{u,b}\geq\tau_{{\rm state},u}>0.
 
 R191を使う現行fixed-goal主線では、
 
-\[
+```math
 \varepsilon_{{\rm sel},u}
 =
 \varepsilon_{191,u},
-\]
+```
 
-\[
+```math
 \tau_{{\rm state},u}
 =
 \tau_{\rm cut}-\frac{\varepsilon_u}{2}>0
-\]
+```
 
 と取れる。endpoint dispatcher、mixing、finite-temperature retreat、finite-time capture、吸収記録はR191側の誤差台帳に含める。
 
@@ -99,17 +99,17 @@ R191を使う現行fixed-goal主線では、
 
 M65/R204D--R204Eを使う場合は、
 
-\[
+```math
 \varepsilon_{{\rm sel},u}
 =
 \varepsilon_{65,u},
-\]
+```
 
-\[
+```math
 \tau_{{\rm state},u}
 =
 \tau_{\rm cut}-\varepsilon_A>0
-\]
+```
 
 と取れる。M65内部rateや無反応hub誤差はM65側の誤差台帳に含める。
 
@@ -119,32 +119,32 @@ M65/R204D--R204Eを使う場合は、
 
 selectorが有限decision時間後に $Y_u=b\in\{0,1\}$ を固定したときだけ、信号と未使用作業領域上の選別機構
 
-\[
+```math
 F_{u,b}
 =
 \begin{pmatrix}
 P_{u,b}&P_{u,1-b}\\
 P_{u,1-b}&-P_{u,b}
 \end{pmatrix}
-\]
+```
 
 を作用する。
 
 直交射影子の関係から
 
-\[
+```math
 F_{u,b}^\dagger F_{u,b}=I,
 \qquad
 F_{u,b}^2=I
-\]
+```
 
 であり、
 
-\[
+```math
 F_{u,b}(Z_u,0)
 =
 (P_{u,b}Z_u,P_{u,1-b}Z_u).
-\]
+```
 
 非選択成分を消去せず作業領域へ保持するので、router自体は可逆な実正準写像として実装できる。$Y_u=\varnothing$ の場合はどちらのrouterも作用させない。
 
@@ -152,37 +152,37 @@ F_{u,b}(Z_u,0)
 
 理想選択成分を
 
-\[
+```math
 v=P_{u,b}Z_u
-\]
+```
 
 とし、実装後を $\widetilde v$ とする。router誤差が
 
-\[
+```math
 \|\widetilde v-v\|
 \leq
 \eta_F\|Z_u\|
-\]
+```
 
 を満たすとする。
 
 binary selector contractの安全下限から
 
-\[
+```math
 \|v\|
 \geq
 \sqrt{\tau_{{\rm state},u}}\|Z_u\|.
-\]
+```
 
 従って
 
-\[
+```math
 \eta_F<\sqrt{\tau_{{\rm state},u}}
-\]
+```
 
 なら、
 
-\[
+```math
 \left\|
 \frac{\widetilde v}{\|\widetilde v\|}
 -
@@ -196,7 +196,7 @@ binary selector contractの安全下限から
 }
 =:
 \varepsilon_{{\rm proj},u}.
-\]
+```
 
 この下限は物理的な状態依存除算ではない。selectorが保証した安全集合境界を解析に使うだけである。
 
@@ -204,25 +204,25 @@ binary selector contractの安全下限から
 
 階数1節点
 
-\[
+```math
 P_{u,b}=|b_u\rangle\langle b_u|
-\]
+```
 
 では、
 
-\[
+```math
 v=P_{u,b}Z_u
 =
 \alpha_b|b_u\rangle,
-\]
+```
 
 従って
 
-\[
+```math
 \frac{vv^\dagger}{v^\dagger v}
 =
 P_{u,b}.
-\]
+```
 
 selectorの物理方式に依存せず、結果固定後のrouterそのものが選択後信号を射影子像へ送る。物理的な単位ノルム規格化は不要であり、非規格化成分を次段へそのまま渡す。
 
@@ -230,11 +230,11 @@ selectorの物理方式に依存せず、結果固定後のrouterそのものが
 
 一般深さQ2-4で選択後作用が次節点の感度下限を下回り得る場合だけ、router後の選択成分へR192を接続する。
 
-\[
+```math
 \dot Z
 =
 g(J_*-Z^\dagger Z)Z.
-\]
+```
 
 R192は状態方向を変えず、Born重みや結果選択を作らない。必要な固定時間上界はselectorから受け取る $\tau_{\rm state}$ とR192自身のパラメータだけで評価する。
 
@@ -244,7 +244,7 @@ R192は状態方向を変えず、Born重みや結果選択を作らない。必
 
 理想節点核を $K_k$、実装核を $\widetilde K_k$ とする。過去の安全履歴 $h_{k-1}$ 上で
 
-\[
+```math
 \sup_{h_{k-1}}
 D_{\rm TV}
 \left(
@@ -253,7 +253,7 @@ K_k(\cdot\mid h_{k-1})
 \right)
 \leq
 \bar\varepsilon_k
-\]
+```
 
 とする。
 
@@ -261,18 +261,18 @@ $\bar\varepsilon_k$ には、その節点で実際に使うselectorの完全結�
 
 Markov核の縮約性と望遠鏡和から、
 
-\[
+```math
 D_{\rm TV}
 (P_{\rm out},P_{\rm Born})
 \leq
 \varepsilon_{\rm in}
 +
 \sum_{k=1}^{m}\bar\varepsilon_k.
-\]
+```
 
 理想節点では
 
-\[
+```math
 \prod_{k=1}^{m}
 p_{k,y_k}
 =
@@ -281,7 +281,7 @@ p_{k,y_k}
 }{
 \|Z\|^2
 }
-\]
+```
 
 と望遠鏡型に縮約する。無反応を同じ完全履歴空間に保持し、成功履歴だけを再規格化しない。
 
@@ -290,14 +290,14 @@ p_{k,y_k}
 
 P.2のbinary selector contractを各節点で満たし、P.3のrouterを結果固定後にだけ作用し、必要な場合だけR192を使うとする。このとき理想極限ではLüders型逐次分布と非規格化測定後成分を得る。有限実装では
 
-\[
+```math
 D_{\rm TV}
 (P_{\rm out},P_{\rm Born})
 \leq
 \varepsilon_{\rm in}
 +
 \sum_{k=1}^{m}\bar\varepsilon_k
-\]
+```
 
 であり、安全結果の状態方向誤差はP.4の上界で抑えられる。
 
