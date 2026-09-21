@@ -285,8 +285,7 @@ p_{k,y_k}
 
 と望遠鏡型に縮約する。無反応を同じ完全履歴空間に保持し、成功履歴だけを再規格化しない。
 
-<!-- theorem-start:theorem -->
-**定理（R181D：binary selector後の段階的projector-routerと測定後状態受渡し）**
+**定理再掲（R181D：binary selector後の段階的projector-routerと測定後状態受渡し）**
 
 P.2のbinary selector contractを各節点で満たし、P.3のrouterを結果固定後にだけ作用し、必要な場合だけR192を使うとする。このとき理想極限ではLüders型逐次分布と非規格化測定後成分を得る。有限実装では
 
@@ -302,7 +301,7 @@ D_{\rm TV}
 であり、安全結果の状態方向誤差はP.4の上界で抑えられる。
 
 R181Dの結論はselectorの内部物理に依存しない。
-<!-- theorem-end:theorem -->
+
 
 <!-- theorem-start:proof -->
 **証明（R181D）**
