@@ -47,4 +47,4 @@ for ix, a in enumerate(settings_a):
 
 chsh = corr[0, 0] + corr[0, 1] + corr[1, 0] - corr[1, 1]
 assert abs(abs(chsh) - 2 * math.sqrt(2)) < 2e-12
-print("R180 sequential two-end R191 checks passed")
+print("R180 sequential two-end binary-selector checks passed")
