@@ -126,3 +126,8 @@ Q3-1-A2/Q3-2-A2は未監査のままとする。direct SDE trajectory、標本�
 従来の強化課題であるQ1/Q2の完全周期収支、共通浴統合、M64 process--時計--終位置記録--resetの単一反復周期統合、連続空間一様極限、多粒子拡張、有限閉鎖Hamiltonian化は引き続き保持する。これらはA/B/Sの横断的または上位の実装強化課題として管理する。
 
 M0は、複数の固定目標にまたがる部品を1つのミクロ装置と共通反復周期へ統合する、A1より強い統合目標として区別する。各固定目標についてA1を達成することだけではM0達成としない。
+
+
+## M65/R204 replacement candidate の扱い
+
+draft-114ではQ1/Q2のA1/B1候補としてM65/R204A--R204Fを追加するが、強化目標の判定は変更しない。R204A/R204B/R204D/R204E/R204Fの解析核とcandidate verifierは、R191/R193置換の見込みを検査するためのものとする。A1/B1判定を進める条件はR204CのHamiltonian--Brownian chamber縮約を具体parameter familyで閉じること、B2/B3では有限帯域bath・幾何公差・直接Brownian trajectoryを監査することとする。Q2-4ではM65固有readout timeが多項式となる候補条件を得るが、R186の指数mode additive-noise/precision障害は独立に残る。

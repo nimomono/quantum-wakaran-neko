@@ -104,3 +104,8 @@ M54の複素信号 $Z$ は実正準対の派生表示であり、独立した複
 ## 1.6 非主張
 
 本稿は、量子力学全体を古典力学へ還元したこと、空間分離Bell局所模型を得たこと、指数的な内部受動自由度を除去したこと、全系列を同一製造済み装置へ統合したことを主張しない。R193によりQ1のR189A保持座標からR191 decision energyまでの直接接続は具体化するが、R191のmacrospin浴、吸収記録、R181D router、未使用保持対/resetを含む全周期を単一閉鎖Hamiltonianへ統合したことまでは意味しない。Q2の一般transducerもR193の対象外である。M64についてdirect A2、finite-bandwidth/Hamiltonian lift、continuous-space一様極限、多粒子、signal sourceからclock/recordまでの完全単一周期統合は別の強化課題である。
+
+
+## M65 phase-volume projective instrument replacement candidate
+
+現行Q1/Q2の二結果結果形成はR191、Q1 W2からの直接decision接続はR193が担う。付録ZのM65/R204A--R204Fはこの二つをまだ置換しないactive candidateである。M64とM65は同一粒子を共有せず、R203Bと共通のphase-volume Jacobianを、それぞれQ3空間tracerとQ1/Q2 projective pointerへ使う別特殊化とする。promotion前はM0の現行依存、固定目標、required verifierを変更しない。

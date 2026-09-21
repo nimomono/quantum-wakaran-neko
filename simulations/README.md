@@ -38,3 +38,8 @@ Q1/Q2のB3では、B1で定めた具体回路をSPICE、回路ODE/SDE、伝送�
 
 required checksはpartition identity、initial preparation、finite-time tracking、current dictionary、finite-volume refinement、finite-graph R161/R124/R182/R125整合を扱うが、direct trajectory再現の代替にしない。Q3-1-A2/Q3-2-A2は未監査のままとする。
 
+
+
+## M65 phase-volume projective instrument candidate
+
+M65/R204A--R204Fはdraft-114ではreplacement candidateであり、direct simulationはまだA2/B3達成として登録しない。promotion前の次段では `simulations/m65/` を用意し、固定chamber--neck--hubのBrownian trajectory、hub residence、経験的 $(+,-,\varnothing)$ 分布、作用比scan、geometry refinement、lumped three-state lawへの収束を同一parameter setで検査する。

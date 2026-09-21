@@ -1,3 +1,10 @@
+## draft-114：M65 phase-volume projective instrument置換候補
+
+- M65/R204A--R204Fを、R191/R193をまだ置換しないpromotion-ready replacement candidateとして追加する。
+- R203Bと共通のphase-volume Jacobianを二結果射影作用へ接続し、固定chamber--neck--hubのcapacity/conductance matching、Hamiltonian--Brownian縮約契約、有限時間Born読出し、R181D受渡し、Q1接続、Q2-4 polynomial readout-time条件を整理する。
+- R204Cのfull HamiltonianからBrownian chamber networkへの有限誤差縮約をpromotion gateとして残し、R186の指数mode additive-noise/precision障害は未解決のまま維持する。
+- 現行Q1/Q2 fixed-goal主線、達成ラベル、R191/R193 required verifier、R181D/R192/R179の定理文、M64 Q3主線は変更しない。
+
 ## draft-113：M64昇格後の整合cleanup
 
 - 理論内容、固定目標の達成判定、A1/A2判定を変更せず、draft-112後の現行文書だけを同期した。

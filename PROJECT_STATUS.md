@@ -1,3 +1,10 @@
+## draft-114：M65 phase-volume projective instrument置換候補
+
+- M65/R204A--R204Fを、R191/R193をまだ置換しないpromotion-ready replacement candidateとして追加する。
+- R203Bと共通のphase-volume Jacobianを二結果射影作用へ接続し、固定chamber--neck--hubのcapacity/conductance matching、Hamiltonian--Brownian縮約契約、有限時間Born読出し、R181D受渡し、Q1接続、Q2-4 polynomial readout-time条件を整理する。
+- R204Cのfull HamiltonianからBrownian chamber networkへの有限誤差縮約をpromotion gateとして残し、R186の指数mode additive-noise/precision障害は未解決のまま維持する。
+- 現行Q1/Q2 fixed-goal主線、達成ラベル、R191/R193 required verifier、R181D/R192/R179の定理文、M64 Q3主線は変更しない。
+
 ## draft-112：M64正式昇格・M60/M61退役
 
 - M64/R203A--R203DをQ3の現行particle/Nelson open modelへ正式昇格する。Q3-1はM37/R86を達成証人とし、Q3-2はM37/R86 → M64/R203A--R203D → R161 → R185を現行主線とする。
@@ -271,6 +278,7 @@ M54の共通状態型による記述、M37/M64による物理実装層実装、M
 | M54 | 共通有効信号--配置状態構成族 | 現行Q1・Q2・Q3の共通有効層 | 準備済み古典入力境界、有限実正準信号、永続記憶部、作業領域、記録、時計自由度の共通型を与える。Q1/Q2ではR191/R181D、Q3ではM37 signalとM64 particle interfaceへ接続する |
 | M37 | 物理Hamiltonian信号実装層 | Q3の空間信号部分系、およびR187条件下のQ1 W2制御用信号系 | 局所位置結合された有限実古典振動子網からR86の空間包絡を導く。R187の弱結合W型族では最低2正常モードをM54のW2信号へ正準同定し、R140制御を任意精度で実装する |
 | M64 | Q3共通open model | 現行Q3 particle/Nelson実装 | M37 signal、一つのclassical tracer、一つのsignal-driven thermal reservoirからなる三実体模型。R203A--R203Dでcontinuous profileとfinite-graph profileをR161/R185およびR124/R182/R125へ接続する。Hamiltonian lift、finite bath、underdamped lift、連続空間一様極限、多粒子、全周期clock/record統合は強化課題 |
+| M65 | Q1/Q2二結果読出しreplacement candidate | active candidate | R203Bと共通のphase-volume Jacobianを固定chamber--neck--hub Brownian pointerへ特殊化する。R204A--R204Fでcapacity/conductance matching、有限時間Born読出し、R181D受渡し、Q1/Q2-4接続を整理する。R204C縮約とdirect trajectory witnessがpromotion gate |
 
 M50はM54の静的状態構成へ、M55はM54空間状態構成へ吸収した。M56はspin-only Q3代替研究線とし現行達成根拠へ使わない。M60/M61とそれ以前のM57/M59は旧Q3 Hamiltonian実装として現行主線から退役し、Git履歴へ保存する。旧R181Aの状態方向準備、旧R190/R170によるQ1/Q2二結果主線、旧R180Bの2端再準備は現行必須依存から外し、退役索引と研究メモへ保存する。
 
@@ -343,6 +351,12 @@ M54は共通の状態型と因果契約を与えるが、同じ物理接続部�
 | R203B | 厳密partition結果・有限時間結果 | signal-dependent reservoir phase volumeから $F_{\rm res}=-k_BT\log r_X^\delta+C$ を導き、continuous tracer初期準備とfinite-time mean-flow trackingを与える |
 | R203C | 採用open SDE後の厳密結果・明示誤差付き縮約 | canonical overdamped tracerをideal regularized diffusionへ有限時間 $W_1$ で縮約する |
 | R203D | 厳密有限graph結果・明示誤差付き近似結果 | local $R_i^\delta,J_{ij},T_{ij}^\delta$ からR161 rateを構成し、finite-graph初期準備、1次元R185 activity、R124/R182/R125位置読出しへ接続する |
+| R204A | candidate厳密結果 | 保持済み二作用から局所phase-volume Hamiltonianを作り、partition Jacobian、平均力、decision中の保持作用不変を与える |
+| R204B | candidate厳密結果／reduced-law結果 | 同じphase-volume factorからchamber capacityとneck conductanceを作用比例にし、escape scaleを作用比から分離する |
+| R204C | candidate条件付き・明示誤差付き結果 | Hamiltonian bath、overdamped、phase-volume tracking、tube、lumping、calibration誤差をthree-state matched-hub generatorへ縮約するpromotion gate |
+| R204D | candidate厳密three-state結果・明示誤差付き合成 | hub無反応を含む有限時間Born readoutと完全結果TV上界を与える |
+| R204E | candidate条件付き結果 | M65安全結果を既存R181D projector routerへ渡し、逐次Lüders型telescopingを維持する |
+| R204F | candidate条件付き・資源結果 | Q1 R189AからM65への直接接続と、Q2-4で小Born重みが指数readout時間を生まない多項式時間十分条件を与える。R186は未解決 |
 | R184 | 保持する補助結果・現行主依存外 | 旧M37開始作用保持機構からM54空間率への $L_\delta\varepsilon_{\rm car}$ 評価 |
 | R185 | 厳密有限格子結果・明示誤差付き近似結果 | 共通の確率分布の時間反転率、$D_\pm$、1次元node-free領域の時間対称Newton則。正則化残差 $O(\delta)$、格子残差 $C_{185,a}a^2$ を有限微分ノルムで明示 |
 | R123 | 厳密結果・数値検証付き | 井戸型・調和型低位束縛状態と有限環境純位相緩和 |
