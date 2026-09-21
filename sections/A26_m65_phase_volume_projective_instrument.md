@@ -15,23 +15,23 @@ M65の正本は開放3状態Markov過程そのものである。固定chamber、
 
 二結果直交射影 $P_++P_-=I$ に対する理想作用を
 
-\[
+```math
 J_\pm
 =
 \mathcal J_0 Z^\dagger P_\pm Z,
 \qquad
 S=J_++J_->0
-\]
+```
 
 とし、理想Born重みを
 
-\[
+```math
 p_\pm=\frac{J_\pm}{S}
-\]
+```
 
 とする。上流の作用保持終了後の値を $A_\pm>0$ とし、
 
-\[
+```math
 A_\Sigma=A_++A_-,
 \qquad
 a_\pm=\frac{A_\pm}{A_*},
@@ -40,29 +40,29 @@ a_\Sigma=a_++a_-,
 \qquad
 \widehat p_\pm=\frac{A_\pm}{A_\Sigma}
 =\frac{a_\pm}{a_\Sigma}
-\]
+```
 
 と置く。作用保持誤差は
 
-\[
+```math
 D_{\rm TV}(\widehat p,p)\leq\varepsilon_A
-\]
+```
 
 だけで受け、M65内部で重複計上しない。
 
 decision区間では
 
-\[
+```math
 \dot A_+=\dot A_-=0
-\]
+```
 
 をM65の入力契約とする。上流が保持値を正準対 $(A_r,P_r^A)$ で実装する場合、decisionに使った保持対は次のcaptureへそのまま戻さない。固定有限深さでは未使用保持対へ正準SWAPし、反復運転では使用済み保持対とその履歴をR179の流出経路へ渡す。
 
 固定cutoff $0<\tau_{\rm cut}<1/2$ に対し、
 
-\[
+```math
 \min\{\widehat p_+,\widehat p_-\}\geq\tau_{\rm cut}
-\]
+```
 
 を通常経路とする。通常経路外はZ.7のendpoint comparatorへ送る。
 
@@ -70,47 +70,47 @@ decision区間では
 
 pointer状態を
 
-\[
+```math
 X_t\in\{+,H,-\}
-\]
+```
 
 とする。$H$ は中央の未決定状態であり、decision終了時には正式な無反応 $\varnothing$ へ写す。固定装置定数 $\Lambda>0,\kappa>0,A_*>0$ を取り、通常経路では連続時間Markov rateを
 
-\[
+```math
 k_{+\to H}=k_{-\to H}=\Lambda,
 \qquad
 k_{H\to +}=\kappa a_+,
 \qquad
 k_{H\to -}=\kappa a_-,
-\]
+```
 
 それ以外を零と直接定める。
 
 確率を
 
-\[
+```math
 x_+(t)=P(X_t=+),
 \qquad
 x_-(t)=P(X_t=-),
 \qquad
 h(t)=P(X_t=H)
-\]
+```
 
 とすると、
 
-\[
+```math
 \dot x_r
 =
 -\Lambda x_r+\kappa a_r h,
 \qquad
 r\in\{+,-\},
-\]
+```
 
-\[
+```math
 \dot h
 =
 \Lambda(x_++x_-)-\kappa a_\Sigma h.
-\]
+```
 
 <!-- theorem-start:theorem -->
 **定理（R204A：M65 canonical open selector）**
@@ -125,9 +125,9 @@ r\in\{+,-\},
 
 全rateは非負であり、generatorの各行和は零である。上のmaster equationを加えると
 
-\[
+```math
 \frac{d}{dt}(x_++x_-+h)=0
-\]
+```
 
 だから確率単体を保存する。rate式には $a_+,a_-$ と固定係数しか現れず、$a_\Sigma$ による除算はない。証明終。
 <!-- theorem-end:proof -->
@@ -138,7 +138,7 @@ R204Aはopen lawそのものを正本とする。この節は同じlawを受動p
 
 固定された左右chamber $C_\pm$、neck $N_\pm$、hub $H$ を取り、局所phase-volume factorを概念的に
 
-\[
+```math
 \Phi_A(Q)
 =
 \begin{cases}
@@ -148,23 +148,23 @@ a_+\phi_N(Q),&Q\in N_+,\\
 a_-\phi_N(Q),&Q\in N_-,\\
 a_-\phi_C(Q),&Q\in C_-,
 \end{cases}
-\]
+```
 
 とする。hubのphase volumeは作用に依存させない。
 
 R203Bと同じ調和自由度のcanonical積分を使えば、局所Gibbs容量はphase-volume factorへ比例する。左右共通の基準量 $V_C^0,G_0,V_H^0>0$ に対して
 
-\[
+```math
 V_r=a_rV_C^0,
 \qquad
 G_r=a_rG_0,
 \qquad
 V_H=V_H^0
-\]
+```
 
 を得る場合、
 
-\[
+```math
 \frac{G_r}{V_r}
 =
 \frac{G_0}{V_C^0}
@@ -174,7 +174,7 @@ V_H=V_H^0
 =
 \frac{G_0}{V_H^0}a_r
 =:\kappa a_r.
-\]
+```
 
 <!-- theorem-start:theorem -->
 **定理（R204B：fixed-hub matched capacity--conductance realization）**
@@ -188,7 +188,7 @@ R204BはM65正本の必須依存ではない。
 
 R204Bの固定幾何を明示Hamiltonian、有限帯域bath、Brownian/Smoluchowski過程から導く場合だけこの結果を使う。対象時間窓 $0\leq t\leq T$ で、
 
-\[
+```math
 \varepsilon_{\rm bath},
 \quad
 \varepsilon_{\rm od},
@@ -200,11 +200,11 @@ R204Bの固定幾何を明示Hamiltonian、有限帯域bath、Brownian/Smoluchow
 \varepsilon_{\rm lump},
 \quad
 \varepsilon_{\rm cal}
-\]
+```
 
 を、それぞれbath、overdamped、phase-volume tracking、tube reduction、well-mixed lumping、capacity/conductance較正の誤差とする。
 
-\[
+```math
 \varepsilon_{\rm gen}
 =
 \varepsilon_{\rm bath}
@@ -213,14 +213,14 @@ R204Bの固定幾何を明示Hamiltonian、有限帯域bath、Brownian/Smoluchow
 +\varepsilon_{\rm tube}
 +\varepsilon_{\rm lump}
 +\varepsilon_{\rm cal}.
-\]
+```
 
 <!-- theorem-start:theorem -->
 **定理（R204C：Hamiltonian--Brownian liftの有限時間誤差）**
 
 具体実装のcoarse lawを $\widetilde\nu_t$、R204Aのcanonical lawを $\nu_t$ とする。初期lumping誤差を $\varepsilon_{\rm init}$ とし、対象時間窓でgenerator差の全変動作用normが一様に $\varepsilon_{\rm gen}$ 以下なら、
 
-\[
+```math
 \sup_{0\leq t\leq T}
 D_{\rm TV}
 (
@@ -232,7 +232,7 @@ D_{\rm TV}
 T\varepsilon_{\rm gen}
 =:
 \varepsilon_{204C}(T).
-\]
+```
 
 これはR204AのHamiltonian/Brownian実現を評価する強化結果であり、R204A/R204D/R204E/R204Fの成立条件ではない。
 <!-- theorem-end:theorem -->
@@ -247,11 +247,11 @@ Markov半群の全変動縮約性とDuhamel展開を使い、generator差を時�
 
 通常経路で
 
-\[
+```math
 h(0)=0,
 \qquad
 x_+(0)+x_-(0)=1
-\]
+```
 
 とする。
 
@@ -260,7 +260,7 @@ x_+(0)+x_-(0)=1
 
 R204Aのcanonical open lawでは
 
-\[
+```math
 h(t)
 =
 \frac{\Lambda}
@@ -268,46 +268,46 @@ h(t)
 \left[
 1-e^{-(\Lambda+\kappa a_\Sigma)t}
 \right].
-\]
+```
 
 さらに
 
-\[
+```math
 d_r(t)
 :=
 x_r(t)-\widehat p_r[1-h(t)]
-\]
+```
 
 と置くと
 
-\[
+```math
 \dot d_r=-\Lambda d_r,
-\]
+```
 
 従って
 
-\[
+```math
 x_r(t)
 -
 \widehat p_r[1-h(t)]
 =
 e^{-\Lambda t}
 [x_r(0)-\widehat p_r].
-\]
+```
 
 decision時刻 $T$ で
 
-\[
+```math
 +\mapsto +,
 \qquad
 -\mapsto -,
 \qquad
 H\mapsto\varnothing
-\]
+```
 
 と完全結果へ写すと、canonical M65結果分布 $P_{65}^0(T)$ は
 
-\[
+```math
 D_{\rm TV}
 \left(
 P_{65}^0(T),
@@ -319,11 +319,11 @@ D_{\rm TV}(x_0,\widehat p)
 +
 \frac{\Lambda}
 {\Lambda+\kappa a_\Sigma}.
-\]
+```
 
 上流作用保持誤差 $\varepsilon_A$、具体rate実装を選んだ場合のgenerator誤差 $\varepsilon_{\rm rate}$、record誤差 $\varepsilon_{\rm rec}$ を加えると、
 
-\[
+```math
 D_{\rm TV}
 (
 P_{65}(T),
@@ -341,7 +341,7 @@ D_{\rm TV}(x_0,\widehat p)
 T\varepsilon_{\rm rate}
 +
 \varepsilon_{\rm rec}.
-\]
+```
 
 canonical open lawそのものでは $\varepsilon_{\rm rate}=0$ とする。無反応を捨てて成功結果だけを再規格化しない。
 <!-- theorem-end:theorem -->
@@ -351,19 +351,19 @@ canonical open lawそのものでは $\varepsilon_{\rm rate}=0$ とする。無�
 
 $x_++x_-=1-h$ より
 
-\[
+```math
 \dot h
 =
 \Lambda-(\Lambda+\kappa a_\Sigma)h
-\]
+```
 
 だから $h(t)$ の表示を得る。また $a_r=\widehat p_r a_\Sigma$ を使えば、R204Aのmaster equationから $\dot d_r=-\Lambda d_r$ が従う。完全結果分布との差に三角不等式を使い、
 
-\[
+```math
 h(T)
 \leq
 \frac{\Lambda}{\Lambda+\kappa a_\Sigma}
-\]
+```
 
 で抑える。具体実装誤差はMarkov半群の縮約性とDuhamel評価で $T\varepsilon_{\rm rate}$ を一度だけ加える。証明終。
 <!-- theorem-end:proof -->
@@ -374,23 +374,23 @@ h(T)
 
 通常経路外では大きい側へ決定論的endpointを開く。例えば
 
-\[
+```math
 \widehat p_+<\tau_{\rm cut}
-\]
+```
 
 は
 
-\[
+```math
 (1-\tau_{\rm cut})A_+
 -
 \tau_{\rm cut}A_-<0
-\]
+```
 
 と同値なので、状態依存除算ではなく固定係数の線形比較器で判定できる。逆側も同様である。
 
 比較器とrecordの完全結果誤差を $\varepsilon_{\rm cmp},\varepsilon_{\rm rec}$ とすると、
 
-\[
+```math
 \varepsilon_{65}^{\rm edge}
 \leq
 \tau_{\rm cut}
@@ -400,11 +400,11 @@ h(T)
 \varepsilon_{\rm cmp}
 +
 \varepsilon_{\rm rec}.
-\]
+```
 
 通常経路の一様上界は
 
-\[
+```math
 \varepsilon_{65}^{\rm int}
 =
 \varepsilon_A
@@ -416,11 +416,11 @@ e^{-\Lambda T}
 T\varepsilon_{\rm rate}
 +
 \varepsilon_{\rm rec},
-\]
+```
 
 ここで安全運用域で $a_\Sigma\geq a_{\min}>0$ とする。
 
-\[
+```math
 \varepsilon_{65}
 =
 \max
@@ -428,18 +428,18 @@ T\varepsilon_{\rm rate}
 \varepsilon_{65}^{\rm int},
 \varepsilon_{65}^{\rm edge}
 \}.
-\]
+```
 
 非空結果の理想作用重みには
 
-\[
+```math
 p_r
 \geq
 \tau_{\rm state}^{65}
 :=
 \tau_{\rm cut}-\varepsilon_A
 >0
-\]
+```
 
 という安全下限を与える。
 
@@ -460,11 +460,11 @@ R181Dが上流selectorに要求する共通契約を、完全結果集合 $\{0,1
 
 M65では
 
-\[
+```math
 \varepsilon_{\rm sel}=\varepsilon_{65},
 \qquad
 \tau_{\rm state}=\tau_{\rm state}^{65}
-\]
+```
 
 と取れば上のbinary selector contractを満たす。従ってR181Dをselector非依存の形で適用できる。
 
@@ -478,7 +478,7 @@ M65では
 
 Q1ではR189Aの保持済み作用 $A_L,A_R$ をM65へ入力できる。R189A作用比誤差を $\varepsilon_{189A}$、M65 selector誤差を $\varepsilon_{65}^{\rm mid}$、保持中心時刻からR181D完了までのRabi重み変化を $\varepsilon_{\rm lat}$ とすれば、
 
-\[
+```math
 \varepsilon_{189B,65}^{\rm dist}
 \leq
 \varepsilon_{189A}
@@ -486,28 +486,28 @@ Q1ではR189Aの保持済み作用 $A_L,A_R$ をM65へ入力できる。R189A作
 \varepsilon_{65}^{\rm mid}
 +
 \varepsilon_{\rm lat}.
-\]
+```
 
 M65 decision時間を $T_{65}$ とすると、固定有限回Zeno証人では
 
-\[
+```math
 \Omega_\kappa T_{65}\longrightarrow0
-\]
+```
 
 の弱結合極で追加latencyを任意に小さくできる。この結果は互換性を示すもので、本draftのQ1 fixed-goal witnessをR193/R191から切り替えない。
 
 Q2-4では二結果node数を $m$、全読出し誤差予算を $\epsilon$ とする。各nodeのmixing項へ $O(\epsilon/m)$ を割り当てる十分条件は
 
-\[
+```math
 T_{\rm node}
 \geq
 \frac1\Lambda
 \log\frac{Cm}{\epsilon}.
-\]
+```
 
 さらに
 
-\[
+```math
 \frac{\Lambda}{\kappa a_{\min}}
 =
 O\left(\frac{\epsilon}{m}\right),
@@ -518,18 +518,18 @@ O\left(\frac{\epsilon}{m}\right),
 T_{\rm node}\varepsilon_{\rm rate}
 =
 O\left(\frac{\epsilon}{m}\right)
-\]
+```
 
 を一様に満たすとする。$m,\Lambda^{-1},\kappa^{-1},a_{\min}^{-1}$ と必要な固定装置precisionが $n,d,1/\epsilon$ の多項式で抑えられるなら、
 
-\[
+```math
 T_{\rm read,total}
 =
 O\left(
 \frac{m}{\Lambda}
 \log\frac{m}{\epsilon}
 \right)
-\]
+```
 
 は多項式である。
 
