@@ -1,3 +1,11 @@
+## draft-121：固定目標の一試行物理interface原則への統一
+
+- PROJECT_STANCE / PROJECT_GUIDE / PROJECT_STATUSで、一試行物理interface、固定有限深さのfresh補助資源、永久記録・reset・物理clock・renewalをM0へ分離する規約を同期する。
+- Q2-1、Q2-2、Q2-3、Q3-4A、Q3-4B、Q3-5を既存結果へ照合し、解析量・集団統計の再注入なしに同じ一試行の物理状態が下流へ渡ることを本文・付録で確認する。
+- Q2-4は一様装置族とR186資源・ノイズ条件を固定目標自身の例外条件として維持し、Q3-6とM0は未達のままとする。A1/A2/B/S判定は変更しない。
+- `tools/migrations/check_draft121_single_trial_fixed_goal_policy.py` で新ラベルと旧full-device残件文言の不在を検査する。
+- required/candidate physics checksは既存定理・数式が変わっていないことの回帰として実行し、paper.md / main.tex / paper.pdf は章別正本から再生成する。
+
 ## draft-120：R191/R193退役・M65 fixed-goal主線化
 
 - Q1/Q2 fixed-goalの2結果selectorをM65/R204D--R204Fへ切り替え、R181D/R192/R179/R180A--R180Cの既存binary-selector interfaceへ接続する。
