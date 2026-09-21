@@ -70,90 +70,33 @@ Bell型統計では、固定一重項型の4モード信号にA側の設定を�
 
 ### 3. 空間を動く粒子
 
-Q3の信号部分系はQ1/Q2と無関係な別の数理を導入するものではありません。Q1で使うものと同じ局所実正準モードを空間の各点へ並べ、Q2で用いるのと同型の2体系エルミート結合を隣接点の間へ入れると、グラフLaplacian型のSchrödinger伝播と局所確率流が生じます。
+Q3のsignal部分系はM37/R86で実装する。各空間点の局所実正準モードと隣接結合からSchrödinger型の空間包絡と局所currentを得る。M64はこのsignalへ一つのclassical tracerと一つのsignal-driven thermal reservoirを接続する現行Q3 open modelである。
 
 各edge $e=\{i,j\}$ で
 
 ```math
-C_{e,+}=\frac{Z_i-iZ_j}{\sqrt2},
+C_{e,+}
+=
+\frac{Z_i-iZ_j}{\sqrt2},
 \qquad
-C_{e,-}=\frac{Z_i+iZ_j}{\sqrt2},
-\qquad
-I_{e,\pm}=|C_{e,\pm}|^2
+C_{e,-}
+=
+\frac{Z_i+iZ_j}{\sqrt2},
 ```
 
 と置くと、
 
 ```math
-I_{e,+}+I_{e,-}=|Z_i|^2+|Z_j|^2,
+I_{e,+}+I_{e,-}
+=
+|Z_i|^2+|Z_j|^2,
 \qquad
-I_{e,+}-I_{e,-}=2\operatorname{Im}(Z_i^*Z_j)
+I_{e,+}-I_{e,-}
+=
+2\operatorname{Im}(Z_i^*Z_j)
 ```
 
-が厳密に成り立ちます。Nelson関係 $\mathcal J_0=2m\nu$ の下では
-
-```math
-J_{ij}^{\rm sig}=\frac{\nu}{a^2}(I_+-I_-),
-\qquad
-u_{ij}^{\rm sig}=\frac{2\nu}{a}\frac{I_+-I_-}{I_++I_-}
-```
-
-となるため、signal currentを位相測定や外部除算で計算する必要はありません。
-
-M60では、M37から得る $+$ と $-$ のchiral成分を一つの二成分Hamiltonian媒体へ受動的に結合します。この媒体は同じ $b_{\pm n}$ 自由度を持ち、tracer近傍のnonlinear coreではDuffing shellを熱化するaction reservoirとして、leadでは $+$ が右向き、$-$ が左向きのballistic carrierとして働きます。reservoirとwaveguideを別々の物理装置として置きません。
-
-leadから来る左右のenergy densityを局所bath cellの可動COM $Y_e$ の左右へ入射させると、wave pressureの釣合いは
-
-```math
-\frac{U_e}{c}
-=\beta_*(r)
-=\frac{r}{1+\sqrt{1-r^2}},
-\qquad
-r=\frac{I_+-I_-}{I_++I_-}
-```
-
-という唯一安定なbath-frame速度を作ります。chiral媒体そのものへ非平衡FDTを課すことはしません。
-
-実在tracer $X$ は、この $Y_e$ と共に並進する通常の平衡oscillator bathへ結合します。tracerのBrownian noiseとFDTはこの平衡bathが担います。一方、osmotic driftを与える2作用Gibbs shellは、tracerに付随する実2-mode Duffing内部自由度をM60のnonlinear coreへ弱結合し、そのmicrocanonical周辺化とfinite-time mixingから導きます。periodic potentialのhomogenizationに
-
-```math
-D_0=\frac{\nu}{g_K},
-\qquad
-g_Kc=\frac{4\nu}{a}
-```
-
-を課すと、coarse-grained diffusionは $\nu$、current driftは $j/\rho+O(a^2)$、osmotic driftは $\nu\partial_x\log\rho$ となります。
-
-構造としては
-
-```text
-M37/M54の空間信号 Z
-        ↓ R195A
-   chiral I±
-        ↓ M60 passive port
-統一chiral媒体 ─ nonlinear core → Duffing 2-action shell
-        │
-        └ ballistic lead → R196A → moving bath frame U
-                                      ↓ R196B
-                          equilibrium Brownian bath → tracer X_t
-                                      ↓ R196C / R161
-                              ideal Q3位置生成子
-                                      ↓ R185
-                         Nelson / time-symmetric Newton
-```
-
-となります。R161は共通数学interfaceであり、有限状態のcanonical Markov経路法則まで自身で定めます。R162はその法則を独立Poisson random measuresで具体化したoptional stochastic referenceとして残し、Q3-2の達成根拠やM60の基礎的物理実体とは扱いません。
-
-### 4. Q3のミクロ物理正本と代替研究線
-
-Q3の最深ミクロ物理正本はM61です。M61は、一つのmultiband Hamiltonian媒体と一つの複合mobile subsystemを時間非依存な $H_{61}$ へまとめます。R200CがM37 signalと二成分chiral sectorを同一媒体へ載せ、R200Aがmoving branch converterをHamiltonian化し、R200Bが内部harmonic modesからmoving-frame GLE/FDTを導きます。M60はM61から得る共通縮約層として残し、R198Aがtracerに付随する実2-mode Duffingから2-action shellを導き、R198B--R198Dが同じ二成分chiral媒体のnonlinear coreを有限reservoirとして接続します。R199Aは、その同じ媒体をballistic leadとして同時に使える有限時間windowを管理します。R195A/R196A--R196CはM60のtransport reductionとして、signal currentからmoving bath-frame、平衡GLE/FDT、R161位置生成子までを接続します。
-
-R199Bでは、同じDuffing pairの作用和 $S=K_++K_-$ にstate count、作用差 $D=K_+-K_-$ にchiral current情報を持たせられることも調べます。ただし、これはM60の統合強化であり、Q3-2固定達成の必須依存にはしていません。
-
-
-### M64：3実体に絞ったpromotion-ready開放系候補
-
-M64ではQ3の物理的実体をM37型classical coherent signal、一つのclassical tracer、一つのsignal-driven thermal reservoirの三つに絞る。複素包絡 $Z$、密度 $\rho$、current $j$、reservoir mean flow $U$ は派生量またはcollective variableである。
+が厳密に成り立つ。R203Aはこのlocal情報をregularized current velocity $v_\delta$ へ接続する。
 
 signal densityはreservoir phase volumeを変え、R203Bから
 
@@ -165,7 +108,7 @@ F_{\rm res}
 \mathrm{const}
 ```
 
-を得る。同じreservoirのmean flowはR203Aのregularized current velocity $v_\delta$ を
+を得る。同じreservoirのmean flowは
 
 ```math
 \tau_U\dot U
@@ -173,7 +116,7 @@ F_{\rm res}
 -U+c_Jr
 ```
 
-で追跡する。initial preparationではflow-to-tracer couplingを切った同じoverdamped dynamicsにより、tracer位置をregularized signal densityへ有限時間で熱化できる。
+で $v_\delta$ を有限時間追跡する。initial preparationではflow-to-tracer couplingを切った同じopen dynamicsからregularized位置分布を有限時間で準備する。
 
 continuous profileのcanonical tracerは
 
@@ -186,10 +129,32 @@ U_X
 \nu\partial_X\log r_X^\delta
 \right]dt
 +
-\sqrt{2\nu}\,dW_t
+\sqrt{2\nu}\,dW_t.
 ```
 
-で、R203Cはideal regularized Nelson diffusionへの有限時間縮約を与える。R203Dの1次元特殊化はR185と同じR161 activityへ一致する。finite-graph profileではlocal $R_i^\delta,J_{ij},T_{ij}^\delta$ だけからR161 rateを構成でき、R125の2頂点干渉へ直接接続する。
+R203Cはこれをideal regularized diffusionへ有限時間で縮約し、R203Dの1次元specializationはR185と同じR161 activityへ一致する。Q3-2の主線は
 
-これにより、初期tracer準備、finite-time $U\to v_\delta$ tracking、R185への時間対称Newton bridge、Q3-5用finite-graph bridgeの四点は解析的に閉じた。M64はpromotion-ready replacement candidateだが、現行固定達成主線はまだM61/M60である。M60/M61の退役とrequired verifier切替は独立のpromotion更新へ分ける。A2 direct simulationは独立した強化目標であり、固定目標用promotionの必要条件にはしない。
+```text
+M37 / R86 signal
+        ↓
+M64 / R203A--R203C
+        ↓
+R203D / R161
+        ↓
+R185
+Nelson / time-symmetric Newton
+```
 
+である。
+
+finite-graph profileではlocal $R_i^\delta,J_{ij},T_{ij}^\delta$ だけからR161 rateを構成する。初期位置もconnected graph上のreversible preparation lawから有限時間で準備できる。これによりR124の有限障壁、R182のW型トンネル振動、R125の2経路干渉を同じclassical tracerの位置読出しへ接続する。
+
+M60/M61のDuffing shell、chiral-medium、ballistic lead、single-Hamiltonian parentは、より複雑な旧Hamiltonian実装として現行論文主線から退役する。Git履歴には残すが、固定目標の達成根拠やrequired検算には使わない。
+
+### 4. Q3の現行物理正本と強化課題
+
+Q3-1のSchrödinger型signalはM37/R86を達成証人とする。Q3-2以降の位置過程はM64/R203A--R203Dを現行正本とする。物理的実体はM37型classical coherent signal、一つのclassical tracer、一つのsignal-driven thermal reservoirの三つである。複素包絡 $Z$、密度、current、reservoir mean flowは派生量またはcollective variableである。
+
+M64ではprocess-law reduction errorとR185のNewton force residualを別々に管理する。finite-graphではinitial preparation、generator実装、終位置recordを $\varepsilon_{64,G}$ に一度ずつ数える。
+
+A1/A2は固定目標とは独立に監査する。M64の正式昇格だけからA1/A2を自動的に達成へ上げない。A2ではM37 signal、preparation、mean-flow relaxation、canonical tracer SDEまたはfinite-graph jump lawを同一parameter setで直接発展・標本化する。Hamiltonian lift、finite bath、finite-bandwidth noise、underdamped lift、continuous-space一様極限、多粒子拡張、clock・record・resetまでの単一反復装置統合は強化課題として残る。
