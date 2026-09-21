@@ -151,86 +151,45 @@ Q3の最深ミクロ物理正本はM61です。M61は、一つのmultiband Hamil
 R199Bでは、同じDuffing pairの作用和 $S=K_++K_-$ にstate count、作用差 $D=K_+-K_-$ にchiral current情報を持たせられることも調べます。ただし、これはM60の統合強化であり、Q3-2固定達成の必須依存にはしていません。
 
 
-### M64：3実体に絞った最小開放系候補
+### M64：3実体に絞ったpromotion-ready開放系候補
 
-M64では、Q3の物理的な実体を次の三つに絞ります。
+M64ではQ3の物理的実体をM37型classical coherent signal、一つのclassical tracer、一つのsignal-driven thermal reservoirの三つに絞る。複素包絡 $Z$、密度 $\rho$、current $j$、reservoir mean flow $U$ は派生量またはcollective variableである。
 
-- M37型のclassical coherent signal
-- 実在tracer $X$
-- signal-driven moving thermal reservoir
-
-複素包絡 $Z$、密度 $\rho$、流れ $j$、reservoirのlocal mean flow $U$ はこれらから作る派生量です。density reservoir、current-frame transducer、thermal noise sourceを別々の物体として置かず、一つのmoving thermal reservoirの異なる役割としてまとめます。
-
-signal densityはreservoirのphase volumeを変えます。M64/R203Bでは、reservoir座標のscaleを $\rho$ に応じて変えると、条件付きinternal free energyが
+signal densityはreservoir phase volumeを変え、R203Bから
 
 ```math
 F_{\rm res}
 =
--k_BT\log\rho
+-k_BT\log r_X^\delta
 +
 \mathrm{const}
 ```
 
-となります。一方、signal currentはreservoirのmean flow
+を得る。同じreservoirのmean flowはR203Aのregularized current velocity $v_\delta$ を
 
 ```math
-U
-\simeq
-\frac j\rho
+\tau_U\dot U
+=
+-U+c_Jr
 ```
 
-を駆動します。mean flowは運動量分布の平行移動なので、上のfree-energy identityを壊しません。
+で追跡する。initial preparationではflow-to-tracer couplingを切った同じoverdamped dynamicsにより、tracer位置をregularized signal densityへ有限時間で熱化できる。
 
-同じreservoir中のtracerに通常の摩擦と熱雑音を作用させ、overdamped極を取るとR203Cで
+continuous profileのcanonical tracerは
 
 ```math
 dX_t
 =
 \left[
-\frac j\rho
+U_X
 +
-\nu\partial_x\log\rho
+\nu\partial_X\log r_X^\delta
 \right]dt
 +
 \sqrt{2\nu}\,dW_t
 ```
 
-を得ます。R203Dではこのsmooth diffusionを一様cellへ直接有限体積化し、R161のMarkov chainへ $O(a^2)$ で接続します。そのためM64本体では、PN hoppingやEyring--Kramers縮約を必須にしません。
+で、R203Cはideal regularized Nelson diffusionへの有限時間縮約を与える。R203Dの1次元特殊化はR185と同じR161 activityへ一致する。finite-graph profileではlocal $R_i^\delta,J_{ij},T_{ij}^\delta$ だけからR161 rateを構成でき、R125の2頂点干渉へ直接接続する。
 
-M64はM60/M61主線を整理して置換することを目指す次期候補です。ただしM64はまだreplacement candidateであり、現行M61/M60主線、固定目標や強化目標の判定は切り替えません。
+これにより、初期tracer準備、finite-time $U\to v_\delta$ tracking、R185への時間対称Newton bridge、Q3-5用finite-graph bridgeの四点は解析的に閉じた。M64はpromotion-ready replacement candidateだが、現行固定達成主線はまだM61/M60である。M60/M61の退役とrequired verifier切替は独立のpromotion更新へ分ける。A2 direct simulationは独立した強化目標であり、固定目標用promotionの必要条件にはしない。
 
-## 現在どこまでできているか
-
-Q1では、2モード可逆操作、Born型2結果測定、同軸反復、異軸逐次測定、有限Rabi--Zeno証人まで構成しています。
-
-Q2では、2量子ビット型結合操作、3部分系の二段ゲート合成、非空間分離Bell型統計、一般回路の出力標本化を条件付きで構成しています。主な残件は、読出し、射影成分の振り分け、作用安定化、リセットなどを一つの具体的な装置へ統合することと、一般回路での物理配線・較正・揺らぎ条件を閉じることです。
-
-Q3では、M61がM37 signal、二成分chiral mode族、実2-mode Duffing、moving coordinate、tracer、内部harmonic bathを一つの時間非依存Hamiltonianへまとめ、M60をその共通縮約層として使います。R198A--R198CでDuffingから2-action Gibbs shellまでの静的Hamiltonian持上げを構成し、R198Dでfinite-time core mixing条件、R199Aでcore--lead同時使用条件を明示します。signal marginalはR86のSchrödinger型有効力学、tracerまで含めるとR196A--R196C、R161、R185を通してNelson型の時間対称Newton則へ縮約します。R198Dの具体的mixing witnessとR199Aの具体的同時parameter witnessは強化目標A1の残件です。
-
-正式な達成判定、根拠結果、残っている条件は [PROJECT_STATUS.md](PROJECT_STATUS.md) を正本とします。
-
-固定目標とは別に、全Q1--Q3について具体的古典ミクロ模型とその直接数値再現、Q1/Q2についてアナログ回路・実験可能パラメータ領域・回路直接シミュレーション、Q2-2について空間隔離を強める研究軸を [ENHANCEMENT_TARGETS.md](ENHANCEMENT_TARGETS.md) で管理しています。これらは固定目標の達成ラベルと独立です。理論側では規約を明示した採用開放SDEと理想白色雑音を認め、回路実装では有限帯域雑音へ落とします。
-
-## この研究が主張しないこと
-
-- 量子力学全体を古典力学から導出したとは主張しません。
-- 空間分離されたBell局所模型を構成したとは主張しません。
-- 指数的な内部自由度を除去した、または通常の意味で効率的な古典計算を得たとは主張しません。
-- Q1、Q2、Q3の全部品を一台の完成した物理装置へ統合したとは主張しません。
-- M60について連続空間の一様極限、多粒子、全周期のsource--clock--record統合、具体的core mixing witnessまで閉じたとは主張しません。
-
-再現できた構造と、追加仮定が必要な構造、まだ未完成な構造を分けて記述することを重視しています。
-
-## 読む順番
-
-- [論文PDF](paper.pdf)
-- [証明状態と理論の境界](PROJECT_STATUS.md)
-- [固定目標に付随する強化目標](ENHANCEMENT_TARGETS.md)
-- [プロジェクトの長期的方針](PROJECT_STANCE.md)
-- [論文リポジトリの構成・執筆・更新規約](PROJECT_GUIDE.md)
-- [論文用語と標準表記](TERMINOLOGY.md)
-- [検算と品質確認](VALIDATION.md)
-- [現行版のファイル一覧](MANIFEST.md)
-- [論文外の研究メモ](notes/README.md)
-
-論文本文の編集対象は `sections/` 以下です。`paper.md`、`main.tex`、`paper.pdf` は生成物として同期します。
