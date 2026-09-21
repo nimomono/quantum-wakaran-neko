@@ -1,7 +1,7 @@
 @number: 5
 @chapter: 本文
 @title: M54駆動逐次2端binary-selector受信機構とBell前提監査
-@status: 固定一重項4モード信号をA設定で分解し、A端binary selectorの結果成分をprojector routerでB端へ直接渡し、B設定後のB端selectorと組み合わせる。R180A/R180Cをselector内部物理から独立化する。現行fixed-goal証人はA/B両端R191を維持する。
+@status: 固定一重項4モード信号をA設定で分解し、A端M65の結果成分をprojector routerでB端へ直接渡し、B設定後のB端M65と組み合わせる。R180A/R180Cは共通binary selector contractに依存し、現行fixed-goal証人としてA/B両端M65を採用する。
 
 ## 5.1 目的と模型の境界
 
@@ -32,13 +32,13 @@ Z\neq0
 1. M54で固定一重項型末端信号 $Z$ を作る。
 2. 設定生成器から $x,y$ を得る。
 3. A側basis gate $U_x^\dagger\otimes I$ を同じ4モード信号へ作用する。
-4. A結果射影作用 $J_{A,\pm}$ を保持し、A端binary selectorを走らせて $r$ を固定・記録する。現行証人ではR191を使う。
+4. A結果射影作用 $J_{A,\pm}$ を保持し、A端M65を走らせて $r$ を固定・記録する。
 5. R181Dと同じprojector routerで非規格化結果成分 $P_{A,r}^{x}Z$ をB端へ渡す。
 6. B端で $I\otimes U_y^\dagger$ を作用し、B結果射影作用を保持する。
-7. B端binary selectorを走らせて $s$ を固定・記録する。現行証人ではR191を使う。
+7. B端M65を走らせて $s$ を固定・記録する。
 8. 外部記録を残し、必要な能動部をR179のopen resetへ渡す。
 
-A端とB端は別々のbinary selectorと記録を持つ。現行証人では各selectorをR191のBrownian macrospinで実装する。結果成分の物理転送があるため本装置は非空間分離である。
+A端とB端は別々のM65 open selectorと有限recordを持つ。結果成分の物理転送があるため本装置は非空間分離である。
 
 ## 5.3 A端特殊化：binary selectorとR181Dから従うR180A
 
@@ -150,4 +150,4 @@ A端結果成分がB端へ物理的に渡るため、現行証人ではBell局�
 
 R180Bのpaired-Hopf再準備、中央潜在結果を2翼へ複製する工程、切断後のA側再読出しは現行必須主線に使わない。これらは `notes/superseded_q2_2_paired_hopf_receiver.md` と退役付録へ保存する。
 
-Q2-2で新たに使う確率源はない。共同確率はbinary selector contractとR181Dの逐次Lüders telescopingから得る。本draftのfixed-goal証人ではA端・B端ともR191を用い、M65への実装切替は行わない。Q2-2の条件付き達成ラベルは維持する。現行R180C証人が非空間分離であることと、Q2-2固定目標自体が特定のBell前提違反を指定しないことを区別する。空間隔離をどこまで強められるかは `Q2-2-S` の独立強化課題とする。
+Q2-2で新たに使う確率源はない。共同確率はbinary selector contractとR181Dの逐次Lüders telescopingから得る。fixed-goalの現行証人ではA端・B端ともM65を用いる。Q2-2の条件付き達成ラベルは維持する。現行R180C証人が非空間分離であることと、Q2-2固定目標自体が特定のBell前提違反を指定しないことを区別する。空間隔離をどこまで強められるかは `Q2-2-S` の独立強化課題とする。
