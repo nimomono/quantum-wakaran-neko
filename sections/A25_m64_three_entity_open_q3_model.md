@@ -20,7 +20,7 @@ tracer configurationには二つの特殊化を許す。
 
 両profileは別の粒子実体を導入せず、同じsignal density/currentから同じphase-volume/current-reservoir責務を読むM64模型族の特殊化である。M64本体ではkink、domain wall、Duffing shell、PN well、Eyring--Kramers hoppingをtracerの定義に要求しない。
 
-M64は採用open SDEまたはfinite-state jump lawを正本とする。single-field Hamiltonian化、finite-bath化、current transducerの完全Hamiltonian散乱導出、underdamped lift、metric-graph連続極は独立strengtheningとする。
+M64では、開放SDEまたはfinite-state jump lawを基本発展則として直接定める。single-field Hamiltonian化、finite-bath化、current transducerの完全Hamiltonian散乱導出、underdamped lift、metric-graph連続極は独立strengtheningとする。
 
 ## Y.2 regularized signal density/currentと局所補間
 
