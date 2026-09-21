@@ -1,3 +1,13 @@
+## draft-112：M64正式昇格・M60/M61退役
+
+- M64/R203A--R203DをQ3の現行三実体open modelへ昇格し、continuous profileをR161/R185へ、finite-graph profileをR124/R182/R125位置読出しへ接続した。
+- finite-graph initial preparation、Markov contraction、generator実装誤差、Q3-4A/B/5のregularized readout余裕を正本化した。
+- sections/A22_m57_dual_tl_tracer_microphysics.md、sections/A23_q3_common_micro_model.md、sections/A24_m61_single_hamiltonian_micro_model.md を現行paper treeから削除し、M60/M61を旧Hamiltonian実装としてGit履歴へ退役した。
+- M64のreservoir partition、current dictionary、initial preparation/tracking、canonical overdamped flux、1D finite-volume R161、finite-graph R161/readoutの6検算をrequiredへ昇格した。
+- M60/M61専用の verify_m57_ballistic_tracer.py、verify_q3_common_micro_model.py、verify_m61_single_hamiltonian.py と関連candidate checksを現行treeから削除した。
+- 固定目標の達成ラベル、Q3-1-A1/Q3-2-A1部分達成、Q3-1-A2/Q3-2-A2未監査は変更しない。
+- paper.md、main.tex、paper.pdf を新しいsection treeから再生成する。
+
 ## draft-111：M64 promotion bridge完成
 
 - R203AのregularizationをR185と共通の $\rho_\delta,J_\delta,v_\delta$ へ揃え、R203Bにfinite-time initial tracer preparationとmean-flow tracking boundを追加した。
