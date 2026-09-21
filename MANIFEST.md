@@ -1,3 +1,11 @@
+## draft-113：M64昇格後の整合cleanup
+
+- A25のconfiguration profile割当と $\varepsilon_{\rm prep}^{W_1}$ 定義を整合させる。
+- ENHANCEMENT_TARGETSでQ3-1-A1とQ3-2-A1の候補責務を分離し、判定は変更しない。
+- PROJECT_STATUSとnotes/READMEの旧主線に関する現在形表現だけを修正し、過去draft履歴は保持する。
+- M64/R203A--R203D、R161/R185の理論内容とrequired verifierは変更しない。
+- paper.md、main.tex、paper.pdf を修正後のsection treeから再生成する。
+
 ## draft-112：M64正式昇格・M60/M61退役
 
 - M64/R203A--R203DをQ3の現行open modelへ昇格し、M37/R86 signal、R161/R185、R124/R182/R125位置読出しへ正本接続する。
