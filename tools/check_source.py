@@ -177,6 +177,37 @@ def check_verifier_boundary() -> None:
         )
 
 
+def check_m0_policy() -> None:
+    status = (ROOT / "PROJECT_STATUS.md").read_text(encoding="utf-8")
+    guide = (ROOT / "PROJECT_GUIDE.md").read_text(encoding="utf-8")
+    enhancements = (ROOT / "ENHANCEMENT_TARGETS.md").read_text(encoding="utf-8")
+
+    required_status = (
+        "joint microscopic device/process",
+        "採用開放古典ミクロ方程式",
+        "Hamiltonian無限浴への持上げ",
+        "M0達成判定",
+    )
+    missing = [token for token in required_status if token not in status]
+    if missing:
+        raise AssertionError("M0 open-device policy is incomplete in PROJECT_STATUS: " + ", ".join(missing))
+
+    if "M0の強さはHamiltonian性ではなく統合範囲" not in guide:
+        raise AssertionError("PROJECT_GUIDE does not distinguish M0 integration scope from Hamiltonian strength")
+    if "Hamiltonian無限浴への持上げを必須にしない" not in enhancements:
+        raise AssertionError("ENHANCEMENT_TARGETS does not separate Hamiltonian lift from M0")
+
+    forbidden_active = (
+        "M0本体では有限な能動部分系、共通接続部、明示的なHamiltonian無限浴",
+        "有限な能動部分系と明示的なHamiltonian無限浴からなる単一ミクロ装置と共通反復周期へ統合する",
+    )
+    for path in (ROOT / "PROJECT_STATUS.md", ROOT / "PROJECT_GUIDE.md", ROOT / "ENHANCEMENT_TARGETS.md"):
+        text = path.read_text(encoding="utf-8")
+        hits = [token for token in forbidden_active if token in text]
+        if hits:
+            raise AssertionError(f"legacy M0 Hamiltonian-bath requirement remains in {path.name}: " + ", ".join(hits))
+
+
 def check_ci_read_only() -> None:
     workflow = ROOT / ".github" / "workflows" / "verify.yml"
     text = workflow.read_text(encoding="utf-8")
@@ -191,6 +222,7 @@ def main() -> None:
     fixed_ids = check_project_status()
     check_enhancement_targets(fixed_ids)
     check_verifier_boundary()
+    check_m0_policy()
     check_ci_read_only()
     print("source_check_ok")
 
