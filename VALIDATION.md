@@ -1,3 +1,11 @@
+## draft-111：M64 promotion bridge検算
+
+- M64/R203A--R203Dをpromotion-ready candidateへ更新するが、M61/M60 required verifierは本draftでは維持する。
+- `tools/candidate_checks/verify_m64_preparation_tracking.py` を追加し、phase-volume preparationの可逆定常重みとfinite-time mean-flow tracking boundを検査する。
+- `tools/candidate_checks/verify_m64_graph_r161.py` を追加し、一般finite graphで $|J_{ij}|\le T_{ij}^\delta$、rate positivity、R161 current/master equation整合、R125 regularized TV距離を検査する。
+- 既存の `verify_m64_reservoir_partition.py` と `verify_m64_r161_finite_volume.py` は引き続きcandidate回帰として使う。旧 `verify_m64_overdamped_reduction.py` はunderdamped strengtheningの参考検算として残し、canonical M64の必須責務とは扱わない。
+- candidate checksはA2 direct trajectoryの代替ではない。Q3-1/Q3-2のA1/A2判定とrequired/candidate区分はpromotion auditまで変更しない。
+
 ## draft-110：M63 candidate退役
 
 - `sections/A25_m63_topological_reservoir_q3_micro_model.md` と6本の `verify_m63_*.py` candidate checks、`simulations/m63/` を現行treeから削除する。

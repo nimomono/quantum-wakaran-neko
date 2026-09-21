@@ -1,36 +1,39 @@
 #!/usr/bin/env python3
 from __future__ import annotations
 
-import math
 import numpy as np
 
 
 def main() -> None:
-    gamma = 2.0
-    kbt = 0.7
-    nu = kbt / gamma
-    assert abs(nu - 0.35) < 1e-14
+    n = 2048
+    length = 2.0 * np.pi
+    x = np.arange(n) * length / n
+    dx = length / n
+    nu = 0.7
+    delta = 0.06
 
-    # Deterministic constant-coefficient relaxation toward B.
-    b = 0.43
-    v0 = -0.31
-    for tau in [0.2, 0.1, 0.05, 0.025]:
-        t = 1.0
-        v = b + (v0 - b) * math.exp(-t / tau)
-        assert abs(v - b) <= abs(v0 - b) * math.exp(-t / tau) + 1e-14
+    rho = 1.0 + 0.22 * np.cos(x)
+    rho /= rho.mean()
+    q0 = np.ones_like(x)
+    j = 0.28 * rho * np.sin(2.0 * x)
 
-    # Fokker--Planck consistency: b rho - nu rho_x = j.
-    n = 4096
-    x = np.linspace(0.0, 2.0 * np.pi, n, endpoint=False)
-    dx = x[1] - x[0]
-    rho = 1.0 + 0.2 * np.cos(x)
-    current = 0.17 + 0.08 * np.sin(2.0 * x)
-    rho_x = (np.roll(rho, -1) - np.roll(rho, 1)) / (2.0 * dx)
-    drift = current / rho + nu * rho_x / rho
-    reconstructed = drift * rho - nu * rho_x
-    assert np.max(np.abs(reconstructed - current)) < 1e-12
+    rho_delta = (rho + delta * q0) / (1.0 + delta)
+    j_delta = j / (1.0 + delta)
+    v_delta = j_delta / rho_delta
 
-    print("M64 R203C overdamped/Fokker-Planck checks passed")
+    rho_x = (np.roll(rho_delta, -1) - np.roll(rho_delta, 1)) / (2.0 * dx)
+    u_delta = nu * rho_x / rho_delta
+    b_delta = v_delta + u_delta
+
+    # The ideal regularized diffusion must reproduce the regularized current:
+    # b rho_delta - nu d_x rho_delta = j_delta.
+    fp_flux = b_delta * rho_delta - nu * rho_x
+    assert np.max(np.abs(fp_flux - j_delta)) < 2e-12
+
+    # The regularization keeps the density strictly positive.
+    assert np.min(rho_delta) > 0.0
+
+    print("M64 canonical overdamped regularized diffusion check passed")
 
 
 if __name__ == "__main__":

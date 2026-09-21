@@ -32,6 +32,9 @@ Q1/Q2のB3では、B1で定めた具体回路をSPICE、回路ODE/SDE、伝送�
 
 
 
-## M64 three-entity open-Q3 replacement candidate
+## M64 three-entity open-Q3 promotion-ready candidate
 
-`simulations/m64/` はM64/R203A--R203DのA2 direct simulation入口とする。M64ではM37 signal equation、reservoir mean-flow relaxation、tracer Langevin SDEを採用ミクロ方程式として同一parameter setで直接積分する。candidate checksはR203Bのpartition identity、R203Cのoverdamped/Fokker--Planck整合、R203Dのfinite-volume $O(a^2)$ convergenceだけを扱い、direct trajectory再現の代替にしない。Q3-1-A2/Q3-2-A2は未監査のままとする。
+`simulations/m64/` はM64/R203A--R203DのA2 direct simulation入口とする。continuous profileではM37 signal、initial preparation、mean-flow relaxation、canonical overdamped tracer SDEを同一parameter setで直接積分・標本化する。finite-graph profileではlocal $R_i^\delta,J_{ij},T_{ij}^\delta$ からjump lawを構成し、Q3-4A/Q3-5の経験位置分布を検査する。
+
+candidate checksはpartition identity、initial preparation、finite-time tracking、finite-volume $O(a^2)$ refinement、finite-graph R161/R125整合を扱うが、direct trajectory再現の代替にしない。Q3-1-A2/Q3-2-A2は未監査のままとし、A2は固定目標用M64 promotionの必要条件にしない。
+

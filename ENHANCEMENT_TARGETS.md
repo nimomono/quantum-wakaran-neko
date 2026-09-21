@@ -113,7 +113,7 @@ Q2-2-Sの主要な到達目標は、Bell型共同統計を維持したままS2�
 
 Q3-1-A1とQ3-2-A1は、M61/R200A--R200C/R200によりM37 signal、二成分chiral sector、moving branch converter、tracer、内部harmonic bathを一つの時間非依存Hamiltonian親模型へ統合し、M60/R198A--R198Cへ接続した。R198Dの具体的core sectorに対するfinite-time mixing/homogenization witness、R199Aのcore--lead同時parameter witness、R200A/Bのtracking--thermal-load同時parameter witnessが未閉鎖なので部分達成とする。Q3-1-A2/Q3-2-A2も未監査のままとし、candidate algebra checksだけからA2達成へ上げない。
 
-M64/R203A--R203DはQ3-1/Q3-2 A1のactive replacement candidateとして追加する。三実体open model自体はR203B--R203Dに解析核を持つが、同一parameter setでのmean-flow tracking、signal backreaction、direct SDE trajectory、R161 finite-volume収束を一体として監査するまではA1を部分達成から変更しない。A2は `simulations/m64/` のcanonical direct runnerが揃うまで未監査のままとする。M64はまだreplacement candidateであり、M61/M60主線を維持する。
+M64/R203A--R203DはQ3-1/Q3-2 A1のpromotion-ready replacement candidateである。R203B--R203Dによりinitial preparation、finite-time mean-flow tracking、canonical overdamped tracer、R161/R185、finite-graph R125への解析bridgeは閉じた。ただしA1の判定変更はM64 promotion auditで独立に行い、このdraftでは部分達成を維持する。direct SDE trajectory、標本経験分布、同一parameter setでの数値収束はA2の責務であり、固定目標用M64 promotionやA1の解析bridge成立条件へ混ぜない。A2は `simulations/m64/` のcanonical direct runnerが揃うまで未監査のままとする。
 
 ## 既存の実装強化課題との関係
 

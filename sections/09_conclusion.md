@@ -1,7 +1,7 @@
 @number: 9
 @chapter: 本文
 @title: 結論
-@status: Q1/Q2のR191系と、Q3のM61/R200A--R200C/R200--M60/R198/R199/R196--R161--R185現行階層、およびM64/R203 active三実体replacement candidateを総括する。
+@status: Q1/Q2のR191系と、Q3のM61/R200A--R200C/R200--M60/R198/R199/R196--R161--R185現行階層、およびM64/R203 promotion-ready三実体replacement candidateを総括する。
 
 本稿は、古典実正準信号の線形力学と、1試行1結果を作る開放古典instrumentを分離して構成した。有限次元Hilbert空間とunitaryを古典振動子へ写すこと自体ではなく、その同じ単一試行信号からBorn型排他的結果と測定後結果成分を作る物理接続を中心課題とした。
 
@@ -85,6 +85,6 @@ R162のopen Poisson-jump過程はM60の基礎的実体ではなく、R196C/R161�
 今回の縮約により、R184の旧M37--M54空間率latchは補助結果へ下がり、M60主線の必須依存から外れた。2-action state countはR198A--R198D/R197A、signal currentはR195A、ballistic transportはR199A・R196A--R196Cへ責務分離している。M56 Brownian-spin Q3模型はspin-only代替研究線へ位置づける。R190A--R190C、R170、旧R180Bも現行Q1/Q2主線へ戻さない。これらは反証されたのではなく、別の物理実現・強化案として `notes/` とGit履歴へ保存する。
 
 
-付録YのM64/R203A--R203Dは、A1で採用開放SDEを許す方針を使い、Q3の物理実体をM37型coherent signal、独立tracer、signal-driven moving thermal reservoirの三つへ絞る。R203Bではdensity scalingとmean flowを同じreservoirに入れても条件付きinternal free energy $-k_BT\log\rho$ が壊れないことをJacobian恒等式で示す。R203Cはconstant-$T$、constant-frictionのmoving Langevin bathから $j/\rho+\nu\partial_x\log\rho$ を得る。R203Dはsmooth diffusionをfinite-volume R161 chainへ直接接続し、PN/Eyring--Kramers縮約をM64本体から外す。M64はM60/M61主線を整理して置換することを狙うが、まだreplacement candidateであり、現行主線、強化判定、required verifierを変更しない。
+付録YのM64/R203A--R203Dは、A1で採用開放SDEを許す方針を使い、Q3の物理実体をM37型coherent signal、一つのclassical tracer、一つのsignal-driven thermal reservoirの三つへ絞る。R203Bのphase-volume Jacobianはinitial tracer distributionを同じopen dynamicsから有限時間で準備し、mean-flow collective variableはR203Aのregularized current velocityへ有限時間で追跡する。R203Cはcanonical overdamped tracerをideal regularized diffusionへ有限時間で縮約する。R203Dは1次元ではR185と同じR161 activityへ一致し、一般finite graphではlocal phase-volume/current/activityからR161 rateを作ってR125の2頂点再結合器へ接続する。これによりM64 promotion前の四つのbridgeは閉じた。M64はpromotion-readyだが、本draftでは現行M61/M60主線、強化判定、required verifierを変更しない。
 
 残る主要な物理課題は、各固定目標について具体的古典ミクロ模型A1とその直接数値再現A2を監査すること、Q1/Q2について具体的アナログ回路B1、実験可能パラメータ領域B2、回路直接数値再現B3へ進むこと、Q2-2で測定窓内の空間的・因果的隔離をどこまで強められるかQ2-2-Sで検査することにある。これと並行して、R191の作用和・作用差transducer、Brownian macrospin、projector router、外部記録、R179リセットを同じ具体装置へ統合すること、M61/M60信号源・tracerと時計、終位置記録を単一反復周期へ統合すること、Q2-4の外部多項式資源条件を物理配線・較正・雑音まで閉じること、Q3の連続空間一様極限・多粒子拡張、Q3-6の位相量子化を閉じることを上位または横断的強化課題として残す。A1では採用開放SDEと理想白色雑音を許すが、回路実装Bでは有限帯域雑音へ落とす。

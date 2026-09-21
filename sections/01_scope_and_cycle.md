@@ -1,7 +1,7 @@
 @number: 1
 @chapter: 本文
 @title: 問題設定、現行模型、達成範囲
-@status: M54をQ1・Q2・Q3の共通有効信号構成族、M37を物理信号実装層、M61をQ3単一Hamiltonian親層、M60をその共通縮約ミクロ層として区別する。M64/R203を三実体・採用開放系のactive replacement candidateとする。現行固定達成主線は置換しない。
+@status: M54をQ1・Q2・Q3の共通有効信号構成族、M37を物理信号実装層、M61をQ3単一Hamiltonian親層、M60をその共通縮約ミクロ層として区別する。M64/R203を三実体・採用開放系のpromotion-ready replacement candidateとする。現行固定達成主線は置換しない。
 
 ## 1.1 研究上の問い
 
@@ -91,7 +91,7 @@ R162のopen Poisson-jump過程はM60の基礎的実体ではなく、R161 lawの
 | M37 | 物理Hamiltonian信号実装層 | Q3空間信号を局所ばね網で実装し、R187条件下ではW型最低2正常モードをQ1 W2制御信号へ接続する |
 | M61 | Q3単一Hamiltonian親層 | 一つのmultiband媒体と一つの複合mobile subsystemを $H_{61}$ へ統合し、R200Cでsignal/chiral、R200Aでmoving branch converter、R200Bで内部harmonic bathをM60へ持ち上げる |
 | M60 | Q3共通縮約ミクロ層 | M61から得るM37 signal、実2-mode Duffing shell、二成分chiral媒体のnonlinear core/ballistic lead、moving bath-frame、平衡GLEをR198A--R198D・R199A・R195A・R196A--R196Cを介してR161へ接続する |
-| M64 | Q3三実体・開放系置換候補 | M37型coherent signal、独立tracer、signal-driven moving thermal reservoirの三実体に責務を絞る。R203Aがdensity/current辞書、R203Bがphase-volume free energy、R203Cがmoving Langevin縮約、R203Dがsmooth diffusionからR161 finite-volume chainへの直接接続を担う。現行M61/M60主線はまだ置換しない |
+| M64 | Q3三実体・開放系promotion-ready候補 | M37型coherent signal、一つのclassical tracer、signal-driven thermal reservoirの三実体に責務を絞る。R203Aがregularized density/current辞書、R203Bがphase-volume free energy・initial preparation・finite-time flow tracking、R203Cがcanonical overdamped diffusion縮約、R203Dが1次元R185と一般finite-graph R161/R125接続を担う。現行M61/M60主線はまだ置換しない |
 | M0 | 単一ミクロ装置統一目標 | Q1ではR193によりW2作用保持からmacrospin decision energyまでを具体化済み。Q3ではM37 signalからM60粒子輸送までを具体化する。macrospin浴、router、record、reset、Q2一般transducer、Q3 clock/recordを共通接続端とHamiltonian無限浴へ統合する全周期目標は未完成 |
 
 M54の複素信号 $Z$ は実正準対の派生表示であり、独立した複素実体ではない。状態方向、規格化共分散、位置分布は解析上の統計量であり、単一試行の制御器へ書き戻さない。
@@ -116,7 +116,7 @@ M54の複素信号 $Z$ は実正準対の派生表示であり、独立した複
 固定目標に付随する強化目標は `ENHANCEMENT_TARGETS.md` を正本とする。全固定目標にA1/A2、Q1/Q2にB1/B2/B3、Q2-2にQ2-2-Sを置き、固定目標の達成状態とは独立に管理する。A1では採用開放SDEと理想白色雑音を許し、A2はそのミクロ方程式自体の直接数値再現を要求する。回路強化Bでは有限帯域雑音を含む実験可能領域へ落とす。
 
 
-付録YのM64/R203A--R203Dは、A1で採用開放SDEを許す現行方針を使ってQ3因果鎖を最小化するactive replacement candidateである。density port、current-frame collective flow、friction/noiseを一つのmoving thermal reservoirへ統合し、PN/Eyring--Kramers経路を必須にせずR161 finite-volume interfaceへ接続する。M64はまだreplacement candidateであり、A1/A2状態、固定達成判定、M61/M60 required verifierを変更しない。
+付録YのM64/R203A--R203Dは、A1で採用開放SDEを許す現行方針を使ってQ3因果鎖を最小化するpromotion-ready replacement candidateである。initial tracer preparation、finite-time $U\to v_\delta$ tracking、canonical overdamped processからR185への受渡し、finite-graph R125接続を同じ三実体模型内で閉じた。M64はpromotion-readyだが、本draftではA1/A2状態、固定達成判定、M61/M60 required verifierを変更しない。A2 direct simulationはpromotion条件と分離して監査する。
 
 ## 1.6 非主張
 
