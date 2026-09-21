@@ -512,32 +512,33 @@ B.5の漏れ確率を全変動距離へ直接加える旧評価は採用しな�
 優先順は、物理係数の対応、静的Rabi、有限傾斜列、準備・読出し境界、共同信号系への接続、同一装置の統合である。ゲート列からの有効伝播は補助実装として研究メモで管理し、Q3全過程の独立導出とは呼ばない。
 
 
+
 ## M65 candidate の誤差・資源台帳
 
 M65/R204A--R204Fは現行R191/R193とは別のreplacement candidateとして誤差を管理する。通常経路の候補上界は
 
 ```math
-arepsilon_{65}^{m int}
+\varepsilon_{65}^{\rm int}
 =
-arepsilon_A
+\varepsilon_A
 +
-arepsilon_{204C}(T)
+\varepsilon_{204C}(T)
 +
-e^{-Lambda T}
+e^{-\Lambda T}
 +
-rac{chi}{1+chi}
+\frac{\chi}{1+\chi}
 +
-arepsilon_{m rec},
+\varepsilon_{\rm rec},
 ```
 
 endpointは
 
 ```math
-arepsilon_{65}^{m edge}
-le
-	au_{m cut}
-+arepsilon_A
-+arepsilon_{m edge}.
+\varepsilon_{65}^{\rm edge}
+\le
+\tau_{\rm cut}
++\varepsilon_A
++\varepsilon_{\rm edge}.
 ```
 
 R204Cの縮約誤差はbath、overdamped、phase-volume tracking、tube、lumping、calibrationを分けて保持し、R191固有のmixing/guard/LLG-retreat誤差と同じ試行で重複加算しない。
@@ -545,12 +546,12 @@ R204Cの縮約誤差はbath、overdamped、phase-volume tracking、tube、lumpin
 Q2-4で二結果node数 $m$ が多項式なら、
 
 ```math
-T_{m read,total}
+T_{\rm read,total}
 =
-Oleft(
-rac{m}{Lambda}
-lograc{m}{epsilon}
-ight)
+O\left(
+\frac{m}{\Lambda}
+\log\frac{m}{\epsilon}
+\right)
 ```
 
-がcandidate十分条件である。$Lambda^{-1}$ とR204Cのtime-scale separationが多項式で、$chi$ と各node誤差を $O(epsilon/m)$ に選べればM65固有readoutから指数時間は生じない。ただしR186の指数個mode additive-noise障害、R192を含むabsolute-action range、総熱、reset、製造公差の一様統合は残る。
+がcandidate十分条件である。$\Lambda^{-1}$ とR204Cのtime-scale separationが多項式で、$\chi$ と各node誤差を $O(\epsilon/m)$ に選べればM65固有readoutから指数時間は生じない。ただしR186の指数個mode additive-noise障害、R192を含むabsolute-action range、総熱、reset、製造公差の一様統合は残る。
