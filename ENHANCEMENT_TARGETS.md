@@ -99,21 +99,21 @@ Q2-2-Sの主要な到達目標は、Bell型共同統計を維持したままS2�
 | Q2-2 | 未監査 | 未監査 | 未監査 | 未監査 | 未監査 | 未監査 | R180A、R180C、R191 |
 | Q2-3 | 未監査 | 未監査 | 未監査 | 未監査 | 未監査 | — | M54、R177、R181B--R181D、R191 |
 | Q2-4 | 未監査 | 未監査 | 未監査 | 未監査 | 未監査 | — | M54、R179、R181C--R181D、R186、R191、R192 |
-| Q3-1 | 部分達成 | 未監査 | — | — | — | — | M37、R86、M61、R200A--R200C、R200、M60、R198A--R198D、R199A、M64、R203A--R203B |
-| Q3-2 | 部分達成 | 未監査 | — | — | — | — | M61、R200A--R200C、R200、M60、R195A、R196A--R196C、R198A--R198D、R199A、R161、R185、M64、R203A--R203D |
+| Q3-1 | 部分達成 | 未監査 | — | — | — | — | M37、R86、M64、R203A--R203B |
+| Q3-2 | 部分達成 | 未監査 | — | — | — | — | M37、R86、M64、R203A--R203D、R161、R185 |
 | Q3-3A | 未監査 | 未監査 | — | — | — | — | M37、R123 |
 | Q3-3B | 未監査 | 未監査 | — | — | — | — | M37、R123 |
 | Q3-3C | 未監査 | 未監査 | — | — | — | — | M37、R123、R182 |
-| Q3-4A | 未監査 | 未監査 | — | — | — | — | M37、M60、R124、R196C |
-| Q3-4B | 未監査 | 未監査 | — | — | — | — | M37、M60、R182、R196C |
-| Q3-5 | 未監査 | 未監査 | — | — | — | — | M37、M60、R125、R196C |
+| Q3-4A | 未監査 | 未監査 | — | — | — | — | M37、M64、R124、R203D |
+| Q3-4B | 未監査 | 未監査 | — | — | — | — | M37、M64、R182、R203D |
+| Q3-5 | 未監査 | 未監査 | — | — | — | — | M37、M64、R125、R203D |
 | Q3-6 | 未監査 | 未監査 | — | — | — | — | 完結候補なし |
 
 ここで「主な既存候補」は強化目標の達成を意味せず、新基準を監査するときの出発点だけを示す。
 
-Q3-1-A1とQ3-2-A1は、M61/R200A--R200C/R200によりM37 signal、二成分chiral sector、moving branch converter、tracer、内部harmonic bathを一つの時間非依存Hamiltonian親模型へ統合し、M60/R198A--R198Cへ接続した。R198Dの具体的core sectorに対するfinite-time mixing/homogenization witness、R199Aのcore--lead同時parameter witness、R200A/Bのtracking--thermal-load同時parameter witnessが未閉鎖なので部分達成とする。Q3-1-A2/Q3-2-A2も未監査のままとし、candidate algebra checksだけからA2達成へ上げない。
+Q3-1-A1とQ3-2-A1の現行候補はM37/R86とM64/R203A--R203Dである。M64は固定目標用Q3主線へ昇格するが、強化目標A1は独立基準なので本draftでは部分達成を維持する。今後は、採用open mean-flow law、finite-graph jump law、signal--reservoir couplingをA1の「一つの具体的物理模型」としてどこまで閉じているかを独立に監査する。旧M60/M61固有のcore mixing、core--lead window、single-Hamiltonian parentはA1現行残件から外す。
 
-M64/R203A--R203DはQ3-1/Q3-2 A1のpromotion-ready replacement candidateである。R203B--R203Dによりinitial preparation、finite-time mean-flow tracking、canonical overdamped tracer、R161/R185、finite-graph R125への解析bridgeは閉じた。ただしA1の判定変更はM64 promotion auditで独立に行い、このdraftでは部分達成を維持する。direct SDE trajectory、標本経験分布、同一parameter setでの数値収束はA2の責務であり、固定目標用M64 promotionやA1の解析bridge成立条件へ混ぜない。A2は `simulations/m64/` のcanonical direct runnerが揃うまで未監査のままとする。
+Q3-1-A2/Q3-2-A2は未監査のままとする。direct SDE trajectory、標本経験分布、同一parameter setでの数値収束はA2の責務であり、固定目標用M64昇格やA1の解析bridge成立条件へ混ぜない。A2は `simulations/m64/` のcanonical direct runnerが揃うまで未監査とする。
 
 ## 既存の実装強化課題との関係
 
@@ -123,6 +123,6 @@ M64/R203A--R203DはQ3-1/Q3-2 A1のpromotion-ready replacement candidateである
 
 これらは固定目標の既存達成ラベルを変更しない。逆に、既存の解析証明または有効模型の数値検証だけから強化目標を自動的に達成としない。
 
-従来の強化課題であるQ1/Q2の完全周期収支、共通浴統合、M60 common process--時計--終位置記録--resetの単一反復周期統合、連続空間一様極限、多粒子拡張、有限閉鎖Hamiltonian化は引き続き保持する。これらはA/B/Sの横断的または上位の実装強化課題として管理する。
+従来の強化課題であるQ1/Q2の完全周期収支、共通浴統合、M64 process--時計--終位置記録--resetの単一反復周期統合、連続空間一様極限、多粒子拡張、有限閉鎖Hamiltonian化は引き続き保持する。これらはA/B/Sの横断的または上位の実装強化課題として管理する。
 
 M0は、複数の固定目標にまたがる部品を1つのミクロ装置と共通反復周期へ統合する、A1より強い統合目標として区別する。各固定目標についてA1を達成することだけではM0達成としない。
