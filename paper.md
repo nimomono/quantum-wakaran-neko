@@ -77,7 +77,7 @@ L_{\rm R161}
 R200CはM37 signalとM60 chiral sectorを一つのmultiband媒体へ載せ、R200Aはmoving branch converterをHamiltonian化し、R200Bは内部harmonic continuumからrelative-coordinate GLE/FDTを導く。R199AはM60の同一chiral媒体からballistic leadを有限時間で分離してincident energyへ接続し、R196Aはそのwave pressureだけでmoving bath frameを作る。chiral媒体のthermalizationをleadへ課したり、drifting-Gibbsや非平衡FDTを仮定したりしない。R196Bでは別の平衡oscillator bathだけにFDTを適用し、periodic homogenizationを経て $D=\nu$、$j/\rho+O(a^2)$、$\nu\partial_x\log\rho$ を得る。R196Cはwell-index generatorをR161へ有限誤差で接続する。
 
 
-付録YのM64/R203A--R203Dは、Q3の次期置換候補として存在論をさらに単純化する。単一試行の実体をM37型classical coherent signal、独立tracer $X$、signal-driven moving thermal reservoirの三つに限定する。R203Bはsignal densityによるreservoir phase-volume scalingから $F_{\rm res}=-k_BT\log\rho+\mathrm{const}$ を与え、同じreservoirのmean flowは $j/\rho$ を追跡する採用開放constitutive lawで定める。R203Cはconstant-$T$、constant-frictionのmoving Langevin bathからNelson forward driftを得る。R203DはPN hoppingを介さずsmooth diffusionをfinite-volume R161 chainへ直接接続する。M64はまだreplacement candidateであり、現行M61/M60主線、固定達成・強化判定を変更しない。
+付録YのM64/R203A--R203Dは、Q3のpromotion-ready置換候補として存在論をさらに単純化する。単一試行の実体をM37型classical coherent signal、一つのclassical tracer、一つのsignal-driven thermal reservoirの三つに限定する。R203Bはsignal densityによるreservoir phase-volume scalingから $F_{\rm res}=-k_BT\log r_X^\delta+\mathrm{const}$ を与え、同じreservoirのmean flowをregularized current velocityへ有限時間で追跡させる。R203Bは同じphase volumeからinitial tracer分布も有限時間で準備する。R203Cはcanonical overdamped tracerをideal regularized diffusionへ有限時間で縮約し、R203Dは1次元でR185と同じR161 activityへ、一般finite graphでR125の2頂点再結合器へ接続する。四つのpromotion bridgeは解析的に閉じたが、本draftでは現行M61/M60主線、固定達成・強化判定を変更しない。
 
 R162のopen Poisson-jump過程はQ3の基礎的実体ではなく、その理想jump lawを表す参照過程として残す。R185は同じ前向き経路法則のBayes反転からNelson型の前進・後退平均微分と時間対称Newton則へ接続する。
 
@@ -87,7 +87,7 @@ R162のopen Poisson-jump過程はQ3の基礎的実体ではなく、その理想
 
 # 問題設定、現行模型、達成範囲
 
-> **位置づけ：** M54をQ1・Q2・Q3の共通有効信号構成族、M37を物理信号実装層、M61をQ3単一Hamiltonian親層、M60をその共通縮約ミクロ層として区別する。M64/R203を三実体・採用開放系のactive replacement candidateとする。現行固定達成主線は置換しない。
+> **位置づけ：** M54をQ1・Q2・Q3の共通有効信号構成族、M37を物理信号実装層、M61をQ3単一Hamiltonian親層、M60をその共通縮約ミクロ層として区別する。M64/R203を三実体・採用開放系のpromotion-ready replacement candidateとする。現行固定達成主線は置換しない。
 
 
 ## 研究上の問い
@@ -178,7 +178,7 @@ R162のopen Poisson-jump過程はM60の基礎的実体ではなく、R161 lawの
 | M37 | 物理Hamiltonian信号実装層 | Q3空間信号を局所ばね網で実装し、R187条件下ではW型最低2正常モードをQ1 W2制御信号へ接続する |
 | M61 | Q3単一Hamiltonian親層 | 一つのmultiband媒体と一つの複合mobile subsystemを $H_{61}$ へ統合し、R200Cでsignal/chiral、R200Aでmoving branch converter、R200Bで内部harmonic bathをM60へ持ち上げる |
 | M60 | Q3共通縮約ミクロ層 | M61から得るM37 signal、実2-mode Duffing shell、二成分chiral媒体のnonlinear core/ballistic lead、moving bath-frame、平衡GLEをR198A--R198D・R199A・R195A・R196A--R196Cを介してR161へ接続する |
-| M64 | Q3三実体・開放系置換候補 | M37型coherent signal、独立tracer、signal-driven moving thermal reservoirの三実体に責務を絞る。R203Aがdensity/current辞書、R203Bがphase-volume free energy、R203Cがmoving Langevin縮約、R203Dがsmooth diffusionからR161 finite-volume chainへの直接接続を担う。現行M61/M60主線はまだ置換しない |
+| M64 | Q3三実体・開放系promotion-ready候補 | M37型coherent signal、一つのclassical tracer、signal-driven thermal reservoirの三実体に責務を絞る。R203Aがregularized density/current辞書、R203Bがphase-volume free energy・initial preparation・finite-time flow tracking、R203Cがcanonical overdamped diffusion縮約、R203Dが1次元R185と一般finite-graph R161/R125接続を担う。現行M61/M60主線はまだ置換しない |
 | M0 | 単一ミクロ装置統一目標 | Q1ではR193によりW2作用保持からmacrospin decision energyまでを具体化済み。Q3ではM37 signalからM60粒子輸送までを具体化する。macrospin浴、router、record、reset、Q2一般transducer、Q3 clock/recordを共通接続端とHamiltonian無限浴へ統合する全周期目標は未完成 |
 
 M54の複素信号 $Z$ は実正準対の派生表示であり、独立した複素実体ではない。状態方向、規格化共分散、位置分布は解析上の統計量であり、単一試行の制御器へ書き戻さない。
@@ -203,7 +203,7 @@ M54の複素信号 $Z$ は実正準対の派生表示であり、独立した複
 固定目標に付随する強化目標は `ENHANCEMENT_TARGETS.md` を正本とする。全固定目標にA1/A2、Q1/Q2にB1/B2/B3、Q2-2にQ2-2-Sを置き、固定目標の達成状態とは独立に管理する。A1では採用開放SDEと理想白色雑音を許し、A2はそのミクロ方程式自体の直接数値再現を要求する。回路強化Bでは有限帯域雑音を含む実験可能領域へ落とす。
 
 
-付録YのM64/R203A--R203Dは、A1で採用開放SDEを許す現行方針を使ってQ3因果鎖を最小化するactive replacement candidateである。density port、current-frame collective flow、friction/noiseを一つのmoving thermal reservoirへ統合し、PN/Eyring--Kramers経路を必須にせずR161 finite-volume interfaceへ接続する。M64はまだreplacement candidateであり、A1/A2状態、固定達成判定、M61/M60 required verifierを変更しない。
+付録YのM64/R203A--R203Dは、A1で採用開放SDEを許す現行方針を使ってQ3因果鎖を最小化するpromotion-ready replacement candidateである。initial tracer preparation、finite-time $U\to v_\delta$ tracking、canonical overdamped processからR185への受渡し、finite-graph R125接続を同じ三実体模型内で閉じた。M64はpromotion-readyだが、本draftではA1/A2状態、固定達成判定、M61/M60 required verifierを変更しない。A2 direct simulationはpromotion条件と分離して監査する。
 
 ## 非主張
 
@@ -211,7 +211,7 @@ M54の複素信号 $Z$ は実正準対の派生表示であり、独立した複
 
 # 有限モード信号系と共通正準モジュール
 
-> **位置づけ：** M54をQ1・Q2・Q3の共通有効信号--配置状態構成族、R161をQ3位置輸送の共通数学核とする。Q3の現行最深ミクロ物理実現はM61/R200A--R200C/R200、その共通縮約層はM60/R198A--R198D・R199A・R195A・R196A--R196Cとする。M64/R203Dを同じR161へ接続するactive replacement candidateとして扱う。
+> **位置づけ：** M54をQ1・Q2・Q3の共通有効信号--配置状態構成族、R161をQ3位置輸送の共通数学核とする。Q3の現行最深ミクロ物理実現はM61/R200A--R200C/R200、その共通縮約層はM60/R198A--R198D・R199A・R195A・R196A--R196Cとする。M64/R203A--R203Dは初期準備、finite-time tracking、R185、finite-graph R125まで閉じたpromotion-ready replacement candidateとして同じR161へ接続する。
 
 
 ## M54をQ1--Q3共通有効状態構成族とする範囲
@@ -762,7 +762,7 @@ D_{\rm TV}
 T\varepsilon_{\rm gen}
 ```
 
-を満たす。この生成子同値により、R161より前段のミクロ実現を交換しても、同じcanonical位置経路法則とR185の縮約を共通に扱える。現行主線ではM61を最深Hamiltonian物理実現、M60をその縮約層とし、R199A・R196A--R196CでR161へ接続する。付録YのM64/R203Dはsmooth diffusionをfinite-volume R161 chainへ直接離散化するreplacement candidateであり、内部実体の一致でなく同じ $(\pi,j,t)$ とgenerator interfaceへの接続を比較基準とする。M64はまだ現行M61/M60実現を置換しない。R162はR161経路法則を独立Poisson random measuresでpathwiseに実現するoptional stochastic referenceとする。
+を満たす。この生成子同値により、R161より前段のミクロ実現を交換しても、同じcanonical位置経路法則とR185の縮約を共通に扱える。現行主線ではM61を最深Hamiltonian物理実現、M60をその縮約層とし、R199A・R196A--R196CでR161へ接続する。付録YのM64/R203Dは、1次元continuous profileではregularized smooth diffusionをR185と同一のfinite-volume R161 chainへ接続し、finite-graph profileではlocal phase-volume $R_i^\delta$、edge current $J_{ij}$、activity $T_{ij}^\delta$ から一般R161 rateを直接構成するpromotion-ready replacement candidateである。内部実体の一致でなく同じ $(\pi,j,t)$ とgenerator interfaceへの接続を比較基準とする。M64は四つのpromotion bridgeを閉じたが、本draftではまだ現行M61/M60実現を置換しない。R162はR161経路法則を独立Poisson random measuresでpathwiseに実現するoptional stochastic referenceとする。
 
 <!-- theorem-start:theorem -->
 **定理（R162：R161経路法則の独立Poisson-jump実現）**
@@ -3040,7 +3040,7 @@ Q2-2で新たに使う確率源はない。A端・B端とも共通R191を用い�
 Q3の最深親模型は付録XのM61であり、付録WのM60はその共通縮約層である。M61/R200CはM37 signal mode族と二成分chiral mode族を同一multiband媒体へ載せる。その1試行には、実正準信号自由度、その派生表示 $Z$、1個の局在tracer位置 $X_t$、局所2-mode Duffing shell、統一二成分chiral媒体のnonlinear core/ballistic lead、moving bath-frame carrier、平衡oscillator bathが含まれる。R198A--R198D/R197Aが2-action state countと平均力を与え、R195Aがsignal currentを厳密に与え、R196Aがballistic wave pressureからmoving bath frame、R196Bが平衡GLE/FDTとperiodic homogenization、R196CがR161生成子matchingを与える。R162は同じ生成子を持つideal stochastic referenceであり、基礎的ミクロ存在論ではない。複素状態方向と位置分布は試行集団の統計であり、$C_Z$ またはその階数1因子を単一試行制御器へ書き戻さない。
 
 
-付録YのM64はsignal sectorを再発明せず、M37/R86を三実体の第1実体としてそのまま再利用する。従ってM64固有の追加責務はM37包絡の再導出ではなく、R203Aのdensity/current辞書からmoving thermal reservoirとtracerへ接続する部分に限る。本PRではQ3-1固定達成のM61/M60--M37/R86主線を変更しない。
+付録YのM64はsignal sectorを再発明せず、M37/R86を三実体の第1実体としてそのまま再利用する。M64固有の追加責務はM37包絡の再導出ではなく、R203Aのregularized density/current辞書からphase-volume preparation、mean-flow tracking、canonical tracer、R161/R185・finite graphへ接続する部分である。本draftでは四つのpromotion bridgeを閉じるが、Q3-1固定達成のM61/M60--M37/R86主線は変更しない。
 
 M37はM54と並ぶ別の粒子親模型ではない。Q3ではM54空間信号部分系を局所位置ばねだけで有限時間近似する信号系実現模型であり、Q1ではR187の弱結合W型族に限って最低2正常モードをM54のW2静的状態構成の物理信号部分系として使う。従ってM37は、Q1型局所信号＋Q2型辺結合からR161入力 $(\pi,j)$ へ進む共通構造の1つの空間担体実装であり、R161そのものの定義や活動量の一意性を担わない。役割を次のように分ける。
 
@@ -3048,7 +3048,7 @@ M37はM54と並ぶ別の粒子親模型ではない。Q3ではM54空間信号部
 |---|---|---|---|
 | M54＋M61/M60空間状態構成 | 実正準信号、局在tracer $X_t$、局所2-mode Duffing shell＋統一二成分chiral媒体、moving bath-frame carrier、平衡oscillator bath | $Z$、$C_Z$、階数1状態方向、位置分布 | R195A・R196A--R196CによるR161実現、R185時間反転・Newton則 |
 | M37実装 | 有限個の実振動子座標 $(q_i,p_i)$ と局所ばね結合 | 局所複素包絡 $b_i$、零傾斜正常モード座標 | R86によるM54空間信号部分系の有限時間近似、R184の受渡し。R187条件下ではQ1 W2制御用信号系も実装 |
-| M64候補 | M37実正準signal、独立tracer $X$、一つのsignal-driven moving thermal reservoir | $Z$、$\rho$、$j$、reservoir mean flow $U$、位置分布 | R203A--R203DによりM37 signalからsmooth tracer diffusionとR161 finite-volume interfaceへ接続するreplacement candidate |
+| M64 promotion-ready候補 | M37実正準signal、一つのclassical tracer、一つのsignal-driven thermal reservoir | $Z$、$\rho_\delta$、$J_\delta$、reservoir mean flow $U$、位置分布 | R203A--R203Dによりinitial preparation、finite-time tracking、canonical overdamped diffusion、1次元R185、一般finite-graph R161/R125へ接続するreplacement candidate |
 
 第2.4節の準備済み入力境界から階数1信号集団を受け取る場合、M60では開始時から同じ試行のM37信号、Duffing shell、統一chiral媒体、tracerが共存し、信号を後段へ再標本化して受け渡さない。R198A--R198D/R197Aの2作用状態数が $X_0$ の条件付き重みを与え、以後は再標本化せずR196A--R196Cの同じtracer力学がR161移動生成子へ縮約する。終時刻にはR112が既存の $X_T$ を記録する。
 
@@ -4420,25 +4420,56 @@ mC_{185,a}a^2.
 
 である。`tools/verify_m57_ballistic_tracer.py` はchiral恒等式、moving-reflector fixed pointと安定性、有限時間追従、weak-tap/loading scaling、$D_0=\nu/g_K$、$g_Kc=4\nu/a$、Lifson--Jackson suppression、新R161 current correctionの同時parameter windowが非空であることを検算する。
 
-M64 replacement candidateでは、R203Cのnode-free smooth diffusion
+M64 promotion-ready replacement candidateでは、R203Aのregularized current dictionaryをR203Bのfinite-time mean-flow trackingへ渡し、R203Bのphase-volume free energyから同じcanonical overdamped tracerを有限時間準備する。continuous profileの正本は
 
 ```math
 dX_t
 =
 \left[
-\frac j\rho
+U_X
 +
-\nu\partial_x\log\rho
+\nu\partial_x\log r_X^\delta
 \right]dt
 +
 \sqrt{2\nu}\,dW_t
-+
-O(\varepsilon_{64})dt
 ```
 
-を直接一様cellへ積分し、R161の対称活動量を $t_{i+1/2}=\nu(\pi_i+\pi_{i+1})/a^2$ と選ぶ。R203Dによりcell continuityはR161 master equationと厳密に一致し、generatorと前後平均速度はsmooth sectorで $O(a^2+\delta)$ でR185入力へ一致する。この経路は現行R196Cをまだ置換しない。
+である。R203Cはideal regularized diffusion
 
-**非主張。** 後向き率は同じ前向き経路分布の条件付き確率であり、未来から物理作用する第2浴を導入しない。R162のPoisson reservoirをM60 tracerとは別の実在粒子へ読み替えない。生M37局所包絡からNewton加速度までの直接時間微分付き縮約、連続空間の一様極限、多粒子配置空間、位相量子化はQ3-2の現行達成範囲に含めない。旧R184の空間率latch、旧R162有限衝突経路、旧R188は補助・強化結果として保持するが、M60主線の必須依存ではない。
+```math
+d\bar X_t
+=
+\left(
+v_\delta+u_\delta
+\right)dt
++
+\sqrt{2\nu}\,dW_t
+```
+
+との有限時間 $W_1$ 縮約を与える。R203Dの1次元特殊化は
+
+```math
+t_{i+1/2}
+=
+\frac{\nu}{a^2}
+\left(
+\pi_i^\delta+\pi_{i+1}^\delta
+\right)
+```
+
+を用い、R185と同一の $(\pi^\delta,j^\delta,t^\delta)$ を与える。従ってM64からR185への固定目標用bridgeでは、micro-to-effective process reduction error $\varepsilon_{\rm red}^{64}(T)$ とR185のNewton残差
+
+```math
+\varepsilon_{\rm Newt}^{185}
+=
+m\|R_\delta\|_\infty
++
+mC_{185,a}a^2
+```
+
+を別々に管理する。確率過程距離と力残差を単一の誤差へ加算しない。有限 $\tau_U$ の実M64 tracer自身の加速度まで直接比較する高階parabolic stabilityはstrengtheningである。この経路は四つのpromotion bridgeを解析的に閉じたが、本draftでは現行M61/M60主線をまだ置換しない。
+
+**非主張。****非主張。** 後向き率は同じ前向き経路分布の条件付き確率であり、未来から物理作用する第2浴を導入しない。R162のPoisson reservoirをM60 tracerとは別の実在粒子へ読み替えない。生M37局所包絡からNewton加速度までの直接時間微分付き縮約、連続空間の一様極限、多粒子配置空間、位相量子化はQ3-2の現行達成範囲に含めない。旧R184の空間率latch、旧R162有限衝突経路、旧R188は補助・強化結果として保持するが、M60主線の必須依存ではない。
 
 ## 束縛状態（Q3-3A--Q3-3C）
 
@@ -4905,7 +4936,40 @@ p_{\pi/2},p_{-\pi/2}
 
 第1式はコヒーレント交差項の有無を、第2式は相対位相変更の位置分布への効果を示す。同じSchrödinger型発展を全入力に使っており、入力後に結果依存の生成子を選んでいない。
 
-M60/R196Cが各理想分布の初期位置準備から終位置記録直前までを全変動距離 $\varepsilon_{\rm path}^{60}$ 以内で再現すれば、記録分布間の距離は対応する記録誤差と合わせてなお正にできる。$\varepsilon_{\rm path}^{60}<1/4$ を満たす有限パラメータを条件付きで選べるので両方の差が正に残る。完全な干渉代数証明は付録F.7、G.4、M60 transport--R161持上げは付録Vに置く。
+M60/R196Cが各理想分布の初期位置準備から終位置記録直前までを全変動距離 $\varepsilon_{\rm path}^{60}$ 以内で再現すれば、記録分布間の距離は対応する記録誤差と合わせてなお正にできる。$\varepsilon_{\rm path}^{60}<1/4$ を満たす有限パラメータを条件付きで選べるので両方の差が正に残る。
+
+M64 finite-graph profileでは、R203Dのlocal activity
+```math
+T_{ij}^\delta
+=
+\frac{|h_{ij}|}{\mathcal J_0}
+\left(
+R_i^\delta+R_j^\delta
+\right)
+```
+とlocal currentからR161 rateを直接構成する。R125の2頂点再結合器と一様背景ではregularized位置分布の距離が厳密に
+```math
+D_{\rm TV}
+\left(
+p_{\pi/2}^\delta,p_{\rm mix}^\delta
+\right)
+=
+\frac{1}{2(1+\delta)},
+\qquad
+D_{\rm TV}
+\left(
+p_{\pi/2}^\delta,p_{-\pi/2}^\delta
+\right)
+=
+\frac{1}{1+\delta}
+```
+となる。各runのM64 graph transport・record誤差を $\varepsilon_{64,G}$ とすると
+```math
+\varepsilon_{64,G}
+<
+\frac{1}{4(1+\delta)}
+```
+で両方の識別差が正に残る。Q3-5固定目標にはmetric graphのjunction PDEを要求しない。完全な干渉代数証明は付録F.7、G.4、M60 transportは付録V、M64 finite-graph interfaceは付録Yに置く。
 
 **達成判定。** R125は、有限グラフの直交2経路入力、同一発展、コヒーレント入力、同じ重みの混合、正のコヒーレンス差、正の相対位相差を与える。M60/R196C--R161により、二つの理想分布間距離から各M60運転誤差を差し引いても正なら有限装置で識別できる。ただしM37 signal source、M60、2経路時計自由度、終位置recordの単一装置統合を仮定に残す。従ってQ3-5は改訂後の固定範囲で条件付き達成である。
 
@@ -5273,36 +5337,87 @@ M_X=O(\epsilon^6)
 旧draft-95の $\varepsilon_{\rm mix}$、$\varepsilon_{\rm corr}$、TLへの $\varepsilon_{\rm FDT}$ は現行M60 transport誤差台帳から削除する。旧R184の $\varepsilon_{184}$ は撤回しないがM60主線では使わない。R162はideal R161 jump referenceでありM60の基礎的bath誤差として数えない。
 
 
-### M64 replacement candidateの誤差境界
+### M64 promotion-ready candidateの誤差境界
 
-M64/R203A--R203Dは現行M60 transport誤差をまだ置換しない独立candidateとして、代表総誤差を
+M64/R203A--R203Dでは、確率過程の縮約誤差と時間対称Newton則の力残差を単一の総誤差へ加算しない。
+
+initial preparationは
 
 ```math
-\varepsilon_{64}
-\le
-C_{64}
-\left(
-\varepsilon_{\rm env}
+\varepsilon_{\rm prep}
+=
+\frac12
+C_{\rm init}
+e^{-\lambda_{\rm prep}T_{\rm prep}}
 +
-\varepsilon_{\rm ch}
-+
-\varepsilon_{\rm width}
-+
-\delta
-+
-\varepsilon_U
-+
-\varepsilon_{\rm bath}
-+
-\varepsilon_{\rm od}
-+
-\varepsilon_{\rm fv}
-\right)
+\varepsilon_{\rho,0}
 ```
 
-と整理する。$\varepsilon_U$ はreservoir mean-flow constitutive law、$\varepsilon_{\rm od}$ はsmall-mass overdamped reduction、$\varepsilon_{\rm fv}$ はR203D finite-volume generatorの偏差である。同じM37/R86偏差をcurrent dictionaryとreservoir trackingへ重複加算しない。
+で管理する。R203A/Bのcurrent dictionaryとfinite-time flow trackingは
 
-M64ではDuffing shell/core mixing、ballistic lead、moving-reflector tracking、periodic homogenization、Eyring--Kramers hoppingを採用しないため、それらに固有のM60誤差をM64台帳へ移さない。代わりにconstant $T$、constant $\gamma_X$、node-free smooth sector、$t_{i+1/2}\ge|j_{i+1/2}|$ を明示的な適用条件とする。single-field Hamiltonian lift、current transducerの完全散乱導出、finite-bath化はM64本体のrequired誤差ではなくstrengtheningへ分離する。
+```math
+\varepsilon_{\rm track}
+=
+\varepsilon_A
++
+\tau_UM_q,
+```
+
+```math
+\varepsilon_U
+=
+\varepsilon_{\rm track}
++
+C_{\rm int}a^2
+\|\partial_x^2v_\delta\|_\infty
+```
+
+とする。canonical overdamped M64からideal regularized diffusionへのdrift errorは
+
+```math
+\varepsilon_{\rm drift}^{64}
+=
+\varepsilon_U
++
+\nu\varepsilon_{\rho,1},
+```
+
+有限時間process reductionは
+
+```math
+\varepsilon_{\rm red}^{64}(T)
+=
+e^{L_bT}\varepsilon_{\rm prep}^{W_1}
++
+\frac{e^{L_bT}-1}{L_b}
+\varepsilon_{\rm drift}^{64}
+```
+
+で評価する。
+
+一方、R203Dの1次元canonical R161 chainはR185と同じ $(\pi^\delta,j^\delta,t^\delta)$ を用いるので、effective processのNewton残差は
+
+```math
+\varepsilon_{\rm Newt}^{185}
+=
+m\|R_\delta\|_\infty
++
+mC_{185,a}a^2
+```
+
+と別に管理する。$\varepsilon_{\rm red}^{64}$ と $\varepsilon_{\rm Newt}^{185}$ は次元も意味も異なるため単純加算しない。
+
+finite-graph profileではR203Dのlocal $R_i^\delta,J_{ij},T_{ij}^\delta$ からR161 rateを構成する。Q3-5の2頂点特殊化では各runのtransport・record誤差を $\varepsilon_{64,G}$ とし、
+
+```math
+\varepsilon_{64,G}
+<
+\frac{1}{4(1+\delta)}
+```
+
+ならR125のcoherent/mixed差と相対位相差がともに正に残る。
+
+$\delta$ はR203Aの辞書誤差へ再加算せず、R185 regularizationとfinite-graph位置分布に一度だけ数える。Duffing shell/core mixing、ballistic lead、moving-reflector、periodic homogenization、Eyring--Kramers hoppingに固有のM60誤差はM64へ移さない。single-field Hamiltonian lift、finite bath、finite-bandwidth $R_U$、underdamped small-mass極、実M64 tracer自身の高階加速度安定性はstrengtheningへ分離する。
 
 ## 静的分布の整合の正則化資源発散
 
@@ -5506,7 +5621,7 @@ Q3-1側のsignal誤差を
 
 # 結論
 
-> **位置づけ：** Q1/Q2のR191系と、Q3のM61/R200A--R200C/R200--M60/R198/R199/R196--R161--R185現行階層、およびM64/R203 active三実体replacement candidateを総括する。
+> **位置づけ：** Q1/Q2のR191系と、Q3のM61/R200A--R200C/R200--M60/R198/R199/R196--R161--R185現行階層、およびM64/R203 promotion-ready三実体replacement candidateを総括する。
 
 
 本稿は、古典実正準信号の線形力学と、1試行1結果を作る開放古典instrumentを分離して構成した。有限次元Hilbert空間とunitaryを古典振動子へ写すこと自体ではなく、その同じ単一試行信号からBorn型排他的結果と測定後結果成分を作る物理接続を中心課題とした。
@@ -5591,7 +5706,7 @@ R162のopen Poisson-jump過程はM60の基礎的実体ではなく、R196C/R161�
 今回の縮約により、R184の旧M37--M54空間率latchは補助結果へ下がり、M60主線の必須依存から外れた。2-action state countはR198A--R198D/R197A、signal currentはR195A、ballistic transportはR199A・R196A--R196Cへ責務分離している。M56 Brownian-spin Q3模型はspin-only代替研究線へ位置づける。R190A--R190C、R170、旧R180Bも現行Q1/Q2主線へ戻さない。これらは反証されたのではなく、別の物理実現・強化案として `notes/` とGit履歴へ保存する。
 
 
-付録YのM64/R203A--R203Dは、A1で採用開放SDEを許す方針を使い、Q3の物理実体をM37型coherent signal、独立tracer、signal-driven moving thermal reservoirの三つへ絞る。R203Bではdensity scalingとmean flowを同じreservoirに入れても条件付きinternal free energy $-k_BT\log\rho$ が壊れないことをJacobian恒等式で示す。R203Cはconstant-$T$、constant-frictionのmoving Langevin bathから $j/\rho+\nu\partial_x\log\rho$ を得る。R203Dはsmooth diffusionをfinite-volume R161 chainへ直接接続し、PN/Eyring--Kramers縮約をM64本体から外す。M64はM60/M61主線を整理して置換することを狙うが、まだreplacement candidateであり、現行主線、強化判定、required verifierを変更しない。
+付録YのM64/R203A--R203Dは、A1で採用開放SDEを許す方針を使い、Q3の物理実体をM37型coherent signal、一つのclassical tracer、一つのsignal-driven thermal reservoirの三つへ絞る。R203Bのphase-volume Jacobianはinitial tracer distributionを同じopen dynamicsから有限時間で準備し、mean-flow collective variableはR203Aのregularized current velocityへ有限時間で追跡する。R203Cはcanonical overdamped tracerをideal regularized diffusionへ有限時間で縮約する。R203Dは1次元ではR185と同じR161 activityへ一致し、一般finite graphではlocal phase-volume/current/activityからR161 rateを作ってR125の2頂点再結合器へ接続する。これによりM64 promotion前の四つのbridgeは閉じた。M64はpromotion-readyだが、本draftでは現行M61/M60主線、強化判定、required verifierを変更しない。
 
 残る主要な物理課題は、各固定目標について具体的古典ミクロ模型A1とその直接数値再現A2を監査すること、Q1/Q2について具体的アナログ回路B1、実験可能パラメータ領域B2、回路直接数値再現B3へ進むこと、Q2-2で測定窓内の空間的・因果的隔離をどこまで強められるかQ2-2-Sで検査することにある。これと並行して、R191の作用和・作用差transducer、Brownian macrospin、projector router、外部記録、R179リセットを同じ具体装置へ統合すること、M61/M60信号源・tracerと時計、終位置記録を単一反復周期へ統合すること、Q2-4の外部多項式資源条件を物理配線・較正・雑音まで閉じること、Q3の連続空間一様極限・多粒子拡張、Q3-6の位相量子化を閉じることを上位または横断的強化課題として残す。A1では採用開放SDEと理想白色雑音を許すが、回路実装Bでは有限帯域雑音へ落とす。
 
@@ -14396,32 +14511,149 @@ M60は退役させない。M61がlab-frame単一Hamiltonian、M60がcarrier/enve
 
 # M64 三実体・最小古典開放系Q3共通模型
 
-> **位置づけ：** M60/M61をまだ置換しないactive replacement candidate。古典coherent signal、classical tracer、signal-driven moving thermal reservoirの三実体だけを正本候補とし、R203A--R203Dでsignal density/current、phase-volume free energy、moving Langevin縮約、R161 finite-volume接続を整理する。固定Q3-1/Q3-2達成判定、A1/A2判定、required主線は本付録追加だけでは変更しない。
+> **位置づけ：** M60/M61をまだ置換しないpromotion-ready replacement candidate。古典coherent signal、classical tracer、signal-driven thermal reservoirの三実体だけを正本候補とし、R203A--R203Dでregularized density/current辞書、phase-volume free energy、初期準備、有限時間mean-flow tracking、canonical overdamped tracer、R161の1次元・有限graph接続、R185/R125受渡しを整理する。固定Q3-1/Q3-2達成判定とrequired主線は本更新だけでは切り替えない。
 
 
-## 責務と三実体
+## 責務、三実体、二つのconfiguration profile
 
-M64はQ3-1/Q3-2に必要な位置過程を、次の三つの古典的実体から構成する最小共通模型候補である。
+M64はQ3の位置過程を次の三つの古典的実体から構成する最小open model候補である。
 
 1. classical coherent signal：M37型の実正準oscillator network。
-2. classical tracer：一つの位置・運動量対 $(X,P_X)$。
-3. signal-driven moving thermal reservoir：signal densityに応じて内部phase volumeが変わり、signal currentに応じたlocal mean flowを持ち、tracerへ摩擦と熱揺らぎを与える一つの古典環境。
+2. classical tracer：一つの古典configuration variable。
+3. signal-driven thermal reservoir：signal densityに応じて内部phase volumeが変わり、signal currentに応じたlocal mean flowを持ち、tracerへ摩擦・熱揺らぎまたは局所jump activityを与える一つの古典環境。
 
-複素包絡 $Z$、density $\rho$、current $j$、reservoir mean flow $U$、density scaling $\lambda_\alpha$ は、三実体から作る派生量またはcollective variableであり、独立した実体とはしない。
+複素包絡 $Z$、density $\rho$、current $j$、reservoir mean flow $U$、density scaling $\lambda_\alpha$ は三実体から作る派生量またはcollective variableであり、独立した実体とはしない。
 
-M64の因果鎖は、M37 signalから $(\rho,j)$ を得て、$\rho$ がreservoir phase volume、$j/\rho$ がreservoir mean flowを定め、その同じmoving thermal reservoir中のtracer $X$ をfinite-volume R161、R185へ接続する順序とする。
+tracer configurationには二つの特殊化を許す。
 
-M64は採用開放SDEを正本候補としてよい。single-field Hamiltonian化、finite-bath化、current transducerの完全Hamiltonian散乱導出はM64本体の成立条件に含めず、独立strengtheningとする。
+- **continuous profile**：1次元位置 $X$ をcanonical overdamped Langevin SDEで発展させ、Q3-2、Q3-4Bの連続位置過程へ使う。
+- **finite-graph profile**：有限配置graphの頂点 $X\in V$ をlocal reservoir jump lawで発展させ、Q3-4A、Q3-5の有限graph位置過程へ使う。
 
-## signal、tracer、局所読出し量
+両profileは別の粒子実体を導入せず、同じsignal density/currentから同じphase-volume/current-reservoir責務を読むM64模型族の特殊化である。M64本体ではkink、domain wall、Duffing shell、PN well、Eyring--Kramers hoppingをtracerの定義に要求しない。
 
-signal sectorはM37/R86を再利用する。実正準signalから得る派生複素包絡を $Z_i$ とし、
+M64は採用open SDEまたはfinite-state jump lawを正本候補としてよい。single-field Hamiltonian化、finite-bath化、current transducerの完全Hamiltonian散乱導出、underdamped lift、metric-graph連続極は独立strengtheningとする。
+
+## regularized signal density/currentと局所補間
+
+signal sectorはM37/R86を再利用する。固定有限時間で規格化signal density $\rho(x,t)$、current $j(x,t)$ が
 
 ```math
-\rho_i=|Z_i|^2
+\partial_t\rho+\partial_xj=0,
+\qquad
+\rho\ge\rho_*>0
 ```
 
-とする。edge $e=(i,j)$ ごとに
+を満たすnode-free smooth sectorを取る。正の規格化背景 $q_0(x)$ と $\delta>0$ に対し
+
+```math
+\rho_\delta
+=
+\frac{\rho+\delta q_0}{1+\delta},
+\qquad
+J_\delta
+=
+\frac{j}{1+\delta},
+```
+
+```math
+v_\delta
+=
+\frac{J_\delta}{\rho_\delta},
+\qquad
+u_\delta
+=
+\nu\partial_x\log\rho_\delta
+```
+
+と置く。従って
+
+```math
+\partial_t\rho_\delta+\partial_xJ_\delta=0.
+```
+
+離散signalでは各頂点の派生複素包絡を $Z_i$、全signal作用を
+
+```math
+S=\sum_i|Z_i|^2
+```
+
+とする。finite-graph profileでは固定 $q_i>0$、$\sum_iq_i=1$ に対し
+
+```math
+R_i^\delta
+=
+|Z_i|^2+\delta q_iS,
+\qquad
+\pi_i^\delta
+=
+\frac{R_i^\delta}{(1+\delta)S}
+```
+
+を正本のregularized位置重みとする。
+
+continuous profileではtracer近傍を読む固定partition of unityを
+
+```math
+\chi_i(X)\ge0,
+\qquad
+\sum_i\chi_i(X)=1,
+\qquad
+\sum_i x_i\chi_i(X)=X
+```
+
+とし、各 $\chi_i$ の支持を $|x_i-X|\le C_\chi a$ に取る。nodal regularized density $r_i^\delta>0$ から
+
+```math
+r_X^\delta
+=
+r_*
+\exp\left[
+\sum_i
+\chi_i(X)
+\log\frac{r_i^\delta}{r_*}
+\right]
+```
+
+を定める。
+
+$g_\delta=\log\rho_\delta$ が $C^2$ で、$r_i^\delta$ が $\rho_\delta(x_i,t)$ と共通規格化まで一致するなら、一次再現性から
+
+```math
+\left|
+\log r_X^\delta-\log\rho_\delta(X,t)-C(t)
+\right|
+\le
+\frac12C_\chi^2a^2
+\|\partial_x^2g_\delta\|_\infty
+```
+
+を得る。従って固定safe sectorで
+
+```math
+\left|
+\partial_X\log r_X^\delta
+-
+\partial_X\log\rho_\delta
+\right|
+\le
+\varepsilon_{\rho,1},
+```
+
+```math
+D_{\rm TV}
+\left(
+\frac{r_X^\delta\,dX}{\int r_x^\delta dx},
+\rho_\delta(X,t)\,dX
+\right)
+\le
+\varepsilon_{\rho,0},
+```
+
+と書く。一次再現だけから直接従うのは0階の $\varepsilon_{\rho,0}=O(a^2)$ である。1階誤差 $\varepsilon_{\rho,1}$ は採用補間の微分精度として独立に管理し、piecewise-linear補間なら一般に $O(a)$、より高次の局所再現性を課した補間なら $O(a^2)$ とできる。以下ではこの二つをdensity interpolation errorとして一度だけ数える。
+
+## R203A：regularized signal density/current dictionary
+
+edge $e=(i,j)$ ごとに
 
 ```math
 C_{e,+}
@@ -14439,55 +14671,8 @@ I_{e,\pm}=|C_{e,\pm}|^2
 
 と置く。
 
-tracerは独立した古典粒子 $(X,P_X)$ とする。M64本体ではkink、domain wall、Duffing shell、PN wellをtracerの定義に要求しない。
-
-tracer近傍を読む固定partition of unityを
-
-```math
-\chi_i(X)\ge0,
-\qquad
-\sum_i\chi_i(X)=1
-```
-
-とする。正則化signal densityを
-
-```math
-r_i^\delta
-=
-\delta q_i
-+
-\frac{|Z_i|^2}{N_0}
-```
-
-とし、
-
-```math
-r_X^\delta
-=
-r_*
-\exp\left[
-\sum_i
-\chi_i(X)
-\log\frac{r_i^\delta}{r_*}
-\right]
-```
-
-をtracer-local densityとする。node-free smooth sectorでは
-
-```math
-\partial_X\log r_X^\delta
-=
-\partial_X\log\rho(X,t)
-+
-O(\varepsilon_{\rm width}+\delta)
-```
-
-を要求する。
-
-## R203A：signal density/current dictionary
-
 <!-- theorem-start:theorem -->
-**定理（R203A：M64 signal density/current dictionary）**
+**定理（R203A：M64 regularized signal density/current dictionary）**
 
 上のedge変換について厳密に
 
@@ -14511,38 +14696,57 @@ r_e
 \frac{
 I_{e,+}-I_{e,-}
 }{
-I_{e,+}+I_{e,-}+\delta I_0
+I_{e,+}+I_{e,-}+\delta I_{0,e}
 }
 ```
 
-とする。M37/R86のsafe narrow-band sectorと既存current dictionaryの下で、固定係数 $c_J$ を選ぶと
+とする。regularization背景 $I_{0,e}$ をY.2の $\rho_\delta$ と同じ背景へ較正し、M37/R86のsafe narrow-band sectorを取ると、固定係数 $c_J$ に対して
 
 ```math
 c_Jr_e
 =
-\frac{j_e}{\rho_e}
+v_{\delta,e}
 +
-O(
-a^2
-+
-\delta
-+
-\varepsilon_{\rm env}
-)
+\Delta_{A,e},
 ```
 
-を得る。nearest-neighbor Schrödinger特殊化では $c_J=2\nu/a$ とできる。
+```math
+|\Delta_{A,e}|
+\le
+C_A
+\left(
+a^2+\varepsilon_{\rm env}
+\right)
+=
+\varepsilon_A.
+```
+
+nearest-neighbor Schrödinger特殊化では $c_J=2\nu/a$ とできる。smooth sectorでは $r_e=O(a)$ なので $c_Jr_e=O(1)$ であり、$a\to0$ でmean-flow targetは発散しない。
 <!-- theorem-end:theorem -->
 
 <!-- theorem-start:proof -->
 **証明（R203A）**
 
-和・差恒等式は $C_{e,\pm}$ の定義を直接展開すれば得られる。後半はR195Aで用いた同じ局所current identityをM64表記へ移したものであり、smooth narrow-band近似とdensity正則化の誤差だけを残す。証明終。
+和・差恒等式は $C_{e,\pm}$ の定義を直接展開すれば得られる。nearest-neighbor smooth signalでは分子は中心差分currentに比例して $O(a)$、分母はregularized local densityに比例する。背景項をY.2の $\rho_\delta$ と同じ正則化へ較正すると、有限 $\delta$ の効果はtarget $v_\delta=J_\delta/\rho_\delta$ 自体へ吸収され、残る辞書誤差は中心差分とM37 envelope誤差である。証明終。
 <!-- theorem-end:proof -->
 
-R203Aは新しいcurrent機構を導入しない。M64ではcurrent情報をtracer位置で直接散乱して読むのでなく、reservoirのlocal collective flowへ渡す入力辞書として使う。
+一般finite graphではchirality近似を必須にせず、Hermitian signal generator $h$ の各辺で厳密なlocal current
 
-## R203B：signal-driven moving phase-volume reservoir
+```math
+J_{i\to j}
+=
+\frac{2}{\mathcal J_0}
+\operatorname{Im}
+\left(
+Z_j^*h_{ji}Z_i
+\right),
+\qquad
+J_{i\to j}=-J_{j\to i}
+```
+
+をcurrent portとして使う。
+
+## R203B：phase-volume reservoir、initial preparation、finite-time flow tracking
 
 reservoirの条件付き内部自由度を $(\zeta_\alpha,\Pi_\alpha)$ とし、固定signal、tracer位置、reservoir mean flowに対する内部Hamiltonianを
 
@@ -14566,9 +14770,7 @@ m_\alpha\omega_\alpha^2
 \right]
 ```
 
-とする。ここで $R$ はreservoir内部のrelative-coordinate shiftを許す補助量であり、partition identityにはその具体的担体を要求しない。
-
-density scalingを
+とする。density scalingを
 
 ```math
 \lambda_\alpha
@@ -14585,7 +14787,7 @@ w_\alpha>0,
 とする。
 
 <!-- theorem-start:theorem -->
-**定理（R203B：moving phase-volume reservoirの条件付きfree energy）**
+**定理（R203B：moving phase-volume reservoirのfree energyとflow分離）**
 
 固定 $r_X^\delta>0$、$U$、$R$ に対して上のreservoirをcanonicalに積分すると、
 
@@ -14596,7 +14798,7 @@ Z_{\rm res}^0
 \frac{r_X^\delta}{r_*}
 ```
 
-が厳密に成立する。従って条件付きinternal free energyは
+が厳密に成立する。従って
 
 ```math
 F_{\rm res}
@@ -14609,53 +14811,25 @@ F_{\rm res}
 =
 \partial_RF_{\rm res}
 =
-0
+0,
 ```
-
-を満たし、tracerへの条件付きmean forceは
 
 ```math
 F_X^{\rm osm}
 =
-k_BT\,\partial_X\log r_X^\delta
+k_BT\,\partial_X\log r_X^\delta.
 ```
 
-である。
-
-mean flow $U$ は運動量分布の平行移動としてphase-volume Jacobianを変えず、density scalingだけが座標積分のJacobianを変える。従って同じreservoir内でdensity free-energy sectorとmean-flow sectorを分離できる。
+mean flow $U$ は運動量分布の平行移動としてphase-volume Jacobianを変えず、density scalingだけが座標積分のJacobianを変える。従ってdensity preparationとflow preparationは同じreservoir内で競合しない。
 <!-- theorem-end:theorem -->
 
 <!-- theorem-start:proof -->
 **証明（R203B）**
 
-各modeで
-
-```math
-P_\alpha
-=
-\Pi_\alpha-m_\alpha U,
-\qquad
-Q_\alpha
-=
-\lambda_\alpha\zeta_\alpha-d_\alpha R
-```
-
-と変数変換する。運動量側は平行移動なので $d\Pi_\alpha=dP_\alpha$、座標側は
-
-```math
-d\zeta_\alpha
-=
-\lambda_\alpha^{-1}dQ_\alpha
-```
-
-である。従ってGaussian積分の $r_X^\delta,U,R$ 依存は
+各modeで $P_\alpha=\Pi_\alpha-m_\alpha U$、$Q_\alpha=\lambda_\alpha\zeta_\alpha-d_\alpha R$ と変数変換する。運動量側は平行移動、座標側は $d\zeta_\alpha=\lambda_\alpha^{-1}dQ_\alpha$ なので、Gaussian積分の依存性は
 
 ```math
 \prod_\alpha\lambda_\alpha^{-1}
-=
-\left(
-\frac{r_X^\delta}{r_*}
-\right)^{\sum_\alpha w_\alpha}
 =
 \frac{r_X^\delta}{r_*}
 ```
@@ -14663,88 +14837,185 @@ d\zeta_\alpha
 だけである。free energyとmean forceは $-k_BT\log Z_{\rm res}$ を微分して得る。証明終。
 <!-- theorem-end:proof -->
 
-ここで $F_{\rm res}$ はreservoirの条件付きinternal free energyである。lab frameでのbulk flow energyはopen reservoirの資源収支として別に数え、上のinternal partition identityへ混ぜない。
+### initial tracer preparation
 
-同じreservoirのlocal mean flow $U_e(t)$ には、M64本体の採用開放constitutive lawとして
+準備窓 $-T_{\rm prep}\le s\le0$ ではsignal densityを初期値へ固定し、reservoir flowのtracer輸送作用だけを切る。canonical overdamped preparation lawを
+
+```math
+dX_s
+=
+\nu
+\partial_X\log r_0^\delta(X_s)\,ds
++
+\sqrt{2\nu}\,dW_s
+```
+
+とする。そのFokker--Planck方程式は
+
+```math
+\partial_sp
+=
+\nu\partial_X
+\left[
+r_0^\delta
+\partial_X
+\left(
+\frac{p}{r_0^\delta}
+\right)
+\right]
+```
+
+であり、周期境界または反射境界のcompact connected domainでは
+
+```math
+\pi_0^\delta(dX)
+=
+\frac{
+r_0^\delta(X)\,dX
+}{
+\int r_0^\delta(x)\,dx
+}
+```
+
+が可逆定常分布である。
+
+weighted generatorのspectral gapを $\lambda_{\rm prep}>0$ とし、
+
+```math
+C_{\rm init}
+=
+\left\|
+\frac{p_{-T_{\rm prep}}}{\pi_0^\delta}
+-1
+\right\|_{L^2(\pi_0^\delta)}
+```
+
+と置けば
+
+```math
+D_{\rm TV}
+\left(
+p_0,\pi_0^\delta
+\right)
+\le
+\frac12
+C_{\rm init}
+e^{-\lambda_{\rm prep}T_{\rm prep}}.
+```
+
+Y.2の0階補間誤差と合成して
+
+```math
+D_{\rm TV}
+\left(
+p_0,\rho_{\delta,0}
+\right)
+\le
+\varepsilon_{\rm prep}
+:=
+\frac12
+C_{\rm init}
+e^{-\lambda_{\rm prep}T_{\rm prep}}
++
+\varepsilon_{\rho,0}.
+```
+
+従って初期Born型位置重みを外から標本化する必要はなく、R203Bのphase volumeと同じtracer dynamicsから有限時間で準備できる。
+
+準備中、flow collective variable自体は下のtracking lawで初期値へ緩和させてよい。$\partial_UF_{\rm res}=0$ なのでflow momentum preparationは上のdensity weightを変えない。$t=0$ でsignal evolutionとflow-to-tracer couplingを同時にreleaseする。
+
+### finite-time mean-flow tracking
+
+canonical M64のmean-flow lawを
 
 ```math
 \tau_U\dot U_e
 =
--U_e
-+
-c_Jr_e
-+
-R_{U,e}
+-U_e+c_Jr_e
 ```
 
-を置く。$U_e$ は別の物理実体ではなくreservoirのcollective flowである。理想極では
+とする。非零residual $R_{U,e}$ はfinite-bandwidth実装またはHamiltonian liftのstrengtheningで扱い、本体には入れない。
+
+targetを $q_e=v_{\delta,e}$、errorを $E_e=U_e-q_e$ とするとR203Aから
 
 ```math
-U_e
+\tau_U\dot E_e
 =
-\frac{j_e}{\rho_e}
+-E_e
 +
-O(\varepsilon_U).
+\Delta_{A,e}
+-
+\tau_U\dot q_e.
 ```
 
-tracer位置で
+従ってvariation of constantsにより
 
 ```math
-U_X(t)
+|E_e(t)|
+\le
+e^{-t/\tau_U}|E_e(0)|
++
+(1-e^{-t/\tau_U})
+\left[
+\varepsilon_A
++
+\tau_UM_q
+\right],
+```
+
+```math
+M_q
+=
+\sup_{e,0\le s\le T}
+|\partial_tv_{\delta,e}(s)|.
+```
+
+特にwell-prepared flow
+
+```math
+U_e(0)=c_Jr_e(0)
+```
+
+なら
+
+```math
+\sup_{0\le t\le T}
+|U_e-v_{\delta,e}|
+\le
+\varepsilon_A+\tau_UM_q
+=
+\varepsilon_{\rm track}.
+```
+
+$c_J=O(a^{-1})$ でもsmooth sectorでは $r_e=O(a)$ なので、必要条件は $\tau_UM_q\ll1$ であり $\tau_U=o(a)$ ではない。
+
+tracer位置のflow interpolationを
+
+```math
+U_X(X,t)
 =
 \sum_e
-\chi_e^U(X_t)U_e(t),
-\qquad
-\sum_e\chi_e^U(X)=1
+\chi_e^U(X)U_e(t)
 ```
 
-と補間する。
-
-## R203C：moving reservoirからM64 position processへ
-
-M64正本では $T>0$ と低周波摩擦係数 $\gamma_X>0$ を定数とする。density scalingがphase volumeを変えても、採用open modelでは $\gamma_X$ をdensity依存にしない。これによりposition-dependent mobilityに伴う追加noise-induced driftを本体から除外する。
-
-tracerのunderdamped Langevin equationを
+とし、$\sum_e\chi_e^U=1$、$\sum_ex_e\chi_e^U=X$ を課すと、
 
 ```math
-dX_t
-=
-V_t\,dt,
-```
-
-```math
-M_XdV_t
-=
-\left[
-k_BT\,\partial_X\log r_{X_t}^\delta
--
-\gamma_X
-\left(
-V_t-U_X(X_t,t)
-\right)
-\right]dt
+\left|
+U_X-v_\delta(X,t)
+\right|
+\le
+\varepsilon_{\rm track}
 +
-\sqrt{2\gamma_Xk_BT}\,dW_t
+C_{\rm int}a^2
+\|\partial_x^2v_\delta\|_\infty
+=
+\varepsilon_U.
 ```
 
-とする。
+## R203C：canonical overdamped tracerとideal diffusionへの有限時間縮約
 
-<!-- theorem-start:theorem -->
-**定理（R203C：M64 moving-reservoir overdamped reduction）**
-
-固定有限時間で $r_X^\delta\ge r_{\min}>0$ とし、$U_X$、$\partial_X\log r_X^\delta$ が有界Lipschitzであるとする。
-
-```math
-\nu
-=
-\frac{k_BT}{\gamma_X},
-\qquad
-\tau_v
-=
-\frac{M_X}{\gamma_X}
-```
-
-と置く。$\tau_v\to0$ のoverdamped極で、tracer位置過程は
+M64 continuous profileの正本は、constant $T$、constant frictionに対応するoverdamped open SDE
 
 ```math
 dX_t
@@ -14755,315 +15026,458 @@ U_X(X_t,t)
 \nu\partial_X\log r_{X_t}^\delta
 \right]dt
 +
-\sqrt{2\nu}\,dW_t
+\sqrt{2\nu}\,dW_t,
 ```
 
-へ収束する。
+```math
+\nu=\frac{k_BT}{\gamma_X}
+```
 
-R203A/Bのsafe sectorを合成すると
+とする。Itô規約を採用する。underdamped Langevin方程式とsmall-mass極はstrengtheningであり、固定主線の誤差項に入れない。
+
+ideal regularized diffusionを
 
 ```math
-dX_t
+d\bar X_t
 =
 \left[
-\frac{j}{\rho}
+v_\delta(\bar X_t,t)
 +
-\nu\partial_X\log\rho
+u_\delta(\bar X_t,t)
 \right]dt
 +
 \sqrt{2\nu}\,dW_t
-+
-R_{64}(X_t,t)\,dt,
 ```
+
+とする。
+
+<!-- theorem-start:theorem -->
+**定理（R203C：M64 tracerのregularized diffusion縮約）**
+
+固定有限時間で $\rho_\delta\ge\rho_{\delta,*}>0$ とし、
 
 ```math
-|R_{64}|
-\le
-|\varepsilon_U|
-+
-\nu|\varepsilon_\rho|
-+
-\varepsilon_{\rm od}.
+b_\delta
+=
+v_\delta+u_\delta
 ```
 
-理想極でsignal continuity equation $\partial_t\rho+\partial_xj=0$ が成立するなら、このoverdamped SDEのFokker--Planck方程式は $p(x,t)=\rho(x,t)$ を解として持つ。
+が空間Lipschitzで定数 $L_b$ を持つとする。M64 drift errorを
+
+```math
+e_{64}
+=
+U_X-v_\delta
++
+\nu
+\left(
+\partial_X\log r_X^\delta
+-
+\partial_X\log\rho_\delta
+\right)
+```
+
+とすると
+
+```math
+\|e_{64}\|_\infty
+\le
+\varepsilon_U
++
+\nu\varepsilon_{\rho,1}
+=
+\varepsilon_{\rm drift}^{64}.
+```
+
+ideal diffusionのFokker--Planck方程式には $p=\rho_\delta$ が厳密解として入り、同じBrownian motionを使うsynchronous couplingにより
+
+```math
+W_1
+\left(
+{\cal L}(X_t),
+\rho_\delta(t)
+\right)
+\le
+e^{L_bt}
+W_1
+\left(
+{\cal L}(X_0),
+\rho_{\delta,0}
+\right)
++
+\frac{
+e^{L_bt}-1
+}{
+L_b
+}
+\varepsilon_{\rm drift}^{64}
+```
+
+が成立する。$L_b=0$ の場合は第2項を $t\varepsilon_{\rm drift}^{64}$ と読む。
 <!-- theorem-end:theorem -->
 
 <!-- theorem-start:proof -->
 **証明（R203C）**
 
-```math
-B(X,t)
-=
-U_X(X,t)
-+
-\nu\partial_X\log r_X^\delta
-```
-
-と置くと速度方程式は
+ideal Fokker--Planck方程式で
 
 ```math
-dV_t
+b_\delta\rho_\delta
+-
+\nu\partial_x\rho_\delta
 =
--\tau_v^{-1}
-[V_t-B(X_t,t)]dt
-+
-\tau_v^{-1}\sqrt{2\nu}\,dW_t
+v_\delta\rho_\delta
+=
+J_\delta
 ```
 
-である。variation of constantsを $X_t=X_0+\int_0^tV_sds$ へ代入すると、初期velocity項と指数kernel項は固定有限時間で $\tau_v\to0$ に消え、noise積分は $\sqrt{2\nu}W_t$ へ収束する。よって表示したoverdamped SDEを得る。
+だから、$\partial_t\rho_\delta+\partial_xJ_\delta=0$ と一致する。
 
-そのFokker--Planck方程式へ $p=\rho$、$U=j/\rho$ を代入すると、
+実過程とideal過程へ同じBrownian motionを入れ、$\Delta_t=X_t-\bar X_t$ とすると
 
 ```math
--\partial_x
-\left[
-\left(
-\frac{j}{\rho}
+\frac{d}{dt}
+\mathbb E|\Delta_t|
+\le
+L_b
+\mathbb E|\Delta_t|
 +
-\nu\partial_x\log\rho
-\right)
-\rho
-\right]
-+
-\nu\partial_x^2\rho
-=
--\partial_xj
+\varepsilon_{\rm drift}^{64}.
 ```
 
-となり、signal continuity equationと一致する。証明終。
+Gronwall評価と初期couplingの下限を取れば表示した $W_1$ boundを得る。証明終。
 <!-- theorem-end:proof -->
 
-## R203D：smooth diffusionとR161 finite-volume chain
+Y.4.1の準備を使えば初期項は $\varepsilon_{\rm prep}$ から制御できる。有限 $\tau_U$ の実M64 tracer自身について時間対称加速度まで直接比較する高階parabolic stabilityはstrengtheningとし、固定Q3-2では次節のcanonical R161 processへ受け渡す。
 
-R203Cの正則化densityとcurrentを
+## R203D：一般finite-graph R161 interface、1D finite volume、R185/R125接続
+
+### 一般finite graph
+
+有限signal graph $G=(V,E)$ で
 
 ```math
-p_\delta(x,t)>0,
-\qquad
-J_\delta(x,t),
-\qquad
-\partial_tp_\delta+\partial_xJ_\delta=0
+i\mathcal J_0\dot Z=hZ
 ```
 
-と書く。一様格子 $x_i=ia$ とcell
+とし、$h=h^\dagger$ とする。Y.2の $R_i^\delta$、$\pi_i^\delta$ とR203Aのexact edge current $J_{i\to j}$ を使う。各辺の対称activity numeratorを
 
 ```math
-C_i
+T_{ij}^\delta
 =
-[x_i-a/2,x_i+a/2]
+\frac{|h_{ij}|}{\mathcal J_0}
+\left(
+R_i^\delta+R_j^\delta
+\right)
 ```
 
-を取り、
+と定める。
+
+<!-- theorem-start:theorem -->
+**定理（R203D：M64 finite-graph R161 interfaceと1D特殊化）**
+
+任意の辺 $\{i,j\}$ で
 
 ```math
-\pi_i(t)
-=
-\int_{C_i}p_\delta(x,t)\,dx,
+|J_{i\to j}|
+\le
+T_{ij}^\delta
 ```
+
+が成立する。従ってlocal jump rates
 
 ```math
-j_{i+1/2}(t)
+k_{i\to j}^{64,G}
 =
-J_\delta(x_i+a/2,t)
+\frac{
+T_{ij}^\delta+J_{i\to j}
+}{
+2R_i^\delta
+}
 ```
 
-とする。
+は非負であり、
 
-R161が許す対称活動量として
+```math
+R_i^\delta k_{i\to j}^{64,G}
+-
+R_j^\delta k_{j\to i}^{64,G}
+=
+J_{i\to j}.
+```
+
+よって初期分布が $\pi^\delta(0)$ ならR161により全有限時刻で
+
+```math
+P(X_t=i)=\pi_i^\delta(t)
+```
+
+が厳密に成立する。rateは辺のlocal quantities $R_i^\delta,R_j^\delta,J_{ij}$ だけで書け、全位置分布をcontrollerへ入力しない。
+
+1次元nearest-neighborで
+
+```math
+|h_{i,i+1}|
+=
+\frac{\mathcal J_0\nu}{a^2}
+```
+
+なら、正規化activityは
 
 ```math
 t_{i+1/2}
 =
 \frac{\nu}{a^2}
-(\pi_i+\pi_{i+1})
+\left(
+\pi_i^\delta+\pi_{i+1}^\delta
+\right),
 ```
 
-を選ぶ。
-
-<!-- theorem-start:theorem -->
-**定理（R203D：M64 diffusion--R161 finite-volume connection）**
-
-node-free smooth sectorで、十分小さい格子幅 $a$ に対して
-
-```math
-t_{i+1/2}\ge|j_{i+1/2}|
-```
-
-が成立するとする。R161 forward ratesを
-
-```math
-k^+_{i\to i+1}
-=
-\frac{
-t_{i+1/2}+j_{i+1/2}
-}{
-2\pi_i
-},
-```
-
-```math
-k^+_{i\to i-1}
-=
-\frac{
-t_{i-1/2}-j_{i-1/2}
-}{
-2\pi_i
-}
-```
-
-と取るとrateは非負で、cell continuity equationはR161 master equationと厳密に一致する。
-
-さらにR161 chainの前進・後退平均速度は
-
-```math
-D_+X_i
-=
-v_i^{(a)}
-+
-u_i^{(a)},
-```
-
-```math
-D_-X_i
-=
-v_i^{(a)}
--
-u_i^{(a)},
-```
-
-```math
-v_i^{(a)}
-=
-\frac{a}{2\pi_i}
-(j_{i+1/2}+j_{i-1/2}),
-```
-
-```math
-u_i^{(a)}
-=
-\frac{\nu}{2a\pi_i}
-(\pi_{i+1}-\pi_{i-1})
-```
-
-を厳密に満たす。
-
-$p_\delta,J_\delta$ が十分滑らかなら
-
-```math
-v_i^{(a)}
-=
-\frac{J_\delta}{p_\delta}(x_i,t)
-+
-O(a^2),
-```
-
-```math
-u_i^{(a)}
-=
-\nu\partial_x\log p_\delta(x_i,t)
-+
-O(a^2),
-```
-
-かつsmooth test function $f$ に対して
-
-```math
-L_af
-=
-L_{64}f
-+
-O(a^2)
-```
-
-である。従って $a\to0$、その後 $\delta\to0$ のsafe sectorで
-
-```math
-D_\pm X
-=
-\frac{j}{\rho}
-\pm
-\nu\partial_x\log\rho
-+
-O(a^2+\delta)
-```
-
-となり、その後のBayes後退率と時間対称Newton則はR161/R185を再利用できる。
+となり、R185が用いるR161 activityと同一である。cell average表現を使えば前後平均速度とgeneratorはsmooth sectorでcontinuum regularized diffusionへ $O(a^2)$ で収束する。
 <!-- theorem-end:theorem -->
 
 <!-- theorem-start:proof -->
 **証明（R203D）**
 
-continuity equationを各cellへ積分すると
+Cauchy--Schwarzと $2|Z_i||Z_j|\le|Z_i|^2+|Z_j|^2$ から
 
 ```math
-\dot\pi_i
-=
-j_{i-1/2}
--
-j_{i+1/2}
+|J_{i\to j}|
+\le
+\frac{|h_{ij}|}{\mathcal J_0}
+\left(
+|Z_i|^2+|Z_j|^2
+\right)
+\le
+T_{ij}^\delta.
 ```
 
-を得る。上のR161 rateは
+rate positivityとcurrent identityは定義を直接代入すれば得る。signal continuityにより $\dot R_i^\delta=\sum_jJ_{j\to i}$ なので、規格化後はR161 master equationそのものである。
 
-```math
-\pi_i k^+_{i\to i+1}
--
-\pi_{i+1}k^+_{i+1\to i}
-=
-j_{i+1/2}
-```
-
-を厳密に満たすため、周辺master equationはcell continuityと一致する。
-
-$D_+X_i$ へnearest-neighbor ratesを代入すると表示した $v^{(a)}+u^{(a)}$ が得られる。Bayes backward rateを用いる同じ計算で $D_-X_i=v^{(a)}-u^{(a)}$ となる。cell averageとedge currentを中心Taylor展開すれば $v^{(a)}$ と $u^{(a)}$ の誤差はともに $O(a^2)$ である。同様にjump generatorをTaylor展開すると一次momentは $v^{(a)}+u^{(a)}$、二次momentは $2\nu+O(a^2)$ となり、$L_a=L_{64}+O(a^2)$ を得る。証明終。
+1次元特殊化は $T^\delta$ を $(1+\delta)S$ で割れば表示したactivityになる。centered cell averageとedge currentのTaylor展開から、R203Dの従来の $v^{(a)},u^{(a)}$、generatorの $O(a^2)$ 収束が従う。証明終。
 <!-- theorem-end:proof -->
 
-M64では、連続軌道をcell labelへ単純に丸めた過程が厳密Markovであるとは主張しない。R203DはM64 smooth diffusionとR161 chainを、同じcontinuum generatorへ収束する連続・離散実現として接続する。
+### R185への受渡し
 
-## 誤差責務と検証境界
-
-M64の代表的な総誤差を
+1次元canonical discrete M64はR185と同じ
 
 ```math
-\varepsilon_{64}
-\le
-C_{64}
 \left(
-\varepsilon_{\rm env}
-+
-\varepsilon_{\rm ch}
-+
-\varepsilon_{\rm width}
-+
-\delta
-+
-\varepsilon_U
-+
-\varepsilon_{\rm bath}
-+
-\varepsilon_{\rm od}
-+
-\varepsilon_{\rm fv}
+\pi^\delta,
+j^\delta,
+t^\delta
 \right)
 ```
 
-と整理する。同じ上流偏差を複数段へ重複加算しない。
+を使う。従ってeffective R161 processではR185をそのまま適用し、
 
-M60のDuffing shell/core mixing、ballistic lead、moving-reflector tracking、periodic homogenization、Eyring--Kramers hoppingに固有の誤差はM64へ引き継がない。M64ではcurrent mean-flow constitutive law自体の具体的Hamiltonian liftをrequired解析誤差とせず、direct open-model simulationまたは独立strengtheningで検査する。
+```math
+\left\|
+m
+\frac12
+\left(
+D_+D_-+D_-D_+
+\right)X
++
+\partial_xV
+\right\|_\infty
+\le
+m\|R_\delta\|_\infty
++
+mC_{185,a}a^2
+```
 
-解析核としてR203Aのcurrent identity、R203Bのpartition identity、R203Cのoverdamped reduction、R203Dのfinite-volume generator connectionを固定する。A2ではM37 signal equation、$U_e$ relaxation law、tracer Langevin SDEを同一parameter setで直接積分・標本化し、$U-j/\rho$、osmotic mean force、tracer drift/diffusion、位置密度、R161 generatorへの収束を検査する。
+を得る。
+
+ここでR203Cのmicro-to-effective reduction errorとR185のforce residualを単純加算しない。前者は
+
+```math
+\varepsilon_{\rm red}^{64}(T)
+```
+
+としてprocess-law metricで管理し、後者は
+
+```math
+\varepsilon_{\rm Newt}^{185}
+=
+m\|R_\delta\|_\infty
++
+mC_{185,a}a^2
+```
+
+として力の誤差で管理する。有限 $\tau_U$ の実tracer自身の加速度誤差を直接評価するには位置密度の高階parabolic stabilityが必要であり、これはstrengtheningとする。
+
+### R125の2頂点再結合器
+
+R125の2頂点graphで
+
+```math
+h_{\rm int}
+=
+\kappa
+\left(
+|L\rangle\langle R|
++
+|R\rangle\langle L|
+\right),
+\qquad
+q_L=q_R=\frac12
+```
+
+とする。R125のideal分布 $p_\phi$ に対してM64 regularized position lawは
+
+```math
+p_\phi^\delta
+=
+\frac{
+p_\phi+\delta(1/2,1/2)
+}{
+1+\delta
+}.
+```
+
+従って厳密に
+
+```math
+D_{\rm TV}
+\left(
+p_{\pi/2}^\delta,
+p_{\rm mix}^\delta
+\right)
+=
+\frac{1}{2(1+\delta)},
+```
+
+```math
+D_{\rm TV}
+\left(
+p_{\pi/2}^\delta,
+p_{-\pi/2}^\delta
+\right)
+=
+\frac{1}{1+\delta}.
+```
+
+M64 graph transportと終位置readoutの各run誤差が $\varepsilon_{64,G}$ 以下なら、観測分布間距離はそれぞれ
+
+```math
+\frac{1}{2(1+\delta)}
+-
+2\varepsilon_{64,G},
+```
+
+```math
+\frac{1}{1+\delta}
+-
+2\varepsilon_{64,G}
+```
+
+以上である。従って
+
+```math
+\varepsilon_{64,G}
+<
+\frac{1}{4(1+\delta)}
+```
+
+ならQ3-5のcoherent/mixed差と相対位相差はともに正に残る。
+
+Q3-5固定目標はこの2頂点再結合器であり、metric graph、幾何学的2開口、junction PDE、多画素screenは本接続に要求しない。
+
+## 誤差責務
+
+M64では異なる次元・意味の誤差を一つの総和へ潰さない。
+
+**準備誤差**
+
+```math
+\varepsilon_{\rm prep}
+=
+\frac12
+C_{\rm init}
+e^{-\lambda_{\rm prep}T_{\rm prep}}
++
+\varepsilon_{\rho,0}.
+```
+
+**flow tracking**
+
+```math
+\varepsilon_{\rm track}
+=
+\varepsilon_A
++
+\tau_UM_q,
+```
+
+```math
+\varepsilon_U
+=
+\varepsilon_{\rm track}
++
+C_{\rm int}a^2
+\|\partial_x^2v_\delta\|_\infty.
+```
+
+**continuous micro-to-effective drift**
+
+```math
+\varepsilon_{\rm drift}^{64}
+=
+\varepsilon_U
++
+\nu\varepsilon_{\rho,1}.
+```
+
+**finite-time process reduction**
+
+```math
+\varepsilon_{\rm red}^{64}(T)
+=
+e^{L_bT}
+\varepsilon_{\rm prep}^{W_1}
++
+\frac{
+e^{L_bT}-1
+}{
+L_b
+}
+\varepsilon_{\rm drift}^{64}.
+```
+
+**R185 Newton residual**
+
+```math
+\varepsilon_{\rm Newt}^{185}
+=
+m\|R_\delta\|_\infty
++
+mC_{185,a}a^2.
+```
+
+**finite-graph/readout error** $\varepsilon_{64,G}$ はgraph jump-law実装、初期分布、終位置recordの全変動誤差として別管理する。
+
+$\delta$ はR203Aの辞書誤差として再加算せず、R185のregularizationとfinite-graph position lawに一度だけ入れる。Hamiltonian lift、finite bath、finite-bandwidth $R_U$、underdamped small-mass極はstrengthening用誤差として本台帳から分ける。
 
 ## 現行主線との責務境界
 
-M64/R203A--R203Dは、M60/M61主線を整理して置換することを狙うactive replacement candidateである。M64自体はまだ昇格させず、
+R203A--R203Dにより、M64のpromotion前に必要だった次の四つのbridgeを解析的に閉じる。
+
+1. phase-volume reservoirからの有限時間initial tracer preparation。
+2. $U\to v_\delta$ のfinite-time tracking bound。
+3. canonical overdamped M64からR161/R185へのprocess reductionと二段誤差台帳。
+4. R161 finite graphを介するR125/Q3-5の2頂点接続。
+
+これによりM64は固定目標用のpromotion-ready replacement candidateとする。ただし本更新だけでは現行主線を切り替えず、
 
 - M61/R200--M60/R198/R199/R196を現行Q3固定達成主線として維持する。
 - Q3-1/Q3-2の固定達成ラベルを変更しない。
-- Q3-1-A1/Q3-2-A1の部分達成、Q3-1-A2/Q3-2-A2の未監査を変更しない。
 - M61/M60 required verifierを削除・降格しない。
+- M60/M61の退役とM64 required昇格は独立promotion PRで行う。
 
-M64昇格とM60/M61主線の退役は、M64のdirect simulation、同一parameter set、文書・検算の整合性を別PRで監査した後に行う。
+A2 direct simulationは強化目標であり、固定目標用M64 promotionの必要条件とはしない。A1/A2の判定変更もpromotion auditで独立に行う。
+
+direct A2ではM37 signal、preparation stage、mean-flow relaxation、canonical overdamped tracerを同一parameter setで直接積分・標本化し、$U-v_\delta$、osmotic mean force、経験位置密度、finite-volume/finite-graph R161 connectionを検査する。
 
 # 参考文献
 
