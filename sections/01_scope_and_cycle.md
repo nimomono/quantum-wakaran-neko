@@ -17,41 +17,33 @@ Q1/Q2の2結果測定では、射影作用を
 J_\pm=\mathcal J_0Z^\dagger P_\pm Z
 ```
 
-として保持し、R191へ渡す。
+として保持し、M65へ渡す。
 
 ```math
 Z
 \longrightarrow
 (J_+,J_-)
-\xrightarrow{\mathrm{R191}}
+\xrightarrow{\mathrm{M65/R204D}}
 r
 \xrightarrow{\mathrm{R181D}}
 P_rZ.
 ```
 
-R191が結果形成と吸収記録までを担い、R181Dは結果を生成せずprojector routerと測定後結果成分受渡しだけを担う。固定有限深さでは非規格化結果成分をそのまま次段binary selectorへ渡す。一般深さで作用下限が不足する場合だけR192の方向不変作用安定化を補助的に使う。fixed-goalの現行selectorはR191である。
+M65が結果形成、正式な無反応、有限recordまでを担い、R181Dは結果を生成せずprojector routerと測定後結果成分受渡しだけを担う。固定有限深さでは非規格化結果成分をそのまま次段M65へ渡す。一般深さで作用下限が不足する場合だけR192の方向不変作用安定化を補助的に使う。
 
-Q1 W型2モード特殊化では、R189Aが保持した左右作用座標をR193の直接decision Hamiltonianへ渡し、R191のmacrospin energyを
-
-```math
-\widehat S=A_L+A_R,
-\qquad
-\widehat D=A_L-A_R
-```
-
-として物理的に実現する。従ってQ1では
+Q1 W型2モード特殊化では、R189Aが保持した左右作用座標 $A_L,A_R$ をM65へ直接入力する。M65は各作用を固定scale $A_*$ で割った $a_r=A_r/A_*$ をhubから結果chamberへの線形rateへ使い、状態依存除算を外部制御器へ要求しない。従ってQ1では
 
 ```math
 \mathrm{M37\ W2}
 \xrightarrow{\mathrm{R189A}}
 (A_L,A_R)
-\xrightarrow{\mathrm{R193}}
-\mathrm{R191}
+\xrightarrow{\mathrm{M65/R204D}}
+Y
 \xrightarrow{\mathrm{R181D}}
 P_rZ
 ```
 
-が現行測定主線である。R193はQ1専用特殊化であり、Q2の一般R191 transducer契約は変更しない。
+が現行測定主線である。decision終了時にはM65 generatorを閉じ、R112型recordへ $Y\in\{L,R,\varnothing\}$ を固定してからR181Dを開く。
 
 Q3の信号数学はQ1/Q2から切り離された別構造ではない。各頂点へQ1型の局所実正準モードを配置し、辺へQ2で用いるのと同じ有限2体系エルミート生成子の結合族を反復すると、$i\mathcal J_0\dot Z=hZ$ の空間信号を得る。辺結合を持たない独立Q1列では $j_{ij}=0$ で空間伝播しないが、差モード型結合 $\sum_{\{i,j\}}g_{ij}|Z_i-Z_j|^2$ を加えるとグラフLaplacianと局所連続方程式が生じる。局所作用を規格化した $\pi_i$ と辺の反対称確率流 $j_{ij}$ がR161への共通入力となる。
 
@@ -86,11 +78,11 @@ M54の複素信号 $Z$ は実正準対の派生表示であり、独立した複
 
 | 系列 | 信号準備・操作 | 結果形成・受渡し |
 |---|---|---|
-| Q1 | 準備済みW2入力、R187、R135、R140、R189A | R193、R191、R181D、R143--R144、R189B--R189C |
-| Q2-1 | R181B、R181C | R191を2段、R181D router |
-| Q2-2 | 固定一重項4モード、A/B設定gate | A端R191、R181D型router、B端R191、R180A/R180C監査 |
-| Q2-3 | R181Bを2回、R181C、R177 | R191逐次読出し、R181D router |
-| Q2-4 | M54一般 $2^n$ 直接モード、R181C | R191逐次読出し、R181D、非終端安全結果のR192、R179 open reset、R186資源監査 |
+| Q1 | 準備済みW2入力、R187、R135、R140、R189A | M65/R204D--R204F、R181D、R143--R144、R189B--R189C |
+| Q2-1 | R181B、R181C | M65を2段、R181D router |
+| Q2-2 | 固定一重項4モード、A/B設定gate | A端M65、R181D型router、B端M65、R180A/R180C監査 |
+| Q2-3 | R181Bを2回、R181C、R177 | M65逐次読出し、R181D router |
+| Q2-4 | M54一般 $2^n$ 直接モード、R181C | M65逐次読出し、R181D、非終端安全結果のR192、R179 open reset、R186資源監査 |
 | Q3 | M37/R86 signal、M64/R203A--R203D | R161/R185、R124/R182/R125位置読出し、R112終位置record |
 
 旧R190A--R190C、R170、R180Bは固定Q1/Q2の必須依存から外す。R184は旧M37--M54空間率latchの補助結果として保持するがM64主線の必須依存から外す。旧構成の詳細は `notes/` とGit履歴に保存する。
@@ -103,11 +95,11 @@ M54の複素信号 $Z$ は実正準対の派生表示であり、独立した複
 
 ## 1.6 非主張
 
-本稿は、量子力学全体を古典力学へ還元したこと、空間分離Bell局所模型を得たこと、指数的な内部受動自由度を除去したこと、全系列を同一製造済み装置へ統合したことを主張しない。R193によりQ1のR189A保持座標からR191 decision energyまでの直接接続は具体化するが、R191のmacrospin浴、吸収記録、R181D router、未使用保持対/resetを含む全周期を単一閉鎖Hamiltonianへ統合したことまでは意味しない。Q2の一般transducerもR193の対象外である。M64についてdirect A2、finite-bandwidth/Hamiltonian lift、continuous-space一様極限、多粒子、signal sourceからclock/recordまでの完全単一周期統合は別の強化課題である。
+本稿は、量子力学全体を古典力学へ還元したこと、空間分離Bell局所模型を得たこと、指数的な内部受動自由度を除去したこと、全系列を同一製造済み装置へ統合したことを主張しない。M65はQ1/Q2のopen selectorを共通化するが、M65、R181D、記録、未使用保持対/resetを各信号装置と一つの製造済み装置へ統合したことまでは意味しない。M64についてdirect A2、finite-bandwidth/Hamiltonian lift、continuous-space一様極限、多粒子、signal sourceからclock/recordまでの完全単一周期統合は別の強化課題である。
 
 
-## M65 canonical open selector と現行fixed-goal証人
+## M65 canonical open selector とfixed-goal主線
 
 M65/R204A--R204FはQ1/Q2二結果射影用のcanonical open selector modelとして正本化する。正本発展則は3状態open Markov過程であり、phase-volume chamberとHamiltonian--Brownian縮約は追加実現へ分離する。M64とM65は同一粒子を共有せず、M64はQ3 spatial tracer、M65はQ1/Q2 binary selectorという別の物理役割を持つ。
 
-一方、本変更ではfixed-goal witnessを切り替えない。Q1/Q2の現行結果形成はR191、Q1 W2からの直接decision接続はR193が担う。R181D、R192、R179、R180A/R180Cだけをbinary selector interfaceへ一般化し、後続のR191/R193退役時に物理実装の差し替えだけで済む構造とする。
+Q1/Q2 fixed-goalの現行結果形成にはM65を採用する。R181D、R192、R179、R180A/R180Cはbinary selector interfaceを通じてM65へ接続する。旧R191/R193はM65へ責務を吸収した退役研究線としてnotes/Git履歴へ保存する。

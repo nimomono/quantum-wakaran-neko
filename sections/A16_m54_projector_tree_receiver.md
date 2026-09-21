@@ -1,7 +1,7 @@
 @number: P
 @chapter: 付録
 @title: M54段階的射影選別と測定後状態受渡し
-@status: R181Dを上流binary selectorの物理実装から独立な共通projector-router定理として定式化する。R191は現行fixed-goal selector実装、M65は別の現行canonical selector modelとして同じ契約を満たす。一般深さの作用安定化はR192へ分離する。
+@status: R181Dを上流binary selectorの物理実装から独立な共通projector-router定理として定式化する。現行fixed-goal selectorはM65であり、一般深さの作用安定化はR192へ分離する。
 
 ## P.1 目的と節点状態
 
@@ -77,25 +77,7 @@ p_{u,b}\geq\tau_{{\rm state},u}>0.
 
 安全下限 $\tau_{{\rm state},u}$ をどう作るかはselector実装側の責務である。
 
-### P.2.1 現行R191実装
-
-R191を使う現行fixed-goal主線では、
-
-```math
-\varepsilon_{{\rm sel},u}
-=
-\varepsilon_{191,u},
-```
-
-```math
-\tau_{{\rm state},u}
-=
-\tau_{\rm cut}-\frac{\varepsilon_u}{2}>0
-```
-
-と取れる。endpoint dispatcher、mixing、finite-temperature retreat、finite-time capture、吸収記録はR191側の誤差台帳に含める。
-
-### P.2.2 M65実装
+### P.2.1 現行M65実装
 
 M65/R204D--R204Eを使う場合は、
 
@@ -113,7 +95,7 @@ M65/R204D--R204Eを使う場合は、
 
 と取れる。M65内部rateや無反応hub誤差はM65側の誤差台帳に含める。
 
-本draftではQ1/Q2 fixed-goal witnessをR191からM65へ切り替えない。
+Q1/Q2 fixed-goal witnessにはM65を使う。
 
 ## P.3 結果固定後の可逆projector router
 
@@ -313,7 +295,7 @@ P.2が完全結果核と安全作用下限、P.3が結果固定後の1対1な経
 
 深さ $m=n$ の一般Q2-4では、各節点のselector、router、必要なR192、転送誤差を $O(\epsilon/n)$ に配分する。
 
-現行R191 fixed-goal実装についてはA20/T節のR191資源条件を使う。M65を選ぶ場合はA26/Z節のR204F資源条件を使う。R181D自身はどちらのselectorにも追加の指数precisionを要求しない。
+現行M65 fixed-goal実装にはA26/Z節のR204F資源条件を使う。R181D自身はselector内部へ追加の指数precisionを要求しない。
 
 次のいずれかが避けられなければR181Dの主張は成立しない。
 

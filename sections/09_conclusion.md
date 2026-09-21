@@ -1,23 +1,23 @@
 @number: 9
 @chapter: 本文
 @title: 結論
-@status: Q1/Q2のR191系と、Q3のM37/R86--M64/R203A--R203D--R161--R185現行階層を総括する。M60/M61旧Hamiltonian実装は現行主線から退役する。
+@status: Q1/Q2のM65/R181D系と、Q3のM37/R86--M64/R203A--R203D--R161--R185現行階層を総括する。R191/R193およびM60/M61旧実装は現行主線から退役する。
 
 本稿は、古典実正準信号の線形力学と、1試行1結果を作る開放古典instrumentを分離して構成した。有限次元Hilbert空間とunitaryを古典振動子へ写すこと自体ではなく、その同じ単一試行信号からBorn型排他的結果と測定後結果成分を作る物理接続を中心課題とした。
 
-Q1/Q2の2結果測定はR191へ統一した。二つの射影作用
+Q1/Q2の2結果測定はM65へ統一した。二つの射影作用
 
 ```math
 J_\pm=\mathcal J_0Z^\dagger P_\pm Z
 ```
 
-の和と差をブラウン巨視的スピンの一軸異方性とbiasへ結合すると、理想吸引域測度から
+を保持し、M65の3状態open pointerへ線形rateとして入力する。有限decision後にgeneratorを閉じてR112型recordへ結果を固定する。理想極限では
 
 ```math
 P(\pm)=\frac{J_\pm}{J_++J_-}
 ```
 
-を得る。R191は有限混合時間、transducer誤差、guard、有限温度retreat、有限decision時間、端点dispatcher、無反応、吸収記録を同じ完全結果誤差へまとめる。
+を得る。M65はfinite-time relaxation、hub無反応、exact endpoint、有限recordを同じ完全結果誤差へまとめる。
 
 結果後の状態更新はR181Dの可逆projector routerへ縮約した。物理信号を規格化し直さず
 
@@ -25,13 +25,13 @@ P(\pm)=\frac{J_\pm}{J_++J_-}
 Z\longmapsto P_rZ
 ```
 
-を次段へ渡すだけで、次のR191が残った作用和を分母として条件付きBorn重みを読む。有限段では確率積がtelescopingしてLüders型共同分布を回収する。一般深さQ2-4で結果成分作用が読出し下限を下回る場合だけ振幅再調整を補助手段として残す。
+を次段へ渡すだけで、次のM65がその時点の二射影作用から条件付きBorn重みを形成する。有限段では確率積がtelescopingしてLüders型共同分布を回収する。一般深さQ2-4で結果成分作用が読出し下限を下回る場合だけ振幅再調整を補助手段として残す。
 
-Q1ではR187がM37弱結合W型最低2正常モードをW2制御信号へ接続し、R140がBloch球型可逆操作とRabi運動を与える。R143--R144は分析器・記録・逐次測定、R189A、R193、R189B--R189Cは走行中作用保持と有限Rabi--Zeno比較を担う。Born結果形成をW型粒子位置の再平衡化へ依存させない。R193はR189Aの保持座標をR191 macrospinのdecision energyへ直接Hamiltonian結合し、Q1に残っていた抽象transducer接続を具体化する。
+Q1ではR187がM37弱結合W型最低2正常モードをW2制御信号へ接続し、R140がBloch球型可逆操作とRabi運動を与える。R143--R144は分析器・記録・逐次測定、R189A--R189Cは走行中作用保持と有限Rabi--Zeno比較を担う。Born結果形成をW型粒子位置の再平衡化へ依存させず、R189Aの保持座標をM65へ直接入力する。
 
-Q2-1とQ2-3ではR181B/R181Cが永続多モード信号上のテンソル積状態とgate列を作り、末端R191/R181Dが出力を標本化する。Q2-4では同じ2結果nodeを一般回路出力へ逐次適用し、R179はopen resetと履歴排出、R186は外部運用資源とノイズ境界を監査する。
+Q2-1とQ2-3ではR181B/R181Cが永続多モード信号上のテンソル積状態とgate列を作り、末端M65/R181Dが出力を標本化する。Q2-4では同じ2結果nodeを一般回路出力へ逐次適用し、R179はopen resetと履歴排出、R186は外部運用資源とノイズ境界を監査する。
 
-Q2-2の現行証人では、固定一重項4モード信号にA設定を作用し、A端R191で $r$ を形成して結果成分 $P_{A,r}^{x}Z$ をB端へ渡し、B設定後のB端R191で $s$ を形成する。Q2-2固定目標は特定のBell前提違反を先に指定せず、採用構成ごとに前提の成立・不成立を監査する。共同分布は
+Q2-2の現行証人では、固定一重項4モード信号にA設定を作用し、A端M65で $r$ を形成して結果成分 $P_{A,r}^{x}Z$ をB端へ渡し、B設定後のB端M65で $s$ を形成する。Q2-2固定目標は特定のBell前提違反を先に指定せず、採用構成ごとに前提の成立・不成立を監査する。共同分布は
 
 ```math
 P(r,s\mid x,y)
@@ -58,4 +58,4 @@ M60/M61のDuffing shell、統一chiral媒体、ballistic lead、moving reflector
 
 M65をQ1/Q2二結果射影用のcanonical open selector modelへ昇格した。最小模型は $+,H,-$ の3状態Markov pointerであり、保持済み二作用はhubから各結果へのrateへ線形に入る。R204Dは有限時間Born誤差、R204Eは共通binary selector contract、R204FはQ1互換性とQ2-4読出し時間条件を与える。phase-volume chamberとHamiltonian--Brownian縮約はR204B/R204Cの追加実現・強化結果へ分離した。
 
-R181D、R192、R179、R180A/R180Cはselector内部物理から独立なinterfaceへ一般化した。一方、本変更ではfixed-goal witnessを切り替えず、Q1/Q2の現行達成根拠にはR191/R193を維持する。従ってM65正本化とR191/R193退役を同一変更として扱わない。
+R181D、R192、R179、R180A/R180Cはselector内部物理から独立なinterfaceを介してM65へ接続する。旧R191 Brownian macrospin読出しとR193 Q1直接decision bridgeはM65へ責務を吸収したため現行主線から退役し、notes/Git履歴へ保存する。

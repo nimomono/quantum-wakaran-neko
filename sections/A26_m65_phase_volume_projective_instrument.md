@@ -1,13 +1,13 @@
 @number: Z
 @chapter: 付録
 @title: M65 phase-volume型3状態open射影読出し
-@status: Q1/Q2二結果射影用の現行canonical open selector model。正本発展則は保持済み二作用を線形rateへ入れる3状態連続時間Markov過程とし、exact endpoint、有限decision後のR112型record/latch、R204Dの有限時間Born誤差、R204Eの共通binary selector contract、R204FのQ1/Q2-4互換性を備える。R204A--R204Cのphase-volume chamber/Hamiltonian構成は追加実現・持上げであり、M65正本の成立条件にしない。R191/R193はretirement-readiness監査のため現行fixed-goal証人として維持する。
+@status: Q1/Q2二結果射影用の現行fixed-goal canonical open selector model。正本発展則は保持済み二作用を線形rateへ入れる3状態連続時間Markov過程とし、exact endpoint、有限decision後のR112型record/latch、R204Dの有限時間Born誤差、R204Eの共通binary selector contract、R204FのQ1/Q2-4接続と資源条件を備える。R204A--R204Cのphase-volume chamber/Hamiltonian構成は追加実現・持上げであり、M65正本の成立条件にしない。
 
 ## Z.1 目的と責務境界
 
 M65は、二結果直交射影に対して上流が保持した二作用から排他的な古典結果を作る最小open selectorである。複素信号そのものを再読出しせず、capture終了後に固定された二作用だけを入力とする。
 
-本付録ではM65を正本へ昇格するが、Q1/Q2のfixed-goal witnessはまだR191/R193からM65へ切り替えない。従ってA20/A21、R191/R193のrequired検算、Q1/Q2達成ラベルは維持する。R181D、R192、R179、R180A/R180Cだけをselector非依存のinterfaceへ一般化し、次回の実装切替に備える。
+M65/R204D--R204FをQ1/Q2のfixed-goal witnessへ採用する。R181D、R192、R179、R180A/R180Cはselector非依存のinterfaceを通してM65へ接続する。旧R191/R193はM65へ責務を吸収した退役研究線としてnotes/Git履歴へ保存する。
 
 M65の正本は開放3状態Markov過程そのものである。固定chamber、phase-volume oscillator、調和bath、Fick--Jacobs縮約は正本の定義ではなく、R204B/R204Cに置く追加の物理実現・Hamiltonian liftである。
 
@@ -499,7 +499,7 @@ M65では
 
 と取れば上のbinary selector contractを満たす。従ってR181Dをselector非依存の形で適用できる。
 
-本draftではfixed-goal witnessをR191からM65へ切り替えない。
+fixed-goal witnessにはM65を使う。
 <!-- theorem-end:corollary -->
 
 ## Z.9 R204F：Q1互換性とQ2-4読出し資源
@@ -525,7 +525,7 @@ M65 decision時間を $T_{65}$ とすると、固定有限回Zeno証人では
 \Omega_\kappa T_{65}\longrightarrow0
 ```
 
-の弱結合極で追加latencyを任意に小さくできる。この結果は互換性を示すもので、本draftのQ1 fixed-goal witnessをR193/R191から切り替えない。
+の弱結合極で追加latencyを任意に小さくできる。この結果をQ1 fixed-goal witnessのM65接続として採用する。
 
 Q2-4では二結果node数を $m$、全読出し誤差予算を $\epsilon$ とする。各nodeのmixing項へ $O(\epsilon/m)$ を割り当てる十分条件は
 
@@ -606,7 +606,7 @@ R189Aのcapture終了後は $H_{\rm cap}=0$ であり、保持済み $A_L,A_R$ �
 
 とすれば、従来R189Cの有限2回Zeno比較へ必要なlatencyを任意に小さくできる。
 
-これはR191/R193退役前の互換性確認であり、本draftではR143/R144/R189B/R189Cの現行fixed-goal証人を切り替えない。
+この合成をR143/R144/R189B/R189Cの現行fixed-goal証人へ採用する。
 
 ## Z.10 正本と強化課題の境界
 
@@ -614,4 +614,4 @@ M65の正本はR204Aのopen generator、R204Dの有限時間Born誤差、endpoin
 
 R204Bのphase-volume chamber、R204CのHamiltonian--Brownian lift、finite-bandwidth bath、direct Brownian trajectory、具体回路化は追加の物理実現・A2/B系強化課題である。これらをM65の正本性やfixed-goal達成判定の前提にしない。
 
-R191/R193は本draftでは退役しない。A20/A21とrequired verifierを維持し、Q1/Q2の現行fixed-goal witnessもR191/R193のままとする。本付録でexact endpoint、有限record/latch、Q1空操作対照までを閉じ、退役そのものは後続変更へ分離する。
+旧R191/R193はM65へ責務を吸収したため現行主線から退役する。exact endpoint、有限record/latch、Q1空操作対照を含むfixed-goal主線は本付録で閉じる。

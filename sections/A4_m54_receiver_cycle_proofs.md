@@ -1,7 +1,7 @@
 @number: D
 @chapter: 付録
 @title: M54駆動設定先行2端binary-selector受信機構の証明
-@status: R180Aをbinary selector--R181DのA端特殊化として確認し、R180Cの共同Born分布、非信号性、CHSH値、有限全変動誤差、Bell前提監査をselector内部物理に依存せず証明する。現行fixed-goal実装はA/B両端R191を使う。
+@status: R180Aをbinary selector--R181DのA端特殊化として確認し、R180Cの共同Born分布、非信号性、CHSH値、有限全変動誤差、Bell前提監査をselector内部物理に依存せず証明する。現行fixed-goal実装はA/B両端M65を使う。
 
 ## D.1 R180Aの特殊化確認
 
@@ -81,7 +81,7 @@ E(x,y)
 
 ## D.4 有限誤差
 
-A端保持・basis gate誤差を $\varepsilon_A^{\rm pre}$、A端selectorを $\varepsilon_{\rm sel}^{A}$、routerを $\varepsilon_{\rm route}$、B端basis gateを $\varepsilon_B^{\rm basis}$、B端selectorを $\varepsilon_{\rm sel}^{B}$、記録を $\varepsilon_{\rm rec}$ とする。現行R191実装では $\varepsilon_{\rm sel}^{A,B}=\varepsilon_{191}^{A,B}$ と置く。同じ偏差を重複計上しなければkernel telescopingから
+A端保持・basis gate誤差を $\varepsilon_A^{\rm pre}$、A端selectorを $\varepsilon_{\rm sel}^{A}$、routerを $\varepsilon_{\rm route}$、B端basis gateを $\varepsilon_B^{\rm basis}$、B端selectorを $\varepsilon_{\rm sel}^{B}$、記録を $\varepsilon_{\rm rec}$ とする。現行M65実装では $\varepsilon_{\rm sel}^{A,B}=\varepsilon_{65}^{A,B}$ と置く。同じ偏差を重複計上しなければkernel telescopingから
 
 ```math
 \varepsilon_{180}

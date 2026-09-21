@@ -31,3 +31,8 @@
 ## draft-119 M65 retirement-readiness
 
 `check_draft119_m65_retirement_readiness.py` は、M65のexact endpoint、finite record/latch、Q1 retirement-readiness合成、A12旧作用殻主線の整理を確認する。同時にA20/A21とR191/R193 required verifierがまだ存在することを検査し、本PRが退役そのものを先取りしていないことを固定する。
+
+
+## draft-120 R191/R193 retirement
+
+`check_draft120_retire_r191_r193.py` は、R191/R193のactive付録・required verifierが退役し、notesへ保存され、Q1/Q2 fixed-goal主線と状態表がM65/R204D--R204Fへ切り替わったことを確認する。過去draft記録中のR191/R193表記は履歴として許可する。

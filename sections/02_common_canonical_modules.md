@@ -11,7 +11,7 @@ M54は有限個の実正準対から得る信号、準備済み入力境界、�
 Z=\frac{Q+iP}{\sqrt{2\mathcal J_0}}
 ```
 
-とするが、$Z$ は独立した複素実体ではない。Q1/Q2では2結果射影作用を共通binary selector interfaceへ渡す。fixed-goalの現行証人はR191であり、M65も同じinterfaceを満たすcanonical open selector modelとして併存する。Q3ではM37/R86が空間signalを与え、M64/R203A--R203Dが同じsignalからcontinuous/finite-graph tracerをR161へ渡す。R161自身が有限状態のcanonical Markov経路法則まで定め、R162は同じ経路法則を独立Poisson random measuresで実現するoptional referenceとして使う。測定結果用の静的配置変数やR170専用pointerをM54共通状態へ置かない。
+とするが、$Z$ は独立した複素実体ではない。Q1/Q2では2結果射影作用をM65のbinary selector interfaceへ渡す。M65/R204A--R204Fを現行fixed-goal selectorとして用いる。Q3ではM37/R86が空間signalを与え、M64/R203A--R203Dが同じsignalからcontinuous/finite-graph tracerをR161へ渡す。R161自身が有限状態のcanonical Markov経路法則まで定め、R162は同じ経路法則を独立Poisson random measuresで実現するoptional referenceとして使う。測定結果用の静的配置変数やR170専用pointerをM54共通状態へ置かない。
 
 概念上の共通状態を
 
@@ -21,15 +21,15 @@ Z=\frac{Q+iP}{\sqrt{2\mathcal J_0}}
 (Z,S_{\rm port},G,W,J,A^\delta,X,D,\tau,S_{\rm ref})
 ```
 
-と書く。$X$ はQ3空間状態構成で使う実在配置であり、Q1/Q2の2値結果はbinary selectorの記録が担う。現行fixed-goal証人ではR191、M65を選ぶ場合はその3状態open pointerを使う。$A^\delta$ はR164を使うQ3開始配置または独立な作用殻研究線のために残す。R191のBrownian macrospinまたはM65のopen pointer、ならびにR179のopen reset浴は接続interfaceとして扱い、常設のM54信号座標とは分ける。
+と書く。$X$ はQ3空間状態構成で使う実在配置であり、Q1/Q2の2値結果はM65の3状態open pointerと有限recordが担う。$A^\delta$ はR164を使うQ3開始配置または独立な作用殻研究線のために残す。M65のopen pointerとR179のopen reset浴は接続interfaceとして扱い、常設のM54信号座標とは分ける。
 
 | 系列 | M54状態構成 | 準備・操作 | 現行出力 |
 |---|---|---|---|
-| Q1 | W型2モード信号 | 準備済み古典入力、R140、R187 | R191、R181D、R143--R144 |
-| Q2-1 | 4モード永続記憶部 | R181B、R181C | R191逐次読出し、R181D |
-| Q2-2 | 4モード＋2物理測定端 | R181B/R181C、設定gate | A端R191、router、B端R191、R180A/R180C |
-| Q2-3 | 8モード永続記憶部 | R181Bを2回、R181C、R177 | R191逐次読出し、R181D |
-| Q2-4 | $2^n$ 直接モード | 根モード初期化、R181C | R191、R181D、非終端安全結果のR192、R179 reset |
+| Q1 | W型2モード信号 | 準備済み古典入力、R140、R187 | M65、R181D、R143--R144 |
+| Q2-1 | 4モード永続記憶部 | R181B、R181C | M65逐次読出し、R181D |
+| Q2-2 | 4モード＋2物理測定端 | R181B/R181C、設定gate | A端M65、router、B端M65、R180A/R180C |
+| Q2-3 | 8モード永続記憶部 | R181Bを2回、R181C、R177 | M65逐次読出し、R181D |
+| Q2-4 | $2^n$ 直接モード | 根モード初期化、R181C | M65、R181D、非終端安全結果のR192、R179 reset |
 | Q3 | 空間信号＋classical tracer | 準備済み古典空間入力、M37/R86、M64/R203A--R203D | R161、R185、R124、R182、R125 |
 
 M37はM54へ吸収しない。Q3では局所位置ばね網から空間信号を実装し、Q1ではR187の弱結合W型族に限って最低2正常モードをW2制御信号へ接続する。全系列を同一architectureの装置族、共通物理interface、一つのparameter family、共通反復周期へ統合するM0は別の未完成目標である。入力、測定軸、ポテンシャル、規模に応じた有限設定値の変更は許す。
@@ -380,7 +380,7 @@ j_{ij}=\frac{J_{i\to j}}{S}
 X_t
 ```
 
-を意味する。Q1/Q2のR191測定pointerを空間粒子へ同一視する主張ではない。
+を意味する。Q1/Q2のM65測定pointerを空間粒子へ同一視する主張ではない。
 
 ## 2.8 R161の共通整合・Markov経路法則とM64/R162の物理・参照実現
 
@@ -577,138 +577,15 @@ k_{i\to j}(t)
 
 である。従って周辺分布はR161の前向きmaster equationに厳密に従う。同じ前向き経路法則のBayes反転から得る後向き率はR161の $k^-$ と一致し、未来から作用する第2浴を必要としない。
 
-Poisson reservoirはR161 canonical経路法則の一つの明示的pathwise realizationである。現行Q3の物理存在論はM64の三実体が担い、Q3-2とR185の論理依存はR161だけで閉じる。R162は比較、シミュレーション、開放Poisson実装の参照に用いる。有限衝突Hamiltonian列への持上げは強化結果として論文外メモへ分離する。R161の静的 $j=0$ 特殊化は数学的比較用に残すが、Q1/Q2の2結果読出し主線ではR191を使う。
+Poisson reservoirはR161 canonical経路法則の一つの明示的pathwise realizationである。現行Q3の物理存在論はM64の三実体が担い、Q3-2とR185の論理依存はR161だけで閉じる。R162は比較、シミュレーション、開放Poisson実装の参照に用いる。有限衝突Hamiltonian列への持上げは強化結果として論文外メモへ分離する。R161の静的 $j=0$ 特殊化は数学的比較用に残すが、Q1/Q2の2結果読出し主線ではM65を使う。
 <!-- theorem-end:theorem -->
 
-R161は静的・移動の率構成に加え、有限状態のcanonical Markov経路法則まで共通に保つ。現行Q3の物理主線はM64/R203A--R203Dであり、R162は同じ経路法則を持つoptional Poisson realizationとして残す。Q1/Q2の2結果測定はR161静的鎖を経由せずbinary selectorへ接続する。fixed-goalの現行証人はR191である。旧有限衝突実装は退役メモに保存する。
-
-
-### 2.8.2 R191：作用差駆動ブラウン巨視的スピン2結果射影読出し
-
-Q1/Q2の2結果射影測定では、作用殻の多結果状態数を経由する経路とは別に、固定した2つの射影作用を既知のBrownian spin型開放磁化力学へ直接接続できる。非零信号 $Z$ と $P_++P_-=I$ に対して
-
-```math
-J_+
-=\mathcal J_0Z^\dagger P_+Z,
-\qquad
-J_-
-=\mathcal J_0Z^\dagger P_-Z,
-```
-
-```math
-S=J_++J_->0,
-\qquad
-D=J_+-J_-
-```
-
-を固定する。transducer出力 $\widehat S,\widehat D$ は
-
-```math
-|\widehat S-S|\leq\varepsilon_\Sigma S,
-\qquad
-|\widehat D-D|\leq\varepsilon_\Delta S,
-\qquad
-0\leq\varepsilon_\Sigma<1
-```
-
-を満たすとする。指針変数を単磁区巨視的スピンの軸成分 $U=m_z\in[-1,1]$ とし、混合窓では等方回転拡散、decision窓では
-
-```math
-V_{\rm dec}(u)
-=-\frac\chi2
-\left(
-\widehat S u^2+2\widehat D u
-\right)
-```
-
-を作用させる。実吸引域境界は
-
-```math
-\widehat u_*
-=-\frac{\widehat D}{\widehat S}
-```
-
-であり、理想境界 $u_*=-D/S$ との差は
-
-```math
-|\widehat u_*-u_*|
-\leq
-\varepsilon_u
-:=
-\frac{\varepsilon_\Delta+\varepsilon_\Sigma}
-{1-\varepsilon_\Sigma}.
-```
-
-<!-- theorem-start:theorem -->
-**定理（R191：作用差駆動ブラウン巨視的スピン2結果射影読出し）**
-
-混合終了時の $U$ の法則が $U[-1,1]$ から全変動距離 $\varepsilon_{\rm mix}$ 以内にあり、通常読出し経路では両実推定重みが $\tau_{\rm cut}>0$ 以上、保護帯幅 $g$ と捕獲幅 $\zeta$ が $g+\zeta<2\tau_{\rm cut}$ を満たすとする。$|U-\widehat u_*|<g$ は正式な無反応へ送り、保護帯外では付録Tの軸対称stochastic LLGをdecision時間 $T$ だけ走らせ、$[1-\zeta,1]$ または $[-1,-1+\zeta]$ への初到達結果を吸収記録へ写す。
-
-$S\geq S_{\min}>0$ とし、
-
-```math
-\Delta_{\min}
-=
-\frac{\chi(1-\varepsilon_\Sigma)S_{\min}}
-{2k_{\rm B}T_{\rm dec}},
-\qquad
-m_\zeta=\zeta(2-\zeta)
-```
-
-と置く。付録Tで定める有限温度retreat上界 $q_{\rm ret}$ と有限時間未捕獲上界 $q_{\rm time}$ を使えば、通常経路の完全結果分布 $P_{191}$ と理想Born分布 $P_{\rm Born}=(J_+/S,J_-/S,0)$ は
-
-```math
-D_{\rm TV}(P_{191},P_{\rm Born})
-\leq
-\varepsilon_{\rm mix}
-+g
-+\frac{\varepsilon_u}{2}
-+q_{\rm ret}
-+q_{\rm time}
-+\varepsilon_{\rm cap}
-=: \varepsilon_{191}^{\rm int}
-```
-
-を満たす。$\min\{\widehat p_+,\widehat p_-\}<\tau_{\rm cut}$ では大きい側を決定論的経路へ送り、その偏差を
-
-```math
-\varepsilon_{191}^{\rm edge}
-\leq
-\tau_{\rm cut}
-+\frac{\varepsilon_u}{2}
-+\varepsilon_{\rm cap}
-```
-
-で抑える。従って1ノード誤差は
-
-```math
-\varepsilon_{191}
-=
-\max
-\left\{
-\varepsilon_{191}^{\rm int},
-\varepsilon_{191}^{\rm edge}
-\right\}.
-```
-
-理想混合・transducer・低温・長decision時間・完全捕獲極限では
-
-```math
-P(+)=\frac{J_+}{J_++J_-},
-\qquad
-P(-)=\frac{J_-}{J_++J_-}.
-```
-
-成功試行だけを再規格化しない。結果固定後の射影成分生成と次段受渡しは既存の共通射影選別機構/R181Dが担い、一般深さで成分作用下限が必要な場合だけR192の方向不変作用安定化を使う。Q1/Q2 fixed-goalの現行証人にはR191を使う。一方M65も別のcanonical open selector modelとして正本化し、R181D側では両者を共通契約で扱う。Q3の開始配置はR164へ分離する。
-<!-- theorem-end:theorem -->
-
-混合評価、stochastic LLG、scale density、$q_{\rm ret}$、$q_{\rm time}$、端点dispatcher、熱力学、逐次結果成分受渡しは付録Tに置く [56--58]。
-
+R161は静的・移動の率構成に加え、有限状態のcanonical Markov経路法則まで共通に保つ。現行Q3の物理主線はM64/R203A--R203Dであり、R162は同じ経路法則を持つoptional Poisson realizationとして残す。Q1/Q2の2結果測定はR161静的鎖を経由せずM65 binary selectorへ接続する。旧有限衝突実装は退役メモに保存する。
 
 
 ### 2.9 M65：3状態open binary selector
 
-M65は二つの保持済み作用 $A_+,A_->0$ を読む古典open selectorである。固定 $A_*>0$ に対して $a_r=A_r/A_*$ とし、pointer $X_t\in\{+,H,-\}$ のrateを
+M65は $A_\pm\geq0$、$A_++A_->0$ を満たす二つの保持済み作用を読む古典open selectorである。固定 $A_*>0$ に対して $a_r=A_r/A_*$ とし、pointer $X_t\in\{+,H,-\}$ のrateを
 
 ```math
 k_{+\to H}=k_{-\to H}=\Lambda,
@@ -722,7 +599,7 @@ k_{H\to -}=\kappa a_-
 
 R204Dにより有限時間完全結果分布はBorn作用比へ近づき、R204Eにより後述のbinary selector contractを満たす。phase-volume chamberとHamiltonian--Brownian liftはR204B/R204Cの追加実現であり、M65の正本定義には含めない。
 
-本draftではM65を正本化するが、Q1/Q2 fixed-goalの現行証人はR191/R193のままとする。
+M65/R204D--R204FをQ1/Q2 fixed-goalの現行selectorとして採用する。decision終了時にはgeneratorを閉じてR112型recordへ完全結果を固定し、その後にR181D routerを開く。
 
 ## 2.10 M54の一様記憶部、接続端、貯蔵部
 
@@ -736,7 +613,7 @@ Z_x,
 Z=(Z_x)_{x\in\{0,1\}^n}\in\mathbb C^L.
 ```
 
-M54の能動部は信号、逆演算用補助記憶部、選別機構用作業領域、必要時のR192作用安定化接続端、一様ゲートバス、出力記録、時計自由度を持つ。Q1/Q2の2結果読出しはR191のブラウン巨視的スピン接続部を主線とし、R179は反復運転時のopen resetと履歴排出だけを担う。内部の受動自由度、静的結合、状態容量、受動並列度は $2^n\operatorname{poly}(n,d)$ まで許す。一方、外部プログラムが指定するのはゲート種、1個または2個の対象量子ビット、ゲート順序、現在読む出力ビット、未使用化の回、素子添字、時計自由度窓だけである。$2^n$ モードの列挙、モード別初期化・較正・読出し、指数長の係数表、回路別配線、出力確率の事前計算を許さない。
+M54の能動部は信号、逆演算用補助記憶部、選別機構用作業領域、必要時のR192作用安定化接続端、一様ゲートバス、出力記録、時計自由度を持つ。Q1/Q2の2結果読出しはM65の3状態open selectorを主線とし、R179は反復運転時のopen resetと履歴排出だけを担う。内部の受動自由度、静的結合、状態容量、受動並列度は $2^n\operatorname{poly}(n,d)$ まで許す。一方、外部プログラムが指定するのはゲート種、1個または2個の対象量子ビット、ゲート順序、現在読む出力ビット、未使用化の回、素子添字、時計自由度窓だけである。$2^n$ モードの列挙、モード別初期化・較正・読出し、指数長の係数表、回路別配線、出力確率の事前計算を許さない。
 
 M54はR181Bの反復テンソル積状態の生成を一般 $n$ へ延長しない。R179の開放リセット後、定数次元供給源を $0^n$ 根モードへ接続して計算基底入力を作る。別の基底入力は回路先頭の $X$ ゲートで作る。ゲート列はR181C、末端ビット列はR181D、結果相関履歴の流出排出と補助部リセットはR179が担う。
 
@@ -850,7 +727,7 @@ F_{k,b}(Z,0)
 5. 一般深さで必要な場合だけR192、
 6. 次節点または外部接続端への転送
 
-である。現行fixed-goal selector実装はR191、別のcanonical open selector modelとしてM65/R204D--R204Eを持つ。
+である。現行fixed-goal selector実装はM65/R204D--R204Eである。
 
 ## 2.14 R181D：selector非依存の段階的射影選別・測定後状態受渡し
 
@@ -893,17 +770,7 @@ p_{u,Y_u}
 
 結果固定後にだけrouterを開くこと、および無反応を除いて再規格化しないこと、である。
 
-現行R191実装では
-
-```math
-\varepsilon_{{\rm sel},u}=\varepsilon_{191,u},
-\qquad
-\tau_{{\rm state},u}
-=
-\tau_{\rm cut}-\frac{\varepsilon_u}{2}.
-```
-
-M65実装では
+現行M65実装では
 
 ```math
 \varepsilon_{{\rm sel},u}=\varepsilon_{65,u},
@@ -973,7 +840,7 @@ P_{\rm Born}
 R181Dの結論はselectorの内部物理に依存しない。
 <!-- theorem-end:theorem -->
 
-完全証明と資源境界は付録Pに置く。本draftではfixed-goal witnessをR191からM65へ切り替えない。
+完全証明と資源境界は付録Pに置く。fixed-goalの現行selectorはM65である。
 
 ### 2.14.1 R192：方向不変作用安定化
 
@@ -1235,15 +1102,15 @@ D_{\rm TV}(P_{\rm M54},P_{\rm circ})
 +\sum_{j=1}^n\bar\varepsilon_j.
 ```
 
-$\bar\varepsilon_j$ には第 $j$ 段で実際に使うbinary selector誤差、制御付き選別機構、必要な場合のR192作用安定化、転送を各1回だけ含める。fixed-goalの現行実装ではselector誤差にR191誤差を使う。2結果主線ではR164/R190/R170の同じ選択偏差を重複加算しない。R179の開放リセット誤差が次試行入口へ残る場合は、その次試行の $\varepsilon_{\rm in}$ へ含める。一般有限結果集合または作用殻代替経路を選ぶ場合だけ、R170の $\varepsilon_{\rm sel}$ にR179/R190の選択偏差をまとめる。
+$\bar\varepsilon_j$ には第 $j$ 段のM65 selector誤差、制御付き選別機構、必要な場合のR192作用安定化、転送を各1回だけ含める。2結果主線ではR164/R190/R170の同じ選択偏差を重複加算しない。R179の開放リセット誤差が次試行入口へ残る場合は、その次試行の $\varepsilon_{\rm in}$ へ含める。一般有限結果集合または作用殻代替経路を選ぶ場合だけ、R170の $\varepsilon_{\rm sel}$ にR179/R190の選択偏差をまとめる。
 
 R186の製造誤差、位相ノイズ、固定機構誤差は、それぞれ $\eta_{\rm gate}$、$\varepsilon_{\rm leak}$、$\bar\varepsilon_j$ を物理部品誤差から評価する十分条件として使い、別の独立誤差として二重加算しない。R186第4項の全自由度に加わる加法ノイズがある場合は、この誤差予算を多項式精度で閉じられない障害条件として扱う。
 
-$\eta_{\rm gate}=O(\epsilon/d)$、$\bar\varepsilon_j=O(\epsilon/n)$ とする。R191主線では $\tau_{\rm cut},g,\varepsilon_u,\varepsilon_{\rm cap}=O(\epsilon/n)$ とし、$\Delta_{\min}g^2\gtrsim\log(n/\epsilon)$ を十分条件に取る。R190作用殻の代替経路を選ぶ場合だけ、正則化 $\delta$ と最悪試行頻度 $O(\delta^{-1/2})$ をその経路の資源として数える。有限閉鎖浴の素子数や使用済み貯蔵部容量は中心資源台帳から外し、R179の浴接続端数、リセット時間、帯域幅、精度と、R190の混合時間・作用開口制御範囲を外部運用資源として数える。
+$\eta_{\rm gate}=O(\epsilon/d)$、$\bar\varepsilon_j=O(\epsilon/n)$ とする。M65主線では各nodeのselector誤差を $O(\epsilon/n)$ に配分し、R204Fの $T_{\rm node}\geq\Lambda^{-1}\log(Cn/\epsilon)$ と $\Lambda/(\kappa a_{\min})=O(\epsilon/n)$ を十分条件に取る。R190作用殻の代替経路を選ぶ場合だけ、正則化 $\delta$ と最悪試行頻度 $O(\delta^{-1/2})$ をその経路の資源として数える。有限閉鎖浴の素子数や使用済み貯蔵部容量は中心資源台帳から外し、R179の浴接続端数、リセット時間、帯域幅、精度と、R190の混合時間・作用開口制御範囲を外部運用資源として数える。
 
 ## 2.18 Q2-4の判定と境界
 
-R181Cは指数個の個別ゲート設定、R181Dは全 $2^n$ 葉の一括読出し、R179は指数個の個別未使用初期化を避ける。R186は指数モード数だけを理由に指数精度を要求せず、局所製造誤差と位相ノイズを射影型に評価する一方、全自由度に加わる加法ノイズが外部精度へ指数コストとして露出する境界を与える。従ってM54はQ2-4を条件付き達成へ進める。2結果共通契約の条件は、射影作用保持機構、binary selector、制御付き選別機構、非終端安全結果に対するR192、開放リセット/供給接続部を同じ安全集合と制御規約で接続することである。fixed-goalの現行selector実装はR191である。R164/R190/R170経路は一般有限結果集合と作用殻型の代替実現として残す。
+R181Cは指数個の個別ゲート設定、R181Dは全 $2^n$ 葉の一括読出し、R179は指数個の個別未使用初期化を避ける。R186は指数モード数だけを理由に指数精度を要求せず、局所製造誤差と位相ノイズを射影型に評価する一方、全自由度に加わる加法ノイズが外部精度へ指数コストとして露出する境界を与える。従ってM54はQ2-4を条件付き達成へ進める。2結果共通契約の条件は、射影作用保持機構、M65、制御付き選別機構、非終端安全結果に対するR192、開放リセット/供給接続部を同じ安全集合と制御規約で接続することである。R164/R190/R170経路は一般有限結果集合と作用殻型の代替実現として残す。
 
 本構成は通常の計算量理論における多項式資源の古典シミュレーションではない。指数個の受動自由度、静的結合、浴容量、総熱を許した上で、外部制御と総時間を多項式に抑える結果である。未知量子入力、適応中間測定、誤り訂正、固定容量浴による無期限独立同分布標本は主張しない。M54はQ1・Q2・Q3の共通親模型族だが、全状態構成で同一の製造済み装置や同一パラメータを主張しない。
 
@@ -1257,4 +1124,4 @@ G_{\rm rec}=\sum_i d_i(x)P_{D_i}
 
 と書ける。これは記録時刻の排他的粒子位置を読む。入力時刻以前の粒子軌道、初回到達率、吸収率、時間積分流束を与えない。
 
-R191は、ブラウン巨視的スピン、射影成分生成、記録、resetを単一閉鎖Hamiltonianへ統合済みだと主張しない。Q1 W2特殊化ではR189A保持座標からR193によりdecision energyまでを直接接続するが、Q2の一般transducerと全周期統合は未完成である。R170についても、容量結合、作用殻、信号保持、混合・衝突、選択機構、固定機構を1つの具体的装置へ統合済みだと主張しない。現行の条件付き達成は、この未統合部分を明示して判定する。有限浴化は別の強化課題である。一意エルゴードな外部時刻割当または有限熱化から、結果列の独立同分布性や二項型有限標本揺らぎも従わない。
+M65は開放3状態Markov方程式を基本方程式として採用し、phase-volume chamber/Hamiltonian--Brownian liftは強化実現へ分離する。Q1ではR189A保持座標をM65へ直接渡し、Q2でも同じbinary selector interfaceを使う。R170についても、容量結合、作用殻、信号保持、混合・衝突、選択機構、固定機構を1つの具体的装置へ統合済みだと主張しない。現行の条件付き達成は、この未統合部分を明示して判定する。有限浴化は別の強化課題である。一意エルゴードな外部時刻割当または有限熱化から、結果列の独立同分布性や二項型有限標本揺らぎも従わない。

@@ -1,3 +1,11 @@
+## draft-120：R191/R193退役・M65 fixed-goal主線化
+
+- Q1/Q2 fixed-goalの2結果selectorをM65/R204D--R204Fへ切り替え、R181D/R192/R179/R180A--R180Cの既存binary-selector interfaceへ接続する。
+- Q1のR143/R144/R189B/R189CをM65へ同期し、R189A保持作用をM65へ直接入力する。有限2回Zenoの理想余裕 $1/4$ と達成ラベルは維持する。
+- R191/R193のactive付録A20/A21をnotesへ移し、専用verifierも `notes/retired_verifiers/` へ移す。R191/R193の結果番号は再利用しない。
+- Q2-1--Q2-4の達成ラベルは維持し、条件付き達成の残件をM65/R181D/record/resetの装置統合、Q2-4の一様装置族とR186ノイズ条件へ更新する。
+- R186、M0、A/B/S判定、Q3主線、M65のHamiltonian/Brownian lift強化境界は変更しない。
+
 ## draft-119：M65 retirement-readiness整理
 
 - M65の入力定義域を $A_\pm\ge0$、$A_++A_->0$ へ広げ、exact射影endpointを固定線形comparatorで直接処理できることを明記する。
