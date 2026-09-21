@@ -67,16 +67,7 @@ I_{e,\pm}=|C_{e,\pm}|^2
 
 を作る。R203Aは作用和・差をregularized density/currentへ接続する。R203Bはsignal densityに依存するreservoir phase volumeからosmotic free energyを導き、continuous/finite-graph initial preparationとfinite-time mean-flow trackingを与える。R203Cはcanonical overdamped tracerをideal regularized diffusionへ縮約し、R203Dは1次元でR161/R185、一般finite graphでR124/R182/R125へ接続する。
 
-```text
-M37 / R86 signal
-        ↓
-M64 / R203A--R203C
-        ↓
-R203D / R161
-        ↓
-R185
-Nelson / time-symmetric Newton
-```
+Q3-2の現行因果鎖は、M37/R86 signalからM64/R203A--R203Cへ進み、R203D/R161を介してR185のNelson型・時間対称Newton則へ接続する。
 
 R162のopen Poisson-jump過程はM64の基礎的実体ではなく、R161 lawのoptional referenceとして残す。Q1/Q2の測定装置そのものをQ3粒子へ流用するとは主張しない。
 
