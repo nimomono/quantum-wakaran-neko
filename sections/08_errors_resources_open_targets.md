@@ -515,7 +515,7 @@ B.5の漏れ確率を全変動距離へ直接加える旧評価は採用しな�
 
 M65の正本はR204Aの3状態open generatorである。通常経路では、安全運用域で $a_\Sigma\geq a_{\min}>0$ として
 
-\[
+```math
 \varepsilon_{65}^{\rm int}
 \leq
 \varepsilon_A
@@ -527,13 +527,13 @@ e^{-\Lambda T}
 T\varepsilon_{\rm rate}
 +
 \varepsilon_{\rm rec}.
-\]
+```
 
 canonical open lawそのものでは $\varepsilon_{\rm rate}=0$ とする。具体的chamber、有限帯域bath、Brownian liftを選んだ場合だけ実装generator誤差を追加する。
 
 endpointは固定係数の線形比較器で判定でき、
 
-\[
+```math
 \varepsilon_{65}^{\rm edge}
 \leq
 \tau_{\rm cut}
@@ -543,11 +543,11 @@ endpointは固定係数の線形比較器で判定でき、
 \varepsilon_{\rm cmp}
 +
 \varepsilon_{\rm rec}.
-\]
+```
 
 従って
 
-\[
+```math
 \varepsilon_{65}
 =
 \max
@@ -555,35 +555,35 @@ endpointは固定係数の線形比較器で判定でき、
 \varepsilon_{65}^{\rm int},
 \varepsilon_{65}^{\rm edge}
 \}.
-\]
+```
 
 二結果node数 $m$ について、
 
-\[
+```math
 T_{\rm node}
 \geq
 \frac1\Lambda
 \log\frac{Cm}{\epsilon}
-\]
+```
 
 とし、
 
-\[
+```math
 \frac{\Lambda}{\kappa a_{\min}}
 =
 O\left(\frac{\epsilon}{m}\right)
-\]
+```
 
 および各局所誤差を $O(\epsilon/m)$ に配分すれば、$\Lambda^{-1},\kappa^{-1},a_{\min}^{-1},m$ が多項式範囲にある限り、
 
-\[
+```math
 T_{\rm read,total}
 =
 O\left(
 \frac{m}{\Lambda}
 \log\frac{m}{\epsilon}
 \right)
-\]
+```
 
 は多項式である。小Born重み自体はM65のrelaxation rate $\Lambda$ を縮めない。
 
