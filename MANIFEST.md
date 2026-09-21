@@ -1,3 +1,12 @@
+## draft-116：開放ミクロ方程式の標準表記
+
+- 「採用開放方程式」「採用open model」のように「採用」を名詞修飾語として使う現行表記を廃止する。
+- Hamiltonian浴などの上位模型から導出せず、方程式自体をミクロ模型の基本発展則として置く場合は、「開放ミクロ方程式として直接定める」を標準の文章表現、「直接定めた開放ミクロ方程式」を標準の名詞表現とする。
+- Hamiltonian浴から縮約導出した場合は「Hamiltonian浴から導出した開放方程式」と区別する。
+- TERMINOLOGY、PROJECT_STATUS、PROJECT_STANCE、PROJECT_GUIDE、ENHANCEMENT_TARGETS、active sections、simulation規約、現行研究noteを同期する。
+- 固定目標、達成ラベル、M0判定、A1/A2/B/S状態、模型・結果・数式・physics verifierは変更しない。
+- 過去CHANGELOG、過去draft記録、superseded notesは歴史記録として書き換えない。
+
 ## draft-115：M0 open microscopic device 判定への一般化
 
 - M0の達成条件からHamiltonian無限浴への持上げを外し、PROJECT_GUIDE 4.5.2を満たす採用openミクロ方程式を許す。
