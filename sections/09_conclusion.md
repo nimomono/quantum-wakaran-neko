@@ -56,4 +56,6 @@ M60/M61のDuffing shell、統一chiral媒体、ballistic lead、moving reflector
 残る主要な物理課題は、各固定目標について具体的古典ミクロ模型A1とその直接数値再現A2を独立に監査すること、Q1/Q2について具体的アナログ回路B1、実験可能パラメータ領域B2、回路直接数値再現B3へ進むこと、Q2-2で測定窓内の空間的・因果的隔離をQ2-2-Sで検査することにある。Q3ではM64で直接定めた開放方程式のA2直接数値再現、finite-bandwidth/Hamiltonian lift、clock・終位置record・resetを含む単一反復周期、連続空間一様極限、多粒子拡張、Q3-6の位相量子化を強化・未解決課題として残す。M64の正式昇格だけからA1/A2の状態を自動的に上げない。
 
 
-M64のphase-volume reservoirをQ1/Q2の測定へ同一粒子として流用するのではなく、同じJacobian機構を別のclassical pointerへ特殊化するM65をreplacement candidateとして追加した。保持済み二作用が固定chamberの有効容量とneck conductanceへ同じ係数で入れば、escape scaleは作用比から独立し、hubからのbranch比だけがBorn作用比になる。R204A/R204B/R204D--R204Fはこの代数・有限時間統計・逐次受渡し・読出し時間資源を閉じる。残るpromotion gateはR204Cの具体HamiltonianからBrownian chamber networkへの有限誤差縮約とdirect trajectory witnessであり、それが閉じるまではR191/R193を現行主線として維持する。
+M65をQ1/Q2二結果射影用のcanonical open selector modelへ昇格した。最小模型は $+,H,-$ の3状態Markov pointerであり、保持済み二作用はhubから各結果へのrateへ線形に入る。R204Dは有限時間Born誤差、R204Eは共通binary selector contract、R204FはQ1互換性とQ2-4読出し時間条件を与える。phase-volume chamberとHamiltonian--Brownian縮約はR204B/R204Cの追加実現・強化結果へ分離した。
+
+R181D、R192、R179、R180A/R180Cはselector内部物理から独立なinterfaceへ一般化した。一方、本変更ではfixed-goal witnessを切り替えず、Q1/Q2の現行達成根拠にはR191/R193を維持する。従ってM65正本化とR191/R193退役を同一変更として扱わない。
