@@ -1,3 +1,12 @@
+## draft-112：M64正式昇格・M60/M61退役
+
+- M64/R203A--R203DをQ3の現行open modelへ昇格し、M37/R86 signal、R161/R185、R124/R182/R125位置読出しへ正本接続する。
+- A22--A24のM60/M61旧Hamiltonian実装を現行section treeから削除し、Git履歴・退役索引へ保存する。
+- M64の6本のverifierをrequiredへ昇格し、M60/M61専用verifierを退役する。
+- README、PROJECT_STATUS、ENHANCEMENT_TARGETS、第0・1・2・6--9章、notes、simulation registry、VALIDATIONをM64主線へ同期する。
+- fixed-goal達成ラベルとA1/A2判定は変更しない。
+- paper.md、main.tex、paper.pdf を新しいsection treeから再生成する。
+
 ## draft-111：M64 promotion bridge完成
 
 - R203AのregularizationをR185と共通の $\rho_\delta,J_\delta,v_\delta$ へ揃え、R203Bにfinite-time initial tracer preparationとmean-flow tracking boundを追加した。
@@ -179,8 +188,7 @@
 - `sections/A5_m37_envelope_proofs.md`
 - `sections/A6_common_signal_statistics.md`
 - `sections/A7_q3_completion_proofs.md`
-- `sections/A8_m47_hopf_preparation.md`
-- `sections/A9_m54_setting_pre_paired_hopf_receiver.md`
+- `sections/A8_m47_w2_parameter_dictionary.md`
 - `sections/A10_q2_common_bath_composition.md`
 - `sections/A11_common_collision_bath_thermodynamics.md`
 - `sections/A12_common_action_shell_state_count.md`
@@ -190,12 +198,8 @@
 - `sections/A16_m54_projector_tree_receiver.md`
 - `sections/A17_m54_uniform_supply.md`
 - `sections/A18_m54_projective_robustness.md`
-- `sections/A19_m54_drude_action_shell_bridge.md`
 - `sections/A20_m54_brownian_macrospin_projective_instrument.md`
-- `sections/A21_m47_action_hold_macrospin_direct_bridge.md`
-- `sections/A22_m57_dual_tl_tracer_microphysics.md`
-- `sections/A23_q3_common_micro_model.md`
-- `sections/A24_m61_single_hamiltonian_micro_model.md`
+- `sections/A21_q1_r193_macrospin_bridge.md`
 - `sections/A25_m64_three_entity_open_q3_model.md`
 - `sections/90_references.md`
 
@@ -251,36 +255,45 @@
 - `CITATION.cff`
 - `references.bib`
 - `tools/build_paper.py`
-- `tools/verify_terminology.py`
+- `tools/check_generated.py`
+- `tools/check_latex_semantics.py`
+- `tools/check_source.py`
+- `tools/check_terminology.py`
+- `tools/lint_typeset.py`
+- `tools/paper_source.py`
+- `tools/run_physics_checks.py`
+- `tools/test_validation_policy.py`
 - `tools/template.tex`
 - `tools/verify_common_canonical_control.py`
-- `tools/verify_envelope_reduction.py`
-- `tools/verify_m47_q1_instrument.py`
 - `tools/verify_common_matching_open_jump.py`
-- `tools/verify_m47_action_shell_origin.py`
-- `tools/verify_q2_shell_and_locality.py`
-- `tools/verify_r180_m54_receiver.py`
-- `tools/verify_r180_bell_cycle.py`
-- `tools/verify_phase_correlation.py`
-- `tools/verify_q1xq1_common_bath.py`
-- `tools/verify_q1_live_zeno.py`
-- `tools/verify_m54_static_instrument.py`
-- `tools/verify_r192_radial_stabilizer.py`
-- `tools/verify_m54_spatial_matching.py`
-- `tools/verify_r181d_projector_tree.py`
-- `tools/verify_r179_m54_supply.py`
-- `tools/verify_r186_m54_projective_robustness.py`
-- `tools/verify_m54_q2_composition.py`
+- `tools/verify_envelope_reduction.py`
+- `tools/verify_m37_w_q1_bridge.py`
 - `tools/verify_m37_w_spectral_tunneling.py`
-- `tools/verify_r187_m37_w_q1_bridge.py`
+- `tools/verify_m47_action_shell_origin.py`
+- `tools/verify_m47_q1_instrument.py`
+- `tools/verify_m54_q2_composition.py`
+- `tools/verify_m54_spatial_matching.py`
+- `tools/verify_m64_current_dictionary.py`
+- `tools/verify_m64_graph_r161.py`
+- `tools/verify_m64_overdamped_reduction.py`
+- `tools/verify_m64_preparation_tracking.py`
+- `tools/verify_m64_r161_finite_volume.py`
+- `tools/verify_m64_reservoir_partition.py`
+- `tools/verify_phase_correlation.py`
+- `tools/verify_q1_live_zeno.py`
+- `tools/verify_q1_r193_macrospin_bridge.py`
+- `tools/verify_q1xq1_common_bath.py`
+- `tools/verify_q2_shell_and_locality.py`
 - `tools/verify_q3_completion.py`
-- `tools/verify_m57_ballistic_tracer.py`
-- `tools/verify_q3_common_micro_model.py`
-- `tools/verify_m61_single_hamiltonian.py`
-- `tools/candidate_checks/verify_m61_parameter_window.py`
-- `tools/candidate_checks/verify_m62_spectral_window.py`
-- `tools/candidate_checks/verify_m62_weighted_shell.py`
-- `tools/candidate_checks/verify_m62_time_window.py`
+- `tools/verify_r161_path_law.py`
+- `tools/verify_r179_m54_supply.py`
+- `tools/verify_r180_m54_receiver.py`
+- `tools/verify_r181d_projector_tree.py`
+- `tools/verify_r186_m54_projective_robustness.py`
+- `tools/verify_r187_m37_w_q1_bridge.py`
+- `tools/verify_r191_macrospin.py`
+- `tools/verify_r192_radial_stabilizer.py`
+- `tools/verify_r194_brownian_spin_nelson.py`
 - `figures/README.md`
 - `.github/workflows/verify.yml`
 - `.gitignore`
