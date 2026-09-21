@@ -18,7 +18,7 @@
 
 また、状態方向、第2モーメント、位置分布などは、多数回の試行をまとめた統計量として扱います。これらの統計量を、1回の試行の制御器が読み取って次の状態を書き込むことはしません。
 
-論文では、こうした信号、配置、記録、時計自由度などをまとめた共通の有効状態構成をM54と呼びます。空間を伝わる信号については、局所的に結合した実振動子網M37からの物理的な実装も調べています。Q3の現行ミクロ模型M60では、1個のtracer $X$ に2つの実Duffing内部振動を付随させ、それらを一つの二成分非線形chiral媒体へ局所結合します。同じ媒体のnonlinear coreがaction reservoir、弱非線形leadが左右ballistic carrierとして働き、Brownian noiseとFDTは別の通常の平衡oscillator bathが担います。
+論文では、こうした信号、配置、記録、時計自由度などをまとめた共通の有効状態構成をM54と呼びます。空間を伝わる信号は局所的に結合した実振動子網M37/R86から実装します。Q3の現行粒子模型M64では、このclassical coherent signalに一つのclassical tracerと一つのsignal-driven thermal reservoirを接続し、signal density/currentから初期位置準備、current drift、osmotic drift、R161/R185位置過程を構成します。
 
 ## 現在の中心的な仕組み
 
