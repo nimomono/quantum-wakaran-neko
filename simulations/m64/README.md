@@ -41,4 +41,4 @@ k_{i\to j}
 
 ## A2判定境界
 
-candidate algebra checksは解析式の回帰でありA2達成ではない。A2には少なくともcanonical continuous runner、十分なtrajectory数、経験分布比較、同一parameter set、主要近似パラメータに対する収束性が必要である。finite-graph runnerはQ3-4A/Q3-5のA2監査へ使う。Hamiltonian lift、finite bath、underdamped liftはM64 A2の必須条件ではない。
+required algebra checksは解析式の回帰でありA2達成ではない。A2には少なくともcanonical continuous runner、十分なtrajectory数、経験分布比較、同一parameter set、主要近似パラメータに対する収束性が必要である。finite-graph runnerはQ3-4A/Q3-4B/Q3-5のA2監査へ使う。Hamiltonian lift、finite bath、underdamped liftはM64 A2の必須条件ではない。
