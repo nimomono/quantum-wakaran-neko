@@ -340,36 +340,87 @@ M_X=O(\epsilon^6)
 旧draft-95の $\varepsilon_{\rm mix}$、$\varepsilon_{\rm corr}$、TLへの $\varepsilon_{\rm FDT}$ は現行M60 transport誤差台帳から削除する。旧R184の $\varepsilon_{184}$ は撤回しないがM60主線では使わない。R162はideal R161 jump referenceでありM60の基礎的bath誤差として数えない。
 
 
-### M64 replacement candidateの誤差境界
+### M64 promotion-ready candidateの誤差境界
 
-M64/R203A--R203Dは現行M60 transport誤差をまだ置換しない独立candidateとして、代表総誤差を
+M64/R203A--R203Dでは、確率過程の縮約誤差と時間対称Newton則の力残差を単一の総誤差へ加算しない。
+
+initial preparationは
 
 ```math
-\varepsilon_{64}
-\le
-C_{64}
-\left(
-\varepsilon_{\rm env}
+\varepsilon_{\rm prep}
+=
+\frac12
+C_{\rm init}
+e^{-\lambda_{\rm prep}T_{\rm prep}}
 +
-\varepsilon_{\rm ch}
-+
-\varepsilon_{\rm width}
-+
-\delta
-+
-\varepsilon_U
-+
-\varepsilon_{\rm bath}
-+
-\varepsilon_{\rm od}
-+
-\varepsilon_{\rm fv}
-\right)
+\varepsilon_{\rho,0}
 ```
 
-と整理する。$\varepsilon_U$ はreservoir mean-flow constitutive law、$\varepsilon_{\rm od}$ はsmall-mass overdamped reduction、$\varepsilon_{\rm fv}$ はR203D finite-volume generatorの偏差である。同じM37/R86偏差をcurrent dictionaryとreservoir trackingへ重複加算しない。
+で管理する。R203A/Bのcurrent dictionaryとfinite-time flow trackingは
 
-M64ではDuffing shell/core mixing、ballistic lead、moving-reflector tracking、periodic homogenization、Eyring--Kramers hoppingを採用しないため、それらに固有のM60誤差をM64台帳へ移さない。代わりにconstant $T$、constant $\gamma_X$、node-free smooth sector、$t_{i+1/2}\ge|j_{i+1/2}|$ を明示的な適用条件とする。single-field Hamiltonian lift、current transducerの完全散乱導出、finite-bath化はM64本体のrequired誤差ではなくstrengtheningへ分離する。
+```math
+\varepsilon_{\rm track}
+=
+\varepsilon_A
++
+\tau_UM_q,
+```
+
+```math
+\varepsilon_U
+=
+\varepsilon_{\rm track}
++
+C_{\rm int}a^2
+\|\partial_x^2v_\delta\|_\infty
+```
+
+とする。canonical overdamped M64からideal regularized diffusionへのdrift errorは
+
+```math
+\varepsilon_{\rm drift}^{64}
+=
+\varepsilon_U
++
+\nu\varepsilon_{\rho,1},
+```
+
+有限時間process reductionは
+
+```math
+\varepsilon_{\rm red}^{64}(T)
+=
+e^{L_bT}\varepsilon_{\rm prep}^{W_1}
++
+\frac{e^{L_bT}-1}{L_b}
+\varepsilon_{\rm drift}^{64}
+```
+
+で評価する。
+
+一方、R203Dの1次元canonical R161 chainはR185と同じ $(\pi^\delta,j^\delta,t^\delta)$ を用いるので、effective processのNewton残差は
+
+```math
+\varepsilon_{\rm Newt}^{185}
+=
+m\|R_\delta\|_\infty
++
+mC_{185,a}a^2
+```
+
+と別に管理する。$\varepsilon_{\rm red}^{64}$ と $\varepsilon_{\rm Newt}^{185}$ は次元も意味も異なるため単純加算しない。
+
+finite-graph profileではR203Dのlocal $R_i^\delta,J_{ij},T_{ij}^\delta$ からR161 rateを構成する。Q3-5の2頂点特殊化では各runのtransport・record誤差を $\varepsilon_{64,G}$ とし、
+
+```math
+\varepsilon_{64,G}
+<
+\frac{1}{4(1+\delta)}
+```
+
+ならR125のcoherent/mixed差と相対位相差がともに正に残る。
+
+$\delta$ はR203Aの辞書誤差へ再加算せず、R185 regularizationとfinite-graph位置分布に一度だけ数える。Duffing shell/core mixing、ballistic lead、moving-reflector、periodic homogenization、Eyring--Kramers hoppingに固有のM60誤差はM64へ移さない。single-field Hamiltonian lift、finite bath、finite-bandwidth $R_U$、underdamped small-mass極、実M64 tracer自身の高階加速度安定性はstrengtheningへ分離する。
 
 ## 8.8 静的分布の整合の正則化資源発散
 
