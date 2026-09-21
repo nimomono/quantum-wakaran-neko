@@ -36,3 +36,7 @@
 ## draft-120 R191/R193 retirement
 
 `check_draft120_retire_r191_r193.py` は、R191/R193のactive付録・required verifierが退役し、notesへ保存され、Q1/Q2 fixed-goal主線と状態表がM65/R204D--R204Fへ切り替わったことを確認する。過去draft記録中のR191/R193表記は履歴として許可する。
+
+## draft-121 fixed-goal single-trial policy
+
+`check_draft121_single_trial_fixed_goal_policy.py` は、個別固定目標を一試行内の物理interfaceで判定し、永久記録・試行間reset・物理clock・次試行renewalの全周期統合をM0へ分離した新原則を確認する。同時にQ2-1/Q2-2/Q2-3/Q3-4A/Q3-4B/Q3-5の達成、Q2-4の条件付き達成、Q3-6とM0の未達、および旧full-device残件文言のactive sourceへの再混入を検査する。
