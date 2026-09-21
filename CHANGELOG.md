@@ -1,3 +1,11 @@
+## draft-111：M64 promotion bridge完成
+
+- R203AのregularizationをR185と共通の $\rho_\delta,J_\delta,v_\delta$ へ揃え、R203Bにfinite-time initial tracer preparationとmean-flow tracking boundを追加した。
+- R203Cの正本をcanonical overdamped open SDEへ単純化し、ideal regularized diffusionへの有限時間process reductionを明示した。process reduction errorとR185 Newton residualは別々に管理する。
+- R203Dを一般finite graphへ拡張し、local phase-volume/current/activityからR161 rateを構成した。1次元特殊化はR185と一致し、R125の2頂点再結合器へも接続した。
+- M64をpromotion-ready replacement candidateとしたが、M61/M60主線、Q3達成ラベル、A1/A2判定、required verifierは本draftでは変更しない。
+- `verify_m64_preparation_tracking.py` と `verify_m64_graph_r161.py` をcandidate checksへ追加した。A2 direct simulationはpromotion条件へ混ぜない。
+
 ## draft-110：M63退役
 
 - M63/R202A--R202Fを現行研究線から退役し、付録、6本のcandidate checks、simulation registryを削除した。解析的に得られた個別恒等式を反証したとは扱わず、過去の探索はdraft-107/108/109記録とGit履歴へ保存する。
