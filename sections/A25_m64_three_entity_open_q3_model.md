@@ -138,7 +138,7 @@ D_{\rm TV}
 \varepsilon_{\rho,0},
 ```
 
-と書け、smooth linear-reproducing interpolationでは代表的に $\varepsilon_{\rho,0},\varepsilon_{\rho,1}=O(a^2)$ である。以下ではこの二つをdensity interpolation errorとして一度だけ数える。
+と書く。一次再現だけから直接従うのは0階の $\varepsilon_{\rho,0}=O(a^2)$ である。1階誤差 $\varepsilon_{\rho,1}$ は採用補間の微分精度として独立に管理し、piecewise-linear補間なら一般に $O(a)$、より高次の局所再現性を課した補間なら $O(a^2)$ とできる。以下ではこの二つをdensity interpolation errorとして一度だけ数える。
 
 ## Y.3 R203A：regularized signal density/current dictionary
 
