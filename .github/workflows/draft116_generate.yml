@@ -1,0 +1,51 @@
+name: draft-116 generate paper
+
+on:
+  push:
+    branches:
+      - draft-116-open-equation-terminology
+
+permissions:
+  contents: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: true
+          ref: draft-116-open-equation-terminology
+
+      - run: git lfs pull
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Check terminology migration
+        run: python tools/migrations/check_draft116_open_equation_terminology.py
+
+      - name: Install typesetting dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y pandoc poppler-utils texlive-latex-extra texlive-xetex
+
+      - name: Regenerate canonical paper artifacts
+        run: |
+          python tools/build_paper.py --output-dir build/draft116
+          cp build/draft116/paper.md paper.md
+          cp build/draft116/main.tex main.tex
+          cp build/draft116/paper.pdf paper.pdf
+
+      - name: Commit generated artifacts
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add paper.md main.tex paper.pdf
+          if git diff --cached --quiet; then
+            echo "generated artifacts already synchronized"
+            exit 0
+          fi
+          git commit -m "draft-116: regenerate paper artifacts"
+          git push origin HEAD:draft-116-open-equation-terminology
