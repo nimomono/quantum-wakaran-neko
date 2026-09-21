@@ -1,3 +1,16 @@
+## draft-119：M65 retirement-readiness整理
+
+- M65の入力定義域を $A_\pm\ge0$、$A_++A_->0$ へ広げ、exact射影endpointを固定線形comparatorで直接処理できることを明記する。
+- finite decision終了時にM65 generatorを閉じ、$X_T\in\{+,H,-\}$ をR112型recordへ写して $Y\in\{+,-,\varnothing\}$ を固定してからR181Dを開く有限latch interfaceを追加する。
+- R204FにR189A→M65→R112 record→R181DのQ1 retirement-readiness合成と、routerを開かない空操作対照ではW2が自由Rabiを継続することを明記する。
+- A12に残っていたR164--R190--R170旧Q1/Q2静的測定主線の残骸を代替作用殻研究線へ戻し、現行binary-selector主線と誤差を重複計上しない。
+- R191/R193、A20/A21、R143/R144/R189B/R189Cの現行fixed-goal witness、required verifier、達成ラベルは変更しない。退役そのものは次の独立PRへ分離する。
+
+- `tools/verify_m65_open_selector.py` にexact zero endpointとdecision後latchの回帰検算を追加する。
+- `tools/verify_q1_live_zeno.py` にM65有限decision誤差、routerなし空操作のfree-Rabi一致、$1/4$ Zeno余裕内の具体誤差予算を追加する。
+- draft-119 migration checkはA20/A21とR191/R193 verifierが引き続き存在することも確認し、本PRが退役を先取りしていないことを固定する。
+- required physics checks、candidate checks、原稿構造、生成物同期を最終headで確認する。
+
 ## draft-117：M65 canonical open selector正式昇格・R181D interface一般化
 
 - M65をreplacement candidateからQ1/Q2二結果射影用のcanonical open selector modelへ正式昇格する。正本発展則は保持済み二作用を線形rateへ入れる3状態連続時間Markov過程とし、Hamiltonian chamber/Brownian縮約は強化実現へ分離する。
