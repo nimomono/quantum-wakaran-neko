@@ -59,16 +59,7 @@ Q3の信号部分系はQ1/Q2と別の代数ではない。Q1で使うものと�
 
 Q3の粒子位置形成・輸送はM64/R203A--R203Dが担う。単一試行の実体はM37型classical coherent signal、一つのclassical tracer、一つのsignal-driven thermal reservoirの三つである。R203Aはregularized density/current dictionary、R203Bはphase-volume free energy・continuous/finite-graph initial preparation・finite-time mean-flow tracking、R203Cはcanonical overdamped tracerからideal regularized diffusionへの縮約、R203Dは1次元R161/R185と一般finite-graph R124/R182/R125位置読出しへの接続を与える。
 
-```text
-M37 / R86 signal
-        ↓
-M64 / R203A--R203C
-        ↓
-R203D / R161
-        ↓
-R185
-Nelson / time-symmetric Newton
-```
+Q3-2の現行因果鎖は、M37/R86 signalからM64/R203A--R203Cへ進み、R203D/R161を介してR185のNelson型・時間対称Newton則へ接続する。
 
 M60/M61のDuffing shell、chiral-medium、ballistic lead、single-Hamiltonian parentはより複雑な旧Hamiltonian実装として現行主線から退役し、Git履歴に保存する。固定達成・条件付き達成ラベルはM64主線へ根拠を移して維持する。A1/A2は固定目標と独立に監査し、本昇格だけから自動的に状態を変更しない。
 
