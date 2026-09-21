@@ -21,3 +21,8 @@
 - 残す場合も履歴・再移行手順として扱い、恒久CIのhard contractにはしない。
 
 恒久CIへ昇格させたくなった場合は、まずその検査を「番号や文章表現を変えても真である不変条件」に一般化できるかを確認する。
+
+
+## draft-117 M65 open selector昇格
+
+`check_draft117_m65_open_selector.py` は、M65がcandidate文言からcanonical open selectorへ同期され、R181Dがbinary selector contractへ一般化され、M65 core検算とHamiltonian/Brownian candidate検算の境界が正しく移行したことを確認する。PR固有の移行検査であり恒久CIへは入れない。
