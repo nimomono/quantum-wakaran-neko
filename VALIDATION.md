@@ -1,3 +1,11 @@
+## draft-115：M0 open microscopic device 方針同期
+
+- M0の正本を「Hamiltonian無限浴を必須とする単一装置」から、「規約を満たす採用openミクロ方程式を許すjoint microscopic device/processと共通反復周期」へ変更する。
+- PROJECT_STATUSへM0達成判定を追加し、joint evolution/path measure、module coupling、noise相関、cycle/renewal、共通parameter family、Q2-4資源条件を最低条件として明文化する。
+- Hamiltonian無限浴への持上げ、共通単一bath化、有限浴化、有限閉鎖Hamiltonian化、完全な微視的周期収支を上位強化へ分離する。
+- active sourceへ旧M0必須文言が再流入しないことをtools/check_source.pyで検査する。過去CHANGELOG/VALIDATIONとsuperseded notesは当時の履歴として書き換えない。
+- 本変更ではM0を達成へ上げず、固定目標・達成ラベル・A/B/S判定、R191/R193、M65/R204、physics verifierを変更しない。
+
 ## draft-114：M65/R204A--R204F candidate検算
 
 - `tools/candidate_checks/verify_m65_phase_volume_partition.py` でR204AのGaussian phase-volume Jacobianと共通scale不変な作用比を検算する。
