@@ -151,13 +151,15 @@ finite-graph profileではlocal $R_i^\delta,J_{ij},T_{ij}^\delta$ だけからR1
 
 M60/M61のDuffing shell、chiral-medium、ballistic lead、single-Hamiltonian parentは、より複雑な旧Hamiltonian実装として現行論文主線から退役する。Git履歴には残すが、固定目標の達成根拠やrequired検算には使わない。
 
+固定目標は、その目標が要求する現象を一試行内で明示的な物理interfaceを介して合成できることを共通の達成条件とする。準備から永久記録、試行間reset、物理clock、次試行renewalまでを一つの反復装置へ統合することはM0で別に要求する。この基準ではQ2-1、Q2-2、Q2-3、Q3-4A、Q3-4B、Q3-5も達成であり、固定目標上の未完成はQ2-4の一様装置族・資源条件とQ3-6の位相量子化である。Q2-4は資源効率と反復回数・総時間を目標自身が要求するため例外として条件付き達成を維持する。
+
 ### 4. Q3の現行物理正本と強化課題
 
 Q3-1のSchrödinger型signalはM37/R86を達成証人とする。Q3-2以降の位置過程はM64/R203A--R203Dを現行正本とする。物理的実体はM37型classical coherent signal、一つのclassical tracer、一つのsignal-driven thermal reservoirの三つである。複素包絡 $Z$、密度、current、reservoir mean flowは派生量またはcollective variableである。
 
 M64ではprocess-law reduction errorとR185のNewton force residualを別々に管理する。finite-graphではinitial preparation、generator実装、終位置recordを $\varepsilon_{64,G}$ に一度ずつ数える。
 
-A1/A2は固定目標とは独立に監査する。M64の正式昇格だけからA1/A2を自動的に達成へ上げない。A2ではM37 signal、preparation、mean-flow relaxation、canonical tracer SDEまたはfinite-graph jump lawを同一parameter setで直接発展・標本化する。Hamiltonian lift、finite bath、finite-bandwidth noise、underdamped lift、continuous-space一様極限、多粒子拡張、clock・record・resetまでの単一反復装置統合は強化課題として残る。
+A1/A2は固定目標とは独立に監査する。M64の正式昇格だけからA1/A2を自動的に達成へ上げない。A2ではM37 signal、preparation、mean-flow relaxation、canonical tracer SDEまたはfinite-graph jump lawを同一parameter setで直接発展・標本化する。Hamiltonian lift、finite bath、finite-bandwidth noise、underdamped lift、continuous-space一様極限、多粒子拡張、clock・永久record・reset・次試行renewalまでの単一反復装置統合はM0・強化課題として残る。
 
 
 ### M65：3状態open射影読出し
