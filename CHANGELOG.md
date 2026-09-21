@@ -1,3 +1,11 @@
+## draft-121：固定目標の一試行物理interface原則への統一
+
+- 固定目標の共通達成原則を「要求された現象・統計・逐次過程を、一試行内で明示的な物理interfaceを介して合成できること」へ統一する。
+- 準備、全操作、測定、永久記録、試行間reset、物理clock、次試行renewalまでのjoint microscopic device/process統合はM0へ集約する。固定有限深さでは未使用補助自由度を順次使ってよく、解析上の状態・集団統計・Born重み・目標確率表の再注入はinterfaceの代用としない。
+- Q2-1/Q2-3のM54→M65→R181D、Q2-2のA端M65→router→B端M65、Q3-4A/Q3-4B/Q3-5のM64 finite-graph tracer→位置読出しを既存結果だけで再監査し、6目標を達成へ更新する。
+- Q2-4は資源効率・反復回数・総時間・精度を固定目標自身が要求する例外として条件付き達成を維持し、Q3-6とM0は未達のままとする。A1/A2/B1/B2/B3/Q2-2-Sの状態は変更しない。
+- 新しい模型、結果ID、独立定理、physics verifierは追加しない。R180Cの仮定は共同分布の証明で実際に使う一試行有限順序付き操作へ整理し、full-cycle reset/clock条件をM0へ分離する。
+
 ## draft-120：R191/R193退役・M65 fixed-goal主線化
 
 - Q1/Q2 fixed-goalの2結果selectorをM65/R204D--R204Fへ切り替え、R181D/R192/R179/R180A--R180Cの既存binary-selector interfaceへ接続する。
