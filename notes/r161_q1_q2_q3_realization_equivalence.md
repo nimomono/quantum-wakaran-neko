@@ -2,7 +2,7 @@
 
 ## 1. 位置づけ
 
-このメモは、Q1型局所自由度を空間に並べQ2型2体系相互作用を加える参照模型と、Q3の具体的な粒子・浴模型を、どの意味で「同じ」とみなすかを整理する。draft-105以後、論文正本のQ3最深ミクロ物理実現はM61の単一Hamiltonian親模型、M60はその共通縮約層とし、R161より後段の数学核は従来通り共通に保つ。
+このメモは、Q1型局所自由度を空間に並べQ2型2体系相互作用を加える参照模型と、Q3の具体的な粒子・浴模型を、どの意味で「同じ」とみなすかを整理する。draft-112以後、論文正本のQ3物理実現はM37/R86 signalとM64三実体open modelとし、R161より後段の数学核は従来通り共通に保つ。M60/M61は旧Hamiltonian実現としてGit履歴に保存する。
 
 現行Q3の数学的正本は
 
@@ -20,7 +20,7 @@ optional Poisson realization
 Nelson / time-symmetric Newton
 ```
 
-である。R161より前段だけをミクロ実現依存とし、R162は基礎的実体でなくM60 transport粗視化経路の比較対象として使う。
+である。R161より前段だけをミクロ実現依存とし、R162は基礎的実体でなくR161 lawのoptional stochastic referenceとして使う。
 
 ## 2. Q1/Q2から得る空間入力
 
@@ -56,7 +56,7 @@ j_{ij}=\frac{J_{i\to j}}{S},
 
 Q1のBorn型選択機構を各辺へ置き、Q2型の反対称流を局所的に重ねる模型は、適切な $(\pi,j,t)$ を作ればR161と同じ位置生成子を与える。これはQ1/Q2からQ3数学へ接続できることを露出した **参照実現** として有用である。
 
-一方、この模型のpointer列やone-hot tokenを自然界の基礎的実体として採用する必要はない。現行の最深物理実装は、multiband媒体と複合mobile subsystemを単一 $H_{61}$ へ統合するM61であり、M60はそのcarrier/envelope・core/lead・moving-bath縮約層である。
+一方、この模型のpointer列やone-hot tokenを自然界の基礎的実体として採用する必要はない。現行物理実装はM37型coherent signal、一つのclassical tracer、一つのsignal-driven thermal reservoirからなるM64である。
 
 ## 4. R161実現同値
 
@@ -79,14 +79,13 @@ D_{\rm TV}(p_t^A,p_t^B)
 \leq T\varepsilon_{\rm gen}.
 ```
 
-従って近似ミクロ模型も、生成子誤差を制御すれば同じR161/R162/R185下流へ接続できる。M60/R199A・R196A--R196Cはこの規約を使い、chiral-medium/moving-bath/tracer粗視化生成子とideal R161生成子との差を有限時間で評価する。
+従って近似ミクロ模型も、生成子誤差を制御すれば同じR161/R162/R185下流へ接続できる。M64/R203Dはcontinuous profileとfinite-graph profileをこのinterfaceへ接続する。
 
 ## 5. 物理実現の比較規約
 
-- M61 single-Hamiltonian parent：Q3で採用する最深ミクロ物理実現。R200A--R200C/R200がM60へ接続する。
-- M60 unified-chiral-medium moving-bath tracer：M61から得る現行共通縮約実現。R198A--R198D/R197Aが2-action state countとosmotic free energy、R195Aがsignal current、R199Aが同一媒体のballistic lead、R196Aのwave pressureがmoving bath velocity、R196Bの平衡bathとperiodic homogenizationがdiffusion・osmotic drift、R196Cのmetastable reductionがR161 activityを供給する。
-- M64 three-entity open candidate：M37 signalから $(\rho,j)$ を取り、signal-driven moving thermal reservoirのphase volumeとmean flowを介してsmooth tracer diffusionを作り、R203Dのfinite-volume活動量 $t_{i+1/2}=\nu(\pi_i+\pi_{i+1})/a^2$ でR161へ接続するreplacement candidate。PN/Eyring--Kramersを必須にせず、同じ $(\pi,j,t)$ / generator interfaceへの接続を実現同値の基準とする。現行M61/M60主線はまだ置換しない。
-- R162 open Poisson jump：M60 transportと比較するideal stochastic reference。基礎的なQ3存在論とは扱わない。
+- M64 three-entity open model：現行Q3物理実現。M37 signalから $(\rho,j)$ を取り、signal-driven thermal reservoirのphase volumeとmean flowを介してcontinuous tracer diffusionを作る。finite graphではlocal $R_i^\delta,J_{ij},T_{ij}^\delta$ からR161 rateを直接構成する。
+- M60/M61：旧Hamiltonian実現。Duffing shell、chiral-medium、ballistic lead、single-Hamiltonian parentを用いたより複雑な経路であり、draft-112で現行正本から退役した。反証扱いせずGit履歴へ保存する。
+- R162 open Poisson jump：R161 lawのoptional stochastic reference。基礎的なQ3存在論とは扱わない。
 - 空間化Q1＋Q2相互作用：Q1/Q2からR161へ到達できることを示す数学的参照実現。
 - M56：spin-only実現を狙う代替研究線。現行Q3達成根拠には使わない。
 - その他の粒子・浴模型：同じ $(\pi,j,t)$ または同じ有向率を導けるかで比較する。
@@ -105,4 +104,4 @@ micro model -> (π, j, t) -> R161
 - Q1/Q2のR191測定pointerをQ3粒子と同一視しない。
 - $(\pi,j)$ だけから対称活動量 $t$ が一意に決まるとは主張しない。
 - 異なるミクロ模型が同じ生成子を持つことから、それらの存在論や熱力学的資源まで同じとは結論しない。
-- M60のcontinuous-space一様極限、多粒子、全周期のsource--clock--record統合は別の強化課題である。
+- M64のcontinuous-space一様極限、多粒子、finite-bandwidth/Hamiltonian lift、全周期のsource--clock--record統合は別の強化課題である。
