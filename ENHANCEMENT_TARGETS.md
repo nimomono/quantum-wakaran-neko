@@ -129,7 +129,7 @@ M0は、複数の固定目標にまたがる主要自由度と物理接続端を
 
 ## M65/R204 canonical open model と強化実現
 
-M65/R204A/R204D/R204E/R204Fのopen selector核は正本へ昇格する。採用open Markov方程式そのものを基本方程式として直接定めるため、R204Bのphase-volume chamberとR204CのHamiltonian--Brownian liftをM65正本性やfixed-goal判定の必要条件にしない。
+M65/R204A/R204D/R204E/R204Fのopen selector核は正本へ昇格する。Markov方程式そのものを開放ミクロ方程式として直接定めるため、R204Bのphase-volume chamberとR204CのHamiltonian--Brownian liftをM65正本性やfixed-goal判定の必要条件にしない。
 
 R204B/R204C、finite-bandwidth bath、direct Brownian chamber trajectory、具体回路化は追加のA2/B系・横断強化として扱う。M65正本化だけからQ1/Q2のA1/A2/B1/B2/B3状態を自動的に変更しない。A1へM65を採用する場合も、各固定目標の主要因果鎖全体を一つの具体模型として閉じる必要がある。
 
