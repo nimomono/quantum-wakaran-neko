@@ -6,7 +6,7 @@ ROOT = Path(__file__).resolve().parents[2]
 REQUIRED = {
     "sections/A26_m65_phase_volume_projective_instrument.md": (
         "@status: Q1/Q2二結果射影用の現行canonical open selector model",
-        r"k_{+\\to H}=k_{-\\to H}=\\Lambda",
+        r"k_{+\to H}=k_{-\to H}=\Lambda",
         "R204E：M65はbinary selector contractを満たす",
         "R204Bのphase-volume chamber、R204CのHamiltonian--Brownian lift",
     ),
