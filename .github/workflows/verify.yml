@@ -85,6 +85,16 @@ jobs:
         id: build
         run: python tools/build_paper.py --output-dir build/ci
 
+      - name: PR生成物を一時保存
+        if: ${{ always() && steps.build.outcome == 'success' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: generated-paper
+          path: |
+            build/ci/paper.md
+            build/ci/main.tex
+            build/ci/paper.pdf
+
       - name: 生成物の同期を検査
         if: ${{ always() && steps.build.outcome == 'success' }}
         run: python tools/check_generated.py build/ci
