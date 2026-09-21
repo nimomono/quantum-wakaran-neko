@@ -1,3 +1,12 @@
+## 方針変更：M0で採用openミクロ方程式を許可
+
+- M0「単一ミクロ装置統一目標」からHamiltonian無限浴への持上げ要件を外し、規約を満たすLangevin型SDE、GLEその他の採用開放古典ミクロ方程式を認める。
+- M0の強さをHamiltonian性ではなく、Q1/Q2/Q3の主要自由度、物理接続端、準備、操作、測定、記録、reset、clockを一つのjoint microscopic device/processと共通反復周期へ統合する範囲に置く。
+- 規模依存のQ2-4を含め、同一architectureの一様装置族と一つのparameter familyを許す。全系列・全規模で同一の数値parameterを要求しない。
+- Hamiltonian無限浴への持上げ、複数reservoir portの共通単一bath化、有限浴化、有限閉鎖Hamiltonian化、完全周期の微視的熱力学をM0より強い横断的強化課題へ移す。
+- PROJECT_STATUS、PROJECT_GUIDE、PROJECT_STANCE、ENHANCEMENT_TARGETS、現行本文・付録・notes、source-contract checkを同期する。過去の方針変更記録とsuperseded notesは履歴として保持する。
+- M0の現在地は未達のまま。固定目標・達成ラベル・A/B/S判定、R191/R193現行主線、M65/R204 replacement candidate、既存物理定理・数値結果は変更しない。
+
 ## draft-114：M65 phase-volume projective instrument置換候補
 
 - M65/R204A--R204Fを、R191/R193をまだ置換しないpromotion-ready replacement candidateとして追加する。
