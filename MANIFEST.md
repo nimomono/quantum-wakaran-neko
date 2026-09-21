@@ -4,7 +4,7 @@
 - M0を、Q1/Q2/Q3の主要自由度、物理接続端、準備、操作、測定、記録、reset、clockを一つのjoint microscopic device/processと共通反復周期へ統合する横断目標として再定義する。
 - A1との差はHamiltonian性ではなく統合範囲に置き、全A1達成だけではM0達成としない。規模依存問題には同一architectureの一様装置族と一つのparameter familyを許す。
 - Hamiltonian無限浴への持上げ、共通単一bath化、有限浴化、有限閉鎖Hamiltonian化、完全周期の微視的熱力学をM0より強い横断強化へ分離する。
-- PROJECT_STATUS、PROJECT_GUIDE、PROJECT_STANCE、ENHANCEMENT_TARGETS、第1・2・3・6章と関連付録、現行notes、source-contract checkを新基準へ同期する。
+- PROJECT_STATUS、PROJECT_GUIDE、PROJECT_STANCE、ENHANCEMENT_TARGETS、第1・2・3・6章と関連付録、現行notesを新基準へ同期し、PR固有の旧文言回帰は `tools/migrations/check_draft115_m0_open_device.py` で検査する。
 - M0は未達のまま。固定目標・達成ラベル・A/B/S判定、R191/R193主線、M65/R204 candidate、既存物理定理とphysics verifierは変更しない。
 
 ## draft-114：M65 phase-volume projective instrument置換候補
