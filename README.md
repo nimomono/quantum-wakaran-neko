@@ -158,3 +158,8 @@ Q3-1のSchrödinger型signalはM37/R86を達成証人とする。Q3-2以降の�
 M64ではprocess-law reduction errorとR185のNewton force residualを別々に管理する。finite-graphではinitial preparation、generator実装、終位置recordを $\varepsilon_{64,G}$ に一度ずつ数える。
 
 A1/A2は固定目標とは独立に監査する。M64の正式昇格だけからA1/A2を自動的に達成へ上げない。A2ではM37 signal、preparation、mean-flow relaxation、canonical tracer SDEまたはfinite-graph jump lawを同一parameter setで直接発展・標本化する。Hamiltonian lift、finite bath、finite-bandwidth noise、underdamped lift、continuous-space一様極限、多粒子拡張、clock・record・resetまでの単一反復装置統合は強化課題として残る。
+
+
+### phase-volume射影読出しの置換候補
+
+現行Q1/Q2の二結果読出しは引き続きR191ブラウン巨視的スピンを使う。一方、draft-114ではQ3のM64/R203Bと共通のphase-volume原理を二結果射影へ使うM65/R204A--R204Fをreplacement candidateとして追加した。固定chamber--neck--hub内のBrownian pointerについて、射影作用がchamber容量とneck conductanceへ同じ係数で入り、有限時間にBorn作用比へ緩和する構成を調べる。現時点ではR191/R193、Q1/Q2達成判定、R186の資源障害を変更しない。
