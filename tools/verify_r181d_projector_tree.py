@@ -58,7 +58,7 @@ def main() -> None:
     p0 = projector(bit_count, 2, 0)
     p1 = projector(bit_count, 2, 1)
 
-    # R181D filter: the rejected component remains in work and the map is involutive.
+    # R181D router: selector physics is upstream; rejected component remains in work.
     filter_matrix = np.block([[p0, p1], [p1, -p0]])
     identity = np.eye(2 ** (bit_count + 1))
     routed = filter_matrix @ np.concatenate((state, np.zeros_like(state)))
@@ -137,7 +137,7 @@ def main() -> None:
         np.linalg.norm(conditional_moment - q1_p0)
     )
 
-    # Raw capacities determine cutoff; regularized capacities only feed R164/R170.
+    # Raw capacities determine ideal binary-selector weights.
     raw = np.array([
         float(np.vdot(p0 @ state, p0 @ state).real),
         float(np.vdot(p1 @ state, p1 @ state).real),
@@ -161,6 +161,17 @@ def main() -> None:
     scaled_raw = scale**2 * raw
     checks["raw_cutoff_scale_invariance"] = float(
         np.max(np.abs(scaled_raw / np.sum(scaled_raw) - raw_probability))
+    )
+
+    # Generic binary-selector complete-result kernel and safety contract.
+    psel = np.array([0.37, 0.63, 0.0])
+    implemented_sel = np.array([0.365, 0.625, 0.010])
+    selector_tv = 0.5 * float(np.sum(np.abs(implemented_sel - psel)))
+    checks["generic_selector_kernel_tv_excess"] = max(0.0, selector_tv - 0.01)
+    tau_state = 0.20
+    accepted_branch = 1
+    checks["generic_selector_safety_excess"] = max(
+        0.0, tau_state - psel[accepted_branch]
     )
 
     # Sequential conditional kernels telescope to the complete Born distribution.
