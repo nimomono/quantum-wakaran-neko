@@ -329,7 +329,7 @@ R162のopen Poisson-jump過程はM64の基礎的実体ではなく、R161 lawの
 M54 & 共通有効信号--配置状態構成族 & 有限実正準信号、準備済み入力境界、永続記憶部、作業領域、時計、記録の共通型。Q1型局所信号とQ2型2体系結合の空間特殊化がQ3 signalの \((\pi,j)\) を与え、Q3位置interfaceはM64 tracerへ接続する \\
 M37 & 物理Hamiltonian信号実装層 & Q3空間signalを局所ばね網で実装し、R187条件下ではW型最低2正常モードをQ1 W2制御信号へ接続する \\
 M64 & Q3三実体open model & M37型coherent signal、一つのclassical tracer、一つのsignal-driven thermal reservoirからなる。R203Aがregularized density/current、R203Bがphase-volume free energyと初期準備・flow tracking、R203Cがcanonical overdamped diffusion、R203DがR161/R185およびfinite-graph位置読出しを担う \\
-M0 & 単一ミクロ装置統一目標 & Q1/Q2/Q3の主要自由度、共通接続端、準備、操作、測定、record、reset、clockを一つのjoint microscopic device/processと共通反復周期へ統合する。規約を満たす採用openミクロ方程式を許し、Hamiltonian無限浴への持上げは上位強化とする。現行部品の全周期統合は未完成 \\
+M0 & 単一ミクロ装置統一目標 & Q1/Q2/Q3の主要自由度、共通接続端、準備、操作、測定、record、reset、clockを一つのjoint microscopic device/processと共通反復周期へ統合する。規約を満たす開放ミクロ方程式を基本方程式として直接定めることを許し、Hamiltonian無限浴への持上げは上位強化とする。現行部品の全周期統合は未完成 \\
 \end{longtable}
 
 M54の複素信号 \(Z\) は実正準対の派生表示であり、独立した複素実体ではない。状態方向、規格化共分散、位置分布は解析上の統計量であり、単一試行の制御器へ書き戻さない。
@@ -368,7 +368,7 @@ Q3 & M37/R86 signal、M64/R203A--R203D & R161/R185、R124/R182/R125位置読出�
 
 固定目標と達成ラベルは \texttt{PROJECT\_STATUS.md} を正本とする。Q1-1、Q1-2、Q3-1--Q3-3Cは達成、Q2-1--Q2-4、Q3-4A、Q3-4B、Q3-5は各文書に明記した条件付き達成、Q3-6は未達のままとする。Q3-1はM37/R86を達成証人とし、Q3-2はM37/R86からM64/R203A--R203D、R161、R185へ接続する。Q3-4A、Q3-4B、Q3-5はそれぞれR124、R182、R125をM64 finite-graph tracerへ接続する。
 
-固定目標に付随する強化目標は \texttt{ENHANCEMENT\_TARGETS.md} を正本とする。全固定目標にA1/A2、Q1/Q2にB1/B2/B3、Q2-2にQ2-2-Sを置き、固定目標の達成状態とは独立に管理する。M64の正式昇格だけからQ3-1-A1/Q3-2-A1またはA2を自動的に上げない。A1では採用open SDEと理想白色雑音を許し、A2はそのミクロ方程式自体の直接数値再現を要求する。
+固定目標に付随する強化目標は \texttt{ENHANCEMENT\_TARGETS.md} を正本とする。全固定目標にA1/A2、Q1/Q2にB1/B2/B3、Q2-2にQ2-2-Sを置き、固定目標の達成状態とは独立に管理する。M64の正式昇格だけからQ3-1-A1/Q3-2-A1またはA2を自動的に上げない。A1では開放SDEを基本方程式として直接定めることと理想白色雑音を許し、A2はそのミクロ方程式自体の直接数値再現を要求する。
 
 \hypertarget{ux975eux4e3bux5f35}{%
 \section{非主張}\label{ux975eux4e3bux5f35}}
@@ -1304,7 +1304,7 @@ R181Dが選別した非零信号を \(Z\in\mathbb C^m\)、その信号作用を
 S=Z^\dagger Z>0
 \]
 
-とする。目標作用 \(S_*>0\)、固定利得 \(g_R>0\)、非負の時計窓 \(\lambda_R(t)\) を置き、採用開放方程式を
+とする。目標作用 \(S_*>0\)、固定利得 \(g_R>0\)、非負の時計窓 \(\lambda_R(t)\) を置き、次の開放方程式を基本発展則として直接定める。
 
 \[
 \dot Z
@@ -2731,7 +2731,7 @@ R189A、R193、R189B--R189CはR144の通常測定をそのまま中間へ挿入�
 \item
   大域階数1共分散だけから結果成分別測定後状態が自動的に生じること。
 \item
-  明示的なHamiltonian浴からM54/準備済み入力境界のW型2モード系の採用開放方程式を縮約導出したこと。有限浴化は別の強化課題である。
+  M54/準備済み入力境界のW型2モード系で直接定めた開放方程式を、明示的なHamiltonian浴から縮約導出したこと。有限浴化は別の強化課題である。
 \item
   R164の結果成分容量結合、作用殻ファイバー内平衡化、結果成分間の対称性がW型有限能動部分系と共通Hamiltonian浴から自動的に発生すること。
 \item
@@ -5320,7 +5320,7 @@ Q1/Q2の2結果主線では、1ノードの読出し誤差を
 \hypertarget{ux5171ux901aux30dfux30afux30edux5b9fux88c5ux539fux5247}{%
 \subsection{共通ミクロ実装原則}\label{ux5171ux901aux30dfux30afux30edux5b9fux88c5ux539fux5247}}
 
-本章の資源監査では、有限性を能動部分系、浴、拡大全系に分ける。有限閉鎖Hamiltonian実装は固定目標ではなく、有限な能動自由度と明示的なHamiltonian無限浴からなるミクロ模型を標準候補とする。採用開放方程式はその縮約または採用ミクロ方程式として許し、有限浴への持上げは有限性自体に物理的意味がある場合を除き強化課題とする。したがって、未使用素子列、有限再帰、有限総浴容量の評価は、中心結論に必要な場合だけ本体誤差へ入れる。
+本章の資源監査では、有限性を能動部分系、浴、拡大全系に分ける。有限閉鎖Hamiltonian実装は固定目標ではなく、有限な能動自由度と明示的なHamiltonian無限浴からなるミクロ模型を標準候補とする。開放方程式はHamiltonian無限浴からの縮約として得ても、基本的なミクロ方程式として直接定めてもよく、有限浴への持上げは有限性自体に物理的意味がある場合を除き強化課題とする。したがって、未使用素子列、有限再帰、有限総浴容量の評価は、中心結論に必要な場合だけ本体誤差へ入れる。
 
 \hypertarget{ux6e96ux5099ux6e08ux307fux5165ux529bux5883ux754cux3068r192ux306eux8aa4ux5deeux8cc7ux6e90}{%
 \section{準備済み入力境界とR192の誤差・資源}\label{ux6e96ux5099ux6e08ux307fux5165ux529bux5883ux754cux3068r192ux306eux8aa4ux5deeux8cc7ux6e90}}
@@ -5824,7 +5824,7 @@ Q2-4 & 受動モードごとの設定・較正・読出し、指数長の係数�
 
 固定目標に付随する標準強化目標の定義、適用範囲、現在地は \texttt{ENHANCEMENT\_TARGETS.md} を正本とする。全固定目標に具体的古典ミクロ模型A1と直接数値再現A2、Q1/Q2に具体回路B1、実験可能領域B2、回路直接数値再現B3を置く。Q2-2にはさらに、非空間分離の現行証人から物理的2端化、測定窓内因果隔離、隔離下のBell前提監査へ進むQ2-2-Sを置く。これらの強化状態は固定目標の達成状態と独立であり、導入時点では全て未監査とする。
 
-A1ではHamiltonian無限浴だけでなく、規約と共分散を明示したLangevin型SDEその他の採用開放ミクロ方程式を認め、理想白色雑音を許す。A2では採用したミクロODE/SDEそのものを直接計算する。理想白色雑音を使うQ1/Q2模型を回路へ移す場合、B2/B3では有限帯域雑音源と時間尺度分離を明示する。
+A1ではHamiltonian無限浴だけでなく、規約と共分散を明示して直接定めたLangevin型SDEその他の開放ミクロ方程式を認め、理想白色雑音を許す。A2ではA1で定めたミクロODE/SDEそのものを直接計算する。理想白色雑音を使うQ1/Q2模型を回路へ移す場合、B2/B3では有限帯域雑音源と時間尺度分離を明示する。
 
 従来からのQ1/Q2完全周期収支、R180Cの共通浴統合、M64 common process--時計--終位置記録--resetの単一反復周期統合、連続空間一様極限、多粒子拡張、全周期の有限閉鎖Hamiltonian化は、A/B/Sを横断する上位または系列固有の実装強化課題として保持する。R162を特定Hamiltonian浴から再導出することはM64主線の要件ではない。旧R162有限衝突経路、旧R188、旧R179部分SWAP貯蔵部、旧R178D有限閉鎖リセット境界は撤回せず、有限閉鎖実装を調べる強化結果として論文外メモへ保存する。
 
@@ -5960,7 +5960,7 @@ R162のopen Poisson-jump過程はM64の基礎的実体ではなく、R161 lawの
 
 M60/M61のDuffing shell、統一chiral媒体、ballistic lead、moving reflector、single-Hamiltonian parentは、より複雑な旧Hamiltonian実装として現行論文主線から退役する。反証されたものとして扱わず、Git履歴に保存する。M56 Brownian-spin Q3模型は引き続きspin-only代替研究線とする。
 
-残る主要な物理課題は、各固定目標について具体的古典ミクロ模型A1とその直接数値再現A2を独立に監査すること、Q1/Q2について具体的アナログ回路B1、実験可能パラメータ領域B2、回路直接数値再現B3へ進むこと、Q2-2で測定窓内の空間的・因果的隔離をQ2-2-Sで検査することにある。Q3ではM64採用open equationsのdirect A2、finite-bandwidth/Hamiltonian lift、clock・終位置record・resetを含む単一反復周期、連続空間一様極限、多粒子拡張、Q3-6の位相量子化を強化・未解決課題として残す。M64の正式昇格だけからA1/A2の状態を自動的に上げない。
+残る主要な物理課題は、各固定目標について具体的古典ミクロ模型A1とその直接数値再現A2を独立に監査すること、Q1/Q2について具体的アナログ回路B1、実験可能パラメータ領域B2、回路直接数値再現B3へ進むこと、Q2-2で測定窓内の空間的・因果的隔離をQ2-2-Sで検査することにある。Q3ではM64で直接定めた開放方程式のA2直接数値再現、finite-bandwidth/Hamiltonian lift、clock・終位置record・resetを含む単一反復周期、連続空間一様極限、多粒子拡張、Q3-6の位相量子化を強化・未解決課題として残す。M64の正式昇格だけからA1/A2の状態を自動的に上げない。
 
 M64のphase-volume reservoirをQ1/Q2の測定へ同一粒子として流用するのではなく、同じJacobian機構を別のclassical pointerへ特殊化するM65をreplacement candidateとして追加した。保持済み二作用が固定chamberの有効容量とneck conductanceへ同じ係数で入れば、escape scaleは作用比から独立し、hubからのbranch比だけがBorn作用比になる。R204A/R204B/R204D--R204Fはこの代数・有限時間統計・逐次受渡し・読出し時間資源を閉じる。残るpromotion gateはR204Cの具体HamiltonianからBrownian chamber networkへの有限誤差縮約とdirect trajectory witnessであり、それが閉じるまではR191/R193を現行主線として維持する。
 
@@ -9813,7 +9813,7 @@ R181B/R181Cにより3入力の有限テンソル積状態の生成と2つの有�
 
 静的詳細釣り合い特殊化は一般R161の検算・比較用に残すが、Q1/Q2のBorn型2値測定機構としては使わない。旧R190作用殻samplerとの接続は退役研究線としてnotes/Git履歴で管理する。旧有限衝突Hamiltonian列への持上げも固定目標の必要条件ではない。
 
-ここで「古典ミクロ模型」は有限閉鎖Hamiltonian系だけを意味しない。状態空間、局所率、確率入力、観測出力、適用時間を明示した開放jump方程式も採用ミクロ方程式として許す。
+ここで「古典ミクロ模型」は有限閉鎖Hamiltonian系だけを意味しない。状態空間、局所率、確率入力、観測出力、適用時間を明示した開放jump方程式を、基本的なミクロ方程式として直接定めることも許す。
 
 \hypertarget{r164ux72b6ux614bux6570ux304bux3089ux5f97ux308bux6761ux4ef6ux4ed8ux304dgibbsux65cfux3068ux6709ux52b9ux81eaux7531ux30a8ux30cdux30ebux30aeux30fc}{%
 \section{R164状態数から得る条件付きGibbs族と有効自由エネルギー}\label{r164ux72b6ux614bux6570ux304bux3089ux5f97ux308bux6761ux4ef6ux4ed8ux304dgibbsux65cfux3068ux6709ux52b9ux81eaux7531ux30a8ux30cdux30ebux30aeux30fc}}
@@ -10222,7 +10222,7 @@ k_{i\to j}(t)[f(j)-f(i)]
 
 であり、R161のcanonical生成子と一致する。経路法則の一意性から、このPoisson構成はR161 lawそのものを実現する。周辺分布整合とBayes後退率はR161から既に従い、物理的逆時間浴は追加しない。
 
-旧有限衝突模型で必要だったEuler凍結、未使用しきい値素子、比較境界帯、canonical 保持機構、余接持上げ、時計誤差、有限骨格history TVは、この採用開放模型の中心証明には現れない。
+旧有限衝突模型で必要だったEuler凍結、未使用しきい値素子、比較境界帯、canonical 保持機構、余接持上げ、時計誤差、有限骨格history TVは、この直接定めた開放模型の中心証明には現れない。
 
 \begin{proof}[R162]
 
@@ -13651,7 +13651,7 @@ tracer configurationには二つの特殊化を許す。
 
 両profileは別の粒子実体を導入せず、同じsignal density/currentから同じphase-volume/current-reservoir責務を読むM64模型族の特殊化である。M64本体ではkink、domain wall、Duffing shell、PN well、Eyring--Kramers hoppingをtracerの定義に要求しない。
 
-M64は採用open SDEまたはfinite-state jump lawを正本とする。single-field Hamiltonian化、finite-bath化、current transducerの完全Hamiltonian散乱導出、underdamped lift、metric-graph連続極は独立strengtheningとする。
+M64では、開放SDEまたはfinite-state jump lawを基本発展則として直接定める。single-field Hamiltonian化、finite-bath化、current transducerの完全Hamiltonian散乱導出、underdamped lift、metric-graph連続極は独立strengtheningとする。
 
 \hypertarget{regularized-signal-densitycurrentux3068ux5c40ux6240ux88dcux9593}{%
 \section{regularized signal density/currentと局所補間}\label{regularized-signal-densitycurrentux3068ux5c40ux6240ux88dcux9593}}
