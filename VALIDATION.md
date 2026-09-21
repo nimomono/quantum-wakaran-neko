@@ -5,6 +5,7 @@
 - Q2-4は一様装置族とR186資源・ノイズ条件を固定目標自身の例外条件として維持し、Q3-6とM0は未達のままとする。A1/A2/B/S判定は変更しない。
 - `tools/migrations/check_draft121_single_trial_fixed_goal_policy.py` で新ラベルと旧full-device残件文言の不在を検査する。
 - required/candidate physics checksは既存定理・数式が変わっていないことの回帰として実行し、paper.md / main.tex / paper.pdf は章別正本から再生成する。
+- 一時finalize workflow run 35667010225で、draft-121 migration、source structure、required/candidate physics checks、paper再生成、生成物commitが全て成功した。
 
 ## draft-120：R191/R193退役・M65 fixed-goal主線化
 
