@@ -1,49 +1,15 @@
 @number: 7
 @chapter: 本文
 @title: Q3の確率力学、束縛状態、トンネル現象、2経路干渉、位相量子化
-@status: Q3-2・Q3-3A--Q3-3Cの達成、Q3-6の未達、Q3-4A・Q3-4B・Q3-5の条件付き達成を区別する。Q3粒子輸送は現行M61--M60--R161階層を用い、M64/R203A--R203Dを次期置換候補として併記する。
+@status: Q3-2・Q3-3A--Q3-3Cの達成、Q3-6の未達、Q3-4A・Q3-4B・Q3-5の条件付き達成を区別する。Q3粒子輸送の現行主線はM64/R203A--R203D--R161とし、Q3-2はR185へ接続する。
 
-本章は、M37/M54空間信号からM61単一Hamiltonian親模型をM60 chiral-medium moving-bath tracerへ縮約し、Nelson流または時間対称Newton則へ接続するQ3-2、R123とR182によるQ3-3A--Q3-3C、R124・R125・R182をM60 tracerの位置輸送へ接続するQ3-4A・Q3-4B・Q3-5、位相量子化のQ3-6を区別する。R123--R125とR182の完全証明は付録F、G、M61の単一Hamiltonian持上げは付録X、M60 transportとR161生成子matchingは付録V、R161/R185の有限格子数学は付録Nに置く。付録YのM64/R203Dは別経路として、R203Cのsmooth diffusionをfinite-volume R161 chainへ直接離散化し、PN wellとEyring--Kramers hoppingを必須にしない。M64追加だけでは現行達成根拠を切り替えない。
+本章は、M37/R86の古典実正準signalをM64三実体open modelへ接続してNelson流または時間対称Newton則を得るQ3-2、R123とR182によるQ3-3A--Q3-3C、R124・R182・R125をM64 finite-graph tracerの位置読出しへ接続するQ3-4A・Q3-4B・Q3-5、位相量子化のQ3-6を区別する。R123--R125とR182の完全証明は付録F、G、R161/R185の有限格子数学は付録N、M64/R203A--R203Dは付録Yに置く。M60/M61の旧Hamiltonian実装は現行論文主線から退役する。
 
 ## 7.1 Nelson流の作用変分または時間対称Newton則（Q3-2）
 
 **固定目標と達成判定。** Q3-2は、明示的な古典ミクロモデルの縮約から、Nelson型確率力学における作用の停留原理、または前進・後退平均加速度を対称に組み合わせたNewton則を導く。対象となる確率過程、前進・後退平均微分、力とポテンシャル、適用時間、近似範囲、誤差を明示する。二経路の少なくとも一方を満たせばよい。
 
-**運用状態。** Q3-2は達成である。M37/R86が古典実振動子からM54空間信号 $Z$ を有限時間で与える。R195Aはそのedge chiral作用から局所密度、signal current、signal edge velocityを厳密に取り出す。R198A--R198D/R197Aが局所Duffing shellの2作用状態数から位置重みとosmotic free energyを与え、R199AのM60 ballistic leadを入力とするR196Aがwave pressureから局所bath-frame carrierの唯一安定な速度を有限時間で生成し、R196Bはそのmoving frameで平衡oscillator bathへ結合した同じtracerをGLE/FDTとperiodic homogenizationで縮約する。R196Cはcoarse-grained well-index generatorをideal R161 generatorへ有限誤差 $\varepsilon_{\rm tr}^{60}$ で持ち上げる。R162はideal R161率を実現する参照open-jump過程であり、Q3の基礎的ミクロ存在論とは扱わない。
-
-R195Aのexact identityは
-
-```math
-I_++I_-=R_i+R_j,
-\qquad
-I_+-I_-=2\operatorname{Im}(Z_i^*Z_j),
-```
-
-```math
-J_{ij}^{\rm sig}=\frac{\nu}{a^2}(I_+-I_-),
-\qquad
-u_{ij}^{\rm sig}=\frac{2\nu}{a}\frac{I_+-I_-}{I_++I_-}
-```
-
-である。R196Aのmoving-reflector fixed pointは
-
-```math
-\frac{U_*}{c}
-=\beta_*(r)
-=\frac{r}{1+\sqrt{1-r^2}},
-\qquad
-r=\frac{I_+-I_-}{I_++I_-},
-```
-
-で唯一安定である。R196Bではballistic lead自体へFDTを課さず、別の平衡oscillator bathだけにFDTを適用する。periodic homogenizationに
-
-```math
-D_0=\frac\nu{g_K},
-\qquad
-g_Kc=\frac{4\nu}{a}
-```
-
-を課すと、effective diffusionは $\nu$、current driftは $j/\rho+O(a^2)$、osmotic driftは $\nu\partial_x\log\rho$ となる。R196Cのaffinityは $\mathcal A_e=4\beta_*(r_e)$ で、metastable fluxからR161形式を得る。smooth sectorでsignal currentとの差はrelative $O(a^2)$ である。
+**運用状態。** Q3-2は達成である。M37/R86が古典実振動子から空間signal $Z$ を有限時間で与える。M64/R203Aはregularized density/current dictionary、R203Bはphase-volume free energy・initial tracer preparation・finite-time mean-flow tracking、R203Cはcanonical overdamped tracerからideal regularized diffusionへの有限時間縮約を与える。R203Dの1次元特殊化はR185と同一の $(\pi^\delta,j^\delta,t^\delta)$ を持つR161 processへ接続する。
 
 R161移動特殊化の条件付き分布を $p_i(t)$ とすると、同じ前向き経路法則のBayes反転は
 
@@ -67,7 +33,7 @@ D_-X
 v^{(a,\delta)}-u^{(a,\delta)}
 ```
 
-が有限格子上で厳密に成立する。R185は有限格子M54信号方程式から
+が有限格子上で厳密に成立する。R185は
 
 ```math
 \left\|
@@ -85,64 +51,15 @@ mR_\delta
 mC_{185,a}a^2
 ```
 
-を導き、固定 $\rho\geq\rho_*>0$ では $\|R_\delta\|_\infty=O(\delta)$ である。M60 transport reductionからideal R161への有限時間generator誤差を含めると
+を与え、固定 $\rho\geq\rho_*>0$ では $\|R_\delta\|_\infty=O(\delta)$ である。
+
+M64の実tracerからideal regularized diffusionへの誤差はprocess-law metricで
 
 ```math
-\varepsilon_{Q3-2}
-\leq
-T\varepsilon_{\rm tr}^{60}
-+
-m\|R_\delta\|_\infty
-+
-mC_{185,a}a^2.
+\varepsilon_{\rm red}^{64}(T)
 ```
 
-従って固定有限時間、1次元有限格子、node-free滑らかな部分系で、ballistic propagation、bath-frame tracking、equilibrium GLE、overdamped reduction、periodic homogenization、metastable well-index縮約の各有限誤差とR185の正則化・格子条件を順に制御すれば任意有限誤差へ閉じる。必要な時間尺度は代表的に
-
-```math
-\tau_X,\tau_p,\lambda_Y^{-1}\ll T_{\rm sig},T_{\rm well}
-```
-
-である。`tools/verify_m57_ballistic_tracer.py` はchiral恒等式、moving-reflector fixed pointと安定性、有限時間追従、weak-tap/loading scaling、$D_0=\nu/g_K$、$g_Kc=4\nu/a$、Lifson--Jackson suppression、新R161 current correctionの同時parameter windowが非空であることを検算する。
-
-M64 promotion-ready replacement candidateでは、R203Aのregularized current dictionaryをR203Bのfinite-time mean-flow trackingへ渡し、R203Bのphase-volume free energyから同じcanonical overdamped tracerを有限時間準備する。continuous profileの正本は
-
-```math
-dX_t
-=
-\left[
-U_X
-+
-\nu\partial_x\log r_X^\delta
-\right]dt
-+
-\sqrt{2\nu}\,dW_t
-```
-
-である。R203Cはideal regularized diffusion
-
-```math
-d\bar X_t
-=
-\left(
-v_\delta+u_\delta
-\right)dt
-+
-\sqrt{2\nu}\,dW_t
-```
-
-との有限時間 $W_1$ 縮約を与える。R203Dの1次元特殊化は
-
-```math
-t_{i+1/2}
-=
-\frac{\nu}{a^2}
-\left(
-\pi_i^\delta+\pi_{i+1}^\delta
-\right)
-```
-
-を用い、R185と同一の $(\pi^\delta,j^\delta,t^\delta)$ を与える。従ってM64からR185への固定目標用bridgeでは、micro-to-effective process reduction error $\varepsilon_{\rm red}^{64}(T)$ とR185のNewton残差
+として管理し、R185のNewton残差は
 
 ```math
 \varepsilon_{\rm Newt}^{185}
@@ -152,9 +69,9 @@ m\|R_\delta\|_\infty
 mC_{185,a}a^2
 ```
 
-を別々に管理する。確率過程距離と力残差を単一の誤差へ加算しない。有限 $\tau_U$ の実M64 tracer自身の加速度まで直接比較する高階parabolic stabilityはstrengtheningである。この経路は四つのpromotion bridgeを解析的に閉じたが、本draftでは現行M61/M60主線をまだ置換しない。
+として別に管理する。確率過程距離と力残差は次元も意味も異なるため単純加算しない。有限 $\tau_U$ の実M64 tracer自身の加速度まで直接比較する高階parabolic stabilityはstrengtheningである。
 
-**非主張。****非主張。** 後向き率は同じ前向き経路分布の条件付き確率であり、未来から物理作用する第2浴を導入しない。R162のPoisson reservoirをM60 tracerとは別の実在粒子へ読み替えない。生M37局所包絡からNewton加速度までの直接時間微分付き縮約、連続空間の一様極限、多粒子配置空間、位相量子化はQ3-2の現行達成範囲に含めない。旧R184の空間率latch、旧R162有限衝突経路、旧R188は補助・強化結果として保持するが、M60主線の必須依存ではない。
+**非主張。** 後向き率は同じ前向き経路分布の条件付き確率であり、未来から物理作用する第2浴を導入しない。R162のPoisson reservoirをM64 tracerとは別の実在粒子へ読み替えない。生M37局所包絡からNewton加速度までの直接時間微分付き縮約、連続空間の一様極限、多粒子配置空間、位相量子化はQ3-2の現行達成範囲に含めない。旧R184の空間率latch、旧R162有限衝突経路、旧R188は補助・強化結果として保持するが、M64主線の必須依存ではない。
 
 ## 7.2 束縛状態（Q3-3A--Q3-3C）
 
@@ -378,7 +295,7 @@ R123の純位相緩和部は固定有限非縮退エネルギー列だけを入�
 <!-- theorem-start:theorem -->
 **定理（R124：障壁値未満状態の反対側確率増加）**
 
-3頂点有限障壁には、障壁値未満のスペクトル支持だけを持ち、有限時刻に障壁反対側の位置確率を正の幅 $\alpha$ だけ増加させる規格化初期状態が存在する。初期M60 tracer位置準備と終位置記録を含む各運転のM60 transport--R161持上げ誤差が全変動距離 $\varepsilon_{\rm path}^{60}$ 以下なら、観測増分は $\alpha-2\varepsilon_{\rm path}^{60}$ 以上である。
+3頂点有限障壁には、障壁値未満のスペクトル支持だけを持ち、有限時刻に障壁反対側の位置確率を正の幅 $\alpha$ だけ増加させる規格化初期状態が存在する。
 <!-- theorem-end:theorem -->
 
 **R124の最小有限障壁。** 頂点を障壁手前 $L$、障壁 $B$、反対側 $R$ とし、
@@ -436,9 +353,27 @@ p_R(T_{\rm bar})-p_R(0)=\alpha>0
 
 を得る。初期右裾を零とせず、その厳密値を基準にした増分である。$V/\kappa$ を大きくすると初期右裾と障壁占有率は小さくなる一方、移動時刻は長くなる。
 
-M60/R196Cが初期選択から終位置記録直前の位置法則までをideal R161経路から全変動距離 $\varepsilon_{\rm path}^{60}$ 以内で再現し、R112の終位置記録誤差を別に有限化できれば、観測増分は対応する有限誤差を差し引いてなお正にできる。完全な障壁代数証明は付録F.7、G.3節、M60 transport--R161持上げは付録Vに置く。
+M64 finite-graph profileではR203Dのpreparation lawでregularized初期分布を有限時間に準備し、同じtracerをR161 generatorで輸送する。固定背景 $q_i$ なら
 
-**達成判定。** R124は有限グラフの3分割、生成子、障壁値、障壁値未満の厳密スペクトル支持、初期基準確率、有限時刻の正の増分を与える。M60/R196C--R161は同じ実在tracerを初期整合から反対側へ輸送する有限誤差接続を与える。ただしM37 signal source、M60、時計自由度、終位置記録を単一装置周期へ統合する条件が残る。従ってQ3-4Aは条件付き達成である。
+```math
+\pi_i^\delta(t)
+=
+\frac{p_i(t)+\delta q_i}{1+\delta},
+```
+
+なので
+
+```math
+\pi_R^\delta(T_{\rm bar})
+-
+\pi_R^\delta(0)
+=
+\frac{\alpha}{1+\delta}.
+```
+
+各時刻のtransport・record誤差が $\varepsilon_{64,G}$ 以下なら観測増分は $\alpha/(1+\delta)-2\varepsilon_{64,G}$ 以上である。従って $2\varepsilon_{64,G}<\alpha/(1+\delta)$ を満たす有限誤差構成で正の移送が残る。
+
+**達成判定。** R124は有限グラフの3分割、生成子、障壁値、障壁値未満の厳密スペクトル支持、初期基準確率、有限時刻の正の増分を与える。M64/R203Dは同じtracerをregularized位置法則に従って初期準備から反対側へ輸送する。ただし時計自由度と終位置記録を含む単一装置周期への統合が残る。従ってQ3-4Aは条件付き達成である。
 
 **非主張。** 障壁高・幅・入射エネルギーに対する連続的な透過率曲線、半無限散乱極限、透過・反射・未確定を含む完全散乱装置、熱活性化との装置比較、初回通過、吸収器、到達時間分布は固定目標より強い拡張であり、本結果には含めない。
 
@@ -507,24 +442,32 @@ P_R(T_{1/2})-P_R(0)=2B_c>0.
 
 **M37の長時間誤差。** 静的格子ではR86の厳密正常モード生成子が $h_{\rm ex}=f_{\omega_0}(h_W)$ なので、R182の固有ベクトルはM37正常モードでも厳密に共通である。分裂だけが $\Delta_{\rm ex}=f(E_1)-f(E_0)$ へ変わり、その相対誤差は $\eta$ で抑えられる。従ってM37正常モードの半周期・一周期は $\Delta_{\rm ex}$ で較正し、局所包絡との差はR86の $\delta_{\rm loc}(\eta)$ と格子誤差へ分ける。小さい分裂に対して一般の時間比例Duhamel上界だけを一周期へ流用しない。
 
-**M60の同じtracerへの持上げ。** R195Aの2作用状態数で開始位置分布を一度だけ準備し、M60/R196A--R196Cが同じtracerを $0$ から $T_{\rm per}$ まで輸送する。終時刻に別の静的位置を再標本化しない。理想位置分布を $p_t$、M60 transport coarse-grainingと記録を含む観測分布を $q_t$ とし、
+**M64の同じtracerへの持上げ。** R203Dのfinite-graph preparationでregularized初期分布を一度だけ準備し、同じtracerを $0$ から $T_{\rm per}$ まで輸送する。固定背景なら
 
 ```math
-D_{\rm TV}(q_t,p_t)
-\leq
-\varepsilon_W(t)
+\pi_R^\delta(T_{1/2})
+-
+\pi_R^\delta(0)
+=
+\frac{2B_c}{1+\delta},
 ```
 
-が $t=0,T_{1/2},T_{\rm per}$ で成り立つなら
+かつ
+
+```math
+\pi^\delta(T_{\rm per})
+=
+\pi^\delta(0).
+```
+
+各時刻のtransport・record誤差が $\varepsilon_{64,G}$ 以下なら
 
 ```math
 q_{T_{1/2}}(R)-q_0(R)
 \geq
-2B_c
+\frac{2B_c}{1+\delta}
 -
-\varepsilon_W(0)
--
-\varepsilon_W(T_{1/2}),
+2\varepsilon_{64,G},
 ```
 
 ```math
@@ -533,14 +476,12 @@ D_{\rm TV}
 q_{T_{\rm per}},q_0
 \right)
 \leq
-\varepsilon_W(T_{\rm per})
-+
-\varepsilon_W(0).
+2\varepsilon_{64,G}.
 ```
 
-前者が正になる有限誤差構成を選べば、半周期移送は単一試行位置読出しへ接続しても残る。一周期回帰も同じ誤差台帳で評価する。異なる終時刻を記録する実験集団は同じ開始分布と同じ時間発展規則を使い、中間測定で軌道を乱した結果を一つの試行へ貼り合わせない。
+$\varepsilon_{64,G}<B_c/(1+\delta)$ を満たす有限誤差構成を選べば半周期移送は単一試行位置読出しへ接続しても正に残る。異なる終時刻を記録する実験集団は同じ開始分布と同じ時間発展規則を使い、中間測定で軌道を乱した結果を一つの試行へ貼り合わせない。
 
-**達成判定。** R182は障壁値未満最低二重項、第3状態ギャップ、静的零傾斜、トンネル分裂、中央障壁込み完全位置分布、半周期の正の移送、一周期回帰を閉じる。M60/R196C--R161はそれを同じlocalized tracerの有限時間輸送へ持ち上げる。ただしM37静的W型signal source、M60、半周期・一周期時計自由度、終位置recordを一つの具体的装置周期へ統合する条件が残る。従ってQ3-4Bは条件付き達成である。
+**達成判定。** R182は障壁値未満最低二重項、第3状態ギャップ、静的零傾斜、トンネル分裂、中央障壁込み完全位置分布、半周期の正の移送、一周期回帰を閉じる。M64/R203Dはそれを同じlocalized tracerの有限時間輸送へ持ち上げる。ただし半周期・一周期時計自由度と終位置recordを一つの具体的装置周期へ統合する条件が残る。従ってQ3-4Bは条件付き達成である。
 
 **非主張。** 障壁高・幅に対する半古典的な指数分裂則、連続散乱透過率、初回到達、吸収、外部傾斜を使う制御移送は固定目標より強い拡張である。R123の純位相緩和をQ3-4Bの同じコヒーレント運転へ加えたとは主張しない。
 
@@ -551,7 +492,7 @@ q_{T_{\rm per}},q_0
 <!-- theorem-start:theorem -->
 **定理（R125：最小2経路干渉と位置読出し）**
 
-2頂点再結合器へ同じ重みのコヒーレント入力と非干渉混合を入れると、有限時刻の位置分布の全変動距離は位相 $\pi/2$ で $1/2$ となる。相対位相 $\pi/2$ と $-\pi/2$ の位置分布距離は1である。各M60/R196C運転の位置法則誤差が $\epsilon$ 以下なら、対応する距離はそれぞれ $1/2-2\epsilon$、$1-2\epsilon$ 以上である。
+2頂点再結合器へ同じ重みのコヒーレント入力と非干渉混合を入れると、有限時刻の位置分布の全変動距離は位相 $\pi/2$ で $1/2$ となる。相対位相 $\pi/2$ と $-\pi/2$ の位置分布距離は1である。
 <!-- theorem-end:theorem -->
 
 **R125の最小2経路再結合器。** 直交入力 $|L\rangle,|R\rangle$ に同じ生成子
@@ -621,8 +562,6 @@ p_{\pi/2},p_{-\pi/2}
 
 第1式はコヒーレント交差項の有無を、第2式は相対位相変更の位置分布への効果を示す。同じSchrödinger型発展を全入力に使っており、入力後に結果依存の生成子を選んでいない。
 
-M60/R196Cが各理想分布の初期位置準備から終位置記録直前までを全変動距離 $\varepsilon_{\rm path}^{60}$ 以内で再現すれば、記録分布間の距離は対応する記録誤差と合わせてなお正にできる。$\varepsilon_{\rm path}^{60}<1/4$ を満たす有限パラメータを条件付きで選べるので両方の差が正に残る。
-
 M64 finite-graph profileでは、R203Dのlocal activity
 ```math
 T_{ij}^\delta
@@ -654,9 +593,9 @@ p_{\pi/2}^\delta,p_{-\pi/2}^\delta
 <
 \frac{1}{4(1+\delta)}
 ```
-で両方の識別差が正に残る。Q3-5固定目標にはmetric graphのjunction PDEを要求しない。完全な干渉代数証明は付録F.7、G.4、M60 transportは付録V、M64 finite-graph interfaceは付録Yに置く。
+で両方の識別差が正に残る。Q3-5固定目標にはmetric graphのjunction PDEを要求しない。完全な干渉代数証明は付録F.7、G.4、M64 finite-graph interfaceは付録Yに置く。
 
-**達成判定。** R125は、有限グラフの直交2経路入力、同一発展、コヒーレント入力、同じ重みの混合、正のコヒーレンス差、正の相対位相差を与える。M60/R196C--R161により、二つの理想分布間距離から各M60運転誤差を差し引いても正なら有限装置で識別できる。ただしM37 signal source、M60、2経路時計自由度、終位置recordの単一装置統合を仮定に残す。従ってQ3-5は改訂後の固定範囲で条件付き達成である。
+**達成判定。** R125は、有限グラフの直交2経路入力、同一発展、コヒーレント入力、同じ重みの混合、正のコヒーレンス差、正の相対位相差を与える。M64/R203Dは同じfinite-graph tracerへregularized位置法則と有限誤差readoutを与え、$\varepsilon_{64,G}<1/[4(1+\delta)]$ なら両方の差が正に残る。ただし2経路時計自由度と終位置recordの単一装置統合を仮定に残す。従ってQ3-5は改訂後の固定範囲で条件付き達成である。
 
 **非主張。** 幾何学的な開口、源、シャッター、多画素スクリーン、全検出器のハミルトニアン、無検出を含む完全装置、初回到達、吸収、永久記録、反復リセットは固定目標より強い拡張であり、本結果には含めない。
 
@@ -674,6 +613,6 @@ p_{\pi/2}^\delta,p_{-\pi/2}^\delta
 
 付録HのQ1 W型2モード手順は、対称W型ポテンシャルの最低2モードについて、古典信号浴の作用比と統計核が時間振動することを解析的に扱うQ1側のモデルである。R140は静的零傾斜分裂を先行して診断したが、Q3-3Cの束縛スペクトルまたはQ3-4Bの粒子位置確率の達成根拠には使わない。
 
-Q3側ではR182がW型の固定低位固有値、密度、節、障壁下二重項、第3状態ギャップ、完全位置密度、半周期鏡映、一周期回帰を直接与える。Q3-3CはR123の有限環境純位相部をR182のW型固有基底へ接続して達成、Q3-4BはM60/R196C--R161で同じlocalized tracerへ接続して条件付き達成である。低2モードの作用比だけを空間領域占有率へ読み替えない。
+Q3側ではR182がW型の固定低位固有値、密度、節、障壁下二重項、第3状態ギャップ、完全位置密度、半周期鏡映、一周期回帰を直接与える。Q3-3CはR123の有限環境純位相部をR182のW型固有基底へ接続して達成、Q3-4BはM64/R203Dで同じlocalized tracerへ接続して条件付き達成である。低2モードの作用比だけを空間領域占有率へ読み替えない。
 
-draft-71ではR182専用のW型数値回帰を追加したが、これは解析証明の代替ではない。R187によりM37弱結合W型からQ1 W2制御用信号系への物理接続は閉じたが、M60 tracerをQ1測定pointerへ流用しない。本章のQ3粒子位置現象はR182/M60/R161の別分岐であり、Q1の低2モード作用比や信号系終端一致だけから粒子経路・空間占有率の一致を主張しない。
+draft-71ではR182専用のW型数値回帰を追加したが、これは解析証明の代替ではない。R187によりM37弱結合W型からQ1 W2制御用信号系への物理接続は閉じたが、M64 tracerをQ1測定pointerへ流用しない。本章のQ3粒子位置現象はR182/M64/R161の別分岐であり、Q1の低2モード作用比や信号系終端一致だけから粒子経路・空間占有率の一致を主張しない。
