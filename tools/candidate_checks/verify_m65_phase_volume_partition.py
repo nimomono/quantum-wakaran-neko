@@ -6,7 +6,7 @@ def main():
     vals=[]
     for phi in (0.2,0.5,1.0,2.0,5.0):
         density=np.exp(-0.5*(zs/phi)**2)
-        integ=np.trapz(density,zs)
+        integ=np.trapezoid(density,zs)
         vals.append(integ/phi)
     ref=vals[2]
     assert max(abs(v-ref) for v in vals)<2e-5
