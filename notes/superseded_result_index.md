@@ -1,5 +1,16 @@
 # 置換・退役結果索引
 
+## draft-120で退役したR191/R193測定経路
+
+M65/R204D--R204FをQ1/Q2 fixed-goalのcanonical open selectorへ採用したため、R191/R193を現行因果鎖から外した。これはR191のBrownian macrospin構成またはR193のHamiltonian bridgeを反証したものではなく、より短い共通open-selector主線へ責務を吸収したための退役である。結果番号は再利用しない。
+
+| 結果 | 旧用途 | 現行の扱い | 保存先 |
+|---|---|---|---|
+| R191 | Brownian macrospinによるQ1/Q2共通2結果射影読出し | M65/R204A、R204D--R204Fの3状態open selectorへ置換 | `superseded_r191_brownian_macrospin_projective_instrument.md`、draft-88--draft-91 Git履歴 |
+| R193 | R189A保持作用からR191 macrospin decision energyへのQ1専用直接接続 | R189A保持作用をM65へ直接入力するR204F接続へ置換 | `superseded_r193_q1_macrospin_bridge.md`、draft-91 Git履歴 |
+
+専用数値検算は `notes/retired_verifiers/verify_r191_macrospin.py` と `verify_q1_r193_macrospin_bridge.py` に保存する。
+
 この表は現行本文から外した結果への最小索引である。数式と証明は重複掲載せず、Git履歴と個別メモを正本とする。
 
 ## 退役した固定目標
@@ -102,8 +113,8 @@ M64/R203A--R203Dを現行Q3 particle/Nelson open modelへ昇格したため、M6
 
 | 結果・模型 | 旧責務 | 現行置換 | 保存先 |
 |---|---|---|---|
-| R190A--R190C | 2作用LC殻Drude混合と静的平方根選択 | Q1/Q2の2結果はR191が直接読出し | `superseded_r190_r170_measurement_path.md`, `superseded_A19_drude_action_shell_bridge.md` |
-| R170 | 静的選択結果の吸収pointer固定 | R191のBrownian macrospin吸収記録 | `superseded_r190_r170_measurement_path.md` |
-| R180B | 選択branchから2翼テンプレートをpaired-Hopfで再準備 | A端R191の非規格化branchをrouterでB端へ直接受渡し | `superseded_q2_2_paired_hopf_receiver.md`, `superseded_A9_paired_hopf_receiver.md` |
+| R190A--R190C | 2作用LC殻Drude混合と静的平方根選択 | draft-89でR191へ置換後、draft-120でM65へ再置換 | `superseded_r190_r170_measurement_path.md`, `superseded_A19_drude_action_shell_bridge.md` |
+| R170 | 静的選択結果の吸収pointer固定 | draft-89でR191へ置換後、draft-120でM65のfinite recordへ再置換 | `superseded_r190_r170_measurement_path.md` |
+| R180B | 選択branchから2翼テンプレートをpaired-Hopfで再準備 | 現在はA端M65の非規格化branchをrouterでB端へ直接受渡し | `superseded_q2_2_paired_hopf_receiver.md`, `superseded_A9_paired_hopf_receiver.md` |
 
 これらは反証ではなく責務縮約による退役である。固定Q1/Q2の誤差予算と必須依存には含めない。
