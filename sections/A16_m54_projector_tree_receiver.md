@@ -1,254 +1,326 @@
 @number: P
 @chapter: 付録
 @title: M54段階的射影選別と測定後状態受渡し
-@status: R181DをR191結果固定後の可逆projector routerと非規格化結果成分受渡しへ責務縮約する。一般深さの作用安定化と資源評価はQ2-4専用補助として分離する。
+@status: R181Dを上流binary selectorの物理実装から独立な共通projector-router定理として定式化する。R191は現行fixed-goal selector実装、M65は別の現行canonical selector modelとして同じ契約を満たす。一般深さの作用安定化はR192へ分離する。
 
 ## P.1 目的と節点状態
 
 深さ $m$ の二分段階的射影選別を考える。節点 $u\in\{0,1\}^{k-1}$ の入力記憶部を $Z_u\neq0$、2子への直交射影を $P_{u,0},P_{u,1}$ とする。
 
-```math
+\[
 P_{u,0}+P_{u,1}=I,
 \qquad
 P_{u,0}P_{u,1}=0.
-```
+\]
 
 未処理射影作用を
 
-```math
-J_{u,b}=\mathcal J_0Z_u^\dagger P_{u,b}Z_u,
+\[
+J_{u,b}
+=
+\mathcal J_0 Z_u^\dagger P_{u,b}Z_u,
 \qquad
-J_\Sigma=J_{u,0}+J_{u,1}
-=\mathcal J_0Z_u^\dagger Z_u
-```
+J_\Sigma
+=
+J_{u,0}+J_{u,1}
+=
+\mathcal J_0Z_u^\dagger Z_u
+\]
 
-とする。節点の能動状態には信号 $Z_u$、2個の作用保持指針変数、R191のブラウン巨視的スピン、吸収記録 $Y$、選別機構用作業領域、必要ならR192作用安定化接続端を含める。R191の混合・decision浴、R179の流出／リセット浴は環境接続部として別に扱い、解析上のBorn確率を制御器へ書き込まない。
+とし、
 
-R164/R190/R170の正則化作用殻は一般有限結果集合または独立な作用殻型代替実現にだけ用い、本節のR191主線と同じ試行で重複使用しない。
+\[
+p_{u,b}=\frac{J_{u,b}}{J_\Sigma}
+\]
 
-## P.2 R191節点契約と端点dispatcher
+を理想条件付きBorn重みとする。
 
-結果 $0$ をR191の $+$、結果 $1$ を $-$ に対応させ、
+R181Dの責務は、上流binary selectorが固定した排他的結果を受け取り、projector routerで非規格化結果成分を次段へ渡すことである。selectorの内部物理、熱浴、rate、decision lawはR181Dの状態へ含めない。
 
-```math
-S=J_{u,0}+J_{u,1},
+## P.2 共通binary selector contract
+
+節点 $u$ のselectorは完全結果
+
+\[
+Y_u\in\{0,1,\varnothing\}
+\]
+
+を返す。理想核を
+
+\[
+K_u(0)=p_{u,0},
 \qquad
-D=J_{u,0}-J_{u,1}
-```
-
-を作用和・作用差transducerへ渡す。実装値 $\widehat S,\widehat D$ から
-
-```math
-\widehat u_*=-\frac{\widehat D}{\widehat S},
+K_u(1)=p_{u,1},
 \qquad
-\widehat p_{u,0}=\frac{1-\widehat u_*}{2},
-\qquad
-\widehat p_{u,1}=\frac{1+\widehat u_*}{2}
-```
+K_u(\varnothing)=0
+\]
 
-を解析上定める。理想重み $p_{u,b}=J_{u,b}/J_\Sigma$ との偏差はR191の
+とし、実装核を $\widetilde K_u$ とする。
 
-```math
-|\widehat u_*-u_*|\leq\varepsilon_u
-```
+R181Dが要求する上流契約は次の5条件だけである。
 
-から各成分で高々 $\varepsilon_u/2$ である。
+1. 完全結果誤差
+\[
+D_{\rm TV}(\widetilde K_u,K_u)\leq\varepsilon_{{\rm sel},u}.
+\]
 
-固定閾値 $0<\tau_{\rm cut}\leq1/2$ を取り、$\min_b\widehat p_{u,b}<\tau_{\rm cut}$ なら大きい側を決定論的端点経路へ送り、それ以外はR191の混合--decision--捕獲を走らせる。保護帯、有限温度retreat、有限時間未捕獲はR191の完全結果誤差 $\varepsilon_{191,k}$ に含め、成功結果だけを再規格化しない。
+2. 非空安全結果 $Y_u=b$ では
+\[
+p_{u,b}\geq\tau_{{\rm state},u}>0.
+\]
 
-```math
-\tau_{\rm state}
-:=
+3. $Y_u$ はprojector routerを開く前に固定される。
+
+4. selectorはBorn確率表または振幅表を外部制御器へ要求しない。
+
+5. $\varnothing$ を除いて成功試行だけを再規格化しない。
+
+安全下限 $\tau_{{\rm state},u}$ をどう作るかはselector実装側の責務である。
+
+### P.2.1 現行R191実装
+
+R191を使う現行fixed-goal主線では、
+
+\[
+\varepsilon_{{\rm sel},u}
+=
+\varepsilon_{191,u},
+\]
+
+\[
+\tau_{{\rm state},u}
+=
 \tau_{\rm cut}-\frac{\varepsilon_u}{2}>0
-```
+\]
 
-を仮定すれば、無反応でない選択結果 $b$ の理想作用重みは
+と取れる。endpoint dispatcher、mixing、finite-temperature retreat、finite-time capture、吸収記録はR191側の誤差台帳に含める。
 
-```math
-p_{u,b}\geq\tau_{\rm state}
-```
+### P.2.2 M65実装
 
-である。これは後段の射影選別機構に必要な状態方向Lipschitz下限をR191のdispatcherから直接供給する。
+M65/R204D--R204Eを使う場合は、
 
-## P.3 R191吸収記録と可逆選別機構
+\[
+\varepsilon_{{\rm sel},u}
+=
+\varepsilon_{65,u},
+\]
 
-R191が有限decision時間後に $Y=b\in\{0,1\}$ を吸収記録へ固定したときだけ、信号と未使用作業領域上の選別機構
+\[
+\tau_{{\rm state},u}
+=
+\tau_{\rm cut}-\varepsilon_A>0
+\]
 
-```math
+と取れる。M65内部rateや無反応hub誤差はM65側の誤差台帳に含める。
+
+本draftではQ1/Q2 fixed-goal witnessをR191からM65へ切り替えない。
+
+## P.3 結果固定後の可逆projector router
+
+selectorが有限decision時間後に $Y_u=b\in\{0,1\}$ を固定したときだけ、信号と未使用作業領域上の選別機構
+
+\[
 F_{u,b}
 =
 \begin{pmatrix}
 P_{u,b}&P_{u,1-b}\\
 P_{u,1-b}&-P_{u,b}
 \end{pmatrix}
-```
+\]
 
-を開く。直交性から
+を作用する。
 
-```math
+直交射影子の関係から
+
+\[
 F_{u,b}^\dagger F_{u,b}=I,
 \qquad
-F_{u,b}^2=I,
-```
+F_{u,b}^2=I
+\]
 
-かつ
+であり、
 
-```math
+\[
 F_{u,b}(Z_u,0)
-=(P_{u,b}Z_u,P_{u,1-b}Z_u)
-```
+=
+(P_{u,b}Z_u,P_{u,1-b}Z_u).
+\]
 
-である。非選択成分を消去せず作業領域へ保持するので、選別機構自体はユニタリな実正準写像である。R191が無反応を返した場合は $F_{u,0},F_{u,1}$ のどちらも作用させない。
+非選択成分を消去せず作業領域へ保持するので、router自体は可逆な実正準写像として実装できる。$Y_u=\varnothing$ の場合はどちらのrouterも作用させない。
 
-## P.4 選別機構誤差と条件付き状態方向
+## P.4 router誤差と条件付き状態方向
 
-理想選択成分を $v=P_{u,b}Z_u$、実装後を $\widetilde v$ とし、
+理想選択成分を
 
-```math
+\[
+v=P_{u,b}Z_u
+\]
+
+とし、実装後を $\widetilde v$ とする。router誤差が
+
+\[
 \|\widetilde v-v\|
 \leq
-\eta_F\|Z_u\|.
-```
+\eta_F\|Z_u\|
+\]
 
-P.2から無反応でない安全結果では
+を満たすとする。
 
-```math
+binary selector contractの安全下限から
+
+\[
 \|v\|
 \geq
-\sqrt{\tau_{\rm state}}\,\|Z_u\|.
-```
+\sqrt{\tau_{{\rm state},u}}\|Z_u\|.
+\]
 
-$\eta_F<\sqrt{\tau_{\rm state}}$ なら規格化写像のLipschitz評価により
+従って
 
-```math
+\[
+\eta_F<\sqrt{\tau_{{\rm state},u}}
+\]
+
+なら、
+
+\[
 \left\|
 \frac{\widetilde v}{\|\widetilde v\|}
 -
 \frac{v}{\|v\|}
 \right\|
 \leq
-\frac{2\eta_F}
-{\sqrt{\tau_{\rm state}}-\eta_F}
-=:\varepsilon_{\rm proj}.
-```
+\frac{
+2\eta_F
+}{
+\sqrt{\tau_{{\rm state},u}}-\eta_F
+}
+=:
+\varepsilon_{{\rm proj},u}.
+\]
 
-この下限は物理的な状態依存除算ではない。R191の固定dispatcherパラメータとtransducer誤差上界から解析的に得る安全集合境界である。
+この下限は物理的な状態依存除算ではない。selectorが保証した安全集合境界を解析に使うだけである。
 
-## P.5 階数1 射影子の測定後状態の受け渡し
+## P.5 階数1射影子と測定後状態
 
-階数1節点 $P_{u,b}=|b_u\rangle\langle b_u|$ では、安全結果について
+階数1節点
 
-```math
+\[
+P_{u,b}=|b_u\rangle\langle b_u|
+\]
+
+では、
+
+\[
 v=P_{u,b}Z_u
-=\alpha_b|b_u\rangle,
-\qquad
-\frac{vv^\dagger}{v^\dagger v}=P_{u,b}.
-```
+=
+\alpha_b|b_u\rangle,
+\]
 
-従ってR191が結果を選んだ後、P.3の可逆選別機構そのものが選択後信号を射影子像へ物理的に移す。実装信号の規格化第2モーメント $C_{u,b}^{\rm out}$ は
+従って
 
-```math
-D_{\rm tr}
-\left(
-C_{u,b}^{\rm out},P_{u,b}
-\right)
-\leq
-\varepsilon_{\rm proj}
-```
+\[
+\frac{vv^\dagger}{v^\dagger v}
+=
+P_{u,b}.
+\]
 
-を満たす。選択後成分を物理的に単位ノルムへ規格化する必要はなく、同じ未規格化成分を次段へ渡せる。
-
+selectorの物理方式に依存せず、結果固定後のrouterそのものが選択後信号を射影子像へ送る。物理的な単位ノルム規格化は不要であり、非規格化成分を次段へそのまま渡す。
 
 ## P.6 Q2-4専用補助：R192作用安定化
 
-一般深さQ2-4で選択後作用が読出し下限を下回り得る場合だけ、選別機構後の選択後信号へR192の $\kappa=0$ 接続端を開く。
+一般深さQ2-4で選択後作用が次節点の感度下限を下回り得る場合だけ、router後の選択成分へR192を接続する。
 
-```math
-\dot Z=g(J_*-Z^\dagger Z)Z.
-```
+\[
+\dot Z
+=
+g(J_*-Z^\dagger Z)Z.
+\]
 
-方向 $Z/\|Z\|$ は一定で、作用 $r=Z^\dagger Z$ は
+R192は状態方向を変えず、Born重みや結果選択を作らない。必要な固定時間上界はselectorから受け取る $\tau_{\rm state}$ とR192自身のパラメータだけで評価する。
 
-```math
-\dot r=2gr(J_*-r)
-```
-
-に従う。P.2の下限 $r(0)\geq\tau_{\rm state}r_{\rm in}$ と固定入力作用区間から、目標相対動径誤差 $\eta_R$ に必要な時間を試行前に一様に選べる。固定小深度Q1/Q2-1/Q2-3では作用下限を直接保証できるなら本段を省略してよい。
+固定有限深さではR192を使わず、非規格化結果成分をそのまま次段へ渡せる。
 
 ## P.7 望遠鏡和と完全結果誤差
 
 理想節点核を $K_k$、実装核を $\widetilde K_k$ とする。過去の安全履歴 $h_{k-1}$ 上で
 
-```math
+\[
 \sup_{h_{k-1}}
 D_{\rm TV}
 \left(
-\widetilde K_k(h_{k-1},\cdot),
-K_k(h_{k-1},\cdot)
+\widetilde K_k(\cdot\mid h_{k-1}),
+K_k(\cdot\mid h_{k-1})
 \right)
-\leq\bar\varepsilon_k
-```
+\leq
+\bar\varepsilon_k
+\]
 
-とする。$\bar\varepsilon_k$ にはR191の完全結果誤差 $\varepsilon_{191,k}$、必要な局所記録誤差、制御付き選別機構誤差、必要な場合の作用安定化誤差、転送誤差、および前段状態方向誤差からこの節点核へ伝播した偏差を各1回だけ含める。R191主線ではR164/R190/R170代替経路の正則化、混合、固定誤差を重複加算しない。
+とする。
 
-Markov核の縮約性と望遠鏡和から
+$\bar\varepsilon_k$ には、その節点で実際に使うselectorの完全結果誤差、局所記録誤差、router誤差、必要なR192誤差、転送誤差、前段状態方向誤差から次節点核へ伝播した偏差を各1回だけ含める。異なるselector実装の誤差を同一試行で重複加算しない。
 
-```math
-D_{\rm TV}(P_{\rm out},P_{\rm Born})
+Markov核の縮約性と望遠鏡和から、
+
+\[
+D_{\rm TV}
+(P_{\rm out},P_{\rm Born})
 \leq
 \varepsilon_{\rm in}
 +
-\sum_{k=1}^m\bar\varepsilon_k.
-```
+\sum_{k=1}^{m}\bar\varepsilon_k.
+\]
 
-理想核の積は
+理想節点では
 
-```math
-\prod_{k=1}^m p_{k,y_k}
+\[
+\prod_{k=1}^{m}
+p_{k,y_k}
 =
-\frac{\|P_{m,y_m}\cdots P_{1,y_1}Z_0\|^2}{\|Z_0\|^2}
-```
+\frac{
+\|P_{m,y_m}\cdots P_{1,y_1}Z\|^2
+}{
+\|Z\|^2
+}
+\]
 
 と望遠鏡型に縮約する。無反応を同じ完全履歴空間に保持し、成功履歴だけを再規格化しない。
+
+<!-- theorem-start:theorem -->
+**定理（R181D：binary selector後の段階的projector-routerと測定後状態受渡し）**
+
+P.2のbinary selector contractを各節点で満たし、P.3のrouterを結果固定後にだけ作用し、必要な場合だけR192を使うとする。このとき理想極限ではLüders型逐次分布と非規格化測定後成分を得る。有限実装では
+
+\[
+D_{\rm TV}
+(P_{\rm out},P_{\rm Born})
+\leq
+\varepsilon_{\rm in}
++
+\sum_{k=1}^{m}\bar\varepsilon_k
+\]
+
+であり、安全結果の状態方向誤差はP.4の上界で抑えられる。
+
+R181Dの結論はselectorの内部物理に依存しない。
+<!-- theorem-end:theorem -->
 
 <!-- theorem-start:proof -->
 **証明（R181D）**
 
-P.1が射影作用保持、P.2がR191の2結果核と安全作用下限、P.3が結果固定後の1対1な経路分解、P.4--P.5.1が条件付き状態方向誤差、P.6が必要時だけの作用下限回復を与える。各段の完全結果核誤差を一度だけ $\bar\varepsilon_k$ に集約し、Markov核の縮約性と望遠鏡和を適用すれば上式を得る。理想節点では未規格化作用比が連鎖的に相殺され、Lüders型逐次分布に一致する。証明終。
+P.2が完全結果核と安全作用下限、P.3が結果固定後の1対1な経路分解、P.4--P.5が条件付き状態方向、P.6が必要時だけの作用下限回復を与える。各段の完全結果核誤差を一度だけ $\bar\varepsilon_k$ に集約し、Markov核の縮約性と望遠鏡和を適用する。理想節点では未規格化作用比が連鎖的に相殺される。証明終。
 <!-- theorem-end:proof -->
 
-## P.8 Q2-4一般深さの資源境界と反証条件
+## P.8 一般深さの資源境界と反証条件
 
-$m=n$ の一般深さで各節点誤差を $O(\epsilon/n)$ に配分する。R191では
+深さ $m=n$ の一般Q2-4では、各節点のselector、router、必要なR192、転送誤差を $O(\epsilon/n)$ に配分する。
 
-```math
-\tau_{\rm cut},g,\varepsilon_u,\varepsilon_{\rm cap}
-=O(\epsilon/n),
-\qquad
-\Delta_{\min}g^2
-\gtrsim
-\log(n/\epsilon)
-```
-
-を十分条件に選べるため、
-
-```math
-\Delta_{\min}
-=O\!\left(
-\frac{n^2}{\epsilon^2}
-\log\frac n\epsilon
-\right)
-```
-
-で足りる。$\tau_{\rm state}=O(\epsilon/n)$ なら状態方向誤差を $O(\epsilon/n)$ にする十分条件として $\eta_F=O((\epsilon/n)^{3/2})$ を取れ、依然として逆多項式精度である。一般深さではP.6の作用安定化を残す。
-
-R164/R190/R170の作用殻型代替経路を選ぶ場合、その正則化、混合、renewal、固定時間と資源は代替経路だけの台帳へ計上する。
+現行R191 fixed-goal実装についてはA20/T節のR191資源条件を使う。M65を選ぶ場合はA26/Z節のR204F資源条件を使う。R181D自身はどちらのselectorにも追加の指数precisionを要求しない。
 
 次のいずれかが避けられなければR181Dの主張は成立しない。
 
 1. Born確率表または振幅表を外部制御器へ入力する。
-2. R191の結果固定前に選別機構を開き、結果成分像を混在させる。
-3. 端点dispatcherに状態依存除算または指数精度を要する。
+2. selectorの結果固定前にrouterを開く。
+3. endpoint判定に状態依存除算または指数precisionを要求する。
 4. 非選択成分または作用安定化環境を同じ能動状態へ不可逆に消去する。
 5. 無反応を除外して成功試行だけを再規格化する。
-6. 深さ $n$ のR191、選別、転送誤差を多項式予算へ同時に収められない。
+6. 深さ $n$ のselector、router、転送誤差を多項式予算へ同時に収められない。
