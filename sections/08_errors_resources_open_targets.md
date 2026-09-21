@@ -189,7 +189,7 @@ $\bar\varepsilon_k$ には第 $k$ nodeの射影作用保持、M65、R181D router
 +\varepsilon_{\rm rec}
 ```
 
-とする。R191内部のmixing、変換器境界誤差、guard、有限温度後退、finite-time noncapture、captureは各 $\varepsilon_{65}^{A,B}$ に1回だけ含める。旧R180Bの方向吸引誤差、中央結果複製誤差、切断後A側再読出し誤差は現行台帳から除く。
+とする。M65内部のfinite-time relaxation、hub無反応、endpoint comparator、recordは各 $\varepsilon_{65}^{A,B}$ に1回だけ含める。旧R180Bの方向吸引誤差、中央結果複製誤差、切断後A側再読出し誤差は現行台帳から除く。
 
 理想一重項共同分布との全変動距離が $\varepsilon_{180}$ 以下なら、各周辺事象の確率差は $\varepsilon_{180}$ 以下、各二値相関の差は $2\varepsilon_{180}$ 以下、CHSH値の差は $8\varepsilon_{180}$ 以下である。A結果成分をB端へ物理的に渡すため、Bell局所factorizationまたは空間分離を誤差ゼロ極限の主張へ追加しない。
 
