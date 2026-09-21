@@ -265,7 +265,7 @@ r
 P_rZ.
 \]
 
-R191が結果形成と吸収記録までを担い、R181Dは結果を生成せずprojector routerと測定後結果成分受渡しだけを担う。固定有限深さでは非規格化結果成分をそのまま次段R191へ渡す。一般深さで作用下限が不足する場合だけR192の方向不変作用安定化を補助的に使う。
+R191が結果形成と吸収記録までを担い、R181Dは結果を生成せずprojector routerと測定後結果成分受渡しだけを担う。固定有限深さでは非規格化結果成分をそのまま次段binary selectorへ渡す。一般深さで作用下限が不足する場合だけR192の方向不変作用安定化を補助的に使う。fixed-goalの現行selectorはR191である。
 
 Q1 W型2モード特殊化では、R189Aが保持した左右作用座標をR193の直接decision Hamiltonianへ渡し、R191のmacrospin energyを
 
@@ -375,10 +375,12 @@ Q3 & M37/R86 signal、M64/R203A--R203D & R161/R185、R124/R182/R125位置読出�
 
 本稿は、量子力学全体を古典力学へ還元したこと、空間分離Bell局所模型を得たこと、指数的な内部受動自由度を除去したこと、全系列を同一製造済み装置へ統合したことを主張しない。R193によりQ1のR189A保持座標からR191 decision energyまでの直接接続は具体化するが、R191のmacrospin浴、吸収記録、R181D router、未使用保持対/resetを含む全周期を単一閉鎖Hamiltonianへ統合したことまでは意味しない。Q2の一般transducerもR193の対象外である。M64についてdirect A2、finite-bandwidth/Hamiltonian lift、continuous-space一様極限、多粒子、signal sourceからclock/recordまでの完全単一周期統合は別の強化課題である。
 
-\hypertarget{m65-phase-volume-projective-instrument-replacement-candidate}{%
-\section{M65 phase-volume projective instrument replacement candidate}\label{m65-phase-volume-projective-instrument-replacement-candidate}}
+\hypertarget{m65-canonical-open-selector-ux3068ux73feux884cfixed-goalux8a3cux4eba}{%
+\section{M65 canonical open selector と現行fixed-goal証人}\label{m65-canonical-open-selector-ux3068ux73feux884cfixed-goalux8a3cux4eba}}
 
-現行Q1/Q2の二結果結果形成はR191、Q1 W2からの直接decision接続はR193が担う。付録ZのM65/R204A--R204Fはこの二つをまだ置換しないactive candidateである。M64とM65は同一粒子を共有せず、R203Bと共通のphase-volume Jacobianを、それぞれQ3空間tracerとQ1/Q2 projective pointerへ使う別特殊化とする。promotion前はM0の現行依存、固定目標、required verifierを変更しない。
+M65/R204A--R204FはQ1/Q2二結果射影用のcanonical open selector modelとして正本化する。正本発展則は3状態open Markov過程であり、phase-volume chamberとHamiltonian--Brownian縮約は追加実現へ分離する。M64とM65は同一粒子を共有せず、M64はQ3 spatial tracer、M65はQ1/Q2 binary selectorという別の物理役割を持つ。
+
+一方、本変更ではfixed-goal witnessを切り替えない。Q1/Q2の現行結果形成はR191、Q1 W2からの直接decision接続はR193が担う。R181D、R192、R179、R180A/R180Cだけをbinary selector interfaceへ一般化し、後続のR191/R193退役時に物理実装の差し替えだけで済む構造とする。
 
 \hypertarget{ux6709ux9650ux30e2ux30fcux30c9ux4fe1ux53f7ux7cfbux3068ux5171ux901aux6b63ux6e96ux30e2ux30b8ux30e5ux30fcux30eb}{%
 \chapter{有限モード信号系と共通正準モジュール}\label{ux6709ux9650ux30e2ux30fcux30c9ux4fe1ux53f7ux7cfbux3068ux5171ux901aux6b63ux6e96ux30e2ux30b8ux30e5ux30fcux30eb}}
@@ -396,7 +398,7 @@ M54は有限個の実正準対から得る信号、準備済み入力境界、�
 Z=\frac{Q+iP}{\sqrt{2\mathcal J_0}}
 \]
 
-とするが、\(Z\) は独立した複素実体ではない。Q1/Q2では2結果射影作用をR191読出しinterfaceへ渡す。Q3ではM37/R86が空間signalを与え、M64/R203A--R203Dが同じsignalからcontinuous/finite-graph tracerをR161へ渡す。R161自身が有限状態のcanonical Markov経路法則まで定め、R162は同じ経路法則を独立Poisson random measuresで実現するoptional referenceとして使う。測定結果用の静的配置変数やR170専用pointerをM54共通状態へ置かない。
+とするが、\(Z\) は独立した複素実体ではない。Q1/Q2では2結果射影作用を共通binary selector interfaceへ渡す。fixed-goalの現行証人はR191であり、M65も同じinterfaceを満たすcanonical open selector modelとして併存する。Q3ではM37/R86が空間signalを与え、M64/R203A--R203Dが同じsignalからcontinuous/finite-graph tracerをR161へ渡す。R161自身が有限状態のcanonical Markov経路法則まで定め、R162は同じ経路法則を独立Poisson random measuresで実現するoptional referenceとして使う。測定結果用の静的配置変数やR170専用pointerをM54共通状態へ置かない。
 
 概念上の共通状態を
 
@@ -406,7 +408,7 @@ Z=\frac{Q+iP}{\sqrt{2\mathcal J_0}}
 (Z,S_{\rm port},G,W,J,A^\delta,X,D,\tau,S_{\rm ref})
 \]
 
-と書く。\(X\) はQ3空間状態構成で使う実在配置であり、Q1/Q2の2値結果はR191の吸収記録が担う。\(A^\delta\) はR164を使うQ3開始配置または独立な作用殻研究線のために残す。R191のBrownian macrospin、mixing/decision浴、R179のopen reset浴は接続interfaceとして扱い、常設のM54信号座標とは分ける。
+と書く。\(X\) はQ3空間状態構成で使う実在配置であり、Q1/Q2の2値結果はbinary selectorの記録が担う。現行fixed-goal証人ではR191、M65を選ぶ場合はその3状態open pointerを使う。\(A^\delta\) はR164を使うQ3開始配置または独立な作用殻研究線のために残す。R191のBrownian macrospinまたはM65のopen pointer、ならびにR179のopen reset浴は接続interfaceとして扱い、常設のM54信号座標とは分ける。
 
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2500}}
@@ -994,7 +996,7 @@ $$
 Poisson reservoirはR161 canonical経路法則の一つの明示的pathwise realizationである。現行Q3の物理存在論はM64の三実体が担い、Q3-2とR185の論理依存はR161だけで閉じる。R162は比較、シミュレーション、開放Poisson実装の参照に用いる。有限衝突Hamiltonian列への持上げは強化結果として論文外メモへ分離する。R161の静的 $j=0$ 特殊化は数学的比較用に残すが、Q1/Q2の2結果読出し主線ではR191を使う。
 \end{theorem}
 
-R161は静的・移動の率構成に加え、有限状態のcanonical Markov経路法則まで共通に保つ。現行Q3の物理主線はM64/R203A--R203Dであり、R162は同じ経路法則を持つoptional Poisson realizationとして残す。Q1/Q2の2結果測定はR161静的鎖を経由せずR191へ直接接続する。旧有限衝突実装は退役メモに保存する。
+R161は静的・移動の率構成に加え、有限状態のcanonical Markov経路法則まで共通に保つ。現行Q3の物理主線はM64/R203A--R203Dであり、R162は同じ経路法則を持つoptional Poisson realizationとして残す。Q1/Q2の2結果測定はR161静的鎖を経由せずbinary selectorへ接続する。fixed-goalの現行証人はR191である。旧有限衝突実装は退役メモに保存する。
 
 \hypertarget{r191ux4f5cux7528ux5deeux99c6ux52d5ux30d6ux30e9ux30a6ux30f3ux5de8ux8996ux7684ux30b9ux30d4ux30f32ux7d50ux679cux5c04ux5f71ux8aadux51faux3057}{%
 \subsection{R191：作用差駆動ブラウン巨視的スピン2結果射影読出し}\label{r191ux4f5cux7528ux5deeux99c6ux52d5ux30d6ux30e9ux30a6ux30f3ux5de8ux8996ux7684ux30b9ux30d4ux30f32ux7d50ux679cux5c04ux5f71ux8aadux51faux3057}}
@@ -1112,10 +1114,29 @@ P(+)=\frac{J_+}{J_++J_-},
 P(-)=\frac{J_-}{J_++J_-}.
 $$
 
-成功試行だけを再規格化しない。結果固定後の射影成分生成と次段受渡しは既存の共通射影選別機構/R181Dが担い、一般深さで成分作用下限が必要な場合だけR192の方向不変作用安定化を使う。Q1/Q2の2結果読出しではR191を唯一の現行主線とし、Q3の開始配置はR164へ分離する。
+成功試行だけを再規格化しない。結果固定後の射影成分生成と次段受渡しは既存の共通射影選別機構/R181Dが担い、一般深さで成分作用下限が必要な場合だけR192の方向不変作用安定化を使う。Q1/Q2 fixed-goalの現行証人にはR191を使う。一方M65も別のcanonical open selector modelとして正本化し、R181D側では両者を共通契約で扱う。Q3の開始配置はR164へ分離する。
 \end{theorem}
 
 混合評価、stochastic LLG、scale density、\(q_{\rm ret}\)、\(q_{\rm time}\)、端点dispatcher、熱力学、逐次結果成分受渡しは付録Tに置く \cite{kubo_hashitsume1970,brown1963,grinstein_koch2005}。
+
+\hypertarget{m653ux72b6ux614bopen-binary-selector}{%
+\subsection{M65：3状態open binary selector}\label{m653ux72b6ux614bopen-binary-selector}}
+
+M65は二つの保持済み作用 \(A_+,A_->0\) を読む古典open selectorである。固定 \(A_*>0\) に対して \(a_r=A_r/A_*\) とし、pointer \(X_t\in\{+,H,-\}\) のrateを
+
+\[
+k_{+\to H}=k_{-\to H}=\Lambda,
+\qquad
+k_{H\to +}=\kappa a_+,
+\qquad
+k_{H\to -}=\kappa a_-
+\]
+
+と直接定める。rateは保持作用へ線形であり、装置へBorn確率表または \(A_r/(A_++A_-)\) を入力しない。
+
+R204Dにより有限時間完全結果分布はBorn作用比へ近づき、R204Eにより後述のbinary selector contractを満たす。phase-volume chamberとHamiltonian--Brownian liftはR204B/R204Cの追加実現であり、M65の正本定義には含めない。
+
+本draftではM65を正本化するが、Q1/Q2 fixed-goalの現行証人はR191/R193のままとする。
 
 \hypertarget{m54ux306eux4e00ux69d8ux8a18ux61b6ux90e8ux63a5ux7d9aux7aefux8cafux8535ux90e8}{%
 \section{M54の一様記憶部、接続端、貯蔵部}\label{m54ux306eux4e00ux69d8ux8a18ux61b6ux90e8ux63a5ux7d9aux7aefux8cafux8535ux90e8}}
@@ -1182,118 +1203,202 @@ $$
 
 固定 \(n=2,3\) では同じ定理がCNOT、局所操作、逆演算の有限列を与える。一般 \(n\) では上の部分系一括作用を使う。いずれも中間測定、共同モーメントへの置換、再準備を行わず、同じ \(Z\) を全ゲート窓で保持する。3次元Euclid空間への局所埋込み、指数個の静的結合の総製造費、全結合を個別に調整する方法は主張しない。
 
-\hypertarget{m54ux5171ux901aux5c04ux5f71ux4f5cux7528ux9078ux5225ux6a5fux69cbux4f5cux7528ux4fddux6301r191ux8aadux51faux3057ux53efux9006ux9078ux5225}{%
-\section{M54共通射影作用・選別機構：作用保持・R191読出し・可逆選別}\label{m54ux5171ux901aux5c04ux5f71ux4f5cux7528ux9078ux5225ux6a5fux69cbux4f5cux7528ux4fddux6301r191ux8aadux51faux3057ux53efux9006ux9078ux5225}}
+\hypertarget{m54ux5171ux901aux5c04ux5f71ux4f5cux7528binary-selectorux53efux9006ux9078ux5225}{%
+\section{M54共通射影作用・binary selector・可逆選別}\label{m54ux5171ux901aux5c04ux5f71ux4f5cux7528binary-selectorux53efux9006ux9078ux5225}}
 
 出力ビット \(k\) に対する計算基底射影を \(P_{k,0},P_{k,1}\) とし、
 
 \[
 P_{k,0}+P_{k,1}=I,
 \qquad
-P_{k,0}P_{k,1}=0,
+P_{k,0}P_{k,1}=0.
 \]
 
+未処理作用を
+
 \[
-J_{k,b}(Z)=\mathcal J_0Z^\dagger P_{k,b}Z
+J_{k,b}
+=
+\mathcal J_0Z^\dagger P_{k,b}Z
 \]
 
-を未使用指針変数へ保持する。信号と作業領域の2貯蔵部上に
+として保持する。
 
-\[
+\begin{lemma}[直交射影子作用保持機構と対合選別機構]
+
+結果 $b$ が固定された後に作用する
+
+$$
 F_{k,b}
 =
 \begin{pmatrix}
 P_{k,b}&P_{k,1-b}\\
 P_{k,1-b}&-P_{k,b}
 \end{pmatrix}
-\]
-
-を置く。
-
-\begin{lemma}[直交射影子作用保持機構と対合 選別機構]
-
-$F_{k,b}^\dagger F_{k,b}=I$、$F_{k,b}^2=I$ であり、未使用作業領域に対して
-
-$$
-F_{k,b}(Z,0)=(P_{k,b}Z,P_{k,1-b}Z)
 $$
 
-と作用する。作用保持機構を信号に対する制御剪断として実装すれば、未使用容量運動量上で $J_{k,0},J_{k,1}$ を保持し、理想信号 $Z$ を変更しない。計算基底ビット射影子と選別機構はビットラベルだけから一様に生成でき、$2^n$ 成分の列挙を必要としない。
+は
+
+$$
+F_{k,b}^\dagger F_{k,b}=I,
+\qquad
+F_{k,b}^2=I,
+$$
+
+かつ未使用作業領域に対して
+
+$$
+F_{k,b}(Z,0)
+=
+(P_{k,b}Z,P_{k,1-b}Z)
+$$
+
+を満たす。作用保持を制御剪断として実装すれば理想信号を変更せず二作用を保持できる。
 \end{lemma}
 
-この補題自身は確率的な結果選択を行わない。2結果射影測定の排他的選択と固定はR191が担う。\textbf{共通射影選別機構} の主線は
+この補題自身は確率結果を選ばない。共通主線は、
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  未処理射影作用 \(J_{k,0},J_{k,1}\) の保持、
+  二射影作用の保持、
 \item
-  R191による2結果選択と吸収記録、
+  binary selectorによる \(Y\in\{0,1,\varnothing\}\) の固定、
 \item
-  必要ならR112または系列固有機構による局所記録、
+  必要な局所記録、
 \item
-  固定結果で制御した対合選別機構 \(F_{k,b}\)、
+  固定結果で制御した \(F_{k,b}\)、
 \item
-  一般深さで必要な場合だけR192の方向不変作用安定化、
+  一般深さで必要な場合だけR192、
 \item
   次節点または外部接続端への転送
 \end{enumerate}
 
-である。R181Dはこの列を段階的に合成する。R180Aは同じ作用保持補題と対合選別機構をQ2-2のA端結果成分受渡しへ使う兄弟特殊化である。
+である。現行fixed-goal selector実装はR191、別のcanonical open selector modelとしてM65/R204D--R204Eを持つ。
 
-\hypertarget{r181dm54ux6bb5ux968eux7684ux5c04ux5f71ux9078ux5225ux6e2cux5b9aux5f8cux72b6ux614bux53d7ux6e21ux3057ux5b9aux7406}{%
-\section{R181D：M54段階的射影選別・測定後状態受渡し定理}\label{r181dm54ux6bb5ux968eux7684ux5c04ux5f71ux9078ux5225ux6e2cux5b9aux5f8cux72b6ux614bux53d7ux6e21ux3057ux5b9aux7406}}
+\hypertarget{r181dselectorux975eux4f9dux5b58ux306eux6bb5ux968eux7684ux5c04ux5f71ux9078ux5225ux6e2cux5b9aux5f8cux72b6ux614bux53d7ux6e21ux3057}{%
+\section{R181D：selector非依存の段階的射影選別・測定後状態受渡し}\label{r181dselectorux975eux4f9dux5b58ux306eux6bb5ux968eux7684ux5c04ux5f71ux9078ux5225ux6e2cux5b9aux5f8cux72b6ux614bux53d7ux6e21ux3057}}
 
-第 \(k\) 段、履歴節点 \(u\) の入力を \(Z_u\neq0\) とし、直交射影 \(P_{u,0},P_{u,1}\) に対する未処理作用を
-
-\[
-J_{u,b}=\mathcal J_0Z_u^\dagger P_{u,b}Z_u,
-\qquad
-J_\Sigma=J_{u,0}+J_{u,1}
-\]
-
-とする。各節点は第2.8.2節R191へこの2作用を渡し、結果 \(b\in\{0,1\}\) または無反応を得る。固定閾値 \(\tau_{\rm cut}\) とR191のtransducer境界誤差 \(\varepsilon_u\) に対し
+第 \(k\) 段、履歴節点 \(u\) の入力を \(Z_u\neq0\) とし、
 
 \[
-\tau_{\rm state}
-=\tau_{\rm cut}-\frac{\varepsilon_u}{2}>0
-\]
-
-を仮定すれば、無反応でない選択結果の理想作用重みは \(p_{u,b}\geq\tau_{\rm state}\) である。R191の吸収記録を固定した後に \(F_{u,b}\) を作用し、非選択成分を作業領域へ保持する。一般深さで作用下限の回復が必要な場合だけR192を使う。固定有限深さでは非規格化結果成分をそのまま次段へ渡す。
-
-\begin{theorem}[R181D：M54段階的射影選別・測定後状態受渡し定理]
-
-理想節点を深さ $m$ まで合成すると、葉 $y=(y_1,\ldots,y_m)$ の確率は
-
-$$
-\prod_{k=1}^m p_{k,y_k}
+J_{u,b}
 =
-\frac{\|P_{m,y_m}\cdots P_{1,y_1}Z_0\|^2}{\|Z_0\|^2}
+\mathcal J_0Z_u^\dagger P_{u,b}Z_u,
+\qquad
+p_{u,b}
+=
+\frac{J_{u,b}}{J_{u,0}+J_{u,1}}
+\]
+
+とする。
+
+R181Dが上流に要求するbinary selector contractは、
+
+\[
+Y_u\in\{0,1,\varnothing\},
+\]
+
+\[
+D_{\rm TV}
+(
+\widetilde K_u,K_u^{\rm Born}
+)
+\leq
+\varepsilon_{{\rm sel},u},
+\]
+
+非空安全結果で
+
+\[
+p_{u,Y_u}
+\geq
+\tau_{{\rm state},u}>0,
+\]
+
+結果固定後にだけrouterを開くこと、および無反応を除いて再規格化しないこと、である。
+
+現行R191実装では
+
+\[
+\varepsilon_{{\rm sel},u}=\varepsilon_{191,u},
+\qquad
+\tau_{{\rm state},u}
+=
+\tau_{\rm cut}-\frac{\varepsilon_u}{2}.
+\]
+
+M65実装では
+
+\[
+\varepsilon_{{\rm sel},u}=\varepsilon_{65,u},
+\qquad
+\tau_{{\rm state},u}
+=
+\tau_{\rm cut}-\varepsilon_A.
+\]
+
+\begin{theorem}[R181D：binary selector後の段階的projector-routerと測定後状態受渡し]
+
+上のbinary selector contractを各節点で満たし、結果固定後にだけ $F_{u,b}$ を作用し、一般深さで必要な場合だけR192を使うとする。理想節点を深さ $m$ まで合成すると、
+
+$$
+\prod_{k=1}^{m}p_{k,y_k}
+=
+\frac{
+\|P_{m,y_m}\cdots P_{1,y_1}Z\|^2
+}{
+\|Z\|^2
+}
 $$
 
-となる。入力分布誤差を $\varepsilon_{\rm in}$、安全履歴上の第 $k$ 節点のR191読出し、制御付き選別機構、必要なR192作用安定化、転送、前段状態方向偏差の次節点への伝播を各1回だけまとめた実装誤差を $\bar\varepsilon_k$ とすれば、無反応を含む完全結果分布について
+となる。
+
+router実装誤差が
 
 $$
-D_{\rm TV}(P_{\rm out},P_{\rm Born})
+\|\widetilde v-v\|
+\leq
+\eta_F\|Z_u\|,
+\qquad
+v=P_{u,b}Z_u,
+$$
+
+かつ $\eta_F<\sqrt{\tau_{{\rm state},u}}$ なら、
+
+$$
+\left\|
+\frac{\widetilde v}{\|\widetilde v\|}
+-
+\frac{v}{\|v\|}
+\right\|
+\leq
+\frac{
+2\eta_F
+}{
+\sqrt{\tau_{{\rm state},u}}-\eta_F
+}.
+$$
+
+入力分布誤差を $\varepsilon_{\rm in}$、各節点で実際に使うselector、router、必要なR192、転送、前段状態方向偏差を各1回だけまとめた誤差を $\bar\varepsilon_k$ とすれば、
+
+$$
+D_{\rm TV}
+(
+P_{\rm out},
+P_{\rm Born}
+)
 \leq
 \varepsilon_{\rm in}
 +
-\sum_{k=1}^m\bar\varepsilon_k.
+\sum_{k=1}^{m}\bar\varepsilon_k.
 $$
 
-選別機構作用素誤差が $\eta_F<\sqrt{\tau_{\rm state}}$ なら選択後の規格化状態方向誤差は
-
-$$
-\varepsilon_{u,b}^{\rm state}
-\leq
-\frac{2\eta_F}{\sqrt{\tau_{\rm state}}-\eta_F}.
-$$
-
-階数1節点では理想選択後信号 $P_{u,b}Z_u$ は射影子像そのものであり、物理的に単位ノルムへ規格化せず同じ試行の次段へ直接渡せる。成功試行だけを再規格化しない。
+R181Dの結論はselectorの内部物理に依存しない。
 \end{theorem}
 
-完全証明と一般深さの資源境界は付録Pに置く。R164/R190/R170の作用殻型代替経路を選ぶ場合は、その正則化・混合・固定誤差をR191誤差と同時に加えない。
+完全証明と資源境界は付録Pに置く。本draftではfixed-goal witnessをR191からM65へ切り替えない。
 
 \hypertarget{r192ux65b9ux5411ux4e0dux5909ux4f5cux7528ux5b89ux5b9aux5316}{%
 \subsection{R192：方向不変作用安定化}\label{r192ux65b9ux5411ux4e0dux5909ux4f5cux7528ux5b89ux5b9aux5316}}
@@ -1361,7 +1466,7 @@ $$
 \right].
 $$
 
-R181Dの非終端安全結果で $S_{\min}/S_*$ が $n,1/\epsilon$ の逆多項式以上、$g_RS_*$ が逆多項式以上なら、Q2-4の各段で使う事前固定接続時間と全 $n-1$ 段の総接続時間は多項式である。R192は状態方向、Born重み、結果選択を生成せず、無反応または安全下限未満の成分を成功結果へ戻さない。横方向加法偏差も訂正しない。
+R181Dのbinary selector contractが与える非終端安全結果で $S_{\min}/S_*$ が $n,1/\epsilon$ の逆多項式以上、$g_RS_*$ が逆多項式以上なら、Q2-4の各段で使う事前固定接続時間と全 $n-1$ 段の総接続時間は多項式である。R192は状態方向、Born重み、結果選択を生成せず、無反応または安全下限未満の成分を成功結果へ戻さない。横方向加法偏差も訂正しない。
 \end{theorem}
 
 証明、実変数表示、R181Dの安全下限との合成、R179へ残す環境履歴は付録Mに置く。Q1の固定有限深さとQ3系列はR192を固定目標の根拠に使わない。
@@ -1374,7 +1479,7 @@ R181Dの非終端安全結果で $S_{\min}/S_*$ が $n,1/\epsilon$ の逆多項�
 \hypertarget{r179ux4e00ux69d8ux958bux653eux4f9bux7d66ux30eaux30bbux30c3ux30c8ux518dux6df7ux5408}{%
 \section{R179：一様開放供給・リセット・再混合}\label{r179ux4e00ux69d8ux958bux653eux4f9bux7d66ux30eaux30bbux30c3ux30c8ux518dux6df7ux5408}}
 
-M54の反復運転では、補助作業領域、R191指針変数、R192作用安定化接続端を固定した一様規則を持つ流入／流出浴接続部へ接続する。未使用状態へのリセットは開放収縮として扱い、結果相関情報と使用済み環境自由度は流出経路へ流す。
+M54の反復運転では、補助作業領域、binary selector指針変数、R192作用安定化接続端を固定した一様規則を持つ流入／流出浴接続部へ接続する。未使用状態へのリセットは開放収縮として扱い、結果相関情報と使用済み環境自由度は流出経路へ流す。
 
 \begin{theorem}[R179：一様開放供給・リセット]
 
@@ -1431,7 +1536,7 @@ $$
 理想定常流入部分系では $\varepsilon_{{\rm in},m}=0$ である。R179は結果確率や振幅表を外部から供給せず、浴接続部とリセット規則は回路規模に対して一様な有限記述から生成される。有限浴容量、低温／使用済み素子数、部分SWAP列は固定目標の必要条件にしない。
 \end{theorem}
 
-R179はR161/R162へ依存しない環境接続部結果である。現行主線ではQ2-4の作業領域再使用、R191指針変数の初期化、散逸履歴の流出排出に使う。有限閉鎖貯蔵部による近似は強化課題として退役メモに保存する。
+R179はR161/R162へ依存しない環境接続部結果である。現行主線ではQ2-4の作業領域再使用、binary selector指針変数の初期化、散逸履歴の流出排出に使う。有限閉鎖貯蔵部による近似は強化課題として退役メモに保存する。
 
 \hypertarget{r186m54ux4e00ux69d8ux53d7ux52d5ux69cbux9020ux306eux5c04ux5f71ux578bux9811ux5065ux6027ux3068ux52a0ux6cd5ux30ceux30a4ux30baux969cux5bb3}{%
 \subsection{R186：M54一様受動構造の射影型頑健性と加法ノイズ障害}\label{r186m54ux4e00ux69d8ux53d7ux52d5ux69cbux9020ux306eux5c04ux5f71ux578bux9811ux5065ux6027ux3068ux52a0ux6cd5ux30ceux30a4ux30baux969cux5bb3}}
@@ -1557,7 +1662,7 @@ D_{\rm TV}(P_{\rm M54},P_{\rm circ})
 +\sum_{j=1}^n\bar\varepsilon_j.
 \]
 
-\(\bar\varepsilon_j\) には第 \(j\) 段のR191誤差、制御付き選別機構、必要な場合のR192作用安定化、転送を各1回だけ含める。2結果主線ではR164/R190/R170の同じ選択偏差を重複加算しない。R179の開放リセット誤差が次試行入口へ残る場合は、その次試行の \(\varepsilon_{\rm in}\) へ含める。一般有限結果集合または作用殻代替経路を選ぶ場合だけ、R170の \(\varepsilon_{\rm sel}\) にR179/R190の選択偏差をまとめる。
+\(\bar\varepsilon_j\) には第 \(j\) 段で実際に使うbinary selector誤差、制御付き選別機構、必要な場合のR192作用安定化、転送を各1回だけ含める。fixed-goalの現行実装ではselector誤差にR191誤差を使う。2結果主線ではR164/R190/R170の同じ選択偏差を重複加算しない。R179の開放リセット誤差が次試行入口へ残る場合は、その次試行の \(\varepsilon_{\rm in}\) へ含める。一般有限結果集合または作用殻代替経路を選ぶ場合だけ、R170の \(\varepsilon_{\rm sel}\) にR179/R190の選択偏差をまとめる。
 
 R186の製造誤差、位相ノイズ、固定機構誤差は、それぞれ \(\eta_{\rm gate}\)、\(\varepsilon_{\rm leak}\)、\(\bar\varepsilon_j\) を物理部品誤差から評価する十分条件として使い、別の独立誤差として二重加算しない。R186第4項の全自由度に加わる加法ノイズがある場合は、この誤差予算を多項式精度で閉じられない障害条件として扱う。
 
@@ -1566,7 +1671,7 @@ R186の製造誤差、位相ノイズ、固定機構誤差は、それぞれ \(\
 \hypertarget{q2-4ux306eux5224ux5b9aux3068ux5883ux754c}{%
 \section{Q2-4の判定と境界}\label{q2-4ux306eux5224ux5b9aux3068ux5883ux754c}}
 
-R181Cは指数個の個別ゲート設定、R181Dは全 \(2^n\) 葉の一括読出し、R179は指数個の個別未使用初期化を避ける。R186は指数モード数だけを理由に指数精度を要求せず、局所製造誤差と位相ノイズを射影型に評価する一方、全自由度に加わる加法ノイズが外部精度へ指数コストとして露出する境界を与える。従ってM54はQ2-4を条件付き達成へ進める。2結果主線の条件は、射影作用保持機構、R191ブラウン巨視的スピン読出し、制御付き選別機構、非終端安全結果に対するR192、開放リセット/供給接続部を同じ安全集合と制御規約で接続することである。R164/R190/R170経路は一般有限結果集合と作用殻型の代替実現として残す。
+R181Cは指数個の個別ゲート設定、R181Dは全 \(2^n\) 葉の一括読出し、R179は指数個の個別未使用初期化を避ける。R186は指数モード数だけを理由に指数精度を要求せず、局所製造誤差と位相ノイズを射影型に評価する一方、全自由度に加わる加法ノイズが外部精度へ指数コストとして露出する境界を与える。従ってM54はQ2-4を条件付き達成へ進める。2結果共通契約の条件は、射影作用保持機構、binary selector、制御付き選別機構、非終端安全結果に対するR192、開放リセット/供給接続部を同じ安全集合と制御規約で接続することである。fixed-goalの現行selector実装はR191である。R164/R190/R170経路は一般有限結果集合と作用殻型の代替実現として残す。
 
 本構成は通常の計算量理論における多項式資源の古典シミュレーションではない。指数個の受動自由度、静的結合、浴容量、総熱を許した上で、外部制御と総時間を多項式に抑える結果である。未知量子入力、適応中間測定、誤り訂正、固定容量浴による無期限独立同分布標本は主張しない。M54はQ1・Q2・Q3の共通親模型族だが、全状態構成で同一の製造済み装置や同一パラメータを主張しない。
 
@@ -1582,11 +1687,6 @@ G_{\rm rec}=\sum_i d_i(x)P_{D_i}
 と書ける。これは記録時刻の排他的粒子位置を読む。入力時刻以前の粒子軌道、初回到達率、吸収率、時間積分流束を与えない。
 
 R191は、ブラウン巨視的スピン、射影成分生成、記録、resetを単一閉鎖Hamiltonianへ統合済みだと主張しない。Q1 W2特殊化ではR189A保持座標からR193によりdecision energyまでを直接接続するが、Q2の一般transducerと全周期統合は未完成である。R170についても、容量結合、作用殻、信号保持、混合・衝突、選択機構、固定機構を1つの具体的装置へ統合済みだと主張しない。現行の条件付き達成は、この未統合部分を明示して判定する。有限浴化は別の強化課題である。一意エルゴードな外部時刻割当または有限熱化から、結果列の独立同分布性や二項型有限標本揺らぎも従わない。
-
-\hypertarget{m65-candidate-ux3068ux5171ux901aux5c04ux5f71nodeux306eux5c06ux6765interface}{%
-\section{M65 candidate と共通射影nodeの将来interface}\label{m65-candidate-ux3068ux5171ux901aux5c04ux5f71nodeux306eux5c06ux6765interface}}
-
-現行R181DはR191が固定した排他的二結果を入力とする。付録ZのR204D/R204Eは、M65 matched-hub pointerも、排他的結果、正式な無反応、完全結果誤差、安全作用下限を持つ同型interfaceを供給できることをcandidateとして示す。本draftではR181Dの定理文を一般selectorへ書き換えず、R191依存を維持する。将来promotion時だけ、R181Dの上流契約をR191固有名から共通binary selector contractへ一般化する。
 
 \part{単一量子ビット型操作と測定}
 
@@ -3163,11 +3263,11 @@ Q2-3も同じ理由で条件付き達成を維持する。Q2-2は本章の実際
 
 M37由来のW型入力を接続する研究では、独立な2素子の並置と共同記憶部の構成を区別する。入力信号a,bだけで共同状態を \(ab^{\mathsf T}\) と定義する限り積状態のままである。R181Bの写込み後は共同記憶部が独立な4成分を保持する。配置空間上のW型信号系を別に置く案も、この共同自由度の物理的起源を追加しており、2台の実空間装置からの導出とは同一でない。この接続を既存Q2目標の必須依存にしない。
 
-\hypertarget{m54ux99c6ux52d5ux9010ux6b212ux7aefr191ux53d7ux4fe1ux6a5fux69cbux3068bellux524dux63d0ux76e3ux67fb}{%
-\chapter{M54駆動逐次2端R191受信機構とBell前提監査}\label{m54ux99c6ux52d5ux9010ux6b212ux7aefr191ux53d7ux4fe1ux6a5fux69cbux3068bellux524dux63d0ux76e3ux67fb}}
+\hypertarget{m54ux99c6ux52d5ux9010ux6b212ux7aefbinary-selectorux53d7ux4fe1ux6a5fux69cbux3068bellux524dux63d0ux76e3ux67fb}{%
+\chapter{M54駆動逐次2端binary-selector受信機構とBell前提監査}\label{m54ux99c6ux52d5ux9010ux6b212ux7aefbinary-selectorux53d7ux4fe1ux6a5fux69cbux3068bellux524dux63d0ux76e3ux67fb}}
 
 \begin{statusbox}
-位置づけ：固定一重項4モード信号をA設定で分解し、A端R191の結果結果成分をprojector routerでB端へ直接渡し、B設定後のB端R191と組み合わせる。R180A/R180Cの責務をこの最小2端構成へ縮約し、旧R180B paired-Hopf再準備は退役する。
+位置づけ：固定一重項4モード信号をA設定で分解し、A端binary selectorの結果成分をprojector routerでB端へ直接渡し、B設定後のB端selectorと組み合わせる。R180A/R180Cをselector内部物理から独立化する。現行fixed-goal証人はA/B両端R191を維持する。
 \end{statusbox}
 
 \hypertarget{ux76eeux7684ux3068ux6a21ux578bux306eux5883ux754c}{%
@@ -3208,21 +3308,21 @@ Z\neq0
 \item
   A側basis gate \(U_x^\dagger\otimes I\) を同じ4モード信号へ作用する。
 \item
-  A結果射影作用 \(J_{A,\pm}\) を保持し、A端R191を走らせて \(r\) を固定・記録する。
+  A結果射影作用 \(J_{A,\pm}\) を保持し、A端binary selectorを走らせて \(r\) を固定・記録する。現行証人ではR191を使う。
 \item
   R181Dと同じprojector routerで非規格化結果成分 \(P_{A,r}^{x}Z\) をB端へ渡す。
 \item
   B端で \(I\otimes U_y^\dagger\) を作用し、B結果射影作用を保持する。
 \item
-  B端R191を走らせて \(s\) を固定・記録する。
+  B端binary selectorを走らせて \(s\) を固定・記録する。現行証人ではR191を使う。
 \item
   外部記録を残し、必要な能動部をR179のopen resetへ渡す。
 \end{enumerate}
 
-A端とB端は別々のBrownian macrospin、mixing/decision浴、吸収記録を持つ。結果成分の物理転送があるため本装置は非空間分離である。
+A端とB端は別々のbinary selectorと記録を持つ。現行証人では各selectorをR191のBrownian macrospinで実装する。結果成分の物理転送があるため本装置は非空間分離である。
 
-\hypertarget{aux7aefux7279ux6b8aux5316r191ux3068r181dux304bux3089ux5f93ux3046r180a}{%
-\section{A端特殊化：R191とR181Dから従うR180A}\label{aux7aefux7279ux6b8aux5316r191ux3068r181dux304bux3089ux5f93ux3046r180a}}
+\hypertarget{aux7aefux7279ux6b8aux5316binary-selectorux3068r181dux304bux3089ux5f93ux3046r180a}{%
+\section{A端特殊化：binary selectorとR181Dから従うR180A}\label{aux7aefux7279ux6b8aux5316binary-selectorux3068r181dux304bux3089ux5f93ux3046r180a}}
 
 A設定 \(x\) の固有基底を \(u_{r,x}\)、射影を
 
@@ -3238,9 +3338,9 @@ J_{A,r}
 =\mathcal J_0Z^\dagger P_{A,r}^{x}Z.
 \]
 
-\begin{corollary}[R180A：R191--R181Dの設定先行A端特殊化]
+\begin{corollary}[R180A：binary selector--R181Dの設定先行A端特殊化]
 
-M54末端信号 $Z$ にA設定basis gateを作用し、直交射影子作用保持機構で $J_{A,+},J_{A,-}$ を保持してR191へ渡す。R191の結果を $r$ とし、その吸収記録で共通projector routerを制御する。理想極限では
+M54末端信号 $Z$ にA設定basis gateを作用し、直交射影子作用保持機構で $J_{A,+},J_{A,-}$ を保持してbinary selectorへ渡す。selectorの結果を $r$ とし、その固定記録で共通projector routerを制御する。理想極限では
 
 $$
 P(r\mid Z,x)
@@ -3254,7 +3354,7 @@ $$
 Z_r=P_{A,r}^{x}Z
 $$
 
-である。物理的な $Z_r/\|Z_r\|$ の生成を必要としない。作用保持、R191、routerの有限誤差は完全結果集合上で各1回だけ数える。
+である。物理的な $Z_r/\|Z_r\|$ の生成を必要としない。作用保持、selector、routerの有限誤差は完全結果集合上で各1回だけ数える。
 \end{corollary}
 
 \hypertarget{bux7aefux6761ux4ef6ux4ed8ux304dux8aadux51faux3057}{%
@@ -3267,7 +3367,7 @@ P_{B,s}^{y}
 =I\otimes|u_{s,y}\rangle\langle u_{s,y}|
 \]
 
-とする。A結果 \(r\) 後のB端R191入力は
+とする。A結果 \(r\) 後のB端selector入力は
 
 \[
 J_{B,s\mid r}
@@ -3279,7 +3379,7 @@ S_r
 =\mathcal J_0\|P_{A,r}^{x}Z\|^2.
 \]
 
-従ってR191の逐次受渡し則から
+従ってbinary selector contractとR181Dの逐次受渡し則から
 
 \[
 P(s\mid r,x,y)
@@ -3300,7 +3400,7 @@ P(r,s\mid x,y)
 
 \begin{theorem}[R180C：M54駆動2端受信機構合成、有限誤差、局所性監査、帰還]
 
-R180AのA端作用保持・R191・projector router、B設定gate、B端作用保持・R191、二つの局所記録、および反復時のR179 open resetが同じ有限時計割当と安全集合上で実行できるとする。理想極限の完全結果共同分布は
+R180AのA端作用保持・binary selector・projector router、B設定gate、B端作用保持・binary selector、二つの局所記録、および反復時のR179 open resetが同じ有限時計割当と安全集合上で実行できるとする。理想極限の完全結果共同分布は
 
 $$
 P(r,s\mid x,y)
@@ -3323,7 +3423,7 @@ $$
 
 従って標準CHSH設定で $|S|=2\sqrt2$ を得る。各翼の周辺は $1/2$ であり、理想共同分布は非信号性を満たす。
 
-有限実装では、上流保持・basis gate、A端R191、router、B端basis gate、B端R191、記録の完全結果誤差を各1回加えた量を $\varepsilon_{180}$ とする。実共同分布は理想共同分布から全変動距離 $\varepsilon_{180}$ 以内にあり、周辺差とCHSH差はこの全変動誤差から従う標準安定性上界で抑えられる。
+有限実装では、上流保持・basis gate、A端selector、router、B端basis gate、B端selector、記録の完全結果誤差を各1回加えた量を $\varepsilon_{180}$ とする。実共同分布は理想共同分布から全変動距離 $\varepsilon_{180}$ 以内にあり、周辺差とCHSH差はこの全変動誤差から従う標準安定性上界で抑えられる。
 
 A端結果成分がB端へ物理的に渡るため、現行証人ではBell局所因子化を仮定しない。設定前の一重項源は $x,y$ に依存せず、現行証人のCHSH破れを測定設定独立性の破れへ帰属させない。一方、B端へ到達する内部状態はA設定とA結果に依存する。本結果は、この逐次因果伝播、完全結果集合、非信号周辺を同時に示すBell前提監査であり、空間分離局所模型を主張しない。
 \end{theorem}
@@ -3333,7 +3433,7 @@ A端結果成分がB端へ物理的に渡るため、現行証人ではBell局�
 
 R180Bのpaired-Hopf再準備、中央潜在結果を2翼へ複製する工程、切断後のA側再読出しは現行必須主線に使わない。これらは \texttt{notes/superseded\_q2\_2\_paired\_hopf\_receiver.md} と退役付録へ保存する。
 
-Q2-2で新たに使う確率源はない。A端・B端とも共通R191を用い、共同確率はR191 T.8の逐次Lüders telescopingから得る。Q2-2の条件付き達成ラベルは維持する。現行R180C証人が非空間分離であることと、Q2-2固定目標自体が特定のBell前提違反を指定しないことを区別する。空間隔離をどこまで強められるかは \texttt{Q2-2-S} の独立強化課題とする。
+Q2-2で新たに使う確率源はない。共同確率はbinary selector contractとR181Dの逐次Lüders telescopingから得る。本draftのfixed-goal証人ではA端・B端ともR191を用い、M65への実装切替は行わない。Q2-2の条件付き達成ラベルは維持する。現行R180C証人が非空間分離であることと、Q2-2固定目標自体が特定のBell前提違反を指定しないことを区別する。空間隔離をどこまで強められるかは \texttt{Q2-2-S} の独立強化課題とする。
 
 \part{空間信号と粒子位置}
 
@@ -5327,7 +5427,7 @@ Q1/Q2の2結果主線では、1ノードの読出し誤差を
 
 Q1とQ3の状態方向、Q2-1--Q2-3の固定入力は、第2.4節の準備済み古典入力境界から受け取る。入力状態と目標状態の差は一つの \(\varepsilon_{\rm in}\) として最初の下流誤差へ一度だけ加え、同じ偏差をR135、R168、系列固有誤差へ重複計上しない。一般の指定状態方向を共通seedから生成する旧R181Aの時間、ポンプ、排熱を現行固定目標の資源には数えない。具体的な入力準備装置を追加する場合、その費用は境界の上流実装として別途報告する。
 
-R192は一般深さQ2-4だけで、R181Dが選別した非終端安全結果の絶対作用を次段R191の読出し下限へ戻す。理想流は
+R192は一般深さQ2-4だけで、R181Dが選別した非終端安全結果の絶対作用を次段binary selectorの感度下限へ戻す。理想流は
 
 \[
 \dot Z
@@ -5345,7 +5445,7 @@ T_{192}
 \right].
 \]
 
-R191 dispatcherとR181Dから \(S_{\min}/S_*=\operatorname{poly}^{-1}(n,1/\epsilon)\) を選び、\(g_RS_*\) も逆多項式以上に保てば、各非終端段と全 \(n-1\) 段のR192時間は多項式である。接続時間はこの事前下限から固定し、未知の条件付き確率や現在の振幅を読み取って適応変更しない。
+R181Dのbinary selector contractから \(S_{\min}/S_*=\operatorname{poly}^{-1}(n,1/\epsilon)\) を選び、\(g_RS_*\) も逆多項式以上に保てば、各非終端段と全 \(n-1\) 段のR192時間は多項式である。接続時間はこの事前下限から固定し、未知の条件付き確率や現在の振幅を読み取って適応変更しない。
 
 有限実装の作用回復誤差を \(\varepsilon_{192,k}\) とする場合、Q2-4では \(\sum_{k=1}^{n-1}\varepsilon_{192,k}\) を一度だけ数える。R192は既存の横方向偏差を訂正しないので、静的結合誤差、位相雑音、全自由度への加法雑音はR186で監査する。\(S_0=0\) または安全下限未満の希少結果をR192後に成功結果へ戻してはならない。
 
@@ -5768,7 +5868,7 @@ R181Bは3入力の有限テンソル積状態の生成、R181Cは同じ8モー�
 \hypertarget{q2-4ux591aux9805ux5f0fux5916ux90e8ux5236ux5fa1ux306bux3088ux308bux91cfux5b50ux51faux529bux30b5ux30f3ux30d7ux30eaux30f3ux30b0}{%
 \section{Q2-4多項式外部制御による量子出力サンプリング}\label{q2-4ux591aux9805ux5f0fux5916ux90e8ux5236ux5fa1ux306bux3088ux308bux91cfux5b50ux51faux529bux30b5ux30f3ux30d7ux30eaux30f3ux30b0}}
 
-Q2-4ではM54の \(L=2^n\) 受動信号モードを使い、R179後の定数次元供給源から \(0^n\) 根モードを作り、R181Cが局所ゲートを一括作用させる。各出力ビットでは射影作用をR191へ渡して結果を形成し、R181Dが非規格化射影成分を次段へ渡す。非終端の安全結果だけに事前固定時間のR192を作用させ、次段R191の絶対作用下限を回復する。最終ビット後に別の作用感度を持つ読出しが無ければ終端R192は置かない。
+Q2-4ではM54の \(L=2^n\) 受動信号モードを使い、R179後の定数次元供給源から \(0^n\) 根モードを作り、R181Cが局所ゲートを一括作用させる。各出力ビットでは射影作用をbinary selectorへ渡して結果を形成し、R181Dが非規格化射影成分を次段へ渡す。非終端の安全結果だけに事前固定時間のR192を作用させ、次段selectorの絶対作用下限を回復する。本draftのfixed-goal実装ではselectorにR191を使う。最終ビット後に別の作用感度を持つ読出しが無ければ終端R192は置かない。
 
 R178Dの有限閉鎖リセット境界と旧R179の有限低温／使用済み貯蔵部は必須因果鎖から外す。結果相関情報や散逸履歴は流出浴へ流し、能動作業領域と指針変数だけをR179の開放リセットで再使用する。
 
@@ -5859,38 +5959,71 @@ B.5の漏れ確率を全変動距離へ直接加える旧評価は採用しな�
 
 優先順は、物理係数の対応、静的Rabi、有限傾斜列、準備・読出し境界、共同信号系への接続、同一装置の統合である。ゲート列からの有効伝播は補助実装として研究メモで管理し、Q3全過程の独立導出とは呼ばない。
 
-\hypertarget{m65-candidate-ux306eux8aa4ux5deeux8cc7ux6e90ux53f0ux5e33}{%
-\section{M65 candidate の誤差・資源台帳}\label{m65-candidate-ux306eux8aa4ux5deeux8cc7ux6e90ux53f0ux5e33}}
+\hypertarget{m65-canonical-open-selector-ux306eux8aa4ux5deeux8cc7ux6e90ux53f0ux5e33}{%
+\section{M65 canonical open selector の誤差・資源台帳}\label{m65-canonical-open-selector-ux306eux8aa4ux5deeux8cc7ux6e90ux53f0ux5e33}}
 
-M65/R204A--R204Fは現行R191/R193とは別のreplacement candidateとして誤差を管理する。通常経路の候補上界は
+M65の正本はR204Aの3状態open generatorである。通常経路では、安全運用域で \(a_\Sigma\geq a_{\min}>0\) として
 
 \[
 \varepsilon_{65}^{\rm int}
-=
+\leq
 \varepsilon_A
-+
-\varepsilon_{204C}(T)
 +
 e^{-\Lambda T}
 +
-\frac{\chi}{1+\chi}
+\frac{\Lambda}{\Lambda+\kappa a_{\min}}
 +
-\varepsilon_{\rm rec},
+T\varepsilon_{\rm rate}
++
+\varepsilon_{\rm rec}.
 \]
 
-endpointは
+canonical open lawそのものでは \(\varepsilon_{\rm rate}=0\) とする。具体的chamber、有限帯域bath、Brownian liftを選んだ場合だけ実装generator誤差を追加する。
+
+endpointは固定係数の線形比較器で判定でき、
 
 \[
 \varepsilon_{65}^{\rm edge}
-\le
+\leq
 \tau_{\rm cut}
-+\varepsilon_A
-+\varepsilon_{\rm edge}.
++
+\varepsilon_A
++
+\varepsilon_{\rm cmp}
++
+\varepsilon_{\rm rec}.
 \]
 
-R204Cの縮約誤差はbath、overdamped、phase-volume tracking、tube、lumping、calibrationを分けて保持し、R191固有のmixing/guard/LLG-retreat誤差と同じ試行で重複加算しない。
+従って
 
-Q2-4で二結果node数 \(m\) が多項式なら、
+\[
+\varepsilon_{65}
+=
+\max
+\{
+\varepsilon_{65}^{\rm int},
+\varepsilon_{65}^{\rm edge}
+\}.
+\]
+
+二結果node数 \(m\) について、
+
+\[
+T_{\rm node}
+\geq
+\frac1\Lambda
+\log\frac{Cm}{\epsilon}
+\]
+
+とし、
+
+\[
+\frac{\Lambda}{\kappa a_{\min}}
+=
+O\left(\frac{\epsilon}{m}\right)
+\]
+
+および各局所誤差を \(O(\epsilon/m)\) に配分すれば、\(\Lambda^{-1},\kappa^{-1},a_{\min}^{-1},m\) が多項式範囲にある限り、
 
 \[
 T_{\rm read,total}
@@ -5901,7 +6034,11 @@ O\left(
 \right)
 \]
 
-がcandidate十分条件である。\(\Lambda^{-1}\) とR204Cのtime-scale separationが多項式で、\(\chi\) と各node誤差を \(O(\epsilon/m)\) に選べればM65固有readoutから指数時間は生じない。ただしR186の指数個mode additive-noise障害、R192を含むabsolute-action range、総熱、reset、製造公差の一様統合は残る。
+は多項式である。小Born重み自体はM65のrelaxation rate \(\Lambda\) を縮めない。
+
+R204Bのphase-volume chamberとR204CのHamiltonian--Brownian liftを採用する場合、そのbath、overdamped、tube、lumping、calibration誤差はその実装だけの強化台帳へ加える。現行fixed-goalのR191誤差とM65誤差を同一試行で重複加算しない。
+
+M65の正本化はR186の指数個signal modeへの加法noise/precision障害を解決しない。また本変更ではQ1/Q2 fixed-goal witnessをR191/R193からM65へ切り替えない。
 
 \hypertarget{ux7d50ux8ad6}{%
 \chapter{結論}\label{ux7d50ux8ad6}}
@@ -5962,7 +6099,9 @@ M60/M61のDuffing shell、統一chiral媒体、ballistic lead、moving reflector
 
 残る主要な物理課題は、各固定目標について具体的古典ミクロ模型A1とその直接数値再現A2を独立に監査すること、Q1/Q2について具体的アナログ回路B1、実験可能パラメータ領域B2、回路直接数値再現B3へ進むこと、Q2-2で測定窓内の空間的・因果的隔離をQ2-2-Sで検査することにある。Q3ではM64で直接定めた開放方程式のA2直接数値再現、finite-bandwidth/Hamiltonian lift、clock・終位置record・resetを含む単一反復周期、連続空間一様極限、多粒子拡張、Q3-6の位相量子化を強化・未解決課題として残す。M64の正式昇格だけからA1/A2の状態を自動的に上げない。
 
-M64のphase-volume reservoirをQ1/Q2の測定へ同一粒子として流用するのではなく、同じJacobian機構を別のclassical pointerへ特殊化するM65をreplacement candidateとして追加した。保持済み二作用が固定chamberの有効容量とneck conductanceへ同じ係数で入れば、escape scaleは作用比から独立し、hubからのbranch比だけがBorn作用比になる。R204A/R204B/R204D--R204Fはこの代数・有限時間統計・逐次受渡し・読出し時間資源を閉じる。残るpromotion gateはR204Cの具体HamiltonianからBrownian chamber networkへの有限誤差縮約とdirect trajectory witnessであり、それが閉じるまではR191/R193を現行主線として維持する。
+M65をQ1/Q2二結果射影用のcanonical open selector modelへ昇格した。最小模型は \(+,H,-\) の3状態Markov pointerであり、保持済み二作用はhubから各結果へのrateへ線形に入る。R204Dは有限時間Born誤差、R204Eは共通binary selector contract、R204FはQ1互換性とQ2-4読出し時間条件を与える。phase-volume chamberとHamiltonian--Brownian縮約はR204B/R204Cの追加実現・強化結果へ分離した。
+
+R181D、R192、R179、R180A/R180Cはselector内部物理から独立なinterfaceへ一般化した。一方、本変更ではfixed-goal witnessを切り替えず、Q1/Q2の現行達成根拠にはR191/R193を維持する。従ってM65正本化とR191/R193退役を同一変更として扱わない。
 
 \appendix
 
@@ -7230,11 +7369,11 @@ R181Bは未知の係数を外部で読み出すのでなく、入力モードと
 
 したがって、旧C.8--C.10に置いていた作用容量固定、R170選択・固定、方向を変えない振幅再調整をR181Dの証明へ組み込む経路は現行主線に用いない。
 
-\hypertarget{m54ux99c6ux52d5ux8a2dux5b9aux5148ux884c2ux7aefr191ux53d7ux4fe1ux6a5fux69cbux306eux8a3cux660e}{%
-\chapter{M54駆動設定先行2端R191受信機構の証明}\label{m54ux99c6ux52d5ux8a2dux5b9aux5148ux884c2ux7aefr191ux53d7ux4fe1ux6a5fux69cbux306eux8a3cux660e}}
+\hypertarget{m54ux99c6ux52d5ux8a2dux5b9aux5148ux884c2ux7aefbinary-selectorux53d7ux4fe1ux6a5fux69cbux306eux8a3cux660e}{%
+\chapter{M54駆動設定先行2端binary-selector受信機構の証明}\label{m54ux99c6ux52d5ux8a2dux5b9aux5148ux884c2ux7aefbinary-selectorux53d7ux4fe1ux6a5fux69cbux306eux8a3cux660e}}
 
 \begin{statusbox}
-位置づけ：R180AをR191--R181DのA端特殊化として確認し、R180Cの共同Born分布、非信号性、CHSH値、有限全変動誤差、Bell前提監査を証明する。
+位置づけ：R180Aをbinary selector--R181DのA端特殊化として確認し、R180Cの共同Born分布、非信号性、CHSH値、有限全変動誤差、Bell前提監査をselector内部物理に依存せず証明する。現行fixed-goal実装はA/B両端R191を使う。
 \end{statusbox}
 
 \hypertarget{r180aux306eux7279ux6b8aux5316ux78baux8a8d}{%
@@ -7249,7 +7388,7 @@ J_{A,+}+J_{A,-}
 =\mathcal J_0\|Z\|^2.
 $$
 
-R191の理想2結果則を適用すると
+binary selector contractの理想2結果則を適用すると
 
 $$
 P(r\mid Z,x)
@@ -7318,16 +7457,16 @@ E(x,y)
 \hypertarget{ux6709ux9650ux8aa4ux5dee}{%
 \section{有限誤差}\label{ux6709ux9650ux8aa4ux5dee}}
 
-A端保持・basis gate誤差を \(\varepsilon_A^{\rm pre}\)、A端R191を \(\varepsilon_{191}^{A}\)、routerを \(\varepsilon_{\rm route}\)、B端basis gateを \(\varepsilon_B^{\rm basis}\)、B端R191を \(\varepsilon_{191}^{B}\)、記録を \(\varepsilon_{\rm rec}\) とする。同じ偏差を重複計上しなければkernel telescopingから
+A端保持・basis gate誤差を \(\varepsilon_A^{\rm pre}\)、A端selectorを \(\varepsilon_{\rm sel}^{A}\)、routerを \(\varepsilon_{\rm route}\)、B端basis gateを \(\varepsilon_B^{\rm basis}\)、B端selectorを \(\varepsilon_{\rm sel}^{B}\)、記録を \(\varepsilon_{\rm rec}\) とする。現行R191実装では \(\varepsilon_{\rm sel}^{A,B}=\varepsilon_{191}^{A,B}\) と置く。同じ偏差を重複計上しなければkernel telescopingから
 
 \[
 \varepsilon_{180}
 \leq
 \varepsilon_A^{\rm pre}
-+\varepsilon_{191}^{A}
++\varepsilon_{\rm sel}^{A}
 +\varepsilon_{\rm route}
 +\varepsilon_B^{\rm basis}
-+\varepsilon_{191}^{B}
++\varepsilon_{\rm sel}^{B}
 +\varepsilon_{\rm rec}.
 \]
 
@@ -7335,7 +7474,7 @@ A端保持・basis gate誤差を \(\varepsilon_A^{\rm pre}\)、A端R191を \(\va
 
 \begin{proof}[R180C]
 
-D.1のA端R191とrouter、D.2の条件付きB端R191を合成すると理想共同分布を得る。有限実装では各段をMarkov kernelとして同じ完全結果集合へ埋め込み、kernelの全変動距離の三角不等式を順に適用すれば上の $\varepsilon_{180}$ が得られる。非信号性、CHSH安定性はD.3と有界観測量の全変動安定性から従う。A結果結果成分がB端へ転送されるため、切断後局所性は結論にも仮定にも含めない。
+D.1のA端selectorとrouter、D.2の条件付きB端selectorを合成すると理想共同分布を得る。有限実装では各段をMarkov kernelとして同じ完全結果集合へ埋め込み、kernelの全変動距離の三角不等式を順に適用すれば上の $\varepsilon_{180}$ が得られる。非信号性、CHSH安定性はD.3と有界観測量の全変動安定性から従う。A結果結果成分がB端へ転送されるため、切断後局所性は結論にも仮定にも含めない。
 \end{proof}
 
 \hypertarget{m37ux6b63ux5e38ux30e2ux30fcux30c9ux5909ux63dbux3068ux5c40ux6240ux5305ux7d61ux8aa4ux5dee}{%
@@ -11052,7 +11191,7 @@ $$
 S_k^{\rm sel}=p_{k,b}S_k.
 \]
 
-R191の端点dispatcherとtransducer誤差から、無反応でない通常安全結果について
+R181Dのbinary selector contractから、無反応でない安全結果について
 
 \[
 p_{k,b}\geq\tau_{\rm state}>0
@@ -11066,7 +11205,7 @@ S_k^{\rm sel}
 \tau_{\rm state}(1-\eta_R)S_*.
 \]
 
-従って次のR192窓には未知の条件付き確率を測定して接続時間を変更する必要がなく、この既知下限だけを使った共通固定時間を割り当てられる。最後の出力ビットの後に別の作用感度を持つ読出しが無ければ、終端R192は不要である。
+従って次のR192窓にはselector内部の確率を測定して接続時間を変更する必要がなく、この既知下限だけを使った共通固定時間を割り当てられる。最後の出力ビットの後に別の作用感度を持つ読出しが無ければ、終端R192は不要である。
 
 \hypertarget{r179ux3068r186ux3068ux306eux5883ux754c}{%
 \section{R179とR186との境界}\label{r179ux3068r186ux3068ux306eux5883ux754c}}
@@ -12136,7 +12275,7 @@ $$
 \chapter{M54段階的射影選別と測定後状態受渡し}\label{m54ux6bb5ux968eux7684ux5c04ux5f71ux9078ux5225ux3068ux6e2cux5b9aux5f8cux72b6ux614bux53d7ux6e21ux3057}}
 
 \begin{statusbox}
-位置づけ：R181DをR191結果固定後の可逆projector routerと非規格化結果成分受渡しへ責務縮約する。一般深さの作用安定化と資源評価はQ2-4専用補助として分離する。
+位置づけ：R181Dを上流binary selectorの物理実装から独立な共通projector-router定理として定式化する。R191は現行fixed-goal selector実装、M65は別の現行canonical selector modelとして同じ契約を満たす。一般深さの作用安定化はR192へ分離する。
 \end{statusbox}
 
 \hypertarget{ux76eeux7684ux3068ux7bc0ux70b9ux72b6ux614b}{%
@@ -12153,65 +12292,114 @@ P_{u,0}P_{u,1}=0.
 未処理射影作用を
 
 \[
-J_{u,b}=\mathcal J_0Z_u^\dagger P_{u,b}Z_u,
+J_{u,b}
+=
+\mathcal J_0 Z_u^\dagger P_{u,b}Z_u,
 \qquad
-J_\Sigma=J_{u,0}+J_{u,1}
-=\mathcal J_0Z_u^\dagger Z_u
+J_\Sigma
+=
+J_{u,0}+J_{u,1}
+=
+\mathcal J_0Z_u^\dagger Z_u
 \]
 
-とする。節点の能動状態には信号 \(Z_u\)、2個の作用保持指針変数、R191のブラウン巨視的スピン、吸収記録 \(Y\)、選別機構用作業領域、必要ならR192作用安定化接続端を含める。R191の混合・decision浴、R179の流出／リセット浴は環境接続部として別に扱い、解析上のBorn確率を制御器へ書き込まない。
-
-R164/R190/R170の正則化作用殻は一般有限結果集合または独立な作用殻型代替実現にだけ用い、本節のR191主線と同じ試行で重複使用しない。
-
-\hypertarget{r191ux7bc0ux70b9ux5951ux7d04ux3068ux7aefux70b9dispatcher}{%
-\section{R191節点契約と端点dispatcher}\label{r191ux7bc0ux70b9ux5951ux7d04ux3068ux7aefux70b9dispatcher}}
-
-結果 \(0\) をR191の \(+\)、結果 \(1\) を \(-\) に対応させ、
+とし、
 
 \[
-S=J_{u,0}+J_{u,1},
-\qquad
-D=J_{u,0}-J_{u,1}
+p_{u,b}=\frac{J_{u,b}}{J_\Sigma}
 \]
 
-を作用和・作用差transducerへ渡す。実装値 \(\widehat S,\widehat D\) から
+を理想条件付きBorn重みとする。
+
+R181Dの責務は、上流binary selectorが固定した排他的結果を受け取り、projector routerで非規格化結果成分を次段へ渡すことである。selectorの内部物理、熱浴、rate、decision lawはR181Dの状態へ含めない。
+
+\hypertarget{ux5171ux901abinary-selector-contract}{%
+\section{共通binary selector contract}\label{ux5171ux901abinary-selector-contract}}
+
+節点 \(u\) のselectorは完全結果
 
 \[
-\widehat u_*=-\frac{\widehat D}{\widehat S},
-\qquad
-\widehat p_{u,0}=\frac{1-\widehat u_*}{2},
-\qquad
-\widehat p_{u,1}=\frac{1+\widehat u_*}{2}
+Y_u\in\{0,1,\varnothing\}
 \]
 
-を解析上定める。理想重み \(p_{u,b}=J_{u,b}/J_\Sigma\) との偏差はR191の
+を返す。理想核を
 
 \[
-|\widehat u_*-u_*|\leq\varepsilon_u
+K_u(0)=p_{u,0},
+\qquad
+K_u(1)=p_{u,1},
+\qquad
+K_u(\varnothing)=0
 \]
 
-から各成分で高々 \(\varepsilon_u/2\) である。
+とし、実装核を \(\widetilde K_u\) とする。
 
-固定閾値 \(0<\tau_{\rm cut}\leq1/2\) を取り、\(\min_b\widehat p_{u,b}<\tau_{\rm cut}\) なら大きい側を決定論的端点経路へ送り、それ以外はR191の混合--decision--捕獲を走らせる。保護帯、有限温度retreat、有限時間未捕獲はR191の完全結果誤差 \(\varepsilon_{191,k}\) に含め、成功結果だけを再規格化しない。
+R181Dが要求する上流契約は次の5条件だけである。
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  完全結果誤差 \[
+  D_{\rm TV}(\widetilde K_u,K_u)\leq\varepsilon_{{\rm sel},u}.
+  \]
+\item
+  非空安全結果 \(Y_u=b\) では \[
+  p_{u,b}\geq\tau_{{\rm state},u}>0.
+  \]
+\item
+  \(Y_u\) はprojector routerを開く前に固定される。
+\item
+  selectorはBorn確率表または振幅表を外部制御器へ要求しない。
+\item
+  \(\varnothing\) を除いて成功試行だけを再規格化しない。
+\end{enumerate}
+
+安全下限 \(\tau_{{\rm state},u}\) をどう作るかはselector実装側の責務である。
+
+\hypertarget{ux73feux884cr191ux5b9fux88c5}{%
+\subsection{現行R191実装}\label{ux73feux884cr191ux5b9fux88c5}}
+
+R191を使う現行fixed-goal主線では、
 
 \[
-\tau_{\rm state}
-:=
+\varepsilon_{{\rm sel},u}
+=
+\varepsilon_{191,u},
+\]
+
+\[
+\tau_{{\rm state},u}
+=
 \tau_{\rm cut}-\frac{\varepsilon_u}{2}>0
 \]
 
-を仮定すれば、無反応でない選択結果 \(b\) の理想作用重みは
+と取れる。endpoint dispatcher、mixing、finite-temperature retreat、finite-time capture、吸収記録はR191側の誤差台帳に含める。
+
+\hypertarget{m65ux5b9fux88c5}{%
+\subsection{M65実装}\label{m65ux5b9fux88c5}}
+
+M65/R204D--R204Eを使う場合は、
 
 \[
-p_{u,b}\geq\tau_{\rm state}
+\varepsilon_{{\rm sel},u}
+=
+\varepsilon_{65,u},
 \]
 
-である。これは後段の射影選別機構に必要な状態方向Lipschitz下限をR191のdispatcherから直接供給する。
+\[
+\tau_{{\rm state},u}
+=
+\tau_{\rm cut}-\varepsilon_A>0
+\]
 
-\hypertarget{r191ux5438ux53ceux8a18ux9332ux3068ux53efux9006ux9078ux5225ux6a5fux69cb}{%
-\section{R191吸収記録と可逆選別機構}\label{r191ux5438ux53ceux8a18ux9332ux3068ux53efux9006ux9078ux5225ux6a5fux69cb}}
+と取れる。M65内部rateや無反応hub誤差はM65側の誤差台帳に含める。
 
-R191が有限decision時間後に \(Y=b\in\{0,1\}\) を吸収記録へ固定したときだけ、信号と未使用作業領域上の選別機構
+本draftではQ1/Q2 fixed-goal witnessをR191からM65へ切り替えない。
+
+\hypertarget{ux7d50ux679cux56faux5b9aux5f8cux306eux53efux9006projector-router}{%
+\section{結果固定後の可逆projector router}\label{ux7d50ux679cux56faux5b9aux5f8cux306eux53efux9006projector-router}}
+
+selectorが有限decision時間後に \(Y_u=b\in\{0,1\}\) を固定したときだけ、信号と未使用作業領域上の選別機構
 
 \[
 F_{u,b}
@@ -12222,43 +12410,60 @@ P_{u,1-b}&-P_{u,b}
 \end{pmatrix}
 \]
 
-を開く。直交性から
+を作用する。
+
+直交射影子の関係から
 
 \[
 F_{u,b}^\dagger F_{u,b}=I,
 \qquad
-F_{u,b}^2=I,
+F_{u,b}^2=I
 \]
 
-かつ
+であり、
 
 \[
 F_{u,b}(Z_u,0)
-=(P_{u,b}Z_u,P_{u,1-b}Z_u)
+=
+(P_{u,b}Z_u,P_{u,1-b}Z_u).
 \]
 
-である。非選択成分を消去せず作業領域へ保持するので、選別機構自体はユニタリな実正準写像である。R191が無反応を返した場合は \(F_{u,0},F_{u,1}\) のどちらも作用させない。
+非選択成分を消去せず作業領域へ保持するので、router自体は可逆な実正準写像として実装できる。\(Y_u=\varnothing\) の場合はどちらのrouterも作用させない。
 
-\hypertarget{ux9078ux5225ux6a5fux69cbux8aa4ux5deeux3068ux6761ux4ef6ux4ed8ux304dux72b6ux614bux65b9ux5411}{%
-\section{選別機構誤差と条件付き状態方向}\label{ux9078ux5225ux6a5fux69cbux8aa4ux5deeux3068ux6761ux4ef6ux4ed8ux304dux72b6ux614bux65b9ux5411}}
+\hypertarget{routerux8aa4ux5deeux3068ux6761ux4ef6ux4ed8ux304dux72b6ux614bux65b9ux5411}{%
+\section{router誤差と条件付き状態方向}\label{routerux8aa4ux5deeux3068ux6761ux4ef6ux4ed8ux304dux72b6ux614bux65b9ux5411}}
 
-理想選択成分を \(v=P_{u,b}Z_u\)、実装後を \(\widetilde v\) とし、
+理想選択成分を
+
+\[
+v=P_{u,b}Z_u
+\]
+
+とし、実装後を \(\widetilde v\) とする。router誤差が
 
 \[
 \|\widetilde v-v\|
 \leq
-\eta_F\|Z_u\|.
+\eta_F\|Z_u\|
 \]
 
-P.2から無反応でない安全結果では
+を満たすとする。
+
+binary selector contractの安全下限から
 
 \[
 \|v\|
 \geq
-\sqrt{\tau_{\rm state}}\,\|Z_u\|.
+\sqrt{\tau_{{\rm state},u}}\|Z_u\|.
 \]
 
-\(\eta_F<\sqrt{\tau_{\rm state}}\) なら規格化写像のLipschitz評価により
+従って
+
+\[
+\eta_F<\sqrt{\tau_{{\rm state},u}}
+\]
+
+なら、
 
 \[
 \left\|
@@ -12267,54 +12472,58 @@ P.2から無反応でない安全結果では
 \frac{v}{\|v\|}
 \right\|
 \leq
-\frac{2\eta_F}
-{\sqrt{\tau_{\rm state}}-\eta_F}
-=:\varepsilon_{\rm proj}.
+\frac{
+2\eta_F
+}{
+\sqrt{\tau_{{\rm state},u}}-\eta_F
+}
+=:
+\varepsilon_{{\rm proj},u}.
 \]
 
-この下限は物理的な状態依存除算ではない。R191の固定dispatcherパラメータとtransducer誤差上界から解析的に得る安全集合境界である。
+この下限は物理的な状態依存除算ではない。selectorが保証した安全集合境界を解析に使うだけである。
 
-\hypertarget{ux968eux65701-ux5c04ux5f71ux5b50ux306eux6e2cux5b9aux5f8cux72b6ux614bux306eux53d7ux3051ux6e21ux3057}{%
-\section{階数1 射影子の測定後状態の受け渡し}\label{ux968eux65701-ux5c04ux5f71ux5b50ux306eux6e2cux5b9aux5f8cux72b6ux614bux306eux53d7ux3051ux6e21ux3057}}
+\hypertarget{ux968eux65701ux5c04ux5f71ux5b50ux3068ux6e2cux5b9aux5f8cux72b6ux614b}{%
+\section{階数1射影子と測定後状態}\label{ux968eux65701ux5c04ux5f71ux5b50ux3068ux6e2cux5b9aux5f8cux72b6ux614b}}
 
-階数1節点 \(P_{u,b}=|b_u\rangle\langle b_u|\) では、安全結果について
+階数1節点
+
+\[
+P_{u,b}=|b_u\rangle\langle b_u|
+\]
+
+では、
 
 \[
 v=P_{u,b}Z_u
-=\alpha_b|b_u\rangle,
-\qquad
-\frac{vv^\dagger}{v^\dagger v}=P_{u,b}.
+=
+\alpha_b|b_u\rangle,
 \]
 
-従ってR191が結果を選んだ後、P.3の可逆選別機構そのものが選択後信号を射影子像へ物理的に移す。実装信号の規格化第2モーメント \(C_{u,b}^{\rm out}\) は
+従って
 
 \[
-D_{\rm tr}
-\left(
-C_{u,b}^{\rm out},P_{u,b}
-\right)
-\leq
-\varepsilon_{\rm proj}
+\frac{vv^\dagger}{v^\dagger v}
+=
+P_{u,b}.
 \]
 
-を満たす。選択後成分を物理的に単位ノルムへ規格化する必要はなく、同じ未規格化成分を次段へ渡せる。
+selectorの物理方式に依存せず、結果固定後のrouterそのものが選択後信号を射影子像へ送る。物理的な単位ノルム規格化は不要であり、非規格化成分を次段へそのまま渡す。
 
 \hypertarget{q2-4ux5c02ux7528ux88dcux52a9r192ux4f5cux7528ux5b89ux5b9aux5316}{%
 \section{Q2-4専用補助：R192作用安定化}\label{q2-4ux5c02ux7528ux88dcux52a9r192ux4f5cux7528ux5b89ux5b9aux5316}}
 
-一般深さQ2-4で選択後作用が読出し下限を下回り得る場合だけ、選別機構後の選択後信号へR192の \(\kappa=0\) 接続端を開く。
+一般深さQ2-4で選択後作用が次節点の感度下限を下回り得る場合だけ、router後の選択成分へR192を接続する。
 
 \[
-\dot Z=g(J_*-Z^\dagger Z)Z.
+\dot Z
+=
+g(J_*-Z^\dagger Z)Z.
 \]
 
-方向 \(Z/\|Z\|\) は一定で、作用 \(r=Z^\dagger Z\) は
+R192は状態方向を変えず、Born重みや結果選択を作らない。必要な固定時間上界はselectorから受け取る \(\tau_{\rm state}\) とR192自身のパラメータだけで評価する。
 
-\[
-\dot r=2gr(J_*-r)
-\]
-
-に従う。P.2の下限 \(r(0)\geq\tau_{\rm state}r_{\rm in}\) と固定入力作用区間から、目標相対動径誤差 \(\eta_R\) に必要な時間を試行前に一様に選べる。固定小深度Q1/Q2-1/Q2-3では作用下限を直接保証できるなら本段を省略してよい。
+固定有限深さではR192を使わず、非規格化結果成分をそのまま次段へ渡せる。
 
 \hypertarget{ux671bux9060ux93e1ux548cux3068ux5b8cux5168ux7d50ux679cux8aa4ux5dee}{%
 \section{望遠鏡和と完全結果誤差}\label{ux671bux9060ux93e1ux548cux3068ux5b8cux5168ux7d50ux679cux8aa4ux5dee}}
@@ -12325,66 +12534,71 @@ C_{u,b}^{\rm out},P_{u,b}
 \sup_{h_{k-1}}
 D_{\rm TV}
 \left(
-\widetilde K_k(h_{k-1},\cdot),
-K_k(h_{k-1},\cdot)
+\widetilde K_k(\cdot\mid h_{k-1}),
+K_k(\cdot\mid h_{k-1})
 \right)
-\leq\bar\varepsilon_k
+\leq
+\bar\varepsilon_k
 \]
 
-とする。\(\bar\varepsilon_k\) にはR191の完全結果誤差 \(\varepsilon_{191,k}\)、必要な局所記録誤差、制御付き選別機構誤差、必要な場合の作用安定化誤差、転送誤差、および前段状態方向誤差からこの節点核へ伝播した偏差を各1回だけ含める。R191主線ではR164/R190/R170代替経路の正則化、混合、固定誤差を重複加算しない。
+とする。
 
-Markov核の縮約性と望遠鏡和から
+\(\bar\varepsilon_k\) には、その節点で実際に使うselectorの完全結果誤差、局所記録誤差、router誤差、必要なR192誤差、転送誤差、前段状態方向誤差から次節点核へ伝播した偏差を各1回だけ含める。異なるselector実装の誤差を同一試行で重複加算しない。
+
+Markov核の縮約性と望遠鏡和から、
 
 \[
-D_{\rm TV}(P_{\rm out},P_{\rm Born})
+D_{\rm TV}
+(P_{\rm out},P_{\rm Born})
 \leq
 \varepsilon_{\rm in}
 +
-\sum_{k=1}^m\bar\varepsilon_k.
+\sum_{k=1}^{m}\bar\varepsilon_k.
 \]
 
-理想核の積は
+理想節点では
 
 \[
-\prod_{k=1}^m p_{k,y_k}
+\prod_{k=1}^{m}
+p_{k,y_k}
 =
-\frac{\|P_{m,y_m}\cdots P_{1,y_1}Z_0\|^2}{\|Z_0\|^2}
+\frac{
+\|P_{m,y_m}\cdots P_{1,y_1}Z\|^2
+}{
+\|Z\|^2
+}
 \]
 
 と望遠鏡型に縮約する。無反応を同じ完全履歴空間に保持し、成功履歴だけを再規格化しない。
 
+\textbf{定理再掲（R181D：binary selector後の段階的projector-routerと測定後状態受渡し）}
+
+P.2のbinary selector contractを各節点で満たし、P.3のrouterを結果固定後にだけ作用し、必要な場合だけR192を使うとする。このとき理想極限ではLüders型逐次分布と非規格化測定後成分を得る。有限実装では
+
+\[
+D_{\rm TV}
+(P_{\rm out},P_{\rm Born})
+\leq
+\varepsilon_{\rm in}
++
+\sum_{k=1}^{m}\bar\varepsilon_k
+\]
+
+であり、安全結果の状態方向誤差はP.4の上界で抑えられる。
+
+R181Dの結論はselectorの内部物理に依存しない。
+
 \begin{proof}[R181D]
 
-P.1が射影作用保持、P.2がR191の2結果核と安全作用下限、P.3が結果固定後の1対1な経路分解、P.4--P.5.1が条件付き状態方向誤差、P.6が必要時だけの作用下限回復を与える。各段の完全結果核誤差を一度だけ $\bar\varepsilon_k$ に集約し、Markov核の縮約性と望遠鏡和を適用すれば上式を得る。理想節点では未規格化作用比が連鎖的に相殺され、Lüders型逐次分布に一致する。証明終。
+P.2が完全結果核と安全作用下限、P.3が結果固定後の1対1な経路分解、P.4--P.5が条件付き状態方向、P.6が必要時だけの作用下限回復を与える。各段の完全結果核誤差を一度だけ $\bar\varepsilon_k$ に集約し、Markov核の縮約性と望遠鏡和を適用する。理想節点では未規格化作用比が連鎖的に相殺される。証明終。
 \end{proof}
 
-\hypertarget{q2-4ux4e00ux822cux6df1ux3055ux306eux8cc7ux6e90ux5883ux754cux3068ux53cdux8a3cux6761ux4ef6}{%
-\section{Q2-4一般深さの資源境界と反証条件}\label{q2-4ux4e00ux822cux6df1ux3055ux306eux8cc7ux6e90ux5883ux754cux3068ux53cdux8a3cux6761ux4ef6}}
+\hypertarget{ux4e00ux822cux6df1ux3055ux306eux8cc7ux6e90ux5883ux754cux3068ux53cdux8a3cux6761ux4ef6}{%
+\section{一般深さの資源境界と反証条件}\label{ux4e00ux822cux6df1ux3055ux306eux8cc7ux6e90ux5883ux754cux3068ux53cdux8a3cux6761ux4ef6}}
 
-\(m=n\) の一般深さで各節点誤差を \(O(\epsilon/n)\) に配分する。R191では
+深さ \(m=n\) の一般Q2-4では、各節点のselector、router、必要なR192、転送誤差を \(O(\epsilon/n)\) に配分する。
 
-\[
-\tau_{\rm cut},g,\varepsilon_u,\varepsilon_{\rm cap}
-=O(\epsilon/n),
-\qquad
-\Delta_{\min}g^2
-\gtrsim
-\log(n/\epsilon)
-\]
-
-を十分条件に選べるため、
-
-\[
-\Delta_{\min}
-=O\!\left(
-\frac{n^2}{\epsilon^2}
-\log\frac n\epsilon
-\right)
-\]
-
-で足りる。\(\tau_{\rm state}=O(\epsilon/n)\) なら状態方向誤差を \(O(\epsilon/n)\) にする十分条件として \(\eta_F=O((\epsilon/n)^{3/2})\) を取れ、依然として逆多項式精度である。一般深さではP.6の作用安定化を残す。
-
-R164/R190/R170の作用殻型代替経路を選ぶ場合、その正則化、混合、renewal、固定時間と資源は代替経路だけの台帳へ計上する。
+現行R191 fixed-goal実装についてはA20/T節のR191資源条件を使う。M65を選ぶ場合はA26/Z節のR204F資源条件を使う。R181D自身はどちらのselectorにも追加の指数precisionを要求しない。
 
 次のいずれかが避けられなければR181Dの主張は成立しない。
 
@@ -12394,30 +12608,30 @@ R164/R190/R170の作用殻型代替経路を選ぶ場合、その正則化、混
 \item
   Born確率表または振幅表を外部制御器へ入力する。
 \item
-  R191の結果固定前に選別機構を開き、結果成分像を混在させる。
+  selectorの結果固定前にrouterを開く。
 \item
-  端点dispatcherに状態依存除算または指数精度を要する。
+  endpoint判定に状態依存除算または指数precisionを要求する。
 \item
   非選択成分または作用安定化環境を同じ能動状態へ不可逆に消去する。
 \item
   無反応を除外して成功試行だけを再規格化する。
 \item
-  深さ \(n\) のR191、選別、転送誤差を多項式予算へ同時に収められない。
+  深さ \(n\) のselector、router、転送誤差を多項式予算へ同時に収められない。
 \end{enumerate}
 
 \hypertarget{m54ux306eux4e00ux69d8ux958bux653eux4f9bux7d66ux30eaux30bbux30c3ux30c8ux518dux6df7ux5408}{%
 \chapter{M54の一様開放供給・リセット・再混合}\label{m54ux306eux4e00ux69d8ux958bux653eux4f9bux7d66ux30eaux30bbux30c3ux30c8ux518dux6df7ux5408}}
 
 \begin{statusbox}
-位置づけ：R179のopen reset、定常流入浴、流出履歴排出、補助作業領域とR191指針変数の反復再初期化を整理する。
+位置づけ：R179のopen reset、定常流入浴、流出履歴排出、補助作業領域、binary selector指針変数、使用済み作用保持対の反復再初期化を整理する。
 \end{statusbox}
 
 \hypertarget{ux76eeux7684-1}{%
 \section{目的}\label{ux76eeux7684-1}}
 
-M54の一般 \(n\) 特殊化では、信号記憶部そのものはR181Cの可逆ゲート中に保持する一方、節点ごとのR191指針変数、R181D選別機構用作業領域、Q2-4で使うR192作用安定化用接続端は反復使用する。現行模型はこれらを有限閉鎖貯蔵部から供給せず、一様な開放リセット接続部へ接続する。結果相関情報、散逸履歴、使用済み環境自由度は流出経路へ流し、能動系だけを未使用状態へ戻す。
+M54の一般 \(n\) 特殊化では、信号記憶部そのものはR181Cの可逆ゲート中に保持する一方、節点ごとのbinary selector指針変数、R181D選別機構用作業領域、Q2-4で使うR192作用安定化用接続端、および再使用する作用保持対は反復使用する。現行模型はこれらを有限閉鎖貯蔵部から供給せず、一様な開放リセット接続部へ接続する。結果相関情報、散逸履歴、使用済み保持対の共役履歴、使用済み環境自由度は流出経路へ流し、再使用する能動系だけを未使用状態へ戻す。
 
-独立な退役作用殻研究線では2作用LC殻へ定常流入浴部分系を供給する。各試行で過去と相互作用していない流入部分系を使うことで、退役作用殻経路Bの初期作用殻方向に一様な混合評価を履歴条件付き再混合へ持ち上げる。この再混合を現行Q1/Q2のR191主線の必須依存には戻さない。
+独立な退役作用殻研究線では2作用LC殻へ定常流入浴部分系を供給する。各試行で過去と相互作用していない流入部分系を使うことで、退役作用殻経路Bの初期作用殻方向に一様な混合評価を履歴条件付き再混合へ持ち上げる。この再混合を現行Q1/Q2のbinary selector主線の必須依存には戻さない。fixed-goal証人は引き続きR191を使う。
 
 \hypertarget{ux4e00ux69d8ux958bux653eux30eaux30bbux30c3ux30c8}{%
 \section{一様開放リセット}\label{ux4e00ux69d8ux958bux653eux30eaux30bbux30c3ux30c8}}
@@ -14783,26 +14997,24 @@ M60/R195--R199およびM61/R200はより複雑な旧Hamiltonian実装として�
 
 A1/A2は固定目標とは独立に判定する。本昇格だけからA1/A2の状態を自動変更しない。A2 direct simulationではM37 signal、preparation stage、mean-flow relaxation、canonical overdamped tracerを同一parameter setで直接積分・標本化し、\(U-v_\delta\)、osmotic mean force、経験位置密度、finite-volume/finite-graph R161 connectionを検査する。
 
-\hypertarget{m65-phase-volume-matched-hub-ux4e8cux7d50ux679cux5c04ux5f71ux8aadux51faux3057ux5019ux88dc}{%
-\chapter{M65 phase-volume matched-hub 二結果射影読出し候補}\label{m65-phase-volume-matched-hub-ux4e8cux7d50ux679cux5c04ux5f71ux8aadux51faux3057ux5019ux88dc}}
+\hypertarget{m65-phase-volumeux578b3ux72b6ux614bopenux5c04ux5f71ux8aadux51faux3057}{%
+\chapter{M65 phase-volume型3状態open射影読出し}\label{m65-phase-volumeux578b3ux72b6ux614bopenux5c04ux5f71ux8aadux51faux3057}}
 
 \begin{statusbox}
-位置づけ：R191/R193をまだ置換しないpromotion-ready replacement candidate。R203Bと共通のphase-volume Jacobianを二結果射影作用へ接続し、固定chamber--neck--hub、Brownian pointer、有限時間Born読出し、R181D受渡し、Q1接続、Q2-4読出し時間資源をR204A--R204Fで整理する。現行Q1/Q2主線、達成ラベル、required verifier、R186判定は変更しない。
+位置づけ：Q1/Q2二結果射影用の現行canonical open selector model。正本発展則は保持済み二作用を線形rateへ入れる3状態連続時間Markov過程とし、R204Dで有限時間Born誤差、R204Eで共通binary selector contract、R204FでQ1/Q2-4互換性と資源条件を与える。R204A--R204Cのphase-volume chamber/Hamiltonian構成は追加実現・持上げであり、M65正本の成立条件にしない。R191/R193は本draftではfixed-goalの現行証人として維持する。
 \end{statusbox}
 
 \hypertarget{ux76eeux7684ux3068ux8cacux52d9ux5883ux754c-2}{%
 \section{目的と責務境界}\label{ux76eeux7684ux3068ux8cacux52d9ux5883ux754c-2}}
 
-M65はQ1/Q2の二結果射影読出しについて、現行R191ブラウン巨視的スピンとQ1専用R193 decision接続を将来置換するための候補模型である。本付録では置換そのものは実行しない。現行主線は引き続きR191/R193であり、R181D、R192、R179の定理文と責務も変更しない。
+M65は、二結果直交射影に対して上流が保持した二作用から排他的な古典結果を作る最小open selectorである。複素信号そのものを再読出しせず、capture終了後に固定された二作用だけを入力とする。
 
-M65が再利用するのはM64のQ3粒子そのものではなく、R203Bで用いたphase-volume Jacobianという統計力学的機構である。Q3ではその局所重みが空間tracerの位置重みを与える。M65では同じ機構を、二結果射影作用を受け取るclassical pointerのchamber容量とneck conductanceへ使う。従ってQ3 tracerとQ1/Q2 pointerを同一物体とはみなさない。
+本付録ではM65を正本へ昇格するが、Q1/Q2のfixed-goal witnessはまだR191/R193からM65へ切り替えない。従ってA20/A21、R191/R193のrequired検算、Q1/Q2達成ラベルは維持する。R181D、R192、R179、R180A/R180Cだけをselector非依存のinterfaceへ一般化し、次回の実装切替に備える。
 
-M65の能動自由度は、上流の作用保持機構が固定した二つの正準座標 \(A_+,A_->0\)、固定chamber--neck--hub領域内を動く一つのclassical pointer \(Q\)、局所phase volumeを担う高速調和正準対 \((\zeta,\Pi)\)、pointerとphase-volume modeへ接続する平衡thermal bath、およびdecision終了時の排他的chamber位置を固定する吸収recordである。
+M65の正本は開放3状態Markov過程そのものである。固定chamber、phase-volume oscillator、調和bath、Fick--Jacobs縮約は正本の定義ではなく、R204B/R204Cに置く追加の物理実現・Hamiltonian liftである。
 
-複素信号 \(Z\) はM65内部で再読出ししない。capture終了後は信号と保持済み作用を切り離し、M65は \(A_\pm\) だけを入力とする。
-
-\hypertarget{ux4e8cux7d50ux679cux5c04ux5f71ux4f5cux7528ux5165ux529bux3068ux5b89ux5168ux9818ux57df}{%
-\section{二結果射影作用入力と安全領域}\label{ux4e8cux7d50ux679cux5c04ux5f71ux4f5cux7528ux5165ux529bux3068ux5b89ux5168ux9818ux57df}}
+\hypertarget{ux5165ux529bux4f5cux7528ux4fddux6301ux898fux7d04ux5b89ux5168ux9818ux57df}{%
+\section{入力作用、保持規約、安全領域}\label{ux5165ux529bux4f5cux7528ux4fddux6301ux898fux7d04ux5b89ux5168ux9818ux57df}}
 
 二結果直交射影 \(P_++P_-=I\) に対する理想作用を
 
@@ -14814,18 +15026,23 @@ J_\pm
 S=J_++J_->0
 \]
 
-とし、
+とし、理想Born重みを
 
 \[
 p_\pm=\frac{J_\pm}{S}
 \]
 
-を理想Born重みとする。上流の作用保持終了後の値を \(A_\pm\) とし、
+とする。上流の作用保持終了後の値を \(A_\pm>0\) とし、
 
 \[
 A_\Sigma=A_++A_-,
 \qquad
+a_\pm=\frac{A_\pm}{A_*},
+\qquad
+a_\Sigma=a_++a_-,
+\qquad
 \widehat p_\pm=\frac{A_\pm}{A_\Sigma}
+=\frac{a_\pm}{a_\Sigma}
 \]
 
 と置く。作用保持誤差は
@@ -14834,7 +15051,15 @@ A_\Sigma=A_++A_-,
 D_{\rm TV}(\widehat p,p)\leq\varepsilon_A
 \]
 
-だけで受ける。M65内部で同じ偏差を再計上しない。
+だけで受け、M65内部で重複計上しない。
+
+decision区間では
+
+\[
+\dot A_+=\dot A_-=0
+\]
+
+をM65の入力契約とする。上流が保持値を正準対 \((A_r,P_r^A)\) で実装する場合、decisionに使った保持対は次のcaptureへそのまま戻さない。固定有限深さでは未使用保持対へ正準SWAPし、反復運転では使用済み保持対とその履歴をR179の流出経路へ渡す。
 
 固定cutoff \(0<\tau_{\rm cut}<1/2\) に対し、
 
@@ -14842,30 +15067,79 @@ D_{\rm TV}(\widehat p,p)\leq\varepsilon_A
 \min\{\widehat p_+,\widehat p_-\}\geq\tau_{\rm cut}
 \]
 
-を通常経路とする。それ以外はZ.8のendpoint dispatcherへ送る。
+を通常経路とする。通常経路外はZ.7のendpoint comparatorへ送る。
 
-\hypertarget{ux56faux5b9achamberneckhub-hamiltonian}{%
-\section{固定chamber--neck--hub Hamiltonian}\label{ux56faux5b9achamberneckhub-hamiltonian}}
+\hypertarget{r204acanonical-3ux72b6ux614bopen-selector}{%
+\section{R204A：canonical 3状態open selector}\label{r204acanonical-3ux72b6ux614bopen-selector}}
 
-pointerの配置領域を
+pointer状態を
 
 \[
-\Omega
-=
-C_+\cup N_+\cup H\cup N_-\cup C_-
+X_t\in\{+,H,-\}
 \]
 
-とする。\(C_\pm\) は左右対称なwell-mixed chamber、\(N_\pm\) は左右対称な細いneck、\(H\) は中央hubである。幾何そのものは試行ごとに変形させない。
-
-固定作用scale \(A_*>0\) を用いて
+とする。\(H\) は中央の未決定状態であり、decision終了時には正式な無反応 \(\varnothing\) へ写す。固定装置定数 \(\Lambda>0,\kappa>0,A_*>0\) を取り、通常経路では連続時間Markov rateを
 
 \[
-a_\pm=\frac{A_\pm}{A_*},
+k_{+\to H}=k_{-\to H}=\Lambda,
 \qquad
-a_\Sigma=\frac{A_\Sigma}{A_*}
+k_{H\to +}=\kappa a_+,
+\qquad
+k_{H\to -}=\kappa a_-,
 \]
 
-とする。滑らかな正関数 \(\Phi_A(Q)\) を、各領域のplateauで
+それ以外を零と直接定める。
+
+確率を
+
+\[
+x_+(t)=P(X_t=+),
+\qquad
+x_-(t)=P(X_t=-),
+\qquad
+h(t)=P(X_t=H)
+\]
+
+とすると、
+
+\[
+\dot x_r
+=
+-\Lambda x_r+\kappa a_r h,
+\qquad
+r\in\{+,-\},
+\]
+
+\[
+\dot h
+=
+\Lambda(x_++x_-)-\kappa a_\Sigma h.
+\]
+
+\begin{theorem}[R204A：M65 canonical open selector]
+
+上の発展則は確率単体を保存する古典連続時間Markov過程を定める。装置へ入力される状態依存量は $a_+,a_-$ の二つだけであり、各入力はrateへ線形に入る。物理制御器は $a_r/a_\Sigma$、Born確率表、振幅表を入力として必要としない。
+
+また $A_\pm$ はdecision区間で固定入力なので、M65自身は走行信号 $Z$ を変更せず、結果形成とprojector routerの責務を分離する。
+\end{theorem}
+
+\begin{proof}[R204A]
+
+全rateは非負であり、generatorの各行和は零である。上のmaster equationを加えると
+
+$$
+\frac{d}{dt}(x_++x_-+h)=0
+$$
+
+だから確率単体を保存する。rate式には $a_+,a_-$ と固定係数しか現れず、$a_\Sigma$ による除算はない。証明終。
+\end{proof}
+
+\hypertarget{r204bfixed-hub-phase-volumeux5b9fux73feux5019ux88dc}{%
+\section{R204B：fixed-hub phase-volume実現候補}\label{r204bfixed-hub-phase-volumeux5b9fux73feux5019ux88dc}}
+
+R204Aはopen lawそのものを正本とする。この節は同じlawを受動phase-volume構造から作る追加実現候補であり、M65の定義には使わない。
+
+固定された左右chamber \(C_\pm\)、neck \(N_\pm\)、hub \(H\) を取り、局所phase-volume factorを概念的に
 
 \[
 \Phi_A(Q)
@@ -14873,213 +15147,49 @@ a_\Sigma=\frac{A_\Sigma}{A_*}
 \begin{cases}
 a_+\phi_C(Q),&Q\in C_+,\\
 a_+\phi_N(Q),&Q\in N_+,\\
-a_\Sigma\phi_H(Q),&Q\in H,\\
+\phi_H(Q),&Q\in H,\\
 a_-\phi_N(Q),&Q\in N_-,\\
 a_-\phi_C(Q),&Q\in C_-,
 \end{cases}
 \]
 
-とする。\(\phi_C,\phi_N,\phi_H\) は左右作用に依存しない固定形状因子であり、接続部だけ滑らかに補間する。
+とする。hubのphase volumeは作用に依存させない。
 
-phase-volume modeを
-
-\[
-H_{\rm pv}
-=
-\frac{\Pi^2}{2m}
-+
-\frac{m\omega^2}{2}
-\left(
-\frac{\zeta}{\Phi_A(Q)}
-\right)^2
-\]
-
-とする。pointer本体は
+R203Bと同じ調和自由度のcanonical積分を使えば、局所Gibbs容量はphase-volume factorへ比例する。左右共通の基準量 \(V_C^0,G_0,V_H^0>0\) に対して
 
 \[
-H_{\rm ptr}
-=
-\frac{P_Q^2}{2M}
-+
-U_\Omega(Q)
-+
-H_{\rm pv}.
-\]
-
-\(U_\Omega\) は固定chamber--neck--hubを作る左右対称なconfining potentialである。pointer座標およびphase-volume modeへ、Ford--Kac--Mazur/Mori--Zwanzig型の調和bath \cite{ford1965,mori1965,zwanzig1973} を接続する。代表的にはsystem coordinate \(X_\ell\) ごとに
-
-\[
-H_{{\rm bath},\ell}
-=
-\sum_n
-\left[
-\frac{p_{\ell n}^2}{2m_{\ell n}}
-+
-\frac{m_{\ell n}\omega_{\ell n}^2}{2}
-\left(
-q_{\ell n}
--
-\frac{c_{\ell n}X_\ell}{m_{\ell n}\omega_{\ell n}^2}
-\right)^2
-\right].
-\]
-
-decision Hamiltonianを
-
-\[
-H_{65}
-=
-H_{\rm hold}
-+
-H_{\rm ptr}
-+
-\sum_\ell H_{{\rm bath},\ell}
-\]
-
-とする。capture終了後はcapture couplingを切り、\(H_{65}\) は元の信号 \(Z\) を含まない。\(H_{\rm hold}\) は保持座標 \(A_\pm\) を含んでよいが、その共役運動量 \(P_\pm^A\) を含まない。
-
-\hypertarget{r204aphase-volume-projective-hamiltonian-identity}{%
-\section{R204A：phase-volume projective Hamiltonian identity}\label{r204aphase-volume-projective-hamiltonian-identity}}
-
-\begin{theorem}[R204A：二結果射影作用のphase-volume Hamiltonian identity]
-
-固定 $Q,A_\pm$ の下で $(\zeta,\Pi)$ をcanonicalに積分すると、
-
-$$
-Z_{\rm pv}(Q|A)
-=
-Z_{\rm pv}^0\Phi_A(Q)
-$$
-
-が厳密に成立する。従ってpointerの平均力ポテンシャルは
-
-$$
-F_A(Q)
-=
-U_\Omega(Q)
--k_BT\log\Phi_A(Q)
-+C
-$$
-
-である。
-
-さらにdecision Hamiltonianが $P_\pm^A$ を含まないので、
-
-$$
-\dot A_+=\dot A_-=0.
-$$
-
-capture終了後に $Z$ との直接結合を切れば、M65自身から走行中signalへの直接Hamiltonian反作用は零である。共通scale変換 $(A_+,A_-)\mapsto(cA_+,cA_-)$ は後で得るchamber分岐比 $\widehat p_\pm$ を変えない。
-\end{theorem}
-
-\begin{proof}[R204A]
-
-$y=\zeta/\Phi_A(Q)$ と変数変換すると $d\zeta=\Phi_A(Q)\,dy$ であり、Gaussian積分の $Q,A_\pm$ 依存性はJacobian $\Phi_A(Q)$ だけである。従って $F_A=-k_BT\log Z_{\rm pv}+U_\Omega$ から表示式を得る。また正準方程式から $\dot A_r=\partial H_{65}/\partial P_r^A=0$ である。capture終了後の $H_{65}$ が $Z$ を含まないことから、M65のdecision項はsignal方程式へ直接項を加えない。証明終。
-\end{proof}
-
-R204AはR193が担っていた「保持値をdecision中に変えない」「decision backendを走行信号から切り離す」という責務の候補代替を与える。ただし本draftではR193の現行主線statusを変更しない。
-
-\hypertarget{r204bmatched-capacityconductance-theorem}{%
-\section{R204B：matched capacity--conductance theorem}\label{r204bmatched-capacityconductance-theorem}}
-
-左右chamberの基準Gibbs容量を
-
-\[
-V_C^0
-=
-\int_{C_\pm}
-e^{-\beta U_\Omega(Q)}
-\phi_C(Q)\,dQ
-\]
-
-とする。hubについて
-
-\[
-V_H^0
-=
-\int_H
-e^{-\beta U_\Omega(Q)}
-\phi_H(Q)\,dQ
-\]
-
-とする。
-
-neck軸座標を \(s\in[0,\ell]\) とし、reduced Smoluchowski lawで固定基準resistanceを
-
-\[
-R_N^0
-=
-\int_0^\ell
-\frac{
-e^{\beta U_N(s)}
-}{
-D\,\phi_N(s)
-}
-\,ds,
+V_r=a_rV_C^0,
 \qquad
-G_0=(R_N^0)^{-1}
+G_r=a_rG_0,
+\qquad
+V_H=V_H^0
 \]
 
-と置く。
+を得る場合、
 
-\begin{theorem}[R204B：matched phase-volume capacity--conductance]
-
-R204Aの局所phase-volume factorを使うと、左右chamber容量とneck conductanceは
-
-$$
-V_\pm
+\[
+\frac{G_r}{V_r}
 =
-a_\pm V_C^0,
-\qquad
-G_\pm
-=
-a_\pm G_0
-$$
-
-を満たす。従って
-
-$$
-\frac{G_\pm}{V_\pm}
-=
-\Lambda
-:=
 \frac{G_0}{V_C^0}
-$$
-
-は結果作用に依存しない。
-
-hub容量は
-
-$$
-V_H
-=
-a_\Sigma V_H^0.
-$$
-
-したがって
-
-$$
-\frac{G_\pm}{V_H}
-=
-\mu\widehat p_\pm,
+=:\Lambda,
 \qquad
-\mu:=\frac{G_0}{V_H^0}.
-$$
+\frac{G_r}{V_H}
+=
+\frac{G_0}{V_H^0}a_r
+=:\kappa a_r.
+\]
 
-特に小さいBorn重みを持つ結果が存在しても、chamberからの総escape scale $\Lambda$ は小さくならない。
+\begin{theorem}[R204B：fixed-hub matched capacity--conductance realization]
+
+上記capacity/conductance relationsを満たすwell-mixed chamber reductionでは、左右chamberとhubのcoarse generatorはR204Aのcanonical open generatorと一致する。従ってphase-volume構造は、Born比を外部計算せずR204Aを実装する一つの物理候補を与える。
 \end{theorem}
 
-\begin{proof}[R204B]
+R204BはM65正本の必須依存ではない。
 
-chamberではcanonical densityにR204Aの $\Phi_A=a_\pm\phi_C$ が掛かるので容量は $a_\pm V_C^0$ である。neckでは定常Smoluchowski抵抗のintegrandが局所phase volumeの逆数に比例するため $R_\pm=R_N^0/a_\pm$、従って $G_\pm=a_\pm G_0$ である。hubについても同じcanonical積分から $V_H=a_\Sigma V_H^0$。比を取れば表示式を得る。証明終。
-\end{proof}
+\hypertarget{r204chamiltonianbrownian-lift-strengthening}{%
+\section{R204C：Hamiltonian--Brownian lift strengthening}\label{r204chamiltonianbrownian-lift-strengthening}}
 
-R204Bのconductance部分はreduced Brownian/Smoluchowski記述上の厳密恒等式であり、full Hamiltonianからそのreduced lawへ至る誤差は次のR204Cへ分離する。
-
-\hypertarget{r204chamiltonianbrownianlumped-network-reduction-contract}{%
-\section{R204C：Hamiltonian--Brownian--lumped-network reduction contract}\label{r204chamiltonianbrownianlumped-network-reduction-contract}}
-
-対象時間窓 \(0\le t\le T\) で、有限帯域bathからMarkov Langevin、underdampedからoverdamped、高速phase-volume modeのconditional canonical tracking、多次元neckからreduced tube law、chamber内非一様性からwell-mixed lumping、左右capacity/conductance較正の誤差をそれぞれ
+R204Bの固定幾何を明示Hamiltonian、有限帯域bath、Brownian/Smoluchowski過程から導く場合だけこの結果を使う。対象時間窓 \(0\leq t\leq T\) で、
 
 \[
 \varepsilon_{\rm bath},
@@ -15095,7 +15205,7 @@ R204Bのconductance部分はreduced Brownian/Smoluchowski記述上の厳密恒�
 \varepsilon_{\rm cal}
 \]
 
-とし、
+を、それぞれbath、overdamped、phase-volume tracking、tube reduction、well-mixed lumping、capacity/conductance較正の誤差とする。
 
 \[
 \varepsilon_{\rm gen}
@@ -15105,42 +15215,20 @@ R204Bのconductance部分はreduced Brownian/Smoluchowski記述上の厳密恒�
 +\varepsilon_{\rm pv}
 +\varepsilon_{\rm tube}
 +\varepsilon_{\rm lump}
-+\varepsilon_{\rm cal}
++\varepsilon_{\rm cal}.
 \]
 
-とする。理想coarse lawを
+\begin{theorem}[R204C：Hamiltonian--Brownian liftの有限時間誤差]
 
-\[
-\dot x_+
-=
--\Lambda x_+
-+\mu\widehat p_+h,
-\qquad
-\dot x_-
-=
--\Lambda x_-
-+\mu\widehat p_-h,
-\]
-
-\[
-\dot h
-=
-\Lambda(x_++x_-)-\mu h
-\]
-
-とする。
-
-\begin{theorem}[R204C：matched-hub Brownian reduction contract]
-
-full M65 pointerのcompartment lawを $\widetilde\nu_t$、上の理想three-state lawを $\nu_t$ とする。初期lumping誤差を $\varepsilon_{\rm init}$ とし、対象時間窓で実coarse generatorと理想generatorのrow-sum差が一様に $\varepsilon_{\rm gen}$ 以下なら、
+具体実装のcoarse lawを $\widetilde\nu_t$、R204Aのcanonical lawを $\nu_t$ とする。初期lumping誤差を $\varepsilon_{\rm init}$ とし、対象時間窓でgenerator差の全変動作用normが一様に $\varepsilon_{\rm gen}$ 以下なら、
 
 $$
-\sup_{0\le t\le T}
+\sup_{0\leq t\leq T}
 D_{\rm TV}
 (
 \widetilde\nu_t,\nu_t
 )
-\le
+\leq
 \varepsilon_{\rm init}
 +
 T\varepsilon_{\rm gen}
@@ -15148,45 +15236,56 @@ T\varepsilon_{\rm gen}
 \varepsilon_{204C}(T).
 $$
 
-従ってR204A--R204BのHamiltonian/phase-volume構成から、上記各縮約誤差を同時に十分小さくする非空parameter windowが得られれば、M65のphysical pointer lawは有限時間でmatched-hub three-state lawへ収束する。
+これはR204AのHamiltonian/Brownian実現を評価する強化結果であり、R204A/R204D/R204E/R204Fの成立条件ではない。
 \end{theorem}
 
 \begin{proof}[R204C]
 
-Markov半群の全変動縮約性とDuhamel展開を使う。generator差のrow-sum normを時間積分すると $T\varepsilon_{\rm gen}$、初期差を加えて表示式を得る。証明終。
+Markov半群の全変動縮約性とDuhamel展開を使い、generator差を時間積分する。証明終。
 \end{proof}
-
-R204Cは本draftのpromotion gateである。本付録はharmonic bathからGLEへ至る標準構造 \cite{ford1965,mori1965,zwanzig1973} を採用するが、\(\varepsilon_{\rm bath}\) から \(\varepsilon_{\rm lump}\) までを特定幾何について完全な定数付きHamiltonian縮約として閉じたとは主張しない。
 
 \hypertarget{r204dux6709ux9650ux6642ux9593born-readout}{%
 \section{R204D：有限時間Born readout}\label{r204dux6709ux9650ux6642ux9593born-readout}}
 
-理想three-state lawで \(h(0)=0\)、\(x_+(0)+x_-(0)=1\) とする。
+通常経路で
 
-\begin{theorem}[R204D：matched-hub有限時間Born projective readout]
-
-理想three-state generatorの固有値は
-
-$$
-0,
+\[
+h(0)=0,
 \qquad
--\Lambda,
-\qquad
--(\Lambda+\mu)
-$$
+x_+(0)+x_-(0)=1
+\]
 
-である。hub occupancyは
+とする。
+
+\begin{theorem}[R204D：M65有限時間Born readout]
+
+R204Aのcanonical open lawでは
 
 $$
 h(t)
 =
-\frac{\Lambda}{\Lambda+\mu}
+\frac{\Lambda}
+{\Lambda+\kappa a_\Sigma}
 \left[
-1-e^{-(\Lambda+\mu)t}
+1-e^{-(\Lambda+\kappa a_\Sigma)t}
 \right].
 $$
 
-さらに各 $r\in\{+,-\}$ について
+さらに
+
+$$
+d_r(t)
+:=
+x_r(t)-\widehat p_r[1-h(t)]
+$$
+
+と置くと
+
+$$
+\dot d_r=-\Lambda d_r,
+$$
+
+従って
 
 $$
 x_r(t)
@@ -15197,35 +15296,33 @@ e^{-\Lambda t}
 [x_r(0)-\widehat p_r].
 $$
 
-decision時刻 $T$ で $C_+\mapsto+$、$C_-\mapsto-$、$H\mapsto\varnothing$ と完全結果へ記録する。hub比を
+decision時刻 $T$ で
 
 $$
-\chi
-=
-\frac{V_H^0}{V_C^0}
-=
-\frac{\Lambda}{\mu}
++\mapsto +,
+\qquad
+-\mapsto -,
+\qquad
+H\mapsto\varnothing
 $$
 
-とすると、
+と完全結果へ写すと、canonical M65結果分布 $P_{65}^0(T)$ は
 
 $$
 D_{\rm TV}
-(
-P_{65}^{0}(T),
-\widehat p
-)
-\le
+\left(
+P_{65}^0(T),
+(\widehat p_+,\widehat p_-,0)
+\right)
+\leq
 e^{-\Lambda T}
-D_{\rm TV}
-(
-x_0,\widehat p
-)
+D_{\rm TV}(x_0,\widehat p)
 +
-\frac{\chi}{1+\chi}.
+\frac{\Lambda}
+{\Lambda+\kappa a_\Sigma}.
 $$
 
-R204C、上流作用保持、有限record誤差を合成すると、
+上流作用保持誤差 $\varepsilon_A$、具体rate実装を選んだ場合のgenerator誤差 $\varepsilon_{\rm rate}$、record誤差 $\varepsilon_{\rm rec}$ を加えると、
 
 $$
 D_{\rm TV}
@@ -15233,150 +15330,167 @@ D_{\rm TV}
 P_{65}(T),
 P_{\rm Born}
 )
-\le
+\leq
 \varepsilon_A
 +
-\varepsilon_{204C}(T)
-+
 e^{-\Lambda T}
-D_{\rm TV}
-(
-x_0,\widehat p
-)
+D_{\rm TV}(x_0,\widehat p)
 +
-\frac{\chi}{1+\chi}
+\frac{\Lambda}
+{\Lambda+\kappa a_\Sigma}
++
+T\varepsilon_{\rm rate}
 +
 \varepsilon_{\rm rec}.
 $$
 
-成功結果だけを再規格化しない。
+canonical open lawそのものでは $\varepsilon_{\rm rate}=0$ とする。無反応を捨てて成功結果だけを再規格化しない。
 \end{theorem}
 
 \begin{proof}[R204D]
 
-$1-h=x_++x_-$ を使うと $\dot h=\Lambda-(\Lambda+\mu)h$。また $d_r=x_r-\widehat p_r(1-h)$ と置けば $\dot d_r=-\Lambda d_r$。完全結果分布と $(\widehat p_+,\widehat p_-,0)$ の差を三角不等式で評価し、$h(T)\le\Lambda/(\Lambda+\mu)=\chi/(1+\chi)$ を使う。R204C、$\varepsilon_A$、record誤差は各一度だけ加える。証明終。
+$x_++x_-=1-h$ より
+
+$$
+\dot h
+=
+\Lambda-(\Lambda+\kappa a_\Sigma)h
+$$
+
+だから $h(t)$ の表示を得る。また $a_r=\widehat p_r a_\Sigma$ を使えば、R204Aのmaster equationから $\dot d_r=-\Lambda d_r$ が従う。完全結果分布との差に三角不等式を使い、
+
+$$
+h(T)
+\leq
+\frac{\Lambda}{\Lambda+\kappa a_\Sigma}
+$$
+
+で抑える。具体実装誤差はMarkov半群の縮約性とDuhamel評価で $T\varepsilon_{\rm rate}$ を一度だけ加える。証明終。
 \end{proof}
 
-\hypertarget{endpoint-dispatcherux3068ux5b89ux5168ux4f5cux7528ux4e0bux9650}{%
-\section{endpoint dispatcherと安全作用下限}\label{endpoint-dispatcherux3068ux5b89ux5168ux4f5cux7528ux4e0bux9650}}
+特に \(\widehat p_-\) が極端に小さくても、結果比へ近づくモードのrateは \(\Lambda\) のままである。小Born重みそれ自体は指数decision時間を生まない。
 
-通常経路外では大きい側へ決定論的dispatcherを開く。小さい側を \(s\) とすれば \(p_s\le\tau_{\rm cut}+\varepsilon_A\) なので、
+\hypertarget{endpoint-comparatorux5b89ux5168ux4e0bux9650ux4f7fux7528ux6e08ux307fux4fddux6301ux5bfe}{%
+\section{endpoint comparator、安全下限、使用済み保持対}\label{endpoint-comparatorux5b89ux5168ux4e0bux9650ux4f7fux7528ux6e08ux307fux4fddux6301ux5bfe}}
+
+通常経路外では大きい側へ決定論的endpointを開く。例えば
+
+\[
+\widehat p_+<\tau_{\rm cut}
+\]
+
+は
+
+\[
+(1-\tau_{\rm cut})A_+
+-
+\tau_{\rm cut}A_-<0
+\]
+
+と同値なので、状態依存除算ではなく固定係数の線形比較器で判定できる。逆側も同様である。
+
+比較器とrecordの完全結果誤差を \(\varepsilon_{\rm cmp},\varepsilon_{\rm rec}\) とすると、
 
 \[
 \varepsilon_{65}^{\rm edge}
-\le
+\leq
 \tau_{\rm cut}
 +
 \varepsilon_A
 +
-\varepsilon_{\rm edge}.
+\varepsilon_{\rm cmp}
++
+\varepsilon_{\rm rec}.
 \]
 
-通常経路では
+通常経路の一様上界は
 
 \[
 \varepsilon_{65}^{\rm int}
 =
 \varepsilon_A
 +
-\varepsilon_{204C}(T)
-+
 e^{-\Lambda T}
 +
-\frac{\chi}{1+\chi}
+\frac{\Lambda}{\Lambda+\kappa a_{\min}}
++
+T\varepsilon_{\rm rate}
 +
 \varepsilon_{\rm rec},
 \]
+
+ここで安全運用域で \(a_\Sigma\geq a_{\min}>0\) とする。
 
 \[
 \varepsilon_{65}
 =
 \max
-\left\{
+\{
 \varepsilon_{65}^{\rm int},
 \varepsilon_{65}^{\rm edge}
-\right\}.
+\}.
 \]
 
-安全結果について
+非空結果の理想作用重みには
 
 \[
 p_r
-\ge
+\geq
 \tau_{\rm state}^{65}
 :=
 \tau_{\rm cut}-\varepsilon_A
 >0
 \]
 
-を得る。
+という安全下限を与える。
 
-\hypertarget{r204er181d-projector-routerux53d7ux6e21ux3057ux5019ux88dc}{%
-\section{R204E：R181D projector-router受渡し候補}\label{r204er181d-projector-routerux53d7ux6e21ux3057ux5019ux88dc}}
+使用済み保持対はdecision履歴を持ち得るため再captureへ直結しない。固定有限深さでは未使用保持対へSWAPし、反復運転ではR179へ排出する。
 
-\begin{theorem}[R204E：M65結果からR181Dへの安全受渡しと逐次合成]
+\hypertarget{r204ebinary-selector-contract}{%
+\section{R204E：binary selector contract}\label{r204ebinary-selector-contract}}
 
-R204Dが非空結果 $r$ を固定し、$\tau_{\rm state}^{65}>0$ とする。既存R181Dと同じprojector routerを使い、理想選択成分を $v=P_rZ$ とする。このとき
+R181Dが上流selectorに要求する共通契約を、完全結果集合 \(\{0,1,\varnothing\}\) 上で次のように書く。
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  理想作用比は \(p_b=A_b/(A_0+A_1)\)。
+\item
+  実selector核と理想Born核の全変動距離が \(\varepsilon_{\rm sel}\) 以下。
+\item
+  非空安全結果 \(Y=b\) では \(p_b\geq\tau_{\rm state}>0\)。
+\item
+  \(Y\) はprojector routerを開く前に固定される。
+\item
+  \(\varnothing\) を捨てて再規格化しない。
+\end{enumerate}
+
+\begin{corollary}[R204E：M65はbinary selector contractを満たす]
+
+M65では
 
 $$
-\|v\|
-\ge
-\sqrt{\tau_{\rm state}^{65}}\|Z\|.
-$$
-
-router実装誤差が
-
-$$
-\|\widetilde v-v\|
-\le
-\eta_F\|Z\|,
+\varepsilon_{\rm sel}=\varepsilon_{65},
 \qquad
-\eta_F<\sqrt{\tau_{\rm state}^{65}}
+\tau_{\rm state}=\tau_{\rm state}^{65}
 $$
 
-を満たせば、
+と取れば上のbinary selector contractを満たす。従ってR181Dをselector非依存の形で適用できる。
 
-$$
-\left\|
-\frac{\widetilde v}{\|\widetilde v\|}
--
-\frac{v}{\|v\|}
-\right\|
-\le
-\frac{
-2\eta_F
-}{
-\sqrt{\tau_{\rm state}^{65}}-\eta_F
-}.
-$$
+本draftではfixed-goal witnessをR191からM65へ切り替えない。
+\end{corollary}
 
-深さ $m$ の逐次射影で各節点の完全結果kernel誤差を $\bar\varepsilon_k$ とすれば、
+\hypertarget{r204fq1ux4e92ux63dbux6027ux3068q2-4ux8aadux51faux3057ux8cc7ux6e90}{%
+\section{R204F：Q1互換性とQ2-4読出し資源}\label{r204fq1ux4e92ux63dbux6027ux3068q2-4ux8aadux51faux3057ux8cc7ux6e90}}
 
-$$
-D_{\rm TV}
-(
-P_{\rm phys}^{(m)},
-P_{\rm ideal}^{(m)}
-)
-\le
-\sum_{k=1}^{m}\bar\varepsilon_k.
-$$
+\begin{theorem}[R204F：Q1互換性とQ2-4 polynomial readout-time条件]
 
-理想極限では非規格化成分 $P_rZ$ を次段へ渡すだけで条件付き作用比が望遠鏡積をなし、既存R181Dと同じLüders型逐次分布を得る。
-\end{theorem}
-
-R204EはR181Dの置換ではない。本draftではR181D本文のR191依存を変更しない。
-
-\hypertarget{r204fq1ux63a5ux7d9aux3068q2-4ux8aadux51faux3057ux8cc7ux6e90}{%
-\section{R204F：Q1接続とQ2-4読出し資源}\label{r204fq1ux63a5ux7d9aux3068q2-4ux8aadux51faux3057ux8cc7ux6e90}}
-
-\begin{theorem}[R204F：Q1 moving-measurement bridgeとQ2-4 polynomial readout-time条件]
-
-Q1ではR189Aの保持済み作用 $A_L,A_R$ をR193へ渡さずR204Aへ直接接続できる。R189A作用比誤差を $\varepsilon_{189A}$、中間M65完全結果誤差を $\varepsilon_{65}^{\rm mid}$、保持中心時刻からR181D完了までのRabi重み変化を $\varepsilon_{\rm lat}$ とすれば、
+Q1ではR189Aの保持済み作用 $A_L,A_R$ をM65へ入力できる。R189A作用比誤差を $\varepsilon_{189A}$、M65 selector誤差を $\varepsilon_{65}^{\rm mid}$、保持中心時刻からR181D完了までのRabi重み変化を $\varepsilon_{\rm lat}$ とすれば、
 
 $$
 \varepsilon_{189B,65}^{\rm dist}
-\le
+\leq
 \varepsilon_{189A}
 +
 \varepsilon_{65}^{\rm mid}
@@ -15384,32 +15498,39 @@ $$
 \varepsilon_{\rm lat}.
 $$
 
-M65 decision時間を $T_{65}$ とすると、固定有限回Zeno証人では弱結合条件 $\Omega_\kappa T_{65}\to0$ の下で追加latencyを任意に小さくできる。
+M65 decision時間を $T_{65}$ とすると、固定有限回Zeno証人では
 
-Q2-4では二結果node数を $m$、全読出し誤差予算を $\epsilon$ とする。各nodeのmixing項へ $O(\epsilon/m)$ を配る十分条件は
+$$
+\Omega_\kappa T_{65}\longrightarrow0
+$$
+
+の弱結合極で追加latencyを任意に小さくできる。この結果は互換性を示すもので、本draftのQ1 fixed-goal witnessをR193/R191から切り替えない。
+
+Q2-4では二結果node数を $m$、全読出し誤差予算を $\epsilon$ とする。各nodeのmixing項へ $O(\epsilon/m)$ を割り当てる十分条件は
 
 $$
 T_{\rm node}
-\ge
-\frac1{\Lambda}
+\geq
+\frac1\Lambda
 \log\frac{Cm}{\epsilon}.
 $$
 
 さらに
 
 $$
-\chi
+\frac{\Lambda}{\kappa a_{\min}}
 =
 O\left(\frac{\epsilon}{m}\right),
 \qquad
-\varepsilon_{204C},
 \varepsilon_A,
-\varepsilon_{\rm rec}
+\varepsilon_{\rm cmp},
+\varepsilon_{\rm rec},
+T_{\rm node}\varepsilon_{\rm rate}
 =
 O\left(\frac{\epsilon}{m}\right)
 $$
 
-を各nodeで一様に満たすとする。$m$ と $\Lambda^{-1}$ およびR204Cに現れる実装時間尺度比が $n,d,1/\epsilon$ の多項式で抑えられるなら、
+を一様に満たすとする。$m,\Lambda^{-1},\kappa^{-1},a_{\min}^{-1}$ と必要な固定装置precisionが $n,d,1/\epsilon$ の多項式で抑えられるなら、
 
 $$
 T_{\rm read,total}
@@ -15422,40 +15543,17 @@ $$
 
 は多項式である。
 
-この結論は小さいBorn重みそのものから指数decision時間が生じないことを示すが、R186の指数個modeに対する加法noise/precision障害を解決しない。またabsolute-action版 $\Phi_A$ のmicroscopic rangeを一般深さで一様に保つため、必要ならR192作用安定化を残す。
+この結論はM65 readout自身から指数時間が生じないことを示すが、R186の指数個signal modeに対する加法noise/precision障害を解決しない。一般深さで $a_\Sigma$ の絶対下限が必要ならR192作用安定化を使える。
 \end{theorem}
 
-\hypertarget{promotionux6761ux4ef6ux3068ux73feux884cux4e3bux7ddaux3068ux306eux95a2ux4fc2}{%
-\section{promotion条件と現行主線との関係}\label{promotionux6761ux4ef6ux3068ux73feux884cux4e3bux7ddaux3068ux306eux95a2ux4fc2}}
+\hypertarget{ux6b63ux672cux3068ux5f37ux5316ux8ab2ux984cux306eux5883ux754c}{%
+\section{正本と強化課題の境界}\label{ux6b63ux672cux3068ux5f37ux5316ux8ab2ux984cux306eux5883ux754c}}
 
-M65をR191/R193の現行主線へ昇格させる前に、少なくとも次を満たすことをpromotion gateとする。
+M65の正本はR204Aのopen generator、R204Dの有限時間Born誤差、endpoint comparator、R204Eのbinary selector contractで閉じる。
 
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  R204Aのpartition identity、保持不変性、signal切離しが解析的に閉じる。
-\item
-  R204Bのcapacity/conductance matchingが同一の固定幾何とphase-volume factorから得られる。
-\item
-  R204Cについて、各縮約誤差を同時に小さくする非空parameter windowまたは直接数値witnessが得られる。
-\item
-  R204DのBorn、hub無反応、endpoint、record誤差を同じparameter familyで所定精度へ落とせる。
-\item
-  R204EがR181Dの安全下限と逐次telescopingを壊さない。
-\item
-  R204FがQ1有限Zenoのlatency marginを壊さない。
-\item
-  Q2-4のM65固有readout timeとprecisionが多項式である。
-\item
-  M65がR186とは別の指数precision障害を新しく導入しない。
-\item
-  M65 candidate科学検算が全件通る。
-\item
-  reduced Brownian chamberの直接trajectory simulationでR204C/R204Dの収束witnessを得る。
-\end{enumerate}
+R204Bのphase-volume chamber、R204CのHamiltonian--Brownian lift、finite-bandwidth bath、direct Brownian trajectory、具体回路化は追加の物理実現・A2/B系強化課題である。これらをM65の正本性やfixed-goal達成判定の前提にしない。
 
-本draftではこれらをpromotion条件として記録するだけで、R191、R193、A20、A21、required verifier、Q1/Q2達成ラベルを変更しない。
+R191/R193は本draftでは退役しない。A20/A21とrequired verifierを維持し、Q1/Q2の現行fixed-goal witnessもR191/R193のままとする。
 
 \begingroup
 
