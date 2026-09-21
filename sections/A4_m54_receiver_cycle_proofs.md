@@ -1,7 +1,7 @@
 @number: D
 @chapter: 付録
-@title: M54駆動設定先行2端R191受信機構の証明
-@status: R180AをR191--R181DのA端特殊化として確認し、R180Cの共同Born分布、非信号性、CHSH値、有限全変動誤差、Bell前提監査を証明する。
+@title: M54駆動設定先行2端binary-selector受信機構の証明
+@status: R180Aをbinary selector--R181DのA端特殊化として確認し、R180Cの共同Born分布、非信号性、CHSH値、有限全変動誤差、Bell前提監査をselector内部物理に依存せず証明する。現行fixed-goal実装はA/B両端R191を使う。
 
 ## D.1 R180Aの特殊化確認
 
@@ -15,7 +15,7 @@ J_{A,+}+J_{A,-}
 =\mathcal J_0\|Z\|^2.
 ```
 
-R191の理想2結果則を適用すると
+binary selector contractの理想2結果則を適用すると
 
 ```math
 P(r\mid Z,x)
@@ -81,16 +81,16 @@ E(x,y)
 
 ## D.4 有限誤差
 
-A端保持・basis gate誤差を $\varepsilon_A^{\rm pre}$、A端R191を $\varepsilon_{191}^{A}$、routerを $\varepsilon_{\rm route}$、B端basis gateを $\varepsilon_B^{\rm basis}$、B端R191を $\varepsilon_{191}^{B}$、記録を $\varepsilon_{\rm rec}$ とする。同じ偏差を重複計上しなければkernel telescopingから
+A端保持・basis gate誤差を $\varepsilon_A^{\rm pre}$、A端selectorを $\varepsilon_{\rm sel}^{A}$、routerを $\varepsilon_{\rm route}$、B端basis gateを $\varepsilon_B^{\rm basis}$、B端selectorを $\varepsilon_{\rm sel}^{B}$、記録を $\varepsilon_{\rm rec}$ とする。現行R191実装では $\varepsilon_{\rm sel}^{A,B}=\varepsilon_{191}^{A,B}$ と置く。同じ偏差を重複計上しなければkernel telescopingから
 
 ```math
 \varepsilon_{180}
 \leq
 \varepsilon_A^{\rm pre}
-+\varepsilon_{191}^{A}
++\varepsilon_{\rm sel}^{A}
 +\varepsilon_{\rm route}
 +\varepsilon_B^{\rm basis}
-+\varepsilon_{191}^{B}
++\varepsilon_{\rm sel}^{B}
 +\varepsilon_{\rm rec}.
 ```
 
@@ -99,5 +99,5 @@ A端保持・basis gate誤差を $\varepsilon_A^{\rm pre}$、A端R191を $\varep
 <!-- theorem-start:proof -->
 **証明（R180C）**
 
-D.1のA端R191とrouter、D.2の条件付きB端R191を合成すると理想共同分布を得る。有限実装では各段をMarkov kernelとして同じ完全結果集合へ埋め込み、kernelの全変動距離の三角不等式を順に適用すれば上の $\varepsilon_{180}$ が得られる。非信号性、CHSH安定性はD.3と有界観測量の全変動安定性から従う。A結果結果成分がB端へ転送されるため、切断後局所性は結論にも仮定にも含めない。
+D.1のA端selectorとrouter、D.2の条件付きB端selectorを合成すると理想共同分布を得る。有限実装では各段をMarkov kernelとして同じ完全結果集合へ埋め込み、kernelの全変動距離の三角不等式を順に適用すれば上の $\varepsilon_{180}$ が得られる。非信号性、CHSH安定性はD.3と有界観測量の全変動安定性から従う。A結果結果成分がB端へ転送されるため、切断後局所性は結論にも仮定にも含めない。
 <!-- theorem-end:proof -->
