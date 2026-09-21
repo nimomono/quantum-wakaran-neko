@@ -710,13 +710,13 @@ P(-)=\frac{J_-}{J_++J_-}.
 
 M65は二つの保持済み作用 $A_+,A_->0$ を読む古典open selectorである。固定 $A_*>0$ に対して $a_r=A_r/A_*$ とし、pointer $X_t\in\{+,H,-\}$ のrateを
 
-\[
+```math
 k_{+\to H}=k_{-\to H}=\Lambda,
 \qquad
 k_{H\to +}=\kappa a_+,
 \qquad
 k_{H\to -}=\kappa a_-
-\]
+```
 
 と直接定める。rateは保持作用へ線形であり、装置へBorn確率表または $A_r/(A_++A_-)$ を入力しない。
 
@@ -792,19 +792,19 @@ U_{g,S}=g_S\otimes I_{\bar S}.
 
 出力ビット $k$ に対する計算基底射影を $P_{k,0},P_{k,1}$ とし、
 
-\[
+```math
 P_{k,0}+P_{k,1}=I,
 \qquad
 P_{k,0}P_{k,1}=0.
-\]
+```
 
 未処理作用を
 
-\[
+```math
 J_{k,b}
 =
 \mathcal J_0Z^\dagger P_{k,b}Z
-\]
+```
 
 として保持する。
 
@@ -813,30 +813,30 @@ J_{k,b}
 
 結果 $b$ が固定された後に作用する
 
-\[
+```math
 F_{k,b}
 =
 \begin{pmatrix}
 P_{k,b}&P_{k,1-b}\\
 P_{k,1-b}&-P_{k,b}
 \end{pmatrix}
-\]
+```
 
 は
 
-\[
+```math
 F_{k,b}^\dagger F_{k,b}=I,
 \qquad
 F_{k,b}^2=I,
-\]
+```
 
 かつ未使用作業領域に対して
 
-\[
+```math
 F_{k,b}(Z,0)
 =
 (P_{k,b}Z,P_{k,1-b}Z)
-\]
+```
 
 を満たす。作用保持を制御剪断として実装すれば理想信号を変更せず二作用を保持できる。
 <!-- theorem-end:lemma -->
@@ -856,7 +856,7 @@ F_{k,b}(Z,0)
 
 第 $k$ 段、履歴節点 $u$ の入力を $Z_u\neq0$ とし、
 
-\[
+```math
 J_{u,b}
 =
 \mathcal J_0Z_u^\dagger P_{u,b}Z_u,
@@ -864,61 +864,61 @@ J_{u,b}
 p_{u,b}
 =
 \frac{J_{u,b}}{J_{u,0}+J_{u,1}}
-\]
+```
 
 とする。
 
 R181Dが上流に要求するbinary selector contractは、
 
-\[
+```math
 Y_u\in\{0,1,\varnothing\},
-\]
+```
 
-\[
+```math
 D_{\rm TV}
 (
 \widetilde K_u,K_u^{\rm Born}
 )
 \leq
 \varepsilon_{{\rm sel},u},
-\]
+```
 
 非空安全結果で
 
-\[
+```math
 p_{u,Y_u}
 \geq
 \tau_{{\rm state},u}>0,
-\]
+```
 
 結果固定後にだけrouterを開くこと、および無反応を除いて再規格化しないこと、である。
 
 現行R191実装では
 
-\[
+```math
 \varepsilon_{{\rm sel},u}=\varepsilon_{191,u},
 \qquad
 \tau_{{\rm state},u}
 =
 \tau_{\rm cut}-\frac{\varepsilon_u}{2}.
-\]
+```
 
 M65実装では
 
-\[
+```math
 \varepsilon_{{\rm sel},u}=\varepsilon_{65,u},
 \qquad
 \tau_{{\rm state},u}
 =
 \tau_{\rm cut}-\varepsilon_A.
-\]
+```
 
 <!-- theorem-start:theorem -->
 **定理（R181D：binary selector後の段階的projector-routerと測定後状態受渡し）**
 
 上のbinary selector contractを各節点で満たし、結果固定後にだけ $F_{u,b}$ を作用し、一般深さで必要な場合だけR192を使うとする。理想節点を深さ $m$ まで合成すると、
 
-\[
+```math
 \prod_{k=1}^{m}p_{k,y_k}
 =
 \frac{
@@ -926,23 +926,23 @@ M65実装では
 }{
 \|Z\|^2
 }
-\]
+```
 
 となる。
 
 router実装誤差が
 
-\[
+```math
 \|\widetilde v-v\|
 \leq
 \eta_F\|Z_u\|,
 \qquad
 v=P_{u,b}Z_u,
-\]
+```
 
 かつ $\eta_F<\sqrt{\tau_{{\rm state},u}}$ なら、
 
-\[
+```math
 \left\|
 \frac{\widetilde v}{\|\widetilde v\|}
 -
@@ -954,11 +954,11 @@ v=P_{u,b}Z_u,
 }{
 \sqrt{\tau_{{\rm state},u}}-\eta_F
 }.
-\]
+```
 
 入力分布誤差を $\varepsilon_{\rm in}$、各節点で実際に使うselector、router、必要なR192、転送、前段状態方向偏差を各1回だけまとめた誤差を $\bar\varepsilon_k$ とすれば、
 
-\[
+```math
 D_{\rm TV}
 (
 P_{\rm out},
@@ -968,7 +968,7 @@ P_{\rm Born}
 \varepsilon_{\rm in}
 +
 \sum_{k=1}^{m}\bar\varepsilon_k.
-\]
+```
 
 R181Dの結論はselectorの内部物理に依存しない。
 <!-- theorem-end:theorem -->
