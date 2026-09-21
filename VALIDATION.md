@@ -1,3 +1,15 @@
+## draft-112：M64 required昇格・M60/M61 verifier退役
+
+- M64/R203A--R203Dを現行Q3主線へ昇格し、candidateにあったM64科学検算をrequiredへ移す。
+- tools/verify_m64_reservoir_partition.py：R203Bのphase-volume Jacobianとfree-energy identity。
+- tools/verify_m64_current_dictionary.py：R203Aのedge作用和・差恒等式とregularized currentのsmall-a収束。
+- tools/verify_m64_preparation_tracking.py：continuous initial preparationとfinite-time mean-flow tracking。
+- tools/verify_m64_overdamped_reduction.py：canonical regularized overdamped flux identity。
+- tools/verify_m64_r161_finite_volume.py：1次元R161 current reconstructionとfinite-volume refinement。
+- tools/verify_m64_graph_r161.py：finite-graph rate positivity/current matching、reversible initial preparation、Markov contraction、R124/R182/R125 regularized readout。
+- M60/M61専用の verify_m57_ballistic_tracer.py、verify_q3_common_micro_model.py、verify_m61_single_hamiltonian.py、candidate_checks/verify_chiral_shell_response.py、candidate_checks/verify_m61_parameter_window.py を退役する。
+- required検算は解析式・有限例の回帰でありA2 direct trajectoryの代替ではない。A1/A2判定は変更しない。
+
 ## draft-111：M64 promotion bridge検算
 
 - M64/R203A--R203Dをpromotion-ready candidateへ更新するが、M61/M60 required verifierは本draftでは維持する。

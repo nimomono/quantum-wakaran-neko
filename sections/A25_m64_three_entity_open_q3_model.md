@@ -1,11 +1,11 @@
 @number: Y
 @chapter: 付録
 @title: M64 三実体・最小古典開放系Q3共通模型
-@status: M60/M61をまだ置換しないpromotion-ready replacement candidate。古典coherent signal、classical tracer、signal-driven thermal reservoirの三実体だけを正本候補とし、R203A--R203Dでregularized density/current辞書、phase-volume free energy、初期準備、有限時間mean-flow tracking、canonical overdamped tracer、R161の1次元・有限graph接続、R185/R125受渡しを整理する。固定Q3-1/Q3-2達成判定とrequired主線は本更新だけでは切り替えない。
+@status: Q3の現行共通open model。古典coherent signal、classical tracer、signal-driven thermal reservoirの三実体を正本とし、R203A--R203Dでregularized density/current辞書、phase-volume free energy、continuous/finite-graph初期準備、有限時間mean-flow tracking、canonical overdamped tracer、R161の1次元・有限graph接続、R185およびR124/R182/R125位置読出し受渡しを与える。M60/M61は現行主線から退役する。
 
 ## Y.1 責務、三実体、二つのconfiguration profile
 
-M64はQ3の位置過程を次の三つの古典的実体から構成する最小open model候補である。
+M64はQ3の位置過程を次の三つの古典的実体から構成する最小open modelである。
 
 1. classical coherent signal：M37型の実正準oscillator network。
 2. classical tracer：一つの古典configuration variable。
@@ -20,7 +20,7 @@ tracer configurationには二つの特殊化を許す。
 
 両profileは別の粒子実体を導入せず、同じsignal density/currentから同じphase-volume/current-reservoir責務を読むM64模型族の特殊化である。M64本体ではkink、domain wall、Duffing shell、PN well、Eyring--Kramers hoppingをtracerの定義に要求しない。
 
-M64は採用open SDEまたはfinite-state jump lawを正本候補としてよい。single-field Hamiltonian化、finite-bath化、current transducerの完全Hamiltonian散乱導出、underdamped lift、metric-graph連続極は独立strengtheningとする。
+M64は採用open SDEまたはfinite-state jump lawを正本とする。single-field Hamiltonian化、finite-bath化、current transducerの完全Hamiltonian散乱導出、underdamped lift、metric-graph連続極は独立strengtheningとする。
 
 ## Y.2 regularized signal density/currentと局所補間
 
@@ -746,7 +746,109 @@ rate positivityとcurrent identityは定義を直接代入すれば得る。sign
 1次元特殊化は $T^\delta$ を $(1+\delta)S$ で割れば表示したactivityになる。centered cell averageとedge currentのTaylor展開から、R203Dの従来の $v^{(a)},u^{(a)}$、generatorの $O(a^2)$ 収束が従う。証明終。
 <!-- theorem-end:proof -->
 
-### Y.6.2 R185への受渡し
+### Y.6.2 finite-graph initial preparationと有限時間誤差
+
+有限connected graphでsignalを初期値へ固定する。各edgeに対称係数
+
+```math
+kappa_{ij}
+=
+kappa_{ji}
+>
+0
+```
+
+を取り、preparation ratesを
+
+```math
+k_{i\to j}^{\rm prep}
+=
+kappa_{ij}R_j^\delta
+```
+
+とする。このとき
+
+```math
+\pi_i^\delta
+k_{i\to j}^{\rm prep}
+=
+\pi_j^\delta
+k_{j\to i}^{\rm prep}
+```
+
+なので $\pi^\delta$ は可逆定常分布である。有限connected graphではgeneratorの零固有値は単純で、spectral gap $\lambda_G>0$ を持つ。従って適当な有限定数 $C_G$ に対して
+
+```math
+D_{\rm TV}
+\left(
+p_0,
+\pi_0^\delta
+\right)
+\le
+C_G
+e^{-\lambda_GT_{\rm prep}}
+=
+\varepsilon_{\rm prep,G}.
+```
+
+本番運転でR203Dのexact time-dependent generatorを使う場合、$p_t$ と $\pi^\delta(t)$ は同じMarkov evolutionを受けるため全変動距離のcontractivityから
+
+```math
+D_{\rm TV}
+\left(
+p_t,
+\pi^\delta(t)
+\right)
+\le
+\varepsilon_{\rm prep,G}.
+```
+
+generator実装誤差を
+
+```math
+\varepsilon_{\rm gen,G}
+=
+\sup_{0\le t\le T}
+\max_i
+\sum_{j\ne i}
+\left|
+k_{i\to j}^{\rm phys}(t)
+-
+k_{i\to j}^{64,G}(t)
+\right|
+```
+
+とすれば、R161の有限時間perturbation boundから
+
+```math
+\sup_{0\le t\le T}
+D_{\rm TV}
+\left(
+p_t^{\rm phys},
+\pi^\delta(t)
+\right)
+\le
+\varepsilon_{\rm prep,G}
++
+T\varepsilon_{\rm gen,G}.
+```
+
+終位置record誤差を $\varepsilon_{\rm rec}$ として
+
+```math
+\varepsilon_{64,G}(T)
+=
+\varepsilon_{\rm prep,G}
++
+T\varepsilon_{\rm gen,G}
++
+\varepsilon_{\rm rec}
+```
+
+をfinite-graph位置読出し誤差とする。
+
+### Y.6.3 R185への受渡し
+
 
 1次元canonical discrete M64はR185と同じ
 
@@ -796,7 +898,55 @@ mC_{185,a}a^2
 
 として力の誤差で管理する。有限 $\tau_U$ の実tracer自身の加速度誤差を直接評価するには位置密度の高階parabolic stabilityが必要であり、これはstrengtheningとする。
 
-### Y.6.3 R125の2頂点再結合器
+### Y.6.4 R124・R182・R125への位置読出し受渡し
+
+R124の3頂点有限障壁ではideal反対側増分が $\alpha>0$ である。固定背景 $q_i$ ならregularized lawは
+
+```math
+\pi_i^\delta(t)
+=
+\frac{p_i(t)+\delta q_i}{1+\delta}
+```
+
+なので
+
+```math
+\pi_R^\delta(T_{\rm bar})
+-
+\pi_R^\delta(0)
+=
+\frac{\alpha}{1+\delta}.
+```
+
+各時刻の位置読出し誤差が $\varepsilon_{64,G}$ 以下なら観測増分は
+
+```math
+\frac{\alpha}{1+\delta}
+-
+2\varepsilon_{64,G}
+```
+
+以上であり、$2\varepsilon_{64,G}<\alpha/(1+\delta)$ ならQ3-4Aの正の移送が残る。
+
+R182のW型有限差分graphではideal半周期増分が $2B_c>0$、一周期で $p(T_{\rm per})=p(0)$ である。同じregularizationにより
+
+```math
+\pi_R^\delta(T_{1/2})
+-
+\pi_R^\delta(0)
+=
+\frac{2B_c}{1+\delta},
+```
+
+```math
+\pi^\delta(T_{\rm per})
+=
+\pi^\delta(0).
+```
+
+従って $\varepsilon_{64,G}<B_c/(1+\delta)$ なら半周期の正の移送が残り、観測一周期回帰は全変動距離 $2\varepsilon_{64,G}$ 以内に保たれる。これがQ3-4Bのsingle-tracer位置読出しbridgeである。
+
+#### R125の2頂点再結合器
 
 R125の2頂点graphで
 
@@ -944,26 +1094,32 @@ m\|R_\delta\|_\infty
 mC_{185,a}a^2.
 ```
 
-**finite-graph/readout error** $\varepsilon_{64,G}$ はgraph jump-law実装、初期分布、終位置recordの全変動誤差として別管理する。
+**finite-graph/readout error** は
+
+```math
+\varepsilon_{64,G}(T)
+=
+\varepsilon_{\rm prep,G}
++
+T\varepsilon_{\rm gen,G}
++
+\varepsilon_{\rm rec}
+```
+
+としてgraph初期準備、jump-law実装、終位置recordを一度ずつ数える。
 
 $\delta$ はR203Aの辞書誤差として再加算せず、R185のregularizationとfinite-graph position lawに一度だけ入れる。Hamiltonian lift、finite bath、finite-bandwidth $R_U$、underdamped small-mass極はstrengthening用誤差として本台帳から分ける。
 
-## Y.8 現行主線との責務境界
+## Y.8 現行Q3主線
 
-R203A--R203Dにより、M64のpromotion前に必要だった次の四つのbridgeを解析的に閉じる。
+M64/R203A--R203DをQ3の現行粒子・Nelson主線とする。
 
-1. phase-volume reservoirからの有限時間initial tracer preparation。
-2. $U\to v_\delta$ のfinite-time tracking bound。
-3. canonical overdamped M64からR161/R185へのprocess reductionと二段誤差台帳。
-4. R161 finite graphを介するR125/Q3-5の2頂点接続。
+- Q3-1のSchrödinger型signalはM37/R86を達成証人とする。
+- Q3-2はM37/R86からR203A--R203C、R203D/R161、R185へ接続する。
+- Q3-4AはR124の3頂点signalをM64 finite-graph tracerへ接続する。
+- Q3-4BはR182のW型finite-difference signalをM64 finite-graph tracerへ接続する。
+- Q3-5はR125の2頂点再結合器をM64 finite-graph tracerへ接続する。
 
-これによりM64は固定目標用のpromotion-ready replacement candidateとする。ただし本更新だけでは現行主線を切り替えず、
+M60/R195--R199およびM61/R200はより複雑な旧Hamiltonian実装として現行主線から退役し、Git履歴に保存する。M64本体にはDuffing shell、ballistic lead、moving reflector、PN hoppingを要求しない。
 
-- M61/R200--M60/R198/R199/R196を現行Q3固定達成主線として維持する。
-- Q3-1/Q3-2の固定達成ラベルを変更しない。
-- M61/M60 required verifierを削除・降格しない。
-- M60/M61の退役とM64 required昇格は独立promotion PRで行う。
-
-A2 direct simulationは強化目標であり、固定目標用M64 promotionの必要条件とはしない。A1/A2の判定変更もpromotion auditで独立に行う。
-
-direct A2ではM37 signal、preparation stage、mean-flow relaxation、canonical overdamped tracerを同一parameter setで直接積分・標本化し、$U-v_\delta$、osmotic mean force、経験位置密度、finite-volume/finite-graph R161 connectionを検査する。
+A1/A2は固定目標とは独立に判定する。本昇格だけからA1/A2の状態を自動変更しない。A2 direct simulationではM37 signal、preparation stage、mean-flow relaxation、canonical overdamped tracerを同一parameter setで直接積分・標本化し、$U-v_\delta$、osmotic mean force、経験位置密度、finite-volume/finite-graph R161 connectionを検査する。

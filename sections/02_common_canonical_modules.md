@@ -1,7 +1,7 @@
 @number: 2
 @chapter: 本文
 @title: 有限モード信号系と共通正準モジュール
-@status: M54をQ1・Q2・Q3の共通有効信号--配置状態構成族、R161をQ3位置輸送の共通数学核とする。Q3の現行最深ミクロ物理実現はM61/R200A--R200C/R200、その共通縮約層はM60/R198A--R198D・R199A・R195A・R196A--R196Cとする。M64/R203A--R203Dは初期準備、finite-time tracking、R185、finite-graph R125まで閉じたpromotion-ready replacement candidateとして同じR161へ接続する。
+@status: M54をQ1・Q2・Q3の共通有効信号--配置状態構成族、R161をQ3位置輸送の共通数学核とする。Q3の現行物理実現はM37/R86 signalとM64/R203A--R203Dの三実体open modelとし、1次元R185およびfinite-graph位置読出しへ同じR161を介して接続する。
 
 ## 2.1 M54をQ1--Q3共通有効状態構成族とする範囲
 
@@ -11,7 +11,7 @@ M54は有限個の実正準対から得る信号、準備済み入力境界、�
 Z=\frac{Q+iP}{\sqrt{2\mathcal J_0}}
 ```
 
-とするが、$Z$ は独立した複素実体ではない。Q1/Q2では2結果射影作用をR191読出しinterfaceへ渡し、Q3ではM61/R200A--R200C/R200が単一Hamiltonian親模型を与え、M60のR198A--R198D/R197Aが2作用状態数と開始配置重みを与え、R199A・R196A--R196Cが同じ局在tracerをR161へ渡す。R161自身が有限状態のcanonical Markov経路法則まで定め、R162は同じ経路法則を独立Poisson random measuresで実現するoptional referenceとして使う。測定結果用の静的配置変数やR170専用pointerをM54共通状態へ置かない。
+とするが、$Z$ は独立した複素実体ではない。Q1/Q2では2結果射影作用をR191読出しinterfaceへ渡す。Q3ではM37/R86が空間signalを与え、M64/R203A--R203Dが同じsignalからcontinuous/finite-graph tracerをR161へ渡す。R161自身が有限状態のcanonical Markov経路法則まで定め、R162は同じ経路法則を独立Poisson random measuresで実現するoptional referenceとして使う。測定結果用の静的配置変数やR170専用pointerをM54共通状態へ置かない。
 
 概念上の共通状態を
 
@@ -30,7 +30,7 @@ Z=\frac{Q+iP}{\sqrt{2\mathcal J_0}}
 | Q2-2 | 4モード＋2物理測定端 | R181B/R181C、設定gate | A端R191、router、B端R191、R180A/R180C |
 | Q2-3 | 8モード永続記憶部 | R181Bを2回、R181C、R177 | R191逐次読出し、R181D |
 | Q2-4 | $2^n$ 直接モード | 根モード初期化、R181C | R191、R181D、非終端安全結果のR192、R179 reset |
-| Q3 | 空間信号＋局在tracer | 準備済み古典空間入力、M61単一Hamiltonian親模型＋M60縮約層 | R200A--R200C、R200、R195A、R196A--R196C、R161、R185 |
+| Q3 | 空間信号＋classical tracer | 準備済み古典空間入力、M37/R86、M64/R203A--R203D | R161、R185、R124、R182、R125 |
 
 M37はM54へ吸収しない。Q3では局所位置ばね網から空間信号を実装し、Q1ではR187の弱結合W型族に限って最低2正常モードをW2制御信号へ接続する。全系列を同一の製造済み装置・同一パラメータ・単一周期へ統合するM0は別の未完成目標である。
 
@@ -107,7 +107,7 @@ Z=\frac{Q+iP}{\sqrt{2\mathcal J_0}}
 
 入力境界は、結果確率表、Born重み、結果依存状態、規格化後の測定結果を外部から注入する許可ではない。境界以後の可逆発展、状態方向輸送、結果形成、射影結果成分受渡し、空間配置輸送は各現行結果から導く。入力誤差は、目標規格化第2モーメント $C_{\rm in}$ または目標単一試行信号に対する一つの $\varepsilon_{\rm in}$ として下流の誤差予算へ一度だけ入れる。
 
-Q1のM37--W2接続ではR187または固定線形正準接続端を用い、Q2-1--Q2-3の固定積入力はR181Bへ渡す。Q2-4はR181Bを一般 $n$ へ反復せず、R179の開放初期化後に定数次元供給源を $0^n$ 根モードへ接続する。Q3は準備済み空間信号からM37/R86とM61/R200A--R200C/R200を経てM60/R198A--R198D・R199A・R195A・R196A--R196Cの経路へ入り、R161のcanonical Markov経路法則を経てR185へ接続する。R162はこの経路法則のoptional independent-Poisson realizationとして比較用途にだけ残す。
+Q1のM37--W2接続ではR187または固定線形正準接続端を用い、Q2-1--Q2-3の固定積入力はR181Bへ渡す。Q2-4はR181Bを一般 $n$ へ反復せず、R179の開放初期化後に定数次元供給源を $0^n$ 根モードへ接続する。Q3は準備済み空間signalからM37/R86を経てM64/R203A--R203Dへ入り、continuous profileはR161/R185へ、finite-graph profileはR124/R182/R125の位置読出しへ接続する。R162はこの経路法則のoptional independent-Poisson realizationとして比較用途にだけ残す。
 
 旧R181Aの物理テンプレート、横方向排出、共通初期種からの状態方向吸引は数学的結果として退役記録へ保存する。そこに含まれていた方向不変の作用回復だけは、一般深さQ2-4に必要な独立機能としてR192へ切り出す。
 
@@ -382,7 +382,7 @@ X_t
 
 を意味する。Q1/Q2のR191測定pointerを空間粒子へ同一視する主張ではない。
 
-## 2.8 R161の共通整合・Markov経路法則とM60/R162の物理・参照実現
+## 2.8 R161の共通整合・Markov経路法則とM64/R162の物理・参照実現
 
 有限配置集合 $\mathcal I$ 上の正の時間依存確率分布 $\pi_i(t)>0$ を考える。辺ごとに反対称確率流と対称活動量
 
@@ -551,7 +551,7 @@ D_{\rm TV}
 T\varepsilon_{\rm gen}
 ```
 
-を満たす。この生成子同値により、R161より前段のミクロ実現を交換しても、同じcanonical位置経路法則とR185の縮約を共通に扱える。現行主線ではM61を最深Hamiltonian物理実現、M60をその縮約層とし、R199A・R196A--R196CでR161へ接続する。付録YのM64/R203Dは、1次元continuous profileではregularized smooth diffusionをR185と同一のfinite-volume R161 chainへ接続し、finite-graph profileではlocal phase-volume $R_i^\delta$、edge current $J_{ij}$、activity $T_{ij}^\delta$ から一般R161 rateを直接構成するpromotion-ready replacement candidateである。内部実体の一致でなく同じ $(\pi,j,t)$ とgenerator interfaceへの接続を比較基準とする。M64は四つのpromotion bridgeを閉じたが、本draftではまだ現行M61/M60実現を置換しない。R162はR161経路法則を独立Poisson random measuresでpathwiseに実現するoptional stochastic referenceとする。
+を満たす。この生成子同値により、R161より前段の物理実現を交換しても、同じcanonical位置経路法則とR185の縮約を共通に扱える。現行主線のM64/R203Dは、1次元continuous profileではregularized smooth diffusionをR185と同一のfinite-volume R161 chainへ接続し、finite-graph profileではlocal phase-volume $R_i^\delta$、edge current $J_{ij}$、activity $T_{ij}^\delta$ から一般R161 rateを直接構成する。内部実体の一致でなく同じ $(\pi,j,t)$ とgenerator interfaceへの接続を比較基準とする。M60/M61は旧Hamiltonian実現としてGit履歴に保存する。R162はR161経路法則を独立Poisson random measuresでpathwiseに実現するoptional stochastic referenceとする。
 
 <!-- theorem-start:theorem -->
 **定理（R162：R161経路法則の独立Poisson-jump実現）**
@@ -577,10 +577,10 @@ k_{i\to j}(t)
 
 である。従って周辺分布はR161の前向きmaster equationに厳密に従う。同じ前向き経路法則のBayes反転から得る後向き率はR161の $k^-$ と一致し、未来から作用する第2浴を必要としない。
 
-Poisson reservoirはR161 canonical経路法則の一つの明示的pathwise realizationである。現行Q3の基礎的ミクロ存在論はM60が担い、R198A--R198D/R197Aがstate-count側、R199A・R195A・R196A--R196Cがtransport側を担い、Q3-2とR185の論理依存はR161だけで閉じる。R162は比較、シミュレーション、開放Poisson実装の参照に用いる。有限衝突Hamiltonian列への持上げは強化結果として論文外メモへ分離する。R161の静的 $j=0$ 特殊化は数学的比較用に残すが、Q1/Q2の2結果読出し主線ではR191を使う。
+Poisson reservoirはR161 canonical経路法則の一つの明示的pathwise realizationである。現行Q3の物理存在論はM64の三実体が担い、Q3-2とR185の論理依存はR161だけで閉じる。R162は比較、シミュレーション、開放Poisson実装の参照に用いる。有限衝突Hamiltonian列への持上げは強化結果として論文外メモへ分離する。R161の静的 $j=0$ 特殊化は数学的比較用に残すが、Q1/Q2の2結果読出し主線ではR191を使う。
 <!-- theorem-end:theorem -->
 
-R161は静的・移動の率構成に加え、有限状態のcanonical Markov経路法則まで共通に保つ。現行Q3の物理主線はM60/R198A--R198D・R199A・R195A・R196A--R196Cであり、R162は同じ経路法則を持つoptional Poisson realizationとして残す。Q1/Q2の2結果測定はR161静的鎖を経由せずR191へ直接接続する。旧有限衝突実装は退役メモに保存する。
+R161は静的・移動の率構成に加え、有限状態のcanonical Markov経路法則まで共通に保つ。現行Q3の物理主線はM64/R203A--R203Dであり、R162は同じ経路法則を持つoptional Poisson realizationとして残す。Q1/Q2の2結果測定はR161静的鎖を経由せずR191へ直接接続する。旧有限衝突実装は退役メモに保存する。
 
 
 ### 2.8.2 R191：作用差駆動ブラウン巨視的スピン2結果射影読出し

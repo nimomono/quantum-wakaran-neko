@@ -4,7 +4,7 @@
 
 本論文の中心的な問いは、明示的な古典力学モデルから、量子力学に似た可逆操作、Born型測定統計、測定後状態、結合ゲート、Bell型共同統計、空間伝播がどこまで有効構造として現れるかである。複素振幅は独立した実体ではなく実正準信号の派生表示とし、単一試行の物理信号と試行集団の統計量を区別する。
 
-M54をQ1--Q3の共通有効信号構成族、M37を空間信号とW型低2モードの物理実装層とする。状態準備・可逆操作と、排他的な測定結果形成を同一視しない。Q1/Q2の2結果射影読出しはR191ブラウン巨視的スピンinstrumentを正本とし、Q3ではM61を単一時間非依存Hamiltonian親層、M60をそのcarrier/envelope・core/lead・moving-bath縮約層とする。Q3の信号部分系はQ1/Q2と別の代数ではなく、Q1型局所正準信号を空間配置しQ2型2体系結合を辺へ反復した特殊化として整理する。
+M54をQ1--Q3の共通有効信号構成族、M37を空間信号とW型低2モードの物理実装層とする。状態準備・可逆操作と、排他的な測定結果形成を同一視しない。Q1/Q2の2結果射影読出しはR191ブラウン巨視的スピンinstrumentを正本とし、Q3ではM37/R86をsignal実装、M64/R203A--R203Dを粒子・Nelson open modelの正本とする。Q3の信号部分系はQ1/Q2と別の代数ではなく、Q1型局所正準信号を空間配置しQ2型2体系結合を辺へ反復した特殊化として整理する。
 
 Q1/Q2の測定主線は
 
@@ -55,30 +55,13 @@ P(r,s\mid x,y)
 
 一重項型信号では余弦共同統計、非信号性、CHSH/Tsirelson値を回収する。A結果成分がB端へ物理的に渡るため、現行証人はBell局所因子化を満たす空間分離模型ではない。自由設定・空間分離・loophole-free Bell実験の古典局所説明を現行証人から主張しない。測定窓内の因果隔離をどこまで強められるかはQ2-2-Sで別に監査する。
 
-Q3の信号部分系はQ1/Q2と別の代数ではない。Q1で使うものと同じ局所実正準モードを有限配置グラフの頂点へ置き、Q2で用いるのと同型の2体系エルミート結合を辺へ反復すると、グラフLaplacian型の空間伝播と反対称確率流が生じる。R195Aは各辺の信号をchiral作用 $I_\pm$ へ局所変換し、その和から局所密度、差からsignal currentとedge velocityを厳密に得る。2作用状態数とosmotic free energyはM60のR198A--R198D/R197Aが担い、$\pi_i\propto|Z_i|^2$ へ接続する。
+Q3の信号部分系はQ1/Q2と別の代数ではない。Q1で使うものと同じ局所実正準モードを有限配置グラフの頂点へ置き、Q2で用いるのと同型の2体系エルミート結合を辺へ反復すると、グラフLaplacian型の空間伝播と反対称確率流が生じる。M37/R86がこのSchrödinger型signalを古典実振動子網から有限時間で実装する。
 
-Q3の粒子位置形成・輸送はQ1/Q2の測定結果形成とは別の因果鎖である。
+Q3の粒子位置形成・輸送はM64/R203A--R203Dが担う。単一試行の実体はM37型classical coherent signal、一つのclassical tracer、一つのsignal-driven thermal reservoirの三つである。R203Aはregularized density/current dictionary、R203Bはphase-volume free energy・continuous/finite-graph initial preparation・finite-time mean-flow tracking、R203Cはcanonical overdamped tracerからideal regularized diffusionへの縮約、R203Dは1次元R161/R185と一般finite-graph R124/R182/R125位置読出しへの接続を与える。
 
-```math
-Z
-\xrightarrow{\mathrm{R195A}}
-(R,I_+,I_-)
-\xrightarrow{\mathrm{R199A\ lead}}
-(e_+,e_-)
-\xrightarrow{\mathrm{R196A}}
-(R,U_{\rm bath})
-\xrightarrow{\mathrm{R196B}}
-X_t
-\xrightarrow{\mathrm{R196C/R161}}
-L_{\rm R161}
-\xrightarrow{\mathrm{R185}}
-\text{Nelson / time-symmetric Newton}.
-```
+Q3-2の現行因果鎖は、M37/R86 signalからM64/R203A--R203Cへ進み、R203D/R161を介してR185のNelson型・時間対称Newton則へ接続する。
 
-R200CはM37 signalとM60 chiral sectorを一つのmultiband媒体へ載せ、R200Aはmoving branch converterをHamiltonian化し、R200Bは内部harmonic continuumからrelative-coordinate GLE/FDTを導く。R199AはM60の同一chiral媒体からballistic leadを有限時間で分離してincident energyへ接続し、R196Aはそのwave pressureだけでmoving bath frameを作る。chiral媒体のthermalizationをleadへ課したり、drifting-Gibbsや非平衡FDTを仮定したりしない。R196Bでは別の平衡oscillator bathだけにFDTを適用し、periodic homogenizationを経て $D=\nu$、$j/\rho+O(a^2)$、$\nu\partial_x\log\rho$ を得る。R196Cはwell-index generatorをR161へ有限誤差で接続する。
-
-
-付録YのM64/R203A--R203Dは、Q3のpromotion-ready置換候補として存在論をさらに単純化する。単一試行の実体をM37型classical coherent signal、一つのclassical tracer、一つのsignal-driven thermal reservoirの三つに限定する。R203Bはsignal densityによるreservoir phase-volume scalingから $F_{\rm res}=-k_BT\log r_X^\delta+\mathrm{const}$ を与え、同じreservoirのmean flowをregularized current velocityへ有限時間で追跡させる。R203Bは同じphase volumeからinitial tracer分布も有限時間で準備する。R203Cはcanonical overdamped tracerをideal regularized diffusionへ有限時間で縮約し、R203Dは1次元でR185と同じR161 activityへ、一般finite graphでR125の2頂点再結合器へ接続する。四つのpromotion bridgeは解析的に閉じたが、本draftでは現行M61/M60主線、固定達成・強化判定を変更しない。
+M60/M61のDuffing shell、chiral-medium、ballistic lead、single-Hamiltonian parentはより複雑な旧Hamiltonian実装として現行主線から退役し、Git履歴に保存する。固定達成・条件付き達成ラベルはM64主線へ根拠を移して維持する。A1/A2は固定目標と独立に監査し、本昇格だけから自動的に状態を変更しない。
 
 R162のopen Poisson-jump過程はQ3の基礎的実体ではなく、その理想jump lawを表す参照過程として残す。R185は同じ前向き経路法則のBayes反転からNelson型の前進・後退平均微分と時間対称Newton則へ接続する。
 

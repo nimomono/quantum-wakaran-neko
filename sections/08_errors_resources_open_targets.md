@@ -1,7 +1,7 @@
 @number: 8
 @chapter: 本文
 @title: 誤差、資源、反証条件、未完成目標
-@status: Q1/Q2のR191系と、Q3のM61--M60--R161--R185階層を横断して誤差・資源・反証条件を整理する。M61固有誤差はM60既存誤差へ重複加算しない。M64/R203はactive replacement candidateとして独立の誤差台帳を管理する。
+@status: Q1/Q2のR191系と、Q3のM37/R86--M64/R203A--R203D--R161--R185階層を横断して誤差・資源・反証条件を整理する。M64ではprocess reduction、Newton residual、finite-graph readoutを責務別に管理する。
 
 
 ### R191の2結果読出し誤差と資源
@@ -25,7 +25,7 @@ Q1/Q2の2結果主線では、1ノードの読出し誤差を
 4. R180Cの積因子化誤差を各翼の局所R191誤差へ吸収した上で再び加える。
 5. 無反応質量を理想分布差と実装失敗へ2回加える。
 6. 同じ準備済み入力偏差を $\varepsilon_{\rm in}$、R135の初期共分散誤差、系列固有の入力誤差へ重ねて入れる。
-7. M60では同じM37/R86 carrier偏差を $\varepsilon_{86}$ とballistic-port誤差へ二重に入れず、同じmoving-frame追従偏差を $\varepsilon_{\rm prop}$、$\varepsilon_{\rm track}$、$\varepsilon_{\rm load}$ へ重複加算しない。平衡bathのGLE/FDT誤差とperiodic homogenization誤差も導出箇所ごとに一度だけ数える。
+7. M64ではinitial preparation、current dictionary、mean-flow tracking、density interpolation、process reductionを導出箇所ごとに一度だけ数える。$\delta$ をcurrent-dictionary誤差とR185 regularizationへ二重に加算せず、process-law errorとNewton force residualを単純加算しない。
 
 全ての理想分布と実分布は同じ完全結果集合へ埋め込む。成功試行だけで再規格化しない。
 
@@ -226,123 +226,9 @@ $\bar\varepsilon_k$ には第 $k$ nodeの射影作用保持、R191、R181D route
 
 理想一重項共同分布との全変動距離が $\varepsilon_{180}$ 以下なら、各周辺事象の確率差は $\varepsilon_{180}$ 以下、各二値相関の差は $2\varepsilon_{180}$ 以下、CHSH値の差は $8\varepsilon_{180}$ 以下である。A結果成分をB端へ物理的に渡すため、Bell局所factorizationまたは空間分離を誤差ゼロ極限の主張へ追加しない。
 
-## 8.7 Q3のM60 transport--R161--R185誤差
+## 8.7 Q3のM64--R161--R185誤差
 
-Q3の現行ミクロ物理層はM60である。R198A--R198D/R197Aが2-action state countとosmotic free energy、R195Aがsignal current、R199Aが同一chiral媒体のballistic lead、R196Aがmoving bath frame、R196Bが平衡Brownian tracer、R196Cがwell-index generatorからideal R161への有限時間matchingを担う。固定有限時間 $0\le t\le T$ で
-
-```math
-\varepsilon_{\rm tr}^{60}
-=\sup_{t\le T}
-\max_i\sum_{j\ne i}
-|k_{i\to j}^{60}(t)-k_{i\to j}^{161}(t)|
-```
-
-とし、node-free safe sectorで
-
-```math
-\boxed{
-\varepsilon_{\rm tr}^{60}
-\le C_{\rm tr}^{60}\left[
-\varepsilon_{86}
-+\varepsilon_{\rm shell}
-+\varepsilon_{\rm port}
-+\varepsilon_{\rm prop}
-+\varepsilon_{\rm track}
-+\varepsilon_{\rm load}
-+\varepsilon_{\rm GLE}
-+\varepsilon_{\rm od}
-+\varepsilon_{\rm hom}
-+\varepsilon_{\rm EK}
-+\varepsilon_{\rm back}
-+a^2
-\right].
-}
-```
-
-ここで $\varepsilon_{86}$ はM37/M54 signal carrier、$\varepsilon_{\rm shell}$ は有限2作用殻、$\varepsilon_{\rm port}$ はchiral modeからballistic wave energyへの有限band coupling、$\varepsilon_{\rm prop}$ は伝播遅延・dispersion、$\varepsilon_{\rm track}$ はbath-frame carrierの有限追従、$\varepsilon_{\rm load}$ はtracerからcarrierへの反作用、$\varepsilon_{\rm GLE}$ は平衡oscillator bathからMarkov GLEへの縮約、$\varepsilon_{\rm od}$ は慣性消去、$\varepsilon_{\rm hom}$ はperiodic homogenization、$\varepsilon_{\rm EK}$ はmetastable well-index近似、$\varepsilon_{\rm back}$ はsignalへのpassive tap反作用である。最後の $a^2$ は $\mathcal A=4\beta_*(r)$ によるnative smooth-grid current correctionであり、finite-grid exact matchingを外部servoで作らない。
-
-R161実現同値から
-
-```math
-\sup_{t\le T}
-D_{\rm TV}(p_t^{60},p_t^{161})
-\le T\varepsilon_{\rm tr}^{60}.
-```
-
-R185のnode-free 1次元有限格子評価へ渡すと
-
-```math
-\varepsilon_{Q3-2}
-\leq
-T\varepsilon_{\rm tr}^{60}
-+
-m\|R_\delta\|_\infty
-+
-mC_{185,a}a^2.
-```
-
-同じ $a^2$ がR196Cの物理generator matchingとR185有限差分に別の起源で現れるため係数を同一視せず、各導出箇所で一度だけ数える。
-
-M61からM60への追加持上げ誤差を
-
-```math
-\varepsilon_{61\to60}
-=
-\varepsilon_{\rm mb}
-+\varepsilon_{\rm port}^{61}
-+\varepsilon_{\rm sc}
-+\varepsilon_{\rm ret}
-+\varepsilon_{D\chi}
-+\varepsilon_{\rm thload}
-```
-
-とし、
-
-```math
-\varepsilon_{\rm tr}^{61}
-\le
-\varepsilon_{\rm tr}^{60}
-+C_{61}(T)\varepsilon_{61\to60}
-```
-
-とする。R200Bのexact GLEはR196Bの $\varepsilon_{\rm GLE}$ へ再加算せず、Markov/overdamped/homogenization誤差だけをR196B側で数える。返り波 $\varepsilon_{\rm ret}$ もR199A drive誤差と二重に数えない。R188の有限サンプリング加速度誤差は必要な場合だけ追加する。
-
-現行M60 transport sectorの代表的fast-sector条件は
-
-```math
-\tau_p\ll T_{\rm sig},
-\qquad
-\lambda_Y^{-1}\ll T_{\rm sig},
-\qquad
-\tau_X=\frac{M_X}{\gamma_X}\ll T_{\rm sig},T_{\rm well},
-```
-
-である。中心matchingは
-
-```math
-D_0=\frac\nu{g_K},
-\qquad
-g_Kc=\frac{4\nu}{a}.
-```
-
-weak family
-
-```math
-\kappa_p,M_e=O(\epsilon^2),
-\qquad
-\gamma_X,k_BT=O(\epsilon^4),
-\qquad
-M_X=O(\epsilon^6)
-```
-
-ではtracking rateと $D_0$、$g_K$ を固定したままsignal backreactionとtracer loadingを $O(\epsilon^2)$ へ下げられる。条件を満たすwitnessを `tools/verify_m57_ballistic_tracer.py` で検査する。
-
-旧draft-95の $\varepsilon_{\rm mix}$、$\varepsilon_{\rm corr}$、TLへの $\varepsilon_{\rm FDT}$ は現行M60 transport誤差台帳から削除する。旧R184の $\varepsilon_{184}$ は撤回しないがM60主線では使わない。R162はideal R161 jump referenceでありM60の基礎的bath誤差として数えない。
-
-
-### M64 promotion-ready candidateの誤差境界
-
-M64/R203A--R203Dでは、確率過程の縮約誤差と時間対称Newton則の力残差を単一の総誤差へ加算しない。
+Q3の現行particle/Nelson物理層はM64/R203A--R203Dである。continuous profileでは、initial preparation、regularized current dictionary、finite-time mean-flow tracking、density interpolationを経てcanonical overdamped tracerをideal regularized diffusionへ接続する。
 
 initial preparationは
 
@@ -356,7 +242,7 @@ e^{-\lambda_{\rm prep}T_{\rm prep}}
 \varepsilon_{\rho,0}
 ```
 
-で管理する。R203A/Bのcurrent dictionaryとfinite-time flow trackingは
+で管理する。current dictionaryとfinite-time flow trackingは
 
 ```math
 \varepsilon_{\rm track}
@@ -372,10 +258,10 @@ e^{-\lambda_{\rm prep}T_{\rm prep}}
 \varepsilon_{\rm track}
 +
 C_{\rm int}a^2
-\|\partial_x^2v_\delta\|_\infty
+\|\partial_x^2v_\delta\|_\infty.
 ```
 
-とする。canonical overdamped M64からideal regularized diffusionへのdrift errorは
+canonical overdamped M64からideal regularized diffusionへのdrift errorは
 
 ```math
 \varepsilon_{\rm drift}^{64}
@@ -396,9 +282,9 @@ e^{L_bT}\varepsilon_{\rm prep}^{W_1}
 \varepsilon_{\rm drift}^{64}
 ```
 
-で評価する。
+で評価する。$L_b=0$ の場合は第2項を $T\varepsilon_{\rm drift}^{64}$ と読む。
 
-一方、R203Dの1次元canonical R161 chainはR185と同じ $(\pi^\delta,j^\delta,t^\delta)$ を用いるので、effective processのNewton残差は
+R203Dの1次元canonical R161 chainはR185と同じ $(\pi^\delta,j^\delta,t^\delta)$ を用いる。従ってeffective processの時間対称Newton残差は
 
 ```math
 \varepsilon_{\rm Newt}^{185}
@@ -408,9 +294,47 @@ m\|R_\delta\|_\infty
 mC_{185,a}a^2
 ```
 
-と別に管理する。$\varepsilon_{\rm red}^{64}$ と $\varepsilon_{\rm Newt}^{185}$ は次元も意味も異なるため単純加算しない。
+であり、$\varepsilon_{\rm red}^{64}$ と単純加算しない。前者はprocess-law metric、後者は力の残差であり、次元と責務が異なる。
 
-finite-graph profileではR203Dのlocal $R_i^\delta,J_{ij},T_{ij}^\delta$ からR161 rateを構成する。Q3-5の2頂点特殊化では各runのtransport・record誤差を $\varepsilon_{64,G}$ とし、
+finite-graph profileではinitial preparation、generator実装、終位置recordを
+
+```math
+\varepsilon_{64,G}(T)
+=
+\varepsilon_{\rm prep,G}
++
+T\varepsilon_{\rm gen,G}
++
+\varepsilon_{\rm rec}
+```
+
+として一度ずつ数える。固定背景 $q_i$ に対するregularizationでは、R124の反対側増分、R182の半周期増分、R125の2経路分布距離がそれぞれ
+
+```math
+\frac{\alpha}{1+\delta},
+\qquad
+\frac{2B_c}{1+\delta},
+\qquad
+\frac{1}{2(1+\delta)}
+```
+
+の正の余裕を持つ。従って十分条件は
+
+```math
+2\varepsilon_{64,G}
+<
+\frac{\alpha}{1+\delta}
+```
+
+for Q3-4A、
+
+```math
+\varepsilon_{64,G}
+<
+\frac{B_c}{1+\delta}
+```
+
+for Q3-4B、
 
 ```math
 \varepsilon_{64,G}
@@ -418,9 +342,9 @@ finite-graph profileではR203Dのlocal $R_i^\delta,J_{ij},T_{ij}^\delta$ から
 \frac{1}{4(1+\delta)}
 ```
 
-ならR125のcoherent/mixed差と相対位相差がともに正に残る。
+for Q3-5である。R182のideal一周期回帰はregularization後も厳密に保たれ、観測分布の一周期回帰誤差は $2\varepsilon_{64,G}$ 以下である。
 
-$\delta$ はR203Aの辞書誤差へ再加算せず、R185 regularizationとfinite-graph位置分布に一度だけ数える。Duffing shell/core mixing、ballistic lead、moving-reflector、periodic homogenization、Eyring--Kramers hoppingに固有のM60誤差はM64へ移さない。single-field Hamiltonian lift、finite bath、finite-bandwidth $R_U$、underdamped small-mass極、実M64 tracer自身の高階加速度安定性はstrengtheningへ分離する。
+$\delta$ はR203Aの辞書誤差へ再加算せず、R185 regularizationとfinite-graph位置分布に一度だけ数える。M60/M61に固有だったDuffing shell、core mixing、ballistic lead、moving reflector、periodic homogenization、Eyring--Kramers、single-Hamiltonian liftの誤差は現行M64台帳へ移さない。finite-bandwidth/Hamiltonian lift、underdamped small-mass極、実M64 tracer自身の高階加速度安定性はstrengtheningへ分離する。
 
 ## 8.8 静的分布の整合の正則化資源発散
 
@@ -469,7 +393,7 @@ c_{\rm ap}
 }.
 ```
 
-したがって $\nu c_{\rm ap}=\kappa_Xa_{ij}$ の校正では最悪試行frequencyが $O(\delta^{-1/2})$ まで増大し得る。この資源評価はR190作用殻型代替経路のものであり、M60 Q3主線のchiral-medium transport資源と重複計上しない。
+したがって $\nu c_{\rm ap}=\kappa_Xa_{ij}$ の校正では最悪試行frequencyが $O(\delta^{-1/2})$ まで増大し得る。この資源評価はR190作用殻型代替経路のものであり、M64 Q3主線の資源と重複計上しない。
 
 ## 8.9 Q2の根拠モデル、共通ハードウェア努力目標、ブラックボックス資源分類
 
@@ -545,11 +469,11 @@ Q2-4は条件付き達成を維持する。残る条件は、静的部分系配�
 | M37/R86・R135 | 有限時間包絡上界または第2モーメント持上げ上界を超える |
 | R182 | W型固定低位スペクトル・密度・節が格子収束しない、Rayleigh十分条件から障壁下二重項が得られない、関数計算の共有固有空間または分裂相対上界を破る、中央障壁込み半周期鏡映・一周期回帰が成立しない |
 | R161 path law | 固定有限時間で $M_T=\sup_{t\leq T}\max_i\sum_{j\ne i}k^+_{i\to j}(t)<\infty$ を満たさず、finite-state canonical Markov経路法則の非爆発性を保証できない |
-| M61/R200A--R200C/R200・M60/R198A--R198D・R199A・R195A・R196A--R196C | 単一HamiltonianからM60へ有限誤差で接続できない、またはchiral作用/current恒等式を満たさない、passive ballistic portの有限誤差境界が閉じない、moving-reflector fixed pointが一意安定でない、$\tau_p$ または $\lambda_Y^{-1}$ をsignal時間から分離できない、平衡bath GLE/overdamped/homogenizationが制御できない、weak-loading familyが空、またはR196Cのmetastable generatorがR161へ有限誤差で接続しない |
+| M64/R203A--R203D | signal density/current dictionaryが閉じない、phase-volume partitionまたはinitial preparationが成立しない、$U$ のfinite-time trackingを制御できない、canonical overdamped tracerをideal regularized diffusionへ有限時間で縮約できない、finite-graph ratesの非負性・current matching・初期準備が破れる、またはR161/R185・R124/R182/R125への誤差受渡しが閉じない |
 | R161/R162 ideal reference | R161率の非負性またはmaster equation整合が破れる、あるいはR162 ideal open-jump生成子がR161率と一致しない |
-| Q3-2 | 時間対称Newton則を縮約前に仮定する、M60からR161前向き経路法則へ有限誤差で接続できない、同じ前向き経路法則からBayes後退率を構成できない、またはR185の $C_{185,a}a^2+O(\delta)$ 評価を破る |
+| Q3-2 | 時間対称Newton則を縮約前に仮定する、M64からideal regularized process/R161へ有限時間で接続できない、同じ前向き経路法則からBayes後退率を構成できない、またはR185の $C_{185,a}a^2+O(\delta)$ 評価を破る |
 | Q3-3C | W型低位スペクトルの格子・領域収束を示せない、または同じ固有基底で環境との弱結合を縮約した有限時間純位相緩和と対角占有率保存を閉じられない |
-| Q3-4B | 2モード作用比を空間領域占有率へ同一視する、外部駆動・傾斜切替・障壁低下を使う、最低二重項の障壁値未満条件、第3状態との間隔、半周期移送、一周期回帰、M60位置読出しのいずれかを欠く |
+| Q3-4B | 2モード作用比を空間領域占有率へ同一視する、外部駆動・傾斜切替・障壁低下を使う、最低二重項の障壁値未満条件、第3状態との間隔、半周期移送、一周期回帰、M64位置読出しのいずれかを欠く |
 | Q3-6 | 単価性または整数巻数を外部条件として置く、非整数モノドロミーを丸めて除く、節を介した位相すりと細分化安定性を同じ構成で扱えない |
 | R168 | 可変作用集団で状態方向平均を第2モーメントへ補正なしに置換する、安全事象外を再規格化して消す |
 | R170 | 混合上界、選択平坦域への収集、固定後保持、履歴単射性、正の処理時間のいずれかを満たさない |
@@ -567,7 +491,7 @@ Q2-4は条件付き達成を維持する。残る条件は、静的部分系配�
 
 A1ではHamiltonian無限浴だけでなく、規約と共分散を明示したLangevin型SDEその他の採用開放ミクロ方程式を認め、理想白色雑音を許す。A2では採用したミクロODE/SDEそのものを直接計算する。理想白色雑音を使うQ1/Q2模型を回路へ移す場合、B2/B3では有限帯域雑音源と時間尺度分離を明示する。
 
-従来からのQ1/Q2完全周期収支、R180Cの共通浴統合、M61/M60 common process--時計--終位置記録--resetの単一反復周期統合、連続空間一様極限、多粒子拡張、全周期の有限閉鎖Hamiltonian化は、A/B/Sを横断する上位または系列固有の実装強化課題として保持する。R162を特定Hamiltonian浴から再導出することはM60主線の要件ではない。旧R162有限衝突経路、旧R188、旧R179部分SWAP貯蔵部、旧R178D有限閉鎖リセット境界は撤回せず、有限閉鎖実装を調べる強化結果として論文外メモへ保存する。
+従来からのQ1/Q2完全周期収支、R180Cの共通浴統合、M64 common process--時計--終位置記録--resetの単一反復周期統合、連続空間一様極限、多粒子拡張、全周期の有限閉鎖Hamiltonian化は、A/B/Sを横断する上位または系列固有の実装強化課題として保持する。R162を特定Hamiltonian浴から再導出することはM64主線の要件ではない。旧R162有限衝突経路、旧R188、旧R179部分SWAP貯蔵部、旧R178D有限閉鎖リセット境界は撤回せず、有限閉鎖実装を調べる強化結果として論文外メモへ保存する。
 
 Q1-1、Q1-2、Q3-1、Q3-2、Q3-3A、Q3-3B、Q3-3Cは達成、Q2-1、Q2-2、Q2-3、Q2-4、Q3-4A、Q3-4B、Q3-5は条件付き達成、Q3-6は未達である。
 
@@ -586,38 +510,3 @@ Q1-1、Q1-2、Q3-1、Q3-2、Q3-3A、Q3-3B、Q3-3Cは達成、Q2-1、Q2-2、Q2-3�
 B.5の漏れ確率を全変動距離へ直接加える旧評価は採用しない。R143の誤差和では、実際の全状態または分布比較を満たす $\varepsilon_{2m}$ を使う。理想2準位信号系のQ1-1達成と、全W型・M37実装の任意精度強化は分ける。全W型測定の誤差予算もこの追加条件に依存する。
 
 優先順は、物理係数の対応、静的Rabi、有限傾斜列、準備・読出し境界、共同信号系への接続、同一装置の統合である。ゲート列からの有効伝播は補助実装として研究メモで管理し、Q3全過程の独立導出とは呼ばない。
-
-### M58共通模型の追加誤差台帳
-
-Q3-1側のsignal誤差を
-
-```math
-\varepsilon_{\rm sig}^{58}
-=\varepsilon_{86}
-+\varepsilon_{\rm port\to sig}
-+\varepsilon_{\rm sh\to sig}
-```
-
-とまとめる。Q3-2側では同じ上流誤差を二重計上せず、
-
-```math
-\begin{aligned}
-\varepsilon_{58}
-\leq C_{58}(&
-\varepsilon_{\rm sig}^{58}
-+\varepsilon_{\rm width}
-+\varepsilon_{\rm sh,av}
-+\varepsilon_{\rm port}
-+\varepsilon_{\rm prop}
-+\varepsilon_{\rm track}\\
-&+\varepsilon_{\rm load}
-+\varepsilon_{\rm GLE}
-+\varepsilon_{\rm od}
-+\varepsilon_{\rm hom}
-+\varepsilon_{\rm EK}
-+a^2)
-\end{aligned}
-```
-
-とする。R197により $D_{\rm TV}(p_t^{58},p_t^{161})\leq T\varepsilon_{58}$ であり、R185の $O(\delta)$ 正則化残差と $C_{185,a}a^2$ はその下流で別に数える。
-

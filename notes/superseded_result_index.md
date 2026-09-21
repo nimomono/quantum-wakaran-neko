@@ -60,6 +60,18 @@ R195Aのchiral作用・状態数恒等式は保持し、signal current velocity�
 | R148、R151 | singlet交差モーメントと安全盆routing | M48設定前・切断面準備へ吸収 | R153、付録D・I |
 | R149、R154、R156、R166 | 理想Bell応答、2翼局所合成、帰還、条件付き因子化 | 完全Bell周期の節と補題へ吸収 | R155、付録D・I・J |
 
+## draft-112で退役したQ3 Hamiltonian主線
+
+M64/R203A--R203Dを現行Q3 particle/Nelson open modelへ昇格したため、M60/M61固有結果を現行論文の必須依存から外した。これは反証ではなく、固定目標に対してより短いopen-model主線へ責務を縮約したための退役である。
+
+| 結果 | 旧用途 | 現行の扱い | 参照先 |
+|---|---|---|---|
+| R195A、R196A--R196C | chiral current、moving reflector、GLE/homogenization、metastable R161 transport | M64/R203A--R203Dへ置換 | draft-98--draft-111 Git履歴 |
+| R197、R197A--R197C | M37 signalとM60 particleの共通模型・負荷安定性 | Q3-1はM37/R86、Q3-2はM64へ責務分離 | draft-101 Git履歴 |
+| R198A--R198D | Duffing 2-action shell、有限reservoir、mixing window | M64/R203Bのphase-volume reservoirへ置換 | draft-102--draft-111 Git履歴 |
+| R199A、R199B | chiral-medium core/ballistic lead同時windowと統合強化 | 現行固定主線から退役 | draft-103--draft-111 Git履歴 |
+| R200A--R200C、R200 | M61 single-Hamiltonian parentからM60への持上げ | finite-Hamiltonian liftの旧強化経路として退役 | draft-105--draft-111 Git履歴 |
+
 ## 吸収済みモデルID
 
 | モデル | 旧用途 | 現行の扱い | 参照先 |
@@ -76,6 +88,8 @@ R195Aのchiral作用・状態数恒等式は保持し、signal current velocity�
 
 | モデル | 旧用途 | 現行の扱い | 参照先 |
 |---|---|---|---|
+| M61 | M37 signal、chiral sector、moving converter、harmonic bathを統合するsingle-Hamiltonian Q3親模型 | draft-112でM64 open modelを現行主線へ採用したため退役。有限Hamiltonian liftを再検討する際の旧強化経路としてGit履歴に保存 | draft-105--draft-111 Git履歴 |
+| M60 | Duffing shell、統一chiral媒体、ballistic lead、moving-bath tracerからなるQ3共通縮約模型 | draft-112でM64/R203A--R203Dへ置換し現行正本から退役 | draft-101--draft-111 Git履歴 |
 | M49 | 4モードprogram担体、行分解bath、二粒子位置によるQ2-1 CNOT供給 | 固定benchmarkは撤回せず退役。4mode自体でなく入力別template、外部routing、破壊的decode、閉じないinterfaceを不採用とし、Q2-1はM54/R181B--R181Dへ再構築 | `superseded_m49_joint_bath_cnot_provider.md`、draft-62のGit履歴 |
 | M48 | 独立setting-pre paired-Hopf Bell protocol | paired-Hopf機構とBell監査はR180へ継承し、独立fair seedと集団交差momentを現行sourceから外す。Q2-2はM54/R180 receiverへ置換 | `superseded_independent_m48_bell_protocol.md`、draft-65のGit履歴 |
 

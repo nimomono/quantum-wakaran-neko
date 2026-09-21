@@ -16,12 +16,4 @@ candidate結果が正本の必須依存になった時点で、十分に安定�
 
 candidateであっても本文や状態文書を文字列検査してはならず、数学・数値だけを検査する。
 
-M64 promotion bridge checks:
-
-- `verify_m64_reservoir_partition.py`: phase-volume partition identity.
-- `verify_m64_preparation_tracking.py`: initial preparation and finite-time mean-flow tracking.
-- `verify_m64_overdamped_reduction.py`: canonical regularized overdamped flux identity.
-- `verify_m64_r161_finite_volume.py`: 1D regularized finite-volume R161 convergence.
-- `verify_m64_graph_r161.py`: general finite-graph R161 positivity/current matching and R125 regularized distances.
-
-These remain candidate checks until the separate M64 promotion audit; they do not by themselves establish A2.
+M64/R203A--R203Dはdraft-112で現行正本へ昇格し、対応する科学検算は `tools/verify_m64_*.py` のrequired checksへ移した。
