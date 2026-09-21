@@ -127,7 +127,10 @@ Q3-1-A2/Q3-2-A2は未監査のままとする。direct SDE trajectory、標本�
 
 M0は、複数の固定目標にまたがる主要自由度と物理接続端を1つのjoint microscopic device/processと共通反復周期へ統合する、A1より強い統合目標として区別する。M0はA1と同様に、規約を満たす開放古典ミクロ方程式を基本方程式として直接定めることを許し、Hamiltonian無限浴への持上げを必須にしない。各固定目標についてA1を達成することだけではM0達成としない。
 
+## M65/R204 canonical open model と強化実現
 
-## M65/R204 replacement candidate の扱い
+M65/R204A/R204D/R204E/R204Fのopen selector核は正本へ昇格する。採用open Markov方程式そのものを基本方程式として直接定めるため、R204Bのphase-volume chamberとR204CのHamiltonian--Brownian liftをM65正本性やfixed-goal判定の必要条件にしない。
 
-draft-114ではQ1/Q2のA1/B1候補としてM65/R204A--R204Fを追加するが、強化目標の判定は変更しない。R204A/R204B/R204D/R204E/R204Fの解析核とcandidate verifierは、R191/R193置換の見込みを検査するためのものとする。A1/B1判定を進める条件はR204CのHamiltonian--Brownian chamber縮約を具体parameter familyで閉じること、B2/B3では有限帯域bath・幾何公差・直接Brownian trajectoryを監査することとする。Q2-4ではM65固有readout timeが多項式となる候補条件を得るが、R186の指数mode additive-noise/precision障害は独立に残る。
+R204B/R204C、finite-bandwidth bath、direct Brownian chamber trajectory、具体回路化は追加のA2/B系・横断強化として扱う。M65正本化だけからQ1/Q2のA1/A2/B1/B2/B3状態を自動的に変更しない。A1へM65を採用する場合も、各固定目標の主要因果鎖全体を一つの具体模型として閉じる必要がある。
+
+Q2-4についてM65固有readout時間は多項式条件を持つが、R186の指数mode additive-noise/precision障害は独立に残る。
