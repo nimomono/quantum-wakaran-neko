@@ -99,7 +99,7 @@ Q2-2-Sの主要な到達目標は、Bell型共同統計を維持したままS2�
 | Q2-2 | 未監査 | 未監査 | 未監査 | 未監査 | 未監査 | 未監査 | R180A、R180C、R191 |
 | Q2-3 | 未監査 | 未監査 | 未監査 | 未監査 | 未監査 | — | M54、R177、R181B--R181D、R191 |
 | Q2-4 | 未監査 | 未監査 | 未監査 | 未監査 | 未監査 | — | M54、R179、R181C--R181D、R186、R191、R192 |
-| Q3-1 | 部分達成 | 未監査 | — | — | — | — | M37、R86、M64、R203A--R203B |
+| Q3-1 | 部分達成 | 未監査 | — | — | — | — | M37、R86 |
 | Q3-2 | 部分達成 | 未監査 | — | — | — | — | M37、R86、M64、R203A--R203D、R161、R185 |
 | Q3-3A | 未監査 | 未監査 | — | — | — | — | M37、R123 |
 | Q3-3B | 未監査 | 未監査 | — | — | — | — | M37、R123 |
@@ -111,7 +111,7 @@ Q2-2-Sの主要な到達目標は、Bell型共同統計を維持したままS2�
 
 ここで「主な既存候補」は強化目標の達成を意味せず、新基準を監査するときの出発点だけを示す。
 
-Q3-1-A1とQ3-2-A1の現行候補はM37/R86とM64/R203A--R203Dである。M64は固定目標用Q3主線へ昇格するが、強化目標A1は独立基準なので本draftでは部分達成を維持する。今後は、採用open mean-flow law、finite-graph jump law、signal--reservoir couplingをA1の「一つの具体的物理模型」としてどこまで閉じているかを独立に監査する。旧M60/M61固有のcore mixing、core--lead window、single-Hamiltonian parentはA1現行残件から外す。
+Q3-1-A1はM37/R86のclassical coherent signal自身を監査対象とし、M64 tracer/reservoirは候補へ含めない。Q3-2-A1はM37/R86 signalからM64/R203A--R203D、R161、R185へ至る粒子・Nelson因果鎖を監査対象とする。M64は固定目標用Q3主線へ昇格しているが、強化目標A1は独立基準なので両項目とも本draftでは部分達成を維持する。旧M60/M61固有のcore mixing、core--lead window、single-Hamiltonian parentはA1現行残件から外す。
 
 Q3-1-A2/Q3-2-A2は未監査のままとする。direct SDE trajectory、標本経験分布、同一parameter setでの数値収束はA2の責務であり、固定目標用M64昇格やA1の解析bridge成立条件へ混ぜない。A2は `simulations/m64/` のcanonical direct runnerが揃うまで未監査とする。
 

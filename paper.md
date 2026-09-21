@@ -12808,8 +12808,8 @@ M64はQ3の位置過程を次の三つの古典的実体から構成する最小
 
 tracer configurationには二つの特殊化を許す。
 
-- **continuous profile**：1次元位置 $X$ をcanonical overdamped Langevin SDEで発展させ、Q3-2、Q3-4Bの連続位置過程へ使う。
-- **finite-graph profile**：有限配置graphの頂点 $X\in V$ をlocal reservoir jump lawで発展させ、Q3-4A、Q3-5の有限graph位置過程へ使う。
+- **continuous profile**：1次元位置 $X$ をcanonical overdamped Langevin SDEで発展させ、Q3-2の連続位置過程へ使う。
+- **finite-graph profile**：有限配置graphの頂点 $X\in V$ をlocal reservoir jump lawで発展させ、Q3-4A、Q3-4B、Q3-5の有限graph位置過程へ使う。
 
 両profileは別の粒子実体を導入せず、同じsignal density/currentから同じphase-volume/current-reservoir責務を読むM64模型族の特殊化である。M64本体ではkink、domain wall、Duffing shell、PN well、Eyring--Kramers hoppingをtracerの定義に要求しない。
 
@@ -13201,6 +13201,21 @@ e^{-\lambda_{\rm prep}T_{\rm prep}}
 +
 \varepsilon_{\rho,0}.
 ```
+
+compact domain $\Omega$ の直径を $\operatorname{diam}(\Omega)$ とすると、同じ初期誤差を $W_1$ で
+
+```math
+\varepsilon_{\rm prep}^{W_1}
+:=
+W_1\!\left(
+p_0,\rho_{\delta,0}
+\right)
+\le
+\operatorname{diam}(\Omega)\,
+\varepsilon_{\rm prep}
+```
+
+と評価できる。以下のfinite-time reductionで現れる $\varepsilon_{\rm prep}^{W_1}$ はこの量を表す。
 
 従って初期Born型位置重みを外から標本化する必要はなく、R203Bのphase volumeと同じtracer dynamicsから有限時間で準備できる。
 

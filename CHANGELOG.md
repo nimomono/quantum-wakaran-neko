@@ -1,3 +1,11 @@
+## draft-113：M64昇格後の整合cleanup
+
+- 理論内容、固定目標の達成判定、A1/A2判定を変更せず、draft-112後の現行文書だけを同期した。
+- M64のconfiguration profile責務を、continuousはQ3-2、finite-graphはQ3-4A/Q3-4B/Q3-5へ統一した。
+- R203B initial preparationのTV誤差からcompact domain上の $W_1$ 初期誤差 $\varepsilon_{\rm prep}^{W_1}$ への明示評価を追加し、R203C/Y.7で使う記号を定義した。
+- Q3-1-A1をM37/R86、Q3-2-A1をM37/R86＋M64/R203A--R203D＋R161/R185の責務へ分離した。
+- PROJECT_STATUSとnotes索引に残った旧M60/M57主線の現在形表現を現行M64主線へ同期した。
+
 ## draft-112：M64正式昇格・M60/M61退役
 
 - M64/R203A--R203DをQ3の現行三実体open modelへ昇格し、continuous profileをR161/R185へ、finite-graph profileをR124/R182/R125位置読出しへ接続した。

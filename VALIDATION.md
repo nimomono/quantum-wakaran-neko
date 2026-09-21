@@ -1,3 +1,12 @@
+## draft-113：M64昇格後の整合cleanup
+
+- 科学的な新規定理や達成判定は追加せず、draft-112後の文書整合だけを検査する。
+- A25でcontinuous profileがQ3-2、finite-graph profileがQ3-4A/Q3-4B/Q3-5へ対応することを確認する。
+- R203Bの $D_{\rm TV}(p_0,\rho_{\delta,0})\le\varepsilon_{\rm prep}$ からcompact domain上の $W_1$ boundを明示し、$\varepsilon_{\rm prep}^{W_1}$ を未定義のまま使わない。
+- Q3-1-A1の候補をM37/R86へ限定し、Q3-2-A1のM64/R203A--R203D責務と分離する。A1/A2判定は変更しない。
+- PROJECT_STATUSとnotes/READMEでは、過去draft節を保存したまま、現在形の旧M60/M57主線表現だけを除去する。
+- required physics checks、source structure、validation policy、terminology lint、generated sync、LaTeX semantics、typeset lintを通常どおり通す。
+
 ## draft-112：M64 required昇格・M60/M61 verifier退役
 
 - M64/R203A--R203Dを現行Q3主線へ昇格し、candidateにあったM64科学検算をrequiredへ移す。
