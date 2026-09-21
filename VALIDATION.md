@@ -1,3 +1,13 @@
+## draft-114：M65/R204A--R204F candidate検算
+
+- `tools/candidate_checks/verify_m65_phase_volume_partition.py` でR204AのGaussian phase-volume Jacobianと共通scale不変な作用比を検算する。
+- `verify_m65_matched_conductance.py` でR204Bの $V_r\propto A_r$、$G_r\propto A_r$、$G_r/V_r=\Lambda$、hub branch比を検算する。
+- `verify_m65_brownian_reduction.py` でfast-mixing micro-networkからthree-state lumped lawへの収束witnessを検査する。full Hamiltonian縮約の代用とはしない。
+- `verify_m65_three_state_born.py` でR204Dのclosed-form解、hub無反応を含むTV上界、小Born重みでもrelaxation scaleが縮まないことを検算する。
+- `verify_m65_projector_handoff.py` でR204Eの安全結果norm下限、規格化方向誤差、逐次telescopingを検算する。
+- `verify_m65_resource_scaling.py` でR204Fのreadout時間・hub比が多項式予算で選べることを検査する。
+- 6本はcandidate checksのままとし、通常CIのrequired科学検算には追加しない。現行R191/R193 required checksは維持する。
+
 ## draft-113：M64昇格後の整合cleanup
 
 - 科学的な新規定理や達成判定は追加せず、draft-112後の文書整合だけを検査する。
