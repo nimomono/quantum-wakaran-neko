@@ -377,9 +377,9 @@ R189Bのlatencyへmixing時間全体を必ず加える必要はない。capture�
 
 R193の追加後も次は未導出である。
 
-1. R191のstochastic LLGを含むmacrospin浴、吸収記録、R181D router、R179 resetをM37の元の局所ばね座標だけから導くこと。
-2. Q1の全周期について仕事、熱、エントロピー収支を一つの具体的装置で閉じること。
+1. R191のstochastic LLGを含むmacrospin浴、吸収記録、R181D router、R179 resetをM37信号系と同じjoint microscopic device/process、共通clock、反復周期へ接続すること。採用openミクロ方程式を用いてよい。
+2. Q1の全周期について完全な仕事、熱、エントロピー収支を一つの具体的装置で閉じること。これはM0より強い熱力学的強化である。
 3. Q2の4、8、一般 $2^n$ モード信号からR191へ入る一般transducerをR189A/R193で置き換えること。
-4. Q1、Q2、Q3を同じ製造済み装置、同じパラメータ、単一周期へ統合するM0全体。
+4. Q1、Q2、Q3を同一architectureの装置族、共通物理interface、一つのparameter family、共通反復周期へ統合するM0全体。
 
-従ってR193はQ1の「W2作用保持からmacrospin decision energyまで」の抽象接続を閉じる強化結果であり、M0達成を意味しない。
+従ってR193はQ1の「W2作用保持からmacrospin decision energyまで」の抽象接続を閉じる強化結果であり、M0達成を意味しない。Hamiltonian無限浴への持上げ、共通単一bath化、有限閉鎖Hamiltonian化はM0達成後にも独立に残り得る。
