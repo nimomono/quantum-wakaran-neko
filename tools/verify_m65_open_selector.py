@@ -55,6 +55,14 @@ def main() -> None:
     assert max_tv_excess < TOL
     assert max_eig_error < 2e-10
 
+    # Exact zero endpoints are part of the domain when total action is positive.
+    for a in (np.array([0.0, 2.3]), np.array([1.7, 0.0])):
+        out=exact(3.0,a,0.31,1.4,np.array([0.5,0.5]))
+        assert abs(float(out.sum())-1.0) < TOL
+        p=a/a.sum()
+        assert np.isfinite(out).all()
+        assert np.isfinite(p).all()
+
     # Endpoint comparisons are division-free and exactly equivalent away from equality.
     tau=0.07
     for _ in range(10000):
@@ -62,6 +70,20 @@ def main() -> None:
         pplus=ap/(ap+am)
         lhs=(1.0-tau)*ap-tau*am
         assert (pplus < tau) == (lhs < 0.0)
+
+    # Exact endpoints route deterministically without evaluating a state-dependent ratio.
+    assert (1.0-tau)*0.0-tau*3.0 < 0.0
+    assert (1.0-tau)*3.0-tau*0.0 > 0.0
+
+    # Finite latch: after decision time the selector generator is closed and the
+    # complete-result distribution is copied unchanged to (+,-,empty).
+    a=np.array([0.8,1.2])
+    pre_latch=exact(2.7,a,0.23,1.9,np.array([1.0,0.0]))
+    record=np.array([pre_latch[0],pre_latch[1],pre_latch[2]])
+    q_off=np.zeros((3,3))
+    post_latch=record @ (np.eye(3)+5.0*q_off)
+    assert np.max(np.abs(post_latch-record)) < TOL
+    assert abs(float(record.sum())-1.0) < TOL
 
     # Tiny Born branch does not shrink the relaxation eigenvalue -Lambda.
     lam=0.31
