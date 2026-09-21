@@ -399,9 +399,9 @@ M0は、個別のA1模型を並べるだけでは達成としない。少なく�
 | R204A | 厳密結果 | M65の3状態canonical open generatorを定め、確率保存、保持作用への線形rate入力、Born確率表・状態依存除算を外部入力しないことを示す |
 | R204B | 強化候補・reduced-law結果 | fixed-hub phase-volume chamberで $V_r,G_r\propto a_r$、$V_H$固定とし、R204Aのrateをcapacity/conductance比から再現する |
 | R204C | 強化候補・明示誤差付き結果 | Hamiltonian bath、overdamped、phase-volume tracking、tube、lumping、calibrationからR204A open generatorへのfinite-time lift誤差を与える。M65正本の必須依存ではない |
-| R204D | 厳密結果・明示誤差付き合成 | M65の有限時間Born readout、正式な無反応、complete-result TV上界、小Born重みでrelaxation rateが縮まないことを与える |
+| R204D | 厳密結果・明示誤差付き合成 | M65の有限時間Born readout、exact endpointを含む正式な無反応、decision終了時のR112型record/latch、complete-result TV上界、小Born重みでrelaxation rateが縮まないことを与える |
 | R204E | 厳密系 | M65がR181Dのbinary selector contractを満たすことを示す |
-| R204F | 条件付き・資源結果 | Q1 R189Aとの互換性と、Q2-4でM65固有readout時間を多項式に抑える十分条件を与える。R186は未解決 |
+| R204F | 条件付き・資源結果 | Q1 R189A→M65→R181D互換性、空操作対照の自由Rabi継続、弱結合latency極限と、Q2-4でM65固有readout時間を多項式に抑える十分条件を与える。R186は未解決 |
 | R184 | 保持する補助結果・現行主依存外 | 旧M37開始作用保持機構からM54空間率への $L_\delta\varepsilon_{\rm car}$ 評価 |
 | R185 | 厳密有限格子結果・明示誤差付き近似結果 | 共通の確率分布の時間反転率、$D_\pm$、1次元node-free領域の時間対称Newton則。正則化残差 $O(\delta)$、格子残差 $C_{185,a}a^2$ を有限微分ノルムで明示 |
 | R123 | 厳密結果・数値検証付き | 井戸型・調和型低位束縛状態と有限環境純位相緩和 |
