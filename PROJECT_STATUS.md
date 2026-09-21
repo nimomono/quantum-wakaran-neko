@@ -1,3 +1,12 @@
+## draft-112：M64正式昇格・M60/M61退役
+
+- M64/R203A--R203DをQ3の現行particle/Nelson open modelへ正式昇格する。Q3-1はM37/R86を達成証人とし、Q3-2はM37/R86 → M64/R203A--R203D → R161 → R185を現行主線とする。
+- R203Dへfinite-graph initial preparation、Markov contraction、generator実装誤差、R124/R182/R125のregularized位置読出し条件を追加する。
+- Q3-4A、Q3-4B、Q3-5の固定達成根拠をM60 transportからM64 finite-graph tracerへ移す。達成ラベルは変更しない。
+- A22--A24のM60/M61旧Hamiltonian実装を現行論文から退役し、R195--R200は現行必須依存から外してGit履歴・退役索引に保存する。
+- M64の6本の科学検算をrequiredへ昇格し、M60/M61専用required/candidate verifierを現行treeから退役する。
+- Q3-1-A1/Q3-2-A1は部分達成、Q3-1-A2/Q3-2-A2は未監査のままとし、M64昇格だけから強化目標判定を変更しない。
+
 ## draft-111：M64 promotion bridge完成
 
 - M64/R203A--R203Dを、M60/M61をまだ置換しないpromotion-ready replacement candidateへ更新する。
