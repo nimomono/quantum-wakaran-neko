@@ -1,7 +1,7 @@
 @number: N
 @chapter: 付録
 @title: R161空間参照過程とNelson型縮約
-@status: R161が定める空間移動参照過程とcanonical Markov経路法則を定義し、Q1型局所正準信号とQ2型辺結合から得る $(\pi,j)$ をR161へ接続する。現行 $T_{ij}^\delta$ は許容される対称活動量の1選択として位置づけ、R184のM37開始作用保持機構実装とR185のNelson型前後平均微分・時間対称Newton則を証明する。R162は同じR161 lawのoptional Poisson realizationであり、本付録の論理依存には置かない。
+@status: R161が定める空間移動参照過程とcanonical Markov経路法則を定義し、Q1型局所正準信号とQ2型辺結合から得る $(\pi,j)$ をR161へ接続する。現行 $T_{ij}^\delta$ は許容される対称活動量の1選択として位置づけ、同じ前向き経路法則からR185のNelson型前後平均微分・時間対称Newton則を証明する。R162は同じR161 lawのoptional Poisson realizationであり、本付録の論理依存には置かない。
 
 ## N.1 R161空間参照過程と因果規約
 
@@ -12,7 +12,7 @@ R161/R185のideal参照過程で使う状態断面を
 ```math
 \Gamma_t
 =
-(Q(t),P(t),X_t,S_{\rm ref})
+(Q(t),P(t),X_t)
 ```
 
 とする。$Q_i,P_i$ は実正準信号自由度、$X_t\in V$ はR161 canonical Markov経路法則に従う参照位置座標である。R162を用いなくてもこの経路法則はR161自身で存在・一意性・非爆発性まで定まる。
@@ -23,7 +23,7 @@ Z_i
 \frac{Q_i+iP_i}{\sqrt{2\mathcal J_0}}
 ```
 
-は派生複素表示であり、独立した複素場ではない。$S_{\rm ref}$ はM37局所ばね実装を使う場合だけ開始面で固定する単一試行作用記憶部であり、理想M54空間信号部分系の発展則には入力しない。試行集団は $\mu_t(dX\,dZ)$ で記述し、
+は派生複素表示であり、独立した複素場ではない。試行集団は $\mu_t(dX\,dZ)$ で記述し、
 
 ```math
 C_Z(t)
@@ -181,166 +181,7 @@ P(X_t\in\cdot),|\psi_t|^2
 
 
 
-## N.4 R184の開始作用保持機構評価
-
-M37局所包絡を $b(t)$、同じ初期値から進む理想M54空間信号を $b_L(t)$ とする。開始面で単一試行ごとに
-
-```math
-S_{\rm ref}
-=
-\|b(0)\|^2
-```
-
-を物理記憶部へ固定し、M37実装の背景容量は輸送中もこの値を使う。すなわち
-
-```math
-R_{i,37}^{\delta,\mathrm{lat}}(t)
-=
-|b_i(t)|^2+\delta q_iS_{\rm ref},
-```
-
-```math
-T_{ij,37}^{\delta,\mathrm{lat}}(t)
-=
-\frac{|h_{ij}|}{\mathcal J_0}
-\left(
-R_{i,37}^{\delta,\mathrm{lat}}
-+
-R_{j,37}^{\delta,\mathrm{lat}}
-\right),
-```
-
-```math
-k_{i\to j}^{37,\mathrm{lat}}
-=
-\frac{
-T_{ij,37}^{\delta,\mathrm{lat}}
-+
-J_{i\to j}(b)
-}{
-2R_{i,37}^{\delta,\mathrm{lat}}
-}.
-```
-
-理想 $b_L$ は $\|b_L(t)\|^2=S_{\rm ref}$ を厳密保存するので、同じ固定機構表示はN.2の理想M54空間率と完全に一致する。M37局所包絡では $\|b(t)\|^2$ は厳密保存されないため、背景項を $\delta q_i\|b(t)\|^2$ へ毎時刻置き換えない。後者を採用する場合は局所作用変動に由来する追加率誤差が必要であり、R184の主張には含めない。
-
-$\Delta=\delta_{\rm loc}(\eta)<1$ とする。規格化信号
-
-```math
-x=\frac{b}{\sqrt{S_{\rm ref}}},
-\qquad
-y=\frac{b_L}{\sqrt{S_{\rm ref}}}
-```
-
-は
-
-```math
-\|x-y\|
-\leq
-\frac{\varepsilon_{\rm car}(T)}{1-\Delta},
-\qquad
-\|x\|
-\leq
-\frac{1+\Delta}{1-\Delta},
-\qquad
-\|y\|=1.
-```
-
-保持背景容量を
-
-```math
-r_i^{\rm lat}(x)
-=
-|x_i|^2+\delta q_i
-```
-
-と置けば
-
-```math
-|r_i^{\rm lat}(x)-r_i^{\rm lat}(y)|
-\leq
-(R_\eta+1)|x_i-y_i|,
-\qquad
-R_\eta=\frac{1+\Delta}{1-\Delta}.
-```
-
-活動量差と確率流差は
-
-```math
-|t_{ij}^{\rm lat}(x)-t_{ij}^{\rm lat}(y)|
-\leq
-\frac{|h_{ij}|}{\mathcal J_0}
-\sqrt2(R_\eta+1)\|x-y\|,
-```
-
-```math
-|j_{ij}(x)-j_{ij}(y)|
-\leq
-\frac{2|h_{ij}|}{\mathcal J_0}
-\sqrt{R_\eta^2+1}\|x-y\|.
-```
-
-$r_i^{\rm lat}\geq\delta q_{\min}$ を商へ使うと
-
-```math
-\max_i\sum_{j\ne i}
-|k_{i\to j}^{37,\mathrm{lat}}-k_{i\to j}^{L}|
-\leq
-L_\delta(\eta)\varepsilon_{\rm car}(T)
-```
-
-で、
-
-```math
-L_\delta(\eta)
-=
-\frac{h_1}
-{\mathcal J_0(1-\Delta)^2}
-\left[
-\frac{\sqrt2(1+\sqrt{1+\Delta^2})}{\delta q_{\min}}
-+
-\frac{2(1+\delta)}{\delta^2q_{\min}^2}
-\right].
-```
-
-<!-- theorem-start:theorem -->
-**定理（R184：M54空間 整合のM37開始作用保持機構実装）**
-
-R86の仮定に加えて $\Delta<1$、$\delta>0$ とする。M37実装では開始面の $S_{\rm ref}=\|b(0)\|^2$ を固定して上の $k^{37,\mathrm{lat}}$ を使う。同じ初期位置分布から開始した理想M54空間過程とM37 保持背景過程は
-
-```math
-\sup_{0\leq t\leq T}
-D_{\rm TV}
-\left(
-P(X_t^{37,\mathrm{lat}}\in\cdot),
-P(X_t^L\in\cdot)
-\right)
-\leq
-T L_\delta(\eta)\varepsilon_{\rm car}(T)
-```
-
-を満たす。R161 canonical Markov経路法則と終時刻記録を加えた完全結果誤差を
-
-```math
-\varepsilon_{184}
-=
-\varepsilon_{\rm init}
-+
-T L_\delta\varepsilon_{\rm car}
-+
-\varepsilon_{\rm rec}
-```
-
-とできる。厳密な $|\psi|^2$ と比較するときだけ $\delta/(1+\delta)$ を別項として加える。
-<!-- theorem-end:theorem -->
-
-<!-- theorem-start:proof -->
-**証明（R184）**
-
-理想 $b_L$ では固定機構値が瞬間作用と一致するのでN.2のM54空間率そのものである。M37側では上の開始作用保持機構定義を使うため、規格化後の背景項は両過程で同じ $\delta q_i$ となり、表示した率差評価が各時刻に適用できる。有限Markov生成子のDuhamel公式と全変動距離の収縮性から、位置分布差は率行差の時間積分以下である。対応するR161有限状態Markov生成子へDuhamel公式を適用する。有限衝突近似誤差は存在せず、終時刻記録の失敗だけを完全結果集合の無反応成分へ残して三角不等式で加える。証明終。
-<!-- theorem-end:proof -->
-
-## N.5 R161 後退率と前後平均微分
+## N.4 R161 後退率と前後平均微分
 
 R161移動特殊化の共同経路分布を固定する。$p_i(t)=P(X_t=i\mid Z_t)$ は $\delta>0$ で正である。同じ経路分布のBayes反転から
 
@@ -372,7 +213,7 @@ D_-f_i
 
 と定める。
 
-## N.6 有限格子の前後速度
+## N.5 有限格子の前後速度
 
 1次元最近接格子 $x_i=ia$ と
 
@@ -446,7 +287,7 @@ u_\delta=Au
 
 であり、十分滑らかな節のない領域で $v^{(a,\delta)}=v_\delta+O(a^2)$、$u^{(a,\delta)}=u_\delta+O(a^2)$ である。
 
-## N.7 R185の時間対称Newton則と明示格子誤差
+## N.6 R185の時間対称Newton則と明示格子誤差
 
 ```math
 a_{N,\delta}
@@ -818,9 +659,9 @@ F_0
 従って正則化残差は $O(\delta)$、格子残差は明示的に $C_{185,a}a^2$ である。
 <!-- theorem-end:theorem -->
 
-R185は理想M54空間信号部分系の結果である。R184の $L_\delta\varepsilon_{\rm car}$ は率と位置分布を制御するが、生M37の $2\omega_0$ マイクロモーションからNewton加速度までを率の時間微分付きで直接縮約した結果ではない。この直接縮約は強化課題として分離する。
+R185はR161が定める前向き経路法則と同じ分布のBayes時間反転から得る有限格子結果である。現行Q3ではM64/R203A--R203DがM37 signalからR161過程への物理接続を担う。生M37の $2\omega_0$ マイクロモーションからNewton加速度までを時間微分付きで直接縮約することは強化課題として分離する。
 
-## N.8 Q3-2の達成境界
+## N.7 Q3-2の達成境界
 
 R161自身が定めるcanonical前向き経路法則からR185のBayes後退率を作るため、旧R188で必要だった有限衝突経路との比較は中心因果鎖に現れない。固定有限時間、1次元有限格子、node-free滑らかな部分系では
 

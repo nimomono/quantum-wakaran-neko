@@ -1,9 +1,9 @@
 @number: 6
 @chapter: 本文
-@title: M37空間信号系、W型低2モード接続とM54空間-移動実装
+@title: M37空間信号系、W型低2モード接続とM64粒子接続
 @status: M37の正確局所方程式とR86を保ち、Q3の空間信号部分系に加えて、R187で弱結合W型最低2モードをM54のW2静的状態構成のQ1制御信号系へ有限誤差で接続する。測定・準備・M0統合は別課題とする。
 
-## 6.1 Q3のM54空間状態構成とM37の範囲
+## 6.1 Q3のM64粒子接続とM37の範囲
 
 Q3-1の達成証人はM37/R86である。Q3の粒子・Nelson側は付録YのM64を現行open modelとし、M37/R86を三実体のsignalとしてそのまま再利用する。M64固有の責務はM37包絡の再導出ではなく、R203Aのregularized density/current dictionaryからphase-volume preparation、mean-flow tracking、canonical tracer、R161/R185およびfinite-graph位置読出しへ接続する部分である。M60/M61の旧Hamiltonian実装は現行主線から退役する。
 
@@ -686,7 +686,7 @@ p_i
 \Delta V
 ```
 
-となる。これは空間素子基底の目標位置分布である。R203D/R161は同じregularized条件付き分布をM64のclassical tracerについて全有限時刻へ運ぶ。開始配置はR203BまたはR203Dのinitial preparationが担う。R184は旧M37--M54率latchの補助誤差受渡しとして保持するが、現行M64主線の必須依存には置かない。R86の作用比だけを粒子実体と同一視せず、M64/R203B--R203Dのinitial preparationと位置更新則を必要とする。
+となる。これは空間素子基底の目標位置分布である。R203D/R161は同じregularized条件付き分布をM64のclassical tracerについて全有限時刻へ運ぶ。開始配置はR203BまたはR203Dのinitial preparationが担う。R86の作用比だけを粒子実体と同一視せず、M64/R203B--R203Dのinitial preparationと位置更新則を必要とする。
 
 ## 6.10 M37標本集団と統計共分散
 
@@ -825,13 +825,11 @@ P(X_t=i)
 
 理想signal部分系では $i\mathcal J_0\dot Z=h_LZ$ を実正準Hamiltonianとして扱い、局所位置ばね実装を要求するときはM37/R86の有限時間誤差を用いる。Q3-1の達成はR86だけで閉じ、M64位置過程をQ3-1へ遡及的に要求しない。
 
-## 6.14 R184の補助境界と現行M64接続
+## 6.14 現行M64位置接続の責務境界
 
-R184はM37局所包絡と旧M54空間率latchの有限誤差受渡しとして保持するが、M64現行主線の必須依存ではない。M64ではR203AがM37 edge signalからregularized current dictionaryを作り、R203B--R203Dがinitial preparation、mean-flow tracking、continuous/finite-graph tracer、R161接続を直接担う。
+M64ではR203AがM37 edge signalからregularized density/current dictionaryを作り、R203B--R203Dがinitial preparation、mean-flow tracking、continuous/finite-graph tracer、R161接続を直接担う。M37からR161へ進む現行因果鎖に、開始作用を別の固定機構へ保存する補助経路は置かない。
 
-R162の開放Poisson-jump構成は同じR161 lawを持つoptional referenceとして比較に使う。旧節点正則化や旧率latchを現行証拠鎖へ戻さない。
-
-Q3-4AではR124の反対側増分をM64/R203Dのregularized位置法則へ、Q3-4BではR182の半周期移送・一周期回帰を同じM64 tracerへ、Q3-5ではR125の2経路分布差を同じM64 tracerへ接続する。残る統合条件は時計自由度、終位置record、resetを含む単一反復周期である。
+R162の開放Poisson-jump構成は同じR161 lawを持つoptional referenceとして比較に使う。Q3-4AではR124の反対側増分をM64/R203Dのregularized位置法則へ、Q3-4BではR182の半周期移送・一周期回帰を同じM64 tracerへ、Q3-5ではR125の2経路分布差を同じM64 tracerへ接続する。物理clock、永久record、reset、次試行renewalまでの単一反復周期統合はM0課題である。
 
 ## 6.15 数値検算
 
@@ -853,7 +851,7 @@ T
 
 全例で作用素上界、厳密包絡の状態上界、局所包絡の状態上界、局所作用変動上界を満たした。$\omega_0=40$ から80への倍増で作用素誤差は1.96分の1、局所状態誤差は1.79分の1になり、弱結合極限での $O(\eta)$ 収束と整合する。この表は `tools/verify_envelope_reduction.py` から再現できる。
 
-M54空間/R161--R185については `tools/verify_m54_spatial_matching.py` を用いる。確率流反対称性、対称活動量の正値性、移動整合 マスター方程式、共通の確率分布の時間反転、有限格子の $D_\pm$ 分解、R184の開始作用保持機構と率感度上界、R185の $O(\delta)$ 正則化残差を検算する。R185については零確率流例だけでなく非零確率流速度を持つ滑らかな周期例でも残差恒等式を検査する。R135とR168は `tools/verify_m54_static_instrument.py` の固定時刻統計診断として残す。数値検算は解析証明の代わりではなく、単一試行状態と集団統計、初期整合と終記録、同じ誤差の二重計数を監査する回帰検査である。
+R161--R185については `tools/verify_m54_spatial_matching.py` を用いる。確率流反対称性、対称活動量の正値性、移動整合マスター方程式、共通の確率分布の時間反転、有限格子の $D_\pm$ 分解、R185の $O(\delta)$ 正則化残差を検算する。R185については零確率流例だけでなく非零確率流速度を持つ滑らかな周期例でも残差恒等式を検査する。R135とR168は `tools/verify_m54_static_instrument.py` の固定時刻統計診断として残す。数値検算は解析証明の代わりではなく、単一試行状態と集団統計、初期整合と終記録、同じ誤差の二重計数を監査する回帰検査である。
 
 ## 6.16 Q3-1の達成判定と限界
 
@@ -868,7 +866,7 @@ M54空間/R161--R185については `tools/verify_m54_spatial_matching.py` を�
 
 従って、Q3-1はこの限定された有限実対称モデルについて達成と判定する。これは量子力学の必然的創発を示す結果ではなく、局所古典振動子網における制御された Schrödinger 型有効力学である。
 
-Q3-1の固定基準自体はR86で満たされ、今回の改訂で後から基準を広げたわけではない。M37初期集団は準備済み古典空間入力境界から与え、R112は共通有限正準信号代数、R135はM37標本集団の共分散持上げ、M64/R203A--R203Dは空間signalからclassical tracerのR161生成子への現行物理接続、R185は同じ前向き経路法則の時間反転と時間対称Newton則を追加する。R184は旧率latchの補助結果として保持する。M54--M54空間状態構成--M37受渡しをQ3-1達成の根拠へ遡及的に加えない。
+Q3-1の固定基準自体はR86で満たされ、今回の改訂で後から基準を広げたわけではない。M37初期集団は準備済み古典空間入力境界から与え、R112は共通有限正準信号代数、R135はM37標本集団の共分散持上げ、M64/R203A--R203Dは空間signalからclassical tracerのR161生成子への現行物理接続、R185は同じ前向き経路法則の時間反転と時間対称Newton則を追加する。M54--M54空間状態構成--M37受渡しをQ3-1達成の根拠へ遡及的に加えない。
 
 位置ばね結合から直接得られる $A$ と $h_L$ は実対称である。磁場に対応する Peierls 位相、一般の複素 hopping、運動量に比例する結合は本定理に含まれない。これらを厳密に実装するには、位置と運動量の両方を結ぶ追加の正準結合が必要になる。
 

@@ -1,3 +1,11 @@
+## draft-123：Q3旧R184率latch経路の退役
+
+- `sections/A14_m54_spatial_moving_matching.md` からR184定理・証明・開始作用保持状態を外し、R161/R185付録へ縮約する。
+- 第1・6・7・9章と付録Fの現行Q3説明からR184参照を外し、M64/R203A--R203D→R161/R185およびM64 finite-graph readoutへ統一する。
+- `PROJECT_STATUS.md` の現行Q3結果一覧からR184を外し、`notes/superseded_r184_m37_rate_latch.md` と退役索引へ移す。
+- `tools/verify_m54_spatial_matching.py` はR184専用latch検算を削除し、R161/R185 required回帰だけを維持する。旧コードはGit履歴を正本としnotesへ複製しない。
+- 固定目標ラベル、M64/R203A--R203D、R161、R185、R124/R182/R125、A1/A2/B/S判定は変更しない。
+
 ## draft-122：現行依存グラフの同期
 
 - `PROJECT_STATUS.md` の固定目標根拠欄を「達成判定で直接参照する結果・interface」に統一し、Q1-2/Q2-2の台帳差を解消する。

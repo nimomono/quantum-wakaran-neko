@@ -44,3 +44,7 @@
 ## draft-122 active dependency sync
 
 `check_draft122_active_dependency_sync.py` は、固定目標の根拠欄を直接依存だけへ揃え、Q1/Q2をM65/R181D、Q3位置読出しをM64/R203Dへ同期したことを確認する。R164/R170/R184の退役は後続変更へ分離し、本検査ではこれらのactive theorem/proofがまだ存在することも確認する。
+
+## draft-123 retire R184 Q3 rate-latch route
+
+`check_draft123_retire_r184.py` は、R184がactive section・現行結果表・required verifier責務から外れ、M64/R203A--R203D→R161/R185へQ3主線が一本化されたことを確認する。R184の主張は退役メモとGit履歴へ保存し、R164/R170の次段退役はこの検査の対象外とする。
