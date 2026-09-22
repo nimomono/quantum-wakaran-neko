@@ -1,3 +1,10 @@
+## draft-125：履歴メモと横断整合検査
+
+- `notes/theory_lineage.md` を履歴入口として追加し、個別退役メモに残る退役当時の「現行」「置換先」と現在の正本を区別する。現行運用状態は引き続き本書を正本とする。
+- `tools/check_project_consistency.py` を恒久構造検査として追加し、active定理宣言と現行結果表の一致、固定目標の直接根拠がactive結果だけを参照すること、active結果IDと退役索引の非交差、履歴メモ参照先の存在を番号非依存で検査する。
+- `tools/test_validation_policy.py` で新checkerへの具体的M/R/Q番号・特定sectionパスのハードコード再流入を禁止し、通常CIから実行されることを自己検査する。
+- 旧メモ本文は歴史記録として一括書換えせず、誤読しやすい退役メモに現行注記を追加する。理論式、現行模型、結果ID、固定目標、達成ラベル、A1/A2/B/S判定、required/candidate physics verifierは変更しない。
+
 ## draft-124：R164/R170作用殻測定経路のactive paper退役
 
 - R164の作用殻状態数定理とR170の静的吸収pointer固定を現行結果一覧・active本文・付録から外し、結果番号を再利用しない退役結果としてnotes/Git履歴へ移す。R190A--R190Cは既に退役済みであり、これにより旧作用殻測定経路全体をactive paperから外す。
@@ -485,4 +492,4 @@ M0は、個別のA1模型を並べるだけでは達成としない。少なく�
 
 ## 置換・退役結果
 
-現行因果鎖に含まれない模型と結果は本文へ再掲しない。ID、旧用途、現行置換先、研究メモへの対応は `notes/superseded_result_index.md` で管理する。旧R113--R118、R147、R153、R155、R183は再利用しない。独立M48 Bell 手順はR180A--R180Cへ置換した。M42/R172--R174はdraft-72でM55/R183--R185へ移行し、draft-74でM55をM54空間状態構成、R183を一般R161へ吸収した。M50もM54静的状態構成へ吸収した。draft-95でR162のPoisson reservoirをQ3基礎ミクロ存在論からideal referenceへ責務変更し、旧位置づけは `notes/superseded_q3_poisson_microphysics.md` へ保存する。M56はspin-only代替研究線として保持する。draft-103でM59と独立M57/dual-TLの現行親模型としての役割をM60へ置換し、R195A/R196A--R196CはM60 transport reductionの結果IDとして継承した。draft-112ではM64/R203A--R203DをQ3現行主線へ昇格し、M60/M61とR195--R200を現行正本から退役する。draft-120ではM65/R204D--R204FをQ1/Q2 fixed-goal主線へ採用し、R191/R193を退役する。
+現行因果鎖に含まれない模型と結果は本文へ再掲しない。主要な現行因果鎖と置換系譜の入口は `notes/theory_lineage.md`、ID、旧用途、退役時点の置換関係、研究メモへの対応は `notes/superseded_result_index.md` で管理する。個別退役メモに残る「現行」「置換先」はその版の歴史記録であり、現在の運用状態は本書を優先する。旧R113--R118、R147、R153、R155、R183は再利用しない。独立M48 Bell 手順はR180A--R180Cへ置換した。M42/R172--R174はdraft-72でM55/R183--R185へ移行し、draft-74でM55をM54空間状態構成、R183を一般R161へ吸収した。M50もM54静的状態構成へ吸収した。draft-95でR162のPoisson reservoirをQ3基礎ミクロ存在論からideal referenceへ責務変更し、旧位置づけは `notes/superseded_q3_poisson_microphysics.md` へ保存する。M56はspin-only代替研究線として保持する。draft-103でM59と独立M57/dual-TLの現行親模型としての役割をM60へ置換し、R195A/R196A--R196CはM60 transport reductionの結果IDとして継承した。draft-112ではM64/R203A--R203DをQ3現行主線へ昇格し、M60/M61とR195--R200を現行正本から退役する。draft-120ではM65/R204D--R204FをQ1/Q2 fixed-goal主線へ採用し、R191/R193を退役する。
