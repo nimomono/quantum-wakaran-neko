@@ -29,6 +29,10 @@ jobs:
         if: ${{ always() }}
         run: python tools/check_source.py
 
+      - name: 履歴・依存整合を検査
+        if: ${{ always() }}
+        run: python tools/check_project_consistency.py
+
       - name: 検算方針を自己検査
         if: ${{ always() }}
         run: python tools/test_validation_policy.py
