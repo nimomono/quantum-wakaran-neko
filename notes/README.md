@@ -4,8 +4,11 @@
 
 draft-51以後の現行文書では、各試行で局在する物理変数を「粒子位置」と呼ぶ。変更記録と本フォルダーにある旧版メモの「実現配置」は、当時の用語と因果模型を追跡できるよう履歴として保持し、現行定義へ読み替えない。
 
+個別の退役メモには、退役当時の「現行」「置換先」が歴史記録として残る場合がある。最新の採用経路を確認するときは `theory_lineage.md` を入口とし、最終的な運用状態は `PROJECT_STATUS.md` を正本とする。中間置換先が後に退役していても、旧メモ本文を現在形へ一括置換しない。
+
 | メモ | 元の版・移動元 | 現在の位置づけ | 移動理由 |
 |---|---|---|---|
+| `theory_lineage.md` | draft-125で履歴入口として追加 | 現行Q1/Q2/Q3因果鎖と主要な置換系譜のナビゲーション | 個別退役メモに残る当時の中間置換先と現在の正本を混同しないため |
 | `r161_q1_q2_q3_realization_equivalence.md` | draft-94のR161再整理 | Q1型局所信号＋Q2型辺結合からQ3の $(\pi,j)$ を作り、異なるミクロ模型を同じR161生成子で比較する参照メモ | 数学的同値と物理的存在論を分離し、ミクロ模型を変更するたびにR162/R185を再導出しないため |
 | `superseded_q3_poisson_microphysics.md` | draft-95でM57採用時に分離 | R162 open-PoissonをQ3の基礎的存在論としていた旧責務の退役記録 | draft-95当時、R162をideal stochastic referenceへ縮約し、M57/R195をミクロ物理主線へ採用したため |
 | `brownian_spin_q1_q3_unification.md` | draft-92で追加、draft-95でM57採用後に代替線へ降格 | M56/R194A--R194E/R194H/R194Iのspin-only代替研究線。spin signal、phase normalizer、2-action entropy shell、Brownian domain wallからNelson diffusionを狙う | phase lock、wall current absorption、finite shell mixing、wall Brownian finite-error縮約、backreactionの同時parameter regimeが未証明で、現行M64主線より追加仮定が多いため |
