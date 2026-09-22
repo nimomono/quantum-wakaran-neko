@@ -4,6 +4,7 @@
 - `tools/verify_m54_spatial_matching.py` はR161 current/traffic、moving master equation、activity--affinity、Bayes time reversal、有限格子 $D_\pm$、R185 regularizationだけを検算し、旧R184 latch blockを含めない。
 - README、概要、固定目標達成表はすでにM64/R203主線へ同期済みであり、達成ラベル・A/B/S判定は変更しない。
 - required/candidate physics checks、source structure、validation policy、terminology、paper再生成、generated sync、LaTeX semantics、typeset lintを一時finalize workflowで確認する。
+- 一時finalize workflow run 35678152869で、draft-123 migration、source structure、required/candidate physics checks、paper再生成、生成物commitが全て成功した。
 
 ## draft-122：現行依存グラフの同期
 
