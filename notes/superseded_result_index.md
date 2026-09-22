@@ -1,5 +1,18 @@
 # 置換・退役結果索引
 
+## draft-124でactive paperから退役した作用殻測定経路
+
+Q1/Q2の結果形成がM65/R181D、Q3の位置形成・輸送がM64/R203A--R203Dへ一本化されたため、作用殻状態数R164と静的吸収pointer R170をactive paperから退役した。R190A--R190Cはdraft-89以後すでに退役済みであり、これにより旧作用殻測定経路全体がnotes/Git履歴だけに残る。いずれも反証ではなく責務置換であり、結果番号は再利用しない。
+
+| 結果 | 旧用途 | 現行の扱い | 保存先 |
+|---|---|---|---|
+| R164 | 排他的2作用殻のLiouville状態数から線形Born型重みを得る | Q1/Q2はM65、Q3はM64/R203へ置換しactive theoremから退役 | `superseded_r164_q1q2_measurement_role.md`、draft-49以後のGit履歴 |
+| R170 | 静的選択分布を吸収pointerへ写して有限後段窓へ固定する | M65のfinite decision/recordへ置換しactive proofから退役 | `superseded_r190_r170_measurement_path.md`、draft-82以後のGit履歴 |
+| R190A--R190C | 2作用LC殻Drude混合と静的平方根kernelの物理接続 | draft-89で既に退役。draft-124でactive paper中の代替経路参照も除去 | `superseded_r190_r170_measurement_path.md`、`superseded_A19_drude_action_shell_bridge.md` |
+
+旧付録Lの完全証明と旧付録Kの静的特殊化・R170証明はGit履歴を正本とする。
+
+
 ## draft-123で退役したR184 Q3旧率latch
 
 M64/R203A--R203DがM37 signalからcontinuous/finite-graph tracerとR161へ直接接続する現行Q3主線を閉じたため、R184をactive paperから退役した。これはR184の有限時間Lipschitz評価を反証したものではなく、旧M37→M54 spatial rate-latch bridgeの責務が現行主線で不要になったための退役である。結果番号は再利用しない。
@@ -103,7 +116,7 @@ M64/R203A--R203Dを現行Q3 particle/Nelson open modelへ昇格したため、M6
 | M53 | 一般回路の直接mode・逐次sampler | M54の一般 $n$ 特殊化へ吸収。aperture経路は退役 | `superseded_separate_m51_m52_m53_models.md`、R181C--R181D、R178D、R179 |
 | M43 | 固有モード作用結合型有限環境 | 独立モデルから外し、R123の有限環境純位相緩和構成へ吸収 | R123、付録G |
 | M35 | 作用区間によるBorn型標本器と有限正準制御補助 | 確率生成部は退役し、非確率的な制御・比較・記録部はR112へ吸収 | `superseded_m35_born_sampler.md`、R112、付録A |
-| M50 | 有限信号作用・作用殻・static粒子位置熱化・R170 instrument | M54 static-instrument profileへ吸収。R164/R161 static/R162 thermal/R170は現行結果として保持 | `superseded_separate_m50_m55_models.md`、第2章、付録K・L |
+| M50 | 有限信号作用・作用殻・static粒子位置熱化・旧measurement instrument | M54 static-instrument profileへ吸収後、Born型測定責務はM65へ置換。作用殻測定経路はdraft-124でactive paperから退役 | `superseded_separate_m50_m55_models.md`、`superseded_r164_q1q2_measurement_role.md`、`superseded_r190_r170_measurement_path.md` |
 | M55 | 粒子--signal共同測度・spatial moving matching | M54 spatial-moving profileへ吸収。R184/R185を保持し、旧R183は一般R161へ吸収 | `superseded_separate_m50_m55_models.md`、第2章、第6章、付録N |
 
 ## 退役したモデルID

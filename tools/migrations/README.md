@@ -48,3 +48,7 @@
 ## draft-123 retire R184 Q3 rate-latch route
 
 `check_draft123_retire_r184.py` は、R184がactive section・現行結果表・required verifier責務から外れ、M64/R203A--R203D→R161/R185へQ3主線が一本化されたことを確認する。R184の主張は退役メモとGit履歴へ保存し、R164/R170の次段退役はこの検査の対象外とする。
+
+## draft-124 retire R164/R170 action-shell measurement route
+
+`check_draft124_retire_r164_r170.py` は、旧作用殻測定経路がactive `sections/` から消え、付録Lが削除され、付録KがR161/R162の一般Markov経路だけへ縮約されたことを確認する。Q1/Q2はM65/R181D、Q3はM64/R203A--R203D/R161/R185へ一本化し、固定目標ラベルは変更しない。

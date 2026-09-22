@@ -31,6 +31,8 @@ draft-51以後の現行文書では、各試行で局在する物理変数を「
 | `superseded_result_index.md` | draft-53--draft-54で本文から外した結果ID | 旧結果IDと現行統合先の索引 | 統合後の本文と状態表へ旧IDを混在させず、追跡可能性を保つため |
 | `superseded_m38_m42_q1.md` | draft-43以前の第3章、付録B、M38、R92--R100、R119 | 旧Q1操作・測定模型の置換記録。比較・記録内容はR112へ統合 | Q1をW型2モード共同統計と傾斜測定を使うM47/R139--R144へ移行した |
 | `superseded_m42_continuous_particle_position.md` | draft-51までの旧M42/R113--R118とdraft-58--71の再定義M42/R172--R174 | M42の二段階退役記録 | draft-72でM55へ、draft-74でM54 spatial profileへ統合し、実在粒子位置を共通親模型へ保持した |
+| `superseded_r164_q1q2_measurement_role.md` | draft-49以後のR164、旧付録L | 作用殻状態数によるBorn型重み起源の退役記録 | Q1/Q2はM65、Q3はM64/R203へ責務が移り、draft-124でactive theoremを退役したため |
+| `superseded_r190_r170_measurement_path.md` | draft-82--89のR170とR190作用殻型測定経路 | 2作用LC殻、Drude混合、静的選択・吸収pointerの歴史記録 | M65/R181Dへ結果形成を一本化し、draft-124でactive paper中の残存経路を除去したため |
 | `superseded_r184_m37_rate_latch.md` | draft-73のR184、付録N.4、`tools/verify_m54_spatial_matching.py` の旧latch検算 | M37開始作用保持から旧M54空間率へ誤差を渡す補助結果の退役記録 | M64/R203A--R203Dがsignalからtracer/R161へ直接接続し、Q3 fixed-goalで旧rate-latch bridgeが不要になったため |
 | `q1_2_zeno_integration.md` | draft-43以前の第3章、付録B、R101--R103 | 旧Q1-4と旧有限Zeno構成の保存、draft-59以後のQ1-2統合条件 | 旧結果を現行根拠へ戻さず、零傾斜Rabi対照、反復測定、全履歴、tilt対照、誤差・資源監査からQ1-2のZeno部分を構成するため |
 | `superseded_m41_bell_cycle.md` | draft-45A以前の第5章、M41、R107--R111、R121 | 旧初期共通原因型2端Bell周期の置換記録 | M48のpaired-Hopf receiver、2翼strong matching、切断後局所instrument、resetへ主線を移し、因果律の異なる旧周期を現行根拠から外した |
