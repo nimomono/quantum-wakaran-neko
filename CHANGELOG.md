@@ -1,3 +1,12 @@
+## draft-124：R164/R170作用殻測定経路のactive paper退役
+
+- R164作用殻状態数定理とR170静的吸収pointer固定をactive paperの現行結果一覧・本文・付録から退役した。R190A--R190Cは既に退役済みであり、旧作用殻測定経路全体をnotes/Git履歴へ移した。
+- 付録Lをactive section treeから削除し、付録KからR164由来のGibbs/free-energy節、静的詳細釣り合い特殊化、R170証明を除去してR161/R162だけへ縮約した。
+- 第2章のQ3接続を、local canonical signalから $\pi^\delta,j^\delta$ を直接作りM64/R203DのactivityをR161へ渡す構成へ変更した。
+- Q1章から作用殻再平衡化による代替particle読出しを外し、W型空間コントラストはsignal-profile診断だけに限定した。Q1/Q2の結果形成はM65/R181Dだけをactive正本とする。
+- 旧作用殻経路の資源節・反証条件・誤差二重計数規約をactive台帳から外し、現行regularization資源はM64/R203/R185だけで管理する。
+- 固定目標の達成ラベル、M64/R203A--R203D、M65/R204、R135/R168、R161/R162、R179、R181D、R192、A1/A2/B/S判定は変更しない。READMEとENHANCEMENT_TARGETSは既にM64/M65主線だけを記述しているため変更しない。
+
 ## draft-123：Q3旧R184率latch経路の退役
 
 - R184を現行Q3結果一覧、付録N、本文の現行因果鎖から退役し、結果番号を再利用しない退役結果として `notes/superseded_r184_m37_rate_latch.md` と退役索引へ移した。

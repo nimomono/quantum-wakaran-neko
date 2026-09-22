@@ -1,3 +1,11 @@
+## draft-124：R164/R170作用殻測定経路のactive paper退役
+
+- `sections/A12_common_action_shell_state_count.md` をactive section treeから削除し、R164の主要式・退役理由・履歴をnotesへ保存する。
+- 付録KをR161/R162だけへ縮約し、静的作用殻Gibbs/free-energy、静的平方根特殊化、R170吸収pointer証明を削除する。
+- 第2章、第3章、付録F、誤差・資源章と関連Q2/Q3節をM64/M65現行主線へ同期し、active `sections/` からR164/R170/R190測定経路の参照を除去する。
+- `PROJECT_STATUS.md` の現行結果一覧からR164/R170/R190A--R190Cを外し、退役索引と研究メモへ移す。
+- 固定目標ラベル、A/B/S判定、R135/R168、R161/R162、R179、R181D、R192とrequired physics verifierは維持する。
+
 ## draft-123：Q3旧R184率latch経路の退役
 
 - `sections/A14_m54_spatial_moving_matching.md` からR184定理・証明・開始作用保持状態を外し、R161/R185付録へ縮約する。
@@ -273,7 +281,6 @@
 - `sections/A8_m47_w2_parameter_dictionary.md`
 - `sections/A10_q2_common_bath_composition.md`
 - `sections/A11_common_collision_bath_thermodynamics.md`
-- `sections/A12_common_action_shell_state_count.md`
 - `sections/A13_m54_radial_stabilizer.md`
 - `sections/A14_m54_spatial_moving_matching.md`
 - `sections/A15_m54_uniform_register.md`

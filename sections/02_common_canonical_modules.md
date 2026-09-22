@@ -11,17 +11,17 @@ M54は有限個の実正準対から得る信号、準備済み入力境界、�
 Z=\frac{Q+iP}{\sqrt{2\mathcal J_0}}
 ```
 
-とするが、$Z$ は独立した複素実体ではない。Q1/Q2では2結果射影作用をM65のbinary selector interfaceへ渡す。M65/R204A--R204Fを現行fixed-goal selectorとして用いる。Q3ではM37/R86が空間signalを与え、M64/R203A--R203Dが同じsignalからcontinuous/finite-graph tracerをR161へ渡す。R161自身が有限状態のcanonical Markov経路法則まで定め、R162は同じ経路法則を独立Poisson random measuresで実現するoptional referenceとして使う。測定結果用の静的配置変数やR170専用pointerをM54共通状態へ置かない。
+とするが、$Z$ は独立した複素実体ではない。Q1/Q2では2結果射影作用をM65のbinary selector interfaceへ渡す。M65/R204A--R204Fを現行fixed-goal selectorとして用いる。Q3ではM37/R86が空間signalを与え、M64/R203A--R203Dが同じsignalからcontinuous/finite-graph tracerをR161へ渡す。R161自身が有限状態のcanonical Markov経路法則まで定め、R162は同じ経路法則を独立Poisson random measuresで実現するoptional referenceとして使う。測定結果用の旧静的配置pointerをM54共通状態へ置かない。
 
 概念上の共通状態を
 
 ```math
 \Gamma_{54}^{(\Lambda,\mathcal I)}
 =
-(Z,S_{\rm port},G,W,J,A^\delta,X,D,\tau,S_{\rm ref})
+(Z,S_{\rm port},G,W,J,X,D,\tau)
 ```
 
-と書く。$X$ はQ3空間状態構成で使う実在配置であり、Q1/Q2の2値結果はM65の3状態open pointerと有限recordが担う。$A^\delta$ はR164を使うQ3開始配置または独立な作用殻研究線のために残す。M65のopen pointerとR179のopen reset浴は接続interfaceとして扱い、常設のM54信号座標とは分ける。
+と書く。$X$ はQ3でM64が与えるclassical tracerの有限状態表示であり、Q1/Q2の2値結果はM65の3状態open pointerと有限recordが担う。M65のopen pointerとR179のopen reset浴は接続interfaceとして扱い、常設のM54信号座標とは分ける。
 
 | 系列 | M54状態構成 | 準備・操作 | 現行出力 |
 |---|---|---|---|
@@ -254,135 +254,74 @@ D_{\rm tr}(R_Z^G,C_Z)
 
 で抑えられる。R168はM37を前提とせず、Q1・Q2の静的状態構成とQ3の空間状態構成が同じ単一試行信号から条件付き結果統計を読むときの共通統計写像である。証明と可変作用反例は付録Fに置く。
 
-## 2.7 M54共通条件付き作用容量と結果別状態数
+## 2.7 Q1/Q2局所構造からQ3空間信号への持ち上げ
 
-非零有限信号 $v\in\mathbb C^m$、等長埋込み $\Psi:\mathbb C^m\to\mathbb C^L$、排他的結果成分 $i\in\mathcal I$ を考える。正の基準分布 $q_i>0$、$\sum_iq_i=1$ と正則化 $\delta>0$ を固定し、
-
-```math
-J_i(v)=\mathcal J_0|(\Psi v)_i|^2,
-\qquad
-A_i^\delta(v)=J_i(v)+\delta q_iJ_{\rm sig}(v)
-```
-
-と置く。各結果成分に2つの非負作用を持つ排他的作用殻を置く。
-
-<!-- theorem-start:theorem -->
-**定理（R164：有限信号作用のBorn型殻状態数）**
-
-上の仮定の下で、全結果成分を同じLiouville基準分布で数えると結果別状態数は
-
-```math
-\Omega_i^\delta(v)
-=
-\frac{(2\pi)^2}{J_{\rm ref}}A_i^\delta(v)
-```
-
-であり、単一Liouville基準分布を1回だけ規格化すると
-
-```math
-\pi_i^\delta(v)
-=
-\frac{\Omega_i^\delta(v)}{\sum_j\Omega_j^\delta(v)}
-=
-\frac{|(\Psi v)_i|^2/(v^\dagger v)+\delta q_i}{1+\delta}
-```
-
-となる。零信号、安全閾値未満、有限幅遷移域は無反応 $\varnothing$ へ送る。一般に各明反応結果成分が $q$ 個の独立な作用分配方向を持てば $\Omega_i\propto(A_i^\delta)^q$ であり、全容量族でBorn型線形則を保つのは $q=1$ に限る。
-<!-- theorem-end:theorem -->
-
-作用殻を消去する表示では
-
-```math
-E_i^\delta(v)=-\Theta\log\pi_i^\delta(v)
-```
-
-を条件付き中間状態有効自由エネルギーとして使う。状態数を残す表示と消去表示は同値であり、同じ縮約分配関数へ $\Omega_i^\delta e^{-E_i^\delta/\Theta}$ を入れて二重計数してはならない。
-
-### 2.7.1 Q1/Q2局所構造からQ3空間信号への持ち上げ
-
-R161へ渡す位置重みと確率流は、Q1/Q2と無関係な追加代数を仮定しなくても、同じ有限実正準信号の空間特殊化から得られる。有限配置グラフ $G_X=(\mathcal I,E_X)$ の各頂点 $i$ にQ1型の局所実正準モードを置き、
+R161へ渡す位置重みと確率流は、追加の作用殻状態数を介さず、同じ有限実正準signalの空間特殊化から直接作る。有限配置グラフ $G_X=(\mathcal I,E_X)$ の各頂点 $i$ にQ1型の局所実正準モードを置き、
 
 ```math
 Z_i
-=\frac{Q_i+iP_i}{\sqrt{2\mathcal J_0}},
+=
+\frac{Q_i+iP_i}{\sqrt{2\mathcal J_0}},
 \qquad
 R_i=|Z_i|^2,
 \qquad
 S=\sum_iR_i
 ```
 
-とする。$S>0$ なら、正則化を省いた基本位置重みは
+とする。$S>0$、$q_i>0$、$\sum_iq_i=1$、$\delta>0$ に対し、
 
 ```math
-\pi_i=\frac{R_i}{S}
-```
-
-である。R164の正則化を使う場合は $R_i$ を $R_i^\delta$ へ置き換える。
-
-頂点間に結合がなければ全ハミルトニアンは局所項の和であり、異なる頂点間の作用輸送はない。従って独立なQ1型モードを空間に並べるだけでは $j_{ij}=0$ であり、Q3の空間伝播にはならない。
-
-ここへQ2で用いるのと同じ有限2体系エルミート二次生成子の結合族を辺ごとに加える。代表的な差モード型結合は
-
-```math
-H_{\rm edge}
-=\sum_{\{i,j\}\in E_X}g_{ij}|Z_i-Z_j|^2
-```
-
-であり、局所項を含めれば
-
-```math
-i\mathcal J_0\dot Z=hZ,
+R_i^\delta
+=
+|Z_i|^2+\delta q_iS,
 \qquad
-h=gL_G+V
+\pi_i^\delta
+=
+\frac{R_i^\delta}{(1+\delta)S}
 ```
 
-というグラフLaplacian型の空間信号を与える。一般のエルミート辺結合では、辺の作用流を
+と定める。これはsignal densityへ正の背景を加えるregularizationであり、状態数を数える追加の物理ファイバーを導入しない。
+
+一般のエルミート辺結合を加え、
 
 ```math
 J_{i\to j}
-=\frac{2}{\mathcal J_0}
+=
+\frac{2}{\mathcal J_0}
 \operatorname{Im}
 \left(Z_j^*h_{ji}Z_i\right),
 \qquad
 J_{i\to j}=-J_{j\to i}
 ```
 
-とすると
+と置くと $\dot R_i=\sum_jJ_{j\to i}$ である。$S$ が保存される区間では
 
 ```math
-\dot R_i=\sum_jJ_{j\to i}.
-```
-
-従って $S$ が保存される区間では
-
-```math
-j_{ij}=\frac{J_{i\to j}}{S}
-```
-
-として
-
-```math
-\dot\pi_i=\sum_jj_{ji}
-```
-
-を得る。すなわち、Q1型局所作用が $\pi$、Q2型2体系結合が空間伝播と反対称流 $j$ を供給する。
-
-ただし、この構造だけではR161の対称活動量 $t_{ij}=t_{ji}\geq|j_{ij}|$ は一意に決まらない。$t$ は位置輸送の物理実現が供給する独立の入力である。従って本稿でいうQ1/Q2からQ3への構造的接続は
-
-```math
-\mathrm{Q1\ local\ signal}
-+\mathrm{Q2\ edge\ coupling}
-\longrightarrow
-(\pi,j),
+j_{ij}^\delta
+=
+\frac{J_{i\to j}}{(1+\delta)S},
 \qquad
-(\pi,j,t)
-\xrightarrow{\mathrm{R161}}
-X_t
+\dot\pi_i^\delta
+=
+\sum_jj_{ji}^\delta .
 ```
 
-を意味する。Q1/Q2のM65測定pointerを空間粒子へ同一視する主張ではない。
+従ってQ1型局所signalとQ2型辺結合から $(\pi^\delta,j^\delta)$ が得られる。R161の対称活動量 $t_{ij}=t_{ji}\geq|j_{ij}|$ は位置輸送の物理実現が供給する独立入力であり、現行Q3ではM64/R203Dがfinite-graph activityとgeneratorを与える。
 
-## 2.8 R161の共通整合・Markov経路法則とM64/R162の物理・参照実現
+```math
+\mathrm{local\ canonical\ signal}
++\mathrm{edge\ coupling}
+\longrightarrow
+(\pi^\delta,j^\delta),
+\qquad
+(\pi^\delta,j^\delta,t^\delta)
+\xrightarrow{\mathrm{R161}}
+X_t .
+```
+
+Q1/Q2のM65 pointerをQ3 tracerへ同一視する主張ではない。
+
+## 2.8 R161の共通整合・Markov経路法則とM64/R162の物理・参照実現## 2.8 R161の共通整合・Markov経路法則とM64/R162の物理・参照実現
 
 有限配置集合 $\mathcal I$ 上の正の時間依存確率分布 $\pi_i(t)>0$ を考える。辺ごとに反対称確率流と対称活動量
 
@@ -449,44 +388,8 @@ M_T
 
 を満たすなら、この時間依存生成子を持つ非爆発càdlàg有限状態Markov過程は法則の意味で一意に存在する。Q3では許容された古典signal履歴 $Z_{[0,T]}=z_{[0,T]}$ を固定してこの条件付き経路法則を構成し、その後signal履歴の法則で混合して共同法則を得る。従ってR185が必要とする前向き経路法則とBayes後退率はR161自身の結論である。
 
-静的状態構成では $j=0$ とし、
+Q3のfinite-graph特殊化では、M64/R203Dが上流signalから正の $\pi^\delta$、反対称current $j^\delta$、許容活動量 $t^\delta$ を局所的に構成し、この定理へ直接渡す。1次元特殊化では同じ経路法則をR185の前進・後退平均微分へ接続する。
 
-```math
-t_{ij}
-=
-2\kappa_Xa_{ij}\sqrt{\pi_i^\delta\pi_j^\delta}
-```
-
-を選ぶと
-
-```math
-k_{i\to j}
-=
-\kappa_Xa_{ij}
-\sqrt{\frac{\pi_j^\delta}{\pi_i^\delta}}
-```
-
-となる。有限連結グラフ、$\pi_i^\delta\geq m_\delta=\delta q_{\min}/(1+\delta)$ では、この静的鎖の唯一の定常分布は $\pi^\delta$ であり、
-
-```math
-D_{\rm TV}(p_{\tau_X},\pi^\delta)
-\leq
-C_\delta e^{-\lambda_\delta\tau_X},
-```
-
-```math
-\lambda_\delta
-=
-\kappa_Xa_{\min}m_\delta\lambda_G,
-\qquad
-C_\delta
-=
-\frac12\sqrt{m_\delta^{-1}-1}.
-```
-
-またR164の理想結果重みとの差は $\delta/(1+\delta)$ 以下である。
-
-空間状態構成では $\Lambda=\mathcal I=V$、$\Psi=I$ とし、信号の連続方程式から得る $j$ と正の対称活動量 $t$ を代入する。付録Nの選択では旧R183の移動整合率がそのままR161の特殊化として得られる。
 <!-- theorem-end:theorem -->
 
 ### R161の活動量--親和力表示と実現同値
@@ -1102,15 +1005,15 @@ D_{\rm TV}(P_{\rm M54},P_{\rm circ})
 +\sum_{j=1}^n\bar\varepsilon_j.
 ```
 
-$\bar\varepsilon_j$ には第 $j$ 段のM65 selector誤差、制御付き選別機構、必要な場合のR192作用安定化、転送を各1回だけ含める。2結果主線ではR164/R190/R170の同じ選択偏差を重複加算しない。R179の開放リセット誤差が次試行入口へ残る場合は、その次試行の $\varepsilon_{\rm in}$ へ含める。一般有限結果集合または作用殻代替経路を選ぶ場合だけ、R170の $\varepsilon_{\rm sel}$ にR179/R190の選択偏差をまとめる。
+$\bar\varepsilon_j$ には第 $j$ 段のM65 selector誤差、制御付き選別機構、必要な場合のR192作用安定化、転送を各1回だけ含める。R179の開放リセット誤差が次試行入口へ残る場合は、その次試行の $\varepsilon_{\rm in}$ へ含める。退役した旧作用殻測定経路の正則化・混合・固定誤差は現行M65主線へ加えない。
 
 R186の製造誤差、位相ノイズ、固定機構誤差は、それぞれ $\eta_{\rm gate}$、$\varepsilon_{\rm leak}$、$\bar\varepsilon_j$ を物理部品誤差から評価する十分条件として使い、別の独立誤差として二重加算しない。R186第4項の全自由度に加わる加法ノイズがある場合は、この誤差予算を多項式精度で閉じられない障害条件として扱う。
 
-$\eta_{\rm gate}=O(\epsilon/d)$、$\bar\varepsilon_j=O(\epsilon/n)$ とする。M65主線では各nodeのselector誤差を $O(\epsilon/n)$ に配分し、R204Fの $T_{\rm node}\geq\Lambda^{-1}\log(Cn/\epsilon)$ と $\Lambda/(\kappa a_{\min})=O(\epsilon/n)$ を十分条件に取る。R190作用殻の代替経路を選ぶ場合だけ、正則化 $\delta$ と最悪試行頻度 $O(\delta^{-1/2})$ をその経路の資源として数える。有限閉鎖浴の素子数や使用済み貯蔵部容量は中心資源台帳から外し、R179の浴接続端数、リセット時間、帯域幅、精度と、R190の混合時間・作用開口制御範囲を外部運用資源として数える。
+$\eta_{\rm gate}=O(\epsilon/d)$、$\bar\varepsilon_j=O(\epsilon/n)$ とする。M65主線では各nodeのselector誤差を $O(\epsilon/n)$ に配分し、R204Fの $T_{\rm node}\geq\Lambda^{-1}\log(Cn/\epsilon)$ と $\Lambda/(\kappa a_{\min})=O(\epsilon/n)$ を十分条件に取る。R179の浴接続端数、リセット時間、帯域幅、精度を外部運用資源として数え、退役した旧測定経路の混合時間・作用開口は現行資源台帳へ含めない。
 
 ## 2.18 Q2-4の判定と境界
 
-R181Cは指数個の個別ゲート設定、R181Dは全 $2^n$ 葉の一括読出し、R179は指数個の個別未使用初期化を避ける。R186は指数モード数だけを理由に指数精度を要求せず、局所製造誤差と位相ノイズを射影型に評価する一方、全自由度に加わる加法ノイズが外部精度へ指数コストとして露出する境界を与える。従ってM54はQ2-4を条件付き達成へ進める。2結果共通契約の条件は、射影作用保持機構、M65、制御付き選別機構、非終端安全結果に対するR192、開放リセット/供給接続部を同じ安全集合と制御規約で接続することである。R164/R190/R170経路は一般有限結果集合と作用殻型の代替実現として残す。
+R181Cは指数個の個別ゲート設定、R181Dは全 $2^n$ 葉の一括読出し、R179は指数個の個別未使用初期化を避ける。R186は指数モード数だけを理由に指数精度を要求せず、局所製造誤差と位相ノイズを射影型に評価する一方、全自由度に加わる加法ノイズが外部精度へ指数コストとして露出する境界を与える。従ってM54はQ2-4を条件付き達成へ進める。2結果共通契約の条件は、射影作用保持機構、M65、制御付き選別機構、非終端安全結果に対するR192、開放リセット/供給接続部を同じ安全集合と制御規約で接続することである。
 
 本構成は通常の計算量理論における多項式資源の古典シミュレーションではない。指数個の受動自由度、静的結合、浴容量、総熱を許した上で、外部制御と総時間を多項式に抑える結果である。未知量子入力、適応中間測定、誤り訂正、固定容量浴による無期限独立同分布標本は主張しない。M54はQ1・Q2・Q3の共通親模型族だが、全状態構成で同一の製造済み装置や同一パラメータを主張しない。
 
@@ -1124,4 +1027,4 @@ G_{\rm rec}=\sum_i d_i(x)P_{D_i}
 
 と書ける。これは記録時刻の排他的粒子位置を読む。入力時刻以前の粒子軌道、初回到達率、吸収率、時間積分流束を与えない。
 
-M65は開放3状態Markov方程式を基本方程式として採用し、phase-volume chamber/Hamiltonian--Brownian liftは強化実現へ分離する。Q1ではR189A保持座標をM65へ直接渡し、Q2でも同じbinary selector interfaceを使う。R170の作用殻型経路について、容量結合、作用殻、信号保持、混合・衝突、選択機構、固定機構を1つの具体的装置へ統合済みだとは主張しないが、この代替経路の全装置統合を現行Q1/Q2固定目標の達成条件にはしない。Q2-1--Q2-3はM65/R181Dによる一試行interfaceで判定し、Q2-4だけは一様装置族とR186資源条件を含むため条件付き達成を維持する。有限浴化は別の強化課題である。一意エルゴードな外部時刻割当または有限熱化から、結果列の独立同分布性や二項型有限標本揺らぎも従わない。
+M65は開放3状態Markov方程式を基本方程式として採用し、phase-volume chamber/Hamiltonian--Brownian liftは強化実現へ分離する。Q1ではR189A保持座標をM65へ直接渡し、Q2でも同じbinary selector interfaceを使う。Q2-1--Q2-3はM65/R181Dによる一試行interfaceで判定し、Q2-4だけは一様装置族とR186資源条件を含むため条件付き達成を維持する。有限浴化は別の強化課題である。一意エルゴードな外部時刻割当または有限熱化から、結果列の独立同分布性や二項型有限標本揺らぎも従わない。
