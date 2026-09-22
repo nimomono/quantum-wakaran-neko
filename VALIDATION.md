@@ -1,3 +1,10 @@
+## draft-125：履歴メモと横断整合検査
+
+- `tools/check_project_consistency.py` でactive定理宣言と現行結果表の集合一致、固定目標の直接根拠から非active結果への参照禁止、active/retired結果IDの非交差、退役索引・notes READMEのMarkdown参照先存在を検査する。
+- `tools/test_validation_policy.py` で `check_source.py` と新checkerの具体的理論スナップショット埋込み禁止、新checkerの通常CI登録、migration非登録、physics runner・artifact/LaTeX責務分離を検査する。
+- READMEは現行模型、導出経路、固定目標、達成範囲、論文概要が変わらないため変更不要と確認する。
+- required/candidate physics checks、source structure、project consistency、validation policy、terminology、paper再生成、generated sync、LaTeX semantics、typeset lintを最終headで確認する。
+
 ## draft-124：R164/R170作用殻測定経路のactive paper退役
 
 - `tools/migrations/check_draft124_retire_r164_r170.py` でactive `sections/` からR164/R170/R190が消え、付録Lが削除され、付録KがR161/R162だけへ縮約されたことを検査する。
