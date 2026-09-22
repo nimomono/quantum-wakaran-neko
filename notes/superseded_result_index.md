@@ -1,5 +1,16 @@
 # 置換・退役結果索引
 
+## draft-123で退役したR184 Q3旧率latch
+
+M64/R203A--R203DがM37 signalからcontinuous/finite-graph tracerとR161へ直接接続する現行Q3主線を閉じたため、R184をactive paperから退役した。これはR184の有限時間Lipschitz評価を反証したものではなく、旧M37→M54 spatial rate-latch bridgeの責務が現行主線で不要になったための退役である。結果番号は再利用しない。
+
+| 結果 | 旧用途 | 現行の扱い | 保存先 |
+|---|---|---|---|
+| R184 | M37開始作用 $S_{\rm ref}$ を保持し、旧M54 spatial rateとの差を $L_\delta\varepsilon_{\rm car}$ で評価 | M64/R203A--R203D→R161/R185へ置換。active theorem・proof・required verifier責務から外す | `superseded_r184_m37_rate_latch.md`、draft-73および退役直前Git履歴 |
+
+R184専用数値コードは研究メモへ複製せず、退役直前の `tools/verify_m54_spatial_matching.py` をGit履歴から参照する。
+
+
 ## draft-120で退役したR191/R193測定経路
 
 M65/R204D--R204FをQ1/Q2 fixed-goalのcanonical open selectorへ採用したため、R191/R193を現行因果鎖から外した。これはR191のBrownian macrospin構成またはR193のHamiltonian bridgeを反証したものではなく、より短い共通open-selector主線へ責務を吸収したための退役である。結果番号は再利用しない。

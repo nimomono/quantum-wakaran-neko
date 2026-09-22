@@ -47,26 +47,6 @@ def spatial_rates(z: np.ndarray, h: np.ndarray, delta: float, q: np.ndarray):
     p = r / ((1.0 + delta) * s)
     return p, r, j, t, kp, km
 
-def latched_rates(
-    z: np.ndarray,
-    h: np.ndarray,
-    delta: float,
-    q: np.ndarray,
-    sref: float,
-):
-    r = np.abs(z) ** 2 + delta * q * sref
-    j = current(z, h)
-    n = len(z)
-    t = np.zeros((n, n), dtype=float)
-    kp = np.zeros((n, n), dtype=float)
-    for i in range(n):
-        for k in range(n):
-            if i == k or abs(h[i, k]) == 0.0:
-                continue
-            t[i, k] = abs(h[i, k]) / J0 * (r[i] + r[k])
-            kp[i, k] = (t[i, k] + j[i, k]) / (2.0 * r[i])
-    return r, j, t, kp
-
 def generator(rates: np.ndarray) -> np.ndarray:
     g = rates.copy()
     np.fill_diagonal(g, 0.0)
@@ -133,35 +113,6 @@ def main() -> None:
     check(np.max(np.abs(bayes - km)) < TOL, "R185 same-measure time reversal")
     p2, *_ = spatial_rates(2.3 * np.exp(0.7j) * z, h, delta, q)
     check(np.max(np.abs(p2 - p)) < TOL, "rank-one radial invariance")
-
-    h_real = np.real(h)
-    y = rng.normal(size=n) + 1j * rng.normal(size=n)
-    y /= np.linalg.norm(y)
-    Delta = 0.08
-    eps_car = 2.0e-5
-    direction = rng.normal(size=n) + 1j * rng.normal(size=n)
-    direction /= np.linalg.norm(direction)
-    x = y + eps_car / (1.0 - Delta) * direction
-    qmin = float(np.min(q))
-    h1 = max(float(np.sum(np.abs(h_real[i]))) - abs(h_real[i, i]) for i in range(n))
-    Ldelta = h1 / (J0 * (1.0 - Delta) ** 2) * (
-        np.sqrt(2.0) * (1.0 + np.sqrt(1.0 + Delta**2)) / (delta * qmin)
-        + 2.0 * (1.0 + delta) / (delta**2 * qmin**2)
-    )
-    kx = latched_rates(x, h_real, delta, q, 1.0)[3]
-    ky = spatial_rates(y, h_real, delta, q)[4]
-    kylat = latched_rates(y, h_real, delta, q, 1.0)[3]
-    check(np.max(np.abs(kylat - ky)) < TOL, "R184 ideal latch equals M54 spatial")
-    kinst = spatial_rates(x, h_real, delta, q)[4]
-    check(
-        np.max(np.abs(kx - kinst)) > 1.0e-10,
-        "R184 latch differs from instantaneous M37 action",
-    )
-    rowdiff = np.max(np.sum(np.abs(kx - ky), axis=1))
-    check(
-        rowdiff <= Ldelta * eps_car * (1.0 + 1.0e-9),
-        "R184 latched Lipschitz bound",
-    )
 
     N = 64
     a = 2.0 * np.pi / N
@@ -257,7 +208,6 @@ def main() -> None:
     print(f"checks={checks}")
     print(f"moving_master_residual={np.max(np.abs(master-pdot)):.3e}")
     print(f"time_reverse_residual={np.max(np.abs(bayes-km)):.3e}")
-    print(f"r184_latched_rowdiff={rowdiff:.6e} bound={Ldelta*eps_car:.6e}")
     print(f"delta_residual_identity={np.max(np.abs(residual-predicted)):.3e}")
     print(
         "general_current_residual_identity="

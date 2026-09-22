@@ -1,3 +1,11 @@
+## draft-123：Q3旧R184率latch経路の退役
+
+- R184のM37開始作用保持機構を現行Q3結果一覧・active付録・required検算から外し、結果番号を再利用しない退役結果として `notes/superseded_r184_m37_rate_latch.md` と退役索引へ移す。
+- 付録NはR161 canonical経路法則、Bayes後退率、有限格子速度、R185時間対称Newton則だけに縮約し、M37 signalからR161への現行物理接続はM64/R203A--R203Dに一本化する。
+- 第6章、Q3本文、結論、固定時刻代替診断から旧率latch参照を外し、Q3-4A/Q3-4B/Q3-5の位置読出しはM64/R203D finite-graph tracerだけを使う。
+- `tools/verify_m54_spatial_matching.py` はR161/R185の数学回帰へ縮約する。R184専用数値コードは複製せずGit履歴に保存する。
+- 固定目標の達成ラベル、M64/R203A--R203D、R161、R185、R124/R182/R125、A1/A2/B/S判定は変更しない。
+
 ## draft-122：現行依存グラフの同期
 
 - 固定目標表の「根拠となる結果」を、達成判定で直接参照する結果・interfaceだけを列挙する台帳として明確化し、個々の定理の推移的依存を重複列挙しない。
@@ -438,7 +446,6 @@ M0は、個別のA1模型を並べるだけでは達成としない。少なく�
 | R204D | 厳密結果・明示誤差付き合成 | M65の有限時間Born readout、exact endpointを含む正式な無反応、decision終了時のR112型record/latch、complete-result TV上界、小Born重みでrelaxation rateが縮まないことを与える |
 | R204E | 厳密系 | M65がR181Dのbinary selector contractを満たすことを示す |
 | R204F | 条件付き・資源結果 | Q1 R189A→M65→R181D互換性、空操作対照の自由Rabi継続、弱結合latency極限と、Q2-4でM65固有readout時間を多項式に抑える十分条件を与える。R186は未解決 |
-| R184 | 保持する補助結果・現行主依存外 | 旧M37開始作用保持機構からM54空間率への $L_\delta\varepsilon_{\rm car}$ 評価 |
 | R185 | 厳密有限格子結果・明示誤差付き近似結果 | 共通の確率分布の時間反転率、$D_\pm$、1次元node-free領域の時間対称Newton則。正則化残差 $O(\delta)$、格子残差 $C_{185,a}a^2$ を有限微分ノルムで明示 |
 | R123 | 厳密結果・数値検証付き | 井戸型・調和型低位束縛状態と有限環境純位相緩和 |
 | R124 | 厳密結果・数値検証付き | 障壁値未満スペクトル支持からの反対側確率増分 |
@@ -453,7 +460,6 @@ M0は、個別のA1模型を並べるだけでは達成としない。少なく�
 - Q3の単一試行ではM37の実正準空間信号、一つのclassical tracer、一つのsignal-driven thermal reservoirが物理過程を担う。複素包絡、$\rho$、$j$、$U$ は派生量またはcollective variableである。R162 Poisson realizationはR161 lawのoptional referenceであり、Q3-2の達成根拠にも基礎的存在論にも含めない。
 - Q3の位置重みとosmotic driftはM64/R203Bのphase-volume free energyとregularized signal densityから導く。開始面で位置を一度だけ準備し、その後は同じtracerをcontinuous SDEまたはfinite-graph jump lawで発展させる。毎時刻再標本化しない。
 - R161はM64に固有でなく、拡散を担う対称活動量と確率流を受け取り、有限状態canonical Markov経路法則まで定める共通数学interfaceである。$\delta>0$ はM64のregularization背景として用い、$\delta\downarrow0$ で率感度と実装資源が発散し得る。
-- R184は旧M37--M54空間率latchの補助結果として保持するが、M64ではR203A--R203DからR161へ直接接続するため現行必須依存ではない。
 - R170は一般有限結果集合・作用殻型の代替経路とQ3固定時刻の代替診断に残す。現行Q1/Q2の2結果主線ではM65を用いる。
 - M54の $Z_S$ とR180が保持する $\widetilde V=Z_{\rm out}(\omega)$ は1試行の実正準状態から得る物理的な派生信号であり、M54の $c,C_Z$ または旧M48の集団交差モーメントではない。$V=\widetilde V/\|\widetilde V\|$ は解析上の状態方向であって、正準SWAPが状態依存除算を行うわけではない。
 - M54の有限モード、逆演算用補助記憶部、供給源、作業領域、時計自由度履歴はゲート間で永続させる。外部制御器は内部モードを個別に初期化、較正、同期、個別指定、読出し、リセットしない。
