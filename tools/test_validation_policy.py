@@ -47,23 +47,32 @@ def string_literals(path: Path) -> list[str]:
     ]
 
 
-def test_source_checker_has_no_theory_snapshot_literals() -> None:
-    literals = string_literals(TOOLS / "check_source.py")
+def test_structural_checkers_have_no_theory_snapshot_literals() -> None:
     concrete_result = re.compile(r"(?<![A-Za-z0-9_\\])[MR]\d+[A-Z]?(?![A-Za-z0-9_])")
     concrete_goal = re.compile(r"(?<![A-Za-z0-9_\\])Q\d+-\d+[A-Z]?(?:-[A-Z])?(?![A-Za-z0-9_])")
     concrete_section_path = re.compile(r"sections/[A-Za-z0-9_.\-/]+\.md")
 
-    offenders = [
-        value
-        for value in literals
-        if concrete_result.search(value)
-        or concrete_goal.search(value)
-        or concrete_section_path.search(value)
-    ]
-    assert offenders == [], (
-        "check_source.py contains theory-snapshot literals; "
+    offenders: dict[str, list[str]] = {}
+    for name in ("check_source.py", "check_project_consistency.py"):
+        values = [
+            value
+            for value in string_literals(TOOLS / name)
+            if concrete_result.search(value)
+            or concrete_goal.search(value)
+            or concrete_section_path.search(value)
+        ]
+        if values:
+            offenders[name] = values
+
+    assert offenders == {}, (
+        "structural checker contains theory-snapshot literals; "
         "move PR-specific checks to tools/migrations/: " + repr(offenders)
     )
+
+
+def test_project_consistency_checker_is_called_by_ci() -> None:
+    workflow = (ROOT / ".github" / "workflows" / "verify.yml").read_text(encoding="utf-8")
+    assert "python tools/check_project_consistency.py" in workflow
 
 
 def test_migrations_are_not_called_by_ci() -> None:
@@ -88,7 +97,8 @@ def test_generated_and_latex_semantics_are_separate() -> None:
 def main() -> None:
     test_layout_warnings_are_not_hard()
     test_semantic_tex_failures_are_hard()
-    test_source_checker_has_no_theory_snapshot_literals()
+    test_structural_checkers_have_no_theory_snapshot_literals()
+    test_project_consistency_checker_is_called_by_ci()
     test_migrations_are_not_called_by_ci()
     test_physics_runner_does_not_stop_at_first_failure()
     test_generated_and_latex_semantics_are_separate()
