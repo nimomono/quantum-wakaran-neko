@@ -1,3 +1,10 @@
+## draft-122：現行依存グラフの同期
+
+- `tools/migrations/check_draft122_active_dependency_sync.py` で、Q1-2/Q2-2の直接根拠、A1のM65/R181D責務、Q3のM64/R203D読出し、旧R184 readout誤差の不在、第7章の付録参照をPR固有に検査する。
+- R164/R170/R184の定理・付録はこのPRでは保持し、退役を先取りしないこともmigration checkで確認する。
+- README、概要、第1章、結論、`ENHANCEMENT_TARGETS.md` は現行M64/M65主線と整合しているため変更不要と確認した。
+- required/candidate physics checks、source structure、validation policy、terminology、paper再生成、generated sync、LaTeX semantics、typeset lintを一時finalize workflowで確認する。
+
 ## draft-121：固定目標の一試行物理interface原則への統一
 
 - PROJECT_STANCE / PROJECT_GUIDE / PROJECT_STATUSで、一試行物理interface、固定有限深さのfresh補助資源、永久記録・reset・物理clock・renewalをM0へ分離する規約を同期する。

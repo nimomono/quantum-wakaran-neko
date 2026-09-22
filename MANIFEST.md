@@ -1,3 +1,11 @@
+## draft-122：現行依存グラフの同期
+
+- `PROJECT_STATUS.md` の固定目標根拠欄を「達成判定で直接参照する結果・interface」に統一し、Q1-2/Q2-2の台帳差を解消する。
+- `sections/A1_common_action_finite_basis.md`、第3章、第6章をM65/R181DおよびM64/R203主線へ同期する。
+- `sections/A7_q3_completion_proofs.md` のR124/R125位置読出しをM64/R203D finite-graph tracerへ同期し、旧R184誤差を現行 $\varepsilon_{64,G}$ とregularizationへ置換する。
+- 第7章の完全証明参照を付録Gへ、第8章のQ2根拠一覧を直接依存規約へ揃える。
+- R164/R170/R184は本draftでは保持する。新模型、新結果ID、定理の退役、固定目標ラベル、強化目標状態、required physics verifierは変更しない。
+
 ## draft-121：固定目標の一試行物理interface原則への統一
 
 - 固定目標の共通達成原則を「要求された現象・統計・逐次過程を、一試行内で明示的な物理interfaceを介して合成できること」へ統一する。
