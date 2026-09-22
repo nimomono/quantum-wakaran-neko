@@ -52,3 +52,7 @@
 ## draft-124 retire R164/R170 action-shell measurement route
 
 `check_draft124_retire_r164_r170.py` は、旧作用殻測定経路がactive `sections/` から消え、付録Lが削除され、付録KがR161/R162の一般Markov経路だけへ縮約されたことを確認する。Q1/Q2はM65/R181D、Q3はM64/R203A--R203D/R161/R185へ一本化し、固定目標ラベルは変更しない。
+
+## draft-125 history notes and permanent consistency checks
+
+`check_draft125_history_consistency.py` は、履歴入口 `notes/theory_lineage.md`、退役メモの現行注記、恒久 `check_project_consistency.py`、通常CI接続、検算ポリシーの自己検査が同じ変更で導入されたことを確認する。固定目標の達成ラベルと理論主張を変更しないこともPR固有に確認する。

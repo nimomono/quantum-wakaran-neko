@@ -16,7 +16,7 @@ YESなら恒久CI候補である。NOなら恒久CIへ入れず、移行検査�
 
 ## 5つの検算層
 
-1. **構造検査** — 原稿・状態表・結果宣言が機械的に整合しているか。
+1. **構造検査** — 原稿・状態表・結果宣言・退役索引・履歴参照が機械的に整合しているか。
 2. **科学検算** — 数式、数値、確率恒等式、誤差上界、parameter windowが成立するか。
 3. **生成・組版検査** — 収録生成物が再生成可能で、重大なLaTeX異常がないか。
 4. **品質lint** — 用語、Overfull/Underfullなど、科学的妥当性とは独立した編集品質。
@@ -25,6 +25,7 @@ YESなら恒久CI候補である。NOなら恒久CIへ入れず、移行検査�
 ## PRを止める恒久検査
 
 - 章・付録構造の破綻、結果ID重複、状態表の自己矛盾
+- active結果宣言と現行結果表の不一致、固定目標の直接根拠から退役結果への参照、active結果IDと退役索引の交差、履歴メモ参照先の欠落
 - 数式・数値・確率恒等式・誤差上界などrequired科学検算の失敗
 - 生成済み `paper.md` / `main.tex` / `paper.pdf` と再生成物の不同期
 - 未解決citation/reference、欠落文字、LaTeX fatal error
@@ -41,6 +42,7 @@ YESなら恒久CI候補である。NOなら恒久CIへ入れず、移行検査�
 ## 責務境界
 
 - `check_source.py` はsyntax/schema/referential integrityなど長期不変の構造契約だけを見る。
+- `check_project_consistency.py` はactive結果集合、現行結果表、固定目標の直接根拠、退役索引、履歴メモ参照の集合整合だけを見る。個別のM/R/Q番号や現在の理論経路をハードコードしない。
 - `verify_*.py` は数学・数値だけを見る。本文や状態文書を読まない。
 - `candidate_checks/verify_*.py` は研究中・強化候補の数学・数値検算を置く。通常CIのhard checkには含めない。
 - `check_generated.py` は生成物同期だけを見る。

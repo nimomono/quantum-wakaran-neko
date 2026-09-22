@@ -5,12 +5,13 @@
 ## 構成
 
 1. **原稿・状態の構造検査** — `check_source.py`
-2. **required科学検算** — `verify_*.py`
-3. **candidate科学検算** — `candidate_checks/verify_*.py`
-4. **生成物同期** — `build_paper.py` + `check_generated.py`
-5. **LaTeX semantic検査** — `check_latex_semantics.py`
-6. **文章・組版品質lint** — `check_terminology.py` + `lint_typeset.py`
-7. **PR固有の移行検査** — `migrations/`
+2. **履歴・依存の横断整合検査** — `check_project_consistency.py`
+3. **required科学検算** — `verify_*.py`
+4. **candidate科学検算** — `candidate_checks/verify_*.py`
+5. **生成物同期** — `build_paper.py` + `check_generated.py`
+6. **LaTeX semantic検査** — `check_latex_semantics.py`
+7. **文章・組版品質lint** — `check_terminology.py` + `lint_typeset.py`
+8. **PR固有の移行検査** — `migrations/`
 
 目的は検算を弱めることではなく、科学的・構造的・再現性的な不変条件と、研究中の候補、特定PRだけの移行確認、編集上の仕上げを分離することである。
 
@@ -19,6 +20,7 @@
 通常CIを止めるのは次である。
 
 - 章・付録構造の破綻、結果ID重複、状態表の自己矛盾
+- active結果と現行結果表の不一致、固定目標の直接根拠から非active結果への参照、active/retired IDの交差、履歴メモ参照先の欠落
 - `tools/verify_*.py` が検出するrequired数学・数値検算の失敗
 - `paper.md` / `main.tex` / `paper.pdf` の再生成結果と収録生成物の不同期
 - PDFページ数またはページ寸法の不同期
@@ -64,6 +66,17 @@ python tools/check_terminology.py --strict
 - 現在の達成状態そのものを固定する
 
 「モデル番号、結果番号、節名、文章表現を変更しても真か」を判定基準とする。
+
+## `check_project_consistency.py`
+
+このcheckerは、現在の理論内容そのものではなく、正本間の集合・参照関係を検査する。
+
+- `sections/*.md` で宣言されたactive結果ID集合と `PROJECT_STATUS.md` の現行結果表が一致する
+- 固定目標の「現在地」表が直接根拠として参照する結果IDがactive結果に含まれる
+- `notes/superseded_result_index.md` の退役結果IDとactive結果IDが交差しない
+- 退役索引と `notes/README.md` から参照するMarkdownメモが実在する
+
+個別の結果番号、模型番号、固定目標ID、特定sectionパスをcheckerへ列挙しない。理論移行時に特定IDの除去を確認する仕事は従来どおり `migrations/` に置く。
 
 ## required `verify_*.py`
 
@@ -141,7 +154,8 @@ LaTeXログの分類は `latex_log.py` を正本とする。
 
 特に、
 
-- `check_source.py` に具体的なM/R/Q番号や特定sectionパスが再流入していない
+- `check_source.py` と `check_project_consistency.py` に具体的なM/R/Q番号や特定sectionパスが再流入していない
+- `check_project_consistency.py` が通常CIの構造jobから実行されている
 - `verify_*.py` が原稿文書を読んでいない
 - migration checkが通常workflowから呼ばれていない
 - physics runnerが最初のfailureでbreakしない

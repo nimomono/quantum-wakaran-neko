@@ -1,3 +1,11 @@
+## draft-125：履歴メモと自動整合検査
+
+- `notes/theory_lineage.md` を履歴入口として追加する。
+- `notes/README.md`、`notes/superseded_result_index.md` と誤読しやすい退役メモ3件へ、歴史表現と最新正本を区別する注記を追加する。
+- `tools/check_project_consistency.py` を追加し、`.github/workflows/verify.yml` の原稿構造jobから恒久実行する。
+- `tools/test_validation_policy.py`、`VALIDATION_POLICY.md`、`tools/README.md`、`PROJECT_GUIDE.md` を新checkerの一般不変条件へ同期する。
+- `PROJECT_STATUS.md`、`CHANGELOG.md`、`VALIDATION.md` を同期する。README、sections、physics verifier、paper生成物の理論内容は変更しない。
+
 ## draft-124：R164/R170作用殻測定経路のactive paper退役
 
 - `sections/A12_common_action_shell_state_count.md` をactive section treeから削除し、R164の主要式・退役理由・履歴をnotesへ保存する。

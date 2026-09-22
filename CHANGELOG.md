@@ -1,3 +1,12 @@
+## draft-125：履歴メモと自動整合検査
+
+- `notes/theory_lineage.md` を追加し、Q1/Q2測定、Q3 particle/Nelson、Q2 register/Bellの現行因果鎖と主要な置換系譜を一つの入口へ整理した。
+- 個別退役メモは退役当時の本文を保持しつつ、旧R191・旧作用殻経路を現在の正本と誤読しやすいメモへdraft-125現行注記を追加した。退役索引には、中間置換先がさらに退役し得ることを明記した。
+- `tools/check_project_consistency.py` を恒久CIへ追加し、active定理宣言＝現行結果表、固定目標の直接根拠⊆active結果、active/retired結果ID非交差、履歴メモ参照先の存在を一般不変条件として検査する。
+- `tools/test_validation_policy.py` を拡張し、`check_source.py` と新checkerの両方へ具体的M/R/Q番号・特定sectionパスを埋め込めないこと、新checkerが通常CIから実行されることを自己検査する。
+- `PROJECT_GUIDE.md`、`VALIDATION_POLICY.md`、`tools/README.md` に履歴メモと横断整合検査の責務境界を追加した。
+- 理論式、現行模型、結果ID、固定目標、達成ラベル、強化目標状態、physics verifier、生成論文内容は変更しない。READMEは現行物理の説明が変わらないため確認のみで変更しない。
+
 ## draft-124：R164/R170作用殻測定経路のactive paper退役
 
 - R164作用殻状態数定理とR170静的吸収pointer固定をactive paperの現行結果一覧・本文・付録から退役した。R190A--R190Cは既に退役済みであり、旧作用殻測定経路全体をnotes/Git履歴へ移した。
