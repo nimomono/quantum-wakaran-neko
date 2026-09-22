@@ -4,6 +4,7 @@
 - R164/R170/R184の定理・付録はこのPRでは保持し、退役を先取りしないこともmigration checkで確認する。
 - README、概要、第1章、結論、`ENHANCEMENT_TARGETS.md` は現行M64/M65主線と整合しているため変更不要と確認した。
 - required/candidate physics checks、source structure、validation policy、terminology、paper再生成、generated sync、LaTeX semantics、typeset lintを一時finalize workflowで確認する。
+- 一時finalize workflow run 35673020484で、draft-122 migration、source structure、required/candidate physics checks、paper再生成、生成物commitが全て成功した。
 
 ## draft-121：固定目標の一試行物理interface原則への統一
 
