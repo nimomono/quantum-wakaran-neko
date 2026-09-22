@@ -112,7 +112,8 @@ def markdown_note_paths(text: str) -> set[Path]:
         if candidate.parts and candidate.parts[0] in {"notes", "sections"}:
             paths.add(ROOT / candidate)
         elif len(candidate.parts) == 1:
-            paths.add(ROOT / "notes" / candidate)
+            root_candidate = ROOT / candidate
+            paths.add(root_candidate if root_candidate.exists() else ROOT / "notes" / candidate)
     return paths
 
 
