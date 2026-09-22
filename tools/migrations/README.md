@@ -40,3 +40,7 @@
 ## draft-121 fixed-goal single-trial policy
 
 `check_draft121_single_trial_fixed_goal_policy.py` は、個別固定目標を一試行内の物理interfaceで判定し、永久記録・試行間reset・物理clock・次試行renewalの全周期統合をM0へ分離した新原則を確認する。同時にQ2-1/Q2-2/Q2-3/Q3-4A/Q3-4B/Q3-5の達成、Q2-4の条件付き達成、Q3-6とM0の未達、および旧full-device残件文言のactive sourceへの再混入を検査する。
+
+## draft-122 active dependency sync
+
+`check_draft122_active_dependency_sync.py` は、固定目標の根拠欄を直接依存だけへ揃え、Q1/Q2をM65/R181D、Q3位置読出しをM64/R203Dへ同期したことを確認する。R164/R170/R184の退役は後続変更へ分離し、本検査ではこれらのactive theorem/proofがまだ存在することも確認する。

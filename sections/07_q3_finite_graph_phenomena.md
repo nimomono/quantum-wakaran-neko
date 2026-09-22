@@ -3,7 +3,7 @@
 @title: Q3の確率力学、束縛状態、トンネル現象、2経路干渉、位相量子化
 @status: Q3-2・Q3-3A--Q3-5の達成とQ3-6の未達を区別する。Q3粒子輸送の現行主線はM64/R203A--R203D--R161とし、Q3-2はR185へ接続する。Q3-4A・Q3-4B・Q3-5はfinite-graph tracerの単一試行位置読出しまでを固定目標範囲とする。
 
-本章は、M37/R86の古典実正準signalをM64三実体open modelへ接続してNelson流または時間対称Newton則を得るQ3-2、R123とR182によるQ3-3A--Q3-3C、R124・R182・R125をM64 finite-graph tracerの位置読出しへ接続するQ3-4A・Q3-4B・Q3-5、位相量子化のQ3-6を区別する。R123--R125とR182の完全証明は付録F、G、R161/R185の有限格子数学は付録N、M64/R203A--R203Dは付録Yに置く。M60/M61の旧Hamiltonian実装は現行論文主線から退役する。
+本章は、M37/R86の古典実正準signalをM64三実体open modelへ接続してNelson流または時間対称Newton則を得るQ3-2、R123とR182によるQ3-3A--Q3-3C、R124・R182・R125をM64 finite-graph tracerの位置読出しへ接続するQ3-4A・Q3-4B・Q3-5、位相量子化のQ3-6を区別する。R123--R125とR182の完全証明は付録G、R161/R185の有限格子数学は付録N、M64/R203A--R203Dは付録Yに置く。M60/M61の旧Hamiltonian実装は現行論文主線から退役する。
 
 ## 7.1 Nelson流の作用変分または時間対称Newton則（Q3-2）
 
@@ -593,7 +593,7 @@ p_{\pi/2}^\delta,p_{-\pi/2}^\delta
 <
 \frac{1}{4(1+\delta)}
 ```
-で両方の識別差が正に残る。Q3-5固定目標にはmetric graphのjunction PDEを要求しない。完全な干渉代数証明は付録F.7、G.4、M64 finite-graph interfaceは付録Yに置く。
+で両方の識別差が正に残る。Q3-5固定目標にはmetric graphのjunction PDEを要求しない。完全な干渉代数証明は付録G.4、M64 finite-graph interfaceは付録Yに置く。
 
 **達成判定。** R125は、有限グラフの直交2経路入力、同一発展、コヒーレント入力、同じ重みの混合、正のコヒーレンス差、正の相対位相差を与える。M64/R203Dは同じfinite-graph tracerへregularized位置法則と有限誤差readoutを与え、$\varepsilon_{64,G}<1/[4(1+\delta)]$ なら両方の差が正に残る。同じ一試行の位置読出しまで物理的に接続されるためQ3-5は達成である。2経路clock、永久record、reset、次試行renewalの単一反復周期統合はM0課題である。
 
