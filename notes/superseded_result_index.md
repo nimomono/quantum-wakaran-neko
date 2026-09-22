@@ -131,7 +131,7 @@ M64/R203A--R203Dを現行Q3 particle/Nelson open modelへ昇格したため、M6
 | M48 | 独立setting-pre paired-Hopf Bell protocol | paired-Hopf機構とBell監査はR180へ継承し、独立fair seedと集団交差momentを現行sourceから外す。Q2-2はM54/R180 receiverへ置換 | `superseded_independent_m48_bell_protocol.md`、draft-65のGit履歴 |
 
 結果番号は再利用しない。現行結果の番号を詰めず、履歴参照を安定させる。
-| R162旧有限衝突実装・R188 | finite collision path liftとNelson安定性 | draft-87で開放R162へ簡略化。有限閉鎖実装の強化結果として保存 | `superseded_r162_r188_finite_collision.md` |
+| 旧finite-collision実装・R188 | R162の旧有限衝突path liftとNelson安定性 | draft-87で現行のopen-Poisson R162へ簡略化。R162 ID自体はactiveのまま、有限閉鎖実装だけを強化結果として保存 | `superseded_r162_r188_finite_collision.md` |
 | R178D | 有限閉鎖resetの情報容量境界 | draft-87でQ2-4必須依存から外し、強化結果へ降格 | `strengthening_closed_reset_information_bound.md` |
 
 
