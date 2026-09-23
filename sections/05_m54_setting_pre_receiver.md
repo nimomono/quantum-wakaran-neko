@@ -1,7 +1,7 @@
 @number: 5
 @chapter: 本文
 @title: Bell型測定統計：projection phase-volume主線と空間隔離強化
-@status: Q2-2 fixed-goalはM66/R205A・R205E・R205FとR207A--R207Cによるprojection phase-volume共同準備、受動分離、局所二端読出しで達成する。R207DはBell-local controlを与える。Q2-2-Sはfinite-speed spatial isolationを独立に監査する。R180A/R180C逐次Bell witnessはdraft-135でactive paperから退役した。
+@status: Q2-2 fixed-goalはM66/R205A・R205E・R205FとR207A--R207Cによるprojection phase-volume共同準備、受動分離、局所二端読出しで達成する。R207DはBell-local controlを与える。Q2-2-Sはfinite-speed spatial isolationを独立に監査する。
 
 ## 5.1 目的と現行主線
 
@@ -19,7 +19,7 @@ Q2-2の固定目標は、二体系の共同内部状態を二つの物理的測�
 \longrightarrow
 \text{local records}
 ```
-と進む。測定窓中のA結果成分からB端への逐次転送は用いない。旧R180A/R180Cの非空間分離逐次witnessはdraft-135で退役し、履歴はnotesへ保存する。
+と進む。測定窓中の端間result communicationは用いない。
 
 ## 5.2 projection phase-volume共同準備
 
