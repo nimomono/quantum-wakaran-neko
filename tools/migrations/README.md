@@ -95,3 +95,8 @@
 ## draft-135 R180 retirement
 
 `check_draft135_retire_r180.py` はactive paperからR180A/R180Cと付録Dが消え、R180専用required verifierが退役保存されたことを確認する。同時にQ2-2のR207A--R207C直接依存と達成、Q1のM65/R181D責務、R207A--R207D、Q2-2-S未監査を維持し、Theory A退役が他系列へ波及していないことを検査する。
+
+
+## draft-136 Q2-2-S retirement
+
+`check_draft136_retire_q2_2_s.py` はQ2-2-Sと固有強化列がactive enhancement registry・論文・現在形文書から消え、Q2-2がR207A--R207C直接依存の達成状態を維持することを確認する。同時にR207D、measurement-independence監査、R207 required verifier、A1/A2/B1--B3現在地を維持し、旧finite-speed separation candidate checkerがactive treeから退役したことを検査する。

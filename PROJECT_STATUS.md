@@ -1,3 +1,10 @@
+## draft-136：Q2-2-S退役とQ2-2/R207一本化
+
+- Q2-2-Sを独立strengthening IDとして退役し、Q2-2のBell模型・Bell前提監査をR207A--R207Dへ一本化する。
+- finite-speed spatial reservoir、最大伝播速度、setting確定後causal-isolation timingを正式目標・正式未完成課題から外す。これらをA1/A2/B1--B3へ移し替えない。
+- R207ではsetting marginal independence、分離後local response factorization、operational non-signalingを保つ一方、measurement independence $\rho(\Lambda\mid\boldsymbol a,\boldsymbol b)=\rho(\Lambda)$ を満たさないことをBell監査の中心とする。R207Dはmeasurement-independent Bell-local controlとして維持する。
+- Q2-2の達成、R207A--R207Dの数式、R205F passive separation、A1/A2/B1--B3の現在地、その他fixed-goal/M0判定は変更しない。
+
 ## draft-135：Theory A / R180逐次Bell witness退役
 
 - draft-134でR207A--R207CがQ2-2 fixed-goalを単独で閉じたため、R180A/R180CとA結果成分をB端へ渡す非空間分離逐次Bell経路をactive paperから退役する。
@@ -319,7 +326,7 @@
 
 ## 固定長期目標
 
-以下の目標ID、名称、意味、達成判定基準は通常の論文更新では変更しない。追加、削除、統合、分割または判定基準の変更は独立した方針変更として扱う。固定目標に付随するA1/A2、Q1/Q2のB1/B2/B3、Q2-2-Sの定義、適用範囲、現在地は `ENHANCEMENT_TARGETS.md` を正本とし、固定目標の達成状態とは独立に管理する。
+以下の目標ID、名称、意味、達成判定基準は通常の論文更新では変更しない。追加、削除、統合、分割または判定基準の変更は独立した方針変更として扱う。固定目標に付随するA1/A2、Q1/Q2のB1/B2/B3の定義、適用範囲、現在地は `ENHANCEMENT_TARGETS.md` を正本とし、固定目標の達成状態とは独立に管理する。
 
 ### 固定目標一覧
 
@@ -400,7 +407,7 @@ M54はQ1、Q2、Q3に共通する有効信号--配置状態構成族である。
 | Q1-1 | 達成 | M54のW2静的状態構成 | M37弱結合W型の最低2正常モード、または抽象2モード実正準信号系 | Q1 W型2モード制御手順（旧M47） | R135、R140、R187 | R187で信号系段階の任意精度M37実装を追加。総時間は $O(\!1/J_\kappa)$ に増え得て、準備・測定機構の同一装置統合は別課題 |
 | Q1-2 | 達成 | M54のW2静的状態構成 | R187によるM37のW2制御用信号系＋M65 open selector | Q1 W型2モード測定・Zeno手順（旧M47） | R140、R143--R144、R181D、R187、R189A--R189C、R204D--R204F | Born分布、同軸反復分布、異軸逐次分布と有限2回Zeno証人を導出。2結果主線はM65。全測定部分系の単一ミクロ装置統合は強化課題 |
 | Q2-1 | 達成 | M54静的状態構成 | 永続4モード記憶部と逆演算用補助部／作業領域＋M66 terminal sampler | テンソル積状態の生成、ゲート、4結果terminal sampling | R112、R181B、R181C、R206D | 固定深さの一試行で実際の末端4モード信号をM66 terminal samplerへ直接接続し、一回の4結果samplingでBorn分布を得る。固定目標上の残件なし。全周期装置統合はM0課題 |
-| Q2-2 | 達成 | M66 thermal phase-volume preparation | A/B二つのhidden-direction rotor、局所projection rail、二つの物理読出し端 | joint thermal preparation、passive separation、local sign latch、local record | R207A--R207C | 一般Bloch方向のsinglet共同分布を任意精度で構成し、finite-lock/finite-thickness誤差、exact非信号周辺、measurement-dependenceとlocal response factorizationを監査。finite-speed因果隔離はQ2-2-S、全周期統合はM0課題 |
+| Q2-2 | 達成 | M66 thermal phase-volume preparation | A/B二つのhidden-direction rotor、局所projection rail、二つの物理読出し端 | joint thermal preparation、passive separation、local sign latch、local record | R207A--R207C | 一般Bloch方向のsinglet共同分布を任意精度で構成し、finite-lock/finite-thickness誤差、exact非信号周辺、measurement-independence不成立とlocal response factorizationを監査。全周期統合はM0課題 |
 | Q2-3 | 達成 | M54三部分系静的状態構成 | 永続8モード記憶部と逆演算用補助部／作業領域＋M66 terminal sampler | 二段ゲート合成と8結果terminal sampling | R112、R177、R181B、R181C、R206D | 固定3入力の一試行内で第1ゲート後状態を再準備せず第2ゲートへ渡し、GHZ--$T$--逆演算後の8結果をR206Dで直接標本化する。一般サイズ資源効率はQ2-4、全周期装置統合はM0課題 |
 | Q2-4 | 条件付き達成 | M54一般静的状態構成 | $2^n$ 受動直接モード記憶部＋M66一様common-reservoir interface | R206E root preparation、一般gate列、R206D $2^n$結果terminal sampling、$n$-bit record | R112、R181C、R186、R206D、R206E | reader側の準備・sampling・readout時間・個別較正条件はM66 common-reservoir samplerで閉じる。残る主要条件はR186のdirect-amplitude register additive-noise/precision障害を多項式外部資源で回避できること |
 | Q3-1 | 達成 | M37空間signal | M37実正準空間信号 | Schrödinger型空間包絡 | R86 | clock・終位置record・resetを含む反復周期、A2直接数値再現は強化課題 |
@@ -427,12 +434,12 @@ draft-71でR182、W型有限環境系、M42周期輸送系を本文・付録・�
 | Q3 domain model | M64/R203A--R203D | M37 signal、一つのclassical tracer、一つのsignal-driven thermal reservoir。R161/R185とfinite-graph位置読出しへ接続 |
 | Q1逐次instrument | M65/R204D--R204F + R181D | 2作用から完全2結果を形成し、固定結果に対応する非規格化射影成分を同じ試行の次段へ渡す |
 | Q2 terminal specialization | R206A--R206E | Q2-1/Q2-3/Q2-4の4/8/$2^n$ 結果terminal samplingとQ2-4 root preparation |
-| Q2-2 projection phase-volume model | M66/R205A・R205E・R205F + R207A--R207D | projection phase-volume共同準備、finite-lock余弦則、passive separation、local二端結果、measurement-dependence監査。finite-speed実装だけをQ2-2-Sへ残す |
+| Q2-2 projection phase-volume model | M66/R205A・R205E・R205F + R207A--R207D | projection phase-volume共同準備、finite-lock余弦則、passive separation、local二端結果、measurement-independence監査、Bell-local controlを担う |
 | canonical位置過程 | R161/R185 | M64から受ける $(\pi,j,t)$ をMarkov path lawと時間対称Newton則へ接続 |
 
-M66の共通化はreservoir sectorに限る。M64全体、M65 canonical law、R207 finite-speed spatial implementationをM66から導出したとは扱わない。R203Bのpartition/free-energyとmean-flow sectorはR205C、R204Bのphase-volume chamberはR205Dへ埋め込まれる。R206はM66の直接Q2 specializationである。
+M66の共通化はreservoir sectorに限る。M64全体、M65 canonical law、R207のQ2-2 specialization全体をM66から導出したとは扱わない。R203Bのpartition/free-energyとmean-flow sectorはR205C、R204Bのphase-volume chamberはR205Dへ埋め込まれる。R206はM66の直接Q2 specializationである。
 
-Q1ではM37--R187--R140で可逆2モードsignalを作り、R189A--M65--R181Dで測定へ接続する。Q2-1/Q2-3/Q2-4ではM54/R181B--R181Cの永続信号をR206 terminal samplerへ渡す。Q2-2 fixed-goalはM66/R205--R207のprojection phase-volume共同準備からpassive separationとlocal二端読出しへ進む。Q2-2-Sは同じR207主線にfinite-speed causal isolationを追加するstrengtheningである。Q3ではM37/R86 signalからM64/R203A--R203Dへ進み、R161/R185へ接続する。
+Q1ではM37--R187--R140で可逆2モードsignalを作り、R189A--M65--R181Dで測定へ接続する。Q2-1/Q2-3/Q2-4ではM54/R181B--R181Cの永続信号をR206 terminal samplerへ渡す。Q2-2 fixed-goalはM66/R205--R207のprojection phase-volume共同準備からpassive separation、local二端読出し、measurement-independence監査へ進む。Q3ではM37/R86 signalからM64/R203A--R203Dへ進み、R161/R185へ接続する。
 
 M0はこれらの共通化より強い。M54/M66を共有していても、同じ物理接続端、準備、操作、測定、永久record、reset、clock、renewalを1つのjoint microscopic device/processと共通反復周期へ接続しない限りM0達成とはしない。
 
@@ -458,7 +465,7 @@ M54による統一は共通状態型、因果契約、接続規約の有効層�
 |---|---|---|
 | Q1 W型2モード手順（旧M47） | M54のW2静的状態構成＋R187のM37接続 | 準備済みW2入力、R187/R140による制御、射影作用保持、M65による2結果形成、R181Dによる非規格化射影成分受渡し、R143/R144、R189A--R189Cを接続する |
 | R206 Q2終端多結果特殊化 | M54 signal + M66/R205 | Q2-1/Q2-3/Q2-4のterminal readout。4/8/$2^n$ 結果をcommon-hub samplerで1回標本化し、Q2-4ではR206E root preparationを併用する |
-| R207 Q2-2 projection phase-volume主線 | M66/R205A・R205E--R205F | setting-dependent projection phase volume、near-contact hidden-direction lock、passive separation、local sign latch、一般余弦共同分布、Bell前提監査を担う。finite-speed spatial reservoirとtiming closureはQ2-2-Sで未監査 |
+| R207 Q2-2 projection phase-volume主線 | M66/R205A・R205E--R205F | setting-dependent projection phase volume、near-contact hidden-direction lock、passive separation、local sign latch、一般余弦共同分布、measurement-independence監査を担う |
 
 ### 統合目標
 
@@ -557,7 +564,7 @@ M0は、個別のA1模型を並べるだけでは達成としない。少なく�
 |---|---|---|
 | R207A | fixed-goal厳密結果 | $S^2$ hidden directionsとfinite-thickness projection phase volumeをM66/R205Eへ特殊化し、setting-independent partition、独立setting marginal、source--setting measurement dependenceを同時に与える |
 | R207B | fixed-goal厳密結果・一様誤差境界 | $\epsilon=0$ で任意Bloch方向の $E=-L(k)\boldsymbol a\cdot\boldsymbol b$、exact局所周辺、CHSH $2\sqrt2L(k)$ を導き、finite thicknessでは一様TV誤差境界を与える |
-| R207C | fixed-goal有限合成結果 | R205E preparation、有限保持、R205F passive separation、local comparator/latch、R112型recordを一試行へ接続する。finite-speed causal isolationはQ2-2-Sへ分離 |
+| R207C | fixed-goal有限合成結果 | R205E preparation、有限保持、R205F passive separation、local comparator/latch、R112型recordを一試行へ接続し、分離後local response factorizationとmeasurement-independence不成立を監査する |
 | R207D | Bell-local control | measurement independenceとlocal response factorizationを同時に課した対照系で $|S|\le2$ を示す |
 
 ### Q3結果
@@ -586,7 +593,7 @@ M0は、個別のA1模型を並べるだけでは達成としない。少なく�
 - Q2-4の比較対象はブラックボックスとしての運用上の複雑度である。内部モード、静的結合器、装置体積、総熱の総量は別の報告対象の内部資源として保持し、指数的であるだけでQ2-4を否定しない。ただしそれらがモード別較正、指数精度、指数時間として外部接続部へ露出すれば失敗とする。R186はこの露出のうち製造誤差とノイズの境界を定量化する。
 - R181Dはbinary selector contractで固定された安全結果 $r$ に従い、可逆な射影成分の振り分けによって $P_rZ$ と補成分を分け、非規格化 $P_rZ$ を同じ試行の次段へ渡す。現行fixed-goalではQ1の逐次handoffに使う。Q2-1/Q2-3/Q2-4はR206 terminal sampling、Q2-2はR207 local two-end readoutを用いる。
 - 現行Q2-2主線R207のCHSH不等式の破れは、setting marginal自体を独立に保ちながらprojection phase-volume共同準備によってsource hidden stateをsetting-dependentにすることで得る。passive separation後のlocal response factorizationとoperational non-signalingは保つがmeasurement independenceは成立しない。旧R180逐次witnessはactive paperから退役した。
-- R207A--R207CはQ2-2 fixed-goalの直接根拠である。R207DはBell-local controlである。finite-speed spatial reservoirとsetting確定後のtiming closureはfixed-goalから分離し、Q2-2-Sの公式状態はENHANCEMENT_TARGETSで未監査を維持する。
+- R207A--R207CはQ2-2 fixed-goalの直接根拠であり、R207Dはmeasurement-independent Bell-local controlである。R207ではsetting generatorの独立なmarginalを保てる一方、source hidden stateはsetting-dependentでありmeasurement independenceを満たさない。
 - 有限熱化または外部時刻割当から独立同分布型有限標本揺らぎは従わない。
 - Q1--Q3を同じ装置、同じ基準分布、同じ反復周期へ統合したとは主張しない。
 
@@ -597,7 +604,6 @@ M0は、個別のA1模型を並べるだけでは達成としない。少なく�
 1. Q1ではR189A作用保持、M65 selector、R112型record、R181Dの射影成分振り分け、未使用保持対SWAP／R179 open resetをM37 W2信号系と同じ具体装置・時計自由度へ接続し、測定部分系の単一装置統合と周期収支を閉じる。
 2. Q2-1/Q2-3では永続多モード記憶部、R206 terminal sampler、recordを同じ具体装置・時計割当へ統合することはA1/M0の強化課題として残る。fixed-goalの一試行interface自体はR206Dまで閉じている。
 3. Q2-2について、R207のprojection phase-volume共同準備、hidden-direction保持、passive separation、二つのlocal latch/record、reset、clock、renewalを同じjoint device/processへ統合する。
-   - Q2-2-S strengtheningでは別に、R205E/F--R207 candidateをfinite-speed spatial reservoirへ落とし、$v_{\max}$ を持つ同一timing modelでsetting確定後の因果隔離を閉じる。
 4. Q2-4について、R206E root preparation、R181C gate列、R206 terminal samplerの一様規則と多項式外部運用資源はfixed-goal主線で閉じる。残る条件は、製造ばらつきと運転中の揺らぎを実装模型から導き、R186の多項式精度条件を満たし、全自由度へのadditive noiseが生む指数障害を回避できる範囲を示すことである。
 5. Q3の強化として、M37空間signal source、M64のsignal-driven thermal reservoirとtracer、時計自由度、終位置recordを同じ反復装置周期へ統合し、M64で直接定めた開放方程式そのもののA2直接数値再現を行う。あわせて、生M37局所包絡から時間対称Newton則へより直接に進む縮約、finite-bandwidth/Hamiltonian lift、continuous-space一様極限、多粒子拡張を検討する。
 6. Q3-6の位相量子化について、閉路巻数、節を介した位相すべり、細分化安定性、非整数モノドロミー排除を同じ明示的な古典ミクロ構成で閉じる。

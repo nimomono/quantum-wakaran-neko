@@ -211,10 +211,6 @@ R207Bから
 
 Bell前提監査では、分離後local response factorizationとoperational non-signalingを主張する一方、$\rho(\Lambda\mid\boldsymbol a,\boldsymbol b)\neq\rho(\Lambda)$なのでmeasurement independenceを主張しない。
 
-### 8.6.1 Q2-2-S finite-speed strengthening
-
-Q2-2-Sではfixed-goalの$\varepsilon_{207}$に加え、具体spatial reservoirが有限最大伝播速度$v_{\max}$を持つこととsetting確定後のcausal-isolation timingを同じ実装で満たすことを要求する。R205Fのgenerator factorizationだけをfinite-speed isolationの代用にしない。direct SDE trajectory、具体reservoir geometry、実験装置はA2/B/Q2-2-Sで監査する。
-
 ## 8.7 Q3のM64--R161--R185誤差
 
 Q3の現行particle/Nelson物理層はM64/R203A--R203Dである。continuous profileでは、initial preparation、regularized current dictionary、finite-time mean-flow tracking、density interpolationを経てcanonical overdamped tracerをideal regularized diffusionへ接続する。
@@ -458,7 +454,7 @@ Q2-4は条件付き達成を維持する。reader側の逐次branch、作用下�
 
 固定目標上の未完成事項は、Q3-6の位相量子化とQ2-4のR186 robustness条件である。Q2-4ではR206E root preparation、R181C gate列、R206 terminal samplerの一様規則と多項式外部運用資源を閉じ、reader側の旧逐次依存を外した。残るfixed-goal条件は、M54 direct-amplitude registerの製造ばらつき・運転中additive noiseがR186の許容範囲に入り、指数精度へ露出しないことである。Q2-1/Q2-3は固定深さの一試行interface、Q2-2はR207 joint preparationからpassive separationとlocal二端recordまで、Q3-4A/Q3-4B/Q3-5はM64 finite-graph tracerの一試行位置読出しまでを既存結果で閉じている。これらの準備から永久記録、reset、物理clock、次試行renewalまでの全周期統合はM0へ分離する。
 
-固定目標に付随する標準強化目標の定義、適用範囲、現在地は `ENHANCEMENT_TARGETS.md` を正本とする。全固定目標に具体的古典ミクロ模型A1と直接数値再現A2、Q1/Q2に具体回路B1、実験可能領域B2、回路直接数値再現B3を置く。Q2-2にはさらに、非空間分離の現行証人から物理的2端化、測定窓内因果隔離、隔離下のBell前提監査へ進むQ2-2-Sを置く。これらの強化状態はfixed-goal達成状態と独立に、`ENHANCEMENT_TARGETS.md` の現在地表で管理する。
+固定目標に付随する標準強化目標の定義、適用範囲、現在地は `ENHANCEMENT_TARGETS.md` を正本とする。全固定目標に具体的古典ミクロ模型A1と直接数値再現A2、Q1/Q2に具体回路B1、実験可能領域B2、回路直接数値再現B3を置く。これらの強化状態はfixed-goal達成状態と独立に、`ENHANCEMENT_TARGETS.md` の現在地表で管理する。
 
 A1ではHamiltonian無限浴だけでなく、規約と共分散を明示して直接定めたLangevin型SDEその他の開放ミクロ方程式を認め、理想白色雑音を許す。A2ではA1で定めたミクロODE/SDEそのものを直接計算する。理想白色雑音を使うQ1/Q2模型を回路へ移す場合、B2/B3では有限帯域雑音源と時間尺度分離を明示する。
 
@@ -541,7 +537,7 @@ M65の現行fixed-goal範囲はQ1の逐次binary instrumentである。Q2-1/Q2-3
 | M64/R203B--R203C | phase-volume identity自体はexact。採用するthermal mixingまたはmean-flow portの実装偏差 | current dictionary、initial preparation、finite-time flow tracking、tracer縮約、R161/R185接続 |
 | M65/R204B | R205Dのcapacity--conductance恒等式自体はexact | canonical M65 finite-time/hub/endpoint/record error。chamber/Brownian liftを採用した場合だけそのgenerator近似 |
 | R206 | R205Bのmatched capacity--conductance原理 | R206Cのfinite-time、hub residual、regularization、generator、record、fabrication error |
-| R207 | R205E thermal mixing、R205F generator separation defect | setting latch、finite-lock近似、outcome fixation、finite-speed reservoir/timing未閉包 |
+| R207 | R205E thermal mixing、R205F generator separation defect | setting latch、finite-lock近似、outcome fixation、direct microscopic trajectory・具体装置の強化監査 |
 
 この表は同じ偏差の二重計上を防ぐための責務境界であり、M64/M65/R207をM66のwhole-model specializationへ昇格させるものではない。
 

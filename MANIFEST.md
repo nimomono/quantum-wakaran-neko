@@ -1,3 +1,10 @@
+## draft-136：Q2-2-S退役とQ2-2/R207一本化
+
+- Q2-2-Sを独立strengthening IDとして退役し、Q2-2/R207へBell模型・Bell前提監査を一本化する。
+- 強化管理はA1/A2/B1/B2/B3だけとし、finite-speed spatial realizationを正式目標から外す。
+- R207A--R207D、R205F passive separation、Q2-2達成、A1/A2/B1--B3現在地、その他fixed-goal/M0判定は維持する。
+- 旧Q2-2-SのS0--S4とcandidate diagnosticの経緯はnotes/Git履歴へ保存する。
+
 ## draft-135：Theory A / R180逐次Bell witness退役
 
 - R180A/R180C、専用付録D、専用required verifier 2本をactive treeから退役し、最終Theory Aをnotes/retired_verifiersへ保存する。
@@ -390,6 +397,7 @@
 - `notes/superseded_r192_radial_stabilizer.md`
 - `notes/superseded_result_index.md`
 - `notes/superseded_r180_sequential_q2_2_witness.md`
+- `notes/superseded_q2_2_s_spatial_strengthening.md`
 - `notes/superseded_m38_m42_q1.md`
 - `notes/superseded_m41_bell_cycle.md`
 - `notes/superseded_m41_cycle_proofs.md`
