@@ -36,13 +36,11 @@ draft-127でM66/R205--R206のfixed-goal coreをQ2-1/Q2-3/Q2-4主線へ昇格し�
 
 draft-129でR205C--R205Fの解析・generator回帰もrequired checksへ加える。このディレクトリへ今後置くM66系検算は、finite-bandwidth reservoir、full Brownian/chamber trajectory、具体spatial reservoirのcross-correlation、always-on coupling中のphase backreaction、具体Hamiltonian/回路liftなど、fixed-goal coreまたはcommon-parent定理に必須でないstrengtheningだけとする。
 
-## R207 Q2-2-S spatial-preparation candidate
+## R207 strengthening checks
 
-- `verify_r207_gibbs_chsh.py`：R207A/Bの対称Gibbs sector、strong-lock CHSH root、非信号周辺、mutual information、finite-lock deep-well witnessを検査する。
-- `verify_r207_separation_control.py`：R207C/Dのpassive-separation defectとBell-local controlを検査する。
+draft-134でprojection phase-volume R207A--R207CをQ2-2 fixed-goal主線へ昇格し、数学核は `tools/verify_r207_projection_phase_volume.py` のrequired checkへ移した。
 
-どちらもcandidate-onlyであり、continuous selectorを含むdirect SDE trajectory、finite-speed spatial reservoir、実験装置のA2/B検証を意味しない。
-
+candidate側に残すのはdirect SDE trajectory、concrete finite-speed spatial reservoir、apparatus/circuit implementationなどの強化だけである。`verify_r207_separation_control.py` はR205F型cross-generator defectの距離減衰とfinite-speed実装へ進むためのseparation diagnosticsを検査する。旧4-setting Gibbs checkerは `notes/retired_verifiers/verify_r207_gibbs_chsh.py` へ保存する。
 
 ## M56/R194 alternative research line
 
