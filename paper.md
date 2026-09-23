@@ -84,7 +84,7 @@ Y\in\Omega_L
 
 Q2-1では $L=4$、Q2-3では $L=8$、Q2-4では $L=2^n$ とする。R206Aのcommon-hub samplerはmixing rateを $L$ と最小Born重みに依存させず、R206Bは全channelを同一の局所phase-volume規則で実装する。R206Cはfinite-time/fabrication error、R206DはQ2 terminal bridge、R206EはQ2-4のuniform root preparation / refreshを与える。
 
-R205CはM64/R203Bのpartition/free-energyとmean-flow分離、R205DはM65/R204Bのfixed-hub実現をcommon parentへ埋め込む。R205E/Fは一般のthermal preparationとpassive spatial separationを与えるが、この段階ではQ2-2-Sへまだ接続しない。
+R205CはM64/R203Bのpartition/free-energyとmean-flow分離、R205DはM65/R204Bのfixed-hub実現をcommon parentへ埋め込む。R205E/Fはgeneral thermal preparationとpassive spatial separationを与え、Q2-2-Sでは付録W/R207A--R207Dのcandidateへ接続する。ただしfinite-speed physical isolationは未監査である。
 
 Q2-1/Q2-3/Q2-4ではterminal readout後に結果成分を次段へ渡さないためR181D treeやR192作用回復を使わない。Q1/Q2-2の逐次binary measurementはM65/R181Dを維持する。Q2-4の条件付き達成はR186のdirect-amplitude register additive-noise障害が残るため変更しない。
 
@@ -204,7 +204,7 @@ Q2-1/Q2-3/Q2-4の現行fixed-goal terminal readoutはM66の特殊化R206A--R206E
 
 Q2-4では $L=2^n$ であるが、hub capacityを $L$ とともにscaleし、各channelへ同一のlocal capacity/conductance則を使うことで、総hub escape rateとsampling時間を $L$ に依存させない。外部controllerへBorn表、振幅表、channel別係数表を入力しない。
 
-Q2-1/Q2-3/Q2-4からM65/R181D逐次treeを外す。Q1/Q2-2のM65/R181DとQ2-2のR179 reset責務は維持する。R192は責務消滅により退役し、Q2-4ではR186障害だけを主要fixed-goal残件として維持する。R205Fの空間分離原理をBell型共同統計へ適用することはQ2-2-Sの後続強化とする。
+Q2-1/Q2-3/Q2-4からM65/R181D逐次treeを外す。Q1/Q2-2のM65/R181DとQ2-2のR179 reset責務は維持する。R192は責務消滅により退役し、Q2-4ではR186障害だけを主要fixed-goal残件として維持する。Q2-2-SではR205E/FをR207A--R207Dへ接続したcandidateを現行研究線とするが、finite-speed spatial reservoirとtiming closureが未監査なので強化状態は未監査のままとする。
 
 # 有限モード信号系と共通正準モジュール
 
@@ -2667,14 +2667,38 @@ terminal readout後に非規格化射影成分を次段へ渡さないため、Q
 
 試行開始時はR206Eのglobal damping＋固定root driveで $0^n$ rootを準備する。sampler pointerはR206Aにより任意初期分布からtarget lawへmixするため、結果別の明示resetを要求しない。Q2-4の残るfixed-goal条件はR186のdirect-amplitude register additive-noise/precision障害である。
 
-# M54駆動逐次2端binary-selector受信機構とBell前提監査
+# Bell型測定統計：現行逐次証人と空間隔離強化
 
-> **位置づけ：** 固定一重項4モード信号をA設定で分解し、A端M65の結果成分をprojector routerでB端へ直接渡し、B設定後のB端M65と組み合わせる。R180A/R180Cは共通binary selector contractに依存し、現行fixed-goal証人としてA/B両端M65を採用する。
+> **位置づけ：** Q2-2 fixed-goalはR180A/R180CとA/B両端M65、R181D projector routerによる非空間分離逐次証人で達成する。Q2-2-SはM66/R205Eのjoint thermal preparation、R205Fのpassive separation、R207A--R207Dを別の空間隔離candidateとして管理し、fixed-goal依存と混ぜない。
 
 
 ## 目的と模型の境界
 
-Q2-2の固定目標は、Bell型共同統計を古典構成で再現し、その構成についてBell不等式の導出に用いられる前提の成立・不成立を監査することである。どのBell前提を破るかは固定目標側で指定しない。本節の現行証人は、固定一重項、固定有限設定族、非空間分離の逐次古典装置であり、二つの物理的な2値読出し端から量子一重項と同じ共同入出力統計を作る。現行証人について空間分離Bell局所模型またはloophole-free Bell実験の古典局所説明は主張しない。
+Q2-2の固定目標は、Bell型共同統計を古典構成で再現し、その構成についてBell不等式の導出に用いられる前提の成立・不成立を物理的因果構造と確率因子化に対応させて監査することである。どのBell前提を破るかは固定目標側で先に指定しない。
+
+現行Q2-2には、役割の異なる二つの経路を明確に分ける。
+
+1. **fixed-goal witness**：固定一重項4モード信号へA設定を作用し、A端M65で結果を固定した後、R181D型projector routerで非規格化結果成分をB端へ物理的に渡し、B設定とB端M65を作用するR180C逐次装置。
+2. **Q2-2-S candidate**：M66/R205Eでsourceとsetting precursorを共同準備し、R205FでA/B相互作用とreservoir cross-correlationを距離とともに受動的に落とし、分離後はlocal responseだけを使うR207A--R207D経路。
+
+両者は同じCHSH型統計を扱うが、Bell前提監査の位置が異なる。R180Cでは測定窓中にA端結果成分をB端へ物理的に渡すため、Bell局所因子化を仮定しない。一方R207 candidateでは、分離後のconditional responseは
+
+```math
+P(r,s\mid\lambda_S,x,y)
+=
+P_A(r\mid\lambda_A,x)
+P_B(s\mid\lambda_B,y)
+```
+
+と因子化する候補であるが、CHSH witnessでは
+
+```math
+\rho(\lambda_S\mid x,y)
+\neq
+\rho(\lambda_S)
+```
+
+となり、測定設定独立性が成立しない。したがってR207はR180Cを置換せず、Q2-2 fixed-goalの直接依存にも追加しない。Q2-2-Sの定義・公式状態・現在地は `ENHANCEMENT_TARGETS.md` を正本とする。
 
 M54の実際の1試行末端信号を
 
@@ -2815,37 +2839,85 @@ E(x,y)
 A端結果成分がB端へ物理的に渡るため、現行証人ではBell局所因子化を仮定しない。設定前の一重項源は $x,y$ に依存せず、現行証人のCHSH破れを測定設定独立性の破れへ帰属させない。一方、B端へ到達する内部状態はA設定とA結果に依存する。本結果は、この逐次因果伝播、完全結果集合、非信号周辺を同時に示すBell前提監査であり、空間分離局所模型を主張しない。
 <!-- theorem-end:theorem -->
 
-## 責務境界
+## fixed-goalとstrengtheningの責務境界
 
 R180Bのpaired-Hopf再準備、中央潜在結果を2翼へ複製する工程、切断後のA側再読出しは現行必須主線に使わない。これらは `notes/superseded_q2_2_paired_hopf_receiver.md` と退役付録へ保存する。
 
-Q2-2で新たに使う確率源はない。共同確率はbinary selector contractとR181Dの逐次Lüders telescopingから得る。fixed-goalの現行証人ではA端・B端ともM65を用い、A端結果成分をB端へ同じ試行のまま物理的に渡すため、固定一重項・固定有限設定族・非空間分離という固定範囲でQ2-2を達成する。現行R180C証人が非空間分離であることと、Q2-2固定目標自体が特定のBell前提違反を指定しないことを区別する。空間隔離をどこまで強められるかは `Q2-2-S`、全周期装置統合はM0の独立課題とする。
+Q2-2 fixed-goalで新たに使う確率源はない。共同確率はbinary selector contractとR181Dの逐次Lüders telescopingから得る。現行証人ではA端・B端ともM65を用い、A端結果成分をB端へ同じ試行のまま物理的に渡すため、固定一重項・固定有限設定族・非空間分離という固定範囲でQ2-2を達成する。
 
-## Q2-2-SのR207 candidate
+Q2-2-Sはこの達成証人を空間局所化したものではなく、別の強化経路である。R205E/FとR207A--R207Dの成立・不成立はQ2-2 fixed-goalの達成判定を自動的に変更せず、R180Cの成立もQ2-2-Sを自動的に達成させない。永久記録、試行間reset、物理clock、次試行renewalまでの全周期統合はM0の独立課題とする。
 
-Q2-2 fixed-goalの現行証人はR180Cの非空間分離逐次装置のまま維持する。Q2-2-Sでは別経路として、付録WのR207A--R207Dが
+## Q2-2-S：common preparationとpassive separationのcandidate
 
-near-contact joint thermal preparation、passive separation、local setting latch、local outcomesの順
+### 一試行の因果順序
 
-を候補化する。
+付録W/R207では、near-contact joint thermal preparation、passive separation、local setting latch、local outcomesの順で一試行を構成する。particle--reservoir couplingは準備時と分離後でswitchせず、A/B間相互作用 $K(R)$ とreservoir cross-correlation $C_{AB}(R)$ だけを距離によって受動的に弱める。
 
-| 構成 | 測定窓中のAからBへの結果成分伝播 | 分離後local response factorization | measurement independence |
-|---|---|---|---|
-| 現行R180C fixed-goal witness | あり | Bell-local modelとしては仮定しない | 設定前一重項源について維持可能 |
-| R207 Q2-2-S candidate | R205F分離後は使わない | candidate内では成立 | R207B/C witnessでは成立しない |
-
-従って二つの構成はBell前提の異なる箇所を使う。R207はR180Cを置換せず、Q2-2 fixed-goalの直接依存へ追加しない。
-
-R207Cのgenerator factorizationだけではQ2-2-SのS2に必要な有限伝播速度を証明しない。有限最大速度 $v_{\max}$ を持つ具体spatial reservoirと
+setting precursor $q_A,q_B$ は準備窓から存在し、source anglesと相関し得る。分離後に
 
 ```math
-t_A^{\rm out}-t_B^{\rm latch}<L/v_{\max},
+x=\frac{1-\operatorname{sgn}q_A}{2},
 \qquad
-t_B^{\rm out}-t_A^{\rm latch}<L/v_{\max}
+y=\frac{1-\operatorname{sgn}q_B}{2}
 ```
 
-を同時に閉じるまでは、Q2-2-Sは未監査のままとする。
+をlocal recordへlatchする。本稿のR207 candidateでは、このlocal latch時刻をQ2-2-Sのsetting確定時刻
 
+```math
+t_A^{\rm set}=t_A^{\rm latch},
+\qquad
+t_B^{\rm set}=t_B^{\rm latch}
+```
+
+として扱う。ただしsetting recordを分離後に固定することは、準備時に生じたsource--setting precursor相関を消さず、測定設定独立性を回復しない。
+
+### R180CとR207のBell前提監査
+
+| 項目 | R180C fixed-goal witness | R207 Q2-2-S candidate |
+|---|---|---|
+| source / setting関係 | 設定前一重項sourceを設定非依存に準備 | common preparationでsourceとsetting precursorが相関 |
+| 測定窓中の端間伝播 | A結果成分をB端へ物理的に渡す | R205F分離後は端間結果伝播を使わない |
+| local response factorization | Bell-local modelとして仮定しない | R207Cの分離後candidateでは成立 |
+| measurement independence | 設定前sourceについて維持可能 | R207B/C witnessでは不成立 |
+| operational marginal | 一重項共同分布で非信号 | 4-setting witnessで各局所周辺 $1/2$ |
+| Q2-2 fixed-goal | 達成証人 | 直接依存ではない |
+
+従って両構成はBell前提の異なる箇所を使う。R207B/CのCHSH破れは、分離後local response factorizationと両立する一方、source hidden-state distributionのsetting dependenceを明示する。
+
+### S0--S4の現在地
+
+Q2-2-Sの段階定義と公式状態は `ENHANCEMENT_TARGETS.md` を正本とし、本節はその現在地の本文要約である。
+
+| 段階 | 現在の証拠 | 現在地 |
+|---|---|---|
+| S0 | R180C | 非空間分離の基準系として確立 |
+| S1 | R207A | 二端joint preparation候補あり。具体spatial trajectoryは未監査 |
+| S2 | R205F + R207C | generator-level分離候補あり。finite-speed physical isolationは未閉包 |
+| S3 | R207B + R207C | CHSH witnessとBell前提監査候補あり。S2物理実装に条件付き |
+| S4 | R207D | Bell-local analytical controlあり |
+
+S2の主要残件は、有限最大伝播速度 $v_{\max}$ を持つ具体spatial reservoirとtiming closureである。本candidateでは
+
+```math
+t_A^{\rm out}-t_B^{\rm set}<\frac{L}{v_{\max}},
+\qquad
+t_B^{\rm out}-t_A^{\rm set}<\frac{L}{v_{\max}}
+```
+
+を同じphysical implementationで閉じる必要がある。R205Fのgenerator factorizationだけからこの条件は従わない。
+
+S3については、どのBell前提を破るかをQ2-2-Sの定義で先に固定してはいないが、現R207 witnessを監査した結果としてmeasurement independenceが成立しない。S4が解析的に閉じていてもS2/S3のphysical isolationを閉じたことにはならない。従ってQ2-2-S全体の公式状態は未監査のままとする。
+
+### 非主張と残件
+
+R207A--R207Dから、次をまだ主張しない。
+
+1. continuous $q_A,q_B$ を含むfull Langevin trajectoryでのdirect numerical reproduction。
+2. 有限伝播速度を持つ具体spatial reservoirからの $C_{AB}(R)$ の導出。
+3. separation、setting latch、local outcome fixationを一つのfinite-speed timing modelで閉じること。
+4. 具体的実験装置、実験可能parameter window、direct apparatus simulation。
+
+candidate誤差台帳とCHSH安定性は第8章8.6.1、数理詳細は付録W/R207A--R207Dを参照する。
 
 # 第IV部　空間信号と粒子位置
 
@@ -4892,6 +4964,8 @@ $\varepsilon_{206}^{\rm end}$ にはR206Cのfinite-time mixing、hub residual、
 
 ### Q2-2-S R207 candidateの誤差台帳
 
+S0--S4の定義と公式状態は `ENHANCEMENT_TARGETS.md`、本文側の因果構造要約は第5章5.7を正本参照先とする。本節はcandidate誤差の数え方だけを管理し、強化状態を独立に判定しない。
+
 R207候補ではfixed-goal R180Cの $\varepsilon_{180}$ と別に、
 
 ```math
@@ -5377,7 +5451,7 @@ P(r,s\mid x,y)
 
 であり、一重項型信号では余弦共同相関、非信号性、CHSH/Tsirelson値を再現する。この装置はA結果成分をB端へ渡す非空間分離装置であり、現行証人ではBell局所因子化を仮定しない。設定前の一重項源は設定非依存であり、現行証人のCHSH破れを測定設定独立性の破れへ限定して解釈しない。
 
-Q2-2-SについてはR207A--R207Dをcandidateとして追加した。R207Aは共通thermal preparationで公平なsetting sectorを作り、R207Bはdeep-well/strong-lock極で有限parameterのCHSH/Tsirelson witnessを与える。R207CはR205Fによる分離後local response factorizationとsource--setting measurement dependenceを分け、R207Dはmeasurement-independent local controlで $|S|\le2$ を回収する。finite-speed spatial reservoirとcontinuous full trajectoryが未監査なので、この追加だけからQ2-2-Sの達成状態は変更しない。
+Q2-2-SについてはR207A--R207Dをcandidateとして追加した。R207Aは共通thermal preparationで公平なsetting sectorを作り、R207Bはdeep-well/strong-lock極で有限parameterのCHSH/Tsirelson witnessを与える。R207CはR205Fによる分離後local response factorizationとsource--setting measurement dependenceを分け、R207Dはmeasurement-independent local controlで $|S|\le2$ を回収する。S0--S4の現在地はENHANCEMENT_TARGETSを正本とし、finite-speed spatial reservoirとsetting確定後のtiming closureが未閉包なのでQ2-2-S全体は未監査のままとする。
 
 Q3の粒子位置はQ1/Q2の測定結果とは別の因果鎖を持つ一方、そのsignal数学は共通である。Q1型の局所正準モードを空間頂点へ配置し、Q2型の2体系結合を辺へ反復すると、局所作用から位置重み、連続方程式から反対称currentが得られる。M37/R86はこのSchrödinger型signalを実古典振動子網から有限時間で実装する。
 
@@ -11105,6 +11179,8 @@ R207DはR207B/CでCHSH破れを支える前提差を対照化するcontrolであ
 3. 分離・setting latch・local result固定を同じphysical timing modelで閉じること。
 4. 実験装置、実験可能parameter、direct apparatus simulation。
 
+S0--S4の定義と公式状態は `ENHANCEMENT_TARGETS.md` を正本とし、本文第5章5.7はその現在地を要約する。本付録のcandidate表現は独立の状態正本を作らない。
+
 # M66 common thermal-reservoir parentとQ2多結果readout
 
 > **位置づけ：** M66/R205A--R205Fをphase-volume、mean-flow、thermal sampling、passive separationを共通化するthermal-reservoir parentとする。Q2-1/Q2-3/Q2-4の現行terminal multi-outcome readoutはR206A--R206EをM66のQ2特殊化として維持する。M64/M65のdomain modelは置換せず、それぞれのreservoir実現だけをR205C/R205D/R205Eへ埋め込む。Q2-4のR186 additive-noise障害は独立に残す。
@@ -11482,7 +11558,7 @@ $V_{AB}\in C^1$、$f\in C^2$ なら
 joint generatorからlocal generatorの和を引き、interaction drift二項とcross-diffusion項に三角不等式を適用すればよい。$K=C_{AB}=0$ なら差の全項が消える。証明終。
 <!-- theorem-end:proof -->
 
-R205Fは固定local bath couplingのまま受動的に力学が分離する条件だけを主張する。Bell型共同統計、setting依存準備、measurement independenceは別のQ2-2-S強化で扱う。
+R205Fは固定local bath couplingのまま受動的に力学が分離する条件だけを主張する。Bell型共同統計、setting依存準備、measurement independenceへの具体的適用は付録W/R207A--R207DのQ2-2-S candidateで扱う。R205F単独からfinite-speed spatial isolationは主張しない。
 
 ### specializationsと責務境界
 

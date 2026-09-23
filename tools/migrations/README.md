@@ -77,3 +77,7 @@
 
 `check_draft130_r207_q2_2_s_candidate.py` は、A23/付録WのR207A--R207D、candidate verifier、R205E/Fとの接続を確認する。同時にQ2-2 fixed-goalのR180C--M65/R181D主線と達成ラベル、Q2-2-Sの未監査状態が維持され、R207がfixed-goal直接依存へ昇格せず、M67を新設していないことをPR固有に検査する。
 
+## draft-131 Q2-2-S management sync
+
+`check_draft131_q2_2_s_management_sync.py` は、第5章と `ENHANCEMENT_TARGETS.md` のS0--S4対応、finite-speed spatial reservoirをS2主要blockerとする現在地、R207のcandidate-only境界を確認する。同時にQ2-2 fixed-goalの直接依存・達成ラベルとQ2-2-S全体の `未監査` 状態が変わっていないことを検査する。理論式やcandidate physics verifierの変更は対象外とする。
+

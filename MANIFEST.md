@@ -1,3 +1,10 @@
+## draft-131：第5章とQ2-2-S管理文書の同期
+
+- 第5章をQ2-2 fixed-goalのR180C逐次証人とQ2-2-SのR207 candidateの二層構造へ再編し、Bell前提監査を並列に整理する。
+- Q2-2-SのS0--S4現在地を `ENHANCEMENT_TARGETS.md` の正本表へ一本化し、S2の主要未閉包条件をfinite-speed spatial reservoirとtiming closureへ統一する。
+- 第1章、概要、A23/A24、第8章、README、結論、theory lineageの現在形をR207導入後の状態へ同期する。
+- Q2-2 fixed-goalの直接依存・達成ラベル、Q2-2-S全体の未監査状態、R207A--R207Dの理論内容、candidate verifier、A1/A2/B判定は変更しない。
+
 ## draft-130：R207A--R207D Q2-2-S candidate
 
 - A23/付録WへR207A--R207Dを追加し、M66/R205E thermal preparationとR205F passive separationをQ2-2-S候補へ接続する。

@@ -112,4 +112,4 @@ Q2-1/Q2-3/Q2-4の現行fixed-goal terminal readoutはM66の特殊化R206A--R206E
 
 Q2-4では $L=2^n$ であるが、hub capacityを $L$ とともにscaleし、各channelへ同一のlocal capacity/conductance則を使うことで、総hub escape rateとsampling時間を $L$ に依存させない。外部controllerへBorn表、振幅表、channel別係数表を入力しない。
 
-Q2-1/Q2-3/Q2-4からM65/R181D逐次treeを外す。Q1/Q2-2のM65/R181DとQ2-2のR179 reset責務は維持する。R192は責務消滅により退役し、Q2-4ではR186障害だけを主要fixed-goal残件として維持する。R205Fの空間分離原理をBell型共同統計へ適用することはQ2-2-Sの後続強化とする。
+Q2-1/Q2-3/Q2-4からM65/R181D逐次treeを外す。Q1/Q2-2のM65/R181DとQ2-2のR179 reset責務は維持する。R192は責務消滅により退役し、Q2-4ではR186障害だけを主要fixed-goal残件として維持する。Q2-2-SではR205E/FをR207A--R207Dへ接続したcandidateを現行研究線とするが、finite-speed spatial reservoirとtiming closureが未監査なので強化状態は未監査のままとする。
