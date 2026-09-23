@@ -7,7 +7,7 @@ M66は、resolved classical degreesと一つのthermal reservoirの間の物理i
 
 共通入力は正のphase-volume weight $w(Q,t)>0$、reservoir mean-flow port $U(Q,t)$、resolved configurationの通常のenergy landscape $H_{\rm cfg}(Q,t)$ とする。これらはBorn確率表やGibbs確率表を外部controllerが計算して注入するための入力ではなく、各specializationの局所signal、粒子配置、受動幾何から決まる物理量である。reservoir couplingは固定、または粒子間距離・局所配置へ受動的に依存するconstitutive lawとし、確率生成のためだけのbath switchを要求しない。
 
-R205A/R205Cはphase-volume/free-energy sector、R205B/R205Dはfinite-chamber reduction、R205Eはoverdamped thermal sampler、R205Fは空間分離時のgenerator decouplingを与える。Q2-1/Q2-3/Q2-4ではR206A--R206Eへ接続する。Q1/Q2-2の逐次binary instrumentはM65/R181D、Q3のparticle/Nelson主線はM64/R203A--R203Dを維持する。
+R205A/R205Cはphase-volume/free-energy sector、R205B/R205Dはfinite-chamber reduction、R205Eはoverdamped thermal sampler、R205Fは空間分離時のgenerator decouplingを与える。Q2-1/Q2-3/Q2-4ではR206A--R206Eへ、Q2-2ではR207 projection phase-volume specializationへ接続する。Q1の逐次binary instrumentはM65/R181D、Q3のparticle/Nelson主線はM64/R203A--R203Dを維持する。
 
 ## X.1 R205A：共通phase-volume identity
 
