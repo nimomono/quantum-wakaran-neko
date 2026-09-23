@@ -184,7 +184,7 @@ $\varepsilon_{206}^{\rm end}$ にはR206Cのfinite-time mixing、hub residual、
 
 現行Q2-2はR207 projection phase-volume主線を使う。完全結果分布について
 
-[
+```math
 \varepsilon_{207}
 \le
 \varepsilon_{\rm prep}^{207}
@@ -200,14 +200,14 @@ $\varepsilon_{206}^{\rm end}$ にはR206Cのfinite-time mixing、hub residual、
 \varepsilon_{\rm latch}^{207}
 +
 \varepsilon_{\rm rec}^{207}.
-]
+```
 
 R207Bから
-[
+```math
 \varepsilon_{\rm thick}^{207}\le2\epsilon,
 \qquad
 \varepsilon_{\rm lock}^{207}\le\frac{1-L(k)}2.
-]
+```
 任意のtarget $\eta>0$ に対し有限$\epsilon,k$で統計核誤差を任意に小さくし、残りをfinite preparation、hidden-direction保持、R205F separation、local latch、recordへ配分する。R205E mixingとR205F defectは共通層側で一度だけ数える。
 
 Bell前提監査では、分離後local response factorizationとoperational non-signalingを主張する一方、$\rho(\Lambda\mid\boldsymbol a,\boldsymbol b)\neq\rho(\Lambda)$なのでmeasurement independenceを主張しない。R180A/R180Cの旧逐次誤差はactive alternate witnessの台帳として残すが、現行$\varepsilon_{207}$へ加えない。
