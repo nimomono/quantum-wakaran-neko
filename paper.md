@@ -11,7 +11,7 @@
 |---|---|---|
 | 実正準signal・状態構成 | M54、M37 | M54が共通状態・接続規約、M37が古典振動子によるsignal実装 |
 | 共通thermal-reservoir interface | M66/R205 | phase-volume、mean-flow、thermal sampling、passive separation |
-| 用途別の模型・特殊化 | M65/R181D、R206、M64/R161/R185、R207 | 逐次2値測定、Q2終端多結果、Q3粒子/Nelson、Q2-2-S強化候補 |
+| 用途別の模型・特殊化 | M65/R181D、R206、M64/R161/R185、R207 | Q1逐次2値測定、Q2終端多結果、Q3粒子/Nelson、Q2-2 projection phase-volume二端模型 |
 | 全周期統合 | M0 | 準備からrenewalまでを1つのjoint device/processへ統合 |
 
 
@@ -35,7 +35,7 @@ w(Q)e^{-\beta H_{\rm cfg}(Q)}
 
 を共通核とする。R205Cによりphase-volume weightとmean-flow shiftは同じreservoir内で両立し、R205Fは距離依存相互作用とreservoir cross-correlationが消えるときの受動的generator分離条件を与える。
 
-この共通化は、M64またはM65の全模型をM66から導出したという主張ではない。M64のtracer/current dictionary、M65のcanonical 3状態open Markov lawは系列固有の責務として残る。M64/R203Bのpartition/free-energyとmean-flow sectorはR205C、M65/R204Bのphase-volume chamber実現はR205Dへ埋め込まれる。R206はM66の直接的なQ2終端多結果特殊化であり、R207はR205E/FをQ2-2-Sの共同準備・受動分離へ使う強化候補である。
+この共通化は、M64またはM65の全模型をM66から導出したという主張ではない。M64のtracer/current dictionary、M65のcanonical 3状態open Markov lawは系列固有の責務として残る。M64/R203Bのpartition/free-energyとmean-flow sectorはR205C、M65/R204Bのphase-volume chamber実現はR205Dへ埋め込まれる。R206はM66の直接的なQ2終端多結果特殊化であり、R207はM66/R205A・R205E・R205FをQ2-2のprojection phase-volume共同準備・二端読出しへ特殊化する。
 
 Q1では、M37弱結合W型の最低2正常モードをR187でM54のW2信号へ接続し、R140が有限 $SU(2)$ 操作とRabi運動を与える。測定軸に対する2つの射影作用
 
@@ -57,21 +57,9 @@ P(r=\pm)
 
 Q2-1とQ2-3ではR181Bが固定入力のテンソル積信号を作り、R181Cが同じ永続記憶部上で局所gateと結合gateを作用する。末端4結果または8結果はM66の特殊化R206で1回に標本化する。Q2-4ではR206Eで $0^n$ rootを一様準備し、R181Cの一般gate列後に $L=2^n$ のR206 samplerへ直接接続する。R206A--R206Cは逐次leaf探索、最小Born重みに依存する混合時間、結果別routerを避ける。一方、M54 direct-amplitude registerへ全自由度加法ノイズが入るR186の障害は残るため、Q2-4は条件付き達成を維持する。
 
-Q2-2 fixed-goalは別の逐次経路を使う。固定一重項4モード信号にA設定を作用し、A端M65で結果 $r$ を形成した後、R181D型projector routerで非規格化結果成分をB端へ物理的に渡す。B設定後にB端M65で $s$ を形成し、
+Q2-2 fixed-goalはR207 projection phase-volume経路を使う。setting方向とhidden directionsをnear-contactで共同thermal preparationし、projection phase volumeとisotropic lockから一般角度singlet共同統計へ接続する。finite-lockでは余弦形のvisibilityを解析的に与え、finite thicknessでは一様全変動誤差を持つ。分離後はlocal response factorizationを保つ一方、source hidden stateはsetting-dependentでありmeasurement independenceは成立しない。
 
-```math
-P(r,s\mid x,y)
-=
-\frac{
-\|P_{B,s}^{y}P_{A,r}^{x}Z_{AB}\|^2
-}{
-\|Z_{AB}\|^2
-}
-```
-
-を得る。一重項型信号では余弦共同統計、非信号性、CHSH/Tsirelson値を回収する。ただし測定窓中にA端結果成分をB端へ渡すため、現行fixed-goal証人はBell局所因子化を満たす空間分離模型ではない。
-
-Q2-2-Sでは別の強化経路を調べる。R205Eによる近接時共同thermal preparation、R205Fによる受動分離、R207A--R207Dによる4-setting CHSH witnessとBell前提監査を組み合わせる。分離後local response factorizationと両立するcandidateである一方、現R207 witnessではsourceとsetting precursorの共同準備によりmeasurement independenceが成立しない。finite-speed spatial reservoirとsetting確定後のtiming closureが未閉包なので、Q2-2-S全体は未監査のままである。
+Q2-2-Sは同じR207主線へfinite-speed causal isolationを追加する強化である。具体spatial reservoirの最大伝播速度とsetting確定後timing closureが未閉包なので、Q2-2-S全体は未監査のままである。R180C逐次経路はactive alternate witnessとして残すがfixed-goal直接依存には含めない。
 
 Q3のsignal数学はQ1/Q2と別の代数ではない。Q1型局所正準モードを空間頂点へ配置し、Q2型2体系結合を辺へ反復すると、Schrödinger型signal、局所作用、反対称currentが得られる。M37/R86がこのsignalを実古典振動子網から実装する。
 
@@ -105,7 +93,7 @@ Q3-2の現行因果鎖は、M37/R86 signal、M64/R203A--R203C、R203D/R161、R18
 | 共通有効signal・状態構成 | M54 | 有限実正準信号、準備済み入力境界、永続記憶部、作業領域、時計、記録、接続規約 |
 | signal物理実装 | M37/R86 | 局所結合古典振動子網から空間signalを実装。R187条件下ではW型最低2正常モードをQ1へ接続 |
 | 共通thermal-reservoir interface | M66/R205A--R205F | phase-volume、mean-flow、thermal sampling、matched capacity--conductance、passive separation |
-| 用途別模型・特殊化 | M64、M65、R206、R207 | Q3 tracer/Nelson、逐次2値測定、Q2終端多結果読出し、Q2-2-S強化候補 |
+| 用途別模型・特殊化 | M64、M65、R206、R207 | Q3 tracer/Nelson、Q1逐次2値測定、Q2終端多結果読出し、Q2-2 projection phase-volume二端模型 |
 | 全周期統合目標 | M0 | 準備、操作、測定、永久記録、reset、clock、renewalを1つのjoint device/processへ統合 |
 
 M54とM66は異なる責務を持つ共通層である。M54はどのsignal・状態・接続端を使うかを整理し、M66はresolved classical degreeとthermal reservoirの間の物理原理を整理する。M66がM54を置換するわけでも、M54からM66が従うわけでもない。
@@ -128,7 +116,7 @@ w(Q)e^{-\beta H_{\rm cfg}(Q)}
 
 のthermal samplingを与える。R205Fは距離依存相互作用とreservoir cross-correlationが消えるときのgenerator分離条件を与える。
 
-ただし、この共通化はwhole-model derivationではない。M64ではR203Bのpartition/free-energyとmean-flow sectorだけがR205Cへ埋め込まれ、current dictionary、initial preparationの具体則、tracer、R203C/R203DはM64固有である。M65ではR204Bのphase-volume chamber実現だけがR205Dへ埋め込まれ、canonical 3状態open Markov lawはM65自身の定義である。R206はM66のQ2終端多結果特殊化であり、R207はR205E/FをQ2-2-Sへ適用する強化候補である。
+ただし、この共通化はwhole-model derivationではない。M64ではR203Bのpartition/free-energyとmean-flow sectorだけがR205Cへ埋め込まれ、current dictionary、initial preparationの具体則、tracer、R203C/R203DはM64固有である。M65ではR204Bのphase-volume chamber実現だけがR205Dへ埋め込まれ、canonical 3状態open Markov lawはM65自身の定義である。R206はM66のQ2終端多結果特殊化であり、R207はR205A/R205E/R205FをQ2-2 projection phase-volume主線へ適用する。
 
 ## 系列ごとの現行因果鎖
 
@@ -180,7 +168,7 @@ Y.
 
 Q2-1は $L=4$、Q2-3は $L=8$、Q2-4は $L=2^n$ とする。Q2-4ではR206Eの一様root preparation、R181C gate列、R206D terminal samplingを使う。
 
-Q2-2 fixed-goalは固定一重項4モード信号、A/B設定gate、A端M65、R181D型router、B端M65を順に接続する非空間分離逐次証人である。Q2-2-Sは別のstrengtheningであり、R205Eによるjoint thermal preparation、R205Fのpassive separation、R207A--R207DのBell前提監査を使う。後者をfixed-goal直接依存へ混ぜない。
+Q2-2 fixed-goalはM66/R205A・R205Eによるprojection phase-volume共同準備、near-contact hidden-direction lock、R205F passive separation、R207 local sign latch/recordを一試行で接続する。一般Bloch方向のsinglet共同統計を任意精度で再現し、分離後local response factorizationとmeasurement dependenceを監査する。R180Cはactive alternate witnessとして残す。Q2-2-Sは同じR207主線へfinite-speed spatial isolationを追加するstrengtheningである。
 
 Q3のsignal数学はQ1/Q2の局所実正準信号と2体系結合の空間特殊化である。M37/R86 signalへM64のclassical tracerとsignal-driven thermal reservoirを接続し、
 
@@ -202,12 +190,12 @@ Q3のsignal数学はQ1/Q2の局所実正準信号と2体系結合の空間特殊
 |---|---|---|
 | Q1 | 準備済みW2入力、M37/R187、R135、R140、R189A | M65/R204D--R204F、R181D、R143--R144、R189B--R189C |
 | Q2-1 | R181B、R181C | M66/R206Dの4結果terminal sampler |
-| Q2-2 | 固定一重項4モード、A/B設定gate | A端M65、R181D型router、B端M65、R180A/R180C監査 |
+| Q2-2 | M66/R205 projection phase-volume共同準備、near-contact lock | R207 passive separation、local sign latch、R112型record、R207A--R207D監査 |
 | Q2-3 | R181Bを2回、R181C、R177 | M66/R206Dの8結果terminal sampler |
 | Q2-4 | R206E root preparation、M54一般 $2^n$ 直接モード、R181C | M66/R206Dの $2^n$ 結果terminal sampler、R186資源監査 |
 | Q3 | M37/R86 signal、M64/R203A--R203D | R161/R185、R124/R182/R125位置読出し、R112終位置record |
 
-Q2-2-Sはこの表のfixed-goal最小構成へ入れず、R205E/F--R207A--R207Dを強化候補としてENHANCEMENT_TARGETS.mdで管理する。
+Q2-2-SはR207 fixed-goal baselineへfinite-speed spatial geometryとsetting確定後causal isolationを追加する強化としてENHANCEMENT_TARGETS.mdで管理する。
 
 ## 達成範囲と判定階層
 
@@ -231,7 +219,7 @@ Q2-2-SではR207A--R207Dにより解析candidateを得ているが、finite-spee
 
 # 有限正準信号と共通熱浴モジュール
 
-> **位置づけ：** M54をQ1・Q2・Q3の共通有効signal・状態構成層、M66/R205を共通thermal-reservoir interface、R161をQ3位置輸送の共通数学核とする。M64/M65は系列固有domain model、R206はM66のQ2 terminal specialization、R207はQ2-2-S strengthening candidateとして責務を分ける。
+> **位置づけ：** M54をQ1・Q2・Q3の共通有効signal・状態構成層、M66/R205を共通thermal-reservoir interface、R161をQ3位置輸送の共通数学核とする。M64/M65は系列固有domain model、R206はM66のQ2 terminal specialization、R207はM66/R205のQ2-2 projection phase-volume specializationとして責務を分ける。
 
 
 ## 共通signal層と共通thermal-reservoir層
@@ -259,9 +247,9 @@ w(Q)e^{-\beta H_{\rm cfg}(Q)}
 | 用途 | 共通熱浴原理との対応 | 用途固有に残る責務 |
 |---|---|---|
 | M64 / Q3 | R203Bの $w=r_X^\delta/r_*$ とmean-flow sectorをR205Cへ埋め込む | R203A current dictionary、initial/flow trackingの具体実装、tracer、R203C/R203D |
-| M65 / Q1・Q2-2 | R204B phase-volume chamberをR205Dのbinary fixed-hub specializationとして回収 | M65 canonical 3状態open law、R204D--R204F、R181D handoff |
+| M65 / Q1 | R204B phase-volume chamberをR205Dのbinary fixed-hub specializationとして回収 | M65 canonical 3状態open law、R204D--R204F、R181D handoff |
 | R206 / Q2-1・Q2-3・Q2-4 | M66のfinite-$L$ common-hub terminal specialization | Q2 terminal bridge、finite-time/fabrication error、Q2-4 root preparation |
-| R207 / Q2-2-S | R205E joint thermal preparationとR205F passive separationを利用 | setting precursor、CHSH witness、Bell前提監査、finite-speed残件 |
+| R207 / Q2-2 | R205A projection phase volume、R205E joint thermal preparation、R205F passive separationを利用 | general-angle singlet law、local二端latch、Bell前提監査。finite-speed残件はQ2-2-Sへ分離 |
 
 従ってM66はM64/M65のwhole-model parentではなく、共通reservoir interfaceのparentである。共通化されたsectorと各domain model固有のsectorを混同しない。
 
@@ -271,7 +259,7 @@ M54から作る派生複素座標を
 Z=\frac{Q+iP}{\sqrt{2\mathcal J_0}}
 ```
 
-とするが、$Z$ は独立した複素実体ではない。Q1/Q2-2では2結果射影作用をM65のbinary selector interfaceへ渡す。Q2-1/Q2-3/Q2-4ではterminal各結果作用をM66/R206へ渡す。Q3ではM37/R86が空間signalを与え、M64/R203A--R203Dが同じsignalからcontinuous/finite-graph tracerをR161へ渡す。R161自身が有限状態のcanonical Markov経路法則まで定め、R162は同じ経路法則を独立Poisson random measuresで実現するoptional referenceとして使う。測定結果用の旧静的配置pointerをM54共通状態へ置かない。
+とするが、$Z$ は独立した複素実体ではない。Q1では2結果射影作用をM65のbinary selector interfaceへ渡す。Q2-1/Q2-3/Q2-4ではterminal各結果作用をM66/R206へ渡す。Q2-2はM66/R205--R207のprojection phase-volume二端模型を使う。Q3ではM37/R86が空間signalを与え、M64/R203A--R203Dが同じsignalからcontinuous/finite-graph tracerをR161へ渡す。R161自身が有限状態のcanonical Markov経路法則まで定め、R162は同じ経路法則を独立Poisson random measuresで実現するoptional referenceとして使う。測定結果用の旧静的配置pointerをM54共通状態へ置かない。
 
 M65のopen pointer、M66のcommon-hub pointer、R179のopen reset浴は接続interfaceとして扱い、常設のM54信号座標とは分ける。
 
@@ -283,13 +271,13 @@ M65のopen pointer、M66のcommon-hub pointer、R179のopen reset浴は接続int
 (Z,S_{\rm port},G,W,J,X,D,\tau)
 ```
 
-と書く。$X$ はQ3でM64が与えるclassical tracerの有限状態表示である。Q1/Q2-2の逐次2値結果はM65、Q2-1/Q2-3/Q2-4のterminal joint resultはM66/R206が担う。
+と書く。$X$ はQ3でM64が与えるclassical tracerの有限状態表示である。Q1の逐次2値結果はM65、Q2-1/Q2-3/Q2-4のterminal joint resultはM66/R206、Q2-2の二端Bell resultはM66/R205--R207が担う。
 
 | 系列 | M54状態構成 | 準備・操作 | 現行出力 |
 |---|---|---|---|
 | Q1 | W型2モード信号 | 準備済み古典入力、R140、R187 | M65、R181D、R143--R144 |
 | Q2-1 | 4モード永続記憶部 | R181B、R181C | M66/R206D 4結果terminal sampling |
-| Q2-2 | 4モード＋2物理測定端 | R181B/R181C、設定gate | A端M65、router、B端M65、R180A/R180C |
+| Q2-2 | two hidden-direction rotors＋2物理測定端 | M66/R205A・R205E joint preparation、setting directions | R205F、R207A--R207D、local latch/record |
 | Q2-3 | 8モード永続記憶部 | R181Bを2回、R181C、R177 | M66/R206D 8結果terminal sampling |
 | Q2-4 | $2^n$ 直接モード | R206E root preparation、R181C | M66/R206D $2^n$結果terminal sampling、R186監査 |
 | Q3 | 空間信号＋classical tracer | 準備済み古典空間入力、M37/R86、M64/R203A--R203D | R161、R185、R124、R182、R125 |
@@ -2299,7 +2287,7 @@ R189A--R189CはR144の通常測定をそのまま中間へ挿入した結果で�
 
 # M54のQ2有限次元特殊化
 
-> **位置づけ：** 第2章をR181B/R181Cの一般信号・gate定理、付録XをM66/R206 terminal readout正本とし、本章は2入力・3入力への特殊化、同一記憶部上のCNOT、二段ゲート、4/8結果terminal sampling、およびQ2-2のM65/R181D受信機構への適用を明示する。Q2-1--Q2-3の達成ラベルは変更しない。
+> **位置づけ：** 第2章をR181B/R181Cの一般信号・gate定理、付録XをM66/R206 terminal readout正本とし、本章は2入力・3入力への特殊化、同一記憶部上のCNOT、二段ゲート、4/8結果terminal samplingを明示する。Q2-2の現行fixed-goal主線は第5章/付録WのR207であり、本章のR180接続はactive alternate witnessとして残す。
 
 
 ## 改訂した設計原則
@@ -2312,7 +2300,7 @@ Q2-1の固定目標は、2量子ビット型結合ゲートと同一の共同入
 2. 内部の4モード記憶部、8個の実正準座標、逆演算用補助記憶部、作業領域用素子、時計自由度履歴は許す。ただし各内部モードを外部から個別に初期化、較正、同期、個別指定、読出し、リセットしてはならない。
 3. 一般入力から生じた同じ物理的状態浴を全ゲート間で保持し、中間で結果選択、粒子位置復号、トモグラフィー、集団モーメント推定、再準備をしない。
 4. 可逆性に必要な逆演算用補助記憶部、入力供給源、作業領域、時計自由度履歴を捨てない。
-5. Q2-1/Q2-3の排他的なBorn型結果は回路末尾だけでM66/R206へ接続し、4結果または8結果を一回で標本化する。Q2-2だけはA端結果成分をB端へ渡す必要があるためM65/R181D逐次interfaceを維持する。無反応・hub residualは完全結果空間へ含める。
+5. Q2-1/Q2-3の排他的なBorn型結果は回路末尾だけでM66/R206へ接続し、4結果または8結果を一回で標本化する。Q2-2 fixed-goalは別のM66/R205--R207 projection phase-volume二端模型を使う。本章のM65/R181D二端接続はR180 active alternate witnessとしてのみ維持する。無反応・hub residualは完全結果空間へ含める。
 
 従って問題になるのは内部自由度の個数そのものではなく、外部接続部が閉じているか、同一試行の状態が永続するか、余計な自由度を浴へ受動的に任せられるかである。旧path-のみ設計の「4モード記憶部を使わず経路だけで担う」という制約は撤回する。
 
@@ -2636,13 +2624,13 @@ Q2-3では $Z_{ABC}$ に式(4.19)を順に作用させる。R177のGHZ--位相--
 
 の識別ギャップを与える。同じテンソル積状態の生成、同じ永続記憶部、同じ二次ゲート、同じ末端測定機構を使うため、Q2-1、Q2-3は同一機構の有限次元特殊化である。
 
-## Q2-2の2端M65受信機構への末端接続
+## R180 active alternate witnessへの4モード末端接続
 
-Q2-2の固定一重項源は、$|00\rangle$ のR181Bテンソル積状態の生成後にR181Cの固定有限ゲート列を作用させ、設定生成前に4モード信号として準備する。実際の末端信号 $Z$ を集団モーメントへ縮約せず、第5章の2端M65手順へそのまま渡す。
+R180 alternate witnessでは、$|00\rangle$ のR181Bテンソル積状態の生成後にR181Cの固定有限ゲート列を作用させ、設定生成前に一重項4モード信号として準備する。実際の末端信号 $Z$ を集団モーメントへ縮約せず、第5章5.8の2端M65手順へそのまま渡す。これは現行Q2-2 fixed-goalの直接依存ではない。
 
 A設定後にA側射影作用をM65へ渡し、A結果でR181D型projector routerを制御して非規格化結果成分をB端へ送る。B設定後にB側射影作用を別のM65へ渡す。旧R180Bのpaired-Hopf再準備、結果別テンプレート吸引、中央潜在結果の2翼複製は現行主線に使わない。
 
-R180AはA端のM65--R181D特殊化、R180CはA/B二端の逐次合成とBell前提監査として第5章で定義する。Q2-2はQ2-1の達成ラベルに依存せず、固定一重項・固定有限設定族・非空間分離という自身の境界で判定する。
+R180AはA端のM65--R181D特殊化、R180CはA/B二端の逐次合成とBell前提監査として第5章5.8で維持する。ただしQ2-2 fixed-goalの判定はR207A--R207Cを直接根拠とし、R180系の完全退役は後続PRへ分離する。
 
 ## 誤差台帳と現在地
 
@@ -2665,7 +2653,7 @@ R180AはA端のM65--R181D特殊化、R180CはA/B二端の逐次合成とBell前�
 
 R181Bは明示的な有限ハミルトニアン構成、R181Cは同一有限記憶部上の作用素ノルム合成を与える。Q2-1では実際の1試行末端4モード信号をR206Dへ渡し、M66 common reservoirで4結果を一回で標本化するところまで既存interfaceで閉じており、固定目標を達成する。式(4.32)の $\varepsilon_{\rm clock}$ はこの有限操作列の切替・時刻割当誤差であり、M0が要求する自律的な物理clockと反復周期の統合を意味しない。
 
-Q2-3でもR181B/R181C/R177が同じ8モード永続記憶部上で第1ゲート後状態を再準備せず第2ゲートへ渡し、末端R206Dまで一試行内で接続するため、固定3入力の二段ゲート合成として達成する。一般サイズの資源効率はQ2-3へ遡及させずQ2-4で扱う。Q2-2は本章の実際の1試行末端信号を第5章のA端M65--R181D projector router--B端M65受信機構へ渡し、R180Cの一試行逐次合成で判定する。Q2-4はR206Eで $0^n$ rootを一様準備し、R181Cの一般gate列後にR206Dの $L=2^n$ terminal samplerへ接続する。R186のdirect-amplitude register additive-noise障害が残るため条件付き達成を維持する。
+Q2-3でもR181B/R181C/R177が同じ8モード永続記憶部上で第1ゲート後状態を再準備せず第2ゲートへ渡し、末端R206Dまで一試行内で接続するため、固定3入力の二段ゲート合成として達成する。一般サイズの資源効率はQ2-3へ遡及させずQ2-4で扱う。Q2-2 fixed-goalは第5章/付録WのM66/R205--R207 projection phase-volume二端模型で判定する。本章の1試行4モード末端信号からA端M65--R181D router--B端M65へ進む経路はR180 active alternate witnessとして残す。Q2-4はR206Eで $0^n$ rootを一様準備し、R181Cの一般gate列後にR206Dの $L=2^n$ terminal samplerへ接続する。R186のdirect-amplitude register additive-noise障害が残るため条件付き達成を維持する。
 
 M37由来のW型入力を接続する研究では、独立な2素子の並置と共同記憶部の構成を区別する。入力信号a,bだけで共同状態を $ab^{\mathsf T}$ と定義する限り積状態のままである。R181Bの写込み後は共同記憶部が独立な4成分を保持する。配置空間上のW型信号系を別に置く案も、この共同自由度の物理的起源を追加しており、2台の実空間装置からの導出とは同一でない。この接続を既存Q2目標の必須依存にしない。
 
@@ -2691,50 +2679,191 @@ terminal readout後に非規格化射影成分を次段へ渡さないため、Q
 
 試行開始時はR206Eのglobal damping＋固定root driveで $0^n$ rootを準備する。sampler pointerはR206Aにより任意初期分布からtarget lawへmixするため、結果別の明示resetを要求しない。Q2-4の残るfixed-goal条件はR186のdirect-amplitude register additive-noise/precision障害である。
 
-# Bell型測定統計：現行逐次証人と空間隔離強化
+# Bell型測定統計：projection phase-volume主線と空間隔離強化
 
-> **位置づけ：** Q2-2 fixed-goalはR180A/R180CとA/B両端M65、R181D projector routerによる非空間分離逐次証人で達成する。Q2-2-SはM66/R205Eのjoint thermal preparation、R205Fのpassive separation、R207A--R207Dを別の空間隔離candidateとして管理し、fixed-goal依存と混ぜない。
+> **位置づけ：** Q2-2 fixed-goalはM66/R205A・R205E・R205FとR207A--R207Cによるprojection phase-volume共同準備、受動分離、局所二端読出しで達成する。R207DはBell-local controlを与える。R180A/R180Cは本draftではactive alternate witnessとして残すがfixed-goal直接依存から外し、退役は後続PRへ分離する。Q2-2-Sはfinite-speed spatial isolationを独立に監査する。
 
 
-## 目的と模型の境界
+## 目的と現行主線
 
-Q2-2の固定目標は、Bell型共同統計を古典構成で再現し、その構成についてBell不等式の導出に用いられる前提の成立・不成立を物理的因果構造と確率因子化に対応させて監査することである。どのBell前提を破るかは固定目標側で先に指定しない。
+Q2-2の固定目標は、二体系の共同内部状態を二つの物理的測定端へ接続し、一般余弦共同確率、CHSH不等式の破れ、Tsirelson限界、非信号性を整合的に導くこと、およびBell不等式の導出に用いられる前提の成立・不成立を物理的因果構造と確率因子化へ対応させることである。
 
-現行Q2-2には、役割の異なる二つの経路を明確に分ける。
-
-1. **fixed-goal witness**：固定一重項4モード信号へA設定を作用し、A端M65で結果を固定した後、R181D型projector routerで非規格化結果成分をB端へ物理的に渡し、B設定とB端M65を作用するR180C逐次装置。
-2. **Q2-2-S candidate**：M66/R205Eでsourceとsetting precursorを共同準備し、R205FでA/B相互作用とreservoir cross-correlationを距離とともに受動的に落とし、分離後はlocal responseだけを使うR207A--R207D経路。
-
-両者は同じCHSH型統計を扱うが、Bell前提監査の位置が異なる。R180Cでは測定窓中にA端結果成分をB端へ物理的に渡すため、Bell局所因子化を仮定しない。一方R207 candidateでは、分離後のconditional responseは
-
+現行主線R207は
 ```math
-P(r,s\mid\lambda_S,x,y)
+(\boldsymbol a,\boldsymbol b)
+\longrightarrow
+\rho_{\epsilon,k}(\boldsymbol\lambda_A,\boldsymbol\lambda_B\mid\boldsymbol a,\boldsymbol b)
+\longrightarrow
+\text{passive separation}
+\longrightarrow
+(r,s)
+\longrightarrow
+\text{local records}
+```
+と進む。R180CのようなA結果成分からB端への逐次転送は現行主線では使わない。R180A/R180Cはactive alternate witnessとして5.8節に残し、このdraftでは結果IDを退役させない。
+
+## projection phase-volume共同準備
+
+設定方向とhidden directionsを
+```math
+\boldsymbol a,\boldsymbol b,\boldsymbol\lambda_A,\boldsymbol\lambda_B\in S^2
+```
+とする。finite thickness
+```math
+f_\epsilon(t)=\sqrt{t^2+\epsilon^2(1-t^2)}
+```
+を用い、
+```math
+w_\epsilon
 =
-P_A(r\mid\lambda_A,x)
-P_B(s\mid\lambda_B,y)
+f_\epsilon(\boldsymbol a\cdot\boldsymbol\lambda_A)
++
+f_\epsilon(\boldsymbol b\cdot\boldsymbol\lambda_B)
 ```
+とする。M66/R205Aのphase-volume sectorを二つの等価な内部branchへ特殊化すれば、この和は二本の局所projection railのphase volumeの加算として得られる。
 
-と因子化する候補であるが、CHSH witnessでは
-
+near-contact lock
 ```math
-\rho(\lambda_S\mid x,y)
-\neq
-\rho(\lambda_S)
+H_{\rm lock}=-K\boldsymbol\lambda_A\cdot\boldsymbol\lambda_B
 ```
-
-となり、測定設定独立性が成立しない。したがってR207はR180Cを置換せず、Q2-2 fixed-goalの直接依存にも追加しない。Q2-2-Sの定義・公式状態・現在地は `ENHANCEMENT_TARGETS.md` を正本とする。
-
-M54の実際の1試行末端信号を
-
+とR205Eを組み合わせると
 ```math
-Z\in\mathbb C^4,
+\rho_{\epsilon,k}
+\propto
+e^{k\boldsymbol\lambda_A\cdot\boldsymbol\lambda_B}
+w_\epsilon,
 \qquad
-Z\neq0
+k=\beta K.
+```
+R207Aによりpartition functionは設定方向に依存しない。従って外部setting generatorを独立に駆動できる一方、条件付きsource distributionはsetting-dependentでありmeasurement independenceは成立しない。
+
+## 一般角度共同分布
+
+局所結果を
+```math
+r=\operatorname{sgn}(\boldsymbol a\cdot\boldsymbol\lambda_A),
+\qquad
+s=-\operatorname{sgn}(\boldsymbol b\cdot\boldsymbol\lambda_B)
+```
+とする。$\epsilon=0$ ではR207Bから
+```math
+E_{0,k}(\boldsymbol a,\boldsymbol b)
+=
+-L(k)\boldsymbol a\cdot\boldsymbol b,
+\qquad
+L(k)=\coth k-\frac1k,
+```
+および
+```math
+P_{0,k}(r,s\mid\boldsymbol a,\boldsymbol b)
+=
+\frac14\left[
+1-rsL(k)\boldsymbol a\cdot\boldsymbol b
+\right]
+```
+を得る。局所周辺は任意の有限$k$でexactに$1/2$である。
+
+$k\to\infty$ では
+```math
+P_{\rm singlet}(r,s\mid\boldsymbol a,\boldsymbol b)
+=
+\frac14\left[
+1-rs\boldsymbol a\cdot\boldsymbol b
+\right]
+```
+へ収束する。標準CHSH設定では
+```math
+|S|=2\sqrt2L(k)
+```
+であり、有限$k>3.387780776\ldots$でCHSH境界を超え、任意精度でTsirelson値へ近づく。
+
+## finite-thickness / finite-lock誤差
+
+finite thicknessでは
+```math
+d_{\rm TV}(\rho_{\epsilon,k},\rho_{0,k})\le2\epsilon
+```
+である。従って
+```math
+d_{\rm TV}(P_{\epsilon,k},P_{\rm singlet})
+\le
+2\epsilon+\frac{1-L(k)}2.
 ```
 
-とする。解析上の規格化 $V=Z/\|Z\|$ は確率式を短く書くためだけに使い、物理制御器は状態依存除算を行わない。
+任意のtarget $\eta>0$ に対して
+```math
+\epsilon=\frac{\eta}{8},
+\qquad
+k=\frac2\eta
+```
+のような有限選択で統計側誤差を$\eta/2$未満にできる。残る誤差予算をthermal mixing、hidden-direction保持、passive separation、local latch、recordへ割り当てる。
 
-## 固定一重項源と試行順序
+## 一試行の二端物理interface
+
+共有projection phase-volume geometryには固定距離則 $\chi_{\rm pv}(R)$ を置き、近接準備時に $\chi_{\rm pv}=1$、分離時に $\chi_{\rm pv}\to0$ とする。M66の共有weightを $w_\epsilon^{\chi_{\rm pv}(R)}$ とすれば、finite $\epsilon>0$ で共有free-energy driftは距離とともに受動的に消える。
+
+準備後に端間距離$R$を増やす。R205Fにより$K(R)$とreservoir cross-correlationを、同時にR207の $\chi_{\rm pv}(R)$ を小さくし、分離後のideal generatorを
+```math
+\mathcal L=\mathcal L_A+\mathcal L_B
+```
+へ近づける。
+
+同じlocal mobilityを準備と保持に用い、準備時間を十分長く、分離から結果固定までの保持窓を十分短く選ぶことでhidden directionのlaw変化を$\varepsilon_{\rm hold}^{207}$以下へ抑える。各端のsign comparatorには有限安全帯を置き、R112型の局所recordへ結果を固定する。安全帯を無反応として完全結果集合へ含め、成功試行だけの再規格化は行わない。
+
+R207Cの合成誤差は
+```math
+\varepsilon_{207}
+\le
+\varepsilon_{\rm prep}^{207}
++
+2\epsilon
++
+\frac{1-L(k)}2
++
+\varepsilon_{\rm hold}^{207}
++
+\varepsilon_{\rm sep}^{207}
++
+\varepsilon_{\rm latch}^{207}
++
+\varepsilon_{\rm rec}^{207}.
+```
+各項は有限parameterで任意に小さくできるため、固定目標達成規則に従いQ2-2は達成を維持する。
+
+## Bell前提監査
+
+exact separation極では
+```math
+P(r,s\mid\Lambda,\boldsymbol a,\boldsymbol b)
+=
+P_A(r\mid\lambda_A,\boldsymbol a)
+P_B(s\mid\lambda_B,\boldsymbol b)
+```
+とlocal response factorizationする。一方、
+```math
+\rho(\Lambda\mid\boldsymbol a,\boldsymbol b)\neq\rho(\Lambda)
+```
+でありmeasurement independenceは成立しない。
+
+setting marginal自体は独立に保て、operational marginalは各端$1/2$で非信号である。A結果からB結果への測定窓内result communicationを用いず、無反応・棄却を事後除外しない。R207Dでmeasurement independenceとlocal response factorizationを同時に課すと$|S|\le2$へ戻る。
+
+## Q2-2-Sとの境界
+
+Q2-2 fixed-goalは有限最大伝播速度に基づくspacelike separationを要求しない。R207A--R207Cは二つの物理端と一試行interfaceを閉じるが、R205Fのgenerator decouplingだけから有限最大伝播速度は従わない。
+
+Q2-2-Sではさらに
+```math
+t_A^{\rm out}-t_B^{\rm set}<\frac{L}{v_{\max}},
+\qquad
+t_B^{\rm out}-t_A^{\rm set}<\frac{L}{v_{\max}}
+```
+を同じphysical implementationで閉じる。finite-speed spatial reservoir、具体transport geometry、direct SDE trajectoryは未監査のままとする。
+
+## R180A/R180C active alternate witness
+
+R180A/R180Cは本draftでは削除しない。設定前一重項4モードsignalを用い、A端の結果成分をprojector routerでB端へ渡す非空間分離逐次証人としてactive paperに残す。ただしQ2-2 fixed-goalの直接依存からは外し、後続PRで退役可否を独立に処理する。
+
+### 固定一重項源と試行順序
 
 固定ベンチマークではR181B/R181Cにより
 
@@ -2757,7 +2886,7 @@ Z\neq0
 
 A端とB端は別々のM65 open selectorと有限recordを持つ。結果成分の物理転送があるため本装置は非空間分離である。
 
-## A端特殊化：binary selectorとR181Dから従うR180A
+### A端特殊化：binary selectorとR181Dから従うR180A
 
 A設定 $x$ の固有基底を $u_{r,x}$、射影を
 
@@ -2793,7 +2922,7 @@ Z_r=P_{A,r}^{x}Z
 である。物理的な $Z_r/\|Z_r\|$ の生成を必要としない。作用保持、selector、routerの有限誤差は完全結果集合上で各1回だけ数える。
 <!-- theorem-end:corollary -->
 
-## B端条件付き読出し
+### B端条件付き読出し
 
 B設定 $y$ の射影を
 
@@ -2830,7 +2959,7 @@ P(r,s\mid x,y)
 \frac{\|P_{B,s}^{y}P_{A,r}^{x}Z\|^2}{\|Z\|^2}.
 ```
 
-## R180C：2端合成とBell監査
+### R180C：2端合成とBell監査
 
 <!-- theorem-start:theorem -->
 **定理（R180C：M54駆動2端受信機構合成、有限誤差、局所性監査、帰還）**
@@ -2862,86 +2991,6 @@ E(x,y)
 
 A端結果成分がB端へ物理的に渡るため、現行証人ではBell局所因子化を仮定しない。設定前の一重項源は $x,y$ に依存せず、現行証人のCHSH破れを測定設定独立性の破れへ帰属させない。一方、B端へ到達する内部状態はA設定とA結果に依存する。本結果は、この逐次因果伝播、完全結果集合、非信号周辺を同時に示すBell前提監査であり、空間分離局所模型を主張しない。
 <!-- theorem-end:theorem -->
-
-## fixed-goalとstrengtheningの責務境界
-
-R180Bのpaired-Hopf再準備、中央潜在結果を2翼へ複製する工程、切断後のA側再読出しは現行必須主線に使わない。これらは `notes/superseded_q2_2_paired_hopf_receiver.md` と退役付録へ保存する。
-
-Q2-2 fixed-goalで新たに使う確率源はない。共同確率はbinary selector contractとR181Dの逐次Lüders telescopingから得る。現行証人ではA端・B端ともM65を用い、A端結果成分をB端へ同じ試行のまま物理的に渡すため、固定一重項・固定有限設定族・非空間分離という固定範囲でQ2-2を達成する。
-
-Q2-2-Sはこの達成証人を空間局所化したものではなく、別の強化経路である。R205E/FとR207A--R207Dの成立・不成立はQ2-2 fixed-goalの達成判定を自動的に変更せず、R180Cの成立もQ2-2-Sを自動的に達成させない。永久記録、試行間reset、物理clock、次試行renewalまでの全周期統合はM0の独立課題とする。
-
-## Q2-2-S：common preparationとpassive separationのcandidate
-
-### 一試行の因果順序
-
-付録W/R207では、near-contact joint thermal preparation、passive separation、local setting latch、local outcomesの順で一試行を構成する。particle--reservoir couplingは準備時と分離後でswitchせず、A/B間相互作用 $K(R)$ とreservoir cross-correlation $C_{AB}(R)$ だけを距離によって受動的に弱める。
-
-setting precursor $q_A,q_B$ は準備窓から存在し、source anglesと相関し得る。分離後に
-
-```math
-x=\frac{1-\operatorname{sgn}q_A}{2},
-\qquad
-y=\frac{1-\operatorname{sgn}q_B}{2}
-```
-
-をlocal recordへlatchする。本稿のR207 candidateでは、このlocal latch時刻をQ2-2-Sのsetting確定時刻
-
-```math
-t_A^{\rm set}=t_A^{\rm latch},
-\qquad
-t_B^{\rm set}=t_B^{\rm latch}
-```
-
-として扱う。ただしsetting recordを分離後に固定することは、準備時に生じたsource--setting precursor相関を消さず、測定設定独立性を回復しない。
-
-### R180CとR207のBell前提監査
-
-| 項目 | R180C fixed-goal witness | R207 Q2-2-S candidate |
-|---|---|---|
-| source / setting関係 | 設定前一重項sourceを設定非依存に準備 | common preparationでsourceとsetting precursorが相関 |
-| 測定窓中の端間伝播 | A結果成分をB端へ物理的に渡す | R205F分離後は端間結果伝播を使わない |
-| local response factorization | Bell-local modelとして仮定しない | R207Cの分離後candidateでは成立 |
-| measurement independence | 設定前sourceについて維持可能 | R207B/C witnessでは不成立 |
-| operational marginal | 一重項共同分布で非信号 | 4-setting witnessで各局所周辺 $1/2$ |
-| Q2-2 fixed-goal | 達成証人 | 直接依存ではない |
-
-従って両構成はBell前提の異なる箇所を使う。R207B/CのCHSH破れは、分離後local response factorizationと両立する一方、source hidden-state distributionのsetting dependenceを明示する。
-
-### S0--S4の現在地
-
-Q2-2-Sの段階定義と公式状態は `ENHANCEMENT_TARGETS.md` を正本とし、本節はその現在地の本文要約である。
-
-| 段階 | 現在の証拠 | 現在地 |
-|---|---|---|
-| S0 | R180C | 非空間分離の基準系として確立 |
-| S1 | R207A | 二端joint preparation候補あり。具体spatial trajectoryは未監査 |
-| S2 | R205F + R207C | generator-level分離候補あり。finite-speed physical isolationは未閉包 |
-| S3 | R207B + R207C | CHSH witnessとBell前提監査候補あり。S2物理実装に条件付き |
-| S4 | R207D | Bell-local analytical controlあり |
-
-S2の主要残件は、有限最大伝播速度 $v_{\max}$ を持つ具体spatial reservoirとtiming closureである。本candidateでは
-
-```math
-t_A^{\rm out}-t_B^{\rm set}<\frac{L}{v_{\max}},
-\qquad
-t_B^{\rm out}-t_A^{\rm set}<\frac{L}{v_{\max}}
-```
-
-を同じphysical implementationで閉じる必要がある。R205Fのgenerator factorizationだけからこの条件は従わない。
-
-S3については、どのBell前提を破るかをQ2-2-Sの定義で先に固定してはいないが、現R207 witnessを監査した結果としてmeasurement independenceが成立しない。S4が解析的に閉じていてもS2/S3のphysical isolationを閉じたことにはならない。従ってQ2-2-S全体の公式状態は未監査のままとする。
-
-### 非主張と残件
-
-R207A--R207Dから、次をまだ主張しない。
-
-1. continuous $q_A,q_B$ を含むfull Langevin trajectoryでのdirect numerical reproduction。
-2. 有限伝播速度を持つ具体spatial reservoirからの $C_{AB}(R)$ の導出。
-3. separation、setting latch、local outcome fixationを一つのfinite-speed timing modelで閉じること。
-4. 具体的実験装置、実験可能parameter window、direct apparatus simulation。
-
-candidate誤差台帳とCHSH安定性は第8章8.6.1、数理詳細は付録W/R207A--R207Dを参照する。
 
 # 第IV部　空間信号と粒子位置
 
@@ -4798,8 +4847,8 @@ draft-71ではR182専用のW型数値回帰を追加したが、これは解析�
 
 1. 同じM37包絡誤差をR135の第2モーメント誤差とR168の状態方向誤差へ同時に加える。
 2. M65主線で、M65内部に含めたfinite-time relaxation、hub無反応、endpoint comparator、record誤差を系列固有測定機構誤差へ重ねて入れる。退役した旧測定経路の偏差を現行台帳へ重ねて入れない。
-3. R180Aの同じブロック保持偏差を $\varepsilon_{\rm split}$、$\varepsilon_{\rm latch}$、$C_\tau\varepsilon_{\rm block}$ へ重ねて入れる。
-4. R180Cの積因子化誤差を各翼の局所M65誤差へ吸収した上で再び加える。
+3. R207でR205E mixing誤差またはR205F generator defectをcommon-reservoir側とQ2-2側へ二重計上する。
+4. R180A/R180C alternate witnessの誤差をR207 fixed-goal主線へ加える。
 5. 無反応質量を理想分布差と実装失敗へ2回加える。
 6. 同じ準備済み入力偏差を $\varepsilon_{\rm in}$、R135の初期共分散誤差、系列固有の入力誤差へ重ねて入れる。
 7. M64ではinitial preparation、current dictionary、mean-flow tracking、density interpolation、process reductionを導出箇所ごとに一度だけ数える。$\delta$ をcurrent-dictionary誤差とR185 regularizationへ二重に加算せず、process-law errorとNewton force residualを単純加算しない。
@@ -4970,60 +5019,39 @@ $\varepsilon_{206}^{\rm end}$ にはR206Cのfinite-time mixing、hub residual、
 
 ## Q2-2の誤差とBell監査
 
-現行Q2-2はA端M65、projector router、B端M65の深さ2逐次instrumentである。完全結果誤差を
+現行Q2-2はR207 projection phase-volume主線を使う。完全結果分布について
 
 ```math
-\varepsilon_{180}
-\leq
-\varepsilon_A^{\rm pre}
-+\varepsilon_{65}^{A}
-+\varepsilon_{\rm route}
-+\varepsilon_B^{\rm basis}
-+\varepsilon_{65}^{B}
-+\varepsilon_{\rm rec}
-```
-
-とする。M65内部のfinite-time relaxation、hub無反応、endpoint comparator、recordは各 $\varepsilon_{65}^{A,B}$ に1回だけ含める。旧R180Bの方向吸引誤差、中央結果複製誤差、切断後A側再読出し誤差は現行台帳から除く。
-
-理想一重項共同分布との全変動距離が $\varepsilon_{180}$ 以下なら、各周辺事象の確率差は $\varepsilon_{180}$ 以下、各二値相関の差は $2\varepsilon_{180}$ 以下、CHSH値の差は $8\varepsilon_{180}$ 以下である。A結果成分をB端へ物理的に渡すため、Bell局所factorizationまたは空間分離を誤差ゼロ極限の主張へ追加しない。
-
-### Q2-2-S R207 candidateの誤差台帳
-
-S0--S4の定義と公式状態は `ENHANCEMENT_TARGETS.md`、本文側の因果構造要約は第5章5.7を正本参照先とする。本節はcandidate誤差の数え方だけを管理し、強化状態を独立に判定しない。
-
-R207候補ではfixed-goal R180Cの $\varepsilon_{180}$ と別に、
-
-```math
-\varepsilon_{\rm prep}^{207},
-\qquad
-\varepsilon_{\rm lock}^{207},
-\qquad
-\varepsilon_{\rm sep}^{207},
-\qquad
-\varepsilon_{\rm latch}^{207},
-\qquad
-\varepsilon_{\rm out}^{207}
-```
-
-を区別する。$\varepsilon_{\rm prep}^{207}$ はR205E mixing、$\varepsilon_{\rm sep}^{207}$ はR205F generator defectを受け取るので、同じ誤差をR207側でもう一度加えない。
-
-各setting pairの実共同分布とideal candidate lawの全変動距離を $\epsilon_{xy}$ とすれば
-
-```math
-|S_{\rm real}-S_{\rm ideal}|
+\varepsilon_{207}
 \le
-2\sum_{x,y}\epsilon_{xy}.
+\varepsilon_{\rm prep}^{207}
++
+\varepsilon_{\rm thick}^{207}
++
+\varepsilon_{\rm lock}^{207}
++
+\varepsilon_{\rm hold}^{207}
++
+\varepsilon_{\rm sep}^{207}
++
+\varepsilon_{\rm latch}^{207}
++
+\varepsilon_{\rm rec}^{207}.
 ```
 
-共通上界 $\epsilon_{xy}\le\epsilon$ なら
-
+R207Bから
 ```math
-|S_{\rm real}-S_{\rm ideal}|
-\le
-8\epsilon.
+\varepsilon_{\rm thick}^{207}\le2\epsilon,
+\qquad
+\varepsilon_{\rm lock}^{207}\le\frac{1-L(k)}2.
 ```
+任意のtarget $\eta>0$ に対し有限$\epsilon,k$で統計核誤差を任意に小さくし、残りをfinite preparation、hidden-direction保持、R205F separation、local latch、recordへ配分する。R205E mixingとR205F defectは共通層側で一度だけ数える。
 
-これはcandidate robustnessの共通出口であり、finite-speed spatial isolationやdirect SDE simulationを証明するものではない。
+Bell前提監査では、分離後local response factorizationとoperational non-signalingを主張する一方、$\rho(\Lambda\mid\boldsymbol a,\boldsymbol b)\neq\rho(\Lambda)$なのでmeasurement independenceを主張しない。R180A/R180Cの旧逐次誤差はactive alternate witnessの台帳として残すが、現行$\varepsilon_{207}$へ加えない。
+
+### Q2-2-S finite-speed strengthening
+
+Q2-2-Sではfixed-goalの$\varepsilon_{207}$に加え、具体spatial reservoirが有限最大伝播速度$v_{\max}$を持つこととsetting確定後のcausal-isolation timingを同じ実装で満たすことを要求する。R205Fのgenerator factorizationだけをfinite-speed isolationの代用にしない。direct SDE trajectory、具体reservoir geometry、実験装置はA2/B/Q2-2-Sで監査する。
 
 ## Q3のM64--R161--R185誤差
 
@@ -5472,15 +5500,15 @@ w(Q)e^{-\beta H_{\rm cfg}(Q)}
 
 を得る。R205Cによりmean-flow shiftは同じreservoirのpartition weightを変えずに共存でき、R205Fは空間分離時のgenerator decoupling条件を与える。
 
-ただし、この共通化はM64またはM65の全模型をM66から導出したという意味ではない。M64/R203Bのpartition/free-energyとmean-flow sectorはR205Cへ、M65/R204Bのphase-volume chamberはR205Dへ埋め込まれるが、M64 tracer dynamicsとM65 canonical open lawはそれぞれ固有の物理責務を持つ。R206はM66の直接Q2終端specialization、R207はR205E/FをQ2-2-Sへ適用するstrengthening candidateである。
+ただし、この共通化はM64またはM65の全模型をM66から導出したという意味ではない。M64/R203Bのpartition/free-energyとmean-flow sectorはR205Cへ、M65/R204Bのphase-volume chamberはR205Dへ埋め込まれるが、M64 tracer dynamicsとM65 canonical open lawはそれぞれ固有の物理責務を持つ。R206はM66の直接Q2終端specializationであり、R207はR205A/R205E/R205FをQ2-2のprojection phase-volume共同準備・二端読出しへ特殊化する現行fixed-goal主線である。
 
 Q1では、M37/R187/R140が2モード可逆signalとRabi運動を与え、R189Aが測定に必要な2作用を保持する。M65の3状態open selectorが1試行1結果を形成し、R181Dが選ばれた非規格化射影成分を同じ試行の次操作へ渡す。これによりBorn型2結果、同軸・異軸逐次測定、有限Rabi--Zeno比較を同じsignal-to-result interfaceへ接続した。
 
 Q2-1とQ2-3ではR181B/R181Cが永続多モードsignal上でテンソル積状態とgate列を作り、末端4結果または8結果をR206で1回に標本化する。Q2-4ではR206Eで $0^n$ rootを一様準備し、R181Cの一般gate列後に $L=2^n$ のR206 samplerへ接続する。reader側の逐次leaf探索、R181D tree、非終端作用回復、結果別pointer resetを固定主線から外した。一方、M54 direct-amplitude registerへ全自由度加法ノイズが入るR186の障害はreader側とは独立に残り、Q2-4は条件付き達成を維持する。
 
-Q2-2 fixed-goalはこれとは別の逐次経路で達成する。固定一重項4モードsignalにA設定を作用し、A端M65で結果 $r$ を形成し、その非規格化結果成分をR181D型routerでB端へ物理的に渡す。B設定後にB端M65で $s$ を形成すると、一重項型の余弦共同統計、非信号性、CHSH/Tsirelson値を回収する。測定窓中にA端結果成分をB端へ渡すため、このfixed-goal witnessはBell局所因子化を満たす空間分離模型ではない。
+Q2-2 fixed-goalはR207 projection phase-volume経路で達成する。setting directionsと二つのhidden directionをnear-contactでthermal preparationし、projection phase volumeとisotropic lockから一般Bloch方向の余弦共同統計へ接続する。finite thickness/finite lockでも任意精度のsinglet共同分布へ近づき、局所周辺は非信号である。分離後local response factorizationを保つ一方、source hidden stateの分布はsetting-dependentなのでmeasurement independenceは成立しない。
 
-Q2-2-Sでは別のcandidateを得た。R205Eによるnear-contact joint thermal preparation、R205Fによるpassive separation、R207A--R207Dによる4-setting CHSH witnessとBell前提監査を組み合わせる。分離後local response factorizationとCHSH破れを両立する候補であるが、sourceとsetting precursorを共同準備するため現witnessではmeasurement independenceが成立しない。R207Dでmeasurement-independent local controlへ戻すと $|S|\le2$ を回収する。finite-speed spatial reservoirとsetting確定後のtiming closureが未閉包なので、Q2-2-S全体は未監査のままである。
+Q2-2-Sは同じR207主線をfinite-speed spatial reservoirへ落とす独立強化である。最大伝播速度とsetting確定後timing closureは未閉包なので全体状態は未監査のままとする。R180A/R180C逐次経路は本draftではactive alternate witnessとして残すがfixed-goal直接依存から外す。
 
 Q3ではQ1/Q2と同じ局所実正準signalと2体系結合を空間へ配置し、M37/R86からSchrödinger型signalとcurrentを得る。M64はこのsignal、一つのclassical tracer、一つのsignal-driven thermal reservoirからなる。R203Aはregularized density/current、R203Bはphase-volume free energyとfinite-time mean-flow tracking、R203Cはcanonical overdamped tracerからregularized diffusionへの縮約、R203Dは1次元R161/R185とfinite-graph位置読出しへの接続を与える。
 
@@ -8832,7 +8860,7 @@ M65 decisionに使った保持対は次回captureへ未処理のまま再接続�
 
 ## 1試行状態と集団モーメントの分離
 
-$Z_{ABC}$ は同じ試行の実正準座標から得る8成分信号である。2入力の $Z_{AB}$ と、第5章R180が保持する $V=Z_{\rm out}/\|Z_{\rm out}\|$ も同じ種類の1試行信号である。Q2-2では $V$ をA設定基底で物理的にブロック分解し、選択ブロックを同じ試行の受信機構の供給源として渡す。
+$Z_{ABC}$ は同じ試行の実正準座標から得る8成分信号である。2入力の $Z_{AB}$ と、第5章5.8のR180 alternate witnessが保持する $V=Z_{\rm out}/\|Z_{\rm out}\|$ も同じ種類の1試行信号である。R180では $V$ をA設定基底で物理的にブロック分解し、選択ブロックを同じ試行の受信機構へ渡すが、現行Q2-2 fixed-goal主線はこの経路を直接依存に使わない。
 
 一方、試行集団の交差モーメント
 
@@ -8842,7 +8870,7 @@ $Z_{ABC}$ は同じ試行の実正準座標から得る8成分信号である。
  \tag{J.2}
 ```
 
-を推定して $Z_{AB}$、$Z_{ABC}$ またはR180のテンプレートへ戻す操作は再準備である。Q2-1、Q2-2、Q2-3の状態受渡しには使わない。旧M48のBell周期は式(J.2)から一重項型射影を作ったが、現行Q2-2の根拠から退役し、R180は実際のM54信号を直接受ける。
+を推定して $Z_{AB}$、$Z_{ABC}$ またはR180のテンプレートへ戻す操作は再準備である。Q2-1、Q2-3およびR180 alternate witnessの状態受渡しには使わない。旧M48のBell周期は式(J.2)から一重項型射影を作ったが現行根拠から退役し、R180は実際のM54信号を直接受ける。現行Q2-2は別にM66/R205--R207を使う。
 
 3入力持ち上げの拡大状態は概念上
 
@@ -9028,9 +9056,9 @@ R206Cのfinite-time、hub residual、regularization、generator、record誤差�
 
 Q2-3はterminal readout後に測定後signalを次段へ渡さないため、M65/R181Dの逐次projector treeを使わない。永久記録、試行間reset、物理clock、次試行renewalまでの全周期統合はM0へ分離する。
 
-## R180の条件付き局所因子化との境界
+## R180 active alternate witnessの条件付き局所因子化
 
-2入力M54の末端には二つの異なる接続部がある。Q2-1ではR206Dの $L=4$ terminal samplerが末端計算基底分布を一回で標本化する。Q2-2では実際の4モード信号へA設定を作用し、A端M65で固定した結果に対応する非規格化射影成分をR181D projector routerでB端へ直接渡し、B設定後にB端M65を作用する。どちらも1試行信号を集団モーメントへ置換しない。
+2入力M54の末端には複数の接続部がある。Q2-1ではR206Dの $L=4$ terminal samplerが末端計算基底分布を一回で標本化する。R180 alternate witnessでは実際の4モード信号へA設定を作用し、A端M65で固定した結果成分をR181D routerでB端へ渡す。現行Q2-2 fixed-goalはM54末端信号ではなくM66/R205--R207 projection phase-volume主線を使う。
 
 切断面で完全共通原因を $\Lambda$ とし、切断後の状態と生成子が
 
@@ -9048,9 +9076,9 @@ Q2-3はterminal readout後に測定後signalを次段へ渡さないため、M65
  \tag{J.16}
 ```
 
-と因子化すれば有限時間核も因子化する。これはR180Cの局所性監査に使う。$\Lambda$ にはM54信号、A設定、内部結果成分、連動位相、切断面の2翼状態、流出浴履歴を含めてよいが、切断後のA核へ $y$、B核へ反対翼の結果形成変数を入れない。
+と因子化すれば有限時間核も因子化する。これはR180C alternate witnessの局所性監査に使う。$\Lambda$ にはM54信号、A設定、内部結果成分、連動位相、切断面の2翼状態、流出浴履歴を含めてよいが、切断後のA核へ $y$、B核へ反対翼の結果形成変数を入れない。
 
-M54の1試行信号を式(J.2)へ置換したり、式(J.2)をM54またはR180へ再注入したりしない。現行R180CはA端M65、projector router、B端M65を同じ一試行の有限順序付き操作窓で接続する。A結果成分をB端へ物理的に渡すため、式(J.15)--(J.16)のBell局所因子化は現行証人には課さず、成立しない前提として監査する。二端を空間的・因果的に隔離する強化はQ2-2-S、永久記録・reset・物理clock・renewalの全周期統合はM0へ分離する。
+M54の1試行信号を式(J.2)へ置換したり、式(J.2)をM54またはR180へ再注入したりしない。R180C alternate witnessはA端M65、projector router、B端M65を同じ一試行の有限順序付き操作窓で接続する。A結果成分をB端へ物理的に渡すためBell局所因子化を課さない。現行R207主線のBell前提監査とQ2-2-S finite-speed強化は第5章・付録Wを正本とする。
 
 ## Q2-3の現在地と反証条件
 
@@ -10690,506 +10718,301 @@ O\!\left(s\sqrt{n+\log p+\log\alpha^{-1}}\right).
 
 この付録は装置体積、部品総数、総熱を多項式へ削減しない。主張するのは、内部の指数自由度数と外部精度を自動的に同一視しないこと、および現在のM54 直接モードでどの種類のノイズが外部指数精度へ露出するかを区別することである。
 
-# R207 Q2-2-S共通準備・受動分離候補
+# R207 projection phase-volume共同準備と局所二端読出し
 
-> **位置づけ：** R207A--R207DをQ2-2-Sのspatial-preparation candidateとして追加する。Q2-2 fixed-goalの現行R180C--M65/R181D証人、Q2-2達成ラベル、Q2-2-S未監査状態は変更しない。R207はM66/R205Eのthermal preparationとR205Fのpassive separationを使う候補であり、finite-speed spatial reservoir、direct SDE trajectory、loophole-free Bell実験の古典局所説明は主張しない。
+> **位置づけ：** R207A--R207DをQ2-2 fixed-goalの現行Bell統計主線へ正式昇格する。M66/R205A・R205Eのphase-volume thermal preparationとR205Fのpassive separationを使い、一般Bloch方向の一重項共同統計、finite-thickness/finite-lock誤差、分離後local response、measurement-dependence監査を与える。R180A/R180Cは本draftではactive alternate witnessとして残し、退役は後続変更へ分離する。finite-speed spatial reservoir、direct SDE trajectory、実験装置はQ2-2-S/A2/Bの強化課題として残す。
 
 
 ## 目的と因果境界
 
-Q2-2-Sでは、現行R180Cの測定窓中AからBへの結果成分伝播とは別に、
-
-common stochastic preparation、passive spatial separation、local setting latch、local outcomesの順
-
-という候補経路を調べる。本付録ではBellの定理を回避または否定せず、候補模型においてどのBell前提が成立し、どの前提が成立しないかを明示する。
-
-準備、分離、局所記録の順序は
+Q2-2の現行主線は、設定方向を含む近接時共同thermal preparation、受動分離、局所二値結果、局所記録の順で一試行を構成する。
 
 ```math
-t_{\rm prep}
-<
-t_{\rm sep}
-<
-t_A^{\rm latch},t_B^{\rm latch}
-<
-t_A^{\rm out},t_B^{\rm out}
+t_{\rm prep}<t_{\rm sep}<t_A^{\rm latch},t_B^{\rm latch}<t_A^{\rm out},t_B^{\rm out}.
 ```
 
-とする。ただしsetting precursor自体は準備窓に存在するため、後のlatchが測定設定独立性を回復するとは主張しない。
-
-particle--reservoir couplingは準備時と分離後で切り替えない。A/B間相互作用と共通reservoirのcross-correlationだけが距離によって受動的に減衰する。
-
-## continuous selectorとnear-contact Gibbs preparation
-
-角度自由度を
-
+測定設定を表す単位ベクトルを
 ```math
-\theta_A,\theta_B\in\mathbb T
+\boldsymbol a,\boldsymbol b\in S^2
 ```
-
-とし、setting precursorとして反射境界を持つ対称区間
-
+とし、source側の実在古典方向自由度を
 ```math
-q_A,q_B\in[-q_{\max},q_{\max}]
+\boldsymbol\lambda_A,\boldsymbol\lambda_B\in S^2
 ```
+とする。設定は局所制御器の物理状態として準備窓から存在してよい。後段のlocal latchはsource--setting相関を消さず、測定設定独立性を回復させない。
 
-上の双安定座標を置く。
+local thermal contactを確率生成のためだけにswitchしない。A/B間lockとreservoir cross-correlationは距離依存constitutive lawとして受動的に減衰させる。
 
+## R207A：projection phase-volume共同準備
+
+finite thicknessを表す
 ```math
-U_A(q_A)=a_A(q_A^2-q_0^2)^2,
-\qquad
-U_B(q_B)=a_B(q_B^2-q_0^2)^2,
+f_\epsilon(t)=\sqrt{t^2+\epsilon^2(1-t^2)},\qquad 0<\epsilon<1
 ```
-
+を置き、
 ```math
-s(q)=\tanh(q/q_c).
+w_A=f_\epsilon(\boldsymbol a\cdot\boldsymbol\lambda_A),\qquad
+w_B=f_\epsilon(\boldsymbol b\cdot\boldsymbol\lambda_B)
 ```
+とする。$f_\epsilon$ は正で滑らかであり、$\epsilon\downarrow0$ で $|t|$ へ一様収束する。
 
-粒子間距離を $R$ とし、
-
+phase-volumeは二つの等価な内部sector $J=A,B$ の和として実装する。$J=A$ sectorではR205A型fast canonical pairのJacobianを $w_A$、$J=B$ sectorでは $w_B$ とし、外部からsectorを選別せず両sectorを積分消去する。従って総phase-volume factorは
 ```math
-H_{\rm prep}^{(R)}
-=
-U_A(q_A)+U_B(q_B)
--
-K(R)\cos(\theta_A-\theta_B)
--
-g\,s(q_A)\cos2\theta_A
--
-g\,s(q_B)\sin2\theta_B
+w_\epsilon=w_A+w_B
 ```
+となる。これは結果確率表の外部注入ではなく、各setting方向に沿う有限厚みprojection railの局所phase volumeの和である。
 
-とする。$K(R)$ は固定constitutive lawであり、near-contactでは大きく、分離時には小さくなる。
-
-M66/R205Eを
-
+near-contact lockを
 ```math
-w=1,
-\qquad
-H_{\rm cfg}=H_{\rm prep}^{(R)}
+H_{\rm lock}^{(R)}=-K(R)\boldsymbol\lambda_A\cdot\boldsymbol\lambda_B,\qquad
+k=\beta K(R_{\rm prep})
 ```
-
-へ特殊化すれば、準備窓のreversible densityは
-
+とする。R205Eへ $H_{\rm cfg}=H_{\rm lock}^{(R_{\rm prep})}$、$w=w_\epsilon$ を入れると
 ```math
-p_{\rm prep}^{(R)}
+\rho_{\epsilon,k}
+(\boldsymbol\lambda_A,\boldsymbol\lambda_B\mid\boldsymbol a,\boldsymbol b)
 =
 \frac{
-e^{-\beta H_{\rm prep}^{(R)}}
-}{
-Z_R
-}
+e^{k\boldsymbol\lambda_A\cdot\boldsymbol\lambda_B}
+\left[
+f_\epsilon(\boldsymbol a\cdot\boldsymbol\lambda_A)
++
+f_\epsilon(\boldsymbol b\cdot\boldsymbol\lambda_B)
+\right]
+}{Z_{\epsilon,k}}.
 ```
-
-である。
-
-setting sectorは
 
 ```math
-\sigma_A=\operatorname{sgn}q_A,
-\qquad
-\sigma_B=\operatorname{sgn}q_B
+F_\epsilon=\int_{-1}^{1}f_\epsilon(t)\,dt,\qquad
+G(k)=4\pi\frac{\sinh k}{k}
 ```
-
-とし、零集合 $q_Aq_B=0$ は無視する。記録bitは
-
+とすると
 ```math
-x=\frac{1-\sigma_A}{2},
-\qquad
-y=\frac{1-\sigma_B}{2}
+Z_{\epsilon,k}=4\pi F_\epsilon G(k)
 ```
+であり、$\boldsymbol a,\boldsymbol b$ に依存しない。
 
-とする。
+<!-- theorem-start:theorem -->
+**定理（R207A：projection phase-volume共同準備とsetting marginal）**
 
-### R207A：near-contact joint preparation
-
-<!-- theorem-start:proposition -->
-**命題（R207A：対称thermal joint preparationと公平setting sector）**
-
-$U_A,U_B$ が偶関数、$s$ が奇関数であるとする。上のGibbs preparationでは4つのsetting sectorのpartition weightは等しく、
-
+任意の $\boldsymbol a,\boldsymbol b\in S^2$ に対してpartition functionは同じ $Z_{\epsilon,k}$ である。従ってsetting generatorを独立な基準分布 $p_A(\boldsymbol a)p_B(\boldsymbol b)$ で駆動したとき、thermal preparation後も
 ```math
-P(\sigma_A,\sigma_B)
-=
-\frac14
+P(\boldsymbol a,\boldsymbol b)=P(\boldsymbol a)P(\boldsymbol b)
 ```
+を保てる。
 
-である。従って
-
+一方 $0<\epsilon<1$ では一般に
 ```math
-P(x)=P(y)=\frac12,
-\qquad
-P(x,y)=P(x)P(y)=\frac14.
+\rho_{\epsilon,k}(\Lambda\mid\boldsymbol a,\boldsymbol b)\neq\rho_{\epsilon,k}(\Lambda)
 ```
-
-この結論はparticle--reservoir couplingのswitchを必要としない。
-<!-- theorem-end:proposition -->
+であり、source hidden stateはsetting-independentではない。
+<!-- theorem-end:theorem -->
 
 <!-- theorem-start:proof -->
 **証明（R207A）**
 
-変換
+固定 $\boldsymbol\lambda_A$ に対する $\boldsymbol\lambda_B$ 積分は回転対称性から $G(k)$、固定setting方向に対するsphere積分は $2\pi F_\epsilon$ である。$w_A,w_B$ の二項を足すと表示の $Z_{\epsilon,k}$ を得る。
 
-```math
-T_B:
-(\theta_A,\theta_B,q_A,q_B)
-\mapsto
-(-\theta_A,-\theta_B,q_A,-q_B)
-```
-
-はmeasureを保存し、$H_{\rm prep}^{(R)}$ を不変に保ったまま $(\sigma_A,\sigma_B)$ を $(\sigma_A,-\sigma_B)$ へ写す。また
-
-```math
-T_{AB}:
-(\theta_A,\theta_B,q_A,q_B)
-\mapsto
-\left(
-\theta_A+\frac\pi2,
-\theta_B+\frac\pi2,
--q_A,-q_B
-\right)
-```
-
-もmeasureとHamiltonianを保存し、$(\sigma_A,\sigma_B)$ を $(-\sigma_A,-\sigma_B)$ へ写す。この二変換が4 sectorへ推移的に作用するため、sector partition weightは等しい。証明終。
+measurement dependenceについて、同じhidden configuration $\boldsymbol\lambda_A=\boldsymbol\lambda_B=\hat{\boldsymbol z}$ を考える。$\boldsymbol a=\boldsymbol b=\hat{\boldsymbol z}$ ではphase-volume factorは $2$、$\boldsymbol a=\boldsymbol b=\hat{\boldsymbol x}$ では $2\epsilon$ である。partition functionはsetting-independentなので、$0<\epsilon<1$ では条件付きhidden-state densityがsettingに依存する。証明終。
 <!-- theorem-end:proof -->
 
-$g\neq0$ ではsource anglesとsetting precursorは一般に独立ではない。R207Bのdeep-well reductionはこのsource--setting dependenceを明示的に評価する。
+## R207B：一般Bloch方向の一重項共同統計
 
-準備後はdouble-well barrierにより
-
+局所結果を
 ```math
-T_{\rm sep}+T_{\rm meas}
-\ll
-\tau_{\rm flip}
+r=\operatorname{sgn}(\boldsymbol a\cdot\boldsymbol\lambda_A),\qquad
+s=-\operatorname{sgn}(\boldsymbol b\cdot\boldsymbol\lambda_B)
 ```
+とする。零集合はsphere measure zeroなので任意に割り当ててよい。
 
-を要求し、分離から局所setting recordまでsectorを保持する。これはbath couplingを切る操作ではなくmetastability条件である。
-
-## deep-well / strong-lock CHSH witness
-
-deep-well極で
-
+$\epsilon=0$ では
 ```math
-s(q_A)\simeq\sigma_A,
-\qquad
-s(q_B)\simeq\sigma_B
-```
-
-とし、さらにnear-contact strong-lock極
-
-```math
-\beta K\gg1
-```
-
-で
-
-```math
-\theta_A\simeq\theta_B\simeq\theta
-```
-
-とする。このとき
-
-```math
-p_\kappa(\theta\mid x,y)
-\propto
-\exp\!\left[
-\kappa
-\left(
-\sigma_A(x)\cos2\theta
-+
-\sigma_B(y)\sin2\theta
-\right)
-\right],
-\qquad
-\kappa=\beta g,
-```
-
-```math
-\sigma_A(0)=\sigma_B(0)=+1,
-\qquad
-\sigma_A(1)=\sigma_B(1)=-1.
-```
-
-標準4設定を
-
-```math
-\alpha_0=0,
-\qquad
-\alpha_1=\frac\pi2,
-\qquad
-\beta_0=\frac\pi4,
-\qquad
-\beta_1=-\frac\pi4
-```
-
-とし、局所応答を
-
-```math
-r
+|\boldsymbol a\cdot\boldsymbol\lambda_A|
+\operatorname{sgn}(\boldsymbol a\cdot\boldsymbol\lambda_A)
 =
-\operatorname{sgn}\cos(\theta_A-\alpha_x),
-\qquad
-s
-=
--\operatorname{sgn}\cos(\theta_B-\beta_y)
+\boldsymbol a\cdot\boldsymbol\lambda_A.
 ```
-
-とする。
-
-### R207B：4-setting CHSH witness
-
-<!-- theorem-start:proposition -->
-**命題（R207B：strong-lock CHSH witnessの存在）**
-
-strong-lock reductionでは対称性により
-
+von Mises--Fisher kernelの第一momentを
 ```math
-E_{00}(\kappa)
-=
-E_{01}(\kappa)
-=
-E_{10}(\kappa)
-=
--C(\kappa),
-\qquad
-E_{11}(\kappa)=C(\kappa),
+L(k)=\coth k-\frac1k
+```
+とすると
+```math
+\frac{\int e^{k\boldsymbol\lambda_A\cdot\boldsymbol\lambda_B}
+\boldsymbol\lambda_A\,d\Omega_A}
+{\int e^{k\boldsymbol\lambda_A\cdot\boldsymbol\lambda_B}d\Omega_A}
+=L(k)\boldsymbol\lambda_B,
+```
+また
+```math
+\int_{S^2}\boldsymbol\lambda\,
+\operatorname{sgn}(\boldsymbol b\cdot\boldsymbol\lambda)\,d\Omega
+=2\pi\boldsymbol b.
 ```
 
+<!-- theorem-start:theorem -->
+**定理（R207B：finite-lock余弦則とfinite-thickness安定性）**
+
+$\epsilon=0$ では任意の有限 $k>0$ と任意のBloch方向に対して
+```math
+E_{0,k}(\boldsymbol a,\boldsymbol b)
+=
+-L(k)\boldsymbol a\cdot\boldsymbol b.
+```
+同時反転 $(\boldsymbol\lambda_A,\boldsymbol\lambda_B)\mapsto(-\boldsymbol\lambda_A,-\boldsymbol\lambda_B)$ はdensityを保ち $r,s$ をともに反転するため
+```math
+P(r=\pm1\mid\boldsymbol a,\boldsymbol b)
+=
+P(s=\pm1\mid\boldsymbol a,\boldsymbol b)
+=
+\frac12.
+```
 従って
-
 ```math
-|S(\kappa)|=4C(\kappa).
-```
-
-$C(\kappa)$ は連続で、
-
-```math
-C(0)=\frac12,
-\qquad
-\lim_{\kappa\to\infty}C(\kappa)=1.
-```
-
-従って少なくとも一つの有限 $\kappa_*>0$ が存在して
-
-```math
-|S(\kappa_*)|
+P_{0,k}(r,s\mid\boldsymbol a,\boldsymbol b)
 =
-2\sqrt2
+\frac14\left[1-rsL(k)\boldsymbol a\cdot\boldsymbol b\right].
 ```
 
-を満たす。
-
-さらに各 $(x,y)$ で
-
+標準CHSH設定では
 ```math
-P(r=\pm1\mid x,y)
-=
-P(s=\pm1\mid x,y)
-=
-\frac12
+|S_{0,k}|=2\sqrt2L(k),
 ```
+従って $k>3.387780776\ldots$ で $|S|>2$、$k\to\infty$ でTsirelson値 $2\sqrt2$ へ収束する。
 
-であり、4-setting observational marginalは非信号である。
-<!-- theorem-end:proposition -->
+finite thicknessでは
+```math
+0\le f_\epsilon(t)-|t|\le\epsilon
+```
+から
+```math
+d_{\rm TV}(\rho_{\epsilon,k},\rho_{0,k})\le2\epsilon.
+```
+従って
+```math
+d_{\rm TV}(P_{\epsilon,k},P_{\rm singlet})
+\le
+2\epsilon+\frac{1-L(k)}2
+```
+が任意のsetting pairに一様に成立する。
+<!-- theorem-end:theorem -->
 
 <!-- theorem-start:proof -->
 **証明（R207B）**
 
-4 conditional densityは角度の反転と $\pi/2$ 回転で互いに写り、指定したlocal responseも同じ変換で写るため4相関は表示の符号関係を持つ。$\kappa=0$ では一様角度積分から $C=1/2$。$\kappa\to\infty$ では各conditional densityが対応する二fold anisotropyの合成極小近傍へ集中し、指定したresponse productはほとんど確実に所定符号となるので $C\to1$。連続性と中間値の定理から $C=1/\sqrt2$ を与える有限 $\kappa_*$ が存在する。周辺については $\theta\mapsto\theta+\pi$ がdensityを保ち、各単独outcomeの符号を反転するため平均は零である。証明終。
+$w_A$ 項では第一moment恒等式を用いて $\boldsymbol\lambda_A$ を積分し、その後 $\boldsymbol\lambda_B$ の半球符号積分を行うと $-L(k)\boldsymbol a\cdot\boldsymbol b/2$ を得る。$w_B$ 項も同じ値を与える。単独周辺は同時反転対称性から零である。
+
+finite thicknessでは $w_\epsilon-w_0$ は非負で各二項の増分が高々 $\epsilon$。規格化定数の変化を含めたdensityの全変動距離は高々 $2\epsilon$ であり、outcome写像で増えない。$\epsilon=0$ のfinite-lock lawとsinglet lawの全変動距離は $(1-L(k))|\boldsymbol a\cdot\boldsymbol b|/2$ 以下なので三角不等式で結論を得る。証明終。
 <!-- theorem-end:proof -->
 
-candidate quadratureでは
-
+任意のtarget $\eta>0$ に対して
 ```math
-\kappa_*
-\simeq
-0.368435
+\epsilon=\frac{\eta}{8},\qquad k=\frac2\eta
 ```
+とすれば統計核誤差は $\eta/2$ 未満になる。
 
-が得られる。これは解析命題の必要入力ではなく数値witnessである。
+## R207C：受動分離、一試行local interface、Bell前提監査
 
-finite-lock deep-well reduction
-
+準備時だけ共通phase-volume geometryが二端を結ぶことを、固定constitutive law
 ```math
-p(\theta_A,\theta_B\mid x,y)
-\propto
-\exp\!\left[
-k\cos(\theta_A-\theta_B)
-+
-\gamma
-\left(
-\sigma_A\cos2\theta_A
-+
-\sigma_B\sin2\theta_B
-\right)
-\right]
-```
-
-でもcandidate quadratureにより、例えば
-
-```math
-k=5,
+\chi_{\rm pv}(R)\in[0,1],
 \qquad
-\gamma\simeq0.562
-```
-
-の有限lockで $|S|=2\sqrt2$ のwitnessが得られる。continuous $q_A,q_B$ を含むfull SDE trajectoryの直接再現は本結果に含めない。
-
-## passive separationとBell前提監査
-
-準備後に $R$ を増やし、R205Fの条件
-
-```math
-K(R)\to0,
+\chi_{\rm pv}(R_{\rm prep})=1,
 \qquad
-C_{AB}(R)\to0
+\chi_{\rm pv}(R)\to0
 ```
-
-へ入るとする。local bath coupling、温度、local noise strengthは変更しない。
-
-分離面でsource側hidden stateを
-
+で表す。M66の共有phase-volume portを
 ```math
-\lambda_S
+w_{\epsilon}^{(R)}
 =
-(\theta_A,\theta_B,\ldots)
+w_\epsilon^{\,\chi_{\rm pv}(R)}
 ```
-
-とする。setting precursor $q_A,q_B$ は $x,y$ を生む局所自由度として分けて記述する。
-
-### R207C：local response / measurement-dependence candidate
-
-<!-- theorem-start:proposition -->
-**命題（R207C：passive separation後のlocal responseとBell前提監査）**
-
-R205Fのexact separation条件
-
+とすれば、そのfree-energy寄与は
 ```math
-K(R)=0,
-\qquad
-C_{AB}(R)=0
+-k_BT\,\chi_{\rm pv}(R)\log w_\epsilon
 ```
+である。finite $\epsilon>0$ では $w_\epsilon\ge2\epsilon$ かつ $\nabla\log w_\epsilon$ は有界なので、この共有driftは $\chi_{\rm pv}(R)\to0$ とともに受動的に消える。
 
-が成立する分離面以後では、joint generatorは
+準備後に$R$を増やし、R205Fの距離依存lock $K(R)$、reservoir cross block $C_{AB}(R)$、およびR207固有の共有phase-volume係数 $\chi_{\rm pv}(R)$ を同時に小さくする。local thermal contactとlocal mobilityは切らない。
 
-```math
-\mathcal L
-=
-\mathcal L_A+\mathcal L_B
-```
+local rotational mobilityを $\mu_\lambda>0$、diffusion scaleを $D_\lambda=\mu_\lambda k_BT$ とする。$\mu_\lambda$ を小さくすると準備mixing時間は長くなるが有限のままであり、準備後の有限保持窓 $T_{\rm hold}=T_{\rm sep}+T_{\rm meas}$ におけるhidden-direction変化を小さくできる。準備終了時とlocal latch時のlawの全変動差を $\varepsilon_{\rm hold}^{207}$ とする。
 
-へ分解する。local outcome lawを上の $r,s$ とすれば
+R205Fの有限距離generator defectと共有phase-volume driftを合わせて $\varepsilon_{\rm sep}^{207}(R)$ とする。固定finite $\epsilon$ では $K(R)$、$C_{AB}(R)$、$\chi_{\rm pv}(R)$ を十分小さくする有限$R$を選べるため、$\varepsilon_{\rm sep}^{207}(R)\to0$ とできる。finite-speed causal isolationはここから推論せずQ2-2-Sへ残す。
 
-```math
-P(r,s\mid\lambda_S,x,y)
-=
-P_A(r\mid\lambda_A,x)
-P_B(s\mid\lambda_B,y)
-```
-
-が成立する。
-
-一方、R207Bの $\kappa>0$ witnessでは
-
-```math
-\rho(\lambda_S\mid x,y)
-\neq
-\rho(\lambda_S)
-```
-
-である。従って観測共同分布は
-
-```math
-P(r,s\mid x,y)
-=
-\int d\lambda_S\,
-\rho(\lambda_S\mid x,y)
-P_A(r\mid\lambda_A,x)
-P_B(s\mid\lambda_B,y)
-```
-
-となり、Bell局所response factorizationと測定設定独立性を区別できる。
-<!-- theorem-end:proposition -->
-
-<!-- theorem-start:proof -->
-**証明（R207C）**
-
-generator分解はR205Fのspecializationである。outcomeは分離後の各翼の角度と局所settingだけの関数なのでconditional responseは積分解する。$\kappa>0$ ではR207Bのconditional angle densityが $(x,y)$ に依存するため、source hidden-state distributionはsetting-independentではない。証明終。
-<!-- theorem-end:proof -->
-
-これは測定窓中のAからBへの通信を用いるR180Cとは異なる候補である。ただしR205Fはgenerator-level decouplingであり、有限最大伝播速度を持つ具体spatial reservoirをまだ与えない。従ってS2を主張するには別途
-
-```math
-t_A^{\rm out}-t_B^{\rm latch}
-<
-\frac{L}{v_{\max}},
-\qquad
-t_B^{\rm out}-t_A^{\rm latch}
-<
-\frac{L}{v_{\max}}
-```
-
-を満たすphysical implementationが必要である。本付録ではこのfinite-speed条件を未監査とする。
-
-## Bell-local control
-
-### R207D：measurement-independent local control
+各端では局所settingと局所hidden directionだけを比較する。ideal sign boundaryの有限幅 $\delta_{\rm lat}$ 近傍を正式な無反応安全帯として扱い、R112型比較・recordを用いる。finite $\epsilon>0$ のsmooth densityでは境界帯確率は $\delta_{\rm lat}\downarrow0$ で0へ行く。成功試行だけの再規格化は行わない。
 
 <!-- theorem-start:theorem -->
-**定理（R207D：Bell-local CHSH control）**
+**定理（R207C：一試行local二端合成とBell前提監査）**
 
-同じlocal response lawについて、
-
+R207Aの有限時間thermal preparation、有限保持、R205Fの有限距離passive separation、二つのlocal comparator/latch、R112型recordを同じ一試行に順序付ける。完全結果分布の実装誤差を
 ```math
-\rho(\lambda_S\mid x,y)
-=
-\rho(\lambda_S)
+\varepsilon_{207}
+\le
+\varepsilon_{\rm prep}^{207}
++
+2\epsilon
++
+\frac{1-L(k)}2
++
+\varepsilon_{\rm hold}^{207}
++
+\varepsilon_{\rm sep}^{207}
++
+\varepsilon_{\rm latch}^{207}
++
+\varepsilon_{\rm rec}^{207}
 ```
+とする。任意のtarget $\eta>0$ に対し、各parameterとrecord精度を有限に選び $\varepsilon_{207}<\eta$ とできる。
 
-と
-
+exact decoupling極では
 ```math
-P(r,s\mid\lambda_S,x,y)
+P(r,s\mid\Lambda,\boldsymbol a,\boldsymbol b)
 =
-P_A(r\mid\lambda_A,x)
-P_B(s\mid\lambda_B,y)
+P_A(r\mid\lambda_A,\boldsymbol a)
+P_B(s\mid\lambda_B,\boldsymbol b)
 ```
+が成立する。一方R207Aにより
+```math
+\rho(\Lambda\mid\boldsymbol a,\boldsymbol b)\neq\rho(\Lambda).
+```
+従って分離後local response factorizationとoperational non-signalingを保ちながらmeasurement independenceを満たさない。測定窓中のA結果からB結果へのresult communication、棄却試行のpostselection、結果確率表の外部注入は用いない。
+<!-- theorem-end:theorem -->
 
-を同時に課すなら、標準CHSH量は
+finite最大伝播速度 $v_{\max}$ を持つ具体spatial reservoirとsetting確定後のcausal-isolation timingを同じ装置で閉じることはQ2-2-Sの独立強化課題である。
 
+## R207D：Bell-local control
+
+<!-- theorem-start:theorem -->
+**定理（R207D：measurement-independent Bell-local control）**
+
+同じ二値local responseについて
+```math
+\rho(\Lambda\mid\boldsymbol a,\boldsymbol b)=\rho(\Lambda)
+```
+とlocal response factorizationを同時に課すなら、任意の4設定に対するCHSH量は
 ```math
 |S|\le2
 ```
-
-を満たす。strong-lock reductionで $\kappa=0$ とするとsettingとsourceの相関が消え、同じ4 local responseに対して $|S|=2$ を回収する。
+を満たす。
 <!-- theorem-end:theorem -->
 
 <!-- theorem-start:proof -->
 **証明（R207D）**
 
-固定 $\lambda_S$ に対する二値local responseのCHSH integrandは絶対値2以下である。setting-independentな同じ $\rho(\lambda_S)$ で平均すれば $|S|\le2$。$\kappa=0$ の一様角度分布では直接積分して $E_{00}=E_{01}=E_{10}=-1/2$、$E_{11}=1/2$ となり $|S|=2$。証明終。
+固定 $\Lambda$ に対する二値local responseのCHSH integrandは絶対値2以下である。4 setting pairに共通なsetting-independent $\rho(\Lambda)$ で平均すれば表示の境界を得る。証明終。
 <!-- theorem-end:proof -->
 
-R207DはR207B/CでCHSH破れを支える前提差を対照化するcontrolであり、Q2-2 fixed-goalの新しい達成根拠ではない。
+## Q2-2-Sとの境界
 
-## Q2-2-S段階との対応と未完成点
-
-| Q2-2-S段階 | R207候補の対応 | 本draftの状態 |
+| 段階 | 現行R207との対応 | 状態 |
 |---|---|---|
-| S0 | 現行R180Cを基準系として維持 | 既存 |
-| S1 | R207Aの二端joint preparationと分離protocol | candidate |
-| S2 | R205F + R207Cのpost-separation local generator | finite-speed spatial microphysics未監査 |
-| S3 | R207B/CのCHSH witnessとBell前提監査 | candidate。measurement dependenceを明示 |
-| S4 | R207D | 解析controlあり |
+| S0 | R207A--R207Cのfixed-goal二端baseline | fixed-goal主線として確立 |
+| S1 | 具体距離・transport geometryを持つ二端分離 | strengthening未監査 |
+| S2 | setting確定後のfinite-speed causal isolation | finite-speed spatial reservoir未閉包 |
+| S3 | S2を保ったsinglet統計とBell前提監査 | S2実装に条件付き |
+| S4 | R207D Bell-local control | 解析controlあり |
 
-従って本付録だけからQ2-2-Sを達成または部分達成へ更新しない。特に次は未完成である。
-
-1. continuous $q_A,q_B$ を含むfull Langevin trajectoryでのdirect numerical reproduction。
-2. 有限伝播速度を持つ具体spatial reservoirから $C_{AB}(R)$ を導くこと。
-3. 分離・setting latch・local result固定を同じphysical timing modelで閉じること。
-4. 実験装置、実験可能parameter、direct apparatus simulation。
-
-S0--S4の定義と公式状態は `ENHANCEMENT_TARGETS.md` を正本とし、本文第5章5.7はその現在地を要約する。本付録のcandidate表現は独立の状態正本を作らない。
+R207のfixed-goal昇格だけからQ2-2-Sを達成または部分達成へ更新しない。direct SDE trajectory、finite-speed spatial reservoir、具体実験装置とparameter windowはA2/B/Q2-2-Sで別に監査する。
 
 # M66 common thermal-reservoir parentとQ2多結果readout
 
@@ -11200,7 +11023,7 @@ M66は、resolved classical degreesと一つのthermal reservoirの間の物理i
 
 共通入力は正のphase-volume weight $w(Q,t)>0$、reservoir mean-flow port $U(Q,t)$、resolved configurationの通常のenergy landscape $H_{\rm cfg}(Q,t)$ とする。これらはBorn確率表やGibbs確率表を外部controllerが計算して注入するための入力ではなく、各specializationの局所signal、粒子配置、受動幾何から決まる物理量である。reservoir couplingは固定、または粒子間距離・局所配置へ受動的に依存するconstitutive lawとし、確率生成のためだけのbath switchを要求しない。
 
-R205A/R205Cはphase-volume/free-energy sector、R205B/R205Dはfinite-chamber reduction、R205Eはoverdamped thermal sampler、R205Fは空間分離時のgenerator decouplingを与える。Q2-1/Q2-3/Q2-4ではR206A--R206Eへ接続する。Q1/Q2-2の逐次binary instrumentはM65/R181D、Q3のparticle/Nelson主線はM64/R203A--R203Dを維持する。
+R205A/R205Cはphase-volume/free-energy sector、R205B/R205Dはfinite-chamber reduction、R205Eはoverdamped thermal sampler、R205Fは空間分離時のgenerator decouplingを与える。Q2-1/Q2-3/Q2-4ではR206A--R206Eへ、Q2-2ではR207 projection phase-volume specializationへ接続する。Q1の逐次binary instrumentはM65/R181D、Q3のparticle/Nelson主線はM64/R203A--R203Dを維持する。
 
 ## R205A：共通phase-volume identity
 
@@ -11568,7 +11391,7 @@ $V_{AB}\in C^1$、$f\in C^2$ なら
 joint generatorからlocal generatorの和を引き、interaction drift二項とcross-diffusion項に三角不等式を適用すればよい。$K=C_{AB}=0$ なら差の全項が消える。証明終。
 <!-- theorem-end:proof -->
 
-R205Fは固定local bath couplingのまま受動的に力学が分離する条件だけを主張する。Bell型共同統計、setting依存準備、measurement independenceへの具体的適用は付録W/R207A--R207DのQ2-2-S candidateで扱う。R205F単独からfinite-speed spatial isolationは主張しない。
+R205Fは固定local bath couplingのまま受動的に力学が分離する条件だけを主張する。Bell型共同統計、setting依存準備、共有phase-volume portの距離依存decoupling、measurement independenceへの具体的適用は付録W/R207A--R207DのQ2-2 fixed-goal specializationで扱う。R205F単独からfinite-speed spatial isolationは主張しない。
 
 ### specializationsと責務境界
 
