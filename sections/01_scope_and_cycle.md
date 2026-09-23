@@ -93,7 +93,7 @@ Y.
 
 Q2-1は $L=4$、Q2-3は $L=8$、Q2-4は $L=2^n$ とする。Q2-4ではR206Eの一様root preparation、R181C gate列、R206D terminal samplingを使う。
 
-Q2-2 fixed-goalはM66/R205A・R205Eによるprojection phase-volume共同準備、near-contact hidden-direction lock、R205F passive separation、R207 local sign latch/recordを一試行で接続する。一般Bloch方向のsinglet共同統計を任意精度で再現し、分離後local response factorizationとmeasurement dependenceを監査する。旧R180逐次Bell witnessはactive paperから退役した。Q2-2-Sは同じR207主線へfinite-speed spatial isolationを追加するstrengtheningである。
+Q2-2 fixed-goalはM66/R205A・R205Eによるprojection phase-volume共同準備、near-contact hidden-direction lock、R205F passive separation、R207 local sign latch/recordを一試行で接続する。一般Bloch方向のsinglet共同統計を任意精度で再現し、分離後local response factorizationとmeasurement dependenceを監査する。Q2-2-Sは同じR207主線へfinite-speed spatial isolationを追加するstrengtheningである。
 
 Q3のsignal数学はQ1/Q2の局所実正準信号と2体系結合の空間特殊化である。M37/R86 signalへM64のclassical tracerとsignal-driven thermal reservoirを接続し、
 
