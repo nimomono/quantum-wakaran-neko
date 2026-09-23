@@ -18,7 +18,7 @@
 | 共通有効signal・状態構成 | M54 | 有限実正準信号、準備済み入力境界、永続記憶部、作業領域、時計、記録、接続規約 |
 | signal物理実装 | M37/R86 | 局所結合古典振動子網から空間signalを実装。R187条件下ではW型最低2正常モードをQ1へ接続 |
 | 共通thermal-reservoir interface | M66/R205A--R205F | phase-volume、mean-flow、thermal sampling、matched capacity--conductance、passive separation |
-| 用途別模型・特殊化 | M64、M65、R206、R207 | Q3 tracer/Nelson、逐次2値測定、Q2終端多結果読出し、Q2-2-S強化候補 |
+| 用途別模型・特殊化 | M64、M65、R206、R207 | Q3 tracer/Nelson、Q1逐次2値測定、Q2終端多結果読出し、Q2-2 projection phase-volume二端模型 |
 | 全周期統合目標 | M0 | 準備、操作、測定、永久記録、reset、clock、renewalを1つのjoint device/processへ統合 |
 
 M54とM66は異なる責務を持つ共通層である。M54はどのsignal・状態・接続端を使うかを整理し、M66はresolved classical degreeとthermal reservoirの間の物理原理を整理する。M66がM54を置換するわけでも、M54からM66が従うわけでもない。
@@ -41,7 +41,7 @@ w(Q)e^{-\beta H_{\rm cfg}(Q)}
 
 のthermal samplingを与える。R205Fは距離依存相互作用とreservoir cross-correlationが消えるときのgenerator分離条件を与える。
 
-ただし、この共通化はwhole-model derivationではない。M64ではR203Bのpartition/free-energyとmean-flow sectorだけがR205Cへ埋め込まれ、current dictionary、initial preparationの具体則、tracer、R203C/R203DはM64固有である。M65ではR204Bのphase-volume chamber実現だけがR205Dへ埋め込まれ、canonical 3状態open Markov lawはM65自身の定義である。R206はM66のQ2終端多結果特殊化であり、R207はR205E/FをQ2-2-Sへ適用する強化候補である。
+ただし、この共通化はwhole-model derivationではない。M64ではR203Bのpartition/free-energyとmean-flow sectorだけがR205Cへ埋め込まれ、current dictionary、initial preparationの具体則、tracer、R203C/R203DはM64固有である。M65ではR204Bのphase-volume chamber実現だけがR205Dへ埋め込まれ、canonical 3状態open Markov lawはM65自身の定義である。R206はM66のQ2終端多結果特殊化であり、R207はR205A/R205E/R205FをQ2-2 projection phase-volume主線へ適用する。
 
 ## 1.3 系列ごとの現行因果鎖
 
@@ -93,7 +93,7 @@ Y.
 
 Q2-1は $L=4$、Q2-3は $L=8$、Q2-4は $L=2^n$ とする。Q2-4ではR206Eの一様root preparation、R181C gate列、R206D terminal samplingを使う。
 
-Q2-2 fixed-goalは固定一重項4モード信号、A/B設定gate、A端M65、R181D型router、B端M65を順に接続する非空間分離逐次証人である。Q2-2-Sは別のstrengtheningであり、R205Eによるjoint thermal preparation、R205Fのpassive separation、R207A--R207DのBell前提監査を使う。後者をfixed-goal直接依存へ混ぜない。
+Q2-2 fixed-goalはM66/R205A・R205Eによるprojection phase-volume共同準備、near-contact hidden-direction lock、R205F passive separation、R207 local sign latch/recordを一試行で接続する。一般Bloch方向のsinglet共同統計を任意精度で再現し、分離後local response factorizationとmeasurement dependenceを監査する。R180Cはactive alternate witnessとして残す。Q2-2-Sは同じR207主線へfinite-speed spatial isolationを追加するstrengtheningである。
 
 Q3のsignal数学はQ1/Q2の局所実正準信号と2体系結合の空間特殊化である。M37/R86 signalへM64のclassical tracerとsignal-driven thermal reservoirを接続し、
 
@@ -115,12 +115,12 @@ Q3のsignal数学はQ1/Q2の局所実正準信号と2体系結合の空間特殊
 |---|---|---|
 | Q1 | 準備済みW2入力、M37/R187、R135、R140、R189A | M65/R204D--R204F、R181D、R143--R144、R189B--R189C |
 | Q2-1 | R181B、R181C | M66/R206Dの4結果terminal sampler |
-| Q2-2 | 固定一重項4モード、A/B設定gate | A端M65、R181D型router、B端M65、R180A/R180C監査 |
+| Q2-2 | M66/R205 projection phase-volume共同準備、near-contact lock | R207 passive separation、local sign latch、R112型record、R207A--R207D監査 |
 | Q2-3 | R181Bを2回、R181C、R177 | M66/R206Dの8結果terminal sampler |
 | Q2-4 | R206E root preparation、M54一般 $2^n$ 直接モード、R181C | M66/R206Dの $2^n$ 結果terminal sampler、R186資源監査 |
 | Q3 | M37/R86 signal、M64/R203A--R203D | R161/R185、R124/R182/R125位置読出し、R112終位置record |
 
-Q2-2-Sはこの表のfixed-goal最小構成へ入れず、R205E/F--R207A--R207Dを強化候補としてENHANCEMENT_TARGETS.mdで管理する。
+Q2-2-SはR207 fixed-goal baselineへfinite-speed spatial geometryとsetting確定後causal isolationを追加する強化としてENHANCEMENT_TARGETS.mdで管理する。
 
 ## 1.5 達成範囲と判定階層
 
