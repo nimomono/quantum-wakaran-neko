@@ -1,3 +1,10 @@
+## draft-129：M66 common-reservoir parent拡張・R205C--R205F正式化
+
+- M66をcommon thermal-reservoir parentへ拡張し、R205Cのphase-volume / mean-flow orthogonality、R205DのM65 fixed-hub特殊化、R205Eのthermal Gibbs sampler、R205Fのpassive separation principleを正式化する。
+- R206A--R206EはQ2 terminal multi-outcome specializationとして維持し、M64/R203A--R203DとM65/R204A--R204Fのdomain責務は変更しない。
+- Q1/Q2/Q3のfixed-goal直接依存・達成ラベル、Q2-4のR186障害、Q2-2現行逐次interface、A1/A2/B判定は変更しない。
+- Q2-2-S/R207は後続PRへ分離する。
+
 ## draft-128：M65/M66付録分離
 
 - M66/R205--R206をA26のM65付録から独立させ、空いていたA24/付録Xへ移設した。

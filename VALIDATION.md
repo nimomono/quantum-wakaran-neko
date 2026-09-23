@@ -1,3 +1,11 @@
+## draft-129：M66 common-reservoir parent拡張・R205C--R205F正式化
+
+- `tools/verify_m66_common_phase_volume.py` をR205C/Dまで拡張する。
+- `tools/verify_m66_thermal_gibbs_sampler.py` でR205Eのzero-flux Gibbs identityと可逆有限例を検算する。
+- `tools/verify_m66_passive_separation.py` でR205Fのgenerator defect boundとexact decouplingを検算する。
+- draft-129 migration checkでR205C--R205F、M66 parent分類、R206/M64/M65維持、fixed-goal不変、R207未導入を確認する。
+- required checksは解析式・generator回帰であり、full Brownian trajectoryや具体spatial reservoir simulationのA2代替ではない。
+
 ## draft-128：M65/M66付録分離
 
 - A24/付録XにM66/R205A--R205D/R206A--R206Eが存在し、A26/付録ZにR204A--R204Fが維持されることをPR固有migration checkで確認する。

@@ -46,6 +46,6 @@ M65の3状態open selectorはdraft-117で正本へ昇格する。正本lawの数
 
 将来 `simulations/m65/` を追加する場合は、R204B/R204Cの強化実現としてfixed-hub chamberのBrownian trajectory、hub residence、経験的 $(+,-,\varnothing)$ 分布、作用比scan、geometry refinement、canonical 3-state lawへの収束を同一parameter setで検査する。これはA2/B3またはHamiltonian-lift strengtheningとして独立に監査する。
 
-## M66 common-reservoir multi-outcome readout
+## M66 common thermal-reservoir parent
 
-`simulations/m66/README.md` に、R206 common-hub trajectory、phase-volume scaling、finite-bandwidth correction、terminal backreaction、always-on couplingの将来A2計画を記録する。draft-127でfixed-goal coreはrequired検算付きで昇格したが、direct simulationは引き続きA2/strengtheningとして独立に監査する。
+`simulations/m66/README.md` には、R206 common-hub trajectoryに加え、R205Eのthermal Gibbs preparation、R205Fの距離依存interaction/cross-correlationを含むpassive separation、phase-volume scaling、finite-bandwidth correction、terminal backreaction、always-on couplingの将来A2計画を置く。draft-129のrequired checksは解析式とgeneratorの回帰であり、full Brownian trajectoryや具体spatial reservoirの直接simulationを代替しない。
