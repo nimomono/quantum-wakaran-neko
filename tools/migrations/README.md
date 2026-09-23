@@ -90,3 +90,8 @@
 ## draft-134 R207 projection phase-volume promotion
 
 `check_draft134_promote_r207_q2_2.py` は、R207A--R207CがQ2-2 fixed-goalの直接根拠へ昇格し、旧4-setting Gibbs checkerが履歴へ退避され、required projection-phase-volume verifierが追加されたことを確認する。同時にR180A/R180Cと `verify_r180c_locality.py` がまだactiveであり、Q2-2-Sの未監査状態とfinite-speed blockerが維持されていることを検査し、次PRのR180退役を先取りしない。
+
+
+## draft-135 R180 retirement
+
+`check_draft135_retire_r180.py` はactive paperからR180A/R180Cと付録Dが消え、R180専用required verifierが退役保存されたことを確認する。同時にQ2-2のR207A--R207C直接依存と達成、Q1のM65/R181D責務、R207A--R207D、Q2-2-S未監査を維持し、Theory A退役が他系列へ波及していないことを検査する。
