@@ -33,6 +33,7 @@ draft-51以後の現行文書では、各試行で局在する物理変数を「
 | `superseded_r181a_template_port_preparation.md` | draft-89までのR181A/旧付録M | 状態方向準備の退役記録。動径部分だけR192へ継承 | 固定目標から不要な方向吸引を外し、Q2-4に必要な作用安定化だけを独立させるため |
 | `superseded_q2_sequential_terminal_readout.md` | draft-120--126のQ2-1/Q2-3/Q2-4逐次binary terminal tree | M66/R206への置換記録。M65/R181D/R179は別責務でactive、R192だけ退役 | Q2 terminal readoutをone-shot multi-outcome samplerへ縮約したため |
 | `superseded_r192_radial_stabilizer.md` | draft-90--126のR192方向不変作用安定化 | 数学内容を保存した退役記録。結果IDは再利用しない | Q2-4非終端branch自体がM66/R206で不要になったため |
+| `superseded_r180_sequential_q2_2_witness.md` | draft-66--draft-134のR180A/R180C逐次Bell witness | 最終active Theory A本文・付録D、退役理由、R207への責務移行を保存 | draft-134でR207がQ2-2 fixed-goalを単独で閉じ、draft-135でA→B逐次result-component transmission経路をactive paperから外したため |
 | `superseded_r207_four_setting_gibbs_candidate.md` | draft-130--133のR207 4-setting Gibbs candidate | projection phase-volume R207へ昇格する前のCHSH witness保存 | 一般Bloch方向の余弦則を閉じるprojection phase-volume模型へ置換したため |
 | `superseded_result_index.md` | draft-53--draft-54で本文から外した結果ID | 旧結果IDと現行統合先の索引 | 統合後の本文と状態表へ旧IDを混在させず、追跡可能性を保つため |
 | `superseded_m38_m42_q1.md` | draft-43以前の第3章、付録B、M38、R92--R100、R119 | 旧Q1操作・測定模型の置換記録。比較・記録内容はR112へ統合 | Q1をW型2モード共同統計と傾斜測定を使うM47/R139--R144へ移行した |
