@@ -1,3 +1,11 @@
+## draft-136：Q2-2-S退役とQ2-2/R207一本化
+
+- Q2-2-Sを独立strengthening IDとして退役し、Q2-2のBell模型・Bell前提監査をR207A--R207Dへ一本化する。
+- finite-speed spatial reservoir、最大伝播速度、setting確定後causal-isolation timingを正式目標から外し、A1/A2/B1--B3へ移し替えない。
+- ENHANCEMENT_TARGETSの固有強化列とS0--S4管理を削除し、強化体系をA1/A2/B1--B3へ単純化する。
+- Q2-2達成、R207A--R207Dの数学、R205F passive separation、A1/A2/B1--B3の現在地、M0その他fixed-goal判定は変更しない。
+- Q2-2-S専用candidate diagnosticをactive treeから退役し、経緯を `notes/superseded_q2_2_s_spatial_strengthening.md` に保存する。
+
 ## draft-135：Theory A / R180逐次Bell witness退役
 
 - draft-134でR207A--R207CがQ2-2 fixed-goalを単独で閉じたため、R180A/R180CとA→B逐次result-component transmission経路をactive paperから退役する。
