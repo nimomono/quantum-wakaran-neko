@@ -1,3 +1,11 @@
+## draft-136：Q2-2-S退役検算
+
+- `ENHANCEMENT_TARGETS.md` の強化schemaをA1/A2/B1/B2/B3だけへ戻し、Q2-2-S節・S0--S4現在地・固有強化列を除去する。
+- active sections、README、PROJECT_STANCE、PROJECT_GUIDEの現在形からQ2-2-Sとfinite-speed causal-isolation正式目標を除去する。
+- Q2-2はR207A--R207Cを直接根拠とする「達成」を維持し、R207D measurement-independent Bell-local controlとmeasurement-independence監査を残す。
+- `tools/candidate_checks/verify_r207_separation_control.py` を退役し、`tools/verify_r207_projection_phase_volume.py` とR205系required checksを維持する。
+- `tools/migrations/check_draft136_retire_q2_2_s.py` で上記境界とA1/A2/B1--B3現在地不変を検査する。
+
 ## draft-135：R180逐次Bell witness退役検算
 
 - active `sections/` からR180A/R180C theoremと付録Dを除去し、PROJECT_STATUS現行結果表・系列固有手順表からR180を外す。
