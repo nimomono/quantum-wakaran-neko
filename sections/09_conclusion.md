@@ -25,15 +25,15 @@ w(Q)e^{-\beta H_{\rm cfg}(Q)}
 
 を得る。R205Cによりmean-flow shiftは同じreservoirのpartition weightを変えずに共存でき、R205Fは空間分離時のgenerator decoupling条件を与える。
 
-ただし、この共通化はM64またはM65の全模型をM66から導出したという意味ではない。M64/R203Bのpartition/free-energyとmean-flow sectorはR205Cへ、M65/R204Bのphase-volume chamberはR205Dへ埋め込まれるが、M64 tracer dynamicsとM65 canonical open lawはそれぞれ固有の物理責務を持つ。R206はM66の直接Q2終端specialization、R207はR205E/FをQ2-2-Sへ適用するstrengthening candidateである。
+ただし、この共通化はM64またはM65の全模型をM66から導出したという意味ではない。M64/R203Bのpartition/free-energyとmean-flow sectorはR205Cへ、M65/R204Bのphase-volume chamberはR205Dへ埋め込まれるが、M64 tracer dynamicsとM65 canonical open lawはそれぞれ固有の物理責務を持つ。R206はM66の直接Q2終端specializationであり、R207はR205A/R205E/R205FをQ2-2のprojection phase-volume共同準備・二端読出しへ特殊化する現行fixed-goal主線である。
 
 Q1では、M37/R187/R140が2モード可逆signalとRabi運動を与え、R189Aが測定に必要な2作用を保持する。M65の3状態open selectorが1試行1結果を形成し、R181Dが選ばれた非規格化射影成分を同じ試行の次操作へ渡す。これによりBorn型2結果、同軸・異軸逐次測定、有限Rabi--Zeno比較を同じsignal-to-result interfaceへ接続した。
 
 Q2-1とQ2-3ではR181B/R181Cが永続多モードsignal上でテンソル積状態とgate列を作り、末端4結果または8結果をR206で1回に標本化する。Q2-4ではR206Eで $0^n$ rootを一様準備し、R181Cの一般gate列後に $L=2^n$ のR206 samplerへ接続する。reader側の逐次leaf探索、R181D tree、非終端作用回復、結果別pointer resetを固定主線から外した。一方、M54 direct-amplitude registerへ全自由度加法ノイズが入るR186の障害はreader側とは独立に残り、Q2-4は条件付き達成を維持する。
 
-Q2-2 fixed-goalはこれとは別の逐次経路で達成する。固定一重項4モードsignalにA設定を作用し、A端M65で結果 $r$ を形成し、その非規格化結果成分をR181D型routerでB端へ物理的に渡す。B設定後にB端M65で $s$ を形成すると、一重項型の余弦共同統計、非信号性、CHSH/Tsirelson値を回収する。測定窓中にA端結果成分をB端へ渡すため、このfixed-goal witnessはBell局所因子化を満たす空間分離模型ではない。
+Q2-2 fixed-goalはR207 projection phase-volume経路で達成する。setting directionsと二つのhidden directionをnear-contactでthermal preparationし、projection phase volumeとisotropic lockから一般Bloch方向の余弦共同統計へ接続する。finite thickness/finite lockでも任意精度のsinglet共同分布へ近づき、局所周辺は非信号である。分離後local response factorizationを保つ一方、source hidden stateの分布はsetting-dependentなのでmeasurement independenceは成立しない。
 
-Q2-2-Sでは別のcandidateを得た。R205Eによるnear-contact joint thermal preparation、R205Fによるpassive separation、R207A--R207Dによる4-setting CHSH witnessとBell前提監査を組み合わせる。分離後local response factorizationとCHSH破れを両立する候補であるが、sourceとsetting precursorを共同準備するため現witnessではmeasurement independenceが成立しない。R207Dでmeasurement-independent local controlへ戻すと $|S|\le2$ を回収する。finite-speed spatial reservoirとsetting確定後のtiming closureが未閉包なので、Q2-2-S全体は未監査のままである。
+Q2-2-Sは同じR207主線をfinite-speed spatial reservoirへ落とす独立強化である。最大伝播速度とsetting確定後timing closureは未閉包なので全体状態は未監査のままとする。R180A/R180C逐次経路は本draftではactive alternate witnessとして残すがfixed-goal直接依存から外す。
 
 Q3ではQ1/Q2と同じ局所実正準signalと2体系結合を空間へ配置し、M37/R86からSchrödinger型signalとcurrentを得る。M64はこのsignal、一つのclassical tracer、一つのsignal-driven thermal reservoirからなる。R203Aはregularized density/current、R203Bはphase-volume free energyとfinite-time mean-flow tracking、R203Cはcanonical overdamped tracerからregularized diffusionへの縮約、R203Dは1次元R161/R185とfinite-graph位置読出しへの接続を与える。
 
