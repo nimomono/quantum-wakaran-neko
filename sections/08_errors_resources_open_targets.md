@@ -10,8 +10,8 @@
 
 1. 同じM37包絡誤差をR135の第2モーメント誤差とR168の状態方向誤差へ同時に加える。
 2. M65主線で、M65内部に含めたfinite-time relaxation、hub無反応、endpoint comparator、record誤差を系列固有測定機構誤差へ重ねて入れる。退役した旧測定経路の偏差を現行台帳へ重ねて入れない。
-3. R180Aの同じブロック保持偏差を $\varepsilon_{\rm split}$、$\varepsilon_{\rm latch}$、$C_\tau\varepsilon_{\rm block}$ へ重ねて入れる。
-4. R180Cの積因子化誤差を各翼の局所M65誤差へ吸収した上で再び加える。
+3. R207でR205E mixing誤差またはR205F generator defectをcommon-reservoir側とQ2-2側へ二重計上する。
+4. R180A/R180C alternate witnessの誤差をR207 fixed-goal主線へ加える。
 5. 無反応質量を理想分布差と実装失敗へ2回加える。
 6. 同じ準備済み入力偏差を $\varepsilon_{\rm in}$、R135の初期共分散誤差、系列固有の入力誤差へ重ねて入れる。
 7. M64ではinitial preparation、current dictionary、mean-flow tracking、density interpolation、process reductionを導出箇所ごとに一度だけ数える。$\delta$ をcurrent-dictionary誤差とR185 regularizationへ二重に加算せず、process-law errorとNewton force residualを単純加算しない。
@@ -182,60 +182,39 @@ $\varepsilon_{206}^{\rm end}$ にはR206Cのfinite-time mixing、hub residual、
 
 ## 8.6 Q2-2の誤差とBell監査
 
-現行Q2-2はA端M65、projector router、B端M65の深さ2逐次instrumentである。完全結果誤差を
+現行Q2-2はR207 projection phase-volume主線を使う。完全結果分布について
 
-```math
-\varepsilon_{180}
-\leq
-\varepsilon_A^{\rm pre}
-+\varepsilon_{65}^{A}
-+\varepsilon_{\rm route}
-+\varepsilon_B^{\rm basis}
-+\varepsilon_{65}^{B}
-+\varepsilon_{\rm rec}
-```
-
-とする。M65内部のfinite-time relaxation、hub無反応、endpoint comparator、recordは各 $\varepsilon_{65}^{A,B}$ に1回だけ含める。旧R180Bの方向吸引誤差、中央結果複製誤差、切断後A側再読出し誤差は現行台帳から除く。
-
-理想一重項共同分布との全変動距離が $\varepsilon_{180}$ 以下なら、各周辺事象の確率差は $\varepsilon_{180}$ 以下、各二値相関の差は $2\varepsilon_{180}$ 以下、CHSH値の差は $8\varepsilon_{180}$ 以下である。A結果成分をB端へ物理的に渡すため、Bell局所factorizationまたは空間分離を誤差ゼロ極限の主張へ追加しない。
-
-### 8.6.1 Q2-2-S R207 candidateの誤差台帳
-
-S0--S4の定義と公式状態は `ENHANCEMENT_TARGETS.md`、本文側の因果構造要約は第5章5.7を正本参照先とする。本節はcandidate誤差の数え方だけを管理し、強化状態を独立に判定しない。
-
-R207候補ではfixed-goal R180Cの $\varepsilon_{180}$ と別に、
-
-```math
-\varepsilon_{\rm prep}^{207},
-\qquad
-\varepsilon_{\rm lock}^{207},
-\qquad
-\varepsilon_{\rm sep}^{207},
-\qquad
-\varepsilon_{\rm latch}^{207},
-\qquad
-\varepsilon_{\rm out}^{207}
-```
-
-を区別する。$\varepsilon_{\rm prep}^{207}$ はR205E mixing、$\varepsilon_{\rm sep}^{207}$ はR205F generator defectを受け取るので、同じ誤差をR207側でもう一度加えない。
-
-各setting pairの実共同分布とideal candidate lawの全変動距離を $\epsilon_{xy}$ とすれば
-
-```math
-|S_{\rm real}-S_{\rm ideal}|
+[
+\varepsilon_{207}
 \le
-2\sum_{x,y}\epsilon_{xy}.
-```
+\varepsilon_{\rm prep}^{207}
++
+\varepsilon_{\rm thick}^{207}
++
+\varepsilon_{\rm lock}^{207}
++
+\varepsilon_{\rm hold}^{207}
++
+\varepsilon_{\rm sep}^{207}
++
+\varepsilon_{\rm latch}^{207}
++
+\varepsilon_{\rm rec}^{207}.
+]
 
-共通上界 $\epsilon_{xy}\le\epsilon$ なら
+R207Bから
+[
+\varepsilon_{\rm thick}^{207}\le2\epsilon,
+\qquad
+\varepsilon_{\rm lock}^{207}\le\frac{1-L(k)}2.
+]
+任意のtarget $\eta>0$ に対し有限$\epsilon,k$で統計核誤差を任意に小さくし、残りをfinite preparation、hidden-direction保持、R205F separation、local latch、recordへ配分する。R205E mixingとR205F defectは共通層側で一度だけ数える。
 
-```math
-|S_{\rm real}-S_{\rm ideal}|
-\le
-8\epsilon.
-```
+Bell前提監査では、分離後local response factorizationとoperational non-signalingを主張する一方、$\rho(\Lambda\mid\boldsymbol a,\boldsymbol b)\neq\rho(\Lambda)$なのでmeasurement independenceを主張しない。R180A/R180Cの旧逐次誤差はactive alternate witnessの台帳として残すが、現行$\varepsilon_{207}$へ加えない。
 
-これはcandidate robustnessの共通出口であり、finite-speed spatial isolationやdirect SDE simulationを証明するものではない。
+### 8.6.1 Q2-2-S finite-speed strengthening
+
+Q2-2-Sではfixed-goalの$\varepsilon_{207}$に加え、具体spatial reservoirが有限最大伝播速度$v_{\max}$を持つこととsetting確定後のcausal-isolation timingを同じ実装で満たすことを要求する。R205Fのgenerator factorizationだけをfinite-speed isolationの代用にしない。direct SDE trajectory、具体reservoir geometry、実験装置はA2/B/Q2-2-Sで監査する。
 
 ## 8.7 Q3のM64--R161--R185誤差
 
