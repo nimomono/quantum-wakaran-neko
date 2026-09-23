@@ -29,3 +29,12 @@ M65本体の3状態open selectorはdraft-117で正本へ昇格し、required検�
 - `verify_m65_brownian_reduction.py` — fast-mixing micro-networkからcanonical 3-state lawへの数値witness。
 
 Hamiltonian--Brownian liftやdirect trajectory witnessは強化課題であり、M65正本性やR191/R193退役の必要条件にはしない。
+
+### M66/R205--R206
+
+- \`verify_m66_common_phase_volume.py\` — R205A/R205BのJacobianとmatched capacity--conductance。
+- \`verify_r206_multi_outcome_sampler.py\` — finite-\(L\) common-hub law、zero-weight、\(L\) 非依存mixing。
+- \`verify_r206_uniform_passive_scaling.py\` — \(L=2^n\) passive scaling、regularization、aggregate fabrication error。
+- \`verify_r206_q2_resource_scaling.py\` — Q2-4のsampling時間、passive internal resource、\(n\)-bit external readout。
+
+これらはdraft-126時点ではcandidate checksであり、required physics checksではない。

@@ -513,3 +513,63 @@ O\left(
 R204Bのphase-volume chamberとR204CのHamiltonian--Brownian liftを採用する場合、そのbath、overdamped、tube、lumping、calibration誤差はその実装だけの強化台帳へ加える。退役R191のmacrospin誤差を現行M65試行へ加算しない。
 
 M65の正本化はR186の指数個signal modeへの加法noise/precision障害を解決しない。Q1/Q2 fixed-goal witnessにはM65を採用する。
+
+## 8.12 M66/R206 candidateの誤差・資源境界
+
+M66/R206はQ2 terminal readoutを有限 $L$ common-hub samplerへ縮約するactive candidateである。regularized target
+
+```math
+p_y^\delta
+=
+\frac{p_y+\delta/L}{1+\delta}
+```
+
+について
+
+```math
+D_{\rm TV}(p^\delta,p)
+\le
+\frac{\delta}{1+\delta}
+```
+
+である。finite-time sampler errorは保守的に
+
+```math
+\varepsilon_{\rm samp}
+\le
+2e^{-\Lambda T}
++
+\frac{\Lambda}{\Lambda+\kappa(1+\delta)}
++
+\frac{\delta}{1+\delta}
++
+T\varepsilon_{\rm gen}
++
+\varepsilon_{\rm rec}
+```
+
+と管理する。この上界には $L$ と $\min_y p_y$ が明示的に現れない。
+
+local scale誤差
+
+```math
+\widetilde s_y=s_y(1+\epsilon_y)+b_y,
+\qquad
+|\epsilon_y|\le\eta,
+\qquad
+|b_y|\le b
+```
+
+に対して $s_y\ge\delta$、$\xi=\eta+b/\delta<1$ なら規格化weight errorを
+
+```math
+D_{\rm TV}
+\le
+\frac{\xi}{1-\xi}
+```
+
+で抑える。channelごとの誤差を $2^n$ 個粗く加算しない。
+
+Q2-4ではsignal mode、result chamber、bath内部自由度、hub容量などの受動内部資源が指数的でもよいが、規模と構造を報告する。外部gate program、global sampler parameter、sampling時間、readout bit数、必要精度は多項式でなければならない。
+
+本候補はreader側の逐次小branch、R181D tree、R192作用下限問題を避けるが、R186のdirect-amplitude registerへ入る独立additive noiseは解消しない。従ってQ2-4の条件付き達成を本draftでは変更しない。

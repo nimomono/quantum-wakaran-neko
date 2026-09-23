@@ -1,7 +1,7 @@
 @number: Z
 @chapter: 付録
 @title: M65 phase-volume型3状態open射影読出し
-@status: Q1/Q2二結果射影用の現行fixed-goal canonical open selector model。正本発展則は保持済み二作用を線形rateへ入れる3状態連続時間Markov過程とし、exact endpoint、有限decision後のR112型record/latch、R204Dの有限時間Born誤差、R204Eの共通binary selector contract、R204FのQ1/Q2-4接続と資源条件を備える。R204A--R204Cのphase-volume chamber/Hamiltonian構成は追加実現・持上げであり、M65正本の成立条件にしない。
+@status: Q1/Q2二結果射影用の現行fixed-goal canonical open selector model。正本発展則は保持済み二作用を線形rateへ入れる3状態連続時間Markov過程とし、exact endpoint、有限decision後のR112型record/latch、R204Dの有限時間Born誤差、R204Eの共通binary selector contract、R204FのQ1/Q2-4接続と資源条件を備える。R204A--R204Cのphase-volume chamber/Hamiltonian構成は追加実現・持上げであり、M65正本の成立条件にしない。 Z.11にM66/R205--R206のmulti-outcome common-reservoir readoutをactive replacement candidateとして併置するが、現行M65/R181D/R192/R179主線は変更しない。
 
 ## Z.1 目的と責務境界
 
@@ -615,3 +615,542 @@ M65の正本はR204Aのopen generator、R204Dの有限時間Born誤差、endpoin
 R204Bのphase-volume chamber、R204CのHamiltonian--Brownian lift、finite-bandwidth bath、direct Brownian trajectory、具体回路化は追加の物理実現・A2/B系強化課題である。これらをM65の正本性やfixed-goal達成判定の前提にしない。
 
 旧R191/R193はM65へ責務を吸収したため現行主線から退役する。exact endpoint、有限record/latch、Q1空操作対照を含むfixed-goal主線は本付録で閉じる。
+
+## Z.11 M66共通phase-volume reservoirとQ2多結果readout候補
+
+M66は、古典coherent signalの局所作用を一つのthermal reservoirのphase volumeへ受動的に写し、排他的な古典configurationを標本化する共通open模型候補である。
+
+本付録で扱う実体は次の三種類だけとする。
+
+1. classical coherent signal $Z=(Z_y)_{y\in\Omega_L}$。
+2. classical resolved configuration $X\in\Omega_L\cup\{H\}$。
+3. one thermal reservoir。各結果channelへ同じ局所規則で接続され、channelごとのBorn表、振幅表、較正係数表を外部入力として受け取らない。
+
+ここで $H$ は未決定hubである。複素信号、局所作用、phase-volume scale、Markov rateは派生量であり、独立の量子実体ではない。
+
+本付録はQ2末端readoutの候補を与える。Q1逐次測定、Q2-2現行A端--B端逐次interface、M65/R181D/R192/R179の現行fixed-goal責務は本変更では置換しない。
+
+### Z.11.1 R205A：共通phase-volume identity
+
+signalから得る正の局所scaleを $w>0$ とする。reservoir内部自由度を $(\zeta_\alpha,\Pi_\alpha)$ とし、
+
+```math
+H_{\rm res}(w)
+=
+\sum_{\alpha}
+\left[
+\frac{\Pi_\alpha^2}{2m_\alpha}
++
+\frac{m_\alpha\omega_\alpha^2}{2}
+\left(
+\lambda_\alpha(w)\zeta_\alpha-d_\alpha R
+\right)^2
+\right],
+```
+
+```math
+\lambda_\alpha(w)=w^{-q_\alpha},
+\qquad
+q_\alpha>0,
+\qquad
+\sum_\alpha q_\alpha=1
+```
+
+とする。
+
+<!-- theorem-start:theorem -->
+**定理（R205A：共通phase-volume identity）**
+
+固定 $w>0$ と $R$ に対するcanonical積分は
+
+```math
+Z_{\rm res}(w,R)
+=
+Z_{\rm res}^0\,w
+```
+
+を満たす。従って
+
+```math
+F_{\rm res}(w)
+=
+-k_BT\log w+C
+```
+
+である。
+<!-- theorem-end:theorem -->
+
+<!-- theorem-start:proof -->
+**証明（R205A）**
+
+各modeで $Q_\alpha=\lambda_\alpha\zeta_\alpha-d_\alpha R$ と変数変換する。Gaussian積分の $w$ 依存性は
+
+```math
+\prod_\alpha\lambda_\alpha^{-1}
+=
+w^{\sum_\alpha q_\alpha}
+=
+w
+```
+
+だけである。証明終。
+<!-- theorem-end:proof -->
+
+R203Bは $w=r_X^\delta/r_*$ の特殊化、R204Bは二結果の局所scaleをcapacity/conductanceへ共通に入れる特殊化として読める。
+
+### Z.11.2 R205B：matched capacity--conductance原理
+
+結果channel $y$ のwell-mixed capacityを $V_y$、hubとのconductanceを $G_y$、hub capacityを $V_H$ とする。固定装置定数 $V_0,G_0,V_H^0>0$ に対し
+
+```math
+V_y=V_0s_y,
+\qquad
+G_y=G_0s_y
+```
+
+とする。
+
+<!-- theorem-start:theorem -->
+**定理（R205B：matched capacity--conductance原理）**
+
+上の一様scale則では
+
+```math
+k_{y\to H}
+=
+\frac{G_y}{V_y}
+=
+\frac{G_0}{V_0}
+=:\Lambda
+```
+
+となり、channelからhubへのrateは $s_y$ と結果数に依存しない。
+
+hubからchannelへのrateは
+
+```math
+k_{H\to y}
+=
+\frac{G_y}{V_H}
+```
+
+であり、$V_H$ の一様scaleを選ぶことで局所 $s_y$ をそのまま標本化rateへ写せる。
+<!-- theorem-end:theorem -->
+
+この構成では外部制御器が比 $s_y/\sum_zs_z$ を計算する必要はない。
+
+### Z.11.3 R205C--R205D：M64/M65との共通原理
+
+R205Aの $w$ をM64 continuous profileの $r_X^\delta/r_*$ と同定すればR203Bの
+
+```math
+F_{\rm res}
+=
+-k_BT\log r_X^\delta+C
+```
+
+を回収する。これをR205Cと呼ぶ。
+
+二結果 $y\in\{+,-\}$ で $s_y=a_y$、$V_H=V_H^0$ とすれば
+
+```math
+k_{H\to y}
+=
+\frac{G_0}{V_H^0}a_y
+```
+
+となり、R204Bのmatched capacity--conductance構造を回収する。これをR205Dと呼ぶ。
+
+R205C/R205Dは既存M64/M65の定理を置換せず、共通phase-volume原理への埋込みだけを主張する。
+
+### Z.11.4 R206A：有限L結果common-hub sampler
+
+有限結果集合を
+
+```math
+\Omega_L=\{1,\ldots,L\}
+```
+
+とする。非負作用 $a_y\ge0$ と
+
+```math
+a_\Sigma=\sum_{y=1}^La_y>0
+```
+
+を取り、
+
+```math
+p_y=\frac{a_y}{a_\Sigma}
+```
+
+とする。
+
+canonical open samplerを
+
+```math
+k_{y\to H}=\Lambda,
+\qquad
+k_{H\to y}=\kappa a_y
+```
+
+で定める。確率を $x_y(t)=P(X_t=y)$、$h(t)=P(X_t=H)$ とすると
+
+```math
+\dot x_y
+=
+-\Lambda x_y+\kappa a_yh,
+```
+
+```math
+\dot h
+=
+\Lambda(1-h)-\kappa a_\Sigma h.
+```
+
+<!-- theorem-start:theorem -->
+**定理（R206A：finite-$L$ common-hub sampler）**
+
+```math
+d_y(t)
+=
+x_y(t)-p_y[1-h(t)]
+```
+
+と置けば
+
+```math
+\dot d_y=-\Lambda d_y
+```
+
+が各 $y$ で厳密に成立する。また
+
+```math
+h_\infty
+=
+\frac{\Lambda}{\Lambda+\kappa a_\Sigma},
+```
+
+```math
+h(t)
+=
+h_\infty+
+[h(0)-h_\infty]
+e^{-(\Lambda+\kappa a_\Sigma)t}.
+```
+
+従って有限時間で
+
+```math
+x_y(t)
+=
+p_y[1-h(t)]
++
+e^{-\Lambda t}d_y(0).
+```
+
+収束率 $\Lambda$ は $L$ と $\min_y p_y$ に依存しない。$a_y=0$ のexact zero-weight channelも許す。
+<!-- theorem-end:theorem -->
+
+<!-- theorem-start:proof -->
+**証明（R206A）**
+
+$a_y=p_ya_\Sigma$ をmaster equationへ代入すれば
+
+```math
+\dot d_y
+=
+-\Lambda[x_y-p_y(1-h)]
+```
+
+を得る。$h$ は一次線形方程式を直接解けばよい。証明終。
+<!-- theorem-end:proof -->
+
+### Z.11.5 R206B：Q2-4用の一様受動channel構成
+
+Q2-4では $L=2^n$ とする。R181C後のterminal signal作用を
+
+```math
+J_y
+=
+\mathcal J_0|Z_y|^2,
+\qquad
+J_\Sigma=\sum_yJ_y=J_*
+```
+
+とする。解析上
+
+```math
+p_y=\frac{J_y}{J_*}
+```
+
+と書くが、物理装置がこの比を計算して入力することは禁止する。
+
+固定regularization $\delta>0$ を取り、各channelが局所 $J_y$ だけから同一規則
+
+```math
+s_y
+=
+\delta+\frac{LJ_y}{J_*}
+```
+
+を使うとする。
+
+capacity/conductanceを
+
+```math
+V_y=V_0s_y,
+\qquad
+G_y=G_0s_y
+```
+
+とし、共通hubを
+
+```math
+V_H=LV_H^0
+```
+
+とする。
+
+<!-- theorem-start:theorem -->
+**定理（R206B：一様passive $L$-channel realization）**
+
+上の同型channel族では
+
+```math
+k_{y\to H}
+=
+\Lambda
+:=
+\frac{G_0}{V_0},
+```
+
+```math
+k_{H\to y}
+=
+\kappa
+\left(
+p_y+\frac{\delta}{L}
+\right),
+\qquad
+\kappa:=\frac{G_0}{V_H^0}.
+```
+
+従って総hub escape rateは
+
+```math
+\sum_yk_{H\to y}
+=
+\kappa(1+\delta)
+```
+
+であり $L$ に依存しない。
+
+対応する規格化結果重みは
+
+```math
+p_y^\delta
+=
+\frac{p_y+\delta/L}{1+\delta},
+```
+
+かつ
+
+```math
+D_{\rm TV}(p^\delta,p)
+\le
+\frac{\delta}{1+\delta}.
+```
+
+channelごとに異なるBorn表、振幅表、較正係数表を外部入力する必要はない。
+<!-- theorem-end:theorem -->
+
+#### Z.11.5.1 bounded local scaling
+
+一つの極端な幾何factorへ $s_y$ を集中させず、各channelに $m=n$ 個の同型phase-volume座標を置き、
+
+```math
+q_\alpha=\frac1n,
+\qquad
+\lambda_{y\alpha}=s_y^{-1/n}
+```
+
+とする。R205Aにより積Jacobianは $s_y$ を与える。
+
+```math
+\delta\le s_y\le 2^n+\delta
+```
+
+なので、固定 $\delta$ または $\delta^{-1}=\operatorname{poly}(n,1/\epsilon)$ の範囲では、各局所scaleに指数精度を直接要求しない。内部自由度総数は $O(n2^n)$ と報告する。
+
+### Z.11.6 R206C：有限時間・製造誤差・完全結果
+
+R206Aを $p^\delta$ に適用する。任意のpointer初期分布について
+
+```math
+\frac12\sum_y|d_y(0)|\le1.
+```
+
+decision時刻 $T$ でhub質量を捨てて成功試行だけを再規格化しない。hubを完全結果として保持するか、事前固定した合法的な結果写像へ送る。
+
+そのときsampler誤差は保守的に
+
+```math
+\varepsilon_{\rm samp}(T)
+\le
+2e^{-\Lambda T}
++
+\frac{\Lambda}
+{\Lambda+\kappa(1+\delta)}
++
+\frac{\delta}{1+\delta}
++
+T\varepsilon_{\rm gen}
++
+\varepsilon_{\rm rec}
+```
+
+と置ける。従って
+
+```math
+T
+=
+O\left(
+\Lambda^{-1}\log\frac1\epsilon
+\right)
+```
+
+で有限時間誤差を制御でき、$L$ は明示的に現れない。
+
+実際のlocal scaleが
+
+```math
+\widetilde s_y
+=
+s_y(1+\epsilon_y)+b_y,
+```
+
+```math
+|\epsilon_y|\le\eta,
+\qquad
+|b_y|\le b
+```
+
+を満たすとする。$s_y\ge\delta$ より
+
+```math
+\left|
+\frac{\widetilde s_y-s_y}{s_y}
+\right|
+\le
+\xi,
+\qquad
+\xi:=\eta+\frac{b}{\delta}.
+```
+
+$\xi<1$ なら規格化重みの全変動誤差は
+
+```math
+D_{\rm TV}(\widetilde p,p^\delta)
+\le
+\frac{\xi}{1-\xi}
+```
+
+で抑えられる。これはchannel数の粗い和を取らないaggregate relative-error boundである。
+
+一方、各signal modeへ状態非依存の独立additive noiseを直接注入する場合はR186の障害が残る。本定理はR186を解消しない。
+
+### Z.11.7 R206D：Q2-1、Q2-3、Q2-4 readout bridge
+
+R181C後の実際の一試行terminal signalを $Z_{\rm out}$ とする。理想回路出力を $Z_C^{\rm id}$ とし、状態方向誤差を $\varepsilon_{\rm ray}$ とする。
+
+Q2-1では $L=4$、Q2-3では $L=8$、Q2-4では $L=2^n$ と特殊化する。R206A--R206C samplerへ
+
+```math
+J_y=\mathcal J_0|Z_{{\rm out},y}|^2
+```
+
+を局所入力する。
+
+<!-- theorem-start:theorem -->
+**定理（R206D：Q2 terminal multi-outcome readout candidate）**
+
+terminal signal作用をR206A--R206Cへ同一試行内で物理的に接続し、外部制御器が最終Born表・振幅表・結果別係数表を入力しないとする。すると理想極限で
+
+```math
+P(Y=y)
+=
+\frac{|Z_{{\rm out},y}|^2}
+{\sum_z|Z_{{\rm out},z}|^2}.
+```
+
+有限実装では
+
+```math
+D_{\rm TV}(P_{\rm out},P_C)
+\le
+\varepsilon_{\rm ray}
++
+\varepsilon_{\rm samp}.
+```
+
+Q2-4では $Y\in\{0,1\}^n$ を固定配線のconfiguration labelとして読み、外部readoutは $O(n)$ bitとする。全chamberを外部走査して結果を探索する方式は本定理の一様装置条件を満たさない。
+<!-- theorem-end:theorem -->
+
+本候補ではterminal readout後に非規格化射影成分を次段へ渡さないため、R181D型逐次projector treeとR192型非終端作用回復をreadout内部には要求しない。ただし本PRでは現行fixed-goal依存からR181D/R192を外さない。
+
+### Z.11.8 terminal action保持とbackreaction境界
+
+action-angle表示でsampler couplingが $J_y$ とreservoir座標だけに依存し、$\phi_y$ に依存しないなら
+
+```math
+\dot J_y
+=
+-\frac{\partial H_{\rm int}}{\partial\phi_y}
+=
+0.
+```
+
+従ってgate終了後のterminal readoutではsignal actionをQND型に保持できる。
+
+一方、R181Cのcoherent gate実行中から同じ有限強度couplingを常時作用させても位相coherenceを十分保てることは本付録では証明しない。always-on passive coupling、finite-bandwidth reservoir、full Hamiltonian lift、gate中のphase backreactionはM66 strengtheningとして残す。
+
+### Z.11.9 Q2-4資源境界
+
+$L=2^n$ のとき内部受動資源として次を許容・報告する。
+
+- signal mode数：$2^n$。
+- result chamber数：$2^n$。
+- phase-volume内部自由度：保守的に $O(n2^n)$。
+- hub capacity、総conductance、総bath容量、総熱：指数的でもよいが規模を報告する。
+
+外部運用資源には次を要求する。
+
+- gate program長：$\operatorname{poly}(n,d)$。
+- sampler制御：global parameter $\Lambda,\kappa,\delta,T$ と固定一様規則だけ。
+- channel別Born表・振幅表・係数表：不要。
+- terminal readout：$O(n)$ bit。
+- sampling時間：
+```math
+O\left(
+\Lambda^{-1}\log\frac1\epsilon
+\right).
+```
+- $\delta^{-1}$、$\Lambda^{-1}$、$\kappa^{-1}$、必要なlocal relative precision：$\operatorname{poly}(n,d,1/\epsilon)$ 以内。
+
+R186のdirect-amplitude registerに対する独立additive-noise障害は独立に残る。従ってM66/R206追加だけからQ2-4を達成へ昇格しない。
+
+### Z.11.10 candidate status
+
+M66/R205A--R205D/R206A--R206Dは、Q2共通readoutを単一multi-outcome reservoir samplerへ縮約するactive replacement candidateである。
+
+この段階では次を変更しない。
+
+- M65/R204A--R204Fの現行2結果selector責務。
+- R181Dのprojector-router責務。
+- R192のQ2-4非終端作用安定化責務。
+- R179の現行open reset/supply責務。
+- Q2-1/Q2-2/Q2-3/Q2-4の達成ラベルと直接依存。
+- Q2-2の現行非空間分離A端--B端逐次interface。
+- R186のadditive-noise障害。
+
+後続promotionでは、Q2-1/Q2-3/Q2-4のterminal readoutをR206Dへ切り替えられるかを、required verifierと全依存グラフを含めて別PRで判定する。

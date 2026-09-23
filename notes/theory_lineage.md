@@ -79,3 +79,17 @@ Q2の永続register・gateはM54/R181B--R181Cへ整理され、末端読出し�
 - Q2旧register/Bell: `superseded_m49_joint_bath_cnot_provider.md`、`superseded_m52_path_only_design.md`、`superseded_independent_m48_bell_protocol.md`
 
 このメモは理論結果を追加せず、現行正本と歴史記録のナビゲーションだけを与える。
+
+## M66/R205--R206 candidate branch
+
+現行のQ2読出し系譜とは別に、draft-126で次のpromotion candidateを追加する。
+
+\`\`\`text
+terminal coherent signal
+  -> local actions |Z_y|^2
+  -> M66 / R205 common phase-volume reservoir
+  -> R206 finite-L common-hub sampler
+  -> n-bit terminal record
+\`\`\`
+
+このcandidateはQ2-1/Q2-3/Q2-4のterminal readerを一回のmulti-outcome samplingへ縮約する。現行M65/R181D/R192/R179を本draftでは退役させず、Q2-2のA端--B端逐次経路にも適用しない。後続promotionで依存切替を判定する。

@@ -61,3 +61,11 @@ M60/M61のDuffing shell、統一chiral媒体、ballistic lead、moving reflector
 M65をQ1/Q2二結果射影用のcanonical open selector modelへ昇格した。最小模型は $+,H,-$ の3状態Markov pointerであり、保持済み二作用はhubから各結果へのrateへ線形に入る。R204Dは有限時間Born誤差、R204Eは共通binary selector contract、R204FはQ1互換性とQ2-4読出し時間条件を与える。phase-volume chamberとHamiltonian--Brownian縮約はR204B/R204Cの追加実現・強化結果へ分離した。
 
 R181D、R192、R179、R180A/R180Cはselector内部物理から独立なinterfaceを介してM65へ接続する。旧R191 Brownian macrospin読出しとR193 Q1直接decision bridgeはM65へ責務を吸収したため現行主線から退役し、notes/Git履歴へ保存する。
+
+## M66/R206候補の現在地
+
+M64/R203BとM65/R204Bに共通するphase-volume原理をM66/R205A--R205Dとして抽出し、Q2 terminal readoutを一回の有限 $L$ common-hub samplingへ縮約するR206A--R206D候補を追加した。
+
+候補はQ2-1で4結果、Q2-3で8結果、Q2-4で $2^n$ 結果を同じ局所規則から標本化し、mixing時間とaggregate fabrication-error boundを $L$ に直接依存させない。これによりQ2 reader側からR181D/R192を外せる見込みが得られる。
+
+ただし本draftではpromotionを行わない。現行M65/R181D/R192/R179主線、Q2-2逐次interface、Q2-1--Q2-4の達成ラベル、R186障害は維持する。次段階ではcandidate checksと依存グラフを監査した上で、旧逐次readoutの退役を独立PRとして判定する。

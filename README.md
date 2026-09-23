@@ -167,3 +167,9 @@ A1/A2は固定目標とは独立に監査する。M64の正式昇格だけから
 M65は、二つの保持済み射影作用から排他的な二結果を作るcanonical open selectorである。最小模型は $+,H,-$ の3状態連続時間Markov過程で、保持作用はhubから各結果へのrateへ線形に入る。Born確率表や作用和による除算を外部制御器へ入力せず、有限時間で結果比をBorn作用比へ近づける。phase-volume chamberとHamiltonian--Brownian縮約はM65の追加実現候補であり、正本の成立条件ではない。
 
 M65はexact endpoint $A_r=0$ を含む入力、有限decision終了時のR112型record/latch、R189AからM65を経てR181Dへ渡すQ1接続までを備える。Q1/Q2 fixed-goalの現行測定主線にはM65を採用する。旧R191ブラウン巨視的スピン読出しとR193 Q1 decision bridgeはM65へ責務を吸収したため退役し、notes/Git履歴へ保存する。
+
+### M66/R206 multi-outcome readout candidate
+
+Q2-1/Q2-3/Q2-4のterminal readoutを一回のcommon-reservoir samplingへ縮約するM66/R205--R206をactive replacement candidateとして追加している。有限 \(L\) common-hub samplerは \(L\) と最小Born重みに依存しないmixing boundを持ち、Q2-4では \(L=2^n\) channelを同一のlocal phase-volume規則で受動的に構成する。
+
+これはまだ現行fixed-goal主線ではない。Q1/Q2の現行2結果selectorはM65、結果成分受渡しはR181D、Q2-4の非終端作用回復はR192、open reset/supplyはR179のままとする。R186のdirect-amplitude register additive-noise障害も残る。

@@ -66,3 +66,23 @@ M60/M61のDuffing shell、chiral-medium、ballistic lead、single-Hamiltonian pa
 R162のopen Poisson-jump過程はQ3の基礎的実体ではなく、その理想jump lawを表す参照過程として残す。R185は同じ前向き経路法則のBayes反転からNelson型の前進・後退平均微分と時間対称Newton則へ接続する。
 
 この再編で、旧作用殻型測定経路、旧paired-Hopf受信機構、Brownian macrospin読出しとQ1直接decision bridgeは現行論文主線から退役した。M56 Brownian-spin Q3模型はspin-only代替研究線へ下げ、Q3の現行ミクロ主線には使わない。内容は `notes/` とGit履歴へ保存し、反証されたものとして扱わない。論文本文では同じBorn結果を複数の物理経路で重複説明せず、現在の最小因果鎖だけを正本とする。
+
+## M66/R206 多結果readout候補
+
+現行Q1/Q2測定正本はM65/R181Dであり、本draftでは変更しない。その上で、Q2-1、Q2-3、Q2-4のterminal readoutを一回のcommon-reservoir samplingへ縮約するM66/R205--R206をactive replacement candidateとして追加する。
+
+候補因果鎖は
+
+```math
+Z_{\rm out}
+\longrightarrow
+\{J_y=\mathcal J_0|Z_y|^2\}_{y\in\Omega_L}
+\longrightarrow
+\mathrm{M66/R206}
+\longrightarrow
+Y\in\Omega_L
+```
+
+である。Q2-1では $L=4$、Q2-3では $L=8$、Q2-4では $L=2^n$ とする。R206Aのcommon-hub samplerはmixing rateを $L$ と最小Born重みに依存させず、R206Bは全channelを同一の局所phase-volume規則で実装する。
+
+この候補はterminal readout後のprojector treeを必要としないため、後続promotionでQ2-1/Q2-3/Q2-4からR181D/R192を外せる見込みを与える。ただし本draftでは現行依存を変更せず、R186の指数mode additive-noise障害も維持する。
