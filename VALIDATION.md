@@ -1,3 +1,9 @@
+## draft-128：M65/M66付録分離
+
+- A24/付録XにM66/R205A--R205D/R206A--R206Eが存在し、A26/付録ZにR204A--R204Fが維持されることをPR固有migration checkで確認する。
+- A26からM66本体節とR205/R206定理宣言が消え、Q2-1/Q2-3/Q2-4の直接依存とQ1/Q2-2のM65/R181D主線が変わらないことを確認する。
+- required physics verifiersは変更せず、source/project consistency、validation policy、terminology、全required physics checks、paper生成同期、LaTeX semantics、typeset lintを回帰検査する。
+
 ## draft-127：M66/R206正式昇格・Q2逐次terminal readout退役
 
 - M66/R205--R206をQ2-1/Q2-3/Q2-4のterminal multi-outcome readout正本へ昇格し、R206Cを正式定理化、R206E uniform root preparation / refreshを追加する。

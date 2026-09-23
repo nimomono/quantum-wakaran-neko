@@ -1,3 +1,10 @@
+## draft-128：M65/M66付録分離
+
+- `sections/A24_m66_common_phase_volume_readout.md` を付録Xとして追加し、A26のZ.11以下にあったM66/R205--R206を内容変更なしで移設する。
+- `sections/A26_m65_phase_volume_projective_instrument.md` はM65/R204専用の付録Zへ縮約する。R205/R206の結果ID、数式、fixed-goal依存、達成判定は変更しない。
+- 第4章の付録参照をXへ同期し、`tools/migrations/check_draft128_split_m66_appendix.py` を追加する。
+- required physics verifier、M64/M65/M66の現行責務、R186障害、Q2-2主線、Q3主線は変更しない。
+
 ## draft-127：M66/R206正式昇格・Q2逐次terminal readout退役
 
 - M66/R205--R206をQ2-1/Q2-3/Q2-4のterminal multi-outcome readout正本へ昇格し、R206Cを正式定理化、R206E uniform root preparation / refreshを追加する。
