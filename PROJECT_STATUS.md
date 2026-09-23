@@ -437,7 +437,7 @@ draft-71でR182、W型有限環境系、M42周期輸送系を本文・付録・�
 | Q2-2 projection phase-volume model | M66/R205A・R205E・R205F + R207A--R207D | projection phase-volume共同準備、finite-lock余弦則、passive separation、local二端結果、measurement-independence監査、Bell-local controlを担う |
 | canonical位置過程 | R161/R185 | M64から受ける $(\pi,j,t)$ をMarkov path lawと時間対称Newton則へ接続 |
 
-M66の共通化はreservoir sectorに限る。M64全体、M65 canonical law、R207 finite-speed spatial implementationをM66から導出したとは扱わない。R203Bのpartition/free-energyとmean-flow sectorはR205C、R204Bのphase-volume chamberはR205Dへ埋め込まれる。R206はM66の直接Q2 specializationである。
+M66の共通化はreservoir sectorに限る。M64全体、M65 canonical law、R207のQ2-2 specialization全体をM66から導出したとは扱わない。R203Bのpartition/free-energyとmean-flow sectorはR205C、R204Bのphase-volume chamberはR205Dへ埋め込まれる。R206はM66の直接Q2 specializationである。
 
 Q1ではM37--R187--R140で可逆2モードsignalを作り、R189A--M65--R181Dで測定へ接続する。Q2-1/Q2-3/Q2-4ではM54/R181B--R181Cの永続信号をR206 terminal samplerへ渡す。Q2-2 fixed-goalはM66/R205--R207のprojection phase-volume共同準備からpassive separation、local二端読出し、measurement-independence監査へ進む。Q3ではM37/R86 signalからM64/R203A--R203Dへ進み、R161/R185へ接続する。
 
