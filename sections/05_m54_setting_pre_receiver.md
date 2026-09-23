@@ -1,7 +1,7 @@
 @number: 5
 @chapter: 本文
 @title: Bell型測定統計：projection phase-volume主線と空間隔離強化
-@status: Q2-2 fixed-goalはM66/R205A・R205E・R205FとR207A--R207Cによるprojection phase-volume共同準備、受動分離、局所二端読出しで達成する。R207DはBell-local controlを与える。R180A/R180Cは本draftではactive alternate witnessとして残すがfixed-goal直接依存から外し、退役は後続PRへ分離する。Q2-2-Sはfinite-speed spatial isolationを独立に監査する。
+@status: Q2-2 fixed-goalはM66/R205A・R205E・R205FとR207A--R207Cによるprojection phase-volume共同準備、受動分離、局所二端読出しで達成する。R207DはBell-local controlを与える。Q2-2-Sはfinite-speed spatial isolationを独立に監査する。
 
 ## 5.1 目的と現行主線
 
@@ -19,7 +19,7 @@ Q2-2の固定目標は、二体系の共同内部状態を二つの物理的測�
 \longrightarrow
 \text{local records}
 ```
-と進む。R180CのようなA結果成分からB端への逐次転送は現行主線では使わない。R180A/R180Cはactive alternate witnessとして5.8節に残し、このdraftでは結果IDを退役させない。
+と進む。測定窓中の端間result communicationは用いない。
 
 ## 5.2 projection phase-volume共同準備
 
@@ -177,136 +177,3 @@ t_A^{\rm out}-t_B^{\rm set}<\frac{L}{v_{\max}},
 t_B^{\rm out}-t_A^{\rm set}<\frac{L}{v_{\max}}
 ```
 を同じphysical implementationで閉じる。finite-speed spatial reservoir、具体transport geometry、direct SDE trajectoryは未監査のままとする。
-
-## 5.8 R180A/R180C active alternate witness
-
-R180A/R180Cは本draftでは削除しない。設定前一重項4モードsignalを用い、A端の結果成分をprojector routerでB端へ渡す非空間分離逐次証人としてactive paperに残す。ただしQ2-2 fixed-goalの直接依存からは外し、後続PRで退役可否を独立に処理する。
-
-### 5.8.1 固定一重項源と試行順序
-
-固定ベンチマークではR181B/R181Cにより
-
-```math
-|00\rangle
-\longrightarrow
-\frac{|01\rangle-|10\rangle}{\sqrt2}
-```
-
-に対応する4モード信号を設定生成前に準備する。1周期の順序は次とする。
-
-1. M54で固定一重項型末端信号 $Z$ を作る。
-2. 設定生成器から $x,y$ を得る。
-3. A側basis gate $U_x^\dagger\otimes I$ を同じ4モード信号へ作用する。
-4. A結果射影作用 $J_{A,\pm}$ を保持し、A端M65を走らせて $r$ を固定・記録する。
-5. R181Dと同じprojector routerで非規格化結果成分 $P_{A,r}^{x}Z$ をB端へ渡す。
-6. B端で $I\otimes U_y^\dagger$ を作用し、B結果射影作用を保持する。
-7. B端M65を走らせて $s$ を固定・記録する。
-8. 外部記録を残し、必要な能動部をR179のopen resetへ渡す。
-
-A端とB端は別々のM65 open selectorと有限recordを持つ。結果成分の物理転送があるため本装置は非空間分離である。
-
-### 5.8.2 A端特殊化：binary selectorとR181Dから従うR180A
-
-A設定 $x$ の固有基底を $u_{r,x}$、射影を
-
-```math
-P_{A,r}^{x}
-=|u_{r,x}\rangle\langle u_{r,x}|\otimes I
-```
-
-とする。A端作用は
-
-```math
-J_{A,r}
-=\mathcal J_0Z^\dagger P_{A,r}^{x}Z.
-```
-
-<!-- theorem-start:corollary -->
-**系（R180A：binary selector--R181Dの設定先行A端特殊化）**
-
-M54末端信号 $Z$ にA設定basis gateを作用し、直交射影子作用保持機構で $J_{A,+},J_{A,-}$ を保持してbinary selectorへ渡す。selectorの結果を $r$ とし、その固定記録で共通projector routerを制御する。理想極限では
-
-```math
-P(r\mid Z,x)
-=\frac{J_{A,r}}{J_{A,+}+J_{A,-}}
-=\frac{\|P_{A,r}^{x}Z\|^2}{\|Z\|^2},
-```
-
-かつB端へ渡る能動信号は非規格化結果成分
-
-```math
-Z_r=P_{A,r}^{x}Z
-```
-
-である。物理的な $Z_r/\|Z_r\|$ の生成を必要としない。作用保持、selector、routerの有限誤差は完全結果集合上で各1回だけ数える。
-<!-- theorem-end:corollary -->
-
-### 5.8.3 B端条件付き読出し
-
-B設定 $y$ の射影を
-
-```math
-P_{B,s}^{y}
-=I\otimes|u_{s,y}\rangle\langle u_{s,y}|
-```
-
-とする。A結果 $r$ 後のB端selector入力は
-
-```math
-J_{B,s\mid r}
-=\mathcal J_0\|P_{B,s}^{y}P_{A,r}^{x}Z\|^2,
-```
-
-```math
-S_r
-=\mathcal J_0\|P_{A,r}^{x}Z\|^2.
-```
-
-従ってbinary selector contractとR181Dの逐次受渡し則から
-
-```math
-P(s\mid r,x,y)
-=
-\frac{\|P_{B,s}^{y}P_{A,r}^{x}Z\|^2}{\|P_{A,r}^{x}Z\|^2}.
-```
-
-A端の確率と掛けると分母がtelescopingし、
-
-```math
-P(r,s\mid x,y)
-=
-\frac{\|P_{B,s}^{y}P_{A,r}^{x}Z\|^2}{\|Z\|^2}.
-```
-
-### 5.8.4 R180C：2端合成とBell監査
-
-<!-- theorem-start:theorem -->
-**定理（R180C：M54駆動2端受信機構合成、有限誤差、局所性監査、帰還）**
-
-R180AのA端作用保持・binary selector・projector router、B設定gate、B端作用保持・binary selector、二つの局所記録を、同じ一試行の有限な順序付き操作窓と安全集合上で実行できるとする。A端で固定した結果に対応する非規格化結果成分をprojector routerがB端へ物理的に渡した後にB端selectorを作用させる。反復試行で同じ能動補助部を再使用する場合のR179 open reset、永久記録、物理clock、次試行renewalは本定理の共同分布には用いずM0へ分離する。理想極限の完全結果共同分布は
-
-```math
-P(r,s\mid x,y)
-=
-\frac{\|P_{B,s}^{y}P_{A,r}^{x}Z\|^2}{\|Z\|^2}.
-```
-
-固定一重項型 $Z$ では
-
-```math
-P(r,s\mid x,y)
-=
-\frac14\left(1-rs\,\boldsymbol a_x\cdot\boldsymbol b_y\right),
-```
-
-```math
-E(x,y)
-=-\boldsymbol a_x\cdot\boldsymbol b_y.
-```
-
-従って標準CHSH設定で $|S|=2\sqrt2$ を得る。各翼の周辺は $1/2$ であり、理想共同分布は非信号性を満たす。
-
-有限実装では、上流保持・basis gate、A端selector、router、B端basis gate、B端selector、記録の完全結果誤差を各1回加えた量を $\varepsilon_{180}$ とする。実共同分布は理想共同分布から全変動距離 $\varepsilon_{180}$ 以内にあり、周辺差とCHSH差はこの全変動誤差から従う標準安定性上界で抑えられる。
-
-A端結果成分がB端へ物理的に渡るため、現行証人ではBell局所因子化を仮定しない。設定前の一重項源は $x,y$ に依存せず、現行証人のCHSH破れを測定設定独立性の破れへ帰属させない。一方、B端へ到達する内部状態はA設定とA結果に依存する。本結果は、この逐次因果伝播、完全結果集合、非信号周辺を同時に示すBell前提監査であり、空間分離局所模型を主張しない。
-<!-- theorem-end:theorem -->

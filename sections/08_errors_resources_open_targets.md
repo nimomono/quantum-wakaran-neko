@@ -11,7 +11,6 @@
 1. 同じM37包絡誤差をR135の第2モーメント誤差とR168の状態方向誤差へ同時に加える。
 2. M65主線で、M65内部に含めたfinite-time relaxation、hub無反応、endpoint comparator、record誤差を系列固有測定機構誤差へ重ねて入れる。退役した旧測定経路の偏差を現行台帳へ重ねて入れない。
 3. R207でR205E mixing誤差またはR205F generator defectをcommon-reservoir側とQ2-2側へ二重計上する。
-4. R180A/R180C alternate witnessの誤差をR207 fixed-goal主線へ加える。
 5. 無反応質量を理想分布差と実装失敗へ2回加える。
 6. 同じ準備済み入力偏差を $\varepsilon_{\rm in}$、R135の初期共分散誤差、系列固有の入力誤差へ重ねて入れる。
 7. M64ではinitial preparation、current dictionary、mean-flow tracking、density interpolation、process reductionを導出箇所ごとに一度だけ数える。$\delta$ をcurrent-dictionary誤差とR185 regularizationへ二重に加算せず、process-law errorとNewton force residualを単純加算しない。
@@ -210,7 +209,7 @@ R207Bから
 ```
 任意のtarget $\eta>0$ に対し有限$\epsilon,k$で統計核誤差を任意に小さくし、残りをfinite preparation、hidden-direction保持、R205F separation、local latch、recordへ配分する。R205E mixingとR205F defectは共通層側で一度だけ数える。
 
-Bell前提監査では、分離後local response factorizationとoperational non-signalingを主張する一方、$\rho(\Lambda\mid\boldsymbol a,\boldsymbol b)\neq\rho(\Lambda)$なのでmeasurement independenceを主張しない。R180A/R180Cの旧逐次誤差はactive alternate witnessの台帳として残すが、現行$\varepsilon_{207}$へ加えない。
+Bell前提監査では、分離後local response factorizationとoperational non-signalingを主張する一方、$\rho(\Lambda\mid\boldsymbol a,\boldsymbol b)\neq\rho(\Lambda)$なのでmeasurement independenceを主張しない。
 
 ### 8.6.1 Q2-2-S finite-speed strengthening
 
@@ -347,7 +346,7 @@ $\delta$ はR203Aの辞書誤差へ再加算せず、R185 regularizationとfinit
 Q2-1からQ2-4は、次の根拠モデルと根拠結果から互いに独立に判定する。独立とは他のQ2目標の達成ラベルを前提にしないという意味であり、同じ模型または部品定理を複数の目標で使うことは禁止しない。目標ごとに信号系、浴、時計自由度、準備・読出し原理が異なっても、それだけでは不達としない。ここで「根拠結果」は `PROJECT_STATUS.md` の固定目標表と同じく、達成判定で直接参照する結果だけを列挙し、個々の結果が内部で用いる推移的依存は重複列挙しない。
 
 - Q2-1：M54静的状態構成を使う。根拠結果はR112、R181B、R181C、R206D。
-- Q2-2：M54静的状態構成と2端M65経路を使う。根拠結果はR112、R180C、R181D、M65/R204D--R204E。
+- Q2-2：M66/R205--R207 projection phase-volume二端経路を使う。根拠結果はR207A--R207C。
 - Q2-3：M54三部分系静的状態構成を使う。根拠結果はR112、R177、R181B、R181C、R206D。
 - Q2-4：M54一般静的状態構成を使う。根拠結果はR112、R181C、R186、R206D、R206E。一般 $n$ の初期入力にはR181Bを反復しない。
 
@@ -366,7 +365,7 @@ R186はこの露出のうち製造誤差とノイズの境界を定量化する�
 
 信号作用 $S$ を指数的に増やせば、R186の加法ノイズ不等式だけから指数精度は直ちには従わない。この場合は、その大きな作用が外部制御のエネルギー・作用、準備、動的範囲、時刻精度、読出し分解能、期待試行回数へ指数コストとして露出しないことを同じ資源台帳で示す必要がある。従ってR186は、指数モード数を一律に失敗条件とするのでも、指数信号作用を無償の回避策として認めるのでもなく、内部の指数構造が外部運用資源へ露出する経路を分けて検査する。
 
-Q1とQ2はM54の同じ完全状態型と外部接続部から派生する。ただし全規模で同じ製造済みハードウェアを共有するところまでは統合していない。この未完成性は個別達成判定を変更しない。R180CはM54末端から2翼記録までの受信機構内部統合をQ2-2自身の条件とする。
+Q1とQ2は共通状態型・thermal-reservoir原理・接続規約を部分的に共有するが、全規模で同じ製造済みハードウェアを共有するところまでは統合していない。この未完成性は個別達成判定を変更しない。Q2-2自身はR207のjoint preparation、passive separation、local latch/recordまでの一試行interfaceで判定する。
 
 ## 8.10 Q2-3の3量子ビット型二段ゲート合成
 
@@ -438,7 +437,6 @@ Q2-4は条件付き達成を維持する。reader側の逐次branch、作用下�
 |---|---|
 | Q1 W型2モード手順/R143/R181D | 準備済み入力誤差を一度だけ数えられない、R140/R187の信号・分析器誤差、M65の完全結果誤差、またはR181Dの階数1射影選別・測定後状態受渡しが各境界を満たさない。第3.9節のW型空間profileコントラストはsignal診断であり、この主線の反証条件へ混ぜない |
 | M54/R181B--R177・R206D | テンソル積状態の生成の正規化または正準性が破れる、集団モーメントから再準備する、同じ記憶部を保持できない、参照系相関または逆演算干渉縞が壊れる、各モードの個別外部制御が必要、またはterminal R206の完全結果誤差境界を満たさない |
-| M54/R180A--R180C | 実際の末端信号でなく集団モーメントを再注入する、A端M65の結果とrouterが一致しない、B端へ非規格化結果成分を同じ試行のまま渡せない、B端読出しがA/B以外の設定を参照する、一試行内の有限順序付き操作窓と安全集合を構成できない、無反応込みでCHSH誤差上界を満たさない、または現行逐次構成で成立・不成立となるBell前提を因果構造と確率因子化に対応させて監査できない |
 | M54/M66・R181C・R186・R206A--R206E | terminal Born表・振幅表を外部注入する、全channelを外部走査する、channel別の非一様較正または指数長係数表を要求する、hub/sampling/root preparation時間が指数化する、状態依存除算を使う、またはR186のadditive-noise障害を回避できず指数精度を要求する |
 | M37/R86・R135 | 有限時間包絡上界または第2モーメント持上げ上界を超える |
 | R182 | W型固定低位スペクトル・密度・節が格子収束しない、Rayleigh十分条件から障壁下二重項が得られない、関数計算の共有固有空間または分裂相対上界を破る、中央障壁込み半周期鏡映・一周期回帰が成立しない |
@@ -458,13 +456,13 @@ Q2-4は条件付き達成を維持する。reader側の逐次branch、作用下�
 
 ## 8.13 固定目標の残件と実装強化課題
 
-固定目標上の未完成事項は、Q3-6の位相量子化とQ2-4のR186 robustness条件である。Q2-4ではR206E root preparation、R181C gate列、R206 terminal samplerの一様規則と多項式外部運用資源を閉じ、reader側の旧逐次依存を外した。残るfixed-goal条件は、M54 direct-amplitude registerの製造ばらつき・運転中additive noiseがR186の許容範囲に入り、指数精度へ露出しないことである。Q2-1/Q2-3は固定深さの一試行interface、Q2-2はA端結果成分をB端へ渡す非空間分離逐次interface、Q3-4A/Q3-4B/Q3-5はM64 finite-graph tracerの一試行位置読出しまでを既存結果で閉じている。これらの準備から永久記録、reset、物理clock、次試行renewalまでの全周期統合はM0へ分離する。
+固定目標上の未完成事項は、Q3-6の位相量子化とQ2-4のR186 robustness条件である。Q2-4ではR206E root preparation、R181C gate列、R206 terminal samplerの一様規則と多項式外部運用資源を閉じ、reader側の旧逐次依存を外した。残るfixed-goal条件は、M54 direct-amplitude registerの製造ばらつき・運転中additive noiseがR186の許容範囲に入り、指数精度へ露出しないことである。Q2-1/Q2-3は固定深さの一試行interface、Q2-2はR207 joint preparationからpassive separationとlocal二端recordまで、Q3-4A/Q3-4B/Q3-5はM64 finite-graph tracerの一試行位置読出しまでを既存結果で閉じている。これらの準備から永久記録、reset、物理clock、次試行renewalまでの全周期統合はM0へ分離する。
 
 固定目標に付随する標準強化目標の定義、適用範囲、現在地は `ENHANCEMENT_TARGETS.md` を正本とする。全固定目標に具体的古典ミクロ模型A1と直接数値再現A2、Q1/Q2に具体回路B1、実験可能領域B2、回路直接数値再現B3を置く。Q2-2にはさらに、非空間分離の現行証人から物理的2端化、測定窓内因果隔離、隔離下のBell前提監査へ進むQ2-2-Sを置く。これらの強化状態はfixed-goal達成状態と独立に、`ENHANCEMENT_TARGETS.md` の現在地表で管理する。
 
 A1ではHamiltonian無限浴だけでなく、規約と共分散を明示して直接定めたLangevin型SDEその他の開放ミクロ方程式を認め、理想白色雑音を許す。A2ではA1で定めたミクロODE/SDEそのものを直接計算する。理想白色雑音を使うQ1/Q2模型を回路へ移す場合、B2/B3では有限帯域雑音源と時間尺度分離を明示する。
 
-従来からのQ1/Q2完全周期収支、R180Cを含むQ1/Q2の永久記録・reset・物理clock・次試行renewal統合、M64 common process--時計--終位置記録--reset--renewalの単一反復周期統合、連続空間一様極限、多粒子拡張、全周期の有限閉鎖Hamiltonian化は、M0、A/B/Sを横断する上位または系列固有の実装強化課題として保持する。R162を特定Hamiltonian浴から再導出することはM64主線の要件ではない。旧R162有限衝突経路、旧R188、旧R179部分SWAP貯蔵部、旧R178D有限閉鎖リセット境界は撤回せず、有限閉鎖実装を調べる強化結果として論文外メモへ保存する。
+従来からのQ1/Q2完全周期収支、Q1のM65/R181DおよびQ2-2のR207を含む永久記録・reset・物理clock・次試行renewal統合、M64 common process--時計--終位置記録--reset--renewalの単一反復周期統合、連続空間一様極限、多粒子拡張、全周期の有限閉鎖Hamiltonian化は、M0、A/B/Sを横断する上位または系列固有の実装強化課題として保持する。R162を特定Hamiltonian浴から再導出することはM64主線の要件ではない。旧R162有限衝突経路、旧R188、旧R179部分SWAP貯蔵部、旧R178D有限閉鎖リセット境界は撤回せず、有限閉鎖実装を調べる強化結果として論文外メモへ保存する。
 
 Q1-1、Q1-2、Q2-1、Q2-2、Q2-3、Q3-1、Q3-2、Q3-3A、Q3-3B、Q3-3C、Q3-4A、Q3-4B、Q3-5は達成、Q2-4は条件付き達成、Q3-6は未達である。
 
@@ -532,7 +530,7 @@ endpointは固定係数の線形比較器で判定でき、
 
 R204Bのphase-volume chamberとR204CのHamiltonian--Brownian liftを採用する場合、そのbath、overdamped、tube、lumping、calibration誤差はその実装だけの強化台帳へ加える。退役R191のmacrospin誤差を現行M65試行へ加算しない。
 
-M65の現行fixed-goal範囲はQ1/Q2-2の逐次binary instrumentである。Q2-1/Q2-3/Q2-4のterminal readout資源はM66/R206へ移す。
+M65の現行fixed-goal範囲はQ1の逐次binary instrumentである。Q2-1/Q2-3/Q2-4のterminal readout資源はM66/R206、Q2-2のBell readoutはM66/R205--R207が担う。
 
 ## 8.15 M66/R205 common parentとR206の誤差・資源境界
 

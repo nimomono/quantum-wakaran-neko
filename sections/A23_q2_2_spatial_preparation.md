@@ -1,7 +1,7 @@
 @number: W
 @chapter: 付録
 @title: R207 projection phase-volume共同準備と局所二端読出し
-@status: R207A--R207DをQ2-2 fixed-goalの現行Bell統計主線へ正式昇格する。M66/R205A・R205Eのphase-volume thermal preparationとR205Fのpassive separationを使い、一般Bloch方向の一重項共同統計、finite-thickness/finite-lock誤差、分離後local response、measurement-dependence監査を与える。R180A/R180Cは本draftではactive alternate witnessとして残し、退役は後続変更へ分離する。finite-speed spatial reservoir、direct SDE trajectory、実験装置はQ2-2-S/A2/Bの強化課題として残す。
+@status: R207A--R207DをQ2-2 fixed-goalの現行Bell統計主線とする。M66/R205A・R205Eのphase-volume thermal preparationとR205Fのpassive separationを使い、一般Bloch方向の一重項共同統計、finite-thickness/finite-lock誤差、分離後local response、measurement-dependence監査を与える。finite-speed spatial reservoir、direct SDE trajectory、実験装置はQ2-2-S/A2/Bの強化課題として残す。
 
 ## W.1 目的と因果境界
 

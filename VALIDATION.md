@@ -1,3 +1,11 @@
+## draft-135：R180逐次Bell witness退役検算
+
+- active `sections/` からR180A/R180C theoremと付録Dを除去し、PROJECT_STATUS現行結果表・系列固有手順表からR180を外す。
+- `tools/verify_r180_m54_receiver.py` と `tools/verify_r180c_locality.py` をrequiredから外し、`notes/retired_verifiers/` へ保存する。
+- Q2-2はR207A--R207Cを直接根拠とする達成状態を維持し、R207D、Q2-2-S未監査、A1/A2/B/M0判定を変更しない。
+- M65/R204、R181D、Q1-2の直接依存がactiveのまま残ることをdraft-135 migration checkで確認する。
+- source/project consistency、required/candidate physics、paper生成同期、LaTeX semantics、typeset lintを最終headで確認する。
+
 ## draft-134：R207 projection phase-volume昇格検算
 
 - required verifierでfinite-thickness bound、sphere projection identity、finite-lock visibility、CHSH threshold、setting-independent partition、measurement-dependence witness、exact marginal symmetry、有限parameter族、Bell-local controlを検査する。

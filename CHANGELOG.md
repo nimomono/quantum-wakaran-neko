@@ -1,3 +1,10 @@
+## draft-135：Theory A / R180逐次Bell witness退役
+
+- draft-134でR207A--R207CがQ2-2 fixed-goalを単独で閉じたため、R180A/R180CとA→B逐次result-component transmission経路をactive paperから退役する。
+- 第5章のalternate witness節、付録D、第4章/付録JのR180接続、現行R180結果表・誤差/反証台帳を削除し、最終Theory Aをnotesへ保存する。
+- R180専用required verifier 2本をretired verifierへ移す。M65/R204、R181DはQ1用としてactive維持する。
+- Q2-2達成、R207理論、Q2-2-S未監査、A1/A2/B/M0判定、その他固定目標ラベルは変更しない。
+
 ## draft-134：R207 projection phase-volume Q2-2主線昇格
 
 - 4-setting Gibbs candidateだったR207A--R207Dをprojection phase-volume模型へ改訂し、一般Bloch方向のsinglet共同統計、finite-lock/finite-thickness誤差、local二端interfaceを正本化する。

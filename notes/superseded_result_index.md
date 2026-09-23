@@ -1,5 +1,17 @@
 # 置換・退役結果索引
 
+## draft-135で退役したR180A/R180C逐次Bell witness
+
+draft-134でM66/R205--R207 projection phase-volume模型がQ2-2 fixed-goalを単独で閉じたため、旧Theory AのR180A/R180Cをactive paperから退役した。これは逐次Born代数やsinglet共同分布を反証したものではなく、測定窓中のA結果成分からB端への物理転送を必要としないR207へQ2-2主線を一本化するための責務退役である。M65/R204とR181DはQ1逐次測定でactiveのまま残る。
+
+| 結果 | 旧用途 | 現行の扱い | 保存先 |
+|---|---|---|---|
+| R180A | 設定前4モードsingletにA設定を作用し、M65結果でR181D型routerを制御して非規格化結果成分をB端へ渡すA端特殊化 | R207A--R207CへQ2-2主線を一本化しactive theoremから退役。結果IDは再利用しない | `superseded_r180_sequential_q2_2_witness.md`、draft-134 Git履歴 |
+| R180C | A端M65→projector router→B端M65の逐次Bell witness。singlet共同分布、非信号周辺、CHSH/Tsirelson、Bell前提監査を与える | R207A--R207C fixed-goal主線とR207D controlへ責務移行しactive theoremから退役。結果IDは再利用しない | `superseded_r180_sequential_q2_2_witness.md`、draft-134 Git履歴 |
+
+専用required verifierは `notes/retired_verifiers/verify_r180_m54_receiver.py` と `verify_r180c_locality.py` に保存する。
+
+
 ## draft-127で退役したR192とQ2逐次terminal route
 
 M66/R205--R206をQ2-1/Q2-3/Q2-4のterminal readout正本へ昇格したため、旧binary treeで非終端branchの作用下限を回復していたR192はfixed-goal責務を失った。R192の数学結果を反証したものではなく、one-shot multi-outcome samplerによって必要な中間branch自体が消えたための退役である。M65/R181D/R179は別責務でactiveのまま残る。
