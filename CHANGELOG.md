@@ -1,3 +1,10 @@
+## draft-133：大改修後semantic cleanup
+
+- 退役R164作用殻verifierとM56/R194 candidate verifierをrequired CIから外し、M54/R180Cの現行検算をrequiredとして分離した。
+- `PROJECT_STATUS.md` のR203--R207を責務別に再分類し、M66/R205 common-reservoir interface、R206A--R206D terminal sampler、R206E root preparation / refreshの呼称へ統一した。
+- MANIFEST、VALIDATION、TERMINOLOGY、README、ENHANCEMENT_TARGETS、theory lineageを同じ管理境界へ同期した。
+- fixed-goal定義・直接依存・達成ラベル、理論式・結果ID、A1/A2/B/Q2-2-S状態、論文source・生成物は変更していない。
+
 ## draft-132：signal層・thermal-reservoir層を軸とする統一ストーリー同期
 
 - M54を共通signal・状態構成層、M37をsignal物理実装層、M66/R205を共通thermal-reservoir interfaceとして、第0・1・2・8・9章とREADMEの説明順を統一する。
