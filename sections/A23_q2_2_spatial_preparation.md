@@ -194,27 +194,26 @@ finite thicknessでは $w_\epsilon-w_0$ は非負で各二項の増分が高々 
 ## W.4 R207C：受動分離、一試行local interface、Bell前提監査
 
 準備時だけ共通phase-volume geometryが二端を結ぶことを、固定constitutive law
-[
-chi_{m pv}(R)in[0,1],
-qquad
-chi_{m pv}(R_{m prep})=1,
-qquad
-chi_{m pv}(R)	o0
-]
+\[
+\chi_{\rm pv}(R)\in[0,1],
+\qquad
+\chi_{\rm pv}(R_{\rm prep})=1,
+\qquad
+\chi_{\rm pv}(R)\to0
+\]
 で表す。M66の共有phase-volume portを
-[
-w_{epsilon}^{(R)}
+\[
+w_{\epsilon}^{(R)}
 =
-w_epsilon^{,chi_{m pv}(R)}
-]
+w_\epsilon^{\,\chi_{\rm pv}(R)}
+\]
 とすれば、そのfree-energy寄与は
-[
--k_BT,chi_{m pv}(R)log w_epsilon
-]
-である。finite $epsilon>0$ では $w_epsilonge2epsilon$ かつ $
-ablalog w_epsilon$ は有界なので、この共有driftは $chi_{m pv}(R)	o0$ とともに受動的に消える。
+\[
+-k_BT\,\chi_{\rm pv}(R)\log w_\epsilon
+\]
+である。finite $\epsilon>0$ では $w_\epsilon\ge2\epsilon$ かつ $\nabla\log w_\epsilon$ は有界なので、この共有driftは $\chi_{\rm pv}(R)\to0$ とともに受動的に消える。
 
-準備後に$R$を増やし、R205Fの距離依存lock $K(R)$、reservoir cross block $C_{AB}(R)$、およびR207固有の共有phase-volume係数 $chi_{m pv}(R)$ を同時に小さくする。local thermal contactとlocal mobilityは切らない。
+準備後に$R$を増やし、R205Fの距離依存lock $K(R)$、reservoir cross block $C_{AB}(R)$、およびR207固有の共有phase-volume係数 $\chi_{\rm pv}(R)$ を同時に小さくする。local thermal contactとlocal mobilityは切らない。
 
 local rotational mobilityを $\mu_\lambda>0$、diffusion scaleを $D_\lambda=\mu_\lambda k_BT$ とする。$\mu_\lambda$ を小さくすると準備mixing時間は長くなるが有限のままであり、準備後の有限保持窓 $T_{\rm hold}=T_{\rm sep}+T_{\rm meas}$ におけるhidden-direction変化を小さくできる。準備終了時とlocal latch時のlawの全変動差を $\varepsilon_{\rm hold}^{207}$ とする。
 
