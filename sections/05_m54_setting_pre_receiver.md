@@ -1,7 +1,7 @@
 @number: 5
 @chapter: 本文
 @title: Bell型測定統計：projection phase-volume主線と空間隔離強化
-@status: Q2-2 fixed-goalはM66/R205A・R205E・R205FとR207A--R207Cによるprojection phase-volume共同準備、受動分離、局所二端読出しで達成する。R207DはBell-local controlを与える。Q2-2-Sはfinite-speed spatial isolationを独立に監査する。
+@status: Q2-2 fixed-goalはM66/R205A・R205E・R205FとR207A--R207Cによるprojection phase-volume共同準備、受動分離、局所二端読出しで達成する。R207Dはmeasurement-independent Bell-local controlを与える。Bell監査ではsetting marginal independenceとmeasurement independenceを区別する。
 
 ## 5.1 目的と現行主線
 
@@ -164,16 +164,4 @@ P_B(s\mid\lambda_B,\boldsymbol b)
 ```
 でありmeasurement independenceは成立しない。
 
-setting marginal自体は独立に保て、operational marginalは各端$1/2$で非信号である。A結果からB結果への測定窓内result communicationを用いず、無反応・棄却を事後除外しない。R207Dでmeasurement independenceとlocal response factorizationを同時に課すと$|S|\le2$へ戻る。
-
-## 5.7 Q2-2-Sとの境界
-
-Q2-2 fixed-goalは有限最大伝播速度に基づくspacelike separationを要求しない。R207A--R207Cは二つの物理端と一試行interfaceを閉じるが、R205Fのgenerator decouplingだけから有限最大伝播速度は従わない。
-
-Q2-2-Sではさらに
-```math
-t_A^{\rm out}-t_B^{\rm set}<\frac{L}{v_{\max}},
-\qquad
-t_B^{\rm out}-t_A^{\rm set}<\frac{L}{v_{\max}}
-```
-を同じphysical implementationで閉じる。finite-speed spatial reservoir、具体transport geometry、direct SDE trajectoryは未監査のままとする。
+setting marginal自体は独立に保て、operational marginalは各端$1/2$で非信号である。一方、source hidden stateはsetting-dependentなのでBell導出でいうmeasurement independenceは成立しない。測定窓中の端間result communicationを用いず、無反応・棄却を事後除外しない。R207Dでmeasurement independenceとlocal response factorizationを同時に課すと$|S|\le2$へ戻る。したがってR207のCHSH違反はBellの定理と矛盾しない。
