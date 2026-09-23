@@ -34,4 +34,4 @@ Hamiltonian--Brownian liftやdirect trajectory witnessは強化課題であり�
 
 draft-127でM66/R205--R206のfixed-goal coreをQ2-1/Q2-3/Q2-4主線へ昇格し、対応する有限次元・資源検算は `tools/verify_m66_common_phase_volume.py` と `tools/verify_r206_*.py` のrequired checksへ移した。
 
-このディレクトリへ今後置くM66系検算は、finite-bandwidth reservoir、full Brownian/chamber trajectory、always-on coupling中のphase backreaction、具体Hamiltonian/回路liftなど、fixed-goal coreに必須でないstrengtheningだけとする。
+draft-129でR205C--R205Fの解析・generator回帰もrequired checksへ加える。このディレクトリへ今後置くM66系検算は、finite-bandwidth reservoir、full Brownian/chamber trajectory、具体spatial reservoirのcross-correlation、always-on coupling中のphase backreaction、具体Hamiltonian/回路liftなど、fixed-goal coreまたはcommon-parent定理に必須でないstrengtheningだけとする。

@@ -953,9 +953,13 @@ G_{\rm rec}=\sum_i d_i(x)P_{D_i}
 
 M65は開放3状態Markov方程式を基本方程式として採用し、phase-volume chamber/Hamiltonian--Brownian liftは強化実現へ分離する。Q1/Q2-2では同じbinary selector interfaceを使う。Q2-1/Q2-3/Q2-4はM66/R206 terminal samplerで判定し、Q2-4だけはR186資源条件を含むため条件付き達成を維持する。有限浴化は別の強化課題である。一意エルゴードな外部時刻割当または有限熱化から、結果列の独立同分布性や二項型有限標本揺らぎも従わない。
 
-### M66/R205--R206：共通phase-volume readout正本
+### M66/R205：common thermal-reservoir parent
 
-M66はsignal-localな正のscaleをreservoir phase volumeへ写す共通原理をR205A--R205Dとして整理する。R206Aの有限 $L$ common-hub samplerは
+M66はphase-volume、mean-flow、thermal sampling、passive separationをR205A--R205Fとして共通化するreservoir layerである。M64/M65のdomain modelは置換せず、R203Bのpartition/free-energy sectorをR205C、R204Bのfixed-hub realizationをR205Dへ埋め込む。R205Eは $p_{\rm eq}\propto we^{-\beta H_{\rm cfg}}$ のreversible thermal sampler、R205Fは距離依存相互作用とreservoir cross-correlationが消えるとjoint generatorが局所和へ分離する条件を与える。
+
+### R206：Q2 terminal multi-outcome specialization
+
+R206Aの有限 $L$ common-hub samplerは
 
 ```math
 k_{y\to H}=\Lambda,
@@ -966,12 +970,8 @@ k_{H\to y}=\kappa a_y
 を基本open lawとし、
 
 ```math
-d_y=x_y-\frac{a_y}{a_\Sigma}(1-h)
-```
-
-について
-
-```math
+d_y=x_y-\frac{a_y}{a_\Sigma}(1-h),
+\qquad
 \dot d_y=-\Lambda d_y
 ```
 
@@ -982,9 +982,9 @@ Q2-4では各channelのlocal scaleを
 ```math
 s_y=\delta+\frac{LJ_y}{J_*},
 \qquad
-L=2^n,
+L=2^n
 ```
 
-capacity/conductanceを $V_y=V_0s_y$、$G_y=G_0s_y$、hubを $V_H=LV_H^0$ とする。全channelは同一規則の受動複製であり、外部から指数長係数表を与えない。
+とし、capacity/conductanceを $V_y=V_0s_y$、$G_y=G_0s_y$、hubを $V_H=LV_H^0$ とする。全channelは同一規則の受動複製であり、外部から指数長係数表を与えない。
 
-このmoduleをQ2-1/Q2-3/Q2-4のterminal readout正本とする。R206Eのuniform root preparation/refreshを併用する。Q1/Q2-2のM65/R181DとQ2-2/full-cycle側のR179は別責務として維持する。
+R206をQ2-1/Q2-3/Q2-4のterminal readout正本とし、R206Eのuniform root preparation/refreshを併用する。Q1/Q2-2のM65/R181DとQ2-2/full-cycle側のR179は別責務として維持する。

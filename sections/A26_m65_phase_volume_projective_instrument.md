@@ -188,7 +188,7 @@ V_H=V_H^0
 上記capacity/conductance relationsを満たすwell-mixed chamber reductionでは、左右chamberとhubのcoarse generatorはR204Aのcanonical open generatorと一致する。従ってphase-volume構造は、Born比を外部計算せずR204Aを実装する一つの物理候補を与える。
 <!-- theorem-end:theorem -->
 
-R204BはM65正本の必須依存ではない。
+R204BはM65正本の必須依存ではない。capacity--conductance部分は付録XのM66/R205Dでbinary fixed-hub specializationとしてcommon parentへ埋め込む。
 
 ## Z.5 R204C：Hamiltonian--Brownian lift strengthening
 

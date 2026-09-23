@@ -67,20 +67,22 @@ R162のopen Poisson-jump過程はQ3の基礎的実体ではなく、その理想
 
 この再編で、旧作用殻型測定経路、旧paired-Hopf受信機構、Brownian macrospin読出しとQ1直接decision bridgeは現行論文主線から退役した。M56 Brownian-spin Q3模型はspin-only代替研究線へ下げ、Q3の現行ミクロ主線には使わない。内容は `notes/` とGit履歴へ保存し、反証されたものとして扱わない。論文本文では同じBorn結果を複数の物理経路で重複説明せず、現在の最小因果鎖だけを正本とする。
 
-## M66/R206 多結果readout正本
+## M66 common-reservoir parentとR206多結果readout
 
-Q2-1、Q2-3、Q2-4のterminal readoutを一回のcommon-reservoir samplingへ縮約するM66/R205--R206を現行fixed-goal主線へ昇格する。
+M66/R205A--R205Fは、phase-volume、mean-flow、thermal sampling、passive separationを共通化するthermal-reservoir parentである。M64/M65のdomain modelを置換せず、Q2-1/Q2-3/Q2-4のterminal readoutではR206A--R206EをM66の特殊化として使う。
 
 ```math
 Z_{\rm out}
 \longrightarrow
 \{J_y=\mathcal J_0|Z_y|^2\}_{y\in\Omega_L}
 \longrightarrow
-\mathrm{M66/R206}
+\mathrm{R206}
 \longrightarrow
 Y\in\Omega_L
 ```
 
 Q2-1では $L=4$、Q2-3では $L=8$、Q2-4では $L=2^n$ とする。R206Aのcommon-hub samplerはmixing rateを $L$ と最小Born重みに依存させず、R206Bは全channelを同一の局所phase-volume規則で実装する。R206Cはfinite-time/fabrication error、R206DはQ2 terminal bridge、R206EはQ2-4のuniform root preparation / refreshを与える。
 
-この主線ではterminal readout後に結果成分を次段へ渡さないため、Q2-1/Q2-3/Q2-4にR181D treeやR192作用回復を使わない。Q1/Q2-2の逐次binary measurementはM65/R181Dを維持する。Q2-4の条件付き達成はR186のdirect-amplitude register additive-noise障害が残るため変更しない。
+R205CはM64/R203Bのpartition/free-energyとmean-flow分離、R205DはM65/R204Bのfixed-hub実現をcommon parentへ埋め込む。R205E/Fは一般のthermal preparationとpassive spatial separationを与えるが、この段階ではQ2-2-Sへまだ接続しない。
+
+Q2-1/Q2-3/Q2-4ではterminal readout後に結果成分を次段へ渡さないためR181D treeやR192作用回復を使わない。Q1/Q2-2の逐次binary measurementはM65/R181Dを維持する。Q2-4の条件付き達成はR186のdirect-amplitude register additive-noise障害が残るため変更しない。

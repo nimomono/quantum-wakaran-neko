@@ -36,7 +36,7 @@ draft-127以後、Q2-1/Q2-3/Q2-4のterminal readoutはM66/R205--R206へ一本化
 ```text
 terminal coherent signal
   -> local actions |Z_y|^2
-  -> M66 / R205 common phase-volume reservoir
+  -> M66 / R205A--R205F common thermal-reservoir layer
   -> R206A--R206D finite-L common-hub sampler
   -> joint terminal result
 ```
@@ -107,3 +107,8 @@ Q2の永続register・gateはM54/R181B--R181Cへ整理される。Q2-1/Q2-3/Q2-4
 ## draft-127で昇格したM66/R205--R206 branch
 
 draft-126でreplacement candidateとして追加したM66/R205--R206は、draft-127でQ2-1/Q2-3/Q2-4のterminal readout正本へ昇格した。旧M65/R181D逐次terminal treeの履歴と責務分離は `superseded_q2_sequential_terminal_readout.md`、R192の完全保存は `superseded_r192_radial_stabilizer.md` を参照する。
+
+
+## draft-129で拡張したM66/R205 parent
+
+draft-129ではM66をQ2 readerそのものからcommon thermal-reservoir parentへ一般化した。R205CはM64/R203Bのpartition/free-energyとmean-flow分離、R205DはM65/R204Bのfixed-hub実現を共通原理へ埋め込む。R205Eはthermal Gibbs sampler、R205Fはpassive separationの一般generator結果である。Q2 terminal fixed-goal主線はR206、Q3 particle/Nelson主線はM64、Q1/Q2-2 binary主線はM65であり、Q2-2-S/R207はこのdraftでは導入しない。

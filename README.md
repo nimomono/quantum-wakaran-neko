@@ -168,8 +168,8 @@ M65は、二つの保持済み射影作用から排他的な二結果を作るca
 
 M65はexact endpoint $A_r=0$ を含む入力、有限decision終了時のR112型record/latch、R189AからM65を経てR181Dへ渡すQ1接続までを備える。現行fixed-goalではQ1とQ2-2の逐次binary instrumentにM65を使う。旧R191ブラウン巨視的スピン読出しとR193 Q1 decision bridgeはM65へ責務を吸収したため退役し、notes/Git履歴へ保存する。
 
-### M66/R206 multi-outcome readout
+### M66 common-reservoir parent / R206 multi-outcome readout
 
-Q2-1/Q2-3/Q2-4のterminal readoutはM66/R205--R206を現行主線とする。finite-$L$ common-hub samplerは $L$ と最小Born重みに依存しないmixing boundを持ち、Q2-4では $L=2^n$ channelを同一のlocal phase-volume規則で受動的に構成する。R206Eは全mode共通減衰と固定root driveで $0^n$ rootを準備し、個別mode resetや指数長初期化表を要求しない。
+M66/R205A--R205Fは、phase-volume、mean-flow、thermal sampling、passive separationを共通化するthermal-reservoir parentである。M64のQ3 tracer/Nelson modelやM65のbinary selectorを置換せず、それらのreservoir sectorを共通原理へ埋め込む。Q2-1/Q2-3/Q2-4のterminal readoutはR206A--R206EをM66の現行specializationとして使う。finite-$L$ common-hub samplerは $L$ と最小Born重みに依存しないmixing boundを持ち、Q2-4では $L=2^n$ channelを同一のlocal phase-volume規則で受動的に構成する。R206Eは全mode共通減衰と固定root driveで $0^n$ rootを準備し、個別mode resetや指数長初期化表を要求しない。
 
 Q1/Q2-2の逐次binary measurementはM65/R181Dを維持する。Q2-4から逐次R181D treeとR192を外し、R192はactive paperから退役した。R186のdirect-amplitude register additive-noise障害は残る。

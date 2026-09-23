@@ -516,9 +516,29 @@ R204Bのphase-volume chamberとR204CのHamiltonian--Brownian liftを採用する
 
 M65の現行fixed-goal範囲はQ1/Q2-2の逐次binary instrumentである。Q2-1/Q2-3/Q2-4のterminal readout資源はM66/R206へ移す。
 
-## 8.15 M66/R206の誤差・資源境界
+## 8.15 M66/R205 common parentとR206の誤差・資源境界
 
-M66/R206はQ2-1/Q2-3/Q2-4 terminal readoutを有限 $L$ common-hub samplerへ縮約する現行fixed-goal正本である。regularized target
+M66 common parentでは、R205Cのphase-volume / mean-flow orthogonalityはexact partition identityなので新しい近似誤差を加えない。R205Eを有限準備窓で使う場合は
+
+```math
+\varepsilon_{\rm mix}(T)
+=
+\frac12 C_{\rm init}e^{-\lambda_{\rm mix}T}
+```
+
+をthermal-sampling mixing errorとして一度だけ数える。R205Fの空間分離では
+
+```math
+\varepsilon_{\rm sep}(R;f)
+=
+\|
+(\mathcal L_R-\mathcal L_A-\mathcal L_B)f
+\|_\infty
+```
+
+をgenerator defectとして管理し、$K(R)$ と $C_{AB}(R)$ の同じ残差を別の通信・bath誤差へ重複計上しない。R205E/R205Fを使わないQ2 terminal readoutへこれらの誤差を加えない。
+
+R206はQ2-1/Q2-3/Q2-4 terminal readoutを有限 $L$ common-hub samplerへ縮約する現行fixed-goal specializationである。regularized target
 
 ```math
 p_y^\delta

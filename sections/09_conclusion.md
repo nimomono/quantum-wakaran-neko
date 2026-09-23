@@ -62,10 +62,10 @@ M65をQ1/Q2-2二結果逐次instrumentとして維持する。最小模型は $+
 
 R181DとR180A/R180Cはselector内部物理から独立なinterfaceを介してM65へ接続する。R179はQ2-2および全周期renewal側に残す。R192はQ2-4逐次treeの消滅に伴い退役する。旧R191 Brownian macrospin読出しとR193 Q1直接decision bridgeはM65へ責務を吸収したため現行主線から退役し、notes/Git履歴へ保存する。
 
-## M66/R206の現在地
+## M66 common-reservoir parentとR206の現在地
 
-M64/R203BとM65/R204Bに共通するphase-volume原理をM66/R205A--R205Dとして整理し、Q2 terminal readoutを一回の有限 $L$ common-hub samplingへ縮約するR206A--R206EをQ2-1/Q2-3/Q2-4 fixed-goal主線へ昇格した。
+M66/R205A--R205Fは、M64/R203B、M65/R204B、R206に共通するthermal-reservoir layerを抽出する。R205A/R205Cはphase-volume free energyとmean-flow shiftの両立、R205B/R205Dはmatched capacity--conductance、R205Eは $p_{\rm eq}\propto we^{-\beta H_{\rm cfg}}$ のthermal sampling、R205Fは距離増加による受動的generator separationを与える。M66はM64のQ3 tracer/Nelson modelやM65のbinary selectorそのものを置換しない。
 
-Q2-1で4結果、Q2-3で8結果、Q2-4で $2^n$ 結果を同じ局所規則から標本化し、mixing時間とaggregate fabrication-error boundを $L$ に直接依存させない。R206Eは全mode共通減衰と固定root driveでQ2-4のroot preparation/refreshを与え、sampler pointerはR206A自身のmixingにより結果別resetを必要としない。
+Q2 terminal readoutはM66の特殊化R206A--R206Eを現行fixed-goal主線として維持する。Q2-1で4結果、Q2-3で8結果、Q2-4で $2^n$ 結果を同じ局所規則から標本化し、mixing時間とaggregate fabrication-error boundを $L$ に直接依存させない。R206Eは全mode共通減衰と固定root driveでQ2-4のroot preparation/refreshを与え、sampler pointerはR206A自身のmixingにより結果別resetを必要としない。
 
-これによりQ2-1/Q2-3/Q2-4から旧M65/R181D逐次terminal treeを外し、R192を退役した。Q1/Q2-2のM65/R181D逐次interfaceは維持する。Q2-4の条件付き達成はR186のdirect-amplitude register additive-noise障害が残るため変更しない。
+Q1/Q2-2のM65/R181D逐次interfaceは維持する。Q2-4の条件付き達成はR186のdirect-amplitude register additive-noise障害が残るため変更しない。R205FをQ2-2-Sの空間分離Bell構成へ適用する作業は後続強化へ残す。

@@ -69,3 +69,7 @@
 
 `check_draft128_split_m66_appendix.py` は、M66/R205--R206がA24/付録Xへ移され、A26/付録ZがM65/R204専用へ戻ったことを確認する。R205/R206の結果ID、Q2-1/Q2-3/Q2-4の直接依存、Q1/Q2-2のM65/R181D主線、Q2-4の条件付き達成とR186障害が変わっていないこともPR固有に検査する。A26に残るR206への責務境界参照は許容し、M66本体節とR205/R206定理宣言だけを移設対象とする。理論拡張や新結果追加はこの検査の対象外とする。
 
+## draft-129 M66 common-reservoir parent
+
+`check_draft129_m66_common_reservoir_parent.py` は、R205C--R205FがA24で正式結果として宣言され、M66がcommon thermal-reservoir parentへ分類変更されたことを確認する。同時にM64/R203、M65/R204、R206の既存正本、Q1/Q2/Q3のfixed-goal直接依存・達成ラベル、R186障害が維持され、R207/Q2-2-Sを先取りしていないことをPR固有に検査する。
+

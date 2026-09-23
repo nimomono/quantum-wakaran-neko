@@ -326,6 +326,8 @@ mean flow $U$ は運動量分布の平行移動としてphase-volume Jacobianを
 だけである。free energyとmean forceは $-k_BT\log Z_{\rm res}$ を微分して得る。証明終。
 <!-- theorem-end:proof -->
 
+R203Bのpartition identityとmean-flow平行移動の非干渉は、付録XのM66/R205Cを $w=r_X^\delta/r_*$ へ特殊化したものとしても読める。initial preparationとfinite-time mean-flow tracking、R203C/R203Dへの接続はM64固有の責務として残す。
+
 ### Y.4.1 initial tracer preparation
 
 準備窓 $-T_{\rm prep}\le s\le0$ ではsignal densityを初期値へ固定し、reservoir flowのtracer輸送作用だけを切る。canonical overdamped preparation lawを
@@ -366,7 +368,7 @@ r_0^\delta(X)\,dX
 }
 ```
 
-が可逆定常分布である。
+が可逆定常分布である。これはM66/R205Eの $H_{\rm cfg}=0$、$w=r_0^\delta/r_*$ 特殊化でもある。
 
 weighted generatorのspectral gapを $\lambda_{\rm prep}>0$ とし、
 
