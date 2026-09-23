@@ -15,16 +15,16 @@ M66 / R205 reservoir layer
   ├─ R206E        : Q2-4 root preparation / refresh
   ├─ R205C ↔ M64 : shared reservoir principle
   ├─ R205D ↔ M65 : strengthening physical lift
-  └─ R205E/F → R207 : Q2-2-S strengthening candidate
+  └─ R205A/E/F → R207 : Q2-2 fixed-goal Bell specialization
 ```
 
 M66が共通化するのはreservoir sectorであり、M64全体やM65 canonical lawを置換しない。M0はさらに強いjoint device/process統合目標であり、この2つの共通層を持つだけでは達成しない。
 
 ## 現行の主要因果鎖
 
-### Q1/Q2-2の逐次測定
+### Q1の逐次測定
 
-現行の逐次二結果測定は、保持済み射影作用をM65へ渡し、M65/R204D--R204Fで有限時間の結果形成とrecordを行い、R181Dで対応する非規格化射影成分を同じ試行の次段へ渡す。fixed-goalではQ1の逐次測定とQ2-2のA端--B端handoffがこの経路を使う。
+現行の逐次二結果測定は、保持済み射影作用をM65へ渡し、M65/R204D--R204Fで有限時間の結果形成とrecordを行い、R181Dで対応する非規格化射影成分を同じ試行の次段へ渡す。draft-135以後、このfixed-goal経路を使うのはQ1である。Q2-2はM66/R205--R207へ一本化した。
 
 ```text
 finite canonical signal
@@ -34,7 +34,7 @@ finite canonical signal
   -> R181D projector router
 ```
 
-Q2-2の反復reset/renewalにはR179を接続できる。
+R179はfull-cycle reset/renewalの一般部品として別に保持する。
 
 主要な旧binary測定経路は概略として
 
@@ -96,11 +96,22 @@ M42 / R172--R174
 
 ### Q2 register / Bell経路
 
-Q2の永続register・gateはM54/R181B--R181Cへ整理される。Q2-1/Q2-3/Q2-4の末端readoutはR206A--R206D、Q2-4準備はR206E、Q2-2の逐次読出しだけはM65/R181Dを使う。Q2-2の現行証人は、固定一重項4モードsignalにA設定を作用し、A端M65の結果でR181D型routerを制御して非規格化結果成分をB端へ渡し、B設定とB端M65を順に実行する非空間分離構成である。
+Q2の永続register・gateはM54/R181B--R181Cへ整理される。Q2-1/Q2-3/Q2-4の末端readoutはR206A--R206D、Q2-4準備はR206Eが担う。
 
-Q2-2-Sはfixed-goal主線と分けて管理する。現行strengthening candidateはM66/R205Eのcommon thermal preparationからR207A/Bへ進み、R205F/R207Cでpassive separationと分離後local responseを監査し、R207DをBell-local controlとする。S0--S4の定義・公式状態・現在地は `ENHANCEMENT_TARGETS.md` を正本とし、finite-speed spatial reservoirとtiming closureが未閉包なので全体は未監査である。
+Q2-2はM66/R205A・R205E・R205FからR207A--R207Cへ進むprojection phase-volume二端模型を現行fixed-goal主線とする。setting-dependent source preparation、passive separation、local outcome/recordから一般Bloch方向のsinglet共同統計を閉じ、R207DをBell-local controlとする。
 
-旧M41 Bell周期、独立M48 paired-Hopf経路、M49/M52の中間register構成は、それぞれ個別の退役メモとGit履歴へ保存する。
+Q2-2-Sは同じR207主線へfinite-speed spatial isolationを追加するstrengtheningである。S0--S4の定義・公式状態・現在地は `ENHANCEMENT_TARGETS.md` を正本とし、finite-speed spatial reservoirとtiming closureが未閉包なので全体は未監査である。
+
+Bell経路の主要置換履歴は概略として
+
+```text
+M41 common-cause Bell cycle
+  -> M48 paired-Hopf Bell protocol
+  -> R180A/R180C sequential A-to-B witness
+  -> R207 projection phase-volume mainline
+```
+
+である。draft-135でR180A/R180Cはactive paperから退役し、最終Theory Aは `superseded_r180_sequential_q2_2_witness.md` に保存する。M65/R181DはQ1責務でactiveのまま残る。
 
 ## 履歴メモの読み方
 
@@ -120,7 +131,7 @@ Q2-2-Sはfixed-goal主線と分けて管理する。現行strengthening candidat
 - Q3旧Poisson存在論: `superseded_q3_poisson_microphysics.md`
 - Q3旧連続粒子模型: `superseded_m42_continuous_particle_position.md`
 - Q3旧Hamiltonian実装群: M57/M59/M60/M61関連のsuperseded notesとGit履歴
-- Q2旧register/Bell: `superseded_m49_joint_bath_cnot_provider.md`、`superseded_m52_path_only_design.md`、`superseded_independent_m48_bell_protocol.md`
+- Q2旧register/Bell: `superseded_m49_joint_bath_cnot_provider.md`、`superseded_m52_path_only_design.md`、`superseded_independent_m48_bell_protocol.md`、`superseded_r180_sequential_q2_2_witness.md`
 
 このメモは理論結果を追加せず、現行正本と歴史記録のナビゲーションだけを与える。
 
@@ -149,3 +160,8 @@ draft-131では新しい理論結果を追加せず、第5章のR180C fixed-goal
 draft-130--draft-133のR207は4-setting Gibbs witnessを持つQ2-2-S candidateだった。draft-134ではprojection phase volumeとnear-contact isotropic lockへ模型を改訂した。R207Bは一般Bloch方向でfinite-lock余弦則を与え、R207CはM66/R205E preparation、R205F passive separation、local latch/recordを一試行へ接続する。このためR207A--R207CをQ2-2 fixed-goalの直接根拠へ昇格し、R180A/R180Cはactive alternate witnessへ下げた。R180系の完全退役は次の独立PRへ分離する。
 
 旧4-setting Gibbs candidateは `superseded_r207_four_setting_gibbs_candidate.md` とGit履歴へ保存する。Q2-2-SはR207 fixed-goal baselineへfinite-speed causal isolationを追加する強化として再整理し、公式状態は未監査のまま維持する。
+
+
+## draft-134--135のR207昇格とR180退役
+
+draft-134でR207A--R207CをQ2-2 fixed-goalの直接根拠へ昇格し、R180A/R180Cをalternate witnessへ下げた。draft-135ではその移行を完了し、R180A/R180C、専用付録D、専用required verifierをactive treeから退役した。Q2-2達成、R207理論、Q2-2-S未監査は変更していない。
