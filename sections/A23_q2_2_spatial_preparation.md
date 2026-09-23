@@ -7,18 +7,18 @@
 
 Q2-2の現行主線は、設定方向を含む近接時共同thermal preparation、受動分離、局所二値結果、局所記録の順で一試行を構成する。
 
-\[
+```math
 t_{\rm prep}<t_{\rm sep}<t_A^{\rm latch},t_B^{\rm latch}<t_A^{\rm out},t_B^{\rm out}.
-\]
+```
 
 測定設定を表す単位ベクトルを
-\[
+```math
 \boldsymbol a,\boldsymbol b\in S^2
-\]
+```
 とし、source側の実在古典方向自由度を
-\[
+```math
 \boldsymbol\lambda_A,\boldsymbol\lambda_B\in S^2
-\]
+```
 とする。設定は局所制御器の物理状態として準備窓から存在してよい。後段のlocal latchはsource--setting相関を消さず、測定設定独立性を回復させない。
 
 local thermal contactを確率生成のためだけにswitchしない。A/B間lockとreservoir cross-correlationは距離依存constitutive lawとして受動的に減衰させる。
@@ -26,29 +26,29 @@ local thermal contactを確率生成のためだけにswitchしない。A/B間lo
 ## W.2 R207A：projection phase-volume共同準備
 
 finite thicknessを表す
-\[
+```math
 f_\epsilon(t)=\sqrt{t^2+\epsilon^2(1-t^2)},\qquad 0<\epsilon<1
-\]
+```
 を置き、
-\[
+```math
 w_A=f_\epsilon(\boldsymbol a\cdot\boldsymbol\lambda_A),\qquad
 w_B=f_\epsilon(\boldsymbol b\cdot\boldsymbol\lambda_B)
-\]
+```
 とする。$f_\epsilon$ は正で滑らかであり、$\epsilon\downarrow0$ で $|t|$ へ一様収束する。
 
 phase-volumeは二つの等価な内部sector $J=A,B$ の和として実装する。$J=A$ sectorではR205A型fast canonical pairのJacobianを $w_A$、$J=B$ sectorでは $w_B$ とし、外部からsectorを選別せず両sectorを積分消去する。従って総phase-volume factorは
-\[
+```math
 w_\epsilon=w_A+w_B
-\]
+```
 となる。これは結果確率表の外部注入ではなく、各setting方向に沿う有限厚みprojection railの局所phase volumeの和である。
 
 near-contact lockを
-\[
+```math
 H_{\rm lock}^{(R)}=-K(R)\boldsymbol\lambda_A\cdot\boldsymbol\lambda_B,\qquad
 k=\beta K(R_{\rm prep})
-\]
+```
 とする。R205Eへ $H_{\rm cfg}=H_{\rm lock}^{(R_{\rm prep})}$、$w=w_\epsilon$ を入れると
-\[
+```math
 \rho_{\epsilon,k}
 (\boldsymbol\lambda_A,\boldsymbol\lambda_B\mid\boldsymbol a,\boldsymbol b)
 =
@@ -60,31 +60,31 @@ f_\epsilon(\boldsymbol a\cdot\boldsymbol\lambda_A)
 f_\epsilon(\boldsymbol b\cdot\boldsymbol\lambda_B)
 \right]
 }{Z_{\epsilon,k}}.
-\]
+```
 
-\[
+```math
 F_\epsilon=\int_{-1}^{1}f_\epsilon(t)\,dt,\qquad
 G(k)=4\pi\frac{\sinh k}{k}
-\]
+```
 とすると
-\[
+```math
 Z_{\epsilon,k}=4\pi F_\epsilon G(k)
-\]
+```
 であり、$\boldsymbol a,\boldsymbol b$ に依存しない。
 
 <!-- theorem-start:theorem -->
 **定理（R207A：projection phase-volume共同準備とsetting marginal）**
 
 任意の $\boldsymbol a,\boldsymbol b\in S^2$ に対してpartition functionは同じ $Z_{\epsilon,k}$ である。従ってsetting generatorを独立な基準分布 $p_A(\boldsymbol a)p_B(\boldsymbol b)$ で駆動したとき、thermal preparation後も
-\[
+```math
 P(\boldsymbol a,\boldsymbol b)=P(\boldsymbol a)P(\boldsymbol b)
-\]
+```
 を保てる。
 
 一方 $0<\epsilon<1$ では一般に
-\[
+```math
 \rho_{\epsilon,k}(\Lambda\mid\boldsymbol a,\boldsymbol b)\neq\rho_{\epsilon,k}(\Lambda)
-\]
+```
 であり、source hidden stateはsetting-independentではない。
 <!-- theorem-end:theorem -->
 
@@ -99,81 +99,81 @@ measurement dependenceについて、同じhidden configuration $\boldsymbol\lam
 ## W.3 R207B：一般Bloch方向の一重項共同統計
 
 局所結果を
-\[
+```math
 r=\operatorname{sgn}(\boldsymbol a\cdot\boldsymbol\lambda_A),\qquad
 s=-\operatorname{sgn}(\boldsymbol b\cdot\boldsymbol\lambda_B)
-\]
+```
 とする。零集合はsphere measure zeroなので任意に割り当ててよい。
 
 $\epsilon=0$ では
-\[
+```math
 |\boldsymbol a\cdot\boldsymbol\lambda_A|
 \operatorname{sgn}(\boldsymbol a\cdot\boldsymbol\lambda_A)
 =
 \boldsymbol a\cdot\boldsymbol\lambda_A.
-\]
+```
 von Mises--Fisher kernelの第一momentを
-\[
+```math
 L(k)=\coth k-\frac1k
-\]
+```
 とすると
-\[
+```math
 \frac{\int e^{k\boldsymbol\lambda_A\cdot\boldsymbol\lambda_B}
 \boldsymbol\lambda_A\,d\Omega_A}
 {\int e^{k\boldsymbol\lambda_A\cdot\boldsymbol\lambda_B}d\Omega_A}
 =L(k)\boldsymbol\lambda_B,
-\]
+```
 また
-\[
+```math
 \int_{S^2}\boldsymbol\lambda\,
 \operatorname{sgn}(\boldsymbol b\cdot\boldsymbol\lambda)\,d\Omega
 =2\pi\boldsymbol b.
-\]
+```
 
 <!-- theorem-start:theorem -->
 **定理（R207B：finite-lock余弦則とfinite-thickness安定性）**
 
 $\epsilon=0$ では任意の有限 $k>0$ と任意のBloch方向に対して
-\[
+```math
 E_{0,k}(\boldsymbol a,\boldsymbol b)
 =
 -L(k)\boldsymbol a\cdot\boldsymbol b.
-\]
+```
 同時反転 $(\boldsymbol\lambda_A,\boldsymbol\lambda_B)\mapsto(-\boldsymbol\lambda_A,-\boldsymbol\lambda_B)$ はdensityを保ち $r,s$ をともに反転するため
-\[
+```math
 P(r=\pm1\mid\boldsymbol a,\boldsymbol b)
 =
 P(s=\pm1\mid\boldsymbol a,\boldsymbol b)
 =
 \frac12.
-\]
+```
 従って
-\[
+```math
 P_{0,k}(r,s\mid\boldsymbol a,\boldsymbol b)
 =
 \frac14\left[1-rsL(k)\boldsymbol a\cdot\boldsymbol b\right].
-\]
+```
 
 標準CHSH設定では
-\[
+```math
 |S_{0,k}|=2\sqrt2L(k),
-\]
+```
 従って $k>3.387780776\ldots$ で $|S|>2$、$k\to\infty$ でTsirelson値 $2\sqrt2$ へ収束する。
 
 finite thicknessでは
-\[
+```math
 0\le f_\epsilon(t)-|t|\le\epsilon
-\]
+```
 から
-\[
+```math
 d_{\rm TV}(\rho_{\epsilon,k},\rho_{0,k})\le2\epsilon.
-\]
+```
 従って
-\[
+```math
 d_{\rm TV}(P_{\epsilon,k},P_{\rm singlet})
 \le
 2\epsilon+\frac{1-L(k)}2
-\]
+```
 が任意のsetting pairに一様に成立する。
 <!-- theorem-end:theorem -->
 
@@ -186,31 +186,31 @@ finite thicknessでは $w_\epsilon-w_0$ は非負で各二項の増分が高々 
 <!-- theorem-end:proof -->
 
 任意のtarget $\eta>0$ に対して
-\[
+```math
 \epsilon=\frac{\eta}{8},\qquad k=\frac2\eta
-\]
+```
 とすれば統計核誤差は $\eta/2$ 未満になる。
 
 ## W.4 R207C：受動分離、一試行local interface、Bell前提監査
 
 準備時だけ共通phase-volume geometryが二端を結ぶことを、固定constitutive law
-\[
+```math
 \chi_{\rm pv}(R)\in[0,1],
 \qquad
 \chi_{\rm pv}(R_{\rm prep})=1,
 \qquad
 \chi_{\rm pv}(R)\to0
-\]
+```
 で表す。M66の共有phase-volume portを
-\[
+```math
 w_{\epsilon}^{(R)}
 =
 w_\epsilon^{\,\chi_{\rm pv}(R)}
-\]
+```
 とすれば、そのfree-energy寄与は
-\[
+```math
 -k_BT\,\chi_{\rm pv}(R)\log w_\epsilon
-\]
+```
 である。finite $\epsilon>0$ では $w_\epsilon\ge2\epsilon$ かつ $\nabla\log w_\epsilon$ は有界なので、この共有driftは $\chi_{\rm pv}(R)\to0$ とともに受動的に消える。
 
 準備後に$R$を増やし、R205Fの距離依存lock $K(R)$、reservoir cross block $C_{AB}(R)$、およびR207固有の共有phase-volume係数 $\chi_{\rm pv}(R)$ を同時に小さくする。local thermal contactとlocal mobilityは切らない。
@@ -225,7 +225,7 @@ R205Fの有限距離generator defectと共有phase-volume driftを合わせて $
 **定理（R207C：一試行local二端合成とBell前提監査）**
 
 R207Aの有限時間thermal preparation、有限保持、R205Fの有限距離passive separation、二つのlocal comparator/latch、R112型recordを同じ一試行に順序付ける。完全結果分布の実装誤差を
-\[
+```math
 \varepsilon_{207}
 \le
 \varepsilon_{\rm prep}^{207}
@@ -241,20 +241,20 @@ R207Aの有限時間thermal preparation、有限保持、R205Fの有限距離pas
 \varepsilon_{\rm latch}^{207}
 +
 \varepsilon_{\rm rec}^{207}
-\]
+```
 とする。任意のtarget $\eta>0$ に対し、各parameterとrecord精度を有限に選び $\varepsilon_{207}<\eta$ とできる。
 
 exact decoupling極では
-\[
+```math
 P(r,s\mid\Lambda,\boldsymbol a,\boldsymbol b)
 =
 P_A(r\mid\lambda_A,\boldsymbol a)
 P_B(s\mid\lambda_B,\boldsymbol b)
-\]
+```
 が成立する。一方R207Aにより
-\[
+```math
 \rho(\Lambda\mid\boldsymbol a,\boldsymbol b)\neq\rho(\Lambda).
-\]
+```
 従って分離後local response factorizationとoperational non-signalingを保ちながらmeasurement independenceを満たさない。測定窓中のA結果からB結果へのresult communication、棄却試行のpostselection、結果確率表の外部注入は用いない。
 <!-- theorem-end:theorem -->
 
@@ -266,13 +266,13 @@ finite最大伝播速度 $v_{\max}$ を持つ具体spatial reservoirとsetting�
 **定理（R207D：measurement-independent Bell-local control）**
 
 同じ二値local responseについて
-\[
+```math
 \rho(\Lambda\mid\boldsymbol a,\boldsymbol b)=\rho(\Lambda)
-\]
+```
 とlocal response factorizationを同時に課すなら、任意の4設定に対するCHSH量は
-\[
+```math
 |S|\le2
-\]
+```
 を満たす。
 <!-- theorem-end:theorem -->
 
