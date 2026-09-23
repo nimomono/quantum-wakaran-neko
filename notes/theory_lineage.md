@@ -100,8 +100,6 @@ Q2の永続register・gateはM54/R181B--R181Cへ整理される。Q2-1/Q2-3/Q2-4
 
 Q2-2はM66/R205A・R205E・R205FからR207A--R207Cへ進むprojection phase-volume二端模型を現行fixed-goal主線とする。setting-dependent source preparation、passive separation、local outcome/recordから一般Bloch方向のsinglet共同統計を閉じ、R207DをBell-local controlとする。
 
-Q2-2-Sは同じR207主線へfinite-speed spatial isolationを追加するstrengtheningである。S0--S4の定義・公式状態・現在地は `ENHANCEMENT_TARGETS.md` を正本とし、finite-speed spatial reservoirとtiming closureが未閉包なので全体は未監査である。
-
 Bell経路の主要置換履歴は概略として
 
 ```text
@@ -165,3 +163,10 @@ draft-130--draft-133のR207は4-setting Gibbs witnessを持つQ2-2-S candidate�
 ## draft-134--135のR207昇格とR180退役
 
 draft-134でR207A--R207CをQ2-2 fixed-goalの直接根拠へ昇格し、R180A/R180Cをalternate witnessへ下げた。draft-135ではその移行を完了し、R180A/R180C、専用付録D、専用required verifierをactive treeから退役した。Q2-2達成、R207理論、Q2-2-S未監査は変更していない。
+
+
+## draft-136で退役したQ2-2-S
+
+draft-130--draft-131で、当時のQ2-2 fixed-goalとは別のR207空間分離候補を管理するためQ2-2-Sを導入した。draft-134でR207A--R207CがQ2-2 fixed-goalへ昇格し、draft-135でR180A/R180Cが退役した結果、Q2-2-Sは同じR207模型へfinite-speed causal-isolation条件を追加するだけの管理IDとなった。
+
+draft-136ではfinite-speed spatial realizationを正式目標として要求しない方針へ変更し、Q2-2-Sを退役した。Q2-2はR207A--R207CとR207Dだけで管理し、Bell監査はmeasurement independence不成立を明示する。旧S0--S4と専用candidate checkerの位置づけは `superseded_q2_2_s_spatial_strengthening.md` に保存する。
