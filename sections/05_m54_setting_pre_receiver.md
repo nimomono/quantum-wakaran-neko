@@ -119,9 +119,9 @@ k=\frac2\eta
 
 ## 5.5 一試行の二端物理interface
 
-共有projection phase-volume geometryには固定距離則 $chi_{m pv}(R)$ を置き、近接準備時に $chi_{m pv}=1$、分離時に $chi_{m pv}	o0$ とする。M66の共有weightを $w_epsilon^{chi_{m pv}(R)}$ とすれば、finite $epsilon>0$ で共有free-energy driftは距離とともに受動的に消える。
+共有projection phase-volume geometryには固定距離則 $\chi_{\rm pv}(R)$ を置き、近接準備時に $\chi_{\rm pv}=1$、分離時に $\chi_{\rm pv}\to0$ とする。M66の共有weightを $w_\epsilon^{\chi_{\rm pv}(R)}$ とすれば、finite $\epsilon>0$ で共有free-energy driftは距離とともに受動的に消える。
 
-準備後に端間距離$R$を増やす。R205Fにより$K(R)$とreservoir cross-correlationを、同時にR207の $chi_{m pv}(R)$ を小さくし、分離後のideal generatorを
+準備後に端間距離$R$を増やす。R205Fにより$K(R)$とreservoir cross-correlationを、同時にR207の $\chi_{\rm pv}(R)$ を小さくし、分離後のideal generatorを
 \[
 \mathcal L=\mathcal L_A+\mathcal L_B
 \]
