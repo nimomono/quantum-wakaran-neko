@@ -10,12 +10,11 @@ draft-134でR207A--R207CがQ2-2 fixed-goal本体へ昇格し、draft-135でR180A
 
 draft-136では、これらを正式なfixed-goalまたはstrengtheningの必須条件として要求しない方針を採る。Q2-2のBell監査は、setting marginal independence、分離後local response factorization、operational non-signalingを保つ一方で
 
-[
-ho(Lambdamidoldsymbol a,oldsymbol b)
-
-eq
-ho(Lambda)
-]
+\`\`\`math
+\rho(\Lambda\mid\boldsymbol a,\boldsymbol b)
+\neq
+\rho(\Lambda)
+\`\`\`
 
 となりmeasurement independenceを満たさないことを明示すれば閉じる。完全なmeasurement independenceとlocal response factorizationを同時に課した対照系はR207DとしてQ2-2本体に残る。
 
@@ -33,8 +32,8 @@ S0はQ2-2本体そのものになり、S4はR207Dへ吸収済みである。S1--
 
 ## 旧candidate checker
 
-Q2-2-S専用diagnosticとして `tools/candidate_checks/verify_r207_separation_control.py` を使用していた。最終active版はmain commit `d76da8bb7b289a3fe5e251f441478644dfaded70` 以前のGit履歴から参照する。
+Q2-2-S専用diagnosticとして \`tools/candidate_checks/verify_r207_separation_control.py\` を使用していた。最終active版はmain commit \`d76da8bb7b289a3fe5e251f441478644dfaded70\` 以前のGit履歴から参照する。
 
-このcheckerはR205F型cross-generator defectの距離減衰と、例示的なfinite-speed timing inequalityを検査していた。R205F passive separation自体は現行R207の一部として残り、R207 fixed-goalのrequired検算は `tools/verify_r207_projection_phase_volume.py` および既存R205系required checksで維持する。
+このcheckerはR205F型cross-generator defectの距離減衰と、例示的なfinite-speed timing inequalityを検査していた。R205F passive separation自体は現行R207の一部として残り、R207 fixed-goalのrequired検算は \`tools/verify_r207_projection_phase_volume.py\` および既存R205系required checksで維持する。
 
 完全な旧コードはnotesへ複製せずGit履歴から参照する。
