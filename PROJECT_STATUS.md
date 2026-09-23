@@ -1,3 +1,11 @@
+## draft-126：M66/R205--R206 共通多結果読出し候補
+
+- M66/R205A--R205Dを、M64/R203BとM65/R204Bに共通するphase-volume reservoir原理のactive parent candidateとして追加する。
+- R206A--R206Dは有限L結果common-hub sampler、一様passive (L=2^n) channel構成、L非依存誤差・資源境界、Q2 terminal readout bridgeを与える。
+- Q2-1/Q2-3/Q2-4の現行fixed-goal主線はまだM65/R181D系のままとし、R181D/R192/R179の退役は行わない。
+- Q2-4は条件付き達成を維持し、R186のdirect-amplitude register additive-noise障害を主要な未解決条件として保持する。
+- Q2-2の現行逐次A端--B端interfaceとQ2-2-Sは本draftでは変更しない。
+
 ## draft-125：履歴メモと横断整合検査
 
 - `notes/theory_lineage.md` を履歴入口として追加し、個別退役メモに残る退役当時の「現行」「置換先」と現在の正本を区別する。現行運用状態は引き続き本書を正本とする。
@@ -369,6 +377,7 @@ M54の共通状態型による記述、M37/M64による物理実装層実装、M
 | M37 | 物理Hamiltonian信号実装層 | Q3の空間信号部分系、およびR187条件下のQ1 W2制御用信号系 | 局所位置結合された有限実古典振動子網からR86の空間包絡を導く。R187の弱結合W型族では最低2正常モードをM54のW2信号へ正準同定し、R140制御を任意精度で実装する |
 | M64 | Q3共通open model | 現行Q3 particle/Nelson実装 | M37 signal、一つのclassical tracer、一つのsignal-driven thermal reservoirからなる三実体模型。R203A--R203Dでcontinuous profileとfinite-graph profileをR161/R185およびR124/R182/R125へ接続する。Hamiltonian lift、finite bath、underdamped lift、連続空間一様極限、多粒子、全周期clock/record統合は強化課題 |
 | M65 | Q1/Q2二結果射影canonical open selector | 現行fixed-goal正本模型 | 保持済み二作用を線形rateへ入れる $+,H,-$ の3状態連続時間Markov pointer。R204Dでfinite-time Born、R204Eでbinary selector contract、R204FでQ1/Q2-4資源を与える。R204B/R204Cのphase-volume chamber/Hamiltonian liftは強化実現 |
+| M66 | Q2共通phase-volume reservoir/readout candidate | active replacement candidate | R205A/R205Bで共通phase-volume identityとmatched capacity--conductance、R206A/R206B/R206Dでfinite-L common-hub sampler、一様passive channel、Q2 terminal readout bridgeを与える。現行M65/R181D/R192/R179主線は未変更 |
 
 M50はM54の静的状態構成へ、M55はM54空間状態構成へ吸収した。M56はspin-only Q3代替研究線とし現行達成根拠へ使わない。M60/M61とそれ以前のM57/M59は旧Q3 Hamiltonian実装として現行主線から退役し、Git履歴へ保存する。旧状態方向準備、旧作用殻型Q1/Q2測定経路、旧2端再準備は現行必須依存から外し、退役索引と研究メモへ保存する。
 
@@ -458,6 +467,11 @@ M0は、個別のA1模型を並べるだけでは達成としない。少なく�
 | R204D | 厳密結果・明示誤差付き合成 | M65の有限時間Born readout、exact endpointを含む正式な無反応、decision終了時のR112型record/latch、complete-result TV上界、小Born重みでrelaxation rateが縮まないことを与える |
 | R204E | 厳密系 | M65がR181Dのbinary selector contractを満たすことを示す |
 | R204F | 条件付き・資源結果 | Q1 R189A→M65→R181D互換性、空操作対照の自由Rabi継続、弱結合latency極限と、Q2-4でM65固有readout時間を多項式に抑える十分条件を与える。R186は未解決 |
+| R205A | candidate厳密partition結果 | 正のlocal scaleをreservoir座標Jacobianへ入れるとcanonical phase volumeがscaleへ線形比例し、free energyが \(-k_BT\log w+C\) になる共通identity |
+| R205B | candidate厳密reduced-law結果 | channel capacityとconductanceへ同じlocal scaleを掛けると、channel→hub rateがscale非依存、hub→channel rateがscale比例となるmatched capacity--conductance原理 |
+| R206A | candidate厳密有限状態結果 | 任意有限Lのcommon-hub samplerで \(d_y=x_y-p_y(1-h)\) が \(\dot d_y=-\Lambda d_y\) を満たし、mixing rateがLと最小Born重みに依存しない |
+| R206B | candidate厳密一様構成結果 | \(L=2^n\) channelへ同一local scale則、\(V_H\propto L\) を用いて総hub escape rateをL非依存に保ち、regularized Born重みを個別係数表なしに実装する |
+| R206D | candidate条件付きQ2 bridge | R181C後の実terminal signal作用を4・8・\(2^n\)結果common samplerへ接続し、Q2-1/Q2-3/Q2-4のone-shot terminal readout候補を与える。現行direct dependencyは未変更 |
 | R185 | 厳密有限格子結果・明示誤差付き近似結果 | 共通の確率分布の時間反転率、$D_\pm$、1次元node-free領域の時間対称Newton則。正則化残差 $O(\delta)$、格子残差 $C_{185,a}a^2$ を有限微分ノルムで明示 |
 | R123 | 厳密結果・数値検証付き | 井戸型・調和型低位束縛状態と有限環境純位相緩和 |
 | R124 | 厳密結果・数値検証付き | 障壁値未満スペクトル支持からの反対側確率増分 |

@@ -134,3 +134,9 @@ M65/R204A/R204D/R204E/R204Fのopen selector核はQ1/Q2 fixed-goal正本として
 R204B/R204C、finite-bandwidth bath、direct Brownian chamber trajectory、具体回路化は追加のA2/B系・横断強化として扱う。M65正本化だけからQ1/Q2のA1/A2/B1/B2/B3状態を自動的に変更しない。A1へM65を採用する場合も、各固定目標の主要因果鎖全体を一つの具体模型として閉じる必要がある。
 
 Q2-4についてM65固有readout時間は多項式条件を持つが、R186の指数mode additive-noise/precision障害は独立に残る。
+
+## M66/R205--R206 common-reservoir readout candidate
+
+Q2-1/Q2-3/Q2-4のA1/A2候補としてM66/R205--R206を追加する。R205A--R205Dはphase-volume reservoirの共通原理、R206A--R206Dはmulti-outcome sampler、一様passive channel、有限時間・製造誤差、Q2資源境界を与える。
+
+本追加だけではA1/A2状態を変更しない。full Brownian/chamber trajectory、finite-bandwidth reservoir、always-on coupling中のphase backreaction、具体回路化は未監査である。Q2-4ではR186のcoherent register additive-noise障害を独立に維持する。

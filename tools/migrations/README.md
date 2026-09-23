@@ -56,3 +56,7 @@
 ## draft-125 history notes and permanent consistency checks
 
 `check_draft125_history_consistency.py` は、履歴入口 `notes/theory_lineage.md`、退役メモの現行注記、恒久 `check_project_consistency.py`、通常CI接続、検算ポリシーの自己検査が同じ変更で導入されたことを確認する。固定目標の達成ラベルと理論主張を変更しないこともPR固有に確認する。
+
+## draft-126 M66/R206 candidate
+
+\`check_draft126_m66_r206_candidate.py\` は、A27のM66/R205--R206候補とcandidate verifierが存在し、Q2-1/Q2-2/Q2-3/Q2-4の達成ラベル、M65/R181D/R192/R179の現行主線、R186障害が変更されていないことをPR固有に検査する。後続promotion/retirementは別PRで扱う。

@@ -103,3 +103,11 @@ M54の複素信号 $Z$ は実正準対の派生表示であり、独立した複
 M65/R204A--R204FはQ1/Q2二結果射影用のcanonical open selector modelとして正本化する。正本発展則は3状態open Markov過程であり、phase-volume chamberとHamiltonian--Brownian縮約は追加実現へ分離する。M64とM65は同一粒子を共有せず、M64はQ3 spatial tracer、M65はQ1/Q2 binary selectorという別の物理役割を持つ。
 
 Q1/Q2 fixed-goalの現行結果形成にはM65を採用する。R181D、R192、R179、R180A/R180Cはbinary selector interfaceを通じてM65へ接続する。旧R191/R193はM65へ責務を吸収した退役研究線としてnotes/Git履歴へ保存する。
+
+## M66/R206 active replacement candidate
+
+M66/R205--R206をQ2 terminal readoutのactive replacement candidateとして追加する。R205A--R205DはM64/R203BとM65/R204Bに共通するphase-volume原理を抽出し、R206A--R206Dは有限 $L$ 結果common-hub sampler、一様passive channel構成、有限時間・製造誤差、Q2 readout bridgeを与える。
+
+Q2-4では $L=2^n$ であるが、hub capacityを $L$ とともにscaleし、各channelへ同一のlocal capacity/conductance則を使うことで、総hub escape rateとsampling時間を $L$ に依存させない。外部controllerへBorn表、振幅表、channel別係数表を入力しない。
+
+現行主線は変更しない。M65/R181D/R192/R179は引き続きfixed-goal証人であり、M66/R206へのpromotionと旧逐次readoutの退役は後続変更で判定する。Q2-2の現行A端--B端逐次interfaceも本draftでは変更しない。

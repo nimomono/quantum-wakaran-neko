@@ -1,3 +1,10 @@
+## draft-126：M66/R205--R206 共通phase-volume多結果読出し候補
+
+- M66をM64/R203BとM65/R204Bに共通するphase-volume reservoir原理の親候補として追加し、R205A--R205Dでpartition identity、matched capacity--conductance、既存M64/M65特殊化を整理する。
+- R206A--R206Dで有限L結果common-hub sampler、一様passive channel scaling、L非依存finite-time/製造誤差、Q2-1/Q2-3/Q2-4 terminal readout bridgeと資源境界を追加する。
+- candidate verifier 4本とdraft-126 migration check、M66 A2 simulation planを追加する。
+- 現行M65/R181D/R192/R179、Q2-2逐次interface、Q2-1--Q2-4の達成ラベルと直接依存、R186障害は変更しない。旧逐次読出しの退役は後続PRへ分離する。
+
 ## draft-125：履歴メモと自動整合検査
 
 - `notes/theory_lineage.md` を追加し、Q1/Q2測定、Q3 particle/Nelson、Q2 register/Bellの現行因果鎖と主要な置換系譜を一つの入口へ整理した。

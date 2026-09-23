@@ -1028,3 +1028,39 @@ G_{\rm rec}=\sum_i d_i(x)P_{D_i}
 と書ける。これは記録時刻の排他的粒子位置を読む。入力時刻以前の粒子軌道、初回到達率、吸収率、時間積分流束を与えない。
 
 M65は開放3状態Markov方程式を基本方程式として採用し、phase-volume chamber/Hamiltonian--Brownian liftは強化実現へ分離する。Q1ではR189A保持座標をM65へ直接渡し、Q2でも同じbinary selector interfaceを使う。Q2-1--Q2-3はM65/R181Dによる一試行interfaceで判定し、Q2-4だけは一様装置族とR186資源条件を含むため条件付き達成を維持する。有限浴化は別の強化課題である。一意エルゴードな外部時刻割当または有限熱化から、結果列の独立同分布性や二項型有限標本揺らぎも従わない。
+
+### M66/R205--R206：共通phase-volume readout候補
+
+M66はsignal-localな正のscaleをreservoir phase volumeへ写す共通原理をR205A--R205Dとして整理する。R206Aの有限 $L$ common-hub samplerは
+
+```math
+k_{y\to H}=\Lambda,
+\qquad
+k_{H\to y}=\kappa a_y
+```
+
+を基本open lawとし、
+
+```math
+d_y=x_y-\frac{a_y}{a_\Sigma}(1-h)
+```
+
+について
+
+```math
+\dot d_y=-\Lambda d_y
+```
+
+を満たす。
+
+Q2-4候補では各channelのlocal scaleを
+
+```math
+s_y=\delta+\frac{LJ_y}{J_*},
+\qquad
+L=2^n,
+```
+
+capacity/conductanceを $V_y=V_0s_y$、$G_y=G_0s_y$、hubを $V_H=LV_H^0$ とする。全channelは同一規則の受動複製であり、外部から指数長係数表を与えない。
+
+このmoduleはactive candidateであり、M65/R181D/R192/R179の現行責務を本節追加だけで置換しない。
