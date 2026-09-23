@@ -151,3 +151,29 @@ A端結果成分がB端へ物理的に渡るため、現行証人ではBell局�
 R180Bのpaired-Hopf再準備、中央潜在結果を2翼へ複製する工程、切断後のA側再読出しは現行必須主線に使わない。これらは `notes/superseded_q2_2_paired_hopf_receiver.md` と退役付録へ保存する。
 
 Q2-2で新たに使う確率源はない。共同確率はbinary selector contractとR181Dの逐次Lüders telescopingから得る。fixed-goalの現行証人ではA端・B端ともM65を用い、A端結果成分をB端へ同じ試行のまま物理的に渡すため、固定一重項・固定有限設定族・非空間分離という固定範囲でQ2-2を達成する。現行R180C証人が非空間分離であることと、Q2-2固定目標自体が特定のBell前提違反を指定しないことを区別する。空間隔離をどこまで強められるかは `Q2-2-S`、全周期装置統合はM0の独立課題とする。
+
+## 5.7 Q2-2-SのR207 candidate
+
+Q2-2 fixed-goalの現行証人はR180Cの非空間分離逐次装置のまま維持する。Q2-2-Sでは別経路として、付録WのR207A--R207Dが
+
+near-contact joint thermal preparation、passive separation、local setting latch、local outcomesの順
+
+を候補化する。
+
+| 構成 | 測定窓中のAからBへの結果成分伝播 | 分離後local response factorization | measurement independence |
+|---|---|---|---|
+| 現行R180C fixed-goal witness | あり | Bell-local modelとしては仮定しない | 設定前一重項源について維持可能 |
+| R207 Q2-2-S candidate | R205F分離後は使わない | candidate内では成立 | R207B/C witnessでは成立しない |
+
+従って二つの構成はBell前提の異なる箇所を使う。R207はR180Cを置換せず、Q2-2 fixed-goalの直接依存へ追加しない。
+
+R207Cのgenerator factorizationだけではQ2-2-SのS2に必要な有限伝播速度を証明しない。有限最大速度 $v_{\max}$ を持つ具体spatial reservoirと
+
+```math
+t_A^{\rm out}-t_B^{\rm latch}<L/v_{\max},
+\qquad
+t_B^{\rm out}-t_A^{\rm latch}<L/v_{\max}
+```
+
+を同時に閉じるまでは、Q2-2-Sは未監査のままとする。
+

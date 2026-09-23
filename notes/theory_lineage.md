@@ -112,3 +112,8 @@ draft-126でreplacement candidateとして追加したM66/R205--R206は、draft-
 ## draft-129で拡張したM66/R205 parent
 
 draft-129ではM66をQ2 readerそのものからcommon thermal-reservoir parentへ一般化した。R205CはM64/R203Bのpartition/free-energyとmean-flow分離、R205DはM65/R204Bのfixed-hub実現を共通原理へ埋め込む。R205Eはthermal Gibbs sampler、R205Fはpassive separationの一般generator結果である。Q2 terminal fixed-goal主線はR206、Q3 particle/Nelson主線はM64、Q1/Q2-2 binary主線はM65であり、Q2-2-S/R207はこのdraftでは導入しない。
+
+## draft-130で追加したR207 Q2-2-S candidate
+
+Q2-2 fixed-goalの現行主線は引き続きR180C--M65/R181Dである。R207A--R207DはQ2-2-S専用の別候補として、M66/R205Eのcommon preparationからR205Fのpassive separationへ進み、分離後のlocal responseとsource--setting measurement dependenceを監査する。R207Dはmeasurement-independent local controlを与える。finite-speed spatial reservoirが未閉包なのでQ2-2-S状態は未監査のままとする。
+

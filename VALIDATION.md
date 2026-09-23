@@ -1,3 +1,10 @@
+## draft-130：R207A--R207D Q2-2-S candidate
+
+- `tools/candidate_checks/verify_r207_gibbs_chsh.py` は4 setting sectorのpartition対称性、strong-lock $\kappa_*$、CHSH/Tsirelson値、局所周辺、source--setting mutual information、finite-lock witnessをcandidate quadratureで確認する。
+- `tools/candidate_checks/verify_r207_separation_control.py` はR205F型generator defectの距離減衰と、measurement-independent local controlの $|S|=2$ をcandidateとして確認する。
+- これらはrequired fixed-goal verifierへ昇格せず、continuous $q_A,q_B$ full Langevin trajectoryまたはfinite-speed spatial reservoirのA2/B検証を代替しない。
+- draft-130 migration checkでR207A--R207Dの存在、Q2-2 fixed-goal依存・達成ラベル不変、Q2-2-S未監査維持、M67未導入を確認する。
+
 ## draft-129：M66 common-reservoir parent拡張・R205C--R205F正式化
 
 - `tools/verify_m66_common_phase_volume.py` をR205C/Dまで拡張する。
