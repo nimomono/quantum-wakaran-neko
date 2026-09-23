@@ -63,53 +63,27 @@ Q2-4のB1--B3は単一の巨大回路図を要求するものではなく、任�
 
 ## Q2-2-S：空間隔離強化
 
-Q2-2本体は、Bell型共同統計を古典構成で再現し、その構成についてBell不等式の導出に用いられる前提の成立・不成立を監査することを要求する。どのBell前提を破るかは固定目標側で指定しない。`Q2-2-S` はその上で、A端とB端の空間的・因果的隔離をどこまで強めてもBell型共同統計を維持できるかを独立に調べる。
-
-この強化はBellの定理を回避または否定することを目的としない。各段階で、物理的因果構造と確率因子化を明示し、どの前提が成立し、どの前提が成立しないかを構成から判定する。
+Q2-2本体はR207 projection phase-volume主線により、二つの物理端、一般余弦共同確率、CHSH/Tsirelson極限、非信号周辺、Bell前提監査を一試行interfaceとして構成する。固定目標自身はfinite-speed spacelike separationを要求しない。Q2-2-Sはその上でsetting確定後の空間的・因果的隔離を独立に調べる。
 
 | 段階 | 条件 | 検証内容 |
 |---|---|---|
-| S0 | 現行の非空間分離構成 | A端の結果成分をB端へ物理的に渡す現行逐次装置を基準系とする。現行証人では測定窓中のA→B因果伝播を用いる |
-| S1 | 物理的2端化 | A端とB端を実際に異なる場所へ配置し、中央準備部、配線、伝送距離、伝送遅延を明示する。測定窓中の端間通信はまだ許してよい |
-| S2 | 測定窓内の因果隔離 | 各端の設定確定から局所結果固定まで、他端から到達可能な信号を利用しない構成を示す。端間距離を $L$、最大伝播速度を $v_{\max}$、設定確定時刻を $t_A^{\rm set},t_B^{\rm set}$、結果固定時刻を $t_A^{\rm out},t_B^{\rm out}$ として、少なくとも $t_A^{\rm out}-t_B^{\rm set}<L/v_{\max}$ および $t_B^{\rm out}-t_A^{\rm set}<L/v_{\max}$ を要求する。同期設定では $v_{\max}T_{\rm meas}<L$ が十分条件となる |
-| S3 | 因果隔離下のBell型統計と前提監査 | S2を維持したままBell型共同統計をどこまで再現できるかを構成し、成立した模型についてBell不等式導出に必要な前提を中立的に監査する。特定のloophole、共通原因、設定依存性を先に要求しない |
-| S4 | Bell局所CHSH対照系 | Bell局所CHSH境界を導く十分な前提集合を明示的に課した対照系を構成し、$|S|\le2$ へ戻ることを確認する。S4でCHSH破れを維持すること自体は強化目標の達成条件としない |
-
-S3では少なくとも、測定設定独立性、Bell局所因子化
-
-```math
-P(a,b\mid x,y,\lambda)
-=
-P(a\mid x,\lambda)P(b\mid y,\lambda),
-```
-
-測定窓中の端間通信、無反応・棄却を含む標本選択、非信号性を監査する。必要に応じてBell局所因子化をparameter independenceとoutcome independenceへ分解してよい。設定と内部状態の依存性が現れる場合は、相互情報量 $I(\Lambda;X,Y)$、全変動距離その他の指標でその大きさを定量化してよいが、測定設定独立性の破れそのものをS3の必須条件にはしない。
-
-Q2-2-Sの主要な到達目標は、Bell型共同統計を維持したままS2またはS3まで物理的隔離を進められるかを判定することである。どの段階で不可能になるか、またはどのBell前提の不成立が避けられないかが判明した場合、その否定的結果自体を有効な成果として記録する。
+| S0 | 現行fixed-goal二端baseline | R207A--R207Cのjoint thermal preparation、passive separation、local outcome/recordを基準系とする |
+| S1 | 具体spatial geometry | 二端距離 $L$、transport path、分離時間、local reservoir geometryを明示する |
+| S2 | 測定窓内の因果隔離 | setting確定からlocal result固定まで他端から到達可能な信号を使わず、$t_A^{\rm out}-t_B^{\rm set}<L/v_{\max}$ と $t_B^{\rm out}-t_A^{\rm set}<L/v_{\max}$ を同じ装置で満たす |
+| S3 | 因果隔離下のsinglet統計と前提監査 | S2を維持したまま一般角度Bell型共同統計とBell前提監査を行う |
+| S4 | Bell-local CHSH対照系 | measurement independenceとBell-local responseを同時に課すcontrolで $|S|\le2$ を確認する |
 
 ### Q2-2-Sの現在地監査
 
-S0--S4の定義は上の表を正本とする。現行candidateの現在地は次の通りである。
+| 段階 | 現在の証拠 | 未閉包条件 |
+|---|---|---|
+| S0 | R207A--R207C fixed-goal主線 | fixed-goal baselineとして確立 |
+| S1 | R205Fの距離依存decouplingとR207Cの分離protocol | concrete spatial reservoir geometry、transport trajectory |
+| S2 | R205Fのpost-separation generator factorization | finite propagation speed $v_{\max}$、同一timing model |
+| S3 | R207B/Cの一般角度singlet law、非信号周辺、measurement-dependence監査 | S2 physical implementationが未閉包 |
+| S4 | R207D measurement-independent local control | 解析controlあり |
 
-| 段階 | 達成条件の要点 | 現在の証拠 | 未閉包条件 |
-|---|---|---|---|
-| S0 | 非空間分離基準系 | R180C逐次fixed-goal witness | 基準系として確立 |
-| S1 | 実在する二端と分離protocol | R207A near-contact joint thermal preparation | continuous spatial trajectory、具体的二端幾何 |
-| S2 | setting確定後に他端から到達可能な信号を使わない | R205F + R207Cのpost-separation generator factorization | finite-speed spatial reservoir、$v_{\max}$、同一timing model |
-| S3 | S2を保ったBell型統計と前提監査 | R207B/CのCHSH witness、非信号周辺、measurement-dependence監査 | S2 physical implementationが未閉包 |
-| S4 | Bell局所CHSH対照系 | R207Dのmeasurement-independent local control | 解析controlあり |
-
-現R207 candidateでは、setting precursorは準備窓から存在し、分離後のlocal latchでsetting recordを固定する。本文第5章では
-
-```math
-t_A^{\rm set}=t_A^{\rm latch},
-\qquad
-t_B^{\rm set}=t_B^{\rm latch}
-```
-
-と同一視する。このlatchは準備時のsource--setting correlationを消さないため、R207B/C witnessでは測定設定独立性は成立しない。
-
-R207A--R207DによりS1/S3/S4の解析candidateとS2のgenerator-level candidateは得たが、S2のfinite-speed physical isolationが未閉包である。このためQ2-2-S全体の公式状態は `未監査` のままとする。S4のcontrol成立だけからQ2-2-Sを部分達成へ更新しない。
+R207のfixed-goal昇格はS0の基準系を更新するが、finite-speed spatial reservoirとsetting確定後のtiming closureを閉じない。このためQ2-2-S全体の公式状態は未監査のままとする。direct SDE trajectory、具体実験装置、実験可能parameter windowはA2/B系で別に監査する。
 
 ## 強化目標の現在地表
 
@@ -120,7 +94,7 @@ R207A--R207DによりS1/S3/S4の解析candidateとS2のgenerator-level candidate
 | Q1-1 | 未監査 | 未監査 | 未監査 | 未監査 | 未監査 | — | M37、R140、R187 |
 | Q1-2 | 未監査 | 未監査 | 未監査 | 未監査 | 未監査 | — | R189A--R189C、M65/R204D--R204F、R181D |
 | Q2-1 | 未監査 | 未監査 | 未監査 | 未監査 | 未監査 | — | M54、R181B--R181C、M66/R205--R206 |
-| Q2-2 | 未監査 | 未監査 | 未監査 | 未監査 | 未監査 | 未監査 | R180A、R180C、M65/R204D--R204E、R205E、R205F、R207A--R207D |
+| Q2-2 | 未監査 | 未監査 | 未監査 | 未監査 | 未監査 | 未監査 | M66/R205A・R205E--R205F、R207A--R207D、R180A/R180C alternate |
 | Q2-3 | 未監査 | 未監査 | 未監査 | 未監査 | 未監査 | — | M54、R177、R181B--R181C、M66/R205--R206 |
 | Q2-4 | 未監査 | 未監査 | 未監査 | 未監査 | 未監査 | — | M54、R181C、R186、M66/R205--R206E |
 | Q3-1 | 部分達成 | 未監査 | 未監査 | 未監査 | 未監査 | — | M37、R86 |
@@ -153,7 +127,7 @@ M0は、複数の固定目標にまたがる主要自由度と物理接続端を
 
 ## M65/R204 canonical open model と強化実現
 
-M65/R204A/R204D/R204E/R204Fのopen selector核はQ1/Q2-2の逐次fixed-goal正本として採用する。Markov方程式そのものを開放ミクロ方程式として直接定めるため、R204Bのphase-volume chamberとR204CのHamiltonian--Brownian liftをM65正本性やfixed-goal判定の必要条件にしない。
+M65/R204A/R204D/R204E/R204Fのopen selector核はQ1の逐次fixed-goal正本として採用する。Markov方程式そのものを開放ミクロ方程式として直接定めるため、R204Bのphase-volume chamberとR204CのHamiltonian--Brownian liftをM65正本性やfixed-goal判定の必要条件にしない。
 
 R204B/R204C、finite-bandwidth bath、direct Brownian chamber trajectory、具体回路化は追加のA2/B系・横断強化として扱う。M65正本化だけからQ1/Q2のA1/A2/B1/B2/B3状態を自動的に変更しない。A1へM65を採用する場合も、各固定目標の主要因果鎖全体を一つの具体模型として閉じる必要がある。
 
@@ -161,7 +135,7 @@ Q2-4のterminal readout責務はR206A--R206Dへ移し、Q2-4準備はR206Eが担
 
 ## M66/R205 common-reservoir parent と R206 readout specialization
 
-M66/R205A--R205Fはphase-volume、mean-flow、thermal sampling、passive separationを共通化するreservoir parentである。M64/M65のdomain modelは維持し、Q2-1/Q2-3/Q2-4 fixed-goalのterminal readoutはR206A--R206DをM66の具体specializationとして使い、Q2-4のuniform root preparation / refreshはR206Eが担う。R205E/R205FはQ2-2-SではR207A--R207Dのjoint preparation・passive separation candidateへ接続済みであるが、finite-speed spatial reservoirとtiming closureが未閉包なのでQ2-2-S全体は未監査のままとする。
+M66/R205A--R205Fはphase-volume、mean-flow、thermal sampling、passive separationを共通化するreservoir parentである。M64/M65のdomain modelは維持し、Q2-1/Q2-3/Q2-4 fixed-goalのterminal readoutはR206A--R206DをM66の具体specializationとして使い、Q2-4のuniform root preparation / refreshはR206Eが担う。R205A/R205E/R205FはQ2-2 fixed-goalでR207A--R207Cのprojection phase-volume共同準備・passive separationへ接続する。finite-speed spatial reservoirとtiming closureはQ2-2-Sへ分離し、同強化全体は未監査のままとする。
 
 共通thermal-reservoir層と強化目標の責務は次のように分ける。
 
