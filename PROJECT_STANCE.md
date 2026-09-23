@@ -46,8 +46,6 @@
 
 現行Q2-2主線R207は、setting directionsとhidden directionsを近接時のprojection phase-volume thermal preparationで相関させ、その後受動分離してlocal responseを形成する。setting marginal自体は独立に保てる一方、source hidden-state distributionはsetting-dependentなので測定設定独立性は成立しない。分離後local response factorizationとoperational non-signalingを保ち、測定窓中のA結果からB結果へのresult communicationは用いない。旧R180C非空間分離逐次witnessはdraft-135でactive paperから退役した。設定依存準備、共通過去相関、別の境界条件を用いる古典模型も研究対象から排除せず、それぞれの構成についてBell前提を独立に監査する。
 
-Q2-2-Sでは、どのBell前提を破るかを先に固定せず、2端の物理的分離と測定窓内の因果隔離を段階的に強めたとき、Bell型共同統計をどこまで維持できるかを調べる。因果隔離下で成立する模型が得られた場合も、Bell前提監査を省略しない。完全なBell局所CHSH前提集合を課した対照系ではCHSH境界へ戻ることを確認する。
-
 ## 6. 成功条件と長期目標
 
 モデル、モデルから得られる結果、その物理的解釈を区別する。未導出の確率則や境界条件を入力した場合は、その後の計算が厳密であっても、ミクロモデルから導出したとは呼ばない。近似を用いる場合は、適用範囲と中心結論への影響を追跡する。否定的結果も、現行モデルの成立条件を明らかにする知見として保存する。
