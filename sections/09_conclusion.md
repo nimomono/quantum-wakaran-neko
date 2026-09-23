@@ -1,11 +1,11 @@
 @number: 9
 @chapter: 本文
 @title: 結論
-@status: Q1/Q2のM65/R181D系と、Q3のM37/R86--M64/R203A--R203D--R161--R185現行階層を総括する。R191/R193およびM60/M61旧実装は現行主線から退役する。
+@status: Q1/Q2-2のM65/R181D逐次系、Q2-1/Q2-3/Q2-4のM66/R206 terminal readout系、Q3のM37/R86--M64/R203A--R203D--R161--R185現行階層を総括する。R192、R191/R193、M60/M61旧実装は現行主線から退役する。
 
 本稿は、古典実正準信号の線形力学と、1試行1結果を作る開放古典instrumentを分離して構成した。有限次元Hilbert空間とunitaryを古典振動子へ写すこと自体ではなく、その同じ単一試行信号からBorn型排他的結果と測定後結果成分を作る物理接続を中心課題とした。
 
-Q1/Q2の2結果測定はM65へ統一した。二つの射影作用
+Q1およびQ2-2の逐次2結果測定はM65へ統一した。二つの射影作用
 
 ```math
 J_\pm=\mathcal J_0Z^\dagger P_\pm Z
@@ -19,17 +19,17 @@ P(\pm)=\frac{J_\pm}{J_++J_-}
 
 を得る。M65はfinite-time relaxation、hub無反応、exact endpoint、有限recordを同じ完全結果誤差へまとめる。
 
-結果後の状態更新はR181Dの可逆projector routerへ縮約した。物理信号を規格化し直さず
+Q1/Q2-2で結果後の状態を次操作へ渡す場合はR181Dの可逆projector routerへ縮約した。物理信号を規格化し直さず
 
 ```math
 Z\longmapsto P_rZ
 ```
 
-を次段へ渡すだけで、次のM65がその時点の二射影作用から条件付きBorn重みを形成する。有限段では確率積がtelescopingしてLüders型共同分布を回収する。一般深さQ2-4で結果成分作用が読出し下限を下回る場合だけ振幅再調整を補助手段として残す。
+を次段へ渡すだけで、次のM65がその時点の二射影作用から条件付きBorn重みを形成する。有限段では確率積がtelescopingしてLüders型共同分布を回収する。
 
 Q1ではR187がM37弱結合W型最低2正常モードをW2制御信号へ接続し、R140がBloch球型可逆操作とRabi運動を与える。R143--R144は分析器・記録・逐次測定、R189A--R189Cは走行中作用保持と有限Rabi--Zeno比較を担う。Born結果形成をW型粒子位置の再平衡化へ依存させず、R189Aの保持座標をM65へ直接入力する。
 
-Q2-1とQ2-3ではR181B/R181Cが永続多モード信号上のテンソル積状態とgate列を作り、末端M65/R181Dが出力を標本化する。これらは固定有限深さの一試行内で物理状態を再準備せず接続されるため達成とする。Q2-4では同じ2結果nodeを一般回路出力へ逐次適用し、R179はopen resetと履歴排出、R186は外部運用資源とノイズ境界を監査する。Q2-4は資源効率・反復回数・総時間を目標自身が要求するため条件付き達成を維持する。
+Q2-1とQ2-3ではR181B/R181Cが永続多モード信号上のテンソル積状態とgate列を作り、末端M66/R206が4結果/8結果を一回で標本化する。Q2-4ではR206Eで $0^n$ rootを一様準備し、R181Cの一般gate列後にM66/R206の $2^n$ 結果samplerへ接続する。reader側の逐次小branch、R181D tree、作用再調整、結果別resetは主線から消え、R186が外部運用資源とdirect-amplitude registerノイズ境界を監査する。Q2-4はR186条件が残るため条件付き達成を維持する。
 
 Q2-2の現行証人では、固定一重項4モード信号にA設定を作用し、A端M65で $r$ を形成して結果成分 $P_{A,r}^{x}Z$ をB端へ渡し、B設定後のB端M65で $s$ を形成する。Q2-2固定目標は特定のBell前提違反を先に指定せず、採用構成ごとに前提の成立・不成立を監査する。共同分布は
 
@@ -58,14 +58,14 @@ M60/M61のDuffing shell、統一chiral媒体、ballistic lead、moving reflector
 残る主要な物理課題は、各固定目標について具体的古典ミクロ模型A1とその直接数値再現A2を独立に監査すること、Q1/Q2について具体的アナログ回路B1、実験可能パラメータ領域B2、回路直接数値再現B3へ進むこと、Q2-2で測定窓内の空間的・因果的隔離をQ2-2-Sで検査することにある。Q3ではM64で直接定めた開放方程式のA2直接数値再現、finite-bandwidth/Hamiltonian lift、永久record・reset・物理clock・renewalを含む単一反復周期、連続空間一様極限、多粒子拡張、Q3-6の位相量子化を強化・未解決課題として残す。M64の正式昇格だけからA1/A2の状態を自動的に上げない。
 
 
-M65をQ1/Q2二結果射影用のcanonical open selector modelへ昇格した。最小模型は $+,H,-$ の3状態Markov pointerであり、保持済み二作用はhubから各結果へのrateへ線形に入る。R204Dは有限時間Born誤差、R204Eは共通binary selector contract、R204FはQ1互換性とQ2-4読出し時間条件を与える。phase-volume chamberとHamiltonian--Brownian縮約はR204B/R204Cの追加実現・強化結果へ分離した。
+M65をQ1/Q2-2二結果逐次instrumentとして維持する。最小模型は $+,H,-$ の3状態Markov pointerであり、保持済み二作用はhubから各結果へのrateへ線形に入る。R204Dは有限時間Born誤差、R204Eは共通binary selector contract、R204FはQ1互換性と有限latency条件を与える。phase-volume chamberとHamiltonian--Brownian縮約はR204B/R204Cの追加実現・強化結果へ分離した。
 
-R181D、R192、R179、R180A/R180Cはselector内部物理から独立なinterfaceを介してM65へ接続する。旧R191 Brownian macrospin読出しとR193 Q1直接decision bridgeはM65へ責務を吸収したため現行主線から退役し、notes/Git履歴へ保存する。
+R181DとR180A/R180Cはselector内部物理から独立なinterfaceを介してM65へ接続する。R179はQ2-2および全周期renewal側に残す。R192はQ2-4逐次treeの消滅に伴い退役する。旧R191 Brownian macrospin読出しとR193 Q1直接decision bridgeはM65へ責務を吸収したため現行主線から退役し、notes/Git履歴へ保存する。
 
-## M66/R206候補の現在地
+## M66/R206の現在地
 
-M64/R203BとM65/R204Bに共通するphase-volume原理をM66/R205A--R205Dとして抽出し、Q2 terminal readoutを一回の有限 $L$ common-hub samplingへ縮約するR206A--R206D候補を追加した。
+M64/R203BとM65/R204Bに共通するphase-volume原理をM66/R205A--R205Dとして整理し、Q2 terminal readoutを一回の有限 $L$ common-hub samplingへ縮約するR206A--R206EをQ2-1/Q2-3/Q2-4 fixed-goal主線へ昇格した。
 
-候補はQ2-1で4結果、Q2-3で8結果、Q2-4で $2^n$ 結果を同じ局所規則から標本化し、mixing時間とaggregate fabrication-error boundを $L$ に直接依存させない。これによりQ2 reader側からR181D/R192を外せる見込みが得られる。
+Q2-1で4結果、Q2-3で8結果、Q2-4で $2^n$ 結果を同じ局所規則から標本化し、mixing時間とaggregate fabrication-error boundを $L$ に直接依存させない。R206Eは全mode共通減衰と固定root driveでQ2-4のroot preparation/refreshを与え、sampler pointerはR206A自身のmixingにより結果別resetを必要としない。
 
-ただし本draftではpromotionを行わない。現行M65/R181D/R192/R179主線、Q2-2逐次interface、Q2-1--Q2-4の達成ラベル、R186障害は維持する。次段階ではcandidate checksと依存グラフを監査した上で、旧逐次readoutの退役を独立PRとして判定する。
+これによりQ2-1/Q2-3/Q2-4から旧M65/R181D逐次terminal treeを外し、R192を退役した。Q1/Q2-2のM65/R181D逐次interfaceは維持する。Q2-4の条件付き達成はR186のdirect-amplitude register additive-noise障害が残るため変更しない。

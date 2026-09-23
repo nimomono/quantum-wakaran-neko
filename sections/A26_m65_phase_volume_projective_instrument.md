@@ -1,13 +1,13 @@
 @number: Z
 @chapter: 付録
-@title: M65 phase-volume型3状態open射影読出し
-@status: Q1/Q2二結果射影用の現行fixed-goal canonical open selector model。正本発展則は保持済み二作用を線形rateへ入れる3状態連続時間Markov過程とし、exact endpoint、有限decision後のR112型record/latch、R204Dの有限時間Born誤差、R204Eの共通binary selector contract、R204FのQ1/Q2-4接続と資源条件を備える。R204A--R204Cのphase-volume chamber/Hamiltonian構成は追加実現・持上げであり、M65正本の成立条件にしない。 Z.11にM66/R205--R206のmulti-outcome common-reservoir readoutをactive replacement candidateとして併置するが、現行M65/R181D/R192/R179主線は変更しない。
+@title: M65 binary selectorとM66 multi-outcome common-reservoir readout
+@status: M65/R204はQ1およびQ2-2の逐次binary instrument、M66/R205--R206はQ2-1/Q2-3/Q2-4のterminal multi-outcome readout正本とする。M66は共通phase-volume reservoir、finite-L common-hub sampler、一様passive channel、有限時間・製造誤差、Q2 terminal bridge、uniform root preparationを与える。Q2-4のR186 additive-noise障害は独立に残す。
 
 ## Z.1 目的と責務境界
 
 M65は、二結果直交射影に対して上流が保持した二作用から排他的な古典結果を作る最小open selectorである。複素信号そのものを再読出しせず、capture終了後に固定された二作用だけを入力とする。
 
-M65/R204D--R204FをQ1/Q2のfixed-goal witnessへ採用する。R181D、R192、R179、R180A/R180Cはselector非依存のinterfaceを通してM65へ接続する。旧R191/R193はM65へ責務を吸収した退役研究線としてnotes/Git履歴へ保存する。
+M65/R204D--R204FをQ1とQ2-2のfixed-goal binary witnessへ採用する。R181Dは結果固定後のpost-state routerとしてQ1/Q2-2でM65へ接続し、R179はQ2-2および全周期renewal側のopen resetとして残す。Q2-1/Q2-3/Q2-4のterminal readoutにはM66/R206を採用する。旧R191/R193はM65へ責務を吸収した退役研究線としてnotes/Git履歴へ保存する。
 
 M65の正本は開放3状態Markov過程そのものである。固定chamber、phase-volume oscillator、調和bath、Fick--Jacobs縮約は正本の定義ではなく、R204B/R204Cに置く追加の物理実現・Hamiltonian liftである。
 
@@ -502,10 +502,10 @@ M65では
 fixed-goal witnessにはM65を使う。
 <!-- theorem-end:corollary -->
 
-## Z.9 R204F：Q1互換性とQ2-4読出し資源
+## Z.9 R204F：Q1互換性と有限latency
 
 <!-- theorem-start:theorem -->
-**定理（R204F：Q1互換性とQ2-4 polynomial readout-time条件）**
+**定理（R204F：Q1 M65 interfaceと有限latency条件）**
 
 Q1ではR189Aの保持済み作用 $A_L,A_R$ をM65へ入力できる。R189A作用比誤差を $\varepsilon_{189A}$、M65 selector誤差を $\varepsilon_{65}^{\rm mid}$、保持中心時刻からR181D完了までのRabi重み変化を $\varepsilon_{\rm lat}$ とすれば、
 
@@ -527,44 +527,7 @@ M65 decision時間を $T_{65}$ とすると、固定有限回Zeno証人では
 
 の弱結合極で追加latencyを任意に小さくできる。この結果をQ1 fixed-goal witnessのM65接続として採用する。
 
-Q2-4では二結果node数を $m$、全読出し誤差予算を $\epsilon$ とする。各nodeのmixing項へ $O(\epsilon/m)$ を割り当てる十分条件は
-
-```math
-T_{\rm node}
-\geq
-\frac1\Lambda
-\log\frac{Cm}{\epsilon}.
-```
-
-さらに
-
-```math
-\frac{\Lambda}{\kappa a_{\min}}
-=
-O\left(\frac{\epsilon}{m}\right),
-\qquad
-\varepsilon_A,
-\varepsilon_{\rm cmp},
-\varepsilon_{\rm rec},
-T_{\rm node}\varepsilon_{\rm rate}
-=
-O\left(\frac{\epsilon}{m}\right)
-```
-
-を一様に満たすとする。$m,\Lambda^{-1},\kappa^{-1},a_{\min}^{-1}$ と必要な固定装置precisionが $n,d,1/\epsilon$ の多項式で抑えられるなら、
-
-```math
-T_{\rm read,total}
-=
-O\left(
-\frac{m}{\Lambda}
-\log\frac{m}{\epsilon}
-\right)
-```
-
-は多項式である。
-
-この結論はM65 readout自身から指数時間が生じないことを示すが、R186の指数個signal modeに対する加法noise/precision障害を解決しない。一般深さで $a_\Sigma$ の絶対下限が必要ならR192作用安定化を使える。
+Q2-1/Q2-3/Q2-4のterminal readout資源はR206C--R206Eへ移し、R204Fから一般回路の逐次node数、作用下限、polynomial readout-time責務を外す。
 <!-- theorem-end:theorem -->
 
 
@@ -616,9 +579,9 @@ R204Bのphase-volume chamber、R204CのHamiltonian--Brownian lift、finite-bandw
 
 旧R191/R193はM65へ責務を吸収したため現行主線から退役する。exact endpoint、有限record/latch、Q1空操作対照を含むfixed-goal主線は本付録で閉じる。
 
-## Z.11 M66共通phase-volume reservoirとQ2多結果readout候補
+## Z.11 M66共通phase-volume reservoirとQ2多結果readout
 
-M66は、古典coherent signalの局所作用を一つのthermal reservoirのphase volumeへ受動的に写し、排他的な古典configurationを標本化する共通open模型候補である。
+M66は、古典coherent signalの局所作用を一つのthermal reservoirのphase volumeへ受動的に写し、排他的な古典configurationを標本化するQ2共通open readout模型である。Q2-1/Q2-3/Q2-4のterminal readout正本として用いる。
 
 本付録で扱う実体は次の三種類だけとする。
 
@@ -628,7 +591,7 @@ M66は、古典coherent signalの局所作用を一つのthermal reservoirのpha
 
 ここで $H$ は未決定hubである。複素信号、局所作用、phase-volume scale、Markov rateは派生量であり、独立の量子実体ではない。
 
-本付録はQ2末端readoutの候補を与える。Q1逐次測定、Q2-2現行A端--B端逐次interface、M65/R181D/R192/R179の現行fixed-goal責務は本変更では置換しない。
+Q1逐次測定とQ2-2現行A端--B端逐次interfaceはM65/R181Dを維持する。Q2-1/Q2-3/Q2-4ではterminal signalからM66/R206へ直接接続し、逐次projector treeを使わない。R179はQ2-2および全周期renewal責務として残し、Q2-4のroot preparation/refreshはR206Eへ移す。
 
 ### Z.11.1 R205A：共通phase-volume identity
 
@@ -984,6 +947,9 @@ q_\alpha=\frac1n,
 
 ### Z.11.6 R206C：有限時間・製造誤差・完全結果
 
+<!-- theorem-start:theorem -->
+**定理（R206C：finite-time / fabrication-error bound）**
+
 R206Aを $p^\delta$ に適用する。任意のpointer初期分布について
 
 ```math
@@ -1058,6 +1024,14 @@ D_{\rm TV}(\widetilde p,p^\delta)
 で抑えられる。これはchannel数の粗い和を取らないaggregate relative-error boundである。
 
 一方、各signal modeへ状態非依存の独立additive noiseを直接注入する場合はR186の障害が残る。本定理はR186を解消しない。
+<!-- theorem-end:theorem -->
+
+<!-- theorem-start:proof -->
+**証明（R206C）**
+
+R206Aの厳密解に対して任意初期分布の偏差を $\frac12\sum_y|d_y(0)|\leq1$ で抑え、hub質量を完全結果空間に残す。R206Bのregularization差を三角不等式で加え、generator perturbationにはMarkov半群の縮約性とDuhamel評価を使う。local scale誤差については $(1-\xi)s_y\leq\widetilde s_y\leq(1+\xi)s_y$ を規格化前後で比較すれば表示の全変動距離上界を得る。証明終。
+<!-- theorem-end:proof -->
+
 
 ### Z.11.7 R206D：Q2-1、Q2-3、Q2-4 readout bridge
 
@@ -1072,7 +1046,7 @@ J_y=\mathcal J_0|Z_{{\rm out},y}|^2
 を局所入力する。
 
 <!-- theorem-start:theorem -->
-**定理（R206D：Q2 terminal multi-outcome readout candidate）**
+**定理（R206D：Q2 terminal multi-outcome readout）**
 
 terminal signal作用をR206A--R206Cへ同一試行内で物理的に接続し、外部制御器が最終Born表・振幅表・結果別係数表を入力しないとする。すると理想極限で
 
@@ -1096,9 +1070,77 @@ D_{\rm TV}(P_{\rm out},P_C)
 Q2-4では $Y\in\{0,1\}^n$ を固定配線のconfiguration labelとして読み、外部readoutは $O(n)$ bitとする。全chamberを外部走査して結果を探索する方式は本定理の一様装置条件を満たさない。
 <!-- theorem-end:theorem -->
 
-本候補ではterminal readout後に非規格化射影成分を次段へ渡さないため、R181D型逐次projector treeとR192型非終端作用回復をreadout内部には要求しない。ただし本PRでは現行fixed-goal依存からR181D/R192を外さない。
+Q2-1/Q2-3/Q2-4ではterminal readout後に非規格化射影成分を次段へ渡さないため、R181D型逐次projector treeと非終端作用回復を要求しない。R181DはQ1/Q2-2のsame-trial post-state handoffへ責務を限定する。
 
-### Z.11.8 terminal action保持とbackreaction境界
+### Z.11.8 R206E：Q2-4 uniform root preparation / refresh
+
+Q2-4の計算開始rootを
+
+```math
+Z_\star=z_\star e_{0^n}
+```
+
+とする。全signal modeへ同じ減衰率 $\gamma_{\rm p}>0$ を作用させ、固定root portだけへ同じ装置族で一定driveを入れるopen preparation law
+
+```math
+\dot Z_y
+=
+-\gamma_{\rm p} Z_y
++
+\gamma_{\rm p} z_\star\,\delta_{y,0^n}
+```
+
+を用いる。これは各modeの初期値、Born重み、回路出力表を外部から入力しない。
+
+<!-- theorem-start:theorem -->
+**定理（R206E：uniform root preparation / refresh）**
+
+初期誤差が
+
+```math
+\|Z(0)-Z_\star\|\leq B_{\rm p}
+```
+
+を満たす任意の前試行状態に対し、
+
+```math
+Z(t)-Z_\star
+=
+e^{-\gamma_{\rm p}t}
+[Z(0)-Z_\star],
+```
+
+従って
+
+```math
+\|Z(T_{\rm p})-Z_\star\|
+\leq
+B_{\rm p}e^{-\gamma_{\rm p}T_{\rm p}}.
+```
+
+$B_{\rm p}$、$\gamma_{\rm p}^{-1}$ が $n,d,1/\epsilon$ の多項式で抑えられるなら、
+
+```math
+T_{\rm p}
+\geq
+\gamma_{\rm p}^{-1}
+\log\frac{B_{\rm p}}{\epsilon_{\rm p}}
+```
+
+でroot preparation時間は多項式である。外部制御はglobal preparation windowと固定root portだけであり、$2^n$ modeの個別reset、個別較正、指数長初期化表を要求しない。
+
+またR206Aはsampler pointerの任意初期分布から同じtarget lawへ指数収束するため、Q2-4の一出力標本生成にpointerの結果別明示resetを要求しない。
+<!-- theorem-end:theorem -->
+
+<!-- theorem-start:proof -->
+**証明（R206E）**
+
+各成分について一次線形方程式を解けば表示の指数収束を得る。pointer側はR206Aの $d_y(t)=e^{-\Lambda t}d_y(0)$ をそのまま適用する。証明終。
+<!-- theorem-end:proof -->
+
+R206EはQ2-4 fixed-goalの準備・refresh資源を閉じるopen lawである。永久record、装置全体の自律clock、全系列を通じたjoint-device renewalはM0へ残す。
+
+### Z.11.9 terminal action保持とbackreaction境界
 
 action-angle表示でsampler couplingが $J_y$ とreservoir座標だけに依存し、$\phi_y$ に依存しないなら
 
@@ -1114,7 +1156,7 @@ action-angle表示でsampler couplingが $J_y$ とreservoir座標だけに依存
 
 一方、R181Cのcoherent gate実行中から同じ有限強度couplingを常時作用させても位相coherenceを十分保てることは本付録では証明しない。always-on passive coupling、finite-bandwidth reservoir、full Hamiltonian lift、gate中のphase backreactionはM66 strengtheningとして残す。
 
-### Z.11.9 Q2-4資源境界
+### Z.11.10 Q2-4資源境界
 
 $L=2^n$ のとき内部受動資源として次を許容・報告する。
 
@@ -1139,18 +1181,16 @@ O\left(
 
 R186のdirect-amplitude registerに対する独立additive-noise障害は独立に残る。従ってM66/R206追加だけからQ2-4を達成へ昇格しない。
 
-### Z.11.10 candidate status
+### Z.11.11 fixed-goal status
 
-M66/R205A--R205D/R206A--R206Dは、Q2共通readoutを単一multi-outcome reservoir samplerへ縮約するactive replacement candidateである。
+M66/R205A--R205D/R206A--R206Eを、Q2-1/Q2-3/Q2-4のterminal multi-outcome readout正本として採用する。
 
-この段階では次を変更しない。
+現行責務は次のように分離する。
 
-- M65/R204A--R204Fの現行2結果selector責務。
-- R181Dのprojector-router責務。
-- R192のQ2-4非終端作用安定化責務。
-- R179の現行open reset/supply責務。
-- Q2-1/Q2-2/Q2-3/Q2-4の達成ラベルと直接依存。
-- Q2-2の現行非空間分離A端--B端逐次interface。
-- R186のadditive-noise障害。
+- Q1およびQ2-2の逐次binary instrument：M65/R204D--R204F＋R181D。
+- Q2-1/Q2-3/Q2-4のterminal joint readout：M66/R206A--R206D。
+- Q2-4のuniform root preparation / refresh：R206E。
+- Q2-2および全周期renewal側のopen reset：R179。
+- Q2-4のdirect-amplitude register additive-noise監査：R186。
 
-後続promotionでは、Q2-1/Q2-3/Q2-4のterminal readoutをR206Dへ切り替えられるかを、required verifierと全依存グラフを含めて別PRで判定する。
+Q2-4の旧逐次binary readout、非終端作用安定化、結果別routerはfixed-goal主線から外す。Q2-4の条件付き達成はR186障害が残るため維持する。

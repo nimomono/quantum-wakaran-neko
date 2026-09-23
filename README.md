@@ -54,7 +54,7 @@ r
 P_rZ.
 ```
 
-固定有限回の逐次測定では、各段で信号を物理的に規格化し直す必要はありません。一般に深いQ2-4の回路で作用が小さくなりすぎる場合だけ、状態方向を変えず作用の大きさだけを戻すR192を補助的に使います。
+固定有限回のQ1/Q2-2逐次測定では、各段で信号を物理的に規格化し直す必要はありません。Q2-1/Q2-3/Q2-4の最終計算基底読出しは別のM66/R206 multi-outcome samplerを使います。
 
 この経路で、Born型2結果分布、同軸反復、異軸逐次測定、有限回のRabi--Zeno比較まで構成しています。
 
@@ -166,10 +166,10 @@ A1/A2は固定目標とは独立に監査する。M64の正式昇格だけから
 
 M65は、二つの保持済み射影作用から排他的な二結果を作るcanonical open selectorである。最小模型は $+,H,-$ の3状態連続時間Markov過程で、保持作用はhubから各結果へのrateへ線形に入る。Born確率表や作用和による除算を外部制御器へ入力せず、有限時間で結果比をBorn作用比へ近づける。phase-volume chamberとHamiltonian--Brownian縮約はM65の追加実現候補であり、正本の成立条件ではない。
 
-M65はexact endpoint $A_r=0$ を含む入力、有限decision終了時のR112型record/latch、R189AからM65を経てR181Dへ渡すQ1接続までを備える。Q1/Q2 fixed-goalの現行測定主線にはM65を採用する。旧R191ブラウン巨視的スピン読出しとR193 Q1 decision bridgeはM65へ責務を吸収したため退役し、notes/Git履歴へ保存する。
+M65はexact endpoint $A_r=0$ を含む入力、有限decision終了時のR112型record/latch、R189AからM65を経てR181Dへ渡すQ1接続までを備える。現行fixed-goalではQ1とQ2-2の逐次binary instrumentにM65を使う。旧R191ブラウン巨視的スピン読出しとR193 Q1 decision bridgeはM65へ責務を吸収したため退役し、notes/Git履歴へ保存する。
 
-### M66/R206 multi-outcome readout candidate
+### M66/R206 multi-outcome readout
 
-Q2-1/Q2-3/Q2-4のterminal readoutを一回のcommon-reservoir samplingへ縮約するM66/R205--R206をactive replacement candidateとして追加している。有限 \(L\) common-hub samplerは \(L\) と最小Born重みに依存しないmixing boundを持ち、Q2-4では \(L=2^n\) channelを同一のlocal phase-volume規則で受動的に構成する。
+Q2-1/Q2-3/Q2-4のterminal readoutはM66/R205--R206を現行主線とする。finite-$L$ common-hub samplerは $L$ と最小Born重みに依存しないmixing boundを持ち、Q2-4では $L=2^n$ channelを同一のlocal phase-volume規則で受動的に構成する。R206Eは全mode共通減衰と固定root driveで $0^n$ rootを準備し、個別mode resetや指数長初期化表を要求しない。
 
-これはまだ現行fixed-goal主線ではない。Q1/Q2の現行2結果selectorはM65、結果成分受渡しはR181D、Q2-4の非終端作用回復はR192、open reset/supplyはR179のままとする。R186のdirect-amplitude register additive-noise障害も残る。
+Q1/Q2-2の逐次binary measurementはM65/R181Dを維持する。Q2-4から逐次R181D treeとR192を外し、R192はactive paperから退役した。R186のdirect-amplitude register additive-noise障害は残る。

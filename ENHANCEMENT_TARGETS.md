@@ -95,10 +95,10 @@ Q2-2-Sの主要な到達目標は、Bell型共同統計を維持したままS2�
 |---|---|---|---|---|---|---|---|
 | Q1-1 | 未監査 | 未監査 | 未監査 | 未監査 | 未監査 | — | M37、R140、R187 |
 | Q1-2 | 未監査 | 未監査 | 未監査 | 未監査 | 未監査 | — | R189A--R189C、M65/R204D--R204F、R181D |
-| Q2-1 | 未監査 | 未監査 | 未監査 | 未監査 | 未監査 | — | M54、R181B--R181D、M65/R204D--R204E |
+| Q2-1 | 未監査 | 未監査 | 未監査 | 未監査 | 未監査 | — | M54、R181B--R181C、M66/R205--R206 |
 | Q2-2 | 未監査 | 未監査 | 未監査 | 未監査 | 未監査 | 未監査 | R180A、R180C、M65/R204D--R204E |
-| Q2-3 | 未監査 | 未監査 | 未監査 | 未監査 | 未監査 | — | M54、R177、R181B--R181D、M65/R204D--R204E |
-| Q2-4 | 未監査 | 未監査 | 未監査 | 未監査 | 未監査 | — | M54、R179、R181C--R181D、R186、R192、M65/R204F |
+| Q2-3 | 未監査 | 未監査 | 未監査 | 未監査 | 未監査 | — | M54、R177、R181B--R181C、M66/R205--R206 |
+| Q2-4 | 未監査 | 未監査 | 未監査 | 未監査 | 未監査 | — | M54、R181C、R186、M66/R205--R206E |
 | Q3-1 | 部分達成 | 未監査 | 未監査 | 未監査 | 未監査 | — | M37、R86 |
 | Q3-2 | 部分達成 | 未監査 | 未監査 | 未監査 | 未監査 | — | M37、R86、M64、R203A--R203D、R161、R185 |
 | Q3-3A | 未監査 | 未監査 | 未監査 | 未監査 | 未監査 | — | M37、R123 |
@@ -129,14 +129,14 @@ M0は、複数の固定目標にまたがる主要自由度と物理接続端を
 
 ## M65/R204 canonical open model と強化実現
 
-M65/R204A/R204D/R204E/R204Fのopen selector核はQ1/Q2 fixed-goal正本として採用する。Markov方程式そのものを開放ミクロ方程式として直接定めるため、R204Bのphase-volume chamberとR204CのHamiltonian--Brownian liftをM65正本性やfixed-goal判定の必要条件にしない。
+M65/R204A/R204D/R204E/R204Fのopen selector核はQ1/Q2-2の逐次fixed-goal正本として採用する。Markov方程式そのものを開放ミクロ方程式として直接定めるため、R204Bのphase-volume chamberとR204CのHamiltonian--Brownian liftをM65正本性やfixed-goal判定の必要条件にしない。
 
 R204B/R204C、finite-bandwidth bath、direct Brownian chamber trajectory、具体回路化は追加のA2/B系・横断強化として扱う。M65正本化だけからQ1/Q2のA1/A2/B1/B2/B3状態を自動的に変更しない。A1へM65を採用する場合も、各固定目標の主要因果鎖全体を一つの具体模型として閉じる必要がある。
 
-Q2-4についてM65固有readout時間は多項式条件を持つが、R186の指数mode additive-noise/precision障害は独立に残る。
+Q2-4のterminal readout責務はM66/R206へ移し、M65のQ2-4 polynomial node-time条件はfixed-goal責務から外す。
 
-## M66/R205--R206 common-reservoir readout candidate
+## M66/R205--R206 common-reservoir readout
 
-Q2-1/Q2-3/Q2-4のA1/A2候補としてM66/R205--R206を追加する。R205A--R205Dはphase-volume reservoirの共通原理、R206A--R206Dはmulti-outcome sampler、一様passive channel、有限時間・製造誤差、Q2資源境界を与える。
+M66/R205--R206はQ2-1/Q2-3/Q2-4 fixed-goalのterminal readout正本であり、A1/A2監査ではその具体的物理実現を候補とする。R205A--R205Dはphase-volume reservoirの共通原理、R206A--R206Dはmulti-outcome sampler、一様passive channel、有限時間・製造誤差、Q2資源境界、R206Eはuniform root preparation/refreshを与える。
 
 本追加だけではA1/A2状態を変更しない。full Brownian/chamber trajectory、finite-bandwidth reservoir、always-on coupling中のphase backreaction、具体回路化は未監査である。Q2-4ではR186のcoherent register additive-noise障害を独立に維持する。

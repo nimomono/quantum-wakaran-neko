@@ -49,10 +49,11 @@ def main() -> None:
         "notes/superseded_a8_m47_hopf_preparation.md",
         "notes/superseded_r181a_template_port_preparation.md",
     ):
-        require(path, "現行注記（draft-125）", "`theory_lineage.md`")
+        require(path, "現行注記（draft-127）", "`theory_lineage.md`")
     require(
         "notes/brownian_spin_q1_q3_unification.md",
-        "draft-120以後のQ1/Q2測定正本はM65/R181D",
+        "draft-127以後、Q1/Q2-2の逐次測定正本はM65/R181D",
+        "Q2-1/Q2-3/Q2-4のterminal readout正本はM66/R205--R206",
         "`theory_lineage.md`",
     )
 
