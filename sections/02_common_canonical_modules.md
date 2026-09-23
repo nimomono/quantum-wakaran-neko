@@ -1,11 +1,40 @@
 @number: 2
 @chapter: 本文
-@title: 有限モード信号系と共通正準モジュール
-@status: M54をQ1・Q2・Q3の共通有効信号--配置状態構成族、R161をQ3位置輸送の共通数学核とする。Q3の現行物理実現はM37/R86 signalとM64/R203A--R203Dの三実体open modelとし、1次元R185およびfinite-graph位置読出しへ同じR161を介して接続する。
+@title: 有限正準信号と共通熱浴モジュール
+@status: M54をQ1・Q2・Q3の共通有効signal・状態構成層、M66/R205を共通thermal-reservoir interface、R161をQ3位置輸送の共通数学核とする。M64/M65は系列固有domain model、R206はM66のQ2 terminal specialization、R207はQ2-2-S strengthening candidateとして責務を分ける。
 
-## 2.1 M54をQ1--Q3共通有効状態構成族とする範囲
+## 2.1 共通signal層と共通thermal-reservoir層
 
-M54は有限個の実正準対から得る信号、準備済み入力境界、永続記憶部、可逆作業領域、作用保持指針、実在配置、記録、時計自由度を共通化する有効状態構成族である。Q1/Q2-2の逐次binary readoutはM65/R181D、Q2-1/Q2-3/Q2-4のterminal joint readoutはM66/R206へ接続する。派生複素座標を
+M54は有限個の実正準対から得るsignal、準備済み入力境界、永続記憶部、可逆作業領域、作用保持指針、粒子位置interface、記録、時計自由度を共通化する有効状態構成族である。これと独立にM66/R205A--R205Fは、resolved classical degreeとthermal reservoirの間に現れるphase-volume、mean-flow、thermal sampling、matched capacity--conductance、passive separationを共通化する。Q1--Q3の統一は、1つの万能模型へ潰すのではなく、この2つの共通層と用途別specializationの組合せとして扱う。
+
+M66の共通入力を正のphase-volume weight $w(Q,t)>0$、通常のenergy landscape $H_{\rm cfg}(Q,t)$、mean-flow port $U(Q,t)$ とする。付録XのR205A/R205Cは
+
+```math
+F_{\rm res}(w)
+=
+-k_BT\log w+C
+```
+
+とmean-flow shiftの両立を与え、R205Eは
+
+```math
+p_{\rm eq}(Q)
+\propto
+w(Q)e^{-\beta H_{\rm cfg}(Q)}
+```
+
+のthermal sampler、R205Fは空間分離時のgenerator decouplingを与える。
+
+| 用途 | 共通熱浴原理との対応 | 用途固有に残る責務 |
+|---|---|---|
+| M64 / Q3 | R203Bの $w=r_X^\delta/r_*$ とmean-flow sectorをR205Cへ埋め込む | R203A current dictionary、initial/flow trackingの具体実装、tracer、R203C/R203D |
+| M65 / Q1・Q2-2 | R204B phase-volume chamberをR205Dのbinary fixed-hub specializationとして回収 | M65 canonical 3状態open law、R204D--R204F、R181D handoff |
+| R206 / Q2-1・Q2-3・Q2-4 | M66のfinite-$L$ common-hub terminal specialization | Q2 terminal bridge、finite-time/fabrication error、Q2-4 root preparation |
+| R207 / Q2-2-S | R205E joint thermal preparationとR205F passive separationを利用 | setting precursor、CHSH witness、Bell前提監査、finite-speed残件 |
+
+従ってM66はM64/M65のwhole-model parentではなく、共通reservoir interfaceのparentである。共通化されたsectorと各domain model固有のsectorを混同しない。
+
+M54から作る派生複素座標を
 
 ```math
 Z=\frac{Q+iP}{\sqrt{2\mathcal J_0}}
@@ -323,7 +352,7 @@ X_t .
 
 Q1/Q2のM65 pointerをQ3 tracerへ同一視する主張ではない。
 
-## 2.8 R161の共通整合・Markov経路法則とM64/R162の物理・参照実現## 2.8 R161の共通整合・Markov経路法則とM64/R162の物理・参照実現
+## 2.8 R161の共通整合・Markov経路法則とM64/R162の物理・参照実現
 
 有限配置集合 $\mathcal I$ 上の正の時間依存確率分布 $\pi_i(t)>0$ を考える。辺ごとに反対称確率流と対称活動量
 
@@ -489,6 +518,8 @@ R161は静的・移動の率構成に加え、有限状態のcanonical Markov経
 
 
 ### 2.9 M65：3状態open binary selector
+
+M65のcanonical lawはM66から導出するのではなく、$+,H,-$ の3状態open Markov generatorとして直接定める。付録X/R205Dが共通化するのはR204Bのphase-volume chamber実現だけであり、M65自身のfixed-goal正本性はR204D--R204Fに依存する。
 
 M65は $A_\pm\geq0$、$A_++A_->0$ を満たす二つの保持済み作用を読む古典open selectorである。固定 $A_*>0$ に対して $a_r=A_r/A_*$ とし、pointer $X_t\in\{+,H,-\}$ のrateを
 
@@ -953,38 +984,8 @@ G_{\rm rec}=\sum_i d_i(x)P_{D_i}
 
 M65は開放3状態Markov方程式を基本方程式として採用し、phase-volume chamber/Hamiltonian--Brownian liftは強化実現へ分離する。Q1/Q2-2では同じbinary selector interfaceを使う。Q2-1/Q2-3/Q2-4はM66/R206 terminal samplerで判定し、Q2-4だけはR186資源条件を含むため条件付き達成を維持する。有限浴化は別の強化課題である。一意エルゴードな外部時刻割当または有限熱化から、結果列の独立同分布性や二項型有限標本揺らぎも従わない。
 
-### M66/R205：common thermal-reservoir parent
+### 共通熱浴層との対応
 
-M66はphase-volume、mean-flow、thermal sampling、passive separationをR205A--R205Fとして共通化するreservoir layerである。M64/M65のdomain modelは置換せず、R203Bのpartition/free-energy sectorをR205C、R204Bのfixed-hub realizationをR205Dへ埋め込む。R205Eは $p_{\rm eq}\propto we^{-\beta H_{\rm cfg}}$ のreversible thermal sampler、R205Fは距離依存相互作用とreservoir cross-correlationが消えるとjoint generatorが局所和へ分離する条件を与える。
+M66/R205の共通thermal-reservoir interfaceは2.1で定義した。ここで必要なのは、M65のcanonical law、M64 tracer dynamics、R206 terminal samplerを同一の完成装置とみなさないことである。R203B--R205C、R204B--R205D、R206、R205E/F--R207の対応は2.1の表と付録X/Wを参照する。
 
-### R206：Q2 terminal multi-outcome specialization
-
-R206Aの有限 $L$ common-hub samplerは
-
-```math
-k_{y\to H}=\Lambda,
-\qquad
-k_{H\to y}=\kappa a_y
-```
-
-を基本open lawとし、
-
-```math
-d_y=x_y-\frac{a_y}{a_\Sigma}(1-h),
-\qquad
-\dot d_y=-\Lambda d_y
-```
-
-を満たす。
-
-Q2-4では各channelのlocal scaleを
-
-```math
-s_y=\delta+\frac{LJ_y}{J_*},
-\qquad
-L=2^n
-```
-
-とし、capacity/conductanceを $V_y=V_0s_y$、$G_y=G_0s_y$、hubを $V_H=LV_H^0$ とする。全channelは同一規則の受動複製であり、外部から指数長係数表を与えない。
-
-R206をQ2-1/Q2-3/Q2-4のterminal readout正本とし、R206Eのuniform root preparation/refreshを併用する。Q1/Q2-2のM65/R181DとQ2-2/full-cycle側のR179は別責務として維持する。
+Q2-1/Q2-3/Q2-4ではR206をterminal readout正本とし、R206Eのuniform root preparation/refreshをQ2-4で併用する。Q1/Q2-2のM65/R181DとQ2-2/full-cycle側のR179は別責務として維持する。

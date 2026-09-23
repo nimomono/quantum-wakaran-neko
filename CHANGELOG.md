@@ -1,3 +1,11 @@
+## draft-132：signal層・thermal-reservoir層を軸とする統一ストーリー同期
+
+- M54を共通signal・状態構成層、M37をsignal物理実装層、M66/R205を共通thermal-reservoir interfaceとして、第0・1・2・8・9章とREADMEの説明順を統一する。
+- M64/M65は系列固有模型、R206はM66のQ2終端多結果specialization、R207はR205E/Fを用いるQ2-2-S strengthening candidateとして責務境界を明示する。
+- Q2-3末端readerの旧M65/R181D記述、R205FをQ2-2-Sの「後続」とする旧現在形、重複見出し、MANIFESTの古い付録一覧を修正する。
+- fixed-goal定義・達成ラベル、R203--R207の理論内容、required/candidate分類、A1/A2/B/Q2-2-S状態は変更しない。
+- M66共通化からwhole-model derivation、同一bath、同一hardware、M0達成を推論しない。
+
 ## draft-131：第5章とQ2-2-S管理文書の同期
 
 - 第5章をQ2-2 fixed-goalのR180C逐次証人とQ2-2-SのR207 candidateの二層構造へ再編し、Bell前提監査を並列に整理する。

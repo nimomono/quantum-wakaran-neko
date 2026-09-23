@@ -1,7 +1,7 @@
 @number: 8
 @chapter: 本文
 @title: 誤差、資源、反証条件、未完成目標
-@status: Q1/Q2-2のM65/R181D逐次系、Q2-1/Q2-3/Q2-4のM66/R206 terminal readout系、Q3のM37/R86--M64/R203A--R203D--R161--R185階層を横断して誤差・資源・反証条件を整理する。Q2-4ではR206E preparation、R206C/D sampling、R186 robustnessを責務別に管理する。
+@status: M54 signal層、M66/R205共通thermal-reservoir層、M64/M65/R206/R207の用途別specializationを横断し、同じ物理偏差を共通層と系列固有層で二重計上しない誤差・資源台帳を与える。Q2-4ではR206E preparation、R206C/D sampling、R186 robustnessを責務別に管理する。
 
 
 ## 8.1 誤差を1回だけ数える規約
@@ -15,6 +15,7 @@
 5. 無反応質量を理想分布差と実装失敗へ2回加える。
 6. 同じ準備済み入力偏差を $\varepsilon_{\rm in}$、R135の初期共分散誤差、系列固有の入力誤差へ重ねて入れる。
 7. M64ではinitial preparation、current dictionary、mean-flow tracking、density interpolation、process reductionを導出箇所ごとに一度だけ数える。$\delta$ をcurrent-dictionary誤差とR185 regularizationへ二重に加算せず、process-law errorとNewton force residualを単純加算しない。
+8. M66/R205で共通化したphase-volume、mean-flow、thermal mixing、passive separationの同じ物理偏差を、M64/M65/R206/R207側で独立誤差として再加算しない。共通原理のexact identityと、各specialization固有のfinite-time・generator・record誤差を分ける。
 
 全ての理想分布と実分布は同じ完全結果集合へ埋め込む。成功試行だけで再規格化しない。
 
@@ -362,7 +363,7 @@ $\delta$ はR203Aの辞書誤差へ再加算せず、R185 regularizationとfinit
 
 このregularizationはM64のphase-volume reservoir、continuous tracer、finite-graph generator、R185残差の誤差台帳で一度だけ数える。退役した旧作用殻測定経路の殻剛性、混合時間、作用開口frequencyは現行Q1/Q2/Q3の資源台帳へ移さない。
 
-## 8.9 Q2の根拠モデル、共通ハードウェア努力目標、ブラックボックス資源分類## 8.9 Q2の根拠モデル、共通ハードウェア努力目標、ブラックボックス資源分類
+## 8.9 Q2の根拠モデル、共通ハードウェア努力目標、ブラックボックス資源分類
 
 Q2-1からQ2-4は、次の根拠モデルと根拠結果から互いに独立に判定する。独立とは他のQ2目標の達成ラベルを前提にしないという意味であり、同じ模型または部品定理を複数の目標で使うことは禁止しない。目標ごとに信号系、浴、時計自由度、準備・読出し原理が異なっても、それだけでは不達としない。ここで「根拠結果」は `PROJECT_STATUS.md` の固定目標表と同じく、達成判定で直接参照する結果だけを列挙し、個々の結果が内部で用いる推移的依存は重複列挙しない。
 
@@ -410,7 +411,7 @@ P(100)=\sin^2\frac{\pi}{8},
 
 完全位相緩和出力は両者が $1/2$ であり、全変動距離は $1/(2\sqrt2)$ である。コヒーレント側と混合側の装置誤差の和がこの値未満なら正の識別余裕が残る。
 
-R181Bは3入力の有限テンソル積状態の生成、R181Cは同じ8モード記憶部上の2つの二次ゲート領域と逆演算、R177は上の識別余裕を与える。第1ゲート後も同じ単一試行状態を保持して第2ゲートへ渡し、M65とR181Dが末端2結果読出しと結果成分受渡しを与えるため、固定3入力のQ2-3は達成である。8モードが受動的に存在すること自体は失敗条件ではない。失敗条件は中間で統計量へ縮約して再準備すること、または固定3入力の一試行に必要な各モードを外部から個別に初期化、較正、同期、個別指定することである。一般サイズの資源効率はQ2-4へ、物理clock・永久record・reset・renewalの全周期統合はM0へ分離する。
+R181Bは3入力の有限テンソル積状態の生成、R181Cは同じ8モード記憶部上の2つの二次ゲート領域と逆演算、R177は上の識別余裕を与える。第1ゲート後も同じ単一試行状態を保持して第2ゲートへ渡し、回路末端の8結果作用をM66/R206Dへ直接接続して一回標本化するため、固定3入力のQ2-3は達成である。8モードが受動的に存在すること自体は失敗条件ではない。失敗条件は中間で統計量へ縮約して再準備すること、または固定3入力の一試行に必要な各モードを外部から個別に初期化、較正、同期、個別指定することである。一般サイズの資源効率はQ2-4へ、物理clock・永久record・reset・renewalの全周期統合はM0へ分離する。
 
 ## 8.11 Q2-4多項式外部制御による量子出力サンプリング
 
@@ -480,7 +481,7 @@ Q2-4は条件付き達成を維持する。reader側の逐次branch、作用下�
 
 固定目標上の未完成事項は、Q3-6の位相量子化とQ2-4のR186 robustness条件である。Q2-4ではR206E root preparation、R181C gate列、R206 terminal samplerの一様規則と多項式外部運用資源を閉じ、reader側の旧逐次依存を外した。残るfixed-goal条件は、M54 direct-amplitude registerの製造ばらつき・運転中additive noiseがR186の許容範囲に入り、指数精度へ露出しないことである。Q2-1/Q2-3は固定深さの一試行interface、Q2-2はA端結果成分をB端へ渡す非空間分離逐次interface、Q3-4A/Q3-4B/Q3-5はM64 finite-graph tracerの一試行位置読出しまでを既存結果で閉じている。これらの準備から永久記録、reset、物理clock、次試行renewalまでの全周期統合はM0へ分離する。
 
-固定目標に付随する標準強化目標の定義、適用範囲、現在地は `ENHANCEMENT_TARGETS.md` を正本とする。全固定目標に具体的古典ミクロ模型A1と直接数値再現A2、Q1/Q2に具体回路B1、実験可能領域B2、回路直接数値再現B3を置く。Q2-2にはさらに、非空間分離の現行証人から物理的2端化、測定窓内因果隔離、隔離下のBell前提監査へ進むQ2-2-Sを置く。これらの強化状態は固定目標の達成状態と独立であり、導入時点では全て未監査とする。
+固定目標に付随する標準強化目標の定義、適用範囲、現在地は `ENHANCEMENT_TARGETS.md` を正本とする。全固定目標に具体的古典ミクロ模型A1と直接数値再現A2、Q1/Q2に具体回路B1、実験可能領域B2、回路直接数値再現B3を置く。Q2-2にはさらに、非空間分離の現行証人から物理的2端化、測定窓内因果隔離、隔離下のBell前提監査へ進むQ2-2-Sを置く。これらの強化状態はfixed-goal達成状態と独立に、`ENHANCEMENT_TARGETS.md` の現在地表で管理する。
 
 A1ではHamiltonian無限浴だけでなく、規約と共分散を明示して直接定めたLangevin型SDEその他の開放ミクロ方程式を認め、理想白色雑音を許す。A2ではA1で定めたミクロODE/SDEそのものを直接計算する。理想白色雑音を使うQ1/Q2模型を回路へ移す場合、B2/B3では有限帯域雑音源と時間尺度分離を明示する。
 
@@ -555,6 +556,18 @@ R204Bのphase-volume chamberとR204CのHamiltonian--Brownian liftを採用する
 M65の現行fixed-goal範囲はQ1/Q2-2の逐次binary instrumentである。Q2-1/Q2-3/Q2-4のterminal readout資源はM66/R206へ移す。
 
 ## 8.15 M66/R205 common parentとR206の誤差・資源境界
+
+共通thermal-reservoir層と各specializationの誤差責務を次のように分ける。
+
+| 対象 | 共通層で数える量 | specialization側で追加する量 |
+|---|---|---|
+| M64/R203B--R203C | phase-volume identity自体はexact。採用するthermal mixingまたはmean-flow portの実装偏差 | current dictionary、initial preparation、finite-time flow tracking、tracer縮約、R161/R185接続 |
+| M65/R204B | R205Dのcapacity--conductance恒等式自体はexact | canonical M65 finite-time/hub/endpoint/record error。chamber/Brownian liftを採用した場合だけそのgenerator近似 |
+| R206 | R205Bのmatched capacity--conductance原理 | R206Cのfinite-time、hub residual、regularization、generator、record、fabrication error |
+| R207 | R205E thermal mixing、R205F generator separation defect | setting latch、finite-lock近似、outcome fixation、finite-speed reservoir/timing未閉包 |
+
+この表は同じ偏差の二重計上を防ぐための責務境界であり、M64/M65/R207をM66のwhole-model specializationへ昇格させるものではない。
+
 
 M66 common parentでは、R205Cのphase-volume / mean-flow orthogonalityはexact partition identityなので新しい近似誤差を加えない。R205Eを有限準備窓で使う場合は
 

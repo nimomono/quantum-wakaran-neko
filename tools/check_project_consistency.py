@@ -129,6 +129,26 @@ def check_note_references() -> None:
         raise AssertionError("historical note references point to missing files: " + ", ".join(missing))
 
 
+def manifest_section_paths(text: str) -> set[str]:
+    block = between(text, "## 現行章別 Markdown", "## 論文外の研究メモ")
+    return set(re.findall(r"`(sections/[^`]+\.md)`", block))
+
+
+def check_manifest_sections() -> None:
+    manifest = (ROOT / "MANIFEST.md").read_text(encoding="utf-8")
+    listed = manifest_section_paths(manifest)
+    actual = {
+        path.relative_to(ROOT).as_posix()
+        for path in SECTIONS.glob("*.md")
+    }
+    if listed != actual:
+        raise AssertionError(
+            "MANIFEST current section list differs from sections directory: "
+            f"missing_in_manifest={sorted(actual-listed)}, "
+            f"missing_on_disk={sorted(listed-actual)}"
+        )
+
+
 def main() -> None:
     project_status = (ROOT / "PROJECT_STATUS.md").read_text(encoding="utf-8")
     retired_index = (ROOT / "notes" / "superseded_result_index.md").read_text(encoding="utf-8")
@@ -159,6 +179,7 @@ def main() -> None:
         )
 
     check_note_references()
+    check_manifest_sections()
     print(
         "project_consistency_ok "
         f"active={len(declared)} dependencies={len(dependencies)} retired={len(retired)}"

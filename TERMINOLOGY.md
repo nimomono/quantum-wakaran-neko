@@ -272,6 +272,13 @@ CNOT、CHSH、SWAP、SU(2)など、分野で定着した略号はそのまま使
 | setting-pre paired-Hopf receiver | 設定先行2端Hopf受信機構 |
 | moving specialization | 移動型への特殊化 |
 | static specialization | 静的型への特殊化 |
+| common-reservoir parent | 共通熱浴親模型 |
+| reservoir layer | 熱浴共通層／共通熱浴interface |
+| domain model | 系列固有模型 |
+| terminal readout | 終端読出し |
+| passive separation | 受動分離 |
+| setting precursor | 設定前駆自由度 |
+| measurement independence | 測定設定独立性 |
 
 `paired-Hopf` のようにプロジェクト固有の物理機構を指す名称は、定義を失わない範囲で本文の説明に合わせてさらに改名してよい。
 

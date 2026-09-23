@@ -1,3 +1,12 @@
+## draft-132：統一ストーリー同期
+
+- 第0・1・2・8・9章、README、PROJECT_STANCE、PROJECT_GUIDE、PROJECT_STATUS、ENHANCEMENT_TARGETS、TERMINOLOGY、MANIFEST、theory lineageを、M54 signal層 + M66/R205 thermal-reservoir層 + M64/M65/R206/R207用途別specializationという同じ説明構造へ同期する。
+- fixed-goal定義・達成ラベル、R203--R207 theorem、required/candidate分類、A1/A2/B/Q2-2-S状態は変更しない。
+- `tools/migrations/check_draft132_unified_story_sync.py` で、Q2-3のR206 terminal readout、R207接続済み現在形、Q2-2 fixed-goal不変、Q2-2-S未監査、重複見出し除去を確認する。
+- `tools/check_project_consistency.py` に、MANIFESTの現行章一覧と実際の `sections/*.md` の集合一致を一般不変条件として追加する。
+- 既存required physics checksとR207 candidate checksを再実行し、新しいphysics verifierは追加しない。
+- paper再生成、generated-file sync、LaTeX semantics、typeset lintを最終headで確認する。
+
 ## draft-131：第5章とQ2-2-S管理文書の同期
 
 - 第5章5.1/5.6/5.7と `ENHANCEMENT_TARGETS.md` のS0--S4現在地を同期し、後者をQ2-2-Sの定義・公式状態・現在地の正本として維持する。
