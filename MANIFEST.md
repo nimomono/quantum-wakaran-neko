@@ -1,3 +1,10 @@
+## draft-130：R207A--R207D Q2-2-S candidate
+
+- A23/付録WへR207A--R207Dを追加し、M66/R205E thermal preparationとR205F passive separationをQ2-2-S候補へ接続する。
+- R207Bはdeep-well/strong-lock CHSH witness、R207Cは分離後local responseとmeasurement-dependence監査、R207DはBell-local controlを与える。
+- Q2-2 fixed-goalのR180C--M65/R181D証人と達成ラベル、Q2-2-Sの未監査状態は変更しない。
+- candidate quadratureは追加するが、direct full SDE trajectory、finite-speed spatial reservoir、A2/B判定は未監査のままとする。
+
 ## draft-129：M66 common-reservoir parent拡張・R205C--R205F正式化
 
 - M66をcommon thermal-reservoir parentへ拡張し、R205Cのphase-volume / mean-flow orthogonality、R205DのM65 fixed-hub特殊化、R205Eのthermal Gibbs sampler、R205Fのpassive separation principleを正式化する。

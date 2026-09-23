@@ -1,3 +1,10 @@
+## draft-130：R207A--R207D Q2-2-S candidate
+
+- A23/付録WへR207A--R207DをQ2-2-S spatial-preparation candidateとして追加する。
+- R207AはM66/R205Eを使う対称joint Gibbs preparation、R207Bはdeep-well/strong-lock CHSH witness、R207CはR205F後のlocal responseとmeasurement-dependence監査、R207DはBell-local controlを与える。
+- Q2-2 fixed-goalの現行R180C--M65/R181D証人、Q2-2達成ラベル、Q2-2-S未監査状態は変更しない。
+- finite-speed spatial reservoir、continuous full SDE trajectory、実験装置は未監査とし、R207をfixed-goal直接依存へ追加しない。
+
 ## draft-129：M66 common-reservoir parent拡張・R205C--R205F正式化
 
 - M66をphase-volume、mean-flow、thermal sampling、passive separationを共通化するthermal-reservoir parentへ拡張する。Q2-1/Q2-3/Q2-4の現行readoutはR206A--R206EをM66の特殊化として維持する。
@@ -500,6 +507,10 @@ M0は、個別のA1模型を並べるだけでは達成としない。少なく�
 | R206C | 厳密有限時間・製造誤差結果 | finite-time mixing、hub residual、regularization、generator/record誤差をL非依存に合成し、local multiplicative/additive scale誤差の規格化TV上界を与える |
 | R206D | 条件付きQ2 bridge | R181C後の実terminal signal作用を4・8・\(2^n\)結果common samplerへ接続し、Q2-1/Q2-3/Q2-4のone-shot terminal readoutを与える。外部Born表・振幅表・全channel走査を使わない |
 | R206E | 直接定めた開放方程式に対する厳密結果 | 全mode共通減衰と固定 \(0^n\) root driveから任意前試行状態をrootへ指数収束させ、Q2-4準備時間を対数精度依存に抑える。sampler pointerはR206A mixingにより結果別reset不要 |
+| R207A | Q2-2-S候補・厳密対称性結果 | M66/R205Eのcontinuous Gibbs preparationを二つのrotorと双安定setting precursorへ特殊化し、4 setting sectorの厳密な公平性 $P(x,y)=1/4$ を与える |
+| R207B | Q2-2-S候補・解析存在結果＋数値witness | deep-well/strong-lock reductionでCHSH相関族を構成し、有限 $\kappa_*$ で $|S|=2\sqrt2$、各局所周辺 $1/2$ を与える。finite-lock witnessはcandidate quadratureで検査する |
+| R207C | Q2-2-S候補・条件付き因果分離結果 | R205Fのpost-separation generator factorizationとlocal responseを使い、CHSH witnessではmeasurement independenceが成立しないことを分離して監査する。finite-speed spatial reservoirは未監査 |
+| R207D | Q2-2-S候補・Bell-local control | measurement independenceとlocal response factorizationを同時に課す対照系で $|S|\le2$ を示し、strong-lock $\kappa=0$ では $|S|=2$ を回収する |
 | R185 | 厳密有限格子結果・明示誤差付き近似結果 | 共通の確率分布の時間反転率、$D_\pm$、1次元node-free領域の時間対称Newton則。正則化残差 $O(\delta)$、格子残差 $C_{185,a}a^2$ を有限微分ノルムで明示 |
 | R123 | 厳密結果・数値検証付き | 井戸型・調和型低位束縛状態と有限環境純位相緩和 |
 | R124 | 厳密結果・数値検証付き | 障壁値未満スペクトル支持からの反対側確率増分 |

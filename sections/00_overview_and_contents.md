@@ -55,6 +55,8 @@ P(r,s\mid x,y)
 
 一重項型信号では余弦共同統計、非信号性、CHSH/Tsirelson値を回収する。A結果成分がB端へ物理的に渡るため、現行証人はBell局所因子化を満たす空間分離模型ではない。自由設定・空間分離・loophole-free Bell実験の古典局所説明を現行証人から主張しない。測定窓内の因果隔離をどこまで強められるかはQ2-2-Sで別に監査する。
 
+Q2-2-Sには付録WのR207A--R207Dを新しいcandidateとして置く。M66/R205Eのjoint thermal preparationとR205Fのpassive separationを使い、分離後local responseとmeasurement dependenceを分けて監査する。ただしfinite-speed spatial reservoirが未監査なので、Q2-2-Sの未監査状態は変更しない。
+
 Q3の信号部分系はQ1/Q2と別の代数ではない。Q1で使うものと同じ局所実正準モードを有限配置グラフの頂点へ置き、Q2で用いるのと同型の2体系エルミート結合を辺へ反復すると、グラフLaplacian型の空間伝播と反対称確率流が生じる。M37/R86がこのSchrödinger型signalを古典実振動子網から有限時間で実装する。
 
 Q3の粒子位置形成・輸送はM64/R203A--R203Dが担う。単一試行の実体はM37型classical coherent signal、一つのclassical tracer、一つのsignal-driven thermal reservoirの三つである。R203Aはregularized density/current dictionary、R203Bはphase-volume free energy・continuous/finite-graph initial preparation・finite-time mean-flow tracking、R203Cはcanonical overdamped tracerからideal regularized diffusionへの縮約、R203Dは1次元R161/R185と一般finite-graph R124/R182/R125位置読出しへの接続を与える。

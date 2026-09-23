@@ -73,3 +73,7 @@
 
 `check_draft129_m66_common_reservoir_parent.py` は、R205C--R205FがA24で正式結果として宣言され、M66がcommon thermal-reservoir parentへ分類変更されたことを確認する。同時にM64/R203、M65/R204、R206の既存正本、Q1/Q2/Q3のfixed-goal直接依存・達成ラベル、R186障害が維持され、R207/Q2-2-Sを先取りしていないことをPR固有に検査する。
 
+## draft-130 R207 Q2-2-S candidate
+
+`check_draft130_r207_q2_2_s_candidate.py` は、A23/付録WのR207A--R207D、candidate verifier、R205E/Fとの接続を確認する。同時にQ2-2 fixed-goalのR180C--M65/R181D主線と達成ラベル、Q2-2-Sの未監査状態が維持され、R207がfixed-goal直接依存へ昇格せず、M67を新設していないことをPR固有に検査する。
+

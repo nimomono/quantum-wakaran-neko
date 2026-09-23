@@ -87,6 +87,17 @@ P(a\mid x,\lambda)P(b\mid y,\lambda),
 
 Q2-2-Sの主要な到達目標は、Bell型共同統計を維持したままS2またはS3まで物理的隔離を進められるかを判定することである。どの段階で不可能になるか、またはどのBell前提の不成立が避けられないかが判明した場合、その否定的結果自体を有効な成果として記録する。
 
+draft-130ではR207A--R207Dを候補として次のように対応づける。
+
+| 段階 | R207 candidate mapping | 現在の限界 |
+|---|---|---|
+| S1 | R207Aのnear-contact joint thermal preparationと受動分離protocol | continuous full trajectory未監査 |
+| S2 | R205F + R207Cのpost-separation local generator | finite-speed spatial reservoirと $v_{\max}$ timing未監査 |
+| S3 | R207B/CのCHSH witnessとBell前提監査 | measurement dependenceを明示する候補。S2物理実装が未閉包 |
+| S4 | R207D Bell-local control | 解析controlあり |
+
+このcandidate mappingだけからQ2-2-Sの未監査状態を変更しない。
+
 ## 強化目標の現在地表
 
 強化目標の追加時点では、既存結果を新基準へ自動的に読み替えず、以下の形式で独立に監査する。全項目を `未監査` から開始する。
@@ -96,7 +107,7 @@ Q2-2-Sの主要な到達目標は、Bell型共同統計を維持したままS2�
 | Q1-1 | 未監査 | 未監査 | 未監査 | 未監査 | 未監査 | — | M37、R140、R187 |
 | Q1-2 | 未監査 | 未監査 | 未監査 | 未監査 | 未監査 | — | R189A--R189C、M65/R204D--R204F、R181D |
 | Q2-1 | 未監査 | 未監査 | 未監査 | 未監査 | 未監査 | — | M54、R181B--R181C、M66/R205--R206 |
-| Q2-2 | 未監査 | 未監査 | 未監査 | 未監査 | 未監査 | 未監査 | R180A、R180C、M65/R204D--R204E |
+| Q2-2 | 未監査 | 未監査 | 未監査 | 未監査 | 未監査 | 未監査 | R180A、R180C、M65/R204D--R204E、R205E、R205F、R207A--R207D |
 | Q2-3 | 未監査 | 未監査 | 未監査 | 未監査 | 未監査 | — | M54、R177、R181B--R181C、M66/R205--R206 |
 | Q2-4 | 未監査 | 未監査 | 未監査 | 未監査 | 未監査 | — | M54、R181C、R186、M66/R205--R206E |
 | Q3-1 | 部分達成 | 未監査 | 未監査 | 未監査 | 未監査 | — | M37、R86 |

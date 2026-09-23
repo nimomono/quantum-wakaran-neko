@@ -198,6 +198,42 @@ $\varepsilon_{206}^{\rm end}$ にはR206Cのfinite-time mixing、hub residual、
 
 理想一重項共同分布との全変動距離が $\varepsilon_{180}$ 以下なら、各周辺事象の確率差は $\varepsilon_{180}$ 以下、各二値相関の差は $2\varepsilon_{180}$ 以下、CHSH値の差は $8\varepsilon_{180}$ 以下である。A結果成分をB端へ物理的に渡すため、Bell局所factorizationまたは空間分離を誤差ゼロ極限の主張へ追加しない。
 
+### 8.6.1 Q2-2-S R207 candidateの誤差台帳
+
+R207候補ではfixed-goal R180Cの $\varepsilon_{180}$ と別に、
+
+```math
+\varepsilon_{\rm prep}^{207},
+\qquad
+\varepsilon_{\rm lock}^{207},
+\qquad
+\varepsilon_{\rm sep}^{207},
+\qquad
+\varepsilon_{\rm latch}^{207},
+\qquad
+\varepsilon_{\rm out}^{207}
+```
+
+を区別する。$\varepsilon_{\rm prep}^{207}$ はR205E mixing、$\varepsilon_{\rm sep}^{207}$ はR205F generator defectを受け取るので、同じ誤差をR207側でもう一度加えない。
+
+各setting pairの実共同分布とideal candidate lawの全変動距離を $\epsilon_{xy}$ とすれば
+
+```math
+|S_{\rm real}-S_{\rm ideal}|
+\le
+2\sum_{x,y}\epsilon_{xy}.
+```
+
+共通上界 $\epsilon_{xy}\le\epsilon$ なら
+
+```math
+|S_{\rm real}-S_{\rm ideal}|
+\le
+8\epsilon.
+```
+
+これはcandidate robustnessの共通出口であり、finite-speed spatial isolationやdirect SDE simulationを証明するものではない。
+
 ## 8.7 Q3のM64--R161--R185誤差
 
 Q3の現行particle/Nelson物理層はM64/R203A--R203Dである。continuous profileでは、initial preparation、regularized current dictionary、finite-time mean-flow tracking、density interpolationを経てcanonical overdamped tracerをideal regularized diffusionへ接続する。
