@@ -157,11 +157,11 @@ M65/R204A/R204D/R204E/R204Fのopen selector核はQ1/Q2-2の逐次fixed-goal正�
 
 R204B/R204C、finite-bandwidth bath、direct Brownian chamber trajectory、具体回路化は追加のA2/B系・横断強化として扱う。M65正本化だけからQ1/Q2のA1/A2/B1/B2/B3状態を自動的に変更しない。A1へM65を採用する場合も、各固定目標の主要因果鎖全体を一つの具体模型として閉じる必要がある。
 
-Q2-4のterminal readout責務はM66/R206へ移し、M65のQ2-4 polynomial node-time条件はfixed-goal責務から外す。
+Q2-4のterminal readout責務はR206A--R206Dへ移し、Q2-4準備はR206Eが担う。M65のQ2-4 polynomial node-time条件はfixed-goal責務から外す。
 
 ## M66/R205 common-reservoir parent と R206 readout specialization
 
-M66/R205A--R205Fはphase-volume、mean-flow、thermal sampling、passive separationを共通化するreservoir parentである。M64/M65のdomain modelは維持し、Q2-1/Q2-3/Q2-4 fixed-goalのterminal readoutはR206A--R206EをM66の具体specializationとして使う。R205E/R205FはQ2-2-SではR207A--R207Dのjoint preparation・passive separation candidateへ接続済みであるが、finite-speed spatial reservoirとtiming closureが未閉包なのでQ2-2-S全体は未監査のままとする。
+M66/R205A--R205Fはphase-volume、mean-flow、thermal sampling、passive separationを共通化するreservoir parentである。M64/M65のdomain modelは維持し、Q2-1/Q2-3/Q2-4 fixed-goalのterminal readoutはR206A--R206DをM66の具体specializationとして使い、Q2-4のuniform root preparation / refreshはR206Eが担う。R205E/R205FはQ2-2-SではR207A--R207Dのjoint preparation・passive separation candidateへ接続済みであるが、finite-speed spatial reservoirとtiming closureが未閉包なのでQ2-2-S全体は未監査のままとする。
 
 共通thermal-reservoir層と強化目標の責務は次のように分ける。
 

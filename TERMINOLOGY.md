@@ -280,6 +280,8 @@ CNOT、CHSH、SWAP、SU(2)など、分野で定着した略号はそのまま使
 | setting precursor | 設定前駆自由度 |
 | measurement independence | 測定設定独立性 |
 
+M66/R205、R206の責務名は次に統一する。M66/R205は「共通thermal-reservoir interface」、R206A--R206Dは「Q2終端多結果sampler」、R206Eは「Q2-4 root preparation / refresh」と呼ぶ。「M66 terminal sampler」「M66/R206 terminal sampler」は、reservoir親模型とQ2特殊化の責務を混同するため現行説明では使わない。
+
 `paired-Hopf` のようにプロジェクト固有の物理機構を指す名称は、定義を失わない範囲で本文の説明に合わせてさらに改名してよい。
 
 ---

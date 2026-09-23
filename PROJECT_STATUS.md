@@ -1,3 +1,10 @@
+## draft-133：大改修後semantic cleanup
+
+- required科学検算から退役R164作用殻経路とM56/R194代替研究線を外し、M54/R180Cの現行検算だけをrequiredとして分離する。
+- `PROJECT_STATUS.md` のR203--R207を系列・責務別に再分類し、結果行の内容・導出状態・IDは変更しない。
+- M66/R205を共通thermal-reservoir interface、R206A--R206DをQ2 terminal multi-outcome sampler、R206EをQ2-4 root preparation / refreshとして呼称を統一する。
+- fixed-goal定義・直接依存・達成ラベル、R203--R207の理論内容、A1/A2/B/Q2-2-S状態、論文sourceと生成物は変更しない。
+
 ## draft-132：signal層・thermal-reservoir層を軸とする統一ストーリー同期
 
 - M54を共通signal・状態構成層、M37をsignal物理実装層、M66/R205を共通thermal-reservoir interfaceとして、第0・1・2・8・9章とREADMEの説明順を統一する。
@@ -444,7 +451,7 @@ M54による統一は共通状態型、因果契約、接続規約の有効層�
 
 | 識別 | 分類 | 運用状態 | 役割と限界 |
 |---|---|---|---|
-| M0 | 単一ミクロ装置統一目標 | 将来目標 | M54の状態構成、物理信号系、Q1/Q2-2の逐次読出し・射影成分振り分け、Q2-1/Q2-3/Q2-4のM66 terminal readout、Q3 particle/reservoir、準備、操作、測定、永久記録、reset、clock、次試行renewalを、有限な能動古典自由度と明示的な相互作用・接続端を持つ一つのjoint microscopic device/processと共通反復周期へ統合する。明示的Hamiltonian無限浴からの縮約、または規約を満たす開放古典ミクロ方程式を基本方程式として直接定めることを許す。Hamiltonian無限浴への持上げ、共通単一bath化、有限浴化、有限閉鎖Hamiltonian全系への持上げは達成条件としない |
+| M0 | 単一ミクロ装置統一目標 | 将来目標 | M54の状態構成、物理信号系、Q1/Q2-2の逐次読出し・射影成分振り分け、Q2-1/Q2-3/Q2-4のR206 terminal readout、Q3 particle/reservoir、準備、操作、測定、永久記録、reset、clock、次試行renewalを、有限な能動古典自由度と明示的な相互作用・接続端を持つ一つのjoint microscopic device/processと共通反復周期へ統合する。明示的Hamiltonian無限浴からの縮約、または規約を満たす開放古典ミクロ方程式を基本方程式として直接定めることを許す。Hamiltonian無限浴への持上げ、共通単一bath化、有限浴化、有限閉鎖Hamiltonian全系への持上げは達成条件としない |
 
 M54は共通の状態型と因果契約を与えるが、同じ物理接続部、永続記憶部、制御バス、読出し、記録、リセットを一つの装置architectureと反復周期へ接続したことを意味しない。この強い統合はM0の未完成目標である。M0では規模ごとに同一の有限規則から生成される装置族を許し、設定値まで全規模で同一であることは要求しない。
 
@@ -501,6 +508,47 @@ M0は、個別のA1模型を並べるだけでは達成としない。少なく�
 | R180A | 厳密結果・明示誤差付き結果 | M54の実際の1試行末端信号へA設定basis gateを作用し、A側射影作用をM65へ渡す。A結果でR181D型projector routerを制御し、非規格化結果成分をB端へ渡すQ2-2特殊化 |
 | R180C | 条件付き・明示誤差付き結果 | A端M65、R181D型projector router、B設定gate、B端M65、二つの記録とR179 resetを合成し、固定一重項でBorn共同分布、非信号性、CHSH値、Bell前提監査を与える |
 
+### M65 binary-selector結果
+
+| 結果 | 導出状態 | 内容 |
+|---|---|---|
+| R204A | 厳密結果 | M65の3状態canonical open generatorを定め、確率保存、保持作用への線形rate入力、Born確率表・状態依存除算を外部入力しないことを示す |
+| R204B | 強化候補・reduced-law結果 | fixed-hub phase-volume chamberで $V_r,G_r\propto a_r$、$V_H$固定とし、R204Aのrateをcapacity/conductance比から再現する |
+| R204C | 強化候補・明示誤差付き結果 | Hamiltonian bath、overdamped、phase-volume tracking、tube、lumping、calibrationからR204A open generatorへのfinite-time lift誤差を与える。M65正本の必須依存ではない |
+| R204D | 厳密結果・明示誤差付き合成 | M65の有限時間Born readout、exact endpointを含む正式な無反応、decision終了時のR112型record/latch、complete-result TV上界、小Born重みでrelaxation rateが縮まないことを与える |
+| R204E | 厳密系 | M65がR181Dのbinary selector contractを満たすことを示す |
+| R204F | 条件付き・資源結果 | Q1 R189A→M65→R181D互換性、空操作対照の自由Rabi継続、弱結合latency極限を与える。Q2-4 terminal readout資源はR206C--R206Eへ移す |
+
+### M66 common thermal-reservoir結果
+
+| 結果 | 導出状態 | 内容 |
+|---|---|---|
+| R205A | 厳密partition結果 | 正のlocal scaleをreservoir座標Jacobianへ入れるとcanonical phase volumeがscaleへ線形比例し、free energyが \(-k_BT\log w+C\) になる共通identity |
+| R205B | 厳密reduced-law結果 | channel capacityとconductanceへ同じlocal scaleを掛けると、channel→hub rateがscale非依存、hub→channel rateがscale比例となるmatched capacity--conductance原理 |
+| R205C | 厳密partition結果 | moving reservoirの運動量平行移動 $U$ とphase-volume weight $w$ がcanonical free energyで直交し、$F_{\rm res}=-k_BT\log w+C$ と $-\nabla F_{\rm res}=k_BT\nabla\log w$ を同時に与える |
+| R205D | 厳密系 | R205Bのbinary fixed-hub特殊化からR204Bの $k_{y\to H}=\Lambda$、$k_{H\to y}=\kappa a_y$ を回収する |
+| R205E | 厳密reversible open-SDE結果・条件付き有限時間結果 | $H_{\rm eff}=H_{\rm cfg}-k_BT\log w$ のoverdamped thermal samplerが $p_{\rm eq}\propto we^{-\beta H_{\rm cfg}}$ を可逆定常分布に持ち、Poincaré gap下で指数mixingする |
+| R205F | 厳密generator結果・明示誤差付き分離 | 距離依存相互作用 $K(R)$ とreservoir cross-diffusion $C_{AB}(R)$ のgenerator defectを評価し、両者が消えると固定local bath couplingのまま $\mathcal L_A+\mathcal L_B$ へ分離する |
+
+### R206 Q2 specialization結果
+
+| 結果 | 導出状態 | 内容 |
+|---|---|---|
+| R206A | 厳密有限状態結果 | 任意有限Lのcommon-hub samplerで \(d_y=x_y-p_y(1-h)\) が \(\dot d_y=-\Lambda d_y\) を満たし、mixing rateがLと最小Born重みに依存しない。任意pointer初期分布から指数収束する |
+| R206B | 厳密一様構成結果 | \(L=2^n\) channelへ同一local scale則、\(V_H\propto L\) を用いて総hub escape rateをL非依存に保ち、regularized Born重みを個別係数表なしに実装する |
+| R206C | 厳密有限時間・製造誤差結果 | finite-time mixing、hub residual、regularization、generator/record誤差をL非依存に合成し、local multiplicative/additive scale誤差の規格化TV上界を与える |
+| R206D | 条件付きQ2 bridge | R181C後の実terminal signal作用を4・8・\(2^n\)結果common samplerへ接続し、Q2-1/Q2-3/Q2-4のone-shot terminal readoutを与える。外部Born表・振幅表・全channel走査を使わない |
+| R206E | 直接定めた開放方程式に対する厳密結果 | 全mode共通減衰と固定 \(0^n\) root driveから任意前試行状態をrootへ指数収束させ、Q2-4準備時間を対数精度依存に抑える。sampler pointerはR206A mixingにより結果別reset不要 |
+
+### Q2-2-S candidate結果
+
+| 結果 | 導出状態 | 内容 |
+|---|---|---|
+| R207A | Q2-2-S候補・厳密対称性結果 | M66/R205Eのcontinuous Gibbs preparationを二つのrotorと双安定setting precursorへ特殊化し、4 setting sectorの厳密な公平性 $P(x,y)=1/4$ を与える |
+| R207B | Q2-2-S候補・解析存在結果＋数値witness | deep-well/strong-lock reductionでCHSH相関族を構成し、有限 $\kappa_*$ で $|S|=2\sqrt2$、各局所周辺 $1/2$ を与える。finite-lock witnessはcandidate quadratureで検査する |
+| R207C | Q2-2-S候補・条件付き因果分離結果 | R205Fのpost-separation generator factorizationとlocal responseを使い、CHSH witnessではmeasurement independenceが成立しないことを分離して監査する。finite-speed spatial reservoirは未監査 |
+| R207D | Q2-2-S候補・Bell-local control | measurement independenceとlocal response factorizationを同時に課す対照系で $|S|\le2$ を示し、strong-lock $\kappa=0$ では $|S|=2$ を回収する |
+
 ### Q3結果
 
 | 結果 | 導出状態 | 内容 |
@@ -510,27 +558,6 @@ M0は、個別のA1模型を並べるだけでは達成としない。少なく�
 | R203B | 厳密partition結果・有限時間結果 | signal-dependent reservoir phase volumeから $F_{\rm res}=-k_BT\log r_X^\delta+C$ を導き、continuous tracer初期準備とfinite-time mean-flow trackingを与える |
 | R203C | 直接定めた開放SDEに対する厳密結果・明示誤差付き縮約 | canonical overdamped tracerをideal regularized diffusionへ有限時間 $W_1$ で縮約する |
 | R203D | 厳密有限graph結果・明示誤差付き近似結果 | local $R_i^\delta,J_{ij},T_{ij}^\delta$ からR161 rateを構成し、finite-graph初期準備、1次元R185 activity、R124/R182/R125位置読出しへ接続する |
-| R204A | 厳密結果 | M65の3状態canonical open generatorを定め、確率保存、保持作用への線形rate入力、Born確率表・状態依存除算を外部入力しないことを示す |
-| R204B | 強化候補・reduced-law結果 | fixed-hub phase-volume chamberで $V_r,G_r\propto a_r$、$V_H$固定とし、R204Aのrateをcapacity/conductance比から再現する |
-| R204C | 強化候補・明示誤差付き結果 | Hamiltonian bath、overdamped、phase-volume tracking、tube、lumping、calibrationからR204A open generatorへのfinite-time lift誤差を与える。M65正本の必須依存ではない |
-| R204D | 厳密結果・明示誤差付き合成 | M65の有限時間Born readout、exact endpointを含む正式な無反応、decision終了時のR112型record/latch、complete-result TV上界、小Born重みでrelaxation rateが縮まないことを与える |
-| R204E | 厳密系 | M65がR181Dのbinary selector contractを満たすことを示す |
-| R204F | 条件付き・資源結果 | Q1 R189A→M65→R181D互換性、空操作対照の自由Rabi継続、弱結合latency極限を与える。Q2-4 terminal readout資源はR206C--R206Eへ移す |
-| R205A | 厳密partition結果 | 正のlocal scaleをreservoir座標Jacobianへ入れるとcanonical phase volumeがscaleへ線形比例し、free energyが \(-k_BT\log w+C\) になる共通identity |
-| R205B | 厳密reduced-law結果 | channel capacityとconductanceへ同じlocal scaleを掛けると、channel→hub rateがscale非依存、hub→channel rateがscale比例となるmatched capacity--conductance原理 |
-| R205C | 厳密partition結果 | moving reservoirの運動量平行移動 $U$ とphase-volume weight $w$ がcanonical free energyで直交し、$F_{\rm res}=-k_BT\log w+C$ と $-\nabla F_{\rm res}=k_BT\nabla\log w$ を同時に与える |
-| R205D | 厳密系 | R205Bのbinary fixed-hub特殊化からR204Bの $k_{y\to H}=\Lambda$、$k_{H\to y}=\kappa a_y$ を回収する |
-| R205E | 厳密reversible open-SDE結果・条件付き有限時間結果 | $H_{\rm eff}=H_{\rm cfg}-k_BT\log w$ のoverdamped thermal samplerが $p_{\rm eq}\propto we^{-\beta H_{\rm cfg}}$ を可逆定常分布に持ち、Poincaré gap下で指数mixingする |
-| R205F | 厳密generator結果・明示誤差付き分離 | 距離依存相互作用 $K(R)$ とreservoir cross-diffusion $C_{AB}(R)$ のgenerator defectを評価し、両者が消えると固定local bath couplingのまま $\mathcal L_A+\mathcal L_B$ へ分離する |
-| R206A | 厳密有限状態結果 | 任意有限Lのcommon-hub samplerで \(d_y=x_y-p_y(1-h)\) が \(\dot d_y=-\Lambda d_y\) を満たし、mixing rateがLと最小Born重みに依存しない。任意pointer初期分布から指数収束する |
-| R206B | 厳密一様構成結果 | \(L=2^n\) channelへ同一local scale則、\(V_H\propto L\) を用いて総hub escape rateをL非依存に保ち、regularized Born重みを個別係数表なしに実装する |
-| R206C | 厳密有限時間・製造誤差結果 | finite-time mixing、hub residual、regularization、generator/record誤差をL非依存に合成し、local multiplicative/additive scale誤差の規格化TV上界を与える |
-| R206D | 条件付きQ2 bridge | R181C後の実terminal signal作用を4・8・\(2^n\)結果common samplerへ接続し、Q2-1/Q2-3/Q2-4のone-shot terminal readoutを与える。外部Born表・振幅表・全channel走査を使わない |
-| R206E | 直接定めた開放方程式に対する厳密結果 | 全mode共通減衰と固定 \(0^n\) root driveから任意前試行状態をrootへ指数収束させ、Q2-4準備時間を対数精度依存に抑える。sampler pointerはR206A mixingにより結果別reset不要 |
-| R207A | Q2-2-S候補・厳密対称性結果 | M66/R205Eのcontinuous Gibbs preparationを二つのrotorと双安定setting precursorへ特殊化し、4 setting sectorの厳密な公平性 $P(x,y)=1/4$ を与える |
-| R207B | Q2-2-S候補・解析存在結果＋数値witness | deep-well/strong-lock reductionでCHSH相関族を構成し、有限 $\kappa_*$ で $|S|=2\sqrt2$、各局所周辺 $1/2$ を与える。finite-lock witnessはcandidate quadratureで検査する |
-| R207C | Q2-2-S候補・条件付き因果分離結果 | R205Fのpost-separation generator factorizationとlocal responseを使い、CHSH witnessではmeasurement independenceが成立しないことを分離して監査する。finite-speed spatial reservoirは未監査 |
-| R207D | Q2-2-S候補・Bell-local control | measurement independenceとlocal response factorizationを同時に課す対照系で $|S|\le2$ を示し、strong-lock $\kappa=0$ では $|S|=2$ を回収する |
 | R185 | 厳密有限格子結果・明示誤差付き近似結果 | 共通の確率分布の時間反転率、$D_\pm$、1次元node-free領域の時間対称Newton則。正則化残差 $O(\delta)$、格子残差 $C_{185,a}a^2$ を有限微分ノルムで明示 |
 | R123 | 厳密結果・数値検証付き | 井戸型・調和型低位束縛状態と有限環境純位相緩和 |
 | R124 | 厳密結果・数値検証付き | 障壁値未満スペクトル支持からの反対側確率増分 |
@@ -547,7 +574,7 @@ M0は、個別のA1模型を並べるだけでは達成としない。少なく�
 - M54の有限モード、逆演算用補助記憶部、供給源、作業領域、時計自由度履歴はゲート間で永続させる。外部制御器は内部モードを個別に初期化、較正、同期、個別指定、読出し、リセットしない。
 - M54の指数的信号、作業領域、履歴、低温、使用済み自由度は受動貯蔵部として許す。外部制御器は局所ゲート名、ビット添字、時計自由度窓だけを指定し、Born重みまたは最終確率表を入力しない。
 - Q2-4の比較対象はブラックボックスとしての運用上の複雑度である。内部モード、静的結合器、装置体積、総熱の総量は別の報告対象の内部資源として保持し、指数的であるだけでQ2-4を否定しない。ただしそれらがモード別較正、指数精度、指数時間として外部接続部へ露出すれば失敗とする。R186はこの露出のうち製造誤差とノイズの境界を定量化する。
-- R181Dはbinary selector contractで固定された安全結果 $r$ に従い、可逆な射影成分の振り分けによって $P_rZ$ と補成分を分け、非規格化 $P_rZ$ を同じ試行の次段へ渡す。現行fixed-goalではQ1/Q2-2の逐次handoffにだけ使う。Q2-1/Q2-3/Q2-4はterminal M66/R206 samplingを用い、結果成分treeや作用回復を使わない。
+- R181Dはbinary selector contractで固定された安全結果 $r$ に従い、可逆な射影成分の振り分けによって $P_rZ$ と補成分を分け、非規格化 $P_rZ$ を同じ試行の次段へ渡す。現行fixed-goalではQ1/Q2-2の逐次handoffにだけ使う。Q2-1/Q2-3/Q2-4はR206 terminal samplingを用い、結果成分treeや作用回復を使わない。
 - 現行R180CのCHSH不等式の破れは、設定前の一重項源を設定非依存に保ったままA端結果成分をB端へ物理的に渡す非空間分離逐次構成で得る。従って現行証人はBell局所因子化を満たす空間分離模型ではない。Q2-2固定目標は特定のBell前提違反を先に指定せず、採用構成ごとに前提の成立・不成立を監査する。
 - R207A--R207DはQ2-2-S専用candidateであり、Q2-2 fixed-goalの直接根拠ではない。R205F/R207C分離後はlocal response factorizationを候補として保つ一方、R207B/CのCHSH witnessではsource--setting measurement dependenceが残る。finite-speed spatial reservoirとsetting確定後のtiming closureが未監査なので、Q2-2-Sの公式状態はENHANCEMENT_TARGETSで未監査を維持する。
 - 有限熱化または外部時刻割当から独立同分布型有限標本揺らぎは従わない。
@@ -558,7 +585,7 @@ M0は、個別のA1模型を並べるだけでは達成としない。少なく�
 未解決問題では、有限閉鎖Hamiltonian化そのものを共通到達点としない。M0本体では有限な能動古典自由度、共通接続部、準備・操作・測定・記録・リセット・clockを一つのjoint microscopic device/processと反復周期へ統合する。浴・散逸・雑音は明示的Hamiltonian無限浴からの縮約として与えてもよく、規約を満たす開放ミクロ方程式として直接定めてもよい。Hamiltonian無限浴への持上げ、共通単一bath化、有限浴近似、有限再帰、有限総容量、全周期の完全な微視的熱力学は別の強化課題とする。
 
 1. Q1ではR189A作用保持、M65 selector、R112型record、R181Dの射影成分振り分け、未使用保持対SWAP／R179 open resetをM37 W2信号系と同じ具体装置・時計自由度へ接続し、測定部分系の単一装置統合と周期収支を閉じる。
-2. Q2-1/Q2-3では永続多モード記憶部、M66 terminal sampler、recordを同じ具体装置・時計割当へ統合することはA1/M0の強化課題として残る。fixed-goalの一試行interface自体はR206Dまで閉じている。
+2. Q2-1/Q2-3では永続多モード記憶部、R206 terminal sampler、recordを同じ具体装置・時計割当へ統合することはA1/M0の強化課題として残る。fixed-goalの一試行interface自体はR206Dまで閉じている。
 3. Q2-2について、固定一重項4モード信号、A/B設定操作、二つのM65読出し端、R181D型の射影成分振り分け、記録、R179開放リセットを同じ非空間分離装置と時計割当へ統合する。
    - Q2-2-S strengtheningでは別に、R205E/F--R207 candidateをfinite-speed spatial reservoirへ落とし、$v_{\max}$ を持つ同一timing modelでsetting確定後の因果隔離を閉じる。
 4. Q2-4について、R206E root preparation、R181C gate列、R206 terminal samplerの一様規則と多項式外部運用資源はfixed-goal主線で閉じる。残る条件は、製造ばらつきと運転中の揺らぎを実装模型から導き、R186の多項式精度条件を満たし、全自由度へのadditive noiseが生む指数障害を回避できる範囲を示すことである。
