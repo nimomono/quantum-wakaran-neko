@@ -24,11 +24,12 @@ M37：古典振動子によるsignal実装
 M66 / R205
 
 用途別接続
-Q1/Q2-2逐次測定       M65 → R181D
+Q1逐次測定            M65 → R181D
 Q2-1/Q2-3/Q2-4読出し R206A--R206D
 Q2-4準備              R206E
+Q2-2 Bell統計         M66/R205 → R207
 Q3粒子/Nelson         M64 → R161 → R185
-Q2-2-S強化候補        R205E/F → R207
+Q2-2-S因果隔離強化    R207 + finite-speed reservoir
 ```
 
 M54はsignal・状態・接続規約を共通化し、M66/R205はphase-volume、mean-flow、thermal sampling、passive separationというreservoir原理を共通化する。R206A--R206DはこのinterfaceをQ2終端多結果読出しへ特殊化し、R206EはQ2-4準備を担う。M66はM64やM65の全模型を置換せず、共通するreservoir sectorだけを抽出する。
@@ -55,7 +56,7 @@ M54はsignal・状態・接続規約を共通化し、M66/R205はphase-volume、
 
 Q2-4の条件はM54 direct-amplitude registerに対するR186の加法ノイズ・精度障害である。R206により末端reader側の逐次探索問題は外れている。
 
-Q2-2-SはQ2-2とは別の空間隔離強化である。R205E/F--R207A--R207Dのcandidateはあるが、finite-speed spatial reservoirとsetting確定後のtiming closureが未閉包なので、全体状態は未監査である。
+Q2-2-SはQ2-2のR207主線へfinite-speed causal isolationを追加する空間隔離強化である。fixed-goalの一般余弦共同統計とlocal responseはR207A--R207Cへ昇格したが、finite-speed spatial reservoirとsetting確定後のtiming closureが未閉包なので、Q2-2-S全体状態は未監査である。
 
 ### 第3段階：空間量子力学
 
@@ -98,9 +99,9 @@ F_{\rm res}
 
 を得る共通原理、mean-flow port、thermal sampling、passive separationをまとめる。
 
-Q1とQ2-2の逐次2値測定では、保持した2つの射影作用をM65の3状態open selectorへ渡し、結果固定後にR181Dで対応する非規格化射影成分を次段へ渡す。Q2-1/Q2-3/Q2-4の回路末端では、R206が4結果、8結果、または $2^n$ 結果を一回で標本化する。
+Q1の逐次2値測定では、保持した2つの射影作用をM65の3状態open selectorへ渡し、結果固定後にR181Dで対応する非規格化射影成分を次段へ渡す。Q2-1/Q2-3/Q2-4の回路末端ではR206が4結果、8結果、または $2^n$ 結果を一回で標本化する。Q2-2はM66/R205のthermal phase-volumeをR207へ特殊化して二端Bell統計を作る。
 
-Q2-2 fixed-goalのBell型統計は非空間分離逐次装置で再現する。Q2-2-Sでは、近接時のcommon thermal preparationから受動分離してlocal responseへ移るR207 candidateを調べている。現candidateではmeasurement independenceが成立せず、有限伝播速度を持つ具体reservoirはまだ閉じていない。
+Q2-2 fixed-goalのBell型統計はR207 projection phase-volume二端模型で再現する。一般Bloch方向の余弦共同分布へ任意精度で近づき、局所周辺は非信号、分離後responseはlocalに因子化する。一方source hidden stateはsetting-dependentでありmeasurement independenceは成立しない。有限伝播速度を持つ具体reservoirはQ2-2-Sでまだ閉じていない。
 
 Q3ではM37/R86 signalへM64のclassical tracerとsignal-driven thermal reservoirを接続し、signal density/currentからosmotic driftとcurrent driftを作る。R203D/R161/R185を介してNelson型の前進・後退平均微分と時間対称Newton則へ接続し、finite graphでは有限障壁、W型トンネル振動、2経路干渉を同じtracerの位置読出しへつなぐ。
 
