@@ -1,7 +1,7 @@
 @number: 2
 @chapter: 本文
 @title: 有限正準信号と共通熱浴モジュール
-@status: M54をQ1・Q2・Q3の共通有効signal・状態構成層、M66/R205を共通thermal-reservoir interface、R161をQ3位置輸送の共通数学核とする。M64/M65は系列固有domain model、R206はM66のQ2 terminal specialization、R207はQ2-2-S strengthening candidateとして責務を分ける。
+@status: M54をQ1・Q2・Q3の共通有効signal・状態構成層、M66/R205を共通thermal-reservoir interface、R161をQ3位置輸送の共通数学核とする。M64/M65は系列固有domain model、R206はM66のQ2 terminal specialization、R207はM66/R205のQ2-2 projection phase-volume specializationとして責務を分ける。
 
 ## 2.1 共通signal層と共通thermal-reservoir層
 
@@ -28,9 +28,9 @@ w(Q)e^{-\beta H_{\rm cfg}(Q)}
 | 用途 | 共通熱浴原理との対応 | 用途固有に残る責務 |
 |---|---|---|
 | M64 / Q3 | R203Bの $w=r_X^\delta/r_*$ とmean-flow sectorをR205Cへ埋め込む | R203A current dictionary、initial/flow trackingの具体実装、tracer、R203C/R203D |
-| M65 / Q1・Q2-2 | R204B phase-volume chamberをR205Dのbinary fixed-hub specializationとして回収 | M65 canonical 3状態open law、R204D--R204F、R181D handoff |
+| M65 / Q1 | R204B phase-volume chamberをR205Dのbinary fixed-hub specializationとして回収 | M65 canonical 3状態open law、R204D--R204F、R181D handoff |
 | R206 / Q2-1・Q2-3・Q2-4 | M66のfinite-$L$ common-hub terminal specialization | Q2 terminal bridge、finite-time/fabrication error、Q2-4 root preparation |
-| R207 / Q2-2-S | R205E joint thermal preparationとR205F passive separationを利用 | setting precursor、CHSH witness、Bell前提監査、finite-speed残件 |
+| R207 / Q2-2 | R205A projection phase volume、R205E joint thermal preparation、R205F passive separationを利用 | general-angle singlet law、local二端latch、Bell前提監査。finite-speed残件はQ2-2-Sへ分離 |
 
 従ってM66はM64/M65のwhole-model parentではなく、共通reservoir interfaceのparentである。共通化されたsectorと各domain model固有のsectorを混同しない。
 
@@ -40,7 +40,7 @@ M54から作る派生複素座標を
 Z=\frac{Q+iP}{\sqrt{2\mathcal J_0}}
 ```
 
-とするが、$Z$ は独立した複素実体ではない。Q1/Q2-2では2結果射影作用をM65のbinary selector interfaceへ渡す。Q2-1/Q2-3/Q2-4ではterminal各結果作用をM66/R206へ渡す。Q3ではM37/R86が空間signalを与え、M64/R203A--R203Dが同じsignalからcontinuous/finite-graph tracerをR161へ渡す。R161自身が有限状態のcanonical Markov経路法則まで定め、R162は同じ経路法則を独立Poisson random measuresで実現するoptional referenceとして使う。測定結果用の旧静的配置pointerをM54共通状態へ置かない。
+とするが、$Z$ は独立した複素実体ではない。Q1では2結果射影作用をM65のbinary selector interfaceへ渡す。Q2-1/Q2-3/Q2-4ではterminal各結果作用をM66/R206へ渡す。Q2-2はM66/R205--R207のprojection phase-volume二端模型を使う。Q3ではM37/R86が空間signalを与え、M64/R203A--R203Dが同じsignalからcontinuous/finite-graph tracerをR161へ渡す。R161自身が有限状態のcanonical Markov経路法則まで定め、R162は同じ経路法則を独立Poisson random measuresで実現するoptional referenceとして使う。測定結果用の旧静的配置pointerをM54共通状態へ置かない。
 
 M65のopen pointer、M66のcommon-hub pointer、R179のopen reset浴は接続interfaceとして扱い、常設のM54信号座標とは分ける。
 
@@ -52,13 +52,13 @@ M65のopen pointer、M66のcommon-hub pointer、R179のopen reset浴は接続int
 (Z,S_{\rm port},G,W,J,X,D,\tau)
 ```
 
-と書く。$X$ はQ3でM64が与えるclassical tracerの有限状態表示である。Q1/Q2-2の逐次2値結果はM65、Q2-1/Q2-3/Q2-4のterminal joint resultはM66/R206が担う。
+と書く。$X$ はQ3でM64が与えるclassical tracerの有限状態表示である。Q1の逐次2値結果はM65、Q2-1/Q2-3/Q2-4のterminal joint resultはM66/R206、Q2-2の二端Bell resultはM66/R205--R207が担う。
 
 | 系列 | M54状態構成 | 準備・操作 | 現行出力 |
 |---|---|---|---|
 | Q1 | W型2モード信号 | 準備済み古典入力、R140、R187 | M65、R181D、R143--R144 |
 | Q2-1 | 4モード永続記憶部 | R181B、R181C | M66/R206D 4結果terminal sampling |
-| Q2-2 | 4モード＋2物理測定端 | R181B/R181C、設定gate | A端M65、router、B端M65、R180A/R180C |
+| Q2-2 | two hidden-direction rotors＋2物理測定端 | M66/R205A・R205E joint preparation、setting directions | R205F、R207A--R207D、local latch/record |
 | Q2-3 | 8モード永続記憶部 | R181Bを2回、R181C、R177 | M66/R206D 8結果terminal sampling |
 | Q2-4 | $2^n$ 直接モード | R206E root preparation、R181C | M66/R206D $2^n$結果terminal sampling、R186監査 |
 | Q3 | 空間信号＋classical tracer | 準備済み古典空間入力、M37/R86、M64/R203A--R203D | R161、R185、R124、R182、R125 |
