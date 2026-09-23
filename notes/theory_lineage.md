@@ -142,3 +142,10 @@ Q2-2 fixed-goalの現行主線は引き続きR180C--M65/R181Dである。R207A--
 ## draft-131で同期したQ2-2-S管理
 
 draft-131では新しい理論結果を追加せず、第5章のR180C fixed-goal witnessとR207 strengthening candidateを明示的に分離した。S0--S4現在地は `ENHANCEMENT_TARGETS.md` を正本へ一本化し、S2の主要blockerをfinite-speed spatial reservoirとsetting確定後のtiming closureへ統一した。Q2-2 fixed-goal達成、Q2-2-S未監査、R207A--R207Dのcandidate分類は変更していない。
+
+
+## draft-134で昇格したR207 projection phase-volume Q2-2主線
+
+draft-130--draft-133のR207は4-setting Gibbs witnessを持つQ2-2-S candidateだった。draft-134ではprojection phase volumeとnear-contact isotropic lockへ模型を改訂した。R207Bは一般Bloch方向でfinite-lock余弦則を与え、R207CはM66/R205E preparation、R205F passive separation、local latch/recordを一試行へ接続する。このためR207A--R207CをQ2-2 fixed-goalの直接根拠へ昇格し、R180A/R180Cはactive alternate witnessへ下げた。R180系の完全退役は次の独立PRへ分離する。
+
+旧4-setting Gibbs candidateは `superseded_r207_four_setting_gibbs_candidate.md` とGit履歴へ保存する。Q2-2-SはR207 fixed-goal baselineへfinite-speed causal isolationを追加する強化として再整理し、公式状態は未監査のまま維持する。

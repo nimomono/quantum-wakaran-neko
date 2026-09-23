@@ -1,3 +1,9 @@
+## draft-134：R207 projection phase-volume Q2-2主線昇格
+
+- 4-setting Gibbs candidateだったR207A--R207Dをprojection phase-volume模型へ改訂し、一般Bloch方向のsinglet共同統計、finite-lock/finite-thickness誤差、local二端interfaceを正本化する。
+- Q2-2 fixed-goalの直接依存をR180C逐次経路からR207A--R207Cへ切り替え、達成ラベルを維持する。
+- R180A/R180Cは本draftではactive alternate witnessとして残し、退役は次PRへ分離する。Q2-2-Sはfinite-speed causal isolation強化として未監査を維持する。
+
 ## draft-133：大改修後semantic cleanup
 
 - 退役R164作用殻verifierとM56/R194 candidate verifierをrequired CIから外し、M54/R180Cの現行検算をrequiredとして分離した。

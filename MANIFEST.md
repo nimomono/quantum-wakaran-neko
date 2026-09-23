@@ -1,3 +1,9 @@
+## draft-134：R207 projection phase-volume Q2-2主線昇格
+
+- 付録W/R207A--R207Dをprojection phase-volume模型へ改訂し、R207A--R207CをQ2-2 fixed-goal直接依存へ昇格する。
+- `tools/verify_r207_projection_phase_volume.py` をrequiredへ追加し、旧4-setting Gibbs checkerを退役verifierへ保存する。
+- R180A/R180Cはactive alternate witnessとして維持し、完全退役は後続PRへ分離する。Q2-2達成、Q2-2-S未監査、A1/A2/B/M0判定は維持する。
+
 ## draft-133：大改修後semantic cleanup
 
 - 退役R164作用殻verifierを `notes/retired_verifiers/` へ、M56/R194代替研究線verifierを `tools/candidate_checks/` へ移し、通常required CIから外す。

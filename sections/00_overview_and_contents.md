@@ -12,7 +12,7 @@
 |---|---|---|
 | 実正準signal・状態構成 | M54、M37 | M54が共通状態・接続規約、M37が古典振動子によるsignal実装 |
 | 共通thermal-reservoir interface | M66/R205 | phase-volume、mean-flow、thermal sampling、passive separation |
-| 用途別の模型・特殊化 | M65/R181D、R206、M64/R161/R185、R207 | 逐次2値測定、Q2終端多結果、Q3粒子/Nelson、Q2-2-S強化候補 |
+| 用途別の模型・特殊化 | M65/R181D、R206、M64/R161/R185、R207 | Q1逐次2値測定、Q2終端多結果、Q3粒子/Nelson、Q2-2 projection phase-volume二端模型 |
 | 全周期統合 | M0 | 準備からrenewalまでを1つのjoint device/processへ統合 |
 
 
@@ -36,7 +36,7 @@ w(Q)e^{-\beta H_{\rm cfg}(Q)}
 
 を共通核とする。R205Cによりphase-volume weightとmean-flow shiftは同じreservoir内で両立し、R205Fは距離依存相互作用とreservoir cross-correlationが消えるときの受動的generator分離条件を与える。
 
-この共通化は、M64またはM65の全模型をM66から導出したという主張ではない。M64のtracer/current dictionary、M65のcanonical 3状態open Markov lawは系列固有の責務として残る。M64/R203Bのpartition/free-energyとmean-flow sectorはR205C、M65/R204Bのphase-volume chamber実現はR205Dへ埋め込まれる。R206はM66の直接的なQ2終端多結果特殊化であり、R207はR205E/FをQ2-2-Sの共同準備・受動分離へ使う強化候補である。
+この共通化は、M64またはM65の全模型をM66から導出したという主張ではない。M64のtracer/current dictionary、M65のcanonical 3状態open Markov lawは系列固有の責務として残る。M64/R203Bのpartition/free-energyとmean-flow sectorはR205C、M65/R204Bのphase-volume chamber実現はR205Dへ埋め込まれる。R206はM66の直接的なQ2終端多結果特殊化であり、R207はM66/R205A・R205E・R205FをQ2-2のprojection phase-volume共同準備・二端読出しへ特殊化する。
 
 Q1では、M37弱結合W型の最低2正常モードをR187でM54のW2信号へ接続し、R140が有限 $SU(2)$ 操作とRabi運動を与える。測定軸に対する2つの射影作用
 
@@ -58,21 +58,9 @@ P(r=\pm)
 
 Q2-1とQ2-3ではR181Bが固定入力のテンソル積信号を作り、R181Cが同じ永続記憶部上で局所gateと結合gateを作用する。末端4結果または8結果はM66の特殊化R206で1回に標本化する。Q2-4ではR206Eで $0^n$ rootを一様準備し、R181Cの一般gate列後に $L=2^n$ のR206 samplerへ直接接続する。R206A--R206Cは逐次leaf探索、最小Born重みに依存する混合時間、結果別routerを避ける。一方、M54 direct-amplitude registerへ全自由度加法ノイズが入るR186の障害は残るため、Q2-4は条件付き達成を維持する。
 
-Q2-2 fixed-goalは別の逐次経路を使う。固定一重項4モード信号にA設定を作用し、A端M65で結果 $r$ を形成した後、R181D型projector routerで非規格化結果成分をB端へ物理的に渡す。B設定後にB端M65で $s$ を形成し、
+Q2-2 fixed-goalはR207 projection phase-volume経路を使う。setting方向とhidden directionsをnear-contactで共同thermal preparationし、projection phase volumeとisotropic lockから一般角度singlet共同統計へ接続する。finite-lockでは余弦形のvisibilityを解析的に与え、finite thicknessでは一様全変動誤差を持つ。分離後はlocal response factorizationを保つ一方、source hidden stateはsetting-dependentでありmeasurement independenceは成立しない。
 
-```math
-P(r,s\mid x,y)
-=
-\frac{
-\|P_{B,s}^{y}P_{A,r}^{x}Z_{AB}\|^2
-}{
-\|Z_{AB}\|^2
-}
-```
-
-を得る。一重項型信号では余弦共同統計、非信号性、CHSH/Tsirelson値を回収する。ただし測定窓中にA端結果成分をB端へ渡すため、現行fixed-goal証人はBell局所因子化を満たす空間分離模型ではない。
-
-Q2-2-Sでは別の強化経路を調べる。R205Eによる近接時共同thermal preparation、R205Fによる受動分離、R207A--R207Dによる4-setting CHSH witnessとBell前提監査を組み合わせる。分離後local response factorizationと両立するcandidateである一方、現R207 witnessではsourceとsetting precursorの共同準備によりmeasurement independenceが成立しない。finite-speed spatial reservoirとsetting確定後のtiming closureが未閉包なので、Q2-2-S全体は未監査のままである。
+Q2-2-Sは同じR207主線へfinite-speed causal isolationを追加する強化である。具体spatial reservoirの最大伝播速度とsetting確定後timing closureが未閉包なので、Q2-2-S全体は未監査のままである。R180C逐次経路はactive alternate witnessとして残すがfixed-goal直接依存には含めない。
 
 Q3のsignal数学はQ1/Q2と別の代数ではない。Q1型局所正準モードを空間頂点へ配置し、Q2型2体系結合を辺へ反復すると、Schrödinger型signal、局所作用、反対称currentが得られる。M37/R86がこのsignalを実古典振動子網から実装する。
 

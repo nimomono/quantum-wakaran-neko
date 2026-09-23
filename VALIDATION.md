@@ -1,3 +1,9 @@
+## draft-134：R207 projection phase-volume昇格検算
+
+- required verifierでfinite-thickness bound、sphere projection identity、finite-lock visibility、CHSH threshold、setting-independent partition、measurement-dependence witness、exact marginal symmetry、有限parameter族、Bell-local controlを検査する。
+- 旧Gibbs checkerは `notes/retired_verifiers/` へ保存し、separation checkerはfinite-speed strengthening診断へ縮約する。
+- migration checkでR207直接依存切替、R180 active維持、Q2-2-S未監査維持を確認する。生成物同期はPR headで再実行する。
+
 ## draft-133：大改修後semantic cleanup
 
 - `tools/verify_m47_action_shell_origin.py` を退役verifierへ移し、R164作用殻測定経路をrequired CIから外す。数値内容は履歴再現用に保持する。

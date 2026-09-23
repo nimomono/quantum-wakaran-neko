@@ -85,3 +85,8 @@
 
 `check_draft132_unified_story_sync.py` は、M54 signal層とM66/R205 thermal-reservoir層を軸にした説明同期、Q2-3のR206 terminal readout、R207導入後のQ2-2-S現在形、重複見出し除去、fixed-goal依存・達成ラベル不変を確認する。理論式・physics verifierの意味は対象外であり、通常CIへ恒久登録しない。
 
+
+
+## draft-134 R207 projection phase-volume promotion
+
+`check_draft134_promote_r207_q2_2.py` は、R207A--R207CがQ2-2 fixed-goalの直接根拠へ昇格し、旧4-setting Gibbs checkerが履歴へ退避され、required projection-phase-volume verifierが追加されたことを確認する。同時にR180A/R180Cと `verify_r180c_locality.py` がまだactiveであり、Q2-2-Sの未監査状態とfinite-speed blockerが維持されていることを検査し、次PRのR180退役を先取りしない。

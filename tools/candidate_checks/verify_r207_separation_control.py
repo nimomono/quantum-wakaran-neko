@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
-"""Candidate checks for R207C/R207D causal separation and Bell-local control."""
+"""Strengthening-only diagnostics for R207 finite-distance separation."""
 
 import math
-import numpy as np
 
 
 def r205f_defect(rdist: float, x: float, y: float):
@@ -19,19 +18,6 @@ def r205f_defect(rdist: float, x: float, y: float):
     return defect, bound
 
 
-def local_control(n: int = 131072):
-    theta = (np.arange(n) + 0.5) * (2.0 * math.pi / n)
-    alpha = (0.0, math.pi / 2.0)
-    beta = (math.pi / 4.0, -math.pi / 4.0)
-    corr = []
-    for x, y in ((0, 0), (0, 1), (1, 0), (1, 1)):
-        r = np.where(np.cos(theta - alpha[x]) >= 0.0, 1.0, -1.0)
-        s = -np.where(np.cos(theta - beta[y]) >= 0.0, 1.0, -1.0)
-        corr.append(float(np.mean(r * s)))
-    s_chsh = corr[0] + corr[1] + corr[2] - corr[3]
-    return np.array(corr), s_chsh
-
-
 def main() -> None:
     worst = []
     for rdist in (0.0, 1.0, 2.0, 4.0, 8.0):
@@ -43,11 +29,14 @@ def main() -> None:
                 value = max(value, abs(defect))
         worst.append(value)
     assert all(b < a for a, b in zip(worst, worst[1:]))
+    assert worst[-1] < 1e-3
 
-    corr, s_chsh = local_control()
-    assert np.max(np.abs(corr - np.array([-0.5, -0.5, -0.5, 0.5]))) < 2.0e-5
-    assert abs(abs(s_chsh) - 2.0) < 5.0e-5
-    print("R207 separation/control candidate checks: OK")
+    # A numerical timing example only illustrates the strengthening inequality.
+    # The candidate checker does not derive L or vmax from a concrete reservoir.
+    L, vmax, t_meas = 10.0, 2.0, 1.0
+    assert t_meas < L / vmax
+
+    print("R207 finite-distance strengthening diagnostics: OK")
 
 
 if __name__ == "__main__":
