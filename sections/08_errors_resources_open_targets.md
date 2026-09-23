@@ -200,6 +200,8 @@ $\varepsilon_{206}^{\rm end}$ にはR206Cのfinite-time mixing、hub residual、
 
 ### 8.6.1 Q2-2-S R207 candidateの誤差台帳
 
+S0--S4の定義と公式状態は `ENHANCEMENT_TARGETS.md`、本文側の因果構造要約は第5章5.7を正本参照先とする。本節はcandidate誤差の数え方だけを管理し、強化状態を独立に判定しない。
+
 R207候補ではfixed-goal R180Cの $\varepsilon_{180}$ と別に、
 
 ```math

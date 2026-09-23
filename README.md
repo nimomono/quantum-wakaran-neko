@@ -66,7 +66,7 @@ Bell型統計では、固定一重項型の4モード信号にA側の設定を�
 
 ただし、現行証人はA側の結果成分をB側へ物理的に渡す装置なので、Bell局所因子化を満たす空間分離模型ではありません。Q2-2固定目標は特定のBell前提違反を先に指定せず、採用構成ごとに前提の成立・不成立を監査します。測定窓内の因果隔離をどこまで強められるかはQ2-2-Sで別に調べます。
 
-Q2-2-SにはR207A--R207Dをcandidateとして追加しています。近接時に共通thermal reservoirでsourceとsetting precursorを共同準備し、距離を離すことでA/B相互作用とbath cross-correlationを受動的に弱め、分離後はlocal responseだけを使う構成です。この候補では測定設定独立性が成立しないためBellの定理と矛盾しません。有限伝播速度を持つ具体reservoirはまだ未監査です。
+Q2-2-SにはR207A--R207Dをcandidateとして追加しています。近接時に共通thermal reservoirでsourceとsetting precursorを共同準備し、距離を離すことでA/B相互作用とbath cross-correlationを受動的に弱め、分離後はlocal responseだけを使う構成です。common preparationでsourceとsetting precursorが相関するため、このwitnessでは測定設定独立性が成立せず、Bellの定理と矛盾しません。S0--S4の公式な現在地はENHANCEMENT_TARGETSで管理し、有限伝播速度を持つ具体reservoirとtiming closureが未監査なのでQ2-2-S全体は未監査のままです。
 
 一般回路については、$2^n$ 個の受動信号モードを許しつつ、外部から必要なプログラム、制御、時間、精度、読出しを多項式に抑えられるかをQ2-4で調べています。これは通常の意味で効率的な古典計算機シミュレーションや、量子計算機と同等の総物理資源を主張するものではありません。
 

@@ -375,7 +375,7 @@ $V_{AB}\in C^1$、$f\in C^2$ なら
 joint generatorからlocal generatorの和を引き、interaction drift二項とcross-diffusion項に三角不等式を適用すればよい。$K=C_{AB}=0$ なら差の全項が消える。証明終。
 <!-- theorem-end:proof -->
 
-R205Fは固定local bath couplingのまま受動的に力学が分離する条件だけを主張する。Bell型共同統計、setting依存準備、measurement independenceは別のQ2-2-S強化で扱う。
+R205Fは固定local bath couplingのまま受動的に力学が分離する条件だけを主張する。Bell型共同統計、setting依存準備、measurement independenceへの具体的適用は付録W/R207A--R207DのQ2-2-S candidateで扱う。R205F単独からfinite-speed spatial isolationは主張しない。
 
 ### X.3.5 specializationsと責務境界
 

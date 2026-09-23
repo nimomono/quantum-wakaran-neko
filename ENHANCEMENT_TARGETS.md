@@ -87,16 +87,29 @@ P(a\mid x,\lambda)P(b\mid y,\lambda),
 
 Q2-2-Sの主要な到達目標は、Bell型共同統計を維持したままS2またはS3まで物理的隔離を進められるかを判定することである。どの段階で不可能になるか、またはどのBell前提の不成立が避けられないかが判明した場合、その否定的結果自体を有効な成果として記録する。
 
-draft-130ではR207A--R207Dを候補として次のように対応づける。
+### Q2-2-Sの現在地監査
 
-| 段階 | R207 candidate mapping | 現在の限界 |
-|---|---|---|
-| S1 | R207Aのnear-contact joint thermal preparationと受動分離protocol | continuous full trajectory未監査 |
-| S2 | R205F + R207Cのpost-separation local generator | finite-speed spatial reservoirと $v_{\max}$ timing未監査 |
-| S3 | R207B/CのCHSH witnessとBell前提監査 | measurement dependenceを明示する候補。S2物理実装が未閉包 |
-| S4 | R207D Bell-local control | 解析controlあり |
+S0--S4の定義は上の表を正本とする。現行candidateの現在地は次の通りである。
 
-このcandidate mappingだけからQ2-2-Sの未監査状態を変更しない。
+| 段階 | 達成条件の要点 | 現在の証拠 | 未閉包条件 |
+|---|---|---|---|
+| S0 | 非空間分離基準系 | R180C逐次fixed-goal witness | 基準系として確立 |
+| S1 | 実在する二端と分離protocol | R207A near-contact joint thermal preparation | continuous spatial trajectory、具体的二端幾何 |
+| S2 | setting確定後に他端から到達可能な信号を使わない | R205F + R207Cのpost-separation generator factorization | finite-speed spatial reservoir、$v_{\max}$、同一timing model |
+| S3 | S2を保ったBell型統計と前提監査 | R207B/CのCHSH witness、非信号周辺、measurement-dependence監査 | S2 physical implementationが未閉包 |
+| S4 | Bell局所CHSH対照系 | R207Dのmeasurement-independent local control | 解析controlあり |
+
+現R207 candidateでは、setting precursorは準備窓から存在し、分離後のlocal latchでsetting recordを固定する。本文第5章では
+
+```math
+t_A^{\rm set}=t_A^{\rm latch},
+\qquad
+t_B^{\rm set}=t_B^{\rm latch}
+```
+
+と同一視する。このlatchは準備時のsource--setting correlationを消さないため、R207B/C witnessでは測定設定独立性は成立しない。
+
+R207A--R207DによりS1/S3/S4の解析candidateとS2のgenerator-level candidateは得たが、S2のfinite-speed physical isolationが未閉包である。このためQ2-2-S全体の公式状態は `未監査` のままとする。S4のcontrol成立だけからQ2-2-Sを部分達成へ更新しない。
 
 ## 強化目標の現在地表
 

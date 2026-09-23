@@ -80,6 +80,8 @@ M42 / R172--R174
 
 Q2の永続register・gateはM54/R181B--R181Cへ整理される。Q2-1/Q2-3/Q2-4の末端readoutはM66/R206、Q2-2の逐次読出しだけはM65/R181Dを使う。Q2-2の現行証人は、固定一重項4モードsignalにA設定を作用し、A端M65の結果でR181D型routerを制御して非規格化結果成分をB端へ渡し、B設定とB端M65を順に実行する非空間分離構成である。
 
+Q2-2-Sはfixed-goal主線と分けて管理する。現行strengthening candidateはM66/R205Eのcommon thermal preparationからR207A/Bへ進み、R205F/R207Cでpassive separationと分離後local responseを監査し、R207DをBell-local controlとする。S0--S4の定義・公式状態・現在地は `ENHANCEMENT_TARGETS.md` を正本とし、finite-speed spatial reservoirとtiming closureが未閉包なので全体は未監査である。
+
 旧M41 Bell周期、独立M48 paired-Hopf経路、M49/M52の中間register構成は、それぞれ個別の退役メモとGit履歴へ保存する。
 
 ## 履歴メモの読み方
@@ -117,3 +119,8 @@ draft-129ではM66をQ2 readerそのものからcommon thermal-reservoir parent�
 
 Q2-2 fixed-goalの現行主線は引き続きR180C--M65/R181Dである。R207A--R207DはQ2-2-S専用の別候補として、M66/R205Eのcommon preparationからR205Fのpassive separationへ進み、分離後のlocal responseとsource--setting measurement dependenceを監査する。R207Dはmeasurement-independent local controlを与える。finite-speed spatial reservoirが未閉包なのでQ2-2-S状態は未監査のままとする。
 
+
+
+## draft-131で同期したQ2-2-S管理
+
+draft-131では新しい理論結果を追加せず、第5章のR180C fixed-goal witnessとR207 strengthening candidateを明示的に分離した。S0--S4現在地は `ENHANCEMENT_TARGETS.md` を正本へ一本化し、S2の主要blockerをfinite-speed spatial reservoirとsetting確定後のtiming closureへ統一した。Q2-2 fixed-goal達成、Q2-2-S未監査、R207A--R207Dのcandidate分類は変更していない。

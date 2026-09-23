@@ -1,3 +1,10 @@
+## draft-131：第5章とQ2-2-S管理文書の同期
+
+- 第5章5.1/5.6/5.7と `ENHANCEMENT_TARGETS.md` のS0--S4現在地を同期し、後者をQ2-2-Sの定義・公式状態・現在地の正本として維持する。
+- `tools/migrations/check_draft131_q2_2_s_management_sync.py` で、Q2-2 fixed-goalのR180C--M65/R181D直接依存と達成ラベル、Q2-2-S全体の未監査状態、R207 candidate-only境界、finite-speed spatial reservoir blockerを確認する。
+- R207 candidate verifier 2本は変更せず再実行する。新しいrequired physics verifierは追加しない。
+- paper生成後に第5章のBell前提比較表とS0--S4表を含むgenerated-file sync、LaTeX semantics、typeset lintを確認する。
+
 ## draft-130：R207A--R207D Q2-2-S candidate
 
 - `tools/candidate_checks/verify_r207_gibbs_chsh.py` は4 setting sectorのpartition対称性、strong-lock $\kappa_*$、CHSH/Tsirelson値、局所周辺、source--setting mutual information、finite-lock witnessをcandidate quadratureで確認する。

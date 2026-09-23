@@ -41,7 +41,7 @@ P(r,s\mid x,y)
 
 であり、一重項型信号では余弦共同相関、非信号性、CHSH/Tsirelson値を再現する。この装置はA結果成分をB端へ渡す非空間分離装置であり、現行証人ではBell局所因子化を仮定しない。設定前の一重項源は設定非依存であり、現行証人のCHSH破れを測定設定独立性の破れへ限定して解釈しない。
 
-Q2-2-SについてはR207A--R207Dをcandidateとして追加した。R207Aは共通thermal preparationで公平なsetting sectorを作り、R207Bはdeep-well/strong-lock極で有限parameterのCHSH/Tsirelson witnessを与える。R207CはR205Fによる分離後local response factorizationとsource--setting measurement dependenceを分け、R207Dはmeasurement-independent local controlで $|S|\le2$ を回収する。finite-speed spatial reservoirとcontinuous full trajectoryが未監査なので、この追加だけからQ2-2-Sの達成状態は変更しない。
+Q2-2-SについてはR207A--R207Dをcandidateとして追加した。R207Aは共通thermal preparationで公平なsetting sectorを作り、R207Bはdeep-well/strong-lock極で有限parameterのCHSH/Tsirelson witnessを与える。R207CはR205Fによる分離後local response factorizationとsource--setting measurement dependenceを分け、R207Dはmeasurement-independent local controlで $|S|\le2$ を回収する。S0--S4の現在地はENHANCEMENT_TARGETSを正本とし、finite-speed spatial reservoirとsetting確定後のtiming closureが未閉包なのでQ2-2-S全体は未監査のままとする。
 
 Q3の粒子位置はQ1/Q2の測定結果とは別の因果鎖を持つ一方、そのsignal数学は共通である。Q1型の局所正準モードを空間頂点へ配置し、Q2型の2体系結合を辺へ反復すると、局所作用から位置重み、連続方程式から反対称currentが得られる。M37/R86はこのSchrödinger型signalを実古典振動子網から有限時間で実装する。
 

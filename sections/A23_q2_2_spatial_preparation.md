@@ -496,3 +496,5 @@ R207DはR207B/CでCHSH破れを支える前提差を対照化するcontrolであ
 2. 有限伝播速度を持つ具体spatial reservoirから $C_{AB}(R)$ を導くこと。
 3. 分離・setting latch・local result固定を同じphysical timing modelで閉じること。
 4. 実験装置、実験可能parameter、direct apparatus simulation。
+
+S0--S4の定義と公式状態は `ENHANCEMENT_TARGETS.md` を正本とし、本文第5章5.7はその現在地を要約する。本付録のcandidate表現は独立の状態正本を作らない。

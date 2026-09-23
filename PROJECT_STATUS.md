@@ -1,3 +1,10 @@
+## draft-131：第5章とQ2-2-S管理文書の同期
+
+- 第5章をQ2-2 fixed-goal witnessとQ2-2-S candidateの二層構造へ整理し、R180CとR207のBell前提監査を並列表示する。
+- Q2-2-SのS0--S4現在地はENHANCEMENT_TARGETSを正本とし、finite-speed spatial reservoirとtiming closureをS2の主要未閉包条件として統一する。
+- Q2-2 fixed-goalの直接依存・達成ラベル、R207A--R207Dの理論内容、Q2-2-S全体の未監査状態、candidate verifierは変更しない。
+- 新しいM/R番号、physics verifier、A1/A2/B判定を追加しない。
+
 ## draft-130：R207A--R207D Q2-2-S candidate
 
 - A23/付録WへR207A--R207DをQ2-2-S spatial-preparation candidateとして追加する。
@@ -529,6 +536,7 @@ M0は、個別のA1模型を並べるだけでは達成としない。少なく�
 - Q2-4の比較対象はブラックボックスとしての運用上の複雑度である。内部モード、静的結合器、装置体積、総熱の総量は別の報告対象の内部資源として保持し、指数的であるだけでQ2-4を否定しない。ただしそれらがモード別較正、指数精度、指数時間として外部接続部へ露出すれば失敗とする。R186はこの露出のうち製造誤差とノイズの境界を定量化する。
 - R181Dはbinary selector contractで固定された安全結果 $r$ に従い、可逆な射影成分の振り分けによって $P_rZ$ と補成分を分け、非規格化 $P_rZ$ を同じ試行の次段へ渡す。現行fixed-goalではQ1/Q2-2の逐次handoffにだけ使う。Q2-1/Q2-3/Q2-4はterminal M66/R206 samplingを用い、結果成分treeや作用回復を使わない。
 - 現行R180CのCHSH不等式の破れは、設定前の一重項源を設定非依存に保ったままA端結果成分をB端へ物理的に渡す非空間分離逐次構成で得る。従って現行証人はBell局所因子化を満たす空間分離模型ではない。Q2-2固定目標は特定のBell前提違反を先に指定せず、採用構成ごとに前提の成立・不成立を監査する。
+- R207A--R207DはQ2-2-S専用candidateであり、Q2-2 fixed-goalの直接根拠ではない。R205F/R207C分離後はlocal response factorizationを候補として保つ一方、R207B/CのCHSH witnessではsource--setting measurement dependenceが残る。finite-speed spatial reservoirとsetting確定後のtiming closureが未監査なので、Q2-2-Sの公式状態はENHANCEMENT_TARGETSで未監査を維持する。
 - 有限熱化または外部時刻割当から独立同分布型有限標本揺らぎは従わない。
 - Q1--Q3を同じ装置、同じ基準分布、同じ反復周期へ統合したとは主張しない。
 
