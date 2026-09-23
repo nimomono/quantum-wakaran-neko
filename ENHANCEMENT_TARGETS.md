@@ -41,71 +41,47 @@ Q2-4のB1--B3は単一の巨大回路図を要求するものではなく、任�
 
 ## 強化目標の適用表
 
-| 固定目標 | A1 ミクロ模型 | A2 ミクロ数値 | B1 実験装置 | B2 実験領域 | B3 装置数値 | 固有強化 |
-|---|---:|---:|---:|---:|---:|---|
-| Q1-1 | 対象 | 対象 | 対象 | 対象 | 対象 | — |
-| Q1-2 | 対象 | 対象 | 対象 | 対象 | 対象 | — |
-| Q2-1 | 対象 | 対象 | 対象 | 対象 | 対象 | — |
-| Q2-2 | 対象 | 対象 | 対象 | 対象 | 対象 | Q2-2-S |
-| Q2-3 | 対象 | 対象 | 対象 | 対象 | 対象 | — |
-| Q2-4 | 対象 | 対象 | 対象 | 対象 | 対象 | — |
-| Q3-1 | 対象 | 対象 | 対象 | 対象 | 対象 | — |
-| Q3-2 | 対象 | 対象 | 対象 | 対象 | 対象 | — |
-| Q3-3A | 対象 | 対象 | 対象 | 対象 | 対象 | — |
-| Q3-3B | 対象 | 対象 | 対象 | 対象 | 対象 | — |
-| Q3-3C | 対象 | 対象 | 対象 | 対象 | 対象 | — |
-| Q3-4A | 対象 | 対象 | 対象 | 対象 | 対象 | — |
-| Q3-4B | 対象 | 対象 | 対象 | 対象 | 対象 | — |
-| Q3-5 | 対象 | 対象 | 対象 | 対象 | 対象 | — |
-| Q3-6 | 対象 | 対象 | 対象 | 対象 | 対象 | — |
+| 固定目標 | A1 ミクロ模型 | A2 ミクロ数値 | B1 実験装置 | B2 実験領域 | B3 装置数値 |
+|---|---:|---:|---:|---:|---:|
+| Q1-1 | 対象 | 対象 | 対象 | 対象 | 対象 |
+| Q1-2 | 対象 | 対象 | 対象 | 対象 | 対象 |
+| Q2-1 | 対象 | 対象 | 対象 | 対象 | 対象 |
+| Q2-2 | 対象 | 対象 | 対象 | 対象 | 対象 |
+| Q2-3 | 対象 | 対象 | 対象 | 対象 | 対象 |
+| Q2-4 | 対象 | 対象 | 対象 | 対象 | 対象 |
+| Q3-1 | 対象 | 対象 | 対象 | 対象 | 対象 |
+| Q3-2 | 対象 | 対象 | 対象 | 対象 | 対象 |
+| Q3-3A | 対象 | 対象 | 対象 | 対象 | 対象 |
+| Q3-3B | 対象 | 対象 | 対象 | 対象 | 対象 |
+| Q3-3C | 対象 | 対象 | 対象 | 対象 | 対象 |
+| Q3-4A | 対象 | 対象 | 対象 | 対象 | 対象 |
+| Q3-4B | 対象 | 対象 | 対象 | 対象 | 対象 |
+| Q3-5 | 対象 | 対象 | 対象 | 対象 | 対象 |
+| Q3-6 | 対象 | 対象 | 対象 | 対象 | 対象 |
 
 各個別目標は、例えば `Q1-2-A1`、`Q1-2-A2`、`Q1-2-B1` のように固定目標IDへ末尾を付けて参照する。
-
-## Q2-2-S：空間隔離強化
-
-Q2-2本体はR207 projection phase-volume主線により、二つの物理端、一般余弦共同確率、CHSH/Tsirelson極限、非信号周辺、Bell前提監査を一試行interfaceとして構成する。固定目標自身はfinite-speed spacelike separationを要求しない。Q2-2-Sはその上でsetting確定後の空間的・因果的隔離を独立に調べる。
-
-| 段階 | 条件 | 検証内容 |
-|---|---|---|
-| S0 | 現行fixed-goal二端baseline | R207A--R207Cのjoint thermal preparation、passive separation、local outcome/recordを基準系とする |
-| S1 | 具体spatial geometry | 二端距離 $L$、transport path、分離時間、local reservoir geometryを明示する |
-| S2 | 測定窓内の因果隔離 | setting確定からlocal result固定まで他端から到達可能な信号を使わず、$t_A^{\rm out}-t_B^{\rm set}<L/v_{\max}$ と $t_B^{\rm out}-t_A^{\rm set}<L/v_{\max}$ を同じ装置で満たす |
-| S3 | 因果隔離下のsinglet統計と前提監査 | S2を維持したまま一般角度Bell型共同統計とBell前提監査を行う |
-| S4 | Bell-local CHSH対照系 | measurement independenceとBell-local responseを同時に課すcontrolで $|S|\le2$ を確認する |
-
-### Q2-2-Sの現在地監査
-
-| 段階 | 現在の証拠 | 未閉包条件 |
-|---|---|---|
-| S0 | R207A--R207C fixed-goal主線 | fixed-goal baselineとして確立 |
-| S1 | R205Fの距離依存decouplingとR207Cの分離protocol | concrete spatial reservoir geometry、transport trajectory |
-| S2 | R205Fのpost-separation generator factorization | finite propagation speed $v_{\max}$、同一timing model |
-| S3 | R207B/Cの一般角度singlet law、非信号周辺、measurement-dependence監査 | S2 physical implementationが未閉包 |
-| S4 | R207D measurement-independent local control | 解析controlあり |
-
-R207のfixed-goal昇格はS0の基準系を更新するが、finite-speed spatial reservoirとsetting確定後のtiming closureを閉じない。このためQ2-2-S全体の公式状態は未監査のままとする。direct SDE trajectory、具体実験装置、実験可能parameter windowはA2/B系で別に監査する。
 
 ## 強化目標の現在地表
 
 強化目標の追加時点では、既存結果を新基準へ自動的に読み替えず、以下の形式で独立に監査する。全項目を `未監査` から開始する。
 
-| 固定目標 | A1 | A2 | B1 | B2 | B3 | 固有強化 | 主な既存候補 |
-|---|---|---|---|---|---|---|---|
-| Q1-1 | 未監査 | 未監査 | 未監査 | 未監査 | 未監査 | — | M37、R140、R187 |
-| Q1-2 | 未監査 | 未監査 | 未監査 | 未監査 | 未監査 | — | R189A--R189C、M65/R204D--R204F、R181D |
-| Q2-1 | 未監査 | 未監査 | 未監査 | 未監査 | 未監査 | — | M54、R181B--R181C、M66/R205--R206 |
-| Q2-2 | 未監査 | 未監査 | 未監査 | 未監査 | 未監査 | 未監査 | M66/R205A・R205E--R205F、R207A--R207D |
-| Q2-3 | 未監査 | 未監査 | 未監査 | 未監査 | 未監査 | — | M54、R177、R181B--R181C、M66/R205--R206 |
-| Q2-4 | 未監査 | 未監査 | 未監査 | 未監査 | 未監査 | — | M54、R181C、R186、M66/R205--R206E |
-| Q3-1 | 部分達成 | 未監査 | 未監査 | 未監査 | 未監査 | — | M37、R86 |
-| Q3-2 | 部分達成 | 未監査 | 未監査 | 未監査 | 未監査 | — | M37、R86、M64、R203A--R203D、R161、R185 |
-| Q3-3A | 未監査 | 未監査 | 未監査 | 未監査 | 未監査 | — | M37、R123 |
-| Q3-3B | 未監査 | 未監査 | 未監査 | 未監査 | 未監査 | — | M37、R123 |
-| Q3-3C | 未監査 | 未監査 | 未監査 | 未監査 | 未監査 | — | M37、R123、R182 |
-| Q3-4A | 未監査 | 未監査 | 未監査 | 未監査 | 未監査 | — | M37、M64、R124、R203D |
-| Q3-4B | 未監査 | 未監査 | 未監査 | 未監査 | 未監査 | — | M37、M64、R182、R203D |
-| Q3-5 | 未監査 | 未監査 | 未監査 | 未監査 | 未監査 | — | M37、M64、R125、R203D |
-| Q3-6 | 未監査 | 未監査 | 未監査 | 未監査 | 未監査 | — | 完結候補なし |
+| 固定目標 | A1 | A2 | B1 | B2 | B3 | 主な既存候補 |
+|---|---|---|---|---|---|---|
+| Q1-1 | 未監査 | 未監査 | 未監査 | 未監査 | 未監査 | M37、R140、R187 |
+| Q1-2 | 未監査 | 未監査 | 未監査 | 未監査 | 未監査 | R189A--R189C、M65/R204D--R204F、R181D |
+| Q2-1 | 未監査 | 未監査 | 未監査 | 未監査 | 未監査 | M54、R181B--R181C、M66/R205--R206 |
+| Q2-2 | 未監査 | 未監査 | 未監査 | 未監査 | 未監査 | M66/R205A・R205E--R205F、R207A--R207D |
+| Q2-3 | 未監査 | 未監査 | 未監査 | 未監査 | 未監査 | M54、R177、R181B--R181C、M66/R205--R206 |
+| Q2-4 | 未監査 | 未監査 | 未監査 | 未監査 | 未監査 | M54、R181C、R186、M66/R205--R206E |
+| Q3-1 | 部分達成 | 未監査 | 未監査 | 未監査 | 未監査 | M37、R86 |
+| Q3-2 | 部分達成 | 未監査 | 未監査 | 未監査 | 未監査 | M37、R86、M64、R203A--R203D、R161、R185 |
+| Q3-3A | 未監査 | 未監査 | 未監査 | 未監査 | 未監査 | M37、R123 |
+| Q3-3B | 未監査 | 未監査 | 未監査 | 未監査 | 未監査 | M37、R123 |
+| Q3-3C | 未監査 | 未監査 | 未監査 | 未監査 | 未監査 | M37、R123、R182 |
+| Q3-4A | 未監査 | 未監査 | 未監査 | 未監査 | 未監査 | M37、M64、R124、R203D |
+| Q3-4B | 未監査 | 未監査 | 未監査 | 未監査 | 未監査 | M37、M64、R182、R203D |
+| Q3-5 | 未監査 | 未監査 | 未監査 | 未監査 | 未監査 | M37、M64、R125、R203D |
+| Q3-6 | 未監査 | 未監査 | 未監査 | 未監査 | 未監査 | 完結候補なし |
 
 ここで「主な既存候補」は強化目標の達成を意味せず、新基準を監査するときの出発点だけを示す。
 
@@ -117,7 +93,7 @@ Q3-1-A2/Q3-2-A2は未監査のままとする。direct SDE trajectory、標本�
 
 固定目標そのものの達成条件と、物理実装・数値実験・回路実験へ進む強化目標を区別する。
 
-全固定目標について、具体的古典ミクロ模型 `A1` と、そのミクロ方程式を直接計算する数値再現 `A2` に加え、具体的実験装置 `B1`、実験可能パラメータ領域 `B2`、装置直接シミュレーション `B3` を強化目標とする。Q1/Q2ではアナログ回路実装を主要候補とし、Q3では粒子・流体・機械・波動その他の古典実験装置を含める。Q2-2についてはさらに、2つの測定端の物理的・因果的隔離とBell前提の境界を調べる `Q2-2-S` を置く。
+全固定目標について、具体的古典ミクロ模型 `A1` と、そのミクロ方程式を直接計算する数値再現 `A2` に加え、具体的実験装置 `B1`、実験可能パラメータ領域 `B2`、装置直接シミュレーション `B3` を強化目標とする。Q1/Q2ではアナログ回路実装を主要候補とし、Q3では粒子・流体・機械・波動その他の古典実験装置を含める。
 
 これらは固定目標の既存達成ラベルを変更しない。逆に、既存の解析証明または有効模型の数値検証だけから強化目標を自動的に達成としない。
 
@@ -135,7 +111,7 @@ Q2-4のterminal readout責務はR206A--R206Dへ移し、Q2-4準備はR206Eが担
 
 ## M66/R205 common-reservoir parent と R206 readout specialization
 
-M66/R205A--R205Fはphase-volume、mean-flow、thermal sampling、passive separationを共通化するreservoir parentである。M64/M65のdomain modelは維持し、Q2-1/Q2-3/Q2-4 fixed-goalのterminal readoutはR206A--R206DをM66の具体specializationとして使い、Q2-4のuniform root preparation / refreshはR206Eが担う。R205A/R205E/R205FはQ2-2 fixed-goalでR207A--R207Cのprojection phase-volume共同準備・passive separationへ接続する。finite-speed spatial reservoirとtiming closureはQ2-2-Sへ分離し、同強化全体は未監査のままとする。
+M66/R205A--R205Fはphase-volume、mean-flow、thermal sampling、passive separationを共通化するreservoir parentである。M64/M65のdomain modelは維持し、Q2-1/Q2-3/Q2-4 fixed-goalのterminal readoutはR206A--R206DをM66の具体specializationとして使い、Q2-4のuniform root preparation / refreshはR206Eが担う。R205A/R205E/R205FはQ2-2 fixed-goalでR207A--R207Cのprojection phase-volume共同準備・passive separationへ接続する。
 
 共通thermal-reservoir層と強化目標の責務は次のように分ける。
 
@@ -144,6 +120,6 @@ M66/R205A--R205Fはphase-volume、mean-flow、thermal sampling、passive separat
 | M64 | R203B reservoir sectorをR205Cへ埋め込む | direct M64 trajectory、finite-bandwidth/Hamiltonian lift、装置統合 |
 | M65 | R204B chamber realizationをR205Dへ埋め込む | direct Brownian/chamber trajectory、finite-bandwidth bath、具体回路 |
 | R206 | M66のQ2 terminal specialization | concrete apparatus、有限帯域、always-on coupling/backreaction |
-| R207 | R205E/Fをjoint preparation/passive separationへ利用 | finite-speed spatial reservoir、continuous trajectory、timing closure、具体装置 |
+| R207 | R205E/Fをjoint preparation/passive separationへ利用 | direct microscopic trajectory、具体装置、有限帯域・非理想性監査 |
 
 この共通化だけではA1/A2/B1--B3状態を変更しない。Q2-4ではR186のcoherent register additive-noise障害を独立に維持する。
