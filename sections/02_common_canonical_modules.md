@@ -30,7 +30,7 @@ w(Q)e^{-\beta H_{\rm cfg}(Q)}
 | M64 / Q3 | R203Bの $w=r_X^\delta/r_*$ とmean-flow sectorをR205Cへ埋め込む | R203A current dictionary、initial/flow trackingの具体実装、tracer、R203C/R203D |
 | M65 / Q1 | R204B phase-volume chamberをR205Dのbinary fixed-hub specializationとして回収 | M65 canonical 3状態open law、R204D--R204F、R181D handoff |
 | R206 / Q2-1・Q2-3・Q2-4 | M66のfinite-$L$ common-hub terminal specialization | Q2 terminal bridge、finite-time/fabrication error、Q2-4 root preparation |
-| R207 / Q2-2 | R205A projection phase volume、R205E joint thermal preparation、R205F passive separationを利用 | general-angle singlet law、local二端latch、Bell前提監査。finite-speed残件はQ2-2-Sへ分離 |
+| R207 / Q2-2 | R205A projection phase volume、R205E joint thermal preparation、R205F passive separationを利用 | general-angle singlet law、local二端latch、measurement-independence監査、Bell-local control |
 
 従ってM66はM64/M65のwhole-model parentではなく、共通reservoir interfaceのparentである。共通化されたsectorと各domain model固有のsectorを混同しない。
 
