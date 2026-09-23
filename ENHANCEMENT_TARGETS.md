@@ -161,6 +161,15 @@ Q2-4のterminal readout責務はM66/R206へ移し、M65のQ2-4 polynomial node-t
 
 ## M66/R205 common-reservoir parent と R206 readout specialization
 
-M66/R205A--R205Fはphase-volume、mean-flow、thermal sampling、passive separationを共通化するreservoir parentである。M64/M65のdomain modelは維持し、Q2-1/Q2-3/Q2-4 fixed-goalのterminal readoutはR206A--R206EをM66の具体specializationとして使う。R205E/R205Fは将来のjoint preparationやspatial separationにも再利用できる一般結果だが、本draftではQ2-2-Sの達成判定や候補主線へまだ接続しない。
+M66/R205A--R205Fはphase-volume、mean-flow、thermal sampling、passive separationを共通化するreservoir parentである。M64/M65のdomain modelは維持し、Q2-1/Q2-3/Q2-4 fixed-goalのterminal readoutはR206A--R206EをM66の具体specializationとして使う。R205E/R205FはQ2-2-SではR207A--R207Dのjoint preparation・passive separation candidateへ接続済みであるが、finite-speed spatial reservoirとtiming closureが未閉包なのでQ2-2-S全体は未監査のままとする。
 
-本追加だけではA1/A2状態を変更しない。full Brownian/chamber trajectory、finite-bandwidth reservoir、always-on coupling中のphase backreaction、具体空間reservoirでの $C_{AB}(R)$、具体回路化は未監査である。Q2-4ではR186のcoherent register additive-noise障害を独立に維持する。
+共通thermal-reservoir層と強化目標の責務は次のように分ける。
+
+| 対象 | M66/R205との関係 | 強化側でなお必要なもの |
+|---|---|---|
+| M64 | R203B reservoir sectorをR205Cへ埋め込む | direct M64 trajectory、finite-bandwidth/Hamiltonian lift、装置統合 |
+| M65 | R204B chamber realizationをR205Dへ埋め込む | direct Brownian/chamber trajectory、finite-bandwidth bath、具体回路 |
+| R206 | M66のQ2 terminal specialization | concrete apparatus、有限帯域、always-on coupling/backreaction |
+| R207 | R205E/Fをjoint preparation/passive separationへ利用 | finite-speed spatial reservoir、continuous trajectory、timing closure、具体装置 |
+
+この共通化だけではA1/A2/B1--B3状態を変更しない。Q2-4ではR186のcoherent register additive-noise障害を独立に維持する。

@@ -2,6 +2,23 @@
 
 このメモは、置換済み研究メモに残る「当時の現行」「次の置換先」と、現在の正本を混同しないための入口である。個別メモの本文は、その版で何を採用していたかを追跡できるよう原則として歴史的表現を保持する。**現在の採用状態そのものは `PROJECT_STATUS.md` を正本**とし、退役結果のID・旧用途・保存先は `superseded_result_index.md` を正本とする。
 
+## 現行の統一構造
+
+現行正本は、M54の共通signal・状態層とM66/R205の共通thermal-reservoir層を分け、その上へ用途別のM64、M65、R206、R207を接続する構造として読む。
+
+```text
+M54 signal/state layer
+  ↑ M37 signal implementation
+
+M66 / R205 reservoir layer
+  ├─ M65 / R181D : Q1/Q2-2 sequential binary
+  ├─ R206        : Q2 terminal multi-outcome
+  ├─ M64         : Q3 tracer/Nelson
+  └─ R207        : Q2-2-S strengthening candidate
+```
+
+M66が共通化するのはreservoir sectorであり、M64全体やM65 canonical lawを置換しない。M0はさらに強いjoint device/process統合目標であり、この2つの共通層を持つだけでは達成しない。
+
 ## 現行の主要因果鎖
 
 ### Q1/Q2-2の逐次測定

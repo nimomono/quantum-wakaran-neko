@@ -81,3 +81,7 @@
 
 `check_draft131_q2_2_s_management_sync.py` は、第5章と `ENHANCEMENT_TARGETS.md` のS0--S4対応、finite-speed spatial reservoirをS2主要blockerとする現在地、R207のcandidate-only境界を確認する。同時にQ2-2 fixed-goalの直接依存・達成ラベルとQ2-2-S全体の `未監査` 状態が変わっていないことを検査する。理論式やcandidate physics verifierの変更は対象外とする。
 
+## draft-132 unified story sync
+
+`check_draft132_unified_story_sync.py` は、M54 signal層とM66/R205 thermal-reservoir層を軸にした説明同期、Q2-3のR206 terminal readout、R207導入後のQ2-2-S現在形、重複見出し除去、fixed-goal依存・達成ラベル不変を確認する。理論式・physics verifierの意味は対象外であり、通常CIへ恒久登録しない。
+

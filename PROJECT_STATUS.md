@@ -1,3 +1,11 @@
+## draft-132：signal層・thermal-reservoir層を軸とする統一ストーリー同期
+
+- M54を共通signal・状態構成層、M37をsignal物理実装層、M66/R205を共通thermal-reservoir interfaceとして、第0・1・2・8・9章とREADMEの説明順を統一する。
+- M64/M65は系列固有模型、R206はM66のQ2終端多結果specialization、R207はR205E/Fを用いるQ2-2-S strengthening candidateとして責務境界を明示する。
+- Q2-3末端readerの旧M65/R181D記述、R205FをQ2-2-Sの「後続」とする旧現在形、重複見出し、MANIFESTの古い付録一覧を修正する。
+- fixed-goal定義・達成ラベル、R203--R207の理論内容、required/candidate分類、A1/A2/B/Q2-2-S状態は変更しない。
+- M66共通化からwhole-model derivation、同一bath、同一hardware、M0達成を推論しない。
+
 ## draft-131：第5章とQ2-2-S管理文書の同期
 
 - 第5章をQ2-2 fixed-goal witnessとQ2-2-S candidateの二層構造へ整理し、R180CとR207のBell前提監査を並列表示する。
@@ -388,21 +396,24 @@ draft-71でR182、W型有限環境系、M42周期輸送系を本文・付録・�
 
 ## 現在の統一導出方針
 
-物理的な導出の主線を、M37の実振動子運動から空間包絡へ進むQ3 signal経路、弱結合W型の低2正常モードからQ1制御運動へ進む経路、M37 signalからM64三実体open modelを介してR161/R185へ進むQ3 particle経路に分ける。R86の空間包絡、R140の射影内制御、R187のQ1受渡し、R203A--R203DのQ3位置過程を区別する。
+現行理論は、1つの万能模型へ統合するのではなく、**共通signal・状態層**、**共通thermal-reservoir層**、**用途別のdomain model / specialization** を分けて接続する。
 
-| 接続 | 導出状態・残件 |
-|---|---|
-| 静的M37から空間包絡 | R86の既存結果 |
-| M37空間signalからQ3粒子輸送 | M64/R203A--R203D。regularized density/current、phase-volume free energy、continuous/finite-graph初期準備、mean-flow tracking、canonical overdamped tracer、R161接続を同じ三実体open modelで閉じる |
-| M64から時間対称Newton則 | R203Dの1次元specializationをR161/R185へ接続。process-law reduction errorとNewton force residualを別管理 |
-| 静的W型スペクトル・空間トンネル | R182。W型低位スペクトル、障壁下二重項、M37の関数計算、完全位置密度、半周期・一周期を同じ静的系で閉じ、M64 finite-graph tracerへ接続 |
-| W型から2準位制御 | R140の射影内結果。高モード漏れ確率と全状態誤差を分離 |
-| 有限制御列のM37包絡 | R86の区間合成系と有限切替比較。入力一様な保守上界 |
-| M37からQ1への受渡し | R187。弱結合W型で $J_\kappa/G_\kappa\to0$、結合後の低2モード部分空間、静的正常モード分裂較正、有限切替を合成し、固定 $U\in SU(2)$ を任意精度でM37信号系へ持ち上げる |
-| W型入力からQ2共同信号系 | 物理抽出・転送が追加課題。既存Q2の必須依存ではない |
-| 準備・測定・装置統合 | Q1では準備済み入力境界、射影作用保持、M65読出し、R181D振り分け、外部記録、R179 resetの統合が残る。Q3ではM37 signal、M64 reservoir/tracer、clock、終位置recordを一つの反復周期へ統合するM0が未構成 |
+| 層 | 現行正本 | 導出状態・責務 |
+|---|---|---|
+| 共通signal・状態構成 | M54 | 有限実正準signal、準備済み入力境界、永続記憶部、作業領域、clock、record、接続規約。Q1--Q3で共通 |
+| signal物理実装 | M37/R86 | 局所結合実振動子網から空間signalを実装。R187条件下ではW型最低2正常モードをQ1制御へ接続 |
+| 共通thermal-reservoir interface | M66/R205A--R205F | phase-volume/free-energy、mean-flow、matched capacity--conductance、thermal sampling、passive separationを共通化 |
+| Q3 domain model | M64/R203A--R203D | M37 signal、一つのclassical tracer、一つのsignal-driven thermal reservoir。R161/R185とfinite-graph位置読出しへ接続 |
+| Q1/Q2-2逐次instrument | M65/R204D--R204F + R181D | 2作用から完全2結果を形成し、固定結果に対応する非規格化射影成分を同じ試行の次段へ渡す |
+| Q2 terminal specialization | R206A--R206E | Q2-1/Q2-3/Q2-4の4/8/$2^n$ 結果terminal samplingとQ2-4 root preparation |
+| Q2-2-S strengthening candidate | R205E/F + R207A--R207D | joint thermal preparation、passive separation、分離後local response、measurement-dependence監査。finite-speed実装は未閉包 |
+| canonical位置過程 | R161/R185 | M64から受ける $(\pi,j,t)$ をMarkov path lawと時間対称Newton則へ接続 |
 
-M54の共通状態型による記述、M37/M64による物理実装層実装、M0で要求する同一装置への統合、全外部流路の有限閉鎖Hamiltonian化を区別する。固定目標の達成だけではM0達成としない。
+M66の共通化はreservoir sectorに限る。M64全体、M65 canonical law、R207 finite-speed spatial implementationをM66から導出したとは扱わない。R203Bのpartition/free-energyとmean-flow sectorはR205C、R204Bのphase-volume chamberはR205Dへ埋め込まれる。R206はM66の直接Q2 specializationである。
+
+Q1ではM37--R187--R140で可逆2モードsignalを作り、R189A--M65--R181Dで測定へ接続する。Q2-1/Q2-3/Q2-4ではM54/R181B--R181Cの永続信号をR206 terminal samplerへ渡す。Q2-2 fixed-goalはR180Cの非空間分離逐次M65経路、Q2-2-SはR205E/F--R207の別strengthening経路である。Q3ではM37/R86 signalからM64/R203A--R203Dへ進み、R161/R185へ接続する。
+
+M0はこれらの共通化より強い。M54/M66を共有していても、同じ物理接続端、準備、操作、測定、永久record、reset、clock、renewalを1つのjoint microscopic device/processと共通反復周期へ接続しない限りM0達成とはしない。
 
 ## 現行模型・物理実装層・手順の運用状態
 
@@ -414,7 +425,7 @@ M54の共通状態型による記述、M37/M64による物理実装層実装、M
 | M37 | 物理Hamiltonian信号実装層 | Q3の空間信号部分系、およびR187条件下のQ1 W2制御用信号系 | 局所位置結合された有限実古典振動子網からR86の空間包絡を導く。R187の弱結合W型族では最低2正常モードをM54のW2信号へ正準同定し、R140制御を任意精度で実装する |
 | M64 | Q3共通open model | 現行Q3 particle/Nelson実装 | M37 signal、一つのclassical tracer、一つのsignal-driven thermal reservoirからなる三実体模型。R203A--R203Dでcontinuous profileとfinite-graph profileをR161/R185およびR124/R182/R125へ接続する。Hamiltonian lift、finite bath、underdamped lift、連続空間一様極限、多粒子、全周期clock/record統合は強化課題 |
 | M65 | Q1/Q2-2 binary canonical open selector | 現行逐次fixed-goal正本模型 | 保持済み二作用を線形rateへ入れる $+,H,-$ の3状態連続時間Markov pointer。R204Dでfinite-time Born、R204Eでbinary selector contract、R204FでQ1 interface/latencyを与える。R204B/R204Cのphase-volume chamber/Hamiltonian liftは強化実現 |
-| M66 | common thermal-reservoir parent model | 共通reservoir layer。現行fixed-goalでの直接specializationはQ2-1/Q2-3/Q2-4のR206 | R205A--R205Fでphase-volume、mean-flow、matched capacity--conductance、thermal Gibbs sampling、passive separationを共通化する。M64/M65のdomain modelは置換せず、R206A--R206EがQ2 terminal readoutを担う |
+| M66 | common thermal-reservoir parent model | 共通reservoir interface。現行fixed-goalでの直接specializationはQ2-1/Q2-3/Q2-4のR206 | R205A--R205Fでphase-volume、mean-flow、matched capacity--conductance、thermal Gibbs sampling、passive separationを共通化する。R203Bのreservoir sectorはR205C、R204Bのchamber realizationはR205Dへ埋め込むが、M64/M65のwhole-modelは置換しない |
 
 M50はM54の静的状態構成へ、M55はM54空間状態構成へ吸収した。M56はspin-only Q3代替研究線とし現行達成根拠へ使わない。M60/M61とそれ以前のM57/M59は旧Q3 Hamiltonian実装として現行主線から退役し、Git履歴へ保存する。旧状態方向準備、旧作用殻型Q1/Q2測定経路、旧2端再準備は現行必須依存から外し、退役索引と研究メモへ保存する。
 
@@ -426,6 +437,8 @@ M54による統一は共通状態型、因果契約、接続規約の有効層�
 |---|---|---|
 | Q1 W型2モード手順（旧M47） | M54のW2静的状態構成＋R187のM37接続 | 準備済みW2入力、R187/R140による制御、射影作用保持、M65による2結果形成、R181Dによる非規格化射影成分受渡し、R143/R144、R189A--R189Cを接続する |
 | R180 2端M65受信機構 | M54静的状態構成 | 固定一重項4モード信号にA設定を作用し、A端M65、R181D型の射影成分振り分け、B設定、B端M65を順に接続する非空間分離Q2-2手順。旧R180Bの2端再準備は使わない |
+| R206 Q2終端多結果特殊化 | M54 signal + M66/R205 | Q2-1/Q2-3/Q2-4のterminal readout。4/8/$2^n$ 結果をcommon-hub samplerで1回標本化し、Q2-4ではR206E root preparationを併用する |
+| R207 Q2-2-S強化候補 | M66/R205E--R205F | source/setting precursorのjoint thermal preparation、passive separation、分離後local response、Bell前提監査。fixed-goal直接依存ではなく、finite-speed spatial reservoirとtiming closureは未監査 |
 
 ### 統合目標
 
@@ -547,6 +560,7 @@ M0は、個別のA1模型を並べるだけでは達成としない。少なく�
 1. Q1ではR189A作用保持、M65 selector、R112型record、R181Dの射影成分振り分け、未使用保持対SWAP／R179 open resetをM37 W2信号系と同じ具体装置・時計自由度へ接続し、測定部分系の単一装置統合と周期収支を閉じる。
 2. Q2-1/Q2-3では永続多モード記憶部、M66 terminal sampler、recordを同じ具体装置・時計割当へ統合することはA1/M0の強化課題として残る。fixed-goalの一試行interface自体はR206Dまで閉じている。
 3. Q2-2について、固定一重項4モード信号、A/B設定操作、二つのM65読出し端、R181D型の射影成分振り分け、記録、R179開放リセットを同じ非空間分離装置と時計割当へ統合する。
+   - Q2-2-S strengtheningでは別に、R205E/F--R207 candidateをfinite-speed spatial reservoirへ落とし、$v_{\max}$ を持つ同一timing modelでsetting確定後の因果隔離を閉じる。
 4. Q2-4について、R206E root preparation、R181C gate列、R206 terminal samplerの一様規則と多項式外部運用資源はfixed-goal主線で閉じる。残る条件は、製造ばらつきと運転中の揺らぎを実装模型から導き、R186の多項式精度条件を満たし、全自由度へのadditive noiseが生む指数障害を回避できる範囲を示すことである。
 5. Q3の強化として、M37空間signal source、M64のsignal-driven thermal reservoirとtracer、時計自由度、終位置recordを同じ反復装置周期へ統合し、M64で直接定めた開放方程式そのもののA2直接数値再現を行う。あわせて、生M37局所包絡から時間対称Newton則へより直接に進む縮約、finite-bandwidth/Hamiltonian lift、continuous-space一様極限、多粒子拡張を検討する。
 6. Q3-6の位相量子化について、閉路巻数、節を介した位相すべり、細分化安定性、非整数モノドロミー排除を同じ明示的な古典ミクロ構成で閉じる。
