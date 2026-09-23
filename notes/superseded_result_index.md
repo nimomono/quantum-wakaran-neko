@@ -1,5 +1,15 @@
 # 置換・退役結果索引
 
+## draft-127で退役したR192とQ2逐次terminal route
+
+M66/R205--R206をQ2-1/Q2-3/Q2-4のterminal readout正本へ昇格したため、旧binary treeで非終端branchの作用下限を回復していたR192はfixed-goal責務を失った。R192の数学結果を反証したものではなく、one-shot multi-outcome samplerによって必要な中間branch自体が消えたための退役である。M65/R181D/R179は別責務でactiveのまま残る。
+
+| 結果 | 旧用途 | 現行の扱い | 保存先 |
+|---|---|---|---|
+| R192 | Q2-4逐次binary treeの非終端選択成分を次段M65感度域へ戻す方向不変作用安定化 | M66/R206 one-shot terminal samplerへ置換しactive theoremから退役。結果IDは再利用しない | `superseded_r192_radial_stabilizer.md`、`superseded_q2_sequential_terminal_readout.md`、draft-127直前Git履歴 |
+
+旧Q2-1/Q2-3/Q2-4のM65→R181D→必要時R192というterminal treeの経路履歴は `superseded_q2_sequential_terminal_readout.md` に保存する。
+
 この索引は退役時点の置換関係も履歴として保持するため、古い行の「現行の扱い」「置換先」がさらに後のdraftで退役している場合がある。2026-09-22時点の主要な現行因果鎖は `theory_lineage.md`、現行結果の運用状態は `PROJECT_STATUS.md` を参照する。退役行の第1列は退役した結果IDだけを記し、現行結果IDを退役項目の識別子として再利用しない。
 
 ## draft-124でactive paperから退役した作用殻測定経路
@@ -62,8 +72,8 @@ R195Aのchiral作用・状態数恒等式は保持し、signal current velocity�
 | 結果 | 旧用途 | 現行の扱い | 参照先 |
 |---|---|---|---|
 | R171 | M51の共通開放ray準備 | 旧R181Aへ吸収後、draft-90で状態方向準備ごと退役 | `superseded_separate_m51_m52_m53_models.md`、`superseded_r181a_template_port_preparation.md` |
-| R181A | 共通初期種から指定状態方向への開放準備と作用安定化 | 状態方向準備は現行固定目標から退役。方向不変の作用安定化だけをR192へ切り出し | `superseded_r181a_template_port_preparation.md`、R192、付録M |
-| R176A--R176C | M52のtensor-lift、永続gate、末端instrument | M54/R181B--R181Dへ吸収 | `superseded_separate_m51_m52_m53_models.md`、第2章・第4章 |
+| R181A | 共通初期種から指定状態方向への開放準備と作用安定化 | 状態方向準備は現行固定目標から退役。動径部分は一時R192へ切り出されたが、draft-127でR192も責務消滅により退役 | `superseded_r181a_template_port_preparation.md`、`superseded_r192_radial_stabilizer.md` |
+| R176A--R176C | M52のtensor-lift、永続gate、末端instrument | tensor-lift/gateはM54/R181B--R181Cへ、Q2-1/Q2-3 terminal readoutはM66/R206へ吸収。R181DはQ2-2等の逐次handoffに残る | `superseded_separate_m51_m52_m53_models.md`、第2章・第4章 |
 | R178A--R178C | M53のsector gate、projector filter、逐次sampler | M54/R181C--R181Dへ吸収 | `superseded_separate_m51_m52_m53_models.md`、付録O・P |
 | R178E--R178F | fixed-volume tapeと滑らかなaperture | Q1/Q2共通のR170選択・固定＋R181D段階的射影選別を採用したため現行因果鎖から退役 | `superseded_r178_aperture_sampler.md`、draft-67のGit履歴 |
 | R145 | M51/R171のM47 W型2モード特殊化 | R181Aから従う無番号の系へ変更 | 付録H |
@@ -115,7 +125,7 @@ M64/R203A--R203Dを現行Q3 particle/Nelson open modelへ昇格したため、M6
 |---|---|---|---|
 | M51 | 有限実正準担体の共通開放ray準備 | 旧R181Aへ吸収後、draft-90で状態方向準備ごと退役 | `superseded_separate_m51_m52_m53_models.md`、`superseded_r181a_template_port_preparation.md` |
 | M52 | 固定2・3入力の可逆tensor-lift永続register | M54の有限次元特殊化へ吸収 | `superseded_separate_m51_m52_m53_models.md`、R181B--R181D |
-| M53 | 一般回路の直接mode・逐次sampler | M54の一般 $n$ 特殊化へ吸収。aperture経路は退役 | `superseded_separate_m51_m52_m53_models.md`、R181C--R181D、R178D、R179 |
+| M53 | 一般回路の直接mode・逐次sampler | direct-mode gateはM54/R181Cへ、Q2-4 terminal samplingはM66/R206へ置換。旧逐次sampler/aperture経路は退役 | `superseded_separate_m51_m52_m53_models.md`、`superseded_q2_sequential_terminal_readout.md` |
 | M43 | 固有モード作用結合型有限環境 | 独立モデルから外し、R123の有限環境純位相緩和構成へ吸収 | R123、付録G |
 | M35 | 作用区間によるBorn型標本器と有限正準制御補助 | 確率生成部は退役し、非確率的な制御・比較・記録部はR112へ吸収 | `superseded_m35_born_sampler.md`、R112、付録A |
 | M50 | 有限信号作用・作用殻・static粒子位置熱化・旧measurement instrument | M54 static-instrument profileへ吸収後、Born型測定責務はM65へ置換。作用殻測定経路はdraft-124でactive paperから退役 | `superseded_separate_m50_m55_models.md`、`superseded_r164_q1q2_measurement_role.md`、`superseded_r190_r170_measurement_path.md` |

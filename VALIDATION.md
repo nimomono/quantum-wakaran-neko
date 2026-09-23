@@ -1,3 +1,16 @@
+## draft-127：M66/R206正式昇格・Q2逐次terminal readout退役
+
+- M66/R205--R206をQ2-1/Q2-3/Q2-4のterminal multi-outcome readout正本へ昇格し、R206Cを正式定理化、R206E uniform root preparation / refreshを追加する。
+- Q2-1/Q2-3/Q2-4からM65/R181D逐次terminal treeとQ2-4のR179直接reset依存を外す。M65/R181DはQ1/Q2-2、R179はQ2-2と全周期renewal側で維持する。
+- R192は非終端branch作用回復の責務が消滅したためactive paperから退役し、付録内容とverifierをnotesへ保存する。結果IDは再利用しない。
+- M66/R206の4本のcandidate検算をrequiredへ昇格し、R206E root preparation required checkを追加する。
+- Q2-1/Q2-3の達成、Q2-4の条件付き達成、Q2-2主線、R186障害、A1/A2/B/S判定、Q3主線、M0判定は変更しない。
+
+- `tools/migrations/check_draft127_promote_m66_r206.py` でQ2-1/Q2-3/Q2-4の直接依存切替、Q1-2/Q2-2のM65/R181D維持、R192 active theorem/verifier退役、R206C/E登録、R186維持をPR固有に検査する。
+- `verify_m66_common_phase_volume.py`、`verify_r206_multi_outcome_sampler.py`、`verify_r206_uniform_passive_scaling.py`、`verify_r206_q2_resource_scaling.py` をcandidateからrequiredへ移し、`verify_r206_root_preparation.py` を追加する。
+- `verify_m65_open_selector.py` と `verify_r181d_projector_tree.py` はQ1/Q2-2回帰へ縮約し、旧Q2-4 polynomial tree/R192 blockを除く。
+- source structure、project consistency、required/candidate physics、paper生成同期、LaTeX semantics、typeset lintを最終headで確認する。
+
 ## draft-126：M66/R205--R206 共通phase-volume多結果読出し候補
 
 - M66をM64/R203BとM65/R204Bに共通するphase-volume reservoir原理の親候補として追加し、R205A--R205Dでpartition identity、matched capacity--conductance、既存M64/M65特殊化を整理する。

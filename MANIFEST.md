@@ -1,3 +1,11 @@
+## draft-127：M66/R206正式昇格・Q2逐次terminal readout退役
+
+- M66/R205--R206をQ2-1/Q2-3/Q2-4のterminal multi-outcome readout正本へ昇格し、R206Cを正式定理化、R206E uniform root preparation / refreshを追加する。
+- Q2-1/Q2-3/Q2-4からM65/R181D逐次terminal treeとQ2-4のR179直接reset依存を外す。M65/R181DはQ1/Q2-2、R179はQ2-2と全周期renewal側で維持する。
+- R192は非終端branch作用回復の責務が消滅したためactive paperから退役し、付録内容とverifierをnotesへ保存する。結果IDは再利用しない。
+- M66/R206の4本のcandidate検算をrequiredへ昇格し、R206E root preparation required checkを追加する。
+- Q2-1/Q2-3の達成、Q2-4の条件付き達成、Q2-2主線、R186障害、A1/A2/B/S判定、Q3主線、M0判定は変更しない。
+
 ## draft-126：M66/R205--R206 共通phase-volume多結果読出し候補
 
 - M66をM64/R203BとM65/R204Bに共通するphase-volume reservoir原理の親候補として追加し、R205A--R205Dでpartition identity、matched capacity--conductance、既存M64/M65特殊化を整理する。
@@ -296,7 +304,6 @@
 - `sections/A8_m47_w2_parameter_dictionary.md`
 - `sections/A10_q2_common_bath_composition.md`
 - `sections/A11_common_collision_bath_thermodynamics.md`
-- `sections/A13_m54_radial_stabilizer.md`
 - `sections/A14_m54_spatial_moving_matching.md`
 - `sections/A15_m54_uniform_register.md`
 - `sections/A16_m54_projector_tree_receiver.md`
@@ -324,6 +331,8 @@
 - `notes/rejected_m46_current_transducer.md`
 - `notes/independent_m45_open_quasicritical_preparation.md`
 - `notes/superseded_m35_born_sampler.md`
+- `notes/superseded_q2_sequential_terminal_readout.md`
+- `notes/superseded_r192_radial_stabilizer.md`
 - `notes/superseded_result_index.md`
 - `notes/superseded_m38_m42_q1.md`
 - `notes/superseded_m41_bell_cycle.md`
@@ -383,6 +392,11 @@
 - `tools/verify_m64_preparation_tracking.py`
 - `tools/verify_m64_r161_finite_volume.py`
 - `tools/verify_m64_reservoir_partition.py`
+- `tools/verify_m66_common_phase_volume.py`
+- `tools/verify_r206_multi_outcome_sampler.py`
+- `tools/verify_r206_uniform_passive_scaling.py`
+- `tools/verify_r206_q2_resource_scaling.py`
+- `tools/verify_r206_root_preparation.py`
 - `tools/verify_phase_correlation.py`
 - `tools/verify_q1_live_zeno.py`
 - `tools/verify_q1_r193_macrospin_bridge.py`
@@ -396,7 +410,6 @@
 - `tools/verify_r186_m54_projective_robustness.py`
 - `tools/verify_r187_m37_w_q1_bridge.py`
 - `tools/verify_r191_macrospin.py`
-- `tools/verify_r192_radial_stabilizer.py`
 - `tools/verify_r194_brownian_spin_nelson.py`
 - `figures/README.md`
 - `.github/workflows/verify.yml`

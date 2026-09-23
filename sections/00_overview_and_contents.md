@@ -4,9 +4,9 @@
 
 本論文の中心的な問いは、明示的な古典力学モデルから、量子力学に似た可逆操作、Born型測定統計、測定後状態、結合ゲート、Bell型共同統計、空間伝播がどこまで有効構造として現れるかである。複素振幅は独立した実体ではなく実正準信号の派生表示とし、単一試行の物理信号と試行集団の統計量を区別する。
 
-M54をQ1--Q3の共通有効信号構成族、M37を空間信号とW型低2モードの物理実装層とする。状態準備・可逆操作と、排他的な測定結果形成を同一視しない。Q1/Q2の2結果射影読出しはM65の3状態open selectorを正本とし、Q3ではM37/R86をsignal実装、M64/R203A--R203Dを粒子・Nelson open modelの正本とする。Q3の信号部分系はQ1/Q2と別の代数ではなく、Q1型局所正準信号を空間配置しQ2型2体系結合を辺へ反復した特殊化として整理する。
+M54をQ1--Q3の共通有効信号構成族、M37を空間信号とW型低2モードの物理実装層とする。状態準備・可逆操作と、排他的な測定結果形成を同一視しない。Q1とQ2-2の逐次binary読出しはM65の3状態open selector、Q2-1/Q2-3/Q2-4のterminal joint readoutはM66/R206を正本とし、Q3ではM37/R86をsignal実装、M64/R203A--R203Dを粒子・Nelson open modelの正本とする。Q3の信号部分系はQ1/Q2と別の代数ではなく、Q1型局所正準信号を空間配置しQ2型2体系結合を辺へ反復した特殊化として整理する。
 
-Q1/Q2の測定主線は
+Q1とQ2-2の逐次測定主線は
 
 ```math
 Z
@@ -25,11 +25,11 @@ P(r=\pm)
 =\frac{J_\pm}{J_++J_-}.
 ```
 
-結果後は物理信号を非線形に規格化せず、R181Dの可逆projector routerが $P_rZ$ と補成分を分ける。次段M65はその時点の二射影作用を読み、同じBorn作用比を形成するため、固定有限深さでは振幅再調整を必須としない。一般深さQ2-4で結果成分作用が読出し下限へ落ちる場合だけ補助的な再調整を許す。
+結果後は物理信号を非線形に規格化せず、R181Dの可逆projector routerが $P_rZ$ と補成分を分ける。次段M65はその時点の二射影作用を読み、同じBorn作用比を形成するため、Q1/Q2-2の固定有限深さでは振幅再調整を必須としない。
 
 Q1ではM37弱結合W型の最低2正常モードをR187でM54のW2信号へ接続し、R140が有限 $SU(2)$ 操作とRabi運動を与える。R143--R144は分析器、有限コントラスト、局所記録、逐次測定の系列固有部分を担い、結果確率はM65、測定後結果成分はR181Dへ委ねる。R189A--R189Cは走行中作用保持と有限2回Rabi--Zeno比較を与える。
 
-Q2-1とQ2-3ではR181Bが固定入力のテンソル積信号を作り、R181Cが同じ永続記憶部上で局所gateと結合gateを作用する。末端測定はM65とR181Dだけを使う。Q2-4では同じ2結果nodeを逐次使用し、R179は結果相関履歴の排出とopen resetだけを担う。
+Q2-1とQ2-3ではR181Bが固定入力のテンソル積信号を作り、R181Cが同じ永続記憶部上で局所gateと結合gateを作用し、末端4結果/8結果をM66/R206で一回標本化する。Q2-4ではR206Eで $0^n$ rootを一様準備し、R181Cの一般gate列後にM66/R206の $2^n$ 結果samplerへ直接接続する。
 
 Q2-2の現行証人は、固定一重項、固定有限設定族、非空間分離の逐次古典装置である。末端4モード信号にA設定を作用し、A端M65で結果 $r$ を形成した後、非規格化結果成分をprojector routerでB端へ渡す。B設定をそこで作用し、B端M65で $s$ を形成する。Q2-2固定目標は特定のBell前提違反を先に指定せず、採用した古典構成ごとに前提の成立・不成立を監査する。
 
@@ -67,11 +67,9 @@ R162のopen Poisson-jump過程はQ3の基礎的実体ではなく、その理想
 
 この再編で、旧作用殻型測定経路、旧paired-Hopf受信機構、Brownian macrospin読出しとQ1直接decision bridgeは現行論文主線から退役した。M56 Brownian-spin Q3模型はspin-only代替研究線へ下げ、Q3の現行ミクロ主線には使わない。内容は `notes/` とGit履歴へ保存し、反証されたものとして扱わない。論文本文では同じBorn結果を複数の物理経路で重複説明せず、現在の最小因果鎖だけを正本とする。
 
-## M66/R206 多結果readout候補
+## M66/R206 多結果readout正本
 
-現行Q1/Q2測定正本はM65/R181Dであり、本draftでは変更しない。その上で、Q2-1、Q2-3、Q2-4のterminal readoutを一回のcommon-reservoir samplingへ縮約するM66/R205--R206をactive replacement candidateとして追加する。
-
-候補因果鎖は
+Q2-1、Q2-3、Q2-4のterminal readoutを一回のcommon-reservoir samplingへ縮約するM66/R205--R206を現行fixed-goal主線へ昇格する。
 
 ```math
 Z_{\rm out}
@@ -83,6 +81,6 @@ Z_{\rm out}
 Y\in\Omega_L
 ```
 
-である。Q2-1では $L=4$、Q2-3では $L=8$、Q2-4では $L=2^n$ とする。R206Aのcommon-hub samplerはmixing rateを $L$ と最小Born重みに依存させず、R206Bは全channelを同一の局所phase-volume規則で実装する。
+Q2-1では $L=4$、Q2-3では $L=8$、Q2-4では $L=2^n$ とする。R206Aのcommon-hub samplerはmixing rateを $L$ と最小Born重みに依存させず、R206Bは全channelを同一の局所phase-volume規則で実装する。R206Cはfinite-time/fabrication error、R206DはQ2 terminal bridge、R206EはQ2-4のuniform root preparation / refreshを与える。
 
-この候補はterminal readout後のprojector treeを必要としないため、後続promotionでQ2-1/Q2-3/Q2-4からR181D/R192を外せる見込みを与える。ただし本draftでは現行依存を変更せず、R186の指数mode additive-noise障害も維持する。
+この主線ではterminal readout後に結果成分を次段へ渡さないため、Q2-1/Q2-3/Q2-4にR181D treeやR192作用回復を使わない。Q1/Q2-2の逐次binary measurementはM65/R181Dを維持する。Q2-4の条件付き達成はR186のdirect-amplitude register additive-noise障害が残るため変更しない。

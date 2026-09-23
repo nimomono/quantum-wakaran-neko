@@ -32,9 +32,6 @@ Hamiltonian--Brownian liftやdirect trajectory witnessは強化課題であり�
 
 ### M66/R205--R206
 
-- \`verify_m66_common_phase_volume.py\` — R205A/R205BのJacobianとmatched capacity--conductance。
-- \`verify_r206_multi_outcome_sampler.py\` — finite-\(L\) common-hub law、zero-weight、\(L\) 非依存mixing。
-- \`verify_r206_uniform_passive_scaling.py\` — \(L=2^n\) passive scaling、regularization、aggregate fabrication error。
-- \`verify_r206_q2_resource_scaling.py\` — Q2-4のsampling時間、passive internal resource、\(n\)-bit external readout。
+draft-127でM66/R205--R206のfixed-goal coreをQ2-1/Q2-3/Q2-4主線へ昇格し、対応する有限次元・資源検算は `tools/verify_m66_common_phase_volume.py` と `tools/verify_r206_*.py` のrequired checksへ移した。
 
-これらはdraft-126時点ではcandidate checksであり、required physics checksではない。
+このディレクトリへ今後置くM66系検算は、finite-bandwidth reservoir、full Brownian/chamber trajectory、always-on coupling中のphase backreaction、具体Hamiltonian/回路liftなど、fixed-goal coreに必須でないstrengtheningだけとする。

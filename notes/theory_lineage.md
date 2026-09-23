@@ -4,9 +4,9 @@
 
 ## 現行の主要因果鎖
 
-### Q1/Q2の測定
+### Q1/Q2-2の逐次測定
 
-現行の二結果測定は、保持済み射影作用をM65へ渡し、M65/R204D--R204Fで有限時間の結果形成とrecordを行い、R181Dで対応する非規格化射影成分を同じ試行の次段へ渡す。
+現行の逐次二結果測定は、保持済み射影作用をM65へ渡し、M65/R204D--R204Fで有限時間の結果形成とrecordを行い、R181Dで対応する非規格化射影成分を同じ試行の次段へ渡す。fixed-goalではQ1の逐次測定とQ2-2のA端--B端handoffがこの経路を使う。
 
 ```text
 finite canonical signal
@@ -16,9 +16,9 @@ finite canonical signal
   -> R181D projector router
 ```
 
-Q2-4で非終端結果の絶対作用下限を保つ必要がある場合だけR192を接続し、試行間のopen reset / renewalはR179が担う。
+Q2-2の反復reset/renewalにはR179を接続できる。
 
-主要な旧測定経路は次の順に置換された。
+主要な旧binary測定経路は概略として
 
 ```text
 M35 long-time sampler
@@ -27,7 +27,30 @@ M35 long-time sampler
   -> M65 / R204 canonical open selector
 ```
 
-途中の模型・結果は反証されたという意味ではなく、現行fixed-goal因果鎖での責務をより短い経路へ置換したものである。
+と置換された。途中の模型・結果は反証されたという意味ではなく、現行fixed-goal因果鎖での責務をより短い経路へ置換したものである。
+
+### Q2-1/Q2-3/Q2-4のterminal readout
+
+draft-127以後、Q2-1/Q2-3/Q2-4のterminal readoutはM66/R205--R206へ一本化する。
+
+```text
+terminal coherent signal
+  -> local actions |Z_y|^2
+  -> M66 / R205 common phase-volume reservoir
+  -> R206A--R206D finite-L common-hub sampler
+  -> joint terminal result
+```
+
+Q2-4ではその前にR206E uniform root preparationを置く。
+
+```text
+R206E root preparation
+  -> R181C gate sequence
+  -> R206D L=2^n terminal sample
+  -> n-bit record
+```
+
+この置換によりQ2-1/Q2-3/Q2-4のterminal R181D tree、非終端branchのR192作用安定化、Q2-4のR179 direct reset依存を外す。R192は責務消滅として退役し、M65/R181D/R179は上記の別責務でactiveのまま残す。
 
 ### Q3の粒子・Nelson経路
 
@@ -55,7 +78,7 @@ M42 / R172--R174
 
 ### Q2 register / Bell経路
 
-Q2の永続register・gateはM54/R181B--R181Cへ整理され、末端読出しはM65/R181Dへ統一されている。Q2-2の現行証人は、固定一重項4モードsignalにA設定を作用し、A端M65の結果でR181D型routerを制御して非規格化結果成分をB端へ渡し、B設定とB端M65を順に実行する非空間分離構成である。
+Q2の永続register・gateはM54/R181B--R181Cへ整理される。Q2-1/Q2-3/Q2-4の末端readoutはM66/R206、Q2-2の逐次読出しだけはM65/R181Dを使う。Q2-2の現行証人は、固定一重項4モードsignalにA設定を作用し、A端M65の結果でR181D型routerを制御して非規格化結果成分をB端へ渡し、B設定とB端M65を順に実行する非空間分離構成である。
 
 旧M41 Bell周期、独立M48 paired-Hopf経路、M49/M52の中間register構成は、それぞれ個別の退役メモとGit履歴へ保存する。
 
@@ -72,6 +95,7 @@ Q2の永続register・gateはM54/R181B--R181Cへ整理され、末端読出し�
 
 - Q1/Q2作用殻測定: `superseded_r164_q1q2_measurement_role.md`、`superseded_r190_r170_measurement_path.md`
 - Brownian macrospin測定: `superseded_r191_brownian_macrospin_projective_instrument.md`、`superseded_r193_q1_macrospin_bridge.md`
+- Q2旧逐次terminal tree: `superseded_q2_sequential_terminal_readout.md`、`superseded_r192_radial_stabilizer.md`
 - Q3旧rate latch: `superseded_r184_m37_rate_latch.md`
 - Q3旧Poisson存在論: `superseded_q3_poisson_microphysics.md`
 - Q3旧連続粒子模型: `superseded_m42_continuous_particle_position.md`
@@ -80,16 +104,6 @@ Q2の永続register・gateはM54/R181B--R181Cへ整理され、末端読出し�
 
 このメモは理論結果を追加せず、現行正本と歴史記録のナビゲーションだけを与える。
 
-## M66/R205--R206 candidate branch
+## draft-127で昇格したM66/R205--R206 branch
 
-現行のQ2読出し系譜とは別に、draft-126で次のpromotion candidateを追加する。
-
-\`\`\`text
-terminal coherent signal
-  -> local actions |Z_y|^2
-  -> M66 / R205 common phase-volume reservoir
-  -> R206 finite-L common-hub sampler
-  -> n-bit terminal record
-\`\`\`
-
-このcandidateはQ2-1/Q2-3/Q2-4のterminal readerを一回のmulti-outcome samplingへ縮約する。現行M65/R181D/R192/R179を本draftでは退役させず、Q2-2のA端--B端逐次経路にも適用しない。後続promotionで依存切替を判定する。
+draft-126でreplacement candidateとして追加したM66/R205--R206は、draft-127でQ2-1/Q2-3/Q2-4のterminal readout正本へ昇格した。旧M65/R181D逐次terminal treeの履歴と責務分離は `superseded_q2_sequential_terminal_readout.md`、R192の完全保存は `superseded_r192_radial_stabilizer.md` を参照する。

@@ -100,20 +100,6 @@ def main() -> None:
         eig=np.sort(np.real_if_close(np.linalg.eigvals(q)).real)
         assert np.min(np.abs(eig+lam)) < 2e-10
 
-    # Polynomial readout witness.
-    eps=1.0e-3
-    for n in (4,8,16,32,64):
-        m=n*n
-        lam_inv=(2*n+1)**2
-        lam=1.0/lam_inv
-        tnode=lam_inv*math.log(40.0*m/eps)
-        a_min=1.0/(n+1)**2
-        kappa=40.0*m*lam/(eps*a_min)
-        hub=lam/(lam+kappa*a_min)
-        assert hub <= eps/(40.0*m)+1e-15
-        total=m*tnode
-        assert total < (2*n+1)**6*math.log(40.0*m/eps)
-
     print("M65 canonical open selector checks: OK")
 
 

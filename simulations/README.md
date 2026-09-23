@@ -48,4 +48,4 @@ M65の3状態open selectorはdraft-117で正本へ昇格する。正本lawの数
 
 ## M66 common-reservoir multi-outcome readout
 
-\`simulations/m66/README.md\` に、R206 common-hub trajectory、phase-volume scaling、finite-bandwidth correction、terminal backreaction、always-on couplingの将来A2計画を記録する。draft-126ではdirect simulationをpromotion条件へ含めない。
+`simulations/m66/README.md` に、R206 common-hub trajectory、phase-volume scaling、finite-bandwidth correction、terminal backreaction、always-on couplingの将来A2計画を記録する。draft-127でfixed-goal coreはrequired検算付きで昇格したが、direct simulationは引き続きA2/strengtheningとして独立に監査する。

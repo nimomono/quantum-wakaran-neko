@@ -60,3 +60,7 @@
 ## draft-126 M66/R206 candidate
 
 \`check_draft126_m66_r206_candidate.py\` は、A27のM66/R205--R206候補とcandidate verifierが存在し、Q2-1/Q2-2/Q2-3/Q2-4の達成ラベル、M65/R181D/R192/R179の現行主線、R186障害が変更されていないことをPR固有に検査する。後続promotion/retirementは別PRで扱う。
+
+## draft-127 M66/R206 promotion and sequential Q2 terminal retirement
+
+`check_draft127_promote_m66_r206.py` は、Q2-1/Q2-3/Q2-4の直接依存がM66/R206へ切り替わり、Q1-2/Q2-2のM65/R181D逐次interfaceが維持され、R192だけがactive theorem/required verifierから退役したことを確認する。Q2-4はR206E root preparation、R181C gate列、R206D terminal sampling、R186 robustnessへ縮約し、条件付き達成ラベルを維持する。

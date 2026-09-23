@@ -238,40 +238,6 @@ def main() -> None:
     ray_bound = 2.0 * eta_filter / (np.sqrt(tau) - eta_filter)
     checks["filter_ray_bound_excess"] = max(0.0, ray_error - ray_bound)
 
-    # Radial-only repump changes the norm but preserves the selected ray.
-    target_action = 1.8
-    initial_action = float(np.vdot(accepted, accepted).real)
-    gain = 0.73
-    duration = 4.2
-    final_action = target_action / (
-        1.0
-        + (target_action / initial_action - 1.0)
-        * np.exp(-2.0 * gain * target_action * duration)
-    )
-    repumped = accepted * np.sqrt(final_action / initial_action)
-    checks["radial_repump_ray_error"] = float(
-        np.linalg.norm(normalized(repumped) - normalized(accepted))
-    )
-    checks["radial_repump_target_excess"] = max(
-        0.0, abs(final_action - target_action) - abs(initial_action - target_action)
-    )
-
-    # One explicit complete-result budget remains below epsilon without postselection.
-    epsilon = 1.0e-3
-    depth = 40
-    epsilon_in = epsilon / 16.0
-    budget_delta = epsilon / (16.0 * depth)
-    budget_tau = epsilon / (64.0 * depth)
-    budget_gamma = epsilon / (64.0 * depth)
-    node_error = epsilon / (16.0 * depth)
-    total_bound = (
-        epsilon_in
-        + depth * budget_delta / (1.0 + budget_delta)
-        + 2.0 * depth * (budget_tau + budget_gamma)
-        + depth * node_error
-    )
-    checks["complete_result_budget_excess"] = max(0.0, total_bound - epsilon)
-
     failures = {name: value for name, value in checks.items() if value > TOL}
     print(json.dumps({
         "seed": 20260905,
@@ -280,7 +246,6 @@ def main() -> None:
         "removed_mass_bound": 2.0 * bit_count * (tau + gamma),
         "filter_ray_error": ray_error,
         "filter_ray_bound": ray_bound,
-        "complete_result_bound": total_bound,
         "checks": checks,
         "passed": not failures,
     }, indent=2))

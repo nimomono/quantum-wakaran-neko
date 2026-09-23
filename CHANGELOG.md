@@ -1,3 +1,11 @@
+## draft-127：M66/R206正式昇格・Q2逐次terminal readout退役
+
+- M66/R205--R206をQ2-1/Q2-3/Q2-4のterminal multi-outcome readout正本へ昇格し、R206Cを正式定理化、R206E uniform root preparation / refreshを追加する。
+- Q2-1/Q2-3/Q2-4からM65/R181D逐次terminal treeとQ2-4のR179直接reset依存を外す。M65/R181DはQ1/Q2-2、R179はQ2-2と全周期renewal側で維持する。
+- R192は非終端branch作用回復の責務が消滅したためactive paperから退役し、付録内容とverifierをnotesへ保存する。結果IDは再利用しない。
+- M66/R206の4本のcandidate検算をrequiredへ昇格し、R206E root preparation required checkを追加する。
+- Q2-1/Q2-3の達成、Q2-4の条件付き達成、Q2-2主線、R186障害、A1/A2/B/S判定、Q3主線、M0判定は変更しない。
+
 ## draft-126：M66/R205--R206 共通phase-volume多結果読出し候補
 
 - M66をM64/R203BとM65/R204Bに共通するphase-volume reservoir原理の親候補として追加し、R205A--R205Dでpartition identity、matched capacity--conductance、既存M64/M65特殊化を整理する。
