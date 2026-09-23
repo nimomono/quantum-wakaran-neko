@@ -1,3 +1,9 @@
+## draft-135：Theory A / R180逐次Bell witness退役
+
+- R180A/R180C、専用付録D、専用required verifier 2本をactive treeから退役し、最終Theory Aをnotes/retired_verifiersへ保存する。
+- Q2-2はM66/R205--R207 projection phase-volume主線だけをactive Bell経路とする。Q2-2達成、R207A--R207D、Q2-2-S未監査、A1/A2/B/M0判定は変更しない。
+- M65/R204とR181DはQ1逐次測定の現行正本として維持し、R179はfull-cycle reset/renewal側の一般部品として残す。
+
 ## draft-134：R207 projection phase-volume Q2-2主線昇格
 
 - 付録W/R207A--R207Dをprojection phase-volume模型へ改訂し、R207A--R207CをQ2-2 fixed-goal直接依存へ昇格する。
@@ -346,7 +352,6 @@
 - `sections/A1_common_action_finite_basis.md`
 - `sections/A2_m47_controlled_w_instrument_proofs.md`
 - `sections/A3_m54_q2_specialization_proofs.md`
-- `sections/A4_m54_receiver_cycle_proofs.md`
 - `sections/A5_m37_envelope_proofs.md`
 - `sections/A6_common_signal_statistics.md`
 - `sections/A7_q3_completion_proofs.md`
@@ -384,6 +389,7 @@
 - `notes/superseded_q2_sequential_terminal_readout.md`
 - `notes/superseded_r192_radial_stabilizer.md`
 - `notes/superseded_result_index.md`
+- `notes/superseded_r180_sequential_q2_2_witness.md`
 - `notes/superseded_m38_m42_q1.md`
 - `notes/superseded_m41_bell_cycle.md`
 - `notes/superseded_m41_cycle_proofs.md`
@@ -451,11 +457,9 @@
 - `tools/verify_phase_correlation.py`
 - `tools/verify_q1_live_zeno.py`
 - `tools/verify_q1xq1_common_bath.py`
-- `tools/verify_r180c_locality.py`
 - `tools/verify_q3_completion.py`
 - `tools/verify_r161_path_law.py`
 - `tools/verify_r179_m54_supply.py`
-- `tools/verify_r180_m54_receiver.py`
 - `tools/verify_r181d_projector_tree.py`
 - `tools/verify_r186_m54_projective_robustness.py`
 - `tools/verify_r187_m37_w_q1_bridge.py`
