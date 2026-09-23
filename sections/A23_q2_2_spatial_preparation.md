@@ -1,7 +1,7 @@
 @number: W
 @chapter: 付録
 @title: R207 projection phase-volume共同準備と局所二端読出し
-@status: R207A--R207DをQ2-2 fixed-goalの現行Bell統計主線とする。M66/R205A・R205Eのphase-volume thermal preparationとR205Fのpassive separationを使い、一般Bloch方向の一重項共同統計、finite-thickness/finite-lock誤差、分離後local response、measurement-dependence監査を与える。finite-speed spatial reservoir、direct SDE trajectory、実験装置はQ2-2-S/A2/Bの強化課題として残す。
+@status: R207A--R207DをQ2-2 fixed-goalの現行Bell統計主線とする。M66/R205A・R205Eのphase-volume thermal preparationとR205Fのpassive separationを使い、一般Bloch方向の一重項共同統計、finite-thickness/finite-lock誤差、分離後local response、measurement-independence監査を与える。
 
 ## W.1 目的と因果境界
 
@@ -217,7 +217,7 @@ w_\epsilon^{\,\chi_{\rm pv}(R)}
 
 local rotational mobilityを $\mu_\lambda>0$、diffusion scaleを $D_\lambda=\mu_\lambda k_BT$ とする。$\mu_\lambda$ を小さくすると準備mixing時間は長くなるが有限のままであり、準備後の有限保持窓 $T_{\rm hold}=T_{\rm sep}+T_{\rm meas}$ におけるhidden-direction変化を小さくできる。準備終了時とlocal latch時のlawの全変動差を $\varepsilon_{\rm hold}^{207}$ とする。
 
-R205Fの有限距離generator defectと共有phase-volume driftを合わせて $\varepsilon_{\rm sep}^{207}(R)$ とする。固定finite $\epsilon$ では $K(R)$、$C_{AB}(R)$、$\chi_{\rm pv}(R)$ を十分小さくする有限$R$を選べるため、$\varepsilon_{\rm sep}^{207}(R)\to0$ とできる。finite-speed causal isolationはここから推論せずQ2-2-Sへ残す。
+R205Fの有限距離generator defectと共有phase-volume driftを合わせて $\varepsilon_{\rm sep}^{207}(R)$ とする。固定finite $\epsilon$ では $K(R)$、$C_{AB}(R)$、$\chi_{\rm pv}(R)$ を十分小さくする有限$R$を選べるため、$\varepsilon_{\rm sep}^{207}(R)\to0$ とできる。
 
 各端では局所settingと局所hidden directionだけを比較する。ideal sign boundaryの有限幅 $\delta_{\rm lat}$ 近傍を正式な無反応安全帯として扱い、R112型比較・recordを用いる。finite $\epsilon>0$ のsmooth densityでは境界帯確率は $\delta_{\rm lat}\downarrow0$ で0へ行く。成功試行だけの再規格化は行わない。
 
@@ -258,8 +258,6 @@ P_B(s\mid\lambda_B,\boldsymbol b)
 従って分離後local response factorizationとoperational non-signalingを保ちながらmeasurement independenceを満たさない。測定窓中のA結果からB結果へのresult communication、棄却試行のpostselection、結果確率表の外部注入は用いない。
 <!-- theorem-end:theorem -->
 
-finite最大伝播速度 $v_{\max}$ を持つ具体spatial reservoirとsetting確定後のcausal-isolation timingを同じ装置で閉じることはQ2-2-Sの独立強化課題である。
-
 ## W.5 R207D：Bell-local control
 
 <!-- theorem-start:theorem -->
@@ -281,15 +279,3 @@ finite最大伝播速度 $v_{\max}$ を持つ具体spatial reservoirとsetting�
 
 固定 $\Lambda$ に対する二値local responseのCHSH integrandは絶対値2以下である。4 setting pairに共通なsetting-independent $\rho(\Lambda)$ で平均すれば表示の境界を得る。証明終。
 <!-- theorem-end:proof -->
-
-## W.6 Q2-2-Sとの境界
-
-| 段階 | 現行R207との対応 | 状態 |
-|---|---|---|
-| S0 | R207A--R207Cのfixed-goal二端baseline | fixed-goal主線として確立 |
-| S1 | 具体距離・transport geometryを持つ二端分離 | strengthening未監査 |
-| S2 | setting確定後のfinite-speed causal isolation | finite-speed spatial reservoir未閉包 |
-| S3 | S2を保ったsinglet統計とBell前提監査 | S2実装に条件付き |
-| S4 | R207D Bell-local control | 解析controlあり |
-
-R207のfixed-goal昇格だけからQ2-2-Sを達成または部分達成へ更新しない。direct SDE trajectory、finite-speed spatial reservoir、具体実験装置とparameter windowはA2/B/Q2-2-Sで別に監査する。
