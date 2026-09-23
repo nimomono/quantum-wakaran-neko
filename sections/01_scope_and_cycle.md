@@ -45,7 +45,7 @@ w(Q)e^{-\beta H_{\rm cfg}(Q)}
 
 ## 1.3 系列ごとの現行因果鎖
 
-Q1とQ2-2の逐次2結果測定では、射影作用を
+Q1の逐次2結果測定では、射影作用を
 
 ```math
 J_\pm
@@ -93,7 +93,7 @@ Y.
 
 Q2-1は $L=4$、Q2-3は $L=8$、Q2-4は $L=2^n$ とする。Q2-4ではR206Eの一様root preparation、R181C gate列、R206D terminal samplingを使う。
 
-Q2-2 fixed-goalはM66/R205A・R205Eによるprojection phase-volume共同準備、near-contact hidden-direction lock、R205F passive separation、R207 local sign latch/recordを一試行で接続する。一般Bloch方向のsinglet共同統計を任意精度で再現し、分離後local response factorizationとmeasurement dependenceを監査する。R180Cはactive alternate witnessとして残す。Q2-2-Sは同じR207主線へfinite-speed spatial isolationを追加するstrengtheningである。
+Q2-2 fixed-goalはM66/R205A・R205Eによるprojection phase-volume共同準備、near-contact hidden-direction lock、R205F passive separation、R207 local sign latch/recordを一試行で接続する。一般Bloch方向のsinglet共同統計を任意精度で再現し、分離後local response factorizationとmeasurement dependenceを監査する。旧R180逐次Bell witnessはactive paperから退役した。Q2-2-Sは同じR207主線へfinite-speed spatial isolationを追加するstrengtheningである。
 
 Q3のsignal数学はQ1/Q2の局所実正準信号と2体系結合の空間特殊化である。M37/R86 signalへM64のclassical tracerとsignal-driven thermal reservoirを接続し、
 
@@ -138,6 +138,6 @@ M0はさらに強く、複数系列にまたがる主要自由度、物理接続
 
 M66はM64/M65/R206/R207に現れるreservoir原理を共通化するが、M64のQ3 tracer/Nelson model、M65のcanonical binary instrument、R207のfinite-speed空間Bell実装までを1つの模型から導出したことを意味しない。また、共通thermal-reservoir interfaceを得たことは、全系列が同じ単一bathまたは同じ製造済みreservoirを共有することを意味しない。
 
-Q2-2-SではR207A--R207Dにより解析candidateを得ているが、finite-speed spatial reservoirとsetting確定後のtiming closureを閉じていない。Q2-4ではR206がreader側の逐次branch問題を避けても、R186のdirect-amplitude register additive-noise障害を解消しない。Q3ではM64のdirect A2、finite-bandwidth/Hamiltonian lift、continuous-space一様極限、多粒子化、全周期統合が強化課題として残る。
+Q2-2ではR207A--R207Cがfixed-goal core、R207DがBell-local controlとして確立している。Q2-2-Sではfinite-speed spatial reservoirとsetting確定後のtiming closureをまだ閉じていない。Q2-4ではR206がreader側の逐次branch問題を避けても、R186のdirect-amplitude register additive-noise障害を解消しない。Q3ではM64のdirect A2、finite-bandwidth/Hamiltonian lift、continuous-space一様極限、多粒子化、全周期統合が強化課題として残る。
 
 置換済みの旧作用殻型Q1/Q2測定経路、旧paired-Hopf受信機構、旧Q3率latch、M60/M61旧Hamiltonian実装は現行主線へ重ねず、研究メモとGit履歴へ保存する。
