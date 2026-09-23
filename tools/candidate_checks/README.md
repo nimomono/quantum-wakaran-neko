@@ -43,3 +43,8 @@ draft-129でR205C--R205Fの解析・generator回帰もrequired checksへ加え�
 
 どちらもcandidate-onlyであり、continuous selectorを含むdirect SDE trajectory、finite-speed spatial reservoir、実験装置のA2/B検証を意味しない。
 
+
+## M56/R194 alternative research line
+
+- `verify_r194_brownian_spin_nelson.py`：M56/R194のBrownian-spin/Nelson接続を検査する代替研究線。
+- M56/R194は現行fixed-goal主線の必須依存ではないためcandidate-onlyとし、通常required CIには含めない。

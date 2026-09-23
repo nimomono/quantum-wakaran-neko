@@ -11,10 +11,11 @@ M54 signal/state layer
   ↑ M37 signal implementation
 
 M66 / R205 reservoir layer
-  ├─ M65 / R181D : Q1/Q2-2 sequential binary
-  ├─ R206        : Q2 terminal multi-outcome
-  ├─ M64         : Q3 tracer/Nelson
-  └─ R207        : Q2-2-S strengthening candidate
+  ├─ R206A--R206D : Q2 terminal multi-outcome specialization
+  ├─ R206E        : Q2-4 root preparation / refresh
+  ├─ R205C ↔ M64 : shared reservoir principle
+  ├─ R205D ↔ M65 : strengthening physical lift
+  └─ R205E/F → R207 : Q2-2-S strengthening candidate
 ```
 
 M66が共通化するのはreservoir sectorであり、M64全体やM65 canonical lawを置換しない。M0はさらに強いjoint device/process統合目標であり、この2つの共通層を持つだけでは達成しない。
@@ -48,7 +49,7 @@ M35 long-time sampler
 
 ### Q2-1/Q2-3/Q2-4のterminal readout
 
-draft-127以後、Q2-1/Q2-3/Q2-4のterminal readoutはM66/R205--R206へ一本化する。
+draft-127以後、Q2-1/Q2-3/Q2-4のterminal readoutはM66/R205 common-reservoir interface上のR206A--R206Dへ一本化する。
 
 ```text
 terminal coherent signal
@@ -95,7 +96,7 @@ M42 / R172--R174
 
 ### Q2 register / Bell経路
 
-Q2の永続register・gateはM54/R181B--R181Cへ整理される。Q2-1/Q2-3/Q2-4の末端readoutはM66/R206、Q2-2の逐次読出しだけはM65/R181Dを使う。Q2-2の現行証人は、固定一重項4モードsignalにA設定を作用し、A端M65の結果でR181D型routerを制御して非規格化結果成分をB端へ渡し、B設定とB端M65を順に実行する非空間分離構成である。
+Q2の永続register・gateはM54/R181B--R181Cへ整理される。Q2-1/Q2-3/Q2-4の末端readoutはR206A--R206D、Q2-4準備はR206E、Q2-2の逐次読出しだけはM65/R181Dを使う。Q2-2の現行証人は、固定一重項4モードsignalにA設定を作用し、A端M65の結果でR181D型routerを制御して非規格化結果成分をB端へ渡し、B設定とB端M65を順に実行する非空間分離構成である。
 
 Q2-2-Sはfixed-goal主線と分けて管理する。現行strengthening candidateはM66/R205Eのcommon thermal preparationからR207A/Bへ進み、R205F/R207Cでpassive separationと分離後local responseを監査し、R207DをBell-local controlとする。S0--S4の定義・公式状態・現在地は `ENHANCEMENT_TARGETS.md` を正本とし、finite-speed spatial reservoirとtiming closureが未閉包なので全体は未監査である。
 

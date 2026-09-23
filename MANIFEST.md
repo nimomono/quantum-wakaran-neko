@@ -1,3 +1,10 @@
+## draft-133：大改修後semantic cleanup
+
+- 退役R164作用殻verifierを `notes/retired_verifiers/` へ、M56/R194代替研究線verifierを `tools/candidate_checks/` へ移し、通常required CIから外す。
+- 混在していた `verify_q2_shell_and_locality.py` を、現行M54 invariantとR180C localityのrequired検算へ分割する。
+- `PROJECT_STATUS.md` のR203--R207分類とM66/R205--R206責務名を現行architectureへ同期する。
+- fixed-goal定義・直接依存・達成ラベル、理論式・結果ID、A1/A2/B/Q2-2-S状態、論文source・生成物は変更しない。
+
 ## draft-132：signal層・thermal-reservoir層を軸とする統一ストーリー同期
 
 - M54を共通signal・状態構成層、M37をsignal物理実装層、M66/R205を共通thermal-reservoir interfaceとして、第0・1・2・8・9章とREADMEの説明順を統一する。
@@ -412,6 +419,7 @@
 - `tools/lint_typeset.py`
 - `tools/paper_source.py`
 - `tools/run_physics_checks.py`
+- `tools/candidate_checks/README.md`
 - `tools/test_validation_policy.py`
 - `tools/template.tex`
 - `tools/verify_common_canonical_control.py`
@@ -419,10 +427,10 @@
 - `tools/verify_envelope_reduction.py`
 - `tools/verify_m37_w_q1_bridge.py`
 - `tools/verify_m37_w_spectral_tunneling.py`
-- `tools/verify_m47_action_shell_origin.py`
 - `tools/verify_m47_q1_instrument.py`
 - `tools/verify_m54_q2_composition.py`
 - `tools/verify_m54_spatial_matching.py`
+- `tools/verify_m54_static_invariants.py`
 - `tools/verify_m64_current_dictionary.py`
 - `tools/verify_m64_graph_r161.py`
 - `tools/verify_m64_overdamped_reduction.py`
@@ -436,9 +444,8 @@
 - `tools/verify_r206_root_preparation.py`
 - `tools/verify_phase_correlation.py`
 - `tools/verify_q1_live_zeno.py`
-- `tools/verify_q1_r193_macrospin_bridge.py`
 - `tools/verify_q1xq1_common_bath.py`
-- `tools/verify_q2_shell_and_locality.py`
+- `tools/verify_r180c_locality.py`
 - `tools/verify_q3_completion.py`
 - `tools/verify_r161_path_law.py`
 - `tools/verify_r179_m54_supply.py`
@@ -446,8 +453,6 @@
 - `tools/verify_r181d_projector_tree.py`
 - `tools/verify_r186_m54_projective_robustness.py`
 - `tools/verify_r187_m37_w_q1_bridge.py`
-- `tools/verify_r191_macrospin.py`
-- `tools/verify_r194_brownian_spin_nelson.py`
 - `figures/README.md`
 - `.github/workflows/verify.yml`
 - `.gitignore`

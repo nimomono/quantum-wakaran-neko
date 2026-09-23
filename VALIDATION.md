@@ -1,3 +1,12 @@
+## draft-133：大改修後semantic cleanup
+
+- `tools/verify_m47_action_shell_origin.py` を退役verifierへ移し、R164作用殻測定経路をrequired CIから外す。数値内容は履歴再現用に保持する。
+- `tools/verify_r194_brownian_spin_nelson.py` をcandidate checksへ移し、M56/R194代替研究線を通常required CIから外す。
+- `tools/verify_q2_shell_and_locality.py` を `verify_m54_static_invariants.py` と `verify_r180c_locality.py` へ分割し、R164 shell-weight checkだけをrequiredから除く。
+- `PROJECT_STATUS.md` のR204/R205/R206/R207をM65、M66 common reservoir、Q2 specialization、Q2-2-S candidateへ再分類し、R203とQ3結果をQ3分類に維持する。
+- M66/R205をcommon thermal-reservoir interface、R206A--R206DをQ2 terminal multi-outcome sampler、R206EをQ2-4 root preparation / refreshとして管理文書の呼称を統一する。
+- fixed-goal定義・直接依存・達成ラベル、R203--R207の理論内容、A1/A2/B/Q2-2-S状態、論文sourceと生成物は変更しない。
+
 ## draft-132：統一ストーリー同期
 
 - 第0・1・2・8・9章、README、PROJECT_STANCE、PROJECT_GUIDE、PROJECT_STATUS、ENHANCEMENT_TARGETS、TERMINOLOGY、MANIFEST、theory lineageを、M54 signal層 + M66/R205 thermal-reservoir層 + M64/M65/R206/R207用途別specializationという同じ説明構造へ同期する。
