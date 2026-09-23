@@ -1,7 +1,7 @@
 @number: 4
 @chapter: 本文
 @title: M54のQ2有限次元特殊化
-@status: 第2章をR181B/R181Cの一般信号・gate定理、付録XをM66/R206 terminal readout正本とし、本章は2入力・3入力への特殊化、同一記憶部上のCNOT、二段ゲート、4/8結果terminal samplingを明示する。Q2-2の現行fixed-goal主線は第5章/付録WのR207であり、旧R180逐次Bell接続はdraft-135で退役した。
+@status: 第2章をR181B/R181Cの一般信号・gate定理、付録XをM66/R206 terminal readout正本とし、本章は2入力・3入力への特殊化、同一記憶部上のCNOT、二段ゲート、4/8結果terminal samplingを明示する。Q2-2の現行fixed-goal主線は第5章/付録WのR207である。
 
 ## 4.1　改訂した設計原則
 
