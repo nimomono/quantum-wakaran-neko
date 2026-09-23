@@ -64,3 +64,8 @@
 ## draft-127 M66/R206 promotion and sequential Q2 terminal retirement
 
 `check_draft127_promote_m66_r206.py` は、Q2-1/Q2-3/Q2-4の直接依存がM66/R206へ切り替わり、Q1-2/Q2-2のM65/R181D逐次interfaceが維持され、R192だけがactive theorem/required verifierから退役したことを確認する。Q2-4はR206E root preparation、R181C gate列、R206D terminal sampling、R186 robustnessへ縮約し、条件付き達成ラベルを維持する。
+
+## draft-128 M65/M66 appendix split
+
+`check_draft128_split_m66_appendix.py` は、M66/R205--R206がA24/付録Xへ移され、A26/付録ZがM65/R204専用へ戻ったことを確認する。R205/R206の結果ID、Q2-1/Q2-3/Q2-4の直接依存、Q1/Q2-2のM65/R181D主線、Q2-4の条件付き達成とR186障害が変わっていないこともPR固有に検査する。A26に残るR206への責務境界参照は許容し、M66本体節とR205/R206定理宣言だけを移設対象とする。理論拡張や新結果追加はこの検査の対象外とする。
+

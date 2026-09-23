@@ -1,3 +1,10 @@
+## draft-128：M65/M66付録分離
+
+- M66/R205--R206をA26から新しい `sections/A24_m66_common_phase_volume_readout.md`（付録X）へ移し、A26をM65/R204専用の付録Zへ戻す。
+- R205/R206の数式、定理・証明、結果ID、Q2-1/Q2-3/Q2-4の直接依存、達成ラベル、required physics verifierは変更しない。
+- 第4章のM66/R206付録参照だけを付録Xへ同期し、A24/A26の責務分離をPR固有migration checkで検査する。
+- M66のcommon-reservoir parent拡張、R205C以降の追加定理化、Q2-2-S/R207は後続変更へ分離する。
+
 ## draft-127：M66/R206正式昇格・Q2逐次terminal readout退役
 
 - M66/R205--R206をQ2-1/Q2-3/Q2-4の現行terminal multi-outcome readoutへ正式昇格する。Q2-1は4結果、Q2-3は8結果、Q2-4は $2^n$ 結果を一回のcommon-hub samplerで標本化する。

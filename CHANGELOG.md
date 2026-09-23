@@ -1,3 +1,10 @@
+## draft-128：M65/M66付録分離
+
+- M66/R205--R206をA26のM65付録から独立させ、空いていたA24/付録Xへ移設した。
+- A26/付録ZはM65/R204専用へ戻し、第4章のM66/R206参照を付録Xへ同期した。
+- 理論式、定理・証明、結果ID、固定目標の直接依存・達成ラベル、required検算の意味は変更していない。
+- M66 common-reservoir parent拡張とQ2-2-S新理論は後続PRへ分離する。
+
 ## draft-127：M66/R206正式昇格・Q2逐次terminal readout退役
 
 - M66/R205--R206をQ2-1/Q2-3/Q2-4のterminal multi-outcome readout正本へ昇格し、R206Cを正式定理化、R206E uniform root preparation / refreshを追加する。
