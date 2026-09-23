@@ -60,8 +60,6 @@ Q2-1とQ2-3ではR181Bが固定入力のテンソル積信号を作り、R181C�
 
 Q2-2 fixed-goalはR207 projection phase-volume経路を使う。setting方向とhidden directionsをnear-contactで共同thermal preparationし、projection phase volumeとisotropic lockから一般角度singlet共同統計へ接続する。finite-lockでは余弦形のvisibilityを解析的に与え、finite thicknessでは一様全変動誤差を持つ。分離後はlocal response factorizationを保つ一方、source hidden stateはsetting-dependentでありmeasurement independenceは成立しない。
 
-Q2-2-Sは同じR207主線へfinite-speed causal isolationを追加する強化である。具体spatial reservoirの最大伝播速度とsetting確定後timing closureが未閉包なので、Q2-2-S全体は未監査のままである。
-
 Q3のsignal数学はQ1/Q2と別の代数ではない。Q1型局所正準モードを空間頂点へ配置し、Q2型2体系結合を辺へ反復すると、Schrödinger型signal、局所作用、反対称currentが得られる。M37/R86がこのsignalを実古典振動子網から実装する。
 
 M64はM37型classical coherent signal、一つのclassical tracer、一つのsignal-driven thermal reservoirからなるQ3 open modelである。R203Aはregularized density/current dictionary、R203Bはphase-volume free energy、continuous/finite-graph initial preparationとfinite-time mean-flow tracking、R203Cはcanonical overdamped tracerからregularized diffusionへの縮約、R203DはR161/R185およびfinite-graph位置読出しへの接続を与える。R203Bのreservoir sectorはR205Cの共通原理と整合するが、tracer dynamicsとQ3位置法則はM64固有である。
@@ -70,4 +68,4 @@ Q3-2の現行因果鎖は、M37/R86 signal、M64/R203A--R203C、R203D/R161、R18
 
 固定目標の達成は、その目標が要求する現象を1試行内で明示的な物理interfaceを通して合成できるかで判定する。準備、全操作、測定、永久記録、reset、物理clock、次試行renewalまでを同じ装置architectureと共通反復周期へ統合することはM0で別に要求する。M66でreservoir原理を共通化したことは、共通単一bathまたは1台の製造済み装置を得たことを意味しない。
 
-現行の固定目標ではQ1-1、Q1-2、Q2-1、Q2-2、Q2-3、Q3-1--Q3-5を達成、Q2-4を条件付き達成、Q3-6を未達とする。A1/A2/B1--B3およびQ2-2-Sは固定目標と独立に監査する。置換済みの旧作用殻型測定経路、旧paired-Hopf受信機構、Brownian macrospin読出し、M60/M61旧Q3 Hamiltonian実装は現行主線へ重ねず、研究メモとGit履歴へ保存する。
+現行の固定目標ではQ1-1、Q1-2、Q2-1、Q2-2、Q2-3、Q3-1--Q3-5を達成、Q2-4を条件付き達成、Q3-6を未達とする。A1/A2/B1--B3は固定目標と独立に監査する。置換済みの旧作用殻型測定経路、旧paired-Hopf受信機構、Brownian macrospin読出し、M60/M61旧Q3 Hamiltonian実装は現行主線へ重ねず、研究メモとGit履歴へ保存する。
