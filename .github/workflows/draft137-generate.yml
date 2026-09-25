@@ -6,7 +6,7 @@ on:
       - draft-137-m67-r208-candidate
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   generate:
@@ -15,7 +15,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
+          ref: draft-137-m67-r208-candidate
           lfs: true
+          fetch-depth: 0
 
       - name: Pull LFS
         run: git lfs pull
@@ -33,12 +35,17 @@ jobs:
       - name: Generate paper artifacts
         run: python tools/build_paper.py --output-dir build/draft137
 
-      - name: Upload generated artifacts
-        uses: actions/upload-artifact@v4
-        with:
-          name: draft137-generated
-          path: |
-            build/draft137/paper.md
-            build/draft137/main.tex
-            build/draft137/paper.pdf
-          if-no-files-found: error
+      - name: Commit generated artifacts and remove helper workflow
+        run: |
+          cp build/draft137/paper.md paper.md
+          cp build/draft137/main.tex main.tex
+          cp build/draft137/paper.pdf paper.pdf
+          git rm .github/workflows/draft137-generate.yml
+          git add paper.md main.tex paper.pdf
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if git diff --cached --quiet; then
+            exit 0
+          fi
+          git commit -m "draft-137: 生成物を同期"
+          git push origin HEAD:draft-137-m67-r208-candidate
