@@ -381,6 +381,7 @@
 - `sections/A24_m66_common_phase_volume_readout.md`
 - `sections/A25_m64_three_entity_open_q3_model.md`
 - `sections/A26_m65_phase_volume_projective_instrument.md`
+- `sections/A27_m67_two_entity_structured_reservoir.md`
 - `sections/90_references.md`
 
 ## 論文外の研究メモ
