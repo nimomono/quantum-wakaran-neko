@@ -13319,7 +13319,7 @@ R204Bのphase-volume chamber、R204CのHamiltonian--Brownian lift、finite-bandw
 > **位置づけ：** M67/R208A--R208Dは、構造化熱浴と古典マーカーの二つの物理sectorだけからM64型Q3有効力学を回収する有限Hamiltonian candidateである。現行Q3正本M37/R86 -> M64/R203A--R203D -> R161/R185は変更せず、M67はその上位parent候補として扱う。Q1/Q2/NBLへの拡張、M64/M66の退役、M0達成は本付録では主張しない。
 
 
-## AA.1 目的、二実体、責務境界
+## 目的、二実体、責務境界
 
 M67は、M64で別実体としていたclassical coherent signalとsignal-driven thermal reservoirを一つの構造化熱浴へまとめる。単一試行の主要物理sectorは
 
@@ -13335,7 +13335,7 @@ M67は、M64で別実体としていたclassical coherent signalとsignal-driven
 
 本付録の責務はM67からM64/R203A--R203Dのcontinuous Q3 lawへ有限時間で接続することである。R161/R185は既存の下流数学結果として再利用し、本付録では再証明しない。Q1のM65/R181D、Q2のM54/R181B--R181C、M66/R205--R207、NBL型registerは本付録の直接主張に含めない。
 
-## AA.2 全Hamiltonianとcoherent sector
+## 全Hamiltonianとcoherent sector
 
 M67の有限Hamiltonianを
 
@@ -13414,7 +13414,7 @@ Z_j^*h_{ji}Z_i
 
 を使う。
 
-## AA.3 phase-volume sectorとsignal backreaction
+## phase-volume sectorとsignal backreaction
 
 M64/Y.2と同じcompact interpolationから正のlocal scale $r_X^\delta$ を作る。
 
@@ -13485,7 +13485,7 @@ O(N_0^{-1})
 
 となる。
 
-## AA.4 local flow reaction coordinate
+## local flow reaction coordinate
 
 各edge $e$ にR203Aのlocal current/densityからtarget velocity
 
@@ -13539,7 +13539,7 @@ finite harmonic flow bathを消去し、短memory・small-inertia極を取ると
 
 となる。
 
-## AA.5 local tight-frame moving bath
+## local tight-frame moving bath
 
 $U(X)$ をHamiltonianへ直接momentum shiftとして書かず、tracerとlocal material frameの相対座標だけを結合する。compact-supportのpartition
 
@@ -13631,7 +13631,7 @@ U_X=\sum_e\chi_eU_e,
 
 となる。
 
-## AA.6 finite-time window
+## finite-time window
 
 finite bathの代表memory timeを $\tau_{\rm mem}$、recurrence timeを $T_{\rm rec}$ とする。M67の基本動作窓は
 
@@ -13655,7 +13655,7 @@ T_{\rm back}
 
 永久不可逆性は要求せず、固定有限観測時間のprethermal Hamiltonian windowを使う。
 
-## AA.7 R208A：二実体finite-Hamiltonian parent
+## R208A：二実体finite-Hamiltonian parent
 
 <!-- theorem-start:theorem -->
 **定理（R208A：M67二実体finite-Hamiltonian parent）**
@@ -13671,7 +13671,7 @@ M37/R86 safe coherent sector、$K_e>M_e$、正の有限harmonic-bath parameter�
 の二つの主要物理sectorへ分類でき、$H_{67}$ は有限古典Hamiltonianとして構成できる。$Z,\rho,j,U,\xi$ はすべてM67正準自由度から作る派生量であり、新しい独立実体を必要としない。
 <!-- theorem-end:theorem -->
 
-## AA.8 R208B：osmotic forceと有限backreaction
+## R208B：osmotic forceと有限backreaction
 
 <!-- theorem-start:theorem -->
 **定理（R208B：phase-volume osmotic forceと有限backreaction）**
@@ -13700,7 +13700,7 @@ k_BT\partial_X\log r_X^\delta.
 equal weightsではphase-volume force fluctuationは $O(N_\rho^{-1/2})$、coherent action $Z=\sqrt{N_0}z$ に対する固定有限時間のrelative state-direction backreactionは $O(N_0^{-1})$ である。
 <!-- theorem-end:theorem -->
 
-## AA.9 R208C：local moving finite bath
+## R208C：local moving finite bath
 
 <!-- theorem-start:theorem -->
 **定理（R208C：local finite bathのrelative Langevin縮約）**
@@ -13739,7 +13739,7 @@ O(
 finite-memory error、finite-spectrum error、recurrenceはAA.6の時間窓で別々に管理する。
 <!-- theorem-end:theorem -->
 
-## AA.10 R208D：M64への有限時間縮約
+## R208D：M64への有限時間縮約
 
 <!-- theorem-start:theorem -->
 **定理（R208D：M67からM64 Q3 lawへの有限時間縮約）**
@@ -13767,7 +13767,7 @@ R_{208}(t),
 ideal limitではM64/R203Cを回収し、同じ $\rho_\delta,J_\delta$ をR203Dへ渡せるため、R161/R185およびR124/R182/R125接続は既存結果を再利用できる。
 <!-- theorem-end:theorem -->
 
-## AA.11 数値検証契約と未主張範囲
+## 数値検証契約と未主張範囲
 
 M67 candidateではHamiltonian drift、M37 ideal signalとの状態方向誤差、$U_X-v_\delta$、phase-volume mean force、finite-bath memory、tracer分布を同じparameter setで監査する。$N_0$、$N_\rho$、$K_U$、$\tau_U$、$\tau_{\rm mem}$、bath mode数、格子幅を独立に振り、一つの改善を複数誤差へ二重計数しない。
 
