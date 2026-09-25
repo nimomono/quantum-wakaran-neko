@@ -1,0 +1,44 @@
+name: draft137 candidate validation
+
+on:
+  push:
+    branches:
+      - draft-137-m67-r208-candidate
+
+permissions:
+  contents: write
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: draft-137-m67-r208-candidate
+          fetch-depth: 0
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install numeric dependency
+        run: python -m pip install numpy
+
+      - name: Compile tools
+        run: python -m compileall -q tools
+
+      - name: Run required and candidate physics checks
+        run: python tools/run_physics_checks.py --include-candidate
+
+      - name: Run draft-137 migration check
+        run: python tools/migrations/check_draft137_m67_r208_candidate.py
+
+      - name: Remove helper workflow after success
+        run: |
+          git rm .github/workflows/draft137-candidate.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "draft-137: candidate検算workflowを除去"
+          git push origin HEAD:draft-137-m67-r208-candidate
