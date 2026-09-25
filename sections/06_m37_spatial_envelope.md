@@ -1217,3 +1217,7 @@ R187本体は有限個の静的クエンチで閉じる。各跳躍は $Q,P$ を
 とすることで、ランプ区間だけの比較誤差を $O(r_\kappa^{3/4})$ にできる。この滑らかな化は高モードに対する断熱切替を仮定せず、小振幅クエンチの連続近似である。
 
 精度を上げると $J_\kappa=O(\kappa)$ のため総時間は $O(\kappa^{-1})$ に増え、切替時刻分解能、弱結合設定、分裂較正の要求も厳しくなる。搬送周波数は $\delta_{\rm loc}(\eta)$ を小さくするため増やすが、各静的区間を $\Delta_{\rm ex}(F)$ で較正するため、R86の粗い $T\|h\|^2/\omega_0$ 上界を長いRabi時間へそのまま掛けない。これらの資源発散をQ2-4の多項式資源主張へ流用しない。
+
+## 6.20 M67上位parent候補との関係
+
+M37/R86はdraft-137後も現行Q3 signal実装である。付録AA/M67はM37のcoherent oscillator sectorを同じstructured reservoirの長寿命collective sectorとして読み替え、phase-volume、flow、dragのthermal sectorと同じfinite Hamiltonianへ置く候補である。R208DがM64/R203C--R203Dを有効極として回収するが、本節のR86やQ3 fixed-goal依存は変更しない。

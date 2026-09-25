@@ -102,6 +102,8 @@ Q2-2 fixed-goalのBell型統計はR207 projection phase-volume二端模型で再
 
 Q3ではM37/R86 signalへM64のclassical tracerとsignal-driven thermal reservoirを接続し、signal density/currentからosmotic driftとcurrent driftを作る。R203D/R161/R185を介してNelson型の前進・後退平均微分と時間対称Newton則へ接続し、finite graphでは有限障壁、W型トンネル振動、2経路干渉を同じtracerの位置読出しへつなぐ。
 
+M67/R208は、この三実体Q3経路の上位Hamiltonian parent候補である。M37型coherent sectorとthermal-reservoir sectorを一つのstructured reservoirへまとめ、別実体をclassical markerだけにした二実体構成からM64 open lawを有限時間で回収する。draft-137ではcandidateであり、現行Q3 fixed-goal依存やM64/M66の運用状態は変更しない。
+
 この共通化は、全系列を1台の装置へ統合したことを意味しない。準備、操作、測定、永久記録、reset、clock、renewalを1つのjoint microscopic device/processへまとめることはM0で別に要求する。
 
 閲覧用の統合原稿は [paper.md](paper.md)、組版済みPDFは [paper.pdf](paper.pdf) である。再生成は

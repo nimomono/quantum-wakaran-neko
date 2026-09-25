@@ -42,3 +42,5 @@ Q3ではQ1/Q2と同じ局所実正準signalと2体系結合を空間へ配置し
 残る主要課題は4群に整理できる。第1にQ2-4のR186 direct-amplitude register robustness、第2にQ3-6の位相量子化、第3に各系列のA1/A2/B1--B3、第4にM0である。M0ではM54/M66という共通原理を共有するだけでは足りず、主要自由度、物理接続端、準備、操作、測定、永久記録、reset、clock、renewalを1つのjoint microscopic device/processと共通反復周期へ接続する必要がある。
 
 従って現時点の統一は、**同一のsignal原理とreservoir原理を複数の量子型現象へ再利用できること**にある。全現象を1つの製造済み装置、1つの単一bath、1つの閉鎖Hamiltonian全系へ統合したという主張ではない。そこを明確に分けることで、すでに閉じた固定目標と、次に検査すべき物理実装・数値・実験の課題を同じ体系で管理できる。
+
+M67/R208は、Q3のcoherent signalとthermal reservoirを一つのstructured reservoirへ統合し、classical markerとの二実体finite HamiltonianからM64 open lawを回収する上位parent候補を与える。これは現行M64主線を置換したこと、Q1/Q2を同じ装置へ統合したこと、M0を達成したことを意味しない。

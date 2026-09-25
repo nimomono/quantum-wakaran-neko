@@ -1,3 +1,10 @@
+## draft-137：M67/R208 二実体Hamiltonian統合候補
+
+- `sections/A27_m67_two_entity_structured_reservoir.md` を付録AAとして追加し、M67/R208A--R208DをM64をまだ置換しないQ3 upper-parent candidateとして収録する。
+- `tools/paper_source.py` と `tools/build_paper.py` の付録ラベル処理をA--ZからAA以降へ一般化する。既存A--Zの番号付けは不変。
+- M67/R208 candidate verifier 4本、`simulations/m67/` の縮約witness、draft-137 migration checkを追加する。candidate検算はrequired CIへ昇格しない。
+- PROJECT_STATUS、ENHANCEMENT_TARGETS、README、第2・6・8・9章、VALIDATION、TERMINOLOGY、theory lineageをcandidate境界へ同期する。fixed-goal直接依存、達成ラベル、A1/A2/B1--B3、M0、M64/M65/M66/M54の現行責務は変更しない。
+
 ## draft-136：Q2-2-S退役とQ2-2/R207一本化
 
 - Q2-2-Sを独立strengthening IDとして退役し、Q2-2/R207へBell模型・Bell前提監査を一本化する。
