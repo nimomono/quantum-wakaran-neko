@@ -354,3 +354,12 @@ CNOT、CHSH、SWAP、SU(2)、Q1、Q2、Q3、M37、M54、R164などの略号・�
 | 吸引域境界 | 2つの吸引域を分ける不安定境界 |
 | 保護帯 | 吸引域境界の近傍を有限幅で無反応へ送る安全領域 |
 | 捕獲領域 | 結果を吸収記録へ写すために定める各極近傍の領域 |
+
+## 7. M67二実体模型
+
+| 原語・旧表記 | 本文の標準表記 | 使い分け |
+|---|---|---|
+| structured reservoir | 構造化熱浴 | M67でcoherent、phase-volume、flow、dragを内部sectorとして持つ一つの古典媒体 |
+| classical marker | 古典マーカー | M67の第二物理sector。Q3ではclassical tracerとして特殊化する |
+| material frame | 移動媒質座標 | local moving bathの基準座標 $Y_e$。独立した第三実体とは数えない |
+| two-entity model | 二実体模型 | structured reservoir sectorとmarker sectorの二分類を指す。内部正準自由度が二個だけという意味ではない |

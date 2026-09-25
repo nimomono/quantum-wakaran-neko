@@ -1,3 +1,9 @@
+## draft-137：M67/R208 二実体Hamiltonian統合候補
+
+- M67をstructured reservoir＋classical markerの二実体finite-Hamiltonian parent candidateとして新設し、R208A--R208Dで二実体構成、phase-volume osmotic force/backreaction、local moving finite bath/GLE/FDT、M64への有限時間縮約を整理した。
+- 付録AAを追加できるようappendix label生成をA--ZからAA以降へ一般化した。
+- candidate verifier、M67 simulation入口、migration check、管理文書を追加したが、Q3 fixed-goal主線M37/R86→M64/R203→R161/R185、M64/M65/M66/M54、達成ラベル、A1/A2/B1--B3、M0、R186は変更していない。
+
 ## draft-136：Q2-2-S退役とQ2-2/R207一本化
 
 - Q2-2-Sを独立strengthening IDとして退役し、Q2-2のBell模型・Bell前提監査をR207A--R207Dへ一本化する。
