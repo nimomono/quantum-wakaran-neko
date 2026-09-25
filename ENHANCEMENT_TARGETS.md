@@ -123,3 +123,7 @@ M66/R205A--R205Fはphase-volume、mean-flow、thermal sampling、passive separat
 | R207 | R205E/Fをjoint preparation/passive separationへ利用 | direct microscopic trajectory、具体装置、有限帯域・非理想性監査 |
 
 この共通化だけではA1/A2/B1--B3状態を変更しない。Q2-4ではR186のcoherent register additive-noise障害を独立に維持する。
+
+### M67/R208 二実体Hamiltonian candidate
+
+M67/R208A--R208Dは、M64で直接定めたopen Q3 lawをfinite Hamiltonian parentから回収する候補として管理する。Q3-1-A1/Q3-2-A1の公式判定は本追加だけでは変更しない。Q3-1-A2/Q3-2-A2は未監査のままとし、simulations/m67/ の縮約witnessやcandidate verifierはfull finite-bath trajectoryの代替に数えない。B1--B3、M0の現在地も変更しない。

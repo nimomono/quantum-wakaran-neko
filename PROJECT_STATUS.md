@@ -1,3 +1,9 @@
+## draft-137：M67/R208 二実体Hamiltonian統合候補
+
+- M67を構造化熱浴 $\mathcal R_{\rm str}$ とclassical marker $\mathcal X$ の二つの物理sectorからなるfinite-Hamiltonian parent candidateとして追加する。R208A--R208Dは二実体構成、phase-volume osmotic forceと $O(N_0^{-1})$ backreaction、local moving finite bathのGLE/FDT、M64 Q3 lawへの有限時間縮約を担う。
+- 現行Q3 fixed-goal主線はM37/R86→M64/R203A--R203D→R161/R185のまま維持し、R208をfixed-goal直接依存へ追加しない。M64/M65/M66/M54の運用状態、Q1/Q2/Q3達成ラベル、A1/A2/B1--B3、M0、R186判定は変更しない。
+- M67のQ1/Q2/NBL特殊化、M64/M66の退役、common single-bath化、全周期統合は後続研究に分離する。
+
 ## draft-136：Q2-2-S退役とQ2-2/R207一本化
 
 - Q2-2-Sを独立strengthening IDとして退役し、Q2-2のBell模型・Bell前提監査をR207A--R207Dへ一本化する。
@@ -454,6 +460,7 @@ M0はこれらの共通化より強い。M54/M66を共有していても、同�
 | M64 | Q3共通open model | 現行Q3 particle/Nelson実装 | M37 signal、一つのclassical tracer、一つのsignal-driven thermal reservoirからなる三実体模型。R203A--R203Dでcontinuous profileとfinite-graph profileをR161/R185およびR124/R182/R125へ接続する。Hamiltonian lift、finite bath、underdamped lift、連続空間一様極限、多粒子、全周期clock/record統合は強化課題 |
 | M65 | Q1 binary canonical open selector | 現行Q1逐次fixed-goal正本模型 | 保持済み二作用を線形rateへ入れる $+,H,-$ の3状態連続時間Markov pointer。R204Dでfinite-time Born、R204Eでbinary selector contract、R204FでQ1 interface/latencyを与える。R204B/R204Cのphase-volume chamber/Hamiltonian liftは強化実現 |
 | M66 | common thermal-reservoir parent model | 共通reservoir interface。現行fixed-goalでQ2-1/Q2-3/Q2-4はR206、Q2-2はR207へ直接specializeする | R205A--R205Fでphase-volume、mean-flow、matched capacity--conductance、thermal Gibbs sampling、passive separationを共通化する。R203Bのreservoir sectorはR205C、R204Bのchamber realizationはR205Dへ埋め込むが、M64/M65のwhole-modelは置換しない |
+| M67 | 二実体finite-Hamiltonian parent candidate | Q3の上位parent候補。fixed-goal直接依存には未採用 | 一つのstructured reservoir内にcoherent/phase-volume/flow/drag sectorを置き、別実体はclassical markerだけとする。R208A--R208DでM64 open lawへの有限時間縮約を与える。Q1/Q2/NBL、M0、既存模型退役は未主張 |
 
 M50はM54の静的状態構成へ、M55はM54空間状態構成へ吸収した。M56はspin-only Q3代替研究線とし現行達成根拠へ使わない。M60/M61とそれ以前のM57/M59は旧Q3 Hamiltonian実装として現行主線から退役し、Git履歴へ保存する。旧状態方向準備、旧作用殻型Q1/Q2測定経路、旧2端再準備は現行必須依存から外し、退役索引と研究メモへ保存する。
 
@@ -576,6 +583,10 @@ M0は、個別のA1模型を並べるだけでは達成としない。少なく�
 | R203B | 厳密partition結果・有限時間結果 | signal-dependent reservoir phase volumeから $F_{\rm res}=-k_BT\log r_X^\delta+C$ を導き、continuous tracer初期準備とfinite-time mean-flow trackingを与える |
 | R203C | 直接定めた開放SDEに対する厳密結果・明示誤差付き縮約 | canonical overdamped tracerをideal regularized diffusionへ有限時間 $W_1$ で縮約する |
 | R203D | 厳密有限graph結果・明示誤差付き近似結果 | local $R_i^\delta,J_{ij},T_{ij}^\delta$ からR161 rateを構成し、finite-graph初期準備、1次元R185 activity、R124/R182/R125位置読出しへ接続する |
+| R208A | candidate finite-Hamiltonian結果 | structured reservoir＋classical markerの二実体sectorで有限・下に有界なM67 parentを構成し、$Z,\rho,j,U,\xi$ を派生量として位置づける |
+| R208B | candidate partition/backreaction結果 | phase-volume Jacobianからosmotic mean forceを得て、finite-$N_\rho$ fluctuationとcoherent action $N_0$ に対する $O(N_0^{-1})$ 状態方向backreactionを分離する |
+| R208C | candidate finite-bath縮約結果 | compact local tight frameとfinite harmonic bathからrelative memory friction、finite-bath FDT、Markov極の $-\gamma(V-U_X)+\xi$ を導く |
+| R208D | candidate finite-time bridge | M67をM64/R203C型regularized diffusionへ有限時間縮約し、同じ $\rho_\delta,J_\delta$ をR203D→R161/R185へ渡す。fixed-goal直接依存には未採用 |
 | R185 | 厳密有限格子結果・明示誤差付き近似結果 | 共通の確率分布の時間反転率、$D_\pm$、1次元node-free領域の時間対称Newton則。正則化残差 $O(\delta)$、格子残差 $C_{185,a}a^2$ を有限微分ノルムで明示 |
 | R123 | 厳密結果・数値検証付き | 井戸型・調和型低位束縛状態と有限環境純位相緩和 |
 | R124 | 厳密結果・数値検証付き | 障壁値未満スペクトル支持からの反対側確率増分 |

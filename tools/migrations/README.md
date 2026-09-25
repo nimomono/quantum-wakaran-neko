@@ -100,3 +100,7 @@
 ## draft-136 Q2-2-S retirement
 
 `check_draft136_retire_q2_2_s.py` はQ2-2-Sと固有強化列がactive enhancement registry・論文・現在形文書から消え、Q2-2がR207A--R207C直接依存の達成状態を維持することを確認する。同時にR207D、measurement-independence監査、R207 required verifier、A1/A2/B1--B3現在地を維持し、旧finite-speed separation candidate checkerがactive treeから退役したことを検査する。
+
+## draft-137 M67/R208 candidate
+
+check_draft137_m67_r208_candidate.py は、A27/付録AAのM67/R208A--R208D、candidate verifier、M67 simulation入口、PROJECT_STATUS登録を確認する。同時にQ3 fixed-goalがM37/R86→M64/R203A--R203D→R161/R185のまま、M64/M65/M66/M54の現行責務、A1/A2/B1--B3、M0、R186判定が維持され、promotion/retirementやQ1/Q2/NBL正本化を先取りしていないことをPR固有に検査する。

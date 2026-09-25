@@ -629,3 +629,17 @@ B_{\rm p}e^{-\gamma_{\rm p}T_{\rm p}}
 で管理し、sampler pointerはR206Aのmixingにより結果別resetを必要としない。
 
 M66/R206はreader側の逐次小branch、R181D tree、非終端作用下限問題を避けるが、R186のdirect-amplitude registerへ入る独立additive noiseは解消しない。従ってQ2-4の条件付き達成を維持する。
+
+## 8.16 M67 candidateの誤差窓
+
+M67/R208では、coherent envelope誤差、phase-volume fluctuation $O(N_\rho^{-1/2})$、state-direction backreaction $O(N_0^{-1})$、flow tracking、local interpolation、finite-memory、finite-spectrum recurrence、overdamped縮約を別々に管理する。基本窓は
+
+```math
+\max(\tau_{\rm mem},\tau_U,M_X/\gamma,\tau_{\rho,\rm mix})
+\ll
+T_{\rm obs}
+\ll
+\min(T_{\rm rec},T_{\rm back})
+```
+
+である。M67追加だけからA1/A2/B1--B3またはM0の判定を変更しない。

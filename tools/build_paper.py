@@ -134,7 +134,7 @@ def preprocess(lines: list[str]) -> list[str]:
         if in_math:
             output.append(line)
             continue
-        heading = re.match(r"^(#{2,3})\s+(?:\d+|[A-Z])(?:\.\d+)*\s+(.*)$", line)
+        heading = re.match(r"^(#{2,3})\s+(?:\d+|[A-Z]+)(?:\.\d+)*\s+(.*)$", line)
         if heading:
             line = f"{heading.group(1)} {heading.group(2)}"
         output.append(replace_citations(line))
@@ -155,7 +155,7 @@ def preprocess_public(lines: list[str]) -> list[str]:
             output.append(line)
             continue
         if not in_math:
-            heading = re.match(r"^(#{2,3})\s+(?:\d+|[A-Z])(?:\.\d+)*\s+(.*)$", line)
+            heading = re.match(r"^(#{2,3})\s+(?:\d+|[A-Z]+)(?:\.\d+)*\s+(.*)$", line)
             if heading:
                 line = f"{heading.group(1)} {heading.group(2)}"
         output.append(line)

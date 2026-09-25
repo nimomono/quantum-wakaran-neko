@@ -49,3 +49,7 @@ M65の3状態open selectorはdraft-117で正本へ昇格する。正本lawの数
 ## M66 common thermal-reservoir parent
 
 `simulations/m66/README.md` には、R206 common-hub trajectoryに加え、R205Eのthermal Gibbs preparation、R205Fの距離依存interaction/cross-correlationを含むpassive separation、phase-volume scaling、finite-bandwidth correction、terminal backreaction、always-on couplingの将来A2計画を置く。draft-129のrequired checksは解析式とgeneratorの回帰であり、full Brownian trajectoryや具体spatial reservoirの直接simulationを代替しない。
+
+## M67 two-entity finite-Hamiltonian candidate
+
+simulations/m67/ はM67/R208A--R208Dのdirect-trajectory強化検証入口である。draft-137では縮約レベルの高速witnessだけを置き、有限bath全自由度を同時積分したA2 full trajectoryは後続課題とする。Q3-1-A2/Q3-2-A2は未監査のまま維持する。

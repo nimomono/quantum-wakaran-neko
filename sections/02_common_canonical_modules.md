@@ -989,3 +989,7 @@ M65は開放3状態Markov方程式を基本方程式として採用し、phase-v
 M66/R205の共通thermal-reservoir interfaceは2.1で定義した。ここで必要なのは、M65のcanonical law、M64 tracer dynamics、R206 terminal samplerを同一の完成装置とみなさないことである。R203B--R205C、R204B--R205D、R206、R205E/F--R207の対応は2.1の表と付録X/Wを参照する。
 
 Q2-1/Q2-3/Q2-4ではR206をterminal readout正本とし、R206Eのuniform root preparation/refreshをQ2-4で併用する。Q1のM65/R181Dとfull-cycle側のR179は別責務として維持する。
+
+## 2.20 M67二実体parent candidate
+
+付録AA/M67では、現行のsignal層とthermal-reservoir層をさらに上位で一つのstructured reservoirへまとめ、classical markerとの二実体だけを主要ontologyとするfinite-Hamiltonian candidateを置く。R208A--R208DはQ3についてM64/R203への縮約だけを扱う。M54/M66を置換したとは扱わず、Q1/Q2/NBLへの拡張は未主張である。

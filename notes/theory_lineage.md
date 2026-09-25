@@ -170,3 +170,22 @@ draft-134でR207A--R207CをQ2-2 fixed-goalの直接根拠へ昇格し、R180A/R1
 draft-130--draft-131で、当時のQ2-2 fixed-goalとは別のR207空間分離候補を管理するためQ2-2-Sを導入した。draft-134でR207A--R207CがQ2-2 fixed-goalへ昇格し、draft-135でR180A/R180Cが退役した結果、Q2-2-Sは同じR207模型へfinite-speed causal-isolation条件を追加するだけの管理IDとなった。
 
 draft-136ではfinite-speed spatial realizationを正式目標として要求しない方針へ変更し、Q2-2-Sを退役した。Q2-2はR207A--R207CとR207Dだけで管理し、Bell監査はmeasurement independence不成立を明示する。旧S0--S4と専用candidate checkerの位置づけは `superseded_q2_2_s_spatial_strengthening.md` に保存する。
+
+## draft-137で追加したM67/R208 candidate branch
+
+現行Q3正本は引き続き
+
+```text
+M37 / R86
+  -> M64 / R203A--R203D
+  -> R161 / R185
+```
+
+である。M67/R208はこの上に
+
+```text
+M67 / R208A--R208D
+  - - > M64 / R203 effective target
+```
+
+というcandidate branchを追加する。M57--M63の旧single-field探索と異なり、M67は一つのstructured reservoir内でcoherent sectorとthermal sectorの正準分解を許し、別実体をclassical markerだけに限定する。draft-137ではpromotion/retirementを行わない。

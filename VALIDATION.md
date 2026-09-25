@@ -1,3 +1,11 @@
+## draft-137：M67/R208 candidate検算
+
+- `verify_m67_two_entity_hamiltonian.py` はflow/material-frame quadratic blockの下界を検査する。
+- `verify_r208_phase_volume_backreaction.py` はphase-volume fluctuationの $N_\rho^{-1/2}$ scalingとrelative backreactionの $N_0^{-1}$ scalingを検査する。
+- `verify_r208_local_moving_bath.py` はlocal advective＋compensator tight frame、一定friction、FDT noise strengthを検査する。
+- `verify_r208_m64_reduction.py` はfinite-time flow trackingとR208Dの時間尺度windowを短い回帰として検査する。これらはcandidate-onlyでA2 full trajectoryの代替ではない。
+- `check_draft137_m67_r208_candidate.py` でR208A--D登録、A27/AA、M64/Q3 fixed-goal主線不変、A1/A2/M0不変をPR固有に確認する。
+
 ## draft-136：Q2-2-S退役検算
 
 - `ENHANCEMENT_TARGETS.md` の強化schemaをA1/A2/B1/B2/B3だけへ戻し、Q2-2-S節・S0--S4現在地・固有強化列を除去する。

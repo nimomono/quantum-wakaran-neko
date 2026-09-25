@@ -40,3 +40,12 @@ draft-129でR205C--R205Fの解析・generator回帰もrequired checksへ加え�
 
 - `verify_r194_brownian_spin_nelson.py`：M56/R194のBrownian-spin/Nelson接続を検査する代替研究線。
 - M56/R194は現行fixed-goal主線の必須依存ではないためcandidate-onlyとし、通常required CIには含めない。
+
+## M67/R208 two-entity Hamiltonian candidate
+
+- verify_m67_two_entity_hamiltonian.py — R208Aのflow/material-frame quadratic lower bound。
+- verify_r208_phase_volume_backreaction.py — R208Bのphase-volume fluctuationと $N_0^{-1}$ relative backreaction scaling。
+- verify_r208_local_moving_bath.py — R208Cのlocal tight frame、constant friction、FDT covariance。
+- verify_r208_m64_reduction.py — R208Dのflow trackingとfinite-time timescale window。
+
+draft-137では全てcandidate-onlyであり、M64 required checksやQ3 fixed-goal根拠を置換しない。
