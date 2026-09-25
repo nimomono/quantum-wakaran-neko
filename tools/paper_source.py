@@ -42,6 +42,17 @@ def chapter_paths() -> list[Path]:
     return paths
 
 
+def appendix_label(number: int) -> str:
+    if number < 1:
+        raise ValueError(f"appendix number must be positive: {number}")
+    label = ""
+    value = number
+    while value:
+        value, remainder = divmod(value - 1, 26)
+        label = chr(ord("A") + remainder) + label
+    return label
+
+
 def ordered_appendix_paths() -> list[Path]:
     numbered: list[tuple[int, Path]] = []
     for path in SECTIONS.glob("A*_*.md"):
@@ -56,9 +67,9 @@ def ordered_appendix_paths() -> list[Path]:
     ordered = sorted(numbered)
     for number, path in ordered:
         meta, _ = parse_source(path)
-        if not 1 <= number <= 26:
+        if number < 1:
             raise ValueError(f"unsupported appendix number: {path.name}")
-        expected = chr(ord("A") + number - 1)
+        expected = appendix_label(number)
         if meta.get("number") != expected or meta.get("chapter") != "付録":
             raise ValueError(
                 f"{path.name}: appendix metadata must be "
