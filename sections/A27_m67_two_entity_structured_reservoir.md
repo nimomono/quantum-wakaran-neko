@@ -1,7 +1,7 @@
 @number: AA
 @chapter: 付録
 @title: M67 二実体・構造化熱浴Hamiltonian統合候補
-@status: M67/R208A--R208Dは、構造化熱浴と古典マーカーの二つの物理sectorだけからM64型Q3有効力学を回収する有限Hamiltonian candidateである。現行Q3正本M37/R86→M64/R203A--R203D→R161/R185は変更せず、M67はその上位parent候補として扱う。Q1/Q2/NBLへの拡張、M64/M66の退役、M0達成は本付録では主張しない。
+@status: M67/R208A--R208Dは、構造化熱浴と古典マーカーの二つの物理sectorだけからM64型Q3有効力学を回収する有限Hamiltonian candidateである。現行Q3正本M37/R86 -> M64/R203A--R203D -> R161/R185は変更せず、M67はその上位parent候補として扱う。Q1/Q2/NBLへの拡張、M64/M66の退役、M0達成は本付録では主張しない。
 
 ## AA.1 目的、二実体、責務境界
 
