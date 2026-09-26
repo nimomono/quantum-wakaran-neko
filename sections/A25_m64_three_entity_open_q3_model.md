@@ -1,11 +1,11 @@
 @number: Y
 @chapter: 付録
-@title: M64 三実体・最小古典開放系Q3共通模型
-@status: Q3の現行共通open model。古典coherent signal、classical tracer、signal-driven thermal reservoirの三実体を正本とし、R203A--R203Dでregularized density/current辞書、phase-volume free energy、continuous/finite-graph初期準備、有限時間mean-flow tracking、canonical overdamped tracer、R161の1次元・有限graph接続、R185およびR124/R182/R125位置読出し受渡しを与える。M60/M61は現行主線から退役する。
+@title: M64 三実体・M67 canonical open effective Q3 model
+@status: M67/R208--R210をQ3共通finite-Hamiltonian physical parentとし、M64はR208/R209でM67から回収されるcanonical open effective modelとして維持する。R203A--R203Dはregularized density/current辞書、phase-volume free energy、continuous/finite-graph初期準備、有限時間mean-flow tracking、canonical overdamped tracer、R161の1次元・有限graph接続、R185およびR124/R182/R125位置読出し受渡しを引き続き担う。三実体記述は有効縮約の変数分割であり、独立physical ontologyではM67へ置換する。
 
 ## Y.1 責務、三実体、二つのconfiguration profile
 
-M64はQ3の位置過程を次の三つの古典的実体から構成する最小open modelである。
+M64はM67のfast reservoir sectorを縮約したQ3位置過程を、次の三つの有効sectorへ分けて記述するcanonical open modelである。これらをM67とは別の三つの基礎物理実体とは解釈しない。
 
 1. classical coherent signal：M37型の実正準oscillator network。
 2. classical tracer：一つの古典configuration variable。
@@ -20,7 +20,7 @@ tracer configurationには二つの特殊化を許す。
 
 両profileは別の粒子実体を導入せず、同じsignal density/currentから同じphase-volume/current-reservoir責務を読むM64模型族の特殊化である。M64本体ではkink、domain wall、Duffing shell、PN well、Eyring--Kramers hoppingをtracerの定義に要求しない。
 
-M64では、開放SDEまたはfinite-state jump lawを基本発展則として直接定める。single-field Hamiltonian化、finite-bath化、current transducerの完全Hamiltonian散乱導出、underdamped lift、metric-graph連続極は独立strengtheningとする。
+M64では、開放SDEまたはfinite-state jump lawを有効発展則として直接定める。finite-Hamiltonian parent、finite-bath、current/flow transducer、underdamped liftのQ3共通physical originはM67/R208--R210が担う。metric-graph連続極、strict locality、全周期統合は引き続きstrengtheningとする。
 
 ## Y.2 regularized signal density/currentと局所補間
 

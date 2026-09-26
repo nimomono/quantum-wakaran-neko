@@ -1,7 +1,7 @@
 @number: AA
 @chapter: 付録
-@title: M67 二実体・構造化熱浴Hamiltonian統合候補
-@status: M67/R208A--R208Dは、構造化熱浴と古典マーカーの二つの物理sectorだけからM64型Q3有効力学を回収する有限Hamiltonian candidateである。R209A--R209Cはlocal flow、finite bath、finite-time process metricを定量化し、M67からM64へのcompatibilityを明示誤差付きで強化する。現行Q3正本はM37/R86、M64/R203A--R203D、R161/R185の順を変更せず、M67はその上位parent候補として扱う。Q1/Q2/NBLへの拡張、M64/M66の退役、M0達成は本付録では主張しない。
+@title: M67 二実体・Q3共通finite-Hamiltonian physical parent
+@status: M67をQ3-1--Q3-5の共通二実体finite-Hamiltonian physical parentとする。M37はM67 coherent module、M64/R203はM67のcanonical open effective reduction、R123有限環境はR210Bのbounded dephasing liftの有効則として維持する。R208A--R209Cはtracer/Nelson側、R210Aはcoherent-sector/R86 compatibility、R210Bはbounded finite-dephasing embeddingを与える。Q3-6はM67 coherent sector上の未達課題として残し、Q1/Q2/NBL、M0、M54/M65/M66の運用状態は変更しない。
 
 ## AA.1 目的、二実体、責務境界
 
@@ -17,7 +17,9 @@ M67は、M64で別実体としていたclassical coherent signalとsignal-driven
 
 だけとする。$\mathcal R_{\rm str}$ は有限個の古典正準自由度からなる一つのHamiltonian媒体であり、内部にcoherent、phase-volume、flow、dragの各sectorを持つ。これらは別々の物理実体ではなく、同じ媒体の正準部分系またはreaction coordinateである。Q3では $\mathcal X$ をclassical tracerとして読む。
 
-本付録の責務はM67からM64/R203A--R203Dのcontinuous Q3 lawへ有限時間で接続することである。R161/R185は既存の下流数学結果として再利用し、本付録では再証明しない。Q1のM65/R181D、Q2のM54/R181B--R181C、M66/R205--R207、NBL型registerは本付録の直接主張に含めない。
+本付録の責務はM67をQ3共通physical parentとして固定し、用途ごとのHamiltonian profileから既存の有効結果へ接続することである。coherent profileはR210Aを介してM37/R86へ、dephasing profileはR210Bを介してR123へ、continuous/finite-graph tracer profileはR208/R209を介してM64/R203A--R203Dへ接続する。R161/R185、R123--R125、R182は既存の下流結果として再利用し、本付録では再証明しない。Q1のM65/R181D、Q2のM54/R181B--R181C、M66/R205--R207、NBL型registerは本付録の直接主張に含めない。
+
+M67の「二実体」は自由度が二個という意味ではない。一つのstructured reservoir sector \(\mathcal R_{\rm str}\) が有限個のcoherent/thermal/reaction-coordinate/dephasing内部自由度を持ち、marker sector \(\mathcal X\) はQ3-2/Q3-4/Q3-5でtracerとしてactiveになる。Q3-1およびQ3-3A--Q3-3Cではmarker sectorをdecoupleしたprofileを許す。
 
 ## AA.2 全Hamiltonianとcoherent sector
 
@@ -43,7 +45,18 @@ H_X
 V_{\rm ext}(X)
 ```
 
-とする。coherent sectorにはM37/R86の有限局所振動子網を使う。
+とする。これはcontinuous/finite-graph tracer profileの全Hamiltonianである。Q3全体では同じ有限Hamiltonian architectureの固定specializationとして次を使う。
+
+| M67 profile | active sector | Q3用途 |
+|---|---|---|
+| coherent | \(H_{\rm coh}\) | Q3-1 |
+| dephasing | \(H_{\rm coh}+H_{\rm deph}^{67}\) | Q3-3A/B/C |
+| continuous tracer | \(H_{\rm coh}+H_\rho+H_U+H_{\rm drag}+H_X\) | Q3-2 |
+| finite-graph tracer | coherent sector＋finite-graph phase-volume/current/marker specialization | Q3-4A/B/5 |
+
+profileは試行途中に確率生成のためswitchするものではなく、対象固定目標に対して開始前に固定したHamiltonian specializationである。Q3-3Cのdephasing運転とQ3-4Bのcoherent tunnelling運転は同時にactiveにしない。
+
+coherent sectorにはM37/R86の有限局所振動子網を使う。
 
 ```math
 H_{\rm coh}
@@ -377,7 +390,7 @@ T_{\rm back}
 <!-- theorem-start:theorem -->
 **定理（R208A：M67二実体finite-Hamiltonian parent）**
 
-M37/R86 safe coherent sector、$K_e>M_e$、正の有限harmonic-bath parameterを取り、$r_X^\delta$ と $v_e$ が固定観測窓で有界とする。このときM67の全自由度は
+M37/R86 safe coherent sector、$K_e>M_e$、正の有限harmonic-bath parameterを取り、$r_X^\delta$ と $v_e$ が固定観測窓で有界とする。このときcontinuous/finite-graph tracer profileの全自由度は
 
 ```math
 \mathcal R_{\rm str}
@@ -385,7 +398,7 @@ M37/R86 safe coherent sector、$K_e>M_e$、正の有限harmonic-bath parameter�
 (X,P_X)
 ```
 
-の二つの主要物理sectorへ分類でき、$H_{67}$ は有限古典Hamiltonianとして構成できる。$Z,\rho,j,U,\xi$ はすべてM67正準自由度から作る派生量であり、新しい独立実体を必要としない。
+の二つの主要物理sectorへ分類でき、$H_{67}$ は有限古典Hamiltonianとして構成できる。$Z,\rho,j,U,\xi$ はすべてM67正準自由度から作る派生量であり、新しい独立実体を必要としない。coherent profileはreservoir/marker couplingをdecoupleした特殊化、dephasing profileはR210Bの下方有界な有限canonical sectorを追加した特殊化である。
 <!-- theorem-end:theorem -->
 
 ## AA.8 R208B：osmotic forceと有限backreaction
@@ -833,7 +846,19 @@ Z^{67}(t),Z^{37}(t)
 \right)
 ```
 
-とする。regularized safe sectorでobservable mapがLipschitzで定数 $L_{\rm sig}$ を持つとする。
+とする。regularized safe sectorでobservable mapがLipschitzで定数 \(L_{\rm sig}\) を持つとする。R210Aのload-only relative boundを \(q_{\rm load}(T)=\varepsilon_{\rm load}^{67}(T)\) とすると、\(q_{\rm load}<1\) の範囲で
+
+~~~math
+\varepsilon_{\rm sig}(T)
+\le
+\min\left\{
+1,
+\frac{2q_{\rm load}(T)}
+{1-q_{\rm load}(T)}
+\right\}.
+~~~
+
+ここではR86のcarrier-envelope誤差を加えない。M67からM64へのcompatibilityでは両者が同じbare M37 signalを基準にするためであり、R86誤差はQ3-1でSchrödinger目標へ接続するときだけR210Aで合成する。
 
 Markov化後のunderdamped tracerについて
 
@@ -962,8 +987,516 @@ b_{64}(X_t^M,t)dt
 同じBrownian motionでcanonical M64過程を駆動し、driftのLipschitz性と $X_t^M=Y_t-\epsilon_MV_t^M$ を使ってGronwall評価を行うとsmall-mass boundを得る。Maxwell preparationでは $\epsilon_M\sup_t\mathbb E|V_t|=O(\epsilon_MB_*)+O(\sqrt{\nu\epsilon_M})$ である。R209Aのflow compatibility、R208Bのphase-volume mean force/backreaction、regularized observable mapのLipschitz性を三角不等式で合成すれば最初の $W_1$ boundを得る。最後の式はR203Cとの三角不等式である。証明終。
 <!-- theorem-end:proof -->
 
-## AA.14 数値検証契約と未主張範囲
 
-M67 candidateではHamiltonian drift、M37 ideal signalとの状態方向誤差、$U_X-v_\delta$、phase-volume mean force、finite-bath memory、tracer分布を同じparameter setで監査する。$N_0$、$N_\rho$、$K_U$、$\tau_U$、$\tau_{\rm mem}$、bath mode数、格子幅を独立に振り、一つの改善を複数誤差へ二重計数しない。
+## AA.14 R210A：M67 coherent-sector / R86 finite-time compatibility
 
-M67/R208/R209を追加・強化してもM64、M65、M66、M54を退役させない。R209A--R209CはM67->M64 compatibilityを定量化するcandidate結果であり、Q3 fixed-goalの直接依存へ追加しない。A1/A2/B1--B3、M0の判定も変更しない。Q1/Q2/NBL特殊化は将来候補であり、H/T/CNOTの一般実装、NBL Born sampling、mixing/resource boundを本付録から推論しない。
+R210Aはdephasing sectorをoffにしたcoherent/tracer profileに適用する。full M67のsignal依存loadを
+
+~~~math
+H_R
+=
+H_\rho+H_U+H_{U{\rm bath}}+H_{\rm drag}+H_X
+~~~
+
+とまとめる。\(H_{U{\rm bath}},H_{\rm drag},H_X\) はcoherent変数へ直接依存せず、signalへの直接backreactionは \(H_\rho+H_U\) からだけ生じる。
+
+M37のlocal rotating envelopeを \(b\)、bare M37 trajectoryを \(b^{37}\)、full M67 trajectoryを \(b^{67}\) とする。M37のsafe narrow-band parameterを
+
+~~~math
+\eta
+=
+\frac{2\|h_L\|}
+{\mathcal J_0\omega_0}
+<1,
+\qquad
+\kappa_\eta
+=
+(1-\eta)^{-1/4}
+~~~
+
+とする。R86のBogoliubov normal-envelope変換とその逆の作用素normはともに \(\kappa_\eta\) 以下である。
+
+### AA.14.1 signal load bound
+
+regularized density portを
+
+~~~math
+r_X^\delta
+=
+b^\dagger B_X^\delta b,
+\qquad
+B_X^\delta\ge\beta_\rho I,
+\qquad
+\|B_X^\delta\|\le B_\rho
+~~~
+
+と書く。phase-volume sectorについて
+
+~~~math
+\mathcal A_\rho
+=
+\sum_\alpha
+w_\alpha
+m_\alpha\omega_\alpha^2
+\lambda_\alpha^2\zeta_\alpha^2
+~~~
+
+と置くと、
+
+~~~math
+G_\rho
+:=
+\frac{\partial H_\rho}{\partial b^*}
+=
+-\frac{\mathcal A_\rho}{r_X^\delta}
+B_X^\delta b,
+~~~
+
+従って
+
+~~~math
+\|G_\rho\|
+\le
+\frac{C_\rho\mathcal A_\rho}{\|b\|},
+\qquad
+C_\rho
+=
+\frac{B_\rho}{\beta_\rho}.
+~~~
+
+edge targetはsafe sectorでdegree-zeroのquadratic ratio
+
+~~~math
+v_e[b]
+=
+\frac{b^\dagger C_e b}
+{b^\dagger B_e b},
+\qquad
+B_e\ge\beta_eI
+~~~
+
+として表せるものとする。R203Aのregularized local current/density dictionaryはこの形に含まれる。有限定数 \(\ell_e\) を
+
+~~~math
+\left\|
+\frac{\partial v_e}{\partial b^*}
+\right\|
+\le
+\frac{\ell_e}{\|b\|}
+~~~
+
+で取り、
+
+~~~math
+L_v
+=
+\left(\sum_e\ell_e^2\right)^{1/2},
+\qquad
+\Lambda_U
+=
+\left[
+\sum_eK_e^2|U_e-v_e|^2
+\right]^{1/2}
+~~~
+
+とすれば、
+
+~~~math
+\|G_U\|
+\le
+\frac{L_v\Lambda_U}{\|b\|}.
+~~~
+
+従って
+
+~~~math
+\|G_{67}\|
+\le
+\frac{\mathcal C_{67}}{\|b\|},
+\qquad
+\mathcal C_{67}
+=
+C_\rho\mathcal A_\rho+L_v\Lambda_U.
+~~~
+
+### AA.14.2 保存energy shellからの明示上界
+
+\(w_{\max}=\max_\alpha w_\alpha\) とする。phase-volume energyから
+
+~~~math
+\mathcal A_\rho
+\le
+2w_{\max}H_\rho.
+~~~
+
+flow coreについて \(A_e=K_e-M_e>0\) と置くと平方完成により
+
+~~~math
+\frac{P_{Y,e}^2}{2M_e}
++
+P_{Y,e}U_e
++
+\frac{K_e}{2}(U_e-v_e)^2
+=
+\frac{(P_{Y,e}+M_eU_e)^2}{2M_e}
++
+\frac{A_e}{2}
+\left(
+U_e-\frac{K_e}{A_e}v_e
+\right)^2
+-
+c_ev_e^2,
+~~~
+
+~~~math
+c_e
+=
+\frac{K_eM_e}{2(K_e-M_e)}.
+~~~
+
+\(|v_e|\le v_{e,*}\) をsafe regularizationから取り、
+
+~~~math
+C_{\rm flow}
+=
+\sum_ec_ev_{e,*}^2
+~~~
+
+とする。\(V_{\rm ext}\ge V_{\min}\) とし、
+
+~~~math
+\mathcal E_R
+=
+H_\rho
++
+H_U
++
+H_{U{\rm bath}}
++
+H_{\rm drag}
++
+H_X
++
+C_{\rm flow}
+-
+V_{\min}
+\ge0
+~~~
+
+をreservoir excess energyとする。さらに
+
+~~~math
+\Gamma_K
+=
+\max_e
+\frac{K_e^2}{K_e-M_e},
+~~~
+
+~~~math
+\Gamma_v
+=
+\left[
+\sum_e
+\left(
+\frac{K_eM_e}{K_e-M_e}
+v_{e,*}
+\right)^2
+\right]^{1/2}
+~~~
+
+なら
+
+~~~math
+\Lambda_U
+\le
+\sqrt{2\Gamma_K\mathcal E_R}
++
+\Gamma_v.
+~~~
+
+よって
+
+~~~math
+\mathcal C_{67}
+\le
+a\mathcal E_R+b\sqrt{\mathcal E_R}+c,
+~~~
+
+~~~math
+a=2C_\rho w_{\max},
+\qquad
+b=L_v\sqrt{2\Gamma_K},
+\qquad
+c=L_v\Gamma_v.
+~~~
+
+M67 loadはglobal carrier phaseに不変で、
+
+~~~math
+H_R[e^{i\theta}b]=H_R[b],
+\qquad
+\{b^\dagger b,H_R\}=0.
+~~~
+
+従って \(O(\omega_0N_0)\) のcommon carrier energyとは直接energy交換せず、M37 slow spatial couplingだけが \(\mathcal E_R\) を変化させる。複素正準normの保守的評価として
+
+~~~math
+|\dot{\mathcal E}_R|
+\le
+\Omega_h
+\left(
+a\mathcal E_R+b\sqrt{\mathcal E_R}+c
+\right),
+\qquad
+\Omega_h
+=
+\frac{4\|h_L\|}{\mathcal J_0}.
+~~~
+
+任意の \(\epsilon>0\) に対し
+
+~~~math
+A_\epsilon=a+\epsilon,
+\qquad
+B_\epsilon
+=
+c+\frac{b^2}{4\epsilon}
+~~~
+
+と置けば、
+
+~~~math
+\mathcal E_R(t)
+\le
+\mathcal E_{R,*}(T)
+:=
+\left[
+\mathcal E_R(0)
++
+\frac{B_\epsilon}{A_\epsilon}
+\right]
+e^{\Omega_hA_\epsilon T}
+-
+\frac{B_\epsilon}{A_\epsilon}.
+~~~
+
+したがって
+
+~~~math
+\mathcal C_{67}(t)
+\le
+C_{210}(T)
+:=
+a\mathcal E_{R,*}(T)
++
+b\sqrt{\mathcal E_{R,*}(T)}
++
+c.
+~~~
+
+prepared reservoir shell \(\mathcal E_R(0)=O(1)\) を \(N_0\) と独立に取れば \(C_{210}(T)=O(1)\) である。
+
+<!-- theorem-start:theorem -->
+**定理（R210A：M67 coherent-sector / R86 finite-time compatibility）**
+
+上のsafe regularization、\(K_e>M_e\)、\(\eta<1\)、有限prepared reservoir shellを仮定し、
+
+~~~math
+N_0=\|b_0\|^2
+~~~
+
+とする。同じ \(b_0\) から始めるfull M67とbare M37について、
+
+~~~math
+N_0
+\ge
+\frac{
+4TC_{210}(T)
+}{
+\mathcal J_0(1-\eta)^{3/2}
+}
+~~~
+
+ならbootstrapが閉じ、
+
+~~~math
+q_{\rm load}(T)
+:=
+\sup_{t\le T}
+\frac{\|b^{67}(t)-b^{37}(t)\|}{\sqrt{N_0}}
+\le
+\varepsilon_{\rm load}^{67}(T),
+~~~
+
+~~~math
+\varepsilon_{\rm load}^{67}(T)
+=
+\frac{
+2TC_{210}(T)
+}{
+\mathcal J_0N_0(1-\eta)
+}.
+~~~
+
+prepared energy shellを固定したfamilyでは \(\varepsilon_{\rm load}^{67}=O(N_0^{-1})\) である。
+
+R86のbare M37からSchrödinger目標 \(b_L\) への既存有限時間相対誤差を \(\varepsilon_{86}(T)\) とすると、
+
+~~~math
+q_{210}(T)
+=
+\kappa_\eta\varepsilon_{86}(T)
++
+\varepsilon_{\rm load}^{67}(T).
+~~~
+
+\(q_{210}<1\) なら
+
+~~~math
+d_{\rm ray}
+\left(
+b^{67}(t),b_L(t)
+\right)
+\le
+\min\left\{
+1,
+\frac{2q_{210}(T)}
+{1-q_{210}(T)}
+\right\}.
+~~~
+
+自然時間でR86の \(\varepsilon_{86}=O(\eta)\) を用いれば
+
+~~~math
+q_{210}
+=
+O(\eta)+O(N_0^{-1}).
+~~~
+<!-- theorem-end:theorem -->
+
+<!-- theorem-start:proof -->
+**証明（R210A）**
+
+R86のBogoliubov normal-envelope座標ではbare M37 propagatorはunitaryである。M67 forcingを同座標へ移すとnormは高々 \(\kappa_\eta\|G_{67}\|\)、局所包絡へ戻すともう一度 \(\kappa_\eta\) が掛かる。Duhamel公式と上の \(G_{67}\) boundを用い、bare M37の正常作用保存から得る \(\|b^{37}\|\ge\kappa_\eta^{-2}\sqrt{N_0}\) の半分をbootstrap下限として使うと表示したload boundを得る。energy-shell節の微分不等式とGronwall評価により \(C_{210}(T)\) は初期prepared shellから従い、独立仮定ではない。最後にR86誤差との三角不等式と規格化ベクトルの安定性を用いる。証明終。
+<!-- theorem-end:proof -->
+
+## AA.15 R210B：M67 bounded finite-dephasing embedding
+
+現行R123のeffective Hamiltonianに現れる \(I_nP_n\) couplingはprepared finite-action sectorでは正しい有限Hamiltonian lawを与える一方、\(I_n\) まで全位相空間で無制限に動かすと平方完成で負の \(I_n^2\) 項を生じ得る。M67 physical parentでは同じR123 lawを保ちながらglobally boundedなportへ持ち上げる。
+
+M37 exact normal modesの先頭有限 \(K\) 個について
+
+~~~math
+I_n
+=
+\mathcal J_0|c_n|^2,
+\qquad
+H_{\rm coh}^{(K)}
+=
+\sum_{n=1}^{K}\omega_nI_n
+~~~
+
+とする。有限環境正準対を \((\theta_n,P_n)\) とし、
+
+~~~math
+f(P)
+=
+p_*
+\sin
+\left(
+\frac{\pi P}{2p_*}
+\right),
+\qquad
+|f(P)|\le p_*,
+\qquad
+f(\pm p_*)=\pm p_*
+~~~
+
+を用いる。
+
+~~~math
+H_{\rm deph}^{67}
+=
+H_{\rm coh}^{(K)}
++
+\sum_{n=1}^{K}
+\left[
+\frac{P_n^2}{2M_n}
++
+\frac{\lambda}{\mathcal J_0}
+I_nf(P_n)
+\right].
+~~~
+
+<!-- theorem-start:theorem -->
+**定理（R210B：M67 bounded finite-dephasing embedding）**
+
+~~~math
+\omega_{\min}
+:=
+\min_{1\le n\le K}\omega_n
+>
+\frac{|\lambda|p_*}{\mathcal J_0}
+~~~
+
+なら \(H_{\rm deph}^{67}\) は全位相空間で下に有界である。さらに \(\theta_n\) とmodal angleはHamiltonian中に現れないため
+
+~~~math
+\dot I_n=0,
+\qquad
+\dot P_n=0.
+~~~
+
+開始面で各 \(P_n=\pm p_*\) を独立等重みに調製し環境を読まなければ、\(n\ne m\) の縮約相関は厳密に
+
+~~~math
+C_{nm}^{67}(t)
+=
+C_{nm}(0)
+e^{-i(\omega_n-\omega_m)t}
+\cos^2
+\left(
+\frac{\lambda p_*t}{\mathcal J_0}
+\right),
+~~~
+
+対角成分は \(C_{nn}(t)=C_{nn}(0)\) となる。従って
+
+~~~math
+T_{\rm dec}
+=
+\frac{\pi\mathcal J_0}{2|\lambda|p_*},
+\qquad
+T_{\rm rec}
+=
+2T_{\rm dec}.
+~~~
+
+R123との差はdephasing factorではなく、M37 exact normal-mode差 \(\mathcal J_0(\omega_n-\omega_m)\) とSchrödinger低位energy差の既存R86/R182誤差だけである。よってR123有限環境はM67 structured reservoir内部のbounded dephasing profileとして実装でき、新しい第三物理実体を要求しない。
+<!-- theorem-end:theorem -->
+
+<!-- theorem-start:proof -->
+**証明（R210B）**
+
+\(|f(P_n)|\le p_*\) から
+
+~~~math
+\omega_nI_n
++
+\frac{\lambda}{\mathcal J_0}I_nf(P_n)
+\ge
+\left(
+\omega_n-
+\frac{|\lambda|p_*}{\mathcal J_0}
+\right)I_n
+\ge0.
+~~~
+
+bath kinetic energyも非負なので下界を得る。\(I_n,P_n\) はそれぞれの共役angleがcyclicなため保存される。prepared pointsでは \(f(P_n)=\pm p_*\) なので、独立二点分布に対する二つのmodal phase factorの平均は \(\cos^2(\lambda p_*t/\mathcal J_0)\) となる。証明終。
+<!-- theorem-end:proof -->
+
+## AA.16 数値検証契約と未主張範囲
+
+M67 supporting simulationではHamiltonian drift、M37 ideal signalとの状態方向誤差、$U_X-v_\delta$、phase-volume mean force、finite-bath memory、tracer分布を同じparameter setで監査する。R210A/Bを含むrequired解析検算とfull trajectory simulationを区別し、後者だけからA2を昇格しない。$N_0$、$N_\rho$、$K_U$、$\tau_U$、$\tau_{\rm mem}$、bath mode数、格子幅を独立に振り、一つの改善を複数誤差へ二重計数しない。
+
+M67をQ3 common physical parentへ昇格してもM37、M64、R123の結果を削除しない。M37はactive coherent module、M64/R203はactive open effective reduction、R123はR210Bで物理liftされたactive dephasing lawとして維持する。A1/A2/B1--B3、M0の判定は変更しない。Q1/Q2/NBL特殊化は将来候補であり、H/T/CNOTの一般実装、NBL Born sampling、mixing/resource boundを本付録から推論しない。$R_i^\delta=|Z_i|^2+\delta q_iS$ のglobal $S$ を完全局所化する問題もstrict-locality strengtheningとして残す。
