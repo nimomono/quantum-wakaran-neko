@@ -5318,7 +5318,7 @@ B_{\rm p}e^{-\gamma_{\rm p}T_{\rm p}}
 
 M66/R206はreader側の逐次小branch、R181D tree、非終端作用下限問題を避けるが、R186のdirect-amplitude registerへ入る独立additive noiseは解消しない。従ってQ2-4の条件付き達成を維持する。
 
-## M67->M64 candidate compatibilityの誤差窓
+## M67からM64へのcandidate compatibilityの誤差窓
 
 M67/R208--R209では、M67固有のfinite-Hamiltonian誤差と、M64/R203がすでに持つbaseline errorを分離する。まず
 
@@ -13428,7 +13428,7 @@ R204Bのphase-volume chamber、R204CのHamiltonian--Brownian lift、finite-bandw
 
 # M67 二実体・構造化熱浴Hamiltonian統合候補
 
-> **位置づけ：** M67/R208A--R208Dは、構造化熱浴と古典マーカーの二つの物理sectorだけからM64型Q3有効力学を回収する有限Hamiltonian candidateである。R209A--R209Cはlocal flow、finite bath、finite-time process metricを定量化し、M67->M64 compatibilityを明示誤差付きで強化する。現行Q3正本M37/R86 -> M64/R203A--R203D -> R161/R185は変更せず、M67はその上位parent候補として扱う。Q1/Q2/NBLへの拡張、M64/M66の退役、M0達成は本付録では主張しない。
+> **位置づけ：** M67/R208A--R208Dは、構造化熱浴と古典マーカーの二つの物理sectorだけからM64型Q3有効力学を回収する有限Hamiltonian candidateである。R209A--R209Cはlocal flow、finite bath、finite-time process metricを定量化し、M67からM64へのcompatibilityを明示誤差付きで強化する。現行Q3正本はM37/R86、M64/R203A--R203D、R161/R185の順を変更せず、M67はその上位parent候補として扱う。Q1/Q2/NBLへの拡張、M64/M66の退役、M0達成は本付録では主張しない。
 
 
 ## 目的、二実体、責務境界
@@ -14026,7 +14026,7 @@ C_{\rm int}a^2
 \|\partial_x^2v_\delta\|_\infty.
 ```
 
-ここで $\varepsilon_U^{64}$ はM64自身のbaseline errorであり、M67->M64 compatibility errorへ再加算しない。
+ここで $\varepsilon_U^{64}$ はM64自身のbaseline errorであり、M67からM64へのcompatibility errorへ再加算しない。
 <!-- theorem-end:theorem -->
 
 <!-- theorem-start:proof -->
@@ -14242,7 +14242,7 @@ d\omega
 
 と書けるため、有限harmonic bathで固定有限時間上任意精度に離散近似できる。周波数刻み $\Delta\omega$ に対するrecurrence timeは $T_{\rm rec}\sim2\pi/\Delta\omega$ であり、PR2では $T_{\rm obs}<T_{\rm rec}$ を明示的に要求する。
 
-## R209C：M67->M64 finite-time process compatibility
+## R209C：M67からM64へのfinite-time process compatibility
 
 <!-- theorem-start:theorem -->
 **定理（R209C：M67からM64への有限時間process compatibility）**
