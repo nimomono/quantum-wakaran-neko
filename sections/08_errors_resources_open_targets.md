@@ -15,7 +15,7 @@
 6. 同じ準備済み入力偏差を $\varepsilon_{\rm in}$、R135の初期共分散誤差、系列固有の入力誤差へ重ねて入れる。
 7. M64ではinitial preparation、current dictionary、mean-flow tracking、density interpolation、process reductionを導出箇所ごとに一度だけ数える。$\delta$ をcurrent-dictionary誤差とR185 regularizationへ二重に加算せず、process-law errorとNewton force residualを単純加算しない。
 8. M66/R205で共通化したphase-volume、mean-flow、thermal mixing、passive separationの同じ物理偏差を、M64/M65/R206/R207側で独立誤差として再加算しない。共通原理のexact identityと、各specialization固有のfinite-time・generator・record誤差を分ける。
-9. M67ではR210Aのcarrier-envelope誤差 $\varepsilon_{86}$、load-only backreaction $\varepsilon_{\rm load}^{67}$、R209のM67→M64 compatibility error $\varepsilon_{67\to64}$、M64 baseline $\varepsilon_{\rm red}^{64}$ を別台帳に置く。M67→M64比較へR86 carrier errorを再加算しない。
+9. M67ではR210Aのcarrier-envelope誤差 $\varepsilon_{86}$、load-only backreaction $\varepsilon_{\rm load}^{67}$、R209のM67からM64 compatibility error $\varepsilon_{67\to64}$、M64 baseline $\varepsilon_{\rm red}^{64}$ を別台帳に置く。M67からM64比較へR86 carrier errorを再加算しない。
 
 全ての理想分布と実分布は同じ完全結果集合へ埋め込む。成功試行だけで再規格化しない。
 
@@ -48,7 +48,7 @@ q_{210}
 \varepsilon_{\rm load}^{67}.
 ```
 
-一方R209CのM67→M64 process compatibilityではbare M37を共通基準とし、$\varepsilon_{\rm load}^{67}$ のstate-direction影響だけを数える。R210B dephasing profileの追加physical条件は
+一方R209CのM67からM64 process compatibilityではbare M37を共通基準とし、$\varepsilon_{\rm load}^{67}$ のstate-direction影響だけを数える。R210B dephasing profileの追加physical条件は
 
 ```math
 \omega_{\min}

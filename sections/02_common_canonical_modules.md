@@ -515,7 +515,7 @@ k_{i\to j}(t)
 Poisson reservoirはR161 canonical経路法則の一つの明示的pathwise realizationである。現行Q3の物理存在論はM67のstructured reservoir＋markerが担い、M64の三実体分解はそのopen effective descriptionとして使う。Q3-2とR185の下流論理依存はR161だけで閉じる。R162は比較、シミュレーション、開放Poisson実装の参照に用いる。有限衝突Hamiltonian列への持上げは強化結果として論文外メモへ分離する。R161の静的 $j=0$ 特殊化は数学的比較用に残すが、Q1の逐次2結果読出しではM65、Q2-1/Q2-3/Q2-4のterminal readoutではM66/R206を使う。
 <!-- theorem-end:theorem -->
 
-R161は静的・移動の率構成に加え、有限状態のcanonical Markov経路法則まで共通に保つ。現行Q3のphysical parentはM67であり、位置過程のeffective主線はM67/R208--R209→M64/R203A--R203Dとする。R162は同じ経路法則を持つoptional Poisson realizationとして残す。Q1の逐次2結果測定はR161静的鎖を経由せずM65 binary selectorへ、Q2-1/Q2-3/Q2-4のterminal readoutはM66/R206へ接続する。旧有限衝突実装は退役メモに保存する。
+R161は静的・移動の率構成に加え、有限状態のcanonical Markov経路法則まで共通に保つ。現行Q3のphysical parentはM67であり、位置過程のeffective主線はM67/R208--R209からM64/R203A--R203Dとする。R162は同じ経路法則を持つoptional Poisson realizationとして残す。Q1の逐次2結果測定はR161静的鎖を経由せずM65 binary selectorへ、Q2-1/Q2-3/Q2-4のterminal readoutはM66/R206へ接続する。旧有限衝突実装は退役メモに保存する。
 
 
 ### 2.9 M65：3状態open binary selector
