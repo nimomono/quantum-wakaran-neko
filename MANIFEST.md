@@ -1,4 +1,4 @@
-## draft-138：M67->M64 Q3 compatibility正式化
+## draft-138：M67→M64 Q3 compatibility正式化
 
 - 付録AA/M67へR209A--R209Cを追加し、local-flow compatibility、finite harmonic bathのMarkov/FDT縮約、finite-time process compatibilityを明示誤差付きで定理化する。
 - `tools/candidate_checks/` にR209 verifier 3本、`simulations/m67/run_full_compatibility_witness.py` に有限Hamiltonian direct witness、`tools/migrations/check_draft138_m67_m64_compatibility.py` にPR固有境界検査を追加する。
@@ -107,7 +107,7 @@
 ## draft-123：Q3旧R184率latch経路の退役
 
 - `sections/A14_m54_spatial_moving_matching.md` からR184定理・証明・開始作用保持状態を外し、R161/R185付録へ縮約する。
-- 第1・6・7・9章と付録Fの現行Q3説明からR184参照を外し、M64/R203A--R203D->R161/R185およびM64 finite-graph readoutへ統一する。
+- 第1・6・7・9章と付録Fの現行Q3説明からR184参照を外し、M64/R203A--R203D→R161/R185およびM64 finite-graph readoutへ統一する。
 - `PROJECT_STATUS.md` の現行Q3結果一覧からR184を外し、`notes/superseded_r184_m37_rate_latch.md` と退役索引へ移す。
 - `tools/verify_m54_spatial_matching.py` はR184専用latch検算を削除し、R161/R185 required回帰だけを維持する。旧コードはGit履歴を正本としnotesへ複製しない。
 - 固定目標ラベル、M64/R203A--R203D、R161、R185、R124/R182/R125、A1/A2/B/S判定は変更しない。
@@ -124,7 +124,7 @@
 
 - 固定目標の共通達成原則を「要求された現象・統計・逐次過程を、一試行内で明示的な物理interfaceを介して合成できること」へ統一する。
 - 準備、全操作、測定、永久記録、試行間reset、物理clock、次試行renewalまでのjoint microscopic device/process統合はM0へ集約する。固定有限深さでは未使用補助自由度を順次使ってよく、解析上の状態・集団統計・Born重み・目標確率表の再注入はinterfaceの代用としない。
-- Q2-1/Q2-3のM54->M65->R181D、Q2-2のA端M65->router->B端M65、Q3-4A/Q3-4B/Q3-5のM64 finite-graph tracer->位置読出しを既存結果だけで再監査し、6目標を達成へ更新する。
+- Q2-1/Q2-3のM54→M65→R181D、Q2-2のA端M65→router→B端M65、Q3-4A/Q3-4B/Q3-5のM64 finite-graph tracer→位置読出しを既存結果だけで再監査し、6目標を達成へ更新する。
 - Q2-4は資源効率・反復回数・総時間・精度を固定目標自身が要求する例外として条件付き達成を維持し、Q3-6とM0は未達のままとする。A1/A2/B1/B2/B3/Q2-2-Sの状態は変更しない。
 - 新しい模型、結果ID、独立定理、physics verifierは追加しない。R180Cの仮定は共同分布の証明で実際に使う一試行有限順序付き操作へ整理し、full-cycle reset/clock条件をM0へ分離する。
 - `tools/migrations/check_draft121_single_trial_fixed_goal_policy.py` で新ラベル、M0境界、旧full-device残件文言の再混入を検査し、生成物を再同期する。
@@ -141,7 +141,7 @@
 
 - M65の入力定義域を $A_\pm\ge0$、$A_++A_->0$ へ広げ、exact射影endpointを固定線形comparatorで直接処理できることを明記する。
 - finite decision終了時にM65 generatorを閉じ、$X_T\in\{+,H,-\}$ をR112型recordへ写して $Y\in\{+,-,\varnothing\}$ を固定してからR181Dを開く有限latch interfaceを追加する。
-- R204FにR189A->M65->R112 record->R181DのQ1 retirement-readiness合成と、routerを開かない空操作対照ではW2が自由Rabiを継続することを明記する。
+- R204FにR189A→M65→R112 record→R181DのQ1 retirement-readiness合成と、routerを開かない空操作対照ではW2が自由Rabiを継続することを明記する。
 - A12に残っていたR164--R190--R170旧Q1/Q2静的測定主線の残骸を代替作用殻研究線へ戻し、現行binary-selector主線と誤差を重複計上しない。
 - R191/R193、A20/A21、R143/R144/R189B/R189Cの現行fixed-goal witness、required verifier、達成ラベルは変更しない。退役そのものは次の独立PRへ分離する。
 
@@ -264,7 +264,7 @@
 
 - `sections/A24_m61_single_hamiltonian_micro_model.md` を追加し、M61/R200A--R200C/R200をM60の下位Hamiltonian親層として正本化する。
 - `tools/verify_m61_single_hamiltonian.py` をrequired、`tools/candidate_checks/verify_m61_parameter_window.py` をcandidateとして追加する。
-- README、PROJECT_STATUS、ENHANCEMENT_TARGETS、第0・1・6・8・9章、A22/A23、VALIDATION、CHANGELOGをM61->M60階層へ同期する。
+- README、PROJECT_STATUS、ENHANCEMENT_TARGETS、第0・1・6・8・9章、A22/A23、VALIDATION、CHANGELOGをM61→M60階層へ同期する。
 - 既存MANIFESTの章一覧から抜けていたA23を復旧し、新規A24を追加する。
 - `paper.md`、`main.tex`、`paper.pdf` を再生成する。
 
@@ -627,7 +627,7 @@
 ## draft-89のR191測定主線圧縮
 
 - `sections/A9_m54_setting_pre_paired_hopf_receiver.md` と `sections/A19_m54_drude_action_shell_bridge.md` を現行論文から外し、notesへ退役保存。
-- Q1/Q2本文をR191主線へ同期し、Q2-2をA端R191->router->B端R191へ縮約。
+- Q1/Q2本文をR191主線へ同期し、Q2-2をA端R191→router→B端R191へ縮約。
 - 退役検算器は `notes/retired_verifiers/` へ保存。
 - `paper.md`、`main.tex`、`paper.pdf` は章別原稿から再生成する。
 

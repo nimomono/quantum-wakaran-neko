@@ -1,4 +1,4 @@
-## draft-138：M67->M64 Q3 compatibility正式化
+## draft-138：M67→M64 Q3 compatibility正式化
 
 - R209A--R209Cを追加し、M67 local flow、finite harmonic flow/drag bath、small-mass tracerをcanonical M64/R203へ有限時間・明示誤差付きで接続した。
 - M67固有の $\varepsilon_{67\to64}$ と既存M64 baseline $\varepsilon_{\rm red}^{64}$ を分離し、R203A/R203Bのflow tracking・$a^2$ interpolation・density interpolationを二重計上しない誤差台帳へ更新した。
@@ -8,7 +8,7 @@
 
 - M67をstructured reservoir＋classical markerの二実体finite-Hamiltonian parent candidateとして新設し、R208A--R208Dで二実体構成、phase-volume osmotic force/backreaction、local moving finite bath/GLE/FDT、M64への有限時間縮約を整理した。
 - 付録AAを追加できるようappendix label生成をA--ZからAA以降へ一般化した。
-- candidate verifier、M67 simulation入口、migration check、管理文書を追加したが、Q3 fixed-goal主線M37/R86->M64/R203->R161/R185、M64/M65/M66/M54、達成ラベル、A1/A2/B1--B3、M0、R186は変更していない。
+- candidate verifier、M67 simulation入口、migration check、管理文書を追加したが、Q3 fixed-goal主線M37/R86→M64/R203→R161/R185、M64/M65/M66/M54、達成ラベル、A1/A2/B1--B3、M0、R186は変更していない。
 
 ## draft-136：Q2-2-S退役とQ2-2/R207一本化
 
@@ -20,7 +20,7 @@
 
 ## draft-135：Theory A / R180逐次Bell witness退役
 
-- draft-134でR207A--R207CがQ2-2 fixed-goalを単独で閉じたため、R180A/R180CとA->B逐次result-component transmission経路をactive paperから退役する。
+- draft-134でR207A--R207CがQ2-2 fixed-goalを単独で閉じたため、R180A/R180CとA→B逐次result-component transmission経路をactive paperから退役する。
 - 第5章のalternate witness節、付録D、第4章/付録JのR180接続、現行R180結果表・誤差/反証台帳を削除し、最終Theory Aをnotesへ保存する。
 - R180専用required verifier 2本をretired verifierへ移す。M65/R204、R181DはQ1用としてactive維持する。
 - Q2-2達成、R207理論、Q2-2-S未監査、A1/A2/B/M0判定、その他固定目標ラベルは変更しない。
@@ -127,7 +127,7 @@
 
 - 固定目標の共通達成原則を「要求された現象・統計・逐次過程を、一試行内で明示的な物理interfaceを介して合成できること」へ統一する。
 - 準備、全操作、測定、永久記録、試行間reset、物理clock、次試行renewalまでのjoint microscopic device/process統合はM0へ集約する。固定有限深さでは未使用補助自由度を順次使ってよく、解析上の状態・集団統計・Born重み・目標確率表の再注入はinterfaceの代用としない。
-- Q2-1/Q2-3のM54->M65->R181D、Q2-2のA端M65->router->B端M65、Q3-4A/Q3-4B/Q3-5のM64 finite-graph tracer->位置読出しを既存結果だけで再監査し、6目標を達成へ更新する。
+- Q2-1/Q2-3のM54→M65→R181D、Q2-2のA端M65→router→B端M65、Q3-4A/Q3-4B/Q3-5のM64 finite-graph tracer→位置読出しを既存結果だけで再監査し、6目標を達成へ更新する。
 - Q2-4は資源効率・反復回数・総時間・精度を固定目標自身が要求する例外として条件付き達成を維持し、Q3-6とM0は未達のままとする。A1/A2/B1/B2/B3/Q2-2-Sの状態は変更しない。
 - 新しい模型、結果ID、独立定理、physics verifierは追加しない。R180Cの仮定は共同分布の証明で実際に使う一試行有限順序付き操作へ整理し、full-cycle reset/clock条件をM0へ分離する。
 
@@ -143,7 +143,7 @@
 
 - M65の入力定義域を $A_\pm\ge0$、$A_++A_->0$ へ広げ、exact射影endpointを固定線形comparatorで直接処理できることを明記する。
 - finite decision終了時にM65 generatorを閉じ、$X_T\in\{+,H,-\}$ をR112型recordへ写して $Y\in\{+,-,\varnothing\}$ を固定してからR181Dを開く有限latch interfaceを追加する。
-- R204FにR189A->M65->R112 record->R181DのQ1 retirement-readiness合成と、routerを開かない空操作対照ではW2が自由Rabiを継続することを明記する。
+- R204FにR189A→M65→R112 record→R181DのQ1 retirement-readiness合成と、routerを開かない空操作対照ではW2が自由Rabiを継続することを明記する。
 - A12に残っていたR164--R190--R170旧Q1/Q2静的測定主線の残骸を代替作用殻研究線へ戻し、現行binary-selector主線と誤差を重複計上しない。
 - R191/R193、A20/A21、R143/R144/R189B/R189Cの現行fixed-goal witness、required verifier、達成ラベルは変更しない。退役そのものは次の独立PRへ分離する。
 
@@ -2050,7 +2050,7 @@
 - 新定理を追加せず、Q1/Q2の2結果測定をR191へ一本化した。
 - R181Dをprojector routerと非規格化branch受渡しへ責務縮約した。
 - R190A--R190C、R170を固定Q1/Q2主線から退役し、旧定理本文とA19をnotesへ保存した。
-- Q2-2からR180B paired-Hopf再準備を外し、A端R191->router->B端R191の2端逐次instrumentへ縮約した。旧章・A9・検算器はnotesへ保存した。
+- Q2-2からR180B paired-Hopf再準備を外し、A端R191→router→B端R191の2端逐次instrumentへ縮約した。旧章・A9・検算器はnotesへ保存した。
 - R164はQ3開始配置、R179はopen reset/履歴排出へ責務を分離した。固定目標と達成ラベルは変更しない。
 
 ## draft-90：R191主線の残骸除去と責務圧縮

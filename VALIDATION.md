@@ -1,8 +1,8 @@
-## draft-138：M67->M64 compatibility検算
+## draft-138：M67→M64 compatibility検算
 
 - `verify_r209a_local_flow_compatibility.py` はM67/M64が同じedge target $c_Jr_e$ を使うこと、flow residualのvariation-of-constants bound、一次再現partitionの $O(a^2)$ interpolationを検査する。
 - `verify_r209b_finite_bath_markov_fdt.py` はfinite harmonic bathのDrude short-memory scaling、recurrence window、tight-frame一定friction/FDT、$\sum_cg_cg_c'=0$ を検査する。
-- `verify_r209c_process_compatibility.py` はunderdamped->overdamped synchronous couplingの $O(\sqrt{M_X})$ scalingと、M67固有誤差とM64 baseline errorを分離する台帳を検査する。
+- `verify_r209c_process_compatibility.py` はunderdamped→overdamped synchronous couplingの $O(\sqrt{M_X})$ scalingと、M67固有誤差とM64 baseline errorを分離する台帳を検査する。
 - `simulations/m67/run_full_compatibility_witness.py` は外部white noiseなしの有限Hamiltonian ODEとしてcoherent signal、phase-volume bath、flow reaction coordinate、finite flow bath、moving material frame、finite local drag bath、tracerを同時積分する。energy drift、signal ray error、local flow error、recoil、recurrenceを同じparameter setで診断する。
 - `check_draft138_m67_m64_compatibility.py` はR209A--C登録と上記検算入口を確認し、M67 candidate/M64 active、Q3 fixed-goal直接依存、A1/A2、M0、M54/M65/M66を不変に固定する。
 - full compatibility witnessはR209のdirect numerical evidenceであり、Q3-1-A2/Q3-2-A2の正式達成へは数えない。
@@ -117,7 +117,7 @@
 ## draft-124：R164/R170作用殻測定経路のactive paper退役
 
 - `tools/migrations/check_draft124_retire_r164_r170.py` でactive `sections/` からR164/R170/R190が消え、付録Lが削除され、付録KがR161/R162だけへ縮約されたことを検査する。
-- 第2章のQ3 regularized density/currentが作用殻状態数を介さずM64/R203D->R161へ接続すること、Q1結果形成がM65/R181Dだけで閉じることを検査する。
+- 第2章のQ3 regularized density/currentが作用殻状態数を介さずM64/R203D→R161へ接続すること、Q1結果形成がM65/R181Dだけで閉じることを検査する。
 - `PROJECT_STATUS.md` の現行結果表からR164/R170/R190A--R190Cが消え、退役メモ・退役索引が存在することを検査する。
 - READMEとENHANCEMENT_TARGETSは現行M64/M65主線と既に整合しているため変更不要と確認した。固定目標ラベル・A/B/S判定は変更しない。
 - required/candidate physics checks、source structure、validation policy、terminology、paper再生成、generated sync、LaTeX semantics、typeset lintを一時finalize workflowで確認する。
@@ -165,7 +165,7 @@
 
 - M65の入力定義域を $A_\pm\ge0$、$A_++A_->0$ へ広げ、exact射影endpointを固定線形comparatorで直接処理できることを明記する。
 - finite decision終了時にM65 generatorを閉じ、$X_T\in\{+,H,-\}$ をR112型recordへ写して $Y\in\{+,-,\varnothing\}$ を固定してからR181Dを開く有限latch interfaceを追加する。
-- R204FにR189A->M65->R112 record->R181DのQ1 retirement-readiness合成と、routerを開かない空操作対照ではW2が自由Rabiを継続することを明記する。
+- R204FにR189A→M65→R112 record→R181DのQ1 retirement-readiness合成と、routerを開かない空操作対照ではW2が自由Rabiを継続することを明記する。
 - A12に残っていたR164--R190--R170旧Q1/Q2静的測定主線の残骸を代替作用殻研究線へ戻し、現行binary-selector主線と誤差を重複計上しない。
 - R191/R193、A20/A21、R143/R144/R189B/R189Cの現行fixed-goal witness、required verifier、達成ラベルは変更しない。退役そのものは次の独立PRへ分離する。
 
@@ -316,7 +316,7 @@ python tools/run_physics_checks.py --include-candidate
 - `tools/verify_m61_single_hamiltonian.py` をrequired検算として追加し、carrier位相回転によるM60 hopping、作用不変性、R200A fixed pointと安定性、R200B action--reactionとDrude kernelを検査する。
 - R198Dのmixing、R199Aの同時window、R200A/Bの全parameter windowをrequired scriptが証明済みとして扱わない。
 - `tools/candidate_checks/verify_m61_parameter_window.py` は時間尺度とtracking/noiseの例示的非空windowだけをcandidate検算し、A1達成判定の代替にしない。
-- 既存 `tools/verify_q3_common_micro_model.py` はM60/R198/R199の検算として維持し、M61->M60のbridge検算と責務を混ぜない。
+- 既存 `tools/verify_q3_common_micro_model.py` はM60/R198/R199の検算として維持し、M61→M60のbridge検算と責務を混ぜない。
 
 ## draft-104：M60 post-merge consistency cleanup
 
