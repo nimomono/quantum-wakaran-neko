@@ -1,7 +1,7 @@
 @number: P
 @chapter: 付録
 @title: M54段階的射影選別と測定後状態受渡し
-@status: R181Dを上流binary selectorの物理実装から独立な共通projector-router定理として定式化する。現行fixed-goalではQ1逐次測定とQ2-2 A端--B端handoffに用い、Q2-1/Q2-3/Q2-4のterminal readoutはM66/R206へ移す。
+@status: R181Dを上流binary selectorの物理実装から独立な共通projector-router定理として定式化する。現行fixed-goalではQ1逐次測定に用いる。Q2-2は付録WのM66/R205--R207、Q2-1/Q2-3/Q2-4のterminal readoutはM66/R206を用いる。
 
 ## P.1 目的と節点状態
 
@@ -95,7 +95,7 @@ M65/R204D--R204Eを使う場合は、
 
 と取れる。M65内部rateや無反応hub誤差はM65側の誤差台帳に含める。
 
-Q1およびQ2-2 fixed-goal witnessにはM65を使う。
+Q1 fixed-goalのbinary witnessにはM65を使う。
 
 ## P.3 結果固定後の可逆projector router
 
@@ -279,7 +279,7 @@ P.2が完全結果核と安全作用下限、P.3が結果固定後の1対1な経
 
 ## P.7 適用境界と反証条件
 
-R181Dは、結果固定後に非規格化射影成分を同じ試行の次操作へ渡す必要がある場合だけ使う。現行fixed-goalではQ1逐次測定とQ2-2のA端--B端handoffがこれに当たる。Q2-1/Q2-3/Q2-4はterminal M66/R206 samplerへ移行し、R181Dを結果標本化の一般treeとして使わない。
+R181Dは、結果固定後に非規格化射影成分を同じ試行の次操作へ渡す必要がある場合だけ使う。現行fixed-goalではQ1逐次測定がこれに当たる。Q2-2は付録WのM66/R205--R207を用い、R181DによるA端--B端handoffを必要としない。Q2-1/Q2-3/Q2-4はterminal M66/R206 samplerへ移行し、R181Dを結果標本化の一般treeとして使わない。
 
 次のいずれかが避けられなければR181Dの主張は成立しない。
 

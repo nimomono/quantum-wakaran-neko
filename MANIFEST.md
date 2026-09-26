@@ -1,3 +1,8 @@
+## 付録P/ZのQ2-2旧依存記述修正
+
+- 正本変更は `sections/A16_m54_projector_tree_receiver.md` と `sections/A26_m65_phase_volume_projective_instrument.md` の適用範囲5か所に限る。
+- `paper.md`、`main.tex`、`paper.pdf` を再生成し、変更・検算記録を同期する。
+
 ## draft-139：M67をQ3共通physical parentへ昇格
 
 - 付録AA/M67へR210A coherent-sector/R86 compatibilityとR210B bounded finite-dephasing embeddingを追加する。R210Aはprepared reservoir excess-energy shellから $O(N_0^{-1})$ load boundを閉じ、R210BはR123と同じdephasing lawを下方有界なfinite Hamiltonianで回収する。

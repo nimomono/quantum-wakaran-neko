@@ -1,3 +1,7 @@
+## 付録P/ZのQ2-2旧依存記述修正
+
+- 付録P/Zに残っていたQ2-2のM65/R181D逐次handoffとR179依存の記述を、既存のM66/R205--R207主線へ同期した。M65/R181Dの現行用途はQ1とし、定理・数式・固定目標判定は変更しない。
+
 ## draft-139：Q3 physical parentをM67へ統合
 
 - M67をcandidateからQ3-1--Q3-5のcommon two-entity finite-Hamiltonian physical parentへ昇格した。M37はM67 coherent module、M64/R203はcanonical open effective reduction、R123はR210Bでphysical liftされたeffective dephasing lawとして維持する。
