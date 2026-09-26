@@ -50,7 +50,7 @@ V_{\rm ext}(X)
 | M67 profile | active sector | Q3用途 |
 |---|---|---|
 | coherent | \(H_{\rm coh}\) | Q3-1 |
-| dephasing | \(H_{\rm coh}+H_{\rm deph}^{67}\) | Q3-3A/B/C |
+| dephasing | \(H_{\rm coh}+H_{\rm deph,add}^{67}\) | Q3-3A/B/C |
 | continuous tracer | \(H_{\rm coh}+H_\rho+H_U+H_{\rm drag}+H_X\) | Q3-2 |
 | finite-graph tracer | coherent sector＋finite-graph phase-volume/current/marker specialization | Q3-4A/B/5 |
 
@@ -995,7 +995,7 @@ R210Aはdephasing sectorをoffにしたcoherent/tracer profileに適用する。
 ~~~math
 H_R
 =
-H_\rho+H_U+H_{U{\rm bath}}+H_{\rm drag}+H_X
+H_\rho+H_U+H_{\rm drag}+H_X
 ~~~
 
 とまとめる。\(H_{U{\rm bath}},H_{\rm drag},H_X\) はcoherent変数へ直接依存せず、signalへの直接backreactionは \(H_\rho+H_U\) からだけ生じる。
@@ -1170,8 +1170,6 @@ C_{\rm flow}
 H_\rho
 +
 H_U
-+
-H_{U{\rm bath}}
 +
 H_{\rm drag}
 +
@@ -1415,17 +1413,21 @@ f(\pm p_*)=\pm p_*
 を用いる。
 
 ~~~math
-H_{\rm deph}^{67}
+H_{\rm deph,add}^{67}
 =
-H_{\rm coh}^{(K)}
-+
 \sum_{n=1}^{K}
 \left[
 \frac{P_n^2}{2M_n}
 +
 \frac{\lambda}{\mathcal J_0}
 I_nf(P_n)
-\right].
+\right],
+\qquad
+H_{\rm profile}^{\rm deph}
+=
+H_{\rm coh}
++
+H_{\rm deph,add}^{67}.
 ~~~
 
 <!-- theorem-start:theorem -->
@@ -1439,7 +1441,7 @@ I_nf(P_n)
 \frac{|\lambda|p_*}{\mathcal J_0}
 ~~~
 
-なら \(H_{\rm deph}^{67}\) は全位相空間で下に有界である。さらに \(\theta_n\) とmodal angleはHamiltonian中に現れないため
+なら \(H_{\rm profile}^{\rm deph}\) は全位相空間で下に有界である。さらに \(\theta_n\) とmodal angleはHamiltonian中に現れないため
 
 ~~~math
 \dot I_n=0,
