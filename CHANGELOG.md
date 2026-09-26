@@ -1,3 +1,11 @@
+## draft-139：Q3 physical parentをM67へ統合
+
+- M67をcandidateからQ3-1--Q3-5のcommon two-entity finite-Hamiltonian physical parentへ昇格した。M37はM67 coherent module、M64/R203はcanonical open effective reduction、R123はR210Bでphysical liftされたeffective dephasing lawとして維持する。
+- R210Aを追加し、M67 loadのglobal-phase invariance、flow-sector平方完成、prepared reservoir excess-energy shellのGronwall評価から \(O(N_0^{-1})\) coherent backreactionを閉じ、R86 carrier-envelope errorと分離して合成した。
+- R210Bを追加し、bounded odd momentum portによりR123 finite environmentと同じ \(\cos^2\) dephasing law・有限revivalを全位相空間で下方有界なM67 Hamiltonianへ埋め込んだ。
+- R208A--R209C verifierをrequired CIへ昇格し、R210A/B verifierとdraft-139 migration checkerを追加した。
+- Q3-1--Q3-5達成、Q3-6未達、A1/A2/B1--B3、M0、Q1/Q2、M54/M65/M66、R186判定は変更していない。
+
 ## draft-138：M67→M64 Q3 compatibility正式化
 
 - R209A--R209Cを追加し、M67 local flow、finite harmonic flow/drag bath、small-mass tracerをcanonical M64/R203へ有限時間・明示誤差付きで接続した。

@@ -73,15 +73,15 @@ Q2-4のB1--B3は単一の巨大回路図を要求するものではなく、任�
 | Q2-2 | 未監査 | 未監査 | 未監査 | 未監査 | 未監査 | M66/R205A・R205E--R205F、R207A--R207D |
 | Q2-3 | 未監査 | 未監査 | 未監査 | 未監査 | 未監査 | M54、R177、R181B--R181C、M66/R205--R206 |
 | Q2-4 | 未監査 | 未監査 | 未監査 | 未監査 | 未監査 | M54、R181C、R186、M66/R205--R206E |
-| Q3-1 | 部分達成 | 未監査 | 未監査 | 未監査 | 未監査 | M37、R86 |
-| Q3-2 | 部分達成 | 未監査 | 未監査 | 未監査 | 未監査 | M37、R86、M64、R203A--R203D、R161、R185 |
-| Q3-3A | 未監査 | 未監査 | 未監査 | 未監査 | 未監査 | M37、R123 |
-| Q3-3B | 未監査 | 未監査 | 未監査 | 未監査 | 未監査 | M37、R123 |
-| Q3-3C | 未監査 | 未監査 | 未監査 | 未監査 | 未監査 | M37、R123、R182 |
-| Q3-4A | 未監査 | 未監査 | 未監査 | 未監査 | 未監査 | M37、M64、R124、R203D |
-| Q3-4B | 未監査 | 未監査 | 未監査 | 未監査 | 未監査 | M37、M64、R182、R203D |
-| Q3-5 | 未監査 | 未監査 | 未監査 | 未監査 | 未監査 | M37、M64、R125、R203D |
-| Q3-6 | 未監査 | 未監査 | 未監査 | 未監査 | 未監査 | 完結候補なし |
+| Q3-1 | 部分達成 | 未監査 | 未監査 | 未監査 | 未監査 | M67、R210A、M37、R86 |
+| Q3-2 | 部分達成 | 未監査 | 未監査 | 未監査 | 未監査 | M67、R208A--R209C、R210A、M64、R203A--R203D、R161、R185 |
+| Q3-3A | 未監査 | 未監査 | 未監査 | 未監査 | 未監査 | M67、R210A、R210B、M37、R86、R123 |
+| Q3-3B | 未監査 | 未監査 | 未監査 | 未監査 | 未監査 | M67、R210A、R210B、M37、R86、R123 |
+| Q3-3C | 未監査 | 未監査 | 未監査 | 未監査 | 未監査 | M67、R210A、R210B、M37、R123、R182 |
+| Q3-4A | 未監査 | 未監査 | 未監査 | 未監査 | 未監査 | M67、R210A、M64、R124、R203D、R161 |
+| Q3-4B | 未監査 | 未監査 | 未監査 | 未監査 | 未監査 | M67、R210A、M64、R182、R203D、R161 |
+| Q3-5 | 未監査 | 未監査 | 未監査 | 未監査 | 未監査 | M67、R210A、M64、R125、R203D、R161 |
+| Q3-6 | 未監査 | 未監査 | 未監査 | 未監査 | 未監査 | M67 coherent sector（完結候補なし） |
 
 ここで「主な既存候補」は強化目標の達成を意味せず、新基準を監査するときの出発点だけを示す。
 
@@ -124,6 +124,6 @@ M66/R205A--R205Fはphase-volume、mean-flow、thermal sampling、passive separat
 
 この共通化だけではA1/A2/B1--B3状態を変更しない。Q2-4ではR186のcoherent register additive-noise障害を独立に維持する。
 
-### M67/R208--R209 二実体Hamiltonian candidate
+### M67/R208--R210 Q3共通二実体finite-Hamiltonian parent
 
-M67/R208A--R208DはM64で直接定めたopen Q3 lawをfinite Hamiltonian parentから回収する構造を与え、R209A--R209Cはlocal flow、finite harmonic bath、small-mass/process metricを明示誤差付きでM64へ接続する。draft-138ではfull finite-Hamiltonian compatibility witnessも追加するが、Q3 fixed-goal直接依存へは採用せず、Q3-1-A1/Q3-2-A1の公式判定は変更しない。Q3-1-A2/Q3-2-A2は未監査のままとし、direct witnessはA2 promotion testには数えない。B1--B3、M0の現在地も変更しない。
+M67/R208A--R209CをQ3 tracer/Nelson側のrequired physical-parent bridge、R210Aをcoherent/R86 bridge、R210BをR123 dephasing physical liftとして採用する。M67をQ3 fixed-goal physical parentへ昇格してもstrengthening判定は別であり、Q3-1-A1/Q3-2-A1は部分達成、Q3-1-A2/Q3-2-A2は未監査のままとする。full finite-Hamiltonian witnessはsupporting evidenceであってA2 promotion testには数えない。B1--B3、M0の現在地も変更しない。

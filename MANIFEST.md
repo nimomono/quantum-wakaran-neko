@@ -1,3 +1,11 @@
+## draft-139：M67をQ3共通physical parentへ昇格
+
+- 付録AA/M67へR210A coherent-sector/R86 compatibilityとR210B bounded finite-dephasing embeddingを追加する。R210Aはprepared reservoir excess-energy shellから \(O(N_0^{-1})\) load boundを閉じ、R210BはR123と同じdephasing lawを下方有界なfinite Hamiltonianで回収する。
+- M67をQ3-1--Q3-5のcommon two-entity finite-Hamiltonian physical parentへ昇格する。M37はcoherent module、M64/R203はcanonical open effective reduction、R123はeffective dephasing lawとしてactiveに残す。
+- R208A--R209C verifierをcandidateからrequiredへ移し、R210A/B required verifierとdraft-139 migration checkerを追加する。
+- 第0・1・2・6・7・8・9章、README、PROJECT_STATUS、ENHANCEMENT_TARGETS、VALIDATION、simulation/validation README、theory lineageを同期する。
+- fixed-goal達成ラベル、A1/A2/B1--B3、Q3-6未達、M0、Q1/Q2、M54/M65/M66、R186は変更しない。
+
 ## draft-138：M67→M64 Q3 compatibility正式化
 
 - 付録AA/M67へR209A--R209Cを追加し、local-flow compatibility、finite harmonic bathのMarkov/FDT縮約、finite-time process compatibilityを明示誤差付きで定理化する。
