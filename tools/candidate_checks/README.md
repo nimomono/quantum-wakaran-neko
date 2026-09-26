@@ -49,3 +49,12 @@ draft-129でR205C--R205Fの解析・generator回帰もrequired checksへ加え�
 - verify_r208_m64_reduction.py — R208Dのflow trackingとfinite-time timescale window。
 
 draft-137では全てcandidate-onlyであり、M64 required checksやQ3 fixed-goal根拠を置換しない。
+
+
+## R209 M67→M64 compatibility
+
+- `verify_r209a_local_flow_compatibility.py` — same-target flow bridge、局所partitionの $O(a^2)$ 補間、material-frame recoilの責務分離を検査する。
+- `verify_r209b_finite_bath_markov_fdt.py` — Drude short-memory scaling、finite recurrence window、tight-frame constant friction/FDT、zero Stratonovich correctionを検査する。
+- `verify_r209c_process_compatibility.py` — synchronous small-mass couplingの $O(\sqrt{M_X})$ scalingと、M67固有誤差をM64 baseline errorへ二重計上しないことを検査する。
+
+draft-138でもR209A--R209Cはcandidate-onlyであり、required fixed-goal verifierへ昇格しない。
