@@ -65,7 +65,7 @@ Q3のsignal数学はQ1/Q2と別の代数ではない。Q1型局所正準モー�
 
 M67は一つのstructured reservoir sectorとmarker sectorからなり、coherent、bounded dephasing、continuous tracer、finite-graph tracerの固定profileを持つ。Q3-3A--Q3-3CではR210BがR123有限環境をstructured reservoir内部へboundedに埋め込む。Q3粒子/Nelson側ではM64を独立三実体parentとはせず、R208/R209でM67から得るcanonical open effective modelとして維持する。R203A--R203D、R161/R185、R124/R182/R125の既存結果はそのまま再利用する。
 
-Q3の現行因果鎖はM67から分岐する。Q3-1は \(M67\to R210A\to M37/R86\)、Q3-2は \(M67\to R208/R209\to M64/R203\to R161/R185\)、Q3-3A--CはM67 dephasing profileからR210B/R123へ、Q3-4A/B/5はM67 finite-graph profileからR203D/R161とR124/R182/R125へ接続する。
+Q3の現行因果鎖はM67から分岐する。Q3-1は $M67\to R210A\to M37/R86$、Q3-2は $M67\to R208/R209\to M64/R203\to R161/R185$、Q3-3A--CはM67 dephasing profileからR210B/R123へ、Q3-4A/B/5はM67 finite-graph profileからR203D/R161とR124/R182/R125へ接続する。
 
 固定目標の達成は、その目標が要求する現象を1試行内で明示的な物理interfaceを通して合成できるかで判定する。準備、全操作、測定、永久記録、reset、物理clock、次試行renewalまでを同じ装置architectureと共通反復周期へ統合することはM0で別に要求する。M66でreservoir原理を共通化したことは、共通単一bathまたは1台の製造済み装置を得たことを意味しない。
 

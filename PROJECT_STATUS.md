@@ -1,7 +1,7 @@
 ## draft-139：Q3 physical parentをM67へ統合
 
-- R210Aを追加し、full M67 coherent trajectoryからbare M37へのload-only backreactionをprepared reservoir excess-energy shellから明示的に制御し、R86 carrier-envelope errorと合成する。自然時間では \(O(\eta)+O(N_0^{-1})\)。
-- R210Bを追加し、R123 finite dephasing environmentをbounded momentum portでM67 structured reservoir内部へ埋め込み、prepared \(P_n=\pm p_*\) 上で同じ \(\cos^2\) dephasing lawとrevival timeを厳密に回収する。
+- R210Aを追加し、full M67 coherent trajectoryからbare M37へのload-only backreactionをprepared reservoir excess-energy shellから明示的に制御し、R86 carrier-envelope errorと合成する。自然時間では $O(\eta)+O(N_0^{-1})$。
+- R210Bを追加し、R123 finite dephasing environmentをbounded momentum portでM67 structured reservoir内部へ埋め込み、prepared $P_n=\pm p_*$ 上で同じ $\cos^2$ dephasing lawとrevival timeを厳密に回収する。
 - M67をcandidateからQ3-1--Q3-5のcommon finite-Hamiltonian physical parentへ昇格する。M37はactive coherent module、M64/R203はactive canonical open effective reduction、R123はactive effective dephasing lawとして残す。
 - Q3-1--Q3-5の達成ラベル、Q3-6未達、A1/A2/B1--B3、M0、Q1/Q2、M54/M65/M66、R186判定は変更しない。
 
@@ -561,7 +561,7 @@ M0は、個別のA1模型を並べるだけでは達成としない。少なく�
 
 | 結果 | 導出状態 | 内容 |
 |---|---|---|
-| R205A | 厳密partition結果 | 正のlocal scaleをreservoir座標Jacobianへ入れるとcanonical phase volumeがscaleへ線形比例し、free energyが \(-k_BT\log w+C\) になる共通identity |
+| R205A | 厳密partition結果 | 正のlocal scaleをreservoir座標Jacobianへ入れるとcanonical phase volumeがscaleへ線形比例し、free energyが $-k_BT\log w+C$ になる共通identity |
 | R205B | 厳密reduced-law結果 | channel capacityとconductanceへ同じlocal scaleを掛けると、channel→hub rateがscale非依存、hub→channel rateがscale比例となるmatched capacity--conductance原理 |
 | R205C | 厳密partition結果 | moving reservoirの運動量平行移動 $U$ とphase-volume weight $w$ がcanonical free energyで直交し、$F_{\rm res}=-k_BT\log w+C$ と $-\nabla F_{\rm res}=k_BT\nabla\log w$ を同時に与える |
 | R205D | 厳密系 | R205Bのbinary fixed-hub特殊化からR204Bの $k_{y\to H}=\Lambda$、$k_{H\to y}=\kappa a_y$ を回収する |
@@ -572,11 +572,11 @@ M0は、個別のA1模型を並べるだけでは達成としない。少なく�
 
 | 結果 | 導出状態 | 内容 |
 |---|---|---|
-| R206A | 厳密有限状態結果 | 任意有限Lのcommon-hub samplerで \(d_y=x_y-p_y(1-h)\) が \(\dot d_y=-\Lambda d_y\) を満たし、mixing rateがLと最小Born重みに依存しない。任意pointer初期分布から指数収束する |
-| R206B | 厳密一様構成結果 | \(L=2^n\) channelへ同一local scale則、\(V_H\propto L\) を用いて総hub escape rateをL非依存に保ち、regularized Born重みを個別係数表なしに実装する |
+| R206A | 厳密有限状態結果 | 任意有限Lのcommon-hub samplerで $d_y=x_y-p_y(1-h)$ が $\dot d_y=-\Lambda d_y$ を満たし、mixing rateがLと最小Born重みに依存しない。任意pointer初期分布から指数収束する |
+| R206B | 厳密一様構成結果 | $L=2^n$ channelへ同一local scale則、$V_H\propto L$ を用いて総hub escape rateをL非依存に保ち、regularized Born重みを個別係数表なしに実装する |
 | R206C | 厳密有限時間・製造誤差結果 | finite-time mixing、hub residual、regularization、generator/record誤差をL非依存に合成し、local multiplicative/additive scale誤差の規格化TV上界を与える |
-| R206D | 条件付きQ2 bridge | R181C後の実terminal signal作用を4・8・\(2^n\)結果common samplerへ接続し、Q2-1/Q2-3/Q2-4のone-shot terminal readoutを与える。外部Born表・振幅表・全channel走査を使わない |
-| R206E | 直接定めた開放方程式に対する厳密結果 | 全mode共通減衰と固定 \(0^n\) root driveから任意前試行状態をrootへ指数収束させ、Q2-4準備時間を対数精度依存に抑える。sampler pointerはR206A mixingにより結果別reset不要 |
+| R206D | 条件付きQ2 bridge | R181C後の実terminal signal作用を4・8・$2^n$結果common samplerへ接続し、Q2-1/Q2-3/Q2-4のone-shot terminal readoutを与える。外部Born表・振幅表・全channel走査を使わない |
+| R206E | 直接定めた開放方程式に対する厳密結果 | 全mode共通減衰と固定 $0^n$ root driveから任意前試行状態をrootへ指数収束させ、Q2-4準備時間を対数精度依存に抑える。sampler pointerはR206A mixingにより結果別reset不要 |
 
 ### Q2-2 projection phase-volume結果
 
@@ -603,8 +603,8 @@ M0は、個別のA1模型を並べるだけでは達成としない。少なく�
 | R209A | required明示誤差付きcompatibility | M67 fast-bath mean flowとcanonical M64 mean-flow lawが同じedge target $c_Jr_e$ を共有することを示し、finite-Hamiltonian flow residualとmaterial-frame recoilをM64 baseline errorから分離する |
 | R209B | required finite-bath/FDT結果 | finite harmonic flow/drag bathのexact memory kernelとFDT、Drude short-memory・finite-spectrum・recurrence誤差、tight-frameによる一定frictionとzero Stratonovich correctionを定量化する |
 | R209C | required finite-time process compatibility | M67 finite-Hamiltonian tracer→Markov underdamped→M64 overdampedのsmall-mass縮約を $W_1$ で合成し、M67固有 $\varepsilon_{67\to64}$ と既存 $\varepsilon_{\rm red}^{64}$ を分離する |
-| R210A | required coherent compatibility | full M67 coherent trajectoryとbare M37のload-only差をprepared reservoir excess-energy shellから \(O(N_0^{-1})\) で制御し、R86 carrier-envelope errorと合成してQ3-1のSchrödinger型signalへ接続する |
-| R210B | required bounded dephasing embedding | bounded odd momentum portでR123 finite environmentをM67 structured reservoir内部へ持ち上げ、下方有界性、作用保存、同一の \(\cos^2\) dephasing factorと有限revivalを得る |
+| R210A | required coherent compatibility | full M67 coherent trajectoryとbare M37のload-only差をprepared reservoir excess-energy shellから $O(N_0^{-1})$ で制御し、R86 carrier-envelope errorと合成してQ3-1のSchrödinger型signalへ接続する |
+| R210B | required bounded dephasing embedding | bounded odd momentum portでR123 finite environmentをM67 structured reservoir内部へ持ち上げ、下方有界性、作用保存、同一の $\cos^2$ dephasing factorと有限revivalを得る |
 | R185 | 厳密有限格子結果・明示誤差付き近似結果 | 共通の確率分布の時間反転率、$D_\pm$、1次元node-free領域の時間対称Newton則。正則化残差 $O(\delta)$、格子残差 $C_{185,a}a^2$ を有限微分ノルムで明示 |
 | R123 | 厳密結果・数値検証付き | 井戸型・調和型低位束縛状態と有限環境純位相緩和 |
 | R124 | 厳密結果・数値検証付き | 障壁値未満スペクトル支持からの反対側確率増分 |

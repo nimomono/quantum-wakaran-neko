@@ -1,7 +1,7 @@
 ## draft-139：M67 Q3 physical-parent promotion検算
 
-- R210Aをrequired theorem/checkとして追加し、flow平方完成、reservoir excess-energy shell、Gronwall bound、\(N_0^{-1}\) load scaling、R86との誤差分離を検査する。
-- R210Bをrequired theorem/checkとして追加し、bounded momentum port、全位相空間での下方有界性、prepared \(P_n=\pm p_*\) 上のR123 \(\cos^2\) dephasing factor、\(T_{\rm rec}=2T_{\rm dec}\) を検査する。
+- R210Aをrequired theorem/checkとして追加し、flow平方完成、reservoir excess-energy shell、Gronwall bound、$N_0^{-1}$ load scaling、R86との誤差分離を検査する。
+- R210Bをrequired theorem/checkとして追加し、bounded momentum port、全位相空間での下方有界性、prepared $P_n=\pm p_*$ 上のR123 $\cos^2$ dephasing factor、$T_{\rm rec}=2T_{\rm dec}$ を検査する。
 - draft-137/138でcandidate-onlyだったR208A--R209C verifierを tools/verify_*.py へ昇格し、通常required physics CIへ含める。
 - M67をQ3-1--Q3-5のcommon physical parentへ昇格し、M37をcoherent module、M64/R203をopen effective reduction、R123をR210Bでliftされたeffective dephasing lawとして維持する。
 - Q3-1--Q3-5達成、Q3-6未達、A1/A2/B1--B3、M0、Q1/Q2、M54/M65/M66、R186は変更しない。

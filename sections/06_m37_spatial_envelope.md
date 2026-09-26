@@ -5,11 +5,11 @@
 
 ## 6.1 Q3のM67 coherent moduleとしてのM37
 
-Q3の共通physical parentは付録AAのM67である。M37は退役せず、M67 structured reservoir内部のcoherent oscillator moduleとしてQ3-1--Q3-5へ再利用する。R210Aはfull M67 coherent trajectoryとbare M37 trajectoryの有限時間差を \(O(N_0^{-1})\) で制御し、それをR86のcarrier-envelope誤差と合成する。従ってQ3-1の物理依存は \(M67\to R210A\to M37/R86\) と読む。
+Q3の共通physical parentは付録AAのM67である。M37は退役せず、M67 structured reservoir内部のcoherent oscillator moduleとしてQ3-1--Q3-5へ再利用する。R210Aはfull M67 coherent trajectoryとbare M37 trajectoryの有限時間差を $O(N_0^{-1})$ で制御し、それをR86のcarrier-envelope誤差と合成する。従ってQ3-1の物理依存は $M67\to R210A\to M37/R86$ と読む。
 
 Q3の粒子・Nelson側ではM67をR208/R209でM64/R203へ縮約する。M64固有のopen-law責務はM37包絡の再導出ではなく、R203Aのregularized density/current dictionaryからphase-volume preparation、mean-flow tracking、canonical tracer、R161/R185およびfinite-graph位置読出しへ接続する部分であり、M67昇格後もactive effective modelとして残る。Q3-3A--Q3-3CではR210Bのbounded dephasing profileからR123を回収する。M60/M61の旧Hamiltonian実装は現行主線から退役したままである。
 
-単一試行のQ3 physical ontologyはM67のstructured reservoir sectorとmarker sectorで整理する。複素状態方向、位置分布、\(\rho\)、\(j\)、reservoir mean flow \(U\) は派生表示または集団・collective記述であり、単一試行制御器へ書き戻さない。M37はQ1では従来どおりR187条件下のW2 signal implementationとして独立に再利用する。
+単一試行のQ3 physical ontologyはM67のstructured reservoir sectorとmarker sectorで整理する。複素状態方向、位置分布、$\rho$、$j$、reservoir mean flow $U$ は派生表示または集団・collective記述であり、単一試行制御器へ書き戻さない。M37はQ1では従来どおりR187条件下のW2 signal implementationとして独立に再利用する。
 
 
 M37はM54と並ぶ別の粒子親模型ではない。Q3ではM54空間信号部分系を局所位置ばねだけで有限時間近似する信号系実現模型であり、Q1ではR187の弱結合W型族に限って最低2正常モードをM54のW2静的状態構成の物理信号部分系として使う。従ってM37は、Q1型局所信号＋Q2型辺結合からR161入力 $(\pi,j)$ へ進む共通構造の1つの空間担体実装であり、R161そのものの定義や活動量の一意性を担わない。役割を次のように分ける。
