@@ -1,15 +1,15 @@
 @number: 7
 @chapter: 本文
 @title: Q3の確率力学、束縛状態、トンネル現象、2経路干渉、位相量子化
-@status: Q3-2・Q3-3A--Q3-5の達成とQ3-6の未達を区別する。Q3粒子輸送の現行主線はM64/R203A--R203D--R161とし、Q3-2はR185へ接続する。Q3-4A・Q3-4B・Q3-5はfinite-graph tracerの単一試行位置読出しまでを固定目標範囲とする。
+@status: Q3-2・Q3-3A--Q3-5の達成とQ3-6の未達を区別する。Q3共通physical parentはM67/R208--R210とし、M37/R86はcoherent module、M64/R203A--R203Dはopen effective reduction、R123はR210Bで物理liftされたdephasing lawとして使う。Q3-4A・Q3-4B・Q3-5はM67 finite-graph profileからR203Dへ縮約した単一試行位置読出しまでを固定目標範囲とする。
 
-本章は、M37/R86の古典実正準signalをM64三実体open modelへ接続してNelson流または時間対称Newton則を得るQ3-2、R123とR182によるQ3-3A--Q3-3C、R124・R182・R125をM64 finite-graph tracerの位置読出しへ接続するQ3-4A・Q3-4B・Q3-5、位相量子化のQ3-6を区別する。R123--R125とR182の完全証明は付録G、R161/R185の有限格子数学は付録N、M64/R203A--R203Dは付録Yに置く。M60/M61の旧Hamiltonian実装は現行論文主線から退役する。
+本章は、M67をQ3 common finite-Hamiltonian physical parentとして、R208/R209からM64/R203へ縮約してNelson流または時間対称Newton則を得るQ3-2、R210BからR123へ接続するQ3-3A--Q3-3C、R210Aで保持したcoherent signalのR124・R182・R125をM67 finite-graph profileのR203D位置読出しへ接続するQ3-4A・Q3-4B・Q3-5、M67 coherent sector上でも未達の位相量子化Q3-6を区別する。R123--R125とR182の完全証明は付録G、R161/R185の有限格子数学は付録N、M64/R203A--R203Dは付録Yに置く。M60/M61の旧Hamiltonian実装は現行論文主線から退役する。
 
 ## 7.1 Nelson流の作用変分または時間対称Newton則（Q3-2）
 
 **固定目標と達成判定。** Q3-2は、明示的な古典ミクロモデルの縮約から、Nelson型確率力学における作用の停留原理、または前進・後退平均加速度を対称に組み合わせたNewton則を導く。対象となる確率過程、前進・後退平均微分、力とポテンシャル、適用時間、近似範囲、誤差を明示する。二経路の少なくとも一方を満たせばよい。
 
-**運用状態。** Q3-2は達成である。M37/R86が古典実振動子から空間signal $Z$ を有限時間で与える。M64/R203Aはregularized density/current dictionary、R203Bはphase-volume free energy・initial tracer preparation・finite-time mean-flow tracking、R203Cはcanonical overdamped tracerからideal regularized diffusionへの有限時間縮約を与える。R203Dの1次元特殊化はR185と同一の $(\pi^\delta,j^\delta,t^\delta)$ を持つR161 processへ接続する。
+**運用状態。** Q3-2は達成である。M67/R210Aが古典実振動子を含むstructured reservoirから空間signal $Z$ を有限時間で保持し、R208/R209が同じM67からM64 open lawへ縮約する。M64/R203Aはregularized density/current dictionary、R203Bはphase-volume free energy・initial tracer preparation・finite-time mean-flow tracking、R203Cはcanonical overdamped tracerからideal regularized diffusionへの有限時間縮約を与える。R203Dの1次元特殊化はR185と同一の $(\pi^\delta,j^\delta,t^\delta)$ を持つR161 processへ接続する。
 
 R161移動特殊化の条件付き分布を $p_i(t)$ とすると、同じ前向き経路法則のBayes反転は
 
@@ -128,7 +128,9 @@ a^2+e^{-c_kL^2}
 
 であり、密度と節位置もHermite--Gauss状態へ収束する。離散Sturm振動、二次形式のmin--max収束、Gauss尾部評価を含む証明は付録G.2節に置く。
 
-**R123の有限環境純位相緩和。** 先頭 $K$ モードの作用を $I_n=\mathcal J_0|b_n|^2$、有限環境を $K$ 個の正準対 $(\theta_n,P_n)$ とし、
+**R123の有限環境純位相緩和。** M67 physical parentでは付録AA/R210Bのbounded momentum portを使い、prepared $P_n=\pm p_*$ 上で以下のR123縮約則を厳密に回収する。従ってR123の有限環境正準対はM67 structured reservoir内部のdephasing sectorとして扱い、第三の独立物理実体を追加しない。
+
+先頭 $K$ モードの作用を $I_n=\mathcal J_0|b_n|^2$、有限環境を $K$ 個の正準対 $(\theta_n,P_n)$ とし、
 
 ```math
 H_{\rm deph}

@@ -3,11 +3,13 @@
 @title: M37空間信号系、W型低2モード接続とM64粒子接続
 @status: M37の正確局所方程式とR86を保ち、Q3の空間信号部分系に加えて、R187で弱結合W型最低2モードをM54のW2静的状態構成のQ1制御信号系へ有限誤差で接続する。測定・準備・M0統合は別課題とする。
 
-## 6.1 Q3のM64粒子接続とM37の範囲
+## 6.1 Q3のM67 coherent moduleとしてのM37
 
-Q3-1の達成証人はM37/R86である。Q3の粒子・Nelson側は付録YのM64を現行open modelとし、M37/R86を三実体のsignalとしてそのまま再利用する。M64固有の責務はM37包絡の再導出ではなく、R203Aのregularized density/current dictionaryからphase-volume preparation、mean-flow tracking、canonical tracer、R161/R185およびfinite-graph位置読出しへ接続する部分である。M60/M61の旧Hamiltonian実装は現行主線から退役する。
+Q3の共通physical parentは付録AAのM67である。M37は退役せず、M67 structured reservoir内部のcoherent oscillator moduleとしてQ3-1--Q3-5へ再利用する。R210Aはfull M67 coherent trajectoryとbare M37 trajectoryの有限時間差を $O(N_0^{-1})$ で制御し、それをR86のcarrier-envelope誤差と合成する。従ってQ3-1の物理依存は $M67\to R210A\to M37/R86$ と読む。
 
-単一試行ではM37実正準signal、一つのclassical tracer、一つのsignal-driven thermal reservoirが物理実体である。複素状態方向、位置分布、$\rho$、$j$、reservoir mean flow $U$ は派生表示または集団・collective記述であり、単一試行制御器へ書き戻さない。
+Q3の粒子・Nelson側ではM67をR208/R209でM64/R203へ縮約する。M64固有のopen-law責務はM37包絡の再導出ではなく、R203Aのregularized density/current dictionaryからphase-volume preparation、mean-flow tracking、canonical tracer、R161/R185およびfinite-graph位置読出しへ接続する部分であり、M67昇格後もactive effective modelとして残る。Q3-3A--Q3-3CではR210Bのbounded dephasing profileからR123を回収する。M60/M61の旧Hamiltonian実装は現行主線から退役したままである。
+
+単一試行のQ3 physical ontologyはM67のstructured reservoir sectorとmarker sectorで整理する。複素状態方向、位置分布、$\rho$、$j$、reservoir mean flow $U$ は派生表示または集団・collective記述であり、単一試行制御器へ書き戻さない。M37はQ1では従来どおりR187条件下のW2 signal implementationとして独立に再利用する。
 
 
 M37はM54と並ぶ別の粒子親模型ではない。Q3ではM54空間信号部分系を局所位置ばねだけで有限時間近似する信号系実現模型であり、Q1ではR187の弱結合W型族に限って最低2正常モードをM54のW2静的状態構成の物理信号部分系として使う。従ってM37は、Q1型局所信号＋Q2型辺結合からR161入力 $(\pi,j)$ へ進む共通構造の1つの空間担体実装であり、R161そのものの定義や活動量の一意性を担わない。役割を次のように分ける。
@@ -1218,6 +1220,6 @@ R187本体は有限個の静的クエンチで閉じる。各跳躍は $Q,P$ を
 
 精度を上げると $J_\kappa=O(\kappa)$ のため総時間は $O(\kappa^{-1})$ に増え、切替時刻分解能、弱結合設定、分裂較正の要求も厳しくなる。搬送周波数は $\delta_{\rm loc}(\eta)$ を小さくするため増やすが、各静的区間を $\Delta_{\rm ex}(F)$ で較正するため、R86の粗い $T\|h\|^2/\omega_0$ 上界を長いRabi時間へそのまま掛けない。これらの資源発散をQ2-4の多項式資源主張へ流用しない。
 
-## 6.20 M67上位parent候補との関係
+## 6.20 M67 Q3 physical parentとの関係
 
-M37/R86は現行Q3 signal実装である。付録AA/M67はM37のcoherent oscillator sectorを同じstructured reservoirの長寿命collective sectorとして読み替え、phase-volume、flow、dragのthermal sectorと同じfinite Hamiltonianへ置く候補である。R208Dがstructural bridgeを、R209A--R209Cがfinite-time process compatibilityを与え、coherent backreactionはstate-direction errorとしてM64との比較へ渡す。本節のR86やQ3 fixed-goal依存は変更しない。
+M37/R86はM67 structured reservoir内部のactive coherent oscillator moduleである。R210Aがfull M67からbare M37/R86へのfinite-time coherent compatibilityを与え、R208D/R209A--R209Cがtracer profileをM64/R203へ縮約する。従ってQ3 fixed-goalのphysical dependencyはM67起点へ移る一方、R86自体の包絡定理とM37の局所振動子実装はactive moduleとして維持する。

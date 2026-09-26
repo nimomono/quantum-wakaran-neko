@@ -50,6 +50,6 @@ M65の3状態open selectorはdraft-117で正本へ昇格する。正本lawの数
 
 `simulations/m66/README.md` には、R206 common-hub trajectoryに加え、R205Eのthermal Gibbs preparation、R205Fの距離依存interaction/cross-correlationを含むpassive separation、phase-volume scaling、finite-bandwidth correction、terminal backreaction、always-on couplingの将来A2計画を置く。draft-129のrequired checksは解析式とgeneratorの回帰であり、full Brownian trajectoryや具体spatial reservoirの直接simulationを代替しない。
 
-## M67 two-entity finite-Hamiltonian candidate
+## M67 Q3 common two-entity finite-Hamiltonian parent
 
-`simulations/m67/` はM67/R208A--R208D/R209A--R209Cのdirect-trajectory強化検証入口である。draft-138では縮約witnessに加えてfinite flow/drag bathを含む `run_full_compatibility_witness.py` を置き、M67->M64 compatibilityを一つの有限Hamiltonian trajectoryで診断する。これはA2 promotion testではなく、Q3-1-A2/Q3-2-A2は未監査のまま維持する。
+`simulations/m67/` はM67/R208A--R210Bのsupporting direct-trajectory検証入口である。`run_full_compatibility_witness.py` はfinite flow/drag bathを含むM67→M64 compatibilityを一つの有限Hamiltonian trajectoryで診断する。draft-139でM67をQ3 physical parentへ昇格しても、これはA2 promotion testではなく、Q3-1-A2/Q3-2-A2は未監査のまま維持する。

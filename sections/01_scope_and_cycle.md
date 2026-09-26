@@ -1,7 +1,7 @@
 @number: 1
 @chapter: 本文
 @title: 問題設定、統一構造、達成範囲
-@status: M54を共通実正準signal・状態構成層、M37をsignal物理実装層、M66/R205を共通thermal-reservoir interfaceとする。M64、M65、R206、R207は用途別の模型・特殊化として責務を分け、M0のjoint device/process統合とは区別する。
+@status: M54を共通実正準signal・状態構成層、M66/R205を共通thermal-reservoir interfaceとする。Q3ではM67を共通二実体finite-Hamiltonian physical parent、M37をそのcoherent module、M64をcanonical open effective reductionとする。M65、R206、R207は従来の系列責務を維持し、M0のjoint device/process統合とは区別する。
 
 ## 1.1 研究上の問い
 
@@ -16,9 +16,10 @@
 | 層 | 識別 | 責務 |
 |---|---|---|
 | 共通有効signal・状態構成 | M54 | 有限実正準信号、準備済み入力境界、永続記憶部、作業領域、時計、記録、接続規約 |
-| signal物理実装 | M37/R86 | 局所結合古典振動子網から空間signalを実装。R187条件下ではW型最低2正常モードをQ1へ接続 |
+| signal物理実装 | M37/R86 | 局所結合古典振動子網から空間signalを実装。Q3ではM67 coherent module、R187条件下ではW型最低2正常モードをQ1へ接続 |
 | 共通thermal-reservoir interface | M66/R205A--R205F | phase-volume、mean-flow、thermal sampling、matched capacity--conductance、passive separation |
-| 用途別模型・特殊化 | M64、M65、R206、R207 | Q3 tracer/Nelson、Q1逐次2値測定、Q2終端多結果読出し、Q2-2 projection phase-volume二端模型 |
+| Q3共通physical parent | M67/R208--R210 | structured reservoir＋markerのfinite Hamiltonianからcoherent/dephasing/tracer profileを与える |
+| 用途別模型・特殊化 | M64、M65、R206、R207 | M67のQ3 open reduction、Q1逐次2値測定、Q2終端多結果読出し、Q2-2 projection phase-volume二端模型 |
 | 全周期統合目標 | M0 | 準備、操作、測定、永久記録、reset、clock、renewalを1つのjoint device/processへ統合 |
 
 M54とM66は異なる責務を持つ共通層である。M54はどのsignal・状態・接続端を使うかを整理し、M66はresolved classical degreeとthermal reservoirの間の物理原理を整理する。M66がM54を置換するわけでも、M54からM66が従うわけでもない。
@@ -95,12 +96,12 @@ Q2-1は $L=4$、Q2-3は $L=8$、Q2-4は $L=2^n$ とする。Q2-4ではR206Eの�
 
 Q2-2 fixed-goalはM66/R205A・R205Eによるprojection phase-volume共同準備、near-contact hidden-direction lock、R205F passive separation、R207 local sign latch/recordを一試行で接続する。一般Bloch方向のsinglet共同統計を任意精度で再現し、分離後local response factorizationとmeasurement independenceの不成立を監査する。
 
-Q3のsignal数学はQ1/Q2の局所実正準信号と2体系結合の空間特殊化である。M37/R86 signalへM64のclassical tracerとsignal-driven thermal reservoirを接続し、
+Q3のsignal数学はQ1/Q2の局所実正準信号と2体系結合の空間特殊化である。Q3のphysical parentはM67であり、M37/R86はそのcoherent module、M64/R203はR208/R209から得るopen effective reductionとして接続し、
 
 ```math
-\mathrm{M37/R86}
+\mathrm{M67/R208--R210}
 \longrightarrow
-\mathrm{M64/R203A--R203C}
+\mathrm{M37/R86,\ M64/R203A--R203C}
 \longrightarrow
 \mathrm{R203D/R161}
 \longrightarrow
@@ -118,7 +119,7 @@ Q3のsignal数学はQ1/Q2の局所実正準信号と2体系結合の空間特殊
 | Q2-2 | M66/R205 projection phase-volume共同準備、near-contact lock | R207 passive separation、local sign latch、R112型record、R207A--R207D監査 |
 | Q2-3 | R181Bを2回、R181C、R177 | M66/R206Dの8結果terminal sampler |
 | Q2-4 | R206E root preparation、M54一般 $2^n$ 直接モード、R181C | M66/R206Dの $2^n$ 結果terminal sampler、R186資源監査 |
-| Q3 | M37/R86 signal、M64/R203A--R203D | R161/R185、R124/R182/R125位置読出し、R112終位置record |
+| Q3 | M67/R208--R210 physical parent、M37/R86 coherent module、M64/R203A--R203D open reduction | R161/R185、R123--R125/R182、R112終位置record |
 
 ## 1.5 達成範囲と判定階層
 
@@ -136,6 +137,6 @@ M0はさらに強く、複数系列にまたがる主要自由度、物理接続
 
 M66はM64/M65/R206/R207に現れるreservoir原理を共通化するが、M64のQ3 tracer/Nelson model、M65のcanonical binary instrument、R207のQ2-2 specializationまでを1つの模型から導出したことを意味しない。また、共通thermal-reservoir interfaceを得たことは、全系列が同じ単一bathまたは同じ製造済みreservoirを共有することを意味しない。
 
-Q2-2ではR207A--R207Cがfixed-goal core、R207DがBell-local controlとして確立している。Q2-4ではR206がreader側の逐次branch問題を避けても、R186のdirect-amplitude register additive-noise障害を解消しない。Q3ではM64のdirect A2、finite-bandwidth/Hamiltonian lift、continuous-space一様極限、多粒子化、全周期統合が強化課題として残る。
+Q2-2ではR207A--R207Cがfixed-goal core、R207DがBell-local controlとして確立している。Q2-4ではR206がreader側の逐次branch問題を避けても、R186のdirect-amplitude register additive-noise障害を解消しない。Q3ではM67 full trajectoryのA2正式監査、strict locality、continuous-space一様極限、多粒子化、全周期統合が強化課題として残る。M67がfinite-Hamiltonian parentへ昇格してもA1/A2判定は自動変更しない。
 
 置換済みの旧作用殻型Q1/Q2測定経路、旧paired-Hopf受信機構、旧Q3率latch、M60/M61旧Hamiltonian実装は現行主線へ重ねず、研究メモとGit履歴へ保存する。

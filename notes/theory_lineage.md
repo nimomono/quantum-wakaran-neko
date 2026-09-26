@@ -4,7 +4,7 @@
 
 ## 現行の統一構造
 
-現行正本は、M54の共通signal・状態層とM66/R205の共通thermal-reservoir層を分け、その上へ用途別のM64、M65、R206、R207を接続する構造として読む。
+現行正本は、M54の共通signal・状態層とM66/R205の共通thermal-reservoir層を分ける。Q3ではさらにM67をcommon finite-Hamiltonian physical parentとし、M37をcoherent module、M64をopen effective reductionとして接続する。Q1/Q2ではM65、R206、R207の既存責務を維持する。
 
 ```text
 M54 signal/state layer
@@ -72,13 +72,15 @@ R206E root preparation
 
 ### Q3の粒子・Nelson経路
 
-現行Q3では、M37/R86が古典空間signalを与え、M64/R203A--R203Dが一つのclassical tracerとsignal-driven thermal reservoirを接続する。finite-state表現はR161へ、1次元Nelson/time-symmetric Newton則はR185へ接続する。
+現行Q3ではM67を共通physical parentとする。R210AがM67 coherent trajectoryをM37/R86へ、R208/R209がM67 tracer profileをM64/R203A--R203Dへ、R210BがM67 dephasing profileをR123へ接続する。finite-state表現はR161へ、1次元Nelson/time-symmetric Newton則はR185へ接続する。
 
 ```text
-M37 / R86 signal
-  -> M64 / R203A--R203D
-  -> R161 canonical path law
-  -> R185 time-symmetric Newton
+M67 common physical parent
+  ├─ R210A -> M37 / R86 coherent module
+  ├─ R210B -> R123 dephasing law
+  └─ R208 / R209 -> M64 / R203A--R203D open reduction
+                        -> R161 canonical path law
+                        -> R185 time-symmetric Newton
 ```
 
 finite graphでは同じM64/R203D tracerをR124、R182、R125の位置読出しへ接続する。R162はR161 lawのoptional open-Poisson realizationであり、現行Q3の基礎的物理存在論ではない。
@@ -205,3 +207,19 @@ M67 / R208A--R208D
 ```
 
 R209CではM67固有のcompatibility errorとM64自身のR203C baseline errorを別台帳に置く。draft-138終了時点でも現行Q3 fixed-goal主線はM37/R86→M64/R203A--R203D→R161/R185であり、M67はupper-parent candidateのまま、M64は退役しない。promotion/retirementは後続PRで扱う。
+
+## draft-139でM67をQ3 common physical parentへ昇格
+
+draft-137/138でcandidateとして追加・定量化したM67/R208--R209へR210A/R210Bを加え、Q3-1--Q3-5のphysical dependencyをM67起点へ切り替えた。
+
+```text
+M67
+  ├─ R210A -> M37/R86                 : Q3-1 coherent signal
+  ├─ R210B -> R123 (+ R182)           : Q3-3A/B/C dephasing
+  └─ R208/R209 -> M64/R203
+                   ├─ R161/R185       : Q3-2
+                   └─ R124/R182/R125  : Q3-4A/B, Q3-5
+```
+
+M37、M64、R123は削除せず、それぞれactive module/effective resultとして再分類する。Q3-6はM67 coherent sector上の未達課題、M0とQ1/Q2統合は別課題である。
+

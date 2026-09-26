@@ -1,3 +1,10 @@
+## draft-139：Q3 physical parentをM67へ統合
+
+- R210Aを追加し、full M67 coherent trajectoryからbare M37へのload-only backreactionをprepared reservoir excess-energy shellから明示的に制御し、R86 carrier-envelope errorと合成する。自然時間では $O(\eta)+O(N_0^{-1})$。
+- R210Bを追加し、R123 finite dephasing environmentをbounded momentum portでM67 structured reservoir内部へ埋め込み、prepared $P_n=\pm p_*$ 上で同じ $\cos^2$ dephasing lawとrevival timeを厳密に回収する。
+- M67をcandidateからQ3-1--Q3-5のcommon finite-Hamiltonian physical parentへ昇格する。M37はactive coherent module、M64/R203はactive canonical open effective reduction、R123はactive effective dephasing lawとして残す。
+- Q3-1--Q3-5の達成ラベル、Q3-6未達、A1/A2/B1--B3、M0、Q1/Q2、M54/M65/M66、R186判定は変更しない。
+
 ## draft-138：M67→M64 Q3 compatibility正式化
 
 - R209A--R209Cを追加し、M67 local flow、finite harmonic bath、small-mass/process lawをM64/R203へ明示誤差付きで接続する。R209CではM67固有の $\varepsilon_{67\to64}$ と既存M64 baseline $\varepsilon_{\rm red}^{64}$ を分離し、二重計上を避ける。
@@ -422,15 +429,15 @@ M54はQ1、Q2、Q3に共通する有効信号--配置状態構成族である。
 | Q2-2 | 達成 | M66 thermal phase-volume preparation | A/B二つのhidden-direction rotor、局所projection rail、二つの物理読出し端 | joint thermal preparation、passive separation、local sign latch、local record | R207A--R207C | 一般Bloch方向のsinglet共同分布を任意精度で構成し、finite-lock/finite-thickness誤差、exact非信号周辺、measurement-independence不成立とlocal response factorizationを監査。全周期統合はM0課題 |
 | Q2-3 | 達成 | M54三部分系静的状態構成 | 永続8モード記憶部と逆演算用補助部／作業領域＋M66 terminal sampler | 二段ゲート合成と8結果terminal sampling | R112、R177、R181B、R181C、R206D | 固定3入力の一試行内で第1ゲート後状態を再準備せず第2ゲートへ渡し、GHZ--$T$--逆演算後の8結果をR206Dで直接標本化する。一般サイズ資源効率はQ2-4、全周期装置統合はM0課題 |
 | Q2-4 | 条件付き達成 | M54一般静的状態構成 | $2^n$ 受動直接モード記憶部＋M66一様common-reservoir interface | R206E root preparation、一般gate列、R206D $2^n$結果terminal sampling、$n$-bit record | R112、R181C、R186、R206D、R206E | reader側の準備・sampling・readout時間・個別較正条件はM66 common-reservoir samplerで閉じる。残る主要条件はR186のdirect-amplitude register additive-noise/precision障害を多項式外部資源で回避できること |
-| Q3-1 | 達成 | M37空間signal | M37実正準空間信号 | Schrödinger型空間包絡 | R86 | clock・終位置record・resetを含む反復周期、A2直接数値再現は強化課題 |
-| Q3-2 | 達成 | M37 signal＋M64 continuous tracer | M37実正準空間信号＋M64 signal-driven thermal reservoir＋classical tracer | Nelson型位置過程・時間対称Newton則 | R86、R161、R185、R203A--R203D | process reductionとNewton残差を分離。clock・record・reset反復周期、連続空間一様極限、多粒子は強化課題 |
-| Q3-3A | 達成 | — | M37＋R123有限環境 | 束縛状態・純位相緩和 | R86、R123（井戸型） | — |
-| Q3-3B | 達成 | — | M37＋R123有限環境 | 束縛状態・純位相緩和 | R86、R123（調和型） | — |
-| Q3-3C | 達成 | — | M37＋R123有限環境 | W型束縛状態・純位相緩和 | R86、R123、R182 | — |
-| Q3-4A | 達成 | M37有限graph信号＋M64 tracer | M37＋M64 finite-graph profile | 空間移動／終位置読出し | R86、R124、R161、R203D | R124の有限障壁確率移動をM64 tracerの単一試行位置読出しへ接続。clock・永久record・reset・renewalの全周期統合はM0課題 |
-| Q3-4B | 達成 | M37静的W型信号＋M64 tracer | M37静的W型＋M64 finite-graph profile | 空間移動 / 半周期・一周期読出し | R86、R182、R161、R203D | R182の半周期移送・一周期回帰をM64 tracerの単一試行位置読出しへ接続。物理clock・永久record・reset・renewalの全周期統合はM0課題 |
-| Q3-5 | 達成 | M37有限graph信号＋M64 tracer | M37＋M64 finite-graph profile | 空間移動／2経路位置読出し | R86、R125、R161、R203D | R125の位相依存2経路干渉をM64 tracerの単一試行位置読出しへ接続。clock・永久record・reset・renewalの全周期統合はM0課題 |
-| Q3-6 | 未達 | — | 完結物理実装層なし | 完結手順なし | — | 閉路巻数、節を介した位相すべり、細分化安定性、非整数モノドロミー排除を同じ明示的な古典ミクロ構成で示す |
+| Q3-1 | 達成 | M67 coherent profile | M67 structured reservoir＋M37 coherent module | Schrödinger型空間包絡 | R210A、R86 | clock・終位置record・resetを含む反復周期、A2直接数値再現は強化課題 |
+| Q3-2 | 達成 | M67 continuous-tracer profile | M67 structured reservoir＋classical markerをM64 open lawへ縮約 | Nelson型位置過程・時間対称Newton則 | R208A--R209C、R210A、R203A--R203D、R161、R185 | M67→M64 compatibilityとM64 baseline、Newton残差を分離。clock・record・reset反復周期、連続空間一様極限、多粒子は強化課題 |
+| Q3-3A | 達成 | M67 dephasing profile | M67 coherent module＋bounded finite dephasing sector | 束縛状態・純位相緩和 | R210A、R210B、R86、R123（井戸型） | — |
+| Q3-3B | 達成 | M67 dephasing profile | M67 coherent module＋bounded finite dephasing sector | 束縛状態・純位相緩和 | R210A、R210B、R86、R123（調和型） | — |
+| Q3-3C | 達成 | M67 dephasing profile | M67 W型coherent module＋bounded finite dephasing sector | W型束縛状態・純位相緩和 | R210A、R210B、R123、R182 | — |
+| Q3-4A | 達成 | M67 finite-graph tracer profile | M67 coherent module＋marker、M64/R203D effective reduction | 空間移動／終位置読出し | R210A、R124、R203D、R161 | R124の有限障壁確率移動をM67 finite-graph profileの単一試行位置読出しへ接続。clock・永久record・reset・renewalの全周期統合はM0課題 |
+| Q3-4B | 達成 | M67 finite-graph W型profile | M67 W型coherent module＋marker、M64/R203D effective reduction | 空間移動 / 半周期・一周期読出し | R210A、R182、R203D、R161 | R182の半周期移送・一周期回帰をM67 finite-graph profileの単一試行位置読出しへ接続。dephasing profileは同時にactiveにしない。物理clock・永久record・reset・renewalの全周期統合はM0課題 |
+| Q3-5 | 達成 | M67 finite-graph tracer profile | M67 coherent module＋marker、M64/R203D effective reduction | 空間移動／2経路位置読出し | R210A、R125、R203D、R161 | R125の位相依存2経路干渉をM67 finite-graph profileの単一試行位置読出しへ接続。clock・永久record・reset・renewalの全周期統合はM0課題 |
+| Q3-6 | 未達 | M67 coherent sector | M67 coherent module上で検証線を置くが完結物理実装なし | 完結手順なし | — | 閉路巻数、節を介した位相すべり、細分化安定性、非整数モノドロミー排除を同じ明示的な古典ミクロ構成で示す |
 
 draft-71でR182、W型有限環境系、M42周期輸送系を本文・付録・検算・統合原稿・TeX原稿・PDFへ同期し、Q3-3Cを達成、Q3-4Bを条件付き達成へ更新した。固定目標の文言は変更していない。draft-69以前の履歴にある旧Q3-2は新Q3-6、旧Q3-3は新Q3-3A・Q3-3B、旧Q3-4は新Q3-4Aに対応する。旧稿の達成表現を新Q3-2、Q3-3C、Q3-4Bへ読み替えない。
 
@@ -462,11 +469,11 @@ M0はこれらの共通化より強い。M54/M66を共有していても、同�
 | 識別 | 分類 | 運用状態 | 役割と限界 |
 |---|---|---|---|
 | M54 | 共通有効信号--配置状態構成族 | 現行Q1・Q2・Q3の共通有効層 | 準備済み古典入力境界、有限実正準信号、永続記憶部、作業領域、記録、時計自由度の共通型を与える。Q1ではM65/R181D、Q2-1/Q2-3/Q2-4ではM66/R206、Q2-2ではM66/R207、Q3ではM37 signalとM64 particle interfaceへ接続する |
-| M37 | 物理Hamiltonian信号実装層 | Q3の空間信号部分系、およびR187条件下のQ1 W2制御用信号系 | 局所位置結合された有限実古典振動子網からR86の空間包絡を導く。R187の弱結合W型族では最低2正常モードをM54のW2信号へ正準同定し、R140制御を任意精度で実装する |
-| M64 | Q3共通open model | 現行Q3 particle/Nelson実装 | M37 signal、一つのclassical tracer、一つのsignal-driven thermal reservoirからなる三実体模型。R203A--R203Dでcontinuous profileとfinite-graph profileをR161/R185およびR124/R182/R125へ接続する。Hamiltonian lift、finite bath、underdamped lift、連続空間一様極限、多粒子、全周期clock/record統合は強化課題 |
+| M37 | active coherent-signal module | Q3ではM67 structured reservoir内部のcoherent oscillator module。Q1ではR187条件下のW2制御用signal implementation | 局所位置結合された有限実古典振動子網からR86の空間包絡を導く。R210Aがfull M67からbare M37/R86への有限時間compatibilityを与える |
+| M64 | Q3 canonical open effective model | M67/R208--R209から回収するcontinuous/finite-graph effective reduction | 三実体記述を有効sector分割として保持し、R203A--R203DでR161/R185およびR124/R182/R125へ接続する。独立physical ontologyとしてのparent責務はM67へ移管する |
 | M65 | Q1 binary canonical open selector | 現行Q1逐次fixed-goal正本模型 | 保持済み二作用を線形rateへ入れる $+,H,-$ の3状態連続時間Markov pointer。R204Dでfinite-time Born、R204Eでbinary selector contract、R204FでQ1 interface/latencyを与える。R204B/R204Cのphase-volume chamber/Hamiltonian liftは強化実現 |
 | M66 | common thermal-reservoir parent model | 共通reservoir interface。現行fixed-goalでQ2-1/Q2-3/Q2-4はR206、Q2-2はR207へ直接specializeする | R205A--R205Fでphase-volume、mean-flow、matched capacity--conductance、thermal Gibbs sampling、passive separationを共通化する。R203Bのreservoir sectorはR205C、R204Bのchamber realizationはR205Dへ埋め込むが、M64/M65のwhole-modelは置換しない |
-| M67 | 二実体finite-Hamiltonian parent candidate | Q3の上位parent候補。fixed-goal直接依存には未採用 | 一つのstructured reservoir内にcoherent/phase-volume/flow/drag sectorを置き、別実体はclassical markerだけとする。R208A--R208Dでstructural bridge、R209A--R209Cでlocal-flow・finite-bath・finite-time process compatibilityを明示誤差付きで与える。Q1/Q2/NBL、M0、既存模型退役は未主張 |
+| M67 | Q3共通二実体finite-Hamiltonian physical parent | Q3-1--Q3-5のfixed-goal物理依存の起点。Q3-6は同じcoherent sector上の未達課題 | 一つのstructured reservoir内にM37 coherent module、phase-volume/flow/drag/finite-bath、R210B dephasing sectorを置き、別sectorはclassical markerとする。R208/R209がM64 open law、R210AがR86 coherent law、R210BがR123 dephasing lawへ接続する。Q1/Q2/NBL、M0は未統合 |
 
 M50はM54の静的状態構成へ、M55はM54空間状態構成へ吸収した。M56はspin-only Q3代替研究線とし現行達成根拠へ使わない。M60/M61とそれ以前のM57/M59は旧Q3 Hamiltonian実装として現行主線から退役し、Git履歴へ保存する。旧状態方向準備、旧作用殻型Q1/Q2測定経路、旧2端再準備は現行必須依存から外し、退役索引と研究メモへ保存する。
 
@@ -554,7 +561,7 @@ M0は、個別のA1模型を並べるだけでは達成としない。少なく�
 
 | 結果 | 導出状態 | 内容 |
 |---|---|---|
-| R205A | 厳密partition結果 | 正のlocal scaleをreservoir座標Jacobianへ入れるとcanonical phase volumeがscaleへ線形比例し、free energyが \(-k_BT\log w+C\) になる共通identity |
+| R205A | 厳密partition結果 | 正のlocal scaleをreservoir座標Jacobianへ入れるとcanonical phase volumeがscaleへ線形比例し、free energyが $-k_BT\log w+C$ になる共通identity |
 | R205B | 厳密reduced-law結果 | channel capacityとconductanceへ同じlocal scaleを掛けると、channel→hub rateがscale非依存、hub→channel rateがscale比例となるmatched capacity--conductance原理 |
 | R205C | 厳密partition結果 | moving reservoirの運動量平行移動 $U$ とphase-volume weight $w$ がcanonical free energyで直交し、$F_{\rm res}=-k_BT\log w+C$ と $-\nabla F_{\rm res}=k_BT\nabla\log w$ を同時に与える |
 | R205D | 厳密系 | R205Bのbinary fixed-hub特殊化からR204Bの $k_{y\to H}=\Lambda$、$k_{H\to y}=\kappa a_y$ を回収する |
@@ -565,11 +572,11 @@ M0は、個別のA1模型を並べるだけでは達成としない。少なく�
 
 | 結果 | 導出状態 | 内容 |
 |---|---|---|
-| R206A | 厳密有限状態結果 | 任意有限Lのcommon-hub samplerで \(d_y=x_y-p_y(1-h)\) が \(\dot d_y=-\Lambda d_y\) を満たし、mixing rateがLと最小Born重みに依存しない。任意pointer初期分布から指数収束する |
-| R206B | 厳密一様構成結果 | \(L=2^n\) channelへ同一local scale則、\(V_H\propto L\) を用いて総hub escape rateをL非依存に保ち、regularized Born重みを個別係数表なしに実装する |
+| R206A | 厳密有限状態結果 | 任意有限Lのcommon-hub samplerで $d_y=x_y-p_y(1-h)$ が $\dot d_y=-\Lambda d_y$ を満たし、mixing rateがLと最小Born重みに依存しない。任意pointer初期分布から指数収束する |
+| R206B | 厳密一様構成結果 | $L=2^n$ channelへ同一local scale則、$V_H\propto L$ を用いて総hub escape rateをL非依存に保ち、regularized Born重みを個別係数表なしに実装する |
 | R206C | 厳密有限時間・製造誤差結果 | finite-time mixing、hub residual、regularization、generator/record誤差をL非依存に合成し、local multiplicative/additive scale誤差の規格化TV上界を与える |
-| R206D | 条件付きQ2 bridge | R181C後の実terminal signal作用を4・8・\(2^n\)結果common samplerへ接続し、Q2-1/Q2-3/Q2-4のone-shot terminal readoutを与える。外部Born表・振幅表・全channel走査を使わない |
-| R206E | 直接定めた開放方程式に対する厳密結果 | 全mode共通減衰と固定 \(0^n\) root driveから任意前試行状態をrootへ指数収束させ、Q2-4準備時間を対数精度依存に抑える。sampler pointerはR206A mixingにより結果別reset不要 |
+| R206D | 条件付きQ2 bridge | R181C後の実terminal signal作用を4・8・$2^n$結果common samplerへ接続し、Q2-1/Q2-3/Q2-4のone-shot terminal readoutを与える。外部Born表・振幅表・全channel走査を使わない |
+| R206E | 直接定めた開放方程式に対する厳密結果 | 全mode共通減衰と固定 $0^n$ root driveから任意前試行状態をrootへ指数収束させ、Q2-4準備時間を対数精度依存に抑える。sampler pointerはR206A mixingにより結果別reset不要 |
 
 ### Q2-2 projection phase-volume結果
 
@@ -589,13 +596,15 @@ M0は、個別のA1模型を並べるだけでは達成としない。少なく�
 | R203B | 厳密partition結果・有限時間結果 | signal-dependent reservoir phase volumeから $F_{\rm res}=-k_BT\log r_X^\delta+C$ を導き、continuous tracer初期準備とfinite-time mean-flow trackingを与える |
 | R203C | 直接定めた開放SDEに対する厳密結果・明示誤差付き縮約 | canonical overdamped tracerをideal regularized diffusionへ有限時間 $W_1$ で縮約する |
 | R203D | 厳密有限graph結果・明示誤差付き近似結果 | local $R_i^\delta,J_{ij},T_{ij}^\delta$ からR161 rateを構成し、finite-graph初期準備、1次元R185 activity、R124/R182/R125位置読出しへ接続する |
-| R208A | candidate finite-Hamiltonian結果 | structured reservoir＋classical markerの二実体sectorで有限・下に有界なM67 parentを構成し、$Z,\rho,j,U,\xi$ を派生量として位置づける |
-| R208B | candidate partition/backreaction結果 | phase-volume Jacobianからosmotic mean forceを得て、finite-$N_\rho$ fluctuationとcoherent action $N_0$ に対する $O(N_0^{-1})$ 状態方向backreactionを分離する |
-| R208C | candidate finite-bath縮約結果 | compact local tight frameとfinite harmonic bathからrelative memory friction、finite-bath FDT、Markov極の $-\gamma(V-U_X)+\xi$ を導く |
-| R208D | candidate finite-time bridge | M67をM64/R203C型regularized diffusionへ有限時間縮約し、同じ $\rho_\delta,J_\delta$ をR203D→R161/R185へ渡す。fixed-goal直接依存には未採用 |
-| R209A | candidate明示誤差付きcompatibility | M67 fast-bath mean flowとcanonical M64 mean-flow lawが同じedge target $c_Jr_e$ を共有することを示し、finite-Hamiltonian flow residualとmaterial-frame recoilをM64 baseline errorから分離する |
-| R209B | candidate finite-bath/FDT結果 | finite harmonic flow/drag bathのexact memory kernelとFDT、Drude short-memory・finite-spectrum・recurrence誤差、tight-frameによる一定frictionとzero Stratonovich correctionを定量化する |
-| R209C | candidate finite-time process compatibility | M67 finite-Hamiltonian tracer→Markov underdamped→M64 overdampedのsmall-mass縮約を $W_1$ で合成し、M67固有 $\varepsilon_{67\to64}$ と既存 $\varepsilon_{\rm red}^{64}$ を分離する |
+| R208A | required Q3 parent finite-Hamiltonian結果 | structured reservoir＋classical markerの二実体sectorで有限・下に有界なM67 parentを構成し、$Z,\rho,j,U,\xi$ を派生量として位置づける |
+| R208B | required Q3 parent partition/backreaction結果 | phase-volume Jacobianからosmotic mean forceを得て、finite-$N_\rho$ fluctuationとcoherent action $N_0$ に対する $O(N_0^{-1})$ 状態方向backreactionを分離する |
+| R208C | required Q3 parent finite-bath縮約結果 | compact local tight frameとfinite harmonic bathからrelative memory friction、finite-bath FDT、Markov極の $-\gamma(V-U_X)+\xi$ を導く |
+| R208D | required Q3 parent finite-time bridge | M67をM64/R203C型regularized diffusionへ有限時間縮約し、同じ $\rho_\delta,J_\delta$ をR203D→R161/R185へ渡す |
+| R209A | required明示誤差付きcompatibility | M67 fast-bath mean flowとcanonical M64 mean-flow lawが同じedge target $c_Jr_e$ を共有することを示し、finite-Hamiltonian flow residualとmaterial-frame recoilをM64 baseline errorから分離する |
+| R209B | required finite-bath/FDT結果 | finite harmonic flow/drag bathのexact memory kernelとFDT、Drude short-memory・finite-spectrum・recurrence誤差、tight-frameによる一定frictionとzero Stratonovich correctionを定量化する |
+| R209C | required finite-time process compatibility | M67 finite-Hamiltonian tracer→Markov underdamped→M64 overdampedのsmall-mass縮約を $W_1$ で合成し、M67固有 $\varepsilon_{67\to64}$ と既存 $\varepsilon_{\rm red}^{64}$ を分離する |
+| R210A | required coherent compatibility | full M67 coherent trajectoryとbare M37のload-only差をprepared reservoir excess-energy shellから $O(N_0^{-1})$ で制御し、R86 carrier-envelope errorと合成してQ3-1のSchrödinger型signalへ接続する |
+| R210B | required bounded dephasing embedding | bounded odd momentum portでR123 finite environmentをM67 structured reservoir内部へ持ち上げ、下方有界性、作用保存、同一の $\cos^2$ dephasing factorと有限revivalを得る |
 | R185 | 厳密有限格子結果・明示誤差付き近似結果 | 共通の確率分布の時間反転率、$D_\pm$、1次元node-free領域の時間対称Newton則。正則化残差 $O(\delta)$、格子残差 $C_{185,a}a^2$ を有限微分ノルムで明示 |
 | R123 | 厳密結果・数値検証付き | 井戸型・調和型低位束縛状態と有限環境純位相緩和 |
 | R124 | 厳密結果・数値検証付き | 障壁値未満スペクトル支持からの反対側確率増分 |

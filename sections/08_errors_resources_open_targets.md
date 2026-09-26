@@ -1,7 +1,7 @@
 @number: 8
 @chapter: 本文
 @title: 誤差、資源、反証条件、未完成目標
-@status: M54 signal層、M66/R205共通thermal-reservoir層、M64/M65/R206/R207の用途別specializationを横断し、同じ物理偏差を共通層と系列固有層で二重計上しない誤差・資源台帳を与える。Q2-4ではR206E preparation、R206C/D sampling、R186 robustnessを責務別に管理する。
+@status: M54 signal層、M66/R205共通thermal-reservoir層、M67 Q3 physical parent、M64/M65/R206/R207のeffective/specialization層を横断し、同じ物理偏差を二重計上しない誤差・資源台帳を与える。Q2-4ではR206E preparation、R206C/D sampling、R186 robustnessを責務別に管理する。
 
 
 ## 8.1 誤差を1回だけ数える規約
@@ -15,12 +15,48 @@
 6. 同じ準備済み入力偏差を $\varepsilon_{\rm in}$、R135の初期共分散誤差、系列固有の入力誤差へ重ねて入れる。
 7. M64ではinitial preparation、current dictionary、mean-flow tracking、density interpolation、process reductionを導出箇所ごとに一度だけ数える。$\delta$ をcurrent-dictionary誤差とR185 regularizationへ二重に加算せず、process-law errorとNewton force residualを単純加算しない。
 8. M66/R205で共通化したphase-volume、mean-flow、thermal mixing、passive separationの同じ物理偏差を、M64/M65/R206/R207側で独立誤差として再加算しない。共通原理のexact identityと、各specialization固有のfinite-time・generator・record誤差を分ける。
+9. M67ではR210Aのcarrier-envelope誤差 $\varepsilon_{86}$、load-only backreaction $\varepsilon_{\rm load}^{67}$、R209のM67からM64 compatibility error $\varepsilon_{67\to64}$、M64 baseline $\varepsilon_{\rm red}^{64}$ を別台帳に置く。M67からM64比較へR86 carrier errorを再加算しない。
 
 全ての理想分布と実分布は同じ完全結果集合へ埋め込む。成功試行だけで再規格化しない。
 
 ### 共通ミクロ実装原則
 
 本章の資源監査では、有限性を能動部分系、浴、拡大全系に分ける。有限閉鎖Hamiltonian実装は固定目標ではなく、有限な能動自由度と明示的なHamiltonian無限浴からなるミクロ模型を標準候補とする。開放方程式はHamiltonian無限浴からの縮約として得ても、基本的なミクロ方程式として直接定めてもよく、有限浴への持上げは有限性自体に物理的意味がある場合を除き強化課題とする。したがって、未使用素子列、有限再帰、有限総浴容量の評価は、中心結論に必要な場合だけ本体誤差へ入れる。
+
+
+### M67 Q3 parentの誤差台帳
+
+R210Aではprepared reservoir excess energy shellから
+
+```math
+\varepsilon_{\rm load}^{67}(T)
+\le
+\frac{
+2TC_{210}(T)
+}{
+\mathcal J_0N_0(1-\eta)
+}
+```
+
+を得る。Schrödinger目標へ比較するときだけR86のcarrier-envelope誤差を合成し、
+
+```math
+q_{210}
+=
+(1-\eta)^{-1/4}\varepsilon_{86}
++
+\varepsilon_{\rm load}^{67}.
+```
+
+一方R209CのM67からM64 process compatibilityではbare M37を共通基準とし、$\varepsilon_{\rm load}^{67}$ のstate-direction影響だけを数える。R210B dephasing profileの追加physical条件は
+
+```math
+\omega_{\min}
+>
+\frac{|\lambda|p_*}{\mathcal J_0}
+```
+
+であり、prepared $P_n=\pm p_*$ 上のdephasing factor自体には追加近似誤差を生じない。finite-bath recurrence、small-mass、flow tracking、phase-volume fluctuationはR208/R209の既存台帳を用いる。
 
 ## 8.2 準備済み入力境界とQ2-4 root preparation
 
