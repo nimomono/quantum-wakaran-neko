@@ -1,7 +1,7 @@
 @number: AA
 @chapter: 付録
 @title: M67 二実体・構造化熱浴Hamiltonian統合候補
-@status: M67/R208A--R208Dは、構造化熱浴と古典マーカーの二つの物理sectorだけからM64型Q3有効力学を回収する有限Hamiltonian candidateである。R209A--R209Cはlocal flow、finite bath、finite-time process metricを定量化し、M67->M64 compatibilityを明示誤差付きで強化する。現行Q3正本M37/R86 -> M64/R203A--R203D -> R161/R185は変更せず、M67はその上位parent候補として扱う。Q1/Q2/NBLへの拡張、M64/M66の退役、M0達成は本付録では主張しない。
+@status: M67/R208A--R208Dは、構造化熱浴と古典マーカーの二つの物理sectorだけからM64型Q3有効力学を回収する有限Hamiltonian candidateである。R209A--R209Cはlocal flow、finite bath、finite-time process metricを定量化し、M67からM64へのcompatibilityを明示誤差付きで強化する。現行Q3正本はM37/R86、M64/R203A--R203D、R161/R185の順を変更せず、M67はその上位parent候補として扱う。Q1/Q2/NBLへの拡張、M64/M66の退役、M0達成は本付録では主張しない。
 
 ## AA.1 目的、二実体、責務境界
 
@@ -598,7 +598,7 @@ C_{\rm int}a^2
 \|\partial_x^2v_\delta\|_\infty.
 ```
 
-ここで $\varepsilon_U^{64}$ はM64自身のbaseline errorであり、M67->M64 compatibility errorへ再加算しない。
+ここで $\varepsilon_U^{64}$ はM64自身のbaseline errorであり、M67からM64へのcompatibility errorへ再加算しない。
 <!-- theorem-end:theorem -->
 
 <!-- theorem-start:proof -->
@@ -814,7 +814,7 @@ d\omega
 
 と書けるため、有限harmonic bathで固定有限時間上任意精度に離散近似できる。周波数刻み $\Delta\omega$ に対するrecurrence timeは $T_{\rm rec}\sim2\pi/\Delta\omega$ であり、PR2では $T_{\rm obs}<T_{\rm rec}$ を明示的に要求する。
 
-## AA.13 R209C：M67->M64 finite-time process compatibility
+## AA.13 R209C：M67からM64へのfinite-time process compatibility
 
 <!-- theorem-start:theorem -->
 **定理（R209C：M67からM64への有限時間process compatibility）**
