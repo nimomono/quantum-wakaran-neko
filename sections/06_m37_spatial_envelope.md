@@ -1220,6 +1220,6 @@ R187本体は有限個の静的クエンチで閉じる。各跳躍は $Q,P$ を
 
 精度を上げると $J_\kappa=O(\kappa)$ のため総時間は $O(\kappa^{-1})$ に増え、切替時刻分解能、弱結合設定、分裂較正の要求も厳しくなる。搬送周波数は $\delta_{\rm loc}(\eta)$ を小さくするため増やすが、各静的区間を $\Delta_{\rm ex}(F)$ で較正するため、R86の粗い $T\|h\|^2/\omega_0$ 上界を長いRabi時間へそのまま掛けない。これらの資源発散をQ2-4の多項式資源主張へ流用しない。
 
-## 6.20 M67上位parent候補との関係
+## 6.20 M67 Q3 physical parentとの関係
 
-M37/R86は現行Q3 signal実装である。付録AA/M67はM37のcoherent oscillator sectorを同じstructured reservoirの長寿命collective sectorとして読み替え、phase-volume、flow、dragのthermal sectorと同じfinite Hamiltonianへ置く候補である。R208Dがstructural bridgeを、R209A--R209Cがfinite-time process compatibilityを与え、coherent backreactionはstate-direction errorとしてM64との比較へ渡す。本節のR86やQ3 fixed-goal依存は変更しない。
+M37/R86はM67 structured reservoir内部のactive coherent oscillator moduleである。R210Aがfull M67からbare M37/R86へのfinite-time coherent compatibilityを与え、R208D/R209A--R209Cがtracer profileをM64/R203へ縮約する。従ってQ3 fixed-goalのphysical dependencyはM67起点へ移る一方、R86自体の包絡定理とM37の局所振動子実装はactive moduleとして維持する。

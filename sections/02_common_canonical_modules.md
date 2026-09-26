@@ -338,7 +338,7 @@ j_{ij}^\delta
 \sum_jj_{ji}^\delta .
 ```
 
-従ってQ1型局所signalとQ2型辺結合から $(\pi^\delta,j^\delta)$ が得られる。R161の対称活動量 $t_{ij}=t_{ji}\geq|j_{ij}|$ は位置輸送の物理実現が供給する独立入力であり、現行Q3ではM64/R203Dがfinite-graph activityとgeneratorを与える。
+従ってQ1型局所signalとQ2型辺結合から $(\pi^\delta,j^\delta)$ が得られる。R161の対称活動量 $t_{ij}=t_{ji}\geq|j_{ij}|$ は位置輸送の物理実現が供給する独立入力であり、現行Q3ではM67 finite-graph profileをR208/R209でM64/R203Dへ縮約し、finite-graph activityとgeneratorを与える。
 
 ```math
 \mathrm{local\ canonical\ signal}
