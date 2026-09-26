@@ -1,3 +1,12 @@
+## draft-138：M67→M64 compatibility検算
+
+- `verify_r209a_local_flow_compatibility.py` はM67/M64が同じedge target $c_Jr_e$ を使うこと、flow residualのvariation-of-constants bound、一次再現partitionの $O(a^2)$ interpolationを検査する。
+- `verify_r209b_finite_bath_markov_fdt.py` はfinite harmonic bathのDrude short-memory scaling、recurrence window、tight-frame一定friction/FDT、$\sum_cg_cg_c'=0$ を検査する。
+- `verify_r209c_process_compatibility.py` はunderdamped→overdamped synchronous couplingの $O(\sqrt{M_X})$ scalingと、M67固有誤差とM64 baseline errorを分離する台帳を検査する。
+- `simulations/m67/run_full_compatibility_witness.py` は外部white noiseなしの有限Hamiltonian ODEとしてcoherent signal、phase-volume bath、flow reaction coordinate、finite flow bath、moving material frame、finite local drag bath、tracerを同時積分する。energy drift、signal ray error、local flow error、recoil、recurrenceを同じparameter setで診断する。
+- `check_draft138_m67_m64_compatibility.py` はR209A--C登録と上記検算入口を確認し、M67 candidate/M64 active、Q3 fixed-goal直接依存、A1/A2、M0、M54/M65/M66を不変に固定する。
+- full compatibility witnessはR209のdirect numerical evidenceであり、Q3-1-A2/Q3-2-A2の正式達成へは数えない。
+
 ## draft-137：M67/R208 candidate検算
 
 - `verify_m67_two_entity_hamiltonian.py` はflow/material-frame quadratic blockの下界を検査する。
