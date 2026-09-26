@@ -12,7 +12,8 @@
 |---|---|---|
 | 実正準signal・状態構成 | M54、M37 | M54が共通状態・接続規約、M37が古典振動子によるsignal実装 |
 | 共通thermal-reservoir interface | M66/R205 | phase-volume、mean-flow、thermal sampling、passive separation |
-| 用途別の模型・特殊化 | M65/R181D、R206、M64/R161/R185、R207 | Q1逐次2値測定、Q2終端多結果、Q3粒子/Nelson、Q2-2 projection phase-volume二端模型 |
+| Q3共通finite-Hamiltonian parent | M67/R208--R210 | structured reservoir＋markerからcoherent、dephasing、continuous/finite-graph tracer profileを統一 |
+| 用途別の模型・特殊化 | M65/R181D、R206、M64/R161/R185、R207 | Q1逐次2値測定、Q2終端多結果、M67のQ3 open reduction、Q2-2 projection phase-volume二端模型 |
 | 全周期統合 | M0 | 準備からrenewalまでを1つのjoint device/processへ統合 |
 
 
@@ -60,11 +61,11 @@ Q2-1とQ2-3ではR181Bが固定入力のテンソル積信号を作り、R181C�
 
 Q2-2 fixed-goalはR207 projection phase-volume経路を使う。setting方向とhidden directionsをnear-contactで共同thermal preparationし、projection phase volumeとisotropic lockから一般角度singlet共同統計へ接続する。finite-lockでは余弦形のvisibilityを解析的に与え、finite thicknessでは一様全変動誤差を持つ。分離後はlocal response factorizationを保つ一方、source hidden stateはsetting-dependentでありmeasurement independenceは成立しない。
 
-Q3のsignal数学はQ1/Q2と別の代数ではない。Q1型局所正準モードを空間頂点へ配置し、Q2型2体系結合を辺へ反復すると、Schrödinger型signal、局所作用、反対称currentが得られる。M37/R86がこのsignalを実古典振動子網から実装する。
+Q3のsignal数学はQ1/Q2と別の代数ではない。Q1型局所正準モードを空間頂点へ配置し、Q2型2体系結合を辺へ反復すると、Schrödinger型signal、局所作用、反対称currentが得られる。Q3ではM67を共通二実体finite-Hamiltonian physical parentとし、M37をそのcoherent oscillator moduleとして内包する。R210Aがfull M67からM37/R86のSchrödinger型signalへの有限時間compatibilityを与える。
 
-M64はM37型classical coherent signal、一つのclassical tracer、一つのsignal-driven thermal reservoirからなるQ3 open modelである。R203Aはregularized density/current dictionary、R203Bはphase-volume free energy、continuous/finite-graph initial preparationとfinite-time mean-flow tracking、R203Cはcanonical overdamped tracerからregularized diffusionへの縮約、R203DはR161/R185およびfinite-graph位置読出しへの接続を与える。R203Bのreservoir sectorはR205Cの共通原理と整合するが、tracer dynamicsとQ3位置法則はM64固有である。
+M67は一つのstructured reservoir sectorとmarker sectorからなり、coherent、bounded dephasing、continuous tracer、finite-graph tracerの固定profileを持つ。Q3-3A--Q3-3CではR210BがR123有限環境をstructured reservoir内部へboundedに埋め込む。Q3粒子/Nelson側ではM64を独立三実体parentとはせず、R208/R209でM67から得るcanonical open effective modelとして維持する。R203A--R203D、R161/R185、R124/R182/R125の既存結果はそのまま再利用する。
 
-Q3-2の現行因果鎖は、M37/R86 signal、M64/R203A--R203C、R203D/R161、R185の順に進み、Nelson型・時間対称Newton則へ接続する。finite graphではR124の有限障壁、R182のW型トンネル振動、R125の2経路干渉を同じM64 tracerの位置読出しへ接続する。
+Q3の現行因果鎖はM67から分岐する。Q3-1は \(M67\to R210A\to M37/R86\)、Q3-2は \(M67\to R208/R209\to M64/R203\to R161/R185\)、Q3-3A--CはM67 dephasing profileからR210B/R123へ、Q3-4A/B/5はM67 finite-graph profileからR203D/R161とR124/R182/R125へ接続する。
 
 固定目標の達成は、その目標が要求する現象を1試行内で明示的な物理interfaceを通して合成できるかで判定する。準備、全操作、測定、永久記録、reset、物理clock、次試行renewalまでを同じ装置architectureと共通反復周期へ統合することはM0で別に要求する。M66でreservoir原理を共通化したことは、共通単一bathまたは1台の製造済み装置を得たことを意味しない。
 
