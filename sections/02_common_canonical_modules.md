@@ -992,4 +992,4 @@ Q2-1/Q2-3/Q2-4ではR206をterminal readout正本とし、R206Eのuniform root p
 
 ## 2.20 M67二実体parent candidate
 
-付録AA/M67では、現行のsignal層とthermal-reservoir層をさらに上位で一つのstructured reservoirへまとめ、classical markerとの二実体だけを主要ontologyとするfinite-Hamiltonian candidateを置く。R208A--R208DはQ3についてM64/R203への縮約だけを扱う。M54/M66を置換したとは扱わず、Q1/Q2/NBLへの拡張は未主張である。
+付録AA/M67では、現行のsignal層とthermal-reservoir層をさらに上位で一つのstructured reservoirへまとめ、classical markerとの二実体だけを主要ontologyとするfinite-Hamiltonian candidateを置く。R208A--R208DがQ3のstructural bridgeを与え、R209A--R209Cがlocal-flow、finite-bath、finite-time process metricを定量化してM64/R203とのcompatibilityを明示する。M67はfixed-goal直接依存へ未採用であり、M54/M66を置換したとは扱わず、Q1/Q2/NBLへの拡張も未主張である。
