@@ -28,7 +28,7 @@
 
 R210Aではprepared reservoir excess energy shellから
 
-~~~math
+```math
 \varepsilon_{\rm load}^{67}(T)
 \le
 \frac{
@@ -36,25 +36,25 @@ R210Aではprepared reservoir excess energy shellから
 }{
 \mathcal J_0N_0(1-\eta)
 }
-~~~
+```
 
 を得る。Schrödinger目標へ比較するときだけR86のcarrier-envelope誤差を合成し、
 
-~~~math
+```math
 q_{210}
 =
 (1-\eta)^{-1/4}\varepsilon_{86}
 +
 \varepsilon_{\rm load}^{67}.
-~~~
+```
 
 一方R209CのM67→M64 process compatibilityではbare M37を共通基準とし、$\varepsilon_{\rm load}^{67}$ のstate-direction影響だけを数える。R210B dephasing profileの追加physical条件は
 
-~~~math
+```math
 \omega_{\min}
 >
 \frac{|\lambda|p_*}{\mathcal J_0}
-~~~
+```
 
 であり、prepared $P_n=\pm p_*$ 上のdephasing factor自体には追加近似誤差を生じない。finite-bath recurrence、small-mass、flow tracking、phase-volume fluctuationはR208/R209の既存台帳を用いる。
 

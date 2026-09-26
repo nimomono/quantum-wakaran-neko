@@ -848,7 +848,7 @@ Z^{67}(t),Z^{37}(t)
 
 とする。regularized safe sectorでobservable mapがLipschitzで定数 $L_{\rm sig}$ を持つとする。R210Aのload-only relative boundを $q_{\rm load}(T)=\varepsilon_{\rm load}^{67}(T)$ とすると、$q_{\rm load}<1$ の範囲で
 
-~~~math
+```math
 \varepsilon_{\rm sig}(T)
 \le
 \min\left\{
@@ -856,7 +856,7 @@ Z^{67}(t),Z^{37}(t)
 \frac{2q_{\rm load}(T)}
 {1-q_{\rm load}(T)}
 \right\}.
-~~~
+```
 
 ここではR86のcarrier-envelope誤差を加えない。M67からM64へのcompatibilityでは両者が同じbare M37 signalを基準にするためであり、R86誤差はQ3-1でSchrödinger目標へ接続するときだけR210Aで合成する。
 
@@ -992,17 +992,17 @@ b_{64}(X_t^M,t)dt
 
 R210Aはdephasing sectorをoffにしたcoherent/tracer profileに適用する。full M67のsignal依存loadを
 
-~~~math
+```math
 H_R
 =
 H_\rho+H_U+H_{\rm drag}+H_X
-~~~
+```
 
 とまとめる。$H_{U{\rm bath}},H_{\rm drag},H_X$ はcoherent変数へ直接依存せず、signalへの直接backreactionは $H_\rho+H_U$ からだけ生じる。
 
 M37のlocal rotating envelopeを $b$、bare M37 trajectoryを $b^{37}$、full M67 trajectoryを $b^{67}$ とする。M37のsafe narrow-band parameterを
 
-~~~math
+```math
 \eta
 =
 \frac{2\|h_L\|}
@@ -1012,7 +1012,7 @@ M37のlocal rotating envelopeを $b$、bare M37 trajectoryを $b^{37}$、full M6
 \kappa_\eta
 =
 (1-\eta)^{-1/4}
-~~~
+```
 
 とする。R86のBogoliubov normal-envelope変換とその逆の作用素normはともに $\kappa_\eta$ 以下である。
 
@@ -1020,7 +1020,7 @@ M37のlocal rotating envelopeを $b$、bare M37 trajectoryを $b^{37}$、full M6
 
 regularized density portを
 
-~~~math
+```math
 r_X^\delta
 =
 b^\dagger B_X^\delta b,
@@ -1028,33 +1028,33 @@ b^\dagger B_X^\delta b,
 B_X^\delta\ge\beta_\rho I,
 \qquad
 \|B_X^\delta\|\le B_\rho
-~~~
+```
 
 と書く。phase-volume sectorについて
 
-~~~math
+```math
 \mathcal A_\rho
 =
 \sum_\alpha
 w_\alpha
 m_\alpha\omega_\alpha^2
 \lambda_\alpha^2\zeta_\alpha^2
-~~~
+```
 
 と置くと、
 
-~~~math
+```math
 G_\rho
 :=
 \frac{\partial H_\rho}{\partial b^*}
 =
 -\frac{\mathcal A_\rho}{r_X^\delta}
 B_X^\delta b,
-~~~
+```
 
 従って
 
-~~~math
+```math
 \|G_\rho\|
 \le
 \frac{C_\rho\mathcal A_\rho}{\|b\|},
@@ -1062,32 +1062,32 @@ B_X^\delta b,
 C_\rho
 =
 \frac{B_\rho}{\beta_\rho}.
-~~~
+```
 
 edge targetはsafe sectorでdegree-zeroのquadratic ratio
 
-~~~math
+```math
 v_e[b]
 =
 \frac{b^\dagger C_e b}
 {b^\dagger B_e b},
 \qquad
 B_e\ge\beta_eI
-~~~
+```
 
 として表せるものとする。R203Aのregularized local current/density dictionaryはこの形に含まれる。有限定数 $\ell_e$ を
 
-~~~math
+```math
 \left\|
 \frac{\partial v_e}{\partial b^*}
 \right\|
 \le
 \frac{\ell_e}{\|b\|}
-~~~
+```
 
 で取り、
 
-~~~math
+```math
 L_v
 =
 \left(\sum_e\ell_e^2\right)^{1/2},
@@ -1097,19 +1097,19 @@ L_v
 \left[
 \sum_eK_e^2|U_e-v_e|^2
 \right]^{1/2}
-~~~
+```
 
 とすれば、
 
-~~~math
+```math
 \|G_U\|
 \le
 \frac{L_v\Lambda_U}{\|b\|}.
-~~~
+```
 
 従って
 
-~~~math
+```math
 \|G_{67}\|
 \le
 \frac{\mathcal C_{67}}{\|b\|},
@@ -1117,21 +1117,21 @@ L_v
 \mathcal C_{67}
 =
 C_\rho\mathcal A_\rho+L_v\Lambda_U.
-~~~
+```
 
 ### AA.14.2 保存energy shellからの明示上界
 
 $w_{\max}=\max_\alpha w_\alpha$ とする。phase-volume energyから
 
-~~~math
+```math
 \mathcal A_\rho
 \le
 2w_{\max}H_\rho.
-~~~
+```
 
 flow coreについて $A_e=K_e-M_e>0$ と置くと平方完成により
 
-~~~math
+```math
 \frac{P_{Y,e}^2}{2M_e}
 +
 P_{Y,e}U_e
@@ -1146,25 +1146,25 @@ U_e-\frac{K_e}{A_e}v_e
 \right)^2
 -
 c_ev_e^2,
-~~~
+```
 
-~~~math
+```math
 c_e
 =
 \frac{K_eM_e}{2(K_e-M_e)}.
-~~~
+```
 
 $|v_e|\le v_{e,*}$ をsafe regularizationから取り、
 
-~~~math
+```math
 C_{\rm flow}
 =
 \sum_ec_ev_{e,*}^2
-~~~
+```
 
 とする。$V_{\rm ext}\ge V_{\min}$ とし、
 
-~~~math
+```math
 \mathcal E_R
 =
 H_\rho
@@ -1179,18 +1179,18 @@ C_{\rm flow}
 -
 V_{\min}
 \ge0
-~~~
+```
 
 をreservoir excess energyとする。さらに
 
-~~~math
+```math
 \Gamma_K
 =
 \max_e
 \frac{K_e^2}{K_e-M_e},
-~~~
+```
 
-~~~math
+```math
 \Gamma_v
 =
 \left[
@@ -1200,45 +1200,45 @@ V_{\min}
 v_{e,*}
 \right)^2
 \right]^{1/2}
-~~~
+```
 
 なら
 
-~~~math
+```math
 \Lambda_U
 \le
 \sqrt{2\Gamma_K\mathcal E_R}
 +
 \Gamma_v.
-~~~
+```
 
 よって
 
-~~~math
+```math
 \mathcal C_{67}
 \le
 a\mathcal E_R+b\sqrt{\mathcal E_R}+c,
-~~~
+```
 
-~~~math
+```math
 a=2C_\rho w_{\max},
 \qquad
 b=L_v\sqrt{2\Gamma_K},
 \qquad
 c=L_v\Gamma_v.
-~~~
+```
 
 M67 loadはglobal carrier phaseに不変で、
 
-~~~math
+```math
 H_R[e^{i\theta}b]=H_R[b],
 \qquad
 \{b^\dagger b,H_R\}=0.
-~~~
+```
 
 従って $O(\omega_0N_0)$ のcommon carrier energyとは直接energy交換せず、M37 slow spatial couplingだけが $\mathcal E_R$ を変化させる。複素正準normの保守的評価として
 
-~~~math
+```math
 |\dot{\mathcal E}_R|
 \le
 \Omega_h
@@ -1249,21 +1249,21 @@ a\mathcal E_R+b\sqrt{\mathcal E_R}+c
 \Omega_h
 =
 \frac{4\|h_L\|}{\mathcal J_0}.
-~~~
+```
 
 任意の $\epsilon>0$ に対し
 
-~~~math
+```math
 A_\epsilon=a+\epsilon,
 \qquad
 B_\epsilon
 =
 c+\frac{b^2}{4\epsilon}
-~~~
+```
 
 と置けば、
 
-~~~math
+```math
 \mathcal E_R(t)
 \le
 \mathcal E_{R,*}(T)
@@ -1276,11 +1276,11 @@ c+\frac{b^2}{4\epsilon}
 e^{\Omega_hA_\epsilon T}
 -
 \frac{B_\epsilon}{A_\epsilon}.
-~~~
+```
 
 したがって
 
-~~~math
+```math
 \mathcal C_{67}(t)
 \le
 C_{210}(T)
@@ -1290,7 +1290,7 @@ a\mathcal E_{R,*}(T)
 b\sqrt{\mathcal E_{R,*}(T)}
 +
 c.
-~~~
+```
 
 prepared reservoir shell $\mathcal E_R(0)=O(1)$ を $N_0$ と独立に取れば $C_{210}(T)=O(1)$ である。
 
@@ -1299,13 +1299,13 @@ prepared reservoir shell $\mathcal E_R(0)=O(1)$ を $N_0$ と独立に取れば 
 
 上のsafe regularization、$K_e>M_e$、$\eta<1$、有限prepared reservoir shellを仮定し、
 
-~~~math
+```math
 N_0=\|b_0\|^2
-~~~
+```
 
 とする。同じ $b_0$ から始めるfull M67とbare M37について、
 
-~~~math
+```math
 N_0
 \ge
 \frac{
@@ -1313,20 +1313,20 @@ N_0
 }{
 \mathcal J_0(1-\eta)^{3/2}
 }
-~~~
+```
 
 ならbootstrapが閉じ、
 
-~~~math
+```math
 q_{\rm load}(T)
 :=
 \sup_{t\le T}
 \frac{\|b^{67}(t)-b^{37}(t)\|}{\sqrt{N_0}}
 \le
 \varepsilon_{\rm load}^{67}(T),
-~~~
+```
 
-~~~math
+```math
 \varepsilon_{\rm load}^{67}(T)
 =
 \frac{
@@ -1334,23 +1334,23 @@ q_{\rm load}(T)
 }{
 \mathcal J_0N_0(1-\eta)
 }.
-~~~
+```
 
 prepared energy shellを固定したfamilyでは $\varepsilon_{\rm load}^{67}=O(N_0^{-1})$ である。
 
 R86のbare M37からSchrödinger目標 $b_L$ への既存有限時間相対誤差を $\varepsilon_{86}(T)$ とすると、
 
-~~~math
+```math
 q_{210}(T)
 =
 \kappa_\eta\varepsilon_{86}(T)
 +
 \varepsilon_{\rm load}^{67}(T).
-~~~
+```
 
 $q_{210}<1$ なら
 
-~~~math
+```math
 d_{\rm ray}
 \left(
 b^{67}(t),b_L(t)
@@ -1361,15 +1361,15 @@ b^{67}(t),b_L(t)
 \frac{2q_{210}(T)}
 {1-q_{210}(T)}
 \right\}.
-~~~
+```
 
 自然時間でR86の $\varepsilon_{86}=O(\eta)$ を用いれば
 
-~~~math
+```math
 q_{210}
 =
 O(\eta)+O(N_0^{-1}).
-~~~
+```
 <!-- theorem-end:theorem -->
 
 <!-- theorem-start:proof -->
@@ -1384,7 +1384,7 @@ R86のBogoliubov normal-envelope座標ではbare M37 propagatorはunitaryであ�
 
 M37 exact normal modesの先頭有限 $K$ 個について
 
-~~~math
+```math
 I_n
 =
 \mathcal J_0|c_n|^2,
@@ -1392,11 +1392,11 @@ I_n
 H_{\rm coh}^{(K)}
 =
 \sum_{n=1}^{K}\omega_nI_n
-~~~
+```
 
 とする。有限環境正準対を $(\theta_n,P_n)$ とし、
 
-~~~math
+```math
 f(P)
 =
 p_*
@@ -1408,11 +1408,11 @@ p_*
 |f(P)|\le p_*,
 \qquad
 f(\pm p_*)=\pm p_*
-~~~
+```
 
 を用いる。
 
-~~~math
+```math
 H_{\rm deph,add}^{67}
 =
 \sum_{n=1}^{K}
@@ -1428,30 +1428,30 @@ H_{\rm profile}^{\rm deph}
 H_{\rm coh}
 +
 H_{\rm deph,add}^{67}.
-~~~
+```
 
 <!-- theorem-start:theorem -->
 **定理（R210B：M67 bounded finite-dephasing embedding）**
 
-~~~math
+```math
 \omega_{\min}
 :=
 \min_{1\le n\le K}\omega_n
 >
 \frac{|\lambda|p_*}{\mathcal J_0}
-~~~
+```
 
 なら $H_{\rm profile}^{\rm deph}$ は全位相空間で下に有界である。さらに $\theta_n$ とmodal angleはHamiltonian中に現れないため
 
-~~~math
+```math
 \dot I_n=0,
 \qquad
 \dot P_n=0.
-~~~
+```
 
 開始面で各 $P_n=\pm p_*$ を独立等重みに調製し環境を読まなければ、$n\ne m$ の縮約相関は厳密に
 
-~~~math
+```math
 C_{nm}^{67}(t)
 =
 C_{nm}(0)
@@ -1460,11 +1460,11 @@ e^{-i(\omega_n-\omega_m)t}
 \left(
 \frac{\lambda p_*t}{\mathcal J_0}
 \right),
-~~~
+```
 
 対角成分は $C_{nn}(t)=C_{nn}(0)$ となる。従って
 
-~~~math
+```math
 T_{\rm dec}
 =
 \frac{\pi\mathcal J_0}{2|\lambda|p_*},
@@ -1472,7 +1472,7 @@ T_{\rm dec}
 T_{\rm rec}
 =
 2T_{\rm dec}.
-~~~
+```
 
 R123との差はdephasing factorではなく、M37 exact normal-mode差 $\mathcal J_0(\omega_n-\omega_m)$ とSchrödinger低位energy差の既存R86/R182誤差だけである。よってR123有限環境はM67 structured reservoir内部のbounded dephasing profileとして実装でき、新しい第三物理実体を要求しない。
 <!-- theorem-end:theorem -->
@@ -1482,7 +1482,7 @@ R123との差はdephasing factorではなく、M37 exact normal-mode差 $\mathca
 
 $|f(P_n)|\le p_*$ から
 
-~~~math
+```math
 \omega_nI_n
 +
 \frac{\lambda}{\mathcal J_0}I_nf(P_n)
@@ -1492,7 +1492,7 @@ $|f(P_n)|\le p_*$ から
 \frac{|\lambda|p_*}{\mathcal J_0}
 \right)I_n
 \ge0.
-~~~
+```
 
 bath kinetic energyも非負なので下界を得る。$I_n,P_n$ はそれぞれの共役angleがcyclicなため保存される。prepared pointsでは $f(P_n)=\pm p_*$ なので、独立二点分布に対する二つのmodal phase factorの平均は $\cos^2(\lambda p_*t/\mathcal J_0)$ となる。証明終。
 <!-- theorem-end:proof -->

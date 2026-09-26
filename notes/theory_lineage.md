@@ -212,14 +212,14 @@ R209CではM67固有のcompatibility errorとM64自身のR203C baseline errorを
 
 draft-137/138でcandidateとして追加・定量化したM67/R208--R209へR210A/R210Bを加え、Q3-1--Q3-5のphysical dependencyをM67起点へ切り替えた。
 
-~~~text
+```text
 M67
   ├─ R210A -> M37/R86                 : Q3-1 coherent signal
   ├─ R210B -> R123 (+ R182)           : Q3-3A/B/C dephasing
   └─ R208/R209 -> M64/R203
                    ├─ R161/R185       : Q3-2
                    └─ R124/R182/R125  : Q3-4A/B, Q3-5
-~~~
+```
 
 M37、M64、R123は削除せず、それぞれactive module/effective resultとして再分類する。Q3-6はM67 coherent sector上の未達課題、M0とQ1/Q2統合は別課題である。
 
