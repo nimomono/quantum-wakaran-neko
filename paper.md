@@ -10052,7 +10052,7 @@ Q2-1/Q2-3/Q2-4のterminal計算基底分布は、このbinary treeを一般深�
 
 # M54段階的射影選別と測定後状態受渡し
 
-> **位置づけ：** R181Dを上流binary selectorの物理実装から独立な共通projector-router定理として定式化する。現行fixed-goalではQ1逐次測定とQ2-2 A端--B端handoffに用い、Q2-1/Q2-3/Q2-4のterminal readoutはM66/R206へ移す。
+> **位置づけ：** R181Dを上流binary selectorの物理実装から独立な共通projector-router定理として定式化する。現行fixed-goalではQ1逐次測定に用いる。Q2-2は付録WのM66/R205--R207、Q2-1/Q2-3/Q2-4のterminal readoutはM66/R206を用いる。
 
 
 ## 目的と節点状態
@@ -10147,7 +10147,7 @@ M65/R204D--R204Eを使う場合は、
 
 と取れる。M65内部rateや無反応hub誤差はM65側の誤差台帳に含める。
 
-Q1およびQ2-2 fixed-goal witnessにはM65を使う。
+Q1 fixed-goalのbinary witnessにはM65を使う。
 
 ## 結果固定後の可逆projector router
 
@@ -10331,7 +10331,7 @@ P.2が完全結果核と安全作用下限、P.3が結果固定後の1対1な経
 
 ## 適用境界と反証条件
 
-R181Dは、結果固定後に非規格化射影成分を同じ試行の次操作へ渡す必要がある場合だけ使う。現行fixed-goalではQ1逐次測定とQ2-2のA端--B端handoffがこれに当たる。Q2-1/Q2-3/Q2-4はterminal M66/R206 samplerへ移行し、R181Dを結果標本化の一般treeとして使わない。
+R181Dは、結果固定後に非規格化射影成分を同じ試行の次操作へ渡す必要がある場合だけ使う。現行fixed-goalではQ1逐次測定がこれに当たる。Q2-2は付録WのM66/R205--R207を用い、R181DによるA端--B端handoffを必要としない。Q2-1/Q2-3/Q2-4はterminal M66/R206 samplerへ移行し、R181Dを結果標本化の一般treeとして使わない。
 
 次のいずれかが避けられなければR181Dの主張は成立しない。
 
@@ -12890,14 +12890,14 @@ A1/A2は固定目標とは独立に判定する。本昇格だけからA1/A2の�
 
 # M65 binary selector
 
-> **位置づけ：** M65/R204はQ1およびQ2-2の逐次binary instrument正本とする。M66/R205--R206のQ2 terminal multi-outcome readoutは付録Xへ分離する。
+> **位置づけ：** M65/R204はQ1の逐次binary instrument正本とする。Q2-2は付録WのM66/R205--R207、Q2 terminal multi-outcome readoutは付録XのM66/R206を用いる。
 
 
 ## 目的と責務境界
 
 M65は、二結果直交射影に対して上流が保持した二作用から排他的な古典結果を作る最小open selectorである。複素信号そのものを再読出しせず、capture終了後に固定された二作用だけを入力とする。
 
-M65/R204D--R204FをQ1とQ2-2のfixed-goal binary witnessへ採用する。R181Dは結果固定後のpost-state routerとしてQ1/Q2-2でM65へ接続し、R179はQ2-2および全周期renewal側のopen resetとして残す。Q2-1/Q2-3/Q2-4のterminal readoutには付録XのM66/R206を採用する。旧R191/R193はM65へ責務を吸収した退役研究線としてnotes/Git履歴へ保存する。
+M65/R204D--R204FをQ1のfixed-goal binary witnessへ採用する。R181Dは結果固定後のpost-state routerとしてQ1でM65へ接続し、R179は全周期reset/renewal側の一般部品として残す。Q2-2には付録WのM66/R205--R207を採用する。Q2-1/Q2-3/Q2-4のterminal readoutには付録XのM66/R206を採用する。旧R191/R193はM65へ責務を吸収した退役研究線としてnotes/Git履歴へ保存する。
 
 M65の正本は開放3状態Markov過程そのものである。固定chamber、phase-volume oscillator、調和bath、Fick--Jacobs縮約は正本の定義ではなく、R204B/R204Cに置く追加の物理実現・Hamiltonian liftである。
 

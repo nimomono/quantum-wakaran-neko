@@ -1,13 +1,13 @@
 @number: Z
 @chapter: 付録
 @title: M65 binary selector
-@status: M65/R204はQ1およびQ2-2の逐次binary instrument正本とする。M66/R205--R206のQ2 terminal multi-outcome readoutは付録Xへ分離する。
+@status: M65/R204はQ1の逐次binary instrument正本とする。Q2-2は付録WのM66/R205--R207、Q2 terminal multi-outcome readoutは付録XのM66/R206を用いる。
 
 ## Z.1 目的と責務境界
 
 M65は、二結果直交射影に対して上流が保持した二作用から排他的な古典結果を作る最小open selectorである。複素信号そのものを再読出しせず、capture終了後に固定された二作用だけを入力とする。
 
-M65/R204D--R204FをQ1とQ2-2のfixed-goal binary witnessへ採用する。R181Dは結果固定後のpost-state routerとしてQ1/Q2-2でM65へ接続し、R179はQ2-2および全周期renewal側のopen resetとして残す。Q2-1/Q2-3/Q2-4のterminal readoutには付録XのM66/R206を採用する。旧R191/R193はM65へ責務を吸収した退役研究線としてnotes/Git履歴へ保存する。
+M65/R204D--R204FをQ1のfixed-goal binary witnessへ採用する。R181Dは結果固定後のpost-state routerとしてQ1でM65へ接続し、R179は全周期reset/renewal側の一般部品として残す。Q2-2には付録WのM66/R205--R207を採用する。Q2-1/Q2-3/Q2-4のterminal readoutには付録XのM66/R206を採用する。旧R191/R193はM65へ責務を吸収した退役研究線としてnotes/Git履歴へ保存する。
 
 M65の正本は開放3状態Markov過程そのものである。固定chamber、phase-volume oscillator、調和bath、Fick--Jacobs縮約は正本の定義ではなく、R204B/R204Cに置く追加の物理実現・Hamiltonian liftである。
 

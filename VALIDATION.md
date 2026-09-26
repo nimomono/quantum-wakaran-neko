@@ -1,3 +1,12 @@
+## 付録P/ZのQ2-2旧依存記述修正：検算
+
+- `python tools/check_source.py`、`python tools/check_project_consistency.py`：成功。`python tools/check_terminology.py`：成功、旧説明語のwarning 587件。
+- `python tools/verify_m65_open_selector.py`、`python tools/verify_r181d_projector_tree.py`：成功。数式・定理の変更なし。
+- `python tools/build_paper.py` と `python tools/build_paper.py --output-dir build/q1-appendices-check` を実行し、`python tools/check_generated.py build/q1-appendices-check`：成功。
+- `python tools/check_latex_semantics.py build/latex/main.log`：成功。`python tools/lint_typeset.py build/latex/main.log`：hard finding 0、warning 13件（overfull 2、underfull 11、最大3.003 pt）。
+- PDF全ページを画像化し、表紙・目次・変更ページ（物理ページ174、175、177、214）と隣接215ページを目視確認。変更箇所の欠落・重なり・切れなし。
+- `git diff --check`：成功。READMEとPROJECT_STATUSは現行Q1/Q2-2責務に整合しているため変更不要。
+
 ## draft-139：M67 Q3 physical-parent promotion検算
 
 - R210Aをrequired theorem/checkとして追加し、flow平方完成、reservoir excess-energy shell、Gronwall bound、$N_0^{-1}$ load scaling、R86との誤差分離を検査する。
