@@ -124,6 +124,6 @@ M66/R205A--R205Fはphase-volume、mean-flow、thermal sampling、passive separat
 
 この共通化だけではA1/A2/B1--B3状態を変更しない。Q2-4ではR186のcoherent register additive-noise障害を独立に維持する。
 
-### M67/R208 二実体Hamiltonian candidate
+### M67/R208--R209 二実体Hamiltonian candidate
 
-M67/R208A--R208Dは、M64で直接定めたopen Q3 lawをfinite Hamiltonian parentから回収する候補として管理する。Q3-1-A1/Q3-2-A1の公式判定は本追加だけでは変更しない。Q3-1-A2/Q3-2-A2は未監査のままとし、simulations/m67/ の縮約witnessやcandidate verifierはfull finite-bath trajectoryの代替に数えない。B1--B3、M0の現在地も変更しない。
+M67/R208A--R208DはM64で直接定めたopen Q3 lawをfinite Hamiltonian parentから回収する構造を与え、R209A--R209Cはlocal flow、finite harmonic bath、small-mass/process metricを明示誤差付きでM64へ接続する。draft-138ではfull finite-Hamiltonian compatibility witnessも追加するが、Q3 fixed-goal直接依存へは採用せず、Q3-1-A1/Q3-2-A1の公式判定は変更しない。Q3-1-A2/Q3-2-A2は未監査のままとし、direct witnessはA2 promotion testには数えない。B1--B3、M0の現在地も変更しない。
