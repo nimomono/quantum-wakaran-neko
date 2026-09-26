@@ -41,20 +41,7 @@ draft-129でR205C--R205Fの解析・generator回帰もrequired checksへ加え�
 - `verify_r194_brownian_spin_nelson.py`：M56/R194のBrownian-spin/Nelson接続を検査する代替研究線。
 - M56/R194は現行fixed-goal主線の必須依存ではないためcandidate-onlyとし、通常required CIには含めない。
 
-## M67/R208 two-entity Hamiltonian candidate
+## M67/R208--R209 promotion history
 
-- verify_m67_two_entity_hamiltonian.py — R208Aのflow/material-frame quadratic lower bound。
-- verify_r208_phase_volume_backreaction.py — R208Bのphase-volume fluctuationと $N_0^{-1}$ relative backreaction scaling。
-- verify_r208_local_moving_bath.py — R208Cのlocal tight frame、constant friction、FDT covariance。
-- verify_r208_m64_reduction.py — R208Dのflow trackingとfinite-time timescale window。
+draft-137/138ではM67/R208A--R209Cをcandidate-onlyとしてこのdirectoryで検査した。draft-139でM67をQ3 common physical parentへ昇格したため、対応する7本のverifierは tools/verify_*.py へ移動し通常required CIへ昇格した。R210A/R210Bもrequired verifierとして tools/ 直下に置く。
 
-draft-137では全てcandidate-onlyであり、M64 required checksやQ3 fixed-goal根拠を置換しない。
-
-
-## R209 M67→M64 compatibility
-
-- `verify_r209a_local_flow_compatibility.py` — same-target flow bridge、局所partitionの $O(a^2)$ 補間、material-frame recoilの責務分離を検査する。
-- `verify_r209b_finite_bath_markov_fdt.py` — Drude short-memory scaling、finite recurrence window、tight-frame constant friction/FDT、zero Stratonovich correctionを検査する。
-- `verify_r209c_process_compatibility.py` — synchronous small-mass couplingの $O(\sqrt{M_X})$ scalingと、M67固有誤差をM64 baseline errorへ二重計上しないことを検査する。
-
-draft-138でもR209A--R209Cはcandidate-onlyであり、required fixed-goal verifierへ昇格しない。

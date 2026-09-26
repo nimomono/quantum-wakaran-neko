@@ -126,7 +126,7 @@ M64/R203A--R203Dを現行Q3 particle/Nelson open modelへ昇格したため、M6
 | 結果 | 旧用途 | 現行の扱い | 参照先 |
 |---|---|---|---|
 | R195A、R196A--R196C | chiral current、moving reflector、GLE/homogenization、metastable R161 transport | M64/R203A--R203Dへ置換 | draft-98--draft-111 Git履歴 |
-| R197、R197A--R197C | M37 signalとM60 particleの共通模型・負荷安定性 | Q3-1はM37/R86、Q3-2はM64へ責務分離 | draft-101 Git履歴 |
+| R197、R197A--R197C | M37 signalとM60 particleの共通模型・負荷安定性 | M67/R210AがQ3 coherent parent責務を引継ぎ、M37/R86はactive coherent module。particle側はM67→M64/R203 effective reductionへ統合 | draft-101、draft-139 Git履歴 |
 | R198A--R198D | Duffing 2-action shell、有限reservoir、mixing window | M64/R203Bのphase-volume reservoirへ置換 | draft-102--draft-111 Git履歴 |
 | R199A、R199B | chiral-medium core/ballistic lead同時windowと統合強化 | 現行固定主線から退役 | draft-103--draft-111 Git履歴 |
 | R200A--R200C、R200 | M61 single-Hamiltonian parentからM60への持上げ | finite-Hamiltonian liftの旧強化経路として退役 | draft-105--draft-111 Git履歴 |
@@ -166,3 +166,6 @@ M64/R203A--R203Dを現行Q3 particle/Nelson open modelへ昇格したため、M6
 | R180B | 選択branchから2翼テンプレートをpaired-Hopfで再準備 | 現在はA端M65の非規格化branchをrouterでB端へ直接受渡し | `superseded_q2_2_paired_hopf_receiver.md`, `superseded_A9_paired_hopf_receiver.md` |
 
 これらは反証ではなく責務縮約による退役である。固定Q1/Q2の誤差予算と必須依存には含めない。
+
+draft-139ではM37およびM64を完全退役扱いにしない。M37はQ3 standalone parent責務をM67/R210Aへ移管したactive coherent module、M64はstandalone三実体physical ontologyをM67へ移管したactive canonical open effective modelとして維持する。R123もR210Bのbounded physical liftから回収されるactive effective dephasing lawである。
+

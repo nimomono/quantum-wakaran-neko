@@ -109,3 +109,8 @@ check_draft137_m67_r208_candidate.py は、A27/付録AAのM67/R208A--R208D、can
 ## draft-138 M67→M64 compatibility
 
 `check_draft138_m67_m64_compatibility.py` は、A27/付録AAのR209A--R209C、candidate verifier、full compatibility witness、PROJECT_STATUS登録を確認する。同時にM67がcandidate、M64が現行Q3 open modelのまま、Q3-2 fixed-goal直接依存がR86/R161/R185/R203A--R203Dのまま、Q3-1-A2/Q3-2-A2が未監査、M0とM54/M65/M66の運用状態が不変であることを確認し、PR3のpromotion/retirementを先取りしない。
+
+## draft-139 M67 Q3 physical-parent promotion
+
+check_draft139_m67_q3_parent_promotion.py は、M67がcandidateからQ3-1--Q3-5のcommon physical parentへ昇格し、R210A/R210Bが登録され、M37がcoherent module、M64がopen effective reduction、R123がR210B physical liftのeffective lawとして維持されることを確認する。R208A--R209C verifierがrequired側へ移動しcandidate側から消えたこと、Q3-6未達、A1/A2/B1--B3、M0、Q1/Q2、M54/M65/M66、R186が不変であることも検査する。
+
