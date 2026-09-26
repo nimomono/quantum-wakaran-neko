@@ -1,3 +1,9 @@
+## draft-138：M67→M64 Q3 compatibility正式化
+
+- R209A--R209Cを追加し、M67 local flow、finite harmonic flow/drag bath、small-mass tracerをcanonical M64/R203へ有限時間・明示誤差付きで接続した。
+- M67固有の $\varepsilon_{67\to64}$ と既存M64 baseline $\varepsilon_{\rm red}^{64}$ を分離し、R203A/R203Bのflow tracking・$a^2$ interpolation・density interpolationを二重計上しない誤差台帳へ更新した。
+- candidate verifier 3本とfull finite-Hamiltonian compatibility witnessを追加した。M67はcandidate、M64は現行Q3 open modelのままとし、fixed-goal直接依存、達成ラベル、A1/A2/B1--B3、M0、M54/M65/M66、R186は変更していない。
+
 ## draft-137：M67/R208 二実体Hamiltonian統合候補
 
 - M67をstructured reservoir＋classical markerの二実体finite-Hamiltonian parent candidateとして新設し、R208A--R208Dで二実体構成、phase-volume osmotic force/backreaction、local moving finite bath/GLE/FDT、M64への有限時間縮約を整理した。

@@ -630,16 +630,128 @@ B_{\rm p}e^{-\gamma_{\rm p}T_{\rm p}}
 
 M66/R206はreader側の逐次小branch、R181D tree、非終端作用下限問題を避けるが、R186のdirect-amplitude registerへ入る独立additive noiseは解消しない。従ってQ2-4の条件付き達成を維持する。
 
-## 8.16 M67 candidateの誤差窓
+## 8.16 M67からM64へのcandidate compatibilityの誤差窓
 
-M67/R208では、coherent envelope誤差、phase-volume fluctuation $O(N_\rho^{-1/2})$、state-direction backreaction $O(N_0^{-1})$、flow tracking、local interpolation、finite-memory、finite-spectrum recurrence、overdamped縮約を別々に管理する。基本窓は
+M67/R208--R209では、M67固有のfinite-Hamiltonian誤差と、M64/R203がすでに持つbaseline errorを分離する。まず
 
 ```math
-\max(\tau_{\rm mem},\tau_U,M_X/\gamma,\tau_{\rho,\rm mix})
+\mathrm{M67\ finite\ Hamiltonian}
+\xrightarrow{\ \varepsilon_{67\to64}\ }
+\mathrm{M64\ canonical\ open\ process}
+\xrightarrow{\ \varepsilon_{\rm red}^{64}\ }
+\mathrm{ideal\ regularized\ diffusion}.
+```
+
+と責務を分ける。
+
+M67固有のprocess compatibility errorは概念的に
+
+```math
+\varepsilon_{67\to64}(T)
+=
+\varepsilon_{\rm bath}(T)
++
+\varepsilon_{\rm od}(T)
++
+\varepsilon_{H,U}^{\rm det}
++
+\varepsilon_Y
++
+\varepsilon_{U,{\rm th}}
++
+\varepsilon_{\rho,{\rm fluc}}(T)
++
+L_{\rm sig}\varepsilon_{\rm sig}(T)
++
+\varepsilon_{\rm init}^{67\to64}
+```
+
+とする。ここでfinite-bath Markov/FDT、small-mass、material-frame recoil、finite-$N_\rho$ phase-volume fluctuation、coherent signal backreactionを一度ずつ数える。
+
+一方M64自身のbaseline drift errorは既存どおり
+
+```math
+\varepsilon_{\rm drift}^{64}
+=
+\varepsilon_U
++
+\nu\varepsilon_{\rho,1},
+```
+
+```math
+\varepsilon_U
+=
+\varepsilon_{\rm track}
++
+C_{\rm int}a^2
+\|\partial_x^2v_\delta\|_\infty
+```
+
+であり、
+
+```math
+\varepsilon_{\rm red}^{64}(T)
+=
+e^{L_bT}
+\varepsilon_{\rm prep}^{W_1}
++
+\frac{e^{L_bT}-1}{L_b}
+\varepsilon_{\rm drift}^{64}
+```
+
+を維持する。従って $\varepsilon_A$、$\tau_UM_q$、$a^2$ flow interpolation、$\nu\varepsilon_{\rho,1}$ を $\varepsilon_{67\to64}$ へ再加算しない。
+
+R209Cの合成評価は
+
+```math
+W_1
+\left(
+\mathcal L(X_t^{67}),
+\rho_\delta(t)
+\right)
+\le
+C_T\varepsilon_{67\to64}(T)
++
+\varepsilon_{\rm red}^{64}(T)
+```
+
+と読む。R185の時間対称Newton残差はprocess-law metricと次元が異なるため、従来どおりこの式へ単純加算しない。
+
+時間尺度はflow tracking time $\tau_U=\gamma_U/K_U$、flow-bath memory $\theta_U$、drag-bath memory $\theta_X$、inertial time $M_X/\gamma$ を区別する。基本窓は
+
+```math
+\max
+\left(
+\theta_U,
+\theta_X,
+\tau_U,
+M_X/\gamma,
+\tau_{\rho,\rm mix}
+\right)
 \ll
 T_{\rm obs}
 \ll
-\min(T_{\rm rec},T_{\rm back})
+\min
+\left(
+T_{\rm rec},
+T_{\rm back}
+\right).
 ```
 
-である。M67追加だけからA1/A2/B1--B3またはM0の判定を変更しない。
+finite spectrumでは $T_{\rm rec}\sim2\pi/\Delta\omega$ とし、$T_{\rm obs}<T_{\rm rec}$ を保つ。R209Bのnoise convergenceは積分Gaussian過程のpath lawで管理し、pointwise white-noise誤差として数えない。tight-frame identity $\sum_cg_c^2=1$ によりwhite-noise極のStratonovich correctionは0である。
+
+small-mass誤差はMaxwell prepared velocityに対して
+
+```math
+\varepsilon_{\rm od}(T)
+=
+O(M_X/\gamma)
++
+O\left(
+\sqrt{M_Xk_BT}/\gamma
+\right)
+```
+
+であり、主要項は $O(\sqrt{M_X})$ である。coherent backreactionはfixed finite timeで $\varepsilon_{\rm sig}=O(N_0^{-1})+\varepsilon_{\rm env}$、phase-volume force fluctuationは $O(N_\rho^{-1/2})$ と管理する。
+
+M67/R209 compatibilityの追加だけからA1/A2/B1--B3、fixed-goal達成、M0の判定を変更しない。

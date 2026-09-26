@@ -104,3 +104,8 @@
 ## draft-137 M67/R208 candidate
 
 check_draft137_m67_r208_candidate.py は、A27/付録AAのM67/R208A--R208D、candidate verifier、M67 simulation入口、PROJECT_STATUS登録を確認する。同時にQ3 fixed-goalがM37/R86→M64/R203A--R203D→R161/R185のまま、M64/M65/M66/M54の現行責務、A1/A2/B1--B3、M0、R186判定が維持され、promotion/retirementやQ1/Q2/NBL正本化を先取りしていないことをPR固有に検査する。
+
+
+## draft-138 M67→M64 compatibility
+
+`check_draft138_m67_m64_compatibility.py` は、A27/付録AAのR209A--R209C、candidate verifier、full compatibility witness、PROJECT_STATUS登録を確認する。同時にM67がcandidate、M64が現行Q3 open modelのまま、Q3-2 fixed-goal直接依存がR86/R161/R185/R203A--R203Dのまま、Q3-1-A2/Q3-2-A2が未監査、M0とM54/M65/M66の運用状態が不変であることを確認し、PR3のpromotion/retirementを先取りしない。

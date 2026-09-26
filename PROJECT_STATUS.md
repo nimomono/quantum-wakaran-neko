@@ -1,3 +1,9 @@
+## draft-138：M67→M64 Q3 compatibility正式化
+
+- R209A--R209Cを追加し、M67 local flow、finite harmonic bath、small-mass/process lawをM64/R203へ明示誤差付きで接続する。R209CではM67固有の $\varepsilon_{67\to64}$ と既存M64 baseline $\varepsilon_{\rm red}^{64}$ を分離し、二重計上を避ける。
+- `simulations/m67/run_full_compatibility_witness.py` を追加し、coherent signal、phase-volume、finite flow/drag bath、moving material frame、tracerを一つの有限Hamiltonian ODEで同時積分するdirect witnessを置く。
+- 現行Q3 fixed-goal主線 M37/R86→M64/R203A--R203D→R161/R185、M64の運用状態、M67 candidate分類、Q1/Q2/Q3達成ラベル、A1/A2/B1--B3、M0、M54/M65/M66、R186判定は変更しない。M67 promotionとM64退役は後続PRへ分離する。
+
 ## draft-137：M67/R208 二実体Hamiltonian統合候補
 
 - M67を構造化熱浴 $\mathcal R_{\rm str}$ とclassical marker $\mathcal X$ の二つの物理sectorからなるfinite-Hamiltonian parent candidateとして追加する。R208A--R208Dは二実体構成、phase-volume osmotic forceと $O(N_0^{-1})$ backreaction、local moving finite bathのGLE/FDT、M64 Q3 lawへの有限時間縮約を担う。
@@ -460,7 +466,7 @@ M0はこれらの共通化より強い。M54/M66を共有していても、同�
 | M64 | Q3共通open model | 現行Q3 particle/Nelson実装 | M37 signal、一つのclassical tracer、一つのsignal-driven thermal reservoirからなる三実体模型。R203A--R203Dでcontinuous profileとfinite-graph profileをR161/R185およびR124/R182/R125へ接続する。Hamiltonian lift、finite bath、underdamped lift、連続空間一様極限、多粒子、全周期clock/record統合は強化課題 |
 | M65 | Q1 binary canonical open selector | 現行Q1逐次fixed-goal正本模型 | 保持済み二作用を線形rateへ入れる $+,H,-$ の3状態連続時間Markov pointer。R204Dでfinite-time Born、R204Eでbinary selector contract、R204FでQ1 interface/latencyを与える。R204B/R204Cのphase-volume chamber/Hamiltonian liftは強化実現 |
 | M66 | common thermal-reservoir parent model | 共通reservoir interface。現行fixed-goalでQ2-1/Q2-3/Q2-4はR206、Q2-2はR207へ直接specializeする | R205A--R205Fでphase-volume、mean-flow、matched capacity--conductance、thermal Gibbs sampling、passive separationを共通化する。R203Bのreservoir sectorはR205C、R204Bのchamber realizationはR205Dへ埋め込むが、M64/M65のwhole-modelは置換しない |
-| M67 | 二実体finite-Hamiltonian parent candidate | Q3の上位parent候補。fixed-goal直接依存には未採用 | 一つのstructured reservoir内にcoherent/phase-volume/flow/drag sectorを置き、別実体はclassical markerだけとする。R208A--R208DでM64 open lawへの有限時間縮約を与える。Q1/Q2/NBL、M0、既存模型退役は未主張 |
+| M67 | 二実体finite-Hamiltonian parent candidate | Q3の上位parent候補。fixed-goal直接依存には未採用 | 一つのstructured reservoir内にcoherent/phase-volume/flow/drag sectorを置き、別実体はclassical markerだけとする。R208A--R208Dでstructural bridge、R209A--R209Cでlocal-flow・finite-bath・finite-time process compatibilityを明示誤差付きで与える。Q1/Q2/NBL、M0、既存模型退役は未主張 |
 
 M50はM54の静的状態構成へ、M55はM54空間状態構成へ吸収した。M56はspin-only Q3代替研究線とし現行達成根拠へ使わない。M60/M61とそれ以前のM57/M59は旧Q3 Hamiltonian実装として現行主線から退役し、Git履歴へ保存する。旧状態方向準備、旧作用殻型Q1/Q2測定経路、旧2端再準備は現行必須依存から外し、退役索引と研究メモへ保存する。
 
@@ -587,6 +593,9 @@ M0は、個別のA1模型を並べるだけでは達成としない。少なく�
 | R208B | candidate partition/backreaction結果 | phase-volume Jacobianからosmotic mean forceを得て、finite-$N_\rho$ fluctuationとcoherent action $N_0$ に対する $O(N_0^{-1})$ 状態方向backreactionを分離する |
 | R208C | candidate finite-bath縮約結果 | compact local tight frameとfinite harmonic bathからrelative memory friction、finite-bath FDT、Markov極の $-\gamma(V-U_X)+\xi$ を導く |
 | R208D | candidate finite-time bridge | M67をM64/R203C型regularized diffusionへ有限時間縮約し、同じ $\rho_\delta,J_\delta$ をR203D→R161/R185へ渡す。fixed-goal直接依存には未採用 |
+| R209A | candidate明示誤差付きcompatibility | M67 fast-bath mean flowとcanonical M64 mean-flow lawが同じedge target $c_Jr_e$ を共有することを示し、finite-Hamiltonian flow residualとmaterial-frame recoilをM64 baseline errorから分離する |
+| R209B | candidate finite-bath/FDT結果 | finite harmonic flow/drag bathのexact memory kernelとFDT、Drude short-memory・finite-spectrum・recurrence誤差、tight-frameによる一定frictionとzero Stratonovich correctionを定量化する |
+| R209C | candidate finite-time process compatibility | M67 finite-Hamiltonian tracer→Markov underdamped→M64 overdampedのsmall-mass縮約を $W_1$ で合成し、M67固有 $\varepsilon_{67\to64}$ と既存 $\varepsilon_{\rm red}^{64}$ を分離する |
 | R185 | 厳密有限格子結果・明示誤差付き近似結果 | 共通の確率分布の時間反転率、$D_\pm$、1次元node-free領域の時間対称Newton則。正則化残差 $O(\delta)$、格子残差 $C_{185,a}a^2$ を有限微分ノルムで明示 |
 | R123 | 厳密結果・数値検証付き | 井戸型・調和型低位束縛状態と有限環境純位相緩和 |
 | R124 | 厳密結果・数値検証付き | 障壁値未満スペクトル支持からの反対側確率増分 |

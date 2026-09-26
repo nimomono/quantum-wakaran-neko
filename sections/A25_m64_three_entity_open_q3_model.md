@@ -493,7 +493,7 @@ U_e(0)=c_Jr_e(0)
 \varepsilon_{\rm track}.
 ```
 
-$c_J=O(a^{-1})$ でもsmooth sectorでは $r_e=O(a)$ なので、必要条件は $\tau_UM_q\ll1$ であり $\tau_U=o(a)$ ではない。
+$c_J=O(a^{-1})$ でもsmooth sectorでは $r_e=O(a)$ なので、必要条件は $\tau_UM_q\ll1$ であり $\tau_U=o(a)$ ではない。付録AAのR209Aは、M67 finite-Hamiltonian flow sectorがこのcanonical M64 tracking lawを同じtarget $c_Jr_e$ から明示誤差付きで回収することを示す。
 
 tracer位置のflow interpolationを
 
@@ -654,7 +654,7 @@ L_b
 Gronwall評価と初期couplingの下限を取れば表示した $W_1$ boundを得る。証明終。
 <!-- theorem-end:proof -->
 
-Y.4.1の準備を使えば初期項は $\varepsilon_{\rm prep}$ から制御できる。有限 $\tau_U$ の実M64 tracer自身について時間対称加速度まで直接比較する高階parabolic stabilityはstrengtheningとし、固定Q3-2では次節のcanonical R161 processへ受け渡す。
+Y.4.1の準備を使えば初期項は $\varepsilon_{\rm prep}$ から制御できる。有限 $\tau_U$ の実M64 tracer自身について時間対称加速度まで直接比較する高階parabolic stabilityはstrengtheningとし、固定Q3-2では次節のcanonical R161 processへ受け渡す。付録AAのR209CはこのM64 SDE自体を変更せず、M67 finite-Hamiltonian tracerと本節のcanonical M64 tracerの有限時間 $W_1$ compatibilityを与える。
 
 ## Y.6 R203D：一般finite-graph R161 interface、1D finite volume、R185/R125接続
 

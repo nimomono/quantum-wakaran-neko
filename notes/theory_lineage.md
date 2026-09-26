@@ -189,3 +189,19 @@ M67 / R208A--R208D
 ```
 
 というcandidate branchを追加する。M57--M63の旧single-field探索と異なり、M67は一つのstructured reservoir内でcoherent sectorとthermal sectorの正準分解を許し、別実体をclassical markerだけに限定する。draft-137ではpromotion/retirementを行わない。
+
+
+## draft-138でformalizeしたM67→M64 compatibility
+
+draft-137のcandidate branchを退役・昇格させず、R209A--R209Cで矢印だけを定量化した。
+
+```text
+M67 / R208A--R208D
+  -- R209A local-flow compatibility
+  -- R209B finite-bath Markov/FDT
+  -- R209C finite-time process compatibility
+  - - > M64 / R203A--R203D
+  -> R161 / R185
+```
+
+R209CではM67固有のcompatibility errorとM64自身のR203C baseline errorを別台帳に置く。draft-138終了時点でも現行Q3 fixed-goal主線はM37/R86→M64/R203A--R203D→R161/R185であり、M67はupper-parent candidateのまま、M64は退役しない。promotion/retirementは後続PRで扱う。

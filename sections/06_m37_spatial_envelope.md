@@ -1220,4 +1220,4 @@ R187本体は有限個の静的クエンチで閉じる。各跳躍は $Q,P$ を
 
 ## 6.20 M67上位parent候補との関係
 
-M37/R86はdraft-137後も現行Q3 signal実装である。付録AA/M67はM37のcoherent oscillator sectorを同じstructured reservoirの長寿命collective sectorとして読み替え、phase-volume、flow、dragのthermal sectorと同じfinite Hamiltonianへ置く候補である。R208DがM64/R203C--R203Dを有効極として回収するが、本節のR86やQ3 fixed-goal依存は変更しない。
+M37/R86は現行Q3 signal実装である。付録AA/M67はM37のcoherent oscillator sectorを同じstructured reservoirの長寿命collective sectorとして読み替え、phase-volume、flow、dragのthermal sectorと同じfinite Hamiltonianへ置く候補である。R208Dがstructural bridgeを、R209A--R209Cがfinite-time process compatibilityを与え、coherent backreactionはstate-direction errorとしてM64との比較へ渡す。本節のR86やQ3 fixed-goal依存は変更しない。

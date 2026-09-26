@@ -52,4 +52,4 @@ M65の3状態open selectorはdraft-117で正本へ昇格する。正本lawの数
 
 ## M67 two-entity finite-Hamiltonian candidate
 
-simulations/m67/ はM67/R208A--R208Dのdirect-trajectory強化検証入口である。draft-137では縮約レベルの高速witnessだけを置き、有限bath全自由度を同時積分したA2 full trajectoryは後続課題とする。Q3-1-A2/Q3-2-A2は未監査のまま維持する。
+`simulations/m67/` はM67/R208A--R208D/R209A--R209Cのdirect-trajectory強化検証入口である。draft-138では縮約witnessに加えてfinite flow/drag bathを含む `run_full_compatibility_witness.py` を置き、M67->M64 compatibilityを一つの有限Hamiltonian trajectoryで診断する。これはA2 promotion testではなく、Q3-1-A2/Q3-2-A2は未監査のまま維持する。

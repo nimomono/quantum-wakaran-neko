@@ -1,3 +1,9 @@
+## draft-138：M67→M64 Q3 compatibility正式化
+
+- 付録AA/M67へR209A--R209Cを追加し、local-flow compatibility、finite harmonic bathのMarkov/FDT縮約、finite-time process compatibilityを明示誤差付きで定理化する。
+- `tools/candidate_checks/` にR209 verifier 3本、`simulations/m67/run_full_compatibility_witness.py` に有限Hamiltonian direct witness、`tools/migrations/check_draft138_m67_m64_compatibility.py` にPR固有境界検査を追加する。
+- 第2・6・8・9章、README、PROJECT_STATUS、ENHANCEMENT_TARGETS、VALIDATION、simulation/candidate/migration README、theory lineageを同期する。M67 promotion、M64 retirement、fixed-goal直接依存・達成ラベル、A1/A2/B1--B3、M0、M54/M65/M66、R186は変更しない。
+
 ## draft-137：M67/R208 二実体Hamiltonian統合候補
 
 - `sections/A27_m67_two_entity_structured_reservoir.md` を付録AAとして追加し、M67/R208A--R208DをM64をまだ置換しないQ3 upper-parent candidateとして収録する。

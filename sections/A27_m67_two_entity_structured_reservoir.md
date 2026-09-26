@@ -1,7 +1,7 @@
 @number: AA
 @chapter: 付録
 @title: M67 二実体・構造化熱浴Hamiltonian統合候補
-@status: M67/R208A--R208Dは、構造化熱浴と古典マーカーの二つの物理sectorだけからM64型Q3有効力学を回収する有限Hamiltonian candidateである。現行Q3正本M37/R86 -> M64/R203A--R203D -> R161/R185は変更せず、M67はその上位parent候補として扱う。Q1/Q2/NBLへの拡張、M64/M66の退役、M0達成は本付録では主張しない。
+@status: M67/R208A--R208Dは、構造化熱浴と古典マーカーの二つの物理sectorだけからM64型Q3有効力学を回収する有限Hamiltonian candidateである。R209A--R209Cはlocal flow、finite bath、finite-time process metricを定量化し、M67からM64へのcompatibilityを明示誤差付きで強化する。現行Q3正本はM37/R86、M64/R203A--R203D、R161/R185の順を変更せず、M67はその上位parent候補として扱う。Q1/Q2/NBLへの拡張、M64/M66の退役、M0達成は本付録では主張しない。
 
 ## AA.1 目的、二実体、責務境界
 
@@ -175,6 +175,8 @@ O(N_0^{-1})
 
 ```math
 v_e[Z]
+:=
+c_Jr_e
 =
 v_{\delta,e}
 +
@@ -184,6 +186,8 @@ v_{\delta,e}
 \le
 \varepsilon_A
 ```
+
+ここで $r_e$ と $c_J$ はR203Aと同じlocal current/density dictionaryであり、M67とM64は同じedge target $c_Jr_e$ を使う。
 
 を定め、flow reaction coordinate $(U_e,P_{U,e})$ とmoving material-frame coordinate $(Y_e,P_{Y,e})$ を置く。
 
@@ -230,8 +234,21 @@ $U(X)$ をHamiltonianへ直接momentum shiftとして書かず、tracerとlocal 
 ```math
 \chi_e(X)\ge0,
 \qquad
-\sum_e\chi_e(X)=1
+\sum_e\chi_e(X)=1,
+\qquad
+\sum_e x_e\chi_e(X)=X
 ```
+
+continuous profileではさらにsecond momentを
+
+```math
+\sum_e
+\chi_e(X)(x_e-X)^2
+\le
+C_\chi a^2
+```
+
+と仮定する。通常の局所linear hat partitionはこの条件を満たし、smooth $v_\delta$ の補間誤差を $O(a^2)$ にする。
 
 を取り、advective channel $g_e=\chi_e$ と、重なるpair $e<f$ のstationary compensator
 
@@ -304,6 +321,22 @@ F_{\rm drag}
 \qquad
 U_X=\sum_e\chi_eU_e,
 ```
+
+となる。局所2-subchannel realizationとして、各edgeに
+
+```math
+g_{e,1}=\chi_e,
+\qquad
+g_{e,2}=\sqrt{\chi_e(1-\chi_e)}
+```
+
+を置き、第2channelをstationary compensatorとすることもできる。このとき
+
+```math
+\sum_{e,r}g_{e,r}^2=1
+```
+
+が厳密に成立し、同時にmean-flow項は $\sum_e\chi_eU_e$ のまま保たれる。
 
 ```math
 \left\langle
@@ -451,8 +484,486 @@ R_{208}(t),
 ideal limitではM64/R203Cを回収し、同じ $\rho_\delta,J_\delta$ をR203Dへ渡せるため、R161/R185およびR124/R182/R125接続は既存結果を再利用できる。
 <!-- theorem-end:theorem -->
 
-## AA.11 数値検証契約と未主張範囲
+R208DはM67からM64 lawへのstructural bridgeを与える。以下のR209A--R209Cは、同じ縮約をlocal-flow error、finite-bath error、process-law metricへ分解して定量化する。
+
+## AA.11 R209A：local-flow / M64 mean-flow compatibility
+
+<!-- theorem-start:theorem -->
+**定理（R209A：M67 local-flow / M64 mean-flow compatibility）**
+
+同じsignal $Z$ と同じedge target $v_e[Z]=c_Jr_e$ から作るcanonical M64 flow $U_e^{64}$ を
+
+```math
+\tau_U\dot U_e^{64}
+=
+-U_e^{64}+v_e[Z]
+```
+
+とする。M67 finite-Hamiltonian flow sectorのfast-bath平均を
+
+```math
+\tau_U\dot{\bar U}_e^{67}
+=
+-\bar U_e^{67}
++
+v_e[Z]
++
+R_{U,e}
+```
+
+とし、固定観測窓で $|R_{U,e}|\le\varepsilon_{H,U}$ とする。このとき
+
+```math
+\left|
+\bar U_e^{67}(t)-U_e^{64}(t)
+\right|
+\le
+e^{-t/\tau_U}
+\left|
+\bar U_e^{67}(0)-U_e^{64}(0)
+\right|
++
+(1-e^{-t/\tau_U})
+\varepsilon_{H,U}.
+```
+
+特にsame-prepared flowでは
+
+```math
+\sup_{0\le t\le T}
+\left|
+\bar U_e^{67}-U_e^{64}
+\right|
+\le
+\varepsilon_{H,U}.
+```
+
+moving material-frame velocityを
+
+```math
+\widetilde U_X^{67}
+=
+\sum_e\chi_e(X)\dot Y_e
+```
+
+とし、
+
+```math
+\varepsilon_Y
+=
+\sup_{X,t}
+\left|
+\sum_e
+\chi_e(X)
+\frac{P_{Y,e}}{M_e}
+\right|
+```
+
+と置けば
+
+```math
+\left|
+\widetilde U_X^{67}-U_X^{64}
+\right|
+\le
+\varepsilon_{H,U}
++
+\varepsilon_Y.
+```
+
+さらにR203A/R203Bの既存評価を使うと
+
+```math
+\left|
+\widetilde U_X^{67}
+-
+v_\delta(X,t)
+\right|
+\le
+\varepsilon_U^{64}
++
+\varepsilon_{H,U}
++
+\varepsilon_Y,
+```
+
+```math
+\varepsilon_U^{64}
+=
+\varepsilon_A
++
+\tau_UM_q
++
+C_{\rm int}a^2
+\|\partial_x^2v_\delta\|_\infty.
+```
+
+ここで $\varepsilon_U^{64}$ はM64自身のbaseline errorであり、M67からM64へのcompatibility errorへ再加算しない。
+<!-- theorem-end:theorem -->
+
+<!-- theorem-start:proof -->
+**証明（R209A）**
+
+$E_e=\bar U_e^{67}-U_e^{64}$ と置くと
+
+```math
+\tau_U\dot E_e=-E_e+R_{U,e}
+```
+
+なのでvariation of constantsで最初の評価を得る。$\dot Y_e=U_e+P_{Y,e}/M_e$ とpartition of unityからmaterial-frame boundが従う。最後の表示はR203Bのmean-flow trackingと一次再現partitionの $O(a^2)$ 補間評価との三角不等式である。証明終。
+<!-- theorem-end:proof -->
+
+## AA.12 R209B：finite harmonic bathの定量的Markov/FDT縮約
+
+flow bathを各edgeで
+
+```math
+H_{U{\rm bath},e}
+=
+\sum_{\mu=1}^{N_U}
+\left[
+\frac{p_{e\mu}^2}{2m_{e\mu}}
++
+\frac{m_{e\mu}\omega_{e\mu}^2}{2}
+\left(
+q_{e\mu}-a_{e\mu}U_e
+\right)^2
+\right]
+```
+
+と具体化する。条件付きcanonical preparationではinitial slipを消すことができる。
+
+<!-- theorem-start:theorem -->
+**定理（R209B：finite harmonic bathの定量的Markov/FDT縮約）**
+
+上のflow bathを厳密に消去すると
+
+```math
+I_e\ddot U_e
++
+K_e(U_e-v_e)
++
+P_{Y,e}
++
+\int_0^t
+\Gamma^U_{e,N}(t-s)\dot U_e(s)\,ds
+=
+\xi^U_{e,N}(t),
+```
+
+```math
+\Gamma^U_{e,N}(t)
+=
+\sum_\mu
+m_{e\mu}\omega_{e\mu}^2a_{e\mu}^2
+\cos(\omega_{e\mu}t),
+```
+
+```math
+\left\langle
+\xi^U_{e,N}(t)
+\xi^U_{f,N}(s)
+\right\rangle
+=
+\delta_{ef}k_BT
+\Gamma^U_{e,N}(t-s)
+```
+
+を得る。target Drude kernelを
+
+```math
+\Gamma_D^U(t)
+=
+\frac{\gamma_U}{\theta_U}
+e^{-t/\theta_U},
+\qquad
+\tau_U=\frac{\gamma_U}{K_e}
+```
+
+とし、
+
+```math
+\varepsilon_{\Gamma,U}(T)
+=
+\int_0^T
+\left|
+\Gamma^U_{e,N}(t)-\Gamma_D^U(t)
+\right|dt
+```
+
+と置く。$A_U=\sup|\ddot U_e|$、$V_U=\sup|\dot U_e|$ とすれば、fast-bath mean equationのdeterministic residualは
+
+```math
+\varepsilon_{H,U}^{\rm det}
+\le
+\frac{I_e}{K_e}A_U
++
+\frac{P_{Y,*}}{K_e}
++
+\tau_U\theta_UA_U
++
+\frac{\varepsilon_{\Gamma,U}(T)}{K_e}V_U.
+```
+
+thermal widthは
+
+```math
+\varepsilon_{U,{\rm th}}
+=
+\sup_{e,t}
+\left(
+\mathbb E
+|U_e-\bar U_e|^2
+\right)^{1/2}
+```
+
+として別に管理する。
+
+drag channelについて $h_c=g_c(X)V-\dot\eta_c$ と置き、target Drude kernel $\Gamma_D^X(t)=\gamma\theta_X^{-1}e^{-t/\theta_X}$ を使う。$\omega_h(r)$ を $h_c$ の共通modulus of continuity、$H_*=\sup|h_c|$、
+
+```math
+\varepsilon_{\Gamma,X}(T)
+=
+\max_c
+\int_0^T
+|\Gamma_{c,N}(t)-\Gamma_D^X(t)|dt
+```
+
+とするとdeterministic drag residualは
+
+```math
+|R_C^{\rm det}|
+\le
+C_g\gamma
+\int_0^\infty
+\frac{e^{-r/\theta_X}}{\theta_X}
+\omega_h(r)\,dr
++
+C_gH_*
+\varepsilon_{\Gamma,X}(T)
++
+\gamma\varepsilon_Y.
+```
+
+特に $h_c$ がLipschitzで定数 $L_h$ を持てば第1項は $C_g\gamma\theta_XL_h$ 以下である。
+
+finite-bath noiseを積分した
+
+```math
+B_N(t)
+=
+\int_0^t\xi_N(s)\,ds
+```
+
+はGaussian過程であり、kernel covarianceがDrude kernelへ一様積分収束し、increment boundが一様なら、固定 $T<T_{\rm rec}$ で
+
+```math
+\mathcal L(B_N)
+\Longrightarrow
+\mathcal L
+\left(
+\sqrt{2\gamma k_BT}\,W
+\right)
+\quad
+\text{on }C[0,T].
+```
+
+さらにtight-frame identity $\sum_cg_c^2=1$ から
+
+```math
+\sum_cg_cg_c'
+=
+\frac12\partial_X\sum_cg_c^2
+=
+0,
+```
+
+したがってcolored-noiseのwhite-noise極で生じるStratonovich correctionは0であり、M64のItô noiseへ余分なdriftなしで接続する。
+<!-- theorem-end:theorem -->
+
+<!-- theorem-start:proof -->
+**証明（R209B）**
+
+harmonic bathの線形方程式をDuhamel表示して $q_{e\mu}$ を消去すればmemory kernelとFDTを得る。Drude convolutionについて
+
+```math
+\left|
+(\Gamma_D*f)(t)-\gamma f(t)
+\right|
+\le
+\gamma
+\int_0^\infty
+\frac{e^{-r/\theta}}{\theta}
+|f(t-r)-f(t)|dr
+```
+
+を用い、finite-spectrum差には $L^1$ kernel normを使えば表示したresidual boundが従う。Gaussian noiseの有限次元分布はcovariance収束から従い、一様increment boundからtightnessを得る。最後のStratonovich correctionはtight-frame identityの微分で消える。証明終。
+<!-- theorem-end:proof -->
+
+Drude kernelは
+
+```math
+\Gamma_D(t)
+=
+\frac{2\gamma}{\pi}
+\int_0^\infty
+\frac{\cos(\omega t)}
+{1+(\omega\theta)^2}
+d\omega
+```
+
+と書けるため、有限harmonic bathで固定有限時間上任意精度に離散近似できる。周波数刻み $\Delta\omega$ に対するrecurrence timeは $T_{\rm rec}\sim2\pi/\Delta\omega$ であり、PR2では $T_{\rm obs}<T_{\rm rec}$ を明示的に要求する。
+
+## AA.13 R209C：M67からM64へのfinite-time process compatibility
+
+<!-- theorem-start:theorem -->
+**定理（R209C：M67からM64への有限時間process compatibility）**
+
+固定 $0\le t\le T$ で $\rho_\delta\ge\rho_{\delta,*}>0$、必要なsignal/flow微分が有界で、canonical M64 driftが空間Lipschitzとする。R209A/R209Bの条件を満たし、同じ初期signalから作るM67 tracer $X^{67}$ とcanonical M64 tracer $X^{64}$ を比較する。
+
+finite-bath Markov化誤差を $\varepsilon_{\rm bath}(T)$、初期compatibility errorを $\varepsilon_{\rm init}^{67\to64}$、signal state-direction errorを
+
+```math
+\varepsilon_{\rm sig}(T)
+=
+\sup_{t\le T}
+d_{\rm ray}
+\left(
+Z^{67}(t),Z^{37}(t)
+\right)
+```
+
+とする。regularized safe sectorでobservable mapがLipschitzで定数 $L_{\rm sig}$ を持つとする。
+
+Markov化後のunderdamped tracerについて
+
+```math
+dX_t^M=V_t^Mdt,
+```
+
+```math
+M_XdV_t^M
+=
+-\gamma
+\left[
+V_t^M-b_{64}(X_t^M,t)
+\right]dt
++
+\sqrt{2\gamma k_BT}\,dW_t
+```
+
+とし、$\epsilon_M=M_X/\gamma$ とする。$|b_{64}|\le B_*$ かつMaxwell-prepared velocityなら、synchronous couplingで
+
+```math
+\varepsilon_{\rm od}(T)
+\le
+C_T
+\left[
+\epsilon_MB_*
++
+\sqrt{\nu\epsilon_M}
+\right]
+```
+
+となる有限定数 $C_T$ が存在する。従ってM67固有のprocess compatibility errorを
+
+```math
+\varepsilon_{67\to64}(T)
+=
+\varepsilon_{\rm bath}(T)
++
+\varepsilon_{\rm od}(T)
++
+\varepsilon_{H,U}^{\rm det}
++
+\varepsilon_Y
++
+\varepsilon_{U,{\rm th}}
++
+\varepsilon_{\rho,{\rm fluc}}(T)
++
+L_{\rm sig}
+\varepsilon_{\rm sig}(T)
++
+\varepsilon_{\rm init}^{67\to64}
+```
+
+とすれば、固定有限時間で
+
+```math
+\sup_{0\le t\le T}
+W_1
+\left(
+\mathcal L(X_t^{67}),
+\mathcal L(X_t^{64})
+\right)
+\le
+C_T'
+\varepsilon_{67\to64}(T)
+```
+
+となる有限定数 $C_T'$ が存在する。
+
+ここで $\varepsilon_A$、$\tau_UM_q$、$a^2$ flow interpolation、$\nu\varepsilon_{\rho,1}$ はM64自身のR203C baseline errorなので $\varepsilon_{67\to64}$ へ再加算しない。
+
+さらに既存R203Cを用いれば
+
+```math
+W_1
+\left(
+\mathcal L(X_t^{67}),
+\rho_\delta(t)
+\right)
+\le
+C_T'
+\varepsilon_{67\to64}(T)
++
+\varepsilon_{\rm red}^{64}(T),
+```
+
+```math
+\varepsilon_{\rm red}^{64}(T)
+=
+e^{L_bT}
+\varepsilon_{\rm prep}^{W_1}
++
+\frac{e^{L_bT}-1}{L_b}
+\varepsilon_{\rm drift}^{64},
+```
+
+を得る。$L_b=0$ では第2項を $T\varepsilon_{\rm drift}^{64}$ と読む。
+
+固定 $T$ でfinite-bath、small-mass、signal-backreaction、phase-volume fluctuation、material-frame recoilを同時に0へ送れ、$T<T_{\rm rec},T_{\rm back}$ を保てるparameter族では
+
+```math
+\sup_{t\le T}
+W_1
+\left(
+\mathcal L(X_t^{67}),
+\mathcal L(X_t^{64})
+\right)
+\longrightarrow0.
+```
+<!-- theorem-end:theorem -->
+
+<!-- theorem-start:proof -->
+**証明（R209C）**
+
+R209Bでfinite Hamiltonian bathをMarkov underdamped過程へ縮約する。$Y_t=X_t^M+\epsilon_MV_t^M$ と置くと厳密に
+
+```math
+dY_t
+=
+b_{64}(X_t^M,t)dt
++
+\sqrt{2\nu}\,dW_t.
+```
+
+同じBrownian motionでcanonical M64過程を駆動し、driftのLipschitz性と $X_t^M=Y_t-\epsilon_MV_t^M$ を使ってGronwall評価を行うとsmall-mass boundを得る。Maxwell preparationでは $\epsilon_M\sup_t\mathbb E|V_t|=O(\epsilon_MB_*)+O(\sqrt{\nu\epsilon_M})$ である。R209Aのflow compatibility、R208Bのphase-volume mean force/backreaction、regularized observable mapのLipschitz性を三角不等式で合成すれば最初の $W_1$ boundを得る。最後の式はR203Cとの三角不等式である。証明終。
+<!-- theorem-end:proof -->
+
+## AA.14 数値検証契約と未主張範囲
 
 M67 candidateではHamiltonian drift、M37 ideal signalとの状態方向誤差、$U_X-v_\delta$、phase-volume mean force、finite-bath memory、tracer分布を同じparameter setで監査する。$N_0$、$N_\rho$、$K_U$、$\tau_U$、$\tau_{\rm mem}$、bath mode数、格子幅を独立に振り、一つの改善を複数誤差へ二重計数しない。
 
-M67/R208を追加しただけではM64、M65、M66、M54を退役させない。Q3 fixed-goalの直接依存、A1/A2/B1--B3、M0の判定も変更しない。Q1/Q2/NBL特殊化は将来候補であり、H/T/CNOTの一般実装、NBL Born sampling、mixing/resource boundを本付録から推論しない。
+M67/R208/R209を追加・強化してもM64、M65、M66、M54を退役させない。R209A--R209CはM67->M64 compatibilityを定量化するcandidate結果であり、Q3 fixed-goalの直接依存へ追加しない。A1/A2/B1--B3、M0の判定も変更しない。Q1/Q2/NBL特殊化は将来候補であり、H/T/CNOTの一般実装、NBL Born sampling、mixing/resource boundを本付録から推論しない。
