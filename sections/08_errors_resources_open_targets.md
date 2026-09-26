@@ -630,7 +630,7 @@ B_{\rm p}e^{-\gamma_{\rm p}T_{\rm p}}
 
 M66/R206はreader側の逐次小branch、R181D tree、非終端作用下限問題を避けるが、R186のdirect-amplitude registerへ入る独立additive noiseは解消しない。従ってQ2-4の条件付き達成を維持する。
 
-## 8.16 M67->M64 candidate compatibilityの誤差窓
+## 8.16 M67からM64へのcandidate compatibilityの誤差窓
 
 M67/R208--R209では、M67固有のfinite-Hamiltonian誤差と、M64/R203がすでに持つbaseline errorを分離する。まず
 
