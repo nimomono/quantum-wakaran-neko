@@ -24,11 +24,11 @@ M37：古典振動子によるsignal実装
 M66 / R205
 
 用途別接続
-Q1逐次測定            M65 → R181D
+Q1逐次測定            M65 -> R181D
 Q2-1/Q2-3/Q2-4読出し R206A--R206D
 Q2-4準備              R206E
-Q2-2 Bell統計         M66/R205 → R207
-Q3粒子/Nelson         M64 → R161 → R185
+Q2-2 Bell統計         M66/R205 -> R207
+Q3粒子/Nelson         M64 -> R161 -> R185
 ```
 
 M54はsignal・状態・接続規約を共通化し、M66/R205はphase-volume、mean-flow、thermal sampling、passive separationというreservoir原理を共通化する。R206A--R206DはこのinterfaceをQ2終端多結果読出しへ特殊化し、R206EはQ2-4準備を担う。M66はM64やM65の全模型を置換せず、共通するreservoir sectorだけを抽出する。
