@@ -33,7 +33,7 @@ Q2-1とQ2-3ではR181B/R181Cが永続多モードsignal上でテンソル積状�
 
 Q2-2 fixed-goalはR207 projection phase-volume経路で達成する。setting directionsと二つのhidden directionをnear-contactでthermal preparationし、projection phase volumeとisotropic lockから一般Bloch方向の余弦共同統計へ接続する。finite thickness/finite lockでも任意精度のsinglet共同分布へ近づき、局所周辺は非信号である。分離後local response factorizationを保つ一方、source hidden stateの分布はsetting-dependentなのでmeasurement independenceは成立しない。
 
-Q3ではM67を共通二実体finite-Hamiltonian physical parentとする。一つのstructured reservoir内部にM37 coherent module、phase-volume、flow、finite bath、R210B bounded dephasing sectorを置き、marker sectorはparticle/readout profileでclassical tracerとして使う。R210Aはfull M67 coherent trajectoryからM37/R86への有限時間compatibilityを、prepared reservoir energy shellから導く \(O(N_0^{-1})\) load boundと既存R86 carrier errorに分離して与える。R210BはR123と同じ有限時刻dephasing/revival lawを下方有界なfinite Hamiltonianで回収する。
+Q3ではM67を共通二実体finite-Hamiltonian physical parentとする。一つのstructured reservoir内部にM37 coherent module、phase-volume、flow、finite bath、R210B bounded dephasing sectorを置き、marker sectorはparticle/readout profileでclassical tracerとして使う。R210Aはfull M67 coherent trajectoryからM37/R86への有限時間compatibilityを、prepared reservoir energy shellから導く $O(N_0^{-1})$ load boundと既存R86 carrier errorに分離して与える。R210BはR123と同じ有限時刻dephasing/revival lawを下方有界なfinite Hamiltonianで回収する。
 
 Q3-2ではR208/R209がM67をM64/R203のcanonical open lawへ縮約し、R203D/R161/R185へ接続する。Q3-3A--Q3-3CはM67 dephasing profileからR210B/R123へ、Q3-4A/B/5はM67 finite-graph profileからR124/R182/R125とR203D/R161へ接続する。M37、M64、R123は削除せず、それぞれcoherent module、open effective reduction、effective dephasing lawとしてactiveに残る。R162はR161 lawのoptional Poisson realizationであり、M67の基礎的存在論には含めない。
 

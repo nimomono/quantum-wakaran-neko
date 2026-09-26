@@ -48,7 +48,7 @@ q_{210}
 \varepsilon_{\rm load}^{67}.
 ~~~
 
-一方R209CのM67→M64 process compatibilityではbare M37を共通基準とし、\(\varepsilon_{\rm load}^{67}\) のstate-direction影響だけを数える。R210B dephasing profileの追加physical条件は
+一方R209CのM67→M64 process compatibilityではbare M37を共通基準とし、$\varepsilon_{\rm load}^{67}$ のstate-direction影響だけを数える。R210B dephasing profileの追加physical条件は
 
 ~~~math
 \omega_{\min}
@@ -56,7 +56,7 @@ q_{210}
 \frac{|\lambda|p_*}{\mathcal J_0}
 ~~~
 
-であり、prepared \(P_n=\pm p_*\) 上のdephasing factor自体には追加近似誤差を生じない。finite-bath recurrence、small-mass、flow tracking、phase-volume fluctuationはR208/R209の既存台帳を用いる。
+であり、prepared $P_n=\pm p_*$ 上のdephasing factor自体には追加近似誤差を生じない。finite-bath recurrence、small-mass、flow tracking、phase-volume fluctuationはR208/R209の既存台帳を用いる。
 
 ## 8.2 準備済み入力境界とQ2-4 root preparation
 
