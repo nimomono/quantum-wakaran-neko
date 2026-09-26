@@ -634,12 +634,12 @@ M66/R206はreader側の逐次小branch、R181D tree、非終端作用下限問�
 
 M67/R208--R209では、M67固有のfinite-Hamiltonian誤差と、M64/R203がすでに持つbaseline errorを分離する。まず
 
-```text
-M67 finite Hamiltonian
-  -- epsilon_67->64 -->
-M64 canonical open process
-  -- epsilon_red^64 -->
-ideal regularized diffusion
+```math
+\mathrm{M67\ finite\ Hamiltonian}
+\xrightarrow{\ \varepsilon_{67\to64}\ }
+\mathrm{M64\ canonical\ open\ process}
+\xrightarrow{\ \varepsilon_{\rm red}^{64}\ }
+\mathrm{ideal\ regularized\ diffusion}.
 ```
 
 と責務を分ける。
