@@ -1075,17 +1075,39 @@ v_e[b]
 B_e\ge\beta_eI
 ```
 
-として表せるものとする。R203Aのregularized local current/density dictionaryはこの形に含まれる。有限定数 $\ell_e$ を
+として表せるものとする。R203Aのregularized local current/density dictionaryはこの形に含まれる。直接微分すると
+
+```math
+\frac{\partial v_e}{\partial b^*}
+=
+\frac{
+C_eb\,(b^\dagger B_eb)
+-
+(b^\dagger C_eb)B_eb
+}{
+(b^\dagger B_eb)^2
+}.
+```
+
+従って
 
 ```math
 \left\|
 \frac{\partial v_e}{\partial b^*}
 \right\|
 \le
-\frac{\ell_e}{\|b\|}
+\frac{\ell_e}{\|b\|},
+\qquad
+\ell_e
+=
+\frac{\|C_e\|}{\beta_e}
++
+\frac{\|C_e\|\,\|B_e\|}{\beta_e^2}.
 ```
 
-で取り、
+と取れる。
+
+
 
 ```math
 L_v
