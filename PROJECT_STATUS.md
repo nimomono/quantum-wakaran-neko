@@ -1,9 +1,9 @@
 ## draft-141：M67 Q1 double-well selector physical lift
 
-- R211Aを追加し、R189A held actionsをcyclic canonical actionsとして厳密保存しながら、左右二つの安定basinと中央saddleだけを持つM67 Q1 double-well finite-Hamiltonian profileを構成する。phase-volume積分は $Z_{m pv}=Z_{m pv}^0w_ell$、$F_ell=W_0-k_BTlog w_ell+C$ を与える。
+- R211Aを追加し、R189A held actionsをcyclic canonical actionsとして厳密保存しながら、左右二つの安定basinと中央saddleだけを持つM67 Q1 double-well finite-Hamiltonian profileを構成する。phase-volume積分は $Z_{\rm pv}=Z_{\rm pv}^0w_\ell$、$F_\ell=W_0-k_BT\log w_\ell+C$ を与える。
 - R211Bを追加し、sharp-interface committorから保持作用比のBorn kernelを厳密に回収し、finite collar、launch、未commit、return、finite-Hamiltonian→overdamped one-time $W_1$ coarse-grainingを明示誤差へ分解する。M65/R204AのPoisson waiting-time lawは再現対象にしない。
 - R211CでM67 terminal basin resultをR204E binary selector contractへ接続し、R181D/R189B/R189Cを変更せずQ1逐次測定・有限Zeno witnessへ合成する。Q1 fixed-goalのcanonical witnessはM65のまま、M67/R211はfinite-Hamiltonian strengtheningとする。
-- required verifierで同一parameter set $W_0=16(X^2-1)^2$、$	au_{m cut}=0.07$、$ell=0.01$、$d=0.40$、$L=0.78$、$T=0.22$ を監査し、$arepsilon_Xle10^{-4}$ のstrong targetで $arepsilon_{211B}<8	imes10^{-3}$ を確認する。
+- required verifierで同一parameter set $W_0=16(X^2-1)^2$、$\tau_{\rm cut}=0.07$、$\ell=0.01$、$d=0.40$、$L=0.78$、$T=0.22$ を監査し、$\varepsilon_X\le10^{-4}$ のstrong targetで $\varepsilon_{211B}<8\times10^{-3}$ を確認する。
 - Q1-1/Q1-2の達成、Q2/Q3の達成状態、A1/A2/B1--B3、M0、R186判定、M65/M66/M64/M37の運用状態は変更しない。Q2/NBLのM67特殊化は本draftに含めない。
 
 ## draft-140：M65 two-result first-passage selector簡素化
@@ -575,7 +575,7 @@ M0は、個別のA1模型を並べるだけでは達成としない。少なく�
 | 結果 | 導出状態 | 内容 |
 |---|---|---|
 | R211A | required finite-Hamiltonian construction | R189A held actionsをcyclic canonical actionsとして厳密保存し、smooth phase-volume collar、finite marker bath、左右二つの安定basinだけを持つdouble-well markerをM67二実体architectureへ構成する |
-| R211B | required明示誤差付きBorn-kernel compatibility | sharp-interface committorで保持作用比を厳密回収し、finite collar、launch、survival、return、one-time $W_1$ coarse-grainingを $arepsilon_{211B}$ へ合成してR204E complete-result contractへ任意精度で接続する。R204A Poisson waiting-time lawは再現しない |
+| R211B | required明示誤差付きBorn-kernel compatibility | sharp-interface committorで保持作用比を厳密回収し、finite collar、launch、survival、return、one-time $W_1$ coarse-grainingを $\varepsilon_{211B}$ へ合成してR204E complete-result contractへ任意精度で接続する。R204A Poisson waiting-time lawは再現しない |
 | R211C | required Q1 composition | R189A作用保持誤差、R211B physical-kernel error、record/cutoffを合成してR204E/R181Dへ渡し、finite decision windowを固定後のR187 weak-coupling極でR189B/R189Cの逐次測定・Zeno witnessへ接続する |
 
 ### M66 common thermal-reservoir結果
