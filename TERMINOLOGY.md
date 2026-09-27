@@ -280,7 +280,7 @@ CNOT、CHSH、SWAP、SU(2)など、分野で定着した略号はそのまま使
 | setting precursor | 設定前駆自由度 |
 | measurement independence | 測定設定独立性 |
 
-M66/R205、R206の責務名は次に統一する。M66/R205は「共通thermal-reservoir interface」、R206A--R206Dは「Q2終端多結果sampler」、R206Eは「Q2-4 root preparation / refresh」と呼ぶ。「M66 terminal sampler」「M66/R206 terminal sampler」は、reservoir親模型とQ2特殊化の責務を混同するため現行説明では使わない。
+M67/R212、M66/R205、R206の責務名は次に統一する。M67/R212A--R212Cは「thermal-sector finite-Hamiltonian physical parent」、M66/R205は「thermal open/effective interface」、R206A--R206Dは「Q2終端多結果sampler」、R206Eは「Q2-4 root preparation / refresh」と呼ぶ。「M66 common thermal-reservoir parent」「M66 terminal sampler」はphysical parentとopen/effective layerまたはQ2特殊化の責務を混同するため現行説明では使わない。
 
 `paired-Hopf` のようにプロジェクト固有の物理機構を指す名称は、定義を失わない範囲で本文の説明に合わせてさらに改名してよい。
 
@@ -355,11 +355,13 @@ CNOT、CHSH、SWAP、SU(2)、Q1、Q2、Q3、M37、M54、R164などの略号・�
 | 保護帯 | 吸引域境界の近傍を有限幅で無反応へ送る安全領域 |
 | 捕獲領域 | 結果を吸収記録へ写すために定める各極近傍の領域 |
 
-## 7. M67二実体模型
+## 7. M67二実体模型とthermal-sector階層
 
 | 原語・旧表記 | 本文の標準表記 | 使い分け |
 |---|---|---|
-| structured reservoir | 構造化熱浴 | M67でcoherent、phase-volume、flow、dragを内部sectorとして持つ一つの古典媒体 |
-| classical marker | 古典マーカー | M67の第二物理sector。Q3ではclassical tracerとして特殊化する |
+| structured reservoir | 構造化熱浴 | M67でcoherent、phase-volume、flow、drag、dephasing、rotor thermal自由度を内部部分系として持つ一つの古典媒体 |
+| classical marker | 古典マーカー | M67の第二物理sector。Q3ではclassical tracer、Q1 selector profileではbinary markerとして特殊化する |
+| thermal physical parent | thermal部分系の物理親模型 | M67/R212A--R212C。M66/R205 open/effective lawを有限Hamiltonian structured reservoirから回収する |
+| thermal open/effective interface | thermal開放・有効接続層 | M66/R205。R212から回収されR206/R207へ用途別に特殊化する |
 | material frame | 移動媒質座標 | local moving bathの基準座標 $Y_e$。独立した第三実体とは数えない |
 | two-entity model | 二実体模型 | structured reservoir sectorとmarker sectorの二分類を指す。内部正準自由度が二個だけという意味ではない |
