@@ -1,3 +1,14 @@
+## draft-142：M67 thermal-sector / R212検算
+
+- `tools/verify_r212a_thermal_embedding.py` はR212Aの積Jacobian、mean-flow/translation independence、mean force、equal-weight $N_{\rm pv}^{-1/2}$ fluctuation scalingを検査する。
+- `tools/verify_r212b_flat_sampler.py` は $H_{\rm eff}=H_{\rm cfg}-k_BT\log w$ のzero-current Gibbs identity、translated harmonic bathのpartition independence、Drude short-memory normalizationを検査する。
+- `tools/verify_r212b_rotor_geometry.py` は $P_\lambda$ の接平面projector、Itô curvature driftによるsphere constraint、R207A two-rotor partitionのsetting independence、finite $(\epsilon,k)$ kernel boundを検査する。
+- `tools/verify_r212b_rotor_parameter_window.py` は $\eta=0.25$、$\epsilon=1/32$、$k=8$ に対し $\theta_B=5\times10^{-4}\ll I/\gamma=10^{-2}<t_{\rm mix}=12<T_{\rm prep}=15<T_{\rm rec}=100$、finite Drude bath $N_B=636620$、kernel近似をrequired regressionとして検査する。
+- `tools/verify_r212c_passive_separation.py` はcross mobility $O(c)$、local mobility correction $O(c^2)$、compact-support endpointのexact factorizationを検査する。
+- `simulations/m67/run_r212b_rotor_mixing_witness.py` は $S^2\times S^2$ overdamped lawを直接標本化するsupporting evidenceであり、required proofやQ2-2-A2 promotion testには数えない。
+- 既存 `verify_m66_common_phase_volume.py`、`verify_m66_thermal_gibbs_sampler.py`、`verify_m66_passive_separation.py`、`verify_r207_projection_phase_volume.py` はopen/effective law回帰として維持する。
+- draft-142 migration checkでM66非退役、R205--R207維持、Q2 signal/NBL非統合、R205D非復活、Q2/Q3 fixed-goal、R186、M0、A1/A2/B1--B3不変をPR固有に固定する。
+
 ## draft-141：M67 Q1 selector physical-lift検算
 
 - tools/verify_r211a_m67_q1_hamiltonian.py をrequiredへ追加し、held actionsのcyclic invariance、phase-volume Jacobian、finite marker bathのunit-Jacobian translation、bare double-well curvatureを検査する。
