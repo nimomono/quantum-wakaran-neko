@@ -244,7 +244,7 @@ M37/R187
   -> R181D projector router
 ```
 
-R181D以下のQ1逐次測定契約とQ1-1/Q1-2達成状態は変更しない。旧R204B/R204C fixed-hub physical liftは退役し、R205Dのfixed-hub数学はM66側に残す。M65の指数Poisson raceは最小open witnessであり、後続M67/R211にwaiting-time分布までの一致は要求しない。physical bridgeはcomplete-result first-passage kernelからR204E contractへ接続する。
+R181D以下のQ1逐次測定契約とQ1-1/Q1-2達成状態は変更しない。旧R204B/R204C fixed-hub physical liftは退役し、R205Dのfixed-hub数学はM66側に残す。M65の指数Poisson raceは最小open witnessであり、M67/R211にもwaiting-time分布までの一致は要求しない。draft-141ではdouble-well terminal kernelからR204E contractへ接続するphysical bridgeを追加した。
 
 
 ## draft-141でM67/R211 Q1 selector liftを追加
