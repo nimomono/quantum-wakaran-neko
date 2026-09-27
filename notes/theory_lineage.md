@@ -223,3 +223,25 @@ M67
 
 M37、M64、R123は削除せず、それぞれactive module/effective resultとして再分類する。Q3-6はM67 coherent sector上の未達課題、M0とQ1/Q2統合は別課題である。
 
+
+
+## draft-140でM65をtwo-result first-passage selectorへ簡素化
+
+Q1のbinary selector正本を、旧
+
+```text
++ <-> H <-> -
+```
+
+3状態open Markov pointerから、二つの結果channelの競合first-passage lawへ置換した。未決定は第三の物理pointer状態ではなく、まだどちらのfirst eventも起きていないsurvival conditionとして扱う。
+
+```text
+M37/R187
+  -> R189A held actions
+  -> M65/R204A,R204D first-passage selector
+  -> R112 finite record
+  -> R204E selector contract
+  -> R181D projector router
+```
+
+R181D以下のQ1逐次測定契約とQ1-1/Q1-2達成状態は変更しない。旧R204B/R204C fixed-hub physical liftは退役し、R205Dのfixed-hub数学はM66側に残す。M65の指数Poisson raceは最小open witnessであり、後続M67/R211にwaiting-time分布までの一致は要求しない。physical bridgeはcomplete-result first-passage kernelからR204E contractへ接続する。
