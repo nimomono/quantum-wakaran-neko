@@ -99,7 +99,7 @@ F_{\rm res}
 
 を得る共通原理、mean-flow port、thermal sampling、passive separationをまとめる。
 
-Q1の逐次2値測定では、保持した2つの射影作用をM65の3状態open selectorへ渡し、結果固定後にR181Dで対応する非規格化射影成分を次段へ渡す。Q2-1/Q2-3/Q2-4の回路末端ではR206が4結果、8結果、または $2^n$ 結果を一回で標本化する。Q2-2はM66/R205のthermal phase-volumeをR207へ特殊化して二端Bell統計を作る。
+Q1の逐次2値測定では、保持した2つの射影作用をM65のtwo-result first-passage selectorへ渡す。有限decision時刻まで未決定ならsurvival事象を正式な無反応とし、結果固定後にR181Dで対応する非規格化射影成分を次段へ渡す。Q2-1/Q2-3/Q2-4の回路末端ではR206が4結果、8結果、または $2^n$ 結果を一回で標本化する。Q2-2はM66/R205のthermal phase-volumeをR207へ特殊化して二端Bell統計を作る。
 
 Q2-2 fixed-goalのBell型統計はR207 projection phase-volume二端模型で再現する。一般Bloch方向の余弦共同分布へ任意精度で近づき、局所周辺は非信号、分離後responseはlocalに因子化する。一方source hidden stateはsetting-dependentでありmeasurement independenceは成立しない。このBell前提違反を明示することでCHSH違反とBellの定理を区別する。
 
