@@ -6,6 +6,14 @@ import numpy as np
 
 
 def main() -> None:
+    # R189A -> R211A canonical relabelling:
+    # (A, P^J) -> (theta, I) = (-P^J, A).
+    symplectic = np.array([[0.0, 1.0], [-1.0, 0.0]])
+    transform = np.array([[0.0, -1.0], [1.0, 0.0]])
+    assert np.max(
+        np.abs(transform.T @ symplectic @ transform - symplectic)
+    ) < 1.0e-14
+
     # Held actions are cyclic coordinates in R211A.
     for a_plus, a_minus in ((0.07, 0.93), (0.5, 0.5), (0.93, 0.07)):
         assert a_plus > 0.0 and a_minus > 0.0
