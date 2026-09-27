@@ -18,24 +18,19 @@ M54
   ↑
 M37：古典振動子によるsignal実装
 
-        ↓
-
-共通thermal-reservoir interface
-M66 / R205
-
-用途別接続
-Q1逐次測定            M65 → R181D
-Q1 selector物理lift    M67/R211A--R211C → R204E/R181D
-Q2-1/Q2-3/Q2-4読出し R206A--R206D
-Q2-4準備              R206E
-Q2-2 Bell統計         M66/R205 → R207
-Q3共通parent           M67 / R208--R210
-  ├─ coherent          → M37/R86
-  ├─ dephasing         → R123
-  └─ tracer            → M64/R203 → R161/R185
+finite-Hamiltonian physical parent
+M67
+  ├─ Q3               R208--R210 → M37/M64/R123
+  ├─ Q1 selector      R211A--R211C → R204E/R181D
+  └─ thermal sector   R212A--R212C
+                           ↓
+                    M66 / R205
+                    thermal open/effective layer
+                      ├─ R206 → Q2-1/Q2-3/Q2-4
+                      └─ R207 → Q2-2
 ```
 
-M54はsignal・状態・接続規約を共通化し、M66/R205はphase-volume、mean-flow、thermal sampling、passive separationというreservoir原理を共通化する。R206A--R206DはこのinterfaceをQ2終端多結果読出しへ特殊化し、R206EはQ2-4準備を担う。M67はcommon two-entity finite-Hamiltonian physical parentとして、Q3ではM37 coherent module、M64/R203 open effective reduction、R210B dephasing profileへ接続し、Q1ではR211A--R211CがM65/R204E selector contractのfinite-Hamiltonian strengtheningを与える。これはQ1全装置またはQ2/M0をM67へ統合したという主張ではない。
+M54はsignal・状態・接続規約を共通化する。M67はcommon two-entity finite-Hamiltonian physical parentで、Q3ではR208--R210、Q1 selectorではR211A--R211C、Q2 thermal sectorではR212A--R212Cを担う。M66/R205はそのthermal-sector open/effective interfaceとしてphase-volume、mean-flow、thermal sampling、passive separationを共通化し、R206A--R206DはQ2-1/Q2-3/Q2-4終端多結果読出し、R206EはQ2-4準備、R207はQ2-2 Bell統計へ特殊化する。Q2 signal/register/gate、R206 apparatus全体、NBL、M0をM67へ統合したという主張ではない。
 
 ## 2. 長期目標の現在地
 
@@ -90,7 +85,7 @@ Q2-4の条件はM54 direct-amplitude registerに対するR186の加法ノイズ�
 
 論文ではまず、有限個の実正準自由度から量子状態に似たsignal空間と可逆操作を作る。M54が共通の有効状態構成を与え、M37/R86が空間signalを古典振動子網として実装する。
 
-測定と粒子輸送にはthermal reservoirを使う。M66/R205は、局所phase-volume weight $w$ から
+測定と粒子輸送にはthermal reservoirを使う。M67/R212は有限Hamiltonian structured reservoirからthermal lawへのphysical-parent bridgeを与え、M66/R205はそのopen/effective interfaceとして局所phase-volume weight $w$ から
 
 ```math
 F_{\rm res}
@@ -100,13 +95,13 @@ F_{\rm res}
 
 を得る共通原理、mean-flow port、thermal sampling、passive separationをまとめる。
 
-Q1の逐次2値測定では、保持した2つの射影作用をM65のtwo-result first-passage selectorへ渡す。有限decision時刻まで未決定ならsurvival事象を正式な無反応とし、結果固定後にR181Dで対応する非規格化射影成分を次段へ渡す。Q2-1/Q2-3/Q2-4の回路末端ではR206が4結果、8結果、または $2^n$ 結果を一回で標本化する。Q2-2はM66/R205のthermal phase-volumeをR207へ特殊化して二端Bell統計を作る。
+Q1の逐次2値測定では、保持した2つの射影作用をM65のtwo-result first-passage selectorへ渡す。有限decision時刻まで未決定ならsurvival事象を正式な無反応とし、結果固定後にR181Dで対応する非規格化射影成分を次段へ渡す。Q2-1/Q2-3/Q2-4の回路末端ではM67/R212→M66/R205のthermal layer上でR206が4結果、8結果、または $2^n$ 結果を一回で標本化する。Q2-2ではR212B-rotがR207A target densityをfinite-Hamiltonian two-rotor canonical marginalとして回収し、R212C/R205Fを経て二端Bell統計へ接続する。
 
 Q2-2 fixed-goalのBell型統計はR207 projection phase-volume二端模型で再現する。一般Bloch方向の余弦共同分布へ任意精度で近づき、局所周辺は非信号、分離後responseはlocalに因子化する。一方source hidden stateはsetting-dependentでありmeasurement independenceは成立しない。このBell前提違反を明示することでCHSH違反とBellの定理を区別する。
 
 Q3ではM37/R86 signalへM64のclassical tracerとsignal-driven thermal reservoirを接続し、signal density/currentからosmotic driftとcurrent driftを作る。R203D/R161/R185を介してNelson型の前進・後退平均微分と時間対称Newton則へ接続し、finite graphでは有限障壁、W型トンネル振動、2経路干渉を同じtracerの位置読出しへつなぐ。
 
-M67/R208--R210をQ3のcommon finite-Hamiltonian physical parentとする。M37型coherent moduleとthermal/dephasing自由度を一つのstructured reservoirへまとめ、marker sectorと組み合わせる。R210Aはfull M67からM37/R86へのcoherent compatibility、R210BはR123 dephasing lawのbounded physical lift、R208/R209はM64/R203 open lawへのfinite-time compatibilityを与える。さらにR211A--R211CがQ1 selector componentのfinite-Hamiltonian strengtheningを与える。M37、M64/R203、R123、M65/R204はそれぞれactive module/effective/canonical lawとして維持し、Q1 fixed-goalのcanonical主線、Q2、M0の運用状態は変更しない。
+M67をcommon finite-Hamiltonian physical parentとする。M37型coherent moduleとthermal/dephasing自由度を一つのstructured reservoirへまとめ、marker sectorと組み合わせる。R208--R210はQ3、R211A--R211CはQ1 selector、R212A--R212CはM66/R205 thermal layerのphysical liftを担う。R212B-rotはR207Aの $S^2\times S^2$ canonical preparationをM67へ接続する。M37、M64/R203、R123、M65/R204、M66/R205、R206/R207はactive module/effective/canonical specializationとして維持し、fixed-goal達成ラベル、R186、M0の運用状態は変更しない。
 
 この共通化は、全系列を1台の装置へ統合したことを意味しない。準備、操作、測定、永久記録、reset、clock、renewalを1つのjoint microscopic device/processへまとめることはM0で別に要求する。
 
