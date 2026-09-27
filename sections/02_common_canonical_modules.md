@@ -1,7 +1,7 @@
 @number: 2
 @chapter: 本文
 @title: 有限正準信号と共通熱浴モジュール
-@status: M54をQ1・Q2・Q3の共通有効signal・状態構成層、M66/R205を共通thermal-reservoir interface、R161をQ3位置輸送の共通数学核とする。Q3ではM67をcommon finite-Hamiltonian physical parent、M37をcoherent module、M64をopen effective reductionとする。M65、R206、R207のQ1/Q2責務は変更しない。
+@status: M54をQ1・Q2・Q3の共通有効signal・状態構成層、M66/R205を共通thermal-reservoir interface、R161をQ3位置輸送の共通数学核とする。M67をcommon finite-Hamiltonian physical parentとし、Q3ではM37 coherent module/M64 open reductionへ、Q1ではR211A--R211CからM65/R204E selector contractへ接続する。M65、R206、R207のQ1/Q2責務は変更しない。
 
 ## 2.1 共通signal層と共通thermal-reservoir層
 
@@ -27,9 +27,9 @@ w(Q)e^{-\beta H_{\rm cfg}(Q)}
 
 | 用途 | 共通熱浴原理との対応 | 用途固有に残る責務 |
 |---|---|---|
-| M67 / Q3 | R205Cと整合するphase-volume/mean-flow原理をfinite-Hamiltonian structured reservoirへ実装 | R210A coherent compatibility、R208/R209 finite-bath/tracer bridge、R210B dephasing lift |
+| M67 | R205Cと整合するphase-volume/mean-flow原理をfinite-Hamiltonian structured reservoirへ実装 | Q3ではR210A coherent compatibility、R208/R209 finite-bath/tracer bridge、R210B dephasing lift。Q1ではR211A--R211C double-well selector lift |
 | M64 / Q3 effective | M67/R208--R209からcanonical open lawとして回収 | R203A current dictionary、initial/flow tracking、R203C/R203Dの有効縮約責務 |
-| M65 / Q1 | two-result first-passage open lawを系列固有に定め、R205D fixed-hub corollaryは現行physical liftに使わない | R204A、R204D--R204F、R181D handoff。finite-Hamiltonian liftは後続強化 |
+| M65 / Q1 | two-result first-passage open lawを系列固有に定め、R205D fixed-hub corollaryは現行physical liftに使わない | R204A、R204D--R204F、R181D handoff。finite-Hamiltonian liftはM67/R211A--R211CからR204Eへ接続 |
 | R206 / Q2-1・Q2-3・Q2-4 | M66のfinite-$L$ common-hub terminal specialization | Q2 terminal bridge、finite-time/fabrication error、Q2-4 root preparation |
 | R207 / Q2-2 | R205A projection phase volume、R205E joint thermal preparation、R205F passive separationを利用 | general-angle singlet law、local二端latch、measurement-independence監査、Bell-local control |
 
@@ -983,7 +983,7 @@ G_{\rm rec}=\sum_i d_i(x)P_{D_i}
 
 と書ける。これは記録時刻の排他的粒子位置を読む。入力時刻以前の粒子軌道、初回到達率、吸収率、時間積分流束を与えない。
 
-M65はtwo-result first-passage open lawを基本方程式として採用し、未決定は第三のpointer状態ではなくsurvival conditionとして扱う。旧phase-volume fixed-hub chamber/Hamiltonian--Brownian liftはdraft-140で退役し、現行finite-Hamiltonian liftは後続強化へ分離する。現行fixed-goalではQ1がbinary selector interfaceを使う。Q2-1/Q2-3/Q2-4はM66/R206 terminal samplerで判定し、Q2-4だけはR186資源条件を含むため条件付き達成を維持する。有限浴化は別の強化課題である。一意エルゴードな外部時刻割当または有限熱化から、結果列の独立同分布性や二項型有限標本揺らぎも従わない。
+M65はtwo-result first-passage open lawを基本方程式として採用し、未決定は第三のpointer状態ではなくsurvival conditionとして扱う。旧phase-volume fixed-hub chamber/Hamiltonian--Brownian liftはdraft-140で退役し、現行finite-Hamiltonian liftはM67/R211A--R211Cのdouble-well selectorとしてR204Eへ接続する。現行fixed-goalではQ1がbinary selector interfaceを使う。Q2-1/Q2-3/Q2-4はM66/R206 terminal samplerで判定し、Q2-4だけはR186資源条件を含むため条件付き達成を維持する。有限浴化は別の強化課題である。一意エルゴードな外部時刻割当または有限熱化から、結果列の独立同分布性や二項型有限標本揺らぎも従わない。
 
 ### 共通熱浴層との対応
 
@@ -991,6 +991,6 @@ M66/R205の共通thermal-reservoir interfaceは2.1で定義した。ここで必
 
 Q2-1/Q2-3/Q2-4ではR206をterminal readout正本とし、R206Eのuniform root preparation/refreshをQ2-4で併用する。Q1のM65/R181Dとfull-cycle側のR179は別責務として維持する。
 
-## 2.20 M67 Q3共通二実体finite-Hamiltonian parent
+## 2.20 M67 二実体finite-Hamiltonian parent
 
-付録AA/M67では、Q3のcoherent signalとthermal/reservoir自由度を一つのstructured reservoirへまとめ、classical markerとの二実体sectorを主要ontologyとするfinite-Hamiltonian physical parentを置く。R210AがM37/R86 coherent module、R210BがR123 dephasing law、R208A--R209CがM64/R203 open effective lawへ接続する。M67はQ3-1--Q3-5のfixed-goal物理依存へ採用するが、M54/M66をQ1/Q2全体で置換したとは扱わず、Q1/Q2/NBLへの拡張とM0統合は未主張である。
+付録AA/M67では、coherent signalとthermal/reservoir自由度を一つのstructured reservoirへまとめ、classical markerとの二実体sectorを主要ontologyとするfinite-Hamiltonian physical parentを置く。Q3ではR210AがM37/R86 coherent module、R210BがR123 dephasing law、R208A--R209CがM64/R203 open effective lawへ接続する。Q1ではR211Aがheld-action double-well markerを構成し、R211BがBorn complete-result kernelへ有限誤差で接続し、R211CがR204E/R181Dへ合成する。これはM54/M66をQ1/Q2全体で置換したこと、Q1全測定装置をM67だけへ統合したこと、Q2/NBLまたはM0を統合したことを意味しない。
