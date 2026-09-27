@@ -15775,7 +15775,7 @@ A_\Sigma=A_++A_->0,
 \widehat p_\pm\ge\tau_{\rm cut}
 \]
 
-をQ1 double-well profileのsafe branchとする。cutoff外およびexact endpointはR204D/R204Eで既に用いる固定線形comparatorへ渡し、double-well profileへ \(\log0\) を持ち込まない。
+をQ1 double-well profileのsafe branchとする。この判定自体は \((1-\tau_{\rm cut})A_+-\tau_{\rm cut}A_-\) とその左右反転という二つの固定線形量をR112の有限正準比較節へ渡して行い、状態依存除算を制御器へ入力しない。cutoff外およびexact endpointはR204D/R204Eと同じcomparator経路へ送り、double-well profileへ \(\log0\) を持ち込まない。
 
 固定装置scale \(A_*>0\) に対して \(a_\pm=A_\pm/A_*\) とする。Hamiltonianを全位相空間でsmoothに定義するため、正のsmooth extension \(\bar a_\pm(I_+,I_-)\) を選び、safe branchでは厳密に
 
@@ -15874,7 +15874,7 @@ H_B^{Q1}
 \right]
 \]
 
-を使う。固定 \(X\) でbath座標の平行移動はJacobian 1なので、このbathはstatic Born biasを追加しない。
+を使う。decision開始面では、held actionsとmarker初期値を固定した条件付きcanonical preparationでphase-volume modesとfinite marker bathを準備する。これはR208Bのcanonical mean-force評価とR208C/R209Bのfinite-bath FDT縮約に用いる準備条件のQ1特殊化である。固定 \(X\) でbath座標の平行移動はJacobian 1なので、このbathはstatic Born biasを追加しない。
 
 Q1 selector Hamiltonianでは \(H_{\rm hold}(I_+,I_-)\) をsmoothかつ下に有界に選ぶ。全Hamiltonianを
 
@@ -15951,7 +15951,7 @@ R211AはBorn確率をまだ主張しない。これはfinite-Hamiltonian device 
 \hypertarget{r211bm67-q1-double-well-born-kernelux3068r204e-compatibility}{%
 \section{R211B：M67 Q1 double-well Born kernelとR204E compatibility}\label{r211bm67-q1-double-well-born-kernelux3068r204e-compatibility}}
 
-R211Aのpotential of mean forceに対するideal overdamped markerを
+R211Aの条件付きcanonical preparation、finite-bath Markov化、phase-volume mean-force縮約を前提として、potential of mean forceに対するideal overdamped markerを
 
 \[
 dX_t^D
