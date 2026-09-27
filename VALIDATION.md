@@ -1,3 +1,13 @@
+## draft-141：M67 Q1 selector physical-lift検算
+
+- tools/verify_r211a_m67_q1_hamiltonian.py をrequiredへ追加し、held actionsのcyclic invariance、phase-volume Jacobian、finite marker bathのunit-Jacobian translation、bare double-well curvatureを検査する。
+- tools/verify_m67_q1_first_passage.py をrequiredへ追加し、同一parameter setでsafe action-ratio全域のtwo-well topology、smooth-collar committor、launch bound、finite-time survival、return/recrossing、terminal threshold density、one-time $W_1$ から3結果kernelへのcoarse-grainingを検査する。
+- numerical witnessは $W_0=16(X^2-1)^2$、$\tau_{\rm cut}=0.07$、$\ell=0.01$、$d=0.40$、$L=0.78$、$T=0.22$、$\delta_0=5\times10^{-4}$ を使い、$\varepsilon_X\le10^{-4}$ で $\varepsilon_{211B}<8\times10^{-3}$、$\varepsilon_X\le10^{-3}$ でも $\varepsilon_{211B}<1.3\times10^{-2}$ をhard checkする。
+- tools/verify_q1_live_zeno.py にR211C physical-lift selector budgetを追加し、固定finite selector windowの後にR187 weak-coupling極を取ってもideal $1/4$ Zeno marginが残ることを回帰検査する。
+- draft-141 migration checkではR211A--R211C登録、R204E contract共有、R204A Poisson law非同一視、第三の安定pointer well非導入、R204B/R204C非復活、Q2/NBL非統合、fixed-goal/strengthening/M0判定不変を検査する。
+- R211B required numerical witnessはreduced 1D diffusion＋finite-Hamiltonian reduction targetの回帰であり、full finite harmonic bath trajectoryを直接積分するA2 promotion testではない。
+
+
 ## draft-140：M65 first-passage selector検算
 
 - required `tools/verify_m65_open_selector.py` をfirst-passage lawへ更新し、確率保存、closed-form winner/survival分布、$D_{\rm TV}=e^{-\kappa a_\Sigma T}$、exact zero endpoint、division-free cutoff、共通scale不変なwinner比、small Born branchでtotal hazardが縮まないこと、finite latchを検査する。
