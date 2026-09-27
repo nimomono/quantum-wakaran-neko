@@ -69,10 +69,10 @@ Q2-4のB1--B3は単一の巨大回路図を要求するものではなく、任�
 |---|---|---|---|---|---|---|
 | Q1-1 | 未監査 | 未監査 | 未監査 | 未監査 | 未監査 | M37、R140、R187 |
 | Q1-2 | 未監査 | 未監査 | 未監査 | 未監査 | 未監査 | R189A--R189C、M65/R204A・R204D--R204F、R181D |
-| Q2-1 | 未監査 | 未監査 | 未監査 | 未監査 | 未監査 | M54、R181B--R181C、M66/R205--R206 |
-| Q2-2 | 未監査 | 未監査 | 未監査 | 未監査 | 未監査 | M66/R205A・R205E--R205F、R207A--R207D |
-| Q2-3 | 未監査 | 未監査 | 未監査 | 未監査 | 未監査 | M54、R177、R181B--R181C、M66/R205--R206 |
-| Q2-4 | 未監査 | 未監査 | 未監査 | 未監査 | 未監査 | M54、R181C、R186、M66/R205--R206E |
+| Q2-1 | 未監査 | 未監査 | 未監査 | 未監査 | 未監査 | M54、R181B--R181C、M67/R212、M66/R205--R206 |
+| Q2-2 | 未監査 | 未監査 | 未監査 | 未監査 | 未監査 | M67/R212A--R212C、M66/R205A・R205E--R205F、R207A--R207D |
+| Q2-3 | 未監査 | 未監査 | 未監査 | 未監査 | 未監査 | M54、R177、R181B--R181C、M67/R212、M66/R205--R206 |
+| Q2-4 | 未監査 | 未監査 | 未監査 | 未監査 | 未監査 | M54、R181C、R186、M67/R212、M66/R205--R206E |
 | Q3-1 | 部分達成 | 未監査 | 未監査 | 未監査 | 未監査 | M67、R210A、M37、R86 |
 | Q3-2 | 部分達成 | 未監査 | 未監査 | 未監査 | 未監査 | M67、R208A--R209C、R210A、M64、R203A--R203D、R161、R185 |
 | Q3-3A | 未監査 | 未監査 | 未監査 | 未監査 | 未監査 | M67、R210A、R210B、M37、R86、R123 |
@@ -109,9 +109,9 @@ M65/R204A/R204D/R204E/R204Fのtwo-result first-passage open selector核はQ1の�
 
 Q2-4のterminal readout責務はR206A--R206Dへ移し、Q2-4準備はR206Eが担う。M65のQ2-4 polynomial node-time条件はfixed-goal責務から外す。
 
-## M66/R205 common-reservoir parent と R206 readout specialization
+## M67/R212 thermal physical parent、M66/R205 open/effective layer と R206/R207 specialization
 
-M66/R205A--R205Fはphase-volume、mean-flow、thermal sampling、passive separationを共通化するreservoir parentである。M64/M65のdomain modelは維持し、Q2-1/Q2-3/Q2-4 fixed-goalのterminal readoutはR206A--R206DをM66の具体specializationとして使い、Q2-4のuniform root preparation / refreshはR206Eが担う。R205A/R205E/R205FはQ2-2 fixed-goalでR207A--R207Cのprojection phase-volume共同準備・passive separationへ接続する。
+M67/R212A--R212CはM66/R205 thermal lawのfinite-Hamiltonian physical parentを与える。M66/R205A--R205Fはphase-volume、mean-flow、thermal sampling、passive separationをopen/effective layerとして共通化する。M64/M65のdomain modelは維持し、Q2-1/Q2-3/Q2-4 fixed-goalのterminal readoutはR206A--R206DをM66の具体specializationとして使い、Q2-4のuniform root preparation / refreshはR206Eが担う。Q2-2ではR212B-rotがR207A target preparation、R212CがR205F passive separationのphysical parentへ接続する。
 
 共通thermal-reservoir層と強化目標の責務は次のように分ける。
 
@@ -119,11 +119,11 @@ M66/R205A--R205Fはphase-volume、mean-flow、thermal sampling、passive separat
 |---|---|---|
 | M64 | R203B reservoir sectorをR205Cへ埋め込む | direct M64 trajectory、finite-bandwidth/Hamiltonian lift、装置統合 |
 | M65 | two-result first-passage open lawを系列固有に採用。R205D fixed-hub corollaryは現行physical liftに使わない。M67/R211A--R211CがR204E-compatible double-well liftを与える | full direct trajectory、Q1因果鎖全体の具体模型統合、有限帯域、具体回路 |
-| R206 | M66のQ2 terminal specialization | concrete apparatus、有限帯域、always-on coupling/backreaction |
-| R207 | R205E/Fをjoint preparation/passive separationへ利用 | direct microscopic trajectory、具体装置、有限帯域・非理想性監査 |
+| R206 | M67/R212→M66のQ2 terminal specialization | common-hub concrete apparatus全体のfinite-Hamiltonian lift、有限帯域、always-on coupling/backreaction |
+| R207 | R212B-rot/R212C→R205E/Fをjoint preparation/passive separationへ利用 | target canonical marginalとparameter-window witnessは前進。残るのはfull finite-Hamiltonian direct trajectory、具体装置、有限帯域・非理想性監査 |
 
-この共通化だけではA1/A2/B1--B3状態を変更しない。Q2-4ではR186のcoherent register additive-noise障害を独立に維持する。
+R212A--R212Cを追加してもA1/A2/B1--B3状態を自動変更しない。R212Bのrotor mixing simulationはsupporting witnessでありQ2-2-A2達成判定には数えない。Q2-4ではR186のcoherent register additive-noise障害を独立に維持する。
 
-### M67/R208--R211 二実体finite-Hamiltonian parent
+### M67/R208--R212 二実体finite-Hamiltonian parent
 
-M67/R208A--R209CをQ3 tracer/Nelson側のrequired physical-parent bridge、R210Aをcoherent/R86 bridge、R210BをR123 dephasing physical liftとして採用する。Q1ではR211A--R211CをM65/R204E binary-selector contractのfinite-Hamiltonian double-well strengtheningとして採用する。M67をQ3 fixed-goal physical parentへ昇格してもstrengthening判定は別であり、Q3-1-A1/Q3-2-A1は部分達成、Q3-1-A2/Q3-2-A2は未監査のままとする。full finite-Hamiltonian witnessはsupporting evidenceであってA2 promotion testには数えない。B1--B3、M0の現在地も変更しない。
+M67/R208A--R209CをQ3 tracer/Nelson側、R210Aをcoherent/R86、R210BをR123 dephasing physical liftとして採用する。Q1ではR211A--R211C、Q2 thermal sectorではR212A--R212Cをrequired physical-parent bridgeとして採用する。R212B-rotはR207A target densityのcanonical liftとfinite-time parameter windowを与えるが、full finite-Hamiltonian trajectoryはsupporting evidenceなのでQ2-2-A1/A2を自動昇格しない。Q3-1-A1/Q3-2-A1は部分達成、Q3-1-A2/Q3-2-A2は未監査、Q2のA1/A2/B1--B3、M0も従来判定を維持する。
