@@ -74,7 +74,8 @@ def main() -> None:
     req(status, "| Q3-6 | 未達 |", "Q3-6 unchanged")
     req(status, "### M67 Q1 selector-lift結果", "R211 result ledger")
     for rid in ("R211A", "R211B", "R211C"):
-        req(status, f"| {rid} |", "R211 result ledger")
+        req(status, f"| {rid} | 強化結果", "R211 strengthening result ledger")
+    req(status, "draft-140以後の現行M65 physical liftには用いない", "R205D historical boundary")
 
     req(enh, "| Q1-2 | 未監査 | 未監査 | 未監査 | 未監査 | 未監査 |", "Q1-2 strengthening unchanged")
     req(enh, "M67/R211A--R211C", "M67 Q1 strengthening")
