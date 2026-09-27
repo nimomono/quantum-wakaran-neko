@@ -2016,14 +2016,76 @@ K_{\widehat p}
 
 各項は上の1次元quadrature、backward equation、one-time Wasserstein boundから有限に評価できる。
 
-さらにsafe action-ratio集合を固定したまま、collar幅、launch幅、finite phase-volume mode数、finite-bath近似、small-mass parameter、recurrence time、well depthとdecision windowを順に選ぶparameter族で
+さらにsafe action-ratio集合と固定 $0<d<L<1$ を保ち、$B\to\infty$ に対して一例として
+
+```math
+W_0^{(B)}(X)
+=
+B(X^2-1)^2,
+\qquad
+\ell_B=B^{-1},
+\qquad
+\delta_{0,B}=B^{-1},
+```
+
+```math
+T_B
+=
+C\frac{\log B}{B}
+```
+
+を取る。$C>0$ を十分大きく固定すると、1次元scale/speed評価から
+
+```math
+\varepsilon_{\rm col}
+=
+O(B^{-1/2}),
+\qquad
+\varepsilon_{\rm launch}
+=
+O(B^{-1/2}),
+```
+
+```math
+\varepsilon_{\rm surv}(T_B)
+\longrightarrow0,
+\qquad
+\varepsilon_{\rm ret}(T_B)
+=
+O
+\left(
+T_Be^{-c_{dL}B}
+\right),
+```
+
+となる。ここで
+
+```math
+c_{dL}
+=
+(1-d^2)^2-(1-L^2)^2
+>
+0.
+```
+
+各有限 $B$ を先に固定した後、R209B/C型のfinite-bath spectrum、small-mass parameter、phase-volume mode数、初期compatibilityを選び、
+
+```math
+\varepsilon_{\rm cg}(T_B)
+\le
+B^{-1/2},
+\qquad
+T_B<T_{\rm bath\,rec}^{Q1}
+```
+
+とできる。縮約定数が $B$ または $\ell_B$ に一様であることは要求せず、各有限 $B$ に対してreduction parameterを後から選ぶ。このnested finite-parameter familyで
 
 ```math
 \varepsilon_{211B}
-\longrightarrow0
+\longrightarrow0.
 ```
 
-とできる。従ってM67 Q1 profileはR204E binary selector contractを任意精度で満たすfinite-Hamiltonian physical liftを与える。
+従ってM67 Q1 profileはR204E binary selector contractを任意精度で満たすfinite-Hamiltonian physical liftを与える。
 
 R211BはM65/R204Aの指数Poisson waiting-time lawや $\lambda_\pm=\kappa a_\pm$ を再現するとは主張しない。
 <!-- theorem-end:theorem -->
@@ -2035,7 +2097,9 @@ sharp-interface committor式は1次元reversible diffusionのscale functionか�
 
 eventual deep-commitment signと固定時刻basin readoutが異なるpathは、時刻 $T$ までに $\pm L$ へ到達しない場合か、到達後に対応する $\pm d$ まで戻る場合へ含まれるので、自然couplingから $\varepsilon_{\rm surv}+\varepsilon_{\rm ret}$ で抑えられる。
 
-finite-Hamiltonian lawとideal diffusion lawをone-time $W_1$ couplingし、coupling距離が $\delta$ を超える確率をMarkov inequalityで $\varepsilon_X/\delta$ と評価する。両marker位置がthresholdから $\delta$ 以上離れ、coupling距離が $\delta$ 以下なら $g_d$ の結果は一致するため、残る不一致確率は $\omega_d(\delta,T)$ 以下である。$\delta$ について下限を取れば $\varepsilon_{\rm cg}$ を得る。各誤差項を順次小さくできるparameter族を選べば最後の主張が従う。証明終。
+finite-Hamiltonian lawとideal diffusion lawをone-time $W_1$ couplingし、coupling距離が $\delta$ を超える確率をMarkov inequalityで $\varepsilon_X/\delta$ と評価する。両marker位置がthresholdから $\delta$ 以上離れ、coupling距離が $\delta$ 以下なら $g_d$ の結果は一致するため、残る不一致確率は $\omega_d(\delta,T)$ 以下である。$\delta$ について下限を取れば $\varepsilon_{\rm cg}$ を得る。
+
+最後のparameter familyでは、中央barrier近傍のscale densityは幅 $O(B^{-1/2})$ に集中するため $\ell_B=B^{-1}$ のcollar比は $O(B^{-1/2})$ である。committor derivativeは同領域で $O(B^{1/2})$ なので $\delta_{0,B}=B^{-1}$ によりlaunch errorも $O(B^{-1/2})$ になる。中央saddle近傍の不安定drift scaleは $O(B)$ であり、$T_B=C(\log B)/B$ は十分大きい $C$ でfall timeを上回る一方、$L$ から $d$ へ戻るにはfree-energy差 $c_{dL}B+O(1)$ を上るためfinite-window returnは指数的に抑えられる。各有限 $B$ でR209B/Cのreduction parameterをその後に選べばcoarse-graining errorも独立に小さくできる。証明終。
 <!-- theorem-end:proof -->
 
 ### AA.19.1 required numerical witness
