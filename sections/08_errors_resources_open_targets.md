@@ -514,25 +514,23 @@ B.5の漏れ確率を全変動距離へ直接加える旧評価は採用しな�
 
 優先順は、物理係数の対応、静的Rabi、有限傾斜列、準備・読出し境界、共同信号系への接続、同一装置の統合である。ゲート列からの有効伝播は補助実装として研究メモで管理し、Q3全過程の独立導出とは呼ばない。
 
-## M65 canonical open selector の誤差・資源台帳
+## M65 two-result first-passage selector の誤差・資源台帳
 
-M65の正本はR204Aの3状態open generatorである。通常経路では、安全運用域で $a_\Sigma\geq a_{\min}>0$ として
+M65の正本はR204Aのtwo-result first-passage open lawである。通常経路では、安全運用域で $a_\Sigma\geq a_{\min}>0$ として
 
 ```math
 \varepsilon_{65}^{\rm int}
 \leq
 \varepsilon_A
 +
-e^{-\Lambda T}
-+
-\frac{\Lambda}{\Lambda+\kappa a_{\min}}
+e^{-\kappa a_{\min}T}
 +
 T\varepsilon_{\rm rate}
 +
 \varepsilon_{\rm rec}.
 ```
 
-canonical open lawそのものでは $\varepsilon_{\rm rate}=0$ とする。具体的chamber、有限帯域bath、Brownian liftを選んだ場合だけ実装generator誤差を追加する。
+canonical first-passage lawそのものでは $\varepsilon_{\rm rate}=0$ とする。旧R204B/R204C fixed-hub liftの偏差は現行M65誤差台帳へ加えない。具体的finite-Hamiltonian liftを採用する場合の誤差は、その後続physical bridgeで別途評価する。
 
 endpointは固定係数の線形比較器で判定でき、
 
@@ -571,7 +569,7 @@ M65の現行fixed-goal範囲はQ1の逐次binary instrumentである。Q2-1/Q2-3
 | 対象 | 共通層で数える量 | specialization側で追加する量 |
 |---|---|---|
 | M64/R203B--R203C | phase-volume identity自体はexact。採用するthermal mixingまたはmean-flow portの実装偏差 | current dictionary、initial preparation、finite-time flow tracking、tracer縮約、R161/R185接続 |
-| M65/R204B | R205Dのcapacity--conductance恒等式自体はexact | canonical M65 finite-time/hub/endpoint/record error。chamber/Brownian liftを採用した場合だけそのgenerator近似 |
+| M65/R204A・R204D | two-result first-passage open lawは系列固有。R205D fixed-hub corollaryを現行liftに使わない | finite-time survival、cutoff、record error。finite-Hamiltonian liftは後続physical bridgeで別評価 |
 | R206 | R205Bのmatched capacity--conductance原理 | R206Cのfinite-time、hub residual、regularization、generator、record、fabrication error |
 | R207 | R205E thermal mixing、R205F generator separation defect | setting latch、finite-lock近似、outcome fixation、direct microscopic trajectory・具体装置の強化監査 |
 

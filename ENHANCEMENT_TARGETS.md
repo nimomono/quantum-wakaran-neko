@@ -68,7 +68,7 @@ Q2-4のB1--B3は単一の巨大回路図を要求するものではなく、任�
 | 固定目標 | A1 | A2 | B1 | B2 | B3 | 主な既存候補 |
 |---|---|---|---|---|---|---|
 | Q1-1 | 未監査 | 未監査 | 未監査 | 未監査 | 未監査 | M37、R140、R187 |
-| Q1-2 | 未監査 | 未監査 | 未監査 | 未監査 | 未監査 | R189A--R189C、M65/R204D--R204F、R181D |
+| Q1-2 | 未監査 | 未監査 | 未監査 | 未監査 | 未監査 | R189A--R189C、M65/R204A・R204D--R204F、R181D |
 | Q2-1 | 未監査 | 未監査 | 未監査 | 未監査 | 未監査 | M54、R181B--R181C、M66/R205--R206 |
 | Q2-2 | 未監査 | 未監査 | 未監査 | 未監査 | 未監査 | M66/R205A・R205E--R205F、R207A--R207D |
 | Q2-3 | 未監査 | 未監査 | 未監査 | 未監査 | 未監査 | M54、R177、R181B--R181C、M66/R205--R206 |
@@ -103,9 +103,9 @@ M0は、複数の固定目標にまたがる主要自由度と物理接続端を
 
 ## M65/R204 canonical open model と強化実現
 
-M65/R204A/R204D/R204E/R204Fのopen selector核はQ1の逐次fixed-goal正本として採用する。Markov方程式そのものを開放ミクロ方程式として直接定めるため、R204Bのphase-volume chamberとR204CのHamiltonian--Brownian liftをM65正本性やfixed-goal判定の必要条件にしない。
+M65/R204A/R204D/R204E/R204Fのtwo-result first-passage open selector核はQ1の逐次fixed-goal正本として採用する。未決定は第三の物理pointer状態ではなくsurvival conditionであり、指数Poisson raceは最小open witnessである。将来physical parentにはwaiting-time分布そのものではなくR204E complete-result contractの回収を要求する。
 
-R204B/R204C、finite-bandwidth bath、direct Brownian chamber trajectory、具体回路化は追加のA2/B系・横断強化として扱う。M65正本化だけからQ1/Q2のA1/A2/B1/B2/B3状態を自動的に変更しない。A1へM65を採用する場合も、各固定目標の主要因果鎖全体を一つの具体模型として閉じる必要がある。
+旧R204B/R204C fixed-hub physical liftはdraft-140でactive strengtheningから退役し、履歴へ保存する。現行M65の強化課題は、two-result first-passage kernelを生む具体的finite-Hamiltonian/double-well lift、direct trajectory、有限帯域・具体回路化である。M65正本化だけからQ1/Q2のA1/A2/B1/B2/B3状態を自動的に変更しない。A1へM65を採用する場合も、各固定目標の主要因果鎖全体を一つの具体模型として閉じる必要がある。
 
 Q2-4のterminal readout責務はR206A--R206Dへ移し、Q2-4準備はR206Eが担う。M65のQ2-4 polynomial node-time条件はfixed-goal責務から外す。
 
@@ -118,7 +118,7 @@ M66/R205A--R205Fはphase-volume、mean-flow、thermal sampling、passive separat
 | 対象 | M66/R205との関係 | 強化側でなお必要なもの |
 |---|---|---|
 | M64 | R203B reservoir sectorをR205Cへ埋め込む | direct M64 trajectory、finite-bandwidth/Hamiltonian lift、装置統合 |
-| M65 | R204B chamber realizationをR205Dへ埋め込む | direct Brownian/chamber trajectory、finite-bandwidth bath、具体回路 |
+| M65 | two-result first-passage open lawを系列固有に採用。R205D fixed-hub corollaryは現行physical liftに使わない | finite-Hamiltonian/double-well lift、direct trajectory、有限帯域、具体回路 |
 | R206 | M66のQ2 terminal specialization | concrete apparatus、有限帯域、always-on coupling/backreaction |
 | R207 | R205E/Fをjoint preparation/passive separationへ利用 | direct microscopic trajectory、具体装置、有限帯域・非理想性監査 |
 
