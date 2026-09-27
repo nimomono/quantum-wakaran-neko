@@ -769,7 +769,7 @@ B_N(t)
 \int_0^t\xi_N(s)\,ds
 ```
 
-はGaussian過程であり、kernel covarianceがDrude kernelへ一様積分収束し、increment boundが一様なら、固定 $T<T_{\rm bath\mbox{-}rec}^{Q1}$ で
+はGaussian過程であり、kernel covarianceがDrude kernelへ一様積分収束し、increment boundが一様なら、固定 $T<T_{\rm bath\,rec}^{Q1}$ で
 
 ```math
 \mathcal L(B_N)
@@ -1974,7 +1974,7 @@ m_d(T)\varepsilon_X(T)
 <!-- theorem-start:theorem -->
 **定理（R211B：M67 Q1 double-well Born kernel / R204E compatibility）**
 
-R211Aのsafe Q1 profileを取り、$0<\ell<d<L$、有限decision時刻 $T<T_{\rm bath\mbox{-}rec}^{Q1}$ を選ぶ。finite-Hamiltonian terminal result kernelを
+R211Aのsafe Q1 profileを取り、$0<\ell<d<L$、有限decision時刻 $T<T_{\rm bath\,rec}^{Q1}$ を選ぶ。finite-Hamiltonian terminal result kernelを
 
 ```math
 K_{67}^T
@@ -2192,7 +2192,7 @@ R189A、R211A、R211Bの条件を満たし、decision時刻 $T$ のterminal resu
 
 と評価できる。
 
-selector parameter setと有限decision/record/router時間を先に固定し、その後R187のweak-coupling極を取れば
+selector parameter setと有限decision時間 $T_{211}$、R112 record時間 $T_{\rm record}$、R181D router時間 $T_F$ を先に固定し、その後R187のweak-coupling極を取れば
 
 ```math
 \Omega_\kappa
