@@ -1,7 +1,7 @@
 @number: AA
 @chapter: 付録
 @title: M67 二実体finite-Hamiltonian physical parent
-@status: M67をQ3-1--Q3-5の共通二実体finite-Hamiltonian physical parentとし、Q1ではM65/R204E binary-selector contractのfinite-Hamiltonian strengtheningをR211A--R211Cで与える。M37はM67 coherent module、M64/R203はM67のcanonical open effective reduction、R123有限環境はR210Bのbounded dephasing liftの有効則として維持する。R208A--R209Cはtracer/Nelson側、R210Aはcoherent-sector/R86 compatibility、R210Bはbounded finite-dephasing embedding、R211A--R211CはQ1 double-well selector liftを担う。Q3-6はM67 coherent sector上の未達課題として残し、Q2/NBL、M0、M54/M65/M66の運用状態は変更しない。
+@status: M67をQ3-1--Q3-5の共通二実体finite-Hamiltonian physical parentとし、Q1ではR211A--R211Cでbinary-selector strengthening、Q2ではR212A--R212CでM66/R205 thermal layerのfinite-Hamiltonian parentを与える。M37はM67 coherent module、M64/R203はcanonical open effective reduction、M66/R205はthermal-sector open/effective interfaceとして維持する。R212BのS^2 rotor corollaryはR207A共同準備をM67 canonical marginalとfinite-time thermal liftへ接続する。Q3-6、Q2 signal/NBL/register/gate、M0は別課題として残す。
 
 ## AA.1 目的、二実体、責務境界
 
@@ -17,7 +17,7 @@ M67は、M64で別実体としていたclassical coherent signalとsignal-driven
 
 だけとする。$\mathcal R_{\rm str}$ は有限個の古典正準自由度からなる一つのHamiltonian媒体であり、内部にcoherent、phase-volume、flow、dragの各sectorを持つ。これらは別々の物理実体ではなく、同じ媒体の正準部分系またはreaction coordinateである。Q3では $\mathcal X$ をclassical tracerとして読む。
 
-本付録の責務はM67をQ3共通physical parentとして固定し、さらにQ1 binary selectorのfinite-Hamiltonian strengtheningを同じ二実体architectureへ特殊化することである。coherent profileはR210Aを介してM37/R86へ、dephasing profileはR210Bを介してR123へ、continuous/finite-graph tracer profileはR208/R209を介してM64/R203A--R203Dへ接続する。Q1 binary-selector profileはR211A--R211Cを介してM65/R204E contractとR181Dへ接続する。R161/R185、R123--R125、R182、R204E、R181Dは既存の下流結果として再利用し、本付録では再証明しない。Q2のM54/R181B--R181C、M66/R205--R207、NBL型registerは本付録の直接主張に含めない。
+本付録の責務はM67をQ3共通physical parentとして固定し、さらにQ1 binary selectorのfinite-Hamiltonian strengtheningを同じ二実体architectureへ特殊化することである。coherent profileはR210Aを介してM37/R86へ、dephasing profileはR210Bを介してR123へ、continuous/finite-graph tracer profileはR208/R209を介してM64/R203A--R203Dへ接続する。Q1 binary-selector profileはR211A--R211Cを介してM65/R204E contractとR181Dへ接続する。R161/R185、R123--R125、R182、R204E、R181Dは既存の下流結果として再利用し、本付録では再証明しない。Q2についてはR212A--R212CがM66/R205 thermal layerとR207A/R207Cのthermal physical liftを本付録の直接主張へ加える。一方、M54/R181B--R181Cのsignal/register/gate、R206 common-hub apparatus全体のfinite-Hamiltonian lift、NBL型registerは本付録の直接主張に含めない。
 
 M67の「二実体」は自由度が二個という意味ではない。一つのstructured reservoir sector $\mathcal R_{\rm str}$ が有限個のcoherent/thermal/reaction-coordinate/dephasing/held-action内部自由度を持ち、marker sector $\mathcal X$ はQ3-2/Q3-4/Q3-5でtracer、Q1 selector profileではbinary decision markerとしてactiveになる。Q3-1およびQ3-3A--Q3-3Cではmarker sectorをdecoupleしたprofileを許す。
 
@@ -1524,7 +1524,7 @@ bath kinetic energyも非負なので下界を得る。$I_n,P_n$ はそれぞれ
 
 M67 supporting simulationではHamiltonian drift、M37 ideal signalとの状態方向誤差、$U_X-v_\delta$、phase-volume mean force、finite-bath memory、tracer分布を同じparameter setで監査する。R210A/Bを含むrequired解析検算とfull trajectory simulationを区別し、後者だけからA2を昇格しない。$N_0$、$N_\rho$、$K_U$、$\tau_U$、$\tau_{\rm mem}$、bath mode数、格子幅を独立に振り、一つの改善を複数誤差へ二重計数しない。
 
-M67をQ3 common physical parentへ昇格してもM37、M64、R123の結果を削除しない。M37はactive coherent module、M64/R203はactive open effective reduction、R123はR210Bで物理liftされたactive dephasing lawとして維持する。R211A--R211CはQ1 binary selectorだけを追加specializeし、M65/R204A・R204D--R204Fをcanonical open selectorとして維持する。A1/A2/B1--B3、M0の判定は変更しない。Q2/NBL特殊化は将来候補であり、H/T/CNOTの一般実装、NBL Born sampling、mixing/resource boundを本付録から推論しない。$R_i^\delta=|Z_i|^2+\delta q_iS$ のglobal $S$ を完全局所化する問題もstrict-locality strengtheningとして残す。
+M67をcommon physical parentとして広げてもM37、M64、M66、R123の結果を削除しない。M37はactive coherent module、M64/R203はactive Q3 open effective reduction、M66/R205はactive thermal open/effective interface、R123はR210Bで物理liftされたactive dephasing lawとして維持する。R211A--R211CはQ1 binary selectorを、R212A--R212Cはthermal sectorを追加specializeする。A1/A2/B1--B3、M0の判定は変更しない。Q2 signal/NBL/register/gateの統合、H/T/CNOTの一般実装、NBL Born sampling、R206 common-hub apparatus全体のfinite-Hamiltonian liftは本付録から推論しない。$R_i^\delta=|Z_i|^2+\delta q_iS$ のglobal $S$ を完全局所化する問題もstrict-locality strengtheningとして残す。
 
 
 ## AA.17 Q1 binary-selector profileとsafe branch
@@ -2280,3 +2280,539 @@ interior branchではR211Bのcomplete-result TV errorへR189A作用保持誤差�
 <!-- theorem-end:proof -->
 
 R211A--R211CはM65を置換しない。M65/R204A・R204Dはcanonical open selector、R211A/Bはfinite-Hamiltonian physical lift、R204Eは両者が共有するinterface、R181Dはselector-independent projector routerとして維持する。
+
+
+## AA.21 R212 thermal-sector bridge
+
+R212A--R212CはM66/R205を削除せず、M67 structured reservoirの有限Hamiltonian parentからそのopen/effective thermal lawを回収する。責務は
+
+```math
+M67
+\longrightarrow
+R212A
+\longrightarrow
+\{R212B,R212C\}
+\longrightarrow
+M66/R205
+```
+
+とする。R205B/R205Dはfinite-chamber reduced lawとしてそのまま維持し、R206/R207の用途別specializationも削除しない。
+
+### AA.21.1 R212A：universal phase-volume / mean-flow embedding
+
+resolved canonical variablesをまとめて $S$ とし、smooth positive weight $w(S)$、mean-flow shift $U(S)$、coordinate shift $R(S)$ を取る。safe domainで
+
+```math
+0<w_*\le w(S)\le w^*<\infty
+```
+
+とする。structured reservoir内部に有限個のcanonical pairs $(\zeta_\alpha,\Pi_\alpha)$ を置き、
+
+```math
+H_{\rm th}^{67}
+=
+\sum_{\alpha=1}^{N_{\rm pv}}
+\left[
+\frac{(\Pi_\alpha-m_\alpha U(S))^2}{2m_\alpha}
++
+\frac{m_\alpha\omega_\alpha^2}{2}
+\left(
+w(S)^{-q_\alpha}\zeta_\alpha-d_\alpha R(S)
+\right)^2
+\right],
+\qquad
+q_\alpha>0,
+\quad
+\sum_\alpha q_\alpha=1
+```
+
+とする。
+
+<!-- theorem-start:theorem -->
+**定理（R212A：M67 universal phase-volume / mean-flow embedding）**
+
+固定 $S$ に対するconditional canonical partitionは
+
+```math
+Z_{\rm th}^{67}(S)=Z_0 w(S)
+```
+
+であり、
+
+```math
+F_{\rm th}^{67}(S)
+=
+-k_BT\log w(S)+C.
+```
+
+従って任意のresolved coordinate $s\subset S$ に対して
+
+```math
+-\langle\partial_s H_{\rm th}^{67}\rangle
+=
+k_BT\,\partial_s\log w,
+```
+
+一方でmean-flow momentum shiftとcoordinate translationはpartition factorを変えない。pure phase-volume sectorのconditional force fluctuationは
+
+```math
+\operatorname{Var}(F_s^{\rm pv})
+=
+2(k_BT)^2
+\left(\sum_\alpha q_\alpha^2\right)
+(\partial_s\log w)^2.
+```
+
+特に $q_\alpha=1/N_{\rm pv}$ ならRMS fluctuationは $O(N_{\rm pv}^{-1/2})$ である。
+
+R205Aは $U=R=0$、R205Cは一般 $U,R$、R208Bは $w=r_X^\delta/r_*$、R211Aはselector weightへのspecializationとして回収される。
+<!-- theorem-end:theorem -->
+
+<!-- theorem-start:proof -->
+**証明（R212A）**
+
+```math
+P_\alpha=\Pi_\alpha-m_\alpha U(S),
+\qquad
+Q_\alpha=w(S)^{-q_\alpha}\zeta_\alpha-d_\alpha R(S)
+```
+
+と変数変換する。momentum shiftとtranslationのJacobianは1で、$d\zeta_\alpha=w^{q_\alpha}dQ_\alpha$ だから全Jacobianは $w^{\sum q_\alpha}=w$。残るGaussian積分は $S$ に依存しない。force identityは $F=-k_BT\log Z$ から従う。各potential energyはcanonical ensembleで平均 $k_BT/2$、分散 $(k_BT)^2/2$ なので表示のvarianceを得る。証明終。
+<!-- theorem-end:proof -->
+
+terminal signalをaction-angle $(J_y,\phi_y)$ で表し、$w=w(J)$ がphaseに依存しないspecializationでは
+
+```math
+\dot J_y=-\partial_{\phi_y}H=0
+```
+
+である。従ってphase-volume couplingはterminal actionをQNDに保持できるが、$\dot\phi_y$ へのthermal phase loadまで消すとは主張しない。
+
+## AA.22 R212B：finite-Hamiltonian thermal sampler / R205E compatibility
+
+### AA.22.1 flat configuration
+
+resolved pair $(Q,P)$ に対し
+
+```math
+H_{212B}
+=
+\frac{|P|^2}{2M}
++
+H_{\rm cfg}(Q)
++
+H_{\rm pv}(Q)
++
+\sum_{\mu=1}^{N_B}
+\left[
+\frac{|p_\mu|^2}{2m_\mu}
++
+\frac{m_\mu\Omega_\mu^2}{2}
+|q_\mu-a_\mu Q|^2
+\right]
+```
+
+とする。R212Aからhidden-variable partitionは $Cw(Q)$、harmonic drag bathはcoordinate translationなので追加weightを作らない。従ってfull canonical $Q$-marginalは厳密に
+
+```math
+\pi(Q)
+\propto
+w(Q)e^{-\beta H_{\rm cfg}(Q)},
+\qquad
+H_{\rm eff}
+=
+H_{\rm cfg}-k_BT\log w.
+```
+
+finite harmonic bathを厳密消去すると
+
+```math
+M\ddot Q_t
+=
+-\nabla H_{\rm cfg}(Q_t)
++
+F_{\rm pv}(t)
+-
+\int_0^t\Gamma_N(t-s)\dot Q_s\,ds
++
+\xi_N(t),
+```
+
+```math
+\Gamma_N(t)
+=
+\sum_\mu m_\mu\Omega_\mu^2a_\mu^2\cos(\Omega_\mu t),
+\qquad
+\langle\xi_N(t)\xi_N(s)^T\rangle
+=
+k_BT\Gamma_N(t-s)I
+```
+
+を得る。phase-volume forceを
+
+```math
+F_{\rm pv}(t)
+=
+k_BT\nabla\log w(Q_t)
++
+R_{\rm pv}(t)
+```
+
+と分解し、finite-spectrum、short-memory、small-mass誤差を別々に数える。
+
+<!-- theorem-start:theorem -->
+**定理（R212B-flat：M67 finite-Hamiltonian thermal sampler / R205E compatibility）**
+
+compact safe domainで $w>0$、$H_{\rm cfg}$ がsmoothとする。固定有限時間 $0\le t\le T<T_{\rm rec}$ に対し
+
+```math
+\varepsilon_{212B}^{\rm flat}
+=
+\varepsilon_{\rm pv}
++
+\varepsilon_{\Gamma}
++
+\varepsilon_{\rm noise}
++
+\varepsilon_{\rm od}
++
+\varepsilon_{\rm init}
+```
+
+とする。finite harmonic bathをshort-memory kernelへ近似し、$M/\gamma\to0$ を取るparameter familyで
+
+```math
+\sup_{t\le T}
+W_1
+\left(
+\mathcal L(Q_t^{67}),
+\mathcal L(Q_t^{205E})
+\right)
+\le
+C_T\varepsilon_{212B}^{\rm flat},
+```
+
+ここで $Q^{205E}$ は
+
+```math
+dQ_t
+=
+-\mu\nabla
+\left[
+H_{\rm cfg}(Q_t)-k_BT\log w(Q_t)
+\right]dt
++
+\sqrt{2\mu k_BT}\,dW_t,
+\qquad
+\mu=\gamma^{-1}.
+```
+
+従ってR205EはM67 thermal sectorのfinite-time open reductionとして回収される。有限Hamiltonianが無限時間Markov semigroupになるとは主張しない。
+<!-- theorem-end:theorem -->
+
+### AA.22.2 S2 rigid-rotor corollary
+
+orientationを $\lambda\in S^2$、tangent angular momentumを $L$ とし、
+
+```math
+|\lambda|=1,
+\qquad
+\lambda\cdot L=0,
+\qquad
+H_{\rm rot}=\frac{|L|^2}{2I},
+\qquad
+\dot\lambda=\omega\times\lambda,
+\quad
+\omega=L/I
+```
+
+とする。finite isotropic bathを
+
+```math
+H_B^{\rm rot}
+=
+\sum_{\mu=1}^{N_B}
+\left[
+\frac{|p_\mu|^2}{2m_\mu}
++
+\frac{m_\mu\omega_\mu^2}{2}
+|q_\mu-a_\mu\lambda|^2
+\right]
+```
+
+とする。固定 $\lambda$ では $q_\mu\mapsto q_\mu-a_\mu\lambda$ は平行移動なのでbath partitionはorientation-independentである。
+
+bathを厳密消去するとtorqueは
+
+```math
+\tau_B(t)
+=
+\lambda(t)\times\xi_N(t)
+-
+\lambda(t)\times
+\int_0^t
+\Gamma_N(t-s)\dot\lambda(s)\,ds.
+```
+
+noise torqueはHamiltonian構造だけで接平面へ投影される。short-memory極では $\lambda(t)\times\dot\lambda(s)$ と $\omega(s)$ の差がgeometry residualを与え、十分条件として
+
+```math
+\theta_B\ll I/\gamma
+```
+
+を取る。
+
+<!-- theorem-start:theorem -->
+**系（R212B-rot：M67 finite-Hamiltonian rotor / spherical R205E compatibility）**
+
+R212Aのpositive smooth weight $w(\lambda)$ とsmooth $H_{\rm cfg}(\lambda)$ を持つfinite rotor profileを取る。固定有限時間 $T<T_{\rm rec}$ で
+
+```math
+\varepsilon_{212B}^{\rm rot}
+=
+\varepsilon_{\rm pv}
++
+\varepsilon_{\Gamma}
++
+\varepsilon_{\rm geom}
++
+\varepsilon_{\rm noise}
++
+\varepsilon_{\rm od}^{\rm rot}
++
+\varepsilon_{\rm init}
+```
+
+とする。$\theta_B\ll I/\gamma$、finite-spectrum Markov化、small-inertia極を同時に満たすparameter familyではM67 orientation lawはgenerator
+
+```math
+\mathcal L_{S^2}f
+=
+-\mu\nabla_S H_{\rm eff}\cdot\nabla_S f
++
+\mu k_BT\Delta_S f,
+\qquad
+H_{\rm eff}=H_{\rm cfg}-k_BT\log w
+```
+
+を持つspherical diffusionへ有限時間で近づく。
+
+Stratonovich形式は
+
+```math
+d\lambda_t
+=
+-\mu P_{\lambda_t}\nabla H_{\rm eff}\,dt
++
+\sqrt{2\mu k_BT}\,
+P_{\lambda_t}\circ dW_t,
+\qquad
+P_\lambda=I-\lambda\lambda^T,
+```
+
+Itô形式は
+
+```math
+d\lambda_t
+=
+\left[
+-\mu P_{\lambda_t}\nabla H_{\rm eff}
+-
+2\mu k_BT\lambda_t
+\right]dt
++
+\sqrt{2\mu k_BT}\,
+P_{\lambda_t}dW_t.
+```
+
+reversible stationary measureは
+
+```math
+\pi(d\lambda)
+\propto
+w(\lambda)e^{-\beta H_{\rm cfg}(\lambda)}d\Omega.
+```
+<!-- theorem-end:theorem -->
+
+### AA.22.3 R207A finite-Hamiltonian preparation lift
+
+二rotor $(\lambda_A,L_A),(\lambda_B,L_B)$ と独立local finite rotor bathを取り、
+
+```math
+H_{\rm cfg}
+=
+-K\lambda_A\cdot\lambda_B,
+\qquad
+k=\beta K,
+```
+
+```math
+w_\epsilon
+=
+f_\epsilon(a\cdot\lambda_A)
++
+f_\epsilon(b\cdot\lambda_B)
+```
+
+とする。$0<\epsilon<1$ なら $2\epsilon\le w_\epsilon\le2$ である。rotor momenta、R212A phase-volume variables、local rotor bathsをcanonicalに積分するとorientation marginalは厳密に
+
+```math
+\rho_{\epsilon,k}^{67}
+(\lambda_A,\lambda_B\mid a,b)
+=
+\frac{
+e^{k\lambda_A\cdot\lambda_B}
+w_\epsilon
+}{
+Z_{\epsilon,k}
+},
+```
+
+すなわちR207A densityそのものになる。
+
+<!-- theorem-start:theorem -->
+**系（R212B-Q2-2：R207A finite-Hamiltonian preparation lift）**
+
+任意の $0<\epsilon<1$、有限 $k>0$、held settings $a,b\in S^2$ に対して、有限rigid rotors、R212A phase-volume modes、有限isotropic local bathsからなるsmoothで下に有界なM67 Hamiltonian profileを構成できる。そのcanonical orientation marginalはR207Aの $\rho_{\epsilon,k}$ と厳密に一致する。従ってR207Aのsetting-independent partition、独立setting marginal、source hidden stateのsetting dependenceはM67 canonical ensembleからも回収される。
+
+さらにR212B-rotのfinite-time reduction条件を満たせば、任意のinitial orientation lawからspherical R205Eを経て $\rho_{\epsilon,k}$ へ有限時間で近づけられる。mixingの存在はcompactnessとstrictly positive smooth stationary densityから従い、具体的な $t_{\rm mix}<T_{\rm rec}$ windowはnumerical witnessで別に監査する。
+<!-- theorem-end:theorem -->
+
+R207で使う一つのexplicit witnessは
+
+```math
+\eta=0.25,
+\quad
+\epsilon=1/32,
+\quad
+k=8,
+\quad
+\theta_B=5\times10^{-4},
+\quad
+I/\gamma=10^{-2},
+```
+
+```math
+t_{\rm mix}=12,
+\quad
+T_{\rm prep}=15,
+\quad
+T_{\rm rec}=100.
+```
+
+従って
+
+```math
+5\times10^{-4}
+\ll
+10^{-2}
+<
+12
+<
+15
+<
+100
+```
+
+という有限parameter windowが空でない。Monte Carlo mixing witnessは解析証明ではなくsupporting numerical evidenceとして扱う。
+
+## AA.23 R212C：finite-Hamiltonian passive separation / R205F compatibility
+
+二つのresolved subsystem $Q_A,Q_B$ と距離 $R$ を取り、smooth compact-support profile
+
+```math
+s(R)\in[0,1],
+\qquad
+s(R)=1\quad(R\le R_{\rm prep}),
+\qquad
+s(R)=0\quad(R\ge R_{\rm sep})
+```
+
+を固定constitutive lawとして使う。direct interactionとshared phase-volume couplingを
+
+```math
+H_{AB}^{\rm int}
+=
+K_0s(R)V_{AB},
+qquad
+F_{\rm pv}^{AB}
+=
+-k_BT\,s(R)\log w_{\rm sh}
+```
+
+とする。
+
+一般shared-bath profileでは二成分bath coupling directionを
+
+```math
+u_A=(1,0),
+\qquad
+u_B(R)=
+\left(
+c(R),
+\sqrt{1-c(R)^2}
+\right),
+\qquad
+c(R)=c_0s(R)
+```
+
+と選べる。固定 $R$ でbathを消去するとmemory/friction matrixのcross blockは $O(c(R))$、overdamped local mobility correctionは $O(c(R)^2)$ である。
+
+<!-- theorem-start:theorem -->
+**定理（R212C：M67 finite-Hamiltonian passive separation / R205F compatibility）**
+
+M67 shared-reservoir profileを上のcompact-support geometryで構成する。finite-bath Markov reductionとsmall-mass reduction後のgenerator $\mathcal L_R^{67}$ は完全分離generator $\mathcal L_A+\mathcal L_B$ に対して
+
+```math
+\|
+(\mathcal L_R^{67}
+-\mathcal L_A
+-\mathcal L_B)f
+\|_\infty
+\le
+C_f
+\left[
+|K_0|s(R)
++
+s(R)
++
+|c(R)|
++
+c(R)^2
++
+\varepsilon_{\rm bath}
++
+\varepsilon_{\rm od}
+\right].
+```
+
+従って $R\to R_{\rm sep}$ とともにgenerator defectを任意に小さくできる。さらに $R\ge R_{\rm sep}$ ではcompact-support couplingsが厳密に零となり、
+
+```math
+H_{67}=H_A^{67}+H_B^{67}+H_{\rm spectators},
+\qquad
+\mathcal L_R^{67}=\mathcal L_A+\mathcal L_B
+```
+
+が厳密に成立する。
+
+finite $R$ ではFDTによりcross noiseとcross frictionが同時に生じるため、R205Fの固定local-mobility formを係数ごと完全再現するとは主張しない。R205FはM67 separation lawのopen/effective reductionとして読む。
+<!-- theorem-end:theorem -->
+
+R207最小profileではA/Bに独立local rotor bathsを常時接続し、相関はnear-contact lockとshared phase-volume weightだけで作ればよい。このときcross-bath blockを $c(R)=0$ とでき、R212Cは $K(R)$ とshared phase-volume portの受動消去を与える。local thermal contactは切らない。
+
+## AA.24 R212A--R212Cの責務境界
+
+R212A--R212Cにより
+
+```math
+R212A\Rightarrow R205A,R205C,
+\qquad
+R212B\Rightarrow R205E,
+\qquad
+R212C\Rightarrow R205F
+```
+
+というphysical-parent chainを置く。M66/R205はM67 thermal sectorのopen/effective interfaceとして維持する。R205B/R205D、R206A--R206E、R207A--R207Dは用途別reduced/effective resultとして残す。
+
+R212B-Q2-2によりR207A canonical preparationはM67 physical parentへ持ち上がるが、R206 common-hub apparatus全体、Q2 signal/register/gate、NBL register、gate中always-on phase backreaction、M0 joint-device renewalを導出したとは扱わない。fixed-goal達成ラベル、R186、A1/A2/B1--B3の判定も本定理群だけでは変更しない。
