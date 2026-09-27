@@ -39,3 +39,6 @@ draft-129でR205C--R205Fの解析・generator回帰もrequired checksへ加え�
 
 draft-137/138ではM67/R208A--R209Cをcandidate-onlyとしてこのdirectoryで検査した。draft-139でM67をQ3 common physical parentへ昇格したため、対応する7本のverifierは tools/verify_*.py へ移動し通常required CIへ昇格した。R210A/R210Bもrequired verifierとして tools/ 直下に置く。draft-141のR211A/R211B Q1 selector-lift verifierも同じrequired層へ追加する。
 
+## R212B spherical-rotor candidate
+
+`verify_r212b_rotor_parameter_window.py` はR207の `eta=1/4`、`epsilon=1/32`、`k=8` に対して、`theta_B=5e-4`、`I/gamma=1e-2`、`t_mix=12`、`T_prep=15`、`T_rec=100` の同時parameter window、有限Drude bathのmode数、kernel近似、R207B統計核誤差を検査する。R212Bが正本化されるまではcandidate-onlyとし、direct spherical mixingは `simulations/m67/run_r212b_rotor_mixing_witness.py` へ分離する。
