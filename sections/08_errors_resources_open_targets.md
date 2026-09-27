@@ -567,71 +567,71 @@ M65の現行fixed-goal範囲はQ1の逐次binary instrumentである。Q2-1/Q2-3
 M67/R211A--R211CはM65/R204E contractへ接続するQ1 selector strengtheningであり、M65 canonical open lawを置換しない。safe interior branchに対するphysical-kernel errorは
 
 ```math
-arepsilon_{211B}
+\varepsilon_{211B}
 =
-arepsilon_{m col}
+\varepsilon_{\rm col}
 +
-arepsilon_{m launch}
+\varepsilon_{\rm launch}
 +
-arepsilon_{m surv}
+\varepsilon_{\rm surv}
 +
-arepsilon_{m ret}
+\varepsilon_{\rm ret}
 +
-arepsilon_{m cg}.
+\varepsilon_{\rm cg}.
 ```
 
-ここで $arepsilon_{m col}$ はsmooth phase-volume collar、$arepsilon_{m launch}$ は中央marker準備幅、$arepsilon_{m surv}$ はdecision時刻までのdeep commitment未到達、$arepsilon_{m ret}$ はcommit後のterminal thresholdへのreturn、$arepsilon_{m cg}$ はfinite-Hamiltonian markerからideal overdamped markerへのone-time $W_1$ 誤差を3結果kernelへ移す項である。
+ここで $\varepsilon_{\rm col}$ はsmooth phase-volume collar、$\varepsilon_{\rm launch}$ は中央marker準備幅、$\varepsilon_{\rm surv}$ はdecision時刻までのdeep commitment未到達、$\varepsilon_{\rm ret}$ はcommit後のterminal thresholdへのreturn、$\varepsilon_{\rm cg}$ はfinite-Hamiltonian markerからideal overdamped markerへのone-time $W_1$ 誤差を3結果kernelへ移す項である。
 
 ```math
-arepsilon_{m cg}
-leq
-inf_{delta>0}
-left[
-rac{arepsilon_X(T)}{delta}
+\varepsilon_{\rm cg}
+\leq
+\inf_{\delta>0}
+\left[
+\frac{\varepsilon_X(T)}{\delta}
 +
-omega_d(delta,T)
-ight].
+\omega_d(\delta,T)
+\right].
 ```
 
 R189Aの作用保持誤差はR211Bへ含めず、R211Cで一度だけ
 
 ```math
-arepsilon_{m int}^{67}
-leq
-arepsilon_{189A}
+\varepsilon_{\rm int}^{67}
+\leq
+\varepsilon_{189A}
 +
-arepsilon_{211B}
+\varepsilon_{211B}
 +
-arepsilon_{m rec}
+\varepsilon_{\rm rec}
 ```
 
 と合成する。edge branchでは
 
 ```math
-arepsilon_{m edge}^{67}
-leq
-	au_{m cut}
+\varepsilon_{\rm edge}^{67}
+\leq
+\tau_{\rm cut}
 +
-arepsilon_{189A}
+\varepsilon_{189A}
 +
-arepsilon_{m cmp}
+\varepsilon_{\rm cmp}
 +
-arepsilon_{m rec},
+\varepsilon_{\rm rec},
 ```
 
 従って
 
 ```math
-arepsilon_{m sel}^{67}
+\varepsilon_{\rm sel}^{67}
 =
-max
-{
-arepsilon_{m int}^{67},
-arepsilon_{m edge}^{67}
-}.
+\max
+\{
+\varepsilon_{\rm int}^{67},
+\varepsilon_{\rm edge}^{67}
+\}.
 ```
 
-required numerical witnessでは $W_0=16(X^2-1)^2$、$	au_{m cut}=0.07$、$ell=0.01$、$d=0.40$、$L=0.78$、$T=0.22$、$delta_0=5	imes10^{-4}$ を同時に使い、$arepsilon_Xle10^{-4}$ のstrong targetで $arepsilon_{211B}<8	imes10^{-3}$ を検査する。これはA2 direct full-Hamiltonian trajectory判定ではなく、R211Bの有限parameter領域が空でないことを確認するrequired regressionである。
+required numerical witnessでは $W_0=16(X^2-1)^2$、$\tau_{\rm cut}=0.07$、$\ell=0.01$、$d=0.40$、$L=0.78$、$T=0.22$、$\delta_0=5\times10^{-4}$ を同時に使い、$\varepsilon_X\le10^{-4}$ のstrong targetで $\varepsilon_{211B}<8\times10^{-3}$ を検査する。これはA2 direct full-Hamiltonian trajectory判定ではなく、R211Bの有限parameter領域が空でないことを確認するrequired regressionである。
 
 M67 Q1 profileの追加資源はheld-action canonical pair、finite phase-volume modes、double-well marker、finite marker bath、terminal basin recordである。Q1全測定装置の永久record、reset、clock、renewalを同一joint deviceへ統合したとは主張しない。
 
