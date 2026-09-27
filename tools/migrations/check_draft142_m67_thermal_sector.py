@@ -37,9 +37,9 @@ def main() -> None:
 
     for needle in (
         "R212A：M67 universal phase-volume / mean-flow embedding",
-        "R212B-flat：M67 finite-Hamiltonian thermal sampler / R205E compatibility",
-        "R212B-rot：M67 finite-Hamiltonian rotor / spherical R205E compatibility",
-        "R212B-Q2-2：R207A finite-Hamiltonian preparation lift",
+        "R212B：M67 finite-Hamiltonian thermal sampler / R205E compatibility",
+        "球面回転子版：M67 finite-Hamiltonian rotor / spherical R205E compatibility",
+        "Q2-2二回転子版：R207A finite-Hamiltonian preparation lift",
         "R212C：M67 finite-Hamiltonian passive separation / R205F compatibility",
         "R206 common-hub apparatus全体",
         "Q2 signal/register/gate",
