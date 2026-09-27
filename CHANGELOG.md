@@ -1,3 +1,11 @@
+## draft-142：M67 thermal sectorへM66/R205--R207を接続
+
+- R212A--R212CをM67へ追加し、M66/R205を独立common thermal-reservoir parentからM67 structured reservoirのthermal-sector open/effective interfaceへ再分類した。
+- R212AでR205A/R205Cのphase-volume/free-energyとmean-flow orthogonality、R212B-flat/rotでR205E thermal sampler、R212CでR205F passive separationのfinite-Hamiltonian physical-parent bridgeを定理化した。
+- R212B-rotを二rotorへ特殊化し、R207Aの $\rho_{\epsilon,k}\propto e^{k\lambda_A\cdot\lambda_B}w_\epsilon$ をM67 canonical marginalとして厳密に回収した。$\eta=0.25$ のexplicit finite parameter windowとsupporting mixing witnessを追加した。
+- R205B/R205D、R206A--R206E、R207A--R207D、M66付録を削除せず、用途別open/reduced resultとして維持した。R206 common-hub apparatus全体のfinite-Hamiltonian liftは未主張。
+- Q2-1/Q2-2/Q2-3の達成、Q2-4条件付き達成、Q3、A1/A2/B1--B3、M0、R186判定を変更していない。Q2 signal/NBL/register/gateのM67統合は後続課題に残す。
+
 ## draft-141：M67にQ1 double-well selector physical liftを追加
 
 - R211Aを追加し、R189A held actionsをcyclic canonical actionsとして厳密保存しつつ、smooth phase-volume collar、finite marker bath、左右二つの安定basinだけを持つM67 Q1 finite-Hamiltonian double-well profileを構成した。
