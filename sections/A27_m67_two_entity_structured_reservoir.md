@@ -769,7 +769,7 @@ B_N(t)
 \int_0^t\xi_N(s)\,ds
 ```
 
-はGaussian過程であり、kernel covarianceがDrude kernelへ一様積分収束し、increment boundが一様なら、固定 $T<T_{\rm rec}$ で
+はGaussian過程であり、kernel covarianceがDrude kernelへ一様積分収束し、increment boundが一様なら、固定 $T<T_{\rm bath\mbox{-}rec}^{Q1}$ で
 
 ```math
 \mathcal L(B_N)
@@ -1539,7 +1539,7 @@ A_\Sigma=A_++A_->0,
 \widehat p_\pm=\frac{A_\pm}{A_\Sigma}
 ```
 
-とする。M65と同じ固定cutoff $0<\tau_{\rm cut}<1/2$ を使い、
+とする。R189Aでは保持窓後も $\bar J_L+\bar J_R=J_\Sigma$ が厳密に成り立つので、Q1 selectorでは $A_\Sigma=J_\Sigma$ を固定総作用scaleとして扱う。M65と同じ固定cutoff $0<\tau_{\rm cut}<1/2$ を使い、
 
 ```math
 \widehat p_\pm\ge\tau_{\rm cut}
@@ -1553,7 +1553,7 @@ A_\Sigma=A_++A_->0,
 \bar a_\pm=a_\pm
 ```
 
-とする。safe branch外のextensionはHamiltonian regularizationだけを担い、Born重みを計算する外部tableとして使わない。
+とする。さらに装置定数 $0<a_{\rm floor}<a_{\rm ceil}<\infty$ を選び、全位相空間で $a_{\rm floor}\le\bar a_\pm\le a_{\rm ceil}$ とする。safe branch外のextensionはHamiltonian regularizationだけを担い、Born重みを計算する外部tableとして使わない。固定 $A_\Sigma=J_\Sigma$ と $\widehat p_\pm\in[\tau_{\rm cut},1-\tau_{\rm cut}]$ によりsafe held-action集合はcompactになる。
 
 Q1 profileではrunning W2 signalはR189A capture終了後にselectorから切り離す。M67 structured reservoir内部にheld-action pair、phase-volume modes、finite marker bathを置き、別sector $\mathcal X=(X,P_X)$ をbinary markerとして使う。
 
@@ -1647,7 +1647,7 @@ H_B^{Q1}
 
 を使う。固定 $X$ でbath座標の平行移動はJacobian 1なので、このbathはstatic Born biasを追加しない。
 
-Q1 selector Hamiltonianを
+Q1 selector Hamiltonianでは $H_{\rm hold}(I_+,I_-)$ をsmoothかつ下に有界に選ぶ。全Hamiltonianを
 
 ```math
 H_{67}^{Q1}
@@ -1668,7 +1668,7 @@ H_B^{Q1}
 <!-- theorem-start:theorem -->
 **定理（R211A：M67 Q1 double-well finite-Hamiltonian construction）**
 
-safe held-action domainを含むsmooth positive extension $\bar a_\pm$ を取り、$W_0$、$\chi_\ell$、有限phase-volume modes、finite harmonic bathを上のように選ぶ。このとき $H_{67}^{Q1}$ は有限自由度のsmooth classical Hamiltonianとして構成でき、
+safe held-action domainを含み $a_{\rm floor}\le\bar a_\pm\le a_{\rm ceil}$ を満たすsmooth positive extensionを取り、$W_0$、$\chi_\ell$、下に有界な $H_{\rm hold}$、有限phase-volume modes、finite harmonic bathを上のように選ぶ。このとき $H_{67}^{Q1}$ は有限自由度のsmoothかつ下に有界なclassical Hamiltonianとして構成でき、
 
 ```math
 \dot I_\pm
@@ -1716,7 +1716,7 @@ safe action-ratio集合全体で $F_\ell$ が左右二つの局所極小と中�
 <!-- theorem-start:proof -->
 **証明（R211A）**
 
-$\theta_\pm$ がcyclicなので $I_\pm$ の保存はHamilton方程式から直ちに従う。各phase-volume oscillatorについて $\widetilde\zeta_\alpha=w_\ell^{-q_\alpha}\zeta_\alpha$ と変数変換すればJacobianは $w_\ell^{q_\alpha}$ であり、積を取ると $\sum_\alpha q_\alpha=1$ から全Jacobianが $w_\ell$ になる。従って $Z_{\rm pv}=Z_{\rm pv}^0w_\ell$ とfree-energy式を得る。finite marker bathは座標平行移動なので固定 $X$ partitionへ追加の $X$ 依存factorを生じない。safe action-ratio集合はcompactであり、$\partial_X\log w_\ell$ とその必要微分は有限である。裸のdouble-well curvature/barrierをこれらの有限摂動に対して十分強く選べば、左右二極小と中央一極大だけを一様に維持できる。証明終。
+$\theta_\pm$ がcyclicなので $I_\pm$ の保存はHamilton方程式から直ちに従う。各phase-volume oscillatorについて $\widetilde\zeta_\alpha=w_\ell^{-q_\alpha}\zeta_\alpha$ と変数変換すればJacobianは $w_\ell^{q_\alpha}$ であり、積を取ると $\sum_\alpha q_\alpha=1$ から全Jacobianが $w_\ell$ になる。従って $Z_{\rm pv}=Z_{\rm pv}^0w_\ell$ とfree-energy式を得る。finite marker bathは座標平行移動なので固定 $X$ partitionへ追加の $X$ 依存factorを生じない。$H_{\rm hold}$、$W_0$、phase-volume quadratic terms、finite marker bathはそれぞれ下限を持ち、$\bar a_\pm$ は正の上下界を持つので全Hamiltonianも下に有界である。固定 $A_\Sigma$ とsafe ratio条件からsafe held-action集合はcompactであり、$\partial_X\log w_\ell$ とその必要微分は有限である。裸のdouble-well curvature/barrierをこれらの有限摂動に対して十分強く選べば、左右二極小と中央一極大だけを一様に維持できる。証明終。
 <!-- theorem-end:proof -->
 
 R211AはBorn確率をまだ主張しない。これはfinite-Hamiltonian device constructionとheld-action invarianceだけを閉じる。
@@ -1974,7 +1974,7 @@ m_d(T)\varepsilon_X(T)
 <!-- theorem-start:theorem -->
 **定理（R211B：M67 Q1 double-well Born kernel / R204E compatibility）**
 
-R211Aのsafe Q1 profileを取り、$0<\ell<d<L$、有限decision時刻 $T<T_{\rm rec}$ を選ぶ。finite-Hamiltonian terminal result kernelを
+R211Aのsafe Q1 profileを取り、$0<\ell<d<L$、有限decision時刻 $T<T_{\rm bath\mbox{-}rec}^{Q1}$ を選ぶ。finite-Hamiltonian terminal result kernelを
 
 ```math
 K_{67}^T
@@ -2199,7 +2199,7 @@ selector parameter setと有限decision/record/router時間を先に固定し、
 \left(
 T_{211}
 +
-T_{\rm rec}
+T_{\rm record}
 +
 T_F
 \right)
