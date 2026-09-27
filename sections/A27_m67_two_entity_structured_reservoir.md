@@ -2016,7 +2016,7 @@ K_{\widehat p}
 
 各項は上の1次元quadrature、backward equation、one-time Wasserstein boundから有限に評価できる。
 
-さらにsafe action-ratio集合と固定 $0<d<L<1$ を保ち、$B\to\infty$ に対して一例として
+さらにdimensionless marker units $k_BT=\mu=x_0=1$ でsafe action-ratio集合と固定 $0<d<L<1$ を保ち、$B\to\infty$ に対して一例として
 
 ```math
 W_0^{(B)}(X)
