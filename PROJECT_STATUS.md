@@ -1,7 +1,7 @@
 ## draft-142：M67 thermal-sector parent化とR212A--R212C
 
 - M67/R212A--R212Cを追加し、M66/R205A--R205Fを独立microscopic parentからM67 structured reservoirのthermal-sector open/effective interfaceへ再分類する。
-- R212AでR205A/R205C、R212B-flat/rotでR205E、R212CでR205Fのfinite-Hamiltonian physical-parent bridgeを与える。R207AのS^2 x S^2 canonical preparationはR212B-rotから厳密marginalとして回収し、finite-time mixingは明示誤差付きliftとして分離する。
+- R212AでR205A/R205C、R212B-flat/rotでR205E、R212CでR205Fのfinite-Hamiltonian physical-parent bridgeを与える。R207Aの $S^2\times S^2$ canonical preparationはR212B-rotから厳密marginalとして回収し、finite-time mixingは明示誤差付きliftとして分離する。
 - R205B/R205D、R206A--R206E、R207A--R207Dはactiveのまま維持する。Q2 signal/register/gate、R206 apparatus全体のfinite-Hamiltonian lift、NBL、R186、M0、A1/A2/B1--B3、fixed-goal達成ラベルは変更しない。
 
 ## draft-141：M67 Q1 double-well selector physical lift
@@ -470,7 +470,7 @@ draft-71でR182、W型有限環境系、M42周期輸送系を本文・付録・�
 |---|---|---|
 | 共通signal・状態構成 | M54 | 有限実正準signal、準備済み入力境界、永続記憶部、作業領域、clock、record、接続規約。Q1--Q3で共通 |
 | signal物理実装 | M37/R86 | 局所結合実振動子網から空間signalを実装。R187条件下ではW型最低2正常モードをQ1制御へ接続 |
-| finite-Hamiltonian thermal physical parent | M67/R212A--R212C | R205A/C/E/Fを有限Hamiltonian structured reservoirから回収し、R207AのS^2 rotor preparationをcanonical marginal＋finite-time liftへ接続 |
+| finite-Hamiltonian thermal physical parent | M67/R212A--R212C | R205A/C/E/Fを有限Hamiltonian structured reservoirから回収し、R207Aの $S^2$ rotor preparationをcanonical marginal＋finite-time liftへ接続 |
 | 共通thermal-reservoir open/effective interface | M66/R205A--R205F | phase-volume/free-energy、mean-flow、matched capacity--conductance、thermal sampling、passive separationをopen/effective lawとして共通化 |
 | Q3 domain model | M64/R203A--R203D | M37 signal、一つのclassical tracer、一つのsignal-driven thermal reservoir。R161/R185とfinite-graph位置読出しへ接続 |
 | Q1逐次instrument | M65/R204D--R204F + R181D | 2作用から完全2結果を形成し、固定結果に対応する非規格化射影成分を同じ試行の次段へ渡す。M67/R211A--R211CはR204E contractへ接続するfinite-Hamiltonian strengthening |
