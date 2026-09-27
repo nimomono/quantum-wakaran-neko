@@ -1,3 +1,9 @@
+## draft-142：M67 thermal-sector parent化とR212A--R212C
+
+- M67/R212A--R212Cを追加し、M66/R205A--R205Fを独立microscopic parentからM67 structured reservoirのthermal-sector open/effective interfaceへ再分類する。
+- R212AでR205A/R205C、R212B-flat/rotでR205E、R212CでR205Fのfinite-Hamiltonian physical-parent bridgeを与える。R207AのS^2 x S^2 canonical preparationはR212B-rotから厳密marginalとして回収し、finite-time mixingは明示誤差付きliftとして分離する。
+- R205B/R205D、R206A--R206E、R207A--R207Dはactiveのまま維持する。Q2 signal/register/gate、R206 apparatus全体のfinite-Hamiltonian lift、NBL、R186、M0、A1/A2/B1--B3、fixed-goal達成ラベルは変更しない。
+
 ## draft-141：M67 Q1 double-well selector physical lift
 
 - R211Aを追加し、R189A held actionsをcyclic canonical actionsとして厳密保存しながら、左右二つの安定basinと中央saddleだけを持つM67 Q1 double-well finite-Hamiltonian profileを構成する。phase-volume積分は $Z_{\rm pv}=Z_{\rm pv}^0w_\ell$、$F_\ell=W_0-k_BT\log w_\ell+C$ を与える。
@@ -432,7 +438,7 @@
 
 「達成」は、固定範囲で基準を厳密に満たすか、任意の $\epsilon>0$ に対して誤差を $\epsilon$ 未満にする有限時間・有限能動部分系の明示構成を選べる状態を指す。浴は明示的なHamiltonian無限浴を用いてもよく、規約を満たす開放ミクロ方程式を基本方程式として直接定めてもよい。形式極限、構成のない収束仮定、無反応試行の事後除外は含めない。各固定目標は上の共通達成判定規則に従って一試行内の物理interfaceを監査し、全周期joint-device統合はM0へ分離する。
 
-M54はQ1、Q2、Q3に共通する有効信号--配置状態構成族である。M37はQ3の空間信号部分系の物理実装層であり、R187条件下ではQ1 W2制御用信号系も局所ばね力学から実装する。M64はQ3の現行粒子・Nelson共通open modelであり、initial preparation、finite-time mean-flow tracking、R161/R185、finite-graph R124/R182/R125接続を担う。R181Bは固定入力テンソル積状態の生成、R181Cは永続記憶部ゲートを担う。M65/R181DはQ1の逐次binary resultとsame-trial post-state handoff、M67/R211A--R211Cはそのfinite-Hamiltonian selector strengthening、M66/R205A--R205Fは共通thermal-reservoir layer、R206A--R206EはそのQ2-1/Q2-3/Q2-4 terminal joint readout specialization、R206EはQ2-4 root preparation/refreshを担う。Q2-2はM66/R205A・R205E・R205FからR207A--R207Cへ進むprojection phase-volume二端模型を唯一の現行主線とする。
+M54はQ1、Q2、Q3に共通する有効信号--配置状態構成族である。M37はQ3の空間信号部分系の物理実装層であり、R187条件下ではQ1 W2制御用信号系も局所ばね力学から実装する。M64はQ3の現行粒子・Nelson共通open modelであり、initial preparation、finite-time mean-flow tracking、R161/R185、finite-graph R124/R182/R125接続を担う。R181Bは固定入力テンソル積状態の生成、R181Cは永続記憶部ゲートを担う。M65/R181DはQ1の逐次binary resultとsame-trial post-state handoff、M67はQ3 physical parent、R211A--R211CによるQ1 selector lift、R212A--R212CによるQ2 thermal-sector parentを担う。M66/R205A--R205FはM67 thermal-sector open/effective interface、R206A--R206EはQ2-1/Q2-3/Q2-4 terminal joint readout specialization、R206EはQ2-4 root preparation/refreshを担う。Q2-2はM67/R212A--R212CからM66/R205A・R205E・R205Fを経てR207A--R207Cへ進むprojection phase-volume二端模型を唯一の現行主線とする。
 
 「根拠となる結果」欄には、その固定目標の達成判定で直接参照する定理・interfaceだけを列挙する。ある直接根拠が内部で利用する結果は推移的依存として重複列挙せず、各定理の依存関係と本文の因果鎖で管理する。従って同じ結果が内部で使われていても、固定目標表へ必ずしも現れない。
 
@@ -441,7 +447,7 @@ M54はQ1、Q2、Q3に共通する有効信号--配置状態構成族である。
 | Q1-1 | 達成 | M54のW2静的状態構成 | M37弱結合W型の最低2正常モード、または抽象2モード実正準信号系 | Q1 W型2モード制御手順（旧M47） | R135、R140、R187 | R187で信号系段階の任意精度M37実装を追加。総時間は $O(\!1/J_\kappa)$ に増え得て、準備・測定機構の同一装置統合は別課題 |
 | Q1-2 | 達成 | M54のW2静的状態構成 | R187によるM37のW2制御用信号系＋M65 open selector | Q1 W型2モード測定・Zeno手順（旧M47） | R140、R143--R144、R181D、R187、R189A--R189C、R204A、R204D--R204F | Born分布、同軸反復分布、異軸逐次分布と有限2回Zeno証人を導出。2結果canonical主線はM65。M67/R211A--R211Cでfinite-Hamiltonian selector liftを追加したが、全測定部分系の単一joint-device統合は強化課題 |
 | Q2-1 | 達成 | M54静的状態構成 | 永続4モード記憶部と逆演算用補助部／作業領域＋M66 terminal sampler | テンソル積状態の生成、ゲート、4結果terminal sampling | R112、R181B、R181C、R206D | 固定深さの一試行で実際の末端4モード信号をM66 terminal samplerへ直接接続し、一回の4結果samplingでBorn分布を得る。固定目標上の残件なし。全周期装置統合はM0課題 |
-| Q2-2 | 達成 | M66 thermal phase-volume preparation | A/B二つのhidden-direction rotor、局所projection rail、二つの物理読出し端 | joint thermal preparation、passive separation、local sign latch、local record | R207A--R207C | 一般Bloch方向のsinglet共同分布を任意精度で構成し、finite-lock/finite-thickness誤差、exact非信号周辺、measurement-independence不成立とlocal response factorizationを監査。全周期統合はM0課題 |
+| Q2-2 | 達成 | M67/R212 thermal preparation → M66/R205 open reduction | A/B二つのhidden-direction rotor、局所projection rail、二つの物理読出し端 | joint thermal preparation、passive separation、local sign latch、local record | R207A--R207C | R212B-rotがR207A target densityをM67 finite-Hamiltonian canonical marginalとして厳密回収し、finite-time mixingはsupporting numerical witnessでparameter windowを確認。R212Cがpassive separationのphysical parentを与える。Bell統計・非信号性・measurement-independence監査と達成判定は不変。全周期統合はM0課題 |
 | Q2-3 | 達成 | M54三部分系静的状態構成 | 永続8モード記憶部と逆演算用補助部／作業領域＋M66 terminal sampler | 二段ゲート合成と8結果terminal sampling | R112、R177、R181B、R181C、R206D | 固定3入力の一試行内で第1ゲート後状態を再準備せず第2ゲートへ渡し、GHZ--$T$--逆演算後の8結果をR206Dで直接標本化する。一般サイズ資源効率はQ2-4、全周期装置統合はM0課題 |
 | Q2-4 | 条件付き達成 | M54一般静的状態構成 | $2^n$ 受動直接モード記憶部＋M66一様common-reservoir interface | R206E root preparation、一般gate列、R206D $2^n$結果terminal sampling、$n$-bit record | R112、R181C、R186、R206D、R206E | reader側の準備・sampling・readout時間・個別較正条件はM66 common-reservoir samplerで閉じる。残る主要条件はR186のdirect-amplitude register additive-noise/precision障害を多項式外部資源で回避できること |
 | Q3-1 | 達成 | M67 coherent profile | M67 structured reservoir＋M37 coherent module | Schrödinger型空間包絡 | R210A、R86 | clock・終位置record・resetを含む反復周期、A2直接数値再現は強化課題 |
@@ -458,20 +464,21 @@ draft-71でR182、W型有限環境系、M42周期輸送系を本文・付録・�
 
 ## 現在の統一導出方針
 
-現行理論は、1つの万能模型へ統合するのではなく、**共通signal・状態層**、**共通thermal-reservoir層**、**用途別のdomain model / specialization** を分けて接続する。
+現行理論は、1つの万能模型へ統合するのではなく、**共通signal・状態層**、**M67 finite-Hamiltonian physical parent**、**M66/R205 thermal open/effective layer**、**用途別のdomain model / specialization** を分けて接続する。
 
 | 層 | 現行正本 | 導出状態・責務 |
 |---|---|---|
 | 共通signal・状態構成 | M54 | 有限実正準signal、準備済み入力境界、永続記憶部、作業領域、clock、record、接続規約。Q1--Q3で共通 |
 | signal物理実装 | M37/R86 | 局所結合実振動子網から空間signalを実装。R187条件下ではW型最低2正常モードをQ1制御へ接続 |
-| 共通thermal-reservoir interface | M66/R205A--R205F | phase-volume/free-energy、mean-flow、matched capacity--conductance、thermal sampling、passive separationを共通化 |
+| finite-Hamiltonian thermal physical parent | M67/R212A--R212C | R205A/C/E/Fを有限Hamiltonian structured reservoirから回収し、R207AのS^2 rotor preparationをcanonical marginal＋finite-time liftへ接続 |
+| 共通thermal-reservoir open/effective interface | M66/R205A--R205F | phase-volume/free-energy、mean-flow、matched capacity--conductance、thermal sampling、passive separationをopen/effective lawとして共通化 |
 | Q3 domain model | M64/R203A--R203D | M37 signal、一つのclassical tracer、一つのsignal-driven thermal reservoir。R161/R185とfinite-graph位置読出しへ接続 |
 | Q1逐次instrument | M65/R204D--R204F + R181D | 2作用から完全2結果を形成し、固定結果に対応する非規格化射影成分を同じ試行の次段へ渡す。M67/R211A--R211CはR204E contractへ接続するfinite-Hamiltonian strengthening |
 | Q2 terminal specialization | R206A--R206E | Q2-1/Q2-3/Q2-4の4/8/$2^n$ 結果terminal samplingとQ2-4 root preparation |
-| Q2-2 projection phase-volume model | M66/R205A・R205E・R205F + R207A--R207D | projection phase-volume共同準備、finite-lock余弦則、passive separation、local二端結果、measurement-independence監査、Bell-local controlを担う |
+| Q2-2 projection phase-volume model | M67/R212A--R212C → M66/R205A・R205E・R205F + R207A--R207D | M67 finite-Hamiltonian rotor preparationからM66 open thermal lawへ縮約し、projection phase-volume共同準備、finite-lock余弦則、passive separation、local二端結果、measurement-independence監査、Bell-local controlを担う |
 | canonical位置過程 | R161/R185 | M64から受ける $(\pi,j,t)$ をMarkov path lawと時間対称Newton則へ接続 |
 
-M66の共通化はreservoir sectorに限る。M64全体、M65 canonical law、R207のQ2-2 specialization全体をM66から導出したとは扱わない。R203Bのpartition/free-energyとmean-flow sectorはR205C、R204Bのphase-volume chamberはR205Dへ埋め込まれる。R206はM66の直接Q2 specializationである。
+M66の共通化はreservoir sectorに限り、draft-142以後その有限Hamiltonian parentはM67/R212A--R212Cである。M64全体、M65 canonical law、R206 apparatus全体、R207のBell統計全体をR212だけから導出したとは扱わない。R203Bのpartition/free-energyとmean-flow sectorはR205C、R204Bのphase-volume chamberはR205Dへ埋め込まれる。R206はM66の直接Q2 specializationであり、R207A/R207Cのthermal preparation/separationだけがR212B/R212Cへphysical-parent接続される。
 
 Q1ではM37--R187--R140で可逆2モードsignalを作り、canonical fixed-goal経路はR189A--M65--R181Dで測定へ接続する。finite-Hamiltonian strengtheningではR189A--M67/R211A--R211B--R204E--R181Dへ接続する。Q2-1/Q2-3/Q2-4ではM54/R181B--R181Cの永続信号をR206 terminal samplerへ渡す。Q2-2 fixed-goalはM66/R205--R207のprojection phase-volume共同準備からpassive separation、local二端読出し、measurement-independence監査へ進む。Q3ではM37/R86 signalからM64/R203A--R203Dへ進み、R161/R185へ接続する。
 
@@ -487,8 +494,8 @@ M0はこれらの共通化より強い。M54/M66を共有していても、同�
 | M37 | active coherent-signal module | Q3ではM67 structured reservoir内部のcoherent oscillator module。Q1ではR187条件下のW2制御用signal implementation | 局所位置結合された有限実古典振動子網からR86の空間包絡を導く。R210Aがfull M67からbare M37/R86への有限時間compatibilityを与える |
 | M64 | Q3 canonical open effective model | M67/R208--R209から回収するcontinuous/finite-graph effective reduction | 三実体記述を有効sector分割として保持し、R203A--R203DでR161/R185およびR124/R182/R125へ接続する。独立physical ontologyとしてのparent責務はM67へ移管する |
 | M65 | Q1 binary canonical open selector | 現行Q1逐次fixed-goal正本模型 | 保持済み二作用を二つの線形hazardへ入れるtwo-result first-passage open selector。未決定はsurvival conditionで、R204Dがfinite-time Bornと正式な無反応、R204Eがbinary selector contract、R204FがQ1 interface/latencyを与える。旧R204B/R204C fixed-hub liftは退役し、finite-Hamiltonian physical liftはM67/R211A--R211CでR204E contractへ接続する |
-| M66 | common thermal-reservoir parent model | 共通reservoir interface。現行fixed-goalでQ2-1/Q2-3/Q2-4はR206、Q2-2はR207へ直接specializeする | R205A--R205Fでphase-volume、mean-flow、matched capacity--conductance、thermal Gibbs sampling、passive separationを共通化する。R203Bのreservoir sectorはR205Cへ対応する。R205Dはbinary fixed-hub corollaryとして残すが、draft-140以後のM65 physical liftには使わない |
-| M67 | 二実体finite-Hamiltonian physical parent | Q3-1--Q3-5のfixed-goal物理依存の起点。加えてQ1ではM65 selectorのfinite-Hamiltonian strengthening。Q3-6は同じcoherent sector上の未達課題 | 一つのstructured reservoir内にM37 coherent module、phase-volume/flow/drag/finite-bath、R210B dephasing sectorを置き、別sectorはclassical markerとする。R208/R209がM64 open law、R210AがR86 coherent law、R210BがR123 dephasing law、R211A--R211CがQ1 R204E selector contractへ接続する。Q2/NBL、M0は未統合 |
+| M66 | M67 thermal-sector open/effective interface | Q2-1/Q2-3/Q2-4はR206、Q2-2はR207へspecializeするactive open/effective layer | R205A--R205Fでphase-volume、mean-flow、matched capacity--conductance、thermal Gibbs sampling、passive separationを共通化する。R212A→R205A/C、R212B→R205E、R212C→R205FとしてM67 physical parentへ接続する。R205Dはbinary fixed-hub corollaryとして残すがM65 physical liftには使わない |
+| M67 | 二実体finite-Hamiltonian physical parent | Q3-1--Q3-5の物理依存起点、Q1 selector strengthening、Q2 thermal-reservoir physical parent。Q3-6は同じcoherent sector上の未達課題 | structured reservoir内にcoherent/phase-volume/flow/drag/dephasing/rotor thermal sectorsを置く。R208/R209がM64、R210AがR86、R210BがR123、R211A--R211CがQ1 R204E、R212A--R212CがM66/R205 thermal layerとR207A preparationへ接続する。Q2 signal/NBL/register/gate、R206 apparatus全体、M0は未統合 |
 
 M50はM54の静的状態構成へ、M55はM54空間状態構成へ吸収した。M56はspin-only Q3代替研究線とし現行達成根拠へ使わない。M60/M61とそれ以前のM57/M59は旧Q3 Hamiltonian実装として現行主線から退役し、Git履歴へ保存する。旧状態方向準備、旧作用殻型Q1/Q2測定経路、旧2端再準備は現行必須依存から外し、退役索引と研究メモへ保存する。
 
@@ -499,8 +506,8 @@ M54による統一は共通状態型、因果契約、接続規約の有効層�
 | 識別 | 使用する共通層 | 現行責務 |
 |---|---|---|
 | Q1 W型2モード手順（旧M47） | M54のW2静的状態構成＋R187のM37接続 | 準備済みW2入力、R187/R140による制御、射影作用保持、M65による2結果形成、R181Dによる非規格化射影成分受渡し、R143/R144、R189A--R189Cを接続する |
-| R206 Q2終端多結果特殊化 | M54 signal + M66/R205 | Q2-1/Q2-3/Q2-4のterminal readout。4/8/$2^n$ 結果をcommon-hub samplerで1回標本化し、Q2-4ではR206E root preparationを併用する |
-| R207 Q2-2 projection phase-volume主線 | M66/R205A・R205E--R205F | setting-dependent projection phase volume、near-contact hidden-direction lock、passive separation、local sign latch、一般余弦共同分布、measurement-independence監査を担う |
+| R206 Q2終端多結果特殊化 | M54 signal + M67/R212→M66/R205 | Q2-1/Q2-3/Q2-4のterminal readout。4/8/$2^n$ 結果をcommon-hub samplerで1回標本化し、Q2-4ではR206E root preparationを併用する。R212はthermal parentだけを与え、common-hub apparatus全体のfinite-Hamiltonian liftは別課題 |
+| R207 Q2-2 projection phase-volume主線 | M67/R212A--R212C → M66/R205A・R205E--R205F | R212B-rotがfinite-Hamiltonian two-rotor preparation、R212Cがpassive separation parentを与え、そのopen/effective law上でsetting-dependent projection phase volume、local sign latch、一般余弦共同分布、measurement-independence監査を担う |
 
 ### 統合目標
 
@@ -578,10 +585,13 @@ M0は、個別のA1模型を並べるだけでは達成としない。少なく�
 | R211B | required明示誤差付きBorn-kernel compatibility | sharp-interface committorで保持作用比を厳密回収し、finite collar、launch、survival、return、one-time $W_1$ coarse-grainingを $\varepsilon_{211B}$ へ合成してR204E complete-result contractへ任意精度で接続する。R204A Poisson waiting-time lawは再現しない |
 | R211C | required Q1 composition | R189A作用保持誤差、R211B physical-kernel error、record/cutoffを合成してR204E/R181Dへ渡し、finite decision windowを固定後のR187 weak-coupling極でR189B/R189Cの逐次測定・Zeno witnessへ接続する |
 
-### M66 common thermal-reservoir結果
+### M67/R212 physical-parent bridge と M66 thermal open/effective結果
 
 | 結果 | 導出状態 | 内容 |
 |---|---|---|
+| R212A | required finite-Hamiltonian thermal embedding | arbitrary positive weightのphase-volume Jacobian、mean-flow momentum shift、coordinate translationを同一M67 sectorへ埋め込み、R205A/R205Cを厳密canonical marginalとして回収する。equal-weight force fluctuationは $O(N_{\rm pv}^{-1/2})$ |
+| R212B | required finite-time Hamiltonian/open compatibility | flat configurationと $S^2$ rigid rotorについてfinite bath→GLE→R205Eを有限時間で接続し、R207A target densityをtwo-rotor canonical marginalとして厳密回収する。explicit parameter-window witnessを持つ |
+| R212C | required finite-Hamiltonian separation compatibility | compact-support geometryでdirect interaction、shared phase-volume、必要ならshared bath overlapを受動的に消し、R205F open generatorへ接続する。finite距離ではFDT由来のmobility correctionを明示し、cutoff後はexact factorizationを得る |
 | R205A | 厳密partition結果 | 正のlocal scaleをreservoir座標Jacobianへ入れるとcanonical phase volumeがscaleへ線形比例し、free energyが $-k_BT\log w+C$ になる共通identity |
 | R205B | 厳密reduced-law結果 | channel capacityとconductanceへ同じlocal scaleを掛けると、channel→hub rateがscale非依存、hub→channel rateがscale比例となるmatched capacity--conductance原理 |
 | R205C | 厳密partition結果 | moving reservoirの運動量平行移動 $U$ とphase-volume weight $w$ がcanonical free energyで直交し、$F_{\rm res}=-k_BT\log w+C$ と $-\nabla F_{\rm res}=k_BT\nabla\log w$ を同時に与える |
@@ -603,9 +613,9 @@ M0は、個別のA1模型を並べるだけでは達成としない。少なく�
 
 | 結果 | 導出状態 | 内容 |
 |---|---|---|
-| R207A | fixed-goal厳密結果 | $S^2$ hidden directionsとfinite-thickness projection phase volumeをM66/R205Eへ特殊化し、setting-independent partition、独立setting marginal、source--setting measurement dependenceを同時に与える |
+| R207A | fixed-goal厳密結果＋M67 canonical lift | $S^2$ hidden directionsとfinite-thickness projection phase volumeをM66/R205Eへ特殊化し、setting-independent partition、独立setting marginal、source--setting measurement dependenceを与える。R212B-rotにより同じtarget densityをM67 finite-Hamiltonian canonical marginalとして厳密回収する |
 | R207B | fixed-goal厳密結果・一様誤差境界 | $\epsilon=0$ で任意Bloch方向の $E=-L(k)\boldsymbol a\cdot\boldsymbol b$、exact局所周辺、CHSH $2\sqrt2L(k)$ を導き、finite thicknessでは一様TV誤差境界を与える |
-| R207C | fixed-goal有限合成結果 | R205E preparation、有限保持、R205F passive separation、local comparator/latch、R112型recordを一試行へ接続し、分離後local response factorizationとmeasurement-independence不成立を監査する |
+| R207C | fixed-goal有限合成結果 | R212B-rot/R205E preparation、有限保持、R212C/R205F passive separation、local comparator/latch、R112型recordを一試行へ接続し、分離後local response factorizationとmeasurement-independence不成立を監査する |
 | R207D | Bell-local control | measurement independenceとlocal response factorizationを同時に課した対照系で $|S|\le2$ を示す |
 
 ### Q3結果
