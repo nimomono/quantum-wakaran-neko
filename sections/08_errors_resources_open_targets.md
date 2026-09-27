@@ -558,9 +558,82 @@ endpointは固定係数の線形比較器で判定でき、
 \}.
 ```
 
-R204Bのphase-volume chamberとR204CのHamiltonian--Brownian liftを採用する場合、そのbath、overdamped、tube、lumping、calibration誤差はその実装だけの強化台帳へ加える。退役R191のmacrospin誤差を現行M65試行へ加算しない。
+退役R204B/R204Cのfixed-hub誤差を現行M65台帳へ戻さない。finite-Hamiltonian physical liftを使う場合はM67/R211の独立台帳を使う。退役R191のmacrospin誤差も現行M65試行へ加算しない。
 
 M65の現行fixed-goal範囲はQ1の逐次binary instrumentである。Q2-1/Q2-3/Q2-4のterminal readout資源はM66/R206、Q2-2のBell readoutはM66/R205--R207が担う。
+
+## M67/R211 Q1 finite-Hamiltonian selector lift の誤差・資源台帳
+
+M67/R211A--R211CはM65/R204E contractへ接続するQ1 selector strengtheningであり、M65 canonical open lawを置換しない。safe interior branchに対するphysical-kernel errorは
+
+```math
+arepsilon_{211B}
+=
+arepsilon_{m col}
++
+arepsilon_{m launch}
++
+arepsilon_{m surv}
++
+arepsilon_{m ret}
++
+arepsilon_{m cg}.
+```
+
+ここで $arepsilon_{m col}$ はsmooth phase-volume collar、$arepsilon_{m launch}$ は中央marker準備幅、$arepsilon_{m surv}$ はdecision時刻までのdeep commitment未到達、$arepsilon_{m ret}$ はcommit後のterminal thresholdへのreturn、$arepsilon_{m cg}$ はfinite-Hamiltonian markerからideal overdamped markerへのone-time $W_1$ 誤差を3結果kernelへ移す項である。
+
+```math
+arepsilon_{m cg}
+leq
+inf_{delta>0}
+left[
+rac{arepsilon_X(T)}{delta}
++
+omega_d(delta,T)
+ight].
+```
+
+R189Aの作用保持誤差はR211Bへ含めず、R211Cで一度だけ
+
+```math
+arepsilon_{m int}^{67}
+leq
+arepsilon_{189A}
++
+arepsilon_{211B}
++
+arepsilon_{m rec}
+```
+
+と合成する。edge branchでは
+
+```math
+arepsilon_{m edge}^{67}
+leq
+	au_{m cut}
++
+arepsilon_{189A}
++
+arepsilon_{m cmp}
++
+arepsilon_{m rec},
+```
+
+従って
+
+```math
+arepsilon_{m sel}^{67}
+=
+max
+{
+arepsilon_{m int}^{67},
+arepsilon_{m edge}^{67}
+}.
+```
+
+required numerical witnessでは $W_0=16(X^2-1)^2$、$	au_{m cut}=0.07$、$ell=0.01$、$d=0.40$、$L=0.78$、$T=0.22$、$delta_0=5	imes10^{-4}$ を同時に使い、$arepsilon_Xle10^{-4}$ のstrong targetで $arepsilon_{211B}<8	imes10^{-3}$ を検査する。これはA2 direct full-Hamiltonian trajectory判定ではなく、R211Bの有限parameter領域が空でないことを確認するrequired regressionである。
+
+M67 Q1 profileの追加資源はheld-action canonical pair、finite phase-volume modes、double-well marker、finite marker bath、terminal basin recordである。Q1全測定装置の永久record、reset、clock、renewalを同一joint deviceへ統合したとは主張しない。
 
 ## 8.15 M66/R205 common parentとR206の誤差・資源境界
 
