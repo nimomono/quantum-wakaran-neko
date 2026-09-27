@@ -105,7 +105,7 @@ M0は、複数の固定目標にまたがる主要自由度と物理接続端を
 
 M65/R204A/R204D/R204E/R204Fのtwo-result first-passage open selector核はQ1の逐次fixed-goal正本として採用する。未決定は第三の物理pointer状態ではなくsurvival conditionであり、指数Poisson raceは最小open witnessである。将来physical parentにはwaiting-time分布そのものではなくR204E complete-result contractの回収を要求する。
 
-旧R204B/R204C fixed-hub physical liftはdraft-140でactive strengtheningから退役し、履歴へ保存する。現行M65の強化課題は、two-result first-passage kernelを生む具体的finite-Hamiltonian/double-well lift、direct trajectory、有限帯域・具体回路化である。M65正本化だけからQ1/Q2のA1/A2/B1/B2/B3状態を自動的に変更しない。A1へM65を採用する場合も、各固定目標の主要因果鎖全体を一つの具体模型として閉じる必要がある。
+旧R204B/R204C fixed-hub physical liftはdraft-140でactive strengtheningから退役し、履歴へ保存する。draft-141でM67/R211A--R211Cがtwo-result Born kernelへ接続するfinite-Hamiltonian/double-well liftを与える。残る強化課題はfull finite-Hamiltonian direct trajectory、Q1主要因果鎖全体の単一具体模型化、有限帯域・具体回路化である。R211追加だけからQ1/Q2のA1/A2/B1/B2/B3状態を自動的に変更しない。A1へM65を採用する場合も、各固定目標の主要因果鎖全体を一つの具体模型として閉じる必要がある。
 
 Q2-4のterminal readout責務はR206A--R206Dへ移し、Q2-4準備はR206Eが担う。M65のQ2-4 polynomial node-time条件はfixed-goal責務から外す。
 
@@ -118,12 +118,12 @@ M66/R205A--R205Fはphase-volume、mean-flow、thermal sampling、passive separat
 | 対象 | M66/R205との関係 | 強化側でなお必要なもの |
 |---|---|---|
 | M64 | R203B reservoir sectorをR205Cへ埋め込む | direct M64 trajectory、finite-bandwidth/Hamiltonian lift、装置統合 |
-| M65 | two-result first-passage open lawを系列固有に採用。R205D fixed-hub corollaryは現行physical liftに使わない | finite-Hamiltonian/double-well lift、direct trajectory、有限帯域、具体回路 |
+| M65 | two-result first-passage open lawを系列固有に採用。R205D fixed-hub corollaryは現行physical liftに使わない。M67/R211A--R211CがR204E-compatible double-well liftを与える | full direct trajectory、Q1因果鎖全体の具体模型統合、有限帯域、具体回路 |
 | R206 | M66のQ2 terminal specialization | concrete apparatus、有限帯域、always-on coupling/backreaction |
 | R207 | R205E/Fをjoint preparation/passive separationへ利用 | direct microscopic trajectory、具体装置、有限帯域・非理想性監査 |
 
 この共通化だけではA1/A2/B1--B3状態を変更しない。Q2-4ではR186のcoherent register additive-noise障害を独立に維持する。
 
-### M67/R208--R210 Q3共通二実体finite-Hamiltonian parent
+### M67/R208--R211 二実体finite-Hamiltonian parent
 
-M67/R208A--R209CをQ3 tracer/Nelson側のrequired physical-parent bridge、R210Aをcoherent/R86 bridge、R210BをR123 dephasing physical liftとして採用する。M67をQ3 fixed-goal physical parentへ昇格してもstrengthening判定は別であり、Q3-1-A1/Q3-2-A1は部分達成、Q3-1-A2/Q3-2-A2は未監査のままとする。full finite-Hamiltonian witnessはsupporting evidenceであってA2 promotion testには数えない。B1--B3、M0の現在地も変更しない。
+M67/R208A--R209CをQ3 tracer/Nelson側のrequired physical-parent bridge、R210Aをcoherent/R86 bridge、R210BをR123 dephasing physical liftとして採用する。Q1ではR211A--R211CをM65/R204E binary-selector contractのfinite-Hamiltonian double-well strengtheningとして採用する。M67をQ3 fixed-goal physical parentへ昇格してもstrengthening判定は別であり、Q3-1-A1/Q3-2-A1は部分達成、Q3-1-A2/Q3-2-A2は未監査のままとする。full finite-Hamiltonian witnessはsupporting evidenceであってA2 promotion testには数えない。B1--B3、M0の現在地も変更しない。
