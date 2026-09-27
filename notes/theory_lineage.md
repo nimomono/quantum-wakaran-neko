@@ -4,21 +4,23 @@
 
 ## 現行の統一構造
 
-現行正本は、M54の共通signal・状態層とM66/R205の共通thermal-reservoir層を分ける。M67をcommon finite-Hamiltonian physical parentとし、Q3ではM37 coherent module/M64 open reductionへ、Q1ではR211A--R211CからM65/R204E selector contractへ接続する。Q1 canonical lawはM65、Q2はR206/R207の既存責務を維持する。
+現行正本は、M54の共通signal・状態層、M67のcommon finite-Hamiltonian physical parent、M66/R205のthermal open/effective層を分ける。M67はQ3ではM37 coherent module/M64 open reductionへ、Q1ではR211A--R211CからM65/R204E selector contractへ、Q2 thermal sectorではR212A--R212CからM66/R205へ接続する。Q1 canonical lawはM65、Q2用途別open/effective lawはR206/R207の既存責務を維持する。
 
 ```text
 M54 signal/state layer
   ↑ M37 signal implementation
 
-M66 / R205 reservoir layer
-  ├─ R206A--R206D : Q2 terminal multi-outcome specialization
-  ├─ R206E        : Q2-4 root preparation / refresh
-  ├─ R205C ↔ M64 : shared reservoir principle
-  ├─ R205D       : binary fixed-hub corollary（現行M65 liftではない）
-  └─ R205A/E/F → R207 : Q2-2 fixed-goal Bell specialization
+M67 finite-Hamiltonian parent
+  ├─ R208--R210 → Q3/M64/R86/R123
+  ├─ R211A--R211C → Q1 R204E selector contract
+  └─ R212A--R212C → M66 / R205 thermal open/effective layer
+                         ├─ R206A--R206D : Q2 terminal multi-outcome specialization
+                         ├─ R206E        : Q2-4 root preparation / refresh
+                         ├─ R205D        : binary fixed-hub reduced corollary
+                         └─ R205A/E/F → R207 : Q2-2 fixed-goal Bell specialization
 ```
 
-M66が共通化するのはreservoir sectorであり、M64全体やM65 canonical lawを置換しない。M0はさらに強いjoint device/process統合目標であり、この2つの共通層を持つだけでは達成しない。
+M66が共通化するのはthermal open/effective reservoir sectorであり、その有限Hamiltonian parentをR212A--R212CでM67へ接続する。M64全体、M65 canonical law、R206 apparatus全体、R207 Bell統計全体をR212から導出したとは扱わない。M0はさらに強いjoint device/process統合目標であり、この階層化だけでは達成しない。
 
 ## 現行の主要因果鎖
 
@@ -54,7 +56,8 @@ draft-127以後、Q2-1/Q2-3/Q2-4のterminal readoutはM66/R205 common-reservoir 
 ```text
 terminal coherent signal
   -> local actions |Z_y|^2
-  -> M66 / R205A--R205F common thermal-reservoir layer
+  -> M67 / R212 thermal physical parent
+  -> M66 / R205A--R205F open/effective thermal layer
   -> R206A--R206D finite-L common-hub sampler
   -> joint terminal result
 ```
@@ -100,7 +103,7 @@ M42 / R172--R174
 
 Q2の永続register・gateはM54/R181B--R181Cへ整理される。Q2-1/Q2-3/Q2-4の末端readoutはR206A--R206D、Q2-4準備はR206Eが担う。
 
-Q2-2はM66/R205A・R205E・R205FからR207A--R207Cへ進むprojection phase-volume二端模型を現行fixed-goal主線とする。setting-dependent source preparation、passive separation、local outcome/recordから一般Bloch方向のsinglet共同統計を閉じ、R207DをBell-local controlとする。
+Q2-2はM67/R212A--R212CからM66/R205A・R205E・R205Fを経てR207A--R207Cへ進むprojection phase-volume二端模型を現行fixed-goal主線とする。R212B-rotがR207A target densityをfinite-Hamiltonian two-rotor canonical marginalとして回収し、R212Cがpassive separationのphysical parentを与える。setting-dependent source preparation、local outcome/recordから一般Bloch方向のsinglet共同統計を閉じ、R207DをBell-local controlとする。
 
 Bell経路の主要置換履歴は概略として
 
@@ -246,6 +249,22 @@ M37/R187
 
 R181D以下のQ1逐次測定契約とQ1-1/Q1-2達成状態は変更しない。旧R204B/R204C fixed-hub physical liftは退役し、R205Dのfixed-hub数学はM66側に残す。M65の指数Poisson raceは最小open witnessであり、後続M67/R211にwaiting-time分布までの一致は要求しない。physical bridgeはcomplete-result first-passage kernelからR204E contractへ接続する。
 
+
+## draft-142でM67 thermal sectorをM66/R205へ接続
+
+draft-142ではR212A--R212Cを追加し、M66/R205を独立microscopic parentからM67 structured reservoirのthermal open/effective layerへ再分類した。
+
+```text
+M67
+  -> R212A universal thermal embedding
+  -> R212B flat / S2 rotor thermal lift
+  -> R212C passive-separation lift
+  -> M66 / R205 open/effective layer
+       -> R206 Q2-1/Q2-3/Q2-4
+       -> R207 Q2-2
+```
+
+R212B-rotはR207Aの $S^2\times S^2$ target densityをM67 canonical marginalとして厳密に回収し、finite-time mixingについてはexplicit parameter-window numerical witnessを添える。R212CはR205Fのgenerator分離をfinite-Hamiltonian geometryへ接続する。R205B/R205D、R206、R207はactiveのまま残し、Q2 signal/NBL/register/gate、R206 apparatus全体、R186、M0、fixed-goal達成ラベルは変更しない。
 
 ## draft-141でM67/R211 Q1 selector liftを追加
 
