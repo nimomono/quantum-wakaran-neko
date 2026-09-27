@@ -39,3 +39,6 @@ draft-129でR205C--R205Fの解析・generator回帰もrequired checksへ加え�
 
 draft-137/138ではM67/R208A--R209Cをcandidate-onlyとしてこのdirectoryで検査した。draft-139でM67をQ3 common physical parentへ昇格したため、対応する7本のverifierは tools/verify_*.py へ移動し通常required CIへ昇格した。R210A/R210Bもrequired verifierとして tools/ 直下に置く。draft-141のR211A/R211B Q1 selector-lift verifierも同じrequired層へ追加する。
 
+## R212 thermal-sector promotion
+
+draft-142でR212A--R212Cをrequired physical-parent bridgeへ昇格するため、parameter-window checkerは `tools/verify_r212b_rotor_parameter_window.py` へ移した。R212A/B/Cの解析・幾何・separation verifierもtools直下のrequired checksへ置く。このdirectoryにはR212BのMonte Carlo mixingやfull finite-bath direct trajectoryを置かず、supporting simulationsは `simulations/m67/` で管理する。

@@ -44,7 +44,7 @@
 
 ただし、どの前提を破るかを固定目標の側で先に指定しない。測定設定独立性、Bell局所因子化、parameter independence、outcome independence、標本選択、測定窓中の通信、境界条件その他の因果構造を、採用した模型ごとに監査する。相関式の一致だけでなく、どの確率因子化または因果分離が成立し、どれが成立しないかを物理的な状態変数、設定、結果、記録の流れと対応させる。
 
-現行Q2-2主線R207は、setting directionsとhidden directionsを近接時のprojection phase-volume thermal preparationで相関させ、その後受動分離してlocal responseを形成する。setting marginal自体は独立に保てる一方、source hidden-state distributionはsetting-dependentなので測定設定独立性は成立しない。分離後local response factorizationとoperational non-signalingを保ち、測定窓中のA結果からB結果へのresult communicationは用いない。旧R180C非空間分離逐次witnessはdraft-135でactive paperから退役した。設定依存準備、共通過去相関、別の境界条件を用いる古典模型も研究対象から排除せず、それぞれの構成についてBell前提を独立に監査する。
+現行Q2-2主線R207は、M67/R212B-rotからM66/R205Eへ接続するsetting directionsとhidden directionsの近接時projection phase-volume thermal preparationで相関させ、R212C/R205Fを介して受動分離してlocal responseを形成する。setting marginal自体は独立に保てる一方、source hidden-state distributionはsetting-dependentなので測定設定独立性は成立しない。分離後local response factorizationとoperational non-signalingを保ち、測定窓中のA結果からB結果へのresult communicationは用いない。旧R180C非空間分離逐次witnessはdraft-135でactive paperから退役した。設定依存準備、共通過去相関、別の境界条件を用いる古典模型も研究対象から排除せず、それぞれの構成についてBell前提を独立に監査する。
 
 ## 6. 成功条件と長期目標
 

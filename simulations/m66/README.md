@@ -1,6 +1,6 @@
-# M66 direct-simulation plan
+# M66 thermal open/effective simulation plan
 
-M66/R205--R206 is the current fixed-goal terminal multi-outcome readout core for Q2-1/Q2-3/Q2-4.
+M66/R205 is the M67/R212 thermal-sector open/effective layer, and R206 remains the current fixed-goal terminal multi-outcome readout core for Q2-1/Q2-3/Q2-4. Full R206 common-hub apparatus Hamiltonianization is not claimed by R212.
 
 This directory records the future A2 plan. The fixed-goal algebra/resource core is checked by required verifiers under `tools/`; promotion does not by itself change A1/A2 status.
 

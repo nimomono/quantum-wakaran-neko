@@ -1,7 +1,7 @@
 @number: 5
 @chapter: 本文
 @title: Bell型測定統計：projection phase-volume主線と空間隔離強化
-@status: Q2-2 fixed-goalはM66/R205A・R205E・R205FとR207A--R207Cによるprojection phase-volume共同準備、受動分離、局所二端読出しで達成する。R207Dはmeasurement-independent Bell-local controlを与える。Bell監査ではsetting marginal independenceとmeasurement independenceを区別する。
+@status: Q2-2 fixed-goalはM67/R212B-rotによるfinite-Hamiltonian two-rotor preparationをM66/R205A・R205Eへ接続し、R212C/R205F passive separationとR207A--R207Cの局所二端読出しで達成する。R207Dはmeasurement-independent Bell-local controlを与える。Bell監査ではsetting marginal independenceとmeasurement independenceを区別する。
 
 ## 5.1 目的と現行主線
 
@@ -39,13 +39,13 @@ f_\epsilon(\boldsymbol a\cdot\boldsymbol\lambda_A)
 +
 f_\epsilon(\boldsymbol b\cdot\boldsymbol\lambda_B)
 ```
-とする。M66/R205Aのphase-volume sectorを二つの等価な内部branchへ特殊化すれば、この和は二本の局所projection railのphase volumeの加算として得られる。
+とする。M67/R212Aでは正値combined weight $w_\epsilon=w_A+w_B$ を一つのphase-volume scaleとして直接埋め込める。R207の二本の局所projection railはdisjoint configuration contributionとしてpartitionへ加算され、独立tensor-product sectorの積を仮定しない。M66/R205Aはそのopen/effective identityを与える。
 
 near-contact lock
 ```math
 H_{\rm lock}=-K\boldsymbol\lambda_A\cdot\boldsymbol\lambda_B
 ```
-とR205Eを組み合わせると
+とR212B-rot->R205Eを組み合わせると
 ```math
 \rho_{\epsilon,k}
 \propto
@@ -119,9 +119,9 @@ k=\frac2\eta
 
 ## 5.5 一試行の二端物理interface
 
-共有projection phase-volume geometryには固定距離則 $\chi_{\rm pv}(R)$ を置き、近接準備時に $\chi_{\rm pv}=1$、分離時に $\chi_{\rm pv}\to0$ とする。M66の共有weightを $w_\epsilon^{\chi_{\rm pv}(R)}$ とすれば、finite $\epsilon>0$ で共有free-energy driftは距離とともに受動的に消える。
+共有projection phase-volume geometryには固定距離則 $\chi_{\rm pv}(R)$ を置き、近接準備時に $\chi_{\rm pv}=1$、分離時に $\chi_{\rm pv}\to0$ とする。R212C/M66の共有weightを $w_\epsilon^{\chi_{\rm pv}(R)}$ とすれば、finite $\epsilon>0$ で共有free-energy driftは距離とともに受動的に消える。
 
-準備後に端間距離$R$を増やす。R205Fにより$K(R)$とreservoir cross-correlationを、同時にR207の $\chi_{\rm pv}(R)$ を小さくし、分離後のideal generatorを
+準備後に端間距離$R$を増やす。R207最小physical liftではA/Bのlocal rotor bathを独立に保ち、R212C/R205Fにより$K(R)$とR207の $\chi_{\rm pv}(R)$ を小さくする。一般profileではreservoir cross-correlationも同時に小さくできる。分離後のideal generatorを
 ```math
 \mathcal L=\mathcal L_A+\mathcal L_B
 ```
@@ -147,7 +147,7 @@ R207Cの合成誤差は
 +
 \varepsilon_{\rm rec}^{207}.
 ```
-各項は有限parameterで任意に小さくできるため、固定目標達成規則に従いQ2-2は達成を維持する。
+各項は有限parameterで任意に小さくできるため、固定目標達成規則に従いQ2-2は達成を維持する。R212Bのexplicit witnessは $\epsilon=1/32$、$k=8$ で $\theta_B\ll I/\gamma<t_{\rm mix}<T_{\rm prep}<T_{\rm rec}$ の非空な有限windowを確認するが、A2達成とは数えない。
 
 ## 5.6 Bell前提監査
 

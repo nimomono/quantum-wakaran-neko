@@ -1,7 +1,7 @@
 @number: W
 @chapter: 付録
 @title: R207 projection phase-volume共同準備と局所二端読出し
-@status: R207A--R207DをQ2-2 fixed-goalの現行Bell統計主線とする。M66/R205A・R205Eのphase-volume thermal preparationとR205Fのpassive separationを使い、一般Bloch方向の一重項共同統計、finite-thickness/finite-lock誤差、分離後local response、measurement-independence監査を与える。
+@status: R207A--R207DをQ2-2 fixed-goalの現行Bell統計主線とする。M66/R205A・R205Eのphase-volume thermal preparationとR205F passive separationをopen/effective layerとして維持し、R212A/R212B-rot/R212Cを介してM67 finite-Hamiltonian physical parentへ接続する。一般Bloch方向の一重項共同統計、finite-thickness/finite-lock誤差、分離後local response、measurement-independence監査はR207の既存責務として維持する。
 
 ## W.1 目的と因果境界
 
@@ -21,9 +21,61 @@ t_{\rm prep}<t_{\rm sep}<t_A^{\rm latch},t_B^{\rm latch}<t_A^{\rm out},t_B^{\rm 
 ```
 とする。設定は局所制御器の物理状態として準備窓から存在してよい。後段のlocal latchはsource--setting相関を消さず、測定設定独立性を回復させない。
 
-local thermal contactを確率生成のためだけにswitchしない。A/B間lockとreservoir cross-correlationは距離依存constitutive lawとして受動的に減衰させる。
+local thermal contactを確率生成のためだけにswitchしない。M67最小physical liftではA/Bに独立local rotor bathを常時接続し、準備時相関はnear-contact lockとshared phase-volume weightで作る。A/B間lockとshared phase-volume couplingは距離依存constitutive lawとして受動的に減衰させる。一般のcross-bath correlationはR212Cで許すがR207最小構成には必須でない。
 
 ## W.2 R207A：projection phase-volume共同準備
+
+### W.2.0 M67 finite-Hamiltonian lift
+
+R207Aのtarget densityはopen SDEを直接仮定するだけでなく、M67/R212B-rotの二rotor canonical marginalとして厳密に回収できる。二つのrigid rotor $(\boldsymbol\lambda_A,L_A)$、$(\boldsymbol\lambda_B,L_B)$ に独立な有限isotropic local bathを付け、
+
+```math
+H_{\rm cfg}
+=
+-K\boldsymbol\lambda_A\cdot\boldsymbol\lambda_B,
+\qquad
+w=w_\epsilon
+```
+
+をR212A phase-volume sectorへ入れる。rotor momenta、phase-volume modes、local bathsをcanonicalに積分消去するとorientation marginalは
+
+```math
+\rho_{\epsilon,k}^{67}
+\propto
+e^{k\boldsymbol\lambda_A\cdot\boldsymbol\lambda_B}
+w_\epsilon,
+\qquad
+k=\beta K,
+```
+
+となり、下のR207A densityと厳密に一致する。
+
+任意初期orientation lawからこのtargetへ到達する準備力学はR212B-rotのfinite-time open reductionで扱う。したがって「target lawのcanonical realization」と「finite-time mixing error $\varepsilon_{\rm prep}^{207}$」を分離して数える。R212Bのexplicit witnessでは $\eta=0.25$、$\epsilon=1/32$、$k=8$ に対して
+
+```math
+\theta_B
+=
+5\times10^{-4}
+\ll
+I/\gamma
+=
+10^{-2}
+<
+t_{\rm mix}
+=
+12
+<
+T_{\rm prep}
+=
+15
+<
+T_{\rm rec}
+=
+100
+```
+
+を同時に満たす有限parameter setを持つ。
+
 
 finite thicknessを表す
 ```math
@@ -213,18 +265,18 @@ w_\epsilon^{\,\chi_{\rm pv}(R)}
 ```
 である。finite $\epsilon>0$ では $w_\epsilon\ge2\epsilon$ かつ $\nabla\log w_\epsilon$ は有界なので、この共有driftは $\chi_{\rm pv}(R)\to0$ とともに受動的に消える。
 
-準備後に$R$を増やし、R205Fの距離依存lock $K(R)$、reservoir cross block $C_{AB}(R)$、およびR207固有の共有phase-volume係数 $\chi_{\rm pv}(R)$ を同時に小さくする。local thermal contactとlocal mobilityは切らない。
+準備後に$R$を増やし、R212C/R205Fの距離依存lock $K(R)$、およびR207固有の共有phase-volume係数 $\chi_{\rm pv}(R)$ を同時に小さくする。general profileではreservoir cross block $C_{AB}(R)$ も許すが、R207最小physical liftでは独立local rotor bathsを用いて $C_{AB}(R)=0$ としてよい。local thermal contactとlocal mobilityは切らない。
 
 local rotational mobilityを $\mu_\lambda>0$、diffusion scaleを $D_\lambda=\mu_\lambda k_BT$ とする。$\mu_\lambda$ を小さくすると準備mixing時間は長くなるが有限のままであり、準備後の有限保持窓 $T_{\rm hold}=T_{\rm sep}+T_{\rm meas}$ におけるhidden-direction変化を小さくできる。準備終了時とlocal latch時のlawの全変動差を $\varepsilon_{\rm hold}^{207}$ とする。
 
-R205Fの有限距離generator defectと共有phase-volume driftを合わせて $\varepsilon_{\rm sep}^{207}(R)$ とする。固定finite $\epsilon$ では $K(R)$、$C_{AB}(R)$、$\chi_{\rm pv}(R)$ を十分小さくする有限$R$を選べるため、$\varepsilon_{\rm sep}^{207}(R)\to0$ とできる。
+R212C/R205Fの有限距離generator defectと共有phase-volume driftを合わせて $\varepsilon_{\rm sep}^{207}(R)$ とする。固定finite $\epsilon$ では $K(R)$、$\chi_{\rm pv}(R)$、必要なら $C_{AB}(R)$ を十分小さくする有限$R$を選べるため、$\varepsilon_{\rm sep}^{207}(R)\to0$ とできる。compact-support profileを採れば $R\ge R_{\rm sep}$ でexact decouplingも選べる。
 
 各端では局所settingと局所hidden directionだけを比較する。ideal sign boundaryの有限幅 $\delta_{\rm lat}$ 近傍を正式な無反応安全帯として扱い、R112型比較・recordを用いる。finite $\epsilon>0$ のsmooth densityでは境界帯確率は $\delta_{\rm lat}\downarrow0$ で0へ行く。成功試行だけの再規格化は行わない。
 
 <!-- theorem-start:theorem -->
 **定理（R207C：一試行local二端合成とBell前提監査）**
 
-R207Aの有限時間thermal preparation、有限保持、R205Fの有限距離passive separation、二つのlocal comparator/latch、R112型recordを同じ一試行に順序付ける。完全結果分布の実装誤差を
+R207Aのtarget canonical lawとR212B-rotによる有限時間thermal preparation、有限保持、R212C/R205Fの有限距離passive separation、二つのlocal comparator/latch、R112型recordを同じ一試行に順序付ける。完全結果分布の実装誤差を
 ```math
 \varepsilon_{207}
 \le

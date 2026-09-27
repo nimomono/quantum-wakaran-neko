@@ -1,13 +1,36 @@
 @number: X
 @chapter: 付録
-@title: M66 common thermal-reservoir parentとQ2多結果readout
-@status: M66/R205A--R205Fをphase-volume、mean-flow、thermal sampling、passive separationを共通化するthermal-reservoir parentとする。Q2-1/Q2-3/Q2-4の現行terminal multi-outcome readoutはR206A--R206EをM66のQ2特殊化として維持する。M64のreservoir sectorはR205Cへ対応し、R205Dは一般のbinary fixed-hub corollaryとして残す。draft-140以後のM65はtwo-result first-passage lawを正本とし、R205Dを現行physical liftには使わない。Q2-4のR186 additive-noise障害は独立に残す。
+@title: M66 M67 thermal-sector open/effective interfaceとQ2多結果readout
+@status: M66/R205A--R205FをM67 structured reservoirのthermal-sector open/effective interfaceとして維持する。R212AはR205A/R205C、R212BはR205E、R212CはR205Fのfinite-Hamiltonian physical parentを与える。R205B/R205Dはfinite-chamber reduced law、R206A--R206EはQ2-1/Q2-3/Q2-4 terminal specializationとして残す。R207A/R207CはR212B-rot/R212Cを介してQ2-2へ接続する。Q2 signal/register/gateとR206 apparatus全体のfinite-Hamiltonian lift、R186障害は別課題として残す。
 
-M66は、resolved classical degreesと一つのthermal reservoirの間の物理interfaceだけを共通化するopen parent modelである。M64のtracer/Nelson dynamics、M65のbinary selector、R206のQ2 terminal samplerそのものを置換せず、それらが用いるreservoir phase volume、mean flow、thermal sampling、空間分離時の受動decouplingを共通原理として切り出す。
+M66は、resolved classical degreesとthermal reservoirの間のopen/effective interfaceを共通化する。draft-142以後、このlayerの有限Hamiltonian physical parentはM67/R212A--R212Cである。M64のtracer/Nelson dynamics、M65のbinary selector、R206のQ2 terminal samplerそのものを置換せず、それらが用いるreservoir phase volume、mean flow、thermal sampling、空間分離時の受動decouplingをopen/effective lawとして切り出す。
 
 共通入力は正のphase-volume weight $w(Q,t)>0$、reservoir mean-flow port $U(Q,t)$、resolved configurationの通常のenergy landscape $H_{\rm cfg}(Q,t)$ とする。これらはBorn確率表やGibbs確率表を外部controllerが計算して注入するための入力ではなく、各specializationの局所signal、粒子配置、受動幾何から決まる物理量である。reservoir couplingは固定、または粒子間距離・局所配置へ受動的に依存するconstitutive lawとし、確率生成のためだけのbath switchを要求しない。
 
-R205A/R205Cはphase-volume/free-energy sector、R205B/R205Dはfinite-chamber reduction、R205Eはoverdamped thermal sampler、R205Fは空間分離時のgenerator decouplingを与える。Q2-1/Q2-3/Q2-4ではR206A--R206Eへ、Q2-2ではR207 projection phase-volume specializationへ接続する。Q1の逐次binary instrumentはM65/R181D、Q3のparticle/Nelson主線はM64/R203A--R203Dを維持する。
+R205A/R205Cはphase-volume/free-energy sector、R205B/R205Dはfinite-chamber reduction、R205Eはoverdamped thermal sampler、R205Fは空間分離時のgenerator decouplingを与える。上位physical parentとの対応は R212A->R205A/C、R212B->R205E、R212C->R205F である。Q2-1/Q2-3/Q2-4ではR206A--R206Eへ、Q2-2ではR207 projection phase-volume specializationへ接続する。Q1の逐次binary instrumentはM65/R181D、Q3のparticle/Nelson open reductionはM64/R203A--R203Dを維持する。
+
+## X.0 M67 thermal-sector bridge
+
+M66/R205はdraft-142以後、独立microscopic parentではなくM67 structured reservoirのthermal-sector open/effective interfaceとして読む。上位の有限Hamiltonian結果は付録AA/R212A--R212Cに置き、本付録のopen/reduced law自体は変更しない。
+
+```math
+M67
+\longrightarrow
+R212A--R212C
+\longrightarrow
+M66/R205
+\longrightarrow
+\{R206,R207\}.
+```
+
+対応は
+
+- R212A：R205A/R205Cのphase-volume、mean-flow thermodynamic embedding。
+- R212B-flat/rot：R205Eのfinite-time Hamiltonian lift。rotor corollaryはR207Aの $S^2\times S^2$ preparationへ接続する。
+- R212C：R205Fのpassive-separation physical lift。
+- R205B/R205D：finite-chamber reduced lawとして本付録に残す。
+
+この再分類はQ2-1--Q2-4の達成ラベル、R186、R206 finite-state law、R207 Bell統計を変更しない。R206 common-hub apparatus全体のfinite-Hamiltonian liftやgate中always-on phase backreactionも本付録から推論しない。
 
 ## X.1 R205A：共通phase-volume identity
 
@@ -845,7 +868,7 @@ R186のdirect-amplitude registerに対する独立additive-noise障害は独立�
 
 ## X.11 fixed-goal status
 
-M66/R205A--R205Fをcommon thermal-reservoir parentとして採用し、R206A--R206EをQ2-1/Q2-3/Q2-4のterminal multi-outcome readout specializationとして維持する。
+M66/R205A--R205FをM67 thermal-sector open/effective interfaceとして維持し、R206A--R206EをQ2-1/Q2-3/Q2-4のterminal multi-outcome readout specializationとして維持する。R207A/R207Cのthermal preparation/passive separationはR212B-rot/R212Cを介してM67 physical parentへ接続する。
 
 現行責務は次のように分離する。
 
