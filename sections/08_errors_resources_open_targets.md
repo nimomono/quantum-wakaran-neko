@@ -642,7 +642,7 @@ M67 Q1 profileの追加資源はheld-action canonical pair、finite phase-volume
 | 対象 | 共通層で数える量 | specialization側で追加する量 |
 |---|---|---|
 | M64/R203B--R203C | phase-volume identity自体はexact。採用するthermal mixingまたはmean-flow portの実装偏差 | current dictionary、initial preparation、finite-time flow tracking、tracer縮約、R161/R185接続 |
-| M65/R204A・R204D | two-result first-passage open lawは系列固有。R205D fixed-hub corollaryを現行liftに使わない | finite-time survival、cutoff、record error。finite-Hamiltonian liftは後続physical bridgeで別評価 |
+| M65/R204A・R204D | two-result first-passage open lawは系列固有。R205D fixed-hub corollaryを現行liftに使わない | finite-time survival、cutoff、record error。finite-Hamiltonian liftはM67/R211台帳で別評価 |
 | R206 | R205Bのmatched capacity--conductance原理 | R206Cのfinite-time、hub residual、regularization、generator、record、fabrication error |
 | R207 | R205E thermal mixing、R205F generator separation defect | setting latch、finite-lock近似、outcome fixation、direct microscopic trajectory・具体装置の強化監査 |
 
