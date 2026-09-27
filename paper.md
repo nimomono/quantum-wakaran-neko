@@ -14260,7 +14260,7 @@ B_N(t)
 \int_0^t\xi_N(s)\,ds
 ```
 
-はGaussian過程であり、kernel covarianceがDrude kernelへ一様積分収束し、increment boundが一様なら、固定 $T<T_{\rm rec}$ で
+はGaussian過程であり、kernel covarianceがDrude kernelへ一様積分収束し、increment boundが一様なら、固定 $T<T_{\rm bath\,rec}^{Q1}$ で
 
 ```math
 \mathcal L(B_N)
@@ -15030,7 +15030,7 @@ A_\Sigma=A_++A_->0,
 \widehat p_\pm=\frac{A_\pm}{A_\Sigma}
 ```
 
-とする。M65と同じ固定cutoff $0<\tau_{\rm cut}<1/2$ を使い、
+とする。R189Aでは保持窓後も $\bar J_L+\bar J_R=J_\Sigma$ が厳密に成り立つので、Q1 selectorでは $A_\Sigma=J_\Sigma$ を固定総作用scaleとして扱う。M65と同じ固定cutoff $0<\tau_{\rm cut}<1/2$ を使い、
 
 ```math
 \widehat p_\pm\ge\tau_{\rm cut}
@@ -15044,23 +15044,21 @@ A_\Sigma=A_++A_->0,
 \bar a_\pm=a_\pm
 ```
 
-とする。safe branch外のextensionはHamiltonian regularizationだけを担い、Born重みを計算する外部tableとして使わない。
+とする。さらに装置定数 $0<a_{\rm floor}<a_{\rm ceil}<\infty$ を選び、全位相空間で $a_{\rm floor}\le\bar a_\pm\le a_{\rm ceil}$ とする。safe branch外のextensionはHamiltonian regularizationだけを担い、Born重みを計算する外部tableとして使わない。固定 $A_\Sigma=J_\Sigma$ と $\widehat p_\pm\in[\tau_{\rm cut},1-\tau_{\rm cut}]$ によりsafe held-action集合はcompactになる。
 
 Q1 profileではrunning W2 signalはR189A capture終了後にselectorから切り離す。M67 structured reservoir内部にheld-action pair、phase-volume modes、finite marker bathを置き、別sector $\mathcal X=(X,P_X)$ をbinary markerとして使う。
 
 ## R211A：M67 Q1 double-well finite-Hamiltonian construction
 
-held-action pairをcanonical action-angle変数
+R189Aが保持するcanonical pair $(A_\pm,P_\pm^J)$ を、capture終了後に
 
 ```math
-(I_+,\theta_+),
+I_\pm=A_\pm,
 \qquad
-(I_-,\theta_-),
-\qquad
-I_\pm=A_\pm
+\theta_\pm=-P_\pm^J
 ```
 
-として受ける。selector Hamiltonianを $\theta_\pm$ に依存させない。
+と正準relabellingする。$d\theta_\pm\wedge dI_\pm=dA_\pm\wedge dP_\pm^J$ なのでsymplectic formは保たれる。selector Hamiltonianを $\theta_\pm$ に依存させない。
 
 裸のmarker potential $W_0$ はevenなdouble wellとし、
 
@@ -15138,7 +15136,7 @@ H_B^{Q1}
 
 を使う。固定 $X$ でbath座標の平行移動はJacobian 1なので、このbathはstatic Born biasを追加しない。
 
-Q1 selector Hamiltonianを
+Q1 selector Hamiltonianでは $H_{\rm hold}(I_+,I_-)$ をsmoothかつ下に有界に選ぶ。全Hamiltonianを
 
 ```math
 H_{67}^{Q1}
@@ -15159,7 +15157,7 @@ H_B^{Q1}
 <!-- theorem-start:theorem -->
 **定理（R211A：M67 Q1 double-well finite-Hamiltonian construction）**
 
-safe held-action domainを含むsmooth positive extension $\bar a_\pm$ を取り、$W_0$、$\chi_\ell$、有限phase-volume modes、finite harmonic bathを上のように選ぶ。このとき $H_{67}^{Q1}$ は有限自由度のsmooth classical Hamiltonianとして構成でき、
+safe held-action domainを含み $a_{\rm floor}\le\bar a_\pm\le a_{\rm ceil}$ を満たすsmooth positive extensionを取り、$W_0$、$\chi_\ell$、下に有界な $H_{\rm hold}$、有限phase-volume modes、finite harmonic bathを上のように選ぶ。このとき $H_{67}^{Q1}$ は有限自由度のsmoothかつ下に有界なclassical Hamiltonianとして構成でき、
 
 ```math
 \dot I_\pm
@@ -15207,7 +15205,7 @@ safe action-ratio集合全体で $F_\ell$ が左右二つの局所極小と中�
 <!-- theorem-start:proof -->
 **証明（R211A）**
 
-$\theta_\pm$ がcyclicなので $I_\pm$ の保存はHamilton方程式から直ちに従う。各phase-volume oscillatorについて $\widetilde\zeta_\alpha=w_\ell^{-q_\alpha}\zeta_\alpha$ と変数変換すればJacobianは $w_\ell^{q_\alpha}$ であり、積を取ると $\sum_\alpha q_\alpha=1$ から全Jacobianが $w_\ell$ になる。従って $Z_{\rm pv}=Z_{\rm pv}^0w_\ell$ とfree-energy式を得る。finite marker bathは座標平行移動なので固定 $X$ partitionへ追加の $X$ 依存factorを生じない。safe action-ratio集合はcompactであり、$\partial_X\log w_\ell$ とその必要微分は有限である。裸のdouble-well curvature/barrierをこれらの有限摂動に対して十分強く選べば、左右二極小と中央一極大だけを一様に維持できる。証明終。
+$\theta_\pm$ がcyclicなので $I_\pm$ の保存はHamilton方程式から直ちに従う。各phase-volume oscillatorについて $\widetilde\zeta_\alpha=w_\ell^{-q_\alpha}\zeta_\alpha$ と変数変換すればJacobianは $w_\ell^{q_\alpha}$ であり、積を取ると $\sum_\alpha q_\alpha=1$ から全Jacobianが $w_\ell$ になる。従って $Z_{\rm pv}=Z_{\rm pv}^0w_\ell$ とfree-energy式を得る。finite marker bathは座標平行移動なので固定 $X$ partitionへ追加の $X$ 依存factorを生じない。$H_{\rm hold}$、$W_0$、phase-volume quadratic terms、finite marker bathはそれぞれ下限を持ち、$\bar a_\pm$ は正の上下界を持つので全Hamiltonianも下に有界である。固定 $A_\Sigma$ とsafe ratio条件からsafe held-action集合はcompactであり、$\partial_X\log w_\ell$ とその必要微分は有限である。裸のdouble-well curvature/barrierをこれらの有限摂動に対して十分強く選べば、左右二極小と中央一極大だけを一様に維持できる。証明終。
 <!-- theorem-end:proof -->
 
 R211AはBorn確率をまだ主張しない。これはfinite-Hamiltonian device constructionとheld-action invarianceだけを閉じる。
@@ -15465,7 +15463,7 @@ m_d(T)\varepsilon_X(T)
 <!-- theorem-start:theorem -->
 **定理（R211B：M67 Q1 double-well Born kernel / R204E compatibility）**
 
-R211Aのsafe Q1 profileを取り、$0<\ell<d<L$、有限decision時刻 $T<T_{\rm rec}$ を選ぶ。finite-Hamiltonian terminal result kernelを
+R211Aのsafe Q1 profileを取り、$0<\ell<d<L$、有限decision時刻 $T<T_{\rm bath\,rec}^{Q1}$ を選ぶ。finite-Hamiltonian terminal result kernelを
 
 ```math
 K_{67}^T
@@ -15509,14 +15507,76 @@ K_{\widehat p}
 
 各項は上の1次元quadrature、backward equation、one-time Wasserstein boundから有限に評価できる。
 
-さらにsafe action-ratio集合を固定したまま、collar幅、launch幅、finite phase-volume mode数、finite-bath近似、small-mass parameter、recurrence time、well depthとdecision windowを順に選ぶparameter族で
+さらにdimensionless marker units $k_BT=\mu=x_0=1$ でsafe action-ratio集合と固定 $0<d<L<1$ を保ち、$B\to\infty$ に対して一例として
+
+```math
+W_0^{(B)}(X)
+=
+B(X^2-1)^2,
+\qquad
+\ell_B=B^{-1},
+\qquad
+\delta_{0,B}=B^{-1},
+```
+
+```math
+T_B
+=
+C\frac{\log B}{B}
+```
+
+を取る。$C>0$ を十分大きく固定すると、1次元scale/speed評価から
+
+```math
+\varepsilon_{\rm col}
+=
+O(B^{-1/2}),
+\qquad
+\varepsilon_{\rm launch}
+=
+O(B^{-1/2}),
+```
+
+```math
+\varepsilon_{\rm surv}(T_B)
+\longrightarrow0,
+\qquad
+\varepsilon_{\rm ret}(T_B)
+=
+O
+\left(
+T_Be^{-c_{dL}B}
+\right),
+```
+
+となる。ここで
+
+```math
+c_{dL}
+=
+(1-d^2)^2-(1-L^2)^2
+>
+0.
+```
+
+各有限 $B$ を先に固定した後、R209B/C型のfinite-bath spectrum、small-mass parameter、phase-volume mode数、初期compatibilityを選び、
+
+```math
+\varepsilon_{\rm cg}(T_B)
+\le
+B^{-1/2},
+\qquad
+T_B<T_{\rm bath\,rec}^{Q1}
+```
+
+とできる。縮約定数が $B$ または $\ell_B$ に一様であることは要求せず、各有限 $B$ に対してreduction parameterを後から選ぶ。このnested finite-parameter familyで
 
 ```math
 \varepsilon_{211B}
-\longrightarrow0
+\longrightarrow0.
 ```
 
-とできる。従ってM67 Q1 profileはR204E binary selector contractを任意精度で満たすfinite-Hamiltonian physical liftを与える。
+従ってM67 Q1 profileはR204E binary selector contractを任意精度で満たすfinite-Hamiltonian physical liftを与える。
 
 R211BはM65/R204Aの指数Poisson waiting-time lawや $\lambda_\pm=\kappa a_\pm$ を再現するとは主張しない。
 <!-- theorem-end:theorem -->
@@ -15528,7 +15588,9 @@ sharp-interface committor式は1次元reversible diffusionのscale functionか�
 
 eventual deep-commitment signと固定時刻basin readoutが異なるpathは、時刻 $T$ までに $\pm L$ へ到達しない場合か、到達後に対応する $\pm d$ まで戻る場合へ含まれるので、自然couplingから $\varepsilon_{\rm surv}+\varepsilon_{\rm ret}$ で抑えられる。
 
-finite-Hamiltonian lawとideal diffusion lawをone-time $W_1$ couplingし、coupling距離が $\delta$ を超える確率をMarkov inequalityで $\varepsilon_X/\delta$ と評価する。両marker位置がthresholdから $\delta$ 以上離れ、coupling距離が $\delta$ 以下なら $g_d$ の結果は一致するため、残る不一致確率は $\omega_d(\delta,T)$ 以下である。$\delta$ について下限を取れば $\varepsilon_{\rm cg}$ を得る。各誤差項を順次小さくできるparameter族を選べば最後の主張が従う。証明終。
+finite-Hamiltonian lawとideal diffusion lawをone-time $W_1$ couplingし、coupling距離が $\delta$ を超える確率をMarkov inequalityで $\varepsilon_X/\delta$ と評価する。両marker位置がthresholdから $\delta$ 以上離れ、coupling距離が $\delta$ 以下なら $g_d$ の結果は一致するため、残る不一致確率は $\omega_d(\delta,T)$ 以下である。$\delta$ について下限を取れば $\varepsilon_{\rm cg}$ を得る。
+
+最後のparameter familyでは、中央barrier近傍のscale densityは幅 $O(B^{-1/2})$ に集中するため $\ell_B=B^{-1}$ のcollar比は $O(B^{-1/2})$ である。committor derivativeは同領域で $O(B^{1/2})$ なので $\delta_{0,B}=B^{-1}$ によりlaunch errorも $O(B^{-1/2})$ になる。中央saddle近傍の不安定drift scaleは $O(B)$ であり、$T_B=C(\log B)/B$ は十分大きい $C$ でfall timeを上回る一方、$L$ から $d$ へ戻るにはfree-energy差 $c_{dL}B+O(1)$ を上るためfinite-window returnは指数的に抑えられる。各有限 $B$ でR209B/Cのreduction parameterをその後に選べばcoarse-graining errorも独立に小さくできる。証明終。
 <!-- theorem-end:proof -->
 
 ### required numerical witness
@@ -15683,14 +15745,14 @@ R189A、R211A、R211Bの条件を満たし、decision時刻 $T$ のterminal resu
 
 と評価できる。
 
-selector parameter setと有限decision/record/router時間を先に固定し、その後R187のweak-coupling極を取れば
+selector parameter setと有限decision時間 $T_{211}$、R112 record時間 $T_{\rm record}$、R181D router時間 $T_F$ を先に固定し、その後R187のweak-coupling極を取れば
 
 ```math
 \Omega_\kappa
 \left(
 T_{211}
 +
-T_{\rm rec}
+T_{\rm record}
 +
 T_F
 \right)
