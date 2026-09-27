@@ -1,7 +1,7 @@
 @number: AA
 @chapter: 付録
 @title: M67 二実体finite-Hamiltonian physical parent
-@status: M67をQ3-1--Q3-5の共通二実体finite-Hamiltonian physical parentとし、Q1ではR211A--R211Cでbinary-selector strengthening、Q2ではR212A--R212CでM66/R205 thermal layerのfinite-Hamiltonian parentを与える。M37はM67 coherent module、M64/R203はcanonical open effective reduction、M66/R205はthermal-sector open/effective interfaceとして維持する。R212BのS^2 rotor corollaryはR207A共同準備をM67 canonical marginalとfinite-time thermal liftへ接続する。Q3-6、Q2 signal/NBL/register/gate、M0は別課題として残す。
+@status: M67をQ3-1--Q3-5の共通二実体finite-Hamiltonian physical parentとし、Q1ではR211A--R211Cでbinary-selector strengthening、Q2ではR212A--R212CでM66/R205 thermal layerのfinite-Hamiltonian parentを与える。M37はM67 coherent module、M64/R203はcanonical open effective reduction、M66/R205はthermal-sector open/effective interfaceとして維持する。R212Bの $S^2$ rotor corollaryはR207A共同準備をM67 canonical marginalとfinite-time thermal liftへ接続する。Q3-6、Q2 signal/NBL/register/gate、M0は別課題として残す。
 
 ## AA.1 目的、二実体、責務境界
 
