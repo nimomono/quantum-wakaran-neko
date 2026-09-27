@@ -1,3 +1,7 @@
+## draft-142 M67 thermal-sector parent integration
+
+`check_draft142_m67_thermal_sector.py` はR212A--R212Cの登録、M66のM67 thermal-sector open/effective interfaceへの再分類、R207A/R207Cのphysical-parent接続、required R212 verifierの存在を検査する。同時にM66/R205--R207を退役させないこと、R205DをM65 physical liftへ戻さないこと、Q2-1/Q2-2/Q2-3達成、Q2-4条件付き達成、R186、Q3-6、M0、A1/A2/B1--B3を変更しないことをPR固有に固定する。通常CIへ恒久登録しない。
+
 # PR固有の移行検査
 
 このディレクトリは、特定の理論再編・名称変更・依存関係変更を安全に完了させるための一時検査を置く。
