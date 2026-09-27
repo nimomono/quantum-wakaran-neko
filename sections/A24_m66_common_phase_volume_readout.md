@@ -732,7 +732,7 @@ D_{\rm TV}(P_{\rm out},P_C)
 Q2-4では $Y\in\{0,1\}^n$ を固定配線のconfiguration labelとして読み、外部readoutは $O(n)$ bitとする。全chamberを外部走査して結果を探索する方式は本定理の一様装置条件を満たさない。
 <!-- theorem-end:theorem -->
 
-Q2-1/Q2-3/Q2-4ではterminal readout後に非規格化射影成分を次段へ渡さないため、R181D型逐次projector treeと非終端作用回復を要求しない。R181DはQ1/Q2-2のsame-trial post-state handoffへ責務を限定する。
+Q2-1/Q2-3/Q2-4ではterminal readout後に非規格化射影成分を次段へ渡さないため、R181D型逐次projector treeと非終端作用回復を要求しない。R181Dの現行fixed-goal責務はQ1のsame-trial post-state handoffに限定し、Q2-2はR207のlocal二端readoutを使う。
 
 ## X.8 R206E：Q2-4 uniform root preparation / refresh
 
