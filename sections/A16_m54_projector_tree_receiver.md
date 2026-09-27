@@ -97,6 +97,27 @@ M65/R204D--R204Eを使う場合は、
 
 Q1 fixed-goalのbinary witnessにはM65を使う。
 
+### P.2.2 M67/R211 finite-Hamiltonian physical lift
+
+M67/R211A--R211Cを使う場合、safe interior branchではdouble-well markerの固定時刻basin readout、edge branchではM65と同じ固定線形comparatorを使う。R211Cにより
+
+```math
+arepsilon_{{m sel},u}
+=
+arepsilon_{{m sel},u}^{67},
+qquad
+	au_{{m state},u}
+=
+	au_{{m cut},u}
+-
+arepsilon_{189A,u}
+>0
+```
+
+と取れる。M67側のcollar、launch、survival、return、finite-Hamiltonian-to-diffusion coarse-graining誤差はR211B/R211C側で一度だけ数える。
+
+R181DはM65 Poisson waiting-time lawもM67 double-well dynamicsも仮定せず、P.2のcomplete-result contractだけを使う。Q1 fixed-goalのcanonical witnessはM65のまま、M67/R211はfinite-Hamiltonian strengtheningとして同じrouterへ接続する。
+
 ## P.3 結果固定後の可逆projector router
 
 selectorが有限decision時間後に $Y_u=b\in\{0,1\}$ を固定したときだけ、信号と未使用作業領域上の選別機構
