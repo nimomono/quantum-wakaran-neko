@@ -42,9 +42,9 @@ required checksはpartition identity、initial preparation、finite-time trackin
 
 ## M65 canonical open selector
 
-M65の3状態open selectorはdraft-117で正本へ昇格する。正本lawの数値検算はrequired verifierで行い、direct simulationをpromotion条件にはしない。
+draft-140以後のM65正本はtwo-result first-passage open selectorである。正本lawの解析・数値回帰はrequired verifierで行い、Poisson waiting-time lawそのものを将来のphysical parentへ要求しない。
 
-将来 `simulations/m65/` を追加する場合は、R204B/R204Cの強化実現としてfixed-hub chamberのBrownian trajectory、hub residence、経験的 $(+,-,\varnothing)$ 分布、作用比scan、geometry refinement、canonical 3-state lawへの収束を同一parameter setで検査する。これはA2/B3またはHamiltonian-lift strengtheningとして独立に監査する。
+旧R204B/R204C fixed-hub chamber simulation案は現行M65 strengtheningから退役した。現行M65のfinite-Hamiltonian direct simulationは、後続M67/R211で二重井戸markerからcomplete-result first-passage kernelを回収する構成を定めた後に追加する。
 
 ## M66 common thermal-reservoir parent
 
