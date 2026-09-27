@@ -43,7 +43,7 @@ def main() -> None:
     theta = 0.02
     t = np.linspace(0.0, 0.4, 200001)
     kernel = gamma / theta * np.exp(-t / theta)
-    integ = float(np.trapz(kernel, t))
+    integ = float(np.trapezoid(kernel, t))
     assert abs(integ - gamma) < 5e-5
 
     print("R212B-flat sampler checks: OK")
