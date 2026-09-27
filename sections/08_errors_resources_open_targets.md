@@ -15,7 +15,7 @@
 6. 同じ準備済み入力偏差を $\varepsilon_{\rm in}$、R135の初期共分散誤差、系列固有の入力誤差へ重ねて入れる。
 7. M64ではinitial preparation、current dictionary、mean-flow tracking、density interpolation、process reductionを導出箇所ごとに一度だけ数える。$\delta$ をcurrent-dictionary誤差とR185 regularizationへ二重に加算せず、process-law errorとNewton force residualを単純加算しない。
 8. M66/R205で共通化したphase-volume、mean-flow、thermal mixing、passive separationの同じopen/effective偏差をM64/R206/R207側で独立誤差として再加算しない。R212A--R212CからM66/R205へ入るfinite-Hamiltonian compatibility errorは上流で一度だけ数える。draft-140以後のM65はM66/R205D fixed-hub liftを現行依存に持たないので、旧R204B/R204C偏差をM65誤差へ戻さない。
-9. M67ではQ3側の $\varepsilon_{86}$、$\varepsilon_{\rm load}^{67}$、$\varepsilon_{67\to64}$、$\varepsilon_{\rm red}^{64}$ と、Q2 thermal側の $\varepsilon_{212B}^{\rm flat/rot}$、$\varepsilon_{212C}^{\rm sep}$ を別台帳に置く。M67→M64比較へR86 carrier errorを、M67→M66/R207比較へ既存R205E mixing/R205F defectを再加算しない。
+9. M67ではQ3側の $\varepsilon_{86}$、$\varepsilon_{\rm load}^{67}$、$\varepsilon_{67\to64}$、$\varepsilon_{\rm red}^{64}$ と、Q2 thermal側の $\varepsilon_{212B}^{\rm flat/rot}$、$\varepsilon_{212C}^{\rm sep}$ を別台帳に置く。M67->M64比較へR86 carrier errorを、M67->M66/R207比較へ既存R205E mixing/R205F defectを再加算しない。
 
 全ての理想分布と実分布は同じ完全結果集合へ埋め込む。成功試行だけで再規格化しない。
 
@@ -217,7 +217,7 @@ $\varepsilon_{206}^{\rm end}$ にはR206Cのfinite-time mixing、hub residual、
 
 ## 8.6 Q2-2の誤差とBell監査
 
-現行Q2-2はM67/R212→M66/R205→R207 projection phase-volume主線を使う。R207A target lawのcanonical marginal自体はR212B-rotで厳密に回収し、finite-Hamiltonian→spherical R205Eのcompatibilityとfinite-time mixingを $\varepsilon_{\rm prep}^{207}$ の上流要素として一度だけ数える。完全結果分布について
+現行Q2-2はM67/R212->M66/R205->R207 projection phase-volume主線を使う。R207A target lawのcanonical marginal自体はR212B-rotで厳密に回収し、finite-Hamiltonian->spherical R205Eのcompatibilityとfinite-time mixingを $\varepsilon_{\rm prep}^{207}$ の上流要素として一度だけ数える。完全結果分布について
 
 ```math
 \varepsilon_{207}
@@ -243,7 +243,7 @@ R207Bから
 \qquad
 \varepsilon_{\rm lock}^{207}\le\frac{1-L(k)}2.
 ```
-任意のtarget $\eta>0$ に対し有限$\epsilon,k$で統計核誤差を任意に小さくし、残りをfinite preparation、hidden-direction保持、R212C/R205F separation、local latch、recordへ配分する。R212Bのfinite-bath/geometry/overdamped error、R205E mixing、R212C→R205F compatibility、R205F open generator defectは責務別に一度だけ数える。
+任意のtarget $\eta>0$ に対し有限$\epsilon,k$で統計核誤差を任意に小さくし、残りをfinite preparation、hidden-direction保持、R212C/R205F separation、local latch、recordへ配分する。R212Bのfinite-bath/geometry/overdamped error、R205E mixing、R212C->R205F compatibility、R205F open generator defectは責務別に一度だけ数える。
 
 Bell前提監査では、分離後local response factorizationとoperational non-signalingを主張する一方、$\rho(\Lambda\mid\boldsymbol a,\boldsymbol b)\neq\rho(\Lambda)$なのでmeasurement independenceを主張しない。
 
@@ -378,7 +378,7 @@ $\delta$ はR203Aの辞書誤差へ再加算せず、R185 regularizationとfinit
 Q2-1からQ2-4は、次の根拠モデルと根拠結果から互いに独立に判定する。独立とは他のQ2目標の達成ラベルを前提にしないという意味であり、同じ模型または部品定理を複数の目標で使うことは禁止しない。目標ごとに信号系、浴、時計自由度、準備・読出し原理が異なっても、それだけでは不達としない。ここで「根拠結果」は `PROJECT_STATUS.md` の固定目標表と同じく、達成判定で直接参照する結果だけを列挙し、個々の結果が内部で用いる推移的依存は重複列挙しない。
 
 - Q2-1：M54静的状態構成を使う。根拠結果はR112、R181B、R181C、R206D。
-- Q2-2：M67/R212A--R212C→M66/R205--R207 projection phase-volume二端経路を使う。fixed-goal直接根拠はR207A--R207Cのまま維持し、R212はphysical-parent bridgeとして扱う。
+- Q2-2：M67/R212A--R212C->M66/R205--R207 projection phase-volume二端経路を使う。fixed-goal直接根拠はR207A--R207Cのまま維持し、R212はphysical-parent bridgeとして扱う。
 - Q2-3：M54三部分系静的状態構成を使う。根拠結果はR112、R177、R181B、R181C、R206D。
 - Q2-4：M54一般静的状態構成を使う。根拠結果はR112、R181C、R186、R206D、R206E。一般 $n$ の初期入力にはR181Bを反復しない。
 
