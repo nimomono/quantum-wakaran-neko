@@ -59,11 +59,13 @@ def main() -> None:
     req(a16, "R181DはM65 Poisson waiting-time lawもM67 double-well dynamicsも仮定せず", "R181D independence")
 
     q12 = next(line for line in status.splitlines() if line.startswith("| Q1-2 | 達成 |"))
-    req(q12, "R204A", "Q1-2 canonical evidence")
-    req(q12, "R204D--R204F", "Q1-2 canonical evidence")
-    req(q12, "R181D", "Q1-2 canonical evidence")
-    forbid(q12, "R211A", "Q1-2 direct evidence unchanged")
-    forbid(q12, "R211B", "Q1-2 direct evidence unchanged")
+    q12_cells = [cell.strip() for cell in q12.strip().strip("|").split("|")]
+    q12_evidence = q12_cells[5]
+    req(q12_evidence, "R204A", "Q1-2 canonical evidence")
+    req(q12_evidence, "R204D--R204F", "Q1-2 canonical evidence")
+    req(q12_evidence, "R181D", "Q1-2 canonical evidence")
+    forbid(q12_evidence, "R211A", "Q1-2 direct evidence unchanged")
+    forbid(q12_evidence, "R211B", "Q1-2 direct evidence unchanged")
 
     for q in ("Q2-1", "Q2-2", "Q2-3", "Q2-4"):
         line = next(line for line in status.splitlines() if line.startswith(f"| {q} |"))
