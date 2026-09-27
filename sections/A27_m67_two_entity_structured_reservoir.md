@@ -1559,17 +1559,15 @@ Q1 profileではrunning W2 signalはR189A capture終了後にselectorから切�
 
 ## AA.18 R211A：M67 Q1 double-well finite-Hamiltonian construction
 
-held-action pairをcanonical action-angle変数
+R189Aが保持するcanonical pair $(A_\pm,P_\pm^J)$ を、capture終了後に
 
 ```math
-(I_+,\theta_+),
+I_\pm=A_\pm,
 \qquad
-(I_-,\theta_-),
-\qquad
-I_\pm=A_\pm
+\theta_\pm=-P_\pm^J
 ```
 
-として受ける。selector Hamiltonianを $\theta_\pm$ に依存させない。
+と正準relabellingする。$d\theta_\pm\wedge dI_\pm=dA_\pm\wedge dP_\pm^J$ なのでsymplectic formは保たれる。selector Hamiltonianを $\theta_\pm$ に依存させない。
 
 裸のmarker potential $W_0$ はevenなdouble wellとし、
 
