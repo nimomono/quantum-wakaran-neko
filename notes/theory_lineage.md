@@ -26,7 +26,7 @@ M66が共通化するのはthermal open/effective reservoir sectorであり、�
 
 ### Q1の逐次測定
 
-現行の逐次二結果測定は、保持済み射影作用をM65へ渡し、M65/R204D--R204Fで有限時間の結果形成とrecordを行い、R181Dで対応する非規格化射影成分を同じ試行の次段へ渡す。draft-135以後、このfixed-goal経路を使うのはQ1である。Q2-2はM66/R205--R207へ一本化した。
+現行の逐次二結果測定は、保持済み射影作用をM65へ渡し、M65/R204D--R204Fで有限時間の結果形成とrecordを行い、R181Dで対応する非規格化射影成分を同じ試行の次段へ渡す。draft-135以後、このfixed-goal経路を使うのはQ1である。Q2-2はdraft-142以後、M67/R212A--R212CからM66/R205A・R205E・R205Fを経てR207へ進む。
 
 ```text
 finite canonical signal
