@@ -30,8 +30,8 @@ w(Q)e^{-\beta H_{\rm cfg}(Q)}
 | M67 | finite-Hamiltonian structured reservoir physical parent | Q3ではR208--R210、Q1ではR211A--R211C、Q2 thermal sectorではR212A--R212CからM66/R205へ接続。Q2 signal/register/gateとR206 apparatus全体は未統合 |
 | M64 / Q3 effective | M67/R208--R209からcanonical open lawとして回収 | R203A current dictionary、initial/flow tracking、R203C/R203Dの有効縮約責務 |
 | M65 / Q1 | two-result first-passage open lawを系列固有に定め、R205D fixed-hub corollaryは現行physical liftに使わない | R204A、R204D--R204F、R181D handoff。finite-Hamiltonian liftはM67/R211A--R211CからR204Eへ接続 |
-| R206 / Q2-1・Q2-3・Q2-4 | M67/R212→M66/R205上のfinite-$L$ common-hub terminal specialization | Q2 terminal bridge、finite-time/fabrication error、Q2-4 root preparation。common-hub apparatus全体のfinite-Hamiltonian liftは別課題 |
-| R207 / Q2-2 | R212B-rot/R212C→R205A/E/Fを利用 | M67 two-rotor canonical preparation、general-angle singlet law、local二端latch、measurement-independence監査、Bell-local control |
+| R206 / Q2-1・Q2-3・Q2-4 | M67/R212->M66/R205上のfinite-$L$ common-hub terminal specialization | Q2 terminal bridge、finite-time/fabrication error、Q2-4 root preparation。common-hub apparatus全体のfinite-Hamiltonian liftは別課題 |
+| R207 / Q2-2 | R212B-rot/R212C->R205A/E/Fを利用 | M67 two-rotor canonical preparation、general-angle singlet law、local二端latch、measurement-independence監査、Bell-local control |
 
 従ってM66はM64/M65のwhole-model parentではなく、M67 thermal sectorのopen/effective interfaceである。共通化されたsectorと各domain model固有のsectorを混同しない。
 
@@ -41,7 +41,7 @@ M54から作る派生複素座標を
 Z=\frac{Q+iP}{\sqrt{2\mathcal J_0}}
 ```
 
-とするが、$Z$ は独立した複素実体ではない。Q1では2結果射影作用をM65のbinary selector interfaceへ渡す。Q2-1/Q2-3/Q2-4ではterminal各結果作用をM67/R212→M66/R206へ渡す。Q2-2はM67/R212→M66/R205--R207のprojection phase-volume二端模型を使う。Q3ではM67がcommon physical parentであり、R210Aを介したM37/R86 coherent moduleから空間signalを得る。continuous/finite-graph tracerはR208/R209でM64/R203A--R203Dへ縮約しR161へ渡す。Q3-3A--Cの有限dephasing environmentはR210Bを介してR123へ接続する。R161自身が有限状態のcanonical Markov経路法則まで定め、R162は同じ経路法則を独立Poisson random measuresで実現するoptional referenceとして使う。測定結果用の旧静的配置pointerをM54共通状態へ置かない。
+とするが、$Z$ は独立した複素実体ではない。Q1では2結果射影作用をM65のbinary selector interfaceへ渡す。Q2-1/Q2-3/Q2-4ではterminal各結果作用をM67/R212->M66/R206へ渡す。Q2-2はM67/R212->M66/R205--R207のprojection phase-volume二端模型を使う。Q3ではM67がcommon physical parentであり、R210Aを介したM37/R86 coherent moduleから空間signalを得る。continuous/finite-graph tracerはR208/R209でM64/R203A--R203Dへ縮約しR161へ渡す。Q3-3A--Cの有限dephasing environmentはR210Bを介してR123へ接続する。R161自身が有限状態のcanonical Markov経路法則まで定め、R162は同じ経路法則を独立Poisson random measuresで実現するoptional referenceとして使う。測定結果用の旧静的配置pointerをM54共通状態へ置かない。
 
 M65のwinner latch / first-passage interface、M66のcommon-hub pointer、R179のopen reset浴は接続interfaceとして扱い、常設のM54信号座標とは分ける。
 
@@ -59,7 +59,7 @@ M65のwinner latch / first-passage interface、M66のcommon-hub pointer、R179�
 |---|---|---|---|
 | Q1 | W型2モード信号 | 準備済み古典入力、R140、R187 | M65、R181D、R143--R144 |
 | Q2-1 | 4モード永続記憶部 | R181B、R181C | M66/R206D 4結果terminal sampling |
-| Q2-2 | two hidden-direction rotors＋2物理測定端 | M67/R212B-rot canonical preparation→M66/R205E、setting directions | R212C/R205F、R207A--R207D、local latch/record |
+| Q2-2 | two hidden-direction rotors＋2物理測定端 | M67/R212B-rot canonical preparation->M66/R205E、setting directions | R212C/R205F、R207A--R207D、local latch/record |
 | Q2-3 | 8モード永続記憶部 | R181Bを2回、R181C、R177 | M66/R206D 8結果terminal sampling |
 | Q2-4 | $2^n$ 直接モード | R206E root preparation、R181C | M66/R206D $2^n$結果terminal sampling、R186監査 |
 | Q3 | M67 structured reservoir＋marker | 準備済み古典空間入力、M67/R208--R210、M37/R86 module、M64/R203 effective reduction | R161、R185、R123--R125、R182 |
