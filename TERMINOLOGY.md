@@ -359,7 +359,7 @@ CNOT、CHSH、SWAP、SU(2)、Q1、Q2、Q3、M37、M54、R164などの略号・�
 
 | 原語・旧表記 | 本文の標準表記 | 使い分け |
 |---|---|---|
-| structured reservoir | 構造化熱浴 | M67でcoherent、phase-volume、flow、dragを内部sectorとして持つ一つの古典媒体 |
-| classical marker | 古典マーカー | M67の第二物理sector。Q3ではclassical tracerとして特殊化する |
+| structured reservoir | 構造化熱浴 | M67でcoherent、phase-volume、flow、drag、dephasing、held-action/marker-bath内部自由度を用途別profileとして持つ一つの古典媒体 |
+| classical marker | 古典マーカー | M67の第二物理sector。Q3ではclassical tracer、Q1 R211ではbinary decision markerとして特殊化する |
 | material frame | 移動媒質座標 | local moving bathの基準座標 $Y_e$。独立した第三実体とは数えない |
 | two-entity model | 二実体模型 | structured reservoir sectorとmarker sectorの二分類を指す。内部正準自由度が二個だけという意味ではない |
