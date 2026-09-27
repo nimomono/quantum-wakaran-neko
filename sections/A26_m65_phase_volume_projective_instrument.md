@@ -17,60 +17,60 @@ M65の正本は、二つの結果channelの競合first-passage open lawである
 
 二結果直交射影 $P_++P_-=I$ に対する理想作用を
 
-\`\`\`math
+```math
 J_\pm
 =
 \mathcal J_0 Z^\dagger P_\pm Z,
 \qquad
 S=J_++J_->0
-\`\`\`
+```
 
 とし、理想Born重みを
 
-\`\`\`math
+```math
 p_\pm=\frac{J_\pm}{S}
-\`\`\`
+```
 
 とする。上流の作用保持終了後の値は
 
-\`\`\`math
+```math
 A_\pm\geq0,
 \qquad
 A_\Sigma=A_++A_->0
-\`\`\`
+```
 
 を許す。exact射影固有状態では一方の作用が零でもよい。
 
-\`\`\`math
+```math
 a_\pm=\frac{A_\pm}{A_*},
 \qquad
 a_\Sigma=a_++a_-,
 \qquad
 \widehat p_\pm=\frac{A_\pm}{A_\Sigma}
 =\frac{a_\pm}{a_\Sigma}
-\`\`\`
+```
 
 と置く。作用保持誤差は
 
-\`\`\`math
+```math
 D_{\rm TV}(\widehat p,p)\leq\varepsilon_A
-\`\`\`
+```
 
 だけで受け、M65内部で重複計上しない。
 
 decision区間では
 
-\`\`\`math
+```math
 \dot A_+=\dot A_-=0
-\`\`\`
+```
 
 をM65の入力契約とする。上流が保持値を正準対 $(A_r,P_r^A)$ で実装する場合、decisionに使った保持対は次のcaptureへそのまま戻さない。固定有限深さでは未使用保持対へ正準SWAPし、反復運転では使用済み保持対とその履歴をR179の流出経路へ渡す。
 
 固定cutoff $0<\tau_{\rm cut}<1/2$ に対し、
 
-\`\`\`math
+```math
 \min\{\widehat p_+,\widehat p_-\}\geq\tau_{\rm cut}
-\`\`\`
+```
 
 を通常経路とする。このcutoffはBorn結果を作るためではなく、R181Dへ渡す非空branchのnormを一様に下から抑えるために使う。exact endpointを含む通常経路外はZ.5の固定線形comparatorへ送る。
 
@@ -78,7 +78,7 @@ decision区間では
 
 固定装置定数 $\kappa>0,A_*>0$ を取る。結果がまだ成立していないsurvival事象から、二つの結果channelへ
 
-\`\`\`math
+```math
 \lambda_+
 =
 \kappa a_+,
@@ -86,21 +86,21 @@ decision区間では
 \lambda_-
 =
 \kappa a_-
-\`\`\`
+```
 
 という線形hazardを与える。
 
 時刻 $t$ までどちらのfirst eventも起きていない確率を $s(t)$、時刻 $t$ までに結果 $r$ が最初に成立した確率を $x_r(t)$ とする。canonical open lawを
 
-\`\`\`math
+```math
 \dot s
 =
 -\kappa a_\Sigma s,
 \qquad
 s(0)=1,
-\`\`\`
+```
 
-\`\`\`math
+```math
 \dot x_r
 =
 \kappa a_r s,
@@ -108,7 +108,7 @@ s(0)=1,
 x_r(0)=0,
 \qquad
 r\in\{+,-\}
-\`\`\`
+```
 
 と直接定める。
 
@@ -119,26 +119,26 @@ r\in\{+,-\}
 
 上の発展則は
 
-\`\`\`math
+```math
 s(t)
 =
 e^{-\kappa a_\Sigma t},
-\`\`\`
+```
 
-\`\`\`math
+```math
 x_r(t)
 =
 \frac{a_r}{a_\Sigma}
 \left(
 1-e^{-\kappa a_\Sigma t}
 \right)
-\`\`\`
+```
 
 を与え、
 
-\`\`\`math
+```math
 x_+(t)+x_-(t)+s(t)=1
-\`\`\`
+```
 
 を保存する。
 
@@ -162,7 +162,7 @@ survival equationを積分すれば $s(t)=e^{-\kappa a_\Sigma t}$ を得る。�
 
 decision時刻 $T>0$ で、時刻 $T$ までにfirst eventが成立したwinnerを $+$ または $-$ へ、まだfirst eventがないsurvival事象を $\varnothing$ へ写す。canonical M65結果分布 $P_{65}^0(T)$ は
 
-\`\`\`math
+```math
 P_{65}^0(T;r)
 =
 \widehat p_r
@@ -171,27 +171,27 @@ P_{65}^0(T;r)
 \right),
 \qquad
 r\in\{+,-\},
-\`\`\`
+```
 
-\`\`\`math
+```math
 P_{65}^0(T;\varnothing)
 =
 e^{-\kappa a_\Sigma T}
-\`\`\`
+```
 
 を満たす。
 
 従って保持作用比から作る完全理想結果分布
 
-\`\`\`math
+```math
 K_{\widehat p}
 =
 (\widehat p_+,\widehat p_-,0)
-\`\`\`
+```
 
 に対し、
 
-\`\`\`math
+```math
 D_{\rm TV}
 \left(
 P_{65}^0(T),
@@ -199,17 +199,17 @@ K_{\widehat p}
 \right)
 =
 e^{-\kappa a_\Sigma T}.
-\`\`\`
+```
 
 安全運用域
 
-\`\`\`math
+```math
 a_\Sigma\geq a_{\min}>0
-\`\`\`
+```
 
 では
 
-\`\`\`math
+```math
 D_{\rm TV}
 \left(
 P_{65}^0(T),
@@ -217,11 +217,11 @@ K_{\widehat p}
 \right)
 \leq
 e^{-\kappa a_{\min}T}.
-\`\`\`
+```
 
 上流作用保持誤差 $\varepsilon_A$、具体hazard実装を選んだ場合のfinite-time law誤差を保守的に $T\varepsilon_{\rm rate}$、record/clock/closure誤差を $\varepsilon_{\rm rec}$ とすると、
 
-\`\`\`math
+```math
 D_{\rm TV}
 (
 P_{65}(T),
@@ -235,7 +235,7 @@ e^{-\kappa a_{\min}T}
 T\varepsilon_{\rm rate}
 +
 \varepsilon_{\rm rec}.
-\`\`\`
+```
 
 canonical open lawそのものでは $\varepsilon_{\rm rate}=0$ とする。無反応を捨てて成功結果だけを再規格化しない。
 <!-- theorem-end:theorem -->
@@ -248,21 +248,21 @@ R204Aの閉形式を $t=T$ で評価すればcomplete-result lawを得る。理�
 
 特に $\widehat p_-$ が極端に小さくても、total decision hazardは
 
-\`\`\`math
+```math
 \lambda_++\lambda_-
 =
 \kappa a_\Sigma
-\`\`\`
+```
 
 であり、最小Born重みには依存しない。指定 $\varepsilon_{\rm dec}>0$ に対し、
 
-\`\`\`math
+```math
 T_{65}
 \geq
 \frac{1}{\kappa a_{\min}}
 \log
 \frac{1}{\varepsilon_{\rm dec}}
-\`\`\`
+```
 
 と選べばsurvival errorを $\varepsilon_{\rm dec}$ 以下にできる。
 
@@ -270,35 +270,35 @@ T_{65}
 
 二つのfirst-passage時刻を $\tau_+,\tau_-$ とし、
 
-\`\`\`math
+```math
 \tau
 =
 \min\{\tau_+,\tau_-\}
-\`\`\`
+```
 
 とする。
 
-\`\`\`math
+```math
 \tau_+<\tau_-,
 \quad
 \tau_+\leq T
 \quad\Longrightarrow\quad
 Y=+,
-\`\`\`
+```
 
-\`\`\`math
+```math
 \tau_-<\tau_+,
 \quad
 \tau_-\leq T
 \quad\Longrightarrow\quad
 Y=-,
-\`\`\`
+```
 
-\`\`\`math
+```math
 \tau>T
 \quad\Longrightarrow\quad
 Y=\varnothing.
-\`\`\`
+```
 
 first eventが $T$ より前に成立した場合、そのwinnerを内部latchで保持し、正式なR112型有限局所recordへのコピーとR181D routerの開放は固定decision時刻 $T$ の後に行う。理想recordではこの写像は結果分布を変えない。有限record、clock、decision closureの完全結果誤差をまとめて $\varepsilon_{\rm rec}$ とする。
 
@@ -312,23 +312,23 @@ exact endpoint $A_+=0<A_-$ では $\lambda_+=0$、$A_-=0<A_+$ では $\lambda_-=
 
 一方、R181Dの測定後状態方向誤差を一様に制御するため、一般のcutoff領域では小さいbranchをsafe routerへ渡さない。例えば
 
-\`\`\`math
+```math
 \widehat p_+<\tau_{\rm cut}
-\`\`\`
+```
 
 は
 
-\`\`\`math
+```math
 (1-\tau_{\rm cut})A_+
 -
 \tau_{\rm cut}A_-<0
-\`\`\`
+```
 
 と同値なので、状態依存除算ではなく固定係数の線形比較器で判定できる。逆側も同様である。cutoff領域では大きい側へ決定論的に固定する。
 
 比較器とrecordの完全結果誤差を $\varepsilon_{\rm cmp},\varepsilon_{\rm rec}$ とすると、
 
-\`\`\`math
+```math
 \varepsilon_{65}^{\rm edge}
 \leq
 \tau_{\rm cut}
@@ -338,11 +338,11 @@ exact endpoint $A_+=0<A_-$ では $\lambda_+=0$、$A_-=0<A_+$ では $\lambda_-=
 \varepsilon_{\rm cmp}
 +
 \varepsilon_{\rm rec}.
-\`\`\`
+```
 
 通常経路の一様上界は
 
-\`\`\`math
+```math
 \varepsilon_{65}^{\rm int}
 =
 \varepsilon_A
@@ -352,11 +352,11 @@ e^{-\kappa a_{\min}T}
 T\varepsilon_{\rm rate}
 +
 \varepsilon_{\rm rec}.
-\`\`\`
+```
 
 従って
 
-\`\`\`math
+```math
 \varepsilon_{65}
 =
 \max
@@ -364,18 +364,18 @@ T\varepsilon_{\rm rate}
 \varepsilon_{65}^{\rm int},
 \varepsilon_{65}^{\rm edge}
 \}.
-\`\`\`
+```
 
 非空結果の理想作用重みには
 
-\`\`\`math
+```math
 p_r
 \geq
 \tau_{\rm state}^{65}
 :=
 \tau_{\rm cut}-\varepsilon_A
 >0
-\`\`\`
+```
 
 という安全下限を与える。
 
@@ -396,11 +396,11 @@ R181Dが上流selectorに要求する共通契約を、完全結果集合 $\{0,1
 
 M65では
 
-\`\`\`math
+```math
 \varepsilon_{\rm sel}=\varepsilon_{65},
 \qquad
 \tau_{\rm state}=\tau_{\rm state}^{65}
-\`\`\`
+```
 
 と取れば上のbinary selector contractを満たす。従ってR181Dをselector非依存の形で適用できる。
 
@@ -416,7 +416,7 @@ Q1 fixed-goal witnessにはM65を使う。
 
 Q1ではR189Aの保持済み作用 $A_L,A_R$ をM65へ入力できる。R189A作用比誤差を $\varepsilon_{189A}$、M65 selector誤差を $\varepsilon_{65}^{\rm mid}$、保持中心時刻からR181D完了までのRabi重み変化を $\varepsilon_{\rm lat}$ とすれば、
 
-\`\`\`math
+```math
 \varepsilon_{189B,65}^{\rm dist}
 \leq
 \varepsilon_{189A}
@@ -424,23 +424,23 @@ Q1ではR189Aの保持済み作用 $A_L,A_R$ をM65へ入力できる。R189A作
 \varepsilon_{65}^{\rm mid}
 +
 \varepsilon_{\rm lat}.
-\`\`\`
+```
 
 安全運用域 $a_\Sigma\geq a_{\min}>0$ では、指定decision error $\varepsilon_{\rm dec}$ に対して
 
-\`\`\`math
+```math
 T_{65}
 \geq
 \frac{1}{\kappa a_{\min}}
 \log
 \frac{1}{\varepsilon_{\rm dec}}
-\`\`\`
+```
 
 と有限に選べる。固定有限回Zeno証人では、この $T_{65}$ を先に固定した後、
 
-\`\`\`math
+```math
 \Omega_\kappa T_{65}\longrightarrow0
-\`\`\`
+```
 
 の弱結合極で追加latencyを任意に小さくできる。この結果をQ1 fixed-goal witnessのM65接続として採用する。
 
@@ -453,7 +453,7 @@ R189Aのcapture終了後は $H_{\rm cap}=0$ であり、保持済み $A_L,A_R$ �
 
 従ってQ1の中間測定候補を
 
-\`\`\`math
+```math
 \mathrm{R189A}
 \longrightarrow
 \mathrm{M65/R204D}
@@ -461,11 +461,11 @@ R189Aのcapture終了後は $H_{\rm cap}=0$ であり、保持済み $A_L,A_R$ �
 \mathrm{R112\ record}
 \longrightarrow
 \mathrm{R181D}
-\`\`\`
+```
 
 と合成できる。保持中心時刻からrouter完了までの有限latencyを従来どおり $\varepsilon_{\rm lat}$ に入れれば、
 
-\`\`\`math
+```math
 \varepsilon_{189B,65}^{\rm dist}
 \leq
 \varepsilon_{189A}
@@ -473,15 +473,15 @@ R189Aのcapture終了後は $H_{\rm cap}=0$ であり、保持済み $A_L,A_R$ �
 \varepsilon_{65}^{\rm mid}
 +
 \varepsilon_{\rm lat}
-\`\`\`
+```
 
 を使える。
 
 空操作対照ではR189A、M65 decision、record、clock、待ち時間を測定運転と同じにし、R181D routerだけを開かない。M65はcapture終了後のW2信号 $Z$ を状態変数として読まないので、理想保持条件ではこの空操作のW2信号は自由零傾斜Rabi信号を継続する。固定精度で $T_{65}$ を有限に選び、R187の弱結合極限で
 
-\`\`\`math
+```math
 \Omega_\kappa T_{65}\to0
-\`\`\`
+```
 
 とすれば、従来R189Cの有限2回Zeno比較へ必要なlatencyを任意に小さくできる。
 
