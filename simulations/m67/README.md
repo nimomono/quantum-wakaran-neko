@@ -10,6 +10,6 @@ draft-139ではR210A/R210Bをrequired解析検算へ追加し、既存full compa
 
 ## R212B spherical-rotor thermal witness
 
-`run_r212b_rotor_mixing_witness.py` はR207で実際に使う `eta=1/4`、`epsilon=eta/8=1/32`、`k=2/eta=8` を固定し、`S^2 x S^2` のoverdamped rotational R205E lawを直接積分するsupporting witnessである。terminal lawを exact target `exp(k lambda_A.lambda_B) [w_A+w_B]` からの直接sampleと比較し、sphere constraint、coarse-grained TV距離、orientation memoryを確認する。
+`run_r212b_rotor_mixing_witness.py` はR207で実際に使う `eta=1/4`、`epsilon=eta/8=1/32`、`k=2/eta=8` を固定し、`S^2 x S^2` のoverdamped rotational R205E lawを直接積分するsupporting witnessである。terminal lawを exact target `exp(k lambda_A.lambda_B) [w_A+w_B]` からの直接sampleと比較し、sphere constraint、coarse-grained TV距離、orientation memoryを確認する。R212B-rot本文のfinite-Hamiltonian→open reductionをこのsimulation単独で証明するものではない。
 
-通常実行は45度settingの軽量witness、`--full` は6000 trajectory、`--angle-sweep` は0/45/90/135/180度を走らせる。finite harmonic bathの明示parameter windowとDrude kernel/recurrenceは `tools/candidate_checks/verify_r212b_rotor_parameter_window.py` が別に検査する。このwitnessはR212B正本化前のsupporting evidenceであり、required CIやQ2-2 fixed-goal判定を変更しない。
+通常実行は45度settingの軽量witness、`--full` は6000 trajectory、`--angle-sweep` は0/45/90/135/180度を走らせる。finite harmonic bathの明示parameter windowとDrude kernel/recurrenceは `tools/verify_r212b_rotor_parameter_window.py` が別に検査する。このwitnessはR212B正本化後もsupporting numerical evidenceとして扱い、required CIやQ2-2 fixed-goal/A2判定を単独では変更しない。
