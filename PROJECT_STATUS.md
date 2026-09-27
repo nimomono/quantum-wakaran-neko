@@ -1,3 +1,10 @@
+## draft-140：M65 two-result first-passage selector簡素化
+
+- M65のcanonical open lawを、$+,H,-$ の3状態往復Markov pointerから、保持済み二作用を線形hazardへ入れるtwo-result first-passage selectorへ簡素化する。未決定は第三の物理pointer状態ではなく、まだどちらのfirst eventも起きていないsurvival conditionとして扱う。
+- R204A/R204Dをfirst-passage lawと有限時間Born readoutへ改訂し、R204E binary selector contractとR204F Q1 interface/latencyはselector内部物理から独立な形で維持する。指数Poisson raceは最小open witnessであり、将来physical parentにwaiting-time分布までの一致は要求しない。
+- 旧R204B/R204C fixed-hub physical liftをactive paperから退役し、notes/Git履歴へ保存する。R205DはM66側のbinary fixed-hub corollaryとして残すが、現行M65のphysical liftとは扱わない。旧M65 candidate verifier 3本もretired verifierへ移す。
+- Q1-1/Q1-2の達成、Q2-2のR207主線、Q2/Q3の達成状態、A1/A2/B1--B3、M0、R186判定は変更しない。M67/R211によるQ1 finite-Hamiltonian bridgeは後続PRへ分離する。
+
 ## draft-139：Q3 physical parentをM67へ統合
 
 - R210Aを追加し、full M67 coherent trajectoryからbare M37へのload-only backreactionをprepared reservoir excess-energy shellから明示的に制御し、R86 carrier-envelope errorと合成する。自然時間では $O(\eta)+O(N_0^{-1})$。
@@ -424,7 +431,7 @@ M54はQ1、Q2、Q3に共通する有効信号--配置状態構成族である。
 | 目標ID | 現在地 | 共通状態構成 | 物理信号系 / 物理実装層 | 系列固有手順 / 受信機構 | 根拠となる結果 | 残る課題 |
 |---|---|---|---|---|---|---|
 | Q1-1 | 達成 | M54のW2静的状態構成 | M37弱結合W型の最低2正常モード、または抽象2モード実正準信号系 | Q1 W型2モード制御手順（旧M47） | R135、R140、R187 | R187で信号系段階の任意精度M37実装を追加。総時間は $O(\!1/J_\kappa)$ に増え得て、準備・測定機構の同一装置統合は別課題 |
-| Q1-2 | 達成 | M54のW2静的状態構成 | R187によるM37のW2制御用信号系＋M65 open selector | Q1 W型2モード測定・Zeno手順（旧M47） | R140、R143--R144、R181D、R187、R189A--R189C、R204D--R204F | Born分布、同軸反復分布、異軸逐次分布と有限2回Zeno証人を導出。2結果主線はM65。全測定部分系の単一ミクロ装置統合は強化課題 |
+| Q1-2 | 達成 | M54のW2静的状態構成 | R187によるM37のW2制御用信号系＋M65 open selector | Q1 W型2モード測定・Zeno手順（旧M47） | R140、R143--R144、R181D、R187、R189A--R189C、R204A、R204D--R204F | Born分布、同軸反復分布、異軸逐次分布と有限2回Zeno証人を導出。2結果主線はM65。全測定部分系の単一ミクロ装置統合は強化課題 |
 | Q2-1 | 達成 | M54静的状態構成 | 永続4モード記憶部と逆演算用補助部／作業領域＋M66 terminal sampler | テンソル積状態の生成、ゲート、4結果terminal sampling | R112、R181B、R181C、R206D | 固定深さの一試行で実際の末端4モード信号をM66 terminal samplerへ直接接続し、一回の4結果samplingでBorn分布を得る。固定目標上の残件なし。全周期装置統合はM0課題 |
 | Q2-2 | 達成 | M66 thermal phase-volume preparation | A/B二つのhidden-direction rotor、局所projection rail、二つの物理読出し端 | joint thermal preparation、passive separation、local sign latch、local record | R207A--R207C | 一般Bloch方向のsinglet共同分布を任意精度で構成し、finite-lock/finite-thickness誤差、exact非信号周辺、measurement-independence不成立とlocal response factorizationを監査。全周期統合はM0課題 |
 | Q2-3 | 達成 | M54三部分系静的状態構成 | 永続8モード記憶部と逆演算用補助部／作業領域＋M66 terminal sampler | 二段ゲート合成と8結果terminal sampling | R112、R177、R181B、R181C、R206D | 固定3入力の一試行内で第1ゲート後状態を再準備せず第2ゲートへ渡し、GHZ--$T$--逆演算後の8結果をR206Dで直接標本化する。一般サイズ資源効率はQ2-4、全周期装置統合はM0課題 |
@@ -471,8 +478,8 @@ M0はこれらの共通化より強い。M54/M66を共有していても、同�
 | M54 | 共通有効信号--配置状態構成族 | 現行Q1・Q2・Q3の共通有効層 | 準備済み古典入力境界、有限実正準信号、永続記憶部、作業領域、記録、時計自由度の共通型を与える。Q1ではM65/R181D、Q2-1/Q2-3/Q2-4ではM66/R206、Q2-2ではM66/R207、Q3ではM37 signalとM64 particle interfaceへ接続する |
 | M37 | active coherent-signal module | Q3ではM67 structured reservoir内部のcoherent oscillator module。Q1ではR187条件下のW2制御用signal implementation | 局所位置結合された有限実古典振動子網からR86の空間包絡を導く。R210Aがfull M67からbare M37/R86への有限時間compatibilityを与える |
 | M64 | Q3 canonical open effective model | M67/R208--R209から回収するcontinuous/finite-graph effective reduction | 三実体記述を有効sector分割として保持し、R203A--R203DでR161/R185およびR124/R182/R125へ接続する。独立physical ontologyとしてのparent責務はM67へ移管する |
-| M65 | Q1 binary canonical open selector | 現行Q1逐次fixed-goal正本模型 | 保持済み二作用を線形rateへ入れる $+,H,-$ の3状態連続時間Markov pointer。R204Dでfinite-time Born、R204Eでbinary selector contract、R204FでQ1 interface/latencyを与える。R204B/R204Cのphase-volume chamber/Hamiltonian liftは強化実現 |
-| M66 | common thermal-reservoir parent model | 共通reservoir interface。現行fixed-goalでQ2-1/Q2-3/Q2-4はR206、Q2-2はR207へ直接specializeする | R205A--R205Fでphase-volume、mean-flow、matched capacity--conductance、thermal Gibbs sampling、passive separationを共通化する。R203Bのreservoir sectorはR205C、R204Bのchamber realizationはR205Dへ埋め込むが、M64/M65のwhole-modelは置換しない |
+| M65 | Q1 binary canonical open selector | 現行Q1逐次fixed-goal正本模型 | 保持済み二作用を二つの線形hazardへ入れるtwo-result first-passage open selector。未決定はsurvival conditionで、R204Dがfinite-time Bornと正式な無反応、R204Eがbinary selector contract、R204FがQ1 interface/latencyを与える。旧R204B/R204C fixed-hub liftは退役し、finite-Hamiltonian liftは後続強化へ分離 |
+| M66 | common thermal-reservoir parent model | 共通reservoir interface。現行fixed-goalでQ2-1/Q2-3/Q2-4はR206、Q2-2はR207へ直接specializeする | R205A--R205Fでphase-volume、mean-flow、matched capacity--conductance、thermal Gibbs sampling、passive separationを共通化する。R203Bのreservoir sectorはR205Cへ対応する。R205Dはbinary fixed-hub corollaryとして残すが、draft-140以後のM65 physical liftには使わない |
 | M67 | Q3共通二実体finite-Hamiltonian physical parent | Q3-1--Q3-5のfixed-goal物理依存の起点。Q3-6は同じcoherent sector上の未達課題 | 一つのstructured reservoir内にM37 coherent module、phase-volume/flow/drag/finite-bath、R210B dephasing sectorを置き、別sectorはclassical markerとする。R208/R209がM64 open law、R210AがR86 coherent law、R210BがR123 dephasing lawへ接続する。Q1/Q2/NBL、M0は未統合 |
 
 M50はM54の静的状態構成へ、M55はM54空間状態構成へ吸収した。M56はspin-only Q3代替研究線とし現行達成根拠へ使わない。M60/M61とそれ以前のM57/M59は旧Q3 Hamiltonian実装として現行主線から退役し、Git履歴へ保存する。旧状態方向準備、旧作用殻型Q1/Q2測定経路、旧2端再準備は現行必須依存から外し、退役索引と研究メモへ保存する。
@@ -550,12 +557,10 @@ M0は、個別のA1模型を並べるだけでは達成としない。少なく�
 
 | 結果 | 導出状態 | 内容 |
 |---|---|---|
-| R204A | 厳密結果 | M65の3状態canonical open generatorを定め、確率保存、保持作用への線形rate入力、Born確率表・状態依存除算を外部入力しないことを示す |
-| R204B | 強化候補・reduced-law結果 | fixed-hub phase-volume chamberで $V_r,G_r\propto a_r$、$V_H$固定とし、R204Aのrateをcapacity/conductance比から再現する |
-| R204C | 強化候補・明示誤差付き結果 | Hamiltonian bath、overdamped、phase-volume tracking、tube、lumping、calibrationからR204A open generatorへのfinite-time lift誤差を与える。M65正本の必須依存ではない |
-| R204D | 厳密結果・明示誤差付き合成 | M65の有限時間Born readout、exact endpointを含む正式な無反応、decision終了時のR112型record/latch、complete-result TV上界、小Born重みでrelaxation rateが縮まないことを与える |
-| R204E | 厳密系 | M65がR181Dのbinary selector contractを満たすことを示す |
-| R204F | 条件付き・資源結果 | Q1 R189A→M65→R181D互換性、空操作対照の自由Rabi継続、弱結合latency極限を与える。Q2-4 terminal readout資源はR206C--R206Eへ移す |
+| R204A | 厳密結果 | M65のtwo-result first-passage open lawを定め、survival確率と二つのwinner確率の保存、保持作用への線形hazard入力、Born確率表・状態依存除算を外部入力しないことを示す |
+| R204D | 厳密結果・明示誤差付き合成 | M65の有限時間Born readoutを閉形式で与え、未決定survivalを正式な無反応へ写すcomplete-result law、$D_{\rm TV}=e^{-\kappa a_\Sigma T}$、record/latch、小Born重みでtotal decision hazardが縮まないことを示す |
+| R204E | 厳密系 | M65がR181Dのbinary selector contractを満たすことを示す。contractはselector内部のwaiting-time lawや状態数に依存しない |
+| R204F | 条件付き・資源結果 | Q1 R189A→M65→R181D互換性、有限first-passage decision time、空操作対照の自由Rabi継続、弱結合latency極限を与える。Q2 terminal readout資源はR206C--R206Eへ分離する |
 
 ### M66 common thermal-reservoir結果
 
