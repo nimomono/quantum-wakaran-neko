@@ -1905,12 +1905,14 @@ W_1
 +
 \varepsilon_{\rm od}^{X}(T)
 +
-\varepsilon_{\rho}^{X}(T)
+\varepsilon_{\rm pv,lag}^{X}(T)
++
+\varepsilon_{\rho,{\rm fluc}}^{X}(T)
 +
 \varepsilon_{\rm init}^{X}
 ```
 
-と取る。equal phase-volume weightsでは $\varepsilon_\rho^X=O(T/\sqrt{N_\rho})$、small-mass項は
+と取る。ここで $\varepsilon_{\rm pv,lag}^{X}$ はmarkerが動く有限時間にphase-volume modesのconditional Gibbs mean forceが $k_BT\partial_X\log w_\ell$ を追従する際のfast-reservoir residualであり、AA.6/R208Dの時間尺度分離をQ1 profileへ特殊化した項である。$\varepsilon_{\rho,{\rm fluc}}^{X}$ はそれとは別の有限mode force fluctuationで、equal phase-volume weightsでは $O(T/\sqrt{N_\rho})$ とする。small-mass項は
 
 ```math
 \varepsilon_{\rm od}^{X}(T)
@@ -2068,7 +2070,7 @@ c_{dL}
 0.
 ```
 
-各有限 $B$ を先に固定した後、R209B/C型のfinite-bath spectrum、small-mass parameter、phase-volume mode数、初期compatibilityを選び、
+各有限 $B$ を先に固定した後、AA.6/R208D型のphase-volume relaxation、R209B/C型のfinite-bath spectrum、small-mass parameter、phase-volume mode数、初期compatibilityを選び、
 
 ```math
 \varepsilon_{\rm cg}(T_B)
@@ -2099,7 +2101,7 @@ eventual deep-commitment signと固定時刻basin readoutが異なるpathは、�
 
 finite-Hamiltonian lawとideal diffusion lawをone-time $W_1$ couplingし、coupling距離が $\delta$ を超える確率をMarkov inequalityで $\varepsilon_X/\delta$ と評価する。両marker位置がthresholdから $\delta$ 以上離れ、coupling距離が $\delta$ 以下なら $g_d$ の結果は一致するため、残る不一致確率は $\omega_d(\delta,T)$ 以下である。$\delta$ について下限を取れば $\varepsilon_{\rm cg}$ を得る。
 
-最後のparameter familyでは、中央barrier近傍のscale densityは幅 $O(B^{-1/2})$ に集中するため $\ell_B=B^{-1}$ のcollar比は $O(B^{-1/2})$ である。committor derivativeは同領域で $O(B^{1/2})$ なので $\delta_{0,B}=B^{-1}$ によりlaunch errorも $O(B^{-1/2})$ になる。中央saddle近傍の不安定drift scaleは $O(B)$ であり、$T_B=C(\log B)/B$ は十分大きい $C$ でfall timeを上回る一方、$L$ から $d$ へ戻るにはfree-energy差 $c_{dL}B+O(1)$ を上るためfinite-window returnは指数的に抑えられる。各有限 $B$ でR209B/Cのreduction parameterをその後に選べばcoarse-graining errorも独立に小さくできる。証明終。
+最後のparameter familyでは、中央barrier近傍のscale densityは幅 $O(B^{-1/2})$ に集中するため $\ell_B=B^{-1}$ のcollar比は $O(B^{-1/2})$ である。committor derivativeは同領域で $O(B^{1/2})$ なので $\delta_{0,B}=B^{-1}$ によりlaunch errorも $O(B^{-1/2})$ になる。中央saddle近傍の不安定drift scaleは $O(B)$ であり、$T_B=C(\log B)/B$ は十分大きい $C$ でfall timeを上回る一方、$L$ から $d$ へ戻るにはfree-energy差 $c_{dL}B+O(1)$ を上るためfinite-window returnは指数的に抑えられる。各有限 $B$ でphase-volume tracking time scaleとR209B/Cのreduction parameterをその後に選べば、mean-force lag、有限mode fluctuation、coarse-graining errorをそれぞれ独立に小さくできる。証明終。
 <!-- theorem-end:proof -->
 
 ### AA.19.1 required numerical witness
