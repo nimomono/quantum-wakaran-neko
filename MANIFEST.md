@@ -1,3 +1,11 @@
+## draft-142：M67 thermal-sector parent化とR212A--R212C
+
+- 付録AA/M67へR212A universal phase-volume/mean-flow embedding、R212B flat + S2 rotor thermal sampler lift、R212C passive-separation liftを追加する。
+- M66/R205A--R205Fを独立common microscopic parentからM67 thermal-sector open/effective interfaceへ再分類する。R205B/R205D、R206A--R206E、R207A--R207Dはactiveのまま維持する。
+- R212B-rotでR207A target densityをM67 finite-Hamiltonian two-rotor canonical marginalとして厳密回収し、explicit parameter windowとsupporting Monte Carlo mixing witnessを追加する。
+- required R212 verifier 5本、supporting `simulations/m67/run_r212b_rotor_mixing_witness.py`、draft-142 migration checkerを追加する。
+- README、第2・8章、付録W/X/AA、PROJECT_STATUS、ENHANCEMENT_TARGETS、VALIDATION、simulation/candidate/migration README、theory lineageを同期する。Q2 signal/register/gate、R206 apparatus全体、NBL、fixed-goal達成ラベル、A1/A2/B1--B3、M0、R186は変更しない。
+
 ## draft-141：M67 Q1 double-well selector physical lift
 
 - 付録AA/M67へR211A--R211Cを追加する。R211Aはheld-action invariantを持つQ1 double-well finite-Hamiltonian profile、R211BはBorn committorとfinite-time terminal kernelの明示誤差、R211CはR204E/R181D/R189B/R189CへのQ1 compositionを担う。
