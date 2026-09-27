@@ -114,3 +114,7 @@ check_draft137_m67_r208_candidate.py は、A27/付録AAのM67/R208A--R208D、can
 
 check_draft139_m67_q3_parent_promotion.py は、M67がcandidateからQ3-1--Q3-5のcommon physical parentへ昇格し、R210A/R210Bが登録され、M37がcoherent module、M64がopen effective reduction、R123がR210B physical liftのeffective lawとして維持されることを確認する。R208A--R209C verifierがrequired側へ移動しcandidate側から消えたこと、Q3-6未達、A1/A2/B1--B3、M0、Q1/Q2、M54/M65/M66、R186が不変であることも検査する。
 
+
+## draft-140 M65 first-passage selector simplification
+
+`check_draft140_m65_first_passage_selector.py` は、M65が3状態往復Markov pointerからtwo-result first-passage open selectorへ切り替わり、未決定がsurvival conditionとして扱われることを確認する。R204B/R204C fixed-hub liftと専用candidate verifierの退役保存、R205DのM66側corollary化、R181D selector contract、Q1-1/Q1-2達成、Q2-2/R207主線、A1/A2/B1--B3・M0・Q2/Q3境界の維持もPR固有に検査する。M67/R211のQ1 physical bridgeは後続PRへ分離し、本checkerは通常CIへ登録しない。
