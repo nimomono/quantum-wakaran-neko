@@ -37,7 +37,7 @@ w(Q)e^{-\beta H_{\rm cfg}(Q)}
 
 を共通核とする。R205Cによりphase-volume weightとmean-flow shiftは同じreservoir内で両立し、R205Fは距離依存相互作用とreservoir cross-correlationが消えるときの受動的generator分離条件を与える。
 
-この共通化は、M64またはM65の全模型をM66から導出したという主張ではない。M64のtracer/current dictionary、M65のcanonical 3状態open Markov lawは系列固有の責務として残る。M64/R203Bのpartition/free-energyとmean-flow sectorはR205C、M65/R204Bのphase-volume chamber実現はR205Dへ埋め込まれる。R206はM66の直接的なQ2終端多結果特殊化であり、R207はM66/R205A・R205E・R205FをQ2-2のprojection phase-volume共同準備・二端読出しへ特殊化する。
+この共通化は、M64またはM65の全模型をM66から導出したという主張ではない。M64のtracer/current dictionaryとM65のtwo-result first-passage open lawは系列固有の責務として残る。M64/R203Bのpartition/free-energyとmean-flow sectorはR205Cへ埋め込まれる。R205Dのfixed-hub capacity--conductance結果はM66側の数学的corollaryとして残るが、draft-140以後の現行M65 physical liftとは扱わない。R206はM66の直接的なQ2終端多結果特殊化であり、R207はM66/R205A・R205E・R205FをQ2-2のprojection phase-volume共同準備・二端読出しへ特殊化する。
 
 Q1では、M37弱結合W型の最低2正常モードをR187でM54のW2信号へ接続し、R140が有限 $SU(2)$ 操作とRabi運動を与える。測定軸に対する2つの射影作用
 
@@ -47,7 +47,7 @@ J_\pm
 \mathcal J_0Z^\dagger P_\pm Z
 ```
 
-を保持し、M65の3状態open selectorへ渡す。理想極限では
+を保持し、M65のtwo-result first-passage selectorへ渡す。理想極限では
 
 ```math
 P(r=\pm)

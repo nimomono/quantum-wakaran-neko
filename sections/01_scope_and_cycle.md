@@ -42,7 +42,7 @@ w(Q)e^{-\beta H_{\rm cfg}(Q)}
 
 のthermal samplingを与える。R205Fは距離依存相互作用とreservoir cross-correlationが消えるときのgenerator分離条件を与える。
 
-ただし、この共通化はwhole-model derivationではない。M64ではR203Bのpartition/free-energyとmean-flow sectorだけがR205Cへ埋め込まれ、current dictionary、initial preparationの具体則、tracer、R203C/R203DはM64固有である。M65ではR204Bのphase-volume chamber実現だけがR205Dへ埋め込まれ、canonical 3状態open Markov lawはM65自身の定義である。R206はM66のQ2終端多結果特殊化であり、R207はR205A/R205E/R205FをQ2-2 projection phase-volume主線へ適用する。
+ただし、この共通化はwhole-model derivationではない。M64ではR203Bのpartition/free-energyとmean-flow sectorだけがR205Cへ埋め込まれ、current dictionary、initial preparationの具体則、tracer、R203C/R203DはM64固有である。M65の正本は二つの結果channelを競合させるtwo-result first-passage open lawであり、第三の安定pointer状態を持たない。R205Dのfixed-hub capacity--conductance結果はM66側の数学的corollaryとして残すが、現行M65のphysical liftとは扱わない。R206はM66のQ2終端多結果特殊化であり、R207はR205A/R205E/R205FをQ2-2 projection phase-volume主線へ適用する。
 
 ## 1.3 系列ごとの現行因果鎖
 
@@ -66,7 +66,7 @@ r
 P_rZ.
 ```
 
-M65が完全結果形成、正式な無反応、有限recordまでを担い、R181Dは結果を生成せずprojector routerと測定後結果成分受渡しだけを担う。固定有限深さでは非規格化結果成分をそのまま次段M65へ渡す。
+M65がfirst eventによる完全結果形成、有限時間survivalを正式な無反応へ写すこと、有限recordまでを担い、R181Dは結果を生成せずprojector routerと測定後結果成分受渡しだけを担う。固定有限深さでは非規格化結果成分をそのまま次段M65へ渡す。
 
 Q1 W型2モード特殊化では
 

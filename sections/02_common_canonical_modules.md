@@ -518,25 +518,25 @@ Poisson reservoirはR161 canonical経路法則の一つの明示的pathwise real
 R161は静的・移動の率構成に加え、有限状態のcanonical Markov経路法則まで共通に保つ。現行Q3のphysical parentはM67であり、位置過程のeffective主線はM67/R208--R209からM64/R203A--R203Dとする。R162は同じ経路法則を持つoptional Poisson realizationとして残す。Q1の逐次2結果測定はR161静的鎖を経由せずM65 binary selectorへ、Q2-1/Q2-3/Q2-4のterminal readoutはM66/R206へ接続する。旧有限衝突実装は退役メモに保存する。
 
 
-### 2.9 M65：3状態open binary selector
+### 2.9 M65：two-result first-passage binary selector
 
-M65のcanonical lawはM66から導出するのではなく、$+,H,-$ の3状態open Markov generatorとして直接定める。付録X/R205Dが共通化するのはR204Bのphase-volume chamber実現だけであり、M65自身のfixed-goal正本性はR204D--R204Fに依存する。
-
-M65は $A_\pm\geq0$、$A_++A_->0$ を満たす二つの保持済み作用を読む古典open selectorである。固定 $A_*>0$ に対して $a_r=A_r/A_*$ とし、pointer $X_t\in\{+,H,-\}$ のrateを
+M65は (A_\pm\geq0)、(A_++A_->0) を満たす二つの保持済み作用を読む古典open selectorである。固定 (A_*>0) に対して (a_r=A_r/A_*) とし、二つの結果channelのhazardを
 
 ```math
-k_{+\to H}=k_{-\to H}=\Lambda,
+\lambda_+
+=
+\kappa a_+,
 \qquad
-k_{H\to +}=\kappa a_+,
-\qquad
-k_{H\to -}=\kappa a_-
+\lambda_-
+=
+\kappa a_-
 ```
 
-と直接定める。rateは保持作用へ線形であり、装置へBorn確率表または $A_r/(A_++A_-)$ を入力しない。
+と直接定める。未決定は第三の物理pointer状態ではなく、まだどちらのfirst eventも起きていないsurvival conditionである。rateは保持作用へ線形であり、装置へBorn確率表または (A_r/(A_++A_-)) を入力しない。
 
-R204Dにより有限時間完全結果分布はBorn作用比へ近づき、R204Eにより後述のbinary selector contractを満たす。phase-volume chamberとHamiltonian--Brownian liftはR204B/R204Cの追加実現であり、M65の正本定義には含めない。
+R204A/R204Dにより有限時間完全結果分布はBorn作用比へ近づき、未決定survival massは (e^{-\kappa a_\Sigma T}) で抑えられる。R204Eにより後述のbinary selector contractを満たす。旧R204B/R204C fixed-hub physical liftはdraft-140で退役し、R205DはM66側のfixed-hub数学としてのみ残す。
 
-M65/R204D--R204FをQ1 fixed-goalの現行binary selectorとして採用する。decision終了時にはgeneratorを閉じてR112型recordへ完全結果を固定し、その後にR181D routerを開く。
+M65/R204A・R204D--R204FをQ1 fixed-goalの現行binary selectorとして採用する。decision終了時にwinnerまたは有限時間未決定をR112型recordへ固定し、その後にR181D routerを開く。Poisson waiting-time lawそのものは将来physical parentの一致条件にせず、R204E complete-result contractを共通interfaceとする。
 
 ## 2.10 M54の一様記憶部、接続端、貯蔵部
 
