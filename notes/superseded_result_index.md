@@ -176,6 +176,6 @@ draft-139ではM37およびM64を完全退役扱いにしない。M37はQ3 stand
 | 結果 | 旧用途 | 現行の扱い | 保存先 |
 |---|---|---|---|
 | R204B | M65 3状態open selectorのfixed-hub matched capacity--conductance realization | 数学内容は履歴保存。現行M65はtwo-result first-passage selectorであり、R205DはM66側のfixed-hub corollaryとしてのみ残す | `superseded_m65_fixed_hub_physical_lift.md` |
-| R204C | R204BをHamiltonian bath / Brownian reductionへ持ち上げる有限時間強化 | 旧3状態M65 physical liftとして退役。現行finite-Hamiltonian liftは後続M67/R211で再構成する | `superseded_m65_fixed_hub_physical_lift.md` |
+| R204C | R204BをHamiltonian bath / Brownian reductionへ持ち上げる有限時間強化 | 旧3状態M65 physical liftとして退役。現行finite-Hamiltonian liftはdraft-141のM67/R211A--R211C double-well経路で再構成し、R204E contractへ接続する | `superseded_m65_fixed_hub_physical_lift.md` |
 
 結果ID R204B/R204Cは再利用しない。
