@@ -520,7 +520,7 @@ R161は静的・移動の率構成に加え、有限状態のcanonical Markov経
 
 ### 2.9 M65：two-result first-passage binary selector
 
-M65は (A_\pm\geq0)、(A_++A_->0) を満たす二つの保持済み作用を読む古典open selectorである。固定 (A_*>0) に対して (a_r=A_r/A_*) とし、二つの結果channelのhazardを
+M65は $A_\pm\geq0$、$A_++A_->0$ を満たす二つの保持済み作用を読む古典open selectorである。固定 $A_*>0$ に対して $a_r=A_r/A_*$ とし、二つの結果channelのhazardを
 
 ```math
 \lambda_+
@@ -532,9 +532,9 @@ M65は (A_\pm\geq0)、(A_++A_->0) を満たす二つの保持済み作用を読�
 \kappa a_-
 ```
 
-と直接定める。未決定は第三の物理pointer状態ではなく、まだどちらのfirst eventも起きていないsurvival conditionである。rateは保持作用へ線形であり、装置へBorn確率表または (A_r/(A_++A_-)) を入力しない。
+と直接定める。未決定は第三の物理pointer状態ではなく、まだどちらのfirst eventも起きていないsurvival conditionである。rateは保持作用へ線形であり、装置へBorn確率表または $A_r/(A_++A_-)$ を入力しない。
 
-R204A/R204Dにより有限時間完全結果分布はBorn作用比へ近づき、未決定survival massは (e^{-\kappa a_\Sigma T}) で抑えられる。R204Eにより後述のbinary selector contractを満たす。旧R204B/R204C fixed-hub physical liftはdraft-140で退役し、R205DはM66側のfixed-hub数学としてのみ残す。
+R204A/R204Dにより有限時間完全結果分布はBorn作用比へ近づき、未決定survival massは $e^{-\kappa a_\Sigma T}$ で抑えられる。R204Eにより後述のbinary selector contractを満たす。旧R204B/R204C fixed-hub physical liftはdraft-140で退役し、R205DはM66側のfixed-hub数学としてのみ残す。
 
 M65/R204A・R204D--R204FをQ1 fixed-goalの現行binary selectorとして採用する。decision終了時にwinnerまたは有限時間未決定をR112型recordへ固定し、その後にR181D routerを開く。Poisson waiting-time lawそのものは将来physical parentの一致条件にせず、R204E complete-result contractを共通interfaceとする。
 
