@@ -45,7 +45,7 @@ near-contact lock
 ```math
 H_{\rm lock}=-K\boldsymbol\lambda_A\cdot\boldsymbol\lambda_B
 ```
-とR212B-rot→R205Eを組み合わせると
+とR212B-rot->R205Eを組み合わせると
 ```math
 \rho_{\epsilon,k}
 \propto
