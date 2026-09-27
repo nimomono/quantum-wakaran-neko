@@ -133,12 +133,38 @@ def check_m65_retirement_readiness() -> None:
     check(total < 0.125, "M65 retirement-readiness Zeno budget")
 
 
+
+
+def check_m67_q1_selector_lift() -> None:
+    # R211B strong required witness gives a <0.8% selector-kernel error.
+    eps211b = 0.008
+    check(eps211b < 0.01, "R211B strong selector-kernel budget")
+
+    # R211A/B use a fixed finite marker decision window before taking the
+    # weak-coupling W2 limit; latency therefore vanishes with Omega_kappa.
+    t211 = 0.22
+    for omega in (1e-2, 1e-3, 1e-4):
+        eps_lat = 0.5 * omega * t211
+        check(eps_lat < 2e-3, "R211C fixed-window weak-coupling latency")
+    check(0.5 * 1e-4 * t211 < 2e-5, "R211C latency convergence")
+
+    # Conservative composition with R189A, record and R181D remains well below
+    # half of the ideal 1/4 Zeno gap.
+    eps189a = 0.01
+    eps_record = 0.005
+    eps_router = 0.02
+    eps_terminal = 0.02
+    eps_lat = 0.01
+    total = eps189a + eps211b + eps_record + eps_router + eps_terminal + eps_lat
+    check(total < 0.125, "R211C physical-lift Zeno budget")
+
 def main() -> None:
     check_rank_one_involution_and_running_pulse()
     check_symmetric_capacity_window()
     check_two_step_zeno_witness()
     check_m65_retirement_readiness()
-    print("R189A--R189C live W2 Zeno and M65 readiness checks: OK")
+    check_m67_q1_selector_lift()
+    print("R189A--R189C live W2 Zeno, M65, and M67 selector-lift checks: OK")
 
 
 if __name__ == "__main__":

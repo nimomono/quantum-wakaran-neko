@@ -12,7 +12,7 @@
 |---|---|---|
 | 実正準signal・状態構成 | M54、M37 | M54が共通状態・接続規約、M37が古典振動子によるsignal実装 |
 | 共通thermal-reservoir interface | M66/R205 | phase-volume、mean-flow、thermal sampling、passive separation |
-| Q3共通finite-Hamiltonian parent | M67/R208--R210 | structured reservoir＋markerからcoherent、dephasing、continuous/finite-graph tracer profileを統一 |
+| 二実体finite-Hamiltonian parent | M67/R208--R211 | Q3のcoherent/dephasing/continuous/finite-graph tracer profileに加え、Q1ではR204E-compatible double-well selector strengtheningを与える |
 | 用途別の模型・特殊化 | M65/R181D、R206、M64/R161/R185、R207 | Q1逐次2値測定、Q2終端多結果、M67のQ3 open reduction、Q2-2 projection phase-volume二端模型 |
 | 全周期統合 | M0 | 準備からrenewalまでを1つのjoint device/processへ統合 |
 
@@ -55,7 +55,7 @@ P(r=\pm)
 \frac{J_\pm}{J_++J_-}.
 ```
 
-結果固定後はR181Dが物理信号を非線形に規格化せず、選ばれた非規格化結果成分 $P_rZ$ を同じ試行の次操作へ渡す。R143--R144とR189A--R189Cを合わせ、Born型2結果、逐次測定、有限Rabi--Zeno比較を構成する。
+結果固定後はR181Dが物理信号を非線形に規格化せず、選ばれた非規格化結果成分 $P_rZ$ を同じ試行の次操作へ渡す。R143--R144とR189A--R189Cを合わせ、Born型2結果、逐次測定、有限Rabi--Zeno比較を構成する。M67/R211A--R211Cはこのcanonical M65/R204E interfaceへdouble-well finite-Hamiltonian selectorを接続するstrengtheningであり、M65のPoisson waiting-time law自体を再現するものではない。
 
 Q2-1とQ2-3ではR181Bが固定入力のテンソル積信号を作り、R181Cが同じ永続記憶部上で局所gateと結合gateを作用する。末端4結果または8結果はM66の特殊化R206で1回に標本化する。Q2-4ではR206Eで $0^n$ rootを一様準備し、R181Cの一般gate列後に $L=2^n$ のR206 samplerへ直接接続する。R206A--R206Cは逐次leaf探索、最小Born重みに依存する混合時間、結果別routerを避ける。一方、M54 direct-amplitude registerへ全自由度加法ノイズが入るR186の障害は残るため、Q2-4は条件付き達成を維持する。
 
@@ -63,7 +63,7 @@ Q2-2 fixed-goalはR207 projection phase-volume経路を使う。setting方向と
 
 Q3のsignal数学はQ1/Q2と別の代数ではない。Q1型局所正準モードを空間頂点へ配置し、Q2型2体系結合を辺へ反復すると、Schrödinger型signal、局所作用、反対称currentが得られる。Q3ではM67を共通二実体finite-Hamiltonian physical parentとし、M37をそのcoherent oscillator moduleとして内包する。R210Aがfull M67からM37/R86のSchrödinger型signalへの有限時間compatibilityを与える。
 
-M67は一つのstructured reservoir sectorとmarker sectorからなり、coherent、bounded dephasing、continuous tracer、finite-graph tracerの固定profileを持つ。Q3-3A--Q3-3CではR210BがR123有限環境をstructured reservoir内部へboundedに埋め込む。Q3粒子/Nelson側ではM64を独立三実体parentとはせず、R208/R209でM67から得るcanonical open effective modelとして維持する。R203A--R203D、R161/R185、R124/R182/R125の既存結果はそのまま再利用する。
+M67は一つのstructured reservoir sectorとmarker sectorからなり、coherent、bounded dephasing、continuous tracer、finite-graph tracerに加えてQ1 binary-selectorの固定profileを持つ。Q3-3A--Q3-3CではR210BがR123有限環境をstructured reservoir内部へboundedに埋め込む。Q3粒子/Nelson側ではM64を独立三実体parentとはせず、R208/R209でM67から得るcanonical open effective modelとして維持する。R203A--R203D、R161/R185、R124/R182/R125の既存結果はそのまま再利用する。
 
 Q3の現行因果鎖はM67から分岐する。Q3-1は $M67\to R210A\to M37/R86$、Q3-2は $M67\to R208/R209\to M64/R203\to R161/R185$、Q3-3A--CはM67 dephasing profileからR210B/R123へ、Q3-4A/B/5はM67 finite-graph profileからR203D/R161とR124/R182/R125へ接続する。
 

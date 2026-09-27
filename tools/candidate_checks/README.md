@@ -22,7 +22,7 @@ M64/R203A--R203Dはdraft-112で現行正本へ昇格し、対応する科学検�
 
 draft-140でM65をtwo-result first-passage selectorへ簡素化し、旧R204B/R204C fixed-hub physical liftをactive strengtheningから退役した。旧M65専用candidate checks 3本は `notes/retired_verifiers/` へ移し、現行M65のrequired open-law検算は引き続き `tools/verify_m65_open_selector.py` で行う。
 
-現行M65のfinite-Hamiltonian physical liftはこのdirectoryには置かず、後続M67/R211の理論・検算として扱う。phase-volume common identityはM66/R205のrequired checksで維持する。
+draft-141でM67/R211A--R211Cのfinite-Hamiltonian double-well selector liftを定理化し、R211A/R211Bの数学・数値回帰はtools/直下のrequired checksへ置く。このdirectoryにはfull finite-bath Q1 direct trajectoryなど、A2 strengtheningに属する未昇格検算だけを置く。phase-volume common identityはM66/R205のrequired checksで維持する。
 
 ### M66/R205--R206
 
@@ -37,5 +37,5 @@ draft-129でR205C--R205Fの解析・generator回帰もrequired checksへ加え�
 
 ## M67/R208--R209 promotion history
 
-draft-137/138ではM67/R208A--R209Cをcandidate-onlyとしてこのdirectoryで検査した。draft-139でM67をQ3 common physical parentへ昇格したため、対応する7本のverifierは tools/verify_*.py へ移動し通常required CIへ昇格した。R210A/R210Bもrequired verifierとして tools/ 直下に置く。
+draft-137/138ではM67/R208A--R209Cをcandidate-onlyとしてこのdirectoryで検査した。draft-139でM67をQ3 common physical parentへ昇格したため、対応する7本のverifierは tools/verify_*.py へ移動し通常required CIへ昇格した。R210A/R210Bもrequired verifierとして tools/ 直下に置く。draft-141のR211A/R211B Q1 selector-lift verifierも同じrequired層へ追加する。
 

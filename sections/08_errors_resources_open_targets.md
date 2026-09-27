@@ -558,9 +558,100 @@ endpointは固定係数の線形比較器で判定でき、
 \}.
 ```
 
-R204Bのphase-volume chamberとR204CのHamiltonian--Brownian liftを採用する場合、そのbath、overdamped、tube、lumping、calibration誤差はその実装だけの強化台帳へ加える。退役R191のmacrospin誤差を現行M65試行へ加算しない。
+退役R204B/R204Cのfixed-hub誤差を現行M65台帳へ戻さない。finite-Hamiltonian physical liftを使う場合はM67/R211の独立台帳を使う。退役R191のmacrospin誤差も現行M65試行へ加算しない。
 
 M65の現行fixed-goal範囲はQ1の逐次binary instrumentである。Q2-1/Q2-3/Q2-4のterminal readout資源はM66/R206、Q2-2のBell readoutはM66/R205--R207が担う。
+
+## M67/R211 Q1 finite-Hamiltonian selector lift の誤差・資源台帳
+
+M67/R211A--R211CはM65/R204E contractへ接続するQ1 selector strengtheningであり、M65 canonical open lawを置換しない。safe interior branchに対するphysical-kernel errorは
+
+```math
+\varepsilon_{211B}
+=
+\varepsilon_{\rm col}
++
+\varepsilon_{\rm launch}
++
+\varepsilon_{\rm surv}
++
+\varepsilon_{\rm ret}
++
+\varepsilon_{\rm cg}.
+```
+
+ここで $\varepsilon_{\rm col}$ はsmooth phase-volume collar、$\varepsilon_{\rm launch}$ は中央marker準備幅、$\varepsilon_{\rm surv}$ はdecision時刻までのdeep commitment未到達、$\varepsilon_{\rm ret}$ はcommit後のterminal thresholdへのreturn、$\varepsilon_{\rm cg}$ はfinite-Hamiltonian markerからideal overdamped markerへのone-time $W_1$ 誤差を3結果kernelへ移す項である。
+
+```math
+\varepsilon_{\rm cg}
+\leq
+\inf_{\delta>0}
+\left[
+\frac{\varepsilon_X(T)}{\delta}
++
+\omega_d(\delta,T)
+\right].
+```
+
+ここでone-time reduction errorは
+
+```math
+\varepsilon_X
+=
+\varepsilon_{\rm bath}^{X}
++
+\varepsilon_{\rm od}^{X}
++
+\varepsilon_{\rm pv,lag}^{X}
++
+\varepsilon_{\rho,{\rm fluc}}^{X}
++
+\varepsilon_{\rm init}^{X}
+```
+
+と分ける。$\varepsilon_{\rm pv,lag}^{X}$ はconditional Gibbs mean forceへのfinite relaxation residual、$\varepsilon_{\rho,{\rm fluc}}^{X}$ は有限phase-volume modeのforce fluctuationであり、同じ誤差として二重計上しない。required numerical witnessの $\varepsilon_X$ targetはこれらを含む総縮約誤差である。
+
+R189Aの作用保持誤差はR211Bへ含めず、R211Cで一度だけ
+
+```math
+\varepsilon_{\rm int}^{67}
+\leq
+\varepsilon_{189A}
++
+\varepsilon_{211B}
++
+\varepsilon_{\rm rec}
+```
+
+と合成する。edge branchでは
+
+```math
+\varepsilon_{\rm edge}^{67}
+\leq
+\tau_{\rm cut}
++
+\varepsilon_{189A}
++
+\varepsilon_{\rm cmp}
++
+\varepsilon_{\rm rec},
+```
+
+従って
+
+```math
+\varepsilon_{\rm sel}^{67}
+=
+\max
+\{
+\varepsilon_{\rm int}^{67},
+\varepsilon_{\rm edge}^{67}
+\}.
+```
+
+required numerical witnessでは $W_0=16(X^2-1)^2$、$\tau_{\rm cut}=0.07$、$\ell=0.01$、$d=0.40$、$L=0.78$、$T=0.22$、$\delta_0=5\times10^{-4}$ を同時に使い、$\varepsilon_X\le10^{-4}$ のstrong targetで $\varepsilon_{211B}<8\times10^{-3}$ を検査する。これはA2 direct full-Hamiltonian trajectory判定ではなく、R211Bの有限parameter領域が空でないことを確認するrequired regressionである。
+
+M67 Q1 profileの追加資源はheld-action canonical pair、finite phase-volume modes、double-well marker、finite marker bath、terminal basin recordである。Q1全測定装置の永久record、reset、clock、renewalを同一joint deviceへ統合したとは主張しない。
 
 ## 8.15 M66/R205 common parentとR206の誤差・資源境界
 
@@ -569,7 +660,7 @@ M65の現行fixed-goal範囲はQ1の逐次binary instrumentである。Q2-1/Q2-3
 | 対象 | 共通層で数える量 | specialization側で追加する量 |
 |---|---|---|
 | M64/R203B--R203C | phase-volume identity自体はexact。採用するthermal mixingまたはmean-flow portの実装偏差 | current dictionary、initial preparation、finite-time flow tracking、tracer縮約、R161/R185接続 |
-| M65/R204A・R204D | two-result first-passage open lawは系列固有。R205D fixed-hub corollaryを現行liftに使わない | finite-time survival、cutoff、record error。finite-Hamiltonian liftは後続physical bridgeで別評価 |
+| M65/R204A・R204D | two-result first-passage open lawは系列固有。R205D fixed-hub corollaryを現行liftに使わない | finite-time survival、cutoff、record error。finite-Hamiltonian liftはM67/R211台帳で別評価 |
 | R206 | R205Bのmatched capacity--conductance原理 | R206Cのfinite-time、hub residual、regularization、generator、record、fabrication error |
 | R207 | R205E thermal mixing、R205F generator separation defect | setting latch、finite-lock近似、outcome fixation、direct microscopic trajectory・具体装置の強化監査 |
 

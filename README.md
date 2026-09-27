@@ -25,6 +25,7 @@ M66 / R205
 
 用途別接続
 Q1逐次測定            M65 → R181D
+Q1 selector物理lift    M67/R211A--R211C → R204E/R181D
 Q2-1/Q2-3/Q2-4読出し R206A--R206D
 Q2-4準備              R206E
 Q2-2 Bell統計         M66/R205 → R207
@@ -34,7 +35,7 @@ Q3共通parent           M67 / R208--R210
   └─ tracer            → M64/R203 → R161/R185
 ```
 
-M54はsignal・状態・接続規約を共通化し、M66/R205はphase-volume、mean-flow、thermal sampling、passive separationというreservoir原理を共通化する。R206A--R206DはこのinterfaceをQ2終端多結果読出しへ特殊化し、R206EはQ2-4準備を担う。Q3ではさらにM67をcommon two-entity finite-Hamiltonian physical parentとし、M37をcoherent module、M64/R203をopen effective reduction、R123 finite environmentをR210Bでboundedに持ち上げたdephasing profileとして配置する。M67はQ1/Q2やM0をまだ統合しない。
+M54はsignal・状態・接続規約を共通化し、M66/R205はphase-volume、mean-flow、thermal sampling、passive separationというreservoir原理を共通化する。R206A--R206DはこのinterfaceをQ2終端多結果読出しへ特殊化し、R206EはQ2-4準備を担う。M67はcommon two-entity finite-Hamiltonian physical parentとして、Q3ではM37 coherent module、M64/R203 open effective reduction、R210B dephasing profileへ接続し、Q1ではR211A--R211CがM65/R204E selector contractのfinite-Hamiltonian strengtheningを与える。これはQ1全装置またはQ2/M0をM67へ統合したという主張ではない。
 
 ## 2. 長期目標の現在地
 
@@ -105,7 +106,7 @@ Q2-2 fixed-goalのBell型統計はR207 projection phase-volume二端模型で再
 
 Q3ではM37/R86 signalへM64のclassical tracerとsignal-driven thermal reservoirを接続し、signal density/currentからosmotic driftとcurrent driftを作る。R203D/R161/R185を介してNelson型の前進・後退平均微分と時間対称Newton則へ接続し、finite graphでは有限障壁、W型トンネル振動、2経路干渉を同じtracerの位置読出しへつなぐ。
 
-M67/R208--R210をQ3のcommon finite-Hamiltonian physical parentとする。M37型coherent moduleとthermal/dephasing自由度を一つのstructured reservoirへまとめ、marker sectorと組み合わせる。R210Aはfull M67からM37/R86へのcoherent compatibility、R210BはR123 dephasing lawのbounded physical lift、R208/R209はM64/R203 open lawへのfinite-time compatibilityを与える。M37、M64/R203、R123はそれぞれactive module/effective lawとして維持し、Q1/Q2/M0の運用状態は変更しない。
+M67/R208--R210をQ3のcommon finite-Hamiltonian physical parentとする。M37型coherent moduleとthermal/dephasing自由度を一つのstructured reservoirへまとめ、marker sectorと組み合わせる。R210Aはfull M67からM37/R86へのcoherent compatibility、R210BはR123 dephasing lawのbounded physical lift、R208/R209はM64/R203 open lawへのfinite-time compatibilityを与える。さらにR211A--R211CがQ1 selector componentのfinite-Hamiltonian strengtheningを与える。M37、M64/R203、R123、M65/R204はそれぞれactive module/effective/canonical lawとして維持し、Q1 fixed-goalのcanonical主線、Q2、M0の運用状態は変更しない。
 
 この共通化は、全系列を1台の装置へ統合したことを意味しない。準備、操作、測定、永久記録、reset、clock、renewalを1つのjoint microscopic device/processへまとめることはM0で別に要求する。
 

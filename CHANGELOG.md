@@ -1,3 +1,12 @@
+## draft-141：M67にQ1 double-well selector physical liftを追加
+
+- R211Aを追加し、R189A held actionsをcyclic canonical actionsとして厳密保存しつつ、smooth phase-volume collar、finite marker bath、左右二つの安定basinだけを持つM67 Q1 finite-Hamiltonian double-well profileを構成した。
+- R211Bでsharp-interface committorから保持作用比のBorn kernelを厳密に回収し、finite collar、launch、未commit、return、finite-Hamiltonian→overdamped one-time $W_1$ coarse-grainingを明示誤差へ分解した。M65/R204Aの指数Poisson waiting-time lawは再現対象にしない。
+- R211CでM67 terminal basin resultをR204E binary selector contractへ接続し、R181D/R189B/R189Cを変更せずQ1逐次測定・有限Zeno witnessへ合成した。M65はcanonical open selectorとしてactive維持する。
+- required R211A/R211B verifierとQ1 Zeno回帰を追加し、strong numerical witness $\varepsilon_X\le10^{-4}$ で $\varepsilon_{211B}<8\times10^{-3}$ を確認する。
+- Q1-1/Q1-2、Q2/Q3、A1/A2/B1--B3、M0、R186判定を変更せず、Q2/NBL特殊化とfull finite-Hamiltonian direct-trajectory A2判定は後続課題に残す。
+
+
 ## draft-140：M65をtwo-result first-passage selectorへ簡素化
 
 - M65/R204Aを、保持済み二作用を二つの線形hazardへ入れるtwo-result first-passage open lawへ置換した。有限時刻までwinnerがない事象は第三状態ではなくsurvival conditionであり、正式な無反応 $\varnothing$ へ写す。

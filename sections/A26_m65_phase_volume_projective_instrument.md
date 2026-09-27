@@ -406,7 +406,7 @@ M65では
 
 R204Eが要求するのはcomplete-result kernelと結果固定interfaceであり、selector内部のwaiting-time lawや物理実装には依存しない。従って後続physical parentはM65の指数Poisson waiting-time分布そのものではなく、このcontractを有限誤差で回収すればよい。
 
-Q1 fixed-goal witnessにはM65を使う。
+Q1 fixed-goal witnessにはM65を使う。M67/R211A--R211Cはこのcontractへ接続するfinite-Hamiltonian strengtheningであり、M65/R204Aのwaiting-time lawを置換しない。
 <!-- theorem-end:corollary -->
 
 ## Z.7 R204F：Q1互換性と有限latency
@@ -491,6 +491,6 @@ R189Aのcapture終了後は $H_{\rm cap}=0$ であり、保持済み $A_L,A_R$ �
 
 M65の正本はR204Aのtwo-result first-passage open law、R204Dの有限時間Born誤差、cutoff comparator、R204Eのbinary selector contract、R204FのQ1 interfaceで閉じる。
 
-旧R204Bのfixed-hub phase-volume chamberとR204CのHamiltonian--Brownian liftは旧3状態M65の追加physical-lift strengtheningとして退役し、notes/Git履歴へ保存する。結果ID R204B/R204Cは再利用しない。現行M65のfinite-Hamiltonian physical liftはこのPRでは定めず、後続M67/R211で扱う。
+旧R204Bのfixed-hub phase-volume chamberとR204CのHamiltonian--Brownian liftは旧3状態M65の追加physical-lift strengtheningとして退役し、notes/Git履歴へ保存する。結果ID R204B/R204Cは再利用しない。現行M65のfinite-Hamiltonian physical liftはM67/R211A--R211Cのdouble-well selectorとして与え、R204E contractで本付録へ接続する。M65/R204A・R204Dはcanonical open selectorとして維持する。
 
 旧R191/R193はM65へ責務を吸収したため現行主線から退役する。exact endpoint、有限record/latch、Q1空操作対照を含むfixed-goal主線は本付録で閉じる。

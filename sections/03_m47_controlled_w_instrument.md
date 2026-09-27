@@ -827,12 +827,12 @@ R189Aは完全QND測定を主張しない。$J_L,J_R$ は零傾斜Rabi自身に�
 
 ## 3.19 W2走行中階数1射影選別の有限時間接続
 
-R189A終了後は固定済み左右作用 $\bar J_L,\bar J_R$ を走行中W2信号から切り離し、M65へ直接入力する。有限decision後にgeneratorを閉じ、R112型recordへ $S_{\rm lock}\in\{L,R,\varnothing\}$ を固定してから制御付き選別機構を開く。中間測定では傾斜、局所位置記録、方向を変えない振幅再調整を使わない。
+R189A終了後は固定済み左右作用 $\bar J_L,\bar J_R$ を走行中W2信号から切り離し、M65へ直接入力する。有限decision後にfirst-passage winnerまたは有限時間survivalをR112型recordへ $S_{\rm lock}\in\{L,R,\varnothing\}$ として固定してから制御付き選別機構を開く。中間測定では傾斜、局所位置記録、方向を変えない振幅再調整を使わない。
 
 <!-- theorem-start:theorem -->
 **定理（R189B：W2走行中階数1射影選別有限時間接続）**
 
-R189Aの保持中心時刻を $t_\ell$ とする。保持済み2作用をM65へ直接入力し、有限decision時間後にgeneratorを閉じて $S_{\rm lock}$ をR112型recordへ固定する。安全結果 $b$ ではR181Dの階数1対合選別機構 $F_b$ を有限時間 $\tau_F$ だけ作用し、その完了時刻を実効測定時刻 $t_m$ と定める。全操作中で零傾斜Rabi項を停止しない。
+R189Aの保持中心時刻を $t_\ell$ とする。保持済み2作用をM65へ直接入力し、有限decision時間後にcomplete result $S_{\rm lock}$ をR112型recordへ固定する。安全結果 $b$ ではR181Dの階数1対合選別機構 $F_b$ を有限時間 $\tau_F$ だけ作用し、その完了時刻を実効測定時刻 $t_m$ と定める。全操作中で零傾斜Rabi項を停止しない。
 
 選別機構単独の理想作用を $F_b$、有限実装・接続端・時計偏差を含む誤差を $\eta_F^{\rm run}$ とすれば
 
@@ -876,6 +876,18 @@ R189Aの保持中心時刻を $t_\ell$ とする。保持済み2作用をM65へ�
 
 無反応では $F_L,F_R$ のどちらも作用させず、W2信号は零傾斜Rabiを継続する。
 <!-- theorem-end:theorem -->
+
+M67/R211A--R211Cをfinite-Hamiltonian strengtheningとして使う場合も、R189Aの保持済み二作用だけを入力し、固定時刻terminal resultをR112へ固定してから同じR181D routerを開く。R211Cのselector errorを使えば
+
+```math
+\varepsilon_{189B,67}^{\rm dist}
+\leq
+\varepsilon_{\rm sel}^{67}
++
+\varepsilon_{\rm lat}.
+```
+
+このalternate physical-lift経路はR189B/R189Cのfixed-goal根拠を置換せず、R204E contract互換の強化実装として扱う。
 
 固定有限回のZeno証人では各安全結果に固定正下限を取れるため、中間振幅再調整を省ける。
 

@@ -10,7 +10,7 @@ draft-140でM65の正本を3状態往復Markov pointerからtwo-result first-pas
 
 という3状態M65を物理化するためのstrengtheningだった。現行M65では第三の安定pointer状態を置かず、未決定はfirst event前のsurvival conditionとして扱うため、旧fixed-hub liftは現行正本の推奨physical realizationではなくなった。
 
-結果ID R204B/R204Cは履歴追跡のため再利用しない。R205Dのfixed-hub capacity--conductance数学はM66側の一般結果として残るが、現行M65のphysical liftとは扱わない。現行M65のfinite-Hamiltonian liftは後続M67/R211で別に構成する。
+結果ID R204B/R204Cは履歴追跡のため再利用しない。R205Dのfixed-hub capacity--conductance数学はM66側の一般結果として残るが、現行M65のphysical liftとは扱わない。現行M65のfinite-Hamiltonian liftはdraft-141のM67/R211A--R211C double-well経路で別に構成し、R204E contractへ接続する。
 
 ## 最終active内容
 

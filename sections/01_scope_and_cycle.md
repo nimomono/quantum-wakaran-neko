@@ -1,7 +1,7 @@
 @number: 1
 @chapter: 本文
 @title: 問題設定、統一構造、達成範囲
-@status: M54を共通実正準signal・状態構成層、M66/R205を共通thermal-reservoir interfaceとする。Q3ではM67を共通二実体finite-Hamiltonian physical parent、M37をそのcoherent module、M64をcanonical open effective reductionとする。M65、R206、R207は従来の系列責務を維持し、M0のjoint device/process統合とは区別する。
+@status: M54を共通実正準signal・状態構成層、M66/R205を共通thermal-reservoir interfaceとする。M67を二実体finite-Hamiltonian physical parentとし、Q3ではM37 coherent module/M64 open reductionへ、Q1ではR211A--R211CからM65/R204E selector contractへ接続する。M65、R206、R207は従来の系列責務を維持し、M0のjoint device/process統合とは区別する。
 
 ## 1.1 研究上の問い
 
@@ -18,7 +18,7 @@
 | 共通有効signal・状態構成 | M54 | 有限実正準信号、準備済み入力境界、永続記憶部、作業領域、時計、記録、接続規約 |
 | signal物理実装 | M37/R86 | 局所結合古典振動子網から空間signalを実装。Q3ではM67 coherent module、R187条件下ではW型最低2正常モードをQ1へ接続 |
 | 共通thermal-reservoir interface | M66/R205A--R205F | phase-volume、mean-flow、thermal sampling、matched capacity--conductance、passive separation |
-| Q3共通physical parent | M67/R208--R210 | structured reservoir＋markerのfinite Hamiltonianからcoherent/dephasing/tracer profileを与える |
+| 二実体finite-Hamiltonian physical parent | M67/R208--R211 | Q3 coherent/dephasing/tracer profileとQ1 double-well selector strengtheningを与える |
 | 用途別模型・特殊化 | M64、M65、R206、R207 | M67のQ3 open reduction、Q1逐次2値測定、Q2終端多結果読出し、Q2-2 projection phase-volume二端模型 |
 | 全周期統合目標 | M0 | 準備、操作、測定、永久記録、reset、clock、renewalを1つのjoint device/processへ統合 |
 
@@ -66,7 +66,7 @@ r
 P_rZ.
 ```
 
-M65がfirst eventによる完全結果形成、有限時間survivalを正式な無反応へ写すこと、有限recordまでを担い、R181Dは結果を生成せずprojector routerと測定後結果成分受渡しだけを担う。固定有限深さでは非規格化結果成分をそのまま次段M65へ渡す。
+M65がfirst eventによる完全結果形成、有限時間survivalを正式な無反応へ写すこと、有限recordまでを担い、R181Dは結果を生成せずprojector routerと測定後結果成分受渡しだけを担う。M67/R211A--R211Cは同じR204E contractを満たすfinite-Hamiltonian alternate liftを与える。固定有限深さでは非規格化結果成分をそのまま次段M65へ渡す。
 
 Q1 W型2モード特殊化では
 
