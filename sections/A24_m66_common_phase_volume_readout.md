@@ -1,7 +1,7 @@
 @number: X
 @chapter: 付録
 @title: M66 common thermal-reservoir parentとQ2多結果readout
-@status: M66/R205A--R205Fをphase-volume、mean-flow、thermal sampling、passive separationを共通化するthermal-reservoir parentとする。Q2-1/Q2-3/Q2-4の現行terminal multi-outcome readoutはR206A--R206EをM66のQ2特殊化として維持する。M64/M65のdomain modelは置換せず、それぞれのreservoir実現だけをR205C/R205D/R205Eへ埋め込む。Q2-4のR186 additive-noise障害は独立に残す。
+@status: M66/R205A--R205Fをphase-volume、mean-flow、thermal sampling、passive separationを共通化するthermal-reservoir parentとする。Q2-1/Q2-3/Q2-4の現行terminal multi-outcome readoutはR206A--R206EをM66のQ2特殊化として維持する。M64のreservoir sectorはR205Cへ対応し、R205Dは一般のbinary fixed-hub corollaryとして残す。draft-140以後のM65はtwo-result first-passage lawを正本とし、R205Dを現行physical liftには使わない。Q2-4のR186 additive-noise障害は独立に残す。
 
 M66は、resolved classical degreesと一つのthermal reservoirの間の物理interfaceだけを共通化するopen parent modelである。M64のtracer/Nelson dynamics、M65のbinary selector、R206のQ2 terminal samplerそのものを置換せず、それらが用いるreservoir phase volume、mean flow、thermal sampling、空間分離時の受動decouplingを共通原理として切り出す。
 
@@ -75,7 +75,7 @@ w
 だけである。証明終。
 <!-- theorem-end:proof -->
 
-R203Bは $w=r_X^\delta/r_*$ の特殊化、R204Bは二結果の局所scaleをcapacity/conductanceへ共通に入れる特殊化として読める。
+R203Bは $w=r_X^\delta/r_*$ の特殊化である。二結果の局所scaleをcapacity/conductanceへ共通に入れるbinary fixed-hub特殊化はR205Dで与える。これは旧R204Bと同じ数学を含むが、draft-140以後の現行M65 physical liftとは扱わない。
 
 ## X.2 R205B：matched capacity--conductance原理
 
@@ -186,7 +186,7 @@ $P_\alpha=\Pi_\alpha-m_\alpha U$、$Q_\alpha=\lambda_\alpha(w)\zeta_\alpha-d_\al
 
 M64/R203Bでは $w=r_X^\delta/r_*$ と特殊化する。R205Cが共通化するのはR203Bのpartition/free-energyとflow分離であり、current dictionary、initial preparation、finite-time flow tracking、R203C/R203DはM64固有の責務として残す。
 
-### X.3.2 R205D：M65 fixed-hub chamberの特殊化
+### X.3.2 R205D：binary fixed-hub corollary
 
 <!-- theorem-start:corollary -->
 **系（R205D：binary fixed-hub specialization）**
@@ -205,7 +205,7 @@ k_{H\to y}
 =:\kappa a_y
 ```
 
-となり、R204Bのfixed-hub matched capacity--conductance generatorを回収する。
+となる。これはbinary fixed-hub geometryのmatched capacity--conductance generatorであり、旧R204Bの数学的内容を回収する。
 <!-- theorem-end:corollary -->
 
 <!-- theorem-start:proof -->
@@ -214,7 +214,7 @@ k_{H\to y}
 $V_y=V_0a_y$、$G_y=G_0a_y$ をR205Bへ代入すればよい。証明終。
 <!-- theorem-end:proof -->
 
-R205DはM65のcanonical open law R204A/R204Dを置換せず、追加物理実現R204Bだけをcommon parentへ埋め込む。
+R205DはM66/R205Bのbinary fixed-hub corollaryとして残す。draft-140以後のM65 canonical first-passage law R204A/R204DはR205Dから導出せず、旧R204Bとの対応は履歴上のものとする。
 
 ### X.3.3 R205E：common thermal Gibbs sampler
 
@@ -382,11 +382,11 @@ R205Fは固定local bath couplingのまま受動的に力学が分離する条�
 | specialization | $w$ | $H_{\rm cfg}$ | $U$ | M66が共通化する部分 |
 |---|---|---|---|---|
 | M64 reservoir sector | $r_X^\delta/r_*$ | tracer側local energy | $v_\delta$とtracking | R203Bのpartition/free-energyとthermal preparation |
-| M65 physical lift | $a_\pm$ | fixed chamber geometry | 0 | R204Bのcapacity--conductance |
+| binary fixed-hub corollary | $a_\pm$ | fixed chamber geometry | 0 | R205B/R205Dのcapacity--conductance。旧R204Bとの歴史的対応のみ |
 | R206 terminal sampler | $s_y$ | hub/chamber geometry | 0 | phase-volumeとmatched conductance |
 | general thermal preparation | $w(Q)$ | $H_{\rm cfg}(Q)$ | 0 | R205E Gibbs sampler |
 
-M66はreservoir layerだけを共通化し、M64のcurrent dictionary/Nelson縮約、M65のbinary open law/R181D handoff、R206のfinite-$L$ samplerとQ2 resource contractを吸収しない。
+M66はreservoir layerだけを共通化し、M64のcurrent dictionary/Nelson縮約、M65のtwo-result first-passage law/R181D handoff、R206のfinite-$L$ samplerとQ2 resource contractを吸収しない。
 
 ## X.4 R206A：有限L結果common-hub sampler
 
@@ -732,7 +732,7 @@ D_{\rm TV}(P_{\rm out},P_C)
 Q2-4では $Y\in\{0,1\}^n$ を固定配線のconfiguration labelとして読み、外部readoutは $O(n)$ bitとする。全chamberを外部走査して結果を探索する方式は本定理の一様装置条件を満たさない。
 <!-- theorem-end:theorem -->
 
-Q2-1/Q2-3/Q2-4ではterminal readout後に非規格化射影成分を次段へ渡さないため、R181D型逐次projector treeと非終端作用回復を要求しない。R181DはQ1/Q2-2のsame-trial post-state handoffへ責務を限定する。
+Q2-1/Q2-3/Q2-4ではterminal readout後に非規格化射影成分を次段へ渡さないため、R181D型逐次projector treeと非終端作用回復を要求しない。R181Dの現行fixed-goal責務はQ1のsame-trial post-state handoffに限定し、Q2-2はR207のlocal二端readoutを使う。
 
 ## X.8 R206E：Q2-4 uniform root preparation / refresh
 
@@ -849,10 +849,10 @@ M66/R205A--R205Fをcommon thermal-reservoir parentとして採用し、R206A--R2
 
 現行責務は次のように分離する。
 
-- Q1およびQ2-2の逐次binary instrument：M65/R204D--R204F＋R181D。
+- Q1の逐次binary instrument：M65/R204A・R204D--R204F＋R181D。
 - Q2-1/Q2-3/Q2-4のterminal joint readout：M66/R206A--R206D。
 - Q2-4のuniform root preparation / refresh：R206E。
-- Q2-2および全周期renewal側のopen reset：R179。
+- 全周期renewal側のopen reset：R179。Q2-2の現行fixed-goalはR205/R207のlocal latch/recordを用いる。
 - Q2-4のdirect-amplitude register additive-noise監査：R186。
 
 Q2-4の旧逐次binary readout、非終端作用安定化、結果別routerはfixed-goal主線から外す。Q2-4の条件付き達成はR186障害が残るため維持する。

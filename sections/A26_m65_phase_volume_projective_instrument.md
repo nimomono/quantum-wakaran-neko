@@ -1,15 +1,17 @@
 @number: Z
 @chapter: 付録
 @title: M65 binary selector
-@status: M65/R204はQ1の逐次binary instrument正本とする。Q2-2は付録WのM66/R205--R207、Q2 terminal multi-outcome readoutは付録XのM66/R206を用いる。
+@status: M65/R204はQ1のtwo-result first-passage binary instrument正本とする。未決定は第三の物理pointer状態ではなく、まだどちらのfirst eventも起きていないsurvival conditionとして扱う。Q2-2は付録WのM66/R205--R207、Q2 terminal multi-outcome readoutは付録XのM66/R206を用いる。
 
 ## Z.1 目的と責務境界
 
 M65は、二結果直交射影に対して上流が保持した二作用から排他的な古典結果を作る最小open selectorである。複素信号そのものを再読出しせず、capture終了後に固定された二作用だけを入力とする。
 
-M65/R204D--R204FをQ1のfixed-goal binary witnessへ採用する。R181Dは結果固定後のpost-state routerとしてQ1でM65へ接続し、R179は全周期reset/renewal側の一般部品として残す。Q2-2には付録WのM66/R205--R207を採用する。Q2-1/Q2-3/Q2-4のterminal readoutには付録XのM66/R206を採用する。旧R191/R193はM65へ責務を吸収した退役研究線としてnotes/Git履歴へ保存する。
+M65/R204A・R204D--R204FをQ1のfixed-goal binary witnessへ採用する。R181Dは結果固定後のpost-state routerとしてQ1でM65へ接続し、R179は全周期reset/renewal側の一般部品として残す。Q2-2には付録WのM66/R205--R207を採用する。Q2-1/Q2-3/Q2-4のterminal readoutには付録XのM66/R206を採用する。旧R191/R193はM65へ責務を吸収した退役研究線としてnotes/Git履歴へ保存する。
 
-M65の正本は開放3状態Markov過程そのものである。固定chamber、phase-volume oscillator、調和bath、Fick--Jacobs縮約は正本の定義ではなく、R204B/R204Cに置く追加の物理実現・Hamiltonian liftである。
+M65の正本は、二つの結果channelの競合first-passage open lawである。結果状態は $+$ と $-$ の二つだけであり、decision開始後まだどちらのfirst eventも起きていない事象をsurvival conditionとして数える。有限decision時刻まで未決定なら完全結果 $\varnothing$ へ写す。指数Poisson raceはこのopen lawの最小witnessであり、将来のfinite-Hamiltonian physical parentにwaiting-time分布までの一致は要求しない。下流が要求する正本interfaceはR204Eのcomplete-result binary selector contractである。
+
+旧R204B/R204Cのfixed-hub chamber / Hamiltonian--Brownian liftはこの正本から外し、旧M65 physical-lift strengtheningとしてnotes/Git履歴へ保存する。R205Dのfixed-hub capacity--conductance恒等式はM66側の数学的結果として残すが、現行M65のphysical liftとは扱わない。
 
 ## Z.2 入力作用、保持規約、安全領域
 
@@ -70,58 +72,77 @@ decision区間では
 \min\{\widehat p_+,\widehat p_-\}\geq\tau_{\rm cut}
 ```
 
-を通常経路とする。この条件の下では両作用は自動的に正である。$A_+=0$ または $A_-=0$ を含む通常経路外はZ.7のendpoint comparatorへ送り、3状態decision lawを通す必要はない。
+を通常経路とする。このcutoffはBorn結果を作るためではなく、R181Dへ渡す非空branchのnormを一様に下から抑えるために使う。exact endpointを含む通常経路外はZ.5の固定線形comparatorへ送る。
 
-## Z.3 R204A：canonical 3状態open selector
+## Z.3 R204A：canonical two-result first-passage open selector
 
-pointer状態を
-
-```math
-X_t\in\{+,H,-\}
-```
-
-とする。$H$ は中央の未決定状態であり、decision終了時には正式な無反応 $\varnothing$ へ写す。固定装置定数 $\Lambda>0,\kappa>0,A_*>0$ を取り、通常経路では連続時間Markov rateを
+固定装置定数 $\kappa>0,A_*>0$ を取る。結果がまだ成立していないsurvival事象から、二つの結果channelへ
 
 ```math
-k_{+\to H}=k_{-\to H}=\Lambda,
+\lambda_+
+=
+\kappa a_+,
 \qquad
-k_{H\to +}=\kappa a_+,
-\qquad
-k_{H\to -}=\kappa a_-,
+\lambda_-
+=
+\kappa a_-
 ```
 
-それ以外を零と直接定める。
+という線形hazardを与える。
 
-確率を
+時刻 $t$ までどちらのfirst eventも起きていない確率を $s(t)$、時刻 $t$ までに結果 $r$ が最初に成立した確率を $x_r(t)$ とする。canonical open lawを
 
 ```math
-x_+(t)=P(X_t=+),
+\dot s
+=
+-\kappa a_\Sigma s,
 \qquad
-x_-(t)=P(X_t=-),
-\qquad
-h(t)=P(X_t=H)
+s(0)=1,
 ```
-
-とすると、
 
 ```math
 \dot x_r
 =
--\Lambda x_r+\kappa a_r h,
+\kappa a_r s,
 \qquad
-r\in\{+,-\},
+x_r(0)=0,
+\qquad
+r\in\{+,-\}
+```
+
+と直接定める。
+
+ここで $s$ は第三のpointer stateの占有確率ではない。「まだどちらのfirst eventも起きていない」というsurvival probabilityである。一度 $+$ または $-$ が成立した後に、未決定へ戻って再混合するrateは置かない。
+
+<!-- theorem-start:theorem -->
+**定理（R204A：M65 canonical two-result first-passage selector）**
+
+上の発展則は
+
+```math
+s(t)
+=
+e^{-\kappa a_\Sigma t},
 ```
 
 ```math
-\dot h
+x_r(t)
 =
-\Lambda(x_++x_-)-\kappa a_\Sigma h.
+\frac{a_r}{a_\Sigma}
+\left(
+1-e^{-\kappa a_\Sigma t}
+\right)
 ```
 
-<!-- theorem-start:theorem -->
-**定理（R204A：M65 canonical open selector）**
+を与え、
 
-上の発展則は確率単体を保存する古典連続時間Markov過程を定める。装置へ入力される状態依存量は $a_+,a_-$ の二つだけであり、各入力はrateへ線形に入る。物理制御器は $a_r/a_\Sigma$、Born確率表、振幅表を入力として必要としない。
+```math
+x_+(t)+x_-(t)+s(t)=1
+```
+
+を保存する。
+
+装置へ入力される状態依存量は $a_+,a_-$ の二つだけであり、各入力は対応するlocal hazardへ線形に入る。物理制御器は $a_r/a_\Sigma$、Born確率表、振幅表を入力として必要としない。
 
 また $A_\pm$ はdecision区間で固定入力なので、M65自身は走行信号 $Z$ を変更せず、結果形成とprojector routerの責務を分離する。
 <!-- theorem-end:theorem -->
@@ -129,205 +150,76 @@ r\in\{+,-\},
 <!-- theorem-start:proof -->
 **証明（R204A）**
 
-全rateは非負であり、generatorの各行和は零である。上のmaster equationを加えると
-
-```math
-\frac{d}{dt}(x_++x_-+h)=0
-```
-
-だから確率単体を保存する。rate式には $a_+,a_-$ と固定係数しか現れず、$a_\Sigma$ による除算はない。証明終。
+survival equationを積分すれば $s(t)=e^{-\kappa a_\Sigma t}$ を得る。これを $\dot x_r=\kappa a_rs$ へ代入して $x_r(0)=0$ から積分すると表示式を得る。三式を加えれば確率保存が従う。hazardには $a_+,a_-$ と固定係数 $\kappa$ しか現れず、装置入力として $a_\Sigma$ による除算を必要としない。証明終。
 <!-- theorem-end:proof -->
 
-## Z.4 R204B：fixed-hub phase-volume実現候補
+この指数Poisson raceはM65 open lawの一つの明示的pathwise witnessである。後続のphysical parentがR204Eのcomplete-result kernelを同じ精度で満たす場合、first-passage waiting-time lawそのものを指数分布へ一致させることは要求しない。
 
-R204Aはopen lawそのものを正本とする。この節は同じlawを受動phase-volume構造から作る追加実現候補であり、M65の定義には使わない。
-
-固定された左右chamber $C_\pm$、neck $N_\pm$、hub $H$ を取り、局所phase-volume factorを概念的に
-
-```math
-\Phi_A(Q)
-=
-\begin{cases}
-a_+\phi_C(Q),&Q\in C_+,\\
-a_+\phi_N(Q),&Q\in N_+,\\
-\phi_H(Q),&Q\in H,\\
-a_-\phi_N(Q),&Q\in N_-,\\
-a_-\phi_C(Q),&Q\in C_-,
-\end{cases}
-```
-
-とする。hubのphase volumeは作用に依存させない。
-
-R203Bと同じ調和自由度のcanonical積分を使えば、局所Gibbs容量はphase-volume factorへ比例する。左右共通の基準量 $V_C^0,G_0,V_H^0>0$ に対して
-
-```math
-V_r=a_rV_C^0,
-\qquad
-G_r=a_rG_0,
-\qquad
-V_H=V_H^0
-```
-
-を得る場合、
-
-```math
-\frac{G_r}{V_r}
-=
-\frac{G_0}{V_C^0}
-=:\Lambda,
-\qquad
-\frac{G_r}{V_H}
-=
-\frac{G_0}{V_H^0}a_r
-=:\kappa a_r.
-```
-
-<!-- theorem-start:theorem -->
-**定理（R204B：fixed-hub matched capacity--conductance realization）**
-
-上記capacity/conductance relationsを満たすwell-mixed chamber reductionでは、左右chamberとhubのcoarse generatorはR204Aのcanonical open generatorと一致する。従ってphase-volume構造は、Born比を外部計算せずR204Aを実装する一つの物理候補を与える。
-<!-- theorem-end:theorem -->
-
-R204BはM65正本の必須依存ではない。capacity--conductance部分は付録XのM66/R205Dでbinary fixed-hub specializationとしてcommon parentへ埋め込む。
-
-## Z.5 R204C：Hamiltonian--Brownian lift strengthening
-
-R204Bの固定幾何を明示Hamiltonian、有限帯域bath、Brownian/Smoluchowski過程から導く場合だけこの結果を使う。対象時間窓 $0\leq t\leq T$ で、
-
-```math
-\varepsilon_{\rm bath},
-\quad
-\varepsilon_{\rm od},
-\quad
-\varepsilon_{\rm pv},
-\quad
-\varepsilon_{\rm tube},
-\quad
-\varepsilon_{\rm lump},
-\quad
-\varepsilon_{\rm cal}
-```
-
-を、それぞれbath、overdamped、phase-volume tracking、tube reduction、well-mixed lumping、capacity/conductance較正の誤差とする。
-
-```math
-\varepsilon_{\rm gen}
-=
-\varepsilon_{\rm bath}
-+\varepsilon_{\rm od}
-+\varepsilon_{\rm pv}
-+\varepsilon_{\rm tube}
-+\varepsilon_{\rm lump}
-+\varepsilon_{\rm cal}.
-```
-
-<!-- theorem-start:theorem -->
-**定理（R204C：Hamiltonian--Brownian liftの有限時間誤差）**
-
-具体実装のcoarse lawを $\widetilde\nu_t$、R204Aのcanonical lawを $\nu_t$ とする。初期lumping誤差を $\varepsilon_{\rm init}$ とし、対象時間窓でgenerator差の全変動作用normが一様に $\varepsilon_{\rm gen}$ 以下なら、
-
-```math
-\sup_{0\leq t\leq T}
-D_{\rm TV}
-(
-\widetilde\nu_t,\nu_t
-)
-\leq
-\varepsilon_{\rm init}
-+
-T\varepsilon_{\rm gen}
-=:
-\varepsilon_{204C}(T).
-```
-
-これはR204AのHamiltonian/Brownian実現を評価する強化結果であり、R204A/R204D/R204E/R204Fの成立条件ではない。
-<!-- theorem-end:theorem -->
-
-<!-- theorem-start:proof -->
-**証明（R204C）**
-
-Markov半群の全変動縮約性とDuhamel展開を使い、generator差を時間積分する。証明終。
-<!-- theorem-end:proof -->
-
-## Z.6 R204D：有限時間Born readout
-
-通常経路で
-
-```math
-h(0)=0,
-\qquad
-x_+(0)+x_-(0)=1
-```
-
-とする。
+## Z.4 R204D：有限時間Born readout
 
 <!-- theorem-start:theorem -->
 **定理（R204D：M65有限時間Born readout）**
 
-R204Aのcanonical open lawでは
+decision時刻 $T>0$ で、時刻 $T$ までにfirst eventが成立したwinnerを $+$ または $-$ へ、まだfirst eventがないsurvival事象を $\varnothing$ へ写す。canonical M65結果分布 $P_{65}^0(T)$ は
 
 ```math
-h(t)
+P_{65}^0(T;r)
 =
-\frac{\Lambda}
-{\Lambda+\kappa a_\Sigma}
-\left[
-1-e^{-(\Lambda+\kappa a_\Sigma)t}
-\right].
+\widehat p_r
+\left(
+1-e^{-\kappa a_\Sigma T}
+\right),
+\qquad
+r\in\{+,-\},
 ```
 
-さらに
-
 ```math
-d_r(t)
-:=
-x_r(t)-\widehat p_r[1-h(t)]
-```
-
-と置くと
-
-```math
-\dot d_r=-\Lambda d_r,
-```
-
-従って
-
-```math
-x_r(t)
--
-\widehat p_r[1-h(t)]
+P_{65}^0(T;\varnothing)
 =
-e^{-\Lambda t}
-[x_r(0)-\widehat p_r].
+e^{-\kappa a_\Sigma T}
 ```
 
-decision時刻 $T$ で
+を満たす。
+
+従って保持作用比から作る完全理想結果分布
 
 ```math
-+\mapsto +,
-\qquad
--\mapsto -,
-\qquad
-H\mapsto\varnothing
+K_{\widehat p}
+=
+(\widehat p_+,\widehat p_-,0)
 ```
 
-と完全結果へ写すと、canonical M65結果分布 $P_{65}^0(T)$ は
+に対し、
 
 ```math
 D_{\rm TV}
 \left(
 P_{65}^0(T),
-(\widehat p_+,\widehat p_-,0)
+K_{\widehat p}
 \right)
-\leq
-e^{-\Lambda T}
-D_{\rm TV}(x_0,\widehat p)
-+
-\frac{\Lambda}
-{\Lambda+\kappa a_\Sigma}.
+=
+e^{-\kappa a_\Sigma T}.
 ```
 
-上流作用保持誤差 $\varepsilon_A$、具体rate実装を選んだ場合のgenerator誤差 $\varepsilon_{\rm rate}$、record誤差 $\varepsilon_{\rm rec}$ を加えると、
+安全運用域
+
+```math
+a_\Sigma\geq a_{\min}>0
+```
+
+では
+
+```math
+D_{\rm TV}
+\left(
+P_{65}^0(T),
+K_{\widehat p}
+\right)
+\leq
+e^{-\kappa a_{\min}T}.
+```
+
+上流作用保持誤差 $\varepsilon_A$、具体hazard実装を選んだ場合のfinite-time law誤差を保守的に $T\varepsilon_{\rm rate}$、record/clock/closure誤差を $\varepsilon_{\rm rec}$ とすると、
 
 ```math
 D_{\rm TV}
@@ -338,11 +230,7 @@ P_{\rm Born}
 \leq
 \varepsilon_A
 +
-e^{-\Lambda T}
-D_{\rm TV}(x_0,\widehat p)
-+
-\frac{\Lambda}
-{\Lambda+\kappa a_\Sigma}
+e^{-\kappa a_{\min}T}
 +
 T\varepsilon_{\rm rate}
 +
@@ -355,55 +243,74 @@ canonical open lawそのものでは $\varepsilon_{\rm rate}=0$ とする。無�
 <!-- theorem-start:proof -->
 **証明（R204D）**
 
-$x_++x_-=1-h$ より
-
-```math
-\dot h
-=
-\Lambda-(\Lambda+\kappa a_\Sigma)h
-```
-
-だから $h(t)$ の表示を得る。また $a_r=\widehat p_r a_\Sigma$ を使えば、R204Aのmaster equationから $\dot d_r=-\Lambda d_r$ が従う。完全結果分布との差に三角不等式を使い、
-
-```math
-h(T)
-\leq
-\frac{\Lambda}{\Lambda+\kappa a_\Sigma}
-```
-
-で抑える。具体実装誤差はMarkov半群の縮約性とDuhamel評価で $T\varepsilon_{\rm rate}$ を一度だけ加える。証明終。
+R204Aの閉形式を $t=T$ で評価すればcomplete-result lawを得る。理想分布との差は、左右の欠損質量の総和と $\varnothing$ 質量がいずれも同じsurvival massから生じるため、全変動距離はちょうど $e^{-\kappa a_\Sigma T}$ である。安全運用域では $a_\Sigma\geq a_{\min}$ を代入する。上流保持誤差、具体実装誤差、record誤差は三角不等式で一度だけ加える。証明終。
 <!-- theorem-end:proof -->
 
-特に $\widehat p_-$ が極端に小さくても、結果比へ近づくモードのrateは $\Lambda$ のままである。小Born重みそれ自体は指数decision時間を生まない。
-
-
-### Z.6.1 decision終了時の有限record/latch
-
-decision窓 $[0,T]$ の終了時にM65 generatorを閉じ、それ以後のselector jump rateを零にする。時刻 $T$ のpointer状態を
+特に $\widehat p_-$ が極端に小さくても、total decision hazardは
 
 ```math
-X_T=+
-\mapsto
-Y=+,
-\qquad
-X_T=-
-\mapsto
-Y=-,
-\qquad
-X_T=H
-\mapsto
-Y=\varnothing
+\lambda_++\lambda_-
+=
+\kappa a_\Sigma
 ```
 
-とR112型の有限局所recordへ写す。理想recordではこの写像は結果分布を変えない。有限record、clock、gate-closureの完全結果誤差をまとめて $\varepsilon_{\rm rec}$ とする。
+であり、最小Born重みには依存しない。指定 $\varepsilon_{\rm dec}>0$ に対し、
 
-record後の $Y$ はR181D routerを開く前に固定される。$Y=\varnothing$ ならどちらのrouterも開かない。selector pointer、record作業領域、使用済み保持対を反復使用する場合はR179のopen resetへ渡す。
+```math
+T_{65}
+\geq
+\frac{1}{\kappa a_{\min}}
+\log
+\frac{1}{\varepsilon_{\rm dec}}
+```
 
-このlatchは新しいBorn確率源ではなく、R204Dが時刻 $T$ に持つ古典pointer状態を有限記録へコピーして以後のdecision dynamicsから切り離すだけである。
+と選べばsurvival errorを $\varepsilon_{\rm dec}$ 以下にできる。
 
-## Z.7 endpoint comparator、安全下限、使用済み保持対
+### Z.4.1 decision終了時の有限record/latch
 
-通常経路外では大きい側へ決定論的endpointを開く。exact endpoint $A_+=0<A_-$ では結果 $-$、$A_-=0<A_+$ では結果 $+$ を直接固定する。一般のcutoff領域では例えば
+二つのfirst-passage時刻を $\tau_+,\tau_-$ とし、
+
+```math
+\tau
+=
+\min\{\tau_+,\tau_-\}
+```
+
+とする。
+
+```math
+\tau_+<\tau_-,
+\quad
+\tau_+\leq T
+\quad\Longrightarrow\quad
+Y=+,
+```
+
+```math
+\tau_-<\tau_+,
+\quad
+\tau_-\leq T
+\quad\Longrightarrow\quad
+Y=-,
+```
+
+```math
+\tau>T
+\quad\Longrightarrow\quad
+Y=\varnothing.
+```
+
+first eventが $T$ より前に成立した場合、そのwinnerを内部latchで保持し、正式なR112型有限局所recordへのコピーとR181D routerの開放は固定decision時刻 $T$ の後に行う。理想recordではこの写像は結果分布を変えない。有限record、clock、decision closureの完全結果誤差をまとめて $\varepsilon_{\rm rec}$ とする。
+
+record後の $Y$ はR181D routerを開く前に固定される。$Y=\varnothing$ ならどちらのrouterも開かない。winner latch、record作業領域、使用済み保持対を反復使用する場合はR179のopen resetへ渡す。
+
+このlatchは新しいBorn確率源ではない。R204Aのfirst-passage winnerまたは有限時間survival事象を有限記録へ固定し、以後のdecision dynamicsから切り離すだけである。
+
+## Z.5 endpoint comparator、安全下限、使用済み保持対
+
+exact endpoint $A_+=0<A_-$ では $\lambda_+=0$、$A_-=0<A_+$ では $\lambda_-=0$ なので、canonical first-passage law自体が誤ったbranchを生成しない。
+
+一方、R181Dの測定後状態方向誤差を一様に制御するため、一般のcutoff領域では小さいbranchをsafe routerへ渡さない。例えば
 
 ```math
 \widehat p_+<\tau_{\rm cut}
@@ -417,7 +324,7 @@ record後の $Y$ はR181D routerを開く前に固定される。$Y=\varnothing$
 \tau_{\rm cut}A_-<0
 ```
 
-と同値なので、状態依存除算ではなく固定係数の線形比較器で判定できる。逆側も同様である。
+と同値なので、状態依存除算ではなく固定係数の線形比較器で判定できる。逆側も同様である。cutoff領域では大きい側へ決定論的に固定する。
 
 比較器とrecordの完全結果誤差を $\varepsilon_{\rm cmp},\varepsilon_{\rm rec}$ とすると、
 
@@ -440,16 +347,14 @@ record後の $Y$ はR181D routerを開く前に固定される。$Y=\varnothing$
 =
 \varepsilon_A
 +
-e^{-\Lambda T}
-+
-\frac{\Lambda}{\Lambda+\kappa a_{\min}}
+e^{-\kappa a_{\min}T}
 +
 T\varepsilon_{\rm rate}
 +
-\varepsilon_{\rm rec},
+\varepsilon_{\rm rec}.
 ```
 
-ここで安全運用域で $a_\Sigma\geq a_{\min}>0$ とする。
+従って
 
 ```math
 \varepsilon_{65}
@@ -476,14 +381,14 @@ p_r
 
 使用済み保持対はdecision履歴を持ち得るため再captureへ直結しない。固定有限深さでは未使用保持対へSWAPし、反復運転ではR179へ排出する。
 
-## Z.8 R204E：binary selector contract
+## Z.6 R204E：binary selector contract
 
 R181Dが上流selectorに要求する共通契約を、完全結果集合 $\{0,1,\varnothing\}$ 上で次のように書く。
 
 1. 理想作用比は $p_b=A_b/(A_0+A_1)$。
 2. 実selector核と理想Born核の全変動距離が $\varepsilon_{\rm sel}$ 以下。
 3. 非空安全結果 $Y=b$ では $p_b\geq\tau_{\rm state}>0$。
-4. decision終了時にgeneratorを閉じ、$Y$ をR112型有限recordへ写してからprojector routerを開く。
+4. decision終了時に $Y$ をR112型有限recordへ固定してからprojector routerを開く。
 5. $\varnothing$ を捨てて再規格化しない。
 
 <!-- theorem-start:corollary -->
@@ -499,10 +404,12 @@ M65では
 
 と取れば上のbinary selector contractを満たす。従ってR181Dをselector非依存の形で適用できる。
 
-fixed-goal witnessにはM65を使う。
+R204Eが要求するのはcomplete-result kernelと結果固定interfaceであり、selector内部のwaiting-time lawや物理実装には依存しない。従って後続physical parentはM65の指数Poisson waiting-time分布そのものではなく、このcontractを有限誤差で回収すればよい。
+
+Q1 fixed-goal witnessにはM65を使う。
 <!-- theorem-end:corollary -->
 
-## Z.9 R204F：Q1互換性と有限latency
+## Z.7 R204F：Q1互換性と有限latency
 
 <!-- theorem-start:theorem -->
 **定理（R204F：Q1 M65 interfaceと有限latency条件）**
@@ -519,7 +426,17 @@ Q1ではR189Aの保持済み作用 $A_L,A_R$ をM65へ入力できる。R189A作
 \varepsilon_{\rm lat}.
 ```
 
-M65 decision時間を $T_{65}$ とすると、固定有限回Zeno証人では
+安全運用域 $a_\Sigma\geq a_{\min}>0$ では、指定decision error $\varepsilon_{\rm dec}$ に対して
+
+```math
+T_{65}
+\geq
+\frac{1}{\kappa a_{\min}}
+\log
+\frac{1}{\varepsilon_{\rm dec}}
+```
+
+と有限に選べる。固定有限回Zeno証人では、この $T_{65}$ を先に固定した後、
 
 ```math
 \Omega_\kappa T_{65}\longrightarrow0
@@ -530,10 +447,9 @@ M65 decision時間を $T_{65}$ とすると、固定有限回Zeno証人では
 Q2-1/Q2-3/Q2-4のterminal readout資源はR206C--R206Eへ移し、R204Fから一般回路の逐次node数、作用下限、polynomial readout-time責務を外す。
 <!-- theorem-end:theorem -->
 
+### Z.7.1 Q1 retirement-readiness合成
 
-### Z.9.1 Q1 retirement-readiness合成
-
-R189Aのcapture終了後は $H_{\rm cap}=0$ であり、保持済み $A_L,A_R$ は走行中W2信号から切り離されている。M65はこの二作用だけを入力としてdecisionを行い、Z.6.1のrecordで $Y\in\{L,R,\varnothing\}$ を固定した後にR181Dへ渡せる。
+R189Aのcapture終了後は $H_{\rm cap}=0$ であり、保持済み $A_L,A_R$ は走行中W2信号から切り離されている。M65はこの二作用だけを入力としてdecisionを行い、Z.4.1のrecordで $Y\in\{L,R,\varnothing\}$ を固定した後にR181Dへ渡せる。
 
 従ってQ1の中間測定候補を
 
@@ -571,10 +487,10 @@ R189Aのcapture終了後は $H_{\rm cap}=0$ であり、保持済み $A_L,A_R$ �
 
 この合成をR143/R144/R189B/R189Cの現行fixed-goal証人へ採用する。
 
-## Z.10 正本と強化課題の境界
+## Z.8 正本と強化課題の境界
 
-M65の正本はR204Aのopen generator、R204Dの有限時間Born誤差、endpoint comparator、R204Eのbinary selector contractで閉じる。
+M65の正本はR204Aのtwo-result first-passage open law、R204Dの有限時間Born誤差、cutoff comparator、R204Eのbinary selector contract、R204FのQ1 interfaceで閉じる。
 
-R204Bのphase-volume chamber、R204CのHamiltonian--Brownian lift、finite-bandwidth bath、direct Brownian trajectory、具体回路化は追加の物理実現・A2/B系強化課題である。これらをM65の正本性やfixed-goal達成判定の前提にしない。
+旧R204Bのfixed-hub phase-volume chamberとR204CのHamiltonian--Brownian liftは旧3状態M65の追加physical-lift strengtheningとして退役し、notes/Git履歴へ保存する。結果ID R204B/R204Cは再利用しない。現行M65のfinite-Hamiltonian physical liftはこのPRでは定めず、後続M67/R211で扱う。
 
 旧R191/R193はM65へ責務を吸収したため現行主線から退役する。exact endpoint、有限record/latch、Q1空操作対照を含むfixed-goal主線は本付録で閉じる。

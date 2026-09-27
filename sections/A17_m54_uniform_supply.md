@@ -1,13 +1,13 @@
 @number: Q
 @chapter: 付録
 @title: M54の一様開放供給・リセット・再混合
-@status: R179のopen reset、定常流入浴、流出履歴排出、補助作業領域、binary selector指針変数、使用済み作用保持対の反復再初期化を整理する。現行fixed-goalではQ2-2および全周期renewal側に残し、Q2-4のroot preparation/refreshはR206Eへ移す。
+@status: R179のopen reset、定常流入浴、流出履歴排出、補助作業領域、binary selector作業領域、使用済み作用保持対の反復再初期化を整理する。現行fixed-goalの直接依存には置かず、全周期renewal側に残す。Q2-4のroot preparation/refreshはR206E、Q2-2はM66/R205--R207を用いる。
 
 ## Q.1 目的
 
-R179は、逐次binary instrumentで再使用するselector指針変数、R181D選別機構用作業領域、作用保持対などを有限閉鎖貯蔵部から供給せず、一様な開放リセット接続部へ接続する。現行fixed-goalではQ2-2の二端逐次interfaceでこの責務を使う。Q2-4のsignal root preparation、sampler refresh、terminal readoutはR206E/R206A--R206Dへ移し、R179をQ2-4の直接依存にしない。結果相関情報、散逸履歴、使用済み保持対の共役履歴、使用済み環境自由度は流出経路へ流し、再使用する能動系だけを未使用状態へ戻す。
+R179は、逐次binary instrumentで再使用するwinner latch、R181D選別機構用作業領域、作用保持対などを有限閉鎖貯蔵部から供給せず、一様な開放リセット接続部へ接続する。現行fixed-goalではこの全周期reset/renewal責務を直接依存に置かず、Q2-2はM66/R205--R207のlocal latch/recordで閉じる。Q2-4のsignal root preparation、sampler refresh、terminal readoutはR206E/R206A--R206Dへ移し、R179をQ2-4の直接依存にしない。結果相関情報、散逸履歴、使用済み保持対の共役履歴、使用済み環境自由度は流出経路へ流し、再使用する能動系だけを未使用状態へ戻す。
 
-独立な退役作用殻研究線では2作用LC殻へ定常流入浴部分系を供給する。各試行で過去と相互作用していない流入部分系を使うことで、退役作用殻経路Bの初期作用殻方向に一様な混合評価を履歴条件付き再混合へ持ち上げる。この再混合を現行Q1/Q2の必須依存には戻さない。binary sequential fixed-goal証人はQ1/Q2-2でM65を使う。
+独立な退役作用殻研究線では2作用LC殻へ定常流入浴部分系を供給する。各試行で過去と相互作用していない流入部分系を使うことで、退役作用殻経路Bの初期作用殻方向に一様な混合評価を履歴条件付き再混合へ持ち上げる。この再混合を現行Q1/Q2の必須依存には戻さない。binary sequential fixed-goal証人はQ1でM65を使う。Q2-2はM66/R205--R207を使う。
 
 ## Q.2 一様開放リセット
 

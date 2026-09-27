@@ -100,15 +100,13 @@ def check_m65_retirement_readiness() -> None:
     p_star = 0.10
     check(q > p_star, "M65 Q1 fixed safe branch floor")
 
-    # Choose a fixed finite M65 decision window with small complete-result error.
-    lam = 0.35
+    # Choose a fixed finite M65 first-passage window with small survival error.
     a_sum = 2.0
     kappa = 80.0
     t65 = 20.0
-    hub = lam / (lam + kappa * a_sum)
-    mixing = math.exp(-lam * t65)
-    eps65 = mixing + hub
-    check(eps65 < 0.01, "M65 Q1 finite selector budget")
+    survival = math.exp(-kappa * a_sum * t65)
+    eps65 = survival
+    check(eps65 < 0.01, "M65 Q1 finite first-passage selector budget")
 
     # In the weak-coupling W2 family, the same fixed t65 makes latency vanish.
     for omega in (1e-2, 1e-3, 1e-4):

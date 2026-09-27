@@ -1,3 +1,11 @@
+## draft-140：M65 two-result first-passage selector簡素化
+
+- 付録Z/M65の正本を3状態往復Markov pointerからtwo-result first-passage open selectorへ置換する。未決定は第三の物理pointer状態ではなくsurvival conditionとして扱い、R204A/R204Dを新lawへ同期する。
+- R204E/R204FとR181Dのselector-independent contractを維持し、Q1-1/Q1-2の達成ラベルを変更しない。指数Poisson raceは最小open witnessとし、後続physical parentにはwaiting-time分布そのものの一致を要求しない。
+- 旧R204B/R204C fixed-hub physical liftとM65 candidate verifier 3本をnotes/retired_verifiersへ退役保存し、R205DはM66側のbinary fixed-hub corollaryとして残す。
+- README、第0--3・6・8・9章、関連付録、PROJECT_STATUS、ENHANCEMENT_TARGETS、VALIDATION、simulation/candidate/migration README、theory lineageを同期する。M67/R211 bridgeは後続PRへ分離する。
+- Q2-2に残っていた旧M65/R181D/R179逐次interface表記をM66/R205--R207へ同期する。Q2/Q3、A1/A2/B1--B3、M0、R186判定は変更しない。
+
 ## 付録P/ZのQ2-2旧依存記述修正
 
 - 正本変更は `sections/A16_m54_projector_tree_receiver.md` と `sections/A26_m65_phase_volume_projective_instrument.md` の適用範囲5か所に限る。

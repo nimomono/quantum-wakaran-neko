@@ -1,3 +1,11 @@
+## draft-140：M65をtwo-result first-passage selectorへ簡素化
+
+- M65/R204Aを、保持済み二作用を二つの線形hazardへ入れるtwo-result first-passage open lawへ置換した。有限時刻までwinnerがない事象は第三状態ではなくsurvival conditionであり、正式な無反応 $\varnothing$ へ写す。
+- R204Dのcomplete-result lawを $P_T(r)=\widehat p_r(1-e^{-\kappa a_\Sigma T})$、$P_T(\varnothing)=e^{-\kappa a_\Sigma T}$ へ簡素化し、Born作用比に対する全変動距離を厳密に $e^{-\kappa a_\Sigma T}$ とした。small Born branchでtotal decision hazardが縮まないことを維持する。
+- R204E binary selector contractとR204F Q1 interface/latencyを維持し、R181D以下の逐次projector-router証明を変更しない。Poisson waiting-time lawは将来physical parentの一致条件にしない。
+- 旧R204B/R204C fixed-hub physical liftをactive paperから退役し、R205DはM66側の数学的fixed-hub corollaryとしてのみ残す。旧M65 candidate verifier 3本もretired verifierへ移した。
+- Q2-2の旧M65/R181D/R179依存表現をM66/R205--R207へ同期し、Q1-1/Q1-2達成、Q2/Q3、A1/A2/B1--B3、M0、R186判定を維持する。
+
 ## 付録P/ZのQ2-2旧依存記述修正
 
 - 付録P/Zに残っていたQ2-2のM65/R181D逐次handoffとR179依存の記述を、既存のM66/R205--R207主線へ同期した。M65/R181Dの現行用途はQ1とし、定理・数式・固定目標判定は変更しない。
