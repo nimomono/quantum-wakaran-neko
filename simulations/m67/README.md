@@ -8,3 +8,8 @@ M67/R208A--R210Bのsupporting direct-trajectory検証入口。draft-139でM67は
 
 draft-139ではR210A/R210Bをrequired解析検算へ追加し、既存full compatibility witnessはsupporting evidenceとして維持する。envelope-level full witnessだけをA2 promotion testへ読み替えず、M37 carrier反回転項はR210Aの解析bridgeで管理する。
 
+## R212B spherical-rotor thermal witness
+
+`run_r212b_rotor_mixing_witness.py` はR207で実際に使う `eta=1/4`、`epsilon=eta/8=1/32`、`k=2/eta=8` を固定し、`S^2 x S^2` のoverdamped rotational R205E lawを直接積分するsupporting witnessである。terminal lawを exact target `exp(k lambda_A.lambda_B) [w_A+w_B]` からの直接sampleと比較し、sphere constraint、coarse-grained TV距離、orientation memoryを確認する。
+
+通常実行は45度settingの軽量witness、`--full` は6000 trajectory、`--angle-sweep` は0/45/90/135/180度を走らせる。finite harmonic bathの明示parameter windowとDrude kernel/recurrenceは `tools/candidate_checks/verify_r212b_rotor_parameter_window.py` が別に検査する。このwitnessはR212B正本化前のsupporting evidenceであり、required CIやQ2-2 fixed-goal判定を変更しない。
