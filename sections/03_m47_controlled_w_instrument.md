@@ -880,11 +880,11 @@ R189Aの保持中心時刻を $t_\ell$ とする。保持済み2作用をM65へ�
 M67/R211A--R211Cをfinite-Hamiltonian strengtheningとして使う場合も、R189Aの保持済み二作用だけを入力し、固定時刻terminal resultをR112へ固定してから同じR181D routerを開く。R211Cのselector errorを使えば
 
 ```math
-arepsilon_{189B,67}^{m dist}
-leq
-arepsilon_{m sel}^{67}
+\varepsilon_{189B,67}^{\rm dist}
+\leq
+\varepsilon_{\rm sel}^{67}
 +
-arepsilon_{m lat}.
+\varepsilon_{\rm lat}.
 ```
 
 このalternate physical-lift経路はR189B/R189Cのfixed-goal根拠を置換せず、R204E contract互換の強化実装として扱う。
