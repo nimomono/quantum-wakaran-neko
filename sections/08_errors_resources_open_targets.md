@@ -593,6 +593,24 @@ M67/R211A--R211CはM65/R204E contractへ接続するQ1 selector strengtheningで
 \right].
 ```
 
+ここでone-time reduction errorは
+
+```math
+\varepsilon_X
+=
+\varepsilon_{\rm bath}^{X}
++
+\varepsilon_{\rm od}^{X}
++
+\varepsilon_{\rm pv,lag}^{X}
++
+\varepsilon_{\rho,{\rm fluc}}^{X}
++
+\varepsilon_{\rm init}^{X}
+```
+
+と分ける。$\varepsilon_{\rm pv,lag}^{X}$ はconditional Gibbs mean forceへのfinite relaxation residual、$\varepsilon_{\rho,{\rm fluc}}^{X}$ は有限phase-volume modeのforce fluctuationであり、同じ誤差として二重計上しない。required numerical witnessの $\varepsilon_X$ targetはこれらを含む総縮約誤差である。
+
 R189Aの作用保持誤差はR211Bへ含めず、R211Cで一度だけ
 
 ```math
