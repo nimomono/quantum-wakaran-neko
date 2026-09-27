@@ -768,7 +768,7 @@ P_{\rm Born}
 R181Dの結論はselectorの内部物理に依存しない。
 <!-- theorem-end:theorem -->
 
-完全証明と適用境界は付録Pに置く。fixed-goalではQ1/Q2-2のsame-trial post-state handoffに用い、Q2-1/Q2-3/Q2-4のterminal samplingには用いない。
+完全証明と適用境界は付録Pに置く。現行fixed-goalではQ1のsame-trial post-state handoffに用いる。Q2-2はM66/R205--R207、Q2-1/Q2-3/Q2-4はM66/R206を使う。
 
 ## 2.15 R178Dの本線退役：有限閉鎖リセットの情報容量境界
 

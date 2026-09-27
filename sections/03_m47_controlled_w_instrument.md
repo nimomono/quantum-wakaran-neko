@@ -720,7 +720,7 @@ Q1のM65主線では1段結果分布誤差を
 +\varepsilon_{\rm node}^{\rm dist}
 ```
 
-と整理し、M65内部のfinite-time relaxation、hub無反応、endpoint comparator、recordを別項として二重加算しない。安全結果の測定後状態誤差は
+と整理し、M65内部のfinite-time survival、cutoff comparator、recordを別項として二重加算しない。安全結果の測定後状態誤差は
 
 ```math
 \varepsilon_{Q1}^{\rm state}
