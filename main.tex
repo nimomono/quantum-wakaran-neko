@@ -187,7 +187,7 @@
 \endlastfoot
 実正準signal・状態構成 & M54、M37 & M54が共通状態・接続規約、M37が古典振動子によるsignal実装 \\
 共通thermal-reservoir interface & M66/R205 & phase-volume、mean-flow、thermal sampling、passive separation \\
-Q3共通finite-Hamiltonian parent & M67/R208--R210 & structured reservoir＋markerからcoherent、dephasing、continuous/finite-graph tracer profileを統一 \\
+二実体finite-Hamiltonian parent & M67/R208--R211 & Q3のcoherent/dephasing/continuous/finite-graph tracer profileに加え、Q1ではR204E-compatible double-well selector strengtheningを与える \\
 用途別の模型・特殊化 & M65/R181D、R206、M64/R161/R185、R207 & Q1逐次2値測定、Q2終端多結果、M67のQ3 open reduction、Q2-2 projection phase-volume二端模型 \\
 全周期統合 & M0 & 準備からrenewalまでを1つのjoint device/processへ統合 \\
 \end{longtable}
@@ -230,7 +230,7 @@ P(r=\pm)
 \frac{J_\pm}{J_++J_-}.
 \]
 
-結果固定後はR181Dが物理信号を非線形に規格化せず、選ばれた非規格化結果成分 \(P_rZ\) を同じ試行の次操作へ渡す。R143--R144とR189A--R189Cを合わせ、Born型2結果、逐次測定、有限Rabi--Zeno比較を構成する。
+結果固定後はR181Dが物理信号を非線形に規格化せず、選ばれた非規格化結果成分 \(P_rZ\) を同じ試行の次操作へ渡す。R143--R144とR189A--R189Cを合わせ、Born型2結果、逐次測定、有限Rabi--Zeno比較を構成する。M67/R211A--R211Cはこのcanonical M65/R204E interfaceへdouble-well finite-Hamiltonian selectorを接続するstrengtheningであり、M65のPoisson waiting-time law自体を再現するものではない。
 
 Q2-1とQ2-3ではR181Bが固定入力のテンソル積信号を作り、R181Cが同じ永続記憶部上で局所gateと結合gateを作用する。末端4結果または8結果はM66の特殊化R206で1回に標本化する。Q2-4ではR206Eで \(0^n\) rootを一様準備し、R181Cの一般gate列後に \(L=2^n\) のR206 samplerへ直接接続する。R206A--R206Cは逐次leaf探索、最小Born重みに依存する混合時間、結果別routerを避ける。一方、M54 direct-amplitude registerへ全自由度加法ノイズが入るR186の障害は残るため、Q2-4は条件付き達成を維持する。
 
@@ -238,7 +238,7 @@ Q2-2 fixed-goalはR207 projection phase-volume経路を使う。setting方向と
 
 Q3のsignal数学はQ1/Q2と別の代数ではない。Q1型局所正準モードを空間頂点へ配置し、Q2型2体系結合を辺へ反復すると、Schrödinger型signal、局所作用、反対称currentが得られる。Q3ではM67を共通二実体finite-Hamiltonian physical parentとし、M37をそのcoherent oscillator moduleとして内包する。R210Aがfull M67からM37/R86のSchrödinger型signalへの有限時間compatibilityを与える。
 
-M67は一つのstructured reservoir sectorとmarker sectorからなり、coherent、bounded dephasing、continuous tracer、finite-graph tracerの固定profileを持つ。Q3-3A--Q3-3CではR210BがR123有限環境をstructured reservoir内部へboundedに埋め込む。Q3粒子/Nelson側ではM64を独立三実体parentとはせず、R208/R209でM67から得るcanonical open effective modelとして維持する。R203A--R203D、R161/R185、R124/R182/R125の既存結果はそのまま再利用する。
+M67は一つのstructured reservoir sectorとmarker sectorからなり、coherent、bounded dephasing、continuous tracer、finite-graph tracerに加えてQ1 binary-selectorの固定profileを持つ。Q3-3A--Q3-3CではR210BがR123有限環境をstructured reservoir内部へboundedに埋め込む。Q3粒子/Nelson側ではM64を独立三実体parentとはせず、R208/R209でM67から得るcanonical open effective modelとして維持する。R203A--R203D、R161/R185、R124/R182/R125の既存結果はそのまま再利用する。
 
 Q3の現行因果鎖はM67から分岐する。Q3-1は \(M67\to R210A\to M37/R86\)、Q3-2は \(M67\to R208/R209\to M64/R203\to R161/R185\)、Q3-3A--CはM67 dephasing profileからR210B/R123へ、Q3-4A/B/5はM67 finite-graph profileからR203D/R161とR124/R182/R125へ接続する。
 
@@ -252,7 +252,7 @@ Q3の現行因果鎖はM67から分岐する。Q3-1は \(M67\to R210A\to M37/R86
 \chapter{問題設定、統一構造、達成範囲}\label{ux554fux984cux8a2dux5b9aux7d71ux4e00ux69cbux9020ux9054ux6210ux7bc4ux56f2}}
 
 \begin{statusbox}
-位置づけ：M54を共通実正準signal・状態構成層、M66/R205を共通thermal-reservoir interfaceとする。Q3ではM67を共通二実体finite-Hamiltonian physical parent、M37をそのcoherent module、M64をcanonical open effective reductionとする。M65、R206、R207は従来の系列責務を維持し、M0のjoint device/process統合とは区別する。
+位置づけ：M54を共通実正準signal・状態構成層、M66/R205を共通thermal-reservoir interfaceとする。M67を二実体finite-Hamiltonian physical parentとし、Q3ではM37 coherent module/M64 open reductionへ、Q1ではR211A--R211CからM65/R204E selector contractへ接続する。M65、R206、R207は従来の系列責務を維持し、M0のjoint device/process統合とは区別する。
 \end{statusbox}
 
 \hypertarget{ux7814ux7a76ux4e0aux306eux554fux3044}{%
@@ -286,7 +286,7 @@ Q3の現行因果鎖はM67から分岐する。Q3-1は \(M67\to R210A\to M37/R86
 共通有効signal・状態構成 & M54 & 有限実正準信号、準備済み入力境界、永続記憶部、作業領域、時計、記録、接続規約 \\
 signal物理実装 & M37/R86 & 局所結合古典振動子網から空間signalを実装。Q3ではM67 coherent module、R187条件下ではW型最低2正常モードをQ1へ接続 \\
 共通thermal-reservoir interface & M66/R205A--R205F & phase-volume、mean-flow、thermal sampling、matched capacity--conductance、passive separation \\
-Q3共通physical parent & M67/R208--R210 & structured reservoir＋markerのfinite Hamiltonianからcoherent/dephasing/tracer profileを与える \\
+二実体finite-Hamiltonian physical parent & M67/R208--R211 & Q3 coherent/dephasing/tracer profileとQ1 double-well selector strengtheningを与える \\
 用途別模型・特殊化 & M64、M65、R206、R207 & M67のQ3 open reduction、Q1逐次2値測定、Q2終端多結果読出し、Q2-2 projection phase-volume二端模型 \\
 全周期統合目標 & M0 & 準備、操作、測定、永久記録、reset、clock、renewalを1つのjoint device/processへ統合 \\
 \end{longtable}
@@ -336,7 +336,7 @@ r
 P_rZ.
 \]
 
-M65がfirst eventによる完全結果形成、有限時間survivalを正式な無反応へ写すこと、有限recordまでを担い、R181Dは結果を生成せずprojector routerと測定後結果成分受渡しだけを担う。固定有限深さでは非規格化結果成分をそのまま次段M65へ渡す。
+M65がfirst eventによる完全結果形成、有限時間survivalを正式な無反応へ写すこと、有限recordまでを担い、R181Dは結果を生成せずprojector routerと測定後結果成分受渡しだけを担う。M67/R211A--R211Cは同じR204E contractを満たすfinite-Hamiltonian alternate liftを与える。固定有限深さでは非規格化結果成分をそのまま次段M65へ渡す。
 
 Q1 W型2モード特殊化では
 
@@ -433,7 +433,7 @@ Q2-2ではR207A--R207Cがfixed-goal core、R207DがBell-local controlとして�
 \chapter{有限正準信号と共通熱浴モジュール}\label{ux6709ux9650ux6b63ux6e96ux4fe1ux53f7ux3068ux5171ux901aux71b1ux6d74ux30e2ux30b8ux30e5ux30fcux30eb}}
 
 \begin{statusbox}
-位置づけ：M54をQ1・Q2・Q3の共通有効signal・状態構成層、M66/R205を共通thermal-reservoir interface、R161をQ3位置輸送の共通数学核とする。Q3ではM67をcommon finite-Hamiltonian physical parent、M37をcoherent module、M64をopen effective reductionとする。M65、R206、R207のQ1/Q2責務は変更しない。
+位置づけ：M54をQ1・Q2・Q3の共通有効signal・状態構成層、M66/R205を共通thermal-reservoir interface、R161をQ3位置輸送の共通数学核とする。M67をcommon finite-Hamiltonian physical parentとし、Q3ではM37 coherent module/M64 open reductionへ、Q1ではR211A--R211CからM65/R204E selector contractへ接続する。M65、R206、R207のQ1/Q2責務は変更しない。
 \end{statusbox}
 
 \hypertarget{ux5171ux901asignalux5c64ux3068ux5171ux901athermal-reservoirux5c64}{%
@@ -475,9 +475,9 @@ w(Q)e^{-\beta H_{\rm cfg}(Q)}
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-M67 / Q3 & R205Cと整合するphase-volume/mean-flow原理をfinite-Hamiltonian structured reservoirへ実装 & R210A coherent compatibility、R208/R209 finite-bath/tracer bridge、R210B dephasing lift \\
+M67 & R205Cと整合するphase-volume/mean-flow原理をfinite-Hamiltonian structured reservoirへ実装 & Q3ではR210A coherent compatibility、R208/R209 finite-bath/tracer bridge、R210B dephasing lift。Q1ではR211A--R211C double-well selector lift \\
 M64 / Q3 effective & M67/R208--R209からcanonical open lawとして回収 & R203A current dictionary、initial/flow tracking、R203C/R203Dの有効縮約責務 \\
-M65 / Q1 & two-result first-passage open lawを系列固有に定め、R205D fixed-hub corollaryは現行physical liftに使わない & R204A、R204D--R204F、R181D handoff。finite-Hamiltonian liftは後続強化 \\
+M65 / Q1 & two-result first-passage open lawを系列固有に定め、R205D fixed-hub corollaryは現行physical liftに使わない & R204A、R204D--R204F、R181D handoff。finite-Hamiltonian liftはM67/R211A--R211CからR204Eへ接続 \\
 R206 / Q2-1・Q2-3・Q2-4 & M66のfinite-\(L\) common-hub terminal specialization & Q2 terminal bridge、finite-time/fabrication error、Q2-4 root preparation \\
 R207 / Q2-2 & R205A projection phase volume、R205E joint thermal preparation、R205F passive separationを利用 & general-angle singlet law、local二端latch、measurement-independence監査、Bell-local control \\
 \end{longtable}
@@ -1466,7 +1466,7 @@ G_{\rm rec}=\sum_i d_i(x)P_{D_i}
 
 と書ける。これは記録時刻の排他的粒子位置を読む。入力時刻以前の粒子軌道、初回到達率、吸収率、時間積分流束を与えない。
 
-M65はtwo-result first-passage open lawを基本方程式として採用し、未決定は第三のpointer状態ではなくsurvival conditionとして扱う。旧phase-volume fixed-hub chamber/Hamiltonian--Brownian liftはdraft-140で退役し、現行finite-Hamiltonian liftは後続強化へ分離する。現行fixed-goalではQ1がbinary selector interfaceを使う。Q2-1/Q2-3/Q2-4はM66/R206 terminal samplerで判定し、Q2-4だけはR186資源条件を含むため条件付き達成を維持する。有限浴化は別の強化課題である。一意エルゴードな外部時刻割当または有限熱化から、結果列の独立同分布性や二項型有限標本揺らぎも従わない。
+M65はtwo-result first-passage open lawを基本方程式として採用し、未決定は第三のpointer状態ではなくsurvival conditionとして扱う。旧phase-volume fixed-hub chamber/Hamiltonian--Brownian liftはdraft-140で退役し、現行finite-Hamiltonian liftはM67/R211A--R211Cのdouble-well selectorとしてR204Eへ接続する。現行fixed-goalではQ1がbinary selector interfaceを使う。Q2-1/Q2-3/Q2-4はM66/R206 terminal samplerで判定し、Q2-4だけはR186資源条件を含むため条件付き達成を維持する。有限浴化は別の強化課題である。一意エルゴードな外部時刻割当または有限熱化から、結果列の独立同分布性や二項型有限標本揺らぎも従わない。
 
 \hypertarget{ux5171ux901aux71b1ux6d74ux5c64ux3068ux306eux5bfeux5fdc}{%
 \subsection{共通熱浴層との対応}\label{ux5171ux901aux71b1ux6d74ux5c64ux3068ux306eux5bfeux5fdc}}
@@ -1475,10 +1475,10 @@ M66/R205の共通thermal-reservoir interfaceは2.1で定義した。ここで必
 
 Q2-1/Q2-3/Q2-4ではR206をterminal readout正本とし、R206Eのuniform root preparation/refreshをQ2-4で併用する。Q1のM65/R181Dとfull-cycle側のR179は別責務として維持する。
 
-\hypertarget{m67-q3ux5171ux901aux4e8cux5b9fux4f53finite-hamiltonian-parent}{%
-\section{M67 Q3共通二実体finite-Hamiltonian parent}\label{m67-q3ux5171ux901aux4e8cux5b9fux4f53finite-hamiltonian-parent}}
+\hypertarget{m67-ux4e8cux5b9fux4f53finite-hamiltonian-parent}{%
+\section{M67 二実体finite-Hamiltonian parent}\label{m67-ux4e8cux5b9fux4f53finite-hamiltonian-parent}}
 
-付録AA/M67では、Q3のcoherent signalとthermal/reservoir自由度を一つのstructured reservoirへまとめ、classical markerとの二実体sectorを主要ontologyとするfinite-Hamiltonian physical parentを置く。R210AがM37/R86 coherent module、R210BがR123 dephasing law、R208A--R209CがM64/R203 open effective lawへ接続する。M67はQ3-1--Q3-5のfixed-goal物理依存へ採用するが、M54/M66をQ1/Q2全体で置換したとは扱わず、Q1/Q2/NBLへの拡張とM0統合は未主張である。
+付録AA/M67では、coherent signalとthermal/reservoir自由度を一つのstructured reservoirへまとめ、classical markerとの二実体sectorを主要ontologyとするfinite-Hamiltonian physical parentを置く。Q3ではR210AがM37/R86 coherent module、R210BがR123 dephasing law、R208A--R209CがM64/R203 open effective lawへ接続する。Q1ではR211Aがheld-action double-well markerを構成し、R211BがBorn complete-result kernelへ有限誤差で接続し、R211CがR204E/R181Dへ合成する。これはM54/M66をQ1/Q2全体で置換したこと、Q1全測定装置をM67だけへ統合したこと、Q2/NBLまたはM0を統合したことを意味しない。
 
 \part{単一量子ビット型操作と測定}
 
@@ -2329,11 +2329,11 @@ R189Aは完全QND測定を主張しない。\(J_L,J_R\) は零傾斜Rabi自身�
 \hypertarget{w2ux8d70ux884cux4e2dux968eux65701ux5c04ux5f71ux9078ux5225ux306eux6709ux9650ux6642ux9593ux63a5ux7d9a}{%
 \section{W2走行中階数1射影選別の有限時間接続}\label{w2ux8d70ux884cux4e2dux968eux65701ux5c04ux5f71ux9078ux5225ux306eux6709ux9650ux6642ux9593ux63a5ux7d9a}}
 
-R189A終了後は固定済み左右作用 \(\bar J_L,\bar J_R\) を走行中W2信号から切り離し、M65へ直接入力する。有限decision後にgeneratorを閉じ、R112型recordへ \(S_{\rm lock}\in\{L,R,\varnothing\}\) を固定してから制御付き選別機構を開く。中間測定では傾斜、局所位置記録、方向を変えない振幅再調整を使わない。
+R189A終了後は固定済み左右作用 \(\bar J_L,\bar J_R\) を走行中W2信号から切り離し、M65へ直接入力する。有限decision後にfirst-passage winnerまたは有限時間survivalをR112型recordへ \(S_{\rm lock}\in\{L,R,\varnothing\}\) として固定してから制御付き選別機構を開く。中間測定では傾斜、局所位置記録、方向を変えない振幅再調整を使わない。
 
 \begin{theorem}[R189B：W2走行中階数1射影選別有限時間接続]
 
-R189Aの保持中心時刻を $t_\ell$ とする。保持済み2作用をM65へ直接入力し、有限decision時間後にgeneratorを閉じて $S_{\rm lock}$ をR112型recordへ固定する。安全結果 $b$ ではR181Dの階数1対合選別機構 $F_b$ を有限時間 $\tau_F$ だけ作用し、その完了時刻を実効測定時刻 $t_m$ と定める。全操作中で零傾斜Rabi項を停止しない。
+R189Aの保持中心時刻を $t_\ell$ とする。保持済み2作用をM65へ直接入力し、有限decision時間後にcomplete result $S_{\rm lock}$ をR112型recordへ固定する。安全結果 $b$ ではR181Dの階数1対合選別機構 $F_b$ を有限時間 $\tau_F$ だけ作用し、その完了時刻を実効測定時刻 $t_m$ と定める。全操作中で零傾斜Rabi項を停止しない。
 
 選別機構単独の理想作用を $F_b$、有限実装・接続端・時計偏差を含む誤差を $\eta_F^{\rm run}$ とすれば
 
@@ -2377,6 +2377,18 @@ $$
 
 無反応では $F_L,F_R$ のどちらも作用させず、W2信号は零傾斜Rabiを継続する。
 \end{theorem}
+
+M67/R211A--R211Cをfinite-Hamiltonian strengtheningとして使う場合も、R189Aの保持済み二作用だけを入力し、固定時刻terminal resultをR112へ固定してから同じR181D routerを開く。R211Cのselector errorを使えば
+
+\[
+\varepsilon_{189B,67}^{\rm dist}
+\leq
+\varepsilon_{\rm sel}^{67}
++
+\varepsilon_{\rm lat}.
+\]
+
+このalternate physical-lift経路はR189B/R189Cのfixed-goal根拠を置換せず、R204E contract互換の強化実装として扱う。
 
 固定有限回のZeno証人では各安全結果に固定正下限を取れるため、中間振幅再調整を省ける。
 
@@ -5727,9 +5739,83 @@ endpointは固定係数の線形比較器で判定でき、
 \}.
 \]
 
-R204Bのphase-volume chamberとR204CのHamiltonian--Brownian liftを採用する場合、そのbath、overdamped、tube、lumping、calibration誤差はその実装だけの強化台帳へ加える。退役R191のmacrospin誤差を現行M65試行へ加算しない。
+退役R204B/R204Cのfixed-hub誤差を現行M65台帳へ戻さない。finite-Hamiltonian physical liftを使う場合はM67/R211の独立台帳を使う。退役R191のmacrospin誤差も現行M65試行へ加算しない。
 
 M65の現行fixed-goal範囲はQ1の逐次binary instrumentである。Q2-1/Q2-3/Q2-4のterminal readout資源はM66/R206、Q2-2のBell readoutはM66/R205--R207が担う。
+
+\hypertarget{m67r211-q1-finite-hamiltonian-selector-lift-ux306eux8aa4ux5deeux8cc7ux6e90ux53f0ux5e33}{%
+\section{M67/R211 Q1 finite-Hamiltonian selector lift の誤差・資源台帳}\label{m67r211-q1-finite-hamiltonian-selector-lift-ux306eux8aa4ux5deeux8cc7ux6e90ux53f0ux5e33}}
+
+M67/R211A--R211CはM65/R204E contractへ接続するQ1 selector strengtheningであり、M65 canonical open lawを置換しない。safe interior branchに対するphysical-kernel errorは
+
+\[
+\varepsilon_{211B}
+=
+\varepsilon_{\rm col}
++
+\varepsilon_{\rm launch}
++
+\varepsilon_{\rm surv}
++
+\varepsilon_{\rm ret}
++
+\varepsilon_{\rm cg}.
+\]
+
+ここで \(\varepsilon_{\rm col}\) はsmooth phase-volume collar、\(\varepsilon_{\rm launch}\) は中央marker準備幅、\(\varepsilon_{\rm surv}\) はdecision時刻までのdeep commitment未到達、\(\varepsilon_{\rm ret}\) はcommit後のterminal thresholdへのreturn、\(\varepsilon_{\rm cg}\) はfinite-Hamiltonian markerからideal overdamped markerへのone-time \(W_1\) 誤差を3結果kernelへ移す項である。
+
+\[
+\varepsilon_{\rm cg}
+\leq
+\inf_{\delta>0}
+\left[
+\frac{\varepsilon_X(T)}{\delta}
++
+\omega_d(\delta,T)
+\right].
+\]
+
+R189Aの作用保持誤差はR211Bへ含めず、R211Cで一度だけ
+
+\[
+\varepsilon_{\rm int}^{67}
+\leq
+\varepsilon_{189A}
++
+\varepsilon_{211B}
++
+\varepsilon_{\rm rec}
+\]
+
+と合成する。edge branchでは
+
+\[
+\varepsilon_{\rm edge}^{67}
+\leq
+\tau_{\rm cut}
++
+\varepsilon_{189A}
++
+\varepsilon_{\rm cmp}
++
+\varepsilon_{\rm rec},
+\]
+
+従って
+
+\[
+\varepsilon_{\rm sel}^{67}
+=
+\max
+\{
+\varepsilon_{\rm int}^{67},
+\varepsilon_{\rm edge}^{67}
+\}.
+\]
+
+required numerical witnessでは \(W_0=16(X^2-1)^2\)、\(\tau_{\rm cut}=0.07\)、\(\ell=0.01\)、\(d=0.40\)、\(L=0.78\)、\(T=0.22\)、\(\delta_0=5\times10^{-4}\) を同時に使い、\(\varepsilon_X\le10^{-4}\) のstrong targetで \(\varepsilon_{211B}<8\times10^{-3}\) を検査する。これはA2 direct full-Hamiltonian trajectory判定ではなく、R211Bの有限parameter領域が空でないことを確認するrequired regressionである。
+
+M67 Q1 profileの追加資源はheld-action canonical pair、finite phase-volume modes、double-well marker、finite marker bath、terminal basin recordである。Q1全測定装置の永久record、reset、clock、renewalを同一joint deviceへ統合したとは主張しない。
 
 \hypertarget{m66r205-common-parentux3068r206ux306eux8aa4ux5deeux8cc7ux6e90ux5883ux754c}{%
 \section{M66/R205 common parentとR206の誤差・資源境界}\label{m66r205-common-parentux3068r206ux306eux8aa4ux5deeux8cc7ux6e90ux5883ux754c}}
@@ -5753,7 +5839,7 @@ specialization側で追加する量
 \bottomrule\noalign{}
 \endlastfoot
 M64/R203B--R203C & phase-volume identity自体はexact。採用するthermal mixingまたはmean-flow portの実装偏差 & current dictionary、initial preparation、finite-time flow tracking、tracer縮約、R161/R185接続 \\
-M65/R204A・R204D & two-result first-passage open lawは系列固有。R205D fixed-hub corollaryを現行liftに使わない & finite-time survival、cutoff、record error。finite-Hamiltonian liftは後続physical bridgeで別評価 \\
+M65/R204A・R204D & two-result first-passage open lawは系列固有。R205D fixed-hub corollaryを現行liftに使わない & finite-time survival、cutoff、record error。finite-Hamiltonian liftはM67/R211台帳で別評価 \\
 R206 & R205Bのmatched capacity--conductance原理 & R206Cのfinite-time、hub residual、regularization、generator、record、fabrication error \\
 R207 & R205E thermal mixing、R205F generator separation defect & setting latch、finite-lock近似、outcome fixation、direct microscopic trajectory・具体装置の強化監査 \\
 \end{longtable}
@@ -5979,7 +6065,7 @@ M67/R209 compatibilityの追加だけからA1/A2/B1--B3、fixed-goal達成、M0�
 \chapter{結論}\label{ux7d50ux8ad6}}
 
 \begin{statusbox}
-位置づけ：M54共通signal・状態層、M66/R205共通thermal-reservoir層に加え、Q3ではM67を共通二実体finite-Hamiltonian physical parent、M37をcoherent module、M64をopen effective reductionとして総括する。fixed-goal、strengthening、M0を別判定として維持する。
+位置づけ：M54共通signal・状態層、M66/R205共通thermal-reservoir層に加え、M67を二実体finite-Hamiltonian physical parentとして総括する。Q3ではM37 coherent module/M64 open reductionへ、Q1ではR211A--R211CからM65/R204E selector contractへ接続する。fixed-goal、strengthening、M0を別判定として維持する。
 \end{statusbox}
 
 本稿で得られた最も大きな整理は、量子型構造の古典実現を1つの万能模型へ押し込めるのではなく、\textbf{共通signal層}と\textbf{共通thermal-reservoir層}を分け、その上に用途別の物理模型を接続できる形へしたことである。
@@ -6006,7 +6092,7 @@ w(Q)e^{-\beta H_{\rm cfg}(Q)}
 
 ただし、この共通化はM64またはM65の全模型をM66から導出したという意味ではない。M64/R203Bのpartition/free-energyとmean-flow sectorはR205Cへ対応する。一方、R205D fixed-hub corollaryは旧R204Bと数学的に対応するが、draft-140以後のM65 canonical first-passage lawのphysical liftではない。M64 tracer dynamicsとM65 two-result first-passage lawはそれぞれ固有の物理責務を持つ。R206はM66の直接Q2終端specializationであり、R207はR205A/R205E/R205FをQ2-2のprojection phase-volume共同準備・二端読出しへ特殊化する現行fixed-goal主線である。
 
-Q1では、M37/R187/R140が2モード可逆signalとRabi運動を与え、R189Aが測定に必要な2作用を保持する。M65のtwo-result first-passage selectorが二つの線形hazardを競合させ、有限decision時刻まで未決定ならsurvival事象を正式な無反応へ写す。R181Dは固定された安全結果に対応する非規格化射影成分を同じ試行の次操作へ渡す。これによりBorn型2結果、同軸・異軸逐次測定、有限Rabi--Zeno比較を同じsignal-to-result interfaceへ接続した。
+Q1では、M37/R187/R140が2モード可逆signalとRabi運動を与え、R189Aが測定に必要な2作用を保持する。M65のtwo-result first-passage selectorがcanonical open result形成を担い、R181Dは固定された安全結果に対応する非規格化射影成分を同じ試行の次操作へ渡す。さらにM67/R211A--R211Cは、二安定basinだけを持つdouble-well marker、phase-volume free energy、finite marker bathからR204Eと同じcomplete-result contractを回収するfinite-Hamiltonian strengtheningを与える。M65のPoisson waiting-time law自体はphysical liftの一致条件にしない。
 
 Q2-1とQ2-3ではR181B/R181Cが永続多モードsignal上でテンソル積状態とgate列を作り、末端4結果または8結果をR206で1回に標本化する。Q2-4ではR206Eで \(0^n\) rootを一様準備し、R181Cの一般gate列後に \(L=2^n\) のR206 samplerへ接続する。reader側の逐次leaf探索、R181D tree、非終端作用回復、結果別pointer resetを固定主線から外した。一方、M54 direct-amplitude registerへ全自由度加法ノイズが入るR186の障害はreader側とは独立に残り、Q2-4は条件付き達成を維持する。
 
@@ -6022,7 +6108,7 @@ Q3-2ではR208/R209がM67をM64/R203のcanonical open lawへ縮約し、R203D/R1
 
 従って現時点の統一は、\textbf{同一のsignal原理とreservoir原理を複数の量子型現象へ再利用できること}にある。全現象を1つの製造済み装置、1つの単一bath、1つの閉鎖Hamiltonian全系へ統合したという主張ではない。そこを明確に分けることで、すでに閉じた固定目標と、次に検査すべき物理実装・数値・実験の課題を同じ体系で管理できる。
 
-M67/R208--R210はQ3-1--Q3-5の共通physical parentとして採用する。ただしこれはQ1/Q2を同じ装置へ統合したこと、M0を達成したこと、A1/A2を自動達成したことを意味しない。Q3-6の位相量子化、strict locality、continuous-space一様極限、多粒子、全周期統合は別課題として残る。
+M67/R208--R210はQ3-1--Q3-5の共通physical parentとして採用し、R211A--R211CはQ1 selector componentのfinite-Hamiltonian strengtheningとして追加する。ただしこれはQ1全体またはQ2を同じ装置へ統合したこと、M0を達成したこと、A1/A2を自動達成したことを意味しない。Q3-6の位相量子化、strict locality、continuous-space一様極限、多粒子、全周期統合は別課題として残る。
 
 \appendix
 
@@ -10788,6 +10874,28 @@ M65/R204D--R204Eを使う場合は、
 
 Q1 fixed-goalのbinary witnessにはM65を使う。
 
+\hypertarget{m67r211-finite-hamiltonian-physical-lift}{%
+\subsection{M67/R211 finite-Hamiltonian physical lift}\label{m67r211-finite-hamiltonian-physical-lift}}
+
+M67/R211A--R211Cを使う場合、safe interior branchではdouble-well markerの固定時刻basin readout、edge branchではM65と同じ固定線形comparatorを使う。R211Cにより
+
+\[
+\varepsilon_{{\rm sel},u}
+=
+\varepsilon_{{\rm sel},u}^{67},
+\qquad
+\tau_{{\rm state},u}
+=
+\tau_{{\rm cut},u}
+-
+\varepsilon_{189A,u}
+>0
+\]
+
+と取れる。M67側のcollar、launch、survival、return、finite-Hamiltonian-to-diffusion coarse-graining誤差はR211B/R211C側で一度だけ数える。
+
+R181DはM65 Poisson waiting-time lawもM67 double-well dynamicsも仮定せず、P.2のcomplete-result contractだけを使う。Q1 fixed-goalのcanonical witnessはM65のまま、M67/R211はfinite-Hamiltonian strengtheningとして同じrouterへ接続する。
+
 \hypertarget{ux7d50ux679cux56faux5b9aux5f8cux306eux53efux9006projector-router}{%
 \section{結果固定後の可逆projector router}\label{ux7d50ux679cux56faux5b9aux5f8cux306eux53efux9006projector-router}}
 
@@ -14011,7 +14119,7 @@ $$
 
 R204Eが要求するのはcomplete-result kernelと結果固定interfaceであり、selector内部のwaiting-time lawや物理実装には依存しない。従って後続physical parentはM65の指数Poisson waiting-time分布そのものではなく、このcontractを有限誤差で回収すればよい。
 
-Q1 fixed-goal witnessにはM65を使う。
+Q1 fixed-goal witnessにはM65を使う。M67/R211A--R211Cはこのcontractへ接続するfinite-Hamiltonian strengtheningであり、M65/R204Aのwaiting-time lawを置換しない。
 \end{corollary}
 
 \hypertarget{r204fq1ux4e92ux63dbux6027ux3068ux6709ux9650latency}{%
@@ -14098,15 +14206,15 @@ R189Aのcapture終了後は \(H_{\rm cap}=0\) であり、保持済み \(A_L,A_R
 
 M65の正本はR204Aのtwo-result first-passage open law、R204Dの有限時間Born誤差、cutoff comparator、R204Eのbinary selector contract、R204FのQ1 interfaceで閉じる。
 
-旧R204Bのfixed-hub phase-volume chamberとR204CのHamiltonian--Brownian liftは旧3状態M65の追加physical-lift strengtheningとして退役し、notes/Git履歴へ保存する。結果ID R204B/R204Cは再利用しない。現行M65のfinite-Hamiltonian physical liftはこのPRでは定めず、後続M67/R211で扱う。
+旧R204Bのfixed-hub phase-volume chamberとR204CのHamiltonian--Brownian liftは旧3状態M65の追加physical-lift strengtheningとして退役し、notes/Git履歴へ保存する。結果ID R204B/R204Cは再利用しない。現行M65のfinite-Hamiltonian physical liftはM67/R211A--R211Cのdouble-well selectorとして与え、R204E contractで本付録へ接続する。M65/R204A・R204Dはcanonical open selectorとして維持する。
 
 旧R191/R193はM65へ責務を吸収したため現行主線から退役する。exact endpoint、有限record/latch、Q1空操作対照を含むfixed-goal主線は本付録で閉じる。
 
-\hypertarget{m67-ux4e8cux5b9fux4f53q3ux5171ux901afinite-hamiltonian-physical-parent}{%
-\chapter{M67 二実体・Q3共通finite-Hamiltonian physical parent}\label{m67-ux4e8cux5b9fux4f53q3ux5171ux901afinite-hamiltonian-physical-parent}}
+\hypertarget{m67-ux4e8cux5b9fux4f53finite-hamiltonian-physical-parent}{%
+\chapter{M67 二実体finite-Hamiltonian physical parent}\label{m67-ux4e8cux5b9fux4f53finite-hamiltonian-physical-parent}}
 
 \begin{statusbox}
-位置づけ：M67をQ3-1--Q3-5の共通二実体finite-Hamiltonian physical parentとする。M37はM67 coherent module、M64/R203はM67のcanonical open effective reduction、R123有限環境はR210Bのbounded dephasing liftの有効則として維持する。R208A--R209Cはtracer/Nelson側、R210Aはcoherent-sector/R86 compatibility、R210Bはbounded finite-dephasing embeddingを与える。Q3-6はM67 coherent sector上の未達課題として残し、Q1/Q2/NBL、M0、M54/M65/M66の運用状態は変更しない。
+位置づけ：M67をQ3-1--Q3-5の共通二実体finite-Hamiltonian physical parentとし、Q1ではM65/R204E binary-selector contractのfinite-Hamiltonian strengtheningをR211A--R211Cで与える。M37はM67 coherent module、M64/R203はM67のcanonical open effective reduction、R123有限環境はR210Bのbounded dephasing liftの有効則として維持する。R208A--R209Cはtracer/Nelson側、R210Aはcoherent-sector/R86 compatibility、R210Bはbounded finite-dephasing embedding、R211A--R211CはQ1 double-well selector liftを担う。Q3-6はM67 coherent sector上の未達課題として残し、Q2/NBL、M0、M54/M65/M66の運用状態は変更しない。
 \end{statusbox}
 
 \hypertarget{ux76eeux7684ux4e8cux5b9fux4f53ux8cacux52d9ux5883ux754c}{%
@@ -14124,9 +14232,9 @@ M67は、M64で別実体としていたclassical coherent signalとsignal-driven
 
 だけとする。\(\mathcal R_{\rm str}\) は有限個の古典正準自由度からなる一つのHamiltonian媒体であり、内部にcoherent、phase-volume、flow、dragの各sectorを持つ。これらは別々の物理実体ではなく、同じ媒体の正準部分系またはreaction coordinateである。Q3では \(\mathcal X\) をclassical tracerとして読む。
 
-本付録の責務はM67をQ3共通physical parentとして固定し、用途ごとのHamiltonian profileから既存の有効結果へ接続することである。coherent profileはR210Aを介してM37/R86へ、dephasing profileはR210Bを介してR123へ、continuous/finite-graph tracer profileはR208/R209を介してM64/R203A--R203Dへ接続する。R161/R185、R123--R125、R182は既存の下流結果として再利用し、本付録では再証明しない。Q1のM65/R181D、Q2のM54/R181B--R181C、M66/R205--R207、NBL型registerは本付録の直接主張に含めない。
+本付録の責務はM67をQ3共通physical parentとして固定し、さらにQ1 binary selectorのfinite-Hamiltonian strengtheningを同じ二実体architectureへ特殊化することである。coherent profileはR210Aを介してM37/R86へ、dephasing profileはR210Bを介してR123へ、continuous/finite-graph tracer profileはR208/R209を介してM64/R203A--R203Dへ接続する。Q1 binary-selector profileはR211A--R211Cを介してM65/R204E contractとR181Dへ接続する。R161/R185、R123--R125、R182、R204E、R181Dは既存の下流結果として再利用し、本付録では再証明しない。Q2のM54/R181B--R181C、M66/R205--R207、NBL型registerは本付録の直接主張に含めない。
 
-M67の「二実体」は自由度が二個という意味ではない。一つのstructured reservoir sector \(\mathcal R_{\rm str}\) が有限個のcoherent/thermal/reaction-coordinate/dephasing内部自由度を持ち、marker sector \(\mathcal X\) はQ3-2/Q3-4/Q3-5でtracerとしてactiveになる。Q3-1およびQ3-3A--Q3-3Cではmarker sectorをdecoupleしたprofileを許す。
+M67の「二実体」は自由度が二個という意味ではない。一つのstructured reservoir sector \(\mathcal R_{\rm str}\) が有限個のcoherent/thermal/reaction-coordinate/dephasing/held-action内部自由度を持ち、marker sector \(\mathcal X\) はQ3-2/Q3-4/Q3-5でtracer、Q1 selector profileではbinary decision markerとしてactiveになる。Q3-1およびQ3-3A--Q3-3Cではmarker sectorをdecoupleしたprofileを許す。
 
 \hypertarget{ux5168hamiltonianux3068coherent-sector}{%
 \section{全Hamiltonianとcoherent sector}\label{ux5168hamiltonianux3068coherent-sector}}
@@ -14175,9 +14283,10 @@ coherent & \(H_{\rm coh}\) & Q3-1 \\
 dephasing & \(H_{\rm coh}+H_{\rm deph,add}^{67}\) & Q3-3A/B/C \\
 continuous tracer & \(H_{\rm coh}+H_\rho+H_U+H_{\rm drag}+H_X\) & Q3-2 \\
 finite-graph tracer & coherent sector＋finite-graph phase-volume/current/marker specialization & Q3-4A/B/5 \\
+Q1 binary selector & held-action port＋Q1 phase-volume sector＋finite marker bath＋double-well marker & Q1 M65/R204E strengthening \\
 \end{longtable}
 
-profileは試行途中に確率生成のためswitchするものではなく、対象固定目標に対して開始前に固定したHamiltonian specializationである。Q3-3Cのdephasing運転とQ3-4Bのcoherent tunnelling運転は同時にactiveにしない。
+profileは試行途中に確率生成のためswitchするものではなく、対象固定目標に対して開始前に固定したHamiltonian specializationである。Q3-3Cのdephasing運転とQ3-4Bのcoherent tunnelling運転は同時にactiveにしない。Q1 binary-selector profileもR189A capture終了後に固定して使い、Q3 tracer profileとの同時運転を主張しない。
 
 coherent sectorにはM37/R86の有限局所振動子網を使う。
 
@@ -15645,7 +15754,696 @@ bath kinetic energyも非負なので下界を得る。$I_n,P_n$ はそれぞれ
 
 M67 supporting simulationではHamiltonian drift、M37 ideal signalとの状態方向誤差、\(U_X-v_\delta\)、phase-volume mean force、finite-bath memory、tracer分布を同じparameter setで監査する。R210A/Bを含むrequired解析検算とfull trajectory simulationを区別し、後者だけからA2を昇格しない。\(N_0\)、\(N_\rho\)、\(K_U\)、\(\tau_U\)、\(\tau_{\rm mem}\)、bath mode数、格子幅を独立に振り、一つの改善を複数誤差へ二重計数しない。
 
-M67をQ3 common physical parentへ昇格してもM37、M64、R123の結果を削除しない。M37はactive coherent module、M64/R203はactive open effective reduction、R123はR210Bで物理liftされたactive dephasing lawとして維持する。A1/A2/B1--B3、M0の判定は変更しない。Q1/Q2/NBL特殊化は将来候補であり、H/T/CNOTの一般実装、NBL Born sampling、mixing/resource boundを本付録から推論しない。\(R_i^\delta=|Z_i|^2+\delta q_iS\) のglobal \(S\) を完全局所化する問題もstrict-locality strengtheningとして残す。
+M67をQ3 common physical parentへ昇格してもM37、M64、R123の結果を削除しない。M37はactive coherent module、M64/R203はactive open effective reduction、R123はR210Bで物理liftされたactive dephasing lawとして維持する。R211A--R211CはQ1 binary selectorだけを追加specializeし、M65/R204A・R204D--R204Fをcanonical open selectorとして維持する。A1/A2/B1--B3、M0の判定は変更しない。Q2/NBL特殊化は将来候補であり、H/T/CNOTの一般実装、NBL Born sampling、mixing/resource boundを本付録から推論しない。\(R_i^\delta=|Z_i|^2+\delta q_iS\) のglobal \(S\) を完全局所化する問題もstrict-locality strengtheningとして残す。
+
+\hypertarget{q1-binary-selector-profileux3068safe-branch}{%
+\section{Q1 binary-selector profileとsafe branch}\label{q1-binary-selector-profileux3068safe-branch}}
+
+R189Aのcapture終了後に保持された二作用を
+
+\[
+A_\pm\ge0,
+\qquad
+A_\Sigma=A_++A_->0,
+\qquad
+\widehat p_\pm=\frac{A_\pm}{A_\Sigma}
+\]
+
+とする。M65と同じ固定cutoff \(0<\tau_{\rm cut}<1/2\) を使い、
+
+\[
+\widehat p_\pm\ge\tau_{\rm cut}
+\]
+
+をQ1 double-well profileのsafe branchとする。cutoff外およびexact endpointはR204D/R204Eで既に用いる固定線形comparatorへ渡し、double-well profileへ \(\log0\) を持ち込まない。
+
+固定装置scale \(A_*>0\) に対して \(a_\pm=A_\pm/A_*\) とする。Hamiltonianを全位相空間でsmoothに定義するため、正のsmooth extension \(\bar a_\pm(I_+,I_-)\) を選び、safe branchでは厳密に
+
+\[
+\bar a_\pm=a_\pm
+\]
+
+とする。safe branch外のextensionはHamiltonian regularizationだけを担い、Born重みを計算する外部tableとして使わない。
+
+Q1 profileではrunning W2 signalはR189A capture終了後にselectorから切り離す。M67 structured reservoir内部にheld-action pair、phase-volume modes、finite marker bathを置き、別sector \(\mathcal X=(X,P_X)\) をbinary markerとして使う。
+
+\hypertarget{r211am67-q1-double-well-finite-hamiltonian-construction}{%
+\section{R211A：M67 Q1 double-well finite-Hamiltonian construction}\label{r211am67-q1-double-well-finite-hamiltonian-construction}}
+
+held-action pairをcanonical action-angle変数
+
+\[
+(I_+,\theta_+),
+\qquad
+(I_-,\theta_-),
+\qquad
+I_\pm=A_\pm
+\]
+
+として受ける。selector Hamiltonianを \(\theta_\pm\) に依存させない。
+
+裸のmarker potential \(W_0\) はevenなdouble wellとし、
+
+\[
+W_0(-X)=W_0(X)
+\]
+
+を満たす。数値witnessでは
+
+\[
+W_0(X)=16(X^2-1)^2
+\]
+
+を使うが、定理本体は一般のsmooth even double wellへ適用する。
+
+collar幅 \(\ell>0\) とsmooth step \(\chi_\ell\) を
+
+\[
+\chi_\ell(X)=0
+\quad
+(X\le-\ell),
+\]
+
+\[
+\chi_\ell(X)=1
+\quad
+(X\ge\ell)
+\]
+
+となるよう選び、
+
+\[
+\log w_\ell(X)
+=
+[1-\chi_\ell(X)]\log\bar a_-
++
+\chi_\ell(X)\log\bar a_+
+\]
+
+とする。safe branchでは左右でそれぞれ \(w_\ell=a_-\)、\(w_\ell=a_+\) となり、中央に第三のphase-volume plateauを置かない。
+
+Q1 phase-volume sectorを
+
+\[
+H_{\rm pv}^{Q1}
+=
+\sum_{\alpha=1}^{N_\rho}
+\left[
+\frac{\Pi_\alpha^2}{2m_\alpha}
++
+\frac{m_\alpha\omega_\alpha^2}{2}
+w_\ell(X)^{-2q_\alpha}\zeta_\alpha^2
+\right],
+\]
+
+\[
+q_\alpha>0,
+\qquad
+\sum_\alpha q_\alpha=1
+\]
+
+とする。marker frictionにはR209Bと同型のfinite harmonic bath
+
+\[
+H_B^{Q1}
+=
+\sum_{\mu=1}^{N_B}
+\left[
+\frac{p_\mu^2}{2m_\mu}
++
+\frac{m_\mu\omega_\mu^2}{2}
+(q_\mu-c_\mu X)^2
+\right]
+\]
+
+を使う。固定 \(X\) でbath座標の平行移動はJacobian 1なので、このbathはstatic Born biasを追加しない。
+
+Q1 selector Hamiltonianを
+
+\[
+H_{67}^{Q1}
+=
+H_{\rm hold}(I_+,I_-)
++
+\frac{P_X^2}{2M_X}
++
+W_0(X)
++
+H_{\rm pv}^{Q1}
++
+H_B^{Q1}
+\]
+
+とする。
+
+\begin{theorem}[R211A：M67 Q1 double-well finite-Hamiltonian construction]
+
+safe held-action domainを含むsmooth positive extension $\bar a_\pm$ を取り、$W_0$、$\chi_\ell$、有限phase-volume modes、finite harmonic bathを上のように選ぶ。このとき $H_{67}^{Q1}$ は有限自由度のsmooth classical Hamiltonianとして構成でき、
+
+$$
+\dot I_\pm
+=
+-\frac{\partial H_{67}^{Q1}}{\partial\theta_\pm}
+=
+0
+$$
+
+がdecision区間で厳密に成立する。
+
+固定 $X,I_\pm$ のphase-volume canonical積分は
+
+$$
+Z_{\rm pv}
+=
+Z_{\rm pv}^0w_\ell(X)
+$$
+
+を与え、markerのpotential of mean forceは
+
+$$
+F_\ell(X)
+=
+W_0(X)
+-
+k_BT\log w_\ell(X)
++
+C
+$$
+
+となる。
+
+safe action-ratio集合全体で $F_\ell$ が左右二つの局所極小と中央collar内の一つの局所極大だけを持つよう $W_0$、$\ell$ を選べる。この場合stable marker basinは $+$ と $-$ の二つだけであり、中央に第三の安定pointer状態を持たない。全自由度はM67の
+
+$$
+\mathcal R_{\rm str}
++
+\mathcal X_{\rm marker}
+$$
+
+という二つの主要physical sectorへ分類できる。
+\end{theorem}
+
+\begin{proof}[R211A]
+
+$\theta_\pm$ がcyclicなので $I_\pm$ の保存はHamilton方程式から直ちに従う。各phase-volume oscillatorについて $\widetilde\zeta_\alpha=w_\ell^{-q_\alpha}\zeta_\alpha$ と変数変換すればJacobianは $w_\ell^{q_\alpha}$ であり、積を取ると $\sum_\alpha q_\alpha=1$ から全Jacobianが $w_\ell$ になる。従って $Z_{\rm pv}=Z_{\rm pv}^0w_\ell$ とfree-energy式を得る。finite marker bathは座標平行移動なので固定 $X$ partitionへ追加の $X$ 依存factorを生じない。safe action-ratio集合はcompactであり、$\partial_X\log w_\ell$ とその必要微分は有限である。裸のdouble-well curvature/barrierをこれらの有限摂動に対して十分強く選べば、左右二極小と中央一極大だけを一様に維持できる。証明終。
+\end{proof}
+
+R211AはBorn確率をまだ主張しない。これはfinite-Hamiltonian device constructionとheld-action invarianceだけを閉じる。
+
+\hypertarget{r211bm67-q1-double-well-born-kernelux3068r204e-compatibility}{%
+\section{R211B：M67 Q1 double-well Born kernelとR204E compatibility}\label{r211bm67-q1-double-well-born-kernelux3068r204e-compatibility}}
+
+R211Aのpotential of mean forceに対するideal overdamped markerを
+
+\[
+dX_t^D
+=
+-\mu F_\ell'(X_t^D)dt
++
+\sqrt{2\mu k_BT}\,dW_t
+\]
+
+とする。\(0<\ell<d<L\) を取り、\(\pm L\) を数学上のdeep commitment surface、\(\pm d\) を固定decision時刻のterminal readout thresholdとする。
+
+sharp-interface \(\ell=0\) では
+
+\[
+w_0(X)
+=
+\begin{cases}
+a_-,
+&
+X<0,
+\\
+a_+,
+&
+X>0.
+\end{cases}
+\]
+
+1次元committor \(q_+(x)=P_x(\tau_{+L}<\tau_{-L})\) は
+
+\[
+q_+(x)
+=
+\frac{
+\displaystyle
+\int_{-L}^{x}
+e^{\beta F_0(y)}dy
+}{
+\displaystyle
+\int_{-L}^{L}
+e^{\beta F_0(y)}dy
+}.
+\]
+
+\(W_0\) のeven symmetryから
+
+\[
+q_+(0)
+=
+\frac{a_+}{a_++a_-}
+=
+\widehat p_+,
+\qquad
+q_-(0)=\widehat p_-.
+\]
+
+有限collarについて
+
+\[
+G(x)=e^{\beta W_0(x)},
+\qquad
+I=\int_0^LG(x)dx,
+\qquad
+I_\ell=\int_0^\ell G(x)dx,
+\qquad
+r_\ell=\frac{I_\ell}{I},
+\]
+
+\[
+\rho_\tau
+=
+\frac{1-\tau_{\rm cut}}{\tau_{\rm cut}}
+\]
+
+と置く。\((\rho_\tau-1)r_\ell<1\) なら、
+
+\[
+\varepsilon_{\rm col}
+:=
+|q_{\ell,+}(0)-\widehat p_+|
+\le
+\frac{
+(\rho_\tau-1)r_\ell
+}{
+2[
+1-(\rho_\tau-1)r_\ell
+]
+}.
+\]
+
+初期markerが \(|X_0|\le\delta_0\) にある場合、
+
+\[
+L_q
+=
+\sup_{|x|\le\delta_0}
+|q_\ell'(x)|
+\]
+
+として
+
+\[
+\varepsilon_{\rm launch}
+\le
+L_q\delta_0.
+\]
+
+実装側ではfirst-event memoryを追加せず、固定decision時刻 \(T\) に
+
+\[
+g_d(X)
+=
+\begin{cases}
++,
+&
+X\ge d,
+\\
+-,
+&
+X\le-d,
+\\
+\varnothing,
+&
+|X|<d
+\end{cases}
+\]
+
+と読む。ideal diffusion kernelを \(K_D^T=\mathcal L(g_d(X_T^D))\) とする。
+
+deep commitment未到達を
+
+\[
+\varepsilon_{\rm surv}(T)
+=
+P(\tau_L>T),
+\qquad
+\tau_L
+=
+\inf\{t:|X_t^D|\ge L\},
+\]
+
+一度deep commitmentした後にterminal thresholdまで戻る確率を
+
+\[
+r_+(T)
+=
+P_{+L}(\tau_d\le T),
+\qquad
+r_-(T)
+=
+P_{-L}(\tau_{-d}\le T),
+\]
+
+\[
+\varepsilon_{\rm ret}(T)
+\le
+q_{\ell,+}r_+(T)
++
+q_{\ell,-}r_-(T)
+\]
+
+とする。
+
+finite-Hamiltonian markerを \(X_t^{67}\) とし、R209B/Cと同じfinite-bath eliminationとsmall-mass reductionをQ1 profileへ特殊化して、固定時刻で
+
+\[
+W_1
+\left(
+\mathcal L(X_T^{67}),
+\mathcal L(X_T^D)
+\right)
+\le
+\varepsilon_X(T)
+\]
+
+を得る。Q1 profileではflow/current sectorを使わないため、
+
+\[
+\varepsilon_X(T)
+=
+\varepsilon_{\rm bath}^{X}(T)
++
+\varepsilon_{\rm od}^{X}(T)
++
+\varepsilon_{\rho}^{X}(T)
++
+\varepsilon_{\rm init}^{X}
+\]
+
+と取る。equal phase-volume weightsでは \(\varepsilon_\rho^X=O(T/\sqrt{N_\rho})\)、small-mass項は
+
+\[
+\varepsilon_{\rm od}^{X}(T)
+\le
+C_T
+\left[
+\frac{M_X}{\gamma}B_*
++
+\sqrt{
+\nu\frac{M_X}{\gamma}
+}
+\right].
+\]
+
+threshold近傍質量を
+
+\[
+\omega_d(\delta,T)
+=
+P_D
+\left(
+\bigl||X_T^D|-d\bigr|
+\le\delta
+\right)
+\]
+
+とすれば、Wasserstein couplingとMarkov inequalityから
+
+\[
+\varepsilon_{\rm cg}(T)
+:=
+D_{\rm TV}
+\left(
+\mathcal L(g_d(X_T^{67})),
+\mathcal L(g_d(X_T^D))
+\right)
+\le
+\inf_{\delta>0}
+\left[
+\frac{\varepsilon_X(T)}{\delta}
++
+\omega_d(\delta,T)
+\right].
+\]
+
+ideal diffusion densityを \(\rho_D(x,T)\) とし、threshold近傍で \(\rho_D\le m_d(T)\) なら補助上界
+
+\[
+\varepsilon_{\rm cg}(T)
+\le
+4
+\sqrt{
+m_d(T)\varepsilon_X(T)
+}
+\]
+
+も得る。
+
+\begin{theorem}[R211B：M67 Q1 double-well Born kernel / R204E compatibility]
+
+R211Aのsafe Q1 profileを取り、$0<\ell<d<L$、有限decision時刻 $T<T_{\rm rec}$ を選ぶ。finite-Hamiltonian terminal result kernelを
+
+$$
+K_{67}^T
+=
+\mathcal L(g_d(X_T^{67}))
+$$
+
+とし、保持作用比に対するcomplete Born kernelを
+
+$$
+K_{\widehat p}
+=
+(\widehat p_+,\widehat p_-,0)
+$$
+
+とする。このとき
+
+$$
+D_{\rm TV}
+\left(
+K_{67}^T,
+K_{\widehat p}
+\right)
+\le
+\varepsilon_{211B}(T),
+$$
+
+$$
+\varepsilon_{211B}
+=
+\varepsilon_{\rm col}
++
+\varepsilon_{\rm launch}
++
+\varepsilon_{\rm surv}
++
+\varepsilon_{\rm ret}
++
+\varepsilon_{\rm cg}.
+$$
+
+各項は上の1次元quadrature、backward equation、one-time Wasserstein boundから有限に評価できる。
+
+さらにsafe action-ratio集合を固定したまま、collar幅、launch幅、finite phase-volume mode数、finite-bath近似、small-mass parameter、recurrence time、well depthとdecision windowを順に選ぶparameter族で
+
+$$
+\varepsilon_{211B}
+\longrightarrow0
+$$
+
+とできる。従ってM67 Q1 profileはR204E binary selector contractを任意精度で満たすfinite-Hamiltonian physical liftを与える。
+
+R211BはM65/R204Aの指数Poisson waiting-time lawや $\lambda_\pm=\kappa a_\pm$ を再現するとは主張しない。
+\end{theorem}
+
+\begin{proof}[R211B]
+
+sharp-interface committor式は1次元reversible diffusionのscale functionから従い、$W_0$ のeven symmetryによって左右積分の共通factorが消え、保持作用比を厳密に得る。finite collarはsharp profileとの差が $|X|<\ell$ にだけ支持を持つため、左右scale integralの摂動評価から $\varepsilon_{\rm col}$ を得る。launch errorはcommittorの平均値定理で抑える。
+
+eventual deep-commitment signと固定時刻basin readoutが異なるpathは、時刻 $T$ までに $\pm L$ へ到達しない場合か、到達後に対応する $\pm d$ まで戻る場合へ含まれるので、自然couplingから $\varepsilon_{\rm surv}+\varepsilon_{\rm ret}$ で抑えられる。
+
+finite-Hamiltonian lawとideal diffusion lawをone-time $W_1$ couplingし、coupling距離が $\delta$ を超える確率をMarkov inequalityで $\varepsilon_X/\delta$ と評価する。両marker位置がthresholdから $\delta$ 以上離れ、coupling距離が $\delta$ 以下なら $g_d$ の結果は一致するため、残る不一致確率は $\omega_d(\delta,T)$ 以下である。$\delta$ について下限を取れば $\varepsilon_{\rm cg}$ を得る。各誤差項を順次小さくできるparameter族を選べば最後の主張が従う。証明終。
+\end{proof}
+
+\hypertarget{required-numerical-witness}{%
+\subsection{required numerical witness}\label{required-numerical-witness}}
+
+dimensionless units \(k_BT=\mu=x_0=1\) で、
+
+\[
+W_0(X)=16(X^2-1)^2,
+\qquad
+\tau_{\rm cut}=0.07,
+\]
+
+\[
+\ell=0.01,
+\qquad
+d=0.40,
+\qquad
+L=0.78,
+\qquad
+T=0.22,
+\qquad
+\delta_0=5\times10^{-4}
+\]
+
+を取る。tools/verify\_m67\_q1\_first\_passage.py はsafe action ratio全域でdouble-well topology、smooth-collar committor、launch bound、finite-time survival、return、terminal threshold mass、Wasserstein-to-result transferを同じparameter setで検算する。
+
+現行deterministic finite-difference witnessでは
+
+\[
+\varepsilon_{\rm col}^{\max}
+<
+4.8\times10^{-3},
+\]
+
+\[
+\varepsilon_{\rm launch}
+<
+1.7\times10^{-3},
+\]
+
+\[
+\varepsilon_{\rm surv}^{\max}
+<
+2.0\times10^{-5},
+\qquad
+\varepsilon_{\rm ret}^{\max}
+<
+5.0\times10^{-4}.
+\]
+
+finite-Hamiltonian reduction target \(\varepsilon_X(T)\le10^{-4}\) では直接threshold-mass optimizationを使って
+
+\[
+\varepsilon_{211B}
+<
+8.0\times10^{-3}.
+\]
+
+\(\varepsilon_X(T)\le10^{-3}\) というloose targetでも
+
+\[
+\varepsilon_{211B}
+<
+1.3\times10^{-2}
+\]
+
+を満たす。これはfull finite-Hamiltonian trajectory simulationによるA2判定ではなく、R211Bの同時parameter領域が空でないことを示すrequired numerical regressionである。
+
+\hypertarget{r211cm67-q1-selector-physical-lift-composition}{%
+\section{R211C：M67 Q1 selector physical-lift composition}\label{r211cm67-q1-selector-physical-lift-composition}}
+
+R211Bは与えられた保持作用比 \(\widehat p\) に対するphysical selector errorだけを扱う。R189Aの作用保持誤差はここで初めて合成する。
+
+safe interior branchでは
+
+\[
+\varepsilon_{\rm int}^{67}
+\le
+\varepsilon_{189A}
++
+\varepsilon_{211B}
++
+\varepsilon_{\rm rec}.
+\]
+
+cutoff外ではM65/R204Dと同じ固定線形comparatorを使い、
+
+\[
+\varepsilon_{\rm edge}^{67}
+\le
+\tau_{\rm cut}
++
+\varepsilon_{189A}
++
+\varepsilon_{\rm cmp}
++
+\varepsilon_{\rm rec}.
+\]
+
+従って
+
+\[
+\varepsilon_{\rm sel}^{67}
+=
+\max
+\left\{
+\varepsilon_{\rm int}^{67},
+\varepsilon_{\rm edge}^{67}
+\right\}.
+\]
+
+safe nonempty resultについて真のprojector weightには
+
+\[
+p_r
+\ge
+\tau_{\rm state}^{67}
+:=
+\tau_{\rm cut}
+-
+\varepsilon_{189A}
+>0
+\]
+
+という一様下限を与える。
+
+\begin{theorem}[R211C：M67 Q1 selector physical-lift composition]
+
+R189A、R211A、R211Bの条件を満たし、decision時刻 $T$ のterminal result $Y\in\{+,-,\varnothing\}$ をR112型有限recordへ固定してからR181D routerを開くとする。このときM67 Q1 selectorはR204E binary selector contractを
+
+$$
+\varepsilon_{\rm sel}
+=
+\varepsilon_{\rm sel}^{67},
+\qquad
+\tau_{\rm state}
+=
+\tau_{\rm state}^{67}
+$$
+
+として満たす。
+
+従ってR181Dを変更せず適用でき、既存R189Bのdistribution errorはM67 physical-lift経路では
+
+$$
+\varepsilon_{189B,67}^{\rm dist}
+\le
+\varepsilon_{\rm sel}^{67}
++
+\varepsilon_{\rm lat}
+$$
+
+と評価できる。
+
+selector parameter setと有限decision/record/router時間を先に固定し、その後R187のweak-coupling極を取れば
+
+$$
+\Omega_\kappa
+\left(
+T_{211}
++
+T_{\rm rec}
++
+T_F
+\right)
+\longrightarrow0
+$$
+
+とできる。従ってR189Cの有限2回Rabi--Zeno比較へ同じ試行内で接続できる。
+\end{theorem}
+
+\begin{proof}[R211C]
+
+interior branchではR211Bのcomplete-result TV errorへR189A作用保持誤差と有限record errorを三角不等式で一度だけ加える。edge branchではR204Dと同じ固定線形comparatorを使うため表示した上界を得る。safe branchの理想重み下限から $\tau_{\rm state}^{67}>0$ が従う。R204Eはselector内部のwaiting-time law、state数、bath実装を要求せず、complete-result TV bound、safe-state lower bound、record-before-router、Born tableを外部入力しないこと、$\varnothing$ を捨てないことだけを要求するため、R211A/B構成はそのままcontractへ入る。R181DとR189B/R189Cの既存証明はselector contractだけに依存するので変更不要である。証明終。
+\end{proof}
+
+R211A--R211CはM65を置換しない。M65/R204A・R204Dはcanonical open selector、R211A/Bはfinite-Hamiltonian physical lift、R204Eは両者が共有するinterface、R181Dはselector-independent projector routerとして維持する。
 
 \begingroup
 
