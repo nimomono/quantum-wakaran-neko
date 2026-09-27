@@ -574,9 +574,9 @@ M0は、個別のA1模型を並べるだけでは達成としない。少なく�
 
 | 結果 | 導出状態 | 内容 |
 |---|---|---|
-| R211A | required finite-Hamiltonian construction | R189A held actionsをcyclic canonical actionsとして厳密保存し、smooth phase-volume collar、finite marker bath、左右二つの安定basinだけを持つdouble-well markerをM67二実体architectureへ構成する |
-| R211B | required明示誤差付きBorn-kernel compatibility | sharp-interface committorで保持作用比を厳密回収し、finite collar、launch、survival、return、one-time $W_1$ coarse-grainingを $\varepsilon_{211B}$ へ合成してR204E complete-result contractへ任意精度で接続する。R204A Poisson waiting-time lawは再現しない |
-| R211C | required Q1 composition | R189A作用保持誤差、R211B physical-kernel error、record/cutoffを合成してR204E/R181Dへ渡し、finite decision windowを固定後のR187 weak-coupling極でR189B/R189Cの逐次測定・Zeno witnessへ接続する |
+| R211A | 強化結果・finite-Hamiltonian construction | R189A held actionsをcyclic canonical actionsとして厳密保存し、smooth phase-volume collar、finite marker bath、左右二つの安定basinだけを持つdouble-well markerをM67二実体architectureへ構成する |
+| R211B | 強化結果・明示誤差付きBorn-kernel compatibility | sharp-interface committorで保持作用比を厳密回収し、finite collar、launch、survival、return、one-time $W_1$ coarse-grainingを $\varepsilon_{211B}$ へ合成してR204E complete-result contractへ任意精度で接続する。R204A Poisson waiting-time lawは再現しない |
+| R211C | 強化結果・Q1 composition | R189A作用保持誤差、R211B physical-kernel error、record/cutoffを合成してR204E/R181Dへ渡し、finite decision windowを固定後のR187 weak-coupling極でR189B/R189Cの逐次測定・Zeno witnessへ接続する |
 
 ### M66 common thermal-reservoir結果
 
@@ -585,7 +585,7 @@ M0は、個別のA1模型を並べるだけでは達成としない。少なく�
 | R205A | 厳密partition結果 | 正のlocal scaleをreservoir座標Jacobianへ入れるとcanonical phase volumeがscaleへ線形比例し、free energyが $-k_BT\log w+C$ になる共通identity |
 | R205B | 厳密reduced-law結果 | channel capacityとconductanceへ同じlocal scaleを掛けると、channel→hub rateがscale非依存、hub→channel rateがscale比例となるmatched capacity--conductance原理 |
 | R205C | 厳密partition結果 | moving reservoirの運動量平行移動 $U$ とphase-volume weight $w$ がcanonical free energyで直交し、$F_{\rm res}=-k_BT\log w+C$ と $-\nabla F_{\rm res}=k_BT\nabla\log w$ を同時に与える |
-| R205D | 厳密系 | R205Bのbinary fixed-hub特殊化からR204Bの $k_{y\to H}=\Lambda$、$k_{H\to y}=\kappa a_y$ を回収する |
+| R205D | 厳密系 | R205Bのbinary fixed-hub特殊化として旧R204Bの $k_{y\to H}=\Lambda$、$k_{H\to y}=\kappa a_y$ を数学的に回収する。draft-140以後の現行M65 physical liftには用いない |
 | R205E | 厳密reversible open-SDE結果・条件付き有限時間結果 | $H_{\rm eff}=H_{\rm cfg}-k_BT\log w$ のoverdamped thermal samplerが $p_{\rm eq}\propto we^{-\beta H_{\rm cfg}}$ を可逆定常分布に持ち、Poincaré gap下で指数mixingする |
 | R205F | 厳密generator結果・明示誤差付き分離 | 距離依存相互作用 $K(R)$ とreservoir cross-diffusion $C_{AB}(R)$ のgenerator defectを評価し、両者が消えると固定local bath couplingのまま $\mathcal L_A+\mathcal L_B$ へ分離する |
 
