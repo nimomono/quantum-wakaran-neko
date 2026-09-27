@@ -37,7 +37,7 @@ w(Q)e^{-\beta H_{\rm cfg}(Q)}
 
 を共通核とする。R205Cによりphase-volume weightとmean-flow shiftは同じreservoir内で両立し、R205Fは距離依存相互作用とreservoir cross-correlationが消えるときの受動的generator分離条件を与える。
 
-この階層化は、M64またはM65の全模型やR206 apparatus全体をM67/R212から導出したという主張ではない。M64のtracer/current dictionaryとM65のtwo-result first-passage open lawは系列固有の責務として残る。M64/R203Bのpartition/free-energyとmean-flow sectorはR205Cへ埋め込まれる。R205Dのfixed-hub capacity--conductance結果はM66側の数学的corollaryとして残るが、draft-140以後の現行M65 physical liftとは扱わない。R206はM67/R212→M66/R205上のQ2終端多結果特殊化であり、R207はR212B-rot/R212CからM66/R205A・R205E・R205Fを経てQ2-2のprojection phase-volume共同準備・二端読出しへ特殊化する。
+この階層化は、M64またはM65の全模型やR206 apparatus全体をM67/R212から導出したという主張ではない。M64のtracer/current dictionaryとM65のtwo-result first-passage open lawは系列固有の責務として残る。M64/R203Bのpartition/free-energyとmean-flow sectorはR205Cへ埋め込まれる。R205Dのfixed-hub capacity--conductance結果はM66側の数学的corollaryとして残るが、draft-140以後の現行M65 physical liftとは扱わない。R206はM67/R212->M66/R205上のQ2終端多結果特殊化であり、R207はR212B-rot/R212CからM66/R205A・R205E・R205Fを経てQ2-2のprojection phase-volume共同準備・二端読出しへ特殊化する。
 
 Q1では、M37弱結合W型の最低2正常モードをR187でM54のW2信号へ接続し、R140が有限 $SU(2)$ 操作とRabi運動を与える。測定軸に対する2つの射影作用
 
@@ -57,9 +57,9 @@ P(r=\pm)
 
 結果固定後はR181Dが物理信号を非線形に規格化せず、選ばれた非規格化結果成分 $P_rZ$ を同じ試行の次操作へ渡す。R143--R144とR189A--R189Cを合わせ、Born型2結果、逐次測定、有限Rabi--Zeno比較を構成する。M67/R211A--R211Cはこのcanonical M65/R204E interfaceへdouble-well finite-Hamiltonian selectorを接続するstrengtheningであり、M65のPoisson waiting-time law自体を再現するものではない。
 
-Q2-1とQ2-3ではR181Bが固定入力のテンソル積信号を作り、R181Cが同じ永続記憶部上で局所gateと結合gateを作用する。末端4結果または8結果はM67/R212→M66の特殊化R206で1回に標本化する。Q2-4ではR206Eで $0^n$ rootを一様準備し、R181Cの一般gate列後に $L=2^n$ のR206 samplerへ直接接続する。R206A--R206Cは逐次leaf探索、最小Born重みに依存する混合時間、結果別routerを避ける。一方、M54 direct-amplitude registerへ全自由度加法ノイズが入るR186の障害は残るため、Q2-4は条件付き達成を維持する。
+Q2-1とQ2-3ではR181Bが固定入力のテンソル積信号を作り、R181Cが同じ永続記憶部上で局所gateと結合gateを作用する。末端4結果または8結果はM67/R212->M66の特殊化R206で1回に標本化する。Q2-4ではR206Eで $0^n$ rootを一様準備し、R181Cの一般gate列後に $L=2^n$ のR206 samplerへ直接接続する。R206A--R206Cは逐次leaf探索、最小Born重みに依存する混合時間、結果別routerを避ける。一方、M54 direct-amplitude registerへ全自由度加法ノイズが入るR186の障害は残るため、Q2-4は条件付き達成を維持する。
 
-Q2-2 fixed-goalはM67/R212→M66/R205→R207 projection phase-volume経路を使う。setting方向とhidden directionsをnear-contactで共同thermal preparationし、projection phase volumeとisotropic lockから一般角度singlet共同統計へ接続する。finite-lockでは余弦形のvisibilityを解析的に与え、finite thicknessでは一様全変動誤差を持つ。分離後はlocal response factorizationを保つ一方、source hidden stateはsetting-dependentでありmeasurement independenceは成立しない。
+Q2-2 fixed-goalはM67/R212->M66/R205->R207 projection phase-volume経路を使う。setting方向とhidden directionsをnear-contactで共同thermal preparationし、projection phase volumeとisotropic lockから一般角度singlet共同統計へ接続する。finite-lockでは余弦形のvisibilityを解析的に与え、finite thicknessでは一様全変動誤差を持つ。分離後はlocal response factorizationを保つ一方、source hidden stateはsetting-dependentでありmeasurement independenceは成立しない。
 
 Q3のsignal数学はQ1/Q2と別の代数ではない。Q1型局所正準モードを空間頂点へ配置し、Q2型2体系結合を辺へ反復すると、Schrödinger型signal、局所作用、反対称currentが得られる。Q3ではM67を共通二実体finite-Hamiltonian physical parentとし、M37をそのcoherent oscillator moduleとして内包する。R210Aがfull M67からM37/R86のSchrödinger型signalへの有限時間compatibilityを与える。
 
