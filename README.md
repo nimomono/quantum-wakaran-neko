@@ -106,7 +106,7 @@ Q2-2 fixed-goalのBell型統計はR207 projection phase-volume二端模型で再
 
 Q3ではM37/R86 signalへM64のclassical tracerとsignal-driven thermal reservoirを接続し、signal density/currentからosmotic driftとcurrent driftを作る。R203D/R161/R185を介してNelson型の前進・後退平均微分と時間対称Newton則へ接続し、finite graphでは有限障壁、W型トンネル振動、2経路干渉を同じtracerの位置読出しへつなぐ。
 
-M67/R208--R210をQ3のcommon finite-Hamiltonian physical parentとする。M37型coherent moduleとthermal/dephasing自由度を一つのstructured reservoirへまとめ、marker sectorと組み合わせる。R210Aはfull M67からM37/R86へのcoherent compatibility、R210BはR123 dephasing lawのbounded physical lift、R208/R209はM64/R203 open lawへのfinite-time compatibilityを与える。M37、M64/R203、R123はそれぞれactive module/effective lawとして維持し、Q1/Q2/M0の運用状態は変更しない。
+M67/R208--R210をQ3のcommon finite-Hamiltonian physical parentとする。M37型coherent moduleとthermal/dephasing自由度を一つのstructured reservoirへまとめ、marker sectorと組み合わせる。R210Aはfull M67からM37/R86へのcoherent compatibility、R210BはR123 dephasing lawのbounded physical lift、R208/R209はM64/R203 open lawへのfinite-time compatibilityを与える。さらにR211A--R211CがQ1 selector componentのfinite-Hamiltonian strengtheningを与える。M37、M64/R203、R123、M65/R204はそれぞれactive module/effective/canonical lawとして維持し、Q1 fixed-goalのcanonical主線、Q2、M0の運用状態は変更しない。
 
 この共通化は、全系列を1台の装置へ統合したことを意味しない。準備、操作、測定、永久記録、reset、clock、renewalを1つのjoint microscopic device/processへまとめることはM0で別に要求する。
 
