@@ -93,7 +93,7 @@ M65/R204D--R204Eを使う場合は、
 \tau_{\rm cut}-\varepsilon_A>0
 ```
 
-と取れる。M65内部rateや無反応hub誤差はM65側の誤差台帳に含める。
+と取れる。M65内部のfinite-time survival、cutoff comparator、record誤差はM65側の誤差台帳に含める。R181Dはfirst-passage waiting-time lawやselector内部状態数を仮定しない。
 
 Q1 fixed-goalのbinary witnessにはM65を使う。
 
