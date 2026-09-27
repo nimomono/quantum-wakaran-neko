@@ -46,10 +46,10 @@ draft-140以後のM65正本はtwo-result first-passage open selectorである。
 
 旧R204B/R204C fixed-hub chamber simulation案は現行M65 strengtheningから退役した。draft-141でM67/R211A--R211Cが二重井戸markerからR204E-compatible complete-result kernelを回収するfinite-Hamiltonian liftを定めた。tools/verify_m67_q1_first_passage.py はrequired reduced-kernel regressionであり、full finite harmonic bath trajectoryを直接積分するQ1 A2 simulationは引き続き未監査である。
 
-## M66 common thermal-reservoir parent
+## M66 thermal open/effective layer
 
-`simulations/m66/README.md` には、R206 common-hub trajectoryに加え、R205Eのthermal Gibbs preparation、R205Fの距離依存interaction/cross-correlationを含むpassive separation、phase-volume scaling、finite-bandwidth correction、terminal backreaction、always-on couplingの将来A2計画を置く。draft-129のrequired checksは解析式とgeneratorの回帰であり、full Brownian trajectoryや具体spatial reservoirの直接simulationを代替しない。
+`simulations/m66/README.md` には、M67/R212から縮約されるopen/effective layerとしてR206 common-hub trajectory、R205E thermal Gibbs preparation、R205F passive separation、phase-volume scaling、finite-bandwidth correction、terminal backreaction、always-on couplingの将来A2計画を置く。R212 required checksと既存R205 checksは解析・短い数値回帰であり、R206 full apparatusや具体spatial reservoirの直接simulationを代替しない。
 
 ## M67 two-entity finite-Hamiltonian parent
 
-`simulations/m67/` はM67/R208A--R211Cのsupporting direct-trajectory検証入口である。Q1 selectorについてはdraft-141のrequired verifierがdouble-well reduced diffusionと誤差予算を監査するが、full finite-bath Q1 trajectoryはA2 strengtheningとして別に残す。Q3側では `run_full_compatibility_witness.py` がfinite flow/drag bathを含むM67→M64 compatibilityを一つの有限Hamiltonian trajectoryで診断する。draft-139でM67をQ3 physical parentへ昇格しても、これはA2 promotion testではなく、Q3-1-A2/Q3-2-A2は未監査のまま維持する。
+`simulations/m67/` はM67/R208A--R212Cのsupporting direct-trajectory検証入口である。Q1 selectorについてはdraft-141のrequired verifierがdouble-well reduced diffusionと誤差予算を監査するが、full finite-bath Q1 trajectoryはA2 strengtheningとして別に残す。Q3側では `run_full_compatibility_witness.py` がfinite flow/drag bathを含むM67→M64 compatibilityを一つの有限Hamiltonian trajectoryで診断する。draft-139でM67をQ3 physical parentへ昇格し、draft-142でthermal sectorをR212A--R212Cまで拡張する。R212B rotor mixing witnessを含むsupporting simulationはA2 promotion testではなく、Q2-2/Q3のA2状態は既存判定を維持する。
