@@ -1,3 +1,11 @@
+## draft-140：M65 first-passage selector検算
+
+- required `tools/verify_m65_open_selector.py` をfirst-passage lawへ更新し、確率保存、closed-form winner/survival分布、$D_{\rm TV}=e^{-\kappa a_\Sigma T}$、exact zero endpoint、division-free cutoff、共通scale不変なwinner比、small Born branchでtotal hazardが縮まないこと、finite latchを検査する。
+- `tools/verify_q1_live_zeno.py` のM65誤差予算を旧mixing＋hub項からfirst-passage survival $e^{-\kappa a_\Sigma T}$ へ置換する。R181D required verifierはselector内部物理から独立なまま維持する。
+- 旧R204B/R204CのM65 candidate checker 3本は `notes/retired_verifiers/` へ保存し、通常candidate treeから外す。phase-volume共通恒等式はM66/R205 required checksへ一本化する。
+- `tools/migrations/check_draft140_m65_first_passage_selector.py` でactive 3状態M65表現・R204B/C依存・旧Q2-2/M65責務の除去、退役保存、fixed-goal/strengthening境界をPR固有に検査する。通常CIへは登録しない。
+- source/project consistency、required physics、paper生成同期、LaTeX semantics、typeset lintはPR headのworkflow結果で最終確認する。
+
 ## 付録P/ZのQ2-2旧依存記述修正：検算
 
 - `python tools/check_source.py`、`python tools/check_project_consistency.py`：成功。`python tools/check_terminology.py`：成功、旧説明語のwarning 587件。
