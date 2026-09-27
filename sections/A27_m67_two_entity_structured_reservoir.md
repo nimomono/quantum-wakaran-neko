@@ -2562,7 +2562,7 @@ noise torqueはHamiltonian構造だけで接平面へ投影される。short-mem
 
 を取る。
 
-<!-- theorem-start:theorem -->
+<!-- theorem-start:corollary -->
 **系（球面回転子版：M67 finite-Hamiltonian rotor / spherical R205E compatibility）**
 
 R212Aのpositive smooth weight $w(\lambda)$ とsmooth $H_{\rm cfg}(\lambda)$ を持つfinite rotor profileを取る。固定有限時間 $T<T_{\rm rec}$ で
@@ -2632,7 +2632,7 @@ reversible stationary measureは
 \propto
 w(\lambda)e^{-\beta H_{\rm cfg}(\lambda)}d\Omega.
 ```
-<!-- theorem-end:theorem -->
+<!-- theorem-end:corollary -->
 
 ### AA.22.3 R207A finite-Hamiltonian preparation lift
 
@@ -2670,13 +2670,13 @@ Z_{\epsilon,k}
 
 すなわちR207A densityそのものになる。
 
-<!-- theorem-start:theorem -->
+<!-- theorem-start:corollary -->
 **系（Q2-2二回転子版：R207A finite-Hamiltonian preparation lift）**
 
 任意の $0<\epsilon<1$、有限 $k>0$、held settings $a,b\in S^2$ に対して、有限rigid rotors、R212A phase-volume modes、有限isotropic local bathsからなるsmoothで下に有界なM67 Hamiltonian profileを構成できる。そのcanonical orientation marginalはR207Aの $\rho_{\epsilon,k}$ と厳密に一致する。従ってR207Aのsetting-independent partition、独立setting marginal、source hidden stateのsetting dependenceはM67 canonical ensembleからも回収される。
 
 さらにR212B-rotのfinite-time reduction条件を満たせば、任意のinitial orientation lawからspherical R205Eを経て $\rho_{\epsilon,k}$ へ有限時間で近づけられる。mixingの存在はcompactnessとstrictly positive smooth stationary densityから従い、具体的な $t_{\rm mix}<T_{\rm rec}$ windowはnumerical witnessで別に監査する。
-<!-- theorem-end:theorem -->
+<!-- theorem-end:corollary -->
 
 R207で使う一つのexplicit witnessは
 
