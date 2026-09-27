@@ -240,7 +240,8 @@ def survival_probability(p_plus: float) -> float:
     lower, diag, upper = generator_bands(x, p_plus)
     sl, sd, su = sub_bands(lower, diag, upper, 1, n - 1)
     surv = implicit_evolve(sl, sd, su, np.ones(n - 2), T_DEC, DT)
-    return float(np.interp(0.0, x[1:-1], surv))
+    launch_points = (-DELTA0, 0.0, DELTA0)
+    return max(float(np.interp(x0, x[1:-1], surv)) for x0 in launch_points)
 
 def return_probability_right() -> float:
     n = int(round((XMAX - D_READ) / H)) + 1
@@ -258,12 +259,30 @@ def return_probability_left() -> float:
     surv = implicit_evolve(sl, sd, su, np.ones(n - 1), T_DEC, DT)
     return float(1.0 - np.interp(-L_COMMIT, x[:-1], surv))
 
-def terminal_distribution(p_plus: float) -> tuple[np.ndarray, np.ndarray]:
+def terminal_distribution(
+    p_plus: float, x0: float
+) -> tuple[np.ndarray, np.ndarray]:
     n = int(round(2.0 * XMAX / H)) + 1
     x = np.linspace(-XMAX, XMAX, n)
     lower, diag, upper = generator_bands(x, p_plus)
     mass = np.zeros(n)
-    mass[int(np.argmin(np.abs(x)))] = 1.0
+
+    # Represent an off-grid launch point by the linear finite-volume
+    # interpolation of a unit point mass on the two neighbouring nodes.
+    j = int(np.searchsorted(x, x0))
+    if j <= 0:
+        mass[0] = 1.0
+    elif j >= n:
+        mass[-1] = 1.0
+    elif abs(float(x[j]) - x0) < 1.0e-15:
+        mass[j] = 1.0
+    else:
+        x_left = float(x[j - 1])
+        x_right = float(x[j])
+        right_weight = (x0 - x_left) / (x_right - x_left)
+        mass[j - 1] = 1.0 - right_weight
+        mass[j] = right_weight
+
     mass_t = implicit_evolve(
         upper.copy(), diag, lower.copy(), mass, T_DEC, DT
     )
@@ -331,8 +350,11 @@ def main() -> None:
     max_return = max(return_right, return_left)
     assert max_return < MAX_RETURN, max_return
 
+    launch_points = (-DELTA0, 0.0, DELTA0)
     terminal = {
-        float(p): terminal_distribution(float(p)) for p in dynamic_scan
+        (float(p), float(x0)): terminal_distribution(float(p), float(x0))
+        for p in dynamic_scan
+        for x0 in launch_points
     }
     max_mass_error = 0.0
     max_threshold_density = 0.0
