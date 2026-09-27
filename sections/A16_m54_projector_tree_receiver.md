@@ -102,15 +102,15 @@ Q1 fixed-goalのbinary witnessにはM65を使う。
 M67/R211A--R211Cを使う場合、safe interior branchではdouble-well markerの固定時刻basin readout、edge branchではM65と同じ固定線形comparatorを使う。R211Cにより
 
 ```math
-arepsilon_{{m sel},u}
+\varepsilon_{{\rm sel},u}
 =
-arepsilon_{{m sel},u}^{67},
-qquad
-	au_{{m state},u}
+\varepsilon_{{\rm sel},u}^{67},
+\qquad
+\tau_{{\rm state},u}
 =
-	au_{{m cut},u}
+\tau_{{\rm cut},u}
 -
-arepsilon_{189A,u}
+\varepsilon_{189A,u}
 >0
 ```
 
