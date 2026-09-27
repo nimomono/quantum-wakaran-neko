@@ -1,7 +1,7 @@
 @number: 9
 @chapter: 本文
 @title: 結論
-@status: M54共通signal・状態層、M66/R205共通thermal-reservoir層に加え、Q3ではM67を共通二実体finite-Hamiltonian physical parent、M37をcoherent module、M64をopen effective reductionとして総括する。fixed-goal、strengthening、M0を別判定として維持する。
+@status: M54共通signal・状態層、M66/R205共通thermal-reservoir層に加え、M67を二実体finite-Hamiltonian physical parentとして総括する。Q3ではM37 coherent module/M64 open reductionへ、Q1ではR211A--R211CからM65/R204E selector contractへ接続する。fixed-goal、strengthening、M0を別判定として維持する。
 
 本稿で得られた最も大きな整理は、量子型構造の古典実現を1つの万能模型へ押し込めるのではなく、**共通signal層**と**共通thermal-reservoir層**を分け、その上に用途別の物理模型を接続できる形へしたことである。
 
@@ -27,7 +27,7 @@ w(Q)e^{-\beta H_{\rm cfg}(Q)}
 
 ただし、この共通化はM64またはM65の全模型をM66から導出したという意味ではない。M64/R203Bのpartition/free-energyとmean-flow sectorはR205Cへ対応する。一方、R205D fixed-hub corollaryは旧R204Bと数学的に対応するが、draft-140以後のM65 canonical first-passage lawのphysical liftではない。M64 tracer dynamicsとM65 two-result first-passage lawはそれぞれ固有の物理責務を持つ。R206はM66の直接Q2終端specializationであり、R207はR205A/R205E/R205FをQ2-2のprojection phase-volume共同準備・二端読出しへ特殊化する現行fixed-goal主線である。
 
-Q1では、M37/R187/R140が2モード可逆signalとRabi運動を与え、R189Aが測定に必要な2作用を保持する。M65のtwo-result first-passage selectorが二つの線形hazardを競合させ、有限decision時刻まで未決定ならsurvival事象を正式な無反応へ写す。R181Dは固定された安全結果に対応する非規格化射影成分を同じ試行の次操作へ渡す。これによりBorn型2結果、同軸・異軸逐次測定、有限Rabi--Zeno比較を同じsignal-to-result interfaceへ接続した。
+Q1では、M37/R187/R140が2モード可逆signalとRabi運動を与え、R189Aが測定に必要な2作用を保持する。M65のtwo-result first-passage selectorがcanonical open result形成を担い、R181Dは固定された安全結果に対応する非規格化射影成分を同じ試行の次操作へ渡す。さらにM67/R211A--R211Cは、二安定basinだけを持つdouble-well marker、phase-volume free energy、finite marker bathからR204Eと同じcomplete-result contractを回収するfinite-Hamiltonian strengtheningを与える。M65のPoisson waiting-time law自体はphysical liftの一致条件にしない。
 
 Q2-1とQ2-3ではR181B/R181Cが永続多モードsignal上でテンソル積状態とgate列を作り、末端4結果または8結果をR206で1回に標本化する。Q2-4ではR206Eで $0^n$ rootを一様準備し、R181Cの一般gate列後に $L=2^n$ のR206 samplerへ接続する。reader側の逐次leaf探索、R181D tree、非終端作用回復、結果別pointer resetを固定主線から外した。一方、M54 direct-amplitude registerへ全自由度加法ノイズが入るR186の障害はreader側とは独立に残り、Q2-4は条件付き達成を維持する。
 
@@ -43,4 +43,4 @@ Q3-2ではR208/R209がM67をM64/R203のcanonical open lawへ縮約し、R203D/R1
 
 従って現時点の統一は、**同一のsignal原理とreservoir原理を複数の量子型現象へ再利用できること**にある。全現象を1つの製造済み装置、1つの単一bath、1つの閉鎖Hamiltonian全系へ統合したという主張ではない。そこを明確に分けることで、すでに閉じた固定目標と、次に検査すべき物理実装・数値・実験の課題を同じ体系で管理できる。
 
-M67/R208--R210はQ3-1--Q3-5の共通physical parentとして採用する。ただしこれはQ1/Q2を同じ装置へ統合したこと、M0を達成したこと、A1/A2を自動達成したことを意味しない。Q3-6の位相量子化、strict locality、continuous-space一様極限、多粒子、全周期統合は別課題として残る。
+M67/R208--R210はQ3-1--Q3-5の共通physical parentとして採用し、R211A--R211CはQ1 selector componentのfinite-Hamiltonian strengtheningとして追加する。ただしこれはQ1全体またはQ2を同じ装置へ統合したこと、M0を達成したこと、A1/A2を自動達成したことを意味しない。Q3-6の位相量子化、strict locality、continuous-space一様極限、多粒子、全周期統合は別課題として残る。
