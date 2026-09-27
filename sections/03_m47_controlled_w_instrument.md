@@ -298,7 +298,7 @@ P(L):P(R)
 J_L:J_R
 ```
 
-へ近づける。decision終了時にgeneratorを閉じ、R112型recordへ結果を固定してからR181Dのprojector routerを開く。
+へ近づける。decision終了時にfirst-passage winner、またはまだwinnerがないsurvival事象をR112型recordへ固定してからR181Dのprojector routerを開く。survival事象は正式な無反応 $\varnothing$ とし、成功試行だけを再規格化しない。
 
 従って現行Q1主線で必要なのは、準備済みW2入力、R140分析器、射影作用保持、M65結果形成、R181Dによる非規格化射影成分受渡しである。左右空間profileの有限コントラストは信号系の独立診断であり、Born結果生成または測定後状態更新の第2経路として使わない。
 
@@ -474,7 +474,7 @@ $\varepsilon_{\rm node}^{\rm state}$
 
 ## 3.11 結果記録の責務
 
-Q1 fixed-goalの結果記録は、M65 decision終了時にselector generatorを閉じ、3状態pointerをR112型有限recordへ写すinterfaceへ統一する。W型空間profileを読む別の粒子検出器は現行測定主線へ置かない。記録後にR181Dのprojector routerを開き、固定結果に対応する非規格化信号成分を同じ試行の次段へ渡す。
+Q1 fixed-goalの結果記録は、M65 decision終了時にfirst-passage winnerまたは有限時間survival事象をR112型有限recordへ写すinterfaceへ統一する。W型空間profileを読む別の粒子検出器は現行測定主線へ置かない。記録後にR181Dのprojector routerを開き、固定結果に対応する非規格化信号成分を同じ試行の次段へ渡す。
 
 ## 3.12 共通射影選別機構による測定後状態の受け渡し
 
@@ -732,7 +732,7 @@ Q1のM65主線では1段結果分布誤差を
 
 熱力学台帳では分析器仕事、M65 open selector、有限record、可逆選別機構、リセットを分ける。固定有限深さQ1には段間作用安定化を計上しない。退役した旧作用殻測定経路の仕事・混合・固定資源は現行台帳へ計上しない。有限閉鎖Hamiltonian全系への統合は固定目標ではない。
 
-1段のM65主線の能動装置は、2モード信号、作用保持指針変数、3状態open selector、有限record、選別機構用作業領域、必要な記録素子と傾斜制御からなる。固定有限段Q1では未規格化選択成分を次段へ直接渡す。Q2-4のterminal readoutはM66/R206へ分離し、Q1資源台帳へ一般回路用作用回復を持ち込まない。
+1段のM65主線の能動装置は、2モード信号、作用保持指針変数、two-result first-passage selector、winner latch、有限record、選別機構用作業領域、必要な記録素子と傾斜制御からなる。固定有限段Q1では未規格化選択成分を次段へ直接渡す。Q2-4のterminal readoutはM66/R206へ分離し、Q1資源台帳へ一般回路用作用回復を持ち込まない。
 
 ## 3.18 W2走行中作用容量の有限正準保持
 

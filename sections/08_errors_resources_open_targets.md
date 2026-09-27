@@ -9,12 +9,12 @@
 上流の物理偏差を複数の結果式へ伝播させる場合、最初に現れる誤差項へだけ入れる。特に次を禁止する。
 
 1. 同じM37包絡誤差をR135の第2モーメント誤差とR168の状態方向誤差へ同時に加える。
-2. M65主線で、M65内部に含めたfinite-time relaxation、hub無反応、endpoint comparator、record誤差を系列固有測定機構誤差へ重ねて入れる。退役した旧測定経路の偏差を現行台帳へ重ねて入れない。
+2. M65主線で、M65内部に含めたfinite-time survival、cutoff comparator、record誤差を系列固有測定機構誤差へ重ねて入れる。退役した旧fixed-hub liftや旧測定経路の偏差を現行台帳へ重ねて入れない。
 3. R207でR205E mixing誤差またはR205F generator defectをcommon-reservoir側とQ2-2側へ二重計上する。
 5. 無反応質量を理想分布差と実装失敗へ2回加える。
 6. 同じ準備済み入力偏差を $\varepsilon_{\rm in}$、R135の初期共分散誤差、系列固有の入力誤差へ重ねて入れる。
 7. M64ではinitial preparation、current dictionary、mean-flow tracking、density interpolation、process reductionを導出箇所ごとに一度だけ数える。$\delta$ をcurrent-dictionary誤差とR185 regularizationへ二重に加算せず、process-law errorとNewton force residualを単純加算しない。
-8. M66/R205で共通化したphase-volume、mean-flow、thermal mixing、passive separationの同じ物理偏差を、M64/M65/R206/R207側で独立誤差として再加算しない。共通原理のexact identityと、各specialization固有のfinite-time・generator・record誤差を分ける。
+8. M66/R205で共通化したphase-volume、mean-flow、thermal mixing、passive separationの同じ物理偏差を、M64/R206/R207側で独立誤差として再加算しない。draft-140以後のM65はM66/R205D fixed-hub liftを現行依存に持たないので、旧R204B/R204C偏差をM65誤差へ戻さない。
 9. M67ではR210Aのcarrier-envelope誤差 $\varepsilon_{86}$、load-only backreaction $\varepsilon_{\rm load}^{67}$、R209のM67からM64 compatibility error $\varepsilon_{67\to64}$、M64 baseline $\varepsilon_{\rm red}^{64}$ を別台帳に置く。M67からM64比較へR86 carrier errorを再加算しない。
 
 全ての理想分布と実分布は同じ完全結果集合へ埋め込む。成功試行だけで再規格化しない。
@@ -105,7 +105,7 @@ Q1 W2主線ではR189Aの保持済み二作用をM65へ直接入力する。R189
 \varepsilon_{\rm lat}
 ```
 
-とする。$\varepsilon_{65}^{\rm mid}$ はR204Dのcomplete-result誤差であり、finite-time relaxation、hub無反応、endpoint comparator、recordを内部で一度だけ数える。
+とする。$\varepsilon_{65}^{\rm mid}$ はR204Dのcomplete-result誤差であり、finite-time survival、cutoff comparator、recordを内部で一度だけ数える。通常経路のsurvival項は $e^{-\kappa a_{\min}T_{65}}$ である。
 
 R189A decisionに使った保持対は次回captureへ未処理のまま再接続しない。固定有限深さでは未使用保持対との正準SWAP、反復装置では使用済み保持対をR179へ流して未使用保持対を供給する。この未使用保持対/reset時間と有限SWAP誤差は次回captureの入力誤差へ一度だけ含める。
 
@@ -140,7 +140,7 @@ D_{\rm TV}(p_N^{\rm obs},p_N^{\rm id})
 \sum_{j=1}^{N-1}\delta_{{\rm state},j}
 ```
 
-とする。固定有限列ではM65 pointer、record、選別機構用作業領域をR179の開放リセットで再使用し、結果相関履歴を流出浴へ流す。
+とする。固定有限列ではM65 winner latch、record、選別機構用作業領域をR179の開放リセットで再使用し、結果相関履歴を流出浴へ流す。
 
 R189CのQ1-2達成証人では中間R189Aで保持した2作用をM65へ直接入力し、中間作用安定化を使わない。固定 $N=2$ の正の履歴重みには $p_*=0.10$ の安全下限を取れるため、M65 decision時間を有限に固定した後に $\Omega_\kappa\to0$ として時間ずれを小さくできる。空操作対照では同じM65 decisionとrecordを走らせ、R181D routerだけを開かない。旧作用殻型実現の偏差は現行M65主線へ重複加算しない。
 
