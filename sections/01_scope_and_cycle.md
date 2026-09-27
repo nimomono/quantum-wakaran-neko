@@ -42,7 +42,7 @@ w(Q)e^{-\beta H_{\rm cfg}(Q)}
 
 のthermal samplingを与える。R205Fは距離依存相互作用とreservoir cross-correlationが消えるときのgenerator分離条件を与える。
 
-ただし、このphysical-parent接続はwhole-model derivationではない。M64ではR203Bのpartition/free-energyとmean-flow sectorだけがR205Cへ埋め込まれ、current dictionary、initial preparationの具体則、tracer、R203C/R203DはM64固有である。M65の正本は二つの結果channelを競合させるtwo-result first-passage open lawであり、第三の安定pointer状態を持たない。R205Dのfixed-hub capacity--conductance結果はM66側の数学的corollaryとして残すが、現行M65のphysical liftとは扱わない。R206はM67/R212→M66のQ2終端多結果特殊化であり、R207はR212B-rot/R212C→R205A/R205E/R205FをQ2-2 projection phase-volume主線へ適用する。
+ただし、このphysical-parent接続はwhole-model derivationではない。M64ではR203Bのpartition/free-energyとmean-flow sectorだけがR205Cへ埋め込まれ、current dictionary、initial preparationの具体則、tracer、R203C/R203DはM64固有である。M65の正本は二つの結果channelを競合させるtwo-result first-passage open lawであり、第三の安定pointer状態を持たない。R205Dのfixed-hub capacity--conductance結果はM66側の数学的corollaryとして残すが、現行M65のphysical liftとは扱わない。R206はM67/R212->M66のQ2終端多結果特殊化であり、R207はR212B-rot/R212C->R205A/R205E/R205FをQ2-2 projection phase-volume主線へ適用する。
 
 ## 1.3 系列ごとの現行因果鎖
 
@@ -116,7 +116,7 @@ Q3のsignal数学はQ1/Q2の局所実正準信号と2体系結合の空間特殊
 |---|---|---|
 | Q1 | 準備済みW2入力、M37/R187、R135、R140、R189A | M65/R204D--R204F、R181D、R143--R144、R189B--R189C |
 | Q2-1 | R181B、R181C | M66/R206Dの4結果terminal sampler |
-| Q2-2 | M67/R212B-rot→M66/R205 projection phase-volume共同準備、near-contact lock | R212C/R205F passive separation、local sign latch、R112型record、R207A--R207D監査 |
+| Q2-2 | M67/R212B-rot->M66/R205 projection phase-volume共同準備、near-contact lock | R212C/R205F passive separation、local sign latch、R112型record、R207A--R207D監査 |
 | Q2-3 | R181Bを2回、R181C、R177 | M66/R206Dの8結果terminal sampler |
 | Q2-4 | R206E root preparation、M54一般 $2^n$ 直接モード、R181C | M66/R206Dの $2^n$ 結果terminal sampler、R186資源監査 |
 | Q3 | M67/R208--R210 physical parent、M37/R86 coherent module、M64/R203A--R203D open reduction | R161/R185、R123--R125/R182、R112終位置record |
