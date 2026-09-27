@@ -1,3 +1,12 @@
+## draft-141：M67 Q1 double-well selector physical lift
+
+- 付録AA/M67へR211A--R211Cを追加する。R211Aはheld-action invariantを持つQ1 double-well finite-Hamiltonian profile、R211BはBorn committorとfinite-time terminal kernelの明示誤差、R211CはR204E/R181D/R189B/R189CへのQ1 compositionを担う。
+- required tools/verify_r211a_m67_q1_hamiltonian.py、tools/verify_m67_q1_first_passage.py を追加し、tools/verify_q1_live_zeno.py にR211C alternate physical-lift回帰を追加する。
+- README、第0・1・2・3・8・9章、付録P/Z、PROJECT_STATUS、ENHANCEMENT_TARGETS、VALIDATION、simulation/candidate README、theory lineageを同期する。
+- M65/R204A・R204D--R204FをQ1 canonical open selectorとして維持し、R204B/R204C fixed-hub liftは退役のまま、R205Dを現行M65 physical liftへ戻さない。
+- Q1-1/Q1-2、Q2/Q3、A1/A2/B1--B3、M0、R186判定は変更しない。Q2/NBLのM67特殊化とQ1 full direct-Hamiltonian trajectory A2判定は本draftに含めない。
+
+
 ## draft-140：M65 two-result first-passage selector簡素化
 
 - 付録Z/M65の正本を3状態往復Markov pointerからtwo-result first-passage open selectorへ置換する。未決定は第三の物理pointer状態ではなくsurvival conditionとして扱い、R204A/R204Dを新lawへ同期する。
