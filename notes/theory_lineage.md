@@ -4,7 +4,7 @@
 
 ## 現行の統一構造
 
-現行正本は、M54の共通signal・状態層とM66/R205の共通thermal-reservoir層を分ける。Q3ではさらにM67をcommon finite-Hamiltonian physical parentとし、M37をcoherent module、M64をopen effective reductionとして接続する。Q1/Q2ではM65、R206、R207の既存責務を維持する。
+現行正本は、M54の共通signal・状態層とM66/R205の共通thermal-reservoir層を分ける。M67をcommon finite-Hamiltonian physical parentとし、Q3ではM37 coherent module/M64 open reductionへ、Q1ではR211A--R211CからM65/R204E selector contractへ接続する。Q1 canonical lawはM65、Q2はR206/R207の既存責務を維持する。
 
 ```text
 M54 signal/state layer
@@ -14,7 +14,7 @@ M66 / R205 reservoir layer
   ├─ R206A--R206D : Q2 terminal multi-outcome specialization
   ├─ R206E        : Q2-4 root preparation / refresh
   ├─ R205C ↔ M64 : shared reservoir principle
-  ├─ R205D ↔ M65 : strengthening physical lift
+  ├─ R205D       : binary fixed-hub corollary（現行M65 liftではない）
   └─ R205A/E/F → R207 : Q2-2 fixed-goal Bell specialization
 ```
 
@@ -34,7 +34,7 @@ finite canonical signal
   -> R181D projector router
 ```
 
-R179はfull-cycle reset/renewalの一般部品として別に保持する。
+R179はfull-cycle reset/renewalの一般部品として別に保持する。draft-141以後は、M65 canonical pathに加えてM67/R211A--R211CがR204E contractへ接続するfinite-Hamiltonian selector strengtheningを持つ。
 
 主要な旧binary測定経路は概略として
 
@@ -245,3 +245,20 @@ M37/R187
 ```
 
 R181D以下のQ1逐次測定契約とQ1-1/Q1-2達成状態は変更しない。旧R204B/R204C fixed-hub physical liftは退役し、R205Dのfixed-hub数学はM66側に残す。M65の指数Poisson raceは最小open witnessであり、後続M67/R211にwaiting-time分布までの一致は要求しない。physical bridgeはcomplete-result first-passage kernelからR204E contractへ接続する。
+
+
+## draft-141でM67/R211 Q1 selector liftを追加
+
+M65/R204A・R204Dはcanonical open first-passage selectorとして維持し、finite-Hamiltonian physical liftをM67へ追加した。
+
+```text
+R189A held actions
+  -> M67 / R211A double-well Hamiltonian
+  -> R211B complete-result Born kernel
+  -> R204E selector contract
+  -> R112 record
+  -> R181D projector router
+  -> R189B / R189C
+```
+
+R211BはR204Aの指数Poisson waiting-time lawを再現せず、R204E complete-result contractだけを共有する。中央は第三の安定pointer状態ではなくsaddle/未commit領域である。旧R204B/R204C fixed-hub physical liftとR205Dのhistorical correspondenceは復活しない。Q1 fixed-goal達成根拠はM65 canonical pathを維持し、M67/R211はstrengtheningとして扱う。
