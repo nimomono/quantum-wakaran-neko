@@ -258,7 +258,52 @@ e^{i\pi p_r/4}
 
 と定める。
 
-各path cellに同一action $J_*$ のcoherent leaf oscillatorを置き、phase tagをleaf phaseへcopyして
+各path cellに同一action $J_*$ のcoherent leaf oscillator $(I_r,\psi_r)$ を置く。固定carrier項を $\Omega_a I_r$ とし、8個のphase well上で
+
+```math
+f_8\left(\frac{k\pi}{4}\right)
+=
+\frac{k\pi}{4},
+\qquad
+f_8'\left(\frac{k\pi}{4}\right)
+=
+0,
+\qquad
+k=0,\ldots,7
+```
+
+を満たすsmooth periodic interpolation $f_8$ を一つ固定する。phase-copy windowを
+
+```math
+H_{\rm copy}(t)
+=
+g_{\rm copy}(t)
+\sum_r
+I_r f_8(\phi_r),
+\qquad
+\int g_{\rm copy}(t)dt=1
+```
+
+とする。Hamilton方程式は
+
+```math
+\dot\psi_r
+=
+\Omega_a
++
+g_{\rm copy}(t)f_8(\phi_r),
+\qquad
+\dot I_r=0,
+```
+
+```math
+\dot S_r
+=
+-
+g_{\rm copy}(t)I_rf_8'(\phi_r)
+```
+
+である。従ってideal phase well中心では $f_8'=0$ によりtag側backreactionが消え、共通carrier phaseを除くleaf amplitudeは
 
 ```math
 a_r
@@ -267,7 +312,7 @@ a_r
 e^{i\pi p_r/4}
 ```
 
-とする。output indicatorを
+となる。output indicatorを
 
 ```math
 \chi_y(Q_r)
