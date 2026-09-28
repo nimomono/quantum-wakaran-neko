@@ -1,3 +1,11 @@
+## draft-143：M67/NBL Q2 carrier candidateとR213A--R213D
+
+- `sections/A28_m67_nbl_q2_carrier.md` を付録ABとして追加し、R213A--R213DをM67 Q2 signal/register/gateのpromotion-ready candidateとして収録する。
+- H/T/CNOT phase-tagged path rule、coherent Born-action collector、R186 separation/resource auditを定理化し、path-pair $4^h$ bankは不採用とする。
+- candidate verifier 4本と `simulations/m67/run_r213_nbl_q2_witness.py` を追加する。required physics CIへはまだ昇格しない。
+- README、第1・2・8章、付録AA、PROJECT_STATUS、ENHANCEMENT_TARGETS、VALIDATION、TERMINOLOGY、candidate/simulation/migration README、theory lineageをcandidate境界へ同期する。
+- M54/R181B--R181C、R186、R206A--R206E、Q2-4条件付き達成、M0、A1/A2/B1--B3を変更しない。collector local decompositionとR206 full finite-Hamiltonian liftは後続PRへ残す。
+
 ## draft-142：M67 thermal-sector parent化とR212A--R212C
 
 - 付録AA/M67へR212A universal phase-volume/mean-flow embedding、R212B flat + S2 rotor thermal sampler lift、R212C passive-separation liftを追加する。
@@ -426,6 +434,7 @@
 - `sections/A25_m64_three_entity_open_q3_model.md`
 - `sections/A26_m65_phase_volume_projective_instrument.md`
 - `sections/A27_m67_two_entity_structured_reservoir.md`
+- `sections/A28_m67_nbl_q2_carrier.md`
 - `sections/90_references.md`
 
 ## 論文外の研究メモ

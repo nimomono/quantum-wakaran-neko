@@ -1,7 +1,7 @@
 @number: 2
 @chapter: 本文
 @title: 有限正準信号と共通熱浴モジュール
-@status: M54をQ1・Q2・Q3の共通有効signal・状態構成層、M67をcommon finite-Hamiltonian physical parent、M66/R205をM67 thermal-sector open/effective interface、R161をQ3位置輸送の共通数学核とする。Q3ではM37/M64、Q1ではR211A--R211C、Q2 thermal sectorではR212A--R212CからM66/R205へ接続する。M65、R206、R207の用途別責務は変更しない。
+@status: M54をQ1・Q2・Q3の共通有効signal・状態構成層、M67をcommon finite-Hamiltonian physical parent、M66/R205をM67 thermal-sector open/effective interface、R161をQ3位置輸送の共通数学核とする。Q3ではM37/M64、Q1ではR211A--R211C、Q2 thermal sectorではR212A--R212CからM66/R205へ接続する。Q2 signal/register/gateにはR213A--R213DのNBL/path carrier candidateを追加するが、M54/R186主線は維持する。M65、R206、R207の用途別責務は変更しない。
 
 ## 2.1 共通signal層、M67 physical parent、thermal open/effective層
 
@@ -27,7 +27,7 @@ w(Q)e^{-\beta H_{\rm cfg}(Q)}
 
 | 用途 | 共通熱浴原理との対応 | 用途固有に残る責務 |
 |---|---|---|
-| M67 | finite-Hamiltonian structured reservoir physical parent | Q3ではR208--R210、Q1ではR211A--R211C、Q2 thermal sectorではR212A--R212CからM66/R205へ接続。Q2 signal/register/gateとR206 apparatus全体は未統合 |
+| M67 | finite-Hamiltonian structured reservoir physical parent | Q3ではR208--R210、Q1ではR211A--R211C、Q2 thermal sectorではR212A--R212CからM66/R205へ接続。Q2 signal/register/gateにはR213A--R213D candidateを追加。M54置換とR206 apparatus全体liftは未完 |
 | M64 / Q3 effective | M67/R208--R209からcanonical open lawとして回収 | R203A current dictionary、initial/flow tracking、R203C/R203Dの有効縮約責務 |
 | M65 / Q1 | two-result first-passage open lawを系列固有に定め、R205D fixed-hub corollaryは現行physical liftに使わない | R204A、R204D--R204F、R181D handoff。finite-Hamiltonian liftはM67/R211A--R211CからR204Eへ接続 |
 | R206 / Q2-1・Q2-3・Q2-4 | M67/R212->M66/R205上のfinite-$L$ common-hub terminal specialization | Q2 terminal bridge、finite-time/fabrication error、Q2-4 root preparation。common-hub apparatus全体のfinite-Hamiltonian liftは別課題 |

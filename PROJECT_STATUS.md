@@ -1,3 +1,11 @@
+## draft-143：M67/NBL Q2 carrier candidateとR213A--R213D
+
+- 付録ABへR213A--R213Dを追加し、NBL/path isometry、H/T/CNOT phase-tagged path carrier、path-pair不要のcoherent Born-action reduction、R186分離をcandidateとして定式化する。
+- M67 structured reservoir内部へpath-memory、8-state phase tag、coherent leaf/collector/dark modeを置くcandidate profileを追加するが、M54/R181B--R181Cはactive fallbackとして維持する。
+- R213Cは $J_y=J_*|A_y|^2$ をfinite coherent unitary dilationで回収する。抽象collector generatorのbounded-degree/local分解とR206 common-hub apparatus全体のfinite-Hamiltonian liftは後続課題とする。
+- R213Dではsigned analog collectorのcommon-bias obstructionを明示し、指数local precisionを指数passive hardware/total actionへ移す資源境界を監査する。
+- Q2-1/Q2-2/Q2-3の達成、Q2-4の条件付き達成、Q3、M0、A1/A2/B1--B3、R186判定は変更しない。R213A--R213Dをfixed-goal直接依存へは追加しない。
+
 ## draft-142：M67 thermal-sector parent化とR212A--R212C
 
 - M67/R212A--R212Cを追加し、M66/R205A--R205Fを独立microscopic parentからM67 structured reservoirのthermal-sector open/effective interfaceへ再分類する。
@@ -495,7 +503,7 @@ M0はこれらの共通化より強い。M54/M66を共有していても、同�
 | M64 | Q3 canonical open effective model | M67/R208--R209から回収するcontinuous/finite-graph effective reduction | 三実体記述を有効sector分割として保持し、R203A--R203DでR161/R185およびR124/R182/R125へ接続する。独立physical ontologyとしてのparent責務はM67へ移管する |
 | M65 | Q1 binary canonical open selector | 現行Q1逐次fixed-goal正本模型 | 保持済み二作用を二つの線形hazardへ入れるtwo-result first-passage open selector。未決定はsurvival conditionで、R204Dがfinite-time Bornと正式な無反応、R204Eがbinary selector contract、R204FがQ1 interface/latencyを与える。旧R204B/R204C fixed-hub liftは退役し、finite-Hamiltonian physical liftはM67/R211A--R211CでR204E contractへ接続する |
 | M66 | M67 thermal-sector open/effective interface | Q2-1/Q2-3/Q2-4はR206、Q2-2はR207へspecializeするactive open/effective layer | R205A--R205Fでphase-volume、mean-flow、matched capacity--conductance、thermal Gibbs sampling、passive separationを共通化する。R212A→R205A/C、R212B→R205E、R212C→R205FとしてM67 physical parentへ接続する。R205Dはbinary fixed-hub corollaryとして残すがM65 physical liftには使わない |
-| M67 | 二実体finite-Hamiltonian physical parent | Q3-1--Q3-5の物理依存起点、Q1 selector strengthening、Q2 thermal-reservoir physical parent。Q3-6は同じcoherent sector上の未達課題 | structured reservoir内にcoherent/phase-volume/flow/drag/dephasing/rotor thermal sectorsを置く。R208/R209がM64、R210AがR86、R210BがR123、R211A--R211CがQ1 R204E、R212A--R212CがM66/R205 thermal layerとR207A preparationへ接続する。Q2 signal/NBL/register/gate、R206 apparatus全体、M0は未統合 |
+| M67 | 二実体finite-Hamiltonian physical parent | Q3-1--Q3-5の物理依存起点、Q1 selector strengthening、Q2 thermal-reservoir physical parent。Q2 signal/register/gateにはR213A--R213D candidateを追加。Q3-6は同じcoherent sector上の未達課題 | structured reservoir内にcoherent/phase-volume/flow/drag/dephasing/rotor thermal sectorsを置く。R208/R209がM64、R210AがR86、R210BがR123、R211A--R211CがQ1 R204E、R212A--R212CがM66/R205 thermal layerへ接続する。R213A--R213DはM54置換候補であり、M54退役、R206 apparatus全体のfinite-Hamiltonian lift、M0は未完 |
 
 M50はM54の静的状態構成へ、M55はM54空間状態構成へ吸収した。M56はspin-only Q3代替研究線とし現行達成根拠へ使わない。M60/M61とそれ以前のM57/M59は旧Q3 Hamiltonian実装として現行主線から退役し、Git履歴へ保存する。旧状態方向準備、旧作用殻型Q1/Q2測定経路、旧2端再準備は現行必須依存から外し、退役索引と研究メモへ保存する。
 
@@ -592,6 +600,16 @@ M0は、個別のA1模型を並べるだけでは達成としない。少なく�
 | R212A | required finite-Hamiltonian thermal embedding | arbitrary positive weightのphase-volume Jacobian、mean-flow momentum shift、coordinate translationを同一M67 sectorへ埋め込み、R205A/R205Cを厳密canonical marginalとして回収する。equal-weight force fluctuationは $O(N_{\rm pv}^{-1/2})$ |
 | R212B | required finite-time Hamiltonian/open compatibility | flat configurationと $S^2$ rigid rotorについてfinite bath→GLE→R205Eを有限時間で接続し、R207A target densityをtwo-rotor canonical marginalとして厳密回収する。explicit parameter-window witnessを持つ |
 | R212C | required finite-Hamiltonian separation compatibility | compact-support geometryでdirect interaction、shared phase-volume、必要ならshared bath overlapを受動的に消し、R205F open generatorへ接続する。finite距離ではFDT由来のmobility correctionを明示し、cutoff後はexact factorizationを得る |
+
+### R213 M67/NBL Q2 carrier candidate
+
+| 結果 | 導出状態 | 内容 |
+|---|---|---|
+| R213A | candidate exact state-space result | reference-product NBL basisのisometryとtensor propertyを与え、有限time-sampling Gram rankがsample数以下であることからtime averagingだけの指数basis読出しを正本経路から外す |
+| R213B | candidate finite-Hamiltonian gate carrier | binary/history rotorsと $p\in\mathbb Z_8$ phase tagによりH/T/CNOTのsum-over-paths更新を可逆Hamiltonian pulseへ埋め込む。finite well-width/leakageは未required監査 |
+| R213C | candidate coherent Born-action reduction | path-output contractionのfinite unitary dilationによりpath-pair bankを使わず $J_y=J_*|A_y|^2$ をcollector actionとして回収する。bounded-degree/local collector decompositionは未閉包 |
+| R213D | candidate resource/robustness audit | signed analog collectorのcommon additive biasが指数精度を再要求し得ることを示し不採用とする。finite-state/coherent carrierでは指数passive hardware/total actionを許し、local precisionはpoly候補。strict finite-speed localityとR206 full liftは未閉包 |
+
 | R205A | 厳密partition結果 | 正のlocal scaleをreservoir座標Jacobianへ入れるとcanonical phase volumeがscaleへ線形比例し、free energyが $-k_BT\log w+C$ になる共通identity |
 | R205B | 厳密reduced-law結果 | channel capacityとconductanceへ同じlocal scaleを掛けると、channel→hub rateがscale非依存、hub→channel rateがscale比例となるmatched capacity--conductance原理 |
 | R205C | 厳密partition結果 | moving reservoirの運動量平行移動 $U$ とphase-volume weight $w$ がcanonical free energyで直交し、$F_{\rm res}=-k_BT\log w+C$ と $-\nabla F_{\rm res}=k_BT\nabla\log w$ を同時に与える |

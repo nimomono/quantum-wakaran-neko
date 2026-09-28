@@ -1,7 +1,7 @@
 @number: 8
 @chapter: 本文
 @title: 誤差、資源、反証条件、未完成目標
-@status: M54 signal層、M67 finite-Hamiltonian physical parent、M66/R205 thermal open/effective層、M64/M65/R206/R207 specialization層を横断し、同じ物理偏差を二重計上しない誤差・資源台帳を与える。R212A--R212CはM66/R205へのphysical-parent compatibility errorだけを追加し、既存R205/R207誤差と重複計上しない。Q2-4ではR206E preparation、R206C/D sampling、R186 robustnessを責務別に管理する。
+@status: M54 signal層、M67 finite-Hamiltonian physical parent、M66/R205 thermal open/effective層、M64/M65/R206/R207 specialization層を横断し、同じ物理偏差を二重計上しない誤差・資源台帳を与える。R212A--R212CはM66/R205へのphysical-parent compatibility errorだけを追加する。R213A--R213DはM54置換candidateのpath/collector資源を別台帳で監査し、現行Q2-4ではR206E preparation、R206C/D sampling、R186 robustnessを直接責務として維持する。
 
 
 ## 8.1 誤差を1回だけ数える規約
@@ -459,7 +459,25 @@ O\!\left(
 
 であり、$L=2^n$ を直接掛けない。
 
-Q2-4は条件付き達成を維持する。reader側の逐次branch、作用下限、個別reset、sampling時間の問題はM66/R206で閉じる一方、M54 direct-amplitude registerへ状態非依存のadditive noiseが各空modeにも入る場合のR186障害が残るためである。
+### 8.11.1 R213 M67/NBL carrier candidateの資源交換
+
+R213A--R213DではM54 direct-amplitude registerをfixed-goal主線から直ちに外さず、別candidateとして資源構造を比較する。Hadamard数を $h$ とすると素朴なpath populationは $2^h$、orthogonal result channelは最大 $2^n$ であり、装置体積、static coupling、総coherent action、総bath容量は指数的になり得る。これらは現行Q2-4 contractでは報告対象の内部受動資源である。
+
+R213Cではpath-pair二重和を物理pair bankへ展開せず、finite coherent unitary reductionによって
+
+```math
+J_y
+=
+J_*|A_y|^2
+```
+
+をcollector actionとして生成する。従って $4^h$ path-pair bankはcanonical candidateから外す。
+
+一方、signed analog bus $F=g\sum_rX_r$ に共通additive bias $b$ を持たせるとrelative errorが $|b/m|$ となり、coherent mean $m$ が指数的に小さい回路族ではR186型の指数local precisionを再導入する。このためsigned analog collectorは不採用とする。finite-state phase tagとfinite-depth coherent networkでは、depth $D$ とlocal operator defect $\epsilon_{\rm loc}$ に対して $O(D\epsilon_{\rm loc})$ の誤差合成を候補境界とし、$D={\rm poly}(n,d)$ の明示local decompositionが得られればlocal precisionはpolyで足りる。
+
+ただし抽象unitary dilationをbounded-degree/local combiner-router網へ落とすこと、R206 common-hub apparatus全体をfinite-Hamiltonianへ持ち上げること、strict 3D finite-speed localityで指数装置径が時間へ露出しないことは未閉包である。
+
+Q2-4は条件付き達成を維持する。reader側の逐次branch、作用下限、個別reset、sampling時間の問題はM66/R206で閉じる一方、現行fixed-goal主線はM54/R186を使い続け、R213はまだ直接根拠へ昇格していない。
 
 ## 8.12 反証条件
 

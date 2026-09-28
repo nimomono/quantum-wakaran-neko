@@ -1,3 +1,12 @@
+## draft-143：M67/NBL Q2 carrier candidate検算
+
+- `tools/candidate_checks/verify_r213a_nbl_path_isometry.py` はNBL/path isometryとfinite time-sample Gram rank境界を検査する。
+- `tools/candidate_checks/verify_r213b_phase_tagged_gates.py` はH/T/CNOT phase-tag path algebraをrandom finite circuitのstate-vectorと比較する。
+- `tools/candidate_checks/verify_r213c_coherent_collector.py` はpath-output contraction、finite unitary dilation、collector amplitude、$J_y$規格化を検査する。
+- `tools/candidate_checks/verify_r213d_resource_robustness.py` はsigned analog common-bias scalingとfinite-depth coherent layer error scalingを検査する。
+- `simulations/m67/run_r213_nbl_q2_witness.py` はrandom H/T/CNOT回路とdestructive-interference witnessでstate-vector/path/collectorを比較するsupporting evidenceであり、required CIやQ2-4達成判定には数えない。
+- draft-143 migration checkでR213A--R213D candidate登録、M54/R186/R206維持、Q2-4条件付き達成、fixed-goal直接依存、M0、A1/A2/B1--B3不変をPR固有に固定する。
+
 ## draft-142：M67 thermal-sector / R212検算
 
 - `tools/verify_r212a_thermal_embedding.py` はR212Aの積Jacobian、mean-flow/translation independence、mean force、equal-weight $N_{\rm pv}^{-1/2}$ fluctuation scalingを検査する。

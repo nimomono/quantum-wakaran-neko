@@ -4,7 +4,7 @@
 
 ## 現行の統一構造
 
-現行正本は、M54の共通signal・状態層、M67のcommon finite-Hamiltonian physical parent、M66/R205のthermal open/effective層を分ける。M67はQ3ではM37 coherent module/M64 open reductionへ、Q1ではR211A--R211CからM65/R204E selector contractへ、Q2 thermal sectorではR212A--R212CからM66/R205へ接続する。Q1 canonical lawはM65、Q2用途別open/effective lawはR206/R207の既存責務を維持する。
+現行正本は、M54の共通signal・状態層、M67のcommon finite-Hamiltonian physical parent、M66/R205のthermal open/effective層を分ける。M67はQ3ではM37 coherent module/M64 open reductionへ、Q1ではR211A--R211CからM65/R204E selector contractへ、Q2 thermal sectorではR212A--R212CからM66/R205へ接続する。draft-143ではR213A--R213DをM67内部のQ2 NBL/path carrier candidateとして追加するが、M54/R186 fixed-goal主線はまだ置換しない。Q1 canonical lawはM65、Q2用途別open/effective lawはR206/R207の既存責務を維持する。
 
 ```text
 M54 signal/state layer
@@ -101,7 +101,7 @@ M42 / R172--R174
 
 ### Q2 register / Bell経路
 
-Q2の永続register・gateはM54/R181B--R181Cへ整理される。Q2-1/Q2-3/Q2-4の末端readoutはR206A--R206D、Q2-4準備はR206Eが担う。
+Q2の現行fixed-goal永続register・gateはM54/R181B--R181Cへ整理される。draft-143のR213A--R213Dは、phase-tagged path reservoir→coherent Born-action collectorというM54置換candidateを追加する。R213のlocal collector decompositionとR206 full liftが閉じるまではQ2-4直接依存を変更しない。Q2-1/Q2-3/Q2-4の末端readoutはR206A--R206D、Q2-4準備はR206Eが担う。
 
 Q2-2はM67/R212A--R212CからM66/R205A・R205E・R205Fを経てR207A--R207Cへ進むprojection phase-volume二端模型を現行fixed-goal主線とする。R212B-rotがR207A target densityをfinite-Hamiltonian two-rotor canonical marginalとして回収し、R212Cがpassive separationのphysical parentを与える。setting-dependent source preparation、local outcome/recordから一般Bloch方向のsinglet共同統計を閉じ、R207DをBell-local controlとする。
 
