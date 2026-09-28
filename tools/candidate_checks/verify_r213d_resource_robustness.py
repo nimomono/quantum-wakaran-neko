@@ -40,7 +40,8 @@ def main() -> None:
         n_path = 2**h
         logical_barrier_units = h + 20
         assert n_path == 2**h
-        assert logical_barrier_units == O := h + 20
+        expected_polynomial_scale = h + 20
+        assert logical_barrier_units == expected_polynomial_scale
 
     print("r213d_ok analog_bias_exponential=True coherent_layer_error_linear=True")
 
