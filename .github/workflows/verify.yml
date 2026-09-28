@@ -7,7 +7,7 @@ on:
   pull_request:
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   source-check:
@@ -110,6 +110,24 @@ jobs:
             build/ci/paper.md
             build/ci/main.tex
             build/ci/paper.pdf
+
+      - name: draft-143生成物をbranchへ同期
+        if: ${{ github.event_name == 'pull_request' && github.head_ref == 'draft-143-m67-nbl-q2-carrier' && steps.build.outcome == 'success' }}
+        run: |
+          git fetch origin "$GITHUB_HEAD_REF"
+          git checkout "$GITHUB_HEAD_REF"
+          cp build/ci/paper.md paper.md
+          cp build/ci/main.tex main.tex
+          cp build/ci/paper.pdf paper.pdf
+          git add paper.md main.tex paper.pdf
+          if git diff --cached --quiet; then
+            echo "generated artifacts already synchronized"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "draft-143: sync generated paper artifacts"
+          git push origin "HEAD:$GITHUB_HEAD_REF"
 
       - name: 生成物の同期を検査
         if: ${{ always() && steps.build.outcome == 'success' }}
