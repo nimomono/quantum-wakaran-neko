@@ -30,7 +30,7 @@ M67
                       └─ R207 → Q2-2
 ```
 
-M54はsignal・状態・接続規約を共通化する。M67はcommon two-entity finite-Hamiltonian physical parentで、Q3ではR208--R210、Q1 selectorではR211A--R211C、Q2 thermal sectorではR212A--R212Cを担う。M66/R205はそのthermal-sector open/effective interfaceとしてphase-volume、mean-flow、thermal sampling、passive separationを共通化し、R206A--R206DはQ2-1/Q2-3/Q2-4終端多結果読出し、R206EはQ2-4準備、R207はQ2-2 Bell統計へ特殊化する。Q2 signal/register/gate、R206 apparatus全体、NBL、M0をM67へ統合したという主張ではない。
+M54はsignal・状態・接続規約を共通化する。M67はcommon two-entity finite-Hamiltonian physical parentで、Q3ではR208--R210、Q1 selectorではR211A--R211C、Q2 thermal sectorではR212A--R212Cを担う。付録AB/R213A--R213DではM67 structured reservoir内部のNBL/path Q2 carrierをM54置換候補として追加し、coherent collector action $J_y=J_*|A_y|^2$ までをcandidateとして構成する。M66/R205はthermal-sector open/effective interface、R206はQ2終端多結果読出し、R207はQ2-2 Bell統計を担う。R213はまだM54を退役させず、R206 apparatus全体のfinite-Hamiltonian liftとM0も未完である。
 
 ## 2. 長期目標の現在地
 
@@ -52,7 +52,7 @@ M54はsignal・状態・接続規約を共通化する。M67はcommon two-entity
 | Q2-3 | 3量子ビット型二段ゲート合成 | 第1ゲート後状態を保持した二段合成と8結果分布 | 達成 |
 | Q2-4 | 多項式外部制御による量子出力サンプリング | 一様装置族で外部制御・時間・精度を多項式に抑えた1標本生成 | 条件付き達成 |
 
-Q2-4の条件はM54 direct-amplitude registerに対するR186の加法ノイズ・精度障害である。R206により末端reader側の逐次探索問題は外れている。
+Q2-4の現行条件はM54 direct-amplitude registerに対するR186の加法ノイズ・精度障害である。R206により末端reader側の逐次探索問題は外れている。R213A--R213Dはこのcarrierを有限状態path＋coherent collectorへ置換するcandidateであり、指数local precisionの再発を現時点で認めないが、local collector decompositionとR206 full finite-Hamiltonian liftが閉じるまでQ2-4の直接根拠と達成ラベルは変更しない。
 
 ### 第3段階：空間量子力学
 

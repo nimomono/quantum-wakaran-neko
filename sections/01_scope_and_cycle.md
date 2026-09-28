@@ -1,7 +1,7 @@
 @number: 1
 @chapter: 本文
 @title: 問題設定、統一構造、達成範囲
-@status: M54を共通実正準signal・状態構成層、M67を二実体finite-Hamiltonian physical parent、M66/R205をM67 thermal-sector open/effective interfaceとする。Q3ではR208--R210、Q1ではR211A--R211C、Q2 thermal sectorではR212A--R212CからM66/R205へ接続する。M65、R206、R207は従来の系列責務を維持し、M0のjoint device/process統合とは区別する。
+@status: M54を共通実正準signal・状態構成層、M67を二実体finite-Hamiltonian physical parent、M66/R205をM67 thermal-sector open/effective interfaceとする。Q3ではR208--R210、Q1ではR211A--R211C、Q2 thermal sectorではR212A--R212CからM66/R205へ接続する。Q2 signal/register/gateにはR213A--R213DのM67/NBL carrier candidateを追加するが、M54/R186 fixed-goal主線は維持する。M65、R206、R207は従来の系列責務を維持し、M0のjoint device/process統合とは区別する。
 
 ## 1.1 研究上の問い
 
@@ -22,7 +22,7 @@
 | 用途別模型・特殊化 | M64、M65、R206、R207 | M67のQ3 open reduction、Q1逐次2値測定、Q2終端多結果読出し、Q2-2 projection phase-volume二端模型 |
 | 全周期統合目標 | M0 | 準備、操作、測定、永久記録、reset、clock、renewalを1つのjoint device/processへ統合 |
 
-M54とM66は異なる責務を持つ有効層である。M54はどのsignal・状態・接続端を使うかを整理し、M66はresolved classical degreeとthermal reservoirのopen/effective原理を整理する。そのM66 thermal lawのfinite-Hamiltonian parentをM67/R212A--R212Cが与える。M67がM54を置換するわけではない。
+M54とM66は異なる責務を持つ有効層である。M54はどのsignal・状態・接続端を使うかを整理し、M66はresolved classical degreeとthermal reservoirのopen/effective原理を整理する。そのM66 thermal lawのfinite-Hamiltonian parentをM67/R212A--R212Cが与える。R213A--R213DはM67内部の別Q2 carrier candidateとしてM54置換可能性を調べるが、この段階ではM54を置換しない。
 
 M66の共通入力は正のphase-volume weight $w(Q,t)$、通常のenergy landscape $H_{\rm cfg}(Q,t)$、mean-flow port $U(Q,t)$ である。R205A/R205Cは
 
