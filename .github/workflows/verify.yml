@@ -41,6 +41,10 @@ jobs:
         if: ${{ always() }}
         run: python tools/check_terminology.py
 
+      - name: draft-143 migrationを一時検査
+        if: ${{ always() }}
+        run: python tools/migrations/check_draft143_m67_nbl_q2_candidate.py
+
       - name: 差分形式を検査
         if: ${{ always() }}
         run: git diff --check
@@ -62,6 +66,14 @@ jobs:
 
       - name: required数式・数値を検算
         run: python tools/run_physics_checks.py
+
+      - name: draft-143 candidateを一時検算
+        run: |
+          PYTHONPATH=tools/candidate_checks python tools/candidate_checks/verify_r213a_nbl_path_isometry.py
+          PYTHONPATH=tools/candidate_checks python tools/candidate_checks/verify_r213b_phase_tagged_gates.py
+          PYTHONPATH=tools/candidate_checks python tools/candidate_checks/verify_r213c_coherent_collector.py
+          PYTHONPATH=tools/candidate_checks python tools/candidate_checks/verify_r213d_resource_robustness.py
+          python simulations/m67/run_r213_nbl_q2_witness.py
 
   paper-check:
     name: 論文生成
