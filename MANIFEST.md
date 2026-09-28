@@ -1,3 +1,11 @@
+## draft-143：M67/NBL Q2 carrier candidateとR213A--R213D
+
+- `sections/A28_m67_nbl_q2_carrier.md` を付録ABとして追加し、R213A--R213DをM67 Q2 signal/register/gateのpromotion-ready candidateとして収録する。
+- H/T/CNOT phase-tagged path rule、coherent Born-action collector、R186 separation/resource auditを定理化し、path-pair $4^h$ bankは不採用とする。
+- candidate verifier 4本と `simulations/m67/run_r213_nbl_q2_witness.py` を追加する。required physics CIへはまだ昇格しない。
+- README、第1・2・8章、付録AA、PROJECT_STATUS、ENHANCEMENT_TARGETS、VALIDATION、TERMINOLOGY、candidate/simulation/migration README、theory lineageをcandidate境界へ同期する。
+- M54/R181B--R181C、R186、R206A--R206E、Q2-4条件付き達成、M0、A1/A2/B1--B3を変更しない。collector local decompositionとR206 full finite-Hamiltonian liftは後続PRへ残す。
+
 ## draft-142：M67 thermal-sector parent化とR212A--R212C
 
 - 付録AA/M67へR212A universal phase-volume/mean-flow embedding、R212B flat + S2 rotor thermal sampler lift、R212C passive-separation liftを追加する。
@@ -44,7 +52,8 @@
 
 ## draft-137：M67/R208 二実体Hamiltonian統合候補
 
-- `sections/A27_m67_two_entity_structured_reservoir.md` を付録AAとして追加し、M67/R208A--R208DをM64をまだ置換しないQ3 upper-parent candidateとして収録する。
+- `sections/A27_m67_two_entity_structured_reservoir.md`
+- `sections/A28_m67_nbl_q2_carrier.md` を付録AAとして追加し、M67/R208A--R208DをM64をまだ置換しないQ3 upper-parent candidateとして収録する。
 - `tools/paper_source.py` と `tools/build_paper.py` の付録ラベル処理をA--ZからAA以降へ一般化する。既存A--Zの番号付けは不変。
 - M67/R208 candidate verifier 4本、`simulations/m67/` の縮約witness、draft-137 migration checkを追加する。candidate検算はrequired CIへ昇格しない。
 - PROJECT_STATUS、ENHANCEMENT_TARGETS、README、第2・6・8・9章、VALIDATION、TERMINOLOGY、theory lineageをcandidate境界へ同期する。fixed-goal直接依存、達成ラベル、A1/A2/B1--B3、M0、M64/M65/M66/M54の現行責務は変更しない。

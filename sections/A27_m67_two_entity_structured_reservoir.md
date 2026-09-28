@@ -1,7 +1,7 @@
 @number: AA
 @chapter: 付録
 @title: M67 二実体finite-Hamiltonian physical parent
-@status: M67をQ3-1--Q3-5の共通二実体finite-Hamiltonian physical parentとし、Q1ではR211A--R211Cでbinary-selector strengthening、Q2ではR212A--R212CでM66/R205 thermal layerのfinite-Hamiltonian parentを与える。M37はM67 coherent module、M64/R203はcanonical open effective reduction、M66/R205はthermal-sector open/effective interfaceとして維持する。R212Bの $S^2$ rotor corollaryはR207A共同準備をM67 canonical marginalとfinite-time thermal liftへ接続する。Q3-6、Q2 signal/NBL/register/gate、M0は別課題として残す。
+@status: M67をQ3-1--Q3-5の共通二実体finite-Hamiltonian physical parentとし、Q1ではR211A--R211C、Q2 thermal sectorではR212A--R212Cをphysical liftとして与える。付録AB/R213A--R213Dは同じstructured reservoirのQ2 signal/NBL/register/gate candidate specializationを追加する。M54/R181B--R181C、R186、R206 apparatus全体、M0はこの追加だけでは置換・統合しない。
 
 ## AA.1 目的、二実体、責務境界
 
@@ -17,7 +17,7 @@ M67は、M64で別実体としていたclassical coherent signalとsignal-driven
 
 だけとする。$\mathcal R_{\rm str}$ は有限個の古典正準自由度からなる一つのHamiltonian媒体であり、内部にcoherent、phase-volume、flow、dragの各sectorを持つ。これらは別々の物理実体ではなく、同じ媒体の正準部分系またはreaction coordinateである。Q3では $\mathcal X$ をclassical tracerとして読む。
 
-本付録の責務はM67をQ3共通physical parentとして固定し、さらにQ1 binary selectorのfinite-Hamiltonian strengtheningを同じ二実体architectureへ特殊化することである。coherent profileはR210Aを介してM37/R86へ、dephasing profileはR210Bを介してR123へ、continuous/finite-graph tracer profileはR208/R209を介してM64/R203A--R203Dへ接続する。Q1 binary-selector profileはR211A--R211Cを介してM65/R204E contractとR181Dへ接続する。R161/R185、R123--R125、R182、R204E、R181Dは既存の下流結果として再利用し、本付録では再証明しない。Q2についてはR212A--R212CがM66/R205 thermal layerとR207A/R207Cのthermal physical liftを本付録の直接主張へ加える。一方、M54/R181B--R181Cのsignal/register/gate、R206 common-hub apparatus全体のfinite-Hamiltonian lift、NBL型registerは本付録の直接主張に含めない。
+本付録の責務はM67をQ3共通physical parentとして固定し、さらにQ1 binary selectorのfinite-Hamiltonian strengtheningを同じ二実体architectureへ特殊化することである。coherent profileはR210Aを介してM37/R86へ、dephasing profileはR210Bを介してR123へ、continuous/finite-graph tracer profileはR208/R209を介してM64/R203A--R203Dへ接続する。Q1 binary-selector profileはR211A--R211Cを介してM65/R204E contractとR181Dへ接続する。R161/R185、R123--R125、R182、R204E、R181Dは既存の下流結果として再利用し、本付録では再証明しない。Q2についてはR212A--R212CがM66/R205 thermal layerとR207A/R207Cのthermal physical liftを本付録の直接主張へ加える。M54/R181B--R181Cのsignal/register/gateを置換する候補は付録AB/R213A--R213Dへ分離する。R206 common-hub apparatus全体のfinite-Hamiltonian liftは依然として本付録・付録ABの直接主張に含めない。
 
 M67の「二実体」は自由度が二個という意味ではない。一つのstructured reservoir sector $\mathcal R_{\rm str}$ が有限個のcoherent/thermal/reaction-coordinate/dephasing/held-action内部自由度を持ち、marker sector $\mathcal X$ はQ3-2/Q3-4/Q3-5でtracer、Q1 selector profileではbinary decision markerとしてactiveになる。Q3-1およびQ3-3A--Q3-3Cではmarker sectorをdecoupleしたprofileを許す。
 

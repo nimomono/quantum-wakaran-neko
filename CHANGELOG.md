@@ -1,3 +1,11 @@
+## draft-143：M67/NBL Q2 carrier candidateとR213A--R213D
+
+- R213AでNBL/path basis isometryとtime-sampling rank境界を定理化した。
+- R213Bでbinary/history rotorsと $\mathbb Z_8$ phase tagを用いるH/T/CNOT finite-Hamiltonian path carrier candidateを追加した。
+- R213Cでpath-pair bankを廃し、finite coherent unitary dilationから $J_y=J_*|A_y|^2$ をcollector actionとして直接生成するcandidateを追加した。
+- R213Dでsigned analog common-bias obstructionを明示し、指数local precisionではなく指数passive hardware/total actionを許す資源境界へ整理した。
+- candidate verifier 4本とM67 numerical witnessを追加した。M54/R181B--R181C、R186、R206、Q2-4条件付き達成、M0、A1/A2/B1--B3は変更していない。
+
 ## draft-142：M67 thermal sectorへM66/R205--R207を接続
 
 - R212A--R212CをM67へ追加し、M66/R205を独立common thermal-reservoir parentからM67 structured reservoirのthermal-sector open/effective interfaceへ再分類した。

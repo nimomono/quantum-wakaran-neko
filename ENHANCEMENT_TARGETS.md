@@ -72,7 +72,7 @@ Q2-4のB1--B3は単一の巨大回路図を要求するものではなく、任�
 | Q2-1 | 未監査 | 未監査 | 未監査 | 未監査 | 未監査 | M54、R181B--R181C、M67/R212、M66/R205--R206 |
 | Q2-2 | 未監査 | 未監査 | 未監査 | 未監査 | 未監査 | M67/R212A--R212C、M66/R205A・R205E--R205F、R207A--R207D |
 | Q2-3 | 未監査 | 未監査 | 未監査 | 未監査 | 未監査 | M54、R177、R181B--R181C、M67/R212、M66/R205--R206 |
-| Q2-4 | 未監査 | 未監査 | 未監査 | 未監査 | 未監査 | M54、R181C、R186、M67/R212、M66/R205--R206E |
+| Q2-4 | 未監査 | 未監査 | 未監査 | 未監査 | 未監査 | M54、R181C、R186、M67/R212、M66/R205--R206E。R213A--R213Dは置換candidateであり未promotion |
 | Q3-1 | 部分達成 | 未監査 | 未監査 | 未監査 | 未監査 | M67、R210A、M37、R86 |
 | Q3-2 | 部分達成 | 未監査 | 未監査 | 未監査 | 未監査 | M67、R208A--R209C、R210A、M64、R203A--R203D、R161、R185 |
 | Q3-3A | 未監査 | 未監査 | 未監査 | 未監査 | 未監査 | M67、R210A、R210B、M37、R86、R123 |
@@ -120,6 +120,7 @@ M67/R212A--R212CはM66/R205 thermal lawのfinite-Hamiltonian physical parentを�
 | M64 | R203B reservoir sectorをR205Cへ埋め込む | direct M64 trajectory、finite-bandwidth/Hamiltonian lift、装置統合 |
 | M65 | two-result first-passage open lawを系列固有に採用。R205D fixed-hub corollaryは現行physical liftに使わない。M67/R211A--R211CがR204E-compatible double-well liftを与える | full direct trajectory、Q1因果鎖全体の具体模型統合、有限帯域、具体回路 |
 | R206 | M67/R212→M66のQ2 terminal specialization | common-hub concrete apparatus全体のfinite-Hamiltonian lift、有限帯域、always-on coupling/backreaction |
+| R213 | M67 structured reservoir内のQ2 NBL/path carrier candidate | bounded-degree/local coherent collector分解、R206 full finite-Hamiltonian接続、strict finite-speed locality、M54/R186置換判定 |
 | R207 | R212B-rot/R212C→R205E/Fをjoint preparation/passive separationへ利用 | target canonical marginalとparameter-window witnessは前進。残るのはfull finite-Hamiltonian direct trajectory、具体装置、有限帯域・非理想性監査 |
 
 R212A--R212Cを追加してもA1/A2/B1--B3状態を自動変更しない。R212Bのrotor mixing simulationはsupporting witnessでありQ2-2-A2達成判定には数えない。Q2-4ではR186のcoherent register additive-noise障害を独立に維持する。
