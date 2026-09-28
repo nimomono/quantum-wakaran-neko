@@ -365,3 +365,13 @@ CNOT、CHSH、SWAP、SU(2)、Q1、Q2、Q3、M37、M54、R164などの略号・�
 | thermal open/effective interface | thermal開放・有効接続層 | M66/R205。R212から回収されR206/R207へ用途別に特殊化する |
 | material frame | 移動媒質座標 | local moving bathの基準座標 $Y_e$。独立した第三実体とは数えない |
 | two-entity model | 二実体模型 | structured reservoir sectorとmarker sectorの二分類を指す。内部正準自由度が二個だけという意味ではない |
+
+
+## R213 NBL/path carrier用語
+
+| 用語 | 日本語での意味 | 現行用法 |
+|---|---|---|
+| path cell | 経路セル | Hadamard分岐履歴、logical label、phase tagを保持するM67 structured reservoir内部の有限正準subsystem。外付け測定器ではない |
+| phase tag | 位相タグ | $p\in\mathbb Z_8$ の8状態label。3 bit相当なのはH/T/CNOT Clifford+T path phaseだけであり、量子状態全体を3 bitで表す意味ではない |
+| coherent collector | コヒーレント集約mode/network | 同じresult labelへ到達したpath leafを波として重ね、collector action $J_y=J_*|A_y|^2$ を生成するterminal coherent sector |
+| Born-action port | Born作用port | collectorからR212/M66/R206 terminal thermal layerへ渡す正の局所作用 $J_y$ |

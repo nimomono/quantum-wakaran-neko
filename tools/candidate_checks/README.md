@@ -42,3 +42,12 @@ draft-137/138ではM67/R208A--R209Cをcandidate-onlyとしてこのdirectoryで�
 ## R212 thermal-sector promotion
 
 draft-142でR212A--R212Cをrequired physical-parent bridgeへ昇格するため、parameter-window checkerは `tools/verify_r212b_rotor_parameter_window.py` へ移した。R212A/B/Cの解析・幾何・separation verifierもtools直下のrequired checksへ置く。このdirectoryにはR212BのMonte Carlo mixingやfull finite-bath direct trajectoryを置かず、supporting simulationsは `simulations/m67/` で管理する。
+
+
+## R213 M67/NBL Q2 carrier candidate
+
+- `verify_r213a_nbl_path_isometry.py`：reference-product isometryとfinite time-sampling rank境界。
+- `verify_r213b_phase_tagged_gates.py`：H/T/CNOT phase-tagged path algebraとstate-vector一致。
+- `verify_r213c_coherent_collector.py`：contraction/unitary dilationとcoherent collector Born action。
+- `verify_r213d_resource_robustness.py`：signed analog bias obstructionとfinite-depth local-error scaling。
+- R213A--R213DはM54/R186置換候補であり、draft-143ではcandidate-onlyとする。通常required physics CIへは含めず、fixed-goal直接依存・Q2-4達成判定を変更しない。
