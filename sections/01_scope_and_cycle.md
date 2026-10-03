@@ -3,6 +3,8 @@
 @title: 問題設定、統一構造、達成範囲
 @status: M54を共通実正準signal・状態構成層、M67を二実体finite-Hamiltonian physical parent、M66/R205をM67 thermal-sector open/effective interfaceとする。Q3ではR208--R210、Q1ではR211A--R211C、Q2 thermal sectorではR212A--R212CからM66/R205へ接続する。Q2 signal/register/gateにはR213A--R213DのM67/NBL carrier candidateを追加するが、M54/R186 fixed-goal主線は維持する。M65、R206、R207は従来の系列責務を維持し、M0のjoint device/process統合とは区別する。
 
+draft-144では付録AC/R214A--R214BをM67 continuous-tracerの簡素化candidateとして追加する。三次元伸縮Brownian dumbbellの内部位相体積からosmotic free energyを作り、finite bathとM37 backreactionまで監査するが、現行Q3 fixed-goal依存R208--R210とM64/R203を変更しない。
+
 ## 1.1 研究上の問い
 
 本稿は、古典的な粒子、実振動子、熱浴、制御器、記録器から、量子力学に特徴的な状態空間、可逆力学、Born型排他的結果、測定後状態、複合系相関、空間力学がどこまで有効構造として現れるかを調べる。有限次元Schrödinger方程式を古典正準座標へ書き換えるだけでは、1回の試行で生じる排他的結果、Born則、記録、resetは得られないため、signal dynamicsとresult formationを分けて構成する。

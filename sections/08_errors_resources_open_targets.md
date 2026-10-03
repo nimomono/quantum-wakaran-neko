@@ -898,3 +898,29 @@ O\left(
 であり、主要項は $O(\sqrt{M_X})$ である。coherent backreactionはfixed finite timeで $\varepsilon_{\rm sig}=O(N_0^{-1})+\varepsilon_{\rm env}$、phase-volume force fluctuationは $O(N_\rho^{-1/2})$ と管理する。
 
 M67/R209 compatibilityの追加だけからA1/A2/B1--B3、fixed-goal達成、M0の判定を変更しない。
+
+## 8.12 R214 dumbbell candidateの誤差台帳
+
+R214A--R214Bでは新規誤差を
+
+```math
+\varepsilon_{214}
+=
+\varepsilon_{\rm shell}
++
+\varepsilon_{\rm core}
++
+\varepsilon_{\Gamma,r}
++
+\varepsilon_{\rm int\,mass}
++
+\varepsilon_{\rm track}
++
+\varepsilon_{\rm fr}
++
+\varepsilon_{\rm back}^{\rm db}
+```
+
+と分ける。R86 carrier-envelope、R209 flow/drag、R203C tracer overdamped、R185 Newton residualは既存baselineとして再加算しない。single dumbbellでは旧 $N_\rho^{-1/2}$ force self-averagingを使わず、内部force fluctuationを追加Green--Kubo摩擦 $\zeta_{\rm db}$ と対応FDT noiseとして管理する。
+
+draft-144ではこの台帳をcandidate-onlyとし、Q3-2 fixed-goal、Q3-2-A1/A2、finite-graph Q3-4A/B・Q3-5の判定を変更しない。

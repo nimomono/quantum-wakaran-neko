@@ -503,7 +503,7 @@ M0はこれらの共通化より強い。M54/M66を共有していても、同�
 | M64 | Q3 canonical open effective model | M67/R208--R209から回収するcontinuous/finite-graph effective reduction | 三実体記述を有効sector分割として保持し、R203A--R203DでR161/R185およびR124/R182/R125へ接続する。独立physical ontologyとしてのparent責務はM67へ移管する |
 | M65 | Q1 binary canonical open selector | 現行Q1逐次fixed-goal正本模型 | 保持済み二作用を二つの線形hazardへ入れるtwo-result first-passage open selector。未決定はsurvival conditionで、R204Dがfinite-time Bornと正式な無反応、R204Eがbinary selector contract、R204FがQ1 interface/latencyを与える。旧R204B/R204C fixed-hub liftは退役し、finite-Hamiltonian physical liftはM67/R211A--R211CでR204E contractへ接続する |
 | M66 | M67 thermal-sector open/effective interface | Q2-1/Q2-3/Q2-4はR206、Q2-2はR207へspecializeするactive open/effective layer | R205A--R205Fでphase-volume、mean-flow、matched capacity--conductance、thermal Gibbs sampling、passive separationを共通化する。R212A→R205A/C、R212B→R205E、R212C→R205FとしてM67 physical parentへ接続する。R205Dはbinary fixed-hub corollaryとして残すがM65 physical liftには使わない |
-| M67 | 二実体finite-Hamiltonian physical parent | Q3-1--Q3-5の物理依存起点、Q1 selector strengthening、Q2 thermal-reservoir physical parent。Q2 signal/register/gateにはR213A--R213D candidateを追加。Q3-6は同じcoherent sector上の未達課題 | structured reservoir内にcoherent/phase-volume/flow/drag/dephasing/rotor thermal sectorsを置く。R208/R209がM64、R210AがR86、R210BがR123、R211A--R211CがQ1 R204E、R212A--R212CがM66/R205 thermal layerへ接続する。R213A--R213DはM54置換候補であり、M54退役、R206 apparatus全体のfinite-Hamiltonian lift、M0は未完 |
+| M67 | 二実体finite-Hamiltonian physical parent | Q3-1--Q3-5の物理依存起点、Q1 selector strengthening、Q2 thermal-reservoir physical parent。Q2 signal/register/gateにはR213A--R213D、Q3 continuous-tracer簡素化にはR214A--R214B candidateを追加。Q3-6は同じcoherent sector上の未達課題 | structured reservoir内にcoherent/phase-volume/flow/drag/dephasing/rotor thermal sectorsを置く。R208/R209がM64、R210AがR86、R210BがR123、R211A--R211CがQ1 R204E、R212A--R212CがM66/R205 thermal layerへ接続する。R213はM54置換候補、R214はcontinuous R208B置換候補であり、いずれもdraft-144時点では未promotion。M54退役、R206 apparatus全体lift、M0は未完 |
 
 M50はM54の静的状態構成へ、M55はM54空間状態構成へ吸収した。M56はspin-only Q3代替研究線とし現行達成根拠へ使わない。M60/M61とそれ以前のM57/M59は旧Q3 Hamiltonian実装として現行主線から退役し、Git履歴へ保存する。旧状態方向準備、旧作用殻型Q1/Q2測定経路、旧2端再準備は現行必須依存から外し、退役索引と研究メモへ保存する。
 
@@ -689,3 +689,12 @@ M0は、個別のA1模型を並べるだけでは達成としない。少なく�
 ## 置換・退役結果
 
 現行因果鎖に含まれない模型と結果は本文へ再掲しない。主要な現行因果鎖と置換系譜の入口は `notes/theory_lineage.md`、ID、旧用途、退役時点の置換関係、研究メモへの対応は `notes/superseded_result_index.md` で管理する。個別退役メモに残る「現行」「置換先」はその版の歴史記録であり、現在の運用状態は本書を優先する。旧R113--R118、R147、R153、R155、R183は再利用しない。独立M48 Bell 手順はR180A--R180Cへ置換した。M42/R172--R174はdraft-72でM55/R183--R185へ移行し、draft-74でM55をM54空間状態構成、R183を一般R161へ吸収した。M50もM54静的状態構成へ吸収した。draft-95でR162のPoisson reservoirをQ3基礎ミクロ存在論からideal referenceへ責務変更し、旧位置づけは `notes/superseded_q3_poisson_microphysics.md` へ保存する。M56はspin-only代替研究線として保持する。draft-103でM59と独立M57/dual-TLの現行親模型としての役割をM60へ置換し、R195A/R196A--R196CはM60 transport reductionの結果IDとして継承した。draft-112ではM64/R203A--R203DをQ3現行主線へ昇格し、M60/M61とR195--R200を現行正本から退役する。draft-120ではM65/R204D--R204Fを当時のQ1/Q2 fixed-goal主線へ採用し、R191/R193を退役する。draft-127ではQ2-1/Q2-3/Q2-4のterminal readoutをM66/R206へ置換し、当時のQ1/Q2-2のM65/R181Dを維持したまま、責務を失ったR192をactive paperから退役する。draft-134でQ2-2をR207へ切り替え、draft-135でR180A/R180C逐次Bell witnessをactive paperから退役する。
+
+### R214 M67/Q3 continuous-tracer dumbbell candidate
+
+| 結果 | 導出状態 | 内容 |
+|---|---|---|
+| R214A | candidate exact/controlled-partition result | M37実正準signalから作る局所強度に対し有限自然長 $\ell_X^2=\ell_0^2+\alpha\varrho_X$ を持つ三次元伸縮dumbbellを置き、条件付き分配関数を厳密評価する。$-k_BT\log(\varrho+\varrho_T)$ とosmotic mean forceを明示shell/core誤差まで回収し、$\ell_0=0$ node非解析を明示する |
+| R214B | candidate finite-time Hamiltonian/open compatibility | finite translated harmonic bath→GLE/FDT、3次元半径の $r^2$ 定常測度、fast内部緩和、single-dumbbell追加FDT摩擦、$O(N_0^{-1})$ M37 backreactionを合成し、一様背景R203C/R185 lawへのcontinuous Q3-2 bridge候補を与える |
+
+R214A--R214Bはdraft-144ではcandidate-onlyであり、Q3-2の現行fixed-goal直接依存R208A--R209C/R210A、達成ラベル、Q3-2-A1/A2、finite-graph Q3-4A/Q3-4B/Q3-5を変更しない。

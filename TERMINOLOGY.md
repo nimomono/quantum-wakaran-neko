@@ -375,3 +375,12 @@ CNOT、CHSH、SWAP、SU(2)、Q1、Q2、Q3、M37、M54、R164などの略号・�
 | phase tag | 位相タグ | $p\in\mathbb Z_8$ の8状態label。3 bit相当なのはH/T/CNOT Clifford+T path phaseだけであり、量子状態全体を3 bitで表す意味ではない |
 | coherent collector | コヒーレント集約mode/network | 同じresult labelへ到達したpath leafを波として重ね、collector action $J_y=J_*|A_y|^2$ を生成するterminal coherent sector |
 | Born-action port | Born作用port | collectorからR212/M66/R206 terminal thermal layerへ渡す正の局所作用 $J_y$ |
+
+## R214 dumbbell用語
+
+| 用語 | 日本語での意味 | 現行用法 |
+|---|---|---|
+| extensible Brownian dumbbell | 伸縮Brownian dumbbell | Q3 continuous-tracerのR214 candidate。重心 $X$ と三次元内部相対座標 $\mathbf r$ を持つ二質点粒子 |
+| natural length $\ell_0$ | 有限自然長 | signalが零でも残るdumbbellの基準長。一本バネ模型のnode非解析を避けるため $\ell_0>0$ を採用 |
+| thermal width $\sigma_T$ | 熱幅 | $\sigma_T^2=k_BT/k$。自然長とは別のcanonical radial fluctuation scale |
+| dumbbell FDT correction | dumbbell追加FDT補正 | single dumbbell内部力の高速揺らぎを消去したときに生じる追加Green--Kubo摩擦 $\zeta_{\rm db}$ と対応noise |

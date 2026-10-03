@@ -44,3 +44,5 @@ Q3-2ではR208/R209がM67をM64/R203のcanonical open lawへ縮約し、R203D/R1
 従って現時点の統一は、**同一のsignal原理とreservoir原理を複数の量子型現象へ再利用できること**にある。全現象を1つの製造済み装置、1つの単一bath、1つの閉鎖Hamiltonian全系へ統合したという主張ではない。そこを明確に分けることで、すでに閉じた固定目標と、次に検査すべき物理実装・数値・実験の課題を同じ体系で管理できる。
 
 M67/R208--R210はQ3-1--Q3-5、R211A--R211CはQ1 selector、R212A--R212CはM66/R205 thermal layerのfinite-Hamiltonian physical parentとして採用する。ただしこれはQ1全体、Q2 signal/register/gate、R206 apparatus全体を同じ装置へ統合したこと、M0を達成したこと、A1/A2を自動達成したことを意味しない。Q3-6の位相量子化、strict locality、continuous-space一様極限、多粒子、全周期統合は別課題として残る。
+
+draft-144ではQ3 continuous-tracerの物理像をさらに短くする候補としてR214A--R214Bを追加する。有限自然長を持つ三次元伸縮Brownian dumbbellの内部位相空間が $\rho+\rho_T$ に比例する自由エネルギーを近似し、finite bathによる実時間熱化と $O(N_0^{-1})$ signal backreactionまで同じM67二実体architecture内で扱う。このcandidateは現行R208B/R209/R210Aをまだ置換せず、finite-graph位置読出しにも遡及しない。

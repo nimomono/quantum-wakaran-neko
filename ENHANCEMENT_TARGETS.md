@@ -128,3 +128,7 @@ R212A--R212Cを追加してもA1/A2/B1--B3状態を自動変更しない。R212B
 ### M67/R208--R212 二実体finite-Hamiltonian parent
 
 M67/R208A--R209CをQ3 tracer/Nelson側、R210Aをcoherent/R86、R210BをR123 dephasing physical liftとして採用する。Q1ではR211A--R211C、Q2 thermal sectorではR212A--R212Cをrequired physical-parent bridgeとして採用する。R212B-rotはR207A target densityのcanonical liftとfinite-time parameter windowを与えるが、full finite-Hamiltonian trajectoryはsupporting evidenceなのでQ2-2-A1/A2を自動昇格しない。Q3-1-A1/Q3-2-A1は部分達成、Q3-1-A2/Q3-2-A2は未監査、Q2のA1/A2/B1--B3、M0も従来判定を維持する。
+
+## R214 continuous-tracer simplification candidate
+
+R214A--R214BはQ3-2のA1/A2状態を変更しないcandidateである。狙いは現行R208Bのinverse-designed phase-volume sectorを、有限自然長を持つ三次元伸縮Brownian dumbbellへ置換できるかを監査することにある。promotion条件はR214A partition/core bound、R214B finite-bath/fast-internal reduction、single-dumbbell追加FDT摩擦、$O(N_0^{-1})$ backreaction、既存R203C/R185との誤差合成が同一parameter familyで閉じることである。full finite-Hamiltonian direct trajectoryはA2の別判定として残す。

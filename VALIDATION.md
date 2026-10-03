@@ -1,3 +1,10 @@
+## draft-144：M67/Q3 dumbbell continuous-tracer candidate検算
+
+- `tools/candidate_checks/verify_r214a_dumbbell_partition.py` はR214Aの不完全Gaussian分配関数、$G'(a)$、safe-sector force correction、$\ell_0=0$ node特異性、$\ell_0/\sigma_T=2.5,3$ witness、smooth-core scaleを検査する。
+- `tools/candidate_checks/verify_r214b_dumbbell_dynamic_bridge.py` は3次元radial zero-flux identity、contractivity、明示時間窓、single-dumbbell追加FDT摩擦比、$N_0^{-1}$ relative load scalingを検査する。
+- `simulations/m67/run_r214_dumbbell_q3_witness.py` はR214Bのreduced 3D overdamped radial equilibriumを直接標本化するsupporting witnessである。finite harmonic bath→Markov縮約自体はR209B型解析bridgeを使い、このsimulation単独をfull finite-Hamiltonian A2証拠とは数えない。
+- draft-144 migration checkでA29/AC、R214A/B candidate登録、R208B/AA.3 required主線維持、Q3-2 fixed-goal/A1/A2、finite-graph Q3-4A/B・Q3-5、R213、M0不変を固定する。
+
 ## draft-143：M67/NBL Q2 carrier candidate検算
 
 - `tools/candidate_checks/verify_r213a_nbl_path_isometry.py` はNBL/path isometryとfinite time-sample Gram rank境界を検査する。

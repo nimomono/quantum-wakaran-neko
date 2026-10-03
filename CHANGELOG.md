@@ -1,3 +1,10 @@
+## draft-144：M67/Q3伸縮Brownian dumbbell candidate
+
+- R214Aを追加し、M37実正準signal強度から有限自然長を持つ三次元dumbbellを構成し、内部位相体積から $-k_BT\log(\varrho+\varrho_T)$ とosmotic mean forceを明示shell/core誤差まで回収した。
+- 一本バネで $\ell_0=0$ とするとnode近傍で $\sqrt{\varrho}$ 非解析が残るため、有限自然長 $\ell_0>0$ をcandidate正本とした。
+- R214Bを追加し、finite harmonic bath→GLE/FDT、3次元radial $r^2$ measure、fast内部緩和、single-dumbbell追加FDT摩擦、$O(N_0^{-1})$ coherent backreactionをR203C/R185 continuous lawへ接続するcandidateを定式化した。
+- candidate verifier 2本とsupporting reduced witnessを追加した。R208B/R209/R210A、AA.3、Q3-2達成・直接依存、A1/A2、finite-graph Q3-4A/B・Q3-5、Q1/Q2、M0、R213は変更していない。
+
 ## draft-143：M67/NBL Q2 carrier candidateとR213A--R213D
 
 - R213AでNBL/path basis isometryとtime-sampling rank境界を定理化した。

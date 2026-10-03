@@ -22,6 +22,15 @@ M67 finite-Hamiltonian parent
 
 M66が共通化するのはthermal open/effective reservoir sectorであり、その有限Hamiltonian parentをR212A--R212CでM67へ接続する。M64全体、M65 canonical law、R206 apparatus全体、R207 Bell統計全体をR212から導出したとは扱わない。M0はさらに強いjoint device/process統合目標であり、この階層化だけでは達成しない。
 
+draft-144では、現行Q3 continuous-tracerのR208B phase-volume実装を将来短くする候補としてR214A--R214Bを付録ACへ追加する。三次元伸縮Brownian dumbbellの内部位相体積からosmotic free energyを作り、finite bathとbackreactionまで監査するが、現行正本の因果鎖 `M67/R208--R210 -> M64/R203 -> R161/R185` はまだ変更しない。finite-graph経路にもR214を流用しない。
+
+```text
+M67 continuous Q3 candidate
+  -> R214A dumbbell partition / osmotic force
+  -> R214B finite-bath dynamic lift
+  - - > future replacement decision for continuous R208B only
+```
+
 ## 現行の主要因果鎖
 
 ### Q1の逐次測定
