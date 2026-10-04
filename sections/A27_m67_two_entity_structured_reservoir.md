@@ -551,6 +551,26 @@ k_BT\Gamma_N(t-s)
 harmonic bathの線形方程式をDuhamel表示して $\zeta_\mu$ を消去すればmemory kernelとFDTを得る。Drude convolution差には上のmodulus-of-continuity bound、finite-spectrum差には $L^1$ kernel normを使う。Gaussian noiseの有限次元分布はcovariance収束から、一様tightnessはincrement boundから従う。translated bathのpartition independenceはunit-Jacobian shift、drag specializationのzero correctionはtight-frame identityの微分から従う。証明終。
 <!-- theorem-end:proof -->
 
+### R209B finite-window OU/Langevin realization corollary
+
+Ford--Kac--Mazur型のcoupled-oscillator bath [12] およびZwanzig型のharmonic-bath消去 [14] に従い、resolved coordinate $y_a$ にtranslated finite harmonic bath
+
+```math
+H_{B,a}
+=
+\sum_{\mu=1}^{N_{B,a}}
+\left[
+\frac{p_{a\mu}^2}{2m_{a\mu}}
++
+\frac{m_{a\mu}\omega_{a\mu}^2}{2}
+(q_{a\mu}-c_{a\mu}y_a)^2
+\right]
+```
+
+を接続する。有限bathの厳密消去はR209BのGLE/FDTを与える。任意の固定有限時間 $0\le t\le T<T_{\rm rec}$ で、target short-memory kernelとfinite-spectrum covarianceを十分よく近似し、必要ならresolved inertiaを小さく取れば、対応するMarkov Langevinまたは線形OU型open lawの有限時間lawを任意精度で近似できる。
+
+このcorollaryは有限自由度Hamiltonian bathが無限時間にわたり厳密なwhite noiseを生成するとは主張しない。Q1/R211ではphase-volume auxiliary coordinate $y_a=\zeta_\alpha$ とmarker $y_a=X$ にこの有限時間realizationを用い、open OU/Langevin計算とfinite-Hamiltonian liftの責務を分離する。
+
 ## AA.13 旧R209C process bridgeの退役境界
 
 draft-146でR209Cをactive resultから退役する。R209Cのsmall-mass synchronous coupling
@@ -1015,7 +1035,7 @@ H_B^{Q1}
 \right]
 ```
 
-を使う。decision開始面では、held actionsとmarker初期値を固定した条件付きcanonical preparationでphase-volume modesとfinite marker bathを準備する。これはR208Bのcanonical mean-force評価とR208C/R209Bのfinite-bath FDT縮約に用いる準備条件のQ1特殊化である。固定 $X$ でbath座標の平行移動はJacobian 1なので、このbathはstatic Born biasを追加しない。
+を使う。decision開始面では、held actionsとmarker初期値を固定した条件付きcanonical preparationでphase-volume modesとfinite marker bathを準備する。phase-volumeのstatic mean-force identityはR211A自身のJacobian計算で閉じ、marker bathの固定 $X$ partition independenceはunit-Jacobian translationから従う。動的thermalizationだけをR209Bのfinite-window OU/Langevin realization corollaryへ委譲する。
 
 Q1 selector Hamiltonianでは $H_{\rm hold}(I_+,I_-)$ をsmoothかつ下に有界に選ぶ。全Hamiltonianを
 
@@ -1256,50 +1276,174 @@ q_{\ell,-}r_-(T)
 
 とする。
 
-finite-Hamiltonian markerを $X_t^{67}$ とし、R209B/Cと同じfinite-bath eliminationとsmall-mass reductionをQ1 profileへ特殊化して、固定時刻で
+R211Bの計算核では、phase-volume auxiliary modesをopen OU型law
 
 ```math
-W_1
-\left(
-\mathcal L(X_T^{67}),
-\mathcal L(X_T^D)
-\right)
-\le
-\varepsilon_X(T)
+d\zeta_\alpha
+=
+-
+\frac{k_\alpha(X_t)}{\gamma_{\rho,\alpha}}
+\zeta_\alpha dt
++
+\sqrt{
+\frac{2k_BT}{\gamma_{\rho,\alpha}}
+}
+dB_{\alpha,t},
 ```
 
-を得る。Q1 profileではflow/current sectorを使わないため、
+```math
+k_\alpha(X)
+=
+m_\alpha\omega_\alpha^2
+w_\ell(X)^{-2q_\alpha}
+```
+
+で記述する。固定 $X$ では
+
+```math
+\mathbb E_X[\zeta_\alpha^2]
+=
+\frac{k_BT}{k_\alpha(X)}
+```
+
+であり、markerへのphase-volume forceは
+
+```math
+F_{\rm pv}(t)
+=
+\partial_X\log w_\ell(X_t)
+\sum_\alpha q_\alpha k_\alpha(X_t)\zeta_\alpha(t)^2
+=
+k_BT\partial_X\log w_\ell(X_t)
++
+R_{\rm pv}(t).
+```
+
+frozen equilibriumでは
+
+```math
+\operatorname{Var}_X(F_{\rm pv})
+=
+2(k_BT)^2
+\left(\sum_\alpha q_\alpha^2\right)
+(\partial_X\log w_\ell)^2.
+```
+
+従ってequal weights $q_\alpha=1/N_\rho$ ではinstantaneous RMS fluctuationは $O(N_\rho^{-1/2})$ である。fast relaxation timeを
+
+```math
+\tau_\rho
+=
+\sup_{X,\alpha}
+\frac{\gamma_{\rho,\alpha}}{2k_\alpha(X)}
+```
+
+とし、safe compact regionでmarker time scale $\tau_X$ と分離して
+
+```math
+\varepsilon_{\rm pv}(T)
+\le
+C_T
+\left[
+\frac{\tau_\rho}{\tau_X}
++
+\left(\sum_\alpha q_\alpha^2\right)^{1/2}
+\right]
+```
+
+というfinite-time averaging boundを用いる。これは旧R208Dへ委譲せず、Q1 open reductionの誤差としてR211B内で管理する。
+
+open markerを
+
+```math
+dX_t^{\rm op}=V_t^{\rm op}dt,
+```
+
+```math
+M_XdV_t^{\rm op}
+=
+\left[
+-W_0'(X_t^{\rm op})
++
+F_{\rm pv}(t)
+-
+\gamma_XV_t^{\rm op}
+\right]dt
++
+\sqrt{2\gamma_Xk_BT}\,dW_t
+```
+
+とする。$\epsilon_M=M_X/\gamma_X$ と
+
+```math
+Y_t=X_t^{\rm op}+\epsilon_MV_t^{\rm op}
+```
+
+を置くと
+
+```math
+dY_t
+=
+\left[
+-\mu W_0'(X_t^{\rm op})
++
+\mu F_{\rm pv}(t)
+\right]dt
++
+\sqrt{2\nu}\,dW_t,
+\qquad
+\mu=\gamma_X^{-1}.
+```
+
+同じBrownian motionでideal diffusion $X_t^D$ を駆動し、safe compact region上のdrift Lipschitz boundとMaxwell preparationを用いれば
+
+```math
+W_1\left(\mathcal L(X_T^{\rm op}),\mathcal L(X_T^D)\right)
+\le
+\varepsilon_{\rm pv}(T)+\varepsilon_{\rm od}(T)+\varepsilon_{\rm init}^{X},
+```
+
+```math
+\varepsilon_{\rm od}(T)
+\le
+C_T
+\left[
+\frac{M_X}{\gamma_X}B_*
++
+\sqrt{\nu\frac{M_X}{\gamma_X}}
+\right].
+```
+
+最後にR209B finite-window realization corollaryをphase-volume modesとmarkerへ適用し、$T<T_{\rm bath\,rec}^{Q1}$ で
+
+```math
+\sup_{t\le T}
+W_1\left(\mathcal L(X_t^{67}),\mathcal L(X_t^{\rm op})\right)
+\le
+\varepsilon_{\rm FH}(T)
+```
+
+とする。従って
+
+```math
+W_1\left(\mathcal L(X_T^{67}),\mathcal L(X_T^D)\right)
+\le
+\varepsilon_X(T),
+```
 
 ```math
 \varepsilon_X(T)
 =
-\varepsilon_{\rm bath}^{X}(T)
+\varepsilon_{\rm FH}(T)
 +
-\varepsilon_{\rm od}^{X}(T)
+\varepsilon_{\rm pv}(T)
 +
-\varepsilon_{\rm pv,lag}^{X}(T)
+\varepsilon_{\rm od}(T)
 +
-\varepsilon_{\rho,{\rm fluc}}^{X}(T)
-+
-\varepsilon_{\rm init}^{X}
+\varepsilon_{\rm init}^{X}.
 ```
 
-と取る。ここで $\varepsilon_{\rm pv,lag}^{X}$ はmarkerが動く有限時間にphase-volume modesのconditional Gibbs mean forceが $k_BT\partial_X\log w_\ell$ を追従する際のfast-reservoir residualであり、AA.6/R208Dの時間尺度分離をQ1 profileへ特殊化した項である。$\varepsilon_{\rho,{\rm fluc}}^{X}$ はそれとは別の有限mode force fluctuationで、equal phase-volume weightsでは $O(T/\sqrt{N_\rho})$ とする。small-mass項は
-
-```math
-\varepsilon_{\rm od}^{X}(T)
-\le
-C_T
-\left[
-\frac{M_X}{\gamma}B_*
-+
-\sqrt{
-\nu\frac{M_X}{\gamma}
-}
-\right].
-```
-
-threshold近傍質量を
+threshold近傍質量をthreshold近傍質量を
 
 ```math
 \omega_d(\delta,T)
@@ -1442,7 +1586,7 @@ c_{dL}
 0.
 ```
 
-各有限 $B$ を先に固定した後、AA.6/R208D型のphase-volume relaxation、R209B/C型のfinite-bath spectrum、small-mass parameter、phase-volume mode数、初期compatibilityを選び、
+各有限 $B$ を先に固定した後、phase-volume relaxation比 $\tau_\rho/\tau_X$、mode数 $N_\rho$、R209B finite-window realization error $\varepsilon_{\rm FH}$、small-mass parameter $M_X/\gamma_X$、初期compatibilityを選び、
 
 ```math
 \varepsilon_{\rm cg}(T_B)
@@ -1473,7 +1617,7 @@ eventual deep-commitment signと固定時刻basin readoutが異なるpathは、�
 
 finite-Hamiltonian lawとideal diffusion lawをone-time $W_1$ couplingし、coupling距離が $\delta$ を超える確率をMarkov inequalityで $\varepsilon_X/\delta$ と評価する。両marker位置がthresholdから $\delta$ 以上離れ、coupling距離が $\delta$ 以下なら $g_d$ の結果は一致するため、残る不一致確率は $\omega_d(\delta,T)$ 以下である。$\delta$ について下限を取れば $\varepsilon_{\rm cg}$ を得る。
 
-最後のparameter familyでは、中央barrier近傍のscale densityは幅 $O(B^{-1/2})$ に集中するため $\ell_B=B^{-1}$ のcollar比は $O(B^{-1/2})$ である。committor derivativeは同領域で $O(B^{1/2})$ なので $\delta_{0,B}=B^{-1}$ によりlaunch errorも $O(B^{-1/2})$ になる。中央saddle近傍の不安定drift scaleは $O(B)$ であり、$T_B=C(\log B)/B$ は十分大きい $C$ でfall timeを上回る一方、$L$ から $d$ へ戻るにはfree-energy差 $c_{dL}B+O(1)$ を上るためfinite-window returnは指数的に抑えられる。各有限 $B$ でphase-volume tracking time scaleとR209B/Cのreduction parameterをその後に選べば、mean-force lag、有限mode fluctuation、coarse-graining errorをそれぞれ独立に小さくできる。証明終。
+最後のparameter familyでは、中央barrier近傍のscale densityは幅 $O(B^{-1/2})$ に集中するため $\ell_B=B^{-1}$ のcollar比は $O(B^{-1/2})$ である。committor derivativeは同領域で $O(B^{1/2})$ なので $\delta_{0,B}=B^{-1}$ によりlaunch errorも $O(B^{-1/2})$ になる。中央saddle近傍の不安定drift scaleは $O(B)$ であり、$T_B=C(\log B)/B$ は十分大きい $C$ でfall timeを上回る一方、$L$ から $d$ へ戻るにはfree-energy差 $c_{dL}B+O(1)$ を上るためfinite-window returnは指数的に抑えられる。各有限 $B$ で $\tau_\rho/\tau_X$ を小さくし、$N_\rho$ を大きくし、R209B finite-window realization errorと $M_X/\gamma_X$ をその後に小さく取れば、open phase-volume averaging、finite-Hamiltonian lift、small-mass、coarse-grainingの各誤差を責務別に独立して小さくできる。証明終。
 <!-- theorem-end:proof -->
 
 ### AA.19.1 required numerical witness
@@ -1737,7 +1881,7 @@ k_BT\,\partial_s\log w,
 
 特に $q_\alpha=1/N_{\rm pv}$ ならRMS fluctuationは $O(N_{\rm pv}^{-1/2})$ である。
 
-R205Aは $U=R=0$、R205Cは一般 $U,R$、R208Bは $w=r_X^\delta/r_*$、R211Aはselector weightへのspecializationとして回収される。
+R205Aは $U=R=0$、R205Cは一般 $U,R$、R211Aはselector weightへのspecializationとして回収される。旧R208Bで用いていた $w=r_X^\delta/r_*$ のphase-volume数学もR212Aのspecializationとして回収されるが、R208B自体はdraft-146で退役済みであり現行依存には数えない。
 <!-- theorem-end:theorem -->
 
 <!-- theorem-start:proof -->

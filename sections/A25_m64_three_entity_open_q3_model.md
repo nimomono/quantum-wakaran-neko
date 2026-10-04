@@ -654,7 +654,7 @@ L_b
 Gronwall評価と初期couplingの下限を取れば表示した $W_1$ boundを得る。証明終。
 <!-- theorem-end:proof -->
 
-Y.4.1の準備を使えば初期項は $\varepsilon_{\rm prep}$ から制御できる。有限 $\tau_U$ の実M64 tracer自身について時間対称加速度まで直接比較する高階parabolic stabilityはstrengtheningとし、固定Q3-2では次節のcanonical R161 processへ受け渡す。付録AAのR209CはこのM64 SDE自体を変更せず、M67 finite-Hamiltonian tracerと本節のcanonical M64 tracerの有限時間 $W_1$ compatibilityを与える。
+Y.4.1の準備を使えば初期項は $\varepsilon_{\rm prep}$ から制御できる。有限 $\tau_U$ の実M64 tracer自身について時間対称加速度まで直接比較する高階parabolic stabilityはstrengtheningとし、固定Q3-2では次節のcanonical R161 processへ受け渡す。continuous Q3-2では付録AC/R214BがこのM64 SDE自体を変更せず、M67 dumbbell tracerと本節のcanonical M64 tracerについて $\sup_{t\le T}W_1(\mathcal L(X_t^{67,{\rm db}}),\mathcal L(X_t^{64}))\le\varepsilon_{214\to64}(T)$ を与える。R209A/R209BはR214B内部のgeneric flow / finite-bath補題として用い、退役したR209Cは現行bridgeに使わない。
 
 ## Y.6 R203D：一般finite-graph R161 interface、1D finite volume、R185/R125接続
 

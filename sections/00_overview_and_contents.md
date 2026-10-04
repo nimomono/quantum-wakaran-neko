@@ -11,7 +11,7 @@
 | 層 | 主な識別 | 役割 |
 |---|---|---|
 | 実正準signal・状態構成 | M54、M37 | M54が共通状態・接続規約、M37が古典振動子によるsignal実装 |
-| finite-Hamiltonian physical parent | M67/R208--R212 | Q3、Q1 selector、Q2 thermal sectorを有限Hamiltonian structured reservoirへ接続 |
+| finite-Hamiltonian physical parent | M67 | Q3ではR208A/R208D、R209A/B、R210A/B、R214A/B、Q1 selectorではR211A--R211C、Q2 thermal sectorではR212A--R212Cを有限Hamiltonian structured reservoirへ接続 |
 | thermal open/effective interface | M66/R205 | R212から回収するphase-volume、mean-flow、thermal sampling、passive separation |
 | 用途別の模型・特殊化 | M65/R181D、R206、M64/R161/R185、R207 | Q1逐次2値測定、Q2終端多結果、M67のQ3 open reduction、Q2-2 projection phase-volume二端模型 |
 | 全周期統合 | M0 | 準備からrenewalまでを1つのjoint device/processへ統合 |
@@ -63,9 +63,9 @@ Q2-2 fixed-goalはM67/R212->M66/R205->R207 projection phase-volume経路を使�
 
 Q3のsignal数学はQ1/Q2と別の代数ではない。Q1型局所正準モードを空間頂点へ配置し、Q2型2体系結合を辺へ反復すると、Schrödinger型signal、局所作用、反対称currentが得られる。Q3ではM67を共通二実体finite-Hamiltonian physical parentとし、M37をそのcoherent oscillator moduleとして内包する。R210Aがfull M67からM37/R86のSchrödinger型signalへの有限時間compatibilityを与える。
 
-M67は一つのstructured reservoir sectorとmarker sectorからなり、coherent、bounded dephasing、continuous tracer、finite-graph tracer、Q1 binary-selectorに加えてR212A--R212Cのthermal physical-parent profileを持つ。Q3-3A--Q3-3CではR210BがR123有限環境をstructured reservoir内部へboundedに埋め込む。Q3粒子/Nelson側ではM64を独立三実体parentとはせず、R208/R209でM67から得るcanonical open effective modelとして維持する。R203A--R203D、R161/R185、R124/R182/R125の既存結果はそのまま再利用する。
+M67は一つのstructured reservoir sectorとmarker sectorからなり、coherent、bounded dephasing、continuous tracer、finite-graph tracer、Q1 binary-selectorに加えてR212A--R212Cのthermal physical-parent profileを持つ。Q3-3A--Q3-3CではR210BがR123有限環境をstructured reservoir内部へboundedに埋め込む。Q3粒子/Nelson側ではM64を独立三実体parentとはせず、continuous branchはR208Aを共通構成としてR214A/R214BがR209A/R209Bを使いM64/R203Cへ接続し、finite-graph branchはR208AからR212A、R208Dを経てM64/R203Dへ接続する。R203A--R203D、R161/R185、R124/R182/R125の既存結果はそのまま再利用する。
 
-Q3の現行因果鎖はM67から分岐する。Q3-1は $M67\to R210A\to M37/R86$、Q3-2は $M67\to R208/R209\to M64/R203\to R161/R185$、Q3-3A--CはM67 dephasing profileからR210B/R123へ、Q3-4A/B/5はM67 finite-graph profileからR203D/R161とR124/R182/R125へ接続する。
+Q3の現行因果鎖はM67から分岐する。Q3-1は $M67\to R210A\to M37/R86$、Q3-2 continuous branchは $M67/R208A\to R214A/R214B\to M64/R203C\to R161/R185$ であり、R214B内部でR209A/R209Bをgeneric flow / finite-bath補題として使う。Q3-3A--Cは $M67\to R210B\to R123$、Q3-4A/B/5 finite-graph branchは $M67/R208A\to R212A\to R208D\to M64/R203D\to R161$ からR124/R182/R125の位置読出しへ接続する。
 
 固定目標の達成は、その目標が要求する現象を1試行内で明示的な物理interfaceを通して合成できるかで判定する。準備、全操作、測定、永久記録、reset、物理clock、次試行renewalまでを同じ装置architectureと共通反復周期へ統合することはM0で別に要求する。M67/R212からM66/R205 thermal lawを回収したことは、Q2 signal/register/gateやR206 apparatus全体を同じ単一bathまたは1台の製造済み装置へ統合したことを意味しない。
 

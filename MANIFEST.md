@@ -1,3 +1,14 @@
+## draft-147：R211 open reduction / retired dependency cleanup
+
+- 付録AA/R211Aをstatic finite-Hamiltonian constructionとして自己完結させ、R211Bの計算核をopen OU/Langevin reductionへ整理する。
+- generic R209Bへfinite-window harmonic-bath realization corollaryを追加し、Q1 phase-volume auxiliary modesとmarkerをFord--Kac--Mazur / Zwanzig型構成からM67 finite-Hamiltonian profileへ持ち上げる。
+- R211B内でphase-volume fast averagingと $Y=X+(M_X/\gamma_X)V$ small-mass couplingを閉じ、R208B/R208C/R209CおよびR208D thermalizationへのactive依存を除く。
+- 付録Y/A25と第8章のcurrent Q3 bridgeをR214Bへ統一し、旧R209C error ledgerを現行予算へ戻さない。
+- required `tools/verify_r211b_q1_open_reduction.py` とdraft-147 migration checkerを追加し、既存first-passage verifierはterminal-kernel transfer責務を維持する。
+- 第0・1・2・6・7章のQ3 current-state表記を、coherent `M67->R210A->M37/R86`、continuous `M67/R208A->R214A/B->M64/R203C->R161/R185`、dephasing `M67->R210B->R123`、finite-graph `M67/R208A->R212A->R208D->M64/R203D->R161` に分離する。
+- R212Aで旧R208Bの数学内容を歴史的specializationとしてのみ記録し、active dependencyへ戻さない。
+- Q1/Q2/Q3 fixed-goal達成、A1/A2/B1--B3、M0、R186判定は変更しない。full finite-bath direct trajectoryはA2未監査のまま維持する。
+
 ## draft-146：旧Q3 continuous phase-volume bridge退役
 
 - R214A--R214Bのrequired主線化完了を受け、R208B/R208C/R209Cをactive theorem/result tableから退役する。
