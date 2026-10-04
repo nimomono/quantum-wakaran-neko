@@ -102,6 +102,8 @@ jobs:
       - name: draft-147生成物をbranchへ同期
         if: ${{ github.event_name == 'pull_request' && steps.build.outcome == 'success' }}
         run: |
+          git fetch origin "${{ github.head_ref }}"
+          git checkout -B "${{ github.head_ref }}" "origin/${{ github.head_ref }}"
           cp build/ci/paper.md paper.md
           cp build/ci/main.tex main.tex
           cp build/ci/paper.pdf paper.pdf
@@ -110,7 +112,7 @@ jobs:
           git add paper.md main.tex paper.pdf
           if ! git diff --cached --quiet; then
             git commit -m "draft-147: 生成論文を同期"
-            git push origin HEAD:${{ github.head_ref }}
+            git push origin HEAD:"${{ github.head_ref }}"
           fi
 
       - name: 生成物の同期を検査
