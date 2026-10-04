@@ -5,7 +5,7 @@
 - R211B内でphase-volume fast averagingと $Y=X+(M_X/\gamma_X)V$ small-mass couplingを閉じ、R208B/R208C/R209CおよびR208D thermalizationへのactive依存を除く。
 - 付録Y/A25と第8章のcurrent Q3 bridgeをR214Bへ統一し、旧R209C error ledgerを現行予算へ戻さない。
 - required `tools/verify_r211b_q1_open_reduction.py` とdraft-147 migration checkerを追加し、既存first-passage verifierはterminal-kernel transfer責務を維持する。
-- 第0・1・2・6・7章のQ3 current-state表記を、coherent `M67→R210A→M37/R86`、continuous `M67/R208A→R214A/B→M64/R203C→R161/R185`、dephasing `M67→R210B→R123`、finite-graph `M67/R208A→R212A→R208D→M64/R203D→R161` に分離する。
+- 第0・1・2・6・7章のQ3 current-state表記を、coherent `M67->R210A->M37/R86`、continuous `M67/R208A->R214A/B->M64/R203C->R161/R185`、dephasing `M67->R210B->R123`、finite-graph `M67/R208A->R212A->R208D->M64/R203D->R161` に分離する。
 - R212Aで旧R208Bの数学内容を歴史的specializationとしてのみ記録し、active dependencyへ戻さない。
 - Q1/Q2/Q3 fixed-goal達成、A1/A2/B1--B3、M0、R186判定は変更しない。full finite-bath direct trajectoryはA2未監査のまま維持する。
 
