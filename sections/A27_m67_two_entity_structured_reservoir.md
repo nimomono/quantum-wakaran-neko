@@ -1073,7 +1073,7 @@ q_{\rm load}^{(p)}(T)
 O(N_0^{-1}).
 ```
 
-R86のbare M37→Schrödinger target error $\varepsilon_{86}$ はQ3-1でのみ
+R86のbare M37からSchrödinger targetへのerror $\varepsilon_{86}$ はQ3-1でのみ
 ```math
 q_{210}^{(p)}
 =
@@ -1081,7 +1081,7 @@ q_{210}^{(p)}
 +
 q_{\rm load}^{(p)}
 ```
-と合成する。Q3-2のM67→M64 compatibilityではcarrier-envelope errorを二重計上せず、load-only $q_{\rm load}^{(p)}$ だけをR214Bへ渡す。
+と合成する。Q3-2のM67からM64へのcompatibilityではcarrier-envelope errorを二重計上せず、load-only $q_{\rm load}^{(p)}$ だけをR214Bへ渡す。
 <!-- theorem-end:theorem -->
 
 <!-- theorem-start:proof -->
