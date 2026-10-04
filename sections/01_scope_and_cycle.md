@@ -144,7 +144,7 @@ for dephasing Q3-3A--C、
 \mathrm{R161}
 ```
 
-for finite-graph Q3-4A/B・Q3-5とする。continuous branchではR214B内部でR209A/R209Bをgeneric flow / finite-bath補題として使い、finite-graph branchはR124/R182/R125の位置読出しへ接続する。R162はR161 canonical Markov lawのoptional Poisson realizationであり、Q3の基礎的存在論やQ3-2の直接依存には入れない。と進む。R162はR161 canonical Markov lawのoptional Poisson realizationであり、Q3の基礎的存在論やQ3-2の直接依存には入れない。
+for finite-graph Q3-4A/B・Q3-5とする。continuous branchではR214B内部でR209A/R209Bをgeneric flow / finite-bath補題として使い、finite-graph branchはR124/R182/R125の位置読出しへ接続する。R162はR161 canonical Markov lawのoptional Poisson realizationであり、Q3の基礎的存在論やQ3-2の直接依存には入れない。
 
 ## 1.4 系列ごとの最小構成
 
@@ -155,7 +155,7 @@ for finite-graph Q3-4A/B・Q3-5とする。continuous branchではR214B内部で
 | Q2-2 | M67/R212B-rot->M66/R205 projection phase-volume共同準備、near-contact lock | R212C/R205F passive separation、local sign latch、R112型record、R207A--R207D監査 |
 | Q2-3 | R181Bを2回、R181C、R177 | M66/R206Dの8結果terminal sampler |
 | Q2-4 | R206E root preparation、M54一般 $2^n$ 直接モード、R181C | M66/R206Dの $2^n$ 結果terminal sampler、R186資源監査 |
-| Q3 | M67 physical parent。coherentはR210A->M37/R86、continuousはR208A->R214A/B->M64/R203C、dephasingはR210B->R123、finite-graphはR208A->R212A->R208D->M64/R203D | R161/R185、R123--R125/R182、R112終位置record |
+| Q3 | M67 physical parent。coherentはR210AからM37/R86へ、continuousはR208AからR214A/Bを経てM64/R203Cへ、dephasingはR210BからR123へ、finite-graphはR208AからR212A、R208Dを経てM64/R203Dへ | R161/R185、R123--R125/R182、R112終位置record |
 
 ## 1.5 達成範囲と判定階層
 
