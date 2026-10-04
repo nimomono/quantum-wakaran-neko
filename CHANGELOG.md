@@ -4,7 +4,9 @@
 - R209Bへfixed finite windowのOU/Langevin realization corollaryを追加し、Q1 auxiliary modes / markerのopen-law計算とfinite-Hamiltonian liftを分離した。
 - R211Bをopen OU phase-volume averaging、marker small-mass coupling、R209B finite-window realization、terminal-kernel transferへ再編し、R209CとR208D thermalization依存を除いた。
 - A25と第8章のcontinuous Q3 process bridgeをR214B / $\varepsilon_{214\to64}$ へ統一した。
-- required R211B open-reduction verifierとdraft-147 migration guardを追加した。Q1/Q2/Q3 fixed-goal、A1/A2/B1--B3、M0、R186の判定は変更していない。
+- required R211B open-reduction verifierとdraft-147 migration guardを追加した。
+- 第0・1・2・6・7章に残っていた `R208/R209`、`R208--R210`、`M67/R208--R212` の現行略記を廃し、coherent、continuous、dephasing、finite-graphの因果鎖を明示した。
+- R212AのR208B特殊化記述を歴史的系譜へ変更し、退役R208Bを現行依存として読めない形へ整理した。Q1/Q2/Q3 fixed-goal、A1/A2/B1--B3、M0、R186の判定は変更していない。
 
 ## draft-146：R208B/R208C/R209C退役とQ3 continuous主線一本化
 

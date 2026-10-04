@@ -1,15 +1,15 @@
 @number: 7
 @chapter: 本文
 @title: Q3の確率力学、束縛状態、トンネル現象、2経路干渉、位相量子化
-@status: Q3-2・Q3-3A--Q3-5の達成とQ3-6の未達を区別する。Q3共通physical parentはM67/R208--R210とし、M37/R86はcoherent module、M64/R203A--R203Dはopen effective reduction、R123はR210Bで物理liftされたdephasing lawとして使う。Q3-4A・Q3-4B・Q3-5はM67 finite-graph profileからR203Dへ縮約した単一試行位置読出しまでを固定目標範囲とする。
+@status: Q3-2・Q3-3A--Q3-5の達成とQ3-6の未達を区別する。Q3共通physical parentはM67とし、coherentはR210A→M37/R86、continuousはR208A→R214A/B→M64/R203C、dephasingはR210B→R123、finite-graphはR208A→R212A→R208D→M64/R203Dと責務分離する。Q3-4A・Q3-4B・Q3-5はM67 finite-graph profileからR203Dへ縮約した単一試行位置読出しまでを固定目標範囲とする。
 
-本章は、M67をQ3 common finite-Hamiltonian physical parentとして、R208/R209からM64/R203へ縮約してNelson流または時間対称Newton則を得るQ3-2、R210BからR123へ接続するQ3-3A--Q3-3C、R210Aで保持したcoherent signalのR124・R182・R125をM67 finite-graph profileのR203D位置読出しへ接続するQ3-4A・Q3-4B・Q3-5、M67 coherent sector上でも未達の位相量子化Q3-6を区別する。R123--R125とR182の完全証明は付録G、R161/R185の有限格子数学は付録N、M64/R203A--R203Dは付録Yに置く。M60/M61の旧Hamiltonian実装は現行論文主線から退役する。
+本章は、M67をQ3 common finite-Hamiltonian physical parentとして、R208A→R214A/R214B→M64/R203C→R161/R185でNelson流または時間対称Newton則を得るQ3-2、R210B→R123のQ3-3A--Q3-3C、R208A→R212A→R208D→M64/R203D→R161からR124・R182・R125の位置読出しへ接続するQ3-4A・Q3-4B・Q3-5、M67 coherent sector上でも未達の位相量子化Q3-6を区別する。continuous Q3-2ではR214B内部でR209A/R209Bをgeneric flow / finite-bath補題として使う。R123--R125とR182の完全証明は付録G、R161/R185の有限格子数学は付録N、M64/R203A--R203Dは付録Yに置く。M60/M61の旧Hamiltonian実装は現行論文主線から退役する。
 
 ## 7.1 Nelson流の作用変分または時間対称Newton則（Q3-2）
 
 **固定目標と達成判定。** Q3-2は、明示的な古典ミクロモデルの縮約から、Nelson型確率力学における作用の停留原理、または前進・後退平均加速度を対称に組み合わせたNewton則を導く。対象となる確率過程、前進・後退平均微分、力とポテンシャル、適用時間、近似範囲、誤差を明示する。二経路の少なくとも一方を満たせばよい。
 
-**運用状態。** Q3-2は達成である。M67/R210Aが古典実振動子を含むstructured reservoirから空間signal $Z$ を有限時間で保持し、R208/R209が同じM67からM64 open lawへ縮約する。M64/R203Aはregularized density/current dictionary、R203Bはphase-volume free energy・initial tracer preparation・finite-time mean-flow tracking、R203Cはcanonical overdamped tracerからideal regularized diffusionへの有限時間縮約を与える。R203Dの1次元特殊化はR185と同一の $(\pi^\delta,j^\delta,t^\delta)$ を持つR161 processへ接続する。
+**運用状態。** Q3-2は達成である。M67/R210Aが古典実振動子を含むstructured reservoirから空間signal $Z$ を有限時間で保持し、continuous tracerはM67/R208A→R214A/R214B→M64/R203Cへ縮約する。R214B内部ではR209A/R209Bをgeneric flow / finite-bath補題として使う。M64/R203Aはregularized density/current dictionary、R203Bはphase-volume free energy・initial tracer preparation・finite-time mean-flow tracking、R203Cはcanonical overdamped tracerからideal regularized diffusionへの有限時間縮約を与える。R203Dの1次元特殊化はR185と同一の $(\pi^\delta,j^\delta,t^\delta)$ を持つR161 processへ接続する。
 
 R161移動特殊化の条件付き分布を $p_i(t)$ とすると、同じ前向き経路法則のBayes反転は
 

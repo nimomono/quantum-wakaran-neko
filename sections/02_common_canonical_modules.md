@@ -27,7 +27,7 @@ w(Q)e^{-\beta H_{\rm cfg}(Q)}
 
 | 用途 | 共通熱浴原理との対応 | 用途固有に残る責務 |
 |---|---|---|
-| M67 | finite-Hamiltonian structured reservoir physical parent | Q3ではR208--R210、Q1ではR211A--R211C、Q2 thermal sectorではR212A--R212CからM66/R205へ接続。Q2 signal/register/gateにはR213A--R213D candidateを追加。M54置換とR206 apparatus全体liftは未完 |
+| M67 | finite-Hamiltonian structured reservoir physical parent | Q3ではR208A/R208D、R209A/B、R210A/B、R214A/Bを用途別に使い、Q1ではR211A--R211C、Q2 thermal sectorではR212A--R212CからM66/R205へ接続。Q2 signal/register/gateにはR213A--R213D candidateを追加。M54置換とR206 apparatus全体liftは未完 |
 | M64 / Q3 effective | M67/R208--R209からcanonical open lawとして回収 | R203A current dictionary、initial/flow tracking、R203C/R203Dの有効縮約責務 |
 | M65 / Q1 | two-result first-passage open lawを系列固有に定め、R205D fixed-hub corollaryは現行physical liftに使わない | R204A、R204D--R204F、R181D handoff。finite-Hamiltonian liftはM67/R211A--R211CからR204Eへ接続 |
 | R206 / Q2-1・Q2-3・Q2-4 | M67/R212->M66/R205上のfinite-$L$ common-hub terminal specialization | Q2 terminal bridge、finite-time/fabrication error、Q2-4 root preparation。common-hub apparatus全体のfinite-Hamiltonian liftは別課題 |
@@ -41,7 +41,7 @@ M54から作る派生複素座標を
 Z=\frac{Q+iP}{\sqrt{2\mathcal J_0}}
 ```
 
-とするが、$Z$ は独立した複素実体ではない。Q1では2結果射影作用をM65のbinary selector interfaceへ渡す。Q2-1/Q2-3/Q2-4ではterminal各結果作用をM67/R212->M66/R206へ渡す。Q2-2はM67/R212->M66/R205--R207のprojection phase-volume二端模型を使う。Q3ではM67がcommon physical parentであり、R210Aを介したM37/R86 coherent moduleから空間signalを得る。continuous/finite-graph tracerはR208/R209でM64/R203A--R203Dへ縮約しR161へ渡す。Q3-3A--Cの有限dephasing environmentはR210Bを介してR123へ接続する。R161自身が有限状態のcanonical Markov経路法則まで定め、R162は同じ経路法則を独立Poisson random measuresで実現するoptional referenceとして使う。測定結果用の旧静的配置pointerをM54共通状態へ置かない。
+とするが、$Z$ は独立した複素実体ではない。Q1では2結果射影作用をM65のbinary selector interfaceへ渡す。Q2-1/Q2-3/Q2-4ではterminal各結果作用をM67/R212->M66/R206へ渡す。Q2-2はM67/R212->M66/R205--R207のprojection phase-volume二端模型を使う。Q3ではM67がcommon physical parentであり、R210Aを介したM37/R86 coherent moduleから空間signalを得る。continuous tracerはR208Aを共通構成としてR214A/R214BからM64/R203Cへ縮約し、R214B内部でR209A/R209Bをgeneric補題として使う。finite-graph tracerはR208AからR212A、R208Dを経てM64/R203Dへ縮約する。両branchの位置過程はR161へ渡す。Q3-3A--Cの有限dephasing environmentはR210Bを介してR123へ接続する。R161自身が有限状態のcanonical Markov経路法則まで定め、R162は同じ経路法則を独立Poisson random measuresで実現するoptional referenceとして使う。測定結果用の旧静的配置pointerをM54共通状態へ置かない。
 
 M65のwinner latch / first-passage interface、M66のcommon-hub pointer、R179のopen reset浴は接続interfaceとして扱い、常設のM54信号座標とは分ける。
 
@@ -62,7 +62,7 @@ M65のwinner latch / first-passage interface、M66のcommon-hub pointer、R179�
 | Q2-2 | two hidden-direction rotors＋2物理測定端 | M67/R212B-rot canonical preparation->M66/R205E、setting directions | R212C/R205F、R207A--R207D、local latch/record |
 | Q2-3 | 8モード永続記憶部 | R181Bを2回、R181C、R177 | M66/R206D 8結果terminal sampling |
 | Q2-4 | $2^n$ 直接モード | R206E root preparation、R181C | M66/R206D $2^n$結果terminal sampling、R186監査 |
-| Q3 | M67 structured reservoir＋marker | 準備済み古典空間入力、M67/R208--R210、M37/R86 module、M64/R203 effective reduction | R161、R185、R123--R125、R182 |
+| Q3 | M67 structured reservoir＋marker | 準備済み古典空間入力。coherent R210A→M37/R86、continuous R208A→R214A/B→M64/R203C、dephasing R210B→R123、finite-graph R208A→R212A→R208D→M64/R203D | R161、R185、R123--R125、R182 |
 
 M37はM54へ吸収しない。Q3では局所位置ばね網から空間信号を実装し、Q1ではR187の弱結合W型族に限って最低2正常モードをW2制御信号へ接続する。全系列を同一architectureの装置族、共通物理interface、一つのparameter family、共通反復周期へ統合するM0は別の未完成目標である。入力、測定軸、ポテンシャル、規模に応じた有限設定値の変更は許す。
 
@@ -139,7 +139,7 @@ Z=\frac{Q+iP}{\sqrt{2\mathcal J_0}}
 
 入力境界は、結果確率表、Born重み、結果依存状態、規格化後の測定結果を外部から注入する許可ではない。境界以後の可逆発展、状態方向輸送、結果形成、射影結果成分受渡し、空間配置輸送は各現行結果から導く。入力誤差は、目標規格化第2モーメント $C_{\rm in}$ または目標単一試行信号に対する一つの $\varepsilon_{\rm in}$ として下流の誤差予算へ一度だけ入れる。
 
-Q1のM37--W2接続ではR187または固定線形正準接続端を用い、Q2-1--Q2-3の固定積入力はR181Bへ渡す。Q2-4はR181Bを一般 $n$ へ反復せず、R206Eの一様open preparationで $0^n$ 根モードを作る。Q3は準備済み空間signalをM67 coherent profileへ入れ、R210AでM37/R86を回収する。tracer profileはR208/R209からM64/R203A--R203Dへ縮約し、continuous profileはR161/R185へ、finite-graph profileはR124/R182/R125の位置読出しへ接続する。R162はこの経路法則のoptional independent-Poisson realizationとして比較用途にだけ残す。
+Q1のM37--W2接続ではR187または固定線形正準接続端を用い、Q2-1--Q2-3の固定積入力はR181Bへ渡す。Q2-4はR181Bを一般 $n$ へ反復せず、R206Eの一様open preparationで $0^n$ 根モードを作る。Q3は準備済み空間signalをM67 coherent profileへ入れ、R210AでM37/R86を回収する。continuous tracerはR208A→R214A/B→M64/R203C→R161/R185、finite-graph tracerはR208A→R212A→R208D→M64/R203D→R161からR124/R182/R125の位置読出しへ接続する。R214B内部ではR209A/R209Bをgeneric補題として使う。R162はこの経路法則のoptional independent-Poisson realizationとして比較用途にだけ残す。
 
 旧R181Aの物理テンプレート、横方向排出、共通初期種からの状態方向吸引は数学的結果として退役記録へ保存する。そこから一時切り出した方向不変作用回復R192も、draft-127でQ2-4逐次branchの責務消滅に伴い退役した。
 
@@ -338,7 +338,7 @@ j_{ij}^\delta
 \sum_jj_{ji}^\delta .
 ```
 
-従ってQ1型局所signalとQ2型辺結合から $(\pi^\delta,j^\delta)$ が得られる。R161の対称活動量 $t_{ij}=t_{ji}\geq|j_{ij}|$ は位置輸送の物理実現が供給する独立入力であり、現行Q3ではM67 finite-graph profileをR208/R209でM64/R203Dへ縮約し、finite-graph activityとgeneratorを与える。
+従ってQ1型局所signalとQ2型辺結合から $(\pi^\delta,j^\delta)$ が得られる。R161の対称活動量 $t_{ij}=t_{ji}\geq|j_{ij}|$ は位置輸送の物理実現が供給する独立入力であり、現行Q3ではM67/R208A finite-graph profileをR212A→R208D→M64/R203Dと縮約してfinite-graph activityとgeneratorを与える。
 
 ```math
 \mathrm{local\ canonical\ signal}
@@ -993,7 +993,7 @@ Q2-1/Q2-3/Q2-4ではR206をterminal readout正本とし、R206Eのuniform root p
 
 ## 2.20 M67 二実体finite-Hamiltonian parent
 
-付録AA/M67では、coherent signalとthermal/reservoir自由度を一つのstructured reservoirへまとめ、classical markerとの二実体sectorを主要ontologyとするfinite-Hamiltonian physical parentを置く。Q3ではR208--R210、Q1ではR211A--R211C、Q2 thermal sectorではR212A--R212CがM66/R205へ接続する。R212B-rotはR207Aのtwo-rotor target densityをcanonical marginalとして回収する。これはM54を置換したこと、R206 common-hub apparatus全体をM67から導出したこと、Q2 signal/NBL/register/gateまたはM0を統合したことを意味しない。
+付録AA/M67では、coherent signalとthermal/reservoir自由度を一つのstructured reservoirへまとめ、classical markerとの二実体sectorを主要ontologyとするfinite-Hamiltonian physical parentを置く。Q3ではR208A/R208D、R209A/B、R210A/B、R214A/Bを用途別に使い、Q1ではR211A--R211C、Q2 thermal sectorではR212A--R212CがM66/R205へ接続する。R212B-rotはR207Aのtwo-rotor target densityをcanonical marginalとして回収する。これはM54を置換したこと、R206 common-hub apparatus全体をM67から導出したこと、Q2 signal/NBL/register/gateまたはM0を統合したことを意味しない。
 
 ## R214 continuous-tracer required profile
 

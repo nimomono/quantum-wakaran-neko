@@ -65,6 +65,33 @@ def main() -> None:
     require((ROOT / "tools/verify_r211b_q1_open_reduction.py").is_file(),
             "new R211B required verifier missing")
 
+    current_q3_paths = (
+        "sections/00_overview_and_contents.md",
+        "sections/01_scope_and_cycle.md",
+        "sections/02_common_canonical_modules.md",
+        "sections/06_m37_spatial_envelope.md",
+        "sections/07_q3_finite_graph_phenomena.md",
+    )
+    stale_shorthands = (
+        "R208/R209",
+        "R208--R210",
+        "R208--R212",
+        "M67/R208--R212",
+    )
+    for path in current_q3_paths:
+        text = read(path)
+        for stale in stale_shorthands:
+            require(stale not in text,
+                    f"stale broad Q3 shorthand remains in {path}: {stale}")
+        require("R214" in text and "R208D" in text,
+                f"explicit continuous/finite-graph split missing in {path}")
+
+    require(
+        "旧R208Bで用いていた" in a27
+        and "R208B自体はdraft-146で退役済み" in a27,
+        "R212A does not mark R208B as historical lineage",
+    )
+
     print("draft147_r211_open_reduction_cleanup_ok")
 
 

@@ -1881,7 +1881,7 @@ k_BT\,\partial_s\log w,
 
 特に $q_\alpha=1/N_{\rm pv}$ ならRMS fluctuationは $O(N_{\rm pv}^{-1/2})$ である。
 
-R205Aは $U=R=0$、R205Cは一般 $U,R$、R208Bは $w=r_X^\delta/r_*$、R211Aはselector weightへのspecializationとして回収される。
+R205Aは $U=R=0$、R205Cは一般 $U,R$、R211Aはselector weightへのspecializationとして回収される。旧R208Bで用いていた $w=r_X^\delta/r_*$ のphase-volume数学もR212Aのspecializationとして回収されるが、R208B自体はdraft-146で退役済みであり現行依存には数えない。
 <!-- theorem-end:theorem -->
 
 <!-- theorem-start:proof -->

@@ -5,7 +5,9 @@
 - R211Bをopen OU phase-volume averaging、marker small-mass reduction、R209B finite-Hamiltonian realization、terminal-kernel transferへ責務分離し、旧R209CおよびR208D thermalization参照を除く。
 - `tools/verify_r211b_q1_open_reduction.py` でfrozen OU mean force、$\sum q_\alpha^2$ fluctuation、slow-$X$ tracking、$Y=X+(M/\gamma)V$ cancellation、joint parameter windowをrequired回帰する。既存 `verify_m67_q1_first_passage.py` はdownstream committor / terminal-kernel transferを維持する。
 - A25と第8章のcurrent Q3 process bridgeをR214B / $\varepsilon_{214\to64}$ へ統一し、退役R209C台帳を現行誤差予算から除く。
-- `tools/migrations/check_draft147_r211_open_reduction_cleanup.py` で退役依存の再混入、Q1/Q2/Q3達成ラベル、A2境界を監査する。full finite-harmonic-bath direct trajectoryは引き続きA2未監査である。
+- `tools/migrations/check_draft147_r211_open_reduction_cleanup.py` で退役依存の再混入、Q1/Q2/Q3達成ラベル、A2境界を監査する。
+- 同migration guardで第0・1・2・6・7章から `R208/R209`、`R208--R210`、`R208--R212`、`M67/R208--R212` のcurrent-state略記が消え、各章がR214 continuous branchとR208D finite-graph branchを明記することを検査する。
+- R212Aでは旧R208Bを歴史的数学specializationとしてのみ記述することを検査する。full finite-harmonic-bath direct trajectoryは引き続きA2未監査である。
 
 ## draft-146：旧Q3 continuous phase-volume bridge退役検算
 

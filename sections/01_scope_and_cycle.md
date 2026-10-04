@@ -1,7 +1,7 @@
 @number: 1
 @chapter: 本文
 @title: 問題設定、統一構造、達成範囲
-@status: M54を共通実正準signal・状態構成層、M67を二実体finite-Hamiltonian physical parent、M66/R205をM67 thermal-sector open/effective interfaceとする。Q3ではR208--R210、Q1ではR211A--R211C、Q2 thermal sectorではR212A--R212CからM66/R205へ接続する。Q2 signal/register/gateにはR213A--R213DのM67/NBL carrier candidateを追加するが、M54/R186 fixed-goal主線は維持する。M65、R206、R207は従来の系列責務を維持し、M0のjoint device/process統合とは区別する。
+@status: M54を共通実正準signal・状態構成層、M67を二実体finite-Hamiltonian physical parent、M66/R205をM67 thermal-sector open/effective interfaceとする。Q3ではR208A/R208D、R209A/B、R210A/B、R214A/Bを用途別に使い、Q1ではR211A--R211C、Q2 thermal sectorではR212A--R212CからM66/R205へ接続する。Q2 signal/register/gateにはR213A--R213DのM67/NBL carrier candidateを追加するが、M54/R186 fixed-goal主線は維持する。M65、R206、R207は従来の系列責務を維持し、M0のjoint device/process統合とは区別する。
 
 draft-146ではR214A--R214B required主線の自立を受け、旧R208B/R208C/R209C continuous phase-volume bridgeをactive resultから退役する。continuousはR214A/B、generic flow/bathはR209A/B、coherent loadはR210A、finite-graphはR208D/R212A/R203Dへ責務分離する。Q3-2の達成状態、Q3-4A/B・Q3-5、A1/A2、M0は変更しない。
 
@@ -19,7 +19,7 @@ draft-146ではR214A--R214B required主線の自立を受け、旧R208B/R208C/R2
 |---|---|---|
 | 共通有効signal・状態構成 | M54 | 有限実正準信号、準備済み入力境界、永続記憶部、作業領域、時計、記録、接続規約 |
 | signal物理実装 | M37/R86 | 局所結合古典振動子網から空間signalを実装。Q3ではM67 coherent module、R187条件下ではW型最低2正常モードをQ1へ接続 |
-| finite-Hamiltonian physical parent | M67/R208--R212 | Q3、Q1 selector、Q2 thermal sectorのphysical lift |
+| finite-Hamiltonian physical parent | M67 | Q3はR208A/R208D・R209A/B・R210A/B・R214A/B、Q1 selectorはR211A--R211C、Q2 thermal sectorはR212A--R212Cでphysical lift |
 | thermal open/effective interface | M66/R205A--R205F | R212から回収するphase-volume、mean-flow、thermal sampling、matched capacity--conductance、passive separation |
 | 用途別模型・特殊化 | M64、M65、R206、R207 | M67のQ3 open reduction、Q1逐次2値測定、Q2終端多結果読出し、Q2-2 projection phase-volume二端模型 |
 | 全周期統合目標 | M0 | 準備、操作、測定、永久記録、reset、clock、renewalを1つのjoint device/processへ統合 |
@@ -98,19 +98,53 @@ Q2-1は $L=4$、Q2-3は $L=8$、Q2-4は $L=2^n$ とする。Q2-4ではR206Eの�
 
 Q2-2 fixed-goalはM67/R212B-rotによるtwo-rotor canonical preparationをM66/R205Eへ縮約し、near-contact hidden-direction lock、R212C/R205F passive separation、R207 local sign latch/recordを一試行で接続する。一般Bloch方向のsinglet共同統計を任意精度で再現し、分離後local response factorizationとmeasurement independenceの不成立を監査する。
 
-Q3のsignal数学はQ1/Q2の局所実正準信号と2体系結合の空間特殊化である。Q3のphysical parentはM67であり、M37/R86はそのcoherent module、M64/R203はR208/R209から得るopen effective reductionとして接続し、
+Q3のsignal数学はQ1/Q2の局所実正準信号と2体系結合の空間特殊化である。Q3のphysical parentはM67であり、用途別の現行因果鎖を混ぜずに
 
 ```math
-\mathrm{M67/R208--R210}
+\mathrm{M67}
 \longrightarrow
-\mathrm{M37/R86,\ M64/R203A--R203C}
+\mathrm{R210A}
 \longrightarrow
-\mathrm{R203D/R161}
-\longrightarrow
-\mathrm{R185}
+\mathrm{M37/R86}
 ```
 
-と進む。R162はR161 canonical Markov lawのoptional Poisson realizationであり、Q3の基礎的存在論やQ3-2の直接依存には入れない。
+for coherent Q3-1、
+
+```math
+\mathrm{M67/R208A}
+\longrightarrow
+\mathrm{R214A/R214B}
+\longrightarrow
+\mathrm{M64/R203C}
+\longrightarrow
+\mathrm{R161/R185}
+```
+
+for continuous Q3-2、
+
+```math
+\mathrm{M67}
+\longrightarrow
+\mathrm{R210B}
+\longrightarrow
+\mathrm{R123}
+```
+
+for dephasing Q3-3A--C、
+
+```math
+\mathrm{M67/R208A}
+\longrightarrow
+\mathrm{R212A}
+\longrightarrow
+\mathrm{R208D}
+\longrightarrow
+\mathrm{M64/R203D}
+\longrightarrow
+\mathrm{R161}
+```
+
+for finite-graph Q3-4A/B・Q3-5とする。continuous branchではR214B内部でR209A/R209Bをgeneric flow / finite-bath補題として使い、finite-graph branchはR124/R182/R125の位置読出しへ接続する。R162はR161 canonical Markov lawのoptional Poisson realizationであり、Q3の基礎的存在論やQ3-2の直接依存には入れない。と進む。R162はR161 canonical Markov lawのoptional Poisson realizationであり、Q3の基礎的存在論やQ3-2の直接依存には入れない。
 
 ## 1.4 系列ごとの最小構成
 
@@ -121,7 +155,7 @@ Q3のsignal数学はQ1/Q2の局所実正準信号と2体系結合の空間特殊
 | Q2-2 | M67/R212B-rot->M66/R205 projection phase-volume共同準備、near-contact lock | R212C/R205F passive separation、local sign latch、R112型record、R207A--R207D監査 |
 | Q2-3 | R181Bを2回、R181C、R177 | M66/R206Dの8結果terminal sampler |
 | Q2-4 | R206E root preparation、M54一般 $2^n$ 直接モード、R181C | M66/R206Dの $2^n$ 結果terminal sampler、R186資源監査 |
-| Q3 | M67/R208--R210 physical parent、M37/R86 coherent module、M64/R203A--R203D open reduction | R161/R185、R123--R125/R182、R112終位置record |
+| Q3 | M67 physical parent。coherentはR210A→M37/R86、continuousはR208A→R214A/B→M64/R203C、dephasingはR210B→R123、finite-graphはR208A→R212A→R208D→M64/R203D | R161/R185、R123--R125/R182、R112終位置record |
 
 ## 1.5 達成範囲と判定階層
 
