@@ -1,11 +1,11 @@
 @number: AC
 @chapter: 付録
 @title: M67 伸縮Brownian dumbbell Q3 continuous-tracer profile
-@status: R214A--R214BをM67 continuous-tracer profileのrequired主線とする。R209A/R209Bをgeneric flow / finite-bath補題として使い、R214B自身がsmall-mass W1 bridgeを閉じる。R208B/R208C/R209Cはdraft-145では退役させずactive regressionとして残し、finite-graph Q3-4A/Q3-4B/Q3-5にはR214を流用しない。
+@status: R214A--R214BをM67 continuous-tracer profileのrequired主線とする。R209A/R209Bをgeneric flow / finite-bath補題として使い、R214B自身がsmall-mass W1 bridgeを閉じる。旧R208B/R208C/R209Cはdraft-146でactive resultから退役し、finite-graph Q3-4A/Q3-4B/Q3-5にはR214を流用しない。
 
 ## AC.1 目的と責務境界
 
-draft-145以後のM67 continuous-tracer profileは、本付録の三次元伸縮Brownian dumbbellをrequired主線とする。旧AA.3/R208Bのinverse-designed phase-volume implementationはPR1ではactive regressionとして残すが、Q3-2のfixed-goal直接主線から外す。
+draft-145以後のM67 continuous-tracer profileは、本付録の三次元伸縮Brownian dumbbellをrequired主線とする。draft-146で旧AA.3/R208Bのinverse-designed continuous phase-volume implementationをactive resultから退役し、一般phase-volume数学はR212A/M64-R203B側へ責務分離する。
 
 主要物理sectorは従来どおり「structured reservoir + marker/tracer」の二分類である。dumbbellの内部相対座標はmarker/tracer内部自由度であり、新しい第三物理実体とは数えない。structured reservoir側のM37 coherent sector、R209 flow/drag sector、R210A coherent compatibilityは再利用する。
 
@@ -862,12 +862,12 @@ O(\lambda^3),
 
 ## AC.10 required主線と責務境界
 
-draft-145でR214A--R214Bをcontinuous Q3-2のrequired主線へ昇格する。
+draft-145でR214A--R214Bをcontinuous Q3-2のrequired主線へ昇格し、draft-146で旧continuous phase-volume bridgeを退役した。
 
 - R209A/R209Bはgeneric flow / finite-bath補題としてR214B内部から使う。
 - R214BはR209Cを参照せずsmall-mass $W_1$ bridgeを自身で閉じる。
 - R210Aはgeneric coherent-load theoremとしてdumbbell loadを受ける。
-- R208B/R208C/R209CはPR1ではactive regressionとして残し、退役は後続PRへ分離する。
+- 旧R208B/R208C/R209Cはactive resultから退役し、結果IDを再利用しない。
 - R208Dはprofile-dispatch bridgeとしてactive維持する。
 - finite-graph Q3-4A/Q3-4B/Q3-5へR214を流用しない。
 - Q3-2-A1/A2を変更しない。supporting reduced witnessだけからA2を昇格しない。

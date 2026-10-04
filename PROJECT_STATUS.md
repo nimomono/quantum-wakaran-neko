@@ -1,3 +1,11 @@
+## draft-146：旧Q3 continuous phase-volume bridge退役
+
+- R214A--R214Bがcontinuous Q3-2 required主線として自立したため、R208B/R208C/R209Cをactive resultから退役する。
+- R208Bのosmotic force/backreaction責務はR214A/B、R208Cのfinite-bath/GLE/FDT責務はgeneric R209B、R209Cのsmall-mass $W_1$ process bridgeはR214Bへ吸収する。結果IDは再利用しない。
+- R208Dはprofile-dispatch bridgeとして維持し、continuous branchはR214A/B、finite-graph branchはR212A/R203Dへ分離する。R209A/R209B/R210Aはgeneric lemma/theoremとして維持する。
+- 旧専用required verifier 3本と旧phase-volume full-compatibility simulationをactive treeから外し、Git履歴と退役メモを保存先とする。
+- Q3-2達成、Q3-4A/Q3-4B/Q3-5、Q3-1/Q3-3、A1/A2/B1--B3、Q1/Q2、M0、R213 candidate状態は変更しない。
+
 ## draft-145：R214 continuous-tracer主線昇格とgeneric compatibility再編
 
 - R214A--R214BをQ3-2 continuous-tracerのrequired主線へ昇格し、R214B自身へsmall-mass $W_1$ bridgeとsingle-dumbbell force-fluctuation errorを内蔵する。
@@ -511,7 +519,7 @@ M0はこれらの共通化より強い。M54/M66を共有していても、同�
 | M64 | Q3 canonical open effective model | continuous branchはM67/R214A--R214B、finite-graph branchはR208D profile-dispatchから回収するactive effective reduction | 三実体記述を有効sector分割として保持し、R203A--R203DでR161/R185およびR124/R182/R125へ接続する。独立physical ontologyとしてのparent責務はM67へ移管する |
 | M65 | Q1 binary canonical open selector | 現行Q1逐次fixed-goal正本模型 | 保持済み二作用を二つの線形hazardへ入れるtwo-result first-passage open selector。未決定はsurvival conditionで、R204Dがfinite-time Bornと正式な無反応、R204Eがbinary selector contract、R204FがQ1 interface/latencyを与える。旧R204B/R204C fixed-hub liftは退役し、finite-Hamiltonian physical liftはM67/R211A--R211CでR204E contractへ接続する |
 | M66 | M67 thermal-sector open/effective interface | Q2-1/Q2-3/Q2-4はR206、Q2-2はR207へspecializeするactive open/effective layer | R205A--R205Fでphase-volume、mean-flow、matched capacity--conductance、thermal Gibbs sampling、passive separationを共通化する。R212A→R205A/C、R212B→R205E、R212C→R205FとしてM67 physical parentへ接続する。R205Dはbinary fixed-hub corollaryとして残すがM65 physical liftには使わない |
-| M67 | 二実体finite-Hamiltonian physical parent | Q3-1--Q3-5の物理依存起点、Q1 selector strengthening、Q2 thermal-reservoir physical parent。Q3 continuous-tracerはR214A--R214B required、Q2 signal/register/gateのR213A--R213Dはcandidate。Q3-6は同じcoherent sector上の未達課題 | continuous Q3はR214A/B、flow/bath共通補題はR209A/B、coherent compatibilityはgeneric R210A、finite-graphはR208D/R203D、dephasingはR210B、Q1はR211、Q2 thermalはR212へ分担する。R208B/R208C/R209CはPR1ではactive regressionとして残し、後続退役を予定する。M54退役、R206 apparatus全体lift、M0は未完 |
+| M67 | 二実体finite-Hamiltonian physical parent | Q3-1--Q3-5の物理依存起点、Q1 selector strengthening、Q2 thermal-reservoir physical parent。Q3 continuous-tracerはR214A--R214B required、Q2 signal/register/gateのR213A--R213Dはcandidate。Q3-6は同じcoherent sector上の未達課題 | continuous Q3はR214A/B、flow/bath共通補題はR209A/B、coherent compatibilityはgeneric R210A、finite-graphはR208D/R212A/R203D、dephasingはR210B、Q1はR211、Q2 thermalはR212へ分担する。旧R208B/R208C/R209Cはdraft-146で退役済み。M54退役、R206 apparatus全体lift、M0は未完 |
 
 M50はM54の静的状態構成へ、M55はM54空間状態構成へ吸収した。M56はspin-only Q3代替研究線とし現行達成根拠へ使わない。M60/M61とそれ以前のM57/M59は旧Q3 Hamiltonian実装として現行主線から退役し、Git履歴へ保存する。旧状態方向準備、旧作用殻型Q1/Q2測定経路、旧2端再準備は現行必須依存から外し、退役索引と研究メモへ保存する。
 
@@ -654,12 +662,9 @@ M0は、個別のA1模型を並べるだけでは達成としない。少なく�
 | R203C | 直接定めた開放SDEに対する厳密結果・明示誤差付き縮約 | canonical overdamped tracerをideal regularized diffusionへ有限時間 $W_1$ で縮約する |
 | R203D | 厳密有限graph結果・明示誤差付き近似結果 | local $R_i^\delta,J_{ij},T_{ij}^\delta$ からR161 rateを構成し、finite-graph初期準備、1次元R185 activity、R124/R182/R125位置読出しへ接続する |
 | R208A | required Q3 parent finite-Hamiltonian結果 | structured reservoir＋classical markerの二実体sectorで有限・下に有界なM67 parentを構成し、$Z,\rho,j,U,\xi$ を派生量として位置づける |
-| R208B | required Q3 parent partition/backreaction結果 | phase-volume Jacobianからosmotic mean forceを得て、finite-$N_\rho$ fluctuationとcoherent action $N_0$ に対する $O(N_0^{-1})$ 状態方向backreactionを分離する |
-| R208C | required Q3 parent finite-bath縮約結果 | compact local tight frameとfinite harmonic bathからrelative memory friction、finite-bath FDT、Markov極の $-\gamma(V-U_X)+\xi$ を導く |
 | R208D | required Q3 profile-dispatch bridge | continuous branchをR214A/R214B→M64/R203C、finite-graph branchをM67 finite-graph specialization→R203Dへ振り分け、下流R161/R185・R124/R182/R125へ同じinterfaceを渡す |
 | R209A | required generic flow lemma | 任意のM67 profileで同じsignal-derived edge targetを共有するfinite-Hamiltonian flowとcanonical effective flowを比較し、flow residualとmaterial-frame recoilをprofile固有誤差から分離する |
 | R209B | required generic finite-bath/FDT lemma | translated finite harmonic bathのexact memory kernel/FDT、Drude short-memory、finite-spectrum/recurrenceをprofile-independentに定量化し、flow、tracer drag、R214 dumbbell内部座標へ特殊化する |
-| R209C | required finite-time process compatibility | M67 finite-Hamiltonian tracer→Markov underdamped→M64 overdampedのsmall-mass縮約を $W_1$ で合成し、M67固有 $\varepsilon_{67\to64}$ と既存 $\varepsilon_{\rm red}^{64}$ を分離する |
 | R210A | required generic coherent-load compatibility | global carrier-phase不変かつ $\|\partial_{b^*}H_R\|\le(aE+b\sqrt E+c)/\|b\|$ を満たす任意M67 profileのload-only差を $O(N_0^{-1})$ で制御する。Q3-1ではR86と合成し、Q3-2ではR214 dumbbell loadだけを渡す |
 | R210B | required bounded dephasing embedding | bounded odd momentum portでR123 finite environmentをM67 structured reservoir内部へ持ち上げ、下方有界性、作用保存、同一の $\cos^2$ dephasing factorと有限revivalを得る |
 | R214A | required exact/controlled-partition result | M37実正準signalから作る局所強度に対し有限自然長 $\ell_X^2=\ell_0^2+\alpha\varrho_X$ を持つ三次元伸縮dumbbellを置き、条件付き分配関数を厳密評価する。$-k_BT\log(\varrho+\varrho_T)$ とosmotic mean forceを明示shell/core誤差まで回収し、$\ell_0=0$ node非解析を明示する |
@@ -674,7 +679,7 @@ M0は、個別のA1模型を並べるだけでは達成としない。少なく�
 
 - M54が準備する $C_Z\simeq cc^\dagger$ は試行集団の統計状態である。各試行の実体は実正準信号、開放接続部、制御器、記録器と履歴であり、$c$ または $C_Z$ を単一試行制御器へ再注入しない。
 - Q3の単一試行ではM37の実正準空間信号、一つのclassical tracer、一つのsignal-driven thermal reservoirが物理過程を担う。複素包絡、$\rho$、$j$、$U$ は派生量またはcollective variableである。R162 Poisson realizationはR161 lawのoptional referenceであり、Q3-2の達成根拠にも基礎的存在論にも含めない。
-- Q3の位置重みとosmotic driftはM64/R203Bのphase-volume free energyとregularized signal densityから導く。開始面で位置を一度だけ準備し、その後は同じtracerをcontinuous SDEまたはfinite-graph jump lawで発展させる。毎時刻再標本化しない。
+- Q3 continuous位置重みとosmotic driftのfinite-Hamiltonian physical liftはR214A/BのBrownian dumbbellが担い、M64/R203Bはopen/effective partition identityとして残る。finite-graph位置lawはR208D/R212A/R203Dへ分離する。開始面で位置を一度だけ準備し、その後は同じtracerを発展させ、毎時刻再標本化しない。
 - R161はM64に固有でなく、拡散を担う対称活動量と確率流を受け取り、有限状態canonical Markov経路法則まで定める共通数学interfaceである。$\delta>0$ はM64のregularization背景として用い、$\delta\downarrow0$ で率感度と実装資源が発散し得る。
 - M54の有限モード、逆演算用補助記憶部、供給源、作業領域、時計自由度履歴はゲート間で永続させる。外部制御器は内部モードを個別に初期化、較正、同期、個別指定、読出し、リセットしない。
 - M54の指数的信号、作業領域、履歴、低温、使用済み自由度は受動貯蔵部として許す。外部制御器は局所ゲート名、ビット添字、時計自由度窓だけを指定し、Born重みまたは最終確率表を入力しない。

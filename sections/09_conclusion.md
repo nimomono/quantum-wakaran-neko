@@ -45,4 +45,4 @@ Q3-2ではR214A/R214BがM67 Brownian dumbbell profileをM64/R203Cのcanonical op
 
 M67ではR214A--R214Bをcontinuous Q3-2、R208Dをfinite-graph dispatch、R209A/R209Bをgeneric flow/bath、R210A/R210Bをcoherent/dephasing compatibilityとして採用する。R211A--R211CはQ1 selector、R212A--R212CはM66/R205 thermal layerのfinite-Hamiltonian physical parentとして採用する。ただしこれはQ1全体、Q2 signal/register/gate、R206 apparatus全体を同じ装置へ統合したこと、M0を達成したこと、A1/A2を自動達成したことを意味しない。Q3-6の位相量子化、strict locality、continuous-space一様極限、多粒子、全周期統合は別課題として残る。
 
-draft-145ではR214A--R214BをQ3 continuous-tracerのrequired主線へ昇格する。有限自然長を持つ三次元伸縮Brownian dumbbellの内部位相空間が $\rho+\rho_T$ に比例する自由エネルギーを近似し、finite bathによる実時間熱化、small-mass $W_1$ bridge、single-dumbbell FDT補正、$O(N_0^{-1})$ signal backreactionまで同じM67二実体architecture内で閉じる。R208B/R208C/R209CはPR1ではactive regressionとして残し、退役は後続PRへ分離する。
+draft-146ではR214A--R214Bがcontinuous Q3-2主線として自立したことを受け、旧R208B/R208C/R209Cをactive resultから退役する。R208Bのosmotic/backreaction責務はR214A/B、R208Cのfinite-bath責務はgeneric R209B、R209Cのsmall-mass $W_1$ bridgeはR214Bへ吸収した。結果IDは再利用せず、旧数式・検算は退役メモとGit履歴へ保存する。

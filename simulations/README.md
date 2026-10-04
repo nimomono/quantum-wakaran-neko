@@ -52,4 +52,4 @@ draft-140以後のM65正本はtwo-result first-passage open selectorである。
 
 ## M67 two-entity finite-Hamiltonian parent
 
-`simulations/m67/` はM67/R208A--R212Cのsupporting direct-trajectory検証入口である。Q1 selectorについてはdraft-141のrequired verifierがdouble-well reduced diffusionと誤差予算を監査するが、full finite-bath Q1 trajectoryはA2 strengtheningとして別に残す。Q3側では `run_full_compatibility_witness.py` がfinite flow/drag bathを含むM67→M64 compatibilityを一つの有限Hamiltonian trajectoryで診断する。draft-139でM67をQ3 physical parentへ昇格し、draft-142でthermal sectorをR212A--R212Cまで拡張する。R212B rotor mixing witnessを含むsupporting simulationはA2 promotion testではなく、Q2-2/Q3のA2状態は既存判定を維持する。
+`simulations/m67/` はM67のsupporting simulation入口である。Q1 selectorについてはdraft-141のrequired verifierがdouble-well reduced diffusionと誤差予算を監査するが、full finite-bath Q1 trajectoryはA2 strengtheningとして別に残す。Q3 continuousでは `run_r214_dumbbell_q3_witness.py` をsupporting reduced witnessとし、旧R208B/R208C/R209C用 `run_full_compatibility_witness.py` はdraft-146でactive treeから退役した。Q2 thermalではR212B rotor mixing witness、Q2 NBL/pathではR213 candidate witnessを用いる。いずれもA2 promotion testではなく、Q2-2/Q3のA2状態は既存判定を維持する。

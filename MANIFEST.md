@@ -1,3 +1,12 @@
+## draft-146：旧Q3 continuous phase-volume bridge退役
+
+- R214A--R214Bのrequired主線化完了を受け、R208B/R208C/R209Cをactive theorem/result tableから退役する。
+- R208Bの責務はR214A/B、R208Cはgeneric R209B、R209Cのsmall-mass $W_1$ bridgeはR214Bへ吸収する。
+- R208Dはprofile-dispatch bridge、R209A/R209Bはgeneric lemmas、R210Aはgeneric coherent-load theoremとして維持する。
+- 旧専用required verifier 3本と旧 `run_full_compatibility_witness.py` をactive treeから外し、退役メモとGit履歴を保存先にする。
+- PROJECT_STATUS、README、付録Y/AA/AC、第1・8・9章、ENHANCEMENT_TARGETS、VALIDATION、simulation README、theory lineage、superseded indexを同期する。
+- Q1/Q2/Q3 fixed-goal達成、A1/A2/B1--B3、M0、R213 candidate状態は変更しない。
+
 ## draft-145：R214 Q3 continuous-tracer主線昇格とgeneric compatibility再編
 
 - 付録AC/R214A--R214BをcandidateからQ3-2 continuous-tracerのrequired主線へ昇格する。R214Bへdirect small-mass $W_1$ couplingとsingle-dumbbell absolute-covariance/FDT誤差を内蔵する。

@@ -23,41 +23,48 @@ M67の「二実体」は自由度が二個という意味ではない。一つ�
 
 ### R214 continuous-tracer required mainline
 
-draft-145では付録AC/R214A--R214BをQ3 continuous-tracer profileのrequired主線へ昇格する。AA.3/R208B、R208C、R209CはPR1ではactive regressionとして残すが、Q3-2のfixed-goal直接主線から外す。R208Dはcontinuous/finite-graphを振り分けるstructural bridgeとして残し、finite-graph profileへR214を流用しない。
+draft-146ではR214A--R214BをQ3 continuous-tracer profileの唯一のactive finite-Hamiltonian bridgeとして維持し、旧R208B/R208C/R209Cをactive resultから退役する。R209A/R209Bはgeneric flow / finite-bath lemma、R210Aはgeneric coherent-load theoremとして残す。R208Dはcontinuous/finite-graphを振り分けるstructural bridgeとして残し、finite-graph profileへR214を流用しない。
 
-## AA.2 全Hamiltonianとcoherent sector
+## AA.2 profile別Hamiltonianとcoherent sector
 
-M67の有限Hamiltonianを
+M67は用途ごとに固定したfinite-Hamiltonian profileの族として使う。共通coherent sectorを $H_{\rm coh}$、profile固有の残りを $H_R^{(p)}$ と書き、
 
 ```math
-H_{67}^{\rm pv}
+H_{67}^{(p)}
 =
 H_{\rm coh}
 +
-H_{\rho}
+H_R^{(p)}
+```
+
+とする。continuous Q3-2のrequired profileは付録ACの
+
+```math
+H_{67}^{\rm db}
+=
+H_{\rm coh}
++
+H_{\rm db}
++
+H_{{\rm db},B}
 +
 H_U
 +
 H_{\rm drag}
 +
-H_X,
-\qquad
 H_X
-=
-\frac{P_X^2}{2M_X}
-+
-V_{\rm ext}(X)
 ```
 
-とする。これは旧phase-volume tracer / finite-graph specializationの参照Hamiltonianである。continuous Q3-2のrequired profileは付録ACの $H_{67}^{\rm db}=H_{\rm coh}+H_{\rm db}+H_{{\rm db},B}+H_U+H_{\rm drag}+H_X$ を使う。Q3全体では同じ有限Hamiltonian architectureの固定specializationとして次を使う。
+である。finite-graph/Q1/Q2のphase-volume構成はR212A、R211、各open/effective interfaceへ責務分離し、旧continuous $H_\rho$ profileはactive Q3 physical parentとして使わない。
 
-| M67 profile | active sector | Q3用途 |
+| M67 profile | active sector | 用途 |
 |---|---|---|
 | coherent | $H_{\rm coh}$ | Q3-1 |
 | dephasing | $H_{\rm coh}+H_{\rm deph,add}^{67}$ | Q3-3A/B/C |
-| continuous tracer | $H_{\rm coh}+H_{\rm db}+H_{{\rm db},B}+H_U+H_{\rm drag}+H_X$（付録AC） | Q3-2 |
-| finite-graph tracer | coherent sector＋finite-graph phase-volume/current/marker specialization | Q3-4A/B/5 |
-| Q1 binary selector | held-action port＋Q1 phase-volume sector＋finite marker bath＋double-well marker | Q1 M65/R204E strengthening |
+| continuous tracer | $H_{67}^{\rm db}$（付録AC） | Q3-2 |
+| finite-graph tracer | coherent sector＋R212A型phase-volume/current/marker specialization | Q3-4A/B/5 |
+| Q1 binary selector | held-action port＋R211 phase-volume sector＋finite marker bath＋double-well marker | Q1 M65/R204E strengthening |
+| Q2 thermal | R212A--R212C thermal specializations | Q2 thermal physical parent |
 
 profileは試行途中に確率生成のためswitchするものではなく、対象固定目標に対して開始前に固定したHamiltonian specializationである。Q3-3Cのdephasing運転とQ3-4Bのcoherent tunnelling運転は同時にactiveにしない。Q1 binary-selector profileもR189A capture終了後に固定して使い、Q3 tracer profileとの同時運転を主張しない。
 
@@ -116,76 +123,11 @@ Z_j^*h_{ji}Z_i
 
 を使う。
 
-## AA.3 phase-volume sectorとsignal backreaction
+## AA.3 phase-volume責務の分離
 
-M64/Y.2と同じcompact interpolationから正のlocal scale $r_X^\delta$ を作る。
+draft-146以後、Q3 continuous-tracerのosmotic free energyとsignal backreactionは付録AC/R214A--R214Bが担う。旧continuous $H_\rho$ のinverse-designed phase-volume sectorはactive Q3 resultから退役し、数式・証明は退役メモとGit履歴を参照する。
 
-```math
-H_\rho
-=
-\sum_{\alpha=1}^{N_\rho}
-\left[
-\frac{\Pi_\alpha^2}{2m_\alpha}
-+
-\frac{m_\alpha\omega_\alpha^2}{2}
-\lambda_\alpha(Z,X)^2\zeta_\alpha^2
-\right],
-```
-
-```math
-\lambda_\alpha
-=
-\left(
-\frac{r_X^\delta}{r_*}
-\right)^{-w_\alpha},
-\qquad
-w_\alpha>0,
-\qquad
-\sum_\alpha w_\alpha=1.
-```
-
-固定 $Z,X$ のcanonical積分は
-
-```math
-Z_\rho(Z,X)
-=
-Z_\rho^0
-\frac{r_X^\delta}{r_*},
-\qquad
-F_\rho
-=
--k_BT\log r_X^\delta+C_\rho
-```
-
-を与え、
-
-```math
-\left\langle
--\partial_XH_\rho
-\right\rangle
-=
-k_BT\partial_X\log r_X^\delta.
-```
-
-equal weights $w_\alpha=1/N_\rho$ ならphase-volume force fluctuationは $O(N_\rho^{-1/2})$ で自己平均化する。
-
-完全Hamiltonianではsignalへの反作用を消せない。$Z_i=\sqrt{N_0}z_i$ とすると、$r_X^\delta$ が $Z$ の二次量であることから
-
-```math
-\frac{\partial\log r_X^\delta}{\partial Z_i^*}
-=
-O(N_0^{-1/2}),
-```
-
-一方 $hZ=O(N_0^{1/2})$ なので、固定有限時間のrelative state-direction backreactionは
-
-```math
-\varepsilon_{\rm back}^{\rho}
-=
-O(N_0^{-1})
-```
-
-となる。
+phase-volume原理そのものは退役しない。finite-Hamiltonian phase-volume / mean-flowの一般埋込みはR212A、Q1 binary selector固有のphase-volume collarはR211、M64 open/effective partition identityはR203B、finite-graph位置lawはR203Dがそれぞれ担う。したがってQ3 continuous branchの退役をQ1/Q2/finite-graphへ波及させない。
 
 ## AA.4 local flow reaction coordinate
 
@@ -376,7 +318,7 @@ finite bathの代表memory timeを $\tau_{\rm mem}$、recurrence timeを $T_{\rm
 \tau_{\rm mem},
 \tau_U,
 M_X/\gamma,
-\tau_{\rho,\rm mix}
+\tau_{\rm fast}^{(p)}
 \right)
 \ll
 T_{\rm obs}
@@ -395,7 +337,7 @@ T_{\rm back}
 <!-- theorem-start:theorem -->
 **定理（R208A：M67二実体finite-Hamiltonian parent）**
 
-M37/R86 safe coherent sector、$K_e>M_e$、正の有限harmonic-bath parameterを取り、$r_X^\delta$ と $v_e$ が固定観測窓で有界とする。このときcontinuous/finite-graph tracer profileの全自由度は
+M37/R86 safe coherent sectorを共通部とし、各profile固有Hamiltonianが有限自由度・下方有界で、必要なlocal targetとcouplingが固定観測窓で有界とする。このときQ3/Q1/Q2で用いるM67 profileの全自由度は
 
 ```math
 \mathcal R_{\rm str}
@@ -403,83 +345,24 @@ M37/R86 safe coherent sector、$K_e>M_e$、正の有限harmonic-bath parameter�
 (X,P_X)
 ```
 
-の二つの主要物理sectorへ分類でき、$H_{67}$ は有限古典Hamiltonianとして構成できる。$Z,\rho,j,U,\xi$ はすべてM67正準自由度から作る派生量であり、新しい独立実体を必要としない。coherent profileはreservoir/marker couplingをdecoupleした特殊化、dephasing profileはR210Bの下方有界な有限canonical sectorを追加した特殊化である。
+の二つの主要物理sectorへ分類でき、$H_{67}^{(p)}$ は有限古典Hamiltonianとして構成できる。$Z,\rho,j,U,\xi$ はすべてM67正準自由度から作る派生量であり、新しい独立実体を必要としない。continuous profileの具体構成はR214A/B、finite-graphのphase-volume側はR212A/R203D、coherent/dephasing profileはR210A/R210Bへ委譲する。
 <!-- theorem-end:theorem -->
 
-## AA.8 R208B：osmotic forceと有限backreaction
+## AA.8--AA.9 旧R208B/R208Cの退役境界
 
-<!-- theorem-start:theorem -->
-**定理（R208B：phase-volume osmotic forceと有限backreaction）**
+draft-146でR208BとR208Cをactive resultから退役する。
 
-M67 phase-volume sectorについて
-
-```math
-Z_\rho
-=
-Z_\rho^0
-\frac{r_X^\delta}{r_*},
-\qquad
-F_\rho
-=
--k_BT\log r_X^\delta+C_\rho,
-```
-
-従って
-
-```math
-\left\langle F_X^\rho\right\rangle
-=
-k_BT\partial_X\log r_X^\delta.
-```
-
-equal weightsではphase-volume force fluctuationは $O(N_\rho^{-1/2})$、coherent action $Z=\sqrt{N_0}z$ に対する固定有限時間のrelative state-direction backreactionは $O(N_0^{-1})$ である。
-<!-- theorem-end:theorem -->
-
-## AA.9 R208C：local moving finite bath
-
-<!-- theorem-start:theorem -->
-**定理（R208C：local finite bathのrelative Langevin縮約）**
-
-AA.5のlocal tight frameと条件付きcanonical finite bath preparationを用いると、finite harmonic variablesの消去からmemory forceとfinite-bath FDTを厳密に得る。short-memory、flow tracking、small moving-frame recoilの極では
-
-```math
-F_{\rm drag}
-=
--\gamma(V-U_X)+\xi_X+R_C,
-```
-
-```math
-\left\langle
-\xi_X(t)\xi_X(t')
-\right\rangle
-=
-2\gamma k_BT\delta(t-t')
-```
-
-となる。smooth sectorでは
-
-```math
-U_X
-=
-v_\delta(X,t)
-+
-O(
-\varepsilon_A+
-\varepsilon_U+
-\varepsilon_{\rm int}+
-\varepsilon_Y
-).
-```
-
-finite-memory error、finite-spectrum error、recurrenceはAA.6の時間窓で別々に管理する。
-<!-- theorem-end:theorem -->
+- 旧R208Bのcontinuous phase-volume osmotic force / $N_\rho^{-1/2}$ fluctuation / $O(N_0^{-1})$ load責務はR214A/R214Bへ置換する。
+- 旧R208Cのfinite harmonic moving-bath / GLE / FDT / Markov責務はgeneric R209Bへ吸収する。
+- phase-volume原理一般はR212A、M64 open/effective partition identityはR203Bとして残るため、退役はそれらを反証しない。
+- 結果ID R208B/R208Cは再利用しない。最終active主張は退役メモとdraft-145以前のGit履歴を参照する。
 
 ## AA.10 R208D：M64へのprofile-dispatch有限時間bridge
 
 <!-- theorem-start:theorem -->
 **定理（R208D：M67 profileからM64 Q3 lawへのstructural bridge）**
 
-R208Aの二実体finite-Hamiltonian parentを共通入口とする。continuous Q3-2では付録AC/R214A--R214Bをrequired reductionとし、R209A/R209Bをgeneric flow / finite-bath補題として用いてM64/R203Cへ接続する。finite-graph Q3-4A/Q3-4B/Q3-5ではR214を要求せず、finite-graph phase-volume/current/marker specializationからR203Dへ渡す。
+R208Aの二実体finite-Hamiltonian parentを共通入口とする。continuous Q3-2では付録AC/R214A--R214Bをrequired reductionとし、R209A/R209Bをgeneric flow / finite-bath補題として用いてM64/R203Cへ接続する。finite-graph Q3-4A/Q3-4B/Q3-5ではR214を要求せず、R212A型phase-volume/current/marker specializationからR203Dへ渡す。
 
 continuous branchでは
 
@@ -504,7 +387,7 @@ R161
 と責務を分ける。R208D自身はR214BまたはR203Dで既に評価されたprocess-law errorを再加算せず、同じsignal/current interfaceを下流へ渡すstructural corollaryである。
 <!-- theorem-end:theorem -->
 
-R208B/R208C/R209Cはdraft-145 PR1ではactive regressionとして残すが、continuous Q3-2の直接主線には使わない。
+R208B/R208C/R209Cはdraft-146でactive resultから退役した。R208Dは結果IDを維持し、continuous branchではR214A/B、finite-graph branchではR212A/R203Dをdispatchする。
 
 ## AA.11 R209A：generic local-flow compatibility
 
@@ -668,166 +551,15 @@ k_BT\Gamma_N(t-s)
 harmonic bathの線形方程式をDuhamel表示して $\zeta_\mu$ を消去すればmemory kernelとFDTを得る。Drude convolution差には上のmodulus-of-continuity bound、finite-spectrum差には $L^1$ kernel normを使う。Gaussian noiseの有限次元分布はcovariance収束から、一様tightnessはincrement boundから従う。translated bathのpartition independenceはunit-Jacobian shift、drag specializationのzero correctionはtight-frame identityの微分から従う。証明終。
 <!-- theorem-end:proof -->
 
-## AA.13 R209C：M67からM64へのfinite-time process compatibility
+## AA.13 旧R209C process bridgeの退役境界
 
-<!-- theorem-start:theorem -->
-**定理（R209C：M67からM64への有限時間process compatibility）**
-
-固定 $0\le t\le T$ で $\rho_\delta\ge\rho_{\delta,*}>0$、必要なsignal/flow微分が有界で、canonical M64 driftが空間Lipschitzとする。R209A/R209Bの条件を満たし、同じ初期signalから作るM67 tracer $X^{67}$ とcanonical M64 tracer $X^{64}$ を比較する。
-
-finite-bath Markov化誤差を $\varepsilon_{\rm bath}(T)$、初期compatibility errorを $\varepsilon_{\rm init}^{67\to64}$、signal state-direction errorを
+draft-146でR209Cをactive resultから退役する。R209Cのsmall-mass synchronous coupling
 
 ```math
-\varepsilon_{\rm sig}(T)
-=
-\sup_{t\le T}
-d_{\rm ray}
-\left(
-Z^{67}(t),Z^{37}(t)
-\right)
+Y_t=X_t^M+\frac{M_X}{\gamma_X}V_t^M
 ```
 
-とする。regularized safe sectorでobservable mapがLipschitzで定数 $L_{\rm sig}$ を持つとする。R210Aのload-only relative boundを $q_{\rm load}(T)=\varepsilon_{\rm load}^{67}(T)$ とすると、$q_{\rm load}<1$ の範囲で
-
-```math
-\varepsilon_{\rm sig}(T)
-\le
-\min\left\{
-1,
-\frac{2q_{\rm load}(T)}
-{1-q_{\rm load}(T)}
-\right\}.
-```
-
-ここではR86のcarrier-envelope誤差を加えない。M67からM64へのcompatibilityでは両者が同じbare M37 signalを基準にするためであり、R86誤差はQ3-1でSchrödinger目標へ接続するときだけR210Aで合成する。
-
-Markov化後のunderdamped tracerについて
-
-```math
-dX_t^M=V_t^Mdt,
-```
-
-```math
-M_XdV_t^M
-=
--\gamma
-\left[
-V_t^M-b_{64}(X_t^M,t)
-\right]dt
-+
-\sqrt{2\gamma k_BT}\,dW_t
-```
-
-とし、$\epsilon_M=M_X/\gamma$ とする。$|b_{64}|\le B_*$ かつMaxwell-prepared velocityなら、synchronous couplingで
-
-```math
-\varepsilon_{\rm od}(T)
-\le
-C_T
-\left[
-\epsilon_MB_*
-+
-\sqrt{\nu\epsilon_M}
-\right]
-```
-
-となる有限定数 $C_T$ が存在する。従ってM67固有のprocess compatibility errorを
-
-```math
-\varepsilon_{67\to64}(T)
-=
-\varepsilon_{\rm bath}(T)
-+
-\varepsilon_{\rm od}(T)
-+
-\varepsilon_{H,U}^{\rm det}
-+
-\varepsilon_Y
-+
-\varepsilon_{U,{\rm th}}
-+
-\varepsilon_{\rho,{\rm fluc}}(T)
-+
-L_{\rm sig}
-\varepsilon_{\rm sig}(T)
-+
-\varepsilon_{\rm init}^{67\to64}
-```
-
-とすれば、固定有限時間で
-
-```math
-\sup_{0\le t\le T}
-W_1
-\left(
-\mathcal L(X_t^{67}),
-\mathcal L(X_t^{64})
-\right)
-\le
-C_T'
-\varepsilon_{67\to64}(T)
-```
-
-となる有限定数 $C_T'$ が存在する。
-
-ここで $\varepsilon_A$、$\tau_UM_q$、$a^2$ flow interpolation、$\nu\varepsilon_{\rho,1}$ はM64自身のR203C baseline errorなので $\varepsilon_{67\to64}$ へ再加算しない。
-
-さらに既存R203Cを用いれば
-
-```math
-W_1
-\left(
-\mathcal L(X_t^{67}),
-\rho_\delta(t)
-\right)
-\le
-C_T'
-\varepsilon_{67\to64}(T)
-+
-\varepsilon_{\rm red}^{64}(T),
-```
-
-```math
-\varepsilon_{\rm red}^{64}(T)
-=
-e^{L_bT}
-\varepsilon_{\rm prep}^{W_1}
-+
-\frac{e^{L_bT}-1}{L_b}
-\varepsilon_{\rm drift}^{64},
-```
-
-を得る。$L_b=0$ では第2項を $T\varepsilon_{\rm drift}^{64}$ と読む。
-
-固定 $T$ でfinite-bath、small-mass、signal-backreaction、phase-volume fluctuation、material-frame recoilを同時に0へ送れ、$T<T_{\rm rec},T_{\rm back}$ を保てるparameter族では
-
-```math
-\sup_{t\le T}
-W_1
-\left(
-\mathcal L(X_t^{67}),
-\mathcal L(X_t^{64})
-\right)
-\longrightarrow0.
-```
-<!-- theorem-end:theorem -->
-
-<!-- theorem-start:proof -->
-**証明（R209C）**
-
-R209Bでfinite Hamiltonian bathをMarkov underdamped過程へ縮約する。$Y_t=X_t^M+\epsilon_MV_t^M$ と置くと厳密に
-
-```math
-dY_t
-=
-b_{64}(X_t^M,t)dt
-+
-\sqrt{2\nu}\,dW_t.
-```
-
-同じBrownian motionでcanonical M64過程を駆動し、driftのLipschitz性と $X_t^M=Y_t-\epsilon_MV_t^M$ を使ってGronwall評価を行うとsmall-mass boundを得る。Maxwell preparationでは $\epsilon_M\sup_t\mathbb E|V_t|=O(\epsilon_MB_*)+O(\sqrt{\nu\epsilon_M})$ である。R209Aのflow compatibility、R208Bのphase-volume mean force/backreaction、regularized observable mapのLipschitz性を三角不等式で合成すれば最初の $W_1$ boundを得る。最後の式はR203Cとの三角不等式である。証明終。
-<!-- theorem-end:proof -->
-
+と有限時間 $W_1$ 誤差移送は、dumbbell固有drift・single-dumbbell fluctuationと一体で扱うR214Bへ直接吸収した。finite-bath部分はgeneric R209B、flow部分はgeneric R209Aが担う。結果ID R209Cは再利用しない。
 
 ## AA.14 R210A：phase-invariant generic coherent-load compatibility
 
@@ -912,56 +644,7 @@ c_p
 ```
 は固定prepared shellで $O(1)$ である。
 
-### AA.14.1 phase-volume regression specialization
-
-旧phase-volume profileでは
-```math
-C_\rho=\frac{B_\rho}{\beta_\rho},
-\qquad
-w_{\max}=\max_\alpha w_\alpha,
-\qquad
-L_v=
-\left(
-\sum_e\ell_e^2
-\right)^{1/2},
-```
-
-```math
-\Gamma_K
-=
-\max_e
-\frac{K_e^2}{K_e-M_e},
-\qquad
-\Gamma_v
-=
-\left[
-\sum_e
-\left(
-\frac{K_eM_e}{K_e-M_e}
-v_{e,*}
-\right)^2
-\right]^{1/2}.
-```
-
-ここで $B_\rho,\beta_\rho$ は $\|B_X^\delta\|\le B_\rho$、$B_X^\delta\ge\beta_\rho I$ のsafe-sector bound、$\ell_e$ は
-```math
-\left\|
-\partial_{b^*}v_e[b]
-\right\|
-\le
-\frac{\ell_e}{\|b\|}
-```
-を満たす定数である。このとき
-```math
-a_{\rm pv}=2C_\rho w_{\max},
-\qquad
-b_{\rm pv}=L_v\sqrt{2\Gamma_K},
-\qquad
-c_{\rm pv}=L_v\Gamma_v
-```
-と取れば現行R210Aの旧boundを回収する。このspecializationはdraft-145 PR1ではactive regressionとして残す。
-
-### AA.14.2 R214 dumbbell specialization
+### AA.14.1 R214 dumbbell specialization
 
 R214では
 ```math
@@ -1087,7 +770,7 @@ q_{\rm load}^{(p)}
 <!-- theorem-start:proof -->
 **証明（R210A）**
 
-R86のBogoliubov normal-envelope座標ではbare M37 propagatorはunitaryである。profile loadをnormal coordinatesへ移しDuhamel公式を使うと、bootstrap下限 $\|b\|\ge\frac12\kappa_\eta^{-2}\sqrt{N_0}$ とgeneric gradient envelopeから表示した $N_0^{-1}$ boundを得る。energy-shell微分不等式とGronwall評価により $C_p(T)$ は初期prepared shellから従う。phase-volumeとdumbbellの各specializationはAA.14.1/AA.14.2の係数を代入すればよい。証明終。
+R86のBogoliubov normal-envelope座標ではbare M37 propagatorはunitaryである。profile loadをnormal coordinatesへ移しDuhamel公式を使うと、bootstrap下限 $\|b\|\ge\frac12\kappa_\eta^{-2}\sqrt{N_0}$ とgeneric gradient envelopeから表示した $N_0^{-1}$ boundを得る。energy-shell微分不等式とGronwall評価により $C_p(T)$ は初期prepared shellから従う。R214 dumbbell specializationはAA.14.1の係数を代入すればよい。その他profileではgeneric envelope仮定を個別に確認する。証明終。
 <!-- theorem-end:proof -->
 
 ## AA.15 R210B：M67 bounded finite-dephasing embedding
@@ -1211,7 +894,7 @@ bath kinetic energyも非負なので下界を得る。$I_n,P_n$ はそれぞれ
 
 ## AA.16 数値検証契約と未主張範囲
 
-M67 supporting simulationではHamiltonian drift、M37 ideal signalとの状態方向誤差、$U_X-v_\delta$、phase-volume mean force、finite-bath memory、tracer分布を同じparameter setで監査する。R210A/Bを含むrequired解析検算とfull trajectory simulationを区別し、後者だけからA2を昇格しない。$N_0$、$N_\rho$、$K_U$、$\tau_U$、$\tau_{\rm mem}$、bath mode数、格子幅を独立に振り、一つの改善を複数誤差へ二重計数しない。
+M67 Q3 supporting simulationではM37 ideal signalとの差、generic flow / finite-bath memory、R214 dumbbell radial law、tracer分布を責務ごとに監査する。旧R208B/R208C/R209C専用full-compatibility witnessはactive evidenceから外す。R210A/B・R214A/Bを含むrequired解析検算とsupporting trajectory simulationを区別し、後者だけからA2を昇格しない。$N_0$、$K_U$、$\tau_U$、$\tau_{\rm mem}$、bath mode数、格子幅を独立に振り、一つの改善を複数誤差へ二重計数しない。
 
 M67をcommon physical parentとして広げてもM37、M64、M66、R123の結果を削除しない。M37はactive coherent module、M64/R203はactive Q3 open effective reduction、M66/R205はactive thermal open/effective interface、R123はR210Bで物理liftされたactive dephasing lawとして維持する。R211A--R211CはQ1 binary selectorを、R212A--R212Cはthermal sectorを追加specializeする。A1/A2/B1--B3、M0の判定は変更しない。Q2 signal/NBL/register/gateの統合、H/T/CNOTの一般実装、NBL Born sampling、R206 common-hub apparatus全体のfinite-Hamiltonian liftは本付録から推論しない。$R_i^\delta=|Z_i|^2+\delta q_iS$ のglobal $S$ を完全局所化する問題もstrict-locality strengtheningとして残す。
 

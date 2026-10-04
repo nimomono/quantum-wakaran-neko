@@ -1,3 +1,7 @@
+## draft-146 Q3 legacy phase-volume bridge retirement
+
+`check_draft146_retire_legacy_q3_phase_volume_bridge.py` はactive theorem/result tableからR208B/R208C/R209Cが退役し、退役メモ・索引が存在することを確認する。R214A/R214B、R208D、R209A/R209B、R210Aはactiveのまま維持し、finite-graph branchへR214を流用しない。旧専用verifier 3本と旧full compatibility simulationのactive treeからの消滅、Q3 fixed-goal/A1/A2、Q1/Q2、R213、M0不変もPR固有に固定する。通常CIへ恒久登録しない。
+
 ## draft-145 R214 Q3 continuous-tracer promotion
 
 `check_draft145_r214_q3_promotion.py` はR214A/B required化、candidate verifierのrequired移動、R214BのR209C非依存・direct small-mass $W_1$ bridge、R209A/B/R210A generic化、R208D profile-dispatch、Q3-2直接依存切替を確認する。同時にR208B/R208C/R209CをPR1ではactive維持し、finite-graph Q3-4A/Q3-4B/Q3-5へR214を流用しないこと、Q3-2-A1/A2、R213、M0、Q1/Q2判定不変を固定する。通常CIへ恒久登録しない。

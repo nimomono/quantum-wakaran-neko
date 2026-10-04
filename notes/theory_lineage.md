@@ -11,7 +11,7 @@ M54 signal/state layer
   ↑ M37 signal implementation
 
 M67 finite-Hamiltonian parent
-  ├─ R208--R210 → Q3/M64/R86/R123
+  ├─ R214A/B + generic R209A/B/R210A/B → Q3/M64/R86/R123
   ├─ R211A--R211C → Q1 R204E selector contract
   └─ R212A--R212C → M66 / R205 thermal open/effective layer
                          ├─ R206A--R206D : Q2 terminal multi-outcome specialization
@@ -22,7 +22,7 @@ M67 finite-Hamiltonian parent
 
 M66が共通化するのはthermal open/effective reservoir sectorであり、その有限Hamiltonian parentをR212A--R212CでM67へ接続する。M64全体、M65 canonical law、R206 apparatus全体、R207 Bell統計全体をR212から導出したとは扱わない。M0はさらに強いjoint device/process統合目標であり、この階層化だけでは達成しない。
 
-draft-144ではR214A--R214Bをcandidateとして追加した。draft-145でR214A--R214Bをcontinuous Q3-2 required主線へ昇格し、R209A/R209B/R210Aをgeneric補題へ再編した。R208B/R208C/R209CはPR1ではactive regressionとして残し、退役は後続PRへ分離する。finite-graph経路にはR214を流用しない。
+draft-144ではR214A--R214Bをcandidateとして追加し、draft-145でcontinuous Q3-2 required主線へ昇格した。draft-146で旧R208B/R208C/R209Cをactive resultから退役し、R208Bの責務をR214A/B、R208Cをgeneric R209B、R209CをR214Bへ吸収した。結果IDは再利用しない。finite-graph経路にはR214を流用せずR208D/R212A/R203Dへ分離する。
 
 ```text
 M67 continuous Q3 required
