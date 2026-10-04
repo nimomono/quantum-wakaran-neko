@@ -1,3 +1,12 @@
+## draft-145：R214 Q3 continuous-tracer主線昇格とgeneric compatibility再編
+
+- 付録AC/R214A--R214BをcandidateからQ3-2 continuous-tracerのrequired主線へ昇格する。R214Bへdirect small-mass $W_1$ couplingとsingle-dumbbell absolute-covariance/FDT誤差を内蔵する。
+- 付録AAのR209Aをgeneric local-flow lemma、R209Bをgeneric finite harmonic bath / Markov--FDT lemma、R210Aをphase-invariant generic coherent-load theoremへ一般化する。
+- R208Dをcontinuous R214 branch / finite-graph R203D branchのprofile-dispatch bridgeへ改訂する。
+- R214 verifier 2本を `tools/candidate_checks/` からrequired `tools/` へ昇格し、R209A/B/R210A verifierをgeneric責務へ更新する。
+- R208B/R208C/R209Cは本PRではactive regressionとして残し、退役は後続PRへ分離する。
+- PROJECT_STATUS、ENHANCEMENT_TARGETS、README、第1・2・6・8・9章、VALIDATION、CHANGELOG、theory lineage、candidate/migration READMEを新主線へ同期する。fixed-goal達成、A1/A2/B1--B3、M0、Q1/Q2、R213 candidate状態は変更しない。
+
 ## draft-144：M67/Q3伸縮Brownian dumbbell continuous-tracer candidate
 
 - `sections/A29_m67_dumbbell_q3_tracer.md` を付録ACとして追加し、R214A--R214BをM67 continuous-tracer簡素化candidateとして収録する。

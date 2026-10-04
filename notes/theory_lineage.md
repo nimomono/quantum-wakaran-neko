@@ -22,13 +22,15 @@ M67 finite-Hamiltonian parent
 
 M66が共通化するのはthermal open/effective reservoir sectorであり、その有限Hamiltonian parentをR212A--R212CでM67へ接続する。M64全体、M65 canonical law、R206 apparatus全体、R207 Bell統計全体をR212から導出したとは扱わない。M0はさらに強いjoint device/process統合目標であり、この階層化だけでは達成しない。
 
-draft-144では、現行Q3 continuous-tracerのR208B phase-volume実装を将来短くする候補としてR214A--R214Bを付録ACへ追加する。三次元伸縮Brownian dumbbellの内部位相体積からosmotic free energyを作り、finite bathとbackreactionまで監査するが、現行正本の因果鎖 `M67/R208--R210 -> M64/R203 -> R161/R185` はまだ変更しない。finite-graph経路にもR214を流用しない。
+draft-144ではR214A--R214Bをcandidateとして追加した。draft-145でR214A--R214Bをcontinuous Q3-2 required主線へ昇格し、R209A/R209B/R210Aをgeneric補題へ再編した。R208B/R208C/R209CはPR1ではactive regressionとして残し、退役は後続PRへ分離する。finite-graph経路にはR214を流用しない。
 
 ```text
-M67 continuous Q3 candidate
+M67 continuous Q3 required
   -> R214A dumbbell partition / osmotic force
-  -> R214B finite-bath dynamic lift
-  - - > future replacement decision for continuous R208B only
+  -> R214B finite-bath + direct small-mass W1 bridge
+       uses R209A generic flow
+       uses R209B generic finite bath/FDT
+       uses R210A generic load-only bound
 ```
 
 ## 現行の主要因果鎖
@@ -84,15 +86,19 @@ R206E root preparation
 
 ### Q3の粒子・Nelson経路
 
-現行Q3ではM67を共通physical parentとする。R210AがM67 coherent trajectoryをM37/R86へ、R208/R209がM67 tracer profileをM64/R203A--R203Dへ、R210BがM67 dephasing profileをR123へ接続する。finite-state表現はR161へ、1次元Nelson/time-symmetric Newton則はR185へ接続する。
+現行Q3ではM67を共通physical parentとする。draft-145以後、continuous Q3-2はR214A--R214Bをrequired主線とし、R209A/R209Bをgeneric flow / finite-bath補題、R210Aをgeneric coherent-load theoremとして内部から使う。finite-graph profileはR208D/R203D、dephasing profileはR210B/R123へ分離する。finite-state表現はR161へ、1次元Nelson/time-symmetric Newton則はR185へ接続する。
 
 ```text
 M67 common physical parent
-  ├─ R210A -> M37 / R86 coherent module
-  ├─ R210B -> R123 dephasing law
-  └─ R208 / R209 -> M64 / R203A--R203D open reduction
-                        -> R161 canonical path law
-                        -> R185 time-symmetric Newton
+  ├─ generic R210A -> M37 / R86 coherent module
+  ├─ R210B          -> R123 dephasing law
+  ├─ R214A/R214B    -> M64 / R203C continuous reduction
+  │                    ├─ uses generic R209A flow
+  │                    └─ uses generic R209B finite bath/FDT
+  │                    -> R161 canonical path law
+  │                    -> R185 time-symmetric Newton
+  └─ R208D          -> M64 / R203D finite-graph reduction
+                       -> R161 + R124/R182/R125
 ```
 
 finite graphでは同じM64/R203D tracerをR124、R182、R125の位置読出しへ接続する。R162はR161 lawのoptional open-Poisson realizationであり、現行Q3の基礎的物理存在論ではない。

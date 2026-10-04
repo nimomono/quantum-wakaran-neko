@@ -1,3 +1,12 @@
+## draft-145：R214 Q3 continuous-tracer promotion検算
+
+- `tools/verify_r214a_dumbbell_partition.py` をrequiredへ昇格し、R214Aのradial partition、force correction、有限自然長、smooth-core scaleを通常physics CIで検査する。
+- `tools/verify_r214b_dumbbell_dynamic_bridge.py` をrequiredへ昇格し、radial stationary law、contractivity、direct small-mass $W_1$ scaling、absolute covariance / single-dumbbell FDT correction、joint parameter family、$N_0^{-1}$ loadを検査する。
+- `tools/verify_r209a_local_flow_compatibility.py` は具体density dictionaryから独立なshared-target flow compatibility、`tools/verify_r209b_finite_bath_markov_fdt.py` はtranslated finite harmonic bathのgeneric FDT/Drude/recurrenceとflow/drag/dumbbell特殊化を検査する。
+- `tools/verify_r210a_m67_coherent_compatibility.py` はgeneric energy envelope、$N_0^{-1}$ bootstrap、R214 dumbbell load、exact global-phase invariance、Q3-1だけでR86を合成する責務境界を検査する。
+- `tools/migrations/check_draft145_r214_q3_promotion.py` はR214A/B required化、R209C非依存、R209A/B/R210A generic化、R208D profile-dispatch、Q3-2直接依存切替を固定する。同時にR208B/R208C/R209C active維持、finite-graph非R214化、Q3-2-A1/A2、R213、M0不変を確認する。
+- `simulations/m67/run_r214_dumbbell_q3_witness.py` はsupporting reduced witnessのままであり、Q3-2-A2達成へは数えない。
+
 ## draft-144：M67/Q3 dumbbell continuous-tracer candidate検算
 
 - `tools/candidate_checks/verify_r214a_dumbbell_partition.py` はR214Aの不完全Gaussian分配関数、$G'(a)$、safe-sector force correction、$\ell_0=0$ node特異性、$\ell_0/\sigma_T=2.5,3$ witness、smooth-core scaleを検査する。

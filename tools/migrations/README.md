@@ -1,3 +1,7 @@
+## draft-145 R214 Q3 continuous-tracer promotion
+
+`check_draft145_r214_q3_promotion.py` はR214A/B required化、candidate verifierのrequired移動、R214BのR209C非依存・direct small-mass $W_1$ bridge、R209A/B/R210A generic化、R208D profile-dispatch、Q3-2直接依存切替を確認する。同時にR208B/R208C/R209CをPR1ではactive維持し、finite-graph Q3-4A/Q3-4B/Q3-5へR214を流用しないこと、Q3-2-A1/A2、R213、M0、Q1/Q2判定不変を固定する。通常CIへ恒久登録しない。
+
 ## draft-144 M67/Q3 dumbbell continuous-tracer candidate
 
 `check_draft144_m67_dumbbell_candidate.py` は付録AC/R214A--R214B、candidate verifier 2本、supporting witness、PROJECT_STATUS candidate登録を確認する。同時にAA.3/R208B/R208D/R209A--R209C/R210Aのrequired維持、Q3-2 fixed-goal直接依存・達成、Q3-2-A1/A2、finite-graph Q3-4A/Q3-4B/Q3-5、R213、M0が不変であることをPR固有に固定する。通常CIへ恒久登録しない。

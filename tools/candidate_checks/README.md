@@ -52,8 +52,6 @@ draft-142でR212A--R212Cをrequired physical-parent bridgeへ昇格するため�
 - `verify_r213d_resource_robustness.py`：signed analog bias obstructionとfinite-depth local-error scaling。
 - R213A--R213DはM54/R186置換候補であり、draft-143ではcandidate-onlyとする。通常required physics CIへは含めず、fixed-goal直接依存・Q2-4達成判定を変更しない。
 
-## R214 M67/Q3 dumbbell continuous-tracer candidate
+## R214 promotion記録
 
-- `verify_r214a_dumbbell_partition.py`：三次元radial partition、$G(a)$、osmotic force correction、有限自然長witness、smooth-core scale。
-- `verify_r214b_dumbbell_dynamic_bridge.py`：radial equilibrium/contractivity、明示time window、single-dumbbell追加FDT摩擦、$N_0^{-1}$ backreaction scaling。
-- R214A--R214Bはdraft-144ではcandidate-onlyであり、通常required physics CIへのpromotionやQ3-2 fixed-goal/A1/A2変更を行わない。
+R214A--R214Bはdraft-145でrequiredへ昇格し、verifierは `tools/verify_r214a_dumbbell_partition.py` と `tools/verify_r214b_dumbbell_dynamic_bridge.py` へ移した。candidate treeには残さない。supporting reduced witnessは `simulations/m67/run_r214_dumbbell_q3_witness.py` に残るが、Q3-2-A2達成判定には使わない。

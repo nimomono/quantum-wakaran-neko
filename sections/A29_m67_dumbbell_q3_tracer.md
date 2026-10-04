@@ -1,21 +1,15 @@
 @number: AC
 @chapter: 付録
-@title: M67 伸縮Brownian dumbbell Q3 continuous-tracer candidate
-@status: R214A--R214BをM67 continuous-tracer profileの簡素化candidateとして追加する。現行required Q3-2主線R208A--R209C/R210A、AA.3 phase-volume sector、finite-graph Q3-4A/Q3-4B/Q3-5は本追加だけでは置換しない。
+@title: M67 伸縮Brownian dumbbell Q3 continuous-tracer profile
+@status: R214A--R214BをM67 continuous-tracer profileのrequired主線とする。R209A/R209Bをgeneric flow / finite-bath補題として使い、R214B自身がsmall-mass W1 bridgeを閉じる。R208B/R208C/R209Cはdraft-145では退役させずactive regressionとして残し、finite-graph Q3-4A/Q3-4B/Q3-5にはR214を流用しない。
 
 ## AC.1 目的と責務境界
 
-現行M67 continuous-tracer profileはAA.3のphase-volume sectorにより
-
-```math
-F_\rho=-k_BT\log r_X^\delta+C
-```
-
-を作る。本付録では、この逆設計型phase-volume実装を、物理像の短い三次元伸縮Brownian dumbbellへ置換できるかを調べる。
+draft-145以後のM67 continuous-tracer profileは、本付録の三次元伸縮Brownian dumbbellをrequired主線とする。旧AA.3/R208Bのinverse-designed phase-volume implementationはPR1ではactive regressionとして残すが、Q3-2のfixed-goal直接主線から外す。
 
 主要物理sectorは従来どおり「structured reservoir + marker/tracer」の二分類である。dumbbellの内部相対座標はmarker/tracer内部自由度であり、新しい第三物理実体とは数えない。structured reservoir側のM37 coherent sector、R209 flow/drag sector、R210A coherent compatibilityは再利用する。
 
-本付録はcontinuous Q3-2だけを対象にする。finite-graph Q3-4A/Q3-4B/Q3-5で使う現行R208B/R203D経路は変更しない。
+本付録はcontinuous Q3-2だけを対象にする。finite-graph Q3-4A/Q3-4B/Q3-5はR208D/R203D profileを維持し、本付録のdumbbellを要求しない。
 
 ## AC.2 M37局所強度とdumbbell Hamiltonian
 
@@ -85,7 +79,7 @@ H_{\rm db}
 
 と書く。
 
-## AC.3 R214A：一バネdumbbell phase-volume / osmotic-force candidate
+## AC.3 R214A：一バネdumbbell phase-volume / osmotic force
 
 まずcoreless $a_c=0$ を考える。固定したsignalとtracer位置における内部canonical位置積分は
 
@@ -156,7 +150,7 @@ F_{\rm db}^{(0)}
 ```
 
 <!-- theorem-start:theorem -->
-**定理（R214A：三次元伸縮dumbbellのphase-volume osmotic force candidate）**
+**定理（R214A：三次元伸縮dumbbellのphase-volume osmotic force）**
 
 上のcoreless dumbbellについて
 
@@ -267,7 +261,7 @@ C_1\sqrt{\varrho}
 O(\varrho).
 ```
 
-従ってnodeで $\partial_\varrho\log Z_{\rm db}$ が非解析になる。一本バネの物理像を維持しnode-safe Hamiltonianを得るため、本candidateでは有限自然長 $\ell_0>0$ を採用する。
+従ってnodeで $\partial_\varrho\log Z_{\rm db}$ が非解析になる。一本バネの物理像を維持しnode-safe Hamiltonianを得るため、required continuous profileでは有限自然長 $\ell_0>0$ を採用する。
 
 ## AC.4 finite harmonic bath
 
@@ -427,6 +421,22 @@ F_X^{\rm db}
 dt
 ```
 
+process-law誤差には符号相殺を使わないabsolute correlation integralも分離する。
+
+```math
+\zeta_{\rm db}^{\rm abs}(X)
+=
+\beta
+\int_0^\infty
+\left|
+\operatorname{Cov}_{\rm eq}
+\left(
+\delta F_X^{\rm db}(t),
+\delta F_X^{\rm db}(0)
+\right)
+\right|dt.
+```
+
 を定める。半径effective potential
 
 ```math
@@ -449,21 +459,30 @@ k+\frac{2k_BT}{r^2}
 なのでspectral-gap boundから
 
 ```math
-\zeta_{\rm db}(X)
+\zeta_{\rm db}^{\rm abs}(X)
 \le
 C_{\rm mix}(a_0)
 \gamma_r
-(\partial_X\ell_X)^2.
+(\partial_X\ell_X)^2,
+\qquad
+|\zeta_{\rm db}(X)|
+\le
+\zeta_{\rm db}^{\rm abs}(X).
 ```
 
-同時にFDTにより対応する追加noiseが生じる。主重心摩擦 $\gamma_X$ に対し
+strong convexityからradial Markov semigroupは指数相関減衰を持つため、このabsolute boundを取れる。同時にFDTにより対応する追加noiseが生じる。主重心摩擦 $\gamma_X$ に対し
 
 ```math
 \varepsilon_{\rm fr}
 =
 \sup_X
-\frac{\zeta_{\rm db}(X)}{\gamma_X}
-\ll1
+\frac{|\zeta_{\rm db}(X)|}{\gamma_X},
+\qquad
+\varepsilon_{\rm fr}^{\rm abs}
+=
+\sup_X
+\frac{\zeta_{\rm db}^{\rm abs}(X)}{\gamma_X}
+\ll1.
 ```
 
 を要求する。
@@ -513,12 +532,188 @@ H_{\rm db}[b]
 
 なのでcommon carrier phase/actionを直接吸収しない。R210AのDuhamel/bootstrap評価を同じ形で再利用できる。
 
-## AC.8 R214B：finite-bath dynamic lift / Q3-2 compatibility candidate
+## AC.8 R214B：finite-bath dynamic lift / Q3-2 compatibility
+
+R214Aのregularized densityを
+
+```math
+\widetilde\rho
+=
+\varrho+\varrho_T
+```
+
+とし、canonical M64 target driftを
+
+```math
+b_{64}^{\rm db}(x,t)
+=
+U_X^{64}(x,t)
++
+\nu\partial_x\log\widetilde\rho(x,t),
+\qquad
+\nu=\frac{k_BT}{\gamma_X}
+```
+
+と定める。$\varrho_T$ は空間・時間に依らないので、規格化後も $J/\widetilde\rho$ と $\partial_x\log\widetilde\rho$ は不変である。
+
+finite bathとfast dumbbellをMarkov化した後の重心を $(X_t^M,V_t^M)$ とし、
+
+```math
+dX_t^M=V_t^Mdt,
+```
+
+```math
+M_XdV_t^M
+=
+-\gamma_X
+\left[
+V_t^M
+-
+b_{64}^{\rm db}(X_t^M,t)
+-
+e_{214}(X_t^M,t)
+\right]dt
++
+\sqrt{2\gamma_Xk_BT}\,dW_t
++
+\delta F_t^{\rm db}dt
+```
+
+と書く。$e_{214}$ はR209Aのflow residual、R214Aのshell/core mean-force residual、fast-dumbbell tracking、R210Aから渡るsignal-load residualを一度ずつ含む決定論的drift mismatchで、
+
+```math
+\Delta_{214}^{\rm drift}
+:=
+\|e_{214}\|_\infty
+```
+
+と置く。$\delta F_t^{\rm db}$ はAC.6の中心化内部forceである。
+
+small-mass parameterを
+
+```math
+\epsilon_M=\frac{M_X}{\gamma_X}
+```
+
+とし、
+
+```math
+Y_t=X_t^M+\epsilon_MV_t^M
+```
+
+と置けば、追加dumbbell fluctuationを除く部分について厳密に
+
+```math
+dY_t
+=
+\left[
+b_{64}^{\rm db}(X_t^M,t)
++
+e_{214}(X_t^M,t)
+\right]dt
++
+\sqrt{2\nu}\,dW_t
+```
+
+となる。したがって同じBrownian motionで
+
+```math
+dX_t^{64}
+=
+b_{64}^{\rm db}(X_t^{64},t)dt
++
+\sqrt{2\nu}\,dW_t
+```
+
+を駆動し、$b_{64}^{\rm db}$ が空間Lipschitz定数 $L_b$、一様bound $B_*$ を持ち、velocityをMaxwell preparationすれば、
+
+```math
+\sup_{t\le T}
+W_1
+\left(
+\mathcal L(X_t^M),
+\mathcal L(X_t^{64})
+\right)
+\le
+e^{L_bT}
+\left[
+\varepsilon_{\rm init}
++
+T\Delta_{214}^{\rm drift}
+\right]
++
+C_{\rm sm}(L_b,T)
+\left[
+\epsilon_M
+(B_*+\Delta_{214}^{\rm drift})
++
+\sqrt{\nu\epsilon_M}
+\right]
++
+R_{\rm db}^{W_1}(T),
+```
+
+と評価できる。ここで $C_{\rm sm}(L_b,T)$ は固定有限時間で有限な定数である。
+
+single-dumbbellの中心化forceについて
+
+```math
+A_t
+=
+\frac1{\gamma_X}
+\int_0^t
+\delta F_s^{\rm db}ds
+```
+
+とするとAC.6から
+
+```math
+\mathbb E|A_t|
+\le
+\sqrt{
+2\nu t
+\varepsilon_{\rm fr}^{\rm abs}
+}.
+```
+
+またfast-variable消去で生じる追加Green--Kubo dragは
+
+```math
+|R_{\rm lag-fr}^{W_1}(T)|
+\le
+C_TT\varepsilon_{\rm fr}
+\left[
+B_*+\Delta_{214}^{\rm drift}
++
+\sqrt{\frac{\nu}{\epsilon_M}}
+\right].
+```
+
+したがって
+
+```math
+R_{\rm db}^{W_1}(T)
+\le
+\varepsilon_{\rm bath}^{X}(T)
++
+C_TT\varepsilon_{\rm fr}
+\left[
+B_*+\Delta_{214}^{\rm drift}
++
+\sqrt{\frac{\nu}{\epsilon_M}}
+\right]
++
+C_T
+\sqrt{
+2\nu T
+\varepsilon_{\rm fr}^{\rm abs}
+}.
+```
 
 <!-- theorem-start:theorem -->
-**定理（R214B：finite-bath dumbbellの動的osmotic縮約とQ3-2 compatibility candidate）**
+**定理（R214B：finite-bath dumbbellの動的osmotic縮約とQ3-2 compatibility）**
 
-R214Aのsafe sectorに加え、有限bath kernelが固定 $0\le t\le T$ でR209B型Drude kernelへ近づき、
+R214Aのsafe sector、R209Aのgeneric flow compatibility、R209Bのgeneric finite harmonic bath / Markov--FDT条件を仮定する。さらに
 
 ```math
 \tau_{\rm mem}^{(r)}
@@ -529,85 +724,91 @@ R214Aのsafe sectorに加え、有限bath kernelが固定 $0\le t\le T$ でR209B
 \ll
 \tau_{\rm slow}
 \ll
-T_{\rm rec}^{(r)}
-```
-
-を満たすとする。さらに
-
-```math
-\varepsilon_{\rm fr}
-=
-\sup_X\frac{\zeta_{\rm db}(X)}{\gamma_X}
-\ll1.
-```
-
-このときdumbbell内部有限bathの消去、Markov極、小内部質量極、fast内部緩和縮約により重心に働く内部平均力は
-
-```math
-k_BT
-\partial_X
-\log(\varrho_X+\varrho_T)
-```
-
-を
-
-```math
-\varepsilon_{214}
-=
-\varepsilon_{214A}
-+
-\varepsilon_{\Gamma,r}
-+
-\varepsilon_{\rm int\,mass}
-+
-\varepsilon_{\rm track}
-+
-\varepsilon_{\rm fr}
-+
-\varepsilon_{\rm back}^{\rm db}
-```
-
-まで回収する。
-
-現行M67 flow/drag sectorを再利用し、重心のsmall-mass極を取ると
-
-```math
-dX_t
-=
-\left[
-\frac{J}{\widetilde\rho}
-+
-\nu\partial_X\log\widetilde\rho
-\right]dt
-+
-\sqrt{2\nu}\,dW_t
-+
-R_{214B}(t),
+T_{\rm rec}^{(r)},
 ```
 
 ```math
-\widetilde\rho
-=
-\varrho+\varrho_T,
+\epsilon_M=\frac{M_X}{\gamma_X}\ll1,
 \qquad
-\nu=\frac{k_BT}{\gamma_X}.
+\varepsilon_{\rm fr}=o(\sqrt{\epsilon_M}),
+\qquad
+\varepsilon_{\rm fr}^{\rm abs}\to0
 ```
 
-$\varrho_T$ は空間・時間に依らないため
+を満たすとする。このときM67 dumbbell tracerとcanonical M64 tracerについて
 
 ```math
-\partial_t\widetilde\rho+\partial_XJ=0.
+\sup_{t\le T}
+W_1
+\left(
+\mathcal L(X_t^{67,{\rm db}}),
+\mathcal L(X_t^{64})
+\right)
+\le
+\varepsilon_{214\to64}(T),
 ```
 
-従って一様backgroundを選んだR203C/R185 regularized lawへ既存数学を再利用できる。
+```math
+\varepsilon_{214\to64}(T)
+=
+\varepsilon_{\rm bath}^{X}
++
+e^{L_bT}
+\left[
+\varepsilon_{\rm init}
++
+T\Delta_{214}^{\rm drift}
+\right]
++
+C_{\rm sm}
+\left[
+\epsilon_M(B_*+\Delta_{214}^{\rm drift})
++
+\sqrt{\nu\epsilon_M}
+\right]
++
+C_TT\varepsilon_{\rm fr}
+\left[
+B_*+\Delta_{214}^{\rm drift}
++
+\sqrt{\frac{\nu}{\epsilon_M}}
+\right]
++
+C_T
+\sqrt{
+2\nu T\varepsilon_{\rm fr}^{\rm abs}
+}
+```
 
-prepared coherent scaleを増大させ、内部mass、finite-bath memory/spectrum、tracking ratio、$\varepsilon_{\rm fr}$、smooth-core比を同時に小さくしつつ固定 $T<T_{\rm rec}^{(r)}$ を保つparameter familyでは、R214固有残差を0へ送れる。
+を得る。ここで $\Delta_{214}^{\rm drift}$ にはshell/core、flow/material-frame、tracking、signal-loadの各偏差を一度だけ含め、M64自身のR203C baseline errorは含めない。
+
+従ってR203Cとの三角不等式から
+
+```math
+W_1
+\left(
+\mathcal L(X_t^{67,{\rm db}}),
+\widetilde\rho(t)
+\right)
+\le
+\varepsilon_{214\to64}(T)
++
+\varepsilon_{\rm red}^{64}(T).
+```
+
+$\partial_t\widetilde\rho+\partial_XJ=0$ なので、R161/R185の既存regularized lawへそのまま接続する。
 <!-- theorem-end:theorem -->
 
 <!-- theorem-start:proof -->
 **証明（R214B）**
 
-finite translated harmonic bathの消去とFDTはR209Bと同じDuhamel計算である。small internal mass後の三次元overdamped過程へItô公式を適用すると半径の幾何学drift $2D_r/r$ が生じ、R214Aの $r^2$ measureを定常分布として厳密回収する。driftの一方向contractivityからslowly moving $\ell_t$ への追跡評価を得る。strongly convex effective radial potentialのspectral gapとGreen--Kubo公式から追加摩擦boundを得て、FDT noiseとともに主drag sectorへの小補正として扱う。signal loadはAC.7の $N_0^{-1}$ relative boundをR210Aへ渡す。最後にR209A/R209CとR203C/R185の既存compatibilityを三角不等式で合成する。証明終。
+R209Bをdumbbell内部座標へ特殊化してfinite translated harmonic bathを消去し、short-memoryとsmall internal massでAC.5の三次元Brownian dumbbellを得る。Itô公式から半径の幾何学drift $2D_r/r$ が生じ、R214Aの $r^2$ canonical measureを回収する。AC.6の一方向contractivityによりmoving $\ell_t$ へのtracking residualを $\Delta_{214}^{\rm drift}$ へ入れる。
+
+重心small-mass極では $Y=X+\epsilon_MV$ を使うと上のSDEが厳密に得られる。同じBrownian motionでM64過程を駆動し、$X=Y-\epsilon_MV$、drift Lipschitz性、Maxwell preparationの
+$\epsilon_M\sup_{t\le T}\mathbb E|V_t|
+=
+O(\epsilon_MB_*)+O(\sqrt{\nu\epsilon_M})$
+を使ってGronwall評価する。中心化dumbbell forceの積分はAC.6のabsolute covariance積分で二乗平均評価し、追加Green--Kubo dragは $\varepsilon_{\rm fr}$ で別に抑える。R209Aのflow residualとR210Aのload-only signal errorを合成すれば表示した $W_1$ boundを得る。R209Cは用いない。最後の式はR203Cとの三角不等式である。証明終。
 <!-- theorem-end:proof -->
 
 ## AC.9 明示parameter witness
@@ -642,17 +843,31 @@ T_{\rm rec}^{(r)}=100
 \sup_X|\partial_X\ell_X|\le0.1
 ```
 
-なら $C_{\rm mix}=O(1)$ の範囲で追加摩擦比は $O(10^{-5})$ である。これは必要parameter windowが空でないことのwitnessであり、唯一の物理較正ではない。
+なら $C_{\rm mix}=O(1)$ の範囲で追加摩擦比は $O(10^{-5})$ である。さらに小parameter $\lambda\to0$ に対し
 
-## AC.10 candidate境界
+```math
+\epsilon_M=\lambda^2,
+\qquad
+\varepsilon_{\rm fr},
+\varepsilon_{\rm fr}^{\rm abs}
+=
+O(\lambda^3),
+\qquad
+\tau_r=O(\lambda^3),
+\qquad
+\mu/\gamma_r=O(\lambda^4)
+```
 
-R214A--R214Bは本draftではcandidate-onlyとする。
+と取れば、small-mass、追加drag/noise、fast-internal条件を同時に0へ送れる。これは必要parameter windowが空でないことのwitnessであり、唯一の物理較正ではない。
 
-- R208B/R208D/R209A--R209C/R210Aをrequiredから外さない。
-- AA.3のphase-volume sectorを削除しない。
-- Q3-2のfixed-goal直接依存・達成ラベルを変更しない。
+## AC.10 required主線と責務境界
+
+draft-145でR214A--R214Bをcontinuous Q3-2のrequired主線へ昇格する。
+
+- R209A/R209Bはgeneric flow / finite-bath補題としてR214B内部から使う。
+- R214BはR209Cを参照せずsmall-mass $W_1$ bridgeを自身で閉じる。
+- R210Aはgeneric coherent-load theoremとしてdumbbell loadを受ける。
+- R208B/R208C/R209CはPR1ではactive regressionとして残し、退役は後続PRへ分離する。
+- R208Dはprofile-dispatch bridgeとしてactive維持する。
 - finite-graph Q3-4A/Q3-4B/Q3-5へR214を流用しない。
-- Q3-2-A1/A2を変更しない。
-- full finite-Hamiltonian direct trajectoryによるA2判定は本candidate verifierやreduced supporting witnessだけから主張しない。
-
-後続promotion PRではR214A--R214Bの解析・numerical checksを監査したうえで、continuous Q3-2に限ってAA.3/R208Bのphase-volume実装をdumbbell profileへ切り替えるかを判定する。
+- Q3-2-A1/A2を変更しない。supporting reduced witnessだけからA2を昇格しない。

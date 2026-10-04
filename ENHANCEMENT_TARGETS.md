@@ -74,7 +74,7 @@ Q2-4のB1--B3は単一の巨大回路図を要求するものではなく、任�
 | Q2-3 | 未監査 | 未監査 | 未監査 | 未監査 | 未監査 | M54、R177、R181B--R181C、M67/R212、M66/R205--R206 |
 | Q2-4 | 未監査 | 未監査 | 未監査 | 未監査 | 未監査 | M54、R181C、R186、M67/R212、M66/R205--R206E。R213A--R213Dは置換candidateであり未promotion |
 | Q3-1 | 部分達成 | 未監査 | 未監査 | 未監査 | 未監査 | M67、R210A、M37、R86 |
-| Q3-2 | 部分達成 | 未監査 | 未監査 | 未監査 | 未監査 | M67、R208A--R209C、R210A、M64、R203A--R203D、R161、R185 |
+| Q3-2 | 部分達成 | 未監査 | 未監査 | 未監査 | 未監査 | M67、R208A、R214A、R214B、R210A、M64、R203A--R203D、R161、R185 |
 | Q3-3A | 未監査 | 未監査 | 未監査 | 未監査 | 未監査 | M67、R210A、R210B、M37、R86、R123 |
 | Q3-3B | 未監査 | 未監査 | 未監査 | 未監査 | 未監査 | M67、R210A、R210B、M37、R86、R123 |
 | Q3-3C | 未監査 | 未監査 | 未監査 | 未監査 | 未監査 | M67、R210A、R210B、M37、R123、R182 |
@@ -125,10 +125,6 @@ M67/R212A--R212CはM66/R205 thermal lawのfinite-Hamiltonian physical parentを�
 
 R212A--R212Cを追加してもA1/A2/B1--B3状態を自動変更しない。R212Bのrotor mixing simulationはsupporting witnessでありQ2-2-A2達成判定には数えない。Q2-4ではR186のcoherent register additive-noise障害を独立に維持する。
 
-### M67/R208--R212 二実体finite-Hamiltonian parent
+### M67/R214 continuous-tracer required bridge
 
-M67/R208A--R209CをQ3 tracer/Nelson側、R210Aをcoherent/R86、R210BをR123 dephasing physical liftとして採用する。Q1ではR211A--R211C、Q2 thermal sectorではR212A--R212Cをrequired physical-parent bridgeとして採用する。R212B-rotはR207A target densityのcanonical liftとfinite-time parameter windowを与えるが、full finite-Hamiltonian trajectoryはsupporting evidenceなのでQ2-2-A1/A2を自動昇格しない。Q3-1-A1/Q3-2-A1は部分達成、Q3-1-A2/Q3-2-A2は未監査、Q2のA1/A2/B1--B3、M0も従来判定を維持する。
-
-## R214 continuous-tracer simplification candidate
-
-R214A--R214BはQ3-2のA1/A2状態を変更しないcandidateである。狙いは現行R208Bのinverse-designed phase-volume sectorを、有限自然長を持つ三次元伸縮Brownian dumbbellへ置換できるかを監査することにある。promotion条件はR214A partition/core bound、R214B finite-bath/fast-internal reduction、single-dumbbell追加FDT摩擦、$O(N_0^{-1})$ backreaction、既存R203C/R185との誤差合成が同一parameter familyで閉じることである。full finite-Hamiltonian direct trajectoryはA2の別判定として残す。
+R214A--R214BをQ3-2 continuous-tracerのrequired physical bridgeへ昇格する。R209A/R209Bはgeneric flow / finite-bath lemma、R210Aはgeneric coherent-load theoremとして内部依存に回し、R214B自身がsmall-mass $W_1$ bridgeを閉じる。R208B/R208C/R209CはPR1ではactive regressionとして残すがQ3-2直接主線から外す。Q1ではR211A--R211C、Q2 thermal sectorではR212A--R212Cをrequired physical-parent bridgeとして維持する。Q3-1-A1/Q3-2-A1は部分達成、Q3-1-A2/Q3-2-A2は未監査のままで、R214 supporting witnessからA2を自動昇格しない。

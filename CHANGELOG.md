@@ -1,3 +1,12 @@
+## draft-145：R214 continuous-tracer required化とQ3 compatibility再編
+
+- R214A/R214BをQ3-2 continuous-tracerのrequired主線へ昇格した。
+- R214Bへ $Y=X+(M_X/\gamma_X)V$ を用いるdirect small-mass $W_1$ bridge、single-dumbbell absolute covariance、追加Green--Kubo drag/noiseのprocess-law errorを追加し、R209C依存を除いた。
+- R209Aをgeneric local-flow compatibility、R209Bをgeneric translated finite-bath / Markov--FDT lemma、R210Aをphase-invariant generic coherent-load theoremへ一般化した。
+- R208Dをcontinuous R214 / finite-graph R203Dのprofile-dispatch bridgeへ改訂した。
+- R214 verifier 2本をrequired CIへ昇格した。R208B/R208C/R209Cはactive regressionとして維持し、退役は後続draftへ分離した。
+- Q3-2達成、Q3-4A/B・Q3-5、Q3-1/Q3-3、A1/A2/B1--B3、Q1/Q2、R213、M0の判定は変更していない。
+
 ## draft-144：M67/Q3伸縮Brownian dumbbell candidate
 
 - R214Aを追加し、M37実正準signal強度から有限自然長を持つ三次元dumbbellを構成し、内部位相体積から $-k_BT\log(\varrho+\varrho_T)$ とosmotic mean forceを明示shell/core誤差まで回収した。

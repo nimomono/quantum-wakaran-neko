@@ -3,7 +3,7 @@
 @title: 問題設定、統一構造、達成範囲
 @status: M54を共通実正準signal・状態構成層、M67を二実体finite-Hamiltonian physical parent、M66/R205をM67 thermal-sector open/effective interfaceとする。Q3ではR208--R210、Q1ではR211A--R211C、Q2 thermal sectorではR212A--R212CからM66/R205へ接続する。Q2 signal/register/gateにはR213A--R213DのM67/NBL carrier candidateを追加するが、M54/R186 fixed-goal主線は維持する。M65、R206、R207は従来の系列責務を維持し、M0のjoint device/process統合とは区別する。
 
-draft-144では付録AC/R214A--R214BをM67 continuous-tracerの簡素化candidateとして追加する。三次元伸縮Brownian dumbbellの内部位相体積からosmotic free energyを作り、finite bathとM37 backreactionまで監査するが、現行Q3 fixed-goal依存R208--R210とM64/R203を変更しない。
+draft-145では付録AC/R214A--R214BをM67 continuous-tracerのrequired主線へ昇格する。R209A/R209Bをgeneric flow / finite-bath補題、R210Aをgeneric coherent-load theoremとして再編し、R214B自身がsmall-mass $W_1$ bridgeを閉じる。Q3-2の達成状態、Q3-4A/B・Q3-5 finite-graph profile、A1/A2、M0は変更しない。
 
 ## 1.1 研究上の問い
 
