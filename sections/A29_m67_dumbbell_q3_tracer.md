@@ -13,13 +13,7 @@ F_\rho=-k_BT\log r_X^\delta+C
 
 を作る。本付録では、この逆設計型phase-volume実装を、物理像の短い三次元伸縮Brownian dumbbellへ置換できるかを調べる。
 
-主要物理sectorは従来どおり
-
-```text
-structured reservoir + marker/tracer
-```
-
-の二分類である。dumbbellの内部相対座標はmarker/tracer内部自由度であり、新しい第三物理実体とは数えない。structured reservoir側のM37 coherent sector、R209 flow/drag sector、R210A coherent compatibilityは再利用する。
+主要物理sectorは従来どおり「structured reservoir + marker/tracer」の二分類である。dumbbellの内部相対座標はmarker/tracer内部自由度であり、新しい第三物理実体とは数えない。structured reservoir側のM37 coherent sector、R209 flow/drag sector、R210A coherent compatibilityは再利用する。
 
 本付録はcontinuous Q3-2だけを対象にする。finite-graph Q3-4A/Q3-4B/Q3-5で使う現行R208B/R203D経路は変更しない。
 

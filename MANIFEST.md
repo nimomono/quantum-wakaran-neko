@@ -8,8 +8,7 @@
 
 ## draft-143：M67/NBL Q2 carrier candidateとR213A--R213D
 
-- `sections/A28_m67_nbl_q2_carrier.md`
-- `sections/A29_m67_dumbbell_q3_tracer.md` を付録ABとして追加し、R213A--R213DをM67 Q2 signal/register/gateのpromotion-ready candidateとして収録する。
+- `sections/A28_m67_nbl_q2_carrier.md` を付録ABとして追加し、R213A--R213DをM67 Q2 signal/register/gateのpromotion-ready candidateとして収録する。
 - H/T/CNOT phase-tagged path rule、coherent Born-action collector、R186 separation/resource auditを定理化し、path-pair $4^h$ bankは不採用とする。
 - candidate verifier 4本と `simulations/m67/run_r213_nbl_q2_witness.py` を追加する。required physics CIへはまだ昇格しない。
 - README、第1・2・8章、付録AA、PROJECT_STATUS、ENHANCEMENT_TARGETS、VALIDATION、TERMINOLOGY、candidate/simulation/migration README、theory lineageをcandidate境界へ同期する。
@@ -444,6 +443,7 @@
 - `sections/A26_m65_phase_volume_projective_instrument.md`
 - `sections/A27_m67_two_entity_structured_reservoir.md`
 - `sections/A28_m67_nbl_q2_carrier.md`
+- `sections/A29_m67_dumbbell_q3_tracer.md`
 - `sections/90_references.md`
 
 ## 論文外の研究メモ
