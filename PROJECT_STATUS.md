@@ -654,6 +654,8 @@ M0は、個別のA1模型を並べるだけでは達成としない。少なく�
 | R209C | required finite-time process compatibility | M67 finite-Hamiltonian tracer→Markov underdamped→M64 overdampedのsmall-mass縮約を $W_1$ で合成し、M67固有 $\varepsilon_{67\to64}$ と既存 $\varepsilon_{\rm red}^{64}$ を分離する |
 | R210A | required coherent compatibility | full M67 coherent trajectoryとbare M37のload-only差をprepared reservoir excess-energy shellから $O(N_0^{-1})$ で制御し、R86 carrier-envelope errorと合成してQ3-1のSchrödinger型signalへ接続する |
 | R210B | required bounded dephasing embedding | bounded odd momentum portでR123 finite environmentをM67 structured reservoir内部へ持ち上げ、下方有界性、作用保存、同一の $\cos^2$ dephasing factorと有限revivalを得る |
+| R214A | candidate exact/controlled-partition result | M37実正準signalから作る局所強度に対し有限自然長 $\ell_X^2=\ell_0^2+\alpha\varrho_X$ を持つ三次元伸縮dumbbellを置き、条件付き分配関数を厳密評価する。$-k_BT\log(\varrho+\varrho_T)$ とosmotic mean forceを明示shell/core誤差まで回収し、$\ell_0=0$ node非解析を明示する |
+| R214B | candidate finite-time Hamiltonian/open compatibility | finite translated harmonic bath→GLE/FDT、3次元半径の $r^2$ 定常測度、fast内部緩和、single-dumbbell追加FDT摩擦、$O(N_0^{-1})$ M37 backreactionを合成し、一様背景R203C/R185 lawへのcontinuous Q3-2 bridge候補を与える |
 | R185 | 厳密有限格子結果・明示誤差付き近似結果 | 共通の確率分布の時間反転率、$D_\pm$、1次元node-free領域の時間対称Newton則。正則化残差 $O(\delta)$、格子残差 $C_{185,a}a^2$ を有限微分ノルムで明示 |
 | R123 | 厳密結果・数値検証付き | 井戸型・調和型低位束縛状態と有限環境純位相緩和 |
 | R124 | 厳密結果・数値検証付き | 障壁値未満スペクトル支持からの反対側確率増分 |
@@ -689,12 +691,3 @@ M0は、個別のA1模型を並べるだけでは達成としない。少なく�
 ## 置換・退役結果
 
 現行因果鎖に含まれない模型と結果は本文へ再掲しない。主要な現行因果鎖と置換系譜の入口は `notes/theory_lineage.md`、ID、旧用途、退役時点の置換関係、研究メモへの対応は `notes/superseded_result_index.md` で管理する。個別退役メモに残る「現行」「置換先」はその版の歴史記録であり、現在の運用状態は本書を優先する。旧R113--R118、R147、R153、R155、R183は再利用しない。独立M48 Bell 手順はR180A--R180Cへ置換した。M42/R172--R174はdraft-72でM55/R183--R185へ移行し、draft-74でM55をM54空間状態構成、R183を一般R161へ吸収した。M50もM54静的状態構成へ吸収した。draft-95でR162のPoisson reservoirをQ3基礎ミクロ存在論からideal referenceへ責務変更し、旧位置づけは `notes/superseded_q3_poisson_microphysics.md` へ保存する。M56はspin-only代替研究線として保持する。draft-103でM59と独立M57/dual-TLの現行親模型としての役割をM60へ置換し、R195A/R196A--R196CはM60 transport reductionの結果IDとして継承した。draft-112ではM64/R203A--R203DをQ3現行主線へ昇格し、M60/M61とR195--R200を現行正本から退役する。draft-120ではM65/R204D--R204Fを当時のQ1/Q2 fixed-goal主線へ採用し、R191/R193を退役する。draft-127ではQ2-1/Q2-3/Q2-4のterminal readoutをM66/R206へ置換し、当時のQ1/Q2-2のM65/R181Dを維持したまま、責務を失ったR192をactive paperから退役する。draft-134でQ2-2をR207へ切り替え、draft-135でR180A/R180C逐次Bell witnessをactive paperから退役する。
-
-### R214 M67/Q3 continuous-tracer dumbbell candidate
-
-| 結果 | 導出状態 | 内容 |
-|---|---|---|
-| R214A | candidate exact/controlled-partition result | M37実正準signalから作る局所強度に対し有限自然長 $\ell_X^2=\ell_0^2+\alpha\varrho_X$ を持つ三次元伸縮dumbbellを置き、条件付き分配関数を厳密評価する。$-k_BT\log(\varrho+\varrho_T)$ とosmotic mean forceを明示shell/core誤差まで回収し、$\ell_0=0$ node非解析を明示する |
-| R214B | candidate finite-time Hamiltonian/open compatibility | finite translated harmonic bath→GLE/FDT、3次元半径の $r^2$ 定常測度、fast内部緩和、single-dumbbell追加FDT摩擦、$O(N_0^{-1})$ M37 backreactionを合成し、一様背景R203C/R185 lawへのcontinuous Q3-2 bridge候補を与える |
-
-R214A--R214Bはdraft-144ではcandidate-onlyであり、Q3-2の現行fixed-goal直接依存R208A--R209C/R210A、達成ラベル、Q3-2-A1/A2、finite-graph Q3-4A/Q3-4B/Q3-5を変更しない。

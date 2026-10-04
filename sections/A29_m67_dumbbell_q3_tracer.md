@@ -33,7 +33,7 @@ Q_i=\sqrt{M_{\rm osc}\omega_0}\,q_i,
 P_i=\frac{p_i}{\sqrt{M_{\rm osc}\omega_0}}
 ```
 
-とし、固定smooth partition of unity \(\chi_i(X)\) を用いて局所強度
+とし、固定smooth partition of unity $\chi_i(X)$ を用いて局所強度
 
 ```math
 \varrho_X
@@ -44,9 +44,9 @@ P_i=\frac{p_i}{\sqrt{M_{\rm osc}\omega_0}}
 \ge0
 ```
 
-を定める。\(N_0>0\) はprepared coherent-action scaleである。複素包絡 \(Z\) や \(|Z|\) を独立canonical variableとしてHamiltonianへ戻さない。
+を定める。$N_0>0$ はprepared coherent-action scaleである。複素包絡 $Z$ や $|Z|$ を独立canonical variableとしてHamiltonianへ戻さない。
 
-dumbbellの重心を \((X,P_X)\)、内部相対座標を \((\mathbf r,\mathbf p)\in\mathbb R^3\times\mathbb R^3\) とする。有限自然長
+dumbbellの重心を $(X,P_X)$、内部相対座標を $(\mathbf r,\mathbf p)\in\mathbb R^3\times\mathbb R^3$ とする。有限自然長
 
 ```math
 \ell_X^2
@@ -81,7 +81,7 @@ H_{\rm db}
 \right]^2
 ```
 
-と置く。\(\ell_0>0\) と \(a_c>0\) により、signal nodeと二質点重なりの両方で全Hamiltonianはsmoothで下に有界である。
+と置く。$\ell_0>0$ と $a_c>0$ により、signal nodeと二質点重なりの両方で全Hamiltonianはsmoothで下に有界である。
 
 熱幅を
 
@@ -93,7 +93,7 @@ H_{\rm db}
 
 ## AC.3 R214A：一バネdumbbell phase-volume / osmotic-force candidate
 
-まずcoreless \(a_c=0\) を考える。固定したsignalとtracer位置における内部canonical位置積分は
+まずcoreless $a_c=0$ を考える。固定したsignalとtracer位置における内部canonical位置積分は
 
 ```math
 I(\ell)
@@ -105,7 +105,7 @@ r^2
 \right]dr.
 ```
 
-\(a=\ell/\sigma_T\)、標準正規密度と累積分布を \(\phi,\Phi\) とすると厳密に
+$a=\ell/\sigma_T$、標準正規密度と累積分布を $\phi,\Phi$ とすると厳密に
 
 ```math
 I(\ell)
@@ -186,7 +186,7 @@ a(1+a^2)G(a)
 }
 ```
 
-が厳密に成立する。\(a_X\ge a_0:=\ell_0/\sigma_T>0\) なので
+が厳密に成立する。$a_X\ge a_0:=\ell_0/\sigma_T>0$ なので
 
 ```math
 0
@@ -198,7 +198,7 @@ a(1+a^2)G(a)
 
 という一様safe-sector評価を持つ。
 
-smooth core \(a_c>0\) については \(a_c/\ell_0\ll1\) の固定safe sectorで
+smooth core $a_c>0$ については $a_c/\ell_0\ll1$ の固定safe sectorで
 
 ```math
 F_{\rm db}
@@ -220,9 +220,9 @@ k_BT\partial_X\log(\varrho_X+\varrho_T)
 R_{\rm tail}
 ```
 
-と評価でき、\(R_{\rm tail}\) は \(r\lesssim a_c\) のGaussian tailとして \(a_0\) 増大とともに指数的に小さくなる。
+と評価でき、$R_{\rm tail}$ は $r\lesssim a_c$ のGaussian tailとして $a_0$ 増大とともに指数的に小さくなる。
 
-特に \(\ell_0=2.5\sigma_T\) ではcoreless force correctionは
+特に $\ell_0=2.5\sigma_T$ ではcoreless force correctionは
 
 ```math
 \varepsilon_F(2.5)
@@ -230,7 +230,7 @@ R_{\rm tail}
 9.7\times10^{-4},
 ```
 
-\(\ell_0=3\sigma_T\) では
+$\ell_0=3\sigma_T$ では
 
 ```math
 \varepsilon_F(3)
@@ -242,14 +242,14 @@ R_{\rm tail}
 <!-- theorem-start:proof -->
 **証明（R214A）**
 
-\(z=(r-\ell)/\sigma_T\) と置き、Gaussianの0次、1次、2次不完全momentを積分すると表示した \(I(\ell)\) を得る。\(\ell_X^2+\sigma_T^2=\alpha(\varrho_X+\varrho_T)\) を代入してfree energyを分離する。\(G'(a)=2\phi(a)/(1+a^2)^2\) を直接微分で得て、\(2\ell_X\partial_X\ell_X=\alpha\partial_X\varrho_X\) を用いれば \(\varepsilon_F\) の式が従う。\(a>0\) で \(\varepsilon_F\) は単調減少する。
+$z=(r-\ell)/\sigma_T$ と置き、Gaussianの0次、1次、2次不完全momentを積分すると表示した $I(\ell)$ を得る。$\ell_X^2+\sigma_T^2=\alpha(\varrho_X+\varrho_T)$ を代入してfree energyを分離する。$G'(a)=2\phi(a)/(1+a^2)^2$ を直接微分で得て、$2\ell_X\partial_X\ell_X=\alpha\partial_X\varrho_X$ を用いれば $\varepsilon_F$ の式が従う。$a>0$ で $\varepsilon_F$ は単調減少する。
 
-smooth coreは積分を \(r<a_c\) と \(r\ge a_c\) に分け、後者で \(\sqrt{r^2+a_c^2}=r+O(a_c^2/r)\) を用いる。前者は \(\ell_X\ge\ell_0\) によりGaussian tailへ吸収できる。証明終。
+smooth coreは積分を $r<a_c$ と $r\ge a_c$ に分け、後者で $\sqrt{r^2+a_c^2}=r+O(a_c^2/r)$ を用いる。前者は $\ell_X\ge\ell_0$ によりGaussian tailへ吸収できる。証明終。
 <!-- theorem-end:proof -->
 
-### AC.3.1 \(\ell_0=0\) を採らない理由
+### AC.3.1 $\ell_0=0$ を採らない理由
 
-\(\ell_0=0\) では \(\ell=\sqrt{\alpha\varrho}\) となり、
+$\ell_0=0$ では $\ell=\sqrt{\alpha\varrho}$ となり、
 
 ```math
 G(a)
@@ -273,7 +273,7 @@ C_1\sqrt{\varrho}
 O(\varrho).
 ```
 
-従ってnodeで \(\partial_\varrho\log Z_{\rm db}\) が非解析になる。一本バネの物理像を維持しnode-safe Hamiltonianを得るため、本candidateでは有限自然長 \(\ell_0>0\) を採用する。
+従ってnodeで $\partial_\varrho\log Z_{\rm db}$ が非解析になる。一本バネの物理像を維持しnode-safe Hamiltonianを得るため、本candidateでは有限自然長 $\ell_0>0$ を採用する。
 
 ## AC.4 finite harmonic bath
 
@@ -292,7 +292,7 @@ H_{{\rm db},B}
 \right].
 ```
 
-固定 \(\mathbf r\) で \(\zeta_{a\mu}\mapsto\zeta_{a\mu}-c_\mu r_a\) と平行移動できるので、このbathはR214Aのcanonical位置weightを変更しない。
+固定 $\mathbf r$ で $\zeta_{a\mu}\mapsto\zeta_{a\mu}-c_\mu r_a$ と平行移動できるので、このbathはR214Aのcanonical位置weightを変更しない。
 
 bathを厳密消去すると
 
@@ -341,7 +341,7 @@ d\mathbf r_t
 R_r(t).
 ```
 
-corelessで \(r_t=|\mathbf r_t|\) とするとItô公式から
+corelessで $r_t=|\mathbf r_t|$ とするとItô公式から
 
 ```math
 dr_t
@@ -355,7 +355,7 @@ dr_t
 \sqrt{\frac{2k_BT}{\gamma_r}}dW_t.
 ```
 
-従って固定 \(X\) の定常半径密度は
+従って固定 $X$ の定常半径密度は
 
 ```math
 p_{\rm eq}(r\mid X)
@@ -394,7 +394,7 @@ b_\ell(r)
 \tau_r=\frac{\gamma_r}{k}.
 ```
 
-したがって同一noise couplingで固定\(\ell\) dynamicsは少なくとも \(e^{-t/\tau_r}\) でcontractする。slow target \(\ell_t\) に対するtracking errorはsafe sectorで
+したがって同一noise couplingで固定$\ell$ dynamicsは少なくとも $e^{-t/\tau_r}$ でcontractする。slow target $\ell_t$ に対するtracking errorはsafe sectorで
 
 ```math
 W_1(\mathcal L(r_t),\pi_{\ell_t})
@@ -409,7 +409,7 @@ R_r(t)
 
 と評価する。
 
-single dumbbellでは旧phase-volume mode群の \(N_\rho^{-1/2}\) 自己平均化を使わない。内部力揺らぎを
+single dumbbellでは旧phase-volume mode群の $N_\rho^{-1/2}$ 自己平均化を使わない。内部力揺らぎを
 
 ```math
 \delta F_X^{\rm db}
@@ -462,7 +462,7 @@ C_{\rm mix}(a_0)
 (\partial_X\ell_X)^2.
 ```
 
-同時にFDTにより対応する追加noiseが生じる。主重心摩擦 \(\gamma_X\) に対し
+同時にFDTにより対応する追加noiseが生じる。主重心摩擦 $\gamma_X$ に対し
 
 ```math
 \varepsilon_{\rm fr}
@@ -493,7 +493,7 @@ C_{\rm mix}(a_0)
 B_Xb.
 ```
 
-したがってprepared dumbbell energy shell \(H_{\rm db}\le E_*\)、\(\ell_X\ge\ell_0\)、\(\|b\|=O(\sqrt{N_0})\) ではsignalへの絶対loadは
+したがってprepared dumbbell energy shell $H_{\rm db}\le E_*$、$\ell_X\ge\ell_0$、$\|b\|=O(\sqrt{N_0})$ ではsignalへの絶対loadは
 
 ```math
 \|G_{\rm db}\|
@@ -524,7 +524,7 @@ H_{\rm db}[b]
 <!-- theorem-start:theorem -->
 **定理（R214B：finite-bath dumbbellの動的osmotic縮約とQ3-2 compatibility candidate）**
 
-R214Aのsafe sectorに加え、有限bath kernelが固定 \(0\le t\le T\) でR209B型Drude kernelへ近づき、
+R214Aのsafe sectorに加え、有限bath kernelが固定 $0\le t\le T$ でR209B型Drude kernelへ近づき、
 
 ```math
 \tau_{\rm mem}^{(r)}
@@ -599,7 +599,7 @@ R_{214B}(t),
 \nu=\frac{k_BT}{\gamma_X}.
 ```
 
-\(\varrho_T\) は空間・時間に依らないため
+$\varrho_T$ は空間・時間に依らないため
 
 ```math
 \partial_t\widetilde\rho+\partial_XJ=0.
@@ -607,13 +607,13 @@ R_{214B}(t),
 
 従って一様backgroundを選んだR203C/R185 regularized lawへ既存数学を再利用できる。
 
-prepared coherent scaleを増大させ、内部mass、finite-bath memory/spectrum、tracking ratio、\(\varepsilon_{\rm fr}\)、smooth-core比を同時に小さくしつつ固定 \(T<T_{\rm rec}^{(r)}\) を保つparameter familyでは、R214固有残差を0へ送れる。
+prepared coherent scaleを増大させ、内部mass、finite-bath memory/spectrum、tracking ratio、$\varepsilon_{\rm fr}$、smooth-core比を同時に小さくしつつ固定 $T<T_{\rm rec}^{(r)}$ を保つparameter familyでは、R214固有残差を0へ送れる。
 <!-- theorem-end:theorem -->
 
 <!-- theorem-start:proof -->
 **証明（R214B）**
 
-finite translated harmonic bathの消去とFDTはR209Bと同じDuhamel計算である。small internal mass後の三次元overdamped過程へItô公式を適用すると半径の幾何学drift \(2D_r/r\) が生じ、R214Aの \(r^2\) measureを定常分布として厳密回収する。driftの一方向contractivityからslowly moving \(\ell_t\) への追跡評価を得る。strongly convex effective radial potentialのspectral gapとGreen--Kubo公式から追加摩擦boundを得て、FDT noiseとともに主drag sectorへの小補正として扱う。signal loadはAC.7の \(N_0^{-1}\) relative boundをR210Aへ渡す。最後にR209A/R209CとR203C/R185の既存compatibilityを三角不等式で合成する。証明終。
+finite translated harmonic bathの消去とFDTはR209Bと同じDuhamel計算である。small internal mass後の三次元overdamped過程へItô公式を適用すると半径の幾何学drift $2D_r/r$ が生じ、R214Aの $r^2$ measureを定常分布として厳密回収する。driftの一方向contractivityからslowly moving $\ell_t$ への追跡評価を得る。strongly convex effective radial potentialのspectral gapとGreen--Kubo公式から追加摩擦boundを得て、FDT noiseとともに主drag sectorへの小補正として扱う。signal loadはAC.7の $N_0^{-1}$ relative boundをR210Aへ渡す。最後にR209A/R209CとR203C/R185の既存compatibilityを三角不等式で合成する。証明終。
 <!-- theorem-end:proof -->
 
 ## AC.9 明示parameter witness
@@ -626,7 +626,7 @@ finite translated harmonic bathの消去とFDTはR209Bと同じDuhamel計算で�
 a_c=0.02\sigma_T
 ```
 
-を取るとcoreless force correctionは \(<9.7\times10^{-4}\) である。動的時間尺度のdimensionless witnessとして
+を取るとcoreless force correctionは $<9.7\times10^{-4}$ である。動的時間尺度のdimensionless witnessとして
 
 ```math
 \tau_{\rm mem}^{(r)}=10^{-7},
@@ -648,7 +648,7 @@ T_{\rm rec}^{(r)}=100
 \sup_X|\partial_X\ell_X|\le0.1
 ```
 
-なら \(C_{\rm mix}=O(1)\) の範囲で追加摩擦比は \(O(10^{-5})\) である。これは必要parameter windowが空でないことのwitnessであり、唯一の物理較正ではない。
+なら $C_{\rm mix}=O(1)$ の範囲で追加摩擦比は $O(10^{-5})$ である。これは必要parameter windowが空でないことのwitnessであり、唯一の物理較正ではない。
 
 ## AC.10 candidate境界
 
