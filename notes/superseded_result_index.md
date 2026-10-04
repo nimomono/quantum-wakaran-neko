@@ -1,5 +1,18 @@
 # 置換・退役結果索引
 
+## draft-146で退役したR208B/R208C/R209C Q3 continuous phase-volume bridge
+
+draft-145でR214A--R214Bがcontinuous Q3-2 required主線として自立し、R209A/R209B/R210Aもgeneric theoremへ再編されたため、旧continuous phase-volume bridgeのR208B/R208C/R209Cをactive paperから退役する。これは旧phase-volume数学を反証したものではなく、physical responsibilityをより短いdumbbell/generic-bath主線へ置換するための責務退役である。
+
+| 結果 | 旧用途 | 現行の扱い | 保存先 |
+|---|---|---|---|
+| R208B | inverse-designed phase-volume sectorのosmotic force、finite-$N_\rho$ fluctuation、signal backreaction | continuous Q3はR214A/R214Bへ置換。一般phase-volume数学はR212A、M64 open/effective identityはR203Bとして維持。結果IDは再利用しない | `superseded_r208bc_r209c_q3_phase_volume_bridge.md`、draft-145以前のGit履歴 |
+| R208C | local moving finite bathのGLE/FDT/Markov drag | generic R209Bへ吸収しactive theoremから退役。結果IDは再利用しない | `superseded_r208bc_r209c_q3_phase_volume_bridge.md`、draft-145以前のGit履歴 |
+| R209C | M67 underdamped tracerからM64 overdamped processへのsmall-mass $W_1$ bridge | direct small-mass couplingをR214Bへ吸収しactive theoremから退役。結果IDは再利用しない | `superseded_r208bc_r209c_q3_phase_volume_bridge.md`、draft-145以前のGit履歴 |
+
+旧専用verifierとfull compatibility witnessはnotesへ複製せずGit履歴を正本とする。
+
+
 ## draft-135で退役したR180A/R180C逐次Bell witness
 
 draft-134でM66/R205--R207 projection phase-volume模型がQ2-2 fixed-goalを単独で閉じたため、旧Theory AのR180A/R180Cをactive paperから退役した。これは逐次Born代数やsinglet共同分布を反証したものではなく、測定窓中のA結果成分からB端への物理転送を必要としないR207へQ2-2主線を一本化するための責務退役である。M65/R204とR181DはQ1逐次測定でactiveのまま残る。

@@ -1,7 +1,7 @@
 @number: Y
 @chapter: 付録
 @title: M64 三実体・M67 canonical open effective Q3 model
-@status: M67/R208--R210をQ3共通finite-Hamiltonian physical parentとし、M64はR208/R209でM67から回収されるcanonical open effective modelとして維持する。R203A--R203Dはregularized density/current辞書、phase-volume free energy、continuous/finite-graph初期準備、有限時間mean-flow tracking、canonical overdamped tracer、R161の1次元・有限graph接続、R185およびR124/R182/R125位置読出し受渡しを引き続き担う。三実体記述は有効縮約の変数分割であり、独立physical ontologyではM67へ置換する。
+@status: M67をQ3共通finite-Hamiltonian physical parentとし、continuous branchはR214A/R214B、generic flow/bathはR209A/R209B、coherent compatibilityはR210A、finite-graph dispatchはR208DからM64を回収する。R203A--R203Dはregularized density/current辞書、phase-volume free energy、continuous/finite-graph初期準備、有限時間mean-flow tracking、canonical overdamped tracer、R161の1次元・有限graph接続、R185およびR124/R182/R125位置読出し受渡しを引き続き担う。三実体記述は有効縮約の変数分割であり、独立physical ontologyではM67へ置換する。
 
 ## Y.1 責務、三実体、二つのconfiguration profile
 
@@ -20,7 +20,7 @@ tracer configurationには二つの特殊化を許す。
 
 両profileは別の粒子実体を導入せず、同じsignal density/currentから同じphase-volume/current-reservoir責務を読むM64模型族の特殊化である。M64本体ではkink、domain wall、Duffing shell、PN well、Eyring--Kramers hoppingをtracerの定義に要求しない。
 
-M64では、開放SDEまたはfinite-state jump lawを有効発展則として直接定める。finite-Hamiltonian parent、finite-bath、current/flow transducer、underdamped liftのQ3共通physical originはM67/R208--R210が担う。metric-graph連続極、strict locality、全周期統合は引き続きstrengtheningとする。
+M64では、開放SDEまたはfinite-state jump lawを有効発展則として直接定める。finite-Hamiltonian parentのQ3 physical originはM67が担う。continuous branchのosmotic/underdamped liftはR214A/R214B、flowとfinite bathはgeneric R209A/R209B、coherent loadはR210A、finite-graph branchのdispatchはR208D/R212Aが担う。metric-graph連続極、strict locality、全周期統合は引き続きstrengtheningとする。
 
 ## Y.2 regularized signal density/currentと局所補間
 

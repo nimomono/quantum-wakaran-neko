@@ -1,3 +1,12 @@
+## draft-146：旧Q3 continuous phase-volume bridge退役検算
+
+- active `sections/` からR208B/R208C/R209Cの定理宣言を退役し、`PROJECT_STATUS.md` の現行Q3結果表から3結果を除く。
+- `notes/superseded_r208bc_r209c_q3_phase_volume_bridge.md` と `notes/superseded_result_index.md` に、R208B→R214A/B、R208C→R209B、R209C→R214Bの置換関係を保存する。
+- `tools/verify_r208_phase_volume_backreaction.py`、`tools/verify_r208_local_moving_bath.py`、`tools/verify_r209c_process_compatibility.py` をrequired treeから外す。
+- `tools/verify_r208_m64_reduction.py` はR208D profile-dispatch boundaryの回帰へ更新する。
+- `simulations/m67/run_full_compatibility_witness.py` をactive simulation treeから外し、現行continuous supporting witnessをR214 dumbbellへ一本化する。
+- `tools/migrations/check_draft146_retire_legacy_q3_phase_volume_bridge.py` でR214A/B、R208D、R209A/B、R210Aのactive維持、finite-graph非R214化、fixed-goal/A1/A2/R213/M0不変を確認する。
+
 ## draft-145：R214 Q3 continuous-tracer promotion検算
 
 - `tools/verify_r214a_dumbbell_partition.py` をrequiredへ昇格し、R214Aのradial partition、force correction、有限自然長、smooth-core scaleを通常physics CIで検査する。

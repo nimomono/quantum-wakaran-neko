@@ -20,7 +20,7 @@ M37：古典振動子によるsignal実装
 
 finite-Hamiltonian physical parent
 M67
-  ├─ Q3               R208--R210 → M37/M64/R123
+  ├─ Q3               R214A/B + R209A/B + R210A/B → M37/M64/R123
   ├─ Q1 selector      R211A--R211C → R204E/R181D
   └─ thermal sector   R212A--R212C
                            ↓
@@ -30,7 +30,7 @@ M67
                       └─ R207 → Q2-2
 ```
 
-M54はsignal・状態・接続規約を共通化する。M67はcommon two-entity finite-Hamiltonian physical parentで、Q3ではR208--R210、Q1 selectorではR211A--R211C、Q2 thermal sectorではR212A--R212Cを担う。付録AB/R213A--R213DではM67 structured reservoir内部のNBL/path Q2 carrierをM54置換候補として追加し、coherent collector action $J_y=J_*|A_y|^2$ までをcandidateとして構成する。M66/R205はthermal-sector open/effective interface、R206はQ2終端多結果読出し、R207はQ2-2 Bell統計を担う。R213はまだM54を退役させず、R206 apparatus全体のfinite-Hamiltonian liftとM0も未完である。
+M54はsignal・状態・接続規約を共通化する。M67はcommon two-entity finite-Hamiltonian physical parentで、Q3 continuousではR214A/Bとgeneric R209A/B・R210A/B、finite-graphではR208D/R212A、Q1 selectorではR211A--R211C、Q2 thermal sectorではR212A--R212Cを担う。付録AB/R213A--R213DではM67 structured reservoir内部のNBL/path Q2 carrierをM54置換候補として追加し、coherent collector action $J_y=J_*|A_y|^2$ までをcandidateとして構成する。M66/R205はthermal-sector open/effective interface、R206はQ2終端多結果読出し、R207はQ2-2 Bell統計を担う。R213はまだM54を退役させず、R206 apparatus全体のfinite-Hamiltonian liftとM0も未完である。
 
 ### R214 dumbbell Q3 continuous-tracer mainline
 
@@ -103,9 +103,9 @@ Q1の逐次2値測定では、保持した2つの射影作用をM65のtwo-result
 
 Q2-2 fixed-goalのBell型統計はR207 projection phase-volume二端模型で再現する。一般Bloch方向の余弦共同分布へ任意精度で近づき、局所周辺は非信号、分離後responseはlocalに因子化する。一方source hidden stateはsetting-dependentでありmeasurement independenceは成立しない。このBell前提違反を明示することでCHSH違反とBellの定理を区別する。
 
-Q3ではM37/R86 signalへM64のclassical tracerとsignal-driven thermal reservoirを接続し、signal density/currentからosmotic driftとcurrent driftを作る。R203D/R161/R185を介してNelson型の前進・後退平均微分と時間対称Newton則へ接続し、finite graphでは有限障壁、W型トンネル振動、2経路干渉を同じtracerの位置読出しへつなぐ。
+Q3 continuousではM67/R214のBrownian dumbbell tracerをM64/R203Cへ縮約し、signal density/currentからosmotic driftとcurrent driftを作ってR161/R185のNelson型前進・後退平均微分と時間対称Newton則へ接続する。finite graphではR208D/R212A/R203Dを介して有限障壁、W型トンネル振動、2経路干渉を同じtracerの位置読出しへつなぐ。
 
-M67をcommon finite-Hamiltonian physical parentとする。M37型coherent moduleとthermal/dephasing自由度を一つのstructured reservoirへまとめ、marker sectorと組み合わせる。R208--R210はQ3、R211A--R211CはQ1 selector、R212A--R212CはM66/R205 thermal layerのphysical liftを担う。R212B-rotはR207Aの $S^2\times S^2$ canonical preparationをM67へ接続する。M37、M64/R203、R123、M65/R204、M66/R205、R206/R207はactive module/effective/canonical specializationとして維持し、fixed-goal達成ラベル、R186、M0の運用状態は変更しない。
+M67をcommon finite-Hamiltonian physical parentとする。M37型coherent moduleとthermal/dephasing自由度を一つのstructured reservoirへまとめ、marker sectorと組み合わせる。Q3 continuousはR214A/B、generic flow/bathはR209A/B、coherent/dephasing compatibilityはR210A/B、finite-graph dispatchはR208Dが担う。旧R208B/R208C/R209Cはdraft-146で退役した。R211A--R211CはQ1 selector、R212A--R212CはM66/R205 thermal layerのphysical liftを担う。R212B-rotはR207Aの $S^2\times S^2$ canonical preparationをM67へ接続する。M37、M64/R203、R123、M65/R204、M66/R205、R206/R207はactive module/effective/canonical specializationとして維持し、fixed-goal達成ラベル、R186、M0の運用状態は変更しない。
 
 この共通化は、全系列を1台の装置へ統合したことを意味しない。準備、操作、測定、永久記録、reset、clock、renewalを1つのjoint microscopic device/processへまとめることはM0で別に要求する。
 

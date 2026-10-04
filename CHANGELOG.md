@@ -1,3 +1,11 @@
+## draft-146：R208B/R208C/R209C退役とQ3 continuous主線一本化
+
+- R208B、R208C、R209Cをactive resultから退役し、結果IDを再利用しないことを退役索引へ登録した。
+- R208Bのcontinuous phase-volume osmotic/backreaction責務をR214A/B、R208Cのfinite-bath/GLE/FDT責務をgeneric R209B、R209Cのsmall-mass $W_1$ bridgeをR214Bへ吸収した。
+- R208Dはcontinuous R214 / finite-graph R212A-R203Dのprofile-dispatch bridgeとして維持した。
+- 旧専用verifier 3本と旧full phase-volume compatibility witnessをactive treeから外した。
+- Q3-2達成、Q3-4A/B・Q3-5、Q3-1/Q3-3、Q1/Q2、A1/A2/B1--B3、R213、M0の判定は変更していない。
+
 ## draft-145：R214 continuous-tracer required化とQ3 compatibility再編
 
 - R214A/R214BをQ3-2 continuous-tracerのrequired主線へ昇格した。
