@@ -1,3 +1,11 @@
+## draft-144：M67/Q3伸縮Brownian dumbbell continuous-tracer candidate
+
+- `sections/A29_m67_dumbbell_q3_tracer.md` を付録ACとして追加し、R214A--R214BをM67 continuous-tracer簡素化candidateとして収録する。
+- R214Aで有限自然長を持つ三次元dumbbellの条件付き分配関数とosmotic mean forceを明示誤差付きで定理化し、$\ell_0=0$ node非解析を境界として記録する。
+- R214Bでfinite translated harmonic bath、3次元Brownian半径測度、fast内部緩和、single-dumbbell FDT補正、$O(N_0^{-1})$ signal backreaction、R203C/R185 continuous bridgeをcandidateとして合成する。
+- candidate verifier 2本、supporting reduced witness、draft-144 migration guardを追加する。R208B/R208D/R209A--R209C/R210A、AA.3、Q3-2 fixed-goal/A1/A2、finite-graph Q3-4A/B・Q3-5は変更しない。
+- README、第1・2・8・9章、付録AA、PROJECT_STATUS、ENHANCEMENT_TARGETS、VALIDATION、TERMINOLOGY、candidate/simulation/migration README、theory lineageをcandidate境界へ同期する。
+
 ## draft-143：M67/NBL Q2 carrier candidateとR213A--R213D
 
 - `sections/A28_m67_nbl_q2_carrier.md` を付録ABとして追加し、R213A--R213DをM67 Q2 signal/register/gateのpromotion-ready candidateとして収録する。
@@ -435,6 +443,7 @@
 - `sections/A26_m65_phase_volume_projective_instrument.md`
 - `sections/A27_m67_two_entity_structured_reservoir.md`
 - `sections/A28_m67_nbl_q2_carrier.md`
+- `sections/A29_m67_dumbbell_q3_tracer.md`
 - `sections/90_references.md`
 
 ## 論文外の研究メモ

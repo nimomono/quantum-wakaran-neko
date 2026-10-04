@@ -32,6 +32,10 @@ M67
 
 M54はsignal・状態・接続規約を共通化する。M67はcommon two-entity finite-Hamiltonian physical parentで、Q3ではR208--R210、Q1 selectorではR211A--R211C、Q2 thermal sectorではR212A--R212Cを担う。付録AB/R213A--R213DではM67 structured reservoir内部のNBL/path Q2 carrierをM54置換候補として追加し、coherent collector action $J_y=J_*|A_y|^2$ までをcandidateとして構成する。M66/R205はthermal-sector open/effective interface、R206はQ2終端多結果読出し、R207はQ2-2 Bell統計を担う。R213はまだM54を退役させず、R206 apparatus全体のfinite-Hamiltonian liftとM0も未完である。
 
+### R214 dumbbell Q3 candidate
+
+付録AC/R214A--R214Bでは、M67 continuous-tracerの現行phase-volume sectorを将来簡素化する候補として、有限自然長を持つ三次元伸縮Brownian dumbbellを追加する。M37実正準signalから $Q^2+P^2$ 型の局所強度を読み、dumbbell内部の三次元位相体積から $-k_BT\log(\rho+\rho_T)$ 型free energyを回収する。finite harmonic bath、内部緩和、single-dumbbell FDT補正、$O(N_0^{-1})$ signal backreactionまでcandidateとして監査するが、draft-144ではR208B/R209/R210A、Q3-2固定主線、finite-graph Q3-4A/B・Q3-5を置換しない。
+
 ## 2. 長期目標の現在地
 
 固定目標の定義と厳密な根拠は [PROJECT_STATUS.md](PROJECT_STATUS.md)、A1/A2/B1--B3の状態は [ENHANCEMENT_TARGETS.md](ENHANCEMENT_TARGETS.md) を正本とする。

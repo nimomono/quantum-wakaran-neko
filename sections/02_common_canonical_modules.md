@@ -994,3 +994,7 @@ Q2-1/Q2-3/Q2-4ではR206をterminal readout正本とし、R206Eのuniform root p
 ## 2.20 M67 二実体finite-Hamiltonian parent
 
 付録AA/M67では、coherent signalとthermal/reservoir自由度を一つのstructured reservoirへまとめ、classical markerとの二実体sectorを主要ontologyとするfinite-Hamiltonian physical parentを置く。Q3ではR208--R210、Q1ではR211A--R211C、Q2 thermal sectorではR212A--R212CがM66/R205へ接続する。R212B-rotはR207Aのtwo-rotor target densityをcanonical marginalとして回収する。これはM54を置換したこと、R206 common-hub apparatus全体をM67から導出したこと、Q2 signal/NBL/register/gateまたはM0を統合したことを意味しない。
+
+## R214 continuous-tracer candidate
+
+R214A--R214BはM67 structured reservoir＋marker二実体分類を保ったまま、continuous Q3-2のphase-volume実装を三次元伸縮Brownian dumbbellへ簡素化するcandidateである。M37局所強度、有限自然長、三次元内部位相体積、finite harmonic bath、追加FDT摩擦を用いる。draft-144ではM64/R203、R208--R210、finite-graph profileの現行責務は不変とする。

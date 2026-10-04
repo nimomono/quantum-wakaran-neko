@@ -21,6 +21,10 @@ M67は、M64で別実体としていたclassical coherent signalとsignal-driven
 
 M67の「二実体」は自由度が二個という意味ではない。一つのstructured reservoir sector $\mathcal R_{\rm str}$ が有限個のcoherent/thermal/reaction-coordinate/dephasing/held-action内部自由度を持ち、marker sector $\mathcal X$ はQ3-2/Q3-4/Q3-5でtracer、Q1 selector profileではbinary decision markerとしてactiveになる。Q3-1およびQ3-3A--Q3-3Cではmarker sectorをdecoupleしたprofileを許す。
 
+### R214 continuous-tracer simplification candidate
+
+付録AC/R214A--R214Bは、Q3 continuous-tracer profileに限ってAA.3 phase-volume sectorを有限自然長の三次元伸縮Brownian dumbbellへ置換できるかを調べるcandidateである。draft-144ではAA.3、R208B/R208D/R209A--R209C/R210Aをrequiredのまま維持し、finite-graph profileへR214を流用しない。
+
 ## AA.2 全Hamiltonianとcoherent sector
 
 M67の有限Hamiltonianを

@@ -1,3 +1,7 @@
+## draft-144 M67/Q3 dumbbell continuous-tracer candidate
+
+`check_draft144_m67_dumbbell_candidate.py` は付録AC/R214A--R214B、candidate verifier 2本、supporting witness、PROJECT_STATUS candidate登録を確認する。同時にAA.3/R208B/R208D/R209A--R209C/R210Aのrequired維持、Q3-2 fixed-goal直接依存・達成、Q3-2-A1/A2、finite-graph Q3-4A/Q3-4B/Q3-5、R213、M0が不変であることをPR固有に固定する。通常CIへ恒久登録しない。
+
 ## draft-143 M67/NBL Q2 carrier candidate
 
 `check_draft143_m67_nbl_q2_candidate.py` は付録AB/R213A--R213D、candidate verifier 4本、supporting witness、PROJECT_STATUS candidate登録を確認する。同時にM54/R181B--R181C、R186、R206A--R206Eのactive維持、Q2-1/Q2-2/Q2-3達成、Q2-4条件付き達成、R213がfixed-goal直接依存へ未昇格であること、R206 common-hub apparatus全体のfinite-Hamiltonian liftを完了扱いしないこと、M0、A1/A2/B1--B3不変をPR固有に固定する。通常CIへ恒久登録しない。

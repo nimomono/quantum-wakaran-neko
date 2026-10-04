@@ -18,3 +18,7 @@ draft-139ではR210A/R210Bをrequired解析検算へ追加し、既存full compa
 ## R213 NBL/path Q2 witness
 
 `run_r213_nbl_q2_witness.py` はrandom H/T/CNOT回路についてdirect state-vector、phase-tagged path expansion、coherent collector出力を比較し、destructive-interference caseも検査する。R213A--R213Dのsupporting witnessであり、abstract unitary dilationのlocal physical decomposition、R206 full finite-Hamiltonian lift、Q2-4 promotionを単独では証明しない。
+
+## R214 dumbbell Q3 witness
+
+`run_r214_dumbbell_q3_witness.py` はR214Bのreduced 3D overdamped dumbbellを直接標本化し、半径分布を $r^2\exp[-(r-\ell)^2/(2\sigma_T^2)]$ と比較する。finite harmonic bath→GLE/FDT→Markov極はR209B型解析bridgeを再利用するため、このscript単独はfull finite-Hamiltonian direct trajectoryでもQ3-2-A2 promotion testでもない。
