@@ -7,7 +7,7 @@ on:
   pull_request:
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   source-check:
@@ -99,6 +99,27 @@ jobs:
             build/ci/main.tex
             build/ci/paper.pdf
           if-no-files-found: error
+
+      - name: draft-145生成物をbranchへ同期
+        if: ${{ github.event_name == 'pull_request' && github.head_ref == 'draft-145-r214-q3-promotion' && steps.build.outcome == 'success' }}
+        run: |
+          cp build/ci/paper.md /tmp/draft145-paper.md
+          cp build/ci/main.tex /tmp/draft145-main.tex
+          cp build/ci/paper.pdf /tmp/draft145-paper.pdf
+          git fetch origin "${GITHUB_HEAD_REF}"
+          git checkout -B "${GITHUB_HEAD_REF}" FETCH_HEAD
+          cp /tmp/draft145-paper.md paper.md
+          cp /tmp/draft145-main.tex main.tex
+          cp /tmp/draft145-paper.pdf paper.pdf
+          git add paper.md main.tex paper.pdf
+          if git diff --cached --quiet; then
+            echo "generated artifacts already synchronized"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "draft-145: sync generated paper artifacts"
+          git push origin HEAD:"${GITHUB_HEAD_REF}"
 
       - name: 生成物の同期を検査
         if: ${{ always() && steps.build.outcome == 'success' }}
