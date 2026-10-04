@@ -30,7 +30,7 @@ def numerical_I(ell: float, sigma: float) -> float:
     rmax = ell + 10.0 * sigma
     r = np.linspace(0.0, rmax, 250001)
     f = r * r * np.exp(-0.5 * ((r - ell) / sigma) ** 2)
-    return float(np.trapz(f, r))
+    return float(np.trapezoid(f, r))
 
 
 def main() -> None:

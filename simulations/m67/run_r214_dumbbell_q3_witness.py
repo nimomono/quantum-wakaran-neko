@@ -8,7 +8,7 @@ import numpy as np
 
 def target_density(r: np.ndarray, ell: float, sigma: float) -> np.ndarray:
     w = r * r * np.exp(-0.5 * ((r - ell) / sigma) ** 2)
-    return w / np.trapz(w, r)
+    return w / np.trapezoid(w, r)
 
 
 def main() -> None:
