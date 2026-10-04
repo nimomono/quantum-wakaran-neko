@@ -61,7 +61,7 @@ def main() -> None:
     if not (ROOT / "tools/verify_r208_m64_reduction.py").is_file():
         raise AssertionError("R208D profile-dispatch verifier missing")
 
-    q32 = next(x for x in ps.splitlines() if x.startswith("| Q3-2 |"))
+    q32 = status_line(ps, "Q3-2")
     require(q32, "R214A", "Q3-2 R214A")
     require(q32, "R214B", "Q3-2 R214B")
     forbid(q32, "R208B", "Q3-2 retired result")
@@ -69,7 +69,7 @@ def main() -> None:
     forbid(q32, "R209C", "Q3-2 retired result")
 
     for qid in ("Q3-4A", "Q3-4B", "Q3-5"):
-        line = next(x for x in ps.splitlines() if x.startswith(f"| {qid} |"))
+        line = status_line(ps, qid)
         forbid(line, "R214", f"{qid} finite-graph must not use R214")
 
     expected = {
