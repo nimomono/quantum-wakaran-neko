@@ -773,9 +773,9 @@ B_{\rm p}e^{-\gamma_{\rm p}T_{\rm p}}
 
 M66/R206はreader側の逐次小branch、R181D tree、非終端作用下限問題を避けるが、R186のdirect-amplitude registerへ入る独立additive noiseは解消しない。従ってQ2-4の条件付き達成を維持する。
 
-## 8.16 M67からM64へのcandidate compatibilityの誤差窓
+## 8.16 旧phase-volume M67からM64へのcompatibility regression
 
-M67/R208--R209では、M67固有のfinite-Hamiltonian誤差と、M64/R203がすでに持つbaseline errorを分離する。まず
+draft-145以後のcontinuous Q3-2主線はR214へ移る。本節はPR1でactiveに残すR208B/R208C/R209C phase-volume経路のregression台帳として維持し、fixed-goal直接主線には使わない。旧経路ではM67固有のfinite-Hamiltonian誤差と、M64/R203がすでに持つbaseline errorを分離する。まず
 
 ```math
 \mathrm{M67\ finite\ Hamiltonian}
@@ -899,12 +899,12 @@ O\left(
 
 M67/R209 compatibilityの追加だけからA1/A2/B1--B3、fixed-goal達成、M0の判定を変更しない。
 
-## 8.12 R214 dumbbell candidateの誤差台帳
+## 8.12 R214 dumbbell required主線の誤差台帳
 
 R214A--R214Bでは新規誤差を
 
 ```math
-\varepsilon_{214}
+\varepsilon_{214\to64}
 =
 \varepsilon_{\rm shell}
 +
@@ -916,11 +916,37 @@ R214A--R214Bでは新規誤差を
 +
 \varepsilon_{\rm track}
 +
+\varepsilon_{\rm sm}
++
 \varepsilon_{\rm fr}
 +
-\varepsilon_{\rm back}^{\rm db}
+\varepsilon_{\rm fluc}
++
+\varepsilon_{\rm sig}
++
+\varepsilon_{\rm init}
 ```
 
-と分ける。R86 carrier-envelope、R209 flow/drag、R203C tracer overdamped、R185 Newton residualは既存baselineとして再加算しない。single dumbbellでは旧 $N_\rho^{-1/2}$ force self-averagingを使わず、内部force fluctuationを追加Green--Kubo摩擦 $\zeta_{\rm db}$ と対応FDT noiseとして管理する。
+と分ける。R209Aのflow residualとR209Bのfinite-bath residualはここへ一度だけ入り、R203CのM64 baseline、R86 carrier-envelope、R185 Newton residualは再加算しない。single dumbbellでは旧 $N_\rho^{-1/2}$ force self-averagingを使わず、
 
-draft-144ではこの台帳をcandidate-onlyとし、Q3-2 fixed-goal、Q3-2-A1/A2、finite-graph Q3-4A/B・Q3-5の判定を変更しない。
+```math
+\zeta_{\rm db}^{\rm abs}
+=
+\beta\int_0^\infty
+|\operatorname{Cov}(\delta F(t),\delta F(0))|dt
+```
+
+から
+
+```math
+\varepsilon_{\rm fluc}
+\lesssim
+\sqrt{
+2\nu T\,
+\zeta_{\rm db}^{\rm abs}/\gamma_X
+}
+```
+
+を位置過程誤差として直接管理する。small-mass項は $\epsilon_M=M_X/\gamma_X$ に対して
+$O(\epsilon_M)+O(\sqrt{\nu\epsilon_M})$ とし、追加dragは
+$\varepsilon_{\rm fr}=o(\sqrt{\epsilon_M})$ のjoint limitで消す。Q3-2-A1/A2、finite-graph Q3-4A/B・Q3-5の判定は変更しない。

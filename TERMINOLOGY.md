@@ -380,7 +380,7 @@ CNOT、CHSH、SWAP、SU(2)、Q1、Q2、Q3、M37、M54、R164などの略号・�
 
 | 用語 | 日本語での意味 | 現行用法 |
 |---|---|---|
-| extensible Brownian dumbbell | 伸縮Brownian dumbbell | Q3 continuous-tracerのR214 candidate。重心 $X$ と三次元内部相対座標 $\mathbf r$ を持つ二質点粒子 |
+| extensible Brownian dumbbell | 伸縮Brownian dumbbell | Q3 continuous-tracerのR214 required profile。重心 $X$ と三次元内部相対座標 $\mathbf r$ を持つ二質点粒子 |
 | natural length $\ell_0$ | 有限自然長 | signalが零でも残るdumbbellの基準長。一本バネ模型のnode非解析を避けるため $\ell_0>0$ を採用 |
 | thermal width $\sigma_T$ | 熱幅 | $\sigma_T^2=k_BT/k$。自然長とは別のcanonical radial fluctuation scale |
-| dumbbell FDT correction | dumbbell追加FDT補正 | single dumbbell内部力の高速揺らぎを消去したときに生じる追加Green--Kubo摩擦 $\zeta_{\rm db}$ と対応noise |
+| dumbbell FDT correction | dumbbell追加FDT補正 | single dumbbell内部力の高速揺らぎを消去したときに生じる追加Green--Kubo摩擦 $\zeta_{\rm db}$、absolute covariance積分 $\zeta_{\rm db}^{\rm abs}$ と対応noise |
