@@ -1,7 +1,7 @@
 @number: 9
 @chapter: 本文
 @title: 結論
-@status: M54共通signal・状態層、M67 finite-Hamiltonian physical parent、M66/R205 thermal open/effective層を総括する。Q3ではR208--R210、Q1ではR211A--R211C、Q2 thermal sectorではR212A--R212CからM66/R205へ接続する。fixed-goal、strengthening、M0を別判定として維持する。
+@status: M54共通signal・状態層、M67 finite-Hamiltonian physical parent、M66/R205 thermal open/effective層を総括する。Q3 continuous-tracerはR214A--R214B、generic flow/bathはR209A/R209B、coherent compatibilityはR210A、finite-graphはR208Dを使う。Q1ではR211A--R211C、Q2 thermal sectorではR212A--R212CからM66/R205へ接続する。fixed-goal、strengthening、M0を別判定として維持する。
 
 本稿で得られた最も大きな整理は、量子型構造の古典実現を1つの万能模型へ押し込めるのではなく、**共通signal層**、**M67 finite-Hamiltonian physical parent**、**M66/R205 thermal open/effective層**を分け、その上に用途別の物理模型を接続できる形へしたことである。
 
@@ -35,7 +35,7 @@ Q2-2 fixed-goalはM67/R212->M66/R205->R207 projection phase-volume経路で達�
 
 M67はQ3だけでなくQ1 selectorとQ2 thermal sectorにも共通する二実体finite-Hamiltonian physical parentである。Q3では一つのstructured reservoir内部にM37 coherent module、phase-volume、flow、finite bath、R210B bounded dephasing sectorを置き、marker sectorはparticle/readout profileでclassical tracerとして使う。R210Aはfull M67 coherent trajectoryからM37/R86への有限時間compatibilityを、prepared reservoir energy shellから導く $O(N_0^{-1})$ load boundと既存R86 carrier errorに分離して与える。R210BはR123と同じ有限時刻dephasing/revival lawを下方有界なfinite Hamiltonianで回収する。
 
-Q3-2ではR208/R209がM67をM64/R203のcanonical open lawへ縮約し、R203D/R161/R185へ接続する。Q3-3A--Q3-3CはM67 dephasing profileからR210B/R123へ、Q3-4A/B/5はM67 finite-graph profileからR124/R182/R125とR203D/R161へ接続する。M37、M64、R123は削除せず、それぞれcoherent module、open effective reduction、effective dephasing lawとしてactiveに残る。R162はR161 lawのoptional Poisson realizationであり、M67の基礎的存在論には含めない。
+Q3-2ではR214A/R214BがM67 Brownian dumbbell profileをM64/R203Cのcanonical open lawへ縮約し、R161/R185へ接続する。R209A/R209Bはgeneric flow / finite-bath補題として内部から使い、R210Aはdumbbellを含む任意profileのcoherent loadを $O(N_0^{-1})$ で制御する。Q3-3A--Q3-3CはM67 dephasing profileからR210B/R123へ、Q3-4A/B/5はM67 finite-graph profileからR208D/R203DとR124/R182/R125/R161へ接続する。M37、M64、R123は削除せず、それぞれcoherent module、open effective reduction、effective dephasing lawとしてactiveに残る。R162はR161 lawのoptional Poisson realizationであり、M67の基礎的存在論には含めない。
 
 固定目標の達成と、より強い物理実装は分けて判定する。現行fixed-goalではQ1-1、Q1-2、Q2-1、Q2-2、Q2-3、Q3-1--Q3-5を達成、Q2-4を条件付き達成、Q3-6を未達とする。A1/A2/B1--B3は独立のstrengtheningであり、fixed-goal達成から自動的に上がらない。
 
@@ -43,6 +43,6 @@ Q3-2ではR208/R209がM67をM64/R203のcanonical open lawへ縮約し、R203D/R1
 
 従って現時点の統一は、**同一のsignal原理とreservoir原理を複数の量子型現象へ再利用できること**にある。全現象を1つの製造済み装置、1つの単一bath、1つの閉鎖Hamiltonian全系へ統合したという主張ではない。そこを明確に分けることで、すでに閉じた固定目標と、次に検査すべき物理実装・数値・実験の課題を同じ体系で管理できる。
 
-M67/R208--R210はQ3-1--Q3-5、R211A--R211CはQ1 selector、R212A--R212CはM66/R205 thermal layerのfinite-Hamiltonian physical parentとして採用する。ただしこれはQ1全体、Q2 signal/register/gate、R206 apparatus全体を同じ装置へ統合したこと、M0を達成したこと、A1/A2を自動達成したことを意味しない。Q3-6の位相量子化、strict locality、continuous-space一様極限、多粒子、全周期統合は別課題として残る。
+M67ではR214A--R214Bをcontinuous Q3-2、R208Dをfinite-graph dispatch、R209A/R209Bをgeneric flow/bath、R210A/R210Bをcoherent/dephasing compatibilityとして採用する。R211A--R211CはQ1 selector、R212A--R212CはM66/R205 thermal layerのfinite-Hamiltonian physical parentとして採用する。ただしこれはQ1全体、Q2 signal/register/gate、R206 apparatus全体を同じ装置へ統合したこと、M0を達成したこと、A1/A2を自動達成したことを意味しない。Q3-6の位相量子化、strict locality、continuous-space一様極限、多粒子、全周期統合は別課題として残る。
 
-draft-144ではQ3 continuous-tracerの物理像をさらに短くする候補としてR214A--R214Bを追加する。有限自然長を持つ三次元伸縮Brownian dumbbellの内部位相空間が $\rho+\rho_T$ に比例する自由エネルギーを近似し、finite bathによる実時間熱化と $O(N_0^{-1})$ signal backreactionまで同じM67二実体architecture内で扱う。このcandidateは現行R208B/R209/R210Aをまだ置換せず、finite-graph位置読出しにも遡及しない。
+draft-145ではR214A--R214BをQ3 continuous-tracerのrequired主線へ昇格する。有限自然長を持つ三次元伸縮Brownian dumbbellの内部位相空間が $\rho+\rho_T$ に比例する自由エネルギーを近似し、finite bathによる実時間熱化、small-mass $W_1$ bridge、single-dumbbell FDT補正、$O(N_0^{-1})$ signal backreactionまで同じM67二実体architecture内で閉じる。R208B/R208C/R209CはPR1ではactive regressionとして残し、退役は後続PRへ分離する。

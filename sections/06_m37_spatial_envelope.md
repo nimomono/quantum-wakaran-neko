@@ -1222,4 +1222,4 @@ R187本体は有限個の静的クエンチで閉じる。各跳躍は $Q,P$ を
 
 ## 6.20 M67 Q3 physical parentとの関係
 
-M37/R86はM67 structured reservoir内部のactive coherent oscillator moduleである。R210Aがfull M67からbare M37/R86へのfinite-time coherent compatibilityを与え、R208D/R209A--R209Cがtracer profileをM64/R203へ縮約する。従ってQ3 fixed-goalのphysical dependencyはM67起点へ移る一方、R86自体の包絡定理とM37の局所振動子実装はactive moduleとして維持する。
+M37/R86はM67 structured reservoir内部のactive coherent oscillator moduleである。generic R210Aが任意M67 profileからbare M37/R86へのfinite-time coherent compatibilityを与える。continuous tracerはR214A/R214BがM64/R203Cへ縮約し、R209A/R209Bはその内部でgeneric flow / finite-bath補題として使う。finite-graph tracerはR208D/R203Dへ分離する。従ってQ3 fixed-goalのphysical dependencyはM67起点へ移る一方、R86自体の包絡定理とM37の局所振動子実装はactive moduleとして維持する。

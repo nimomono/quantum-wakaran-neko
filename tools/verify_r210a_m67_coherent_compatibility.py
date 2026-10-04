@@ -1,74 +1,84 @@
 #!/usr/bin/env python3
+from __future__ import annotations
+
 import numpy as np
 
 
+def energy_envelope(a: float, b: float, c: float, e0: float, omega_h: float, T: float, eps: float) -> tuple[float, float]:
+    A = a + eps
+    B = c + b * b / (4 * eps)
+    estar = (e0 + B / A) * np.exp(omega_h * A * T) - B / A
+    C = a * estar + b * np.sqrt(estar) + c
+    return float(estar), float(C)
+
+
 def main() -> None:
-    # Flow-core square completion entering the R210A energy shell.
-    K = np.array([4.0, 6.0, 9.0])
-    M = np.array([0.8, 1.2, 1.5])
-    assert np.all(K > M)
-    rng = np.random.default_rng(210)
-    for _ in range(200):
-        U = rng.normal(size=3)
-        v = rng.normal(scale=0.2, size=3)
-        PY = rng.normal(size=3)
-        lhs = PY**2 / (2 * M) + PY * U + 0.5 * K * (U - v) ** 2
-        A = K - M
-        c = K * M / (2 * A)
-        rhs = (
-            (PY + M * U) ** 2 / (2 * M)
-            + 0.5 * A * (U - K / A * v) ** 2
-            - c * v**2
-        )
-        assert np.max(np.abs(lhs - rhs)) < 2e-12
-
-    # Phase-volume coefficient is controlled by the positive phase-volume energy.
-    n_rho = 32
-    wmax = 1.0 / n_rho
-    q = rng.normal(size=n_rho)
-    omega = np.linspace(0.8, 2.0, n_rho)
-    h_rho = 0.5 * np.sum((omega * q) ** 2)
-    a_rho = np.sum(wmax * (omega * q) ** 2)
-    assert a_rho <= 2 * wmax * h_rho + 1e-14
-
-    # Explicit finite-time excess-energy shell and N0^{-1} load scaling.
     eta = 0.12
     J0 = 1.0
     T = 0.7
     hnorm = 0.08
-    c_rho = 1.4
-    lv = 0.9
-    vstar = np.array([0.25, 0.20, 0.18])
-    gamma_k = np.max(K**2 / (K - M))
-    gamma_v = np.sqrt(np.sum((K * M / (K - M) * vstar) ** 2))
-    aa = 2 * c_rho * wmax
-    bb = lv * np.sqrt(2 * gamma_k)
-    cc = lv * gamma_v
     omega_h = 4 * hnorm / J0
-    young_eps = 0.2
-    Aeps = aa + young_eps
-    Beps = cc + bb * bb / (4 * young_eps)
-    e0 = 0.6
-    estar = (e0 + Beps / Aeps) * np.exp(omega_h * Aeps * T) - Beps / Aeps
-    assert estar >= e0
-    c210 = aa * estar + bb * np.sqrt(estar) + cc
-    assert np.isfinite(c210) and c210 > 0
+    eps_young = 0.2
 
-    n0 = np.array([80.0, 160.0, 320.0, 640.0, 1280.0])
-    load = 2 * T * c210 / (J0 * n0 * (1 - eta))
-    slope = np.polyfit(np.log(n0), np.log(load), 1)[0]
-    assert abs(slope + 1.0) < 1e-12
+    # Generic theorem: any phase-invariant load envelope aE+b sqrt(E)+c gives N0^-1 scaling.
+    profiles = {
+        "phase_volume_regression": (0.08, 1.15, 0.12),
+        "dumbbell": (0.0, 1.55, 0.12),
+    }
+    for name, (a, b, c) in profiles.items():
+        estar, Cp = energy_envelope(a, b, c, 0.6, omega_h, T, eps_young)
+        assert estar >= 0.6
+        assert np.isfinite(Cp) and Cp > 0.0
+        n0 = np.array([80.0, 160.0, 320.0, 640.0, 1280.0])
+        load = 2 * T * Cp / (J0 * n0 * (1 - eta))
+        slope = float(np.polyfit(np.log(n0), np.log(load), 1)[0])
+        assert abs(slope + 1.0) < 1e-12, (name, slope)
 
-    n0_min = 4 * T * c210 / (J0 * (1 - eta) ** 1.5)
-    assert n0[-1] > n0_min
-
-    # Carrier-envelope and load ledgers are separate and combined only for Q3-1.
+    # R214 dumbbell direct gradient bound on a bootstrap tube.
     kappa = (1 - eta) ** (-0.25)
+    Keta = kappa**2 + 0.5 * kappa**(-2)
+    alpha = 1.0
+    Bx = 1.0
+    k = 1.0
+    ell0 = 2.5
+    Ddb = alpha * Bx * Keta**2 * np.sqrt(2 * k) / (2 * ell0)
+    assert 0.0 < Ddb < 1.0
+
+    # Exact U(1) invariance of the dumbbell intensity port.
+    rng = np.random.default_rng(210)
+    bvec = rng.normal(size=8) + 1j * rng.normal(size=8)
+    B = np.diag(np.linspace(0.4, 1.2, 8))
+    rho0 = float(np.real(np.vdot(bvec, B @ bvec)))
+    for theta in np.linspace(0.0, 2 * np.pi, 17):
+        bp = np.exp(1j * theta) * bvec
+        rho = float(np.real(np.vdot(bp, B @ bp)))
+        assert abs(rho - rho0) < 2e-12
+
+    # Generic flow derivative assumption is profile-independent.
+    ell_e = np.array([0.7, 0.8, 0.6])
+    Lv = float(np.sqrt(np.sum(ell_e**2)))
+    gammaK = 4.5
+    gammav = 0.3
+    b_db = Ddb + Lv * np.sqrt(2 * gammaK)
+    c_db = Lv * gammav
+    assert b_db > Ddb
+    assert c_db > 0.0
+
+    # R86 error is combined only for Q3-1, not for the Q3-2 load-only bridge.
+    n0 = 1280.0
+    _, Cp = energy_envelope(0.0, b_db, c_db, 0.6, omega_h, T, eps_young)
+    qload = 2 * T * Cp / (J0 * n0 * (1 - eta))
     eps86 = 0.015
-    q210 = kappa * eps86 + load[-1]
-    assert q210 > load[-1]
-    assert q210 < 1.0
-    print("r210a_m67_coherent_compatibility_check_ok", slope, n0_min, q210)
+    q210_q31 = kappa * eps86 + qload
+    assert q210_q31 > qload
+    assert q210_q31 < 1.0
+
+    print(
+        "r210a_generic_coherent_load_ok",
+        f"Ddb={Ddb:.6f}",
+        f"qload={qload:.6e}",
+        f"q3_1_combined={q210_q31:.6e}",
+    )
 
 
 if __name__ == "__main__":
