@@ -28,6 +28,17 @@ def status(text: str, qid: str) -> str:
     return m.group(1)
 
 
+def status_line(text: str, qid: str) -> str:
+    m = re.search(
+        rf"^\|\s*{re.escape(qid)}\s*\|\s*(?:達成|条件付き達成|部分達成|未達)\s*\|.*$",
+        text,
+        re.M,
+    )
+    if not m:
+        raise AssertionError(f"fixed-goal status line missing: {qid}")
+    return m.group(0)
+
+
 def main() -> None:
     a27 = read("sections/A27_m67_two_entity_structured_reservoir.md")
     a29 = read("sections/A29_m67_dumbbell_q3_tracer.md")
