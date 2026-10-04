@@ -606,7 +606,7 @@ M0は、個別のA1模型を並べるだけでは達成としない。少なく�
 | 結果 | 導出状態 | 内容 |
 |---|---|---|
 | R211A | required finite-Hamiltonian construction | R189A held actionsをcyclic canonical actionsとして厳密保存し、smooth phase-volume collar、finite marker bath、左右二つの安定basinだけを持つdouble-well markerをM67二実体architectureへ構成する |
-| R211B | required明示誤差付きBorn-kernel compatibility | sharp-interface committorで保持作用比を厳密回収し、finite collar、launch、survival、return、one-time $W_1$ coarse-grainingを $\varepsilon_{211B}$ へ合成してR204E complete-result contractへ任意精度で接続する。R204A Poisson waiting-time lawは再現しない |
+| R211B | required明示誤差付きBorn-kernel compatibility | Q1 phase-volume auxiliary modesとmarkerをopen OU/Langevin reductionで評価し、R209B finite-window harmonic-bath realizationからM67へ持ち上げる。sharp-interface committor、finite collar、launch、survival、return、one-time $W_1$ coarse-grainingを $\varepsilon_{211B}$ へ合成してR204E complete-result contractへ任意精度で接続する。R208B/R208C/R209Cには依存せず、R204A Poisson waiting-time lawも再現しない |
 | R211C | required Q1 composition | R189A作用保持誤差、R211B physical-kernel error、record/cutoffを合成してR204E/R181Dへ渡し、finite decision windowを固定後のR187 weak-coupling極でR189B/R189Cの逐次測定・Zeno witnessへ接続する |
 
 ### M67/R212 physical-parent bridge と M66 thermal open/effective結果

@@ -47,7 +47,13 @@ def main() -> None:
         assert abs(drude - brown) <= 2 * gamma * theta * (1 + 1e-12)
 
     # Same generic lemma is used for flow, tracer drag, and each dumbbell Cartesian component.
-    channels = {"flow_U": 0.8, "tracer_drag": 1.7, "dumbbell_r": 0.6}
+    channels = {
+        "flow_U": 0.8,
+        "tracer_drag": 1.7,
+        "dumbbell_r": 0.6,
+        "q1_phase_volume": 0.9,
+        "q1_marker": 1.2,
+    }
     for _, gam in channels.items():
         assert gam > 0.0
 

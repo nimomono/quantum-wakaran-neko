@@ -1,3 +1,12 @@
+## draft-147：R211 open reduction / retired dependency cleanup検算
+
+- R211Aのstatic phase-volume mean-forceを自身のJacobian計算で閉じ、R208B/R208Cへの依存を除く。
+- R209Bへfinite-window OU/Langevin realization corollaryを追加し、Ford--Kac--Mazur [12] / Zwanzig [14] のstandard harmonic-bath constructionからQ1 phase-volume modesとmarkerのopen lawを有限時間でliftする責務を明示する。
+- R211Bをopen OU phase-volume averaging、marker small-mass reduction、R209B finite-Hamiltonian realization、terminal-kernel transferへ責務分離し、旧R209CおよびR208D thermalization参照を除く。
+- `tools/verify_r211b_q1_open_reduction.py` でfrozen OU mean force、$\sum q_\alpha^2$ fluctuation、slow-$X$ tracking、$Y=X+(M/\gamma)V$ cancellation、joint parameter windowをrequired回帰する。既存 `verify_m67_q1_first_passage.py` はdownstream committor / terminal-kernel transferを維持する。
+- A25と第8章のcurrent Q3 process bridgeをR214B / $\varepsilon_{214\to64}$ へ統一し、退役R209C台帳を現行誤差予算から除く。
+- `tools/migrations/check_draft147_r211_open_reduction_cleanup.py` で退役依存の再混入、Q1/Q2/Q3達成ラベル、A2境界を監査する。full finite-harmonic-bath direct trajectoryは引き続きA2未監査である。
+
 ## draft-146：旧Q3 continuous phase-volume bridge退役検算
 
 - active `sections/` からR208B/R208C/R209Cの定理宣言を退役し、`PROJECT_STATUS.md` の現行Q3結果表から3結果を除く。

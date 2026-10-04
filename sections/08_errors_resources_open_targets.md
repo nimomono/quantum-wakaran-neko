@@ -48,7 +48,7 @@ q_{210}
 \varepsilon_{\rm load}^{67}.
 ```
 
-一方R209CのM67からM64 process compatibilityではbare M37を共通基準とし、$\varepsilon_{\rm load}^{67}$ のstate-direction影響だけを数える。R210B dephasing profileの追加physical条件は
+continuous Q3-2のM67からM64 process compatibilityはR214Bの $\varepsilon_{214\to64}(T)$ を正本とする。R209Aのflow residualとR209Bのfinite-bath residualはR214B内部で一度だけ数え、R203CのM64 baseline $\varepsilon_{\rm red}^{64}$、R86 carrier-envelope error、R185 Newton residualを重ねて加算しない。R210B dephasing profileの追加physical条件は
 
 ```math
 \omega_{\min}
@@ -56,7 +56,7 @@ q_{210}
 \frac{|\lambda|p_*}{\mathcal J_0}
 ```
 
-であり、prepared $P_n=\pm p_*$ 上のdephasing factor自体には追加近似誤差を生じない。finite-bath recurrence、small-mass、flow tracking、phase-volume fluctuationはR208/R209の既存台帳を用いる。
+であり、prepared $P_n=\pm p_*$ 上のdephasing factor自体には追加近似誤差を生じない。退役したR208B/R208C/R209Cのcontinuous誤差台帳は現行Q3予算へ戻さない。
 
 ## 8.2 準備済み入力境界とQ2-4 root preparation
 
@@ -582,7 +582,7 @@ M65の現行fixed-goal範囲はQ1の逐次binary instrumentである。Q2-1/Q2-3
 
 ## M67/R211 Q1 finite-Hamiltonian selector lift の誤差・資源台帳
 
-M67/R211A--R211CはM65/R204E contractへ接続するQ1 selector strengtheningであり、M65 canonical open lawを置換しない。safe interior branchに対するphysical-kernel errorは
+M67/R211A--R211CはM65/R204E contractへ接続するQ1 selector strengtheningであり、M65 canonical open lawを置換しない。R211Bの計算核はopen OU/Langevin reductionで書き、R209Bのfinite-window harmonic-bath realization corollaryからM67 finite-Hamiltonian profileへ戻す。safe interior branchに対するphysical-kernel errorは
 
 ```math
 \varepsilon_{211B}
@@ -611,23 +611,21 @@ M67/R211A--R211CはM65/R204E contractへ接続するQ1 selector strengtheningで
 \right].
 ```
 
-ここでone-time reduction errorは
+one-time reduction errorは責務を重ねず
 
 ```math
 \varepsilon_X
 =
-\varepsilon_{\rm bath}^{X}
+\varepsilon_{\rm FH}
 +
-\varepsilon_{\rm od}^{X}
+\varepsilon_{\rm pv}
 +
-\varepsilon_{\rm pv,lag}^{X}
-+
-\varepsilon_{\rho,{\rm fluc}}^{X}
+\varepsilon_{\rm od}
 +
 \varepsilon_{\rm init}^{X}
 ```
 
-と分ける。$\varepsilon_{\rm pv,lag}^{X}$ はconditional Gibbs mean forceへのfinite relaxation residual、$\varepsilon_{\rho,{\rm fluc}}^{X}$ は有限phase-volume modeのforce fluctuationであり、同じ誤差として二重計上しない。required numerical witnessの $\varepsilon_X$ targetはこれらを含む総縮約誤差である。
+と分ける。$\varepsilon_{\rm FH}$ はR209B finite-window realization、$\varepsilon_{\rm pv}$ はfast OU phase-volume averagingとfinite-mode fluctuation、$\varepsilon_{\rm od}$ はmarker small-mass reduction、$\varepsilon_{\rm init}^{X}$ はprepared-law compatibilityである。equal phase-volume weightsでは $\varepsilon_{\rm pv}$ のfluctuation部分は $O(N_\rho^{-1/2})$ で、tracking部分は $\tau_\rho/\tau_X\to0$ で小さくできる。required numerical witnessの $\varepsilon_X$ targetはこれら4項の総縮約誤差である。
 
 R189Aの作用保持誤差はR211Bへ含めず、R211Cで一度だけ
 
@@ -660,16 +658,15 @@ R189Aの作用保持誤差はR211Bへ含めず、R211Cで一度だけ
 ```math
 \varepsilon_{\rm sel}^{67}
 =
-\max
-\{
+\max\{
 \varepsilon_{\rm int}^{67},
 \varepsilon_{\rm edge}^{67}
 \}.
 ```
 
-required numerical witnessでは $W_0=16(X^2-1)^2$、$\tau_{\rm cut}=0.07$、$\ell=0.01$、$d=0.40$、$L=0.78$、$T=0.22$、$\delta_0=5\times10^{-4}$ を同時に使い、$\varepsilon_X\le10^{-4}$ のstrong targetで $\varepsilon_{211B}<8\times10^{-3}$ を検査する。これはA2 direct full-Hamiltonian trajectory判定ではなく、R211Bの有限parameter領域が空でないことを確認するrequired regressionである。
+required numerical witnessでは $W_0=16(X^2-1)^2$、$\tau_{\rm cut}=0.07$、$\ell=0.01$、$d=0.40$、$L=0.78$、$T=0.22$、$\delta_0=5\times10^{-4}$ を同時に使い、$\varepsilon_X\le10^{-4}$ のstrong targetで $\varepsilon_{211B}<8\times10^{-3}$ を検査する。これはA2 direct full-Hamiltonian trajectory判定ではなく、R211Bのopen reduction、finite-window Hamiltonian realization、terminal-kernel transferを分離して回帰するrequired witnessである。
 
-M67 Q1 profileの追加資源はheld-action canonical pair、finite phase-volume modes、double-well marker、finite marker bath、terminal basin recordである。Q1全測定装置の永久record、reset、clock、renewalを同一joint deviceへ統合したとは主張しない。
+M67 Q1 profileの追加資源はheld-action canonical pair、finite phase-volume modes、double-well marker、finite harmonic baths、terminal basin recordである。Q1全測定装置の永久record、reset、clock、renewalを同一joint deviceへ統合したとは主張しない。
 
 ## 8.15 M66/R205 common parentとR206の誤差・資源境界
 
