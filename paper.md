@@ -70,6 +70,10 @@ Q3の現行因果鎖はM67から分岐する。Q3-1は $M67\to R210A\to M37/R86$
 
 現行の固定目標ではQ1-1、Q1-2、Q2-1、Q2-2、Q2-3、Q3-1--Q3-5を達成、Q2-4を条件付き達成、Q3-6を未達とする。A1/A2/B1--B3は固定目標と独立に監査する。置換済みの旧作用殻型測定経路、旧paired-Hopf受信機構、Brownian macrospin読出し、M60/M61旧Q3 Hamiltonian実装は現行主線へ重ねず、研究メモとGit履歴へ保存する。
 
+### R215 spatial-information candidate
+
+R214A/B required continuous-tracer bridgeの上に、R215A/Bをfixed-goalを変更しないcandidate strengtheningとして置く。R215Aはprojectively compatibleなnode-safe density/flow portから規格化densityのequivarianceとBayes scoreを導き、R215Bはそのscoreへspatial-information gradient free energyを対応させる。R215C/M68、medium reversible closure、Schrödinger再導出、M37退役は未実施である。
+
 # 第I部　問題設定と共通言語
 
 # 問題設定、統一構造、達成範囲
@@ -250,6 +254,10 @@ M66はM64/M65/R206/R207に現れるthermal open/effective原理を共通化し�
 Q2-2ではR207A--R207Cがfixed-goal core、R207DがBell-local controlとして確立している。Q2-4ではR206がreader側の逐次branch問題を避けても、R186のdirect-amplitude register additive-noise障害を解消しない。Q2ではR206 common-hub apparatus全体のfinite-Hamiltonian lift、Q2 signal/NBL/register/gate統合が残り、Q3ではM67 full trajectoryのA2正式監査、strict locality、continuous-space一様極限、多粒子化、全周期統合が強化課題として残る。M67がfinite-Hamiltonian parentへ昇格してもA1/A2判定は自動変更しない。
 
 置換済みの旧作用殻型Q1/Q2測定経路、旧paired-Hopf受信機構、旧Q3率latch、M60/M61旧Hamiltonian実装は現行主線へ重ねず、研究メモとGit履歴へ保存する。
+
+### R215 compatible-score strengthening
+
+R214A/B required continuous-tracer bridgeの上に、R215A/Bをfixed-goalを変更しないcandidate strengtheningとして置く。R215Aはprojectively compatibleなnode-safe density/flow portから規格化densityのequivarianceとBayes scoreを導き、R215Bはそのscoreへspatial-information gradient free energyを対応させる。R215C/M68、medium reversible closure、Schrödinger再導出、M37退役は未実施である。
 
 # 有限正準信号と共通熱浴モジュール
 
@@ -1253,6 +1261,10 @@ Q2-1/Q2-3/Q2-4ではR206をterminal readout正本とし、R206Eのuniform root p
 R214A--R214BはM67 structured reservoir＋marker二実体分類を保ったcontinuous Q3-2のrequired profileである。draft-149以後、R214本体はsource固有のM37強度を仮定せず、nonnegative scalar port $\varrho(X;z)$ とflow port $U(X;z)$ を受けるgeneric transducer theoremとして扱う。R214Aはphase-volume / reciprocal mean forceとmicroscopic load bound、R214Bはfinite-correlation GLEからのStratonovich Markov limit、single-dumbbell FDT補正、port-stability -> drift-stability、direct small-mass $W_1$ bridgeを担う。
 
 current M37/M64 specializationではR210Aがcoherent sourceのload stability、R209Aがflow compatibilityを供給し、R209Bをgeneric finite-bath/FDT補題として使って従来のM64/R203C bridgeを回収する。finite-graph profileはR208D/R203Dへ分離する。
+
+### R215A/B candidate interface
+
+R214A/B required continuous-tracer bridgeの上に、R215A/Bをfixed-goalを変更しないcandidate strengtheningとして置く。R215Aはprojectively compatibleなnode-safe density/flow portから規格化densityのequivarianceとBayes scoreを導き、R215Bはそのscoreへspatial-information gradient free energyを対応させる。R215C/M68、medium reversible closure、Schrödinger再導出、M37退役は未実施である。
 
 # 第II部　単一量子ビット型操作と測定
 
@@ -5605,6 +5617,9 @@ R209Bのfinite-bath residualも一度だけ入り、R203CのM64 baseline、R86 c
 
 を位置過程誤差として直接管理する。small-mass項は $\epsilon_M=M_X/\gamma_X$ に対して $O(\epsilon_M)+O(\sqrt{\nu\epsilon_M})$ とし、追加dragは $\varepsilon_{\rm fr}=o(\sqrt{\epsilon_M})$ のjoint limitで消す。Q3-2-A1/A2、finite-graph Q3-4A/B・Q3-5の判定は変更しない。
 
+## R215 candidate error/status boundary
+
+R215Aのexact equivarianceはcompatible reference portについての結果であり、actual finite-bath dumbbellはR214Bの $\varepsilon_{214}^{\rm port}$ でmarginal $W_1$ errorを管理する。$W_1$ closenessだけからfinite-error backward score closenessは推論しない。R215Bのfree-energy stabilityはAC.7.2のscore stabilityへ接続するが、medium force closure errorはR215Cまで定義しない。
 
 # 結論
 
@@ -5654,6 +5669,10 @@ Q3-2ではR214A/R214B本体をgeneric density/flow port theoremとして用い�
 M67ではR214A--R214Bをcontinuous Q3-2、R208Dをfinite-graph dispatch、R209A/R209Bをgeneric flow/bath、R210A/R210Bをcoherent/dephasing compatibilityとして採用する。R211A--R211CはQ1 selector、R212A--R212CはM66/R205 thermal layerのfinite-Hamiltonian physical parentとして採用する。ただしこれはQ1全体、Q2 signal/register/gate、R206 apparatus全体を同じ装置へ統合したこと、M0を達成したこと、A1/A2を自動達成したことを意味しない。Q3-6の位相量子化、strict locality、continuous-space一様極限、多粒子、全周期統合は別課題として残る。
 
 draft-146ではR214A--R214Bがcontinuous Q3-2主線として自立したことを受け、旧R208B/R208C/R209Cをactive resultから退役する。R208Bのosmotic/backreaction責務はR214A/B、R208Cのfinite-bath責務はgeneric R209B、R209Cのsmall-mass $W_1$ bridgeはR214Bへ吸収した。結果IDは再利用せず、旧数式・検算は退役メモとGit履歴へ保存する。
+
+## R215A/B candidateの現在地
+
+R215A/Bにより、R214 dumbbellのgeneric scoreを規格化確率密度と空間情報free-energy functionalへ接続するcandidate経路を追加した。これはM37/R86のSchrödinger signalを置換する結果ではない。置換へ進むにはR215Cでmedium reversible closureを物理的に正当化し、後続M68で同じmedium/tracer/bathからsignal側とNelson側を同時に閉じる必要がある。
 
 # 付録
 
@@ -17491,13 +17510,51 @@ b_{64}^{\rm db}
 \varepsilon_{214\to64}.
 ```
 
-従って従来のrequired bridge
+R215Aで用いる規格化densityとのinterfaceを明示する。M64/R185のideal compatible targetについて正の定数 $C$ を取り
+
+```math
+\varrho^\circ=C\rho,
+\qquad
+\varrho_T=C\delta q_0,
+\qquad
+w^\circ
+=
+\varrho^\circ+\varrho_T
+=
+C(1+\delta)\rho_\delta,
+```
+
+```math
+U^\circ=v_\delta,
+\qquad
+\pi^\circ
+=
+\frac{w^\circ}{\int w^\circ dx}
+=
+\rho_\delta
+```
+
+と書ける。従って
+
+```math
+\partial_X\log w^\circ
+=
+\partial_X\log\rho_\delta,
+\qquad
+\partial_t\pi^\circ
++
+\partial_X(\pi^\circ U^\circ)
+=
+0.
+```
+
+actual R214/M67 portとの差はAC.7.2の $\varepsilon_\varrho,\varepsilon_U$ に含める。この規格化interfaceとR203Cとの三角不等式により従来のrequired bridgeを
 
 ```math
 W_1
 \left(
 \mathcal L(X_t^{67,{\rm db}}),
-\widetilde\rho(t)
+\rho_\delta(t)
 \right)
 \le
 \varepsilon_{214\to64}(T)
@@ -17505,7 +17562,7 @@ W_1
 \varepsilon_{\rm red}^{64}(T)
 ```
 
-をR203Cとの三角不等式で回収する。$\partial_t\widetilde\rho+\partial_XJ=0$ なので、R161/R185の既存regularized lawへそのまま接続する。
+と明示できる。R215A/Bはこのrequired bridgeの達成状態を変更せず、compatible reference lawのscore/equivarianceをcandidateとして上に積む。
 
 ## 明示parameter witness
 
@@ -17569,7 +17626,672 @@ draft-145でR214A--R214Bをcontinuous Q3-2のrequired主線へ昇格し、draft-
 - R208Dはprofile-dispatch bridgeとしてactive維持する。
 - finite-graph Q3-4A/Q3-4B/Q3-5へR214を流用しない。
 - Q3-2 fixed-goal、Q3-2-A1/A2、M37/R86、M64/R203、R161/R185の運用状態を変更しない。
-- R215、Fisher information/free energy、M68、Schrödinger再導出は本draftに含めない。
+- draft-150でR215A/Bを別付録ADのcandidate strengtheningとして追加する。R214A/B required状態は維持し、R215C、M68、Schrödinger再導出は後続へ分離する。
+
+# R215 compatible score と空間情報勾配自由エネルギー
+
+> **位置づけ：** R215A--R215BをM67/R214 continuous-tracer lineのcandidate strengtheningとする。R214A/Bのrequired状態、Q3 fixed-goal達成、A1/A2、M37/R86、M64/R203、R161/R185の運用状態は変更しない。R215Cのmedium reversible closure、M68、Schrödinger再導出は本付録の主張に含めない。
+
+
+## 目的と責務境界
+
+付録AC/R214A--R214Bはgeneric nonnegative scalar port $\varrho$ とflow port $U$ を受け、node-safe weight
+```math
+w(x,t)=\varrho(x,t)+\varrho_T>0
+```
+から
+```math
+dX_t=
+\left[
+U(X_t,t)+\nu\partial_x\log w(X_t,t)
+\right]dt
++
+\sqrt{2\nu}\circ dW_t,
+\qquad
+\nu=\frac{k_BT}{\gamma_X}
+```
+というreference port diffusionを回収する。有限相関GLEからwhite-noise極限を取る物理的基本表現はStratonovichとし、constant-mobility leading sectorではnoiseが加法的なのでCartesian Itô表示と一致する。
+
+本付録では、R214Aのcanonical potential of mean force
+```math
+F_{\rm db}(X)\simeq-k_BT\log w(X)
+```
+と、R215Bで定義する
+```math
+\mathcal F_{\rm SI}[\pi]
+```
+を区別する。前者はdumbbell内部phase volumeを消去した局所mean force、後者はR215Aのscoreに対応する空間情報の勾配functionalである。
+
+またR215Bで使う $M_X$ はR214 dumbbell重心の実慣性質量であり、M37/R185のSchrödinger表示に現れる設計質量 $m$ と同一視しない。
+
+## projectively compatible density/flow port
+
+固定有限時間 $0\le t\le T$、1次元周期領域
+```math
+\Omega=\mathbb T_\ell
+```
+を考える。$w\in C^{1,2}$ は
+```math
+w(x,t)\ge w_*>0
+```
+を満たし、$U$ はboundedかつ空間Lipschitzとする。
+
+```math
+Z(t)=\int_\Omega w(x,t)\,dx,
+\qquad
+\pi(x,t)=\frac{w(x,t)}{Z(t)}
+```
+と定義する。
+
+<!-- theorem-start:lemma -->
+**補題（projective compatibility）**
+
+ある時間だけのscalar $\lambda(t)$ が存在して
+```math
+\partial_t w+\partial_x(wU)=\lambda(t)w
+```
+が成立するとする。周期境界では
+```math
+\lambda(t)=\frac{\dot Z(t)}{Z(t)}
+```
+であり、規格化densityは
+```math
+\boxed{
+\partial_t\pi+\partial_x(\pi U)=0
+}
+```
+を満たす。
+
+逆に、規格化density $\pi$ がこのcontinuity lawを満たすなら、任意の正の $Z(t)$ に対して $w=Z(t)\pi$ はprojective compatibilityを満たす。
+<!-- theorem-end:lemma -->
+
+<!-- theorem-start:proof -->
+**証明（projective compatibility）**
+
+周期境界により
+```math
+\dot Z
+=
+\int_\Omega\partial_t w\,dx
+=
+\lambda Z.
+```
+従って
+```math
+\partial_t\pi
+=
+\frac{\partial_t w}{Z}
+-\frac{\dot Z}{Z}\pi
+=
+-\frac{\partial_x(wU)}{Z}
+=
+-\partial_x(\pi U).
+```
+逆向きは $w=Z\pi$ を直接微分すればよい。証明終。
+<!-- theorem-end:proof -->
+
+従って
+```math
+w\mapsto c(t)w,\qquad c(t)>0
+```
+というglobal amplitudeの変更は同じ $\pi$ と同じscore
+```math
+\partial_x\log w=\partial_x\log\pi
+```
+を表す。
+
+## R215A：compatible-port equivariance / Bayes score
+
+R214Bのreference port diffusionを
+```math
+dX_t
+=
+b_+(X_t,t)dt
++
+\sqrt{2\nu}\circ dW_t,
+```
+```math
+b_+
+=
+U+\nu\partial_x\log w
+=
+U+\nu\partial_x\log\pi
+```
+とする。noise amplitudeは定数なので、Fokker--PlanckとBayes条件付き率の計算だけItô表示へ移してもdrift補正は0である。
+
+<!-- theorem-start:theorem -->
+**定理（R215A：compatible-port equivariance / Bayes score）**
+
+AD.2のprojective compatibility、$w\ge w_*>0$、bounded spatial-Lipschitz $U$、constant $\nu>0$ を仮定する。上のR214 reference port diffusionを
+```math
+\mathcal L(X_0)=\pi_0
+```
+から開始すると
+```math
+\boxed{
+\mathcal L(X_t)=\pi_t
+\qquad
+(0\le t\le T)
+}
+```
+が成立する。
+
+さらに同じ共同path lawのBayes backward mean drift $b_-$ は
+```math
+\boxed{
+b_-=U-\nu\partial_x\log\pi
+}
+```
+であり、
+```math
+\boxed{
+b_\pm=U\pm u,
+\qquad
+u:=\nu\partial_x\log\pi
+}
+```
+を得る。従って
+```math
+\boxed{
+\frac{b_++b_-}{2}=U,
+\qquad
+\frac{b_+-b_-}{2}=u.
+}
+```
+
+$b_-$ は未来から作用する第二bathを表さず、同じ前向きpath lawをBayes条件付き確率で逆向きにfactorizeしたmean driftである。
+<!-- theorem-end:theorem -->
+
+<!-- theorem-start:proof -->
+**証明（R215A）**
+
+forward density $p$ のFokker--Planck方程式は
+```math
+\partial_t p
+=
+-\partial_x
+\left[
+\left(
+U+\nu\partial_x\log\pi
+\right)p
+\right]
++
+\nu\partial_x^2p.
+```
+$p=\pi$ を代入すると
+```math
+-\nu\partial_x
+\left(
+\pi\partial_x\log\pi
+\right)
++
+\nu\partial_x^2\pi
+=
+0
+```
+なので、AD.2の
+```math
+\partial_t\pi=-\partial_x(\pi U)
+```
+と一致する。parabolic initial-value problemの一意性から $p_t=\pi_t$。
+
+constant diffusion $2\nu$ の同じpath lawについてBayes time reversalは
+```math
+b_-
+=
+b_+-2\nu\partial_x\log p.
+```
+$p=\pi$ とforward driftを代入すれば主張を得る。証明終。
+<!-- theorem-end:proof -->
+
+forward/backward generatorsを
+```math
+D_+
+=
+\partial_t
++
+(U+u)\partial_x
++
+\nu\partial_x^2,
+```
+```math
+D_-
+=
+\partial_t
++
+(U-u)\partial_x
+-
+\nu\partial_x^2
+```
+と書けば
+```math
+D_+X=U+u,
+\qquad
+D_-X=U-u.
+```
+本付録では
+```math
+\frac12(D_+D_-+D_-D_+)X
+```
+を力へ等置しない。時間対称Newton則はR185の責務である。
+
+### R214B finite-Hamiltonian corollary
+
+R214Bはactual finite-bath dumbbell $X_t^{\rm db}$ とreference port diffusion $X_t^{\rm port}$ に
+```math
+\sup_{t\le T}
+W_1
+\left(
+\mathcal L(X_t^{\rm db}),
+\mathcal L(X_t^{\rm port})
+\right)
+\le
+\varepsilon_{214}^{\rm port}(T)
+```
+を与える。
+
+portがR215A compatibleで
+```math
+\mathcal L(X_0^{\rm port})=\pi_0
+```
+なら
+```math
+\boxed{
+\sup_{t\le T}
+W_1
+\left(
+\mathcal L(X_t^{\rm db}),
+\pi_t
+\right)
+\le
+\varepsilon_{214}^{\rm port}(T).
+}
+```
+
+この $W_1$ closenessだけから
+```math
+\nabla\log p_t
+\simeq
+\nabla\log\pi_t
+```
+は従わない。従ってactual dumbbellのfinite-error backward score theoremは本結果に含めない。
+
+### current M37/M64 specialization
+
+現行M64/R185 regularized density
+```math
+\rho_\delta
+=
+\frac{\rho+\delta q_0}{1+\delta},
+\qquad
+q_0=\frac1\ell
+```
+を考える。正の定数 $C$ に対してideal compatible portを
+```math
+\varrho^\circ=C\rho,
+\qquad
+\varrho_T=C\delta q_0,
+\qquad
+w^\circ=C(\rho+\delta q_0)
+```
+と選べば
+```math
+\pi^\circ
+=
+\frac{w^\circ}{\int w^\circ dx}
+=
+\rho_\delta,
+```
+```math
+\partial_x\log w^\circ
+=
+\partial_x\log\rho_\delta.
+```
+さらに
+```math
+U^\circ=v_\delta
+```
+とすればM64 continuityからR215A compatibilityが成立し、
+```math
+b_\pm^\circ
+=
+v_\delta
+\pm
+\nu\partial_x\log\rho_\delta
+```
+を得る。actual R214 scalar/flow portとの差は付録AC.7.2の
+```math
+\varepsilon_\varrho,\varepsilon_U
+```
+とscore/drift stability ledgerへ渡す。
+
+## R215B：spatial-information free-energy identities
+
+R215Aのcompatible density $\pi$ とscore velocity
+```math
+u=\nu\partial_x\log\pi
+```
+を使う。
+
+<!-- theorem-start:theorem -->
+**定理（R215B：spatial-information free-energy identities）**
+
+R214 dumbbell重心の有限慣性質量を $M_X>0$ とする。spatial-information gradient free energyを
+```math
+\boxed{
+\mathcal F_{\rm SI}[\pi]
+:=
+\frac{M_X}{2}
+\int_\Omega
+\pi(x)|u(x)|^2dx
+}
+```
+と定義する。
+
+Fisher information
+```math
+I_F[\pi]
+:=
+\int_\Omega
+\pi|\partial_x\log\pi|^2dx
+=
+\int_\Omega
+\frac{|\partial_x\pi|^2}{\pi}dx
+```
+に対して
+```math
+\boxed{
+\mathcal F_{\rm SI}
+=
+\frac{M_X\nu^2}{2}I_F[\pi]
+=
+2M_X\nu^2
+\int_\Omega
+|\partial_x\sqrt\pi|^2dx.
+}
+```
+
+さらに
+```math
+\tau_v:=\frac{M_X}{\gamma_X},
+\qquad
+\ell_v^2:=\nu\tau_v,
+\qquad
+\mathcal J_{\rm SI}:=2M_X\nu=2k_BT\tau_v
+```
+と置けば
+```math
+\boxed{
+\mathcal F_{\rm SI}
+=
+\frac{k_BT}{2}\ell_v^2I_F[\pi]
+=
+\frac{\mathcal J_{\rm SI}^2}{8M_X}I_F[\pi].
+}
+```
+
+未規格化port $w=Z\pi$ では
+```math
+\boxed{
+\mathcal F_{\rm SI}[w]
+=
+\frac{M_X\nu^2}{2Z}
+\int_\Omega
+\frac{|\partial_xw|^2}{w}dx,
+}
+```
+従って任意の $c(t)>0$ に対して
+```math
+\mathcal F_{\rm SI}[cw]
+=
+\mathcal F_{\rm SI}[w].
+```
+<!-- theorem-end:theorem -->
+
+<!-- theorem-start:proof -->
+**証明（R215B）**
+
+$u=\nu\partial_x\log\pi$ を定義へ代入すればFisher identityを得る。
+```math
+\frac{|\partial_x\pi|^2}{\pi}
+=
+4|\partial_x\sqrt\pi|^2
+```
+でDirichlet表示が従う。FDT
+```math
+\nu=\frac{k_BT}{\gamma_X}
+```
+と $\tau_v=M_X/\gamma_X$ を使えば
+```math
+M_X\nu=k_BT\tau_v,
+\qquad
+\mathcal J_{\rm SI}=2M_X\nu
+```
+なので残りの係数表示を得る。$w=Z\pi$ では $Z$ が空間一定なのでprojective invarianceも従う。証明終。
+<!-- theorem-end:proof -->
+
+$\mathcal F_{\rm SI}$ は微視的瞬間運動エネルギー
+```math
+E\left[\frac{M_X}{2}V^2\mid X\right]
+```
+と同一視しない。R215Aで現れるforward/backward scoreが担う空間識別情報へ、R214/FDTの同じ $M_X,\gamma_X,T$ からエネルギー次元を与えるcandidate constitutive quantityである。
+
+### 補助heat flowによるrelative-entropy dissipation
+
+実時間 $t$ とは別の補助parameter $s$ に対して
+```math
+\partial_s\pi_s
+=
+\nu\partial_x^2\pi_s,
+\qquad
+\pi_{s=0}=\pi
+```
+を考える。periodic uniform density $q_0=1/\ell$ に対し
+```math
+\mathcal D[\pi_s]
+=
+D_{\rm KL}(\pi_s\Vert q_0)
+=
+\int\pi_s\log\frac{\pi_s}{q_0}dx
+```
+とすると、積分部分積分から
+```math
+\boxed{
+\frac{d}{ds}\mathcal D[\pi_s]
+=
+-\nu I_F[\pi_s].
+}
+```
+従って
+```math
+\boxed{
+\mathcal F_{\rm SI}[\pi]
+=
+-\frac{\tau_v}{2}
+\left.
+\frac{d}{ds}
+\left[
+k_BT
+D_{\rm KL}(\pi_s\Vert q_0)
+\right]
+\right|_{s=0}.
+}
+```
+これはR214実時間dynamicsに新しいentropy production lawを課す式ではなく、現在のdensity形状に付随するFisher functionalのheat-flow characterizationである。
+
+### score-ON / current-only path-space KL
+
+同じ初期分布と同じconstant noiseを持つ二つのpath lawを
+```math
+P_{\rm score}:
+\quad
+dX_t=(U+u)dt+\sqrt{2\nu}\,dW_t,
+```
+```math
+P_{\rm cur}:
+\quad
+dX_t=Udt+\sqrt{2\nu}\,dW_t
+```
+とする。Novikov条件が成立するsafe sectorではGirsanov公式から
+```math
+D_{\rm KL}
+\left(
+P_{\rm score}^{[0,T]}
+\Vert
+P_{\rm cur}^{[0,T]}
+\right)
+=
+\frac1{4\nu}
+E_{P_{\rm score}}
+\int_0^T
+|u(X_t,t)|^2dt.
+```
+R215Aのequivarianceを使えば
+```math
+\boxed{
+\int_0^T
+\mathcal F_{\rm SI}[\pi_t]dt
+=
+\mathcal J_{\rm SI}
+D_{\rm KL}
+\left(
+P_{\rm score}^{[0,T]}
+\Vert
+P_{\rm cur}^{[0,T]}
+\right).
+}
+```
+$P_{\rm cur}$ 自身が $\pi_t$ をmarginalとして持つことは要求しない。期待値は $P_{\rm score}$ 側で評価する。
+
+### 微小translation識別率
+
+```math
+\pi_\epsilon(x)=\pi(x-\epsilon)
+```
+とすると、periodic smooth positive densityについて
+```math
+\boxed{
+D_{\rm KL}(\pi\Vert\pi_\epsilon)
+=
+\frac{\epsilon^2}{2}I_F[\pi]
++
+O(\epsilon^3).
+}
+```
+従ってFisher情報は空間translationに対するlocal statistical distinguishabilityの曲率である。
+
+### node-safe regularization
+
+現行R185と同じ一様背景
+```math
+\pi_\delta
+=
+\frac{\rho+\delta q_0}{1+\delta},
+\qquad
+q_0=\frac1\ell
+```
+について
+```math
+\boxed{
+I_F[\pi_\delta]
+=
+\frac1{1+\delta}
+\int_\Omega
+\frac{|\partial_x\rho|^2}
+{\rho+\delta q_0}dx
+\le
+I_F[\rho].
+}
+```
+node-safe offsetはFisher情報をregularizeする。node-free $\rho\ge\rho_*>0$ のsmooth sectorでは
+```math
+I_F[\pi_\delta]
+=
+I_F[\rho]+O(\delta).
+```
+
+### port/score stabilityからfree-energy stability
+
+二つのpositive normalized densities $\pi,\pi^\circ$ に
+```math
+s=\partial_x\log\pi,
+\qquad
+s^\circ=\partial_x\log\pi^\circ
+```
+と置く。単純な分解から
+```math
+\left|
+I_F[\pi]-I_F[\pi^\circ]
+\right|
+\le
+\|\pi-\pi^\circ\|_{L^1}
+\|s\|_\infty^2
++
+\|s-s^\circ\|_\infty
+\left(
+\|s\|_\infty+\|s^\circ\|_\infty
+\right).
+```
+従って付録AC.7.2のport $C^1$ stabilityからscore stabilityを経由して
+```math
+|\mathcal F_{\rm SI}[\pi]-\mathcal F_{\rm SI}[\pi^\circ]|
+```
+を制御できる。
+
+## functional derivativeとR215C境界
+
+規格化制約 $\int\pi dx=1$ の下で
+```math
+\mathcal F_{\rm SI}
+=
+2M_X\nu^2
+\int|\partial_x\sqrt\pi|^2dx
+```
+を変分すると
+```math
+\boxed{
+\frac{\delta\mathcal F_{\rm SI}}{\delta\pi}
+=
+-2M_X\nu^2
+\frac{\partial_x^2\sqrt\pi}{\sqrt\pi}
++
+C(t),
+}
+```
+ここで $C(t)$ は規格化constraintによる空間一定項である。
+
+本付録では
+```math
+-\pi\partial_x
+\frac{\delta\mathcal F_{\rm SI}}{\delta\pi}
+```
+をmediumのphysical reversible forceとして採用しない。このconstitutive closure、そのfinite-Hamiltonian parent、Madelung/Schrödinger再導出は後続R215C/M68の責務とする。
+
+また
+```math
+\mathcal J_{\rm SI}=2M_X\nu
+```
+をM37/R185の
+```math
+\mathcal J_0=2m\nu
+```
+と同一視しない。固定 $T,\gamma_X$ でstrict $M_X\to0$ を取れば
+```math
+\tau_v,\mathcal J_{\rm SI},\mathcal F_{\rm SI}\to0
+```
+なので、R215Bは
+```math
+\tau_{\rm bath}\ll\tau_v\ll\tau_{\rm slow}
+```
+を満たす有限だが短い慣性時間を持つphysical ancestorのcandidate information free energyとして扱う。
+
+## status
+
+- R215AはR214 generic portのうちprojectively compatibleなdensity/flow pairについて、equivarianceと同じpath lawのBayes score decompositionを与えるcandidate exact kinematic resultである。
+- R215BはR215A scoreからspatial-information gradient free energyを定義し、Fisher、heat-flow relative entropy、path KL、translation distinguishabilityとの恒等式を与えるcandidate information-theoretic resultである。
+- R214A/Bのrequired状態とcurrent M37/M64 specializationは変更しない。
+- Q3-1/Q3-2 fixed-goal達成、Q3-1-A1/Q3-2-A1、A2、R161/R185の運用状態を変更しない。
+- R215C、M68、medium reversible closure、Schrödinger再導出、M37退役は本付録に含めない。
 
 # 参考文献
 
