@@ -1,3 +1,7 @@
+## draft-150 R215 compatible score / spatial-information free energy candidate
+
+`check_draft150_r215_information_free_energy.py` は付録AD/R215A--R215B、candidate verifier 2本、PROJECT_STATUS candidate登録を確認する。同時にR214A/B required状態、Q3 fixed-goal/A1/A2、M37/R86・M64/R203・R161/R185のactive維持、AC.8.1の規格化density bridge、R215C/M68未昇格、candidate verifier非required化をPR固有に固定する。通常CIへ恒久登録しない。
+
 ## draft-149 R214 generic density/flow port generalization
 
 `check_draft149_r214_generic_ports.py` はR214A/B本体がgeneric scalar/flow port theoremへ一般化され、R214B coreからM37/M64/R210A固有責務が外れ、current M37/M64 specializationだけにR210A/R209Aが残ることを確認する。R214A/Bのrequired状態、M37/R86・M64/R203・R161/R185のactive維持、Q3 fixed-goal/A1/A2、finite-graph非R214化、Q1/Q2、R213、M0不変もPR固有に固定する。R215/M68/Fisher自由エネルギーは本検査の対象外であり、本PRでは導入しない。通常CIへ恒久登録しない。
