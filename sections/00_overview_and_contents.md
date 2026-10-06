@@ -63,7 +63,7 @@ Q2-2 fixed-goalはM67/R212->M66/R205->R207 projection phase-volume経路を使�
 
 Q3のsignal数学はQ1/Q2と別の代数ではない。Q1型局所正準モードを空間頂点へ配置し、Q2型2体系結合を辺へ反復すると、Schrödinger型signal、局所作用、反対称currentが得られる。Q3ではM67を共通二実体finite-Hamiltonian physical parentとし、M37をそのcoherent oscillator moduleとして内包する。R210Aがfull M67からM37/R86のSchrödinger型signalへの有限時間compatibilityを与える。
 
-M67は一つのstructured reservoir sectorとmarker sectorからなり、coherent、bounded dephasing、continuous tracer、finite-graph tracer、Q1 binary-selectorに加えてR212A--R212Cのthermal physical-parent profileを持つ。Q3-3A--Q3-3CではR210BがR123有限環境をstructured reservoir内部へboundedに埋め込む。Q3粒子/Nelson側ではM64を独立三実体parentとはせず、continuous branchはR208Aを共通構成としてR214A/R214BがR209A/R209Bを使いM64/R203Cへ接続し、finite-graph branchはR208AからR212A、R208Dを経てM64/R203Dへ接続する。R203A--R203D、R161/R185、R124/R182/R125の既存結果はそのまま再利用する。
+M67は一つのstructured reservoir sectorとmarker sectorからなり、coherent、bounded dephasing、continuous tracer、finite-graph tracer、Q1 binary-selectorに加えてR212A--R212Cのthermal physical-parent profileを持つ。Q3-3A--Q3-3CではR210BがR123有限環境をstructured reservoir内部へboundedに埋め込む。Q3粒子/Nelson側ではR214A/R214B本体をgeneric density/flow port theoremとして使い、current specializationではM37/R210Aがscalar port stability、R209A/M64がflow compatibilityを供給してM64/R203Cへ接続する。R209Bはgeneric finite-bath/FDT補題である。finite-graph branchはR208AからR212A、R208Dを経てM64/R203Dへ接続する。R203A--R203D、R161/R185、R124/R182/R125の既存結果はそのまま再利用する。
 
 Q3の現行因果鎖はM67から分岐する。Q3-1は $M67\to R210A\to M37/R86$、Q3-2 continuous branchは $M67/R208A\to R214A/R214B\to M64/R203C\to R161/R185$ であり、R214B内部でR209A/R209Bをgeneric flow / finite-bath補題として使う。Q3-3A--Cは $M67\to R210B\to R123$、Q3-4A/B/5 finite-graph branchは $M67/R208A\to R212A\to R208D\to M64/R203D\to R161$ からR124/R182/R125の位置読出しへ接続する。
 

@@ -1,3 +1,12 @@
+## draft-149：R214 generic density/flow port一般化検算
+
+- `tools/verify_r214a_dumbbell_partition.py` にgeneric scalar portの任意parameter微分を追加し、$-\partial_\lambda F_{\rm db}=[1+\varepsilon_F]k_BT\partial_\lambda\log(\varrho+\varrho_T)$ をM37形に依存せず数値回帰する。
+- `tools/verify_r214b_dumbbell_dynamic_bridge.py` はradial stationary law、contractivity、small-mass $W_1$ scaling、single-dumbbell FDT、generic reciprocal-load bound、port $C^1$ stability→score/drift stability、constant-noise Stratonovich--Itô一致をrequired回帰する。
+- M37固有の $N_0^{-1}$ load regressionは `tools/verify_r210a_m67_coherent_compatibility.py` に一本化し、R214B verifierから外す。
+- 付録AC/R214A--R214Bをgeneric density/flow port theoremへ一般化し、current M37/M64 specializationではR210A/R209Aを通じて従来の $\varepsilon_{214\to64}$ を回収する。
+- `tools/migrations/check_draft149_r214_generic_ports.py` でR214 coreからM37/M64/R210A固有責務が外れたこと、M37/M64 specializationが残ること、required status・fixed-goal・finite-graph boundaryが不変であることを確認する。
+- Q3-1/Q3-2達成、A1/A2、M37/R86、M64/R203、R161/R185、Q1/Q2、M0、R213 candidate状態は変更しない。R215/M68/Fisher自由エネルギーは本draftに含めない。
+
 ## draft-148：生成物同期maintenance workflow検算
 
 - 通常検算 `.github/workflows/verify.yml` は `contents: read` を維持し、`workflow_dispatch` を追加するだけとする。

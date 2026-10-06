@@ -22,15 +22,17 @@ M67 finite-Hamiltonian parent
 
 M66が共通化するのはthermal open/effective reservoir sectorであり、その有限Hamiltonian parentをR212A--R212CでM67へ接続する。M64全体、M65 canonical law、R206 apparatus全体、R207 Bell統計全体をR212から導出したとは扱わない。M0はさらに強いjoint device/process統合目標であり、この階層化だけでは達成しない。
 
-draft-144ではR214A--R214Bをcandidateとして追加し、draft-145でcontinuous Q3-2 required主線へ昇格した。draft-146で旧R208B/R208C/R209Cをactive resultから退役し、R208Bの責務をR214A/B、R208Cをgeneric R209B、R209CをR214Bへ吸収した。結果IDは再利用しない。finite-graph経路にはR214を流用せずR208D/R212A/R203Dへ分離する。
+draft-144ではR214A--R214Bをcandidateとして追加し、draft-145でcontinuous Q3-2 required主線へ昇格した。draft-146で旧R208B/R208C/R209Cをactive resultから退役した。draft-149では結果IDとrequired状態を変えず、R214A/B本体をM37固有のdensity dictionaryからgeneric density/flow port theoremへ一般化した。finite-graph経路にはR214を流用せずR208D/R212A/R203Dへ分離する。
 
 ```text
 M67 continuous Q3 required
-  -> R214A dumbbell partition / osmotic force
-  -> R214B finite-bath + direct small-mass W1 bridge
-       uses R209A generic flow
+  -> generic R214A scalar-port partition / reciprocal mean force
+  -> generic R214B finite-bath + port stability + direct small-mass W1
        uses R209B generic finite bath/FDT
-       uses R210A generic load-only bound
+       current M37/M64 specialization:
+         R210A -> coherent port/load stability
+         R209A -> flow compatibility
+         -> M64/R203C -> R161/R185
 ```
 
 ## 現行の主要因果鎖

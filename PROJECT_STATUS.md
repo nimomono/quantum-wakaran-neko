@@ -1,3 +1,12 @@
+## draft-149：R214 generic density/flow port一般化
+
+- R214A/R214Bの結果IDとrequired状態を維持したまま、M37局所強度固有の定理からgeneric nonnegative scalar port $\varrho(X;z)$ とflow port $U(X;z)$ を受けるdumbbell transducer theoremへ一般化する。
+- R214Aを任意parameterに対するphase-volume / reciprocal mean-force theoremへ拡張し、prepared shell上のmicroscopic reciprocal-load boundを追加する。
+- node-safe $\varrho_T>0$ を使うport $C^1$ stability -> score/drift stability lemmaを追加し、source-specific stabilityをR214Bのgeneric interface errorへ分離する。
+- finite-correlation GLEからの物理的white-noise極限はStratonovichを基本表現とし、ItôはFokker--Planck・半径変換などの計算表示に限定する。required leading sectorはconstant mobilityなので両表示はCartesian座標で一致する。
+- current M37/M64 specializationではR210Aがcoherent load stability、R209Aがflow compatibilityを供給し、従来の $\varepsilon_{214\to64}$ とQ3-2主線をそのまま回収する。
+- M37/R86、M64/R203、R161/R185、R209A/B、R210A、Q3-1/Q3-2達成、A1/A2、finite-graph Q3-4A/B・Q3-5、Q1/Q2、M0、R213 candidate状態は変更しない。R215/M68/Fisher自由エネルギーは本draftに含めない。
+
 ## draft-146：旧Q3 continuous phase-volume bridge退役
 
 - R214A--R214Bがcontinuous Q3-2 required主線として自立したため、R208B/R208C/R209Cをactive resultから退役する。
@@ -667,8 +676,8 @@ M0は、個別のA1模型を並べるだけでは達成としない。少なく�
 | R209B | required generic finite-bath/FDT lemma | translated finite harmonic bathのexact memory kernel/FDT、Drude short-memory、finite-spectrum/recurrenceをprofile-independentに定量化し、flow、tracer drag、R214 dumbbell内部座標へ特殊化する |
 | R210A | required generic coherent-load compatibility | global carrier-phase不変かつ $\|\partial_{b^*}H_R\|\le(aE+b\sqrt E+c)/\|b\|$ を満たす任意M67 profileのload-only差を $O(N_0^{-1})$ で制御する。Q3-1ではR86と合成し、Q3-2ではR214 dumbbell loadだけを渡す |
 | R210B | required bounded dephasing embedding | bounded odd momentum portでR123 finite environmentをM67 structured reservoir内部へ持ち上げ、下方有界性、作用保存、同一の $\cos^2$ dephasing factorと有限revivalを得る |
-| R214A | required exact/controlled-partition result | M37実正準signalから作る局所強度に対し有限自然長 $\ell_X^2=\ell_0^2+\alpha\varrho_X$ を持つ三次元伸縮dumbbellを置き、条件付き分配関数を厳密評価する。$-k_BT\log(\varrho+\varrho_T)$ とosmotic mean forceを明示shell/core誤差まで回収し、$\ell_0=0$ node非解析を明示する |
-| R214B | required finite-time Hamiltonian/open compatibility | finite translated harmonic bath→GLE/FDT、3次元半径の $r^2$ 定常測度、fast内部緩和、single-dumbbell追加FDT摩擦、$O(N_0^{-1})$ M37 backreactionを合成し、一様背景R203C/R185 lawへのcontinuous Q3-2 required bridgeを与える |
+| R214A | required exact/controlled-partition result | generic nonnegative scalar port $\varrho(X;z)$ に有限自然長 $\ell_X^2=\ell_0^2+\alpha\varrho_X$ を結合した三次元伸縮dumbbellの条件付き分配関数を厳密評価し、任意parameterに対するreciprocal mean force、osmotic force、microscopic reciprocal-load boundを明示shell/core誤差まで回収する。$\ell_0=0$ node非解析も境界として明示する |
+| R214B | required finite-time Hamiltonian/open compatibility | generic density/flow portに対しfinite translated harmonic bath→GLE/FDT、Stratonovich white-noise極限、3次元半径の $r^2$ 定常測度、fast内部緩和、single-dumbbell追加FDT摩擦、port-stability→drift-stability、direct small-mass $W_1$ bridgeを合成する。M37/R210A＋R209A/M64をcurrent specializationとして従来のcontinuous Q3-2 required bridgeを回収する |
 | R185 | 厳密有限格子結果・明示誤差付き近似結果 | 共通の確率分布の時間反転率、$D_\pm$、1次元node-free領域の時間対称Newton則。正則化残差 $O(\delta)$、格子残差 $C_{185,a}a^2$ を有限微分ノルムで明示 |
 | R123 | 厳密結果・数値検証付き | 井戸型・調和型低位束縛状態と有限環境純位相緩和 |
 | R124 | 厳密結果・数値検証付き | 障壁値未満スペクトル支持からの反対側確率増分 |

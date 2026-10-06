@@ -1,3 +1,12 @@
+## draft-149：R214をgeneric density/flow port theoremへ一般化
+
+- R214AをM37局所強度固有のmean-force theoremから、任意のnonnegative scalar portに対するphase-volume / reciprocal mean-force theoremへ一般化した。
+- prepared dumbbell shell上のmicroscopic reciprocal-load boundと、node-safe $\varrho_T>0$ を使うport $C^1$ stability→score/drift stability lemmaを追加した。
+- R214Bをgeneric $b_{\rm port}=U+\nu\nabla\log(\varrho+\varrho_T)$ に対するfinite-bath / fast-dumbbell / small-mass $W_1$ bridgeへ一般化した。
+- finite-correlation GLEからの物理的white-noise極限はStratonovichを基本表現とし、constant mobilityではCartesian Itô補正が0であることを明記した。
+- current M37/M64 specializationではR210A coherent-load stabilityとR209A flow compatibilityを通じて従来の $\varepsilon_{214\to64}$ を回収する。M37固有 $N_0^{-1}$ verifier責務はR210A側へ集約した。
+- Q3-1/Q3-2達成、A1/A2、M37/R86、M64/R203、R161/R185、finite-graph branch、Q1/Q2、M0、R213 candidate状態は変更していない。
+
 ## draft-148：生成物同期maintenance workflow
 
 - 通常の `verify.yml` をread-onlyのまま維持し、`workflow_dispatch` で明示再実行できるようにした。

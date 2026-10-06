@@ -13,11 +13,16 @@ def main() -> None:
     D = kBT / gamma_r
     tau_r = gamma_r / k
 
-    # R214A radial law is the zero-flux stationary density.
+    # The physical white-noise limit is Stratonovich in Cartesian
+    # coordinates.  The noise amplitude is constant, so Cartesian Ito and
+    # Stratonovich drifts coincide; the radial 2D/r term is geometric.
     r = np.linspace(0.15, 7.0, 10000)
     dlogp = 2.0 / r - (r - ell) / sigma**2
     drift = -(k / gamma_r) * (r - ell) + 2.0 * D / r
     assert np.max(np.abs(drift - D * dlogp)) < 2e-11
+    sigma_cart = np.sqrt(2.0 * D)
+    dsigma_dx = 0.0
+    assert 0.5 * sigma_cart * dsigma_dx == 0.0
 
     # One-sided contraction of the radial process.
     drift_prime = -(k / gamma_r) - 2.0 * D / r**2
@@ -39,7 +44,6 @@ def main() -> None:
     assert 0.47 < slope < 0.53, slope
 
     # Y=X+epsilon_M V removes the fast OU velocity at the equation level.
-    # Algebraic coefficient of V dt is exactly 1-epsilon_M/epsilon_M=0.
     for em in eps_m:
         assert abs(1.0 - em / em) < 1e-15
 
@@ -52,9 +56,50 @@ def main() -> None:
     fluc_x = np.sqrt(2.0 * nu * 0.7 * eps_fr_abs)
     assert fluc_x < 5e-3
 
-    # Explicit simultaneous family:
-    # epsilon_M=lambda^2, eps_fr=O(lambda^3), tau_r=O(lambda^3),
-    # internal momentum time=O(lambda^4).
+    # Generic microscopic reciprocal-load bound on a prepared shell.
+    alpha = 1.3
+    ell0 = 2.5
+    k_load = 1.2
+    e_star = 0.8
+    c_load = alpha * np.sqrt(2.0 * k_load * e_star) / (2.0 * ell0)
+    rng = np.random.default_rng(214)
+    for _ in range(200):
+        grad_rho = float(rng.uniform(-0.8, 0.8))
+        ell_now = float(rng.uniform(ell0, 4.0))
+        delta = (
+            float(rng.uniform(-1.0, 1.0))
+            * np.sqrt(2.0 * e_star / k_load)
+        )
+        force = abs(k_load * delta * alpha * grad_rho / (2.0 * ell_now))
+        assert force <= c_load * abs(grad_rho) + 1e-14
+
+    # Port C1 stability implies score stability in the node-safe sector.
+    x = np.linspace(-np.pi, np.pi, 2001)
+    rho0 = 1.0 + 0.2 * np.sin(x)
+    drho0 = 0.2 * np.cos(x)
+    amp = 0.01
+    delta_rho = amp * np.cos(2.0 * x)
+    ddelta_rho = -2.0 * amp * np.sin(2.0 * x)
+    rho1 = rho0 + delta_rho
+    drho1 = drho0 + ddelta_rho
+    rho_t = 0.45
+    score0 = drho0 / (rho0 + rho_t)
+    score1 = drho1 / (rho1 + rho_t)
+    score_err = float(np.max(np.abs(score1 - score0)))
+    score_bound = (
+        float(np.max(np.abs(ddelta_rho))) / rho_t
+        + float(np.max(np.abs(drho0)))
+        * float(np.max(np.abs(delta_rho)))
+        / rho_t**2
+    )
+    assert score_err <= score_bound + 1e-14
+
+    eps_u = 0.004
+    drift_err = eps_u + nu * score_err
+    drift_bound = eps_u + nu * score_bound
+    assert drift_err <= drift_bound + 1e-14
+
+    # Explicit simultaneous family.
     lam = np.array([0.2, 0.1, 0.05, 0.025])
     em = lam**2
     efr = lam**3
@@ -65,17 +110,13 @@ def main() -> None:
     assert np.all(efr / np.sqrt(em) < 0.21)
     assert np.all(np.diff(efr / np.sqrt(em)) < 0.0)
 
-    # R210A load-only relative error remains N0^-1.
-    n0 = np.array([64.0, 128.0, 256.0, 512.0, 1024.0])
-    relative_load = 0.2 / n0
-    ratios = relative_load[:-1] / relative_load[1:]
-    assert np.allclose(ratios, 2.0, rtol=0.0, atol=1e-14)
-
     print(
         "r214b_required_ok "
         f"small_mass_slope={slope:.6f} "
         f"extra_friction_abs={eps_fr_abs:.3e} "
-        f"fluctuation_x={fluc_x:.3e}"
+        f"fluctuation_x={fluc_x:.3e} "
+        f"score_err={score_err:.3e} "
+        f"score_bound={score_bound:.3e}"
     )
 
 

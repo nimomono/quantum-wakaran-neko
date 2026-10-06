@@ -33,6 +33,33 @@ def numerical_I(ell: float, sigma: float) -> float:
     return float(np.trapezoid(f, r))
 
 
+def free_energy_port(
+    rho: float,
+    sigma: float,
+    ell0: float,
+    alpha: float,
+    kBT: float = 1.0,
+) -> float:
+    rho_t = (ell0 * ell0 + sigma * sigma) / alpha
+    ell = math.sqrt(ell0 * ell0 + alpha * rho)
+    a = ell / sigma
+    return -kBT * (math.log(rho + rho_t) + math.log(G(a)))
+
+
+def generic_force(
+    rho: float,
+    drho: float,
+    sigma: float,
+    ell0: float,
+    alpha: float,
+    kBT: float = 1.0,
+) -> float:
+    rho_t = (ell0 * ell0 + sigma * sigma) / alpha
+    ell = math.sqrt(ell0 * ell0 + alpha * rho)
+    a = ell / sigma
+    return (1.0 + eps_force(a)) * kBT * drho / (rho + rho_t)
+
+
 def main() -> None:
     sigma = 1.0
     for a in (0.5, 1.0, 1.5, 2.0, 2.5, 3.0, 4.0):
@@ -64,11 +91,38 @@ def main() -> None:
     core_scale = ac * ac / (ell0 * ell0 + sigma * sigma)
     assert core_scale < 6e-5
 
+    # Generic-parameter R214A.  These ports are deliberately not M37
+    # quadratic intensities.
+    alpha = 1.3
+    h = 2e-6
+    tests = (
+        (lambda x: 0.9 + 0.2 * x, lambda x: 0.2),
+        (
+            lambda x: 0.7 * math.exp(0.15 * x),
+            lambda x: 0.105 * math.exp(0.15 * x),
+        ),
+        (lambda x: 1.1 + 0.12 * math.sin(x), lambda x: 0.12 * math.cos(x)),
+    )
+    max_err = 0.0
+    for rho_fn, drho_fn in tests:
+        for lam in (-0.7, -0.1, 0.4, 0.9):
+            rho = rho_fn(lam)
+            assert rho >= 0.0
+            num_force = -(
+                free_energy_port(rho_fn(lam + h), sigma, ell0, alpha)
+                - free_energy_port(rho_fn(lam - h), sigma, ell0, alpha)
+            ) / (2.0 * h)
+            ana_force = generic_force(rho, drho_fn(lam), sigma, ell0, alpha)
+            err = abs(num_force - ana_force)
+            max_err = max(max_err, err)
+            assert err < 3e-8, (lam, num_force, ana_force, err)
+
     print(
         "r214a_ok "
         f"eps_force_2p5={e25:.6e} "
         f"eps_force_3={e30:.6e} "
-        f"core_scale={core_scale:.6e}"
+        f"core_scale={core_scale:.6e} "
+        f"generic_param_err={max_err:.3e}"
     )
 
 

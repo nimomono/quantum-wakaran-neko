@@ -1,7 +1,7 @@
 @number: AA
 @chapter: 付録
 @title: M67 二実体finite-Hamiltonian physical parent
-@status: M67をQ3-1--Q3-5の共通二実体finite-Hamiltonian physical parentとし、continuous Q3-2は付録AC/R214A--R214Bをrequired profileとする。R209A/R209Bはgeneric flow / finite-bath補題、R210Aはgeneric coherent-load theoremとして各profileから再利用する。Q1ではR211A--R211C、Q2 thermal sectorではR212A--R212Cをphysical liftとして与え、付録AB/R213A--R213DはQ2 signal/NBL/register/gate candidateのまま維持する。
+@status: M67をQ3-1--Q3-5の共通二実体finite-Hamiltonian physical parentとし、continuous Q3-2は付録AC/R214A--R214Bをrequired profileとする。draft-149以後R214A/B本体はgeneric density/flow port theoremで、current M37/M64 specializationだけがR210A coherent-load stabilityとR209A flow compatibilityを使う。R209Bはgeneric finite-bath/FDT補題として再利用する。Q1ではR211A--R211C、Q2 thermal sectorではR212A--R212Cをphysical liftとして与え、付録AB/R213A--R213DはQ2 signal/NBL/register/gate candidateのまま維持する。
 
 ## AA.1 目的、二実体、責務境界
 
@@ -23,7 +23,7 @@ M67の「二実体」は自由度が二個という意味ではない。一つ�
 
 ### R214 continuous-tracer required mainline
 
-draft-146ではR214A--R214BをQ3 continuous-tracer profileの唯一のactive finite-Hamiltonian bridgeとして維持し、旧R208B/R208C/R209Cをactive resultから退役する。R209A/R209Bはgeneric flow / finite-bath lemma、R210Aはgeneric coherent-load theoremとして残す。R208Dはcontinuous/finite-graphを振り分けるstructural bridgeとして残し、finite-graph profileへR214を流用しない。
+draft-146ではR214A--R214BをQ3 continuous-tracer profileの唯一のactive finite-Hamiltonian bridgeとして維持し、旧R208B/R208C/R209Cをactive resultから退役した。draft-149以後R214本体はgeneric density/flow port theoremであり、R209Bをgeneric finite-bath/FDT lemmaとして使う。current M37/M64 specializationではR210Aがcoherent-load stability、R209Aがflow compatibilityを供給する。R208Dはcontinuous/finite-graphを振り分けるstructural bridgeとして残し、finite-graph profileへR214を流用しない。
 
 ## AA.2 profile別Hamiltonianとcoherent sector
 
