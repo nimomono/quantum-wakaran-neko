@@ -1,5 +1,16 @@
 # 固定目標に付随する強化目標
 
+## R215 spatial-information Q3 strengthening candidate
+
+R214A/B required主線の上に、fixed-goalを変更しないcandidate strengtheningとしてR215A/Bを置く。R215Aはprojectively compatibleなnode-safe density/flow portから規格化density $\pi$ のequivarianceとBayes score $u=\nu\partial_x\log\pi$ を回収する。R215Bは同じscoreから
+
+```math
+\mathcal F_{\rm SI}=\frac{M_X\nu^2}{2}I_F[\pi]
+```
+
+をspatial-information gradient free energyとして定義する。ここまでではmediumへのreversible backreactionを採用しない。次段はR215Cで $-\pi\partial_x\delta\mathcal F_{\rm SI}/\delta\pi$ をphysical constitutive closureとして正当化できるかを監査し、その後にM68候補へ進む。R215A/BだけからQ3-1/Q3-2 A1/A2状態を変更しない。
+
+
 本ファイルは `PROJECT_STATUS.md` に定める固定目標へ付随する強化目標の正本を管理する。固定目標そのものの定義と達成判定は `PROJECT_STATUS.md` を正本とし、本ファイルの強化目標はそれらへ追加の物理実装・数値再現・回路実装を要求する独立の評価軸とする。
 
 強化目標は固定目標そのものとは独立に判定する。強化目標が未達であることを理由として、固定目標の既存の達成・条件付き達成・未達ラベルを変更しない。また、固定目標の達成だけから対応する強化目標の達成を自動的に認定しない。
