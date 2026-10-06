@@ -81,6 +81,30 @@ def test_migrations_are_not_called_by_ci() -> None:
     assert "tools/migrations" not in workflow
 
 
+def test_verify_workflow_is_read_only_and_dispatchable() -> None:
+    workflow = (ROOT / ".github" / "workflows" / "verify.yml").read_text(encoding="utf-8")
+    assert "workflow_dispatch:" in workflow
+    assert "contents: read" in workflow
+    for forbidden in ("git push", "git commit", "contents: write"):
+        assert forbidden not in workflow
+
+
+def test_sync_paper_workflow_is_manual_and_scoped() -> None:
+    workflow = (ROOT / ".github" / "workflows" / "sync-paper.yml").read_text(encoding="utf-8")
+    assert "workflow_dispatch:" in workflow
+    assert "\n  pull_request:" not in workflow
+    assert "\n  push:" not in workflow
+    assert "contents: write" in workflow
+    assert "actions: write" in workflow
+    assert "pull-requests: read" in workflow
+    assert 'test "$TARGET_BRANCH" != "$DEFAULT_BRANCH"' in workflow
+    assert 'gh pr list --repo "$GITHUB_REPOSITORY" --head "$TARGET_BRANCH" --state open' in workflow
+    assert "git push --force" not in workflow
+    assert "git push -f" not in workflow
+    assert "git add -- paper.md main.tex paper.pdf" in workflow
+    assert "gh workflow run verify.yml --ref \"$TARGET_BRANCH\"" in workflow
+
+
 def test_physics_runner_does_not_stop_at_first_failure() -> None:
     tree = ast.parse((TOOLS / "run_physics_checks.py").read_text(encoding="utf-8"))
     breaks = [node for node in ast.walk(tree) if isinstance(node, ast.Break)]
@@ -100,6 +124,8 @@ def main() -> None:
     test_structural_checkers_have_no_theory_snapshot_literals()
     test_project_consistency_checker_is_called_by_ci()
     test_migrations_are_not_called_by_ci()
+    test_verify_workflow_is_read_only_and_dispatchable()
+    test_sync_paper_workflow_is_manual_and_scoped()
     test_physics_runner_does_not_stop_at_first_failure()
     test_generated_and_latex_semantics_are_separate()
     print("validation_policy_test_ok")
