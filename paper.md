@@ -62,7 +62,7 @@ Q2-2 fixed-goalはM67/R212->M66/R205->R207 projection phase-volume経路を使�
 
 Q3のsignal数学はQ1/Q2と別の代数ではない。Q1型局所正準モードを空間頂点へ配置し、Q2型2体系結合を辺へ反復すると、Schrödinger型signal、局所作用、反対称currentが得られる。Q3ではM67を共通二実体finite-Hamiltonian physical parentとし、M37をそのcoherent oscillator moduleとして内包する。R210Aがfull M67からM37/R86のSchrödinger型signalへの有限時間compatibilityを与える。
 
-M67は一つのstructured reservoir sectorとmarker sectorからなり、coherent、bounded dephasing、continuous tracer、finite-graph tracer、Q1 binary-selectorに加えてR212A--R212Cのthermal physical-parent profileを持つ。Q3-3A--Q3-3CではR210BがR123有限環境をstructured reservoir内部へboundedに埋め込む。Q3粒子/Nelson側ではM64を独立三実体parentとはせず、continuous branchはR208Aを共通構成としてR214A/R214BがR209A/R209Bを使いM64/R203Cへ接続し、finite-graph branchはR208AからR212A、R208Dを経てM64/R203Dへ接続する。R203A--R203D、R161/R185、R124/R182/R125の既存結果はそのまま再利用する。
+M67は一つのstructured reservoir sectorとmarker sectorからなり、coherent、bounded dephasing、continuous tracer、finite-graph tracer、Q1 binary-selectorに加えてR212A--R212Cのthermal physical-parent profileを持つ。Q3-3A--Q3-3CではR210BがR123有限環境をstructured reservoir内部へboundedに埋め込む。Q3粒子/Nelson側ではR214A/R214B本体をgeneric density/flow port theoremとして使い、current specializationではM37/R210Aがscalar port stability、R209A/M64がflow compatibilityを供給してM64/R203Cへ接続する。R209Bはgeneric finite-bath/FDT補題である。finite-graph branchはR208AからR212A、R208Dを経てM64/R203Dへ接続する。R203A--R203D、R161/R185、R124/R182/R125の既存結果はそのまま再利用する。
 
 Q3の現行因果鎖はM67から分岐する。Q3-1は $M67\to R210A\to M37/R86$、Q3-2 continuous branchは $M67/R208A\to R214A/R214B\to M64/R203C\to R161/R185$ であり、R214B内部でR209A/R209Bをgeneric flow / finite-bath補題として使う。Q3-3A--Cは $M67\to R210B\to R123$、Q3-4A/B/5 finite-graph branchは $M67/R208A\to R212A\to R208D\to M64/R203D\to R161$ からR124/R182/R125の位置読出しへ接続する。
 
@@ -172,7 +172,7 @@ Q2-1は $L=4$、Q2-3は $L=8$、Q2-4は $L=2^n$ とする。Q2-4ではR206Eの�
 
 Q2-2 fixed-goalはM67/R212B-rotによるtwo-rotor canonical preparationをM66/R205Eへ縮約し、near-contact hidden-direction lock、R212C/R205F passive separation、R207 local sign latch/recordを一試行で接続する。一般Bloch方向のsinglet共同統計を任意精度で再現し、分離後local response factorizationとmeasurement independenceの不成立を監査する。
 
-Q3のsignal数学はQ1/Q2の局所実正準信号と2体系結合の空間特殊化である。Q3のphysical parentはM67であり、用途別の現行因果鎖を混ぜずに
+Q3のsignal数学はQ1/Q2の局所実正準信号と2体系結合の空間特殊化である。Q3のphysical parentはM67である。R214A/B本体はgeneric nonnegative scalar port $\varrho$ とflow port $U$ を受けるdumbbell theoremであり、current Q3-2 specializationではM37/R210AとR209A/M64がそのportとstabilityを供給する。fixed-goalの直接依存は変更せず、用途別の現行因果鎖を混ぜずに
 
 ```math
 \mathrm{M67}
@@ -1250,7 +1250,9 @@ Q2-1/Q2-3/Q2-4ではR206をterminal readout正本とし、R206Eのuniform root p
 
 ## R214 continuous-tracer required profile
 
-R214A--R214BはM67 structured reservoir＋marker二実体分類を保ったcontinuous Q3-2のrequired profileである。M37局所強度、有限自然長、三次元内部位相体積、finite harmonic bath、single-dumbbell FDT補正を使い、R214B自身がM64/R203Cへのsmall-mass $W_1$ bridgeを閉じる。R209A/R209Bはgeneric補題、R210Aはprofile-independent coherent-load theoremとして再利用し、finite-graph profileはR208D/R203Dへ分離する。
+R214A--R214BはM67 structured reservoir＋marker二実体分類を保ったcontinuous Q3-2のrequired profileである。draft-149以後、R214本体はsource固有のM37強度を仮定せず、nonnegative scalar port $\varrho(X;z)$ とflow port $U(X;z)$ を受けるgeneric transducer theoremとして扱う。R214Aはphase-volume / reciprocal mean forceとmicroscopic load bound、R214Bはfinite-correlation GLEからのStratonovich Markov limit、single-dumbbell FDT補正、port-stability -> drift-stability、direct small-mass $W_1$ bridgeを担う。
+
+current M37/M64 specializationではR210Aがcoherent sourceのload stability、R209Aがflow compatibilityを供給し、R209Bをgeneric finite-bath/FDT補題として使って従来のM64/R203C bridgeを回収する。finite-graph profileはR208D/R203Dへ分離する。
 
 # 第II部　単一量子ビット型操作と測定
 
@@ -2905,7 +2907,7 @@ setting marginal自体は独立に保て、operational marginalは各端$1/2$で
 
 Q3の共通physical parentは付録AAのM67である。M37は退役せず、M67 structured reservoir内部のcoherent oscillator moduleとしてQ3-1--Q3-5へ再利用する。R210Aはfull M67 coherent trajectoryとbare M37 trajectoryの有限時間差を $O(N_0^{-1})$ で制御し、それをR86のcarrier-envelope誤差と合成する。従ってQ3-1の物理依存は $M67\to R210A\to M37/R86$ と読む。
 
-Q3の粒子・Nelson側では、continuous branchをM67/R208AからR214A/R214B、M64/R203Cを経てR161/R185へ縮約し、R214B内部でR209A/R209Bをgeneric flow / finite-bath補題として使う。finite-graph branchはM67/R208AからR212A、R208D、M64/R203Dを経てR161へ接続する。M64固有のopen-law責務はM37包絡の再導出ではなく、R203Aのregularized density/current dictionaryからphase-volume preparation、mean-flow tracking、canonical tracer、R161/R185およびfinite-graph位置読出しへ接続する部分であり、M67昇格後もactive effective modelとして残る。Q3-3A--Q3-3CではR210Bのbounded dephasing profileからR123を回収する。M60/M61の旧Hamiltonian実装は現行主線から退役したままである。
+Q3の粒子・Nelson側では、R214A/R214B本体をgeneric density/flow port theoremとして用いる。current specializationではM37/R210Aがscalar port stability、R209A/M64がflow compatibilityを供給し、R209Bをgeneric finite-bath/FDT補題としてM64/R203C、R161/R185へ接続する。finite-graph branchはM67/R208AからR212A、R208D、M64/R203Dを経てR161へ接続する。M64固有のopen-law責務はM37包絡の再導出ではなく、R203Aのregularized density/current dictionaryからphase-volume preparation、mean-flow tracking、canonical tracer、R161/R185およびfinite-graph位置読出しへ接続する部分であり、M67昇格後もactive effective modelとして残る。Q3-3A--Q3-3CではR210Bのbounded dephasing profileからR123を回収する。M60/M61の旧Hamiltonian実装は現行主線から退役したままである。
 
 単一試行のQ3 physical ontologyはM67のstructured reservoir sectorとmarker sectorで整理する。複素状態方向、位置分布、$\rho$、$j$、reservoir mean flow $U$ は派生表示または集団・collective記述であり、単一試行制御器へ書き戻さない。M37はQ1では従来どおりR187条件下のW2 signal implementationとして独立に再利用する。
 
@@ -5523,10 +5525,34 @@ draft-146で旧R208B/R208C/R209C経路をactive resultから退役したため�
 
 ## R214 dumbbell required主線の誤差台帳
 
-R214A--R214Bでは新規誤差を
+draft-149以後、R214本体のsource-specific誤差はdensity/flow port interfaceへ集約する。generic target drift
 
 ```math
-\varepsilon_{214\to64}
+b_{\rm port}
+=
+U+\nu\nabla\log(\varrho+\varrho_T)
+```
+
+に対し、
+
+```math
+\Delta_{\rm port}
+\le
+\varepsilon_U
++
+\nu C_{\rm score}\varepsilon_\varrho,
+\qquad
+C_{\rm score}
+=
+\frac1{\varrho_T}
++
+\frac{\|\nabla\varrho^\circ\|_\infty}{\varrho_T^2}
+```
+
+とする。R214A--R214Bのgeneric誤差は
+
+```math
+\varepsilon_{214}^{\rm port}
 =
 \varepsilon_{\rm shell}
 +
@@ -5544,12 +5570,20 @@ R214A--R214Bでは新規誤差を
 +
 \varepsilon_{\rm fluc}
 +
-\varepsilon_{\rm sig}
+\Delta_{\rm port}
 +
 \varepsilon_{\rm init}
 ```
 
-と分ける。R209Aのflow residualとR209Bのfinite-bath residualはここへ一度だけ入り、R203CのM64 baseline、R86 carrier-envelope、R185 Newton residualは再加算しない。single dumbbellでは旧 $N_\rho^{-1/2}$ force self-averagingを使わず、
+と責務分離する。current M37/M64 specializationではR210Aのcoherent load stabilityとR209Aのflow compatibilityを $\Delta_{\rm port}$ へ一度だけ入れ、
+
+```math
+\varepsilon_{214}^{\rm port}
+\longrightarrow
+\varepsilon_{214\to64}.
+```
+
+R209Bのfinite-bath residualも一度だけ入り、R203CのM64 baseline、R86 carrier-envelope、R185 Newton residualは再加算しない。single dumbbellでは旧 $N_\rho^{-1/2}$ force self-averagingを使わず、
 
 ```math
 \zeta_{\rm db}^{\rm abs}
@@ -5569,9 +5603,8 @@ R214A--R214Bでは新規誤差を
 }
 ```
 
-を位置過程誤差として直接管理する。small-mass項は $\epsilon_M=M_X/\gamma_X$ に対して
-$O(\epsilon_M)+O(\sqrt{\nu\epsilon_M})$ とし、追加dragは
-$\varepsilon_{\rm fr}=o(\sqrt{\epsilon_M})$ のjoint limitで消す。Q3-2-A1/A2、finite-graph Q3-4A/B・Q3-5の判定は変更しない。
+を位置過程誤差として直接管理する。small-mass項は $\epsilon_M=M_X/\gamma_X$ に対して $O(\epsilon_M)+O(\sqrt{\nu\epsilon_M})$ とし、追加dragは $\varepsilon_{\rm fr}=o(\sqrt{\epsilon_M})$ のjoint limitで消す。Q3-2-A1/A2、finite-graph Q3-4A/B・Q3-5の判定は変更しない。
+
 
 # 結論
 
@@ -5610,7 +5643,7 @@ Q2-2 fixed-goalはM67/R212->M66/R205->R207 projection phase-volume経路で達�
 
 M67はQ3だけでなくQ1 selectorとQ2 thermal sectorにも共通する二実体finite-Hamiltonian physical parentである。Q3では一つのstructured reservoir内部にM37 coherent module、phase-volume、flow、finite bath、R210B bounded dephasing sectorを置き、marker sectorはparticle/readout profileでclassical tracerとして使う。R210Aはfull M67 coherent trajectoryからM37/R86への有限時間compatibilityを、prepared reservoir energy shellから導く $O(N_0^{-1})$ load boundと既存R86 carrier errorに分離して与える。R210BはR123と同じ有限時刻dephasing/revival lawを下方有界なfinite Hamiltonianで回収する。
 
-Q3-2ではR214A/R214BがM67 Brownian dumbbell profileをM64/R203Cのcanonical open lawへ縮約し、R161/R185へ接続する。R209A/R209Bはgeneric flow / finite-bath補題として内部から使い、R210Aはdumbbellを含む任意profileのcoherent loadを $O(N_0^{-1})$ で制御する。Q3-3A--Q3-3CはM67 dephasing profileからR210B/R123へ、Q3-4A/B/5はM67 finite-graph profileからR208D/R203DとR124/R182/R125/R161へ接続する。M37、M64、R123は削除せず、それぞれcoherent module、open effective reduction、effective dephasing lawとしてactiveに残る。R162はR161 lawのoptional Poisson realizationであり、M67の基礎的存在論には含めない。
+Q3-2ではR214A/R214B本体をgeneric density/flow port theoremとして用い、phase-volume / reciprocal mean force、Stratonovich finite-correlation縮約、port-stability -> drift-stability、small-mass $W_1$ bridgeを閉じる。current M37/M64 specializationではR210Aがcoherent load stabilityを $O(N_0^{-1})$ で制御し、R209Aがflow compatibility、R209Bがgeneric finite-bath/FDTを供給してM64/R203C、R161/R185へ接続する。Q3-3A--Q3-3CはM67 dephasing profileからR210B/R123へ、Q3-4A/B/5はM67 finite-graph profileからR208D/R203DとR124/R182/R125/R161へ接続する。M37、M64、R123は削除せず、それぞれcoherent module、open effective reduction、effective dephasing lawとしてactiveに残る。R162はR161 lawのoptional Poisson realizationであり、M67の基礎的存在論には含めない。
 
 固定目標の達成と、より強い物理実装は分けて判定する。現行fixed-goalではQ1-1、Q1-2、Q2-1、Q2-2、Q2-3、Q3-1--Q3-5を達成、Q2-4を条件付き達成、Q3-6を未達とする。A1/A2/B1--B3は独立のstrengtheningであり、fixed-goal達成から自動的に上がらない。
 
@@ -13571,7 +13604,7 @@ M65の正本はR204Aのtwo-result first-passage open law、R204Dの有限時間B
 
 # M67 二実体finite-Hamiltonian physical parent
 
-> **位置づけ：** M67をQ3-1--Q3-5の共通二実体finite-Hamiltonian physical parentとし、continuous Q3-2は付録AC/R214A--R214Bをrequired profileとする。R209A/R209Bはgeneric flow / finite-bath補題、R210Aはgeneric coherent-load theoremとして各profileから再利用する。Q1ではR211A--R211C、Q2 thermal sectorではR212A--R212Cをphysical liftとして与え、付録AB/R213A--R213DはQ2 signal/NBL/register/gate candidateのまま維持する。
+> **位置づけ：** M67をQ3-1--Q3-5の共通二実体finite-Hamiltonian physical parentとし、continuous Q3-2は付録AC/R214A--R214Bをrequired profileとする。draft-149以後R214A/B本体はgeneric density/flow port theoremで、current M37/M64 specializationだけがR210A coherent-load stabilityとR209A flow compatibilityを使う。R209Bはgeneric finite-bath/FDT補題として再利用する。Q1ではR211A--R211C、Q2 thermal sectorではR212A--R212Cをphysical liftとして与え、付録AB/R213A--R213DはQ2 signal/NBL/register/gate candidateのまま維持する。
 
 
 ## 目的、二実体、責務境界
@@ -13594,7 +13627,7 @@ M67の「二実体」は自由度が二個という意味ではない。一つ�
 
 ### R214 continuous-tracer required mainline
 
-draft-146ではR214A--R214BをQ3 continuous-tracer profileの唯一のactive finite-Hamiltonian bridgeとして維持し、旧R208B/R208C/R209Cをactive resultから退役する。R209A/R209Bはgeneric flow / finite-bath lemma、R210Aはgeneric coherent-load theoremとして残す。R208Dはcontinuous/finite-graphを振り分けるstructural bridgeとして残し、finite-graph profileへR214を流用しない。
+draft-146ではR214A--R214BをQ3 continuous-tracer profileの唯一のactive finite-Hamiltonian bridgeとして維持し、旧R208B/R208C/R209Cをactive resultから退役した。draft-149以後R214本体はgeneric density/flow port theoremであり、R209Bをgeneric finite-bath/FDT lemmaとして使う。current M37/M64 specializationではR210Aがcoherent-load stability、R209Aがflow compatibilityを供給する。R208Dはcontinuous/finite-graphを振り分けるstructural bridgeとして残し、finite-graph profileへR214を流用しない。
 
 ## profile別Hamiltonianとcoherent sector
 
@@ -16447,41 +16480,37 @@ R213A--R213Dから本付録が閉じるのは、NBL/path state-space、H/T/CNOT 
 
 # M67 伸縮Brownian dumbbell Q3 continuous-tracer profile
 
-> **位置づけ：** R214A--R214BをM67 continuous-tracer profileのrequired主線とする。R209A/R209Bをgeneric flow / finite-bath補題として使い、R214B自身がsmall-mass W1 bridgeを閉じる。旧R208B/R208C/R209Cはdraft-146でactive resultから退役し、finite-graph Q3-4A/Q3-4B/Q3-5にはR214を流用しない。
+> **位置づけ：** R214A--R214BをM67 continuous-tracer profileのrequired主線とする。R214本体はgeneric density/flow port theoremとしてR209B finite-bath/FDTを使い、current M37/M64 specializationでのみR210A coherent-load stabilityとR209A flow compatibilityを合成する。旧R208B/R208C/R209Cはdraft-146でactive resultから退役し、finite-graph Q3-4A/Q3-4B/Q3-5にはR214を流用しない。
 
 
 ## 目的と責務境界
 
-draft-145以後のM67 continuous-tracer profileは、本付録の三次元伸縮Brownian dumbbellをrequired主線とする。draft-146で旧AA.3/R208Bのinverse-designed continuous phase-volume implementationをactive resultから退役し、一般phase-volume数学はR212A/M64-R203B側へ責務分離する。
+draft-145以後のM67 continuous-tracer profileは、本付録の三次元伸縮Brownian dumbbellをrequired主線とする。draft-149ではR214A--R214BをM37固有の局所強度から切り離し、resolved source state $z$ から読み出す正のscalar port $\varrho(X;z)$ とflow port $U(X;z)$ を入力とするgeneric transducer theoremへ一般化する。
 
-主要物理sectorは従来どおり「structured reservoir + marker/tracer」の二分類である。dumbbellの内部相対座標はmarker/tracer内部自由度であり、新しい第三物理実体とは数えない。structured reservoir側のM37 coherent sector、R209 flow/drag sector、R210A coherent compatibilityは再利用する。
+主要物理sectorは従来どおり「structured reservoir + marker/tracer」の二分類である。dumbbellの内部相対座標はmarker/tracer内部自由度であり、新しい第三物理実体とは数えない。$\varrho$ と $U$ はsource sectorから構成されるportであり、独立の統計実体を単一試行へ書き戻すものではない。
+
+current M67 specializationではM37/R210Aが局所強度portとcoherent load stabilityを、R209A/M64がflow port compatibilityを供給する。R214本体はそれらのsource-specific構成を仮定せず、port値とその安定性誤差だけを受け取る。finite harmonic bath/FDTはgeneric R209Bを再利用する。
 
 本付録はcontinuous Q3-2だけを対象にする。finite-graph Q3-4A/Q3-4B/Q3-5はR208D/R203D profileを維持し、本付録のdumbbellを要求しない。
 
-## M37局所強度とdumbbell Hamiltonian
+## generic density/flow portとdumbbell Hamiltonian
 
-M37の実正準座標を
-
-```math
-Q_i=\sqrt{M_{\rm osc}\omega_0}\,q_i,
-\qquad
-P_i=\frac{p_i}{\sqrt{M_{\rm osc}\omega_0}}
-```
-
-とし、固定smooth partition of unity $\chi_i(X)$ を用いて局所強度
+resolved source stateを $z$ とし、tracer位置 $X$ で読み出すsmooth scalar portとflow portを
 
 ```math
 \varrho_X
 =
-\frac1{N_0}
-\sum_i\chi_i(X)
-\frac{Q_i^2+P_i^2}{2\mathcal J_0}
-\ge0
+\mathcal R(X;z)
+\ge0,
+\qquad
+U_X
+=
+\mathcal U(X;z)
 ```
 
-を定める。$N_0>0$ はprepared coherent-action scaleである。複素包絡 $Z$ や $|Z|$ を独立canonical variableとしてHamiltonianへ戻さない。
+と書く。R214Aの静的計算では $\varrho_X$ が $C^1$ であればよく、R214Bでは後で定めるtarget driftがboundedかつ空間Lipschitzであることを要求する。$\varrho$ は規格化確率密度である必要はなく、source sectorから物理的に読み出される非負scalar portであればよい。
 
-dumbbellの重心を $(X,P_X)$、内部相対座標を $(\mathbf r,\mathbf p)\in\mathbb R^3\times\mathbb R^3$ とする。有限自然長
+dumbbellの重心を $(X,P_X)$、内部相対座標を $(\mathbf r,\mathbf p)\in\mathbb R^3\times\mathbb R^3$ とする。有限自然長を
 
 ```math
 \ell_X^2
@@ -16493,7 +16522,7 @@ dumbbellの重心を $(X,P_X)$、内部相対座標を $(\mathbf r,\mathbf p)\in
 \alpha>0
 ```
 
-を採用する。smooth collision coreを
+と置く。smooth collision coreを
 
 ```math
 \rho_c(\mathbf r)
@@ -16516,7 +16545,7 @@ H_{\rm db}
 \right]^2
 ```
 
-と置く。$\ell_0>0$ と $a_c>0$ により、signal nodeと二質点重なりの両方で全Hamiltonianはsmoothで下に有界である。
+と置く。$\ell_0>0$ と $a_c>0$ により、port nodeと二質点重なりの両方で全Hamiltonianはsmoothで下に有界である。
 
 熱幅を
 
@@ -16524,11 +16553,23 @@ H_{\rm db}
 \sigma_T^2=\frac{k_BT}{k}
 ```
 
-と書く。
+とし、
 
-## R214A：一バネdumbbell phase-volume / osmotic force
+```math
+\varrho_T
+=
+\frac{\ell_0^2+\sigma_T^2}{\alpha},
+\qquad
+\widetilde\varrho
+=
+\varrho+\varrho_T
+```
 
-まずcoreless $a_c=0$ を考える。固定したsignalとtracer位置における内部canonical位置積分は
+と定める。$\varrho_T>0$ なので $\widetilde\varrho\ge\varrho_T$ がglobal node-safe lower boundを与える。
+
+## R214A：generic port phase-volume / reciprocal mean force
+
+まずcoreless $a_c=0$ を考える。固定したsource stateとtracer位置における内部canonical位置積分は
 
 ```math
 I(\ell)
@@ -16555,60 +16596,61 @@ G(a)
 =
 \Phi(a)
 +
-\frac{a\phi(a)}{1+a^2}.
-```
-
-また
-
-```math
+\frac{a\phi(a)}{1+a^2},
+\qquad
 G'(a)
 =
 \frac{2\phi(a)}{(1+a^2)^2}.
 ```
 
-したがって
-
-```math
-\varrho_T
-=
-\frac{\ell_0^2+\sigma_T^2}{\alpha}
-```
-
-と置けば
+$\ell^2+\sigma_T^2=\alpha(\varrho+\varrho_T)$ なので
 
 ```math
 Z_{\rm db}^{(0)}
 =
 C_T
-(\varrho_X+\varrho_T)
-G(a_X),
-\qquad
-a_X=\frac{\ell_X}{\sigma_T},
+(\varrho+\varrho_T)
+G(a),
 ```
-
-であり、
 
 ```math
 F_{\rm db}^{(0)}
 =
--k_BT\log(\varrho_X+\varrho_T)
--k_BT\log G(a_X)
+-k_BT\log(\varrho+\varrho_T)
+-k_BT\log G(a)
 +C_T'.
 ```
 
 <!-- theorem-start:theorem -->
-**定理（R214A：三次元伸縮dumbbellのphase-volume osmotic force）**
+**定理（R214A：三次元伸縮dumbbellのgeneric port phase-volume / reciprocal mean force）**
 
-上のcoreless dumbbellについて
+$k,T,\ell_0,\alpha$ を固定し、scalar parameter $\lambda$ への依存が $\varrho(\lambda)$ を通じてのみ入るとする。coreless dumbbellでは
 
 ```math
-\left\langle F_X^{\rm db}\right\rangle
+\left\langle
+F_\lambda^{\rm db}
+\right\rangle
+:=
+\left\langle
+-\partial_\lambda H_{\rm db}
+\right\rangle
+=
+-\partial_\lambda F_{\rm db}^{(0)}
+```
+
+かつ
+
+```math
+\left\langle
+F_\lambda^{\rm db}
+\right\rangle
 =
 \left[
-1+\varepsilon_F(a_X)
+1+\varepsilon_F(a)
 \right]
 k_BT
-\partial_X\log(\varrho_X+\varrho_T),
+\partial_\lambda
+\log(\varrho+\varrho_T),
 ```
 
 ```math
@@ -16621,17 +16663,19 @@ a(1+a^2)G(a)
 }
 ```
 
-が厳密に成立する。$a_X\ge a_0:=\ell_0/\sigma_T>0$ なので
+が厳密に成立する。vector parameterについては各成分へ同じ式を適用する。$a\ge a_0:=\ell_0/\sigma_T>0$ なので
 
 ```math
 0
 \le
-\varepsilon_F(a_X)
+\varepsilon_F(a)
 \le
 \varepsilon_F(a_0)
 ```
 
 という一様safe-sector評価を持つ。
+
+$\lambda=X$ とすればtracerへのosmotic mean force、$\lambda=z_A$ とすればsource coordinateへのreciprocal mean forceを同じ式から得る。
 
 smooth core $a_c>0$ については $a_c/\ell_0\ll1$ の固定safe sectorで
 
@@ -16640,22 +16684,24 @@ F_{\rm db}
 =
 F_{\rm db}^{(0)}
 +
-R_{\rm core},
+R_{\rm core}(\ell),
 ```
 
 ```math
-|\partial_XR_{\rm core}|
+|\partial_\lambda R_{\rm core}|
 \le
 C_{\rm core}(a_0)
 \frac{a_c^2}{\ell_0^2+\sigma_T^2}
 \left|
-k_BT\partial_X\log(\varrho_X+\varrho_T)
+k_BT
+\partial_\lambda
+\log(\varrho+\varrho_T)
 \right|
 +
-R_{\rm tail}
+R_{{\rm tail},\lambda}
 ```
 
-と評価でき、$R_{\rm tail}$ は $r\lesssim a_c$ のGaussian tailとして $a_0$ 増大とともに指数的に小さくなる。
+と評価でき、$R_{{\rm tail},\lambda}$ は $r\lesssim a_c$ のGaussian tailとして $a_0$ 増大とともに指数的に小さくなる。
 
 特に $\ell_0=2.5\sigma_T$ ではcoreless force correctionは
 
@@ -16677,9 +16723,26 @@ $\ell_0=3\sigma_T$ では
 <!-- theorem-start:proof -->
 **証明（R214A）**
 
-$z=(r-\ell)/\sigma_T$ と置き、Gaussianの0次、1次、2次不完全momentを積分すると表示した $I(\ell)$ を得る。$\ell_X^2+\sigma_T^2=\alpha(\varrho_X+\varrho_T)$ を代入してfree energyを分離する。$G'(a)=2\phi(a)/(1+a^2)^2$ を直接微分で得て、$2\ell_X\partial_X\ell_X=\alpha\partial_X\varrho_X$ を用いれば $\varepsilon_F$ の式が従う。$a>0$ で $\varepsilon_F$ は単調減少する。
+$z=(r-\ell)/\sigma_T$ と置き、Gaussianの0次、1次、2次不完全momentを積分すると表示した $I(\ell)$ を得る。$\ell^2+\sigma_T^2=\alpha(\varrho+\varrho_T)$ を代入してfree energyを分離する。
 
-smooth coreは積分を $r<a_c$ と $r\ge a_c$ に分け、後者で $\sqrt{r^2+a_c^2}=r+O(a_c^2/r)$ を用いる。前者は $\ell_X\ge\ell_0$ によりGaussian tailへ吸収できる。証明終。
+$2\ell\,\partial_\lambda\ell=\alpha\partial_\lambda\varrho$ と $\alpha(\varrho+\varrho_T)=\sigma_T^2(1+a^2)$ を使うと
+
+```math
+\frac{
+(G'(a)/G(a))\partial_\lambda a
+}{
+\partial_\lambda\log(\varrho+\varrho_T)
+}
+=
+\frac{1+a^2}{2a}
+\frac{G'(a)}{G(a)}
+=
+\varepsilon_F(a).
+```
+
+$\partial_\lambda\varrho=0$ の場合は両辺が0なので同じ式が成り立つ。canonical measureの積分領域は $\lambda$ に依存しないため $\partial_\lambda F=\langle\partial_\lambda H\rangle$ であり、mean-force identityが従う。$a>0$ で $\varepsilon_F$ は単調減少する。
+
+smooth coreは積分を $r<a_c$ と $r\ge a_c$ に分け、後者で $\sqrt{r^2+a_c^2}=r+O(a_c^2/r)$ を使ってまず $dR_{\rm core}/d\ell$ を評価し、$\partial_\lambda\ell=(\alpha/2\ell)\partial_\lambda\varrho$ で任意parameterへ移す。前者は $\ell\ge\ell_0$ によりGaussian tailへ吸収できる。証明終。
 <!-- theorem-end:proof -->
 
 ### $\ell_0=0$ を採らない理由
@@ -16761,9 +16824,11 @@ m_\mu\omega_\mu^2c_\mu^2
 
 を得る。finite-spectrumからDrude kernelへの固定有限時間近似はR209Bと同じ補題を再利用する。
 
-## 3次元Brownian dumbbellとR214A定常測度
+## 3次元Brownian dumbbell、Stratonovich規約とR214A定常測度
 
-short-memoryとsmall internal massの極では
+一次的な有限Hamiltonianではbath相関時間は有限であり、確率微分規則の選択はない。本稿では有限相関GLEからwhite-noise Markov lawを取る物理的極限をStratonovich表示で記述し、Itô表示はFokker--Planck、Bayes条件付き率、非線形座標変換の計算に必要な場合だけ使う。
+
+short-memoryとsmall internal massの極ではCartesian内部座標について
 
 ```math
 d\mathbf r_t
@@ -16771,12 +16836,13 @@ d\mathbf r_t
 -\frac1{\gamma_r}
 \nabla_{\mathbf r}V_{\rm db}\,dt
 +
-\sqrt{\frac{2k_BT}{\gamma_r}}d\mathbf W_t
+\sqrt{\frac{2k_BT}{\gamma_r}}
+\circ d\mathbf W_t
 +
 R_r(t).
 ```
 
-corelessで $r_t=|\mathbf r_t|$ とするとItô公式から
+noise amplitudeは定数なのでCartesian座標ではStratonovichとItôが一致する。corelessで $r_t=|\mathbf r_t|$ とし、半径過程をItô表示へ変換すると
 
 ```math
 dr_t
@@ -16790,7 +16856,7 @@ dr_t
 \sqrt{\frac{2k_BT}{\gamma_r}}dW_t.
 ```
 
-従って固定 $X$ の定常半径密度は
+$2D_r/r$ はCartesianな有限相関極限を半径座標へ写した3次元幾何学driftであり、Itôを物理的基本規約に選んだために追加した項ではない。従って固定 $X$ の定常半径密度は
 
 ```math
 p_{\rm eq}(r\mid X)
@@ -16934,42 +17000,72 @@ strong convexityからradial Markov semigroupは指数相関減衰を持つた�
 
 を要求する。
 
-## M37へのbackreaction
+## generic reciprocal loadとport stability
 
-局所強度を
+source coordinateを $z$ とする。$z$ 依存が $\varrho(X;z)$ を通じてのみ入るとき、dumbbellからsourceへ戻る瞬間的Hamiltonian loadは
+
+```math
+F_z^{\rm db}
+=
+-\nabla_zH_{\rm db}
+=
+k(\rho_c-\ell)
+\nabla_z\ell,
+```
+
+```math
+\nabla_z\ell
+=
+\frac{\alpha}{2\ell}
+\nabla_z\varrho.
+```
+
+prepared energy shell $H_{\rm db}\le E_*$ と $\ell\ge\ell_0$ から
+
+```math
+|\rho_c-\ell|
+\le
+\sqrt{\frac{2E_*}{k}}
+```
+
+なので、pointwiseに
+
+```math
+\|F_z^{\rm db}\|
+\le
+\frac{
+\alpha\sqrt{2kE_*}
+}{
+2\ell_0
+}
+\|\nabla_z\varrho\|
+```
+
+を得る。従ってR214がsourceに要求するbackreaction情報は、source固有のport susceptibility $\|\nabla_z\varrho\|$ へ分離できる。
+
+### current M37 load specialization
+
+current M67 coherent profileでは
 
 ```math
 \varrho_X
 =
-\frac{b^\dagger B_Xb}{N_0}
-```
-
-と書くと
-
-```math
-\frac{\partial\ell_X}{\partial b^*}
+\frac{b^\dagger B_Xb}{N_0},
+\qquad
+\frac{\partial\varrho_X}{\partial b^*}
 =
-\frac{\alpha}{2N_0\ell_X}
-B_Xb.
+\frac{B_Xb}{N_0}.
 ```
 
-したがってprepared dumbbell energy shell $H_{\rm db}\le E_*$、$\ell_X\ge\ell_0$、$\|b\|=O(\sqrt{N_0})$ ではsignalへの絶対loadは
+$\|b\|=O(\sqrt{N_0})$ のprepared tubeではgeneric load boundから
 
 ```math
 \|G_{\rm db}\|
 =
-O(N_0^{-1/2}),
+O(N_0^{-1/2})
 ```
 
-bare signalとの相対固定有限時間loadは
-
-```math
-q_{\rm load}^{\rm db}(T)
-=
-O(N_0^{-1}).
-```
-
-また
+を回収する。さらに
 
 ```math
 H_{\rm db}[e^{i\theta}b]
@@ -16977,33 +17073,129 @@ H_{\rm db}[e^{i\theta}b]
 H_{\rm db}[b]
 ```
 
-なのでcommon carrier phase/actionを直接吸収しない。R210AのDuhamel/bootstrap評価を同じ形で再利用できる。
-
-## R214B：finite-bath dynamic lift / Q3-2 compatibility
-
-R214Aのregularized densityを
+なのでcommon carrier phase/actionを直接吸収しない。fixed finite-time trajectory-level
 
 ```math
-\widetilde\rho
+q_{\rm load}^{\rm db}(T)
 =
-\varrho+\varrho_T
+O(N_0^{-1})
 ```
 
-とし、canonical M64 target driftを
+はR214本体の一般仮定ではなく、R210AのDuhamel/bootstrap theoremをこのloadへ特殊化して得る。
+
+### port-stabilityからscore/drift-stability
+
+二つのnonnegative scalar ports $\varrho,\varrho^\circ$ に対し
 
 ```math
-b_{64}^{\rm db}(x,t)
+\widetilde\varrho
 =
-U_X^{64}(x,t)
+\varrho+\varrho_T,
+\qquad
+\widetilde\varrho^\circ
+=
+\varrho^\circ+\varrho_T
+\ge
+\varrho_T>0
+```
+
+とする。$\delta\varrho=\varrho-\varrho^\circ$ と置けば厳密に
+
+```math
+\nabla\log\widetilde\varrho
+-
+\nabla\log\widetilde\varrho^\circ
+=
+\frac{\nabla\delta\varrho}{\widetilde\varrho}
+-
+\frac{
+\delta\varrho\,\nabla\varrho^\circ
+}{
+\widetilde\varrho
+\widetilde\varrho^\circ
+}.
+```
+
+従って
+
+```math
+\left\|
+\nabla\log\widetilde\varrho
+-
+\nabla\log\widetilde\varrho^\circ
+\right\|_\infty
+\le
+\frac1{\varrho_T}
+\|\nabla\delta\varrho\|_\infty
 +
-\nu\partial_x\log\widetilde\rho(x,t),
+\frac{
+\|\nabla\varrho^\circ\|_\infty
+}{
+\varrho_T^2
+}
+\|\delta\varrho\|_\infty.
+```
+
+generic target driftを
+
+```math
+b[\varrho,U]
+=
+U
++
+\nu\nabla\log(\varrho+\varrho_T),
 \qquad
 \nu=\frac{k_BT}{\gamma_X}
 ```
 
-と定める。$\varrho_T$ は空間・時間に依らないので、規格化後も $J/\widetilde\rho$ と $\partial_x\log\widetilde\rho$ は不変である。
+とすれば、
 
-finite bathとfast dumbbellをMarkov化した後の重心を $(X_t^M,V_t^M)$ とし、
+```math
+\|b[\varrho,U]-b[\varrho^\circ,U^\circ]\|_\infty
+\le
+\|U-U^\circ\|_\infty
++
+\nu C_{\rm score}
+\|\varrho-\varrho^\circ\|_{C^1},
+```
+
+```math
+C_{\rm score}
+=
+\frac1{\varrho_T}
++
+\frac{
+\|\nabla\varrho^\circ\|_\infty
+}{
+\varrho_T^2
+}.
+```
+
+この補題によりsource-specificなtrajectory stabilityは $\|\varrho-\varrho^\circ\|_{C^1}$ と $\|U-U^\circ\|_\infty$ の評価だけをR214へ渡せばよい。
+
+## R214B：finite-bath dumbbellのgeneric density/flow-port縮約
+
+generic target ports $\varrho(x,t)\ge0$、$U(x,t)$ に対し
+
+```math
+\widetilde\varrho
+=
+\varrho+\varrho_T,
+```
+
+```math
+b_{\rm port}(x,t)
+=
+U(x,t)
++
+\nu\partial_x\log\widetilde\varrho(x,t),
+\qquad
+\nu=\frac{k_BT}{\gamma_X}
+```
+
+と定める。$b_{\rm port}$ は固定有限時間上で一様bound $B_*$ と空間Lipschitz定数 $L_b$ を持つとする。
+
+finite bathとfast dumbbellをMarkov化した後の重心を $(X_t^M,V_t^M)$ とし、有限相関GLEからのwhite-noise極限をStratonovich表示で
 
 ```math
 dX_t^M=V_t^Mdt,
@@ -17016,25 +17208,49 @@ M_XdV_t^M
 \left[
 V_t^M
 -
-b_{64}^{\rm db}(X_t^M,t)
+b_{\rm port}(X_t^M,t)
 -
 e_{214}(X_t^M,t)
 \right]dt
 +
-\sqrt{2\gamma_Xk_BT}\,dW_t
+\sqrt{2\gamma_Xk_BT}\circ dW_t
 +
 \delta F_t^{\rm db}dt
 ```
 
-と書く。$e_{214}$ はR209Aのflow residual、R214Aのshell/core mean-force residual、fast-dumbbell tracking、R210Aから渡るsignal-load residualを一度ずつ含む決定論的drift mismatchで、
+と書く。$\gamma_X$ はrequired leading sectorでは定数なので、ここでのStratonovich--Itô補正は0である。
+
+$e_{214}$ はflow-port residual、R214Aのshell/core mean-force residual、fast-dumbbell tracking residual、AC.7.2から渡るsource-port stability residualを一度ずつ含む決定論的drift mismatchとし、
 
 ```math
 \Delta_{214}^{\rm drift}
 :=
-\|e_{214}\|_\infty
+\|e_{214}\|_\infty.
 ```
 
-と置く。$\delta F_t^{\rm db}$ はAC.6の中心化内部forceである。
+source-specific port contributionは
+
+```math
+\Delta_{\rm port}
+\le
+\varepsilon_U
++
+\nu C_{\rm score}\varepsilon_\varrho,
+```
+
+```math
+\varepsilon_\varrho
+=
+\sup_{t\le T}
+\|\varrho_t-\varrho_t^\circ\|_{C^1},
+\qquad
+\varepsilon_U
+=
+\sup_{t\le T}
+\|U_t-U_t^\circ\|_\infty
+```
+
+として分離する。$\delta F_t^{\rm db}$ はAC.6の中心化内部forceである。
 
 small-mass parameterを
 
@@ -17054,32 +17270,32 @@ Y_t=X_t^M+\epsilon_MV_t^M
 dY_t
 =
 \left[
-b_{64}^{\rm db}(X_t^M,t)
+b_{\rm port}(X_t^M,t)
 +
 e_{214}(X_t^M,t)
 \right]dt
 +
-\sqrt{2\nu}\,dW_t
+\sqrt{2\nu}\circ dW_t.
 ```
 
-となる。したがって同じBrownian motionで
+同じBrownian motionでreference port diffusion
 
 ```math
-dX_t^{64}
+dX_t^{\rm port}
 =
-b_{64}^{\rm db}(X_t^{64},t)dt
+b_{\rm port}(X_t^{\rm port},t)dt
 +
-\sqrt{2\nu}\,dW_t
+\sqrt{2\nu}\circ dW_t
 ```
 
-を駆動し、$b_{64}^{\rm db}$ が空間Lipschitz定数 $L_b$、一様bound $B_*$ を持ち、velocityをMaxwell preparationすれば、
+を駆動する。noiseは加法的なので以下のcoupling評価はItô表示へ移しても同一である。velocityをMaxwell preparationすれば、
 
 ```math
 \sup_{t\le T}
 W_1
 \left(
 \mathcal L(X_t^M),
-\mathcal L(X_t^{64})
+\mathcal L(X_t^{\rm port})
 \right)
 \le
 e^{L_bT}
@@ -17097,10 +17313,8 @@ C_{\rm sm}(L_b,T)
 \sqrt{\nu\epsilon_M}
 \right]
 +
-R_{\rm db}^{W_1}(T),
+R_{\rm db}^{W_1}(T).
 ```
-
-と評価できる。ここで $C_{\rm sm}(L_b,T)$ は固定有限時間で有限な定数である。
 
 single-dumbbellの中心化forceについて
 
@@ -17158,9 +17372,9 @@ C_T
 ```
 
 <!-- theorem-start:theorem -->
-**定理（R214B：finite-bath dumbbellの動的osmotic縮約とQ3-2 compatibility）**
+**定理（R214B：finite-bath dumbbellのgeneric density/flow-port動的osmotic縮約）**
 
-R214Aのsafe sector、R209Aのgeneric flow compatibility、R209Bのgeneric finite harmonic bath / Markov--FDT条件を仮定する。さらに
+R214Aのsafe sector、AC.7.2のport-stability条件、R209Bのgeneric finite harmonic bath / Markov--FDT条件を仮定する。さらに
 
 ```math
 \tau_{\rm mem}^{(r)}
@@ -17182,21 +17396,21 @@ T_{\rm rec}^{(r)},
 \varepsilon_{\rm fr}^{\rm abs}\to0
 ```
 
-を満たすとする。このときM67 dumbbell tracerとcanonical M64 tracerについて
+を満たすとする。このときfinite-bath dumbbell tracerとreference port diffusionについて
 
 ```math
 \sup_{t\le T}
 W_1
 \left(
-\mathcal L(X_t^{67,{\rm db}}),
-\mathcal L(X_t^{64})
+\mathcal L(X_t^{\rm db}),
+\mathcal L(X_t^{\rm port})
 \right)
 \le
-\varepsilon_{214\to64}(T),
+\varepsilon_{214}^{\rm port}(T),
 ```
 
 ```math
-\varepsilon_{214\to64}(T)
+\varepsilon_{214}^{\rm port}(T)
 =
 \varepsilon_{\rm bath}^{X}
 +
@@ -17227,9 +17441,57 @@ C_T
 }
 ```
 
-を得る。ここで $\Delta_{214}^{\rm drift}$ にはshell/core、flow/material-frame、tracking、signal-loadの各偏差を一度だけ含め、M64自身のR203C baseline errorは含めない。
+を得る。$\Delta_{214}^{\rm drift}$ にはshell/core、flow-port、tracking、source-port stabilityの各偏差を一度だけ含める。source-specific model自身のbaseline errorは含めない。
+<!-- theorem-end:theorem -->
 
-従ってR203Cとの三角不等式から
+<!-- theorem-start:proof -->
+**証明（R214B）**
+
+R209Bをdumbbell内部座標へ特殊化してfinite translated harmonic bathを消去し、short-memoryとsmall internal massでAC.5の三次元Brownian dumbbellを得る。有限相関極限はCartesian Stratonovich lawで取り、noise amplitudeが一定なのでItô表示へ変換してもdrift補正はない。半径表示では幾何学drift $2D_r/r$ が生じ、R214Aの $r^2$ canonical measureを回収する。AC.6の一方向contractivityによりmoving $\ell_t$ へのtracking residualを $\Delta_{214}^{\rm drift}$ へ入れる。
+
+重心small-mass極では $Y=X+\epsilon_MV$ を使うと上のSDEが厳密に得られる。同じBrownian motionでreference port過程を駆動し、$X=Y-\epsilon_MV$、drift Lipschitz性、Maxwell preparationの
+$\epsilon_M\sup_{t\le T}\mathbb E|V_t|
+=
+O(\epsilon_MB_*)+O(\sqrt{\nu\epsilon_M})$
+を使ってGronwall評価する。中心化dumbbell forceの積分はAC.6のabsolute covariance積分で二乗平均評価し、追加Green--Kubo dragは $\varepsilon_{\rm fr}$ で別に抑える。source-specific port差はAC.7.2のscore/drift stability boundだけを通じて合成する。R209Cは用いない。証明終。
+<!-- theorem-end:proof -->
+
+### current M37/M64 specialization
+
+current Q3-2では
+
+```math
+\varrho_X
+=
+\frac1{N_0}
+\sum_i\chi_i(X)
+\frac{Q_i^2+P_i^2}{2\mathcal J_0},
+\qquad
+U=U_X^{64}
+```
+
+を選ぶ。R210AがM37 coherent sourceのload-only trajectory stabilityを、R209AがM67 flowとcanonical M64 flowのcompatibilityを供給するので、AC.7.2の $\varepsilon_\varrho,\varepsilon_U$ をcurrent profile固有誤差で抑えられる。この特殊化では
+
+```math
+b_{\rm port}
+=
+U_X^{64}
++
+\nu\partial_X
+\log(\varrho+\varrho_T)
+=
+b_{64}^{\rm db}
+```
+
+となり、
+
+```math
+\varepsilon_{214}^{\rm port}
+\longrightarrow
+\varepsilon_{214\to64}.
+```
+
+従って従来のrequired bridge
 
 ```math
 W_1
@@ -17240,23 +17502,10 @@ W_1
 \le
 \varepsilon_{214\to64}(T)
 +
-\varepsilon_{\rm red}^{64}(T).
+\varepsilon_{\rm red}^{64}(T)
 ```
 
-$\partial_t\widetilde\rho+\partial_XJ=0$ なので、R161/R185の既存regularized lawへそのまま接続する。
-<!-- theorem-end:theorem -->
-
-<!-- theorem-start:proof -->
-**証明（R214B）**
-
-R209Bをdumbbell内部座標へ特殊化してfinite translated harmonic bathを消去し、short-memoryとsmall internal massでAC.5の三次元Brownian dumbbellを得る。Itô公式から半径の幾何学drift $2D_r/r$ が生じ、R214Aの $r^2$ canonical measureを回収する。AC.6の一方向contractivityによりmoving $\ell_t$ へのtracking residualを $\Delta_{214}^{\rm drift}$ へ入れる。
-
-重心small-mass極では $Y=X+\epsilon_MV$ を使うと上のSDEが厳密に得られる。同じBrownian motionでM64過程を駆動し、$X=Y-\epsilon_MV$、drift Lipschitz性、Maxwell preparationの
-$\epsilon_M\sup_{t\le T}\mathbb E|V_t|
-=
-O(\epsilon_MB_*)+O(\sqrt{\nu\epsilon_M})$
-を使ってGronwall評価する。中心化dumbbell forceの積分はAC.6のabsolute covariance積分で二乗平均評価し、追加Green--Kubo dragは $\varepsilon_{\rm fr}$ で別に抑える。R209Aのflow residualとR210Aのload-only signal errorを合成すれば表示した $W_1$ boundを得る。R209Cは用いない。最後の式はR203Cとの三角不等式である。証明終。
-<!-- theorem-end:proof -->
+をR203Cとの三角不等式で回収する。$\partial_t\widetilde\rho+\partial_XJ=0$ なので、R161/R185の既存regularized lawへそのまま接続する。
 
 ## 明示parameter witness
 
@@ -17309,15 +17558,18 @@ O(\lambda^3),
 
 ## required主線と責務境界
 
-draft-145でR214A--R214Bをcontinuous Q3-2のrequired主線へ昇格し、draft-146で旧continuous phase-volume bridgeを退役した。
+draft-145でR214A--R214Bをcontinuous Q3-2のrequired主線へ昇格し、draft-146で旧continuous phase-volume bridgeを退役した。draft-149では結果IDとrequired状態を維持したまま、R214A/B本体をgeneric density/flow port theoremへ一般化する。
 
-- R209A/R209Bはgeneric flow / finite-bath補題としてR214B内部から使う。
-- R214BはR209Cを参照せずsmall-mass $W_1$ bridgeを自身で閉じる。
-- R210Aはgeneric coherent-load theoremとしてdumbbell loadを受ける。
-- 旧R208B/R208C/R209Cはactive resultから退役し、結果IDを再利用しない。
+- R214Aはsource固有の密度辞書を仮定せず、nonnegative scalar portからphase-volume free energy、osmotic mean force、reciprocal mean forceを回収する。
+- R214Bはgeneric $b_{\rm port}=U+\nu\nabla\log(\varrho+\varrho_T)$ に対するfinite-bath / fast-dumbbell / small-mass $W_1$ bridgeを閉じる。
+- source固有のstabilityは $\varepsilon_\varrho,\varepsilon_U$ としてinterfaceへ渡し、R214本体ではその起源を仮定しない。
+- current M37/M64 specializationではR210Aがcoherent load stability、R209Aがflow compatibilityを供給し、従来の $\varepsilon_{214\to64}$ を回収する。
+- R209Bはgeneric finite-bath/FDT補題としてR214B内部から使う。
+- 旧R208B/R208C/R209Cはactive resultから退役したままとし、結果IDを再利用しない。
 - R208Dはprofile-dispatch bridgeとしてactive維持する。
 - finite-graph Q3-4A/Q3-4B/Q3-5へR214を流用しない。
-- Q3-2-A1/A2を変更しない。supporting reduced witnessだけからA2を昇格しない。
+- Q3-2 fixed-goal、Q3-2-A1/A2、M37/R86、M64/R203、R161/R185の運用状態を変更しない。
+- R215、Fisher information/free energy、M68、Schrödinger再導出は本draftに含めない。
 
 # 参考文献
 
