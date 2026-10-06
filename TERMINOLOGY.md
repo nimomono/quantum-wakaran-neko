@@ -384,3 +384,15 @@ CNOT、CHSH、SWAP、SU(2)、Q1、Q2、Q3、M37、M54、R164などの略号・�
 | natural length $\ell_0$ | 有限自然長 | signalが零でも残るdumbbellの基準長。一本バネ模型のnode非解析を避けるため $\ell_0>0$ を採用 |
 | thermal width $\sigma_T$ | 熱幅 | $\sigma_T^2=k_BT/k$。自然長とは別のcanonical radial fluctuation scale |
 | dumbbell FDT correction | dumbbell追加FDT補正 | single dumbbell内部力の高速揺らぎを消去したときに生じる追加Green--Kubo摩擦 $\zeta_{\rm db}$、absolute covariance積分 $\zeta_{\rm db}^{\rm abs}$ と対応noise |
+
+
+---
+
+## draft-150：R215 spatial-information用語
+
+| 原語・記号 | 本文の標準表記 | 使い分け |
+|---|---|---|
+| projectively compatible port | 射影的に整合するdensity/flow port | $w\mapsto c(t)w$ の全体倍率を許し、規格化density $\pi=w/\int w$ がcontinuityを満たすR215Aの条件 |
+| score velocity / osmotic velocity $u$ | score速度／osmotic速度 | R215Aでは $u=\nu\partial_x\log\pi$。微視的瞬間速度と同一視しない |
+| spatial-information gradient free energy $\mathcal F_{\rm SI}$ | 空間情報勾配自由エネルギー | R215Bで定義する非平衡・勾配functional。R214Aの局所canonical free energy $F_{\rm db}$ と区別する |
+| $\mathcal J_{\rm SI}$ | spatial-information作用尺度 | $2M_X\nu=2k_BT\tau_v$。M37/R185の $\mathcal J_0$ と同一視しない |
