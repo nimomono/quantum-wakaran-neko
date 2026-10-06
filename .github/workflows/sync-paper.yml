@@ -11,6 +11,7 @@ on:
 permissions:
   contents: write
   actions: write
+  pull-requests: read
 
 concurrency:
   group: sync-paper-${{ inputs.target_branch }}
@@ -37,6 +38,12 @@ jobs:
               ;;
           esac
           test "$TARGET_BRANCH" != "$DEFAULT_BRANCH"
+
+      - name: open PR branchであることを確認
+        run: |
+          set -euo pipefail
+          pr_count="$(gh pr list --repo "$GITHUB_REPOSITORY" --head "$TARGET_BRANCH" --state open --json number --jq 'length')"
+          test "$pr_count" -gt 0
 
       - name: 対象branchを取得
         uses: actions/checkout@v4

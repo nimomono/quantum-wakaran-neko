@@ -127,7 +127,7 @@ python tools/check_latex_semantics.py build/ci/latex/main.log
 python tools/lint_typeset.py build/ci/latex/main.log
 ```
 
-通常の `.github/workflows/verify.yml` はread-onlyであり、生成物不同期を検出してもbranchを自己修正しない。同一repository内のPR branchで生成物を同期するときは、default branchにある手動 `.github/workflows/sync-paper.yml` を使う。これは `workflow_dispatch` のみで起動し、default branchを拒否し、`paper.md` / `main.tex` / `paper.pdf` 以外の差分があれば停止する。生成3ファイルを通常commit/pushした後、対象branchの `verify.yml` を明示的に再実行する。
+通常の `.github/workflows/verify.yml` はread-onlyであり、生成物不同期を検出してもbranchを自己修正しない。同一repository内のopen PR branchで生成物を同期するときは、default branchにある手動 `.github/workflows/sync-paper.yml` を使う。これは `workflow_dispatch` のみで起動し、default branchを拒否し、`paper.md` / `main.tex` / `paper.pdf` 以外の差分があれば停止する。生成3ファイルを通常commit/pushした後、対象branchの `verify.yml` を明示的に再実行する。
 
 ## `check_latex_semantics.py` と `lint_typeset.py`
 
@@ -167,6 +167,6 @@ LaTeXログの分類は `latex_log.py` を正本とする。
 
 ## CIの不変条件
 
-通常検算の `verify.yml` はread-onlyとし、検算中に `git commit`、`git push`、PR branchの自己書換えを行わない。書込み可能なのは手動 `sync-paper.yml` だけで、同一repository内の非default branchに対する生成3ファイルの同期へ限定する。
+通常検算の `verify.yml` はread-onlyとし、検算中に `git commit`、`git push`、PR branchの自己書換えを行わない。書込み可能なのは手動 `sync-paper.yml` だけで、同一repository内のopen PRかつ非default branchに対する生成3ファイルの同期へ限定する。
 
 `原稿構造`、`数式・数値`、`論文生成` の3ジョブは独立に走らせる。論文生成job内でも、buildが成功した後はartifact sync、LaTeX semantic、typeset lintを互いの失敗で隠さない。

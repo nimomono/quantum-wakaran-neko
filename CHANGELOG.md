@@ -1,7 +1,7 @@
 ## draft-148：生成物同期maintenance workflow
 
 - 通常の `verify.yml` をread-onlyのまま維持し、`workflow_dispatch` で明示再実行できるようにした。
-- 手動 `sync-paper.yml` を追加し、同一repository内の非default branchに対する `paper.md` / `main.tex` / `paper.pdf` の同期だけを書込み可能にした。
+- 手動 `sync-paper.yml` を追加し、同一repository内のopen PRかつ非default branchに対する `paper.md` / `main.tex` / `paper.pdf` の同期だけを書込み可能にした。
 - sync workflowはdefault branch直書き、force push、生成3ファイル以外の差分を拒否し、対象branchが実行開始後に進んだ場合もpushを中止する。
 - 同期後は対象branchのread-only `verify.yml` を明示dispatchする。生成物不同期は従来どおりhard failureのままとする。
 - validation policy / self-test / tools documentationをこの責務境界へ同期した。理論本文、固定目標、required/candidate科学検算は変更していない。

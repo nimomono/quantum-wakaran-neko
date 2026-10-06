@@ -96,7 +96,9 @@ def test_sync_paper_workflow_is_manual_and_scoped() -> None:
     assert "\n  push:" not in workflow
     assert "contents: write" in workflow
     assert "actions: write" in workflow
+    assert "pull-requests: read" in workflow
     assert 'test "$TARGET_BRANCH" != "$DEFAULT_BRANCH"' in workflow
+    assert 'gh pr list --repo "$GITHUB_REPOSITORY" --head "$TARGET_BRANCH" --state open' in workflow
     assert "git push --force" not in workflow
     assert "git push -f" not in workflow
     assert "git add -- paper.md main.tex paper.pdf" in workflow

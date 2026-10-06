@@ -50,7 +50,7 @@ YESなら恒久CI候補である。NOなら恒久CIへ入れず、移行検査�
 - `check_terminology.py` と `lint_typeset.py` は編集品質をlintする。
 - `migrations/` は特定PRの移行確認専用で、通常CIから呼ばない。
 - 通常の検算workflow `verify.yml` はread-onlyとし、自動commit/pushを行わない。
-- 例外として、手動 `workflow_dispatch` 専用の `sync-paper.yml` は同一repository内の非default branchに対する `paper.md` / `main.tex` / `paper.pdf` の同期だけを書き込んでよい。`push` / `pull_request` では自動起動せず、default branch直書きとforce pushを禁止し、同期後はread-only `verify.yml` を対象branchで再実行する。
+- 例外として、手動 `workflow_dispatch` 専用の `sync-paper.yml` は同一repository内のopen PRかつ非default branchに対する `paper.md` / `main.tex` / `paper.pdf` の同期だけを書き込んでよい。`push` / `pull_request` では自動起動せず、default branch直書きとforce pushを禁止し、同期後はread-only `verify.yml` を対象branchで再実行する。
 
 ## 検算作成ルール
 
@@ -89,7 +89,7 @@ python tools/run_physics_checks.py --include-candidate
 
 `sections/*.md` を正本とし、`paper.md`、`main.tex`、`paper.pdf` はrepositoryへ収録する生成物とする。通常の `verify.yml` は隔離ディレクトリへ再生成して収録生成物との一致をhard checkするだけで、branchを書き換えない。
 
-収録生成物が古い場合は、同一repository内のPR branch名を指定して手動 `sync-paper.yml` を実行する。このworkflowは生成・LaTeX semantic検査・組版lintを通した後、差分が生成3ファイルだけであることを確認して通常commit/pushする。対象branchが実行開始後に進んでいた場合はpushを中止し、force pushで上書きしない。同期後は `verify.yml` を対象branchへ明示dispatchする。
+収録生成物が古い場合は、同一repository内のopen PR branch名を指定して手動 `sync-paper.yml` を実行する。このworkflowは生成・LaTeX semantic検査・組版lintを通した後、差分が生成3ファイルだけであることを確認して通常commit/pushする。対象branchが実行開始後に進んでいた場合はpushを中止し、force pushで上書きしない。同期後は `verify.yml` を対象branchへ明示dispatchする。
 
 ## 診断方針
 
