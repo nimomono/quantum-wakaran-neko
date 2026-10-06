@@ -43,6 +43,10 @@ def main() -> None:
     if problems:
         for problem in problems:
             print("ERROR:", problem)
+        print(
+            "HINT: run `python tools/build_paper.py` locally, or use the manual "
+            "`生成物同期` workflow for a same-repository PR branch."
+        )
         raise SystemExit(1)
 
     for name in ("paper.md", "main.tex"):
@@ -63,6 +67,10 @@ def main() -> None:
     if problems:
         for problem in problems:
             print("ERROR:", problem)
+        print(
+            "HINT: run `python tools/build_paper.py` locally, or use the manual "
+            "`生成物同期` workflow for a same-repository PR branch."
+        )
         raise SystemExit(1)
 
     print("generated_artifacts_check_ok")

@@ -49,7 +49,8 @@ YESなら恒久CI候補である。NOなら恒久CIへ入れず、移行検査�
 - `check_latex_semantics.py` はLaTeXの重大異常だけを見る。
 - `check_terminology.py` と `lint_typeset.py` は編集品質をlintする。
 - `migrations/` は特定PRの移行確認専用で、通常CIから呼ばない。
-- GitHub Actionsはread-onlyとし、自動commit/pushを行わない。
+- 通常の検算workflow `verify.yml` はread-onlyとし、自動commit/pushを行わない。
+- 例外として、手動 `workflow_dispatch` 専用の `sync-paper.yml` は同一repository内の非default branchに対する `paper.md` / `main.tex` / `paper.pdf` の同期だけを書き込んでよい。`push` / `pull_request` では自動起動せず、default branch直書きとforce pushを禁止し、同期後はread-only `verify.yml` を対象branchで再実行する。
 
 ## 検算作成ルール
 
@@ -63,7 +64,7 @@ YESなら恒久CI候補である。NOなら恒久CIへ入れず、移行検査�
 8. 独立な検算は最初の失敗で停止せず、可能な限り全件を実行して失敗一覧を返す。
 9. 生成物同期、LaTeX semantic error、typeset lintは別々に報告する。
 10. 新しい恒久ruleには、その責務境界が再び破られないための自己検査を追加する。
-11. CIはread-onlyとし、移行スクリプトによるbranch自己書換えを行わない。
+11. 通常検算CIはread-onlyとし、移行スクリプトによるbranch自己書換えを行わない。生成物同期が必要な場合だけ、手動 `sync-paper.yml` が生成3ファイルへ限定して非default branchを更新する。
 12. warningをhardへ昇格するときは、このポリシーに理由を明記する。
 
 ## required と candidate
@@ -83,6 +84,12 @@ python tools/run_physics_checks.py --include-candidate
 特定PRで「旧模型名が残っていない」「旧依存が復活していない」などを確認したい場合は `tools/migrations/` に一時検査を置く。
 
 移行検査は完成状態を作るための作業ツールであり、恒久的な理論契約ではない。通常CIから呼ばず、原則として対象移行が完了したら削除する。残す場合も履歴・手順書としてのみ残す。
+
+## 生成物同期workflow
+
+`sections/*.md` を正本とし、`paper.md`、`main.tex`、`paper.pdf` はrepositoryへ収録する生成物とする。通常の `verify.yml` は隔離ディレクトリへ再生成して収録生成物との一致をhard checkするだけで、branchを書き換えない。
+
+収録生成物が古い場合は、同一repository内のPR branch名を指定して手動 `sync-paper.yml` を実行する。このworkflowは生成・LaTeX semantic検査・組版lintを通した後、差分が生成3ファイルだけであることを確認して通常commit/pushする。対象branchが実行開始後に進んでいた場合はpushを中止し、force pushで上書きしない。同期後は `verify.yml` を対象branchへ明示dispatchする。
 
 ## 診断方針
 

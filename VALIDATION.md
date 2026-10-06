@@ -1,3 +1,15 @@
+## draft-148：生成物同期maintenance workflow検算
+
+- 通常検算 `.github/workflows/verify.yml` は `contents: read` を維持し、`workflow_dispatch` を追加するだけとする。
+- 手動 `.github/workflows/sync-paper.yml` は `workflow_dispatch` 専用とし、`push` / `pull_request` triggerを持たない。
+- sync対象は同一repository内の非default branchに限定し、default branch直書きとforce pushを禁止する。
+- `python tools/build_paper.py`、LaTeX semantic検査、typeset lintの後、変更対象が `paper.md` / `main.tex` / `paper.pdf` だけであることを確認してcommitする。
+- 実行開始時のremote headとpush直前のremote headを比較し、branchが進んでいれば同期commitをpushしない。
+- 同期後は `gh workflow run verify.yml --ref <target>` でread-only検算を明示再実行する。
+- `tools/test_validation_policy.py` でverify read-only、sync manual-only、write scope、default-branch guard、force-push禁止、生成3ファイル限定を回帰する。
+- `tools/check_generated.py` は不同期をhard failureのまま維持し、ローカル再生成または手動sync workflowという修正導線だけを表示する。
+- 理論本文、PROJECT_STATUS、固定目標、M/R/Q依存、required/candidate区分、physics verifierの数式・数値内容は変更しない。
+
 ## draft-147：R211 open reduction / retired dependency cleanup検算
 
 - R211Aのstatic phase-volume mean-forceを自身のJacobian計算で閉じ、R208B/R208Cへの依存を除く。

@@ -1,0 +1,119 @@
+name: 生成物同期
+
+on:
+  workflow_dispatch:
+    inputs:
+      target_branch:
+        description: "生成物を同期する同一repository内のPR branch"
+        required: true
+        type: string
+
+permissions:
+  contents: write
+  actions: write
+
+concurrency:
+  group: sync-paper-${{ inputs.target_branch }}
+  cancel-in-progress: false
+
+jobs:
+  sync-paper:
+    name: 生成論文を同期
+    runs-on: ubuntu-latest
+    env:
+      TARGET_BRANCH: ${{ inputs.target_branch }}
+      DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+      GH_TOKEN: ${{ github.token }}
+
+    steps:
+      - name: 対象branch名を検査
+        run: |
+          set -euo pipefail
+          git check-ref-format --branch "$TARGET_BRANCH"
+          case "$TARGET_BRANCH" in
+            refs/*)
+              echo "refs/ prefix is not accepted: $TARGET_BRANCH" >&2
+              exit 1
+              ;;
+          esac
+          test "$TARGET_BRANCH" != "$DEFAULT_BRANCH"
+
+      - name: 対象branchを取得
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.target_branch }}
+          fetch-depth: 0
+          lfs: true
+
+      - name: LFS生成資産を取得
+        run: git lfs pull
+
+      - name: 同期開始headを記録
+        id: base
+        run: echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+
+      - name: Pythonを準備
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: 組版依存を導入
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y pandoc poppler-utils texlive-latex-extra texlive-xetex
+
+      - name: 収録生成物を再生成
+        run: python tools/build_paper.py
+
+      - name: LaTeX重大異常を検査
+        run: python tools/check_latex_semantics.py build/latex/main.log
+
+      - name: 組版警告をlint
+        run: python tools/lint_typeset.py build/latex/main.log
+
+      - name: 生成3ファイル以外の変更を拒否
+        run: |
+          set -euo pipefail
+          unexpected="$(
+            git status --porcelain --untracked-files=all |
+            awk '{print $2}' |
+            grep -vE '^(paper\.md|main\.tex|paper\.pdf)$' || true
+          )"
+          if [ -n "$unexpected" ]; then
+            echo "unexpected changes:" >&2
+            printf '%s\n' "$unexpected" >&2
+            exit 1
+          fi
+          git diff --check
+
+      - name: 生成物commitを作成
+        id: commit
+        run: |
+          set -euo pipefail
+          if git diff --quiet -- paper.md main.tex paper.pdf; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- paper.md main.tex paper.pdf
+          git diff --cached --check
+          git commit -m "CI: 生成論文を同期"
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+
+      - name: 対象branchが進んでいないことを確認
+        if: steps.commit.outputs.changed == 'true'
+        env:
+          BASE_SHA: ${{ steps.base.outputs.sha }}
+        run: |
+          set -euo pipefail
+          remote_sha="$(git ls-remote origin "refs/heads/$TARGET_BRANCH" | cut -f1)"
+          test -n "$remote_sha"
+          test "$remote_sha" = "$BASE_SHA"
+
+      - name: 生成物commitをpush
+        if: steps.commit.outputs.changed == 'true'
+        run: git push origin "HEAD:refs/heads/$TARGET_BRANCH"
+
+      - name: read-only検算を再実行
+        run: gh workflow run verify.yml --ref "$TARGET_BRANCH"

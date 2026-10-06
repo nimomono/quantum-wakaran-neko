@@ -177,13 +177,13 @@ def check_verifier_boundary() -> None:
         )
 
 
-def check_ci_read_only() -> None:
+def check_verify_workflow_read_only() -> None:
     workflow = ROOT / ".github" / "workflows" / "verify.yml"
     text = workflow.read_text(encoding="utf-8")
     forbidden = ("git push", "git commit", "contents: write")
     hits = [token for token in forbidden if token in text]
     if hits:
-        raise AssertionError("CI must be read-only; found: " + ", ".join(hits))
+        raise AssertionError("verification workflow must be read-only; found: " + ", ".join(hits))
 
 
 def main() -> None:
@@ -191,7 +191,7 @@ def main() -> None:
     fixed_ids = check_project_status()
     check_enhancement_targets(fixed_ids)
     check_verifier_boundary()
-    check_ci_read_only()
+    check_verify_workflow_read_only()
     print("source_check_ok")
 
 
