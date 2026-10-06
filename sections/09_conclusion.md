@@ -49,4 +49,4 @@ draft-146ではR214A--R214Bがcontinuous Q3-2主線として自立したこと�
 
 ## R215A/B candidateの現在地
 
-R215A/Bにより、R214 dumbbellのgeneric scoreを規格化確率密度と空間情報free-energy functionalへ接続するcandidate枝を追加した。これはM37/R86のSchrödinger signalを置換する結果ではない。置換へ進むにはR215Cでmedium reversible closureを物理的に正当化し、後続M68で同じmedium/tracer/bathからsignal側とNelson側を同時に閉じる必要がある。
+R215A/Bにより、R214 dumbbellのgeneric scoreを規格化確率密度と空間情報free-energy functionalへ接続するcandidate経路を追加した。これはM37/R86のSchrödinger signalを置換する結果ではない。置換へ進むにはR215Cでmedium reversible closureを物理的に正当化し、後続M68で同じmedium/tracer/bathからsignal側とNelson側を同時に閉じる必要がある。
