@@ -492,6 +492,7 @@
 - `sections/A27_m67_two_entity_structured_reservoir.md`
 - `sections/A28_m67_nbl_q2_carrier.md`
 - `sections/A29_m67_dumbbell_q3_tracer.md`
+- `sections/A30_m67_spatial_information_free_energy.md`
 - `sections/90_references.md`
 
 ## 論文外の研究メモ
