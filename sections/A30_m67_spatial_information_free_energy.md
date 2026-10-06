@@ -53,8 +53,8 @@ Z(t)=\int_\Omega w(x,t)\,dx,
 ```
 と定義する。
 
-<!-- theorem-start:theorem -->
-**補題（R215A-0：projective compatibility）**
+<!-- theorem-start:lemma -->
+**補題（projective compatibility）**
 
 ある時間だけのscalar $\lambda(t)$ が存在して
 ```math
@@ -73,10 +73,10 @@ Z(t)=\int_\Omega w(x,t)\,dx,
 を満たす。
 
 逆に、規格化density $\pi$ がこのcontinuity lawを満たすなら、任意の正の $Z(t)$ に対して $w=Z(t)\pi$ はprojective compatibilityを満たす。
-<!-- theorem-end:theorem -->
+<!-- theorem-end:lemma -->
 
 <!-- theorem-start:proof -->
-**証明（R215A-0）**
+**証明（projective compatibility）**
 
 周期境界により
 ```math
