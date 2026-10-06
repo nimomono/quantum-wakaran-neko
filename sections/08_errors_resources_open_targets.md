@@ -776,10 +776,34 @@ draft-146で旧R208B/R208C/R209C経路をactive resultから退役したため�
 
 ## 8.12 R214 dumbbell required主線の誤差台帳
 
-R214A--R214Bでは新規誤差を
+draft-149以後、R214本体のsource-specific誤差はdensity/flow port interfaceへ集約する。generic target drift
 
 ```math
-\varepsilon_{214\to64}
+b_{\rm port}
+=
+U+\nu\nabla\log(\varrho+\varrho_T)
+```
+
+に対し、
+
+```math
+\Delta_{\rm port}
+\le
+\varepsilon_U
++
+\nu C_{\rm score}\varepsilon_\varrho,
+\qquad
+C_{\rm score}
+=
+\frac1{\varrho_T}
++
+\frac{\|\nabla\varrho^\circ\|_\infty}{\varrho_T^2}
+```
+
+とする。R214A--R214Bのgeneric誤差は
+
+```math
+\varepsilon_{214}^{\rm port}
 =
 \varepsilon_{\rm shell}
 +
@@ -797,12 +821,20 @@ R214A--R214Bでは新規誤差を
 +
 \varepsilon_{\rm fluc}
 +
-\varepsilon_{\rm sig}
+\Delta_{\rm port}
 +
 \varepsilon_{\rm init}
 ```
 
-と分ける。R209Aのflow residualとR209Bのfinite-bath residualはここへ一度だけ入り、R203CのM64 baseline、R86 carrier-envelope、R185 Newton residualは再加算しない。single dumbbellでは旧 $N_\rho^{-1/2}$ force self-averagingを使わず、
+と責務分離する。current M37/M64 specializationではR210Aのcoherent load stabilityとR209Aのflow compatibilityを $\Delta_{\rm port}$ へ一度だけ入れ、
+
+```math
+\varepsilon_{214}^{\rm port}
+\longrightarrow
+\varepsilon_{214\to64}.
+```
+
+R209Bのfinite-bath residualも一度だけ入り、R203CのM64 baseline、R86 carrier-envelope、R185 Newton residualは再加算しない。single dumbbellでは旧 $N_\rho^{-1/2}$ force self-averagingを使わず、
 
 ```math
 \zeta_{\rm db}^{\rm abs}
@@ -822,6 +854,5 @@ R214A--R214Bでは新規誤差を
 }
 ```
 
-を位置過程誤差として直接管理する。small-mass項は $\epsilon_M=M_X/\gamma_X$ に対して
-$O(\epsilon_M)+O(\sqrt{\nu\epsilon_M})$ とし、追加dragは
-$\varepsilon_{\rm fr}=o(\sqrt{\epsilon_M})$ のjoint limitで消す。Q3-2-A1/A2、finite-graph Q3-4A/B・Q3-5の判定は変更しない。
+を位置過程誤差として直接管理する。small-mass項は $\epsilon_M=M_X/\gamma_X$ に対して $O(\epsilon_M)+O(\sqrt{\nu\epsilon_M})$ とし、追加dragは $\varepsilon_{\rm fr}=o(\sqrt{\epsilon_M})$ のjoint limitで消す。Q3-2-A1/A2、finite-graph Q3-4A/B・Q3-5の判定は変更しない。
+

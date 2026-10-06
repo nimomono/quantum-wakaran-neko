@@ -98,7 +98,7 @@ Q2-1は $L=4$、Q2-3は $L=8$、Q2-4は $L=2^n$ とする。Q2-4ではR206Eの�
 
 Q2-2 fixed-goalはM67/R212B-rotによるtwo-rotor canonical preparationをM66/R205Eへ縮約し、near-contact hidden-direction lock、R212C/R205F passive separation、R207 local sign latch/recordを一試行で接続する。一般Bloch方向のsinglet共同統計を任意精度で再現し、分離後local response factorizationとmeasurement independenceの不成立を監査する。
 
-Q3のsignal数学はQ1/Q2の局所実正準信号と2体系結合の空間特殊化である。Q3のphysical parentはM67であり、用途別の現行因果鎖を混ぜずに
+Q3のsignal数学はQ1/Q2の局所実正準信号と2体系結合の空間特殊化である。Q3のphysical parentはM67である。R214A/B本体はgeneric nonnegative scalar port $\varrho$ とflow port $U$ を受けるdumbbell theoremであり、current Q3-2 specializationではM37/R210AとR209A/M64がそのportとstabilityを供給する。fixed-goalの直接依存は変更せず、用途別の現行因果鎖を混ぜずに
 
 ```math
 \mathrm{M67}

@@ -1,3 +1,7 @@
+## draft-149 R214 generic density/flow port generalization
+
+`check_draft149_r214_generic_ports.py` はR214A/B本体がgeneric scalar/flow port theoremへ一般化され、R214B coreからM37/M64/R210A固有責務が外れ、current M37/M64 specializationだけにR210A/R209Aが残ることを確認する。R214A/Bのrequired状態、M37/R86・M64/R203・R161/R185のactive維持、Q3 fixed-goal/A1/A2、finite-graph非R214化、Q1/Q2、R213、M0不変もPR固有に固定する。R215/M68/Fisher自由エネルギーは本検査の対象外であり、本PRでは導入しない。通常CIへ恒久登録しない。
+
 ## draft-146 Q3 legacy phase-volume bridge retirement
 
 `check_draft146_retire_legacy_q3_phase_volume_bridge.py` はactive theorem/result tableからR208B/R208C/R209Cが退役し、退役メモ・索引が存在することを確認する。R214A/R214B、R208D、R209A/R209B、R210Aはactiveのまま維持し、finite-graph branchへR214を流用しない。旧専用verifier 3本と旧full compatibility simulationのactive treeからの消滅、Q3 fixed-goal/A1/A2、Q1/Q2、R213、M0不変もPR固有に固定する。通常CIへ恒久登録しない。

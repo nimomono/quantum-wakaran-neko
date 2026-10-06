@@ -127,4 +127,4 @@ R212A--R212Cを追加してもA1/A2/B1--B3状態を自動変更しない。R212B
 
 ### M67/R214 continuous-tracer required bridge
 
-R214A--R214BをQ3-2 continuous-tracerのrequired physical bridgeとする。R209A/R209Bはgeneric flow / finite-bath lemma、R210Aはgeneric coherent-load theoremとして内部依存に回し、R214B自身がsmall-mass $W_1$ bridgeを閉じる。旧R208B/R208C/R209Cはdraft-146でactive resultから退役した。Q1ではR211A--R211C、Q2 thermal sectorではR212A--R212Cをrequired physical-parent bridgeとして維持する。Q3-1-A1/Q3-2-A1は部分達成、Q3-1-A2/Q3-2-A2は未監査のままで、R214 supporting witnessからA2を自動昇格しない。
+R214A--R214BをQ3-2 continuous-tracerのrequired physical bridgeとする。draft-149以後R214本体はgeneric density/flow port theoremであり、R214Aがreciprocal mean force / microscopic load、R214BがStratonovich finite-correlation縮約、port-stability→drift-stability、small-mass $W_1$ bridgeを閉じる。current M37/M64 specializationではR210Aがcoherent load stability、R209Aがflow compatibilityを供給し、R209Bをgeneric finite-bath/FDT lemmaとして使う。旧R208B/R208C/R209Cはdraft-146でactive resultから退役した。Q1ではR211A--R211C、Q2 thermal sectorではR212A--R212Cをrequired physical-parent bridgeとして維持する。Q3-1-A1/Q3-2-A1は部分達成、Q3-1-A2/Q3-2-A2は未監査のままで、R214 supporting witnessからA2を自動昇格しない。

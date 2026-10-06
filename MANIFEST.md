@@ -1,3 +1,13 @@
+## draft-149：R214 generic density/flow port一般化
+
+- 付録AC/R214A--R214BをM37固有局所強度からgeneric nonnegative scalar port $\varrho(X;z)$ とflow port $U(X;z)$ を受けるrequired theoremへ一般化する。
+- R214Aへgeneric-parameter reciprocal mean-force identityとmicroscopic reciprocal-load boundを追加し、R214Bへnode-safe port stability→score/drift stabilityを接続する。
+- finite-correlation GLEからのwhite-noise極限はStratonovichを物理的基本表現とし、constant-mobility required sectorではCartesian Itô表示と一致することを明記する。
+- current M37/M64 specializationを付録AC後段へ分離し、M37固有 $N_0^{-1}$ load regressionはR210A verifierへ一本化する。
+- required R214 verifier 2本をgeneric責務へ更新し、draft-149 migration checkerを追加する。
+- PROJECT_STATUS、README、第0・1・2・6・8・9章、付録AA/AC、ENHANCEMENT_TARGETS、VALIDATION、CHANGELOG、theory lineage、migration READMEを同期する。
+- Q1/Q2/Q3 fixed-goal達成、A1/A2/B1--B3、M0、R186、M37/M64/R209A/B/R210Aの運用状態は変更しない。R215/M68/Fisher自由エネルギーは後続PRへ分離する。
+
 ## draft-147：R211 open reduction / retired dependency cleanup
 
 - 付録AA/R211Aをstatic finite-Hamiltonian constructionとして自己完結させ、R211Bの計算核をopen OU/Langevin reductionへ整理する。

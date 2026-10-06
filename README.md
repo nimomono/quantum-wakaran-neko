@@ -20,7 +20,7 @@ M37：古典振動子によるsignal実装
 
 finite-Hamiltonian physical parent
 M67
-  ├─ Q3               R214A/B + R209A/B + R210A/B → M37/M64/R123
+  ├─ Q3               generic R214A/B + R209B; current M37/M64 specialization uses R210A/R209A; R210B → R123
   ├─ Q1 selector      R211A--R211C → R204E/R181D
   └─ thermal sector   R212A--R212C
                            ↓
@@ -34,7 +34,7 @@ M54はsignal・状態・接続規約を共通化する。M67はcommon two-entity
 
 ### R214 dumbbell Q3 continuous-tracer mainline
 
-付録AC/R214A--R214BをM67 continuous-tracerのrequired主線とする。M37実正準signalから $Q^2+P^2$ 型の局所強度を読み、有限自然長を持つ三次元Brownian dumbbellの位相体積から $-k_BT\log(\rho+\rho_T)$ 型free energyを回収する。R209A/R209Bをgeneric flow / finite-bath補題として使い、R214B自身がsmall-mass $W_1$ bridgeとsingle-dumbbell FDT補正を閉じる。R210Aはprofile-independentなcoherent-load theoremとしてdumbbell loadを受ける。finite-graph Q3-4A/B・Q3-5は別profileのまま維持する。
+付録AC/R214A--R214BをM67 continuous-tracerのrequired主線とする。R214本体はsource固有の密度辞書を仮定せず、nonnegative scalar port $\varrho(X;z)$ とflow port $U(X;z)$ を入力として、有限自然長を持つ三次元Brownian dumbbellのphase-volume mean force、reciprocal load、finite-bath / small-mass $W_1$ 縮約をgenericに与える。finite-correlation GLEからのwhite-noise極限はStratonovichを基本表現とする。current M37/M64 specializationではR210Aがcoherent load stability、R209Aがflow compatibilityを供給し、R209Bをgeneric finite-bath/FDT補題として使って従来のQ3-2 bridgeを回収する。finite-graph Q3-4A/B・Q3-5は別profileのまま維持する。
 
 ## 2. 長期目標の現在地
 
