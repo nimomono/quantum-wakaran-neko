@@ -35,6 +35,18 @@ M67 continuous Q3 required
          -> M64/R203C -> R161/R185
 ```
 
+R215A/Bはこのrequired主線を置換せず、その上にcandidate strengtheningとして分岐する。
+
+```text
+R214A/B required generic port
+  --> R215A compatible normalized density / Bayes score [candidate]
+       --> R215B spatial-information gradient free energy [candidate]
+            --> R215C reversible medium closure [future]
+                 --> M68 [future]
+```
+
+R215Bでは $M_X$ と $m$、$\mathcal J_{\rm SI}$ と $\mathcal J_0$ をまだ同一視しない。R215A/BだけからM37/R86を退役させない。
+
 ## 現行の主要因果鎖
 
 ### Q1の逐次測定
