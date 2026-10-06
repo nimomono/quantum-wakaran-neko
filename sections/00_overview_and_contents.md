@@ -70,3 +70,7 @@ Q3の現行因果鎖はM67から分岐する。Q3-1は $M67\to R210A\to M37/R86$
 固定目標の達成は、その目標が要求する現象を1試行内で明示的な物理interfaceを通して合成できるかで判定する。準備、全操作、測定、永久記録、reset、物理clock、次試行renewalまでを同じ装置architectureと共通反復周期へ統合することはM0で別に要求する。M67/R212からM66/R205 thermal lawを回収したことは、Q2 signal/register/gateやR206 apparatus全体を同じ単一bathまたは1台の製造済み装置へ統合したことを意味しない。
 
 現行の固定目標ではQ1-1、Q1-2、Q2-1、Q2-2、Q2-3、Q3-1--Q3-5を達成、Q2-4を条件付き達成、Q3-6を未達とする。A1/A2/B1--B3は固定目標と独立に監査する。置換済みの旧作用殻型測定経路、旧paired-Hopf受信機構、Brownian macrospin読出し、M60/M61旧Q3 Hamiltonian実装は現行主線へ重ねず、研究メモとGit履歴へ保存する。
+
+### R215 spatial-information candidate
+
+R214A/B required continuous-tracer bridgeの上に、R215A/Bをfixed-goalを変更しないcandidate strengtheningとして置く。R215Aはprojectively compatibleなnode-safe density/flow portから規格化densityのequivarianceとBayes scoreを導き、R215Bはそのscoreへspatial-information gradient free energyを対応させる。R215C/M68、medium reversible closure、Schrödinger再導出、M37退役は未実施である。
