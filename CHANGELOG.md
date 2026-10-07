@@ -1,3 +1,10 @@
+## draft-150：R215A/B compatible scoreと空間情報自由エネルギー
+
+- 付録AD/R215Aをcandidateとして追加し、R214 generic node-safe weightとflow portのprojective compatibilityから規格化densityのequivarianceと同じpath lawのBayes score decomposition $b_\pm=U\pm\nu\partial_x\log\pi$ を導いた。
+- R215Bで $\mathcal F_{\rm SI}=(M_X\nu^2/2)I_F[\pi]$ をspatial-information gradient free energyとして定義し、heat-flow relative entropy、path-space KL、微小translation Fisher曲率との恒等式を追加した。
+- $M_X$ とM37/R185の設計質量 $m$、$\mathcal J_{\rm SI}$ と $\mathcal J_0$ は同一視せず、medium reversible closure、R215C/M68、Schrödinger再導出は後続へ分離した。
+- candidate verifier 2本とmigration guardを追加した。R214A/B required状態、Q3 fixed-goal、A1/A2、M37/R86、M64/R203、R161/R185は変更していない。
+
 ## draft-149：R214をgeneric density/flow port theoremへ一般化
 
 - R214AをM37局所強度固有のmean-force theoremから、任意のnonnegative scalar portに対するphase-volume / reciprocal mean-force theoremへ一般化した。

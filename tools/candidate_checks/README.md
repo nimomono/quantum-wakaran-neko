@@ -55,3 +55,10 @@ draft-142でR212A--R212Cをrequired physical-parent bridgeへ昇格するため�
 ## R214 promotion記録
 
 R214A--R214Bはdraft-145でrequiredへ昇格し、verifierは `tools/verify_r214a_dumbbell_partition.py` と `tools/verify_r214b_dumbbell_dynamic_bridge.py` へ移した。candidate treeには残さない。supporting reduced witnessは `simulations/m67/run_r214_dumbbell_q3_witness.py` に残るが、Q3-2-A2達成判定には使わない。
+
+
+## R215 spatial-information candidate
+
+- `verify_r215a_compatible_port_score.py`：projective compatibility、規格化continuity、Fokker--Planck score cancellation、Bayes $b_\pm=U\pm u$ を検査する。
+- `verify_r215b_spatial_information_free_energy.py`：Fisher/free-energy identity、projective invariance、de Bruijn derivative、path-KL係数、translation Fisher曲率、node-safe regularization、functional derivativeを検査する。
+- R215A/Bはcandidate strengtheningであり、通常required CIへ昇格しない。medium reversible closure、R215C/M68、Schrödinger再導出をcandidate検算だけから達成扱いしない。

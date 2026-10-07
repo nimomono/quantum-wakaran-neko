@@ -1,3 +1,10 @@
+## draft-150：R215A/B candidate検算
+
+- `tools/candidate_checks/verify_r215a_compatible_port_score.py` は、時間依存global amplitudeを持つtraveling positive densityでprojective compatibility、規格化continuity、Stratonovich/Itô一致、Fokker--Planck score cancellation、$b_\pm=U\pm u$ を検査する。
+- `tools/candidate_checks/verify_r215b_spatial_information_free_energy.py` はFisher identity、projective invariance、$\mathcal J_{\rm SI}=2M_X\nu=2k_BT\tau_v$、de Bruijn derivative、path-KL係数、translation-KL曲率、node-safe regularization、functional derivativeを数値回帰する。
+- `tools/migrations/check_draft150_r215_information_free_energy.py` はR215A/B candidate登録、R214A/B required維持、AC.8.1の規格化density bridge、M68/R215C未昇格、candidate verifier非required化をPR固有に検査する。
+- R215A/B candidate検算だけからQ3 fixed-goal、A1/A2、M37/R86、M64/R203、R161/R185の状態を変更しない。R215Bのfunctional derivativeをmediumのphysical forceとして扱わない。
+
 ## draft-149：R214 generic density/flow port一般化検算
 
 - `tools/verify_r214a_dumbbell_partition.py` にgeneric scalar portの任意parameter微分を追加し、$-\partial_\lambda F_{\rm db}=[1+\varepsilon_F]k_BT\partial_\lambda\log(\varrho+\varrho_T)$ をM37形に依存せず数値回帰する。

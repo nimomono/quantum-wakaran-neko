@@ -1,3 +1,10 @@
+## draft-150：R215 compatible score / spatial-information free energy candidate
+
+- 付録AD/R215Aを追加し、R214 generic node-safe weight \(w=\varrho+\varrho_T\) とflow port \(U\) のprojective compatibilityから規格化密度 \(\pi=w/\int w\) のcontinuity、R214 reference diffusionのequivariance、同じpath lawのBayes backward drift \(b_\pm=U\pm\nu\partial_x\log\pi\) を導く。
+- R215Bで \(\mathcal F_{\rm SI}=(M_X/2)\int\pi u^2dx=(M_X\nu^2/2)I_F[\pi]\) をspatial-information gradient free energyとして定義し、projective invariance、補助heat-flow relative-entropy dissipation、score-ON/current-only path KL、微小translation識別率を整理する。
+- \(M_X\) はR214 dumbbell重心質量であり、M37/R185の設計質量 \(m\) と同一視しない。\(\mathcal J_{\rm SI}=2M_X\nu\) も \(\mathcal J_0\) と同一視しない。
+- R215A/Bはcandidate strengtheningであり、R214A/B required状態、Q3 fixed-goal達成、A1/A2、M37/R86、M64/R203、R161/R185を変更しない。medium reversible closure、R215C、M68、Schrödinger再導出、M37退役は後続PRへ分離する。
+
 ## draft-149：R214 generic density/flow port一般化
 
 - R214A/R214Bの結果IDとrequired状態を維持したまま、M37局所強度固有の定理からgeneric nonnegative scalar port $\varrho(X;z)$ とflow port $U(X;z)$ を受けるdumbbell transducer theoremへ一般化する。
@@ -678,6 +685,8 @@ M0は、個別のA1模型を並べるだけでは達成としない。少なく�
 | R210B | required bounded dephasing embedding | bounded odd momentum portでR123 finite environmentをM67 structured reservoir内部へ持ち上げ、下方有界性、作用保存、同一の $\cos^2$ dephasing factorと有限revivalを得る |
 | R214A | required exact/controlled-partition result | generic nonnegative scalar port $\varrho(X;z)$ に有限自然長 $\ell_X^2=\ell_0^2+\alpha\varrho_X$ を結合した三次元伸縮dumbbellの条件付き分配関数を厳密評価し、任意parameterに対するreciprocal mean force、osmotic force、microscopic reciprocal-load boundを明示shell/core誤差まで回収する。$\ell_0=0$ node非解析も境界として明示する |
 | R214B | required finite-time Hamiltonian/open compatibility | generic density/flow portに対しfinite translated harmonic bath→GLE/FDT、Stratonovich white-noise極限、3次元半径の $r^2$ 定常測度、fast内部緩和、single-dumbbell追加FDT摩擦、port-stability→drift-stability、direct small-mass $W_1$ bridgeを合成する。M37/R210A＋R209A/M64をcurrent specializationとして従来のcontinuous Q3-2 required bridgeを回収する |
+| R215A | candidate exact kinematic result | projectively compatible $w,U$ から $\pi=w/\int w$ のequivarianceを示し、同じpath lawのBayes backward driftから $b_\pm=U\pm\nu\partial_x\log\pi$ を得る。Stratonovichを物理的基本表現とし、constant-noise Itô表示はFokker--Planck/Bayes計算だけに使う |
+| R215B | candidate information/free-energy result | $\mathcal F_{\rm SI}=(M_X\nu^2/2)I_F[\pi]$ をspatial-information gradient free energyとして定義し、projective invariance、heat-flow entropy dissipation、path KL、translation Fisher曲率、node-safe regularization、functional derivativeを整理する。mediumへのreversible force closureは未採用 |
 | R185 | 厳密有限格子結果・明示誤差付き近似結果 | 共通の確率分布の時間反転率、$D_\pm$、1次元node-free領域の時間対称Newton則。正則化残差 $O(\delta)$、格子残差 $C_{185,a}a^2$ を有限微分ノルムで明示 |
 | R123 | 厳密結果・数値検証付き | 井戸型・調和型低位束縛状態と有限環境純位相緩和 |
 | R124 | 厳密結果・数値検証付き | 障壁値未満スペクトル支持からの反対側確率増分 |

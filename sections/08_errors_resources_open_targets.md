@@ -856,3 +856,6 @@ R209Bのfinite-bath residualも一度だけ入り、R203CのM64 baseline、R86 c
 
 を位置過程誤差として直接管理する。small-mass項は $\epsilon_M=M_X/\gamma_X$ に対して $O(\epsilon_M)+O(\sqrt{\nu\epsilon_M})$ とし、追加dragは $\varepsilon_{\rm fr}=o(\sqrt{\epsilon_M})$ のjoint limitで消す。Q3-2-A1/A2、finite-graph Q3-4A/B・Q3-5の判定は変更しない。
 
+## R215 candidate error/status boundary
+
+R215Aのexact equivarianceはcompatible reference portについての結果であり、actual finite-bath dumbbellはR214Bの $\varepsilon_{214}^{\rm port}$ でmarginal $W_1$ errorを管理する。$W_1$ closenessだけからfinite-error backward score closenessは推論しない。R215Bのfree-energy stabilityはAC.7.2のscore stabilityへ接続するが、medium force closure errorはR215Cまで定義しない。

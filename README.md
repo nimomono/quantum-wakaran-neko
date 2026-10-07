@@ -36,6 +36,26 @@ M54はsignal・状態・接続規約を共通化する。M67はcommon two-entity
 
 付録AC/R214A--R214BをM67 continuous-tracerのrequired主線とする。R214本体はsource固有の密度辞書を仮定せず、nonnegative scalar port $\varrho(X;z)$ とflow port $U(X;z)$ を入力として、有限自然長を持つ三次元Brownian dumbbellのphase-volume mean force、reciprocal load、finite-bath / small-mass $W_1$ 縮約をgenericに与える。finite-correlation GLEからのwhite-noise極限はStratonovichを基本表現とする。current M37/M64 specializationではR210Aがcoherent load stability、R209Aがflow compatibilityを供給し、R209Bをgeneric finite-bath/FDT補題として使って従来のQ3-2 bridgeを回収する。finite-graph Q3-4A/B・Q3-5は別profileのまま維持する。
 
+### R215 compatible score / spatial-information candidate
+
+付録AD/R215A--R215BをR214 required主線の上に置くcandidate strengtheningとする。R215Aはnode-safe weight $w=\varrho+\varrho_T$ とflow port $U$ が同じ規格化density/currentを表すprojective compatibilityを仮定し、$\pi=w/\int w$ のequivarianceと同じpath lawのBayes decomposition
+
+```math
+b_\pm=U\pm\nu\partial_x\log\pi
+```
+
+を導く。R215Bはscore $u=\nu\partial_x\log\pi$ に対し
+
+```math
+\mathcal F_{\rm SI}
+=
+\frac{M_X}{2}\int\pi u^2dx
+=
+\frac{M_X\nu^2}{2}I_F[\pi]
+```
+
+をspatial-information gradient free energyとして定義する。$M_X$ はR214 dumbbell重心質量でありM37/R185の $m$ と同一視しない。R215A/Bではmediumへの可逆backreactionを採用せず、R215C/M68、Schrödinger再導出、M37置換は後続課題とする。fixed-goal達成とR214 required状態は変更しない。
+
 ## 2. 長期目標の現在地
 
 固定目標の定義と厳密な根拠は [PROJECT_STATUS.md](PROJECT_STATUS.md)、A1/A2/B1--B3の状態は [ENHANCEMENT_TARGETS.md](ENHANCEMENT_TARGETS.md) を正本とする。

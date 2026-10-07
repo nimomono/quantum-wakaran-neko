@@ -1000,3 +1000,7 @@ Q2-1/Q2-3/Q2-4ではR206をterminal readout正本とし、R206Eのuniform root p
 R214A--R214BはM67 structured reservoir＋marker二実体分類を保ったcontinuous Q3-2のrequired profileである。draft-149以後、R214本体はsource固有のM37強度を仮定せず、nonnegative scalar port $\varrho(X;z)$ とflow port $U(X;z)$ を受けるgeneric transducer theoremとして扱う。R214Aはphase-volume / reciprocal mean forceとmicroscopic load bound、R214Bはfinite-correlation GLEからのStratonovich Markov limit、single-dumbbell FDT補正、port-stability -> drift-stability、direct small-mass $W_1$ bridgeを担う。
 
 current M37/M64 specializationではR210Aがcoherent sourceのload stability、R209Aがflow compatibilityを供給し、R209Bをgeneric finite-bath/FDT補題として使って従来のM64/R203C bridgeを回収する。finite-graph profileはR208D/R203Dへ分離する。
+
+### R215A/B candidate interface
+
+R214A/B required continuous-tracer bridgeの上に、R215A/Bをfixed-goalを変更しないcandidate strengtheningとして置く。R215Aはprojectively compatibleなnode-safe density/flow portから規格化densityのequivarianceとBayes scoreを導き、R215Bはそのscoreへspatial-information gradient free energyを対応させる。R215C/M68、medium reversible closure、Schrödinger再導出、M37退役は未実施である。

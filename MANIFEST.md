@@ -1,3 +1,12 @@
+## draft-150：R215 compatible score / spatial-information free energy candidate
+
+- `sections/A30_m67_spatial_information_free_energy.md`（付録AD）を追加し、R215A compatible-port equivariance / Bayes scoreとR215B spatial-information free-energy identitiesをcandidateとして収録する。
+- R214 generic scalar portを $w=\varrho+\varrho_T$ として規格化し、projective compatibilityから $\pi=w/\int w$ のcontinuityとequivarianceを導く。AC.8.1の未定義 $\widetilde\rho$ 表記を $\pi^\circ=\rho_\delta$ interfaceへ整理する。
+- R215BではR214 dumbbell重心質量 $M_X$ を使い、$\mathcal F_{\rm SI}=(M_X\nu^2/2)I_F$、$\mathcal J_{\rm SI}=2M_X\nu$ を定義する。M37/R185の $m,\mathcal J_0$ とのmatchingは後続課題とする。
+- candidate verifier 2本とdraft-150 migration guardを追加し、通常required physics CIへは昇格しない。
+- PROJECT_STATUS、README、ENHANCEMENT_TARGETS、VALIDATION、CHANGELOG、TERMINOLOGY、theory lineage、candidate/migration READMEを同期する。
+- Q1/Q2/Q3 fixed-goal達成、A1/A2/B1--B3、M0、R186、M37/M64/R214 required主線は変更しない。R215C/M68/Schrödinger再導出/M37退役は後続PRへ分離する。
+
 ## draft-149：R214 generic density/flow port一般化
 
 - 付録AC/R214A--R214BをM37固有局所強度からgeneric nonnegative scalar port $\varrho(X;z)$ とflow port $U(X;z)$ を受けるrequired theoremへ一般化する。
@@ -483,6 +492,7 @@
 - `sections/A27_m67_two_entity_structured_reservoir.md`
 - `sections/A28_m67_nbl_q2_carrier.md`
 - `sections/A29_m67_dumbbell_q3_tracer.md`
+- `sections/A30_m67_spatial_information_free_energy.md`
 - `sections/90_references.md`
 
 ## 論文外の研究メモ

@@ -46,3 +46,7 @@ Q3-2ではR214A/R214B本体をgeneric density/flow port theoremとして用い�
 M67ではR214A--R214Bをcontinuous Q3-2、R208Dをfinite-graph dispatch、R209A/R209Bをgeneric flow/bath、R210A/R210Bをcoherent/dephasing compatibilityとして採用する。R211A--R211CはQ1 selector、R212A--R212CはM66/R205 thermal layerのfinite-Hamiltonian physical parentとして採用する。ただしこれはQ1全体、Q2 signal/register/gate、R206 apparatus全体を同じ装置へ統合したこと、M0を達成したこと、A1/A2を自動達成したことを意味しない。Q3-6の位相量子化、strict locality、continuous-space一様極限、多粒子、全周期統合は別課題として残る。
 
 draft-146ではR214A--R214Bがcontinuous Q3-2主線として自立したことを受け、旧R208B/R208C/R209Cをactive resultから退役する。R208Bのosmotic/backreaction責務はR214A/B、R208Cのfinite-bath責務はgeneric R209B、R209Cのsmall-mass $W_1$ bridgeはR214Bへ吸収した。結果IDは再利用せず、旧数式・検算は退役メモとGit履歴へ保存する。
+
+## R215A/B candidateの現在地
+
+R215A/Bにより、R214 dumbbellのgeneric scoreを規格化確率密度と空間情報free-energy functionalへ接続するcandidate経路を追加した。これはM37/R86のSchrödinger signalを置換する結果ではない。置換へ進むにはR215Cでmedium reversible closureを物理的に正当化し、後続M68で同じmedium/tracer/bathからsignal側とNelson側を同時に閉じる必要がある。

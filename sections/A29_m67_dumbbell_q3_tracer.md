@@ -1011,13 +1011,51 @@ b_{64}^{\rm db}
 \varepsilon_{214\to64}.
 ```
 
-従って従来のrequired bridge
+R215Aで用いる規格化densityとのinterfaceを明示する。M64/R185のideal compatible targetについて正の定数 $C$ を取り
+
+```math
+\varrho^\circ=C\rho,
+\qquad
+\varrho_T=C\delta q_0,
+\qquad
+w^\circ
+=
+\varrho^\circ+\varrho_T
+=
+C(1+\delta)\rho_\delta,
+```
+
+```math
+U^\circ=v_\delta,
+\qquad
+\pi^\circ
+=
+\frac{w^\circ}{\int w^\circ dx}
+=
+\rho_\delta
+```
+
+と書ける。従って
+
+```math
+\partial_X\log w^\circ
+=
+\partial_X\log\rho_\delta,
+\qquad
+\partial_t\pi^\circ
++
+\partial_X(\pi^\circ U^\circ)
+=
+0.
+```
+
+actual R214/M67 portとの差はAC.7.2の $\varepsilon_\varrho,\varepsilon_U$ に含める。この規格化interfaceとR203Cとの三角不等式により従来のrequired bridgeを
 
 ```math
 W_1
 \left(
 \mathcal L(X_t^{67,{\rm db}}),
-\widetilde\rho(t)
+\rho_\delta(t)
 \right)
 \le
 \varepsilon_{214\to64}(T)
@@ -1025,7 +1063,7 @@ W_1
 \varepsilon_{\rm red}^{64}(T)
 ```
 
-をR203Cとの三角不等式で回収する。$\partial_t\widetilde\rho+\partial_XJ=0$ なので、R161/R185の既存regularized lawへそのまま接続する。
+と明示できる。R215A/Bはこのrequired bridgeの達成状態を変更せず、compatible reference lawのscore/equivarianceをcandidateとして上に積む。
 
 ## AC.9 明示parameter witness
 
@@ -1089,4 +1127,4 @@ draft-145でR214A--R214Bをcontinuous Q3-2のrequired主線へ昇格し、draft-
 - R208Dはprofile-dispatch bridgeとしてactive維持する。
 - finite-graph Q3-4A/Q3-4B/Q3-5へR214を流用しない。
 - Q3-2 fixed-goal、Q3-2-A1/A2、M37/R86、M64/R203、R161/R185の運用状態を変更しない。
-- R215、Fisher information/free energy、M68、Schrödinger再導出は本draftに含めない。
+- draft-150でR215A/Bを別付録ADのcandidate strengtheningとして追加する。R214A/B required状態は維持し、R215C、M68、Schrödinger再導出は後続へ分離する。
