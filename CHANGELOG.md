@@ -1,3 +1,11 @@
+## draft-152：M68 finite-capacity spatial-information medium candidate
+
+- 付録AE/M68をR215A--R215Cの上に置くcandidate finite-Hamiltonian strengtheningとして追加する。有限周期格子のextensive medium variables \(Q_i\) と共役 \(S_i\)、R214 dumbbell tracer、finite harmonic bathを一つのjoint Hamiltonian candidateへまとめる。
+- R216Aはfinite-lattice spatial-information medium、R216Bは \(M_{\rm med}=M_X\) で閉じるNelson time-symmetric Newton則、R216Cはintensive score \(O(1)\) とsingle-tracer reciprocal disturbance \(O(C^{-1})\) のcapacity scaling、R216Dはadapted feedback portとfinite-capacity annealed equivarianceを与える。
+- M68ではR215CのFisher/Dirichlet gradient energyを有限格子Hamiltonianのconstitutive potentialとして明示実装する。ただし、そのgradient energy自体をさらにprimitiveなばね・LC・局所bathから導出したとは扱わない。
+- R214A/B required、R215A--C candidate、M67現行physical parent、M37/R86・M64/R203・R161/R185 active状態、Q3 fixed-goal、A1/A2、M0、Q3-6未達を変更しない。
+- \(M_X=m\)、\(\mathcal J_{\rm SI}=\mathcal J_0\) の旧模型間matchingとM37退役は後続へ残す。
+
 ## draft-151：R215C reversible information-free-energy closure
 
 - 付録AD/R215Cをcandidateとして追加し、$\mathcal F_{\rm SI}$ のfunctional derivativeをmediumへ返すreversible constitutive closureを明示した。

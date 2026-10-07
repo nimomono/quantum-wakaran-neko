@@ -10,7 +10,14 @@ R214A/B required主線の上に、fixed-goalを変更しないcandidate strength
 
 をspatial-information gradient free energyとして定義する。R215Cはこのfree energyをmediumのreversible constitutive free energyとして採用するcandidate closureであり、energy balance、local stress、zero-circulation Madelung closure、Schrödinger representationを閉じる。
 
-R215Cでもfinite-Hamiltonian coarse grainingからclosure自体を導いたとは扱わない。M68、$M_X=m$ / $\mathcal J_{\rm SI}=\mathcal J_0$ matching、M37/R86置換、Q3-6位相量子化は後続課題とする。R215A--CだけからQ3-1/Q3-2 A1/A2状態を変更しない。
+R215Cでもfinite-Hamiltonian coarse grainingからclosure自体を導いたとは扱わない。draft-152ではM68/R216A--R216Dとしてfinite-lattice Hamiltonian realization candidate、Nelson closure、capacity scaling、adapted-feedback finite-capacity equivarianceを追加する。ただしFisher/Dirichlet gradient potentialのよりprimitiveな起源、continuous/node一様極限、$M_X=m$ / $\mathcal J_{\rm SI}=\mathcal J_0$ matching、M37/R86置換、Q3-6位相量子化は後続課題とする。R215/M68 candidateだけからQ3-1/Q3-2 A1/A2状態を変更しない。
+
+
+## M68 finite-capacity spatial-information medium candidate
+
+M68/R216A--R216DはR215C constitutive closureの有限次元Hamiltonian realizationとjoint tracer feedbackを監査するcandidate strengtheningである。promotion gateは、finite-lattice energy/continuity consistency、Nelson mass matching、capacity \(1/C\) suppression、adapted-feedback stabilityが同じparameter familyで閉じることとする。
+
+未達強化として、Fisher/Dirichlet gradient potentialのprimitive mechanical origin、continuous-space/node-regulator一様極限、variable mobility、多粒子化、旧M37/R185 parameter matching、M37/R86置換、Q3-6を残す。
 
 
 本ファイルは `PROJECT_STATUS.md` に定める固定目標へ付随する強化目標の正本を管理する。固定目標そのものの定義と達成判定は `PROJECT_STATUS.md` を正本とし、本ファイルの強化目標はそれらへ追加の物理実装・数値再現・回路実装を要求する独立の評価軸とする。
