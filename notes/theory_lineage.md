@@ -42,10 +42,13 @@ R214A/B required generic port
   --> R215A compatible normalized density / Bayes score [candidate]
        --> R215B spatial-information gradient free energy [candidate]
             --> R215C reversible medium closure / Schrödinger representation [candidate]
-                 --> M68 finite-Hamiltonian joint medium/tracer parent [future]
+                 --> M68 / R216A finite-lattice spatial-information medium [candidate]
+                      --> R216B Nelson mass-matched closure [candidate]
+                      --> R216C capacity / reciprocal-load separation [candidate]
+                      --> R216D adapted-feedback finite-capacity equivariance [candidate]
 ```
 
-R215Cまで進んでも $M_X$ と $m$、$\mathcal J_{\rm SI}$ と $\mathcal J_0$ をまだ同一視しない。R215A--CだけからM37/R86を退役させない。closureのfinite-Hamiltonian originとmatchingはM68へ残す。
+R215Cまで進んでも $M_X$ と $m$、$\mathcal J_{\rm SI}$ と $\mathcal J_0$ をまだ同一視しない。draft-152のM68/R216はfinite-lattice Hamiltonian realizationとjoint feedbackをcandidate化するが、Fisher gradient potentialのよりprimitiveな起源と旧M37 parameter matchingは未解決のまま残す。M37/R86は退役させない。
 
 ## 現行の主要因果鎖
 

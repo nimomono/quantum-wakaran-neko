@@ -1,3 +1,7 @@
+## draft-152 M68 finite-capacity spatial-information medium candidate
+
+`check_draft152_m68_candidate.py` は付録AE/M68、R216A--R216D、candidate verifier、status/validation/lineage登録を確認する。同時にR214A/B required、R215A--C candidate、M67現行parent、M37/R86・M64/R203・R161/R185 active、Q3 fixed-goal/A1/A2/M0、Q3-6未達、旧模型間parameter matching未実施、M37未退役をPR固有に固定する。通常CIへ恒久登録しない。
+
 ## draft-151 R215C reversible information-free-energy closure
 
 `check_draft151_r215c_reversible_closure.py` は付録AD/R215C、candidate verifier、PROJECT_STATUS candidate登録、energy/stress/Madelung/Schrödinger representationの4責務を確認する。同時にR214A/B required状態、M37/R86・M64/R203・R161/R185 active維持、Q3 fixed-goal/A1/A2、Q3-6未達、M68未導入、$M_X=m$ / $\mathcal J_{\rm SI}=\mathcal J_0$ 未matchingをPR固有に固定する。通常CIへ恒久登録しない。
