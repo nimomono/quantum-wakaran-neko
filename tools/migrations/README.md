@@ -1,3 +1,7 @@
+## draft-151 R215C reversible information-free-energy closure
+
+\`check_draft151_r215c_reversible_closure.py\` は付録AD/R215C、candidate verifier、PROJECT_STATUS candidate登録、energy/stress/Madelung/Schrödinger representationの4責務を確認する。同時にR214A/B required状態、M37/R86・M64/R203・R161/R185 active維持、Q3 fixed-goal/A1/A2、Q3-6未達、M68未導入、$M_X=m$ / $\mathcal J_{\rm SI}=\mathcal J_0$ 未matchingをPR固有に固定する。通常CIへ恒久登録しない。
+
 ## draft-150 R215 compatible score / spatial-information free energy candidate
 
 `check_draft150_r215_information_free_energy.py` は付録AD/R215A--R215B、candidate verifier 2本、PROJECT_STATUS candidate登録を確認する。同時にR214A/B required状態、Q3 fixed-goal/A1/A2、M37/R86・M64/R203・R161/R185のactive維持、AC.8.1の規格化density bridge、R215C/M68未昇格、candidate verifier非required化をPR固有に固定する。通常CIへ恒久登録しない。

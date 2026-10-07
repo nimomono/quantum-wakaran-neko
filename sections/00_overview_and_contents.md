@@ -73,4 +73,4 @@ Q3の現行因果鎖はM67から分岐する。Q3-1は $M67\to R210A\to M37/R86$
 
 ### R215 spatial-information candidate
 
-R214A/B required continuous-tracer bridgeの上に、R215A/Bをfixed-goalを変更しないcandidate strengtheningとして置く。R215Aはprojectively compatibleなnode-safe density/flow portから規格化densityのequivarianceとBayes scoreを導き、R215Bはそのscoreへspatial-information gradient free energyを対応させる。R215C/M68、medium reversible closure、Schrödinger再導出、M37退役は未実施である。
+R214A/B required continuous-tracer bridgeの上に、R215A--R215Cをfixed-goalを変更しないcandidate strengtheningとして置く。R215Aはcompatible density/flow portから規格化densityのequivarianceとBayes scoreを、R215Bはspatial-information gradient free energyを与える。R215Cはそのfree energyをmediumのreversible constitutive free energyとして採用した場合のenergy balance、local stress、zero-circulation Madelung closure、Schrödinger representationを閉じる。finite-Hamiltonian closure origin、M68、$M_X=m$ / $\mathcal J_{\rm SI}=\mathcal J_0$ matching、M37退役は未実施である。

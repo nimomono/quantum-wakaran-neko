@@ -38,23 +38,7 @@ M54はsignal・状態・接続規約を共通化する。M67はcommon two-entity
 
 ### R215 compatible score / spatial-information candidate
 
-付録AD/R215A--R215BをR214 required主線の上に置くcandidate strengtheningとする。R215Aはnode-safe weight $w=\varrho+\varrho_T$ とflow port $U$ が同じ規格化density/currentを表すprojective compatibilityを仮定し、$\pi=w/\int w$ のequivarianceと同じpath lawのBayes decomposition
-
-```math
-b_\pm=U\pm\nu\partial_x\log\pi
-```
-
-を導く。R215Bはscore $u=\nu\partial_x\log\pi$ に対し
-
-```math
-\mathcal F_{\rm SI}
-=
-\frac{M_X}{2}\int\pi u^2dx
-=
-\frac{M_X\nu^2}{2}I_F[\pi]
-```
-
-をspatial-information gradient free energyとして定義する。$M_X$ はR214 dumbbell重心質量でありM37/R185の $m$ と同一視しない。R215A/Bではmediumへの可逆backreactionを採用せず、R215C/M68、Schrödinger再導出、M37置換は後続課題とする。fixed-goal達成とR214 required状態は変更しない。
+付録AD/R215A--R215CをR214 required主線の上に置くcandidate strengtheningとする。R215Aはnode-safe compatible portから規格化densityのequivarianceとBayes scoreを導き、R215Bはそのscoreへspatial-information gradient free energyを対応させる。R215Cは同じfree energyをmediumのreversible constitutive free energyとして採用した場合のenergy balance、local stress、zero-circulation Madelung closure、Schrödinger representationを与える。M68 finite-Hamiltonian parent、$M_X=m$ / $\mathcal J_{\rm SI}=\mathcal J_0$ matching、M37退役は未実施である。fixed-goal達成とR214 required状態は変更しない。
 
 ## 2. 長期目標の現在地
 

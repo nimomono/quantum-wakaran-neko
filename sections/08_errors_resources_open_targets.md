@@ -858,4 +858,4 @@ R209Bのfinite-bath residualも一度だけ入り、R203CのM64 baseline、R86 c
 
 ## R215 candidate error/status boundary
 
-R215Aのexact equivarianceはcompatible reference portについての結果であり、actual finite-bath dumbbellはR214Bの $\varepsilon_{214}^{\rm port}$ でmarginal $W_1$ errorを管理する。$W_1$ closenessだけからfinite-error backward score closenessは推論しない。R215Bのfree-energy stabilityはAC.7.2のscore stabilityへ接続するが、medium force closure errorはR215Cまで定義しない。
+R215Aのexact equivarianceはcompatible reference portについての結果であり、actual finite-bath dumbbellはR214Bの $\varepsilon_{214}^{\rm port}$ でmarginal $W_1$ errorを管理する。$W_1$ closenessだけからfinite-error backward score closenessは推論しない。R215Bのfree-energy stabilityはAC.7.2のscore stabilityへ接続する。R215Cのconstant-mobility smooth sector内部ではconstitutive closure、energy balance、local stress、Madelung/Schrödinger representationはexactであり、数値離散残差だけをcandidate verifierで監査する。finite-Hamiltonian realization errorはM68まで未定義、位置依存追加drag $\zeta_{\rm db}(x)$ はvariable-mobility correctionとして後続へ残し、circulation quantizationはQ3-6の未達課題として分離する。

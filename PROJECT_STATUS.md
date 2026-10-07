@@ -1,3 +1,11 @@
+## draft-151：R215C reversible information-free-energy closure
+
+- 付録AD/R215Cをcandidateとして追加し、R215Bのspatial-information gradient free energyに対するreversible constitutive closureを定める。
+- static external potentialではtotal effective energyを保存し、information forceをlocal stress divergenceとして書けることを証明する。
+- zero-circulation sectorでMadelung closureを得て、$\mathcal J_{\rm SI}=2M_X\nu$ によるSchrödinger representationを厳密に再構成する。一般circulationはtwisted sectorとして分離し、Q3-6の位相量子化は未達のまま維持する。
+- R215Cはcandidate constitutive resultであり、finite-Hamiltonian closure origin、M68、$M_X=m$ / $\mathcal J_{\rm SI}=\mathcal J_0$ matching、M37/R86置換は後続へ分離する。
+- R214A/B required状態、Q3 fixed-goal、A1/A2、M37/R86、M64/R203、R161/R185、Q1/Q2、M0、R213の運用状態は変更しない。
+
 ## draft-150：R215 compatible score / spatial-information free energy candidate
 
 - 付録AD/R215Aを追加し、R214 generic node-safe weight \(w=\varrho+\varrho_T\) とflow port \(U\) のprojective compatibilityから規格化密度 \(\pi=w/\int w\) のcontinuity、R214 reference diffusionのequivariance、同じpath lawのBayes backward drift \(b_\pm=U\pm\nu\partial_x\log\pi\) を導く。
@@ -687,6 +695,7 @@ M0は、個別のA1模型を並べるだけでは達成としない。少なく�
 | R214B | required finite-time Hamiltonian/open compatibility | generic density/flow portに対しfinite translated harmonic bath→GLE/FDT、Stratonovich white-noise極限、3次元半径の $r^2$ 定常測度、fast内部緩和、single-dumbbell追加FDT摩擦、port-stability→drift-stability、direct small-mass $W_1$ bridgeを合成する。M37/R210A＋R209A/M64をcurrent specializationとして従来のcontinuous Q3-2 required bridgeを回収する |
 | R215A | candidate exact kinematic result | projectively compatible $w,U$ から $\pi=w/\int w$ のequivarianceを示し、同じpath lawのBayes backward driftから $b_\pm=U\pm\nu\partial_x\log\pi$ を得る。Stratonovichを物理的基本表現とし、constant-noise Itô表示はFokker--Planck/Bayes計算だけに使う |
 | R215B | candidate information/free-energy result | $\mathcal F_{\rm SI}=(M_X\nu^2/2)I_F[\pi]$ をspatial-information gradient free energyとして定義し、projective invariance、heat-flow entropy dissipation、path KL、translation Fisher曲率、node-safe regularization、functional derivativeを整理する。mediumへのreversible force closureは未採用 |
+| R215C | candidate constitutive / representation result | R215Bのspatial-information free energyに対し $M_X(\partial_tU+U\partial_xU)=-\partial_x(V+\mu_{\rm SI})$ をreversible constitutive closureとして採用し、energy balance、local information stress、zero-circulation Madelung closure、$\mathcal J_{\rm SI}=2M_X\nu$ によるSchrödinger representationを得る。finite-Hamiltonian parent、$M_X=m$ / $\mathcal J_{\rm SI}=\mathcal J_0$ matching、M37置換は未実施 |
 | R185 | 厳密有限格子結果・明示誤差付き近似結果 | 共通の確率分布の時間反転率、$D_\pm$、1次元node-free領域の時間対称Newton則。正則化残差 $O(\delta)$、格子残差 $C_{185,a}a^2$ を有限微分ノルムで明示 |
 | R123 | 厳密結果・数値検証付き | 井戸型・調和型低位束縛状態と有限環境純位相緩和 |
 | R124 | 厳密結果・数値検証付き | 障壁値未満スペクトル支持からの反対側確率増分 |

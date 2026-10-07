@@ -396,3 +396,16 @@ CNOT、CHSH、SWAP、SU(2)、Q1、Q2、Q3、M37、M54、R164などの略号・�
 | score velocity / osmotic velocity $u$ | score速度／osmotic速度 | R215Aでは $u=\nu\partial_x\log\pi$。微視的瞬間速度と同一視しない |
 | spatial-information gradient free energy $\mathcal F_{\rm SI}$ | 空間情報勾配自由エネルギー | R215Bで定義する非平衡・勾配functional。R214Aの局所canonical free energy $F_{\rm db}$ と区別する |
 | $\mathcal J_{\rm SI}$ | spatial-information作用尺度 | $2M_X\nu=2k_BT\tau_v$。M37/R185の $\mathcal J_0$ と同一視しない |
+
+
+---
+
+## draft-151：R215C reversible closure用語
+
+| 原語・記号 | 本文の標準表記 | 使い分け |
+|---|---|---|
+| reversible information-free-energy closure | 可逆information-free-energy closure | R215Bの$\mathcal F_{\rm SI}$をmediumのconstitutive free energyとして採用し、$M_XD_tU=-\partial_x(V+\mu_{\rm SI})$ とするR215C candidate assumption |
+| $\mu_{\rm SI}$ | spatial-information chemical potential | $\delta\mathcal F_{\rm SI}/\delta\pi$ の空間変化部分。規格化constraintの空間一定項は力へ寄与しない |
+| $\sigma_{\rm SI}$ | local information stress | $-\pi\partial_x\mu_{\rm SI}=\partial_x\sigma_{\rm SI}$ を満たす局所gradient stress |
+| $\Psi_{\rm SI}$ | R215C Schrödinger representation | $\sqrt\pi e^{iS/\mathcal J_{\rm SI}}$。一次的物理実体ではなくR215C Madelung fieldsの派生複素表示 |
+| zero-circulation / twisted sector | zero-circulation / twisted sector | torus上で$\oint Udx=0$ならperiodic phaseを取れる。一般circulationでは$\Psi_{\rm SI}$はtwisted boundaryを持つ。位相量子化はQ3-6へ残す |

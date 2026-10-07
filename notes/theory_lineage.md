@@ -41,11 +41,11 @@ R215A/Bはこのrequired主線を置換せず、その上にcandidate strengthen
 R214A/B required generic port
   --> R215A compatible normalized density / Bayes score [candidate]
        --> R215B spatial-information gradient free energy [candidate]
-            --> R215C reversible medium closure [future]
-                 --> M68 [future]
+            --> R215C reversible medium closure / Schrödinger representation [candidate]
+                 --> M68 finite-Hamiltonian joint medium/tracer parent [future]
 ```
 
-R215Bでは $M_X$ と $m$、$\mathcal J_{\rm SI}$ と $\mathcal J_0$ をまだ同一視しない。R215A/BだけからM37/R86を退役させない。
+R215Cまで進んでも $M_X$ と $m$、$\mathcal J_{\rm SI}$ と $\mathcal J_0$ をまだ同一視しない。R215A--CだけからM37/R86を退役させない。closureのfinite-Hamiltonian originとmatchingはM68へ残す。
 
 ## 現行の主要因果鎖
 

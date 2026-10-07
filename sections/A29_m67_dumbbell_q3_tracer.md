@@ -1127,4 +1127,4 @@ draft-145でR214A--R214Bをcontinuous Q3-2のrequired主線へ昇格し、draft-
 - R208Dはprofile-dispatch bridgeとしてactive維持する。
 - finite-graph Q3-4A/Q3-4B/Q3-5へR214を流用しない。
 - Q3-2 fixed-goal、Q3-2-A1/A2、M37/R86、M64/R203、R161/R185の運用状態を変更しない。
-- draft-150でR215A/Bを別付録ADのcandidate strengtheningとして追加する。R214A/B required状態は維持し、R215C、M68、Schrödinger再導出は後続へ分離する。
+- draft-150でR215A/Bを別付録ADのcandidate strengtheningとして追加し、draft-151でR215C reversible information-free-energy closureをcandidateとして追加する。R214A/B required状態は維持し、finite-Hamiltonian closure origin、M68、parameter matching、M37置換は後続へ分離する。

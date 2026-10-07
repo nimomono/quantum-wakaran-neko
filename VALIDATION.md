@@ -1,3 +1,9 @@
+## draft-151：R215C reversible information-free-energy closure検算
+
+- \`tools/candidate_checks/verify_r215c_reversible_information_closure.py\` はnode-free 2-mode solutionを使い、continuity、zero circulation、R215C local stress identity、Madelung Hamilton--Jacobi residual、total-energy identity/conservation、Schrödinger residualを数値回帰する。
+- \`tools/migrations/check_draft151_r215c_reversible_closure.py\` はR215C candidate登録、4つの数学的帰結、M68未導入、$M_X=m$ / $\mathcal J_{\rm SI}=\mathcal J_0$ 未matching、M37/R86・R214A/B・fixed-goal/A1/A2維持をPR固有に検査する。
+- R215Cはcandidate constitutive resultであり、通常required physics CIへ昇格しない。finite-Hamiltonian closure originとvariable-mobility correctionは後続へ残す。
+
 ## draft-150：R215A/B candidate検算
 
 - `tools/candidate_checks/verify_r215a_compatible_port_score.py` は、時間依存global amplitudeを持つtraveling positive densityでprojective compatibility、規格化continuity、Stratonovich/Itô一致、Fokker--Planck score cancellation、$b_\pm=U\pm u$ を検査する。

@@ -1,3 +1,10 @@
+## draft-151：R215C reversible information-free-energy closure
+
+- 付録AD/R215Cをcandidateとして追加し、$\mathcal F_{\rm SI}$ のfunctional derivativeをmediumへ返すreversible constitutive closureを明示した。
+- static external potentialでのtotal effective energy保存、local information stress表示、zero-circulation Madelung closure、$\mathcal J_{\rm SI}=2M_X\nu$ によるSchrödinger representationを証明した。
+- 一般circulationはtwisted sectorへ分離し、periodic single-valued phase量子化はQ3-6未達のまま維持した。
+- R215C candidate verifierとdraft-151 migration guardを追加した。M68、finite-Hamiltonian closure origin、parameter matching、M37/R86置換、fixed-goal/A1/A2は変更していない。
+
 ## draft-150：R215A/B compatible scoreと空間情報自由エネルギー
 
 - 付録AD/R215Aをcandidateとして追加し、R214 generic node-safe weightとflow portのprojective compatibilityから規格化densityのequivarianceと同じpath lawのBayes score decomposition $b_\pm=U\pm\nu\partial_x\log\pi$ を導いた。
