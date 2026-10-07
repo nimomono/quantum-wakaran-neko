@@ -704,10 +704,10 @@ M0は、個別のA1模型を並べるだけでは達成としない。少なく�
 | R215A | candidate exact kinematic result | projectively compatible $w,U$ から $\pi=w/\int w$ のequivarianceを示し、同じpath lawのBayes backward driftから $b_\pm=U\pm\nu\partial_x\log\pi$ を得る。Stratonovichを物理的基本表現とし、constant-noise Itô表示はFokker--Planck/Bayes計算だけに使う |
 | R215B | candidate information/free-energy result | $\mathcal F_{\rm SI}=(M_X\nu^2/2)I_F[\pi]$ をspatial-information gradient free energyとして定義し、projective invariance、heat-flow entropy dissipation、path KL、translation Fisher曲率、node-safe regularization、functional derivativeを整理する。mediumへのreversible force closureは未採用 |
 | R215C | candidate constitutive / representation result | R215Bのspatial-information free energyに対し $M_X(\partial_tU+U\partial_xU)=-\partial_x(V+\mu_{\rm SI})$ をreversible constitutive closureとして採用し、energy balance、local information stress、zero-circulation Madelung closure、$\mathcal J_{\rm SI}=2M_X\nu$ によるSchrödinger representationを得る。finite-Hamiltonian parent、$M_X=m$ / $\mathcal J_{\rm SI}=\mathcal J_0$ matching、M37置換は未実施 |
-| R216A | candidate finite-lattice realization | M68 extensive medium (Q_i,S_i) のfinite Hamiltonian、capacity保存、discrete continuity、R215C continuum consistency |
-| R216B | candidate exact compatibility | (M_{\rm med}=M_X) でR215C + R215AからNelson time-symmetric Newton則を厳密回収 |
-| R216C | candidate capacity / reciprocal theorem | intensive score (O(1))、single-tracer reciprocal shape load (O(C^{-1}))、translation-force variance/Fisher identity |
-| R216D | candidate feedback stability | adapted feedback port、self-consistent R214 bridge、finite-capacity annealed equivariance (O(C^{-1})) |
+| R216A | candidate finite-lattice realization | M68 extensive medium $Q_i,S_i$ のfinite Hamiltonian、capacity保存、discrete continuity、R215C continuum consistency |
+| R216B | candidate exact compatibility | $M_{\rm med}=M_X$ でR215C + R215AからNelson time-symmetric Newton則を厳密回収 |
+| R216C | candidate capacity / reciprocal theorem | intensive score $O(1)$、single-tracer reciprocal shape load $O(C^{-1})$、translation-force variance/Fisher identity |
+| R216D | candidate feedback stability | adapted feedback port、self-consistent R214 bridge、finite-capacity annealed equivariance $O(C^{-1})$ |
 | R185 | 厳密有限格子結果・明示誤差付き近似結果 | 共通の確率分布の時間反転率、$D_\pm$、1次元node-free領域の時間対称Newton則。正則化残差 $O(\delta)$、格子残差 $C_{185,a}a^2$ を有限微分ノルムで明示 |
 | R123 | 厳密結果・数値検証付き | 井戸型・調和型低位束縛状態と有限環境純位相緩和 |
 | R124 | 厳密結果・数値検証付き | 障壁値未満スペクトル支持からの反対側確率増分 |

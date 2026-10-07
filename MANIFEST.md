@@ -509,6 +509,7 @@
 - `sections/A28_m67_nbl_q2_carrier.md`
 - `sections/A29_m67_dumbbell_q3_tracer.md`
 - `sections/A30_m67_spatial_information_free_energy.md`
+- `sections/A31_m68_spatial_information_medium.md`
 - `sections/90_references.md`
 
 ## 論文外の研究メモ

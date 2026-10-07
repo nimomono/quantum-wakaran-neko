@@ -52,7 +52,7 @@ def main() -> None:
     require("M68 / R216A finite-lattice spatial-information medium [candidate]" in lineage, "M68 lineage missing")
     require("primitive" in enhancement and "M37" in enhancement, "M68 open boundary missing")
     require("M68は現行Q3 required主線をまだ置換しないcandidate" in conclusion, "current-mainline boundary missing")
-    require("$M_X=m$" in ae and "$\\mathcal J_{\\rm SI}=\\mathcal J_0$" in ae, "parameter matching boundary missing")
+    require("M_X=m" in ae and "\\mathcal J_{\\rm SI}=\\mathcal J_0" in ae, "parameter matching boundary missing")
     require("Q3-6" in ae, "Q3-6 boundary missing")
 
     print("draft152_m68_candidate_migration_ok")
