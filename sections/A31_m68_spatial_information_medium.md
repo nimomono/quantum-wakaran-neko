@@ -9,19 +9,19 @@ M68の目的は、R215Cでconstitutive assumptionとして置いたspatial-infor
 
 M68は
 
-~~~math
+```math
 \text{intrinsic spatial-information medium}
 +
 \text{R214 dumbbell tracer}
 +
 \text{finite bath}
-~~~
+```
 
 という三層を使う。R214 reciprocal loadの平均をR215C information stressと同一視しない。前者はtracer--medium interactionの作用反作用、後者はmedium自身のgradient self stressである。
 
 Schrödinger fieldは一次的自由度に置かない。順序は
 
-~~~math
+```math
 (Q_i,S_i)
 \longrightarrow
 (p_i,U_i)
@@ -29,7 +29,7 @@ Schrödinger fieldは一次的自由度に置かない。順序は
 \text{R215C}
 \longrightarrow
 \Psi_{\rm SI}
-~~~
+```
 
 とし、最後の複素表示はR215Cと同じderived representationである。
 
@@ -37,35 +37,35 @@ Schrödinger fieldは一次的自由度に置かない。順序は
 
 1次元周期領域をL個のcellへ分け、格子幅をaとする。各cellにreal canonical pair
 
-~~~math
+```math
 (Q_i,S_i),
 \qquad
 \{Q_i,S_j\}=\delta_{ij},
 \qquad
 Q_i>0
-~~~
+```
 
 を置く。medium総capacityとnormalized cell profileを
 
-~~~math
+```math
 C:=\sum_{i=1}^{L}Q_i,
 \qquad
 p_i:=\frac{Q_i}{C},
 \qquad
 \sum_i p_i=1
-~~~
+```
 
 とする。candidate theoremでは固定有限時間上のnode-safe sector
 
-~~~math
+```math
 p_i\ge p_*>0
-~~~
+```
 
 を仮定する。
 
 edge量を
 
-~~~math
+```math
 \bar p_{i+1/2}
 =
 \frac{p_i+p_{i+1}}2,
@@ -73,11 +73,11 @@ edge量を
 \nabla_aS_{i+1/2}
 =
 \frac{S_{i+1}-S_i}{a}
-~~~
+```
 
 とする。medium一capacity単位のHamiltonianを
 
-~~~math
+```math
 h_{68}[p,S]
 =
 \sum_i
@@ -87,9 +87,9 @@ h_{68}[p,S]
 \sum_iV_ip_i
 +
 \mathcal F_{{\rm SI},a}[p],
-~~~
+```
 
-~~~math
+```math
 \boxed{
 \mathcal F_{{\rm SI},a}[p]
 =
@@ -99,23 +99,23 @@ h_{68}[p,S]
 \sqrt{p_{i+1}}-\sqrt{p_i}
 \right)^2
 }
-~~~
+```
 
 と置き、extensive medium Hamiltonianを
 
-~~~math
+```math
 \boxed{
 H_{\rm med}^{68}
 =
 C\,h_{68}[p,S].
 }
-~~~
+```
 
 とする。
 
 R214 dumbbellとfinite bathを同じsystemへ接続したfull candidateは概念的に
 
-~~~math
+```math
 \boxed{
 H_{68}
 =
@@ -125,7 +125,7 @@ H_{\rm db}[p,X,\mathbf r,\mathbf p_r]
 +
 H_B.
 }
-~~~
+```
 
 である。R214のcanonical potential of mean force
 \(F_{\rm db}\simeq-k_BT\log w\) は \(H_{\rm db}+H_B\) のfast variableを消去した後の量なので、H68へ独立に重ねて足さない。
@@ -137,49 +137,49 @@ H_B.
 
 上のperiodic finite lattice Hamiltonianについて、global shift
 
-~~~math
+```math
 S_i\mapsto S_i+\theta
-~~~
+```
 
 はexact symmetryである。従って
 
-~~~math
+```math
 \boxed{
 \dot C=0.
 }
-~~~
+```
 
 またstatic \(V_i\) では
 
-~~~math
+```math
 \boxed{
 \frac{dH_{\rm med}^{68}}{dt}=0.
 }
-~~~
+```
 
 Hamilton方程式からnormalized profileは
 
-~~~math
+```math
 \boxed{
 \dot p_i
 =
 J_{i-1/2}-J_{i+1/2},
 }
-~~~
+```
 
-~~~math
+```math
 J_{i+1/2}
 =
 \frac{\bar p_{i+1/2}}{M_Xa}
 \nabla_aS_{i+1/2}
-~~~
+```
 
 というdiscrete continuity lawを満たす。
 
 smooth positive periodic fieldsに対し
 \(p_i=a\pi(x_i)+O(a^3)\)、\(S_i=S(x_i)\) と標本化すると、
 
-~~~math
+```math
 h_{68}
 =
 \int
@@ -194,7 +194,7 @@ V\pi
 |\partial_x\sqrt\pi|^2dx
 +
 O(a^2).
-~~~
+```
 
 従ってnode-safe smooth sectorのlocal consistency limitはR215C field Hamiltonianである。
 <!-- theorem-end:theorem -->
@@ -220,27 +220,27 @@ R216Aはfinite-dimensional Hamiltonian realizationの存在を示すが、Fisher
 
 R215Aのsame-path forward/backward mean driftを
 
-~~~math
+```math
 b_\pm
 =
 U\pm u,
 \qquad
 u=\nu\partial_x\log\pi
-~~~
+```
 
 とする。対応するmean derivativesを
 
-~~~math
+```math
 D_+
 =
 \partial_t+(U+u)\partial_x+\nu\partial_x^2,
-~~~
+```
 
-~~~math
+```math
 D_-
 =
 \partial_t+(U-u)\partial_x-\nu\partial_x^2
-~~~
+```
 
 とする。
 
@@ -249,7 +249,7 @@ D_-
 
 \(R=\sqrt\pi>0\) とすると
 
-~~~math
+```math
 \boxed{
 u\partial_xu+\nu\partial_x^2u
 =
@@ -259,11 +259,11 @@ u\partial_xu+\nu\partial_x^2u
 \frac{\partial_x^2R}{R}
 \right).
 }
-~~~
+```
 
 medium equationを一般のinertial coefficient \(M_{\rm med}\) で
 
-~~~math
+```math
 M_{\rm med}
 (\partial_tU+U\partial_xU)
 =
@@ -274,11 +274,11 @@ M_{\rm med}
 \left(
 \frac{\partial_x^2R}{R}
 \right)
-~~~
+```
 
 と書くと、Nelson time-symmetric mean accelerationは
 
-~~~math
+```math
 \frac12(D_+D_-+D_-D_+)X
 =
 -\frac{\partial_xV}{M_{\rm med}}
@@ -291,26 +291,26 @@ M_{\rm med}
 \left(
 \frac{\partial_x^2R}{R}
 \right).
-~~~
+```
 
 従って
 
-~~~math
+```math
 \boxed{
 M_{\rm med}=M_X
 }
-~~~
+```
 
 なら
 
-~~~math
+```math
 \boxed{
 M_X
 \frac12(D_+D_-+D_-D_+)X
 =
 -\partial_xV.
 }
-~~~
+```
 
 非自明なprofileで
 \(\partial_x(R_{xx}/R)\not\equiv0\) なら、このmass matchingはgenericに必要である。
@@ -321,12 +321,12 @@ M_X
 
 \(u=2\nu R_x/R\) を二回微分して整理すればscore identityを得る。mean derivativeを直接展開すると
 
-~~~math
+```math
 \frac12(D_+D_-+D_-D_+)X
 =
 \partial_tU+U\partial_xU
 -u\partial_xu-\nu\partial_x^2u.
-~~~
+```
 
 medium equationとscore identityを代入すれば表示式を得る。証明終。
 <!-- theorem-end:proof -->
@@ -337,9 +337,9 @@ medium equationとscore identityを代入すれば表示式を得る。証明終
 
 M68ではdumbbell interactionはextensive amount Qではなくintensive profile \(p=Q/C\) を読む。interaction Hamiltonianを
 
-~~~math
+```math
 H_{\rm int}=h_{\rm int}(p,X,\ldots)
-~~~
+```
 
 とする。
 
@@ -348,15 +348,15 @@ H_{\rm int}=h_{\rm int}(p,X,\ldots)
 
 \(C=\sum_iQ_i\)、\(p_i=Q_i/C\) なら
 
-~~~math
+```math
 \frac{\partial p_j}{\partial Q_i}
 =
 \frac{\delta_{ij}-p_j}{C}.
-~~~
+```
 
 従って
 
-~~~math
+```math
 \boxed{
 \frac{\partial H_{\rm int}}{\partial Q_i}
 =
@@ -368,23 +368,23 @@ H_{\rm int}=h_{\rm int}(p,X,\ldots)
 \frac{\partial h_{\rm int}}{\partial p_j}
 \right].
 }
-~~~
+```
 
 safe compact sectorで \(h_{\rm int}\) のp微分がO(1)ならsingle-tracer reciprocal shape loadは
 
-~~~math
+```math
 \boxed{
 F_{Q_i}^{\rm rec}=O(C^{-1}).
 }
-~~~
+```
 
 一方R214 score portが \(w(X;p)\) のようにintensive profileだけから作られるなら
 
-~~~math
+```math
 \boxed{
 \partial_X\log w=O(1)
 }
-~~~
+```
 
 であり、tracerのosmotic/score effectはcapacityを大きくしても薄まらない。
 <!-- theorem-end:theorem -->
@@ -397,50 +397,50 @@ F_{Q_i}^{\rm rec}=O(C^{-1}).
 
 ### AE.4.1 reciprocal neutrality / Fisher variance
 
-translation parameteraに対するideal R214 reciprocal forceを
+translation parameter $a$に対するideal R214 reciprocal forceを
 
-~~~math
+```math
 F_a^{\rm rec}
 =
 -k_BT\,\partial_x\log\pi(X)
-~~~
+```
 
 とする。periodic normalized \(\pi\) と \(X\sim\pi\) なら
 
-~~~math
+```math
 \boxed{
 E_\pi[F_a^{\rm rec}]=0,
 }
-~~~
+```
 
-~~~math
+```math
 \boxed{
 E_\pi[(F_a^{\rm rec})^2]
 =
 (k_BT)^2I_F[\pi].
 }
-~~~
+```
 
 さらに \(\nu=k_BT/\gamma_X\) なので
 
-~~~math
+```math
 \boxed{
 \mathcal F_{\rm SI}
 =
 \frac{M_X}{2\gamma_X^2}
 E_\pi[(F_a^{\rm rec})^2].
 }
-~~~
+```
 
 したがってinformation free energyはmean reciprocal loadではなく、同じscore couplingのtranslation-force varianceと結びつく。M68 medium forceは
 
-~~~math
+```math
 f_{\rm medium}
 =
 f_{\rm SI}
 +
 f_{\rm rec}
-~~~
+```
 
 であり、intrinsic information stressとsingle-tracer reciprocal loadを別項として数える。
 
@@ -448,31 +448,31 @@ f_{\rm rec}
 
 finite-dimensional medium stateをYとまとめる。actual dumbbell feedback系とcoarse port feedback系を
 
-~~~math
+```math
 \dot Y^{\rm db}
 =
 A(Y^{\rm db})
 +
 \frac1C
 G_{\rm db}(Y^{\rm db},X^{\rm db},r),
-~~~
+```
 
-~~~math
+```math
 \dot Y^{\rm port}
 =
 A(Y^{\rm port})
 +
 \frac1C
 G_{\rm port}(Y^{\rm port},X^{\rm port}),
-~~~
+```
 
-~~~math
+```math
 dX^{\rm port}
 =
 b(Y^{\rm port},X^{\rm port})dt
 +
 \sqrt{2\nu}\,dW_t
-~~~
+```
 
 と書く。
 
@@ -492,7 +492,7 @@ b(Y^{\rm port},X^{\rm port})dt
 
 上の条件のもと、同じinitial dataと同じBrownian driverでcoupleできるactual finite-bath dumbbell feedback系とcoarse port feedback系について、有限な \(\Lambda_T,B_T\) が存在して
 
-~~~math
+```math
 \boxed{
 \sup_{t\le T}
 W_1
@@ -511,11 +511,11 @@ W_1
 \frac{\Lambda_T}{C}
 \right).
 }
-~~~
+```
 
 \(B_T\) は \(\mathcal R_G(T)\) に比例して取れる。特にmicroscopic feedbackとcoarse feedbackが一致して \(R_G=0\) なら
 
-~~~math
+```math
 \boxed{
 \varepsilon_{\rm fb}
 =
@@ -526,7 +526,7 @@ W_1
 =
 O(C^{-1}\varepsilon_{214}^{\rm port}).
 }
-~~~
+```
 
 従ってadapted random portであること自体は独立なO(1) errorを作らない。
 <!-- theorem-end:theorem -->
@@ -537,12 +537,12 @@ O(C^{-1}\varepsilon_{214}^{\rm port}).
 まずactual medium path \(Y^{\rm db}\) を固定して読む補助port diffusion \(\widehat X\) を同じnoiseで駆動する。R214Bの変数
 \(Y_X=X+(M_X/\gamma_X)V\) を使うsmall-mass synchronous couplingはdriftのdeterministic性を使わず、progressive measurability、一様bound、空間Lipschitz性だけを使う。exact harmonic-bath eliminationもfeedback trajectoryに対するDuhamel identityなので変わらない。feedback-safe classでR209B Markovizationを一様化すれば
 
-~~~math
+```math
 E\sup_{t\le T}
 |X_t^{\rm db}-\widehat X_t|
 \le
 \varepsilon_{214}^{\rm port}(T)
-~~~
+```
 
 を得る。
 
@@ -551,18 +551,18 @@ E\sup_{t\le T}
 \(D_Y(t)=E\sup_{s\le t}\|Y_s^{\rm db}-Y_s^{\rm port}\|\)
 と置く。same-noise couplingとbのLipschitz性から
 
-~~~math
+```math
 D_X(t)
 \le
 \varepsilon_{214}^{\rm port}
 +
 K_b
 \int_0^tD_Y(s)ds.
-~~~
+```
 
 medium equationの差とGportのLipschitz性から
 
-~~~math
+```math
 D_Y(t)
 \le
 K_A
@@ -572,7 +572,7 @@ K_A
 +
 \frac{\mathcal R_G(t)}C
 \right].
-~~~
+```
 
 二式を代入しdouble integralをT倍のsingle integralで抑えてGronwallを適用すれば定理形を得る。証明終。
 <!-- theorem-end:proof -->
@@ -581,51 +581,51 @@ K_A
 
 feedbackなしreference medium \(Y^{(0)}\) とR215A port diffusion \(X^{(0)}\) は
 
-~~~math
+```math
 \mathcal L(X_t^{(0)})
 =
 \pi_t^{(0)}
-~~~
+```
 
 をexactに満たす。finite-C port feedbackは
 
-~~~math
+```math
 \dot Y^{(C)}
 =
 A(Y^{(C)})
 +
 \frac1C
 G(Y^{(C)},X^{(C)})
-~~~
+```
 
 なので、same-noise/Gronwall stabilityから固定Tで
 
-~~~math
+```math
 \|Y_t^{(C)}-Y_t^{(0)}\|
 =
 O(C^{-1}),
-~~~
+```
 
-~~~math
+```math
 W_1(
 \mathcal L(X_t^{(C)}),
 \pi_t^{(0)}
 )
 =
 O(C^{-1}).
-~~~
+```
 
 random medium profileのensemble平均を
 
-~~~math
+```math
 \bar\pi_t^{(C)}
 =
 E[\pi(Y_t^{(C)})]
-~~~
+```
 
 とすると、medium-to-density mapのLipschitz性から
 
-~~~math
+```math
 \boxed{
 W_1
 \left(
@@ -635,7 +635,7 @@ W_1
 \le
 \frac{K_{\rm eq}(T,a,p_*)}{C}.
 }
-~~~
+```
 
 これをfinite-capacity annealed equivarianceと呼ぶ。feedback後の
 \(\mathcal L(X_t\mid Y_t)=\pi(Y_t)\)
@@ -643,7 +643,7 @@ W_1
 
 actual dumbbellまで合成すると
 
-~~~math
+```math
 \boxed{
 W_1
 \left(
@@ -660,7 +660,7 @@ e^{\Lambda_T/C}
 +
 \frac{K_{\rm eq}}{C}.
 }
-~~~
+```
 
 reciprocal neutralityによりmean medium biasがO(C^{-2})へ改善するsectorはあり得るが、medium--tracer correlationはgenericにO(C^{-1})なのでannealed equivariance全体はO(C^{-1})を標準次数とする。
 
@@ -674,7 +674,7 @@ full finite HamiltonianH68がtime independentならtotal energyはexact保存さ
 
 M68 candidateの固定finite-time error ledgerは
 
-~~~math
+```math
 \varepsilon_{68}
 =
 \varepsilon_{\rm lattice}
@@ -684,13 +684,13 @@ M68 candidateの固定finite-time error ledgerは
 \varepsilon_{\rm fb}
 +
 \varepsilon_{\rm cap},
-~~~
+```
 
-~~~math
+```math
 \varepsilon_{\rm lattice}=O(a^2),
 \qquad
 \varepsilon_{\rm cap}=K_{\rm eq}/C.
-~~~
+```
 
 R216A--Dが示すのは、R215C information mediumとR214 tracerをfinite-dimensional Hamiltonian candidateへ同居させ、Nelson closureとfinite-capacity feedback stabilityを同じparameter setで両立できることである。
 
