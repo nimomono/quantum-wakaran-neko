@@ -1117,7 +1117,7 @@ M_X\oint_\Omega U\,dx
 
 R215Cが証明する因果鎖は、
 
-R215B spatial-information free energy → reversible constitutive closure（candidate assumption）→ energy balance / local stress → Madelung closure → Schrödinger representation
+R215B spatial-information free energy -> reversible constitutive closure（candidate assumption）-> energy balance / local stress -> Madelung closure -> Schrödinger representation
 
 である。
 
