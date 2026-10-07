@@ -1,7 +1,7 @@
 ## draft-151：R215C reversible information-free-energy closure検算
 
-- \`tools/candidate_checks/verify_r215c_reversible_information_closure.py\` はnode-free 2-mode solutionを使い、continuity、zero circulation、R215C local stress identity、Madelung Hamilton--Jacobi residual、total-energy identity/conservation、Schrödinger residualを数値回帰する。
-- \`tools/migrations/check_draft151_r215c_reversible_closure.py\` はR215C candidate登録、4つの数学的帰結、M68未導入、$M_X=m$ / $\mathcal J_{\rm SI}=\mathcal J_0$ 未matching、M37/R86・R214A/B・fixed-goal/A1/A2維持をPR固有に検査する。
+- `tools/candidate_checks/verify_r215c_reversible_information_closure.py` はnode-free 2-mode solutionを使い、continuity、zero circulation、R215C local stress identity、Madelung Hamilton--Jacobi residual、total-energy identity/conservation、Schrödinger residualを数値回帰する。
+- `tools/migrations/check_draft151_r215c_reversible_closure.py` はR215C candidate登録、4つの数学的帰結、M68未導入、$M_X=m$ / $\mathcal J_{\rm SI}=\mathcal J_0$ 未matching、M37/R86・R214A/B・fixed-goal/A1/A2維持をPR固有に検査する。
 - R215Cはcandidate constitutive resultであり、通常required physics CIへ昇格しない。finite-Hamiltonian closure originとvariable-mobility correctionは後続へ残す。
 
 ## draft-150：R215A/B candidate検算
@@ -837,7 +837,7 @@ git diff --check
 
 理論監査では、R182のW型低位スペクトル収束、障壁値未満二重項、第3状態gap、M37のfunctional-calculus共有固有空間、空間密度からの半周期鏡映と一周期回帰を個別に確認する。Q3-3CはR182とR123の有限環境純位相緩和を同じW型固有基底へ接続し、Q3-4BはR182の完全位置分布をR172--R174へ渡す。M47/R140の低2モード作用比を粒子位置確率へ読み替えない。
 
-新しい \`tools/verify_m37_w_spectral_tunneling.py\` は26項目を検査する。基準例では中央障壁値12に対し $E_0=4.56635406$、$E_1=4.64963503$、$E_2=11.44411961$、第3状態gapは6.79448458である。120--240--480点の低位スペクトル差の比は3.963529、M37弱結合量は $\eta=0.1$、分裂比 $\Delta_{\rm ex}/\Delta=0.999834590$、空間交差余裕は $B_c=0.489784893$、半周期の反対側増分は0.979569787となる。これらは解析証明の代替ではなく回帰検査である。
+新しい `tools/verify_m37_w_spectral_tunneling.py` は26項目を検査する。基準例では中央障壁値12に対し $E_0=4.56635406$、$E_1=4.64963503$、$E_2=11.44411961$、第3状態gapは6.79448458である。120--240--480点の低位スペクトル差の比は3.963529、M37弱結合量は $\eta=0.1$、分裂比 $\Delta_{\rm ex}/\Delta=0.999834590$、空間交差余裕は $B_c=0.489784893$、半周期の反対側増分は0.979569787となる。これらは解析証明の代替ではなく回帰検査である。
 
 固定目標の文言は変更していない。達成状態だけをQ3-3C「達成」、Q3-4B「条件付き達成」へ更新し、Q3-4Bの残条件をQ3-4A・Q3-5と同じ単一装置統合へ揃えた。
 

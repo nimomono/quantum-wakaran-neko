@@ -1,6 +1,6 @@
 ## draft-151 R215C reversible information-free-energy closure
 
-\`check_draft151_r215c_reversible_closure.py\` は付録AD/R215C、candidate verifier、PROJECT_STATUS candidate登録、energy/stress/Madelung/Schrödinger representationの4責務を確認する。同時にR214A/B required状態、M37/R86・M64/R203・R161/R185 active維持、Q3 fixed-goal/A1/A2、Q3-6未達、M68未導入、$M_X=m$ / $\mathcal J_{\rm SI}=\mathcal J_0$ 未matchingをPR固有に固定する。通常CIへ恒久登録しない。
+`check_draft151_r215c_reversible_closure.py` は付録AD/R215C、candidate verifier、PROJECT_STATUS candidate登録、energy/stress/Madelung/Schrödinger representationの4責務を確認する。同時にR214A/B required状態、M37/R86・M64/R203・R161/R185 active維持、Q3 fixed-goal/A1/A2、Q3-6未達、M68未導入、$M_X=m$ / $\mathcal J_{\rm SI}=\mathcal J_0$ 未matchingをPR固有に固定する。通常CIへ恒久登録しない。
 
 ## draft-150 R215 compatible score / spatial-information free energy candidate
 
@@ -91,7 +91,7 @@
 
 ## draft-126 M66/R206 candidate
 
-\`check_draft126_m66_r206_candidate.py\` は、A27のM66/R205--R206候補とcandidate verifierが存在し、Q2-1/Q2-2/Q2-3/Q2-4の達成ラベル、M65/R181D/R192/R179の現行主線、R186障害が変更されていないことをPR固有に検査する。後続promotion/retirementは別PRで扱う。
+`check_draft126_m66_r206_candidate.py` は、A27のM66/R205--R206候補とcandidate verifierが存在し、Q2-1/Q2-2/Q2-3/Q2-4の達成ラベル、M65/R181D/R192/R179の現行主線、R186障害が変更されていないことをPR固有に検査する。後続promotion/retirementは別PRで扱う。
 
 ## draft-127 M66/R206 promotion and sequential Q2 terminal retirement
 

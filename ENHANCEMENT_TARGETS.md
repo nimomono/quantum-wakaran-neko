@@ -4,9 +4,9 @@
 
 R214A/B required主線の上に、fixed-goalを変更しないcandidate strengtheningとしてR215A--R215Cを置く。R215Aはprojectively compatibleなnode-safe density/flow portから規格化density $\pi$ のequivarianceとBayes score $u=\nu\partial_x\log\pi$ を回収する。R215Bは同じscoreから
 
-\`\`\`math
+```math
 \mathcal F_{\rm SI}=\frac{M_X\nu^2}{2}I_F[\pi]
-\`\`\`
+```
 
 をspatial-information gradient free energyとして定義する。R215Cはこのfree energyをmediumのreversible constitutive free energyとして採用するcandidate closureであり、energy balance、local stress、zero-circulation Madelung closure、Schrödinger representationを閉じる。
 
