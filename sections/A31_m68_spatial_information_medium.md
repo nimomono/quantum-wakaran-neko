@@ -128,7 +128,7 @@ H_B.
 ```
 
 である。R214のcanonical potential of mean force
-\(F_{\rm db}\simeq-k_BT\log w\) は \(H_{\rm db}+H_B\) のfast variableを消去した後の量なので、H68へ独立に重ねて足さない。
+$F_{\rm db}\simeq-k_BT\log w$ は $H_{\rm db}+H_B$ のfast variableを消去した後の量なので、H68へ独立に重ねて足さない。
 
 ### AE.2.1 R216A：finite-lattice spatial-information medium
 
@@ -149,7 +149,7 @@ S_i\mapsto S_i+\theta
 }
 ```
 
-またstatic \(V_i\) では
+またstatic $V_i$ では
 
 ```math
 \boxed{
@@ -177,7 +177,7 @@ J_{i+1/2}
 というdiscrete continuity lawを満たす。
 
 smooth positive periodic fieldsに対し
-\(p_i=a\pi(x_i)+O(a^3)\)、\(S_i=S(x_i)\) と標本化すると、
+$p_i=a\pi(x_i)+O(a^3)$、$S_i=S(x_i)$ と標本化すると、
 
 ```math
 h_{68}
@@ -203,14 +203,14 @@ O(a^2).
 **証明（R216A）**
 
 H68はSの差だけに依存するためglobal shift symmetryからNoether量Cが保存される。直接には
-\(\dot C=\sum_i\partial H/\partial S_i\) がperiodic telescopingで0になる。static HamiltonianなのでHamilton方程式に沿うenergy derivativeはPoisson bracket \(\{H,H\}=0\)。
+$\dot C=\sum_i\partial H/\partial S_i$ がperiodic telescopingで0になる。static HamiltonianなのでHamilton方程式に沿うenergy derivativeはPoisson bracket $\{H,H\}=0$。
 
 edge kinetic termをS_iで微分すると左右edge fluxの差だけが残るためdiscrete continuityを得る。Fisher termは
-\(p_i=a\pi(x_i)\) に対し
-\(\sqrt{p_i}=\sqrt a\,\sqrt{\pi(x_i)}\) なのでperiodic centered consistencyから
-\(\mathcal F_{{\rm SI},a}
+$p_i=a\pi(x_i)$ に対し
+$\sqrt{p_i}=\sqrt a\,\sqrt{\pi(x_i)}$ なのでperiodic centered consistencyから
+$\mathcal F_{{\rm SI},a}
 =
-2M_X\nu^2\int|\partial_x\sqrt\pi|^2dx+O(a^2)\)。
+2M_X\nu^2\int|\partial_x\sqrt\pi|^2dx+O(a^2)$。
 kinetic/potential項も同じperiodic quadratureでR215Cへ収束する。証明終。
 <!-- theorem-end:proof -->
 
@@ -247,7 +247,7 @@ D_-
 <!-- theorem-start:theorem -->
 **定理（R216B：R215C + R215A Nelson closure）**
 
-\(R=\sqrt\pi>0\) とすると
+$R=\sqrt\pi>0$ とすると
 
 ```math
 \boxed{
@@ -261,7 +261,7 @@ u\partial_xu+\nu\partial_x^2u
 }
 ```
 
-medium equationを一般のinertial coefficient \(M_{\rm med}\) で
+medium equationを一般のinertial coefficient $M_{\rm med}$ で
 
 ```math
 M_{\rm med}
@@ -313,13 +313,13 @@ M_X
 ```
 
 非自明なprofileで
-\(\partial_x(R_{xx}/R)\not\equiv0\) なら、このmass matchingはgenericに必要である。
+$\partial_x(R_{xx}/R)\not\equiv0$ なら、このmass matchingはgenericに必要である。
 <!-- theorem-end:theorem -->
 
 <!-- theorem-start:proof -->
 **証明（R216B）**
 
-\(u=2\nu R_x/R\) を二回微分して整理すればscore identityを得る。mean derivativeを直接展開すると
+$u=2\nu R_x/R$ を二回微分して整理すればscore identityを得る。mean derivativeを直接展開すると
 
 ```math
 \frac12(D_+D_-+D_-D_+)X
@@ -331,11 +331,11 @@ M_X
 medium equationとscore identityを代入すれば表示式を得る。証明終。
 <!-- theorem-end:proof -->
 
-ここで \(M_X\) はmedium全体の総質量ではなく、一capacity単位のinertial coefficientである。total medium inertiaはC倍される。M37/R185の設計質量mとはまだ同一視しない。
+ここで $M_X$ はmedium全体の総質量ではなく、一capacity単位のinertial coefficientである。total medium inertiaはC倍される。M37/R185の設計質量mとはまだ同一視しない。
 
 ## AE.4 R216C：capacity scalingとreciprocal-load separation
 
-M68ではdumbbell interactionはextensive amount Qではなくintensive profile \(p=Q/C\) を読む。interaction Hamiltonianを
+M68ではdumbbell interactionはextensive amount Qではなくintensive profile $p=Q/C$ を読む。interaction Hamiltonianを
 
 ```math
 H_{\rm int}=h_{\rm int}(p,X,\ldots)
@@ -344,9 +344,9 @@ H_{\rm int}=h_{\rm int}(p,X,\ldots)
 とする。
 
 <!-- theorem-start:theorem -->
-**定理（R216C：intensive score / reciprocal \(1/C\) scaling）**
+**定理（R216C：intensive score / reciprocal $1/C$ scaling）**
 
-\(C=\sum_iQ_i\)、\(p_i=Q_i/C\) なら
+$C=\sum_iQ_i$、$p_i=Q_i/C$ なら
 
 ```math
 \frac{\partial p_j}{\partial Q_i}
@@ -370,7 +370,7 @@ H_{\rm int}=h_{\rm int}(p,X,\ldots)
 }
 ```
 
-safe compact sectorで \(h_{\rm int}\) のp微分がO(1)ならsingle-tracer reciprocal shape loadは
+safe compact sectorで $h_{\rm int}$ のp微分がO(1)ならsingle-tracer reciprocal shape loadは
 
 ```math
 \boxed{
@@ -378,7 +378,7 @@ F_{Q_i}^{\rm rec}=O(C^{-1}).
 }
 ```
 
-一方R214 score portが \(w(X;p)\) のようにintensive profileだけから作られるなら
+一方R214 score portが $w(X;p)$ のようにintensive profileだけから作られるなら
 
 ```math
 \boxed{
@@ -392,7 +392,7 @@ F_{Q_i}^{\rm rec}=O(C^{-1}).
 <!-- theorem-start:proof -->
 **証明（R216C capacity scaling）**
 
-\(p_j=Q_j/\sum_kQ_k\) を直接微分しchain ruleを使えば表示式を得る。scoreはpを固定したuniform scaling \(Q\mapsto cQ\) に不変なのでC依存を持たない。証明終。
+$p_j=Q_j/\sum_kQ_k$ を直接微分しchain ruleを使えば表示式を得る。scoreはpを固定したuniform scaling $Q\mapsto cQ$ に不変なのでC依存を持たない。証明終。
 <!-- theorem-end:proof -->
 
 ### AE.4.1 reciprocal neutrality / Fisher variance
@@ -405,7 +405,7 @@ F_a^{\rm rec}
 -k_BT\,\partial_x\log\pi(X)
 ```
 
-とする。periodic normalized \(\pi\) と \(X\sim\pi\) なら
+とする。periodic normalized $\pi$ と $X\sim\pi$ なら
 
 ```math
 \boxed{
@@ -421,7 +421,7 @@ E_\pi[(F_a^{\rm rec})^2]
 }
 ```
 
-さらに \(\nu=k_BT/\gamma_X\) なので
+さらに $\nu=k_BT/\gamma_X$ なので
 
 ```math
 \boxed{
@@ -483,14 +483,14 @@ b(Y^{\rm port},X^{\rm port})dt
 - finite-bath初期状態はresolved initial dataに条件付けたshifted canonical preparation。
 - R209B finite-bath Markovization errorとR214B small-mass/fast-dumbbell errorはこのfeedback-safe class上で一様に評価できる。
 - microscopic/coarse feedback residual
-  \(R_G=G_{\rm db}-G_{\rm port}\) は
-  \(\mathcal R_G(T):=E\int_0^T|R_G(s)|ds<\infty\)
+  $R_G=G_{\rm db}-G_{\rm port}$ は
+  $\mathcal R_G(T):=E\int_0^T|R_G(s)|ds<\infty$
   を満たす。
 
 <!-- theorem-start:theorem -->
 **定理（R216D：adapted-feedback R214 stability）**
 
-上の条件のもと、同じinitial dataと同じBrownian driverでcoupleできるactual finite-bath dumbbell feedback系とcoarse port feedback系について、有限な \(\Lambda_T,B_T\) が存在して
+上の条件のもと、同じinitial dataと同じBrownian driverでcoupleできるactual finite-bath dumbbell feedback系とcoarse port feedback系について、有限な $\Lambda_T,B_T$ が存在して
 
 ```math
 \boxed{
@@ -513,7 +513,7 @@ W_1
 }
 ```
 
-\(B_T\) は \(\mathcal R_G(T)\) に比例して取れる。特にmicroscopic feedbackとcoarse feedbackが一致して \(R_G=0\) なら
+$B_T$ は $\mathcal R_G(T)$ に比例して取れる。特にmicroscopic feedbackとcoarse feedbackが一致して $R_G=0$ なら
 
 ```math
 \boxed{
@@ -534,8 +534,8 @@ O(C^{-1}\varepsilon_{214}^{\rm port}).
 <!-- theorem-start:proof -->
 **証明（R216D adapted feedback）**
 
-まずactual medium path \(Y^{\rm db}\) を固定して読む補助port diffusion \(\widehat X\) を同じnoiseで駆動する。R214Bの変数
-\(Y_X=X+(M_X/\gamma_X)V\) を使うsmall-mass synchronous couplingはdriftのdeterministic性を使わず、progressive measurability、一様bound、空間Lipschitz性だけを使う。exact harmonic-bath eliminationもfeedback trajectoryに対するDuhamel identityなので変わらない。feedback-safe classでR209B Markovizationを一様化すれば
+まずactual medium path $Y^{\rm db}$ を固定して読む補助port diffusion $\widehat X$ を同じnoiseで駆動する。R214Bの変数
+$Y_X=X+(M_X/\gamma_X)V$ を使うsmall-mass synchronous couplingはdriftのdeterministic性を使わず、progressive measurability、一様bound、空間Lipschitz性だけを使う。exact harmonic-bath eliminationもfeedback trajectoryに対するDuhamel identityなので変わらない。feedback-safe classでR209B Markovizationを一様化すれば
 
 ```math
 E\sup_{t\le T}
@@ -547,8 +547,8 @@ E\sup_{t\le T}
 を得る。
 
 次に
-\(D_X(t)=E\sup_{s\le t}|X_s^{\rm db}-X_s^{\rm port}|\)、
-\(D_Y(t)=E\sup_{s\le t}\|Y_s^{\rm db}-Y_s^{\rm port}\|\)
+$D_X(t)=E\sup_{s\le t}|X_s^{\rm db}-X_s^{\rm port}|$、
+$D_Y(t)=E\sup_{s\le t}\|Y_s^{\rm db}-Y_s^{\rm port}\|$
 と置く。same-noise couplingとbのLipschitz性から
 
 ```math
@@ -579,7 +579,7 @@ K_A
 
 ### AE.5.1 finite-capacity annealed equivariance
 
-feedbackなしreference medium \(Y^{(0)}\) とR215A port diffusion \(X^{(0)}\) は
+feedbackなしreference medium $Y^{(0)}$ とR215A port diffusion $X^{(0)}$ は
 
 ```math
 \mathcal L(X_t^{(0)})
@@ -638,7 +638,7 @@ W_1
 ```
 
 これをfinite-capacity annealed equivarianceと呼ぶ。feedback後の
-\(\mathcal L(X_t\mid Y_t)=\pi(Y_t)\)
+$\mathcal L(X_t\mid Y_t)=\pi(Y_t)$
 というconditional exact statementは一般に主張しない。
 
 actual dumbbellまで合成すると
@@ -666,7 +666,7 @@ reciprocal neutralityによりmean medium biasがO(C^{-2})へ改善するsector�
 
 ## AE.6 external potentialとenergy bookkeeping
 
-M68 leading constructionではexternal potentialVはmedium current equationへ入れる。R214 overdamped tracerへ独立な \(-\mu\nabla V\) driftを重ねない。R216Bによりtracerのtime-symmetric mean accelerationとして \(-\nabla V/M_X\) が既に回収されるためである。
+M68 leading constructionではexternal potentialVはmedium current equationへ入れる。R214 overdamped tracerへ独立な $-\mu\nabla V$ driftを重ねない。R216Bによりtracerのtime-symmetric mean accelerationとして $-\nabla V/M_X$ が既に回収されるためである。
 
 full finite HamiltonianH68がtime independentならtotal energyはexact保存される。mediumだけを粗視化すればtracer/bathとのwork exchangeが残るため、R215C medium-only energy conservationはfeedbackを落としたleading sectorまたはlarge-C limitとして回収する。
 
@@ -697,9 +697,9 @@ R216A--Dが示すのは、R215C information mediumとR214 tracerをfinite-dimens
 本付録は次を主張しない。
 
 - Fisher/Dirichlet gradient potentialのさらにprimitiveなspring/LC/local-bath origin
-- \(a\to0\)、node regulator \(\to0\)、\(C\to\infty\) の同時一様極限
+- $a\to0$、node regulator $\to0$、$C\to\infty$ の同時一様極限
 - variable mobilityを含むexact Schrödinger closure
 - 多粒子M68
-- \(M_X=m\) または \(\mathcal J_{\rm SI}=\mathcal J_0\) の旧模型間matching
+- $M_X=m$ または $\mathcal J_{\rm SI}=\mathcal J_0$ の旧模型間matching
 - M37/R86の置換または退役
 - Q3-6 circulation quantization
