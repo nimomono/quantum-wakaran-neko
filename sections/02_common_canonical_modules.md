@@ -1004,3 +1004,7 @@ current M37/M64 specializationではR210Aがcoherent sourceのload stability、R
 ### R215A--C candidate interface
 
 R214A/B required continuous-tracer bridgeの上に、R215A--R215Cをfixed-goalを変更しないcandidate strengtheningとして置く。R215Aはcompatible density/flow portから規格化densityのequivarianceとBayes scoreを、R215Bはspatial-information gradient free energyを与える。R215Cはそのfree energyをmediumのreversible constitutive free energyとして採用した場合のenergy balance、local stress、zero-circulation Madelung closure、Schrödinger representationを閉じる。finite-Hamiltonian closure origin、M68、$M_X=m$ / $\mathcal J_{\rm SI}=\mathcal J_0$ matching、M37退役は未実施である。
+
+### M68 finite-capacity medium interface
+
+M68では実在するcell amountを $Q_i$、総capacityを $C=\sum_iQ_i$、normalized profileを $p_i=Q_i/C$ とする。R214 dumbbellはintensive profileを読むためscore効果は $O(1)$ のまま、一個のtracerからextensive mediumへのreciprocal shape disturbanceは $O(C^{-1})$ になる。R215C information stressとR214 reciprocal loadは別項として扱い、平均相反力をinformation stressと同一視しない。
