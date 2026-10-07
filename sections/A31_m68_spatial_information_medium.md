@@ -205,12 +205,15 @@ O(a^2).
 H68はSの差だけに依存するためglobal shift symmetryからNoether量Cが保存される。直接には
 $\dot C=\sum_i\partial H/\partial S_i$ がperiodic telescopingで0になる。static HamiltonianなのでHamilton方程式に沿うenergy derivativeはPoisson bracket $\{H,H\}=0$。
 
-edge kinetic termをS_iで微分すると左右edge fluxの差だけが残るためdiscrete continuityを得る。Fisher termは
+edge kinetic termを$S_i$で微分すると左右edge fluxの差だけが残るためdiscrete continuityを得る。Fisher termは
 $p_i=a\pi(x_i)$ に対し
 $\sqrt{p_i}=\sqrt a\,\sqrt{\pi(x_i)}$ なのでperiodic centered consistencyから
-$\mathcal F_{{\rm SI},a}
+```math
+\mathcal F_{{\rm SI},a}
 =
-2M_X\nu^2\int|\partial_x\sqrt\pi|^2dx+O(a^2)$。
+2M_X\nu^2\int|\partial_x\sqrt\pi|^2dx+O(a^2)
+```
+を得る。
 kinetic/potential項も同じperiodic quadratureでR215Cへ収束する。証明終。
 <!-- theorem-end:proof -->
 
@@ -662,7 +665,7 @@ e^{\Lambda_T/C}
 }
 ```
 
-reciprocal neutralityによりmean medium biasがO(C^{-2})へ改善するsectorはあり得るが、medium--tracer correlationはgenericにO(C^{-1})なのでannealed equivariance全体はO(C^{-1})を標準次数とする。
+reciprocal neutralityによりmean medium biasが$O(C^{-2})$へ改善するsectorはあり得るが、medium--tracer correlationはgenericに$O(C^{-1})$なのでannealed equivariance全体は$O(C^{-1})$を標準次数とする。
 
 ## AE.6 external potentialとenergy bookkeeping
 
