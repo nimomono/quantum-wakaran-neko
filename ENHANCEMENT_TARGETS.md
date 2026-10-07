@@ -2,13 +2,15 @@
 
 ## R215 spatial-information Q3 strengthening candidate
 
-R214A/B required主線の上に、fixed-goalを変更しないcandidate strengtheningとしてR215A/Bを置く。R215Aはprojectively compatibleなnode-safe density/flow portから規格化density $\pi$ のequivarianceとBayes score $u=\nu\partial_x\log\pi$ を回収する。R215Bは同じscoreから
+R214A/B required主線の上に、fixed-goalを変更しないcandidate strengtheningとしてR215A--R215Cを置く。R215Aはprojectively compatibleなnode-safe density/flow portから規格化density $\pi$ のequivarianceとBayes score $u=\nu\partial_x\log\pi$ を回収する。R215Bは同じscoreから
 
 ```math
 \mathcal F_{\rm SI}=\frac{M_X\nu^2}{2}I_F[\pi]
 ```
 
-をspatial-information gradient free energyとして定義する。ここまでではmediumへのreversible backreactionを採用しない。次段はR215Cで $-\pi\partial_x\delta\mathcal F_{\rm SI}/\delta\pi$ をphysical constitutive closureとして正当化できるかを監査し、その後にM68候補へ進む。R215A/BだけからQ3-1/Q3-2 A1/A2状態を変更しない。
+をspatial-information gradient free energyとして定義する。R215Cはこのfree energyをmediumのreversible constitutive free energyとして採用するcandidate closureであり、energy balance、local stress、zero-circulation Madelung closure、Schrödinger representationを閉じる。
+
+R215Cでもfinite-Hamiltonian coarse grainingからclosure自体を導いたとは扱わない。M68、$M_X=m$ / $\mathcal J_{\rm SI}=\mathcal J_0$ matching、M37/R86置換、Q3-6位相量子化は後続課題とする。R215A--CだけからQ3-1/Q3-2 A1/A2状態を変更しない。
 
 
 本ファイルは `PROJECT_STATUS.md` に定める固定目標へ付随する強化目標の正本を管理する。固定目標そのものの定義と達成判定は `PROJECT_STATUS.md` を正本とし、本ファイルの強化目標はそれらへ追加の物理実装・数値再現・回路実装を要求する独立の評価軸とする。

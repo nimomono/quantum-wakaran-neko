@@ -47,6 +47,6 @@ M67ではR214A--R214Bをcontinuous Q3-2、R208Dをfinite-graph dispatch、R209A/
 
 draft-146ではR214A--R214Bがcontinuous Q3-2主線として自立したことを受け、旧R208B/R208C/R209Cをactive resultから退役する。R208Bのosmotic/backreaction責務はR214A/B、R208Cのfinite-bath責務はgeneric R209B、R209Cのsmall-mass $W_1$ bridgeはR214Bへ吸収した。結果IDは再利用せず、旧数式・検算は退役メモとGit履歴へ保存する。
 
-## R215A/B candidateの現在地
+## R215A--C candidateの現在地
 
-R215A/Bにより、R214 dumbbellのgeneric scoreを規格化確率密度と空間情報free-energy functionalへ接続するcandidate経路を追加した。これはM37/R86のSchrödinger signalを置換する結果ではない。置換へ進むにはR215Cでmedium reversible closureを物理的に正当化し、後続M68で同じmedium/tracer/bathからsignal側とNelson側を同時に閉じる必要がある。
+R215A/Bにより、R214 dumbbellのgeneric scoreを規格化確率密度と空間情報free-energy functionalへ接続するcandidate経路を追加した。R215Cは同じfree energyをmediumのreversible constitutive free energyとして採用した場合のenergy balance、local information stress、zero-circulation Madelung closure、Schrödinger representationを閉じる。これはfinite-Hamiltonian coarse grainingからclosure自体を導いた結果でも、M37/R86のSchrödinger signalを置換した結果でもない。置換へ進むには後続M68で同じmedium/tracer/bathからsignal側とNelson側を同時に閉じ、$M_X=m$ / $\mathcal J_{\rm SI}=\mathcal J_0$ matchingを監査する必要がある。

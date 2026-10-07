@@ -72,7 +72,7 @@ Q3の現行因果鎖はM67から分岐する。Q3-1は $M67\to R210A\to M37/R86$
 
 ### R215 spatial-information candidate
 
-R214A/B required continuous-tracer bridgeの上に、R215A/Bをfixed-goalを変更しないcandidate strengtheningとして置く。R215Aはprojectively compatibleなnode-safe density/flow portから規格化densityのequivarianceとBayes scoreを導き、R215Bはそのscoreへspatial-information gradient free energyを対応させる。R215C/M68、medium reversible closure、Schrödinger再導出、M37退役は未実施である。
+R214A/B required continuous-tracer bridgeの上に、R215A--R215Cをfixed-goalを変更しないcandidate strengtheningとして置く。R215Aはcompatible density/flow portから規格化densityのequivarianceとBayes scoreを、R215Bはspatial-information gradient free energyを与える。R215Cはそのfree energyをmediumのreversible constitutive free energyとして採用した場合のenergy balance、local stress、zero-circulation Madelung closure、Schrödinger representationを閉じる。finite-Hamiltonian closure origin、M68、$M_X=m$ / $\mathcal J_{\rm SI}=\mathcal J_0$ matching、M37退役は未実施である。
 
 # 第I部　問題設定と共通言語
 
@@ -257,7 +257,7 @@ Q2-2ではR207A--R207Cがfixed-goal core、R207DがBell-local controlとして�
 
 ### R215 compatible-score strengthening
 
-R214A/B required continuous-tracer bridgeの上に、R215A/Bをfixed-goalを変更しないcandidate strengtheningとして置く。R215Aはprojectively compatibleなnode-safe density/flow portから規格化densityのequivarianceとBayes scoreを導き、R215Bはそのscoreへspatial-information gradient free energyを対応させる。R215C/M68、medium reversible closure、Schrödinger再導出、M37退役は未実施である。
+R214A/B required continuous-tracer bridgeの上に、R215A--R215Cをfixed-goalを変更しないcandidate strengtheningとして置く。R215Aはcompatible density/flow portから規格化densityのequivarianceとBayes scoreを、R215Bはspatial-information gradient free energyを与える。R215Cはそのfree energyをmediumのreversible constitutive free energyとして採用した場合のenergy balance、local stress、zero-circulation Madelung closure、Schrödinger representationを閉じる。finite-Hamiltonian closure origin、M68、$M_X=m$ / $\mathcal J_{\rm SI}=\mathcal J_0$ matching、M37退役は未実施である。
 
 # 有限正準信号と共通熱浴モジュール
 
@@ -1262,9 +1262,9 @@ R214A--R214BはM67 structured reservoir＋marker二実体分類を保ったconti
 
 current M37/M64 specializationではR210Aがcoherent sourceのload stability、R209Aがflow compatibilityを供給し、R209Bをgeneric finite-bath/FDT補題として使って従来のM64/R203C bridgeを回収する。finite-graph profileはR208D/R203Dへ分離する。
 
-### R215A/B candidate interface
+### R215A--C candidate interface
 
-R214A/B required continuous-tracer bridgeの上に、R215A/Bをfixed-goalを変更しないcandidate strengtheningとして置く。R215Aはprojectively compatibleなnode-safe density/flow portから規格化densityのequivarianceとBayes scoreを導き、R215Bはそのscoreへspatial-information gradient free energyを対応させる。R215C/M68、medium reversible closure、Schrödinger再導出、M37退役は未実施である。
+R214A/B required continuous-tracer bridgeの上に、R215A--R215Cをfixed-goalを変更しないcandidate strengtheningとして置く。R215Aはcompatible density/flow portから規格化densityのequivarianceとBayes scoreを、R215Bはspatial-information gradient free energyを与える。R215Cはそのfree energyをmediumのreversible constitutive free energyとして採用した場合のenergy balance、local stress、zero-circulation Madelung closure、Schrödinger representationを閉じる。finite-Hamiltonian closure origin、M68、$M_X=m$ / $\mathcal J_{\rm SI}=\mathcal J_0$ matching、M37退役は未実施である。
 
 # 第II部　単一量子ビット型操作と測定
 
@@ -5619,7 +5619,7 @@ R209Bのfinite-bath residualも一度だけ入り、R203CのM64 baseline、R86 c
 
 ## R215 candidate error/status boundary
 
-R215Aのexact equivarianceはcompatible reference portについての結果であり、actual finite-bath dumbbellはR214Bの $\varepsilon_{214}^{\rm port}$ でmarginal $W_1$ errorを管理する。$W_1$ closenessだけからfinite-error backward score closenessは推論しない。R215Bのfree-energy stabilityはAC.7.2のscore stabilityへ接続するが、medium force closure errorはR215Cまで定義しない。
+R215Aのexact equivarianceはcompatible reference portについての結果であり、actual finite-bath dumbbellはR214Bの $\varepsilon_{214}^{\rm port}$ でmarginal $W_1$ errorを管理する。$W_1$ closenessだけからfinite-error backward score closenessは推論しない。R215Bのfree-energy stabilityはAC.7.2のscore stabilityへ接続する。R215Cのconstant-mobility smooth sector内部ではconstitutive closure、energy balance、local stress、Madelung/Schrödinger representationはexactであり、数値離散残差だけをcandidate verifierで監査する。finite-Hamiltonian realization errorはM68まで未定義、位置依存追加drag $\zeta_{\rm db}(x)$ はvariable-mobility correctionとして後続へ残し、circulation quantizationはQ3-6の未達課題として分離する。
 
 # 結論
 
@@ -5670,9 +5670,9 @@ M67ではR214A--R214Bをcontinuous Q3-2、R208Dをfinite-graph dispatch、R209A/
 
 draft-146ではR214A--R214Bがcontinuous Q3-2主線として自立したことを受け、旧R208B/R208C/R209Cをactive resultから退役する。R208Bのosmotic/backreaction責務はR214A/B、R208Cのfinite-bath責務はgeneric R209B、R209Cのsmall-mass $W_1$ bridgeはR214Bへ吸収した。結果IDは再利用せず、旧数式・検算は退役メモとGit履歴へ保存する。
 
-## R215A/B candidateの現在地
+## R215A--C candidateの現在地
 
-R215A/Bにより、R214 dumbbellのgeneric scoreを規格化確率密度と空間情報free-energy functionalへ接続するcandidate経路を追加した。これはM37/R86のSchrödinger signalを置換する結果ではない。置換へ進むにはR215Cでmedium reversible closureを物理的に正当化し、後続M68で同じmedium/tracer/bathからsignal側とNelson側を同時に閉じる必要がある。
+R215A/Bにより、R214 dumbbellのgeneric scoreを規格化確率密度と空間情報free-energy functionalへ接続するcandidate経路を追加した。R215Cは同じfree energyをmediumのreversible constitutive free energyとして採用した場合のenergy balance、local information stress、zero-circulation Madelung closure、Schrödinger representationを閉じる。これはfinite-Hamiltonian coarse grainingからclosure自体を導いた結果でも、M37/R86のSchrödinger signalを置換した結果でもない。置換へ進むには後続M68で同じmedium/tracer/bathからsignal側とNelson側を同時に閉じ、$M_X=m$ / $\mathcal J_{\rm SI}=\mathcal J_0$ matchingを監査する必要がある。
 
 # 付録
 
@@ -17626,11 +17626,11 @@ draft-145でR214A--R214Bをcontinuous Q3-2のrequired主線へ昇格し、draft-
 - R208Dはprofile-dispatch bridgeとしてactive維持する。
 - finite-graph Q3-4A/Q3-4B/Q3-5へR214を流用しない。
 - Q3-2 fixed-goal、Q3-2-A1/A2、M37/R86、M64/R203、R161/R185の運用状態を変更しない。
-- draft-150でR215A/Bを別付録ADのcandidate strengtheningとして追加する。R214A/B required状態は維持し、R215C、M68、Schrödinger再導出は後続へ分離する。
+- draft-150でR215A/Bを別付録ADのcandidate strengtheningとして追加し、draft-151でR215C reversible information-free-energy closureをcandidateとして追加する。R214A/B required状態は維持し、finite-Hamiltonian closure origin、M68、parameter matching、M37置換は後続へ分離する。
 
 # R215 compatible score と空間情報勾配自由エネルギー
 
-> **位置づけ：** R215A--R215BをM67/R214 continuous-tracer lineのcandidate strengtheningとする。R214A/Bのrequired状態、Q3 fixed-goal達成、A1/A2、M37/R86、M64/R203、R161/R185の運用状態は変更しない。R215Cのmedium reversible closure、M68、Schrödinger再導出は本付録の主張に含めない。
+> **位置づけ：** R215A--R215CをM67/R214 continuous-tracer lineのcandidate strengtheningとする。R215CはR215Bのspatial-information gradient free energyをmediumのreversible constitutive closureとして採用したときのenergy balance、local stress、Madelung closure、Schrödinger representationを与える。R214A/Bのrequired状態、Q3 fixed-goal達成、A1/A2、M37/R86、M64/R203、R161/R185の運用状態は変更しない。M68 finite-Hamiltonian parent、$M_X=m$ / $\mathcal J_{\rm SI}=\mathcal J_0$ matching、M37退役は本付録の主張に含めない。
 
 
 ## 目的と責務境界
@@ -18238,7 +18238,7 @@ I_F[\pi]-I_F[\pi^\circ]
 ```
 を制御できる。
 
-## functional derivativeとR215C境界
+## functional derivativeとR215C入力
 
 規格化制約 $\int\pi dx=1$ の下で
 ```math
@@ -18260,12 +18260,12 @@ C(t),
 ```
 ここで $C(t)$ は規格化constraintによる空間一定項である。
 
-本付録では
+R215Cでは
 ```math
 -\pi\partial_x
 \frac{\delta\mathcal F_{\rm SI}}{\delta\pi}
 ```
-をmediumのphysical reversible forceとして採用しない。このconstitutive closure、そのfinite-Hamiltonian parent、Madelung/Schrödinger再導出は後続R215C/M68の責務とする。
+をmediumのreversible constitutive force densityとして採用する。ただしこれはR215Bからの数学的恒等式ではなく、R215Cで新たに置くcandidate constitutive assumptionである。有限Hamiltonian coarse grainingがこのclosureを選ぶことのミクロ導出はM68へ残す。
 
 また
 ```math
@@ -18285,13 +18285,490 @@ C(t),
 ```
 を満たす有限だが短い慣性時間を持つphysical ancestorのcandidate information free energyとして扱う。
 
+## R215C：可逆information-free-energy closure
+
+R215CではR215Bのspatial-information gradient free energyをmediumのreversible constitutive free energyとして採用する。ここで新しい物理自由度や独立係数は追加しない。
+
+以下では
+```math
+\Omega=\mathbb T_\ell,
+\qquad
+\pi(x,t)>0,
+\qquad
+\int_\Omega\pi\,dx=1,
+```
+を仮定し、constant-mobility leading sector
+```math
+M_X>0,
+\qquad
+\nu=\frac{k_BT}{\gamma_X}>0
+```
+を固定する。pointwiseなlocal-stress表示まで使う節では
+```math
+R:=\sqrt\pi
+```
+が時間に1階、空間に3階まで滑らかであるsmooth positive sectorを仮定する。有限慣性ancestorの時間窓は
+```math
+\tau_{\rm bath}\ll\tau_v:=\frac{M_X}{\gamma_X}\ll\tau_{\rm slow}
+```
+とし、strict $M_X\to0$ は取らない。
+
+R215Bのfunctional derivativeから空間一定のconstraint項を除いて
+```math
+\mu_{\rm SI}
+:=
+-2M_X\nu^2
+\frac{\partial_x^2\sqrt\pi}{\sqrt\pi}
+```
+と置く。
+
+R215Cのconstitutive assumptionは
+```math
+\boxed{
+M_X
+\left(
+\partial_tU+U\partial_xU
+\right)
+=
+-\partial_xV
+-\partial_x\mu_{\rm SI}
+}
+```
+である。$F_{\rm db}\simeq-k_BT\log w$ はR214 tracer側のscore portを作る局所potential of mean forceであり、medium energyへ重ねて加えない。
+
+### 可逆closureとenergy balance
+
+<!-- theorem-start:theorem -->
+**定理（R215C：reversible information-free-energy closure）**
+
+continuity
+```math
+\partial_t\pi+\partial_x(\pi U)=0
+```
+と上のconstitutive closureを満たすsmooth positive solutionについて
+```math
+\mathcal E_{\rm SI}
+:=
+\int_\Omega
+\left[
+\frac{M_X}{2}\pi U^2
++
+V\pi
+\right]dx
++
+\mathcal F_{\rm SI}[\pi]
+```
+と置くと
+```math
+\boxed{
+\frac{d\mathcal E_{\rm SI}}{dt}
+=
+\int_\Omega
+\pi\,\partial_tV\,dx
+}
+```
+が成立する。従ってstatic $V$ では
+```math
+\boxed{
+\frac{d\mathcal E_{\rm SI}}{dt}=0.
+}
+```
+またtime-evenなstatic $V$ のもとで
+```math
+t\mapsto-t,
+\qquad
+U\mapsto-U,
+\qquad
+\pi\mapsto\pi
+```
+に対してcontinuityとclosureは不変である。
+<!-- theorem-end:theorem -->
+
+<!-- theorem-start:proof -->
+**証明（R215C energy balance）**
+
+continuityと周期境界から
+```math
+\frac{d}{dt}
+\int_\Omega
+\frac{M_X}{2}\pi U^2dx
+=
+\int_\Omega
+\pi U
+M_X
+\left(
+\partial_tU+U\partial_xU
+\right)dx.
+```
+closureを代入して
+```math
+=
+-\int_\Omega
+\pi U
+\left(
+\partial_xV+\partial_x\mu_{\rm SI}
+\right)dx.
+```
+一方
+```math
+\frac{d}{dt}
+\int_\Omega V\pi dx
+=
+\int_\Omega
+\pi U\,\partial_xV\,dx
++
+\int_\Omega
+\pi\,\partial_tV\,dx,
+```
+およびR215Bの変分公式から
+```math
+\frac{d\mathcal F_{\rm SI}}{dt}
+=
+\int_\Omega
+\mu_{\rm SI}\partial_t\pi\,dx
+=
+\int_\Omega
+\pi U\,\partial_x\mu_{\rm SI}\,dx.
+```
+三式を加えれば主張を得る。時間反転不変性は各項を直接変換すれば従う。証明終。
+<!-- theorem-end:proof -->
+
+### 局所information stress
+
+<!-- theorem-start:lemma -->
+**補題（R215C local information stress）**
+
+```math
+f_{\rm SI}
+:=
+-\pi\partial_x\mu_{\rm SI}
+```
+はlocal stressの発散
+```math
+\boxed{
+f_{\rm SI}
+=
+\partial_x\sigma_{\rm SI}
+}
+```
+と書ける。具体的に
+```math
+\boxed{
+\sigma_{\rm SI}
+=
+2M_X\nu^2
+\left[
+R\partial_x^2R-(\partial_xR)^2
+\right]
+=
+M_X\nu^2
+\left[
+\partial_x^2\pi
+-
+\frac{(\partial_x\pi)^2}{\pi}
+\right].
+}
+```
+<!-- theorem-end:lemma -->
+
+<!-- theorem-start:proof -->
+**証明（local information stress）**
+
+```math
+f_{\rm SI}
+=
+2M_X\nu^2
+R^2
+\partial_x
+\left(
+\frac{\partial_x^2R}{R}
+\right)
+=
+2M_X\nu^2
+\left(
+R\partial_x^3R
+-
+\partial_xR\,\partial_x^2R
+\right).
+```
+一方
+```math
+\partial_x
+\left[
+R\partial_x^2R-(\partial_xR)^2
+\right]
+=
+R\partial_x^3R
+-
+\partial_xR\,\partial_x^2R.
+```
+従って第一表示を得る。$\pi=R^2$ を展開すれば第二表示を得る。証明終。
+<!-- theorem-end:proof -->
+
+したがってlocal momentum balanceは
+```math
+\boxed{
+\partial_t(M_X\pi U)
++
+\partial_x
+\left(
+M_X\pi U^2-\sigma_{\rm SI}
+\right)
+=
+-\pi\partial_xV.
+}
+```
+
+### Madelung closure
+
+zero-circulation sector
+```math
+\oint_\Omega U\,dx=0
+```
+では周期的なreal phase $S$ を
+```math
+\boxed{
+\partial_xS=M_XU
+}
+```
+で取れる。
+
+<!-- theorem-start:theorem -->
+**定理（R215C Madelung closure）**
+
+zero-circulation smooth sectorではR215C closureは
+```math
+\boxed{
+\partial_t\pi
++
+\partial_x
+\left(
+\pi\frac{\partial_xS}{M_X}
+\right)
+=
+0
+}
+```
+と
+```math
+\boxed{
+\partial_tS
++
+\frac{(\partial_xS)^2}{2M_X}
++
+V
+-
+2M_X\nu^2
+\frac{\partial_x^2\sqrt\pi}{\sqrt\pi}
+=
+0
+}
+```
+に同値である。
+<!-- theorem-end:theorem -->
+
+<!-- theorem-start:proof -->
+**証明（Madelung closure）**
+
+$\partial_xS=M_XU$ をconstitutive closureへ入れると
+```math
+\partial_x
+\left[
+\partial_tS
++
+\frac{(\partial_xS)^2}{2M_X}
++
+V
++
+\mu_{\rm SI}
+\right]
+=
+0.
+```
+従って角括弧は空間一定の $C_S(t)$ に等しい。$S\mapsto S-\int^t C_S(s)ds$ というglobal time-dependent gaugeでこれを0へ吸収し、$\mu_{\rm SI}$ を代入すれば主張を得る。continuityは$\partial_xS=M_XU$ の直接代入である。証明終。
+<!-- theorem-end:proof -->
+
+同じ系はcoarse-grained field Hamiltonian
+```math
+\boxed{
+\mathcal H_{215C}[\pi,S]
+=
+\int_\Omega
+\left[
+\frac{\pi(\partial_xS)^2}{2M_X}
++
+V\pi
+\right]dx
++
+\mathcal F_{\rm SI}[\pi]
+}
+```
+に対する
+```math
+\partial_t\pi
+=
+\frac{\delta\mathcal H_{215C}}{\delta S},
+\qquad
+\partial_tS
+=
+-\frac{\delta\mathcal H_{215C}}{\delta\pi}
+```
+としても書ける。これはmicroscopic finite-Hamiltonian parentの導出ではなく、R215C constitutive closureが可逆なHamiltonian field structureを持つという結果である。
+
+### Schrödinger representation
+
+R215Bの
+```math
+\mathcal J_{\rm SI}=2M_X\nu
+```
+を使い
+```math
+\boxed{
+\Psi_{\rm SI}
+=
+\sqrt\pi
+\exp
+\left(
+\frac{iS}{\mathcal J_{\rm SI}}
+\right)
+}
+```
+と定義する。
+
+<!-- theorem-start:theorem -->
+**定理（R215C Schrödinger representation）**
+
+AD.6.3のzero-circulation Madelung solutionは
+```math
+\boxed{
+i\mathcal J_{\rm SI}
+\partial_t\Psi_{\rm SI}
+=
+\left[
+-\frac{\mathcal J_{\rm SI}^2}{2M_X}
+\partial_x^2
++
+V
+\right]
+\Psi_{\rm SI}
+}
+```
+を満たす。逆にnode-freeなこのSchrödinger equationのsolutionから$\pi=|\Psi_{\rm SI}|^2$とphase $S$ を取ればAD.6.3を回収する。
+<!-- theorem-end:theorem -->
+
+<!-- theorem-start:proof -->
+**証明（Schrödinger representation）**
+
+$R=\sqrt\pi$、$\mathcal J=\mathcal J_{\rm SI}$ と略記する。
+```math
+\partial_t\Psi
+=
+e^{iS/\mathcal J}
+\left[
+\partial_tR
++
+\frac{i}{\mathcal J}R\partial_tS
+\right],
+```
+```math
+\partial_x^2\Psi
+=
+e^{iS/\mathcal J}
+\left[
+\partial_x^2R
++
+\frac{2i}{\mathcal J}\partial_xR\,\partial_xS
++
+\frac{i}{\mathcal J}R\partial_x^2S
+-
+\frac{1}{\mathcal J^2}R(\partial_xS)^2
+\right].
+```
+Schrödinger equationの虚部はcontinuity、実部は
+```math
+\partial_tS
++
+\frac{(\partial_xS)^2}{2M_X}
++
+V
+-
+\frac{\mathcal J_{\rm SI}^2}{2M_X}
+\frac{\partial_x^2R}{R}
+=
+0
+```
+である。$\mathcal J_{\rm SI}=2M_X\nu$ から
+```math
+\frac{\mathcal J_{\rm SI}^2}{2M_X}
+=
+2M_X\nu^2
+```
+なのでAD.6.3と一致する。逆向きも同じ計算を逆に読めばよい。証明終。
+<!-- theorem-end:proof -->
+
+### torus circulation boundary
+
+一般のperiodic velocity fieldでは
+```math
+\Delta S
+:=
+S(x+\ell)-S(x)
+=
+M_X\oint_\Omega U\,dx
+```
+が非零でもよい。このとき
+```math
+\Psi_{\rm SI}(x+\ell)
+=
+e^{i\Theta}
+\Psi_{\rm SI}(x),
+\qquad
+\Theta
+=
+\frac{M_X}{\mathcal J_{\rm SI}}
+\oint_\Omega U\,dx
+```
+というtwisted sectorを得る。static periodic $V$ とR215C closureでは
+```math
+\frac{d}{dt}
+\oint_\Omega U\,dx=0
+```
+なのでcirculation sectorは保存される。
+
+periodic single-valued $\Psi_{\rm SI}$ に必要な
+```math
+M_X\oint_\Omega U\,dx
+=
+2\pi n\mathcal J_{\rm SI}
+```
+はR215Cから導かない。この位相量子化はQ3-6の未達課題として維持する。
+
+### 責務境界
+
+R215Cが証明する因果鎖は、
+
+R215B spatial-information free energy -> reversible constitutive closure（candidate assumption）-> energy balance / local stress -> Madelung closure -> Schrödinger representation
+
+である。
+
+以下はR215Cの主張に含めない。
+
+- finite-Hamiltonian coarse grainingからconstitutive closure自体を導くこと
+- variable mobility $\gamma_X+\zeta_{\rm db}(x)$ を含むexact Schrödinger representation
+- $M_X=m$ のmatching
+- $\mathcal J_{\rm SI}=\mathcal J_0$ のmatching
+- M68 finite-Hamiltonian joint medium/tracer parent
+- M37/R86の置換または退役
+- Q3-6のcirculation quantization
+
 ## status
 
 - R215AはR214 generic portのうちprojectively compatibleなdensity/flow pairについて、equivarianceと同じpath lawのBayes score decompositionを与えるcandidate exact kinematic resultである。
 - R215BはR215A scoreからspatial-information gradient free energyを定義し、Fisher、heat-flow relative entropy、path KL、translation distinguishabilityとの恒等式を与えるcandidate information-theoretic resultである。
+- R215CはR215Bのfree energyをmediumのreversible constitutive free energyとして採用するcandidate closureであり、energy balance、local stress、zero-circulation Madelung closure、Schrödinger representationを厳密に与える。
 - R214A/Bのrequired状態とcurrent M37/M64 specializationは変更しない。
 - Q3-1/Q3-2 fixed-goal達成、Q3-1-A1/Q3-2-A1、A2、R161/R185の運用状態を変更しない。
-- R215C、M68、medium reversible closure、Schrödinger再導出、M37退役は本付録に含めない。
+- M68、finite-Hamiltonian closure origin、$M_X=m$ / $\mathcal J_{\rm SI}=\mathcal J_0$ matching、M37退役は本付録に含めない。
 
 # 参考文献
 

@@ -61,4 +61,5 @@ R214A--R214Bはdraft-145でrequiredへ昇格し、verifierは `tools/verify_r214
 
 - `verify_r215a_compatible_port_score.py`：projective compatibility、規格化continuity、Fokker--Planck score cancellation、Bayes $b_\pm=U\pm u$ を検査する。
 - `verify_r215b_spatial_information_free_energy.py`：Fisher/free-energy identity、projective invariance、de Bruijn derivative、path-KL係数、translation Fisher曲率、node-safe regularization、functional derivativeを検査する。
-- R215A/Bはcandidate strengtheningであり、通常required CIへ昇格しない。medium reversible closure、R215C/M68、Schrödinger再導出をcandidate検算だけから達成扱いしない。
+- `verify_r215c_reversible_information_closure.py`：node-free 2-mode solutionでcontinuity、zero circulation、local stress、Madelung Hamilton--Jacobi、energy identity/conservation、Schrödinger residualを同時検査する。
+- R215A--R215Cはcandidate strengtheningであり、通常required CIへ昇格しない。candidate検算だけからM68、finite-Hamiltonian closure origin、M37置換、Q3 fixed-goal/A1/A2変更を達成扱いしない。

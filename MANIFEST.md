@@ -1,3 +1,11 @@
+## draft-151：R215C reversible information-free-energy closure
+
+- 付録ADへR215Cをcandidateとして追加し、R215B free energyからreversible constitutive closure、energy balance、local information stress、zero-circulation Madelung closure、Schrödinger representationを証明する。
+- torusの一般circulationはtwisted sectorへ分離し、位相量子化はQ3-6未達として維持する。
+- candidate verifier `tools/candidate_checks/verify_r215c_reversible_information_closure.py` とdraft-151 migration guardを追加する。
+- PROJECT_STATUS、README、ENHANCEMENT_TARGETS、VALIDATION、CHANGELOG、TERMINOLOGY、theory lineage、本文0/1/2/8/9章、付録AC/AD、candidate/migration READMEを同期する。
+- M68、finite-Hamiltonian closure origin、$M_X=m$ / $\mathcal J_{\rm SI}=\mathcal J_0$ matching、M37/R86退役、fixed-goal/A1/A2変更は行わない。
+
 ## draft-150：R215 compatible score / spatial-information free energy candidate
 
 - `sections/A30_m67_spatial_information_free_energy.md`（付録AD）を追加し、R215A compatible-port equivariance / Bayes scoreとR215B spatial-information free-energy identitiesをcandidateとして収録する。
@@ -715,9 +723,9 @@
 
 - R182「M37静的W型スペクトル・空間トンネル縮約定理」と付録Gの完全証明。
 - R182からR123有限環境純位相緩和へのW型系、およびR172--R174へのM42周期輸送系。
-- \`tools/verify_m37_w_spectral_tunneling.py\`。
+- `tools/verify_m37_w_spectral_tunneling.py`。
 - Q3-3Cを達成、Q3-4Bを条件付き達成へ更新した状態表、誤差台帳、反証条件。
-- draft-71へ同期した \`paper.md\`、\`main.tex\`、\`paper.pdf\`、引用情報、CI。
+- draft-71へ同期した `paper.md`、`main.tex`、`paper.pdf`、引用情報、CI。
 
 ## draft-70の改訂
 
