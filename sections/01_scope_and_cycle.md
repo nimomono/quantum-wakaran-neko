@@ -180,3 +180,7 @@ Q2-2ではR207A--R207Cがfixed-goal core、R207DがBell-local controlとして�
 ### R215 compatible-score strengthening
 
 R214A/B required continuous-tracer bridgeの上に、R215A--R215Cをfixed-goalを変更しないcandidate strengtheningとして置く。R215Aはcompatible density/flow portから規格化densityのequivarianceとBayes scoreを、R215Bはspatial-information gradient free energyを与える。R215Cはそのfree energyをmediumのreversible constitutive free energyとして採用した場合のenergy balance、local stress、zero-circulation Madelung closure、Schrödinger representationを閉じる。finite-Hamiltonian closure origin、M68、$M_X=m$ / $\mathcal J_{\rm SI}=\mathcal J_0$ matching、M37退役は未実施である。
+
+### M68 candidateの責務境界
+
+M68はR215Cのconstitutive free energyを有限格子Hamiltonian potentialとして実装するcandidateである。Fisher/Dirichlet項のさらにprimitiveな物理由来、continuous-space一様極限、旧M37 parameter matching、M37退役、Q3-6は本candidateの達成条件に含めない。

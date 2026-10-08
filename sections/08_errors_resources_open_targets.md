@@ -859,3 +859,41 @@ R209Bのfinite-bath residualも一度だけ入り、R203CのM64 baseline、R86 c
 ## R215 candidate error/status boundary
 
 R215Aのexact equivarianceはcompatible reference portについての結果であり、actual finite-bath dumbbellはR214Bの $\varepsilon_{214}^{\rm port}$ でmarginal $W_1$ errorを管理する。$W_1$ closenessだけからfinite-error backward score closenessは推論しない。R215Bのfree-energy stabilityはAC.7.2のscore stabilityへ接続する。R215Cのconstant-mobility smooth sector内部ではconstitutive closure、energy balance、local stress、Madelung/Schrödinger representationはexactであり、数値離散残差だけをcandidate verifierで監査する。finite-Hamiltonian realization errorはM68まで未定義、位置依存追加drag $\zeta_{\rm db}(x)$ はvariable-mobility correctionとして後続へ残し、circulation quantizationはQ3-6の未達課題として分離する。
+
+## M68 candidate error / feedback boundary
+
+M68/R216Dではfixed finite time、fixed lattice spacing、node-safe $p_i\ge p_*>0$ のsectorを使う。joint feedback系の主要誤差は
+
+```math
+\varepsilon_{68}
+=
+\varepsilon_{\rm lattice}
++
+\varepsilon_{214}^{\rm port}
++
+\varepsilon_{\rm fb}
++
+\varepsilon_{\rm cap},
+```
+
+```math
+\varepsilon_{\rm lattice}=O(a^2),
+\qquad
+\varepsilon_{\rm cap}
+=
+\frac{K_{\rm eq}(T,a,p_*)}{C},
+```
+
+```math
+\varepsilon_{\rm fb}
+\le
+\left[
+\exp\!\left(\frac{\Lambda_T}{C}\right)-1
+\right]
+\varepsilon_{214}^{\rm port}
++
+\frac{B_T}{C}
+\exp\!\left(\frac{\Lambda_T}{C}\right)
+```
+
+と分ける。$B_T$ はmicroscopic reciprocal feedbackとcoarse feedback lawの残差であり、両者が一致すればfeedbackは既存R214 errorを $1+O(C^{-1})$ 倍するだけで独立な $O(1)$ errorを作らない。$a\to0$、node regulator $\to0$、$C\to\infty$ の同時一様極限は本candidateでは主張しない。

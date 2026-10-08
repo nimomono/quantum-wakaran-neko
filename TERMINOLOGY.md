@@ -409,3 +409,18 @@ CNOT、CHSH、SWAP、SU(2)、Q1、Q2、Q3、M37、M54、R164などの略号・�
 | $\sigma_{\rm SI}$ | local information stress | $-\pi\partial_x\mu_{\rm SI}=\partial_x\sigma_{\rm SI}$ を満たす局所gradient stress |
 | $\Psi_{\rm SI}$ | R215C Schrödinger representation | $\sqrt\pi e^{iS/\mathcal J_{\rm SI}}$。一次的物理実体ではなくR215C Madelung fieldsの派生複素表示 |
 | zero-circulation / twisted sector | zero-circulation / twisted sector | torus上で$\oint Udx=0$ならperiodic phaseを取れる。一般circulationでは$\Psi_{\rm SI}$はtwisted boundaryを持つ。位相量子化はQ3-6へ残す |
+
+---
+
+## draft-152：M68 finite-capacity medium用語
+
+| 原語・記号 | 本文の標準表記 | 使い分け |
+|---|---|---|
+| medium capacity \(C\) | medium総capacity | \(C=\sum_iQ_i\)。single tracerに対してextensiveなmedium sizeを表す |
+| extensive cell amount \(Q_i\) | cell amount | M68の一次的real canonical medium coordinate。normalized probabilityそのものではない |
+| normalized medium profile \(p_i\) | normalized profile | \(p_i=Q_i/C\)、\(\sum_i p_i=1\)。R214 score portとR215C continuum densityの離散対応 |
+| intrinsic information stress | intrinsic information stress | R215C/Fisher gradient energyからmedium自身に生じるreversible stress。R214 reciprocal loadとは別物 |
+| reciprocal load | reciprocal load | dumbbell--medium interactionの作用反作用。single tracerのshape disturbanceはM68 capacity scalingで \(O(C^{-1})\) |
+| intensive port | intensive port | \(Q_i\) ではなく \(p_i=Q_i/C\) から作るR214 scalar/flow port。scoreはcapacityに依存しない |
+| finite-capacity annealed equivariance | finite-capacity annealed equivariance | feedback後のconditional exact equivarianceではなく、\(\mathcal L(X_t)\) と \(E[\pi_t]\) のWasserstein差を \(O(C^{-1})\) で制御するR216D結果 |
+| adapted feedback port | adapted feedback port | tracer/mediumの過去履歴に依存するが未来には依存しないprogressively measurable port |

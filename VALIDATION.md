@@ -1,3 +1,11 @@
+## draft-152：M68 finite-capacity spatial-information medium candidate検算
+
+- `tools/candidate_checks/verify_r216a_m68_lattice_medium.py` はcapacity保存、Hamiltonian energy-rate cancellation、離散continuity、Fisher/Dirichlet energyの \(O(a^2)\) continuum consistencyを検査する。
+- `tools/candidate_checks/verify_r216b_nelson_closure.py` はscore identityと \(M_{\rm med}=M_X\) でのNelson time-symmetric Newton residual消失、mass mismatch residualを検査する。
+- `tools/candidate_checks/verify_r216c_capacity_reciprocal_scaling.py` はscore \(O(1)\)、reciprocal shape load \(O(C^{-1})\)、scale-invariance、translation-force variance/Fisher identityを検査する。
+- `tools/candidate_checks/verify_r216d_feedback_equivariance.py` はlinear feedback witnessでannealed equivariance defect \(O(C^{-1})\)、mean-medium bias \(O(C^{-2})\)、feedback-amplified R214 errorの \(O(C^{-1})\) correctionを検査する。
+- M68/R216A--Dはcandidate-onlyであり通常required physics CIへ昇格しない。
+
 ## draft-151：R215C reversible information-free-energy closure検算
 
 - `tools/candidate_checks/verify_r215c_reversible_information_closure.py` はnode-free 2-mode solutionを使い、continuity、zero circulation、R215C local stress identity、Madelung Hamilton--Jacobi residual、total-energy identity/conservation、Schrödinger residualを数値回帰する。

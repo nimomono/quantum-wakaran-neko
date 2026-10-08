@@ -1,7 +1,7 @@
 @number: AD
 @chapter: 付録
 @title: R215 compatible score と空間情報勾配自由エネルギー
-@status: R215A--R215CをM67/R214 continuous-tracer lineのcandidate strengtheningとする。R215CはR215Bのspatial-information gradient free energyをmediumのreversible constitutive closureとして採用したときのenergy balance、local stress、Madelung closure、Schrödinger representationを与える。R214A/Bのrequired状態、Q3 fixed-goal達成、A1/A2、M37/R86、M64/R203、R161/R185の運用状態は変更しない。M68 finite-Hamiltonian parent、$M_X=m$ / $\mathcal J_{\rm SI}=\mathcal J_0$ matching、M37退役は本付録の主張に含めない。
+@status: R215A--R215CをM67/R214 continuous-tracer lineのcandidate strengtheningとする。R215CはR215Bのspatial-information gradient free energyをmediumのreversible constitutive closureとして採用したときのenergy balance、local stress、Madelung closure、Schrödinger representationを与える。R214A/Bのrequired状態、Q3 fixed-goal達成、A1/A2、M37/R86、M64/R203、R161/R185の運用状態は変更しない。M68/R216A--R216Dのfinite-lattice realization candidateは付録AEへ分離し、$M_X=m$ / $\mathcal J_{\rm SI}=\mathcal J_0$ matching、M37退役は本付録の主張に含めない。
 
 ## AD.1 目的と責務境界
 
@@ -1127,7 +1127,7 @@ R215B spatial-information free energy -> reversible constitutive closure（candi
 - variable mobility $\gamma_X+\zeta_{\rm db}(x)$ を含むexact Schrödinger representation
 - $M_X=m$ のmatching
 - $\mathcal J_{\rm SI}=\mathcal J_0$ のmatching
-- M68 finite-Hamiltonian joint medium/tracer parent
+- A31/M68 finite-lattice joint medium/tracer realization candidate（別付録AE）
 - M37/R86の置換または退役
 - Q3-6のcirculation quantization
 
@@ -1138,4 +1138,4 @@ R215B spatial-information free energy -> reversible constitutive closure（candi
 - R215CはR215Bのfree energyをmediumのreversible constitutive free energyとして採用するcandidate closureであり、energy balance、local stress、zero-circulation Madelung closure、Schrödinger representationを厳密に与える。
 - R214A/Bのrequired状態とcurrent M37/M64 specializationは変更しない。
 - Q3-1/Q3-2 fixed-goal達成、Q3-1-A1/Q3-2-A1、A2、R161/R185の運用状態を変更しない。
-- M68、finite-Hamiltonian closure origin、$M_X=m$ / $\mathcal J_{\rm SI}=\mathcal J_0$ matching、M37退役は本付録に含めない。
+- M68/R216A--D candidateは別付録AEで扱う。Fisher/Dirichlet gradient potentialのよりprimitiveな起源、$M_X=m$ / $\mathcal J_{\rm SI}=\mathcal J_0$ matching、M37退役は本付録に含めない。

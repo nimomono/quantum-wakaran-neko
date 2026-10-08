@@ -1,3 +1,11 @@
+## draft-152：M68 finite-capacity spatial-information medium candidate
+
+- `sections/A31_m68_spatial_information_medium.md`（付録AE）を追加し、M68/R216A--R216Dをcandidateとして収録する。
+- R216Aはfinite-lattice medium HamiltonianとR215C continuum consistency、R216BはNelson closure、R216Cはcapacity/reciprocal-load separation、R216Dはadapted-feedback R214 bridgeとfinite-capacity annealed equivarianceを担う。
+- candidate verifier 4本、joint-feedback supporting witness、draft-152 migration guardを追加する。
+- README、第0・1・2・8・9章、A29/A30、PROJECT_STATUS、ENHANCEMENT_TARGETS、VALIDATION、TERMINOLOGY、theory lineage、candidate/migration READMEを同期する。
+- required主線、fixed-goal/A1/A2/M0、Q3-6、旧模型間parameter matching、M37退役は変更しない。
+
 ## draft-151：R215C reversible information-free-energy closure
 
 - 付録ADへR215Cをcandidateとして追加し、R215B free energyからreversible constitutive closure、energy balance、local information stress、zero-circulation Madelung closure、Schrödinger representationを証明する。
@@ -501,6 +509,7 @@
 - `sections/A28_m67_nbl_q2_carrier.md`
 - `sections/A29_m67_dumbbell_q3_tracer.md`
 - `sections/A30_m67_spatial_information_free_energy.md`
+- `sections/A31_m68_spatial_information_medium.md`
 - `sections/90_references.md`
 
 ## 論文外の研究メモ

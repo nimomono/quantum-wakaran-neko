@@ -251,6 +251,11 @@ Q3の現行因果鎖はM67から分岐する。Q3-1は \(M67\to R210A\to M37/R86
 
 R214A/B required continuous-tracer bridgeの上に、R215A--R215Cをfixed-goalを変更しないcandidate strengtheningとして置く。R215Aはcompatible density/flow portから規格化densityのequivarianceとBayes scoreを、R215Bはspatial-information gradient free energyを与える。R215Cはそのfree energyをmediumのreversible constitutive free energyとして採用した場合のenergy balance、local stress、zero-circulation Madelung closure、Schrödinger representationを閉じる。finite-Hamiltonian closure origin、M68、\(M_X=m\) / \(\mathcal J_{\rm SI}=\mathcal J_0\) matching、M37退役は未実施である。
 
+\hypertarget{m68-finite-capacity-spatial-information-medium-candidate}{%
+\subsection{M68 finite-capacity spatial-information medium candidate}\label{m68-finite-capacity-spatial-information-medium-candidate}}
+
+R215Cの次段として付録AE/M68/R216A--R216Dをcandidate追加する。M68はfinite latticeのextensive medium、R214 dumbbell、finite bathをjoint Hamiltonianへまとめ、Nelson closure、capacity scaling、adapted feedback、finite-capacity annealed equivarianceを監査する。現行required主線とfixed-goal判定は変更しない。
+
 \part{問題設定と共通言語}
 
 \hypertarget{ux554fux984cux8a2dux5b9aux7d71ux4e00ux69cbux9020ux9054ux6210ux7bc4ux56f2}{%
@@ -474,6 +479,11 @@ Q2-2ではR207A--R207Cがfixed-goal core、R207DがBell-local controlとして�
 \subsection{R215 compatible-score strengthening}\label{r215-compatible-score-strengthening}}
 
 R214A/B required continuous-tracer bridgeの上に、R215A--R215Cをfixed-goalを変更しないcandidate strengtheningとして置く。R215Aはcompatible density/flow portから規格化densityのequivarianceとBayes scoreを、R215Bはspatial-information gradient free energyを与える。R215Cはそのfree energyをmediumのreversible constitutive free energyとして採用した場合のenergy balance、local stress、zero-circulation Madelung closure、Schrödinger representationを閉じる。finite-Hamiltonian closure origin、M68、\(M_X=m\) / \(\mathcal J_{\rm SI}=\mathcal J_0\) matching、M37退役は未実施である。
+
+\hypertarget{m68-candidateux306eux8cacux52d9ux5883ux754c}{%
+\subsection{M68 candidateの責務境界}\label{m68-candidateux306eux8cacux52d9ux5883ux754c}}
+
+M68はR215Cのconstitutive free energyを有限格子Hamiltonian potentialとして実装するcandidateである。Fisher/Dirichlet項のさらにprimitiveな物理由来、continuous-space一様極限、旧M37 parameter matching、M37退役、Q3-6は本candidateの達成条件に含めない。
 
 \hypertarget{ux6709ux9650ux6b63ux6e96ux4fe1ux53f7ux3068ux5171ux901aux71b1ux6d74ux30e2ux30b8ux30e5ux30fcux30eb}{%
 \chapter{有限正準信号と共通熱浴モジュール}\label{ux6709ux9650ux6b63ux6e96ux4fe1ux53f7ux3068ux5171ux901aux71b1ux6d74ux30e2ux30b8ux30e5ux30fcux30eb}}
@@ -1537,6 +1547,11 @@ current M37/M64 specializationではR210Aがcoherent sourceのload stability、R
 \subsection{R215A--C candidate interface}\label{r215ac-candidate-interface}}
 
 R214A/B required continuous-tracer bridgeの上に、R215A--R215Cをfixed-goalを変更しないcandidate strengtheningとして置く。R215Aはcompatible density/flow portから規格化densityのequivarianceとBayes scoreを、R215Bはspatial-information gradient free energyを与える。R215Cはそのfree energyをmediumのreversible constitutive free energyとして採用した場合のenergy balance、local stress、zero-circulation Madelung closure、Schrödinger representationを閉じる。finite-Hamiltonian closure origin、M68、\(M_X=m\) / \(\mathcal J_{\rm SI}=\mathcal J_0\) matching、M37退役は未実施である。
+
+\hypertarget{m68-finite-capacity-medium-interface}{%
+\subsection{M68 finite-capacity medium interface}\label{m68-finite-capacity-medium-interface}}
+
+M68では実在するcell amountを \(Q_i\)、総capacityを \(C=\sum_iQ_i\)、normalized profileを \(p_i=Q_i/C\) とする。R214 dumbbellはintensive profileを読むためscore効果は \(O(1)\) のまま、一個のtracerからextensive mediumへのreciprocal shape disturbanceは \(O(C^{-1})\) になる。R215C information stressとR214 reciprocal loadは別項として扱い、平均相反力をinformation stressと同一視しない。
 
 \part{単一量子ビット型操作と測定}
 
@@ -6119,6 +6134,45 @@ R209Bのfinite-bath residualも一度だけ入り、R203CのM64 baseline、R86 c
 
 R215Aのexact equivarianceはcompatible reference portについての結果であり、actual finite-bath dumbbellはR214Bの \(\varepsilon_{214}^{\rm port}\) でmarginal \(W_1\) errorを管理する。\(W_1\) closenessだけからfinite-error backward score closenessは推論しない。R215Bのfree-energy stabilityはAC.7.2のscore stabilityへ接続する。R215Cのconstant-mobility smooth sector内部ではconstitutive closure、energy balance、local stress、Madelung/Schrödinger representationはexactであり、数値離散残差だけをcandidate verifierで監査する。finite-Hamiltonian realization errorはM68まで未定義、位置依存追加drag \(\zeta_{\rm db}(x)\) はvariable-mobility correctionとして後続へ残し、circulation quantizationはQ3-6の未達課題として分離する。
 
+\hypertarget{m68-candidate-error-feedback-boundary}{%
+\section{M68 candidate error / feedback boundary}\label{m68-candidate-error-feedback-boundary}}
+
+M68/R216Dではfixed finite time、fixed lattice spacing、node-safe \(p_i\ge p_*>0\) のsectorを使う。joint feedback系の主要誤差は
+
+\[
+\varepsilon_{68}
+=
+\varepsilon_{\rm lattice}
++
+\varepsilon_{214}^{\rm port}
++
+\varepsilon_{\rm fb}
++
+\varepsilon_{\rm cap},
+\]
+
+\[
+\varepsilon_{\rm lattice}=O(a^2),
+\qquad
+\varepsilon_{\rm cap}
+=
+\frac{K_{\rm eq}(T,a,p_*)}{C},
+\]
+
+\[
+\varepsilon_{\rm fb}
+\le
+\left[
+\exp\!\left(\frac{\Lambda_T}{C}\right)-1
+\right]
+\varepsilon_{214}^{\rm port}
++
+\frac{B_T}{C}
+\exp\!\left(\frac{\Lambda_T}{C}\right)
+\]
+
+と分ける。\(B_T\) はmicroscopic reciprocal feedbackとcoarse feedback lawの残差であり、両者が一致すればfeedbackは既存R214 errorを \(1+O(C^{-1})\) 倍するだけで独立な \(O(1)\) errorを作らない。\(a\to0\)、node regulator \(\to0\)、\(C\to\infty\) の同時一様極限は本candidateでは主張しない。
+
 \hypertarget{ux7d50ux8ad6}{%
 \chapter{結論}\label{ux7d50ux8ad6}}
 
@@ -6173,7 +6227,14 @@ draft-146ではR214A--R214Bがcontinuous Q3-2主線として自立したこと�
 \hypertarget{r215ac-candidateux306eux73feux5728ux5730}{%
 \section{R215A--C candidateの現在地}\label{r215ac-candidateux306eux73feux5728ux5730}}
 
-R215A/Bにより、R214 dumbbellのgeneric scoreを規格化確率密度と空間情報free-energy functionalへ接続するcandidate経路を追加した。R215Cは同じfree energyをmediumのreversible constitutive free energyとして採用した場合のenergy balance、local information stress、zero-circulation Madelung closure、Schrödinger representationを閉じる。これはfinite-Hamiltonian coarse grainingからclosure自体を導いた結果でも、M37/R86のSchrödinger signalを置換した結果でもない。置換へ進むには後続M68で同じmedium/tracer/bathからsignal側とNelson側を同時に閉じ、\(M_X=m\) / \(\mathcal J_{\rm SI}=\mathcal J_0\) matchingを監査する必要がある。
+R215A/Bにより、R214 dumbbellのgeneric scoreを規格化確率密度と空間情報free-energy functionalへ接続するcandidate経路を追加した。R215Cは同じfree energyをmediumのreversible constitutive free energyとして採用した場合のenergy balance、local information stress、zero-circulation Madelung closure、Schrödinger representationを閉じる。これはfinite-Hamiltonian coarse grainingからclosure自体を導いた結果でも、M37/R86のSchrödinger signalを置換した結果でもない。draft-152のM68/R216A--Dはfinite-lattice medium/tracer/bath candidateとしてNelson側まで同時に閉じる。現行主線の置換へ進む前に、Fisher gradient potentialのprimitive origin、\(M_X=m\) / \(\mathcal J_{\rm SI}=\mathcal J_0\) matching、M37/R86依存除去を別に監査する必要がある。
+
+\hypertarget{m68r216-candidateux306eux73feux5728ux5730}{%
+\section{M68/R216 candidateの現在地}\label{m68r216-candidateux306eux73feux5728ux5730}}
+
+付録AE/M68では、R215Cのspatial-information mediumを有限周期格子のreal canonical variables \(Q_i,S_i\) へ実装し、R214 dumbbell tracerとfinite bathを同じjoint Hamiltonian candidateへ接続する。R216Bではmedium一capacity単位のinertial coefficientをdumbbell COM mass \(M_X\) と一致させるとNelsonの時間対称Newton則が厳密に閉じる。R216Cではtracerがintensive profileを読むためscore効果は \(O(1)\) のまま、single-tracer reciprocal disturbanceが \(O(C^{-1})\) となる。R216Dではfeedback後のconditional exact equivarianceを主張せず、ensemble tracer lawとensemble medium profileの差を固定有限時間で \(O(C^{-1})\) に抑えるfinite-capacity annealed equivarianceを採用する。
+
+M68は現行Q3 required主線をまだ置換しないcandidateである。Fisher/Dirichlet gradient energyをさらにprimitiveなばね・LC・局所bathから導くこと、continuum/node一様極限、variable mobility、多粒子化、\(M_X=m\) / \(\mathcal J_{\rm SI}=\mathcal J_0\) matching、M37/R86退役、Q3-6は後続課題に残る。
 
 \appendix
 
@@ -18411,11 +18472,16 @@ draft-145でR214A--R214Bをcontinuous Q3-2のrequired主線へ昇格し、draft-
   draft-150でR215A/Bを別付録ADのcandidate strengtheningとして追加し、draft-151でR215C reversible information-free-energy closureをcandidateとして追加する。R214A/B required状態は維持し、finite-Hamiltonian closure origin、M68、parameter matching、M37置換は後続へ分離する。
 \end{itemize}
 
+\hypertarget{m68-adapted-feedback-boundary}{%
+\subsection{M68 adapted-feedback boundary}\label{m68-adapted-feedback-boundary}}
+
+R214B required theorem自体はdeterministic/generic portの現行責務を維持する。M68でportがtracerのreciprocal loadを通じてadapted random processになる場合のuniform couplingとself-consistent feedback amplificationは付録AE/R216Dのcandidate corollaryで扱う。R214B required状態やcurrent M37/M64 specializationは変更しない。
+
 \hypertarget{r215-compatible-score-ux3068ux7a7aux9593ux60c5ux5831ux52feux914dux81eaux7531ux30a8ux30cdux30ebux30aeux30fc}{%
 \chapter{R215 compatible score と空間情報勾配自由エネルギー}\label{r215-compatible-score-ux3068ux7a7aux9593ux60c5ux5831ux52feux914dux81eaux7531ux30a8ux30cdux30ebux30aeux30fc}}
 
 \begin{statusbox}
-位置づけ：R215A--R215CをM67/R214 continuous-tracer lineのcandidate strengtheningとする。R215CはR215Bのspatial-information gradient free energyをmediumのreversible constitutive closureとして採用したときのenergy balance、local stress、Madelung closure、Schrödinger representationを与える。R214A/Bのrequired状態、Q3 fixed-goal達成、A1/A2、M37/R86、M64/R203、R161/R185の運用状態は変更しない。M68 finite-Hamiltonian parent、$M_X=m$ / $\mathcal J_{\rm SI}=\mathcal J_0$ matching、M37退役は本付録の主張に含めない。
+位置づけ：R215A--R215CをM67/R214 continuous-tracer lineのcandidate strengtheningとする。R215CはR215Bのspatial-information gradient free energyをmediumのreversible constitutive closureとして採用したときのenergy balance、local stress、Madelung closure、Schrödinger representationを与える。R214A/Bのrequired状態、Q3 fixed-goal達成、A1/A2、M37/R86、M64/R203、R161/R185の運用状態は変更しない。M68/R216A--R216Dのfinite-lattice realization candidateは付録AEへ分離し、$M_X=m$ / $\mathcal J_{\rm SI}=\mathcal J_0$ matching、M37退役は本付録の主張に含めない。
 \end{statusbox}
 
 \hypertarget{ux76eeux7684ux3068ux8cacux52d9ux5883ux754c-3}{%
@@ -19427,7 +19493,7 @@ R215B spatial-information free energy -\textgreater{} reversible constitutive cl
 \item
   \(\mathcal J_{\rm SI}=\mathcal J_0\) のmatching
 \item
-  M68 finite-Hamiltonian joint medium/tracer parent
+  A31/M68 finite-lattice joint medium/tracer realization candidate（別付録AE）
 \item
   M37/R86の置換または退役
 \item
@@ -19450,7 +19516,732 @@ R215B spatial-information free energy -\textgreater{} reversible constitutive cl
 \item
   Q3-1/Q3-2 fixed-goal達成、Q3-1-A1/Q3-2-A1、A2、R161/R185の運用状態を変更しない。
 \item
-  M68、finite-Hamiltonian closure origin、\(M_X=m\) / \(\mathcal J_{\rm SI}=\mathcal J_0\) matching、M37退役は本付録に含めない。
+  M68/R216A--D candidateは別付録AEで扱う。Fisher/Dirichlet gradient potentialのよりprimitiveな起源、\(M_X=m\) / \(\mathcal J_{\rm SI}=\mathcal J_0\) matching、M37退役は本付録に含めない。
+\end{itemize}
+
+\hypertarget{m68-finite-capacity-spatial-information-medium}{%
+\chapter{M68 finite-capacity spatial-information medium}\label{m68-finite-capacity-spatial-information-medium}}
+
+\begin{statusbox}
+位置づけ：M68/R216A--R216DをR215Cのfinite-lattice Hamiltonian realizationとR214 dumbbell feedbackを統合するcandidate strengtheningとする。R214A/B required、R215A--C candidate、M67現行physical parent、M37/R86・M64/R203・R161/R185 active状態、Q3 fixed-goal/A1/A2/M0、Q3-6未達を変更しない。Fisher/Dirichlet gradient potentialのよりprimitiveな起源、旧M37 parameter matching、M37退役は本付録の主張に含めない。
+\end{statusbox}
+
+\hypertarget{ux76eeux7684ux3068ux8cacux52d9ux5883ux754c-4}{%
+\section{目的と責務境界}\label{ux76eeux7684ux3068ux8cacux52d9ux5883ux754c-4}}
+
+M68の目的は、R215Cでconstitutive assumptionとして置いたspatial-information gradient free energyを有限次元のreal canonical mediumへ明示実装し、R214 dumbbell tracerとfinite harmonic bathを同じjoint Hamiltonian candidateへ接続することにある。
+
+M68は
+
+\[
+\text{intrinsic spatial-information medium}
++
+\text{R214 dumbbell tracer}
++
+\text{finite bath}
+\]
+
+という三層を使う。R214 reciprocal loadの平均をR215C information stressと同一視しない。前者はtracer--medium interactionの作用反作用、後者はmedium自身のgradient self stressである。
+
+Schrödinger fieldは一次的自由度に置かない。順序は
+
+\[
+(Q_i,S_i)
+\longrightarrow
+(p_i,U_i)
+\longrightarrow
+\text{R215C}
+\longrightarrow
+\Psi_{\rm SI}
+\]
+
+とし、最後の複素表示はR215Cと同じderived representationである。
+
+\hypertarget{m68-finite-lattice-medium}{%
+\section{M68 finite lattice medium}\label{m68-finite-lattice-medium}}
+
+1次元周期領域をL個のcellへ分け、格子幅をaとする。各cellにreal canonical pair
+
+\[
+(Q_i,S_i),
+\qquad
+\{Q_i,S_j\}=\delta_{ij},
+\qquad
+Q_i>0
+\]
+
+を置く。medium総capacityとnormalized cell profileを
+
+\[
+C:=\sum_{i=1}^{L}Q_i,
+\qquad
+p_i:=\frac{Q_i}{C},
+\qquad
+\sum_i p_i=1
+\]
+
+とする。candidate theoremでは固定有限時間上のnode-safe sector
+
+\[
+p_i\ge p_*>0
+\]
+
+を仮定する。
+
+edge量を
+
+\[
+\bar p_{i+1/2}
+=
+\frac{p_i+p_{i+1}}2,
+\qquad
+\nabla_aS_{i+1/2}
+=
+\frac{S_{i+1}-S_i}{a}
+\]
+
+とする。medium一capacity単位のHamiltonianを
+
+\[
+h_{68}[p,S]
+=
+\sum_i
+\frac{\bar p_{i+1/2}}{2M_X}
+(\nabla_aS_{i+1/2})^2
++
+\sum_iV_ip_i
++
+\mathcal F_{{\rm SI},a}[p],
+\]
+
+\[
+\boxed{
+\mathcal F_{{\rm SI},a}[p]
+=
+\frac{2M_X\nu^2}{a^2}
+\sum_i
+\left(
+\sqrt{p_{i+1}}-\sqrt{p_i}
+\right)^2
+}
+\]
+
+と置き、extensive medium Hamiltonianを
+
+\[
+\boxed{
+H_{\rm med}^{68}
+=
+C\,h_{68}[p,S].
+}
+\]
+
+とする。
+
+R214 dumbbellとfinite bathを同じsystemへ接続したfull candidateは概念的に
+
+\[
+\boxed{
+H_{68}
+=
+H_{\rm med}^{68}
++
+H_{\rm db}[p,X,\mathbf r,\mathbf p_r]
++
+H_B.
+}
+\]
+
+である。R214のcanonical potential of mean force \(F_{\rm db}\simeq-k_BT\log w\) は \(H_{\rm db}+H_B\) のfast variableを消去した後の量なので、H68へ独立に重ねて足さない。
+
+\hypertarget{r216afinite-lattice-spatial-information-medium}{%
+\subsection{R216A：finite-lattice spatial-information medium}\label{r216afinite-lattice-spatial-information-medium}}
+
+\begin{theorem}[R216A：M68 finite-lattice spatial-information medium]
+
+上のperiodic finite lattice Hamiltonianについて、global shift
+
+$$
+S_i\mapsto S_i+\theta
+$$
+
+はexact symmetryである。従って
+
+$$
+\boxed{
+\dot C=0.
+}
+$$
+
+またstatic $V_i$ では
+
+$$
+\boxed{
+\frac{dH_{\rm med}^{68}}{dt}=0.
+}
+$$
+
+Hamilton方程式からnormalized profileは
+
+$$
+\boxed{
+\dot p_i
+=
+J_{i-1/2}-J_{i+1/2},
+}
+$$
+
+$$
+J_{i+1/2}
+=
+\frac{\bar p_{i+1/2}}{M_Xa}
+\nabla_aS_{i+1/2}
+$$
+
+というdiscrete continuity lawを満たす。
+
+smooth positive periodic fieldsに対し
+$p_i=a\pi(x_i)+O(a^3)$、$S_i=S(x_i)$ と標本化すると、
+
+$$
+h_{68}
+=
+\int
+\left[
+\frac{\pi(\partial_xS)^2}{2M_X}
++
+V\pi
+\right]dx
++
+2M_X\nu^2
+\int
+|\partial_x\sqrt\pi|^2dx
++
+O(a^2).
+$$
+
+従ってnode-safe smooth sectorのlocal consistency limitはR215C field Hamiltonianである。
+\end{theorem}
+
+\begin{proof}[R216A]
+
+H68はSの差だけに依存するためglobal shift symmetryからNoether量Cが保存される。直接には
+$\dot C=\sum_i\partial H/\partial S_i$ がperiodic telescopingで0になる。static HamiltonianなのでHamilton方程式に沿うenergy derivativeはPoisson bracket $\{H,H\}=0$。
+
+edge kinetic termを$S_i$で微分すると左右edge fluxの差だけが残るためdiscrete continuityを得る。Fisher termは
+$p_i=a\pi(x_i)$ に対し
+$\sqrt{p_i}=\sqrt a\,\sqrt{\pi(x_i)}$ なのでperiodic centered consistencyから
+$$
+\mathcal F_{{\rm SI},a}
+=
+2M_X\nu^2\int|\partial_x\sqrt\pi|^2dx+O(a^2)
+$$
+を得る。
+kinetic/potential項も同じperiodic quadratureでR215Cへ収束する。証明終。
+\end{proof}
+
+R216Aはfinite-dimensional Hamiltonian realizationの存在を示すが、Fisher/Dirichlet potential自体をさらにprimitiveなspring/LC/local-bath Hamiltonianから導出したとは扱わない。
+
+\hypertarget{r216bnelson-mass-matched-closure}{%
+\section{R216B：Nelson mass-matched closure}\label{r216bnelson-mass-matched-closure}}
+
+R215Aのsame-path forward/backward mean driftを
+
+\[
+b_\pm
+=
+U\pm u,
+\qquad
+u=\nu\partial_x\log\pi
+\]
+
+とする。対応するmean derivativesを
+
+\[
+D_+
+=
+\partial_t+(U+u)\partial_x+\nu\partial_x^2,
+\]
+
+\[
+D_-
+=
+\partial_t+(U-u)\partial_x-\nu\partial_x^2
+\]
+
+とする。
+
+\begin{theorem}[R216B：R215C + R215A Nelson closure]
+
+$R=\sqrt\pi>0$ とすると
+
+$$
+\boxed{
+u\partial_xu+\nu\partial_x^2u
+=
+2\nu^2
+\partial_x
+\left(
+\frac{\partial_x^2R}{R}
+\right).
+}
+$$
+
+medium equationを一般のinertial coefficient $M_{\rm med}$ で
+
+$$
+M_{\rm med}
+(\partial_tU+U\partial_xU)
+=
+-\partial_xV
++
+2M_X\nu^2
+\partial_x
+\left(
+\frac{\partial_x^2R}{R}
+\right)
+$$
+
+と書くと、Nelson time-symmetric mean accelerationは
+
+$$
+\frac12(D_+D_-+D_-D_+)X
+=
+-\frac{\partial_xV}{M_{\rm med}}
++
+2\nu^2
+\left(
+\frac{M_X}{M_{\rm med}}-1
+\right)
+\partial_x
+\left(
+\frac{\partial_x^2R}{R}
+\right).
+$$
+
+従って
+
+$$
+\boxed{
+M_{\rm med}=M_X
+}
+$$
+
+なら
+
+$$
+\boxed{
+M_X
+\frac12(D_+D_-+D_-D_+)X
+=
+-\partial_xV.
+}
+$$
+
+非自明なprofileで
+$\partial_x(R_{xx}/R)\not\equiv0$ なら、このmass matchingはgenericに必要である。
+\end{theorem}
+
+\begin{proof}[R216B]
+
+$u=2\nu R_x/R$ を二回微分して整理すればscore identityを得る。mean derivativeを直接展開すると
+
+$$
+\frac12(D_+D_-+D_-D_+)X
+=
+\partial_tU+U\partial_xU
+-u\partial_xu-\nu\partial_x^2u.
+$$
+
+medium equationとscore identityを代入すれば表示式を得る。証明終。
+\end{proof}
+
+ここで \(M_X\) はmedium全体の総質量ではなく、一capacity単位のinertial coefficientである。total medium inertiaはC倍される。M37/R185の設計質量mとはまだ同一視しない。
+
+\hypertarget{r216ccapacity-scalingux3068reciprocal-load-separation}{%
+\section{R216C：capacity scalingとreciprocal-load separation}\label{r216ccapacity-scalingux3068reciprocal-load-separation}}
+
+M68ではdumbbell interactionはextensive amount Qではなくintensive profile \(p=Q/C\) を読む。interaction Hamiltonianを
+
+\[
+H_{\rm int}=h_{\rm int}(p,X,\ldots)
+\]
+
+とする。
+
+\begin{theorem}[R216C：intensive score / reciprocal $1/C$ scaling]
+
+$C=\sum_iQ_i$、$p_i=Q_i/C$ なら
+
+$$
+\frac{\partial p_j}{\partial Q_i}
+=
+\frac{\delta_{ij}-p_j}{C}.
+$$
+
+従って
+
+$$
+\boxed{
+\frac{\partial H_{\rm int}}{\partial Q_i}
+=
+\frac1C
+\left[
+\frac{\partial h_{\rm int}}{\partial p_i}
+-
+\sum_jp_j
+\frac{\partial h_{\rm int}}{\partial p_j}
+\right].
+}
+$$
+
+safe compact sectorで $h_{\rm int}$ のp微分がO(1)ならsingle-tracer reciprocal shape loadは
+
+$$
+\boxed{
+F_{Q_i}^{\rm rec}=O(C^{-1}).
+}
+$$
+
+一方R214 score portが $w(X;p)$ のようにintensive profileだけから作られるなら
+
+$$
+\boxed{
+\partial_X\log w=O(1)
+}
+$$
+
+であり、tracerのosmotic/score effectはcapacityを大きくしても薄まらない。
+\end{theorem}
+
+\begin{proof}[R216C capacity scaling]
+
+$p_j=Q_j/\sum_kQ_k$ を直接微分しchain ruleを使えば表示式を得る。scoreはpを固定したuniform scaling $Q\mapsto cQ$ に不変なのでC依存を持たない。証明終。
+\end{proof}
+
+\hypertarget{reciprocal-neutrality-fisher-variance}{%
+\subsection{reciprocal neutrality / Fisher variance}\label{reciprocal-neutrality-fisher-variance}}
+
+translation parameter \(a\)に対するideal R214 reciprocal forceを
+
+\[
+F_a^{\rm rec}
+=
+-k_BT\,\partial_x\log\pi(X)
+\]
+
+とする。periodic normalized \(\pi\) と \(X\sim\pi\) なら
+
+\[
+\boxed{
+E_\pi[F_a^{\rm rec}]=0,
+}
+\]
+
+\[
+\boxed{
+E_\pi[(F_a^{\rm rec})^2]
+=
+(k_BT)^2I_F[\pi].
+}
+\]
+
+さらに \(\nu=k_BT/\gamma_X\) なので
+
+\[
+\boxed{
+\mathcal F_{\rm SI}
+=
+\frac{M_X}{2\gamma_X^2}
+E_\pi[(F_a^{\rm rec})^2].
+}
+\]
+
+したがってinformation free energyはmean reciprocal loadではなく、同じscore couplingのtranslation-force varianceと結びつく。M68 medium forceは
+
+\[
+f_{\rm medium}
+=
+f_{\rm SI}
++
+f_{\rm rec}
+\]
+
+であり、intrinsic information stressとsingle-tracer reciprocal loadを別項として数える。
+
+\hypertarget{r216dadapted-feedback-finite-capacity-equivariance}{%
+\section{R216D：adapted feedback / finite-capacity equivariance}\label{r216dadapted-feedback-finite-capacity-equivariance}}
+
+finite-dimensional medium stateをYとまとめる。actual dumbbell feedback系とcoarse port feedback系を
+
+\[
+\dot Y^{\rm db}
+=
+A(Y^{\rm db})
++
+\frac1C
+G_{\rm db}(Y^{\rm db},X^{\rm db},r),
+\]
+
+\[
+\dot Y^{\rm port}
+=
+A(Y^{\rm port})
++
+\frac1C
+G_{\rm port}(Y^{\rm port},X^{\rm port}),
+\]
+
+\[
+dX^{\rm port}
+=
+b(Y^{\rm port},X^{\rm port})dt
++
+\sqrt{2\nu}\,dW_t
+\]
+
+と書く。
+
+固定有限時間Tで、node-safe compact sector上に次を仮定する。
+
+\begin{itemize}
+\tightlist
+\item
+  A、b、Gportは対応する変数について一様Lipschitz。
+\item
+  bは一様boundedで、portはprogressively measurableかつnonanticipating。
+\item
+  finite-bath初期状態はresolved initial dataに条件付けたshifted canonical preparation。
+\item
+  R209B finite-bath Markovization errorとR214B small-mass/fast-dumbbell errorはこのfeedback-safe class上で一様に評価できる。
+\item
+  microscopic/coarse feedback residual \(R_G=G_{\rm db}-G_{\rm port}\) は \(\mathcal R_G(T):=E\int_0^T|R_G(s)|ds<\infty\) を満たす。
+\end{itemize}
+
+\begin{theorem}[R216D：adapted-feedback R214 stability]
+
+上の条件のもと、同じinitial dataと同じBrownian driverでcoupleできるactual finite-bath dumbbell feedback系とcoarse port feedback系について、有限な $\Lambda_T,B_T$ が存在して
+
+$$
+\boxed{
+\sup_{t\le T}
+W_1
+\left(
+\mathcal L(X_t^{\rm db,fb}),
+\mathcal L(X_t^{\rm port,fb})
+\right)
+\le
+\left[
+\varepsilon_{214}^{\rm port}(T)
++
+\frac{B_T}{C}
+\right]
+\exp
+\left(
+\frac{\Lambda_T}{C}
+\right).
+}
+$$
+
+$B_T$ は $\mathcal R_G(T)$ に比例して取れる。特にmicroscopic feedbackとcoarse feedbackが一致して $R_G=0$ なら
+
+$$
+\boxed{
+\varepsilon_{\rm fb}
+=
+\left[
+\exp(\Lambda_T/C)-1
+\right]
+\varepsilon_{214}^{\rm port}
+=
+O(C^{-1}\varepsilon_{214}^{\rm port}).
+}
+$$
+
+従ってadapted random portであること自体は独立なO(1) errorを作らない。
+\end{theorem}
+
+\begin{proof}[R216D adapted feedback]
+
+まずactual medium path $Y^{\rm db}$ を固定して読む補助port diffusion $\widehat X$ を同じnoiseで駆動する。R214Bの変数
+$Y_X=X+(M_X/\gamma_X)V$ を使うsmall-mass synchronous couplingはdriftのdeterministic性を使わず、progressive measurability、一様bound、空間Lipschitz性だけを使う。exact harmonic-bath eliminationもfeedback trajectoryに対するDuhamel identityなので変わらない。feedback-safe classでR209B Markovizationを一様化すれば
+
+$$
+E\sup_{t\le T}
+|X_t^{\rm db}-\widehat X_t|
+\le
+\varepsilon_{214}^{\rm port}(T)
+$$
+
+を得る。
+
+次に
+$D_X(t)=E\sup_{s\le t}|X_s^{\rm db}-X_s^{\rm port}|$、
+$D_Y(t)=E\sup_{s\le t}\|Y_s^{\rm db}-Y_s^{\rm port}\|$
+と置く。same-noise couplingとbのLipschitz性から
+
+$$
+D_X(t)
+\le
+\varepsilon_{214}^{\rm port}
++
+K_b
+\int_0^tD_Y(s)ds.
+$$
+
+medium equationの差とGportのLipschitz性から
+
+$$
+D_Y(t)
+\le
+K_A
+\left[
+\frac1C
+\int_0^tD_X(s)ds
++
+\frac{\mathcal R_G(t)}C
+\right].
+$$
+
+二式を代入しdouble integralをT倍のsingle integralで抑えてGronwallを適用すれば定理形を得る。証明終。
+\end{proof}
+
+\hypertarget{finite-capacity-annealed-equivariance}{%
+\subsection{finite-capacity annealed equivariance}\label{finite-capacity-annealed-equivariance}}
+
+feedbackなしreference medium \(Y^{(0)}\) とR215A port diffusion \(X^{(0)}\) は
+
+\[
+\mathcal L(X_t^{(0)})
+=
+\pi_t^{(0)}
+\]
+
+をexactに満たす。finite-C port feedbackは
+
+\[
+\dot Y^{(C)}
+=
+A(Y^{(C)})
++
+\frac1C
+G(Y^{(C)},X^{(C)})
+\]
+
+なので、same-noise/Gronwall stabilityから固定Tで
+
+\[
+\|Y_t^{(C)}-Y_t^{(0)}\|
+=
+O(C^{-1}),
+\]
+
+\[
+W_1(
+\mathcal L(X_t^{(C)}),
+\pi_t^{(0)}
+)
+=
+O(C^{-1}).
+\]
+
+random medium profileのensemble平均を
+
+\[
+\bar\pi_t^{(C)}
+=
+E[\pi(Y_t^{(C)})]
+\]
+
+とすると、medium-to-density mapのLipschitz性から
+
+\[
+\boxed{
+W_1
+\left(
+\mathcal L(X_t^{\rm port,fb}),
+\bar\pi_t^{(C)}
+\right)
+\le
+\frac{K_{\rm eq}(T,a,p_*)}{C}.
+}
+\]
+
+これをfinite-capacity annealed equivarianceと呼ぶ。feedback後の \(\mathcal L(X_t\mid Y_t)=\pi(Y_t)\) というconditional exact statementは一般に主張しない。
+
+actual dumbbellまで合成すると
+
+\[
+\boxed{
+W_1
+\left(
+\mathcal L(X_t^{\rm db,fb}),
+\bar\pi_t^{(C)}
+\right)
+\le
+\left[
+\varepsilon_{214}^{\rm port}
++
+\frac{B_T}{C}
+\right]
+e^{\Lambda_T/C}
++
+\frac{K_{\rm eq}}{C}.
+}
+\]
+
+reciprocal neutralityによりmean medium biasが\(O(C^{-2})\)へ改善するsectorはあり得るが、medium--tracer correlationはgenericに\(O(C^{-1})\)なのでannealed equivariance全体は\(O(C^{-1})\)を標準次数とする。
+
+\hypertarget{external-potentialux3068energy-bookkeeping}{%
+\section{external potentialとenergy bookkeeping}\label{external-potentialux3068energy-bookkeeping}}
+
+M68 leading constructionではexternal potentialVはmedium current equationへ入れる。R214 overdamped tracerへ独立な \(-\mu\nabla V\) driftを重ねない。R216Bによりtracerのtime-symmetric mean accelerationとして \(-\nabla V/M_X\) が既に回収されるためである。
+
+full finite HamiltonianH68がtime independentならtotal energyはexact保存される。mediumだけを粗視化すればtracer/bathとのwork exchangeが残るため、R215C medium-only energy conservationはfeedbackを落としたleading sectorまたはlarge-C limitとして回収する。
+
+\hypertarget{ux8aa4ux5deeux53f0ux5e33ux3068status}{%
+\section{誤差台帳とstatus}\label{ux8aa4ux5deeux53f0ux5e33ux3068status}}
+
+M68 candidateの固定finite-time error ledgerは
+
+\[
+\varepsilon_{68}
+=
+\varepsilon_{\rm lattice}
++
+\varepsilon_{214}^{\rm port}
++
+\varepsilon_{\rm fb}
++
+\varepsilon_{\rm cap},
+\]
+
+\[
+\varepsilon_{\rm lattice}=O(a^2),
+\qquad
+\varepsilon_{\rm cap}=K_{\rm eq}/C.
+\]
+
+R216A--Dが示すのは、R215C information mediumとR214 tracerをfinite-dimensional Hamiltonian candidateへ同居させ、Nelson closureとfinite-capacity feedback stabilityを同じparameter setで両立できることである。
+
+本付録は次を主張しない。
+
+\begin{itemize}
+\tightlist
+\item
+  Fisher/Dirichlet gradient potentialのさらにprimitiveなspring/LC/local-bath origin
+\item
+  \(a\to0\)、node regulator \(\to0\)、\(C\to\infty\) の同時一様極限
+\item
+  variable mobilityを含むexact Schrödinger closure
+\item
+  多粒子M68
+\item
+  \(M_X=m\) または \(\mathcal J_{\rm SI}=\mathcal J_0\) の旧模型間matching
+\item
+  M37/R86の置換または退役
+\item
+  Q3-6 circulation quantization
 \end{itemize}
 
 \begingroup

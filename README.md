@@ -38,7 +38,15 @@ M54はsignal・状態・接続規約を共通化する。M67はcommon two-entity
 
 ### R215 compatible score / spatial-information candidate
 
-付録AD/R215A--R215CをR214 required主線の上に置くcandidate strengtheningとする。R215Aはnode-safe compatible portから規格化densityのequivarianceとBayes scoreを導き、R215Bはそのscoreへspatial-information gradient free energyを対応させる。R215Cは同じfree energyをmediumのreversible constitutive free energyとして採用した場合のenergy balance、local stress、zero-circulation Madelung closure、Schrödinger representationを与える。M68 finite-Hamiltonian parent、$M_X=m$ / $\mathcal J_{\rm SI}=\mathcal J_0$ matching、M37退役は未実施である。fixed-goal達成とR214 required状態は変更しない。
+付録AD/R215A--R215CをR214 required主線の上に置くcandidate strengtheningとする。R215Aはnode-safe compatible portから規格化densityのequivarianceとBayes scoreを導き、R215Bはそのscoreへspatial-information gradient free energyを対応させる。R215Cは同じfree energyをmediumのreversible constitutive free energyとして採用した場合のenergy balance、local stress、zero-circulation Madelung closure、Schrödinger representationを与える。M68/R216A--R216D finite-lattice joint medium/tracer candidateは付録AEに追加したが、Fisher/Dirichlet gradient potentialのよりprimitiveな起源、$M_X=m$ / $\mathcal J_{\rm SI}=\mathcal J_0$ matching、M37退役は未実施である。fixed-goal達成とR214 required状態は変更しない。
+
+### M68 finite-capacity spatial-information medium candidate
+
+付録AE/M68はR215Cを置換するのではなく、そのreversible information-free-energy closureを有限次元の古典Hamiltonian mediumへ実装するcandidateである。finite latticeのextensive cell amount \(Q_i\)、共役 \(S_i\)、R214 dumbbell tracer、finite harmonic bathをjoint systemへ置き、\(p_i=Q_i/C\) をnormalized medium profileとする。
+
+R216A--R216Dでは、finite-lattice Hamiltonian、\(M_{\rm med}=M_X\) によるNelson time-symmetric Newton closure、score \(O(1)\) / reciprocal disturbance \(O(C^{-1})\) capacity scaling、adapted-feedback R214 bridgeとfinite-capacity annealed equivarianceを整理する。Schrödinger fieldはprimitive variableではなくR215Cと同じderived representationである。
+
+M68はcandidateであり、現行M67/R214 required主線、M37/R86、M64/R203、R161/R185、fixed-goal/A1/A2/M0を変更しない。Fisher/Dirichlet gradient potentialをさらにprimitiveなばね・LC・local bathから導出すること、\(M_X=m\)、\(\mathcal J_{\rm SI}=\mathcal J_0\) のmatching、M37退役、Q3-6は未実施である。
 
 ## 2. 長期目標の現在地
 

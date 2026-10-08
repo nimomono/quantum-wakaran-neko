@@ -49,4 +49,10 @@ draft-146ではR214A--R214Bがcontinuous Q3-2主線として自立したこと�
 
 ## R215A--C candidateの現在地
 
-R215A/Bにより、R214 dumbbellのgeneric scoreを規格化確率密度と空間情報free-energy functionalへ接続するcandidate経路を追加した。R215Cは同じfree energyをmediumのreversible constitutive free energyとして採用した場合のenergy balance、local information stress、zero-circulation Madelung closure、Schrödinger representationを閉じる。これはfinite-Hamiltonian coarse grainingからclosure自体を導いた結果でも、M37/R86のSchrödinger signalを置換した結果でもない。置換へ進むには後続M68で同じmedium/tracer/bathからsignal側とNelson側を同時に閉じ、$M_X=m$ / $\mathcal J_{\rm SI}=\mathcal J_0$ matchingを監査する必要がある。
+R215A/Bにより、R214 dumbbellのgeneric scoreを規格化確率密度と空間情報free-energy functionalへ接続するcandidate経路を追加した。R215Cは同じfree energyをmediumのreversible constitutive free energyとして採用した場合のenergy balance、local information stress、zero-circulation Madelung closure、Schrödinger representationを閉じる。これはfinite-Hamiltonian coarse grainingからclosure自体を導いた結果でも、M37/R86のSchrödinger signalを置換した結果でもない。draft-152のM68/R216A--Dはfinite-lattice medium/tracer/bath candidateとしてNelson側まで同時に閉じる。現行主線の置換へ進む前に、Fisher gradient potentialのprimitive origin、$M_X=m$ / $\mathcal J_{\rm SI}=\mathcal J_0$ matching、M37/R86依存除去を別に監査する必要がある。
+
+## M68/R216 candidateの現在地
+
+付録AE/M68では、R215Cのspatial-information mediumを有限周期格子のreal canonical variables $Q_i,S_i$ へ実装し、R214 dumbbell tracerとfinite bathを同じjoint Hamiltonian candidateへ接続する。R216Bではmedium一capacity単位のinertial coefficientをdumbbell COM mass $M_X$ と一致させるとNelsonの時間対称Newton則が厳密に閉じる。R216Cではtracerがintensive profileを読むためscore効果は $O(1)$ のまま、single-tracer reciprocal disturbanceが $O(C^{-1})$ となる。R216Dではfeedback後のconditional exact equivarianceを主張せず、ensemble tracer lawとensemble medium profileの差を固定有限時間で $O(C^{-1})$ に抑えるfinite-capacity annealed equivarianceを採用する。
+
+M68は現行Q3 required主線をまだ置換しないcandidateである。Fisher/Dirichlet gradient energyをさらにprimitiveなばね・LC・局所bathから導くこと、continuum/node一様極限、variable mobility、多粒子化、$M_X=m$ / $\mathcal J_{\rm SI}=\mathcal J_0$ matching、M37/R86退役、Q3-6は後続課題に残る。

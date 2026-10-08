@@ -63,3 +63,11 @@ R214A--R214Bはdraft-145でrequiredへ昇格し、verifierは `tools/verify_r214
 - `verify_r215b_spatial_information_free_energy.py`：Fisher/free-energy identity、projective invariance、de Bruijn derivative、path-KL係数、translation Fisher曲率、node-safe regularization、functional derivativeを検査する。
 - `verify_r215c_reversible_information_closure.py`：node-free 2-mode solutionでcontinuity、zero circulation、local stress、Madelung Hamilton--Jacobi、energy identity/conservation、Schrödinger residualを同時検査する。
 - R215A--R215Cはcandidate strengtheningであり、通常required CIへ昇格しない。candidate検算だけからM68、finite-Hamiltonian closure origin、M37置換、Q3 fixed-goal/A1/A2変更を達成扱いしない。
+
+## M68 / R216 finite-capacity spatial-information candidate
+
+- `verify_r216a_m68_lattice_medium.py`：finite-lattice medium Hamiltonian、capacity保存、Hamiltonian energy-rate cancellation、Fisher continuum consistency。
+- `verify_r216b_nelson_closure.py`：score identity、mass-matched Nelson Newton、mass mismatch residual。
+- `verify_r216c_capacity_reciprocal_scaling.py`：intensive score、\(1/C\) reciprocal load、scale invariance、translation-force variance/Fisher identity。
+- `verify_r216d_feedback_equivariance.py`：finite-capacity feedbackの \(1/C\) annealed equivariance defectと \(1/C^2\) mean-medium bias、feedback-amplified R214 error。
+- M68/R216A--Dはcandidate-onlyであり、M67/R214 required主線、fixed-goal、A1/A2、M0、M37/R86を変更しない。
