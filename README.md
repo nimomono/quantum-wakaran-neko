@@ -1,134 +1,38 @@
 # quantum-wakaran-neko
 
-> [!IMPORTANT]
-> **全面改稿へ移行中（2026-11-18）**：第1期の本文と達成判定は歴史的なスナップショットとして扱い、新体系には自動継承しない。第2期研究の作業入口は [rewrite/README.md](rewrite/README.md) 。旧版の完全な保存先は [archive/pre-rewrite-2026-11-18](https://github.com/nimomono/quantum-wakaran-neko/tree/archive/pre-rewrite-2026-11-18)（コミット `5756e7e3aa3dfc1af177f15744b39b1676fad707`）。この下に残る説明・達成一覧は **第1期当時の記録** であり、新体系の結論ではない。移行の詳細は [rewrite/MIGRATION_PLAN.md](rewrite/MIGRATION_PLAN.md) 。
-
-
 量子、なんもわからん。
 
-## 1. このプロジェクトの目標
+## 第2期研究（現行）
 
-明示的な古典力学モデルから、量子力学に特徴的な可逆操作、Born型測定統計、測定後状態、複合系相関、量子回路型処理、空間粒子力学が、縮約された有効構造としてどこまで現れるかを調べる。
+**研究再構築中。現在の原稿は研究目的と判定基準のみを収録し、量子力学の導出や個別現象の達成をまだ主張しない。**
 
-単にSchrödinger方程式と同型の式を古典振動子へ書き写すことは目標ではない。1回の試行で排他的結果が生じる物理過程、結果を次の操作へ渡すinterface、熱浴・雑音・境界条件から確率が生じる場所まで追跡する。
+古典的な微視的力学・準備・環境・観測・統計的縮約から、量子型構造の成立条件と限界を検証する。粒子、場、有限浴、開放系のどれを基礎とするかは、証拠を比較して決める。
 
-単一試行の物理的実体として扱うのは実正準自由度、粒子位置、熱浴または開放浴との接続、制御器、時計、記録器である。複素信号 $Z$、状態方向、密度、current、確率分布は派生量または試行集団の統計量として区別する。
+- [現在の論文原稿](paper.md) / [組版PDF](paper.pdf)
+- [本文の正本](sections/00_purpose_and_scope.md)
+- [研究の目的と立場](PROJECT_STANCE.md)
+- [現行の到達状況](PROJECT_STATUS.md)
+- [主張と根拠の台帳](rewrite/CLAIM_LEDGER.md)
+- [研究・執筆・検算の規約](PROJECT_GUIDE.md)
+- [旧版からの移行記録](rewrite/MIGRATION_PLAN.md)
 
-現在の理論は次の構造に整理している。
+## 第1期研究（退役・保存済み）
 
-```text
-共通signal・状態構成
-M54
-  ↑
-M37：古典振動子によるsignal実装
+2026年11月18日に、第1期研究の本文・付録・結果体系・達成判定を**現行の正本から全面退役**した。これは当時の個々の計算が誤りであることを意味しない。過去の証明、候補模型、数値実験、PDF、検算コードは固定したコミットから引き続き参照できる。
 
-finite-Hamiltonian physical parent
-M67
-  ├─ Q3               generic R214A/B + R209B; current M37/M64 specialization uses R210A/R209A; R210B → R123
-  ├─ Q1 selector      R211A--R211C → R204E/R181D
-  └─ thermal sector   R212A--R212C
-                           ↓
-                    M66 / R205
-                    thermal open/effective layer
-                      ├─ R206 → Q2-1/Q2-3/Q2-4
-                      └─ R207 → Q2-2
-```
+- [第1期研究の完全な保存ブランチ](https://github.com/nimomono/quantum-wakaran-neko/tree/archive/pre-rewrite-2026-11-18)
+- [保存対象の固定コミット](https://github.com/nimomono/quantum-wakaran-neko/commit/5756e7e3aa3dfc1af177f15744b39b1676fad707)
+- [第1期から第2期への移行記録](notes/rewrite_transition_2026-11-18.md)
 
-M54はsignal・状態・接続規約を共通化する。M67はcommon two-entity finite-Hamiltonian physical parentで、Q3 continuousではR214A/Bとgeneric R209A/B・R210A/B、finite-graphではR208D/R212A、Q1 selectorではR211A--R211C、Q2 thermal sectorではR212A--R212Cを担う。付録AB/R213A--R213DではM67 structured reservoir内部のNBL/path Q2 carrierをM54置換候補として追加し、coherent collector action $J_y=J_*|A_y|^2$ までをcandidateとして構成する。M66/R205はthermal-sector open/effective interface、R206はQ2終端多結果読出し、R207はQ2-2 Bell統計を担う。R213はまだM54を退役させず、R206 apparatus全体のfinite-Hamiltonian liftとM0も未完である。
+第1期のM/R/Q番号、個別の達成判定、模型の依存関係は新体系へ自動継承しない。再採用する結果は条件・証明・実装を独立に検証してから台帳へ登録する。
 
-### R214 dumbbell Q3 continuous-tracer mainline
-
-付録AC/R214A--R214BをM67 continuous-tracerのrequired主線とする。R214本体はsource固有の密度辞書を仮定せず、nonnegative scalar port $\varrho(X;z)$ とflow port $U(X;z)$ を入力として、有限自然長を持つ三次元Brownian dumbbellのphase-volume mean force、reciprocal load、finite-bath / small-mass $W_1$ 縮約をgenericに与える。finite-correlation GLEからのwhite-noise極限はStratonovichを基本表現とする。current M37/M64 specializationではR210Aがcoherent load stability、R209Aがflow compatibilityを供給し、R209Bをgeneric finite-bath/FDT補題として使って従来のQ3-2 bridgeを回収する。finite-graph Q3-4A/B・Q3-5は別profileのまま維持する。
-
-### R215 compatible score / spatial-information candidate
-
-付録AD/R215A--R215CをR214 required主線の上に置くcandidate strengtheningとする。R215Aはnode-safe compatible portから規格化densityのequivarianceとBayes scoreを導き、R215Bはそのscoreへspatial-information gradient free energyを対応させる。R215Cは同じfree energyをmediumのreversible constitutive free energyとして採用した場合のenergy balance、local stress、zero-circulation Madelung closure、Schrödinger representationを与える。M68/R216A--R216D finite-lattice joint medium/tracer candidateは付録AEに追加したが、Fisher/Dirichlet gradient potentialのよりprimitiveな起源、$M_X=m$ / $\mathcal J_{\rm SI}=\mathcal J_0$ matching、M37退役は未実施である。fixed-goal達成とR214 required状態は変更しない。
-
-### M68 finite-capacity spatial-information medium candidate
-
-付録AE/M68はR215Cを置換するのではなく、そのreversible information-free-energy closureを有限次元の古典Hamiltonian mediumへ実装するcandidateである。finite latticeのextensive cell amount \(Q_i\)、共役 \(S_i\)、R214 dumbbell tracer、finite harmonic bathをjoint systemへ置き、\(p_i=Q_i/C\) をnormalized medium profileとする。
-
-R216A--R216Dでは、finite-lattice Hamiltonian、\(M_{\rm med}=M_X\) によるNelson time-symmetric Newton closure、score \(O(1)\) / reciprocal disturbance \(O(C^{-1})\) capacity scaling、adapted-feedback R214 bridgeとfinite-capacity annealed equivarianceを整理する。Schrödinger fieldはprimitive variableではなくR215Cと同じderived representationである。
-
-M68はcandidateであり、現行M67/R214 required主線、M37/R86、M64/R203、R161/R185、fixed-goal/A1/A2/M0を変更しない。Fisher/Dirichlet gradient potentialをさらにprimitiveなばね・LC・local bathから導出すること、\(M_X=m\)、\(\mathcal J_{\rm SI}=\mathcal J_0\) のmatching、M37退役、Q3-6は未実施である。
-
-## 2. 長期目標の現在地
-
-固定目標の定義と厳密な根拠は [PROJECT_STATUS.md](PROJECT_STATUS.md)、A1/A2/B1--B3の状態は [ENHANCEMENT_TARGETS.md](ENHANCEMENT_TARGETS.md) を正本とする。
-
-### 第1段階：単一量子ビット型装置
-
-| ID | 目標 | 達成判定の中心 | 現在地 |
-|---|---|---|---|
-| Q1-1 | 単一量子ビット型可逆力学 | Bloch球型状態空間、任意の $SU(2)$ 操作、Rabi振動 | 達成 |
-| Q1-2 | 射影測定統計とZeno効果 | Born型2結果、逐次測定、有限回Zeno型抑制 | 達成 |
-
-### 第2段階：複合系・量子計算
-
-| ID | 目標 | 達成判定の中心 | 現在地 |
-|---|---|---|---|
-| Q2-1 | 2量子ビット型結合ゲート | 結合ゲート型の共同入力--出力統計 | 達成 |
-| Q2-2 | Bell型測定統計 | 余弦共同確率、CHSH、Tsirelson限界、非信号性、Bell前提監査 | 達成 |
-| Q2-3 | 3量子ビット型二段ゲート合成 | 第1ゲート後状態を保持した二段合成と8結果分布 | 達成 |
-| Q2-4 | 多項式外部制御による量子出力サンプリング | 一様装置族で外部制御・時間・精度を多項式に抑えた1標本生成 | 条件付き達成 |
-
-Q2-4の現行条件はM54 direct-amplitude registerに対するR186の加法ノイズ・精度障害である。R206により末端reader側の逐次探索問題は外れている。R213A--R213Dはこのcarrierを有限状態path＋coherent collectorへ置換するcandidateであり、指数local precisionの再発を現時点で認めないが、local collector decompositionとR206 full finite-Hamiltonian liftが閉じるまでQ2-4の直接根拠と達成ラベルは変更しない。
-
-### 第3段階：空間量子力学
-
-| ID | 目標 | 達成判定の中心 | 現在地 |
-|---|---|---|---|
-| Q3-1 | 空間Schrödinger型有効力学 | 古典局所自由度からSchrödinger型空間signalを導出 | 達成 |
-| Q3-2 | Nelson流または時間対称Newton則 | 古典ミクロ模型から粒子確率過程と時間対称Newton則へ接続 | 達成 |
-| Q3-3A | 井戸型束縛状態 | 低位固有状態と純位相緩和 | 達成 |
-| Q3-3B | 調和型束縛状態 | 低位固有状態と純位相緩和 | 達成 |
-| Q3-3C | W型束縛状態 | W型低位固有状態と純位相緩和 | 達成 |
-| Q3-4A | 有限障壁のトンネル効果 | 障壁反対側への正の位置確率移動と位置読出し | 達成 |
-| Q3-4B | W型トンネル振動 | 静的W型のトンネル分裂による左右占有交換 | 達成 |
-| Q3-5 | 2重スリット干渉 | 2経路の位相依存位置分布と粒子位置読出し | 達成 |
-| Q3-6 | 位相量子化 | 閉路巻数、節、位相すべり、非整数モノドロミー排除 | 未達 |
-
-## 3. 運用文書
-
-- [PROJECT_STANCE.md](PROJECT_STANCE.md)：長期的な研究方針と解釈上の立場
-- [PROJECT_STATUS.md](PROJECT_STATUS.md)：固定目標、現行模型、現行結果、達成状態の正本
-- [ENHANCEMENT_TARGETS.md](ENHANCEMENT_TARGETS.md)：A1/A2/B1--B3の定義と現在地
-- [PROJECT_GUIDE.md](PROJECT_GUIDE.md)：論文・リポジトリの更新規約
-- [TERMINOLOGY.md](TERMINOLOGY.md)：論文用語と標準表記
-- [VALIDATION.md](VALIDATION.md)：数式・数値・生成物・組版の検算記録
-- [VALIDATION_POLICY.md](VALIDATION_POLICY.md)：自動検算の責務とrequired/candidateの区別
-- [MANIFEST.md](MANIFEST.md)：現行収録物と研究メモの一覧
-- [CHANGELOG.md](CHANGELOG.md)：変更履歴
-- [notes/theory_lineage.md](notes/theory_lineage.md)：退役研究線から現行正本への入口
-
-## 4. 論文の概要
-
-論文ではまず、有限個の実正準自由度から量子状態に似たsignal空間と可逆操作を作る。M54が共通の有効状態構成を与え、M37/R86が空間signalを古典振動子網として実装する。
-
-測定と粒子輸送にはthermal reservoirを使う。M67/R212は有限Hamiltonian structured reservoirからthermal lawへのphysical-parent bridgeを与え、M66/R205はそのopen/effective interfaceとして局所phase-volume weight $w$ から
-
-```math
-F_{\rm res}
-=
--k_BT\log w+C
-```
-
-を得る共通原理、mean-flow port、thermal sampling、passive separationをまとめる。
-
-Q1の逐次2値測定では、保持した2つの射影作用をM65のtwo-result first-passage selectorへ渡す。有限decision時刻まで未決定ならsurvival事象を正式な無反応とし、結果固定後にR181Dで対応する非規格化射影成分を次段へ渡す。Q2-1/Q2-3/Q2-4の回路末端ではM67/R212→M66/R205のthermal layer上でR206が4結果、8結果、または $2^n$ 結果を一回で標本化する。Q2-2ではR212B-rotがR207A target densityをfinite-Hamiltonian two-rotor canonical marginalとして回収し、R212C/R205Fを経て二端Bell統計へ接続する。
-
-Q2-2 fixed-goalのBell型統計はR207 projection phase-volume二端模型で再現する。一般Bloch方向の余弦共同分布へ任意精度で近づき、局所周辺は非信号、分離後responseはlocalに因子化する。一方source hidden stateはsetting-dependentでありmeasurement independenceは成立しない。このBell前提違反を明示することでCHSH違反とBellの定理を区別する。
-
-Q3 continuousではM67/R214のBrownian dumbbell tracerをM64/R203Cへ縮約し、signal density/currentからosmotic driftとcurrent driftを作ってR161/R185のNelson型前進・後退平均微分と時間対称Newton則へ接続する。finite graphではR208D/R212A/R203Dを介して有限障壁、W型トンネル振動、2経路干渉を同じtracerの位置読出しへつなぐ。
-
-M67をcommon finite-Hamiltonian physical parentとする。M37型coherent moduleとthermal/dephasing自由度を一つのstructured reservoirへまとめ、marker sectorと組み合わせる。Q3 continuousはR214A/B、generic flow/bathはR209A/B、coherent/dephasing compatibilityはR210A/B、finite-graph dispatchはR208Dが担う。旧R208B/R208C/R209Cはdraft-146で退役した。R211A--R211CはQ1 selector、R212A--R212CはM66/R205 thermal layerのphysical liftを担う。R212B-rotはR207Aの $S^2\times S^2$ canonical preparationをM67へ接続する。M37、M64/R203、R123、M65/R204、M66/R205、R206/R207はactive module/effective/canonical specializationとして維持し、fixed-goal達成ラベル、R186、M0の運用状態は変更しない。
-
-この共通化は、全系列を1台の装置へ統合したことを意味しない。準備、操作、測定、永久記録、reset、clock、renewalを1つのjoint microscopic device/processへまとめることはM0で別に要求する。
-
-閲覧用の統合原稿は [paper.md](paper.md)、組版済みPDFは [paper.pdf](paper.pdf) である。再生成は
+## 開発・再生成
 
 ```bash
+python tools/check_source.py
+python tools/check_project_consistency.py
+python tools/run_physics_checks.py
 python tools/build_paper.py
 ```
 
-を基本とし、詳細な検査方法は VALIDATION.md と tools/README.md を参照する。
+`sections/`が原稿の正本で、`paper.md`・`main.tex`・`paper.pdf`は生成物。通常CIは検証のみ行い、生成物更新はPRブランチに対する手動「生成物同期」を使用する。

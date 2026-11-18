@@ -1,155 +1,55 @@
 #!/usr/bin/env python3
+"""第2期研究の原稿収集。旧版の章番号・結果IDに依存しない。"""
 from __future__ import annotations
 
 import re
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent.parent
+ROOT = Path(__file__).resolve().parents[1]
 SECTIONS = ROOT / "sections"
-
-THEOREM_LABELS = {
-    "theorem": "定理",
-    "proposition": "命題",
-    "lemma": "補題",
-    "corollary": "系",
-    "proof": "証明",
-}
-
-APPENDIX_FILENAME = re.compile(r"A(\d+)_.*\.md")
-RESULT_DECLARATION = re.compile(r"\*\*(?:定理|命題|補題|系)（(R\d+[A-Z]?)：")
-
-
-def parse_source(path: Path) -> tuple[dict[str, str], list[str]]:
-    lines = path.read_text(encoding="utf-8").splitlines()
-    meta: dict[str, str] = {}
-    while lines and lines[0].startswith("@"):
-        if ":" not in lines[0]:
-            raise ValueError(f"{path}: malformed metadata line: {lines[0]}")
-        key, value = lines.pop(0)[1:].split(":", 1)
-        meta[key.strip()] = value.strip()
-    return meta, lines
+CHAPTER_RE = re.compile(r"(?P<number>\d{2})_[a-z0-9_]+\.md$")
 
 
 def chapter_paths() -> list[Path]:
-    paths: list[Path] = []
-    for number in range(1, 10):
-        matches = sorted(SECTIONS.glob(f"{number:02d}_*.md"))
-        if len(matches) != 1:
-            raise ValueError(
-                f"chapter {number:02d}: expected exactly one source, found {len(matches)}"
-            )
-        paths.append(matches[0])
-    return paths
+    chapters = sorted(SECTIONS.glob("*.md"))
+    if not chapters:
+        raise ValueError("sections/ is empty")
+    numbers: set[int] = set()
+    for path in chapters:
+        match = CHAPTER_RE.fullmatch(path.name)
+        if not match:
+            raise ValueError(f"non-current source in sections/: {path.name}")
+        number = int(match.group("number"))
+        if number in numbers:
+            raise ValueError(f"duplicate chapter number: {number}")
+        numbers.add(number)
+        text = path.read_text(encoding="utf-8")
+        if not text.startswith("# "):
+            raise ValueError(f"{path}: first line must be a top-level heading")
+        if "\x00" in text or "\r" in text:
+            raise ValueError(f"{path}: disallowed control character")
+    if 0 not in numbers:
+        raise ValueError("sections/ requires a 00_ introduction")
+    return chapters
 
 
-def appendix_label(number: int) -> str:
-    if number < 1:
-        raise ValueError(f"appendix number must be positive: {number}")
-    label = ""
-    value = number
-    while value:
-        value, remainder = divmod(value - 1, 26)
-        label = chr(ord("A") + remainder) + label
-    return label
+def public_markdown() -> str:
+    intro = (
+        "# 第2期研究：古典力学から量子型構造の起源を調べる\n\n"
+        "> **研究中。** この原稿は問題設定と判定基準のみを定める。"
+        "量子力学の微視的導出・定理の達成は現段階では主張しない。\n"
+    )
+    return intro + "\n\n" + "\n\n".join(
+        path.read_text(encoding="utf-8").strip()
+        for path in chapter_paths()
+    ) + "\n"
 
 
-def ordered_appendix_paths() -> list[Path]:
-    numbered: list[tuple[int, Path]] = []
-    for path in SECTIONS.glob("A*_*.md"):
-        match = APPENDIX_FILENAME.fullmatch(path.name)
-        if match:
-            numbered.append((int(match.group(1)), path))
-
-    numbers = [number for number, _ in numbered]
-    if len(numbers) != len(set(numbers)):
-        raise ValueError("duplicate appendix number")
-
-    ordered = sorted(numbered)
-    for number, path in ordered:
-        meta, _ = parse_source(path)
-        if number < 1:
-            raise ValueError(f"unsupported appendix number: {path.name}")
-        expected = appendix_label(number)
-        if meta.get("number") != expected or meta.get("chapter") != "付録":
-            raise ValueError(
-                f"{path.name}: appendix metadata must be "
-                f"@number: {expected} and @chapter: 付録"
-            )
-    return [path for _, path in ordered]
-
-
-def restore_markdown_source(lines: list[str]) -> list[str]:
-    output: list[str] = []
-    index = 0
-    while index < len(lines):
-        line = lines[index]
-        start = re.fullmatch(
-            r"<!-- theorem-start:(theorem|proposition|lemma|corollary|proof) -->",
-            line.strip(),
-        )
-        if start:
-            environment = start.group(1)
-            if index + 1 >= len(lines):
-                raise ValueError(f"missing theorem label after {line}")
-            visible = lines[index + 1].strip()
-            label = THEOREM_LABELS[environment]
-            plain = f"**{label}**"
-            titled_prefix = f"**{label}（"
-            if visible == plain:
-                title = ""
-            elif visible.startswith(titled_prefix) and visible.endswith("）**"):
-                title = visible[len(titled_prefix):-3]
-            else:
-                raise ValueError(f"invalid theorem label: {visible}")
-            begin = rf"\begin{{{environment}}}"
-            if title:
-                begin += f"[{title}]"
-            output.append(begin)
-            index += 2
-            continue
-
-        end = re.fullmatch(
-            r"<!-- theorem-end:(theorem|proposition|lemma|corollary|proof) -->",
-            line.strip(),
-        )
-        if end:
-            output.append(rf"\end{{{end.group(1)}}}")
-            index += 1
-            continue
-
-        output.append(line)
-        index += 1
-    return output
-
-
-def validate_github_markdown(path: Path, text: str) -> None:
-    if path.exists() and re.search(rb"[\x00-\x08\x0b\x0c\x0d\x0e-\x1f]", path.read_bytes()):
-        raise ValueError(f"{path}: 規約外の制御文字を検出")
-    forbidden = {
-        "独自数式マクロ": r"\\(?:dd|E|R|Tr|GM|Nel)(?![A-Za-z])",
-        "生の定理環境": (
-            r"\\(?:begin|end)\{"
-            r"(?:theorem|proposition|lemma|corollary|proof|statusbox|thebibliography)"
-            r"\}"
-        ),
-        "数式外のTeX命令": (
-            r"\\(?:chapter\*?|part|appendix|addcontentsline|cite|bibitem|url)\b"
-        ),
-        "規約外の数式区切り": r"\\\(|\\\[|\$\$",
-        "数式命令内の日本語": (
-            r"\\(?:text|mathrm|boxed)\{[^{}]*[ぁ-んァ-ヶ一-龠々〆ヵヶ][^{}]*\}"
-        ),
-    }
-    errors = [name for name, pattern in forbidden.items() if re.search(pattern, text)]
-    for environment in THEOREM_LABELS:
-        starts = text.count(f"<!-- theorem-start:{environment} -->")
-        ends = text.count(f"<!-- theorem-end:{environment} -->")
-        if starts != ends:
-            errors.append(f"{environment} 境界の不一致")
-    if errors:
-        raise ValueError(f"{path}: " + "、".join(errors))
-
-
-def result_declarations(path: Path) -> list[str]:
-    text = path.read_text(encoding="utf-8")
-    return RESULT_DECLARATION.findall(text)
+def pandoc_markdown() -> str:
+    text = public_markdown()
+    # 節番号はXeLaTeX側で付ける。公開Markdownには著者の見出しを残す。
+    return re.sub(
+        r"(?m)^(#{1,6})\s+(?:\d+(?:\.\d+)*\.?\s+)(.+)$",
+        r"\1 \2",
+        text,
+    )
