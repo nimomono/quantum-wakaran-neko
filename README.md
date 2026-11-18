@@ -1,5 +1,9 @@
 # quantum-wakaran-neko
 
+> [!IMPORTANT]
+> **全面改稿へ移行中（2026-11-18）**：第1期の本文と達成判定は歴史的なスナップショットとして扱い、新体系には自動継承しない。第2期研究の作業入口は [rewrite/README.md](rewrite/README.md) 。旧版の完全な保存先は [archive/pre-rewrite-2026-11-18](https://github.com/nimomono/quantum-wakaran-neko/tree/archive/pre-rewrite-2026-11-18)（コミット `5756e7e3aa3dfc1af177f15744b39b1676fad707`）。この下に残る説明・達成一覧は **第1期当時の記録** であり、新体系の結論ではない。移行の詳細は [rewrite/MIGRATION_PLAN.md](rewrite/MIGRATION_PLAN.md) 。
+
+
 量子、なんもわからん。
 
 ## 1. このプロジェクトの目標
