@@ -19,7 +19,7 @@ def main() -> None:
             errors.append(f"{path}: legacy result/model identifier appears in new source")
         if text.count("```") % 2:
             errors.append(f"{path}: unclosed Markdown code fence")
-    for name in ("CLAIM_LEDGER.md", "PROJECT_STATUS.md", "PROJECT_GUIDE.md", "VALIDATION_POLICY.md"):
+    for name in ("rewrite/CLAIM_LEDGER.md", "PROJECT_STATUS.md", "PROJECT_GUIDE.md", "VALIDATION_POLICY.md"):
         if not (ROOT / name).is_file():
             errors.append(f"missing active management document: {name}")
     if errors:
